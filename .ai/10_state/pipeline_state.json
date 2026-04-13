@@ -1,0 +1,46 @@
+{
+  "pipeline_name": "Vitruvius Knowledge Extraction",
+  "stages": [
+    {
+      "name": "scan",
+      "description": "Index raw source layer",
+      "implemented": true
+    },
+    {
+      "name": "status",
+      "description": "Identify changes",
+      "implemented": true
+    },
+    {
+      "name": "lint",
+      "description": "Validate structure",
+      "implemented": true
+    },
+    {
+      "name": "convert",
+      "description": "Transform to Markdown/JSON",
+      "implemented": true
+    },
+    {
+      "name": "normalization",
+      "description": "Text cleanup and structure repair",
+      "implemented": false,
+      "notes": "Fragmented and inline across multiple modules."
+    },
+    {
+      "name": "canonicalize",
+      "description": "Map to knowledge layer",
+      "implemented": true
+    },
+    {
+      "name": "relationships",
+      "description": "Extract links",
+      "implemented": true
+    },
+    {
+      "name": "review",
+      "description": "LLM verification",
+      "implemented": true
+    }
+  ]
+}

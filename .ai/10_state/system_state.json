@@ -1,0 +1,35 @@
+{
+  "project": "Vitruvius",
+  "version": "1.0.0",
+  "last_audit_utc": "2026-04-13T00:00:00Z",
+  "subsystems": {
+    "ingestion": {
+      "status": "implemented",
+      "components": ["scanner.py", "status.py"]
+    },
+    "conversion": {
+      "status": "implemented",
+      "components": ["conversion.py", "ocr.py", "office.py", "spreadsheets.py"]
+    },
+    "canonicalization": {
+      "status": "implemented",
+      "components": ["canonicalize.py", "concepts.py"]
+    },
+    "extraction": {
+      "status": "implemented",
+      "components": ["relationships.py", "relationships_sections.py"]
+    },
+    "review": {
+      "status": "implemented",
+      "components": ["ollama_review.py"]
+    }
+  },
+  "layers": [
+    "001_Raw-Source-Layer",
+    "002_Raw-Conversion-Layer",
+    "003_Canonical-Knowledge-Layer",
+    "004_Derived-Content-Layer",
+    "005_Operational-Intelligence-Layer",
+    "006_System-Manifests"
+  ]
+}

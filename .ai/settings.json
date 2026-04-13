@@ -1,0 +1,10 @@
+{
+    "hooksConfig": {
+        "enabled": true
+    },
+    "context": {
+        "includeDirectories": [
+            "~/.gemini/extensions/ralph"
+        ]
+    }
+}
