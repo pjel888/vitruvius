@@ -2,15 +2,17 @@ from __future__ import annotations
 
 import argparse
 
+from vitruvius.canonicalize import run_canonicalize_one, run_canonicalize_plan_one
 from vitruvius.conversion import run_convert, run_convert_one
 from vitruvius.detection import run_detect_one
 from vitruvius.linting import run_lint
 from vitruvius.ocr import run_ocr_execute, run_ocr_queue
 from vitruvius.reconcile import run_reconcile
 from vitruvius.scanner import run_scan
-from vitruvius.status import run_status
 from vitruvius.spreadsheets import run_convert_spreadsheet_one
-
+from vitruvius.status import run_status
+from vitruvius.concepts import run_canonicalize_concept_one
+from vitruvius.migrations import run_migrate_ids_plan
 
 def run_pipeline() -> int:
     scan_code = run_scan()
@@ -28,81 +30,38 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Vitruvius pipeline entrypoint")
     subparsers = parser.add_subparsers(dest="command")
 
-    subparsers.add_parser("scan", help="Scan raw source layer and write tree snapshots")
-    subparsers.add_parser("status", help="Compare the latest two registry scans")
-    subparsers.add_parser("lint", help="Check raw layer for obvious structural issues")
+    subparsers.add_parser("scan")
+    subparsers.add_parser("status")
+    subparsers.add_parser("lint")
+    subparsers.add_parser("convert")
+    subparsers.add_parser("reconcile")
+    subparsers.add_parser("ocr-queue")
+    subparsers.add_parser("run")
+    subparsers.add_parser("migrate-ids-plan")
 
-    subparsers.add_parser(
-        "convert",
-        help="Convert all queued supported files from latest status (.pdf, .docx, .pptx)",
-    )
+    detect_parser = subparsers.add_parser("detect-one")
+    detect_parser.add_argument("relative_pdf_path")
+    detect_parser.add_argument("--sample-pages", type=int, default=5)
 
-    subparsers.add_parser(
-        "reconcile",
-        help="Report missing raw files and stale derived outputs (pdf, office, ocr, spreadsheet)",
-    )
+    convert_one_parser = subparsers.add_parser("convert-one")
+    convert_one_parser.add_argument("relative_pdf_path")
+    convert_one_parser.add_argument("--sample-pages", type=int, default=5)
 
-    subparsers.add_parser(
-        "ocr-queue",
-        help="Build a report-only OCR queue from the latest OCR-needed report",
-    )
+    spreadsheet_parser = subparsers.add_parser("convert-spreadsheet-one")
+    spreadsheet_parser.add_argument("relative_source_path")
 
-    subparsers.add_parser("run", help="Run scan, status, and lint")
+    ocr_parser = subparsers.add_parser("ocr-execute")
+    ocr_parser.add_argument("--languages", nargs="+", default=["eng"])
+    ocr_parser.add_argument("--no-deskew", action="store_true")
 
-    detect_one_parser = subparsers.add_parser(
-        "detect-one",
-        help="Detect whether one PDF is text-based or likely scanned",
-    )
-    detect_one_parser.add_argument(
-        "relative_pdf_path",
-        help="PDF path relative to 001_Raw-Source-Layer",
-    )
-    detect_one_parser.add_argument(
-        "--sample-pages",
-        type=int,
-        default=5,
-        help="How many pages to sample",
-    )
+    plan_parser = subparsers.add_parser("canonicalize-plan-one")
+    plan_parser.add_argument("relative_markdown_path")
 
-    convert_one_parser = subparsers.add_parser(
-        "convert-one",
-        help="Convert one supported document file (.pdf, .docx, .pptx, .doc, .ppt)",
-    )
-    convert_one_parser.add_argument(
-        "relative_pdf_path",
-        help="Path relative to 001_Raw-Source-Layer",
-    )
-    convert_one_parser.add_argument(
-        "--sample-pages",
-        type=int,
-        default=5,
-        help="How many pages to sample for text detection",
-    )
+    execute_parser = subparsers.add_parser("canonicalize-one")
+    execute_parser.add_argument("relative_markdown_path")
 
-    spreadsheet_one_parser = subparsers.add_parser(
-        "convert-spreadsheet-one",
-        help="Convert one spreadsheet (.xlsx, .xls) into CSV + JSON + manifest",
-    )
-    spreadsheet_one_parser.add_argument(
-        "relative_source_path",
-        help="Spreadsheet path relative to 001_Raw-Source-Layer",
-    )
-
-    ocr_execute_parser = subparsers.add_parser(
-        "ocr-execute",
-        help="Run OCRmyPDF on queued PDFs, then convert OCR outputs",
-    )
-    ocr_execute_parser.add_argument(
-        "--languages",
-        nargs="+",
-        default=["eng"],
-        help="Tesseract language codes",
-    )
-    ocr_execute_parser.add_argument(
-        "--no-deskew",
-        action="store_true",
-        help="Disable deskew during OCR",
-    )
+    concept_parser = subparsers.add_parser("canonicalize-concept-one")
+    concept_parser.add_argument("concept_name")
 
     return parser
 
@@ -154,6 +113,24 @@ def main() -> int:
         return run_convert_spreadsheet_one(
             relative_source_path=args.relative_source_path,
         )
+
+    if args.command == "canonicalize-plan-one":
+        return run_canonicalize_plan_one(
+            relative_markdown_path=args.relative_markdown_path,
+        )
+
+    if args.command == "canonicalize-one":
+        return run_canonicalize_one(
+            relative_markdown_path=args.relative_markdown_path,
+        )
+
+    if args.command == "canonicalize-concept-one":
+        return run_canonicalize_concept_one(
+            concept_name=args.concept_name,
+        )
+
+    if args.command == "migrate-ids-plan":
+        return run_migrate_ids_plan()
 
     parser.print_help()
     return 1
