@@ -1,19 +1,25 @@
 {
   "project": "Vitruvius",
-  "generated_at_utc": "2026-04-13T05:15:45.579953+00:00",
-  "previous_registry": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\006_System-Manifests\\registries\\20260413T050544Z_raw_file_registry.csv",
-  "current_registry": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\006_System-Manifests\\registries\\20260413T051545Z_raw_file_registry.csv",
+  "generated_at_utc": "2026-04-13T06:33:43.960413+00:00",
+  "previous_registry": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\006_System-Manifests\\registries\\20260413T062910Z_raw_file_registry.csv",
+  "current_registry": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\006_System-Manifests\\registries\\20260413T063343Z_raw_file_registry.csv",
   "summary": {
-    "previous_count": 424,
+    "previous_count": 429,
     "current_count": 424,
     "new_count": 0,
     "changed_count": 0,
-    "missing_count": 0,
+    "missing_count": 5,
     "unchanged_count": 424
   },
   "new_files": [],
   "changed_files": [],
-  "missing_files": [],
+  "missing_files": [
+    "001-Laws/test/Building Technology - Handout 1.docx",
+    "001-Laws/test/Building Technology Lecture - Siteworks.ppt",
+    "001-Laws/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+    "001-Laws/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.pdf",
+    "001-Laws/test/TRIAL_Fake_PDF.pdf"
+  ],
   "unchanged_files": [
     "001-Laws/BERDE/BERDE – Buildings – Version 5.0.0 – User Guide.pdf",
     "001-Laws/BP-220/Revised_IRR_BP220_2008.pdf",

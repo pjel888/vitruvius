@@ -1,0 +1,185 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-13T06:09:18.394473+00:00",
+  "source_registry": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\006_System-Manifests\\registries\\latest_raw_file_registry.csv",
+  "summary": {
+    "total_files": 425,
+    "non_pdf_count": 3,
+    "duplicate_like_group_count": 42
+  },
+  "non_pdf_files": [
+    "001-Laws/DOH/DOH Adolescent-Friendly Health Services 2010_Module.md",
+    "001-Laws/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003_Module.md",
+    "001-Laws/RA-1378/Board of Master Plumber.doc"
+  ],
+  "duplicate_like_files": [
+    [
+      "005-Utilities/George Salvan Architectural Utilities 2 Electrical and Mechanical Equipment.pdf",
+      "005-Utilities/George-Salvan-Architectural-Utilities-2-Electrical-and-Mechanical-Equipment.pdf"
+    ],
+    [
+      "004-Technology/Green Building Illustrated.pdf",
+      "008-Design/Green Building Illustrated.pdf"
+    ],
+    [
+      "004-Technology/European Building Construction Illustrated.pdf",
+      "008-Design/European Building Construction Illustrated.pdf"
+    ],
+    [
+      "004-Technology/Building Construction Illustrated (5th Edition).pdf",
+      "004-Technology/Building Construction Illustrated, 5th edition.pdf"
+    ],
+    [
+      "001-Laws/UAP/UAP Documents.pdf",
+      "009-Practice/UAP/UAP Documents.pdf"
+    ],
+    [
+      "001-Laws/UAP/UAP Documents Reviewer.pdf",
+      "009-Practice/UAP/UAP Documents Reviewer.pdf"
+    ],
+    [
+      "001-Laws/UAP/UAP Documents Q _ A.pdf",
+      "009-Practice/UAP/UAP Documents Q _ A.pdf"
+    ],
+    [
+      "001-Laws/UAP/UAP Document Standards of Professional Practice.pdf",
+      "009-Practice/UAP/UAP Document Standards of Professional Practice.pdf"
+    ],
+    [
+      "001-Laws/UAP/UAP Document Code of Ethics.pdf",
+      "009-Practice/UAP/UAP Document Code of Ethics.pdf"
+    ],
+    [
+      "001-Laws/UAP/UAP Document 401-402.pdf",
+      "009-Practice/UAP/UAP Document 401-402.pdf"
+    ],
+    [
+      "001-Laws/UAP/UAP Document 3012.pdf",
+      "009-Practice/UAP/UAP Document 3012.pdf"
+    ],
+    [
+      "001-Laws/UAP/UAP Document 301.pdf",
+      "009-Practice/UAP/UAP Document 301.pdf"
+    ],
+    [
+      "001-Laws/UAP/Standards of Professional Practice2.pdf",
+      "009-Practice/UAP/Standards of Professional Practice2.pdf"
+    ],
+    [
+      "001-Laws/UAP/SPP 209.pdf",
+      "009-Practice/UAP/SPP 209.pdf"
+    ],
+    [
+      "001-Laws/UAP/SPP 208.pdf",
+      "009-Practice/UAP/SPP 208.pdf"
+    ],
+    [
+      "001-Laws/UAP/SPP 207.pdf",
+      "009-Practice/UAP/SPP 207.pdf"
+    ],
+    [
+      "001-Laws/UAP/SPP 206.pdf",
+      "009-Practice/UAP/SPP 206.pdf"
+    ],
+    [
+      "001-Laws/UAP/SPP 205.pdf",
+      "009-Practice/UAP/SPP 205.pdf"
+    ],
+    [
+      "001-Laws/UAP/SPP 204B.pdf",
+      "009-Practice/UAP/SPP 204B.pdf"
+    ],
+    [
+      "001-Laws/UAP/SPP 204A.pdf",
+      "009-Practice/UAP/SPP 204A.pdf"
+    ],
+    [
+      "001-Laws/UAP/SPP 203.pdf",
+      "009-Practice/UAP/SPP 203.pdf"
+    ],
+    [
+      "001-Laws/UAP/SPP 202.pdf",
+      "009-Practice/UAP/SPP 202.pdf"
+    ],
+    [
+      "001-Laws/UAP/SPP 201.pdf",
+      "009-Practice/UAP/SPP 201.pdf"
+    ],
+    [
+      "001-Laws/UAP/Professional Practice Reviewer2.pdf",
+      "009-Practice/UAP/Professional Practice Reviewer2.pdf"
+    ],
+    [
+      "001-Laws/UAP/1979 UAP Documents.pdf",
+      "009-Practice/UAP/1979 UAP Documents.pdf"
+    ],
+    [
+      "001-Laws/RA-9266/RA-9266 IRR Architecture Act of 2004.pdf",
+      "009-Practice/RA-9266/RA-9266 IRR Architecture Act of 2004.pdf"
+    ],
+    [
+      "001-Laws/RA-9266/IRR of RA 9266.pdf",
+      "009-Practice/RA-9266/IRR of RA 9266.pdf"
+    ],
+    [
+      "001-Laws/RA-7279/RA 7279 Urban Development and Housing Act 2009.pdf",
+      "007-Planning/RA 7279 Urban Development and Housing Act 2009.pdf"
+    ],
+    [
+      "001-Laws/PRC/RES_Illegal Practice of AR.pdf",
+      "009-Practice/PRC/RES_Illegal Practice of AR.pdf"
+    ],
+    [
+      "001-Laws/PRC/RES_Clarification of PD-9266 Rule II Registration.pdf",
+      "009-Practice/PRC/RES_Clarification of PD-9266 Rule II Registration.pdf"
+    ],
+    [
+      "001-Laws/PRC/RES_Architecture and AR Interiors are Exclusive.pdf",
+      "009-Practice/PRC/RES_Architecture and AR Interiors are Exclusive.pdf"
+    ],
+    [
+      "001-Laws/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.pdf",
+      "009-Practice/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.pdf"
+    ],
+    [
+      "001-Laws/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.pdf",
+      "009-Practice/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.pdf"
+    ],
+    [
+      "001-Laws/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.pdf",
+      "009-Practice/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.pdf"
+    ],
+    [
+      "001-Laws/PD-1517/PD 1517_Urban Land Reform.pdf",
+      "007-Planning/PD 1517_Urban Land Reform.pdf"
+    ],
+    [
+      "001-Laws/PD-1096/Rule 7 _ 8.pdf",
+      "009-Practice/PD-1096/Rule 7 _ 8.pdf"
+    ],
+    [
+      "001-Laws/PD-1096/RULE VII_Table VII-1 Occupancy Table.pdf",
+      "009-Practice/PD-1096/RULE VII_Table VII-1 Occupancy Table.pdf"
+    ],
+    [
+      "001-Laws/PD-1096/RULE VII_701 OCCUPANCY CLASSIFIED.pdf",
+      "009-Practice/PD-1096/RULE VII_701 OCCUPANCY CLASSIFIED.pdf"
+    ],
+    [
+      "001-Laws/PD-1096/RULE VIII - LIGHT & VENTILATION.pdf",
+      "009-Practice/PD-1096/RULE VIII - LIGHT & VENTILATION.pdf"
+    ],
+    [
+      "001-Laws/PD-1096/Philippines_02_IRR_of_NBC_of_the_Philippines.pdf",
+      "009-Practice/PD-1096/Philippines_02_IRR_of_NBC_of_the_Philippines.pdf"
+    ],
+    [
+      "001-Laws/PD-1096/PD 1096 - National Building Code.pdf",
+      "009-Practice/PD-1096/PD 1096 - National Building Code.pdf"
+    ],
+    [
+      "001-Laws/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf",
+      "007-Planning/EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf"
+    ]
+  ]
+}

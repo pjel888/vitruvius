@@ -1,0 +1,32 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-13T06:11:20.910753+00:00",
+  "languages": [
+    "eng"
+  ],
+  "deskew": true,
+  "summary": {
+    "queue_count": 1,
+    "ocr_completed_count": 1,
+    "conversion_completed_count": 1,
+    "failed_count": 0
+  },
+  "ocr_completed_items": [
+    {
+      "source_relative_path": "001-Laws/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+      "ocr_pdf_output": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\002_Raw-Conversion-Layer\\001-Laws\\ocr_pdf\\test\\CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+      "ocr_pdf_output_relative": "001-Laws/ocr_pdf/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+      "status": "ocr_completed"
+    }
+  ],
+  "conversion_completed_items": [
+    {
+      "source_relative_path": "001-Laws/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+      "ocr_pdf_output_relative": "001-Laws/ocr_pdf/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+      "markdown_output_relative": "001-Laws/raw_markdown/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md",
+      "json_output_relative": "001-Laws/sidecar_json/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.json",
+      "status": "ocr_and_conversion_completed"
+    }
+  ],
+  "failed_items": []
+}

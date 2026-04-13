@@ -1,0 +1,21 @@
+Vitruvius Status Report
+
+Previous registry: 20260413T062024Z_raw_file_registry.csv
+Current registry: 20260413T062910Z_raw_file_registry.csv
+
+Previous count: 427
+Current count: 429
+New files: 2
+Changed files: 0
+Missing files: 0
+Unchanged files: 427
+
+NEW FILES:
+  001-Laws/test/Building Technology - Handout 1.docx
+  001-Laws/test/Building Technology Lecture - Siteworks.ppt
+
+CHANGED FILES:
+  None
+
+MISSING FILES:
+  None

@@ -1,0 +1,12 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-13T06:11:04.908516+00:00",
+  "ocr_candidate_count": 1,
+  "ocr_queue_items": [
+    {
+      "source_relative_path": "001-Laws/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+      "source_absolute_path": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\001_Raw-Source-Layer\\001-Laws\\test\\CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+      "status": "pending_ocr"
+    }
+  ]
+}

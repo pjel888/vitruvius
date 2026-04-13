@@ -1,0 +1,20 @@
+Vitruvius Status Report
+
+Previous registry: 20260413T061229Z_raw_file_registry.csv
+Current registry: 20260413T061246Z_raw_file_registry.csv
+
+Previous count: 427
+Current count: 427
+New files: 0
+Changed files: 0
+Missing files: 0
+Unchanged files: 427
+
+NEW FILES:
+  None
+
+CHANGED FILES:
+  None
+
+MISSING FILES:
+  None

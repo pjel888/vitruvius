@@ -1,0 +1,16 @@
+Vitruvius Convert Queue
+
+Candidate files from status: 1
+Queued PDF files: 1
+Skipped non-PDF files: 0
+
+QUEUED ITEMS:
+  ---
+  source: 001-Laws/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.pdf
+  markdown: 001-Laws/raw_markdown/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md
+  sidecar: 001-Laws/sidecar_json/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.json
+  detection: TEXT_PDF
+  route: OPENDATALOADER_DIRECT
+
+SKIPPED NON-PDF:
+  None

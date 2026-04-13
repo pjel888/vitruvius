@@ -1,0 +1,17 @@
+Vitruvius OCR Execute Report
+
+Queue count: 0
+OCR completed: 0
+Conversion completed: 0
+Failed: 0
+Languages: eng
+Deskew: True
+
+OCR COMPLETED ITEMS:
+  None
+
+CONVERSION COMPLETED ITEMS:
+  None
+
+FAILED ITEMS:
+  None

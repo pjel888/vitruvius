@@ -1,0 +1,23 @@
+Vitruvius OCR Execute Report
+
+Queue count: 1
+OCR completed: 1
+Conversion completed: 1
+Failed: 0
+Languages: eng
+Deskew: True
+
+OCR COMPLETED ITEMS:
+  ---
+  source: 001-Laws/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf
+  ocr_pdf: 001-Laws/ocr_pdf/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf
+
+CONVERSION COMPLETED ITEMS:
+  ---
+  source: 001-Laws/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf
+  ocr_pdf: 001-Laws/ocr_pdf/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf
+  markdown: 001-Laws/raw_markdown/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md
+  sidecar: 001-Laws/sidecar_json/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.json
+
+FAILED ITEMS:
+  None

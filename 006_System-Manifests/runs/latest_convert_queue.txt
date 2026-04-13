@@ -1,16 +1,19 @@
 Vitruvius Convert Queue
 
-Candidate files from status: 1
-Queued PDF files: 1
-Skipped non-PDF files: 0
+Candidate files from status: 2
+Queued PDF files: 0
+Queued Office files: 1
+Total queued supported files: 1
+Skipped non-supported files: 1
 
 QUEUED ITEMS:
   ---
-  source: 005-Utilities/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.pdf
-  markdown: 005-Utilities/raw_markdown/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md
-  sidecar: 005-Utilities/sidecar_json/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.json
-  detection: TEXT_PDF
-  route: OPENDATALOADER_DIRECT
+  source: 001-Laws/test/Building Technology - Handout 1.docx
+  source_type: office
+  markdown: 001-Laws/raw_markdown/test/Building Technology - Handout 1.md
+  sidecar: 001-Laws/sidecar_json/test/Building Technology - Handout 1.json
+  detection: PENDING_OFFICE_CONVERSION
+  route: OFFICE_TO_PDF_THEN_OPENDATALOADER
 
-SKIPPED NON-PDF:
-  None
+SKIPPED NON-SUPPORTED:
+  001-Laws/test/Building Technology Lecture - Siteworks.ppt

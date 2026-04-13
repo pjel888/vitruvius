@@ -1,0 +1,17 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-13T06:11:04.298008+00:00",
+  "summary": {
+    "ocr_required_count": 1
+  },
+  "ocr_required_items": [
+    {
+      "source_relative_path": "001-Laws/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+      "planned_markdown_output": "001-Laws/raw_markdown/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md",
+      "planned_sidecar_output": "001-Laws/sidecar_json/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.json",
+      "detection_result": "LIKELY_SCANNED_PDF",
+      "recommended_route": "OCR_FIRST_THEN_OPENDATALOADER",
+      "status": "ocr_required"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+Vitruvius Status Report
+
+Previous registry: 20260413T054642Z_raw_file_registry.csv
+Current registry: 20260413T060815Z_raw_file_registry.csv
+
+Previous count: 425
+Current count: 424
+New files: 0
+Changed files: 0
+Missing files: 1
+Unchanged files: 424
+
+NEW FILES:
+  None
+
+CHANGED FILES:
+  None
+
+MISSING FILES:
+  003-Theory/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.pdf

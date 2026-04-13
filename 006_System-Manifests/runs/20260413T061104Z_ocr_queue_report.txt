@@ -1,0 +1,8 @@
+Vitruvius OCR Queue Report
+
+OCR candidate files: 1
+
+OCR QUEUE ITEMS:
+  ---
+  source: 001-Laws/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf
+  status: pending_ocr

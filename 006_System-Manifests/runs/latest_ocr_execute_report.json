@@ -1,0 +1,17 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-13T06:29:16.516165+00:00",
+  "languages": [
+    "eng"
+  ],
+  "deskew": true,
+  "summary": {
+    "queue_count": 0,
+    "ocr_completed_count": 0,
+    "conversion_completed_count": 0,
+    "failed_count": 0
+  },
+  "ocr_completed_items": [],
+  "conversion_completed_items": [],
+  "failed_items": []
+}

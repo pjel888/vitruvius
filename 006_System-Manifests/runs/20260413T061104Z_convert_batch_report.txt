@@ -1,0 +1,19 @@
+Vitruvius Convert Batch Report
+
+Candidate files: 1
+PDF candidates: 1
+Converted: 0
+OCR required: 1
+Failed: 0
+Skipped non-PDF: 0
+
+CONVERTED ITEMS:
+  None
+
+OCR REQUIRED ITEMS:
+  ---
+  source: 001-Laws/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf
+  route: OCR_FIRST_THEN_OPENDATALOADER
+
+FAILED ITEMS:
+  None

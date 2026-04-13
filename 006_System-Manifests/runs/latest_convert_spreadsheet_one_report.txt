@@ -1,0 +1,22 @@
+Vitruvius Convert Spreadsheet One Report
+
+Source: 001-Laws/test/ALE - Building Laws Cross-Reference Table (Pedro Santos Jr).xlsx
+Source extension: .xlsx
+Workbook path used: C:\Users\Philip Lewis\Desktop\Vitruvius\001_Raw-Source-Layer\001-Laws\test\ALE - Building Laws Cross-Reference Table (Pedro Santos Jr).xlsx
+Workbook relative path used: 001_Raw-Source-Layer/001-Laws/test/ALE - Building Laws Cross-Reference Table (Pedro Santos Jr).xlsx
+Manifest output: C:\Users\Philip Lewis\Desktop\Vitruvius\002_Raw-Conversion-Layer\001-Laws\spreadsheet_manifest\test\ALE - Building Laws Cross-Reference Table (Pedro Santos Jr).json
+Sheet count: 2
+
+SHEETS:
+  ---
+  sheet_name: Consolidated
+  row_count: 114
+  column_count: 8
+  csv: 002_Raw-Conversion-Layer/001-Laws/spreadsheet_csv/test/ALE - Building Laws Cross-Reference Table (Pedro Santos Jr)/Consolidated.csv
+  json: 002_Raw-Conversion-Layer/001-Laws/spreadsheet_json/test/ALE - Building Laws Cross-Reference Table (Pedro Santos Jr)/Consolidated.json
+  ---
+  sheet_name: BP 220 vs. PD 957
+  row_count: 452
+  column_count: 6
+  csv: 002_Raw-Conversion-Layer/001-Laws/spreadsheet_csv/test/ALE - Building Laws Cross-Reference Table (Pedro Santos Jr)/BP_220_vs__PD_957.csv
+  json: 002_Raw-Conversion-Layer/001-Laws/spreadsheet_json/test/ALE - Building Laws Cross-Reference Table (Pedro Santos Jr)/BP_220_vs__PD_957.json

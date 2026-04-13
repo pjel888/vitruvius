@@ -1,0 +1,14 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-13T06:20:25.087242+00:00",
+  "status_source": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\006_System-Manifests\\runs\\latest_status_report.json",
+  "summary": {
+    "candidate_count": 0,
+    "queued_pdf_count": 0,
+    "queued_office_count": 0,
+    "queued_supported_count": 0,
+    "skipped_non_supported_count": 0
+  },
+  "queued_items": [],
+  "skipped_non_supported": []
+}
