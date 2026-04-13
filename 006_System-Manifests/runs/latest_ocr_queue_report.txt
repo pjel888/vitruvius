@@ -1,0 +1,6 @@
+Vitruvius OCR Queue Report
+
+OCR candidate files: 0
+
+OCR QUEUE ITEMS:
+  None

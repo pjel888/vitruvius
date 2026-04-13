@@ -1,0 +1,29 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-13T04:46:14.663993+00:00",
+  "status_source": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\006_System-Manifests\\runs\\latest_status_report.json",
+  "summary": {
+    "candidate_count": 1,
+    "pdf_candidate_count": 1,
+    "converted_count": 1,
+    "ocr_required_count": 0,
+    "failed_count": 0,
+    "skipped_non_pdf_count": 0
+  },
+  "converted_items": [
+    {
+      "source_relative_path": "005-Utilities/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.pdf",
+      "source_absolute_path": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\001_Raw-Source-Layer\\005-Utilities\\DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.pdf",
+      "detection_result": "TEXT_PDF",
+      "recommended_route": "OPENDATALOADER_DIRECT",
+      "markdown_output": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\002_Raw-Conversion-Layer\\005-Utilities\\raw_markdown\\DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md",
+      "json_output": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\002_Raw-Conversion-Layer\\005-Utilities\\sidecar_json\\DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.json",
+      "markdown_output_relative": "005-Utilities/raw_markdown/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md",
+      "json_output_relative": "005-Utilities/sidecar_json/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.json",
+      "status": "converted"
+    }
+  ],
+  "ocr_required_items": [],
+  "failed_items": [],
+  "skipped_non_pdf": []
+}
