@@ -1,0 +1,7 @@
+# Laws
+
+## Scope
+
+## Index
+
+## Notes

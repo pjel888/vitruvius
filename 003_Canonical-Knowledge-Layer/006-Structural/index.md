@@ -1,0 +1,7 @@
+# Structural
+
+## Scope
+
+## Index
+
+## Notes
