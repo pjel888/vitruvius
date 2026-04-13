@@ -1,0 +1,19 @@
+version: 1
+
+mappings:
+
+  # -------------------------
+  # SOURCES
+  # -------------------------
+  laws-pd1096-national-building-code: law-national-building-code-of-the-philippines
+  laws-pd1096-irr: irr-implementing-rules-and-regulations-of-the-national-building-code
+
+  # -------------------------
+  # CONCEPTS
+  # -------------------------
+  laws-occupancy-classification: concept-occupancy-classification
+
+  # -------------------------
+  # PLACEHOLDER FOR EXPANSION
+  # -------------------------
+  # add more mappings here as you discover them
