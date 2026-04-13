@@ -1,0 +1,21 @@
+Vitruvius ID Migration Plan (Dry Run)
+
+Files scanned: 26
+Files affected: 4
+Total replacements: 10
+
+FILE: C:\Users\Philip Lewis\Desktop\Vitruvius\003_Canonical-Knowledge-Layer\shared\concepts\occupancy-classification.md
+  laws-pd1096-national-building-code -> law-national-building-code-of-the-philippines (x2)
+  laws-pd1096-irr -> irr-implementing-rules-and-regulations-of-the-national-building-code (x2)
+  laws-occupancy-classification -> concept-occupancy-classification (x1)
+
+FILE: C:\Users\Philip Lewis\Desktop\Vitruvius\003_Canonical-Knowledge-Layer\shared\glossary\occupancy.md
+  laws-pd1096-irr -> irr-implementing-rules-and-regulations-of-the-national-building-code (x1)
+  laws-occupancy-classification -> concept-occupancy-classification (x1)
+
+FILE: C:\Users\Philip Lewis\Desktop\Vitruvius\003_Canonical-Knowledge-Layer\shared\relationships\occupancy-governs-fire-requirements.md
+  laws-occupancy-classification -> concept-occupancy-classification (x1)
+
+FILE: C:\Users\Philip Lewis\Desktop\Vitruvius\003_Canonical-Knowledge-Layer\shared\sources\pd-1096-irr.md
+  laws-pd1096-national-building-code -> law-national-building-code-of-the-philippines (x1)
+  laws-pd1096-irr -> irr-implementing-rules-and-regulations-of-the-national-building-code (x1)

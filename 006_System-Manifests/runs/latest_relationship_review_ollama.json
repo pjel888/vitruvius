@@ -1,0 +1,487 @@
+{
+  "generated_at": "20260413T093415Z",
+  "model": "gemma4:31b",
+  "source": "001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code.md",
+  "total_candidates": 23,
+  "completed_reviews": 23,
+  "status": "completed",
+  "summary": {
+    "keep": 3,
+    "review_further": 1,
+    "reject": 19,
+    "high_confidence_keep": 3,
+    "high_confidence_reject": 19
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "law-national-building-code-of-the-philippines",
+        "type": "governs",
+        "to": "concept-building-permit",
+        "occurrences": 6,
+        "sections": [
+          "section-207",
+          "section-209",
+          "section-303",
+          "section-306",
+          "section-1101"
+        ],
+        "examples": [
+          "the enforcement of the provisions of this Code as well as of the implementing rules and regulations issued therefor. He is the official charged with the duties of issuing building permits. In the performance of his duties, a Building Official may enter any building or its premises at all reasonable ",
+          "building permit fees. As used in this Code, the term “traditional indigenous family dwelling” means a dwelling intended for the use and occupancy by the family of the owner only and constructed of native materials such as bamboo, nipa, logs, or lumber, the total cost of which does not exceed fifteen",
+          "supervision of the Building Official and his technical staff of qualified professionals. In processing an application for a building permit, the Building Official shall see to it that the applicant satisfies and conforms with approved standard requirements on zoning and land use, lines and grades, s"
+        ]
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 1.0,
+        "reason": "The evidence explicitly states that the Building Official is charged with the duties of issuing building permits under the provisions of the Code, and describes the process for processing applications for building permits, confirming that the law governs the issuance and requirements of building permits.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-occupancy-classification",
+        "type": "defines",
+        "to": "concept-certificate-of-occupancy",
+        "occurrences": 1,
+        "sections": [
+          "section-309"
+        ],
+        "examples": [
+          "occupancy classification of a building or structure or portion thereof shall be made until the Building Official has issued a Certificate of Occupancy therefor as provided in this Code. A Certificate of Occupancy shall be issued by the Building Official within thirty (30) days if after final inspect"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided text describes a procedural requirement (that a Certificate of Occupancy is issued based on occupancy classification), but it does not provide a definition of the Certificate of Occupancy.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "law-national-building-code-of-the-philippines",
+        "type": "governs",
+        "to": "concept-stairs",
+        "occurrences": 2,
+        "sections": [
+          "section-401"
+        ],
+        "examples": [
+          "identified according to the following types: - (1) Type I – Type I buildings shall be of wood construction. The structural elements may be any of the materials permitted by this Code. - (2) Type II – Type II buildings shall be of wood construction with protective fire-resistant materials and one-hou",
+          "identified according to the following types: - (1) Type I – Type I buildings shall be of wood construction. The structural elements may be any of the materials permitted by this Code. - (2) Type II – Type II buildings shall be of wood construction with protective fire-resistant materials and one-hou"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided examples do not mention 'stairs' or any regulations governing them; they describe building types based on construction materials (Type I and Type II).",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-occupancy-classification",
+        "type": "depends_on",
+        "to": "concept-mixed-occupancy",
+        "occurrences": 1,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
+        ]
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.9,
+        "reason": "The example text explicitly discusses how requirements apply to buildings with more than one occupancy (mixed occupancy), indicating that the classification of occupancy for a building depends on the same rules governing mixed occupancy.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-occupancy-classification",
+        "type": "limits",
+        "to": "concept-mixed-occupancy",
+        "occurrences": 1,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
+        ]
+      },
+      "review": {
+        "decision": "review_further",
+        "confidence": 0.8,
+        "reason": "The evidence mentions that buildings with multiple occupancies are subject to the most restrictive requirement unless certain conditions apply, but it does not explicitly state that occupancy classification limits mixed occupancy. Instead, it describes how requirements are applied to mixed occupancy buildings.",
+        "suggested_type": "governs"
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-occupancy-classification",
+        "type": "affects",
+        "to": "concept-mixed-occupancy",
+        "occurrences": 1,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
+        ]
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.9,
+        "reason": "The example text explicitly states that the requirements for a building with more than one occupancy (mixed occupancy) are determined by the occupancy classification, indicating that occupancy classification affects the requirements for mixed occupancy buildings.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-occupancy-classification",
+        "type": "defines",
+        "to": "concept-mixed-occupancy",
+        "occurrences": 1,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.9,
+        "reason": "The provided example text describes how requirements apply to buildings with multiple occupancies, but it does not provide a definition of 'mixed-occupancy' or 'occupancy classification' and does not show that one defines the other.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-occupancy-classification",
+        "type": "requires",
+        "to": "concept-mixed-occupancy",
+        "occurrences": 1,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example describes how requirements are applied to mixed occupancy buildings, but it does not state that occupancy classification requires mixed occupancy. It describes a condition (mixed occupancy) and the subsequent regulatory requirement, not a dependency where one concept requires the other.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "depends_on",
+        "to": "concept-yards",
+        "occurrences": 1,
+        "sections": [
+          "section-704"
+        ],
+        "examples": [
+          "or street on at least one of its sides. For the purpose of this Section, the center line of an adjoining street or alley shall be considered an adjacent property line. Eaves over required windows shall not be less than 750 millimeters from the side and rear property lines. (b) Fire Resistance of Wal"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example text discusses property lines, eaves, and fire resistance, but it does not mention 'concept-floor-area' or 'concept-yards' and does not establish a dependency between them.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "limits",
+        "to": "concept-yards",
+        "occurrences": 1,
+        "sections": [
+          "section-704"
+        ],
+        "examples": [
+          "or street on at least one of its sides. For the purpose of this Section, the center line of an adjoining street or alley shall be considered an adjacent property line. Eaves over required windows shall not be less than 750 millimeters from the side and rear property lines. (b) Fire Resistance of Wal"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example text does not mention 'concept-floor-area' or any limiting relationship between floor area and yards. It discusses property lines, eaves, and fire resistance.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "affects",
+        "to": "concept-yards",
+        "occurrences": 1,
+        "sections": [
+          "section-704"
+        ],
+        "examples": [
+          "or street on at least one of its sides. For the purpose of this Section, the center line of an adjoining street or alley shall be considered an adjacent property line. Eaves over required windows shall not be less than 750 millimeters from the side and rear property lines. (b) Fire Resistance of Wal"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example text discusses property lines, eaves, and fire resistance, but it does not mention 'concept-floor-area' or how it affects 'concept-yards'.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "defines",
+        "to": "concept-yards",
+        "occurrences": 1,
+        "sections": [
+          "section-704"
+        ],
+        "examples": [
+          "or street on at least one of its sides. For the purpose of this Section, the center line of an adjoining street or alley shall be considered an adjacent property line. Eaves over required windows shall not be less than 750 millimeters from the side and rear property lines. (b) Fire Resistance of Wal"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example text does not mention 'concept-floor-area' or 'concept-yards' and does not establish a definition relationship between them.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "requires",
+        "to": "concept-yards",
+        "occurrences": 1,
+        "sections": [
+          "section-704"
+        ],
+        "examples": [
+          "or street on at least one of its sides. For the purpose of this Section, the center line of an adjoining street or alley shall be considered an adjacent property line. Eaves over required windows shall not be less than 750 millimeters from the side and rear property lines. (b) Fire Resistance of Wal"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example text does not mention 'concept-floor-area' or 'concept-yards' and does not establish any requirement relationship between them.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-light-and-ventilation",
+        "type": "depends_on",
+        "to": "concept-stairs",
+        "occurrences": 1,
+        "sections": [
+          "section-708"
+        ],
+        "examples": [
+          "an inside lot, and subject to the provisions on Easements of Light and View of the Civil Code of Philippines, shall be at least 2 meters from the property line. (b) Light and Ventilation Every dwelling shall be so constructed and arranged as to provide adequate light and ventilation as provided unde"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example text mentions both 'light and ventilation' and 'stairs' (implied by the context of building codes, though 'stairs' is not explicitly mentioned in the text snippet provided), but it does not establish a dependency relationship between the concept of light and ventilation and the concept of stairs. The text discusses property lines and easements, not a dependency on stairs.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-light-and-ventilation",
+        "type": "defines",
+        "to": "concept-stairs",
+        "occurrences": 1,
+        "sections": [
+          "section-708"
+        ],
+        "examples": [
+          "an inside lot, and subject to the provisions on Easements of Light and View of the Civil Code of Philippines, shall be at least 2 meters from the property line. (b) Light and Ventilation Every dwelling shall be so constructed and arranged as to provide adequate light and ventilation as provided unde"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided text mentions light and ventilation in the context of property lines and dwelling construction, but it does not define the 'concept-stairs' (concept-light-and-ventilation defines concept-stairs). The relationship 'defines' is completely unsupported by the evidence.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "depends_on",
+        "to": "concept-lot-occupancy",
+        "occurrences": 1,
+        "sections": [
+          "section-801"
+        ],
+        "examples": [
+          "- (a) Subject to the provisions of the Civil Code of the Philippines on Easements of Light and View, and to the provisions of this part of the Code, every building shall be designed, constructed, and equipped to provide adequate light and ventilation. - (b) All buildings shall face a street or publi"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided evidence example does not mention 'concept-floor-area' or 'concept-lot-occupancy', nor does it describe any dependency between them.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "defines",
+        "to": "concept-lot-occupancy",
+        "occurrences": 1,
+        "sections": [
+          "section-801"
+        ],
+        "examples": [
+          "- (a) Subject to the provisions of the Civil Code of the Philippines on Easements of Light and View, and to the provisions of this part of the Code, every building shall be designed, constructed, and equipped to provide adequate light and ventilation. - (b) All buildings shall face a street or publi"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example text discusses light, ventilation, and building orientation toward a street, but it does not mention 'concept-floor-area' or 'concept-lot-occupancy', nor does it explain how one defines the other.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "requires",
+        "to": "concept-occupancy-separation",
+        "occurrences": 2,
+        "sections": [
+          "section-1201"
+        ],
+        "examples": [
+          "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the",
+          "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided examples are identical and do not mention 'floor area' or 'occupancy separation' specifically, nor do they describe a relationship between them. The text is generic boilerplate about structural design and materials.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "depends_on",
+        "to": "concept-occupancy-separation",
+        "occurrences": 1,
+        "sections": [
+          "section-1201"
+        ],
+        "examples": [
+          "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example text does not mention 'floor area' or 'occupancy separation' and does not establish any dependency between the concepts.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "limits",
+        "to": "concept-occupancy-separation",
+        "occurrences": 1,
+        "sections": [
+          "section-1201"
+        ],
+        "examples": [
+          "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example text does not mention 'concept-floor-area' or 'concept-occupancy-separation' and does not describe a limiting relationship between them.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "affects",
+        "to": "concept-occupancy-separation",
+        "occurrences": 1,
+        "sections": [
+          "section-1201"
+        ],
+        "examples": [
+          "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example text does not mention 'floor area' or 'occupancy separation' and does not show any relationship between them.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "defines",
+        "to": "concept-occupancy-separation",
+        "occurrences": 1,
+        "sections": [
+          "section-1201"
+        ],
+        "examples": [
+          "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the"
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided example text does not mention 'concept-floor-area' or 'concept-occupancy-separation' and does not show any definitional relationship between them.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "law-national-building-code-of-the-philippines",
+        "type": "governs",
+        "to": "concept-floor-area",
+        "occurrences": 3,
+        "sections": [
+          "section-1603"
+        ],
+        "examples": [
+          "V Constructions may be glazed or equipped with approved plastics: Provided, that: - (1) The wall in which such glazing is installed is so located that openings are not required to be fire-protected. - (2) Except for Type I Construction, the location, size, and spacing of such glazed openings do not ",
+          "V Constructions may be glazed or equipped with approved plastics: Provided, that: - (1) The wall in which such glazing is installed is so located that openings are not required to be fire-protected. - (2) Except for Type I Construction, the location, size, and spacing of such glazed openings do not ",
+          "V Constructions may be glazed or equipped with approved plastics: Provided, that: - (1) The wall in which such glazing is installed is so located that openings are not required to be fire-protected. - (2) Except for Type I Construction, the location, size, and spacing of such glazed openings do not "
+        ]
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 1.0,
+        "reason": "The provided examples are identical and discuss glazing and plastics in constructions, but they do not mention 'floor area' or how the law governs it in the context of these specific snippets.",
+        "suggested_type": null
+      }
+    }
+  ]
+}

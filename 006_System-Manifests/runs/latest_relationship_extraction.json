@@ -1,0 +1,19 @@
+{
+  "generated_at": "20260413T082830Z",
+  "source": "001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code.md",
+  "source_id": "law-national-building-code-of-the-philippines",
+  "total_relationships": 1,
+  "relationships": [
+    {
+      "from": "law-national-building-code-of-the-philippines",
+      "type": "governs",
+      "to": "concept-occupancy-classification",
+      "occurrences": 7,
+      "examples": [
+        "SECTION 309. Certificate of Occupancy No building or structure shall be used or occupied and no change in the existing use or  occupancy classification of a building or structure or portion thereof shall be made until the Building Official has issued a Certificate of Occupancy therefor as provided in this Code.",
+        "occupancy classification of a building or structure or portion thereof shall be made until the Building Official has issued a Certificate of Occupancy therefor as provided in this Code.",
+        "occupancy classification of a building or structure or portion thereof shall be made until the Building Official has issued a Certificate of Occupancy therefor as provided in this Code.  A Certificate of Occupancy shall be issued by the Building Official within thirty (30) days if after final inspection and submittal of a Certificate of Completion referred to in the preceding Section, it is found that the building or structure complies with the provisions of this Code."
+      ]
+    }
+  ]
+}
