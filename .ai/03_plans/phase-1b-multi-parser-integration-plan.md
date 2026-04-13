@@ -56,28 +56,29 @@ The Orchestrator MUST invoke the chain associated with the detected class. Highe
 | `spreadsheet_unstructured` | `[spreadsheet_parser]` |
 
 ## 6. Strict Parser Telemetry Contract
-Every parser execution MUST emit this exact JSON structure:
+Every parser execution MUST emit this exact **flattened** JSON structure for operational consistency, efficient storage, and analytics:
 ```json
 {
   "parser_id": "string",
-  "attempt_index": "int",
-  "attempt_duration_ms": "int",
-  "pages_total": "int",
-  "pages_processed": "int",
-  "page_coverage_ratio": "float",
-  "raw_text_length": "int",
-  "markdown_length": "int",
-  "header_count": "int",
-  "table_count": "int",
-  "image_count": "int",
-  "diagram_captions_extracted": "int",
-  "ocr_applied": "bool",
-  "confidence_score": "float",
-  "validation_passed": "bool",
-  "failure_reason": "string|null"
+  "attempt_index": 0,
+  "duration_ms": 0,
+  "pages_total": 0,
+  "pages_processed": 0,
+  "page_coverage_ratio": 0.0,
+  "text_length": 0,
+  "md_length": 0,
+  "headers": 0,
+  "tables": 0,
+  "images": 0,
+  "captions": 0,
+  "assets_extracted": "string[]",
+  "ocr_applied": false,
+  "confidence": 0.0,
+  "valid": true,
+  "error": "string|null"
 }
 ```
-❗ **Spatial Context**: If an image is detected, the parser MUST attempt to bind the nearest textual bounding box as its caption to preserve context in the resulting Markdown.
+❗ **Spatial Context**: If an image is detected, the parser SHOULD preserve the nearest available textual context as a provenance-linked caption where technically feasible. This is for source fidelity only and does not imply semantic interpretation.
 
 ## 7. Failure Handling & Fallback Policy
 ### 7.1 Fallback Triggers
@@ -90,7 +91,13 @@ Fallback MUST trigger if any condition occurs:
 6.  **Garbled Rate**: `garbled_ratio >= 0.05`.
 7.  **Hallucination Trap**: Ratio of dictionary-valid words < 0.40 in extracted text (catch confident gibberish).
 
-### 7.2 Terminal States
+### 7.2 Page-Level Isolation (Chunked Fallback)
+To prevent OOM/Timeout loops on massive documents:
+- If a document fails validation or times out, the Orchestrator MUST isolate the specific failing page(s).
+- Route **only** the isolated pages to the higher-fidelity parser chain.
+- Re-stitch successful page outputs with the original baseline content to finalize the Markdown.
+
+### 7.3 Terminal States
 If the fallback chain is exhausted without success:
 1.  Status MUST be set to `FALLBACK_EXHAUSTED`.
 2.  `manual_review_required` MUST be set to `true`.
@@ -140,7 +147,20 @@ If the fallback chain is exhausted without success:
 3. Build expanded registry and per-file sidecar metadata.
 
 ## 12. Manual Review Lane
-Final states: `AUTO_ACCEPTED`, `AUTO_REFINED`, `FALLBACK_EXHAUSTED`, `MANUAL_REVIEW_REQUIRED`.
+Every file MUST end in one of the following states:
+- `AUTO_ACCEPTED`: Passed all quality gates on first attempt.
+- `AUTO_REFINED`: Succeeded after fallback or pre-processing.
+- `FALLBACK_EXHAUSTED`: No parser in the chain met the quality threshold.
+- `MANUAL_REVIEW_REQUIRED`: Explicitly flagged due to severe structural anomalies.
+
+### 12.1 Review Payload (Ranger Audit)
+When a document hits a terminal state requiring manual intervention, the system MUST automatically generate a **Review Payload** for the "Rangers" (SMEs). This payload contains:
+1.  **Source Context**: The specific PDF page(s) that triggered the failure.
+2.  **Extracted Content**: The garbled or partial Markdown generated.
+3.  **Document Class**: The detected class (e.g., `hybrid_pdf`) for regulatory context.
+4.  **Structural Context**: Any structural IDs (e.g., "Section 804") detected before the failure.
+5.  **Audit Context**: The specific `error` or `failure_reason` from telemetry.
+6.  **UI Bridge**: A direct deep-link to the Supabase Ranger Dashboard for correction.
 
 ## 13. Non-Negotiable System Principles
 *   **No silent failure**: Every fallback logged with `failure_reason`.
@@ -161,3 +181,4 @@ Final states: `AUTO_ACCEPTED`, `AUTO_REFINED`, `FALLBACK_EXHAUSTED`, `MANUAL_REV
 
 ---
 **Changelog**: Combined v1 and v2 on 2026-04-13 for a unified high-fidelity ingestion plan.
+.
