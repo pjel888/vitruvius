@@ -1,0 +1,7 @@
+{
+  "embedding": {
+    "provider": "openai",
+    "model": "nomic-embed-text:latest",
+    "base_url": "http://localhost:11434/v1"
+  }
+}
