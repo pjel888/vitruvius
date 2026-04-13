@@ -1,0 +1,21 @@
+project_name: Vitruvius
+version: 0.1.0
+
+categories:
+  - 001-Laws
+  - 002-History
+  - 003-Theory
+  - 004-Technology
+  - 005-Utilities
+  - 006-Structural
+  - 007-Planning
+  - 008-Design
+  - 009-Practice
+
+paths:
+  raw: 001_Raw-Source-Layer
+  conversion: 002_Raw-Conversion-Layer
+  canonical: 003_Canonical-Knowledge-Layer
+  derived: 004_Derived-Content-Layer
+  ops: 005_Operational-Intelligence-Layer
+  manifests: 006_System-Manifests
