@@ -1,0 +1,17 @@
+Vitruvius Canonicalization Execute (One)
+
+Source: 001-Laws/raw_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md
+Type: irr
+Trust Level: primary
+Title: Implementing Rules and Regulations of the National Building Code
+Canonical ID: irr-implementing-rules-and-regulations-of-the-national-building-code
+
+CREATED OUTPUTS:
+- source -> 003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-national-building-code.md [written]
+
+CORE CONCEPTS:
+- occupancy classification
+- building permits
+- fire-resistive construction
+- light and ventilation
+- setbacks

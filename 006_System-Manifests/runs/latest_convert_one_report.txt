@@ -1,10 +1,9 @@
 Vitruvius Convert One Report
 
-Source: 001-Laws/test/Building Technology Lecture - Siteworks.ppt
-Office PDF output: C:\Users\Philip Lewis\Desktop\Vitruvius\002_Raw-Conversion-Layer\001-Laws\office_pdf\test\Building Technology Lecture - Siteworks.pdf
+Source: 001-Laws/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.pdf
 Detection result: TEXT_PDF
 Recommended route: OPENDATALOADER_DIRECT
-Markdown output: C:\Users\Philip Lewis\Desktop\Vitruvius\002_Raw-Conversion-Layer\001-Laws\raw_markdown\test\Building Technology Lecture - Siteworks.md
-JSON output: C:\Users\Philip Lewis\Desktop\Vitruvius\002_Raw-Conversion-Layer\001-Laws\sidecar_json\test\Building Technology Lecture - Siteworks.json
+Markdown output: C:\Users\Philip Lewis\Desktop\Vitruvius\002_Raw-Conversion-Layer\001-Laws\raw_markdown\PD-1096\PD 1096 IRR - Full Implementing Rules and Regulations.md
+JSON output: C:\Users\Philip Lewis\Desktop\Vitruvius\002_Raw-Conversion-Layer\001-Laws\sidecar_json\PD-1096\PD 1096 IRR - Full Implementing Rules and Regulations.json
 
 STATUS: converted

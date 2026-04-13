@@ -1,0 +1,75 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-13T07:48:21.804408+00:00",
+  "input": {
+    "relative_markdown_path": "001-Laws/raw_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+    "absolute_path": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\002_Raw-Conversion-Layer\\001-Laws\\raw_markdown\\PD-1096\\PD 1096 IRR - Full Implementing Rules and Regulations.md"
+  },
+  "classification": {
+    "source_type": "irr",
+    "trust_level": "primary"
+  },
+  "normalized": {
+    "title": "Implementing Rules and Regulations of the National Building Code",
+    "canonical_id": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+    "category": "001-Laws",
+    "aliases": [
+      "PD 1096 IRR - Full Implementing Rules and Regulations",
+      "PD 1096",
+      "Presidential Decree No. 1096",
+      "PD 1096 IRR",
+      "National Building Code IRR",
+      "Revised IRR 2004"
+    ],
+    "topic_tags": [
+      "law",
+      "implementing-rules",
+      "regulation",
+      "pd-1096",
+      "building-code",
+      "philippines"
+    ],
+    "relationships": [
+      "implements: law-national-building-code-of-the-philippines"
+    ],
+    "core_concepts": [
+      "occupancy classification",
+      "building permits",
+      "fire-resistive construction",
+      "light and ventilation",
+      "setbacks"
+    ]
+  },
+  "proposed_outputs": [
+    {
+      "page_type": "source",
+      "target_path": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-national-building-code.md"
+    },
+    {
+      "page_type": "concept",
+      "target_path": "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-classification.md",
+      "concept_name": "occupancy classification"
+    },
+    {
+      "page_type": "concept",
+      "target_path": "003_Canonical-Knowledge-Layer/shared/concepts/building-permits.md",
+      "concept_name": "building permits"
+    },
+    {
+      "page_type": "concept",
+      "target_path": "003_Canonical-Knowledge-Layer/shared/concepts/fire-resistive-construction.md",
+      "concept_name": "fire-resistive construction"
+    },
+    {
+      "page_type": "concept",
+      "target_path": "003_Canonical-Knowledge-Layer/shared/concepts/light-and-ventilation.md",
+      "concept_name": "light and ventilation"
+    },
+    {
+      "page_type": "concept",
+      "target_path": "003_Canonical-Knowledge-Layer/shared/concepts/setbacks.md",
+      "concept_name": "setbacks"
+    }
+  ],
+  "warnings": []
+}

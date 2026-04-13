@@ -1,0 +1,42 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-13T07:25:55.027277+00:00",
+  "input": {
+    "relative_markdown_path": "001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code.md",
+    "absolute_path": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\002_Raw-Conversion-Layer\\001-Laws\\raw_markdown\\PD-1096\\PD 1096 - National Building Code.md"
+  },
+  "classification": {
+    "source_type": "law",
+    "trust_level": "primary"
+  },
+  "normalized": {
+    "title": "National Building Code of the Philippines",
+    "canonical_id": "law-national-building-code-of-the-philippines",
+    "category": "001-Laws",
+    "aliases": [
+      "PD 1096 - National Building Code",
+      "PD 1096",
+      "Presidential Decree No. 1096",
+      "National Building Code"
+    ],
+    "topic_tags": [
+      "law",
+      "primary-authority",
+      "regulation",
+      "pd-1096",
+      "building-code",
+      "philippines"
+    ],
+    "relationships": [
+      "implemented_by: irr-implementing-rules-and-regulations-of-the-national-building-code"
+    ]
+  },
+  "created_outputs": [
+    {
+      "page_type": "source",
+      "target_path": "003_Canonical-Knowledge-Layer/shared/sources/national-building-code-of-the-philippines.md",
+      "status": "written"
+    }
+  ],
+  "warnings": []
+}

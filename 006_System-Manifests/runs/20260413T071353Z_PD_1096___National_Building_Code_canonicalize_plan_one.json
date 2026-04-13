@@ -1,0 +1,22 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-13T07:13:53.192216+00:00",
+  "input": {
+    "relative_markdown_path": "001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code.md",
+    "absolute_path": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius\\002_Raw-Conversion-Layer\\001-Laws\\raw_markdown\\PD-1096\\PD 1096 - National Building Code.md"
+  },
+  "classification": {
+    "source_type": "law",
+    "trust_level": "primary"
+  },
+  "normalized": {
+    "title": "PD 1096 - National Building Code"
+  },
+  "proposed_outputs": [
+    {
+      "page_type": "source",
+      "target_path": "003_Canonical-Knowledge-Layer/shared/sources/pd-1096-national-building-code.md"
+    }
+  ],
+  "warnings": []
+}
