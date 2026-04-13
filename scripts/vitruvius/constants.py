@@ -1,0 +1,6 @@
+RAW_LAYER_NAME = "001_Raw-Source-Layer"
+CONVERSION_LAYER_NAME = "002_Raw-Conversion-Layer"
+MANIFESTS_NAME = "006_System-Manifests"
+TREE_SNAPSHOTS_NAME = "tree-snapshots"
+REGISTRIES_NAME = "registries"
+RUNS_NAME = "runs"
