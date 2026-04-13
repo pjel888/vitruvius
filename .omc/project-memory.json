@@ -1,0 +1,133 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1776090932807,
+  "projectRoot": "C:\\Users\\Philip Lewis\\Desktop\\Vitruvius",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "docs",
+      "scripts"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "001_Raw-Source-Layer": {
+      "path": "001_Raw-Source-Layer",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776090932797,
+      "keyFiles": []
+    },
+    "002_Raw-Conversion-Layer": {
+      "path": "002_Raw-Conversion-Layer",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776090932797,
+      "keyFiles": []
+    },
+    "003_Canonical-Knowledge-Layer": {
+      "path": "003_Canonical-Knowledge-Layer",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776090932798,
+      "keyFiles": []
+    },
+    "004_Derived-Content-Layer": {
+      "path": "004_Derived-Content-Layer",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776090932798,
+      "keyFiles": []
+    },
+    "005_Operational-Intelligence-Layer": {
+      "path": "005_Operational-Intelligence-Layer",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776090932798,
+      "keyFiles": []
+    },
+    "006_System-Manifests": {
+      "path": "006_System-Manifests",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1776090932798,
+      "keyFiles": []
+    },
+    "config": {
+      "path": "config",
+      "purpose": "Configuration files",
+      "fileCount": 1,
+      "lastAccessed": 1776090932798,
+      "keyFiles": [
+        "vitruvius.yaml"
+      ]
+    },
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 7,
+      "lastAccessed": 1776090932799,
+      "keyFiles": [
+        "CANONICALIZATION_AUTOMATION_WORKFLOW.md",
+        "CANONICALIZATION_RULES.md",
+        "CANONICAL_FRONTMATTER_TEMPLATE.md",
+        "CANONICAL_ID_STANDARD.md",
+        "CONTENT_RULES.md"
+      ]
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 6,
+      "lastAccessed": 1776090932799,
+      "keyFiles": [
+        "pipeline_cli.py",
+        "test_odl_one.py",
+        "test_pdf_text_detection.py",
+        "Word-PPT-To-PDF.py"
+      ]
+    },
+    "005_Operational-Intelligence-Layer\\models": {
+      "path": "005_Operational-Intelligence-Layer\\models",
+      "purpose": "Data models",
+      "fileCount": 0,
+      "lastAccessed": 1776090932800,
+      "keyFiles": []
+    },
+    "006_System-Manifests\\migrations": {
+      "path": "006_System-Manifests\\migrations",
+      "purpose": "Database migrations",
+      "fileCount": 1,
+      "lastAccessed": 1776090932800,
+      "keyFiles": [
+        "id_migration_map.yaml"
+      ]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}
