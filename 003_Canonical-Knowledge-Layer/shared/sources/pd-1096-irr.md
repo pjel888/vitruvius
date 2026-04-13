@@ -1,5 +1,5 @@
 ---
-id: laws-pd1096-irr
+id: irr-implementing-rules-and-regulations-of-the-national-building-code
 title: Implementing Rules and Regulations of the National Building Code
 page_type: source
 category: 001-Laws
@@ -27,7 +27,7 @@ trust_level: primary
 canonical_status: draft
 last_canonicalized_utc: 2026-04-13T00:00:00Z
 relationships:
-  - implements: laws-pd1096-national-building-code
+  - implements: law-national-building-code-of-the-philippines
 ---
 
 # Implementing Rules and Regulations of the National Building Code

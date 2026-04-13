@@ -19,8 +19,8 @@ trust_level: primary
 canonical_status: draft
 last_canonicalized_utc: 2026-04-13T00:00:00Z
 relationships:
-  - part_of: laws-occupancy-classification
-  - defined_in: laws-pd1096-irr
+  - part_of: concept-occupancy-classification
+  - defined_in: irr-implementing-rules-and-regulations-of-the-national-building-code
 ---
 
 # Occupancy

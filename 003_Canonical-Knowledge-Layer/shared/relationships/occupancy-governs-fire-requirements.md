@@ -19,7 +19,7 @@ trust_level: primary
 canonical_status: draft
 last_canonicalized_utc: 2026-04-13T00:00:00Z
 relationship_type: governs
-from_entity: laws-occupancy-classification
+from_entity: concept-occupancy-classification
 to_entity: fire-resistive-construction
 ---
 
