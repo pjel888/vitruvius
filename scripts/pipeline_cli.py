@@ -3,16 +3,20 @@ from __future__ import annotations
 import argparse
 
 from vitruvius.canonicalize import run_canonicalize_one, run_canonicalize_plan_one
+from vitruvius.concepts import run_canonicalize_concept_one
 from vitruvius.conversion import run_convert, run_convert_one
 from vitruvius.detection import run_detect_one
 from vitruvius.linting import run_lint
+from vitruvius.migrations import run_migrate_ids_apply, run_migrate_ids_plan
 from vitruvius.ocr import run_ocr_execute, run_ocr_queue
+from vitruvius.ollama_review import run_review_relationships_ollama
 from vitruvius.reconcile import run_reconcile
+from vitruvius.relationships import run_extract_relationships_one
+from vitruvius.relationships_sections import run_extract_relationships_sections_one
 from vitruvius.scanner import run_scan
 from vitruvius.spreadsheets import run_convert_spreadsheet_one
 from vitruvius.status import run_status
-from vitruvius.concepts import run_canonicalize_concept_one
-from vitruvius.migrations import run_migrate_ids_plan
+
 
 def run_pipeline() -> int:
     scan_code = run_scan()
@@ -38,6 +42,7 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("ocr-queue")
     subparsers.add_parser("run")
     subparsers.add_parser("migrate-ids-plan")
+    subparsers.add_parser("migrate-ids-apply")
 
     detect_parser = subparsers.add_parser("detect-one")
     detect_parser.add_argument("relative_pdf_path")
@@ -62,6 +67,16 @@ def build_parser() -> argparse.ArgumentParser:
 
     concept_parser = subparsers.add_parser("canonicalize-concept-one")
     concept_parser.add_argument("concept_name")
+
+    rel_parser = subparsers.add_parser("extract-relationships-one")
+    rel_parser.add_argument("relative_markdown_path")
+
+    sec_parser = subparsers.add_parser("extract-relationships-sections-one")
+    sec_parser.add_argument("relative_markdown_path")
+
+    review_parser = subparsers.add_parser("review-relationships-ollama")
+    review_parser.add_argument("--model", default="gemma4:31b")
+    review_parser.add_argument("--timeout-seconds", type=int, default=600)
 
     return parser
 
@@ -131,6 +146,25 @@ def main() -> int:
 
     if args.command == "migrate-ids-plan":
         return run_migrate_ids_plan()
+
+    if args.command == "migrate-ids-apply":
+        return run_migrate_ids_apply()
+
+    if args.command == "extract-relationships-one":
+        return run_extract_relationships_one(
+            relative_markdown_path=args.relative_markdown_path,
+        )
+
+    if args.command == "extract-relationships-sections-one":
+        return run_extract_relationships_sections_one(
+            relative_markdown_path=args.relative_markdown_path,
+        )
+
+    if args.command == "review-relationships-ollama":
+        return run_review_relationships_ollama(
+            model=args.model,
+            timeout_seconds=args.timeout_seconds,
+        )
 
     parser.print_help()
     return 1
