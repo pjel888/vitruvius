@@ -2,15 +2,15 @@
 plan_id: statistical-architectural-upgrade
 phase: "cross-phase (touches 1A → 12)"
 title: Statistical & Architectural Intelligence Upgrade
-status: in-progress — Streams A + B + D.1 CLOSED 2026-04-14
+status: in-progress — Streams A + B + C + D CLOSED 2026-04-14
 priority: highest
-sprint: "Sprint D — Streams A, B, D.1 CLOSED; D.2-D.4 + C + E-K pending"
-version: 1.0.2
+sprint: "Sprint D — Streams A, B, C, D CLOSED; Streams E-K pending"
+version: 1.0.3
 stream_progress:
   A_bootstrap_merkle_features: closed (7 tasks — A1a, A1b, A2, A5, A6, A7 shipped; A3, A4 won't-fix rationale in A5 commit)
-  B_ingestion_intelligence: closed (4 tasks — B.1 Shannon, B.2 Shannon integration, B.3 Table-to-Graph CSV, B.3.1 XLSX wrapper, B.4 Parametric NER shipped)
-  C_normalization_tier_c: pending
-  D_concept_enrichment_v2: partial (D.1 TF-IDF matcher shipped; D.2 PMI aliases, D.3 FCA lattice, D.4 contrastive adapter pending)
+  B_ingestion_intelligence: closed (5 tasks — B.1 Shannon, B.2 Shannon integration, B.3 Table-to-Graph CSV, B.3.1 XLSX wrapper, B.4 Parametric NER shipped)
+  C_normalization_tier_c: closed (4 tasks — C.1 Jaro-Winkler OCR, C.2 AST chunker, C.3 hybrid embedding chunker, C.4 Mahalanobis outlier detector shipped)
+  D_concept_enrichment_v2: closed (4 tasks — D.1 TF-IDF matcher, D.2 PMI alias miner, D.3 FCA lattice, D.4 contrastive whitening adapter shipped)
   E_extraction_v2: pending
   F_review_v2: pending
   G_promotion_v2: pending
