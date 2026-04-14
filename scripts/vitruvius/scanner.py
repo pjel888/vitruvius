@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import hashlib
-from dataclasses import asdict
+from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
 from .constants import RAW_LAYER_NAME
+from .features import Features
+from .merkle import DirectoryHashRecord, calculate_directory_hash
 from .models import FileEntry
 from .paths import ensure_registry_dir, ensure_snapshot_dir, get_repo_root
 from .reports import write_csv, write_json, write_text
@@ -118,3 +120,65 @@ def run_scan() -> int:
     print(f"Latest CSV registry: {latest_csv}")
 
     return 0
+
+
+# ---------------------------------------------------------------------------
+# Stream A (Sprint D) Task A6 — feature-flag-gated Merkle scan path.
+#
+# Additive entry point. Does not modify the existing run_scan path; with
+# features.a_merkle_hash set to false this function returns a sentinel
+# without touching the filesystem. Callers (new CLI subcommands, future
+# status.py fast-skip, etc.) opt in by passing a Features instance.
+#
+# See .ai/03_plans/statistical-architectural-upgrade-plan.md §5 for
+# the full rationale and the non-breaking contract.
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class MerkleScanResult:
+    """Result of a feature-flag-gated Merkle scan.
+
+    Attributes
+    ----------
+    root_hash:
+        The SHA-256 of the Merkle rollup, or the empty string if the
+        feature flag is disabled.
+    record:
+        The full ``DirectoryHashRecord`` when the flag is on, or
+        ``None`` when the flag is off.
+    """
+
+    root_hash: str
+    record: DirectoryHashRecord | None
+
+
+def scan_with_merkle(
+    *,
+    root: Path,
+    features: Features,
+    registry_path: Path | None = None,
+) -> MerkleScanResult:
+    """Compute the Merkle directory hash for ``root`` if the flag is on.
+
+    When ``features.a_merkle_hash`` is false, returns an empty sentinel
+    and performs no filesystem work. When it is true, computes the hash
+    via ``calculate_directory_hash`` and, if ``registry_path`` is given,
+    writes a deterministic ``relative_path,hash`` CSV with one row per
+    directory (sorted alphabetically, root first via ``.``).
+
+    This function never reads or writes any existing scanner artifacts
+    (raw_file_registry, raw_tree_snapshot). It is strictly additive.
+    """
+    if not features.is_enabled("a_merkle_hash"):
+        return MerkleScanResult(root_hash="", record=None)
+
+    record = calculate_directory_hash(root)
+
+    if registry_path is not None:
+        lines = ["relative_path,hash"]
+        for rel in sorted(record.per_directory):
+            lines.append(f"{rel},{record.per_directory[rel]}")
+        registry_path.write_text("\n".join(lines) + "\n")
+
+    return MerkleScanResult(root_hash=record.root_hash, record=record)
