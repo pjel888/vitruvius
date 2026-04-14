@@ -2,10 +2,22 @@
 plan_id: statistical-architectural-upgrade
 phase: "cross-phase (touches 1A → 12)"
 title: Statistical & Architectural Intelligence Upgrade
-status: planned
+status: in-progress — Stream A CLOSED 2026-04-14
 priority: highest
-sprint: "Sprint D — activates after Sprint C Phase 1B Foundation closes (which is true as of 2026-04-14)"
-version: 1.0.0
+sprint: "Sprint D — Stream A (Bootstrap + Merkle + Features) CLOSED; Streams B-K pending"
+version: 1.0.1
+stream_progress:
+  A_bootstrap_merkle_features: closed (7 tasks — A1a, A1b, A2, A5, A6, A7 shipped; A3, A4 won't-fix rationale in A5 commit)
+  B_ingestion_intelligence: pending
+  C_normalization_tier_c: pending
+  D_concept_enrichment_v2: pending
+  E_extraction_v2: pending
+  F_review_v2: pending
+  G_promotion_v2: pending
+  H_graph_intelligence: pending
+  I_query_v2: pending
+  J_active_learning: pending
+  K_clup_scaling: pending
 plan_type: implementation_tdd
 created: 2026-04-14
 last_updated: 2026-04-14
