@@ -10,6 +10,7 @@ from vitruvius.linting import run_lint
 from vitruvius.migrations import run_migrate_ids_apply, run_migrate_ids_plan
 from vitruvius.ocr import run_ocr_execute, run_ocr_queue
 from vitruvius.ollama_review import run_review_relationships_ollama
+from vitruvius.promotion import run_promote
 from vitruvius.reconcile import run_reconcile
 from vitruvius.relationships import run_extract_relationships_one
 from vitruvius.relationships_sections import run_extract_relationships_sections_one
@@ -77,6 +78,13 @@ def build_parser() -> argparse.ArgumentParser:
     review_parser = subparsers.add_parser("review-relationships-ollama")
     review_parser.add_argument("--model", default="gemma4:31b")
     review_parser.add_argument("--timeout-seconds", type=int, default=600)
+
+    promote_parser = subparsers.add_parser("promote")
+    promote_parser.add_argument("--execute", action="store_true",
+                                help="Write changes (default: dry-run)")
+    promote_parser.add_argument("--rollback", dest="rollback_batch_id",
+                                default=None,
+                                help="Rollback the given promotion batch ID")
 
     return parser
 
@@ -164,6 +172,12 @@ def main() -> int:
         return run_review_relationships_ollama(
             model=args.model,
             timeout_seconds=args.timeout_seconds,
+        )
+
+    if args.command == "promote":
+        return run_promote(
+            execute=args.execute,
+            rollback_batch_id=args.rollback_batch_id,
         )
 
     parser.print_help()
