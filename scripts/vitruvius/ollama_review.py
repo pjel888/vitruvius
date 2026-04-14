@@ -7,14 +7,18 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+from .config import (
+    get_ollama_default_model,
+    get_ollama_default_timeout,
+    get_ollama_url,
+)
 from .paths import get_repo_root
 from .reports import write_json, write_text
 from .utils import utc_now_stamp
 
 
-OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
-DEFAULT_MODEL = "gemma4:31b"
-DEFAULT_TIMEOUT_SECONDS = 600
+DEFAULT_MODEL = get_ollama_default_model()
+DEFAULT_TIMEOUT_SECONDS = get_ollama_default_timeout()
 
 
 def load_relationship_report() -> dict[str, Any]:
@@ -75,8 +79,10 @@ def call_ollama(prompt: str, model: str, timeout_seconds: int) -> str:
     }
 
     data = json.dumps(body).encode("utf-8")
+    base_url = get_ollama_url().rstrip("/")
+    endpoint = f"{base_url}/api/generate"
     request = urllib.request.Request(
-        OLLAMA_URL,
+        endpoint,
         data=data,
         headers={"Content-Type": "application/json"},
         method="POST",
@@ -87,7 +93,7 @@ def call_ollama(prompt: str, model: str, timeout_seconds: int) -> str:
             raw = response.read().decode("utf-8")
     except urllib.error.URLError as exc:
         raise RuntimeError(
-            "Failed to reach Ollama at http://127.0.0.1:11434. "
+            f"Failed to reach Ollama at {endpoint}. "
             "Make sure Ollama is running and the model is available."
         ) from exc
 
