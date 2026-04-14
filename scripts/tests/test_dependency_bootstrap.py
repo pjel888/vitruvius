@@ -29,3 +29,27 @@ CORE_PACKAGES = [
 @pytest.mark.parametrize("pkg", CORE_PACKAGES)
 def test_core_package_importable(pkg: str) -> None:
     importlib.import_module(pkg)
+
+
+# A1b — heavy ML stack (large, pulls torch; installs in minutes).
+HEAVY_PACKAGES = [
+    "spacy",
+    "sentence_transformers",
+]
+
+
+@pytest.mark.parametrize("pkg", HEAVY_PACKAGES)
+def test_heavy_package_importable(pkg: str) -> None:
+    importlib.import_module(pkg)
+
+
+def test_spacy_english_model_loadable() -> None:
+    """The en_core_web_sm model is downloaded and loads without network."""
+    import spacy
+
+    # This fails with OSError if the model is not downloaded. Do not
+    # auto-download in the test — downloads belong in requirements setup.
+    nlp = spacy.load("en_core_web_sm")
+    # Sanity: the model should tag a simple sentence with a ROOT.
+    doc = nlp("The building code requires a permit.")
+    assert any(tok.dep_ == "ROOT" for tok in doc)

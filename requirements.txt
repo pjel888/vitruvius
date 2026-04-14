@@ -18,3 +18,12 @@ python-crfsuite>=0.9.10,<1.0
 networkx>=3.2,<4.0
 python-louvain>=0.16,<1.0
 POT>=0.9.4,<1.0
+
+# Stream A (Sprint D) — heavy ML stack: spaCy for dependency parsing
+# (Stream E.1 SVO extraction), sentence-transformers for hybrid semantic
+# chunking (Stream C.3), Mahalanobis outlier (Stream C.4), and contrastive
+# embedding adapter (Stream D.4). sentence-transformers transitively pulls
+# PyTorch CPU-only — ~1GB disk, ~400MB RAM when loaded. After install,
+# run: python3 -m spacy download en_core_web_sm
+spacy>=3.7,<4.0
+sentence-transformers>=2.7,<6.0
