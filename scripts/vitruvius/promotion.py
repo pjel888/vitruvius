@@ -2,8 +2,30 @@ from __future__ import annotations
 
 import hashlib
 import re
+from dataclasses import dataclass
+from pathlib import Path
 
 from .utils import utc_now_stamp
+
+
+@dataclass
+class AuditEntry:
+    batch_id: str
+    record_id: str
+    action: str  # "created" | "merged" | "rejected" | "rolled_back"
+    path: str
+    detail: str
+
+
+def append_audit_entry(log_path: Path, entry: AuditEntry) -> None:
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    stamp = utc_now_stamp()
+    line = (
+        f"{stamp}\t{entry.batch_id}\t{entry.action}\t{entry.record_id}\t"
+        f"{entry.path}\t{entry.detail}\n"
+    )
+    with log_path.open("a", encoding="utf-8") as f:
+        f.write(line)
 
 
 _SLUG_NON_ALNUM = re.compile(r"[^a-z0-9]+")
