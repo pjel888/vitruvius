@@ -373,8 +373,10 @@ def run_review_relationships_ollama(
     model: str = DEFAULT_MODEL,
     timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS,
     parallelism: int | None = None,
+    skip_pre_review_filter: bool = False,
 ) -> int:
     from .config import get_ollama_default_parallelism
+    from .pre_review_filter import triage_candidates
 
     if parallelism is None:
         parallelism = get_ollama_default_parallelism()
@@ -383,21 +385,54 @@ def run_review_relationships_ollama(
     runs_dir.mkdir(parents=True, exist_ok=True)
 
     extraction_report = load_relationship_report()
-    candidates = extraction_report.get("relationships", [])
+    raw_candidates = extraction_report.get("relationships", [])
     source = extraction_report.get("source", "")
 
-    if not candidates:
+    if not raw_candidates:
         print("review-relationships-ollama complete.")
         print("No candidate relationships found to review.")
         save_progress_report(
             runs_dir=runs_dir,
             model=model,
             source=source,
-            candidates=candidates,
+            candidates=raw_candidates,
             reviews=[],
             status="completed",
         )
         return 0
+
+    # Pre-review triage: sort candidates into auto_accept / auto_reject /
+    # needs_review buckets using deterministic rules. Only needs_review goes
+    # to the LLM. Auto-accept and auto-reject are recorded so downstream can
+    # use them without burning LLM cycles.
+    if skip_pre_review_filter:
+        candidates = raw_candidates
+        triaged_buckets: dict[str, list[dict[str, Any]]] = {
+            "auto_accept": [],
+            "auto_reject": [],
+            "needs_review": raw_candidates,
+        }
+    else:
+        triaged_buckets = triage_candidates(raw_candidates)
+        candidates = triaged_buckets["needs_review"]
+        print(f"Pre-review triage:")
+        print(f"  auto_accept:  {len(triaged_buckets['auto_accept'])}")
+        print(f"  auto_reject:  {len(triaged_buckets['auto_reject'])}")
+        print(f"  needs_review: {len(triaged_buckets['needs_review'])}")
+        print("")
+        # Write the triage buckets so Phase 7 promotion and audits can see them.
+        triage_path = runs_dir / "latest_pre_review_triage.json"
+        write_json(triage_path, {
+            "generated_at": utc_now_stamp(),
+            "source": source,
+            "total_candidates": len(raw_candidates),
+            "auto_accept_count": len(triaged_buckets["auto_accept"]),
+            "auto_reject_count": len(triaged_buckets["auto_reject"]),
+            "needs_review_count": len(triaged_buckets["needs_review"]),
+            "buckets": triaged_buckets,
+        })
+        print(f"Triage report: {triage_path}")
+        print("")
 
     resume_state = load_resume_state(runs_dir)
     if resume_state["status"] == "in_progress" and resume_state["reviews"]:
@@ -484,16 +519,50 @@ def run_review_relationships_ollama(
         status="completed",
     )
 
+    # Synthesize LLM-equivalent review items for the auto-accepted candidates
+    # so they flow into the same downstream consumers (high-confidence writer,
+    # Phase 7 promotion) without burning LLM cycles. Each gets a synthetic
+    # review with source="pre_review_filter" so auditors can tell them apart.
+    synthetic_reviews = []
+    for bucket_name, synthetic_decision in (("auto_accept", "keep"), ("auto_reject", "reject")):
+        for cand in triaged_buckets.get(bucket_name, []):
+            triage = cand.get("triage", {})
+            # Strip the triage metadata from the embedded candidate so the
+            # downstream schema stays identical to an LLM-reviewed item.
+            cand_clean = {k: v for k, v in cand.items() if k != "triage"}
+            synthetic_reviews.append({
+                "candidate": cand_clean,
+                "review": {
+                    "decision": synthetic_decision,
+                    "confidence": float(triage.get("confidence", 0.95)),
+                    "reason": "pre_review_filter: " + "; ".join(triage.get("reasons", [])),
+                    "suggested_type": None,
+                    "source": "pre_review_filter",
+                },
+            })
+
+    all_reviews = synthetic_reviews + reviews
+
     final_report = {
         "generated_at": utc_now_stamp(),
         "model": model,
         "source": source,
-        "total_candidates": len(candidates),
-        "completed_reviews": len(reviews),
+        "total_candidates": len(raw_candidates),
+        "llm_reviewed": len(reviews),
+        "pre_review_auto_accepted": len(triaged_buckets.get("auto_accept", [])),
+        "pre_review_auto_rejected": len(triaged_buckets.get("auto_reject", [])),
+        "completed_reviews": len(all_reviews),
         "status": "completed",
-        "summary": summarize_reviews(reviews),
-        "reviews": reviews,
+        "summary": summarize_reviews(all_reviews),
+        "reviews": all_reviews,
     }
+    # Overwrite the review JSON with the triage-aware final report. The
+    # save_progress_report calls during the loop wrote the LLM-only view
+    # for resume safety; this final write adds the synthesized auto-accept
+    # and auto-reject reviews so Phase 7 promotion sees the full picture.
+    write_json(runs_dir / "latest_relationship_review_ollama.json", final_report)
+    write_text(runs_dir / "latest_relationship_review_ollama.txt", build_text_report(final_report))
+
     high_conf_path = write_high_confidence_review(final_report, runs_dir)
 
     print("")
