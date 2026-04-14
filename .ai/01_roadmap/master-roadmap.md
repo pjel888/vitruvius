@@ -199,7 +199,7 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 | 4. Identity Cleanup | Complete | Complete for text replacement; migration map maintained manually | ✅ **COMPLETE** | `codebase-roadmap-audit.md` |
 | 5. Relationship Extraction | Complete (Section-Aware) | Regex-based; section-aware variant exists; **82% rejection rate** at review; technically "primitive" | 🟡 **PARTIAL (regex-grade)** | `extraction-audit.md` §10 |
 | 6A. Local LLM Review | Complete ✅ | **Gap-closed 2026-04-14** — config-driven URL, high-confidence writer, bounded retries with wall-clock cap, resume-from-in-progress, opt-in parallelization, `run-with-review` composite command. Second-pass (6B) remains separate. | ✅ **COMPLETE** | `phase-6a-review-gap-closure-plan.md` (archived) |
-| 6B. Second-Pass Review | Planned | Not started | 📝 **PLANNED** | — |
+| 6B. Second-Pass Review | Planned | **Complete 2026-04-14** — `review_routing.py` (entry criteria + decision table), `ollama_review_second_pass.py` (orchestrator + agreement matrix + human worklist), CLI `review-relationships-ollama-second-pass`. End-to-end smoke-tested on real PD 1096 with `gemma4:e4b` as Tier-2 (qwen3:30b not pulled locally). | ✅ **COMPLETE** | `phase-6b-second-pass-review-plan.md` (archived) |
 | 7. Promotion Governance | Not implemented | Not started; no code in `scripts/vitruvius/` | ✅ **COMPLETE (2026-04-14)** | First batch promoted on PD 1096; 43/43 tests pass; idempotency + rollback verified |
 | 8. Graph Contract & Indexing | Not implemented | Not started | ❌ **NOT STARTED** | — |
 | 9. Query & AI Layer | Not implemented | Not started | ❌ **NOT STARTED** | — |

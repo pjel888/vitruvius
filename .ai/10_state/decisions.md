@@ -109,6 +109,20 @@
 - **Decision:** Dedup candidates by `(from, to)` in `relationships_sections.dedupe_by_endpoints` after aggregation. The surviving candidate carries the highest-occurrence predicate (tie-broken by `PREDICATE_PRIORITY` order: `governs > defines > requires > depends_on > limits > affects > supersedes`). Sections and examples from all siblings are merged into the survivor.
 - **Consequence:** Directly cuts candidate volume by up to 5×. Review layer no longer wastes cycles on predicate variants. The true Phase 1C rejection-rate impact becomes measurable because the extraction is no longer the dominant noise source.
 
+## AD-016: Registry-Aware Extractor Dedup
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** The first post-dedup experiment showed the priority-only picker could select a predicate whose `(subject_type, object_type)` was incompatible with the registry (e.g., `defines` for a concept→concept edge requires a source subject). That single bad pick lost 3 would-be valid concept→concept promotions. The dedup was correct in spirit (collapse 5 variants to 1) but wrong in implementation (priority ignored compatibility).
+- **Decision:** Extend `dedupe_by_endpoints` to infer `(from_type, to_type)` from canonical ID prefixes and prefer predicates whose compatibility pair is in the registry. Fall back to priority-only when no predicate in the group is compatible (so Rule 7 can report the real problem downstream instead of silently discarding).
+- **Consequence:** The dedup now picks `requires` for concept→concept edges (compatible) instead of `defines` (incompatible). Real-data rerun confirmed zero Rule 7 rejections from the dedup's choices. The helper `_infer_entity_type` is a prefix-based shortcut — a more robust version would load the canonical index, but prefix inference is sufficient for the current ID conventions.
+
+## AD-017: Phase 6B Second-Pass Review
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** The dedup exposed that Tier-1 review still leaves `review_further` candidates with insufficient signal. Phase 6B adds a Tier-2 adjudicator that runs only on the uncertain subset.
+- **Decision:** Implement `select_for_second_pass` (entry-criteria filter) + `route_adjudication` (decision table) + `ollama_review_second_pass.run_second_pass_inner` (orchestrator with graceful Ollama fallback). The Tier-2 prompt matches `.ai/08_prompts/qwen-second-pass.txt` byte-for-byte. Outputs: `latest_relationship_review_merged.json` (with agreement matrix) and `latest_human_escalation_worklist.json`.
+- **Consequence:** The full two-stage adjudication pipeline is shipping. Only uncertain Tier-1 decisions go to Tier-2, bounding compute cost. A small real-data smoke test on PD 1096 (9 Tier-1 candidates → 2 routed → 1 suppress, 1 human_review) validated the end-to-end flow. Full calibration awaits pulling `qwen3:30b` for architectural-diversity adjudication.
+
 ## AD-015: Lazy CLI Imports
 - **Date:** 2026-04-14
 - **Status:** Implemented
