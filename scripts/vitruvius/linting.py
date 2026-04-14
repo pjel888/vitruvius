@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from dataclasses import dataclass
 from datetime import datetime, timezone
 
 from pathlib import Path
@@ -8,6 +9,71 @@ from pathlib import Path
 from .paths import ensure_registry_dir, ensure_runs_dir, get_repo_root
 from .reports import read_csv_entries, write_json, write_text
 from .utils import utc_now_stamp
+
+
+@dataclass(frozen=True)
+class LintIssue:
+    """Stream W3.2 — structured lint finding emitted by concept file checks."""
+    code: str
+    path: str
+    message: str
+
+
+_ALLOWED_STRINGENCY = {"maximize", "minimize", "qualitative"}
+
+
+def _load_frontmatter(path: Path) -> dict | None:
+    import yaml
+    text = path.read_text(encoding="utf-8")
+    if not text.startswith("---"):
+        return None
+    end = text.find("\n---", 3)
+    if end == -1:
+        return None
+    try:
+        fm = yaml.safe_load(text[3:end].strip())
+    except yaml.YAMLError:
+        return None
+    return fm if isinstance(fm, dict) else None
+
+
+def lint_concept_file(path: Path) -> list[LintIssue]:
+    """Stream W3.2 — check a single concept file for stringency_vector.
+
+    Emits:
+      - ``missing_frontmatter`` when the file has no parseable frontmatter
+      - ``missing_stringency_vector`` when the field is absent
+      - ``invalid_stringency_vector`` when the value is not in
+        {"maximize", "minimize", "qualitative"}
+    """
+    fm = _load_frontmatter(path)
+    if fm is None:
+        return [LintIssue(
+            code="missing_frontmatter",
+            path=str(path),
+            message="no parseable frontmatter",
+        )]
+    issues: list[LintIssue] = []
+    vector = fm.get("stringency_vector")
+    if vector is None:
+        issues.append(LintIssue(
+            code="missing_stringency_vector",
+            path=str(path),
+            message=(
+                f"concept {fm.get('id')!r} missing stringency_vector "
+                "(allowed: maximize, minimize, qualitative)"
+            ),
+        ))
+    elif vector not in _ALLOWED_STRINGENCY:
+        issues.append(LintIssue(
+            code="invalid_stringency_vector",
+            path=str(path),
+            message=(
+                f"concept {fm.get('id')!r} has invalid "
+                f"stringency_vector={vector!r}"
+            ),
+        ))
+    return issues
 
 
 def _filename_dedup_key(name: str) -> str:
