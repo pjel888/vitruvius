@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "spatial_context_id": "spatial-residential-01",
+  "generated_at_utc": "2026-04-15T09:00:00Z",
+  "source_daemon": "spatial-daemon@0.1.0",
+  "instances": [
+    {
+      "instance_id": "instance-egress-corridor-01",
+      "canonical_concept_id": "concept-means-of-egress",
+      "bounding_box": {"min": [0.0, 0.0, 0.0], "max": [10.0, 1.1, 2.4]}
+    },
+    {
+      "instance_id": "instance-fire-door-01",
+      "canonical_concept_id": "concept-doors-and-exits",
+      "bounding_box": {"min": [5.0, 0.0, 0.0], "max": [5.9, 0.1, 2.1]}
+    },
+    {
+      "instance_id": "instance-setback-front",
+      "canonical_concept_id": "concept-setbacks",
+      "bounding_box": {"min": [-3.0, 0.0, 0.0], "max": [0.0, 1.0, 3.0]}
+    }
+  ],
+  "spatial_edges": [
+    {
+      "source_instance": "instance-egress-corridor-01",
+      "predicate": "spatial_clearance",
+      "target_instance": "instance-fire-door-01",
+      "value": 1.1,
+      "unit": "meters"
+    },
+    {
+      "source_instance": "instance-egress-corridor-01",
+      "predicate": "spatial_contains",
+      "target_instance": "instance-fire-door-01"
+    }
+  ]
+}
