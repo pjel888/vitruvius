@@ -4,6 +4,7 @@
     {
       "evidence_id": "rel-pd-1096-governs-building-permit",
       "from_id": "law-pd-1096",
+      "is_governing_standard": null,
       "status": "unverified",
       "to_id": "concept-building-permit",
       "type": "governs"

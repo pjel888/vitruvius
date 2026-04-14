@@ -47,6 +47,10 @@ class GraphEdge:
     type: str
     evidence_id: str
     status: str
+    # Stream W3.4 — None means "unset / legacy edge"; True means this edge
+    # won a stringency resolver contest; False means it lost and another
+    # edge for the same (predicate, from, to) triplet is authoritative.
+    is_governing_standard: bool | None = None
 
 
 @dataclass

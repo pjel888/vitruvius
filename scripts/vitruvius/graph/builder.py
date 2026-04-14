@@ -144,12 +144,18 @@ def walk_relationships(relationships_dir: Path) -> list[GraphEdge]:
         if not (isinstance(from_id, str) and isinstance(to_id, str) and isinstance(predicate, str)):
             continue
         edge_status = "verified" if status_raw == "verified" else "unverified"
+        governing = fm.get("is_governing_standard")
+        if isinstance(governing, bool):
+            governing_value: bool | None = governing
+        else:
+            governing_value = None
         edge = GraphEdge(
             from_id=from_id,
             to_id=to_id,
             type=predicate,
             evidence_id=evidence_id,
             status=edge_status,
+            is_governing_standard=governing_value,
         )
         try:
             validate_edge(edge)
