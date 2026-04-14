@@ -84,37 +84,32 @@ def min_confidence(evidence: list[dict]) -> float:
     return min(scores) if scores else 0.0
 
 
-def _yaml_scalar(value) -> str:
-    if value is None:
-        return "null"
-    if isinstance(value, bool):
-        return "true" if value else "false"
-    if isinstance(value, (int, float)):
-        return str(value)
-    s = str(value)
-    if any(c in s for c in ':#"\'\n') or s == "":
-        return '"' + s.replace('"', '\\"') + '"'
-    return s
-
-
 def _render_frontmatter(record: dict) -> str:
+    """Render the record as YAML frontmatter with stable key ordering.
+
+    Uses yaml.safe_dump rather than a hand-rolled emitter so the output is
+    strict-round-trip-safe: load→render→load yields identical strings.
+    """
     ordered_keys = [
         "id", "title", "page_type", "relationship_type",
         "from_entity", "to_entity", "trust_level", "canonical_status",
         "confidence_score", "promotion_batch_id", "promotion_audit_log_ref",
         "last_promoted_utc",
     ]
-    lines = ["---"]
+    ordered: dict = {}
     for k in ordered_keys:
         if k in record:
-            lines.append(f"{k}: {_yaml_scalar(record[k])}")
-    lines.append("evidence:")
-    for entry in record.get("evidence", []):
-        lines.append("  -")
-        for ek, ev in entry.items():
-            lines.append(f"    {ek}: {_yaml_scalar(ev)}")
-    lines.append("---")
-    return "\n".join(lines)
+            ordered[k] = record[k]
+    ordered["evidence"] = record.get("evidence", [])
+
+    body = yaml.safe_dump(
+        ordered,
+        sort_keys=False,
+        default_flow_style=False,
+        allow_unicode=True,
+        width=1000000,  # no line wrapping — keep snippets on one logical line
+    )
+    return "---\n" + body.rstrip() + "\n---"
 
 
 def _render_body(record: dict) -> str:
