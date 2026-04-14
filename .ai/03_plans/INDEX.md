@@ -22,6 +22,7 @@ Each plan is a self-contained document keyed by a `plan_id` and a `phase` label 
 
 | Phase | Plan ID | Title | Status | Sprint | Type | File |
 |---|---|---|---|---|---|---|
+| 1A→12 | `statistical-architectural-upgrade` | **Statistical & Architectural Intelligence Upgrade** | 📝 Planned (highest priority) | Sprint D onwards | implementation_tdd | [statistical-architectural-upgrade-plan.md](statistical-architectural-upgrade-plan.md) |
 | 1B | `phase-1b-multi-parser-integration` | Multi-Parser Integration | 🔥 In progress (Foundation shipped) | Sprint C | design_spec | [phase-1b-multi-parser-integration-plan.md](phase-1b-multi-parser-integration-plan.md) |
 | 1B↔1C | `contract-ingestion-refinement` | Ingestion → Refinement Handoff Contract | ❄️ Frozen | N/A | contract | [ingestion-refinement-contract.md](ingestion-refinement-contract.md) |
 | 1C | `phase-1c-centralized-normalization` | Centralized Normalization — Text Refinement Layer | ✅ MVP Complete (archived 2026-04-14) | Sprint B — closed MVP scope | design_spec | [../09_archive/plans/phase-1c-centralized-normalization-plan.md](../09_archive/plans/phase-1c-centralized-normalization-plan.md) |
@@ -38,26 +39,41 @@ Each plan is a self-contained document keyed by a `plan_id` and a `phase` label 
 
 ## Execution Order (Dependency-Correct)
 
+> **2026-04-14 update:** `statistical-architectural-upgrade` now takes precedence over all other plans per user directive (see its §1.2). Phases 8, 9, and 11 are *extended* by this plan, not replaced — their base MVPs ship first inside Streams H.0 and I.0.
+
 ```
-Sprint A (weeks 1-2, ACTIVE)
-  └── phase-7-promotion-governance          [HIGHEST PRIORITY]
-        └── depends on: phase-6a-review-gap-closure (minimal subset — Tasks 1-3 of Phase 7)
+Sprint A-C (CLOSED 2026-04-14)
+  ├── phase-7-promotion-governance          ✅ complete
+  ├── phase-1c-centralized-normalization    ✅ complete (MVP)
+  ├── phase-6a-review-gap-closure           ✅ complete
+  ├── phase-6b-second-pass-review           ✅ complete
+  ├── phase-2-canonicalizer-restoration     ✅ complete
+  ├── phase-3-concept-enrichment            ✅ 16/20 complete (4 deferred to Stream D)
+  └── phase-1b-multi-parser-integration     🔥 Foundation shipped (Modernization absorbed by Stream B)
 
-Sprint B (weeks 3-6)
-  ├── phase-1c-centralized-normalization    [shrinks 82% rejection rate]
-  └── phase-6a-review-gap-closure           [full gap closure: retry, resume, parallel]
+Sprint D — Statistical & Architectural Upgrade (weeks 1-5) 🔥 [HIGHEST PRIORITY]
+  ├── Stream A — Dependency Bootstrap + Merkle Hash + Feature Flags
+  ├── Stream B — Shannon Classifier + Table-to-Graph + Parametric NER
+  ├── Stream C — Tier C OCR + AST Chunker + Embedding Chunker + Mahalanobis
+  └── Stream D — TF-IDF + PMI + FCA + Contrastive Adapter
 
-Sprint C (weeks 7-12)
-  ├── phase-1b-multi-parser-integration     [hardens ingestion front-end]
-  ├── phase-6b-second-pass-review           [cross-model adjudication]
-  └── phase-2-canonicalizer-restoration     [structured section generation]
+Sprint E — Intelligence (weeks 6-11)
+  ├── Stream E — spaCy + CRF + KG Link Prediction
+  ├── Stream F — NB + SLM Swarm + Conformal + Choquet + Reflection + Ontology Prompting
+  └── Stream G — Bayesian Fusion + Stringency Matrix + Temporal Edges
 
-Post-Sprint C
-  └── phase-3-concept-enrichment            [20 placeholders → enriched]
+Sprint F — Graph & Query (weeks 12-18)
+  ├── Stream H — Phase 8 base + Centrality + Spectral + Community + MCMC + TDA + Wasserstein + Causal + Tensor
+  ├── Stream I — Phase 9 base + Ontology Translator + GraphRAG Router + MCMC Ranker + HMM
+  └── Stream J — Active Learning + Expected Model Change scoring
 
-Gated (do not start until prerequisites hold)
-  ├── phase-8-graph-contract-indexing       [after Phase 7 has >= 50 records]
-  └── phase-9-query-ai-layer                [after Phase 8 stable, >= 200 records]
+Sprint G — Scaling (weeks 19+, gated on second jurisdiction)
+  └── Stream K — Rosetta Stone + Precedence Router + Tensor activation
+
+Deferred (prerequisites outside Vitruvius)
+  ├── FUTURE-ML-01 — LoRA fine-tuning      (needs GPU)
+  ├── FUTURE-ML-02 — DPO pedagogical align (needs GPU + Ranger dashboard)
+  └── FUTURE-LRN-01 — Bayesian Knowledge Tracing (needs ILXP + learners)
 ```
 
 ## How to Consume a Plan
