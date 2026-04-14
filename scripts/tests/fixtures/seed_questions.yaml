@@ -1,0 +1,52 @@
+questions:
+  - q: "What governs building permits?"
+    expected_function: what_governs
+    expected_subject: concept-building-permit
+    expected_citation_count_min: 1
+    expected_source_ids: ["law-pd-1096"]
+
+  - q: "What governs occupancy classification?"
+    expected_function: what_governs
+    expected_subject: concept-occupancy-classification
+    expected_citation_count_min: 1
+    expected_source_ids: ["law-pd-1096"]
+
+  - q: "What does building permit require?"
+    expected_function: what_requires
+    expected_subject: concept-building-permit
+    expected_citation_count_min: 1
+
+  - q: "Which sections limit lot occupancy?"
+    expected_function: what_limits
+    expected_subject: concept-lot-occupancy
+    expected_citation_count_min: 1
+
+  - q: "What defines fire resistive construction?"
+    expected_function: what_defines
+    expected_subject: concept-fire-resistive-construction
+    expected_citation_count_min: 1
+
+  - q: "Which concepts depend on occupancy classification?"
+    expected_function: what_depends_on
+    expected_subject: concept-occupancy-classification
+    expected_citation_count_min: 1
+
+  - q: "What affects building permit?"
+    expected_function: what_affects
+    expected_subject: concept-building-permit
+    expected_citation_count_min: 1
+
+  - q: "What superseded pd 1096?"
+    expected_function: supersession_chain
+    expected_subject: law-pd-1096
+    expected_citation_count_min: 0
+
+  - q: "What is related to building permit?"
+    expected_function: neighbors
+    expected_subject: concept-building-permit
+    expected_citation_count_min: 1
+
+  - q: "What governs fire resistive construction?"
+    expected_function: what_governs
+    expected_subject: concept-fire-resistive-construction
+    expected_citation_count_min: 1
