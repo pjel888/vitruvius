@@ -1,0 +1,43 @@
+schema_version: 1.0.0
+
+predicates:
+  governs:
+    semantics: "Subject legally governs the object."
+    allowed_pairs:
+      - {subject_type: source, object_type: concept}
+
+  defines:
+    semantics: "Subject provides the definitional text for the object."
+    allowed_pairs:
+      - {subject_type: source, object_type: concept}
+
+  requires:
+    semantics: "Subject requires the object to exist or be satisfied."
+    allowed_pairs:
+      - {subject_type: concept, object_type: concept}
+      - {subject_type: concept, object_type: attribute}
+
+  depends_on:
+    semantics: "Subject cannot be determined without the object."
+    allowed_pairs:
+      - {subject_type: concept, object_type: concept}
+
+  limits:
+    semantics: "Subject places numeric or scope limits on the object."
+    allowed_pairs:
+      - {subject_type: source, object_type: concept}
+      - {subject_type: source, object_type: attribute}
+      - {subject_type: section, object_type: concept}
+      - {subject_type: section, object_type: attribute}
+
+  affects:
+    semantics: "Subject changes the behavior of the object without requiring or limiting it."
+    allowed_pairs:
+      - {subject_type: concept, object_type: concept}
+      - {subject_type: source, object_type: concept}
+
+  supersedes:
+    semantics: "Subject is a newer version that replaces the object."
+    allowed_pairs:
+      - {subject_type: source, object_type: source}
+      - {subject_type: concept, object_type: concept}
