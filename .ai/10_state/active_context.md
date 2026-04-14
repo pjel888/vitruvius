@@ -101,6 +101,19 @@ User review and confirmation to continue. The branch `feat/phase-7-promotion-gov
 - **Phase 8 Graph Contract & Indexing** — gated on ≥50 verified relationships (we have 3 so far; need 47 more, i.e., more PD 1096 review cycles or corpus expansion).
 - **End-to-end rerun** — run `run-with-review` against the current corpus to generate more candidates, then re-promote. This is the highest-signal move if the question is *"does the 82% rejection rate shrink now that 1C is in place?"*.
 
+## Sprint B Polish (Post-Experiment, 2026-04-14)
+
+Six tactical improvements landed after the end-to-end experiment, all committed to `feat/phase-7-promotion-governance`:
+
+- ✅ **Task 1** — Regex extractor dedup by `(from, to)` → AD-014 · Real-data impact: 23 → 9 candidates on refined PD 1096.
+- ✅ **Task 2** — Ollama model warmup before batch.
+- ✅ **Task 3** — Lazy CLI imports → AD-015. `pipeline_cli.py promote --help` works without PDF deps installed.
+- ✅ **Task 4** — Timestamp-aware diff in `canonical_diff.py`. Six volatile fields stripped before byte compare.
+- ✅ **Task 5** — Legacy `utils.normalize_text` / `normalize_filename` deprecated.
+- ✅ **Task 6** — `concepts.py` emits `canonical_status: placeholder` + `concept_status: placeholder` honestly.
+
+Test coverage: **100/100 passing** (81 baseline + 19 polish).
+
 ## Reference Map
 - Sprint plan (now historic) → `/.ai/01_roadmap/current-phase.md`
 - Master roadmap → `/.ai/01_roadmap/master-roadmap.md` (Phase 7 status: ✅)
