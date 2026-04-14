@@ -1,0 +1,23 @@
+id: rel-occupancy-governs-fire-requirements
+title: Occupancy Classification Governs Fire-Resistive Requirements
+page_type: relationship
+relationship_type: governs
+from_entity: law-pd-1096
+to_entity: concept-fire-resistive-construction
+trust_level: primary
+canonical_status: promoted
+confidence_score: 0.92
+promotion_batch_id: 20260414T030000Z_a1b2c3d4
+promotion_audit_log_ref: 006_System-Manifests/runs/20260414T030000Z_a1b2c3d4_promotion_audit.log
+last_promoted_utc: 2026-04-14T03:00:00Z
+evidence:
+  - source_id: law-pd-1096
+    source_section_id: sec-701
+    source_artifact: 002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-1096/PD 1096 IRR.md
+    evidence_snippet: "Every building shall be classified..."
+    review_decision: keep
+    reviewer_model: gemma4:31b
+    reviewer_confidence: 0.92
+    reviewer_reason: "Clear governs edge."
+    extracted_at_utc: 2026-04-13T08:44:19Z
+    reviewed_at_utc: 2026-04-13T09:01:02Z
