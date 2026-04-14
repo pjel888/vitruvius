@@ -56,6 +56,8 @@ placeholder ─► draft ─► enriched ─► verified ─┐
 | `enriched_at_utc` | ISO-8601 UTC | When the concept transitioned past `draft`. |
 | `reviewed_at_utc` | ISO-8601 UTC | When the concept transitioned to `verified`. |
 | `reviewer` | string | Reviewer identifier (model or human). |
+| `ifc_class` | string | *(Stream M.2)* IFC 4.3 class name that best models this concept (e.g., `IfcDoor`, `IfcWall`, `IfcSpace`). Must start with `Ifc`. Validated by `scripts/vitruvius/ontology/ifc_validator.py` against `scripts/vitruvius/ontology/ifc_mapping.yaml`. |
+| `ifc_psets` | string[] | *(Stream M.2)* Optional list of IFC Property Set names paired with `ifc_class` (e.g., `[Pset_DoorCommon]`). Purely descriptive until Stream M.4 lint runs — no behaviour change if omitted. |
 
 ## 5. Body Structure — Required Sections
 
