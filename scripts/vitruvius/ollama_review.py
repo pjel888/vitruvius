@@ -35,7 +35,33 @@ def load_relationship_report() -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _build_binary_prompt(candidate: dict[str, Any]) -> str:
+    """Stream W1.4 — compact True/False prompt for small-model binary mode.
+
+    Used when ``features.w_llm_binary_mode`` is true; lets sub-4B models
+    handle the first-pass review without overflowing the context window.
+    """
+    examples = candidate.get("examples", [])
+    snippet = ""
+    if examples:
+        first = examples[0]
+        if isinstance(first, dict):
+            snippet = str(first.get("snippet") or first.get("evidence_snippet") or "")[:600]
+    return (
+        f"Subject: {candidate['from']}\n"
+        f"Predicate: {candidate['type']}\n"
+        f"Object: {candidate['to']}\n"
+        f"Evidence: {snippet}\n"
+        f"\n"
+        f"Question: Is this a valid architectural regulatory relationship "
+        f"supported by the evidence above? Answer only one word: True or False.\n"
+    )
+
+
 def build_prompt(candidate: dict[str, Any]) -> str:
+    from . import config as cfgmod
+    if cfgmod._features_block().get("w_llm_binary_mode", False):
+        return _build_binary_prompt(candidate)
     payload = {
         "task": "Review candidate legal relationship",
         "allowed_decisions": ["keep", "review_further", "reject"],
