@@ -5,7 +5,11 @@ from vitruvius.utils import normalize_filename, normalize_text
 
 def test_normalize_text_matches_historical_behavior():
     # Legacy contract was " ".join(text.split()): collapse whitespace.
-    assert normalize_text("hello    world") == "hello world"
+    # Suppress the DeprecationWarning here — this test is specifically
+    # verifying the legacy behavior, not whether the deprecation fires.
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", DeprecationWarning)
+        assert normalize_text("hello    world") == "hello world"
 
 
 def test_normalize_text_emits_deprecation_warning():
@@ -26,4 +30,6 @@ def test_normalize_filename_emits_deprecation_warning():
 
 def test_normalize_filename_still_lowercases_and_strips_nonalnum():
     # Preserved signature and behavior.
-    assert normalize_filename("Foo-Bar.PDF") == "foobar.pdf"
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", DeprecationWarning)
+        assert normalize_filename("Foo-Bar.PDF") == "foobar.pdf"

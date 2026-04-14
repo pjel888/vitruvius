@@ -3,9 +3,24 @@ from __future__ import annotations
 from collections import defaultdict
 from datetime import datetime, timezone
 
+from pathlib import Path
+
 from .paths import ensure_registry_dir, ensure_runs_dir, get_repo_root
 from .reports import read_csv_entries, write_json, write_text
-from .utils import normalize_filename, utc_now_stamp
+from .utils import utc_now_stamp
+
+
+def _filename_dedup_key(name: str) -> str:
+    """Build a duplicate-detection key for filenames.
+
+    Lowercases the stem, strips non-alphanumerics, preserves the lowercased
+    suffix. Replaces the legacy utils.normalize_filename() call which emits
+    a DeprecationWarning. The behavior is identical to the legacy function.
+    """
+    path = Path(name)
+    stem = "".join(ch.lower() for ch in path.stem if ch.isalnum())
+    ext = path.suffix.lower()
+    return f"{stem}{ext}"
 
 
 def run_lint() -> int:
@@ -32,7 +47,7 @@ def run_lint() -> int:
         if ext != ".pdf":
             non_pdf_files.append(rel_path)
 
-        duplicate_name_groups[normalize_filename(name)].append(rel_path)
+        duplicate_name_groups[_filename_dedup_key(name)].append(rel_path)
 
     duplicate_like_files = []
     for _, paths in duplicate_name_groups.items():

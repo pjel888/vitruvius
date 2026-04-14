@@ -9,7 +9,7 @@ from pypdf import PdfReader
 from .constants import RAW_LAYER_NAME
 from .paths import ensure_runs_dir, get_repo_root
 from .reports import write_json, write_text
-from .utils import normalize_text, safe_name_for_report, utc_now_stamp
+from .utils import safe_name_for_report, utc_now_stamp
 
 
 def detect_pdf_type(pdf_path: Path, sample_pages: int = 5) -> dict[str, Any]:
@@ -26,7 +26,9 @@ def detect_pdf_type(pdf_path: Path, sample_pages: int = 5) -> dict[str, Any]:
 
     for i in range(pages_to_check):
         raw = reader.pages[i].extract_text() or ""
-        text = normalize_text(raw)
+        # Whitespace-collapse inline. Previously called utils.normalize_text()
+        # which now emits a DeprecationWarning.
+        text = " ".join(raw.split())
         char_count = len(text)
 
         if char_count >= 50:
