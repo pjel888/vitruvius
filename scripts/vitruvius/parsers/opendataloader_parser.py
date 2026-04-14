@@ -23,7 +23,6 @@ class OpenDataLoaderParser(BaseParser):
         *,
         duration_ms: int,
         error: str,
-        file_type: str = "",
     ) -> ParserTelemetry:
         return ParserTelemetry(
             parser_id=self.parser_id,
