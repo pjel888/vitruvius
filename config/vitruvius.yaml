@@ -19,3 +19,13 @@ paths:
   derived: 004_Derived-Content-Layer
   ops: 005_Operational-Intelligence-Layer
   manifests: 006_System-Manifests
+
+review:
+  ollama:
+    url: "http://127.0.0.1:11434"
+    default_model: "gemma4:31b"
+    default_timeout_seconds: 600
+
+promotion:
+  confidence_threshold: 0.90
+  audit_log_name: "latest_promotion_audit.log"
