@@ -128,6 +128,35 @@ def _has_predicate_keyword(text: str, predicate: str) -> bool:
     return any(p.search(text) for p in patterns)
 
 
+def _endpoint_phrase(entity_id: str) -> str:
+    """Convert 'concept-occupancy-classification' -> 'occupancy classification'.
+
+    Used by R7 to check whether the endpoint's canonical phrase appears in
+    the evidence text. Returns empty string for IDs that don't have a clear
+    phrase form (e.g., law-* IDs are too long and specific to be useful).
+    """
+    if not isinstance(entity_id, str):
+        return ""
+    for prefix in ("concept-", "attribute-"):
+        if entity_id.startswith(prefix):
+            return entity_id[len(prefix):].replace("-", " ").lower()
+    return ""
+
+
+def _has_conceptish_endpoints(from_id: str, to_id: str) -> bool:
+    """R7 applies when at least one endpoint is a concept or attribute.
+
+    Skipped for source-to-source (supersedes) or other IDs where the
+    canonical phrase form is not meaningful for substring matching.
+    """
+    conceptish_prefixes = ("concept-", "attribute-")
+    return (
+        isinstance(from_id, str) and any(from_id.startswith(p) for p in conceptish_prefixes)
+    ) or (
+        isinstance(to_id, str) and any(to_id.startswith(p) for p in conceptish_prefixes)
+    )
+
+
 def triage_candidate(
     candidate: dict[str, Any],
     registry_compat: dict[str, set[tuple[str, str]]] | None = None,
@@ -183,6 +212,30 @@ def triage_candidate(
     # we have a clause-boundary-aware detector, route negated evidence to
     # the LLM for judgment.
 
+    # R7: endpoint-not-in-evidence — if none of the conceptish endpoint
+    # phrases appear in the evidence text, the regex extractor matched
+    # the section window but the evidence is topically unrelated. This
+    # is the single most common false-positive pattern we see.
+    #
+    # Logic:
+    #   - Collect all non-empty endpoint phrases (source IDs have no phrase,
+    #     concepts/attributes do).
+    #   - If at least one such phrase exists, require at least one to appear
+    #     in the evidence text. Otherwise reject.
+    #   - If no endpoint has a phrase (e.g., source-to-source supersedes),
+    #     skip this rule entirely.
+    if _has_conceptish_endpoints(from_id, to_id):
+        evidence_lower = evidence.lower()
+        phrases = [p for p in (_endpoint_phrase(from_id), _endpoint_phrase(to_id)) if p]
+        if phrases and not any(phrase in evidence_lower for phrase in phrases):
+            return TriageResult(
+                decision="auto_reject",
+                confidence=0.85,
+                reasons=[
+                    f"endpoint_not_in_evidence: none of {phrases} appear in the evidence text"
+                ],
+            )
+
     # ---------- auto_accept rules ----------
 
     # A1: strong governs pattern
@@ -223,6 +276,23 @@ def triage_candidate(
             decision="auto_accept",
             confidence=0.90,
             reasons=[f"high_recurrence_signal: occ={occurrences}, type-valid, keyword-match"],
+        )
+
+    # A4: concept->concept `requires` pattern with characteristic language
+    # and at least 2 occurrences. Captures the most common deterministic
+    # concept-to-concept relationship we see in practice (e.g.,
+    # "occupancy separation shall comply with the classification rules").
+    if (
+        predicate == "requires"
+        and from_type == "concept"
+        and to_type == "concept"
+        and occurrences >= 2
+        and _has_predicate_keyword(evidence, "requires")
+    ):
+        return TriageResult(
+            decision="auto_accept",
+            confidence=0.90,
+            reasons=["concept_requires_pattern: concept->concept, occ>=2, 'shall comply' language"],
         )
 
     # ---------- needs_review (fallthrough) ----------
