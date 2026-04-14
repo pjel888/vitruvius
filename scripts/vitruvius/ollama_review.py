@@ -110,6 +110,89 @@ def _maybe_route_to_second_pass(verdict: dict[str, Any]) -> str:
     return "finalize"
 
 
+def _legacy_adjudicate(
+    *,
+    candidate: "Mapping[str, Any]",
+    raw_llm_response: str,
+) -> dict[str, Any]:
+    """Stream Y3.3 legacy fallback — non-CoT adjudication path.
+
+    Delegates to the Stream F.6 ``parse_reflection`` sniffer and maps
+    its verdict surface (``halt_auto_promote``) into the Y3.3 decision
+    dict shape so ``adjudicate_with_cot`` has a uniform return contract
+    whether the flag is on or off. Patched in tests to isolate the
+    flag-off branch.
+    """
+    from .review.reflection_parser import parse_reflection
+
+    legacy = parse_reflection(raw_llm_response)
+    if legacy.halt_auto_promote:
+        return {"verdict": "escalate", "reason": legacy.reason}
+    return {"verdict": "keep"}
+
+
+def adjudicate_with_cot(
+    *,
+    candidate: "Mapping[str, Any]",
+    raw_llm_response: str,
+    relationship_hash: str,
+    cot_out_dir: "Path",
+    model: str = "unknown",
+) -> dict[str, Any]:
+    """Stream Y3.3 — strict-CoT adjudication hook, gated on
+    ``features.y_thinking_mode_cot``.
+
+    When the flag is OFF, delegates to :func:`_legacy_adjudicate`
+    (so the caller can patch it in tests to isolate the gate).
+    When ON:
+      1. Parses ``raw_llm_response`` with :func:`parse_cot_strict`.
+         A :class:`CotParseError` is caught and surfaces as
+         ``{"verdict": "escalate", "reason": "CotParseError: ..."}``.
+      2. Writes an append-only audit trace via :func:`write_cot_trace`.
+      3. If the CoT result flags ``escalate`` (low self-confidence),
+         returns ``{"verdict": "escalate", ...}`` without blocking.
+      4. Otherwise returns a dict with the verdict, escalate flag,
+         self-confidence, reasoning steps, and evidence citation.
+    """
+    from . import config as cfgmod
+    if not cfgmod._features_block().get("y_thinking_mode_cot", False):
+        return _legacy_adjudicate(
+            candidate=candidate,
+            raw_llm_response=raw_llm_response,
+        )
+
+    from .review.cot_audit import write_cot_trace
+    from .review.reflection_parser import CotParseError, parse_cot_strict
+
+    try:
+        cot = parse_cot_strict(raw_llm_response)
+    except CotParseError as exc:
+        return {"verdict": "escalate", "reason": f"CotParseError: {exc}"}
+
+    write_cot_trace(
+        out_dir=cot_out_dir,
+        relationship_hash=relationship_hash,
+        cot=cot,
+        model=model,
+        candidate_raw_response=raw_llm_response,
+    )
+
+    if cot.escalate:
+        return {
+            "verdict": "escalate",
+            "reason": "low self-confidence",
+            "self_confidence": cot.self_confidence,
+        }
+
+    return {
+        "verdict": cot.verdict,
+        "escalate": False,
+        "self_confidence": cot.self_confidence,
+        "reasoning_steps": list(cot.reasoning_steps),
+        "evidence_citation": cot.evidence_citation,
+    }
+
+
 def select_review_model(
     *,
     candidate: dict[str, Any],
