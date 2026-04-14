@@ -95,3 +95,61 @@ def test_legacy_route_unchanged() -> None:
     decision = route(signals)
     assert decision.model_name  # non-empty
     assert decision.level in {"simple", "medium", "complex"}
+
+
+# ---------------------------------------------------------------------------
+# Stream Y2.4 — select_review_model flag-gated hook in ollama_review.py
+# ---------------------------------------------------------------------------
+from pathlib import Path
+from unittest.mock import patch
+
+
+def test_select_review_model_falls_back_when_moe_flag_off(monkeypatch) -> None:
+    from vitruvius import config as cfgmod
+    from vitruvius import ollama_review as orv
+
+    monkeypatch.setattr(cfgmod, "_features_block", lambda: {"y_domain_routing_moe": False})
+    monkeypatch.setattr(cfgmod, "get_ollama_default_model", lambda: "baseline")
+
+    model = orv.select_review_model(
+        candidate={"subject": "x", "predicate": "has_setback", "object": "3m"},
+    )
+    assert model == "baseline"
+
+
+def test_select_review_model_uses_moe_when_flag_on(monkeypatch, tmp_path: Path) -> None:
+    from vitruvius import config as cfgmod
+    from vitruvius import ollama_review as orv
+
+    policy_file = tmp_path / "moe.yaml"
+    policy_file.write_text(
+        "geometric: small-model\nadministrative: mid-model\noccupancy: mid-model\n"
+        "safety: mid-model\nfees: small-model\nother: mid-model\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(cfgmod, "_features_block", lambda: {"y_domain_routing_moe": True})
+
+    model = orv.select_review_model(
+        candidate={"subject": "building", "predicate": "has_setback", "object": "3m"},
+        moe_policy_path=policy_file,
+    )
+    assert model == "small-model"
+
+
+def test_select_review_model_administrative_routes_to_mid(monkeypatch, tmp_path: Path) -> None:
+    from vitruvius import config as cfgmod
+    from vitruvius import ollama_review as orv
+
+    policy_file = tmp_path / "moe.yaml"
+    policy_file.write_text(
+        "geometric: small-model\nadministrative: mid-model\noccupancy: mid-model\n"
+        "safety: mid-model\nfees: small-model\nother: mid-model\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(cfgmod, "_features_block", lambda: {"y_domain_routing_moe": True})
+
+    model = orv.select_review_model(
+        candidate={"subject": "construction", "predicate": "requires_permit", "object": "building official"},
+        moe_policy_path=policy_file,
+    )
+    assert model == "mid-model"

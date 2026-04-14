@@ -110,6 +110,40 @@ def _maybe_route_to_second_pass(verdict: dict[str, Any]) -> str:
     return "finalize"
 
 
+def select_review_model(
+    *,
+    candidate: dict[str, Any],
+    moe_policy_path: "Path | None" = None,
+) -> str:
+    """Stream Y2.4 — pick a review model for this candidate, respecting
+    ``features.y_domain_routing_moe``.
+
+    When the flag is OFF, returns the baseline default from
+    :func:`config.get_ollama_default_model`. When ON, loads the MoE
+    policy file (default ``config/moe_routing.yaml``) and calls
+    :func:`review.slm_router.route_with_moe`.
+
+    Keeps :func:`_choose_tier_model` untouched so the Sprint Q W2.3
+    complexity router stays available for operators that prefer it.
+    """
+    from pathlib import Path as _Path
+
+    from . import config as cfgmod
+    from .paths import get_repo_root
+
+    if not cfgmod._features_block().get("y_domain_routing_moe", False):
+        return cfgmod.get_ollama_default_model()
+
+    from .review.slm_router import load_moe_policy, route_with_moe
+
+    policy_path = moe_policy_path
+    if policy_path is None:
+        policy_path = _Path(get_repo_root()) / "config" / "moe_routing.yaml"
+    policy = load_moe_policy(policy_path)
+    verdict = route_with_moe(candidate=candidate, moe_policy=policy)
+    return verdict.model
+
+
 def _choose_tier_model(candidate: dict[str, Any]) -> str:
     """Stream W2.3 — pick a model tier based on candidate complexity.
 
