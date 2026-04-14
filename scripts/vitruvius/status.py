@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
 from datetime import datetime, timezone
+from pathlib import Path
 
+from .features import Features
+from .merkle import calculate_directory_hash
 from .paths import ensure_registry_dir, ensure_runs_dir, get_repo_root
 from .reports import (
     build_signature,
@@ -120,3 +124,57 @@ def run_status() -> int:
     print(f"Latest status TXT: {latest_txt}")
 
     return 0
+
+
+# ---------------------------------------------------------------------------
+# Stream A (Sprint D) Task A7 — feature-flag-gated Merkle fast-skip path.
+#
+# Additive entry point. Does not modify the existing run_status path; with
+# features.a_merkle_hash set to false this function returns a sentinel
+# without touching the filesystem. Callers that want to skip the full CSV
+# diff when the raw tree is byte-identical can call this first; if skipped
+# is True, they bypass run_status entirely.
+#
+# See .ai/03_plans/statistical-architectural-upgrade-plan.md §5 for the
+# full rationale and the non-breaking contract.
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class MerkleStatus:
+    """Result of a feature-flag-gated Merkle status comparison.
+
+    Attributes
+    ----------
+    root_hash:
+        The SHA-256 of the current Merkle rollup, or the empty string
+        when the feature flag is disabled.
+    skipped:
+        True iff the flag is enabled AND a previous hash was supplied
+        AND the previous and current hashes match. False otherwise.
+    """
+
+    root_hash: str
+    skipped: bool
+
+
+def compute_status_with_merkle(
+    *,
+    root: Path,
+    features: Features,
+    previous_hash: str | None = None,
+) -> MerkleStatus:
+    """Return a ``MerkleStatus`` describing whether the tree is unchanged.
+
+    When ``features.a_merkle_hash`` is false, returns the empty sentinel
+    and performs no filesystem work — existing status flows are untouched.
+    When it is true, computes the current Merkle root hash via
+    ``calculate_directory_hash`` and sets ``skipped=True`` if the caller
+    provided ``previous_hash`` and it matches.
+    """
+    if not features.is_enabled("a_merkle_hash"):
+        return MerkleStatus(root_hash="", skipped=False)
+
+    record = calculate_directory_hash(root)
+    skipped = previous_hash is not None and previous_hash == record.root_hash
+    return MerkleStatus(root_hash=record.root_hash, skipped=skipped)
