@@ -11,12 +11,16 @@
 - **Mitigation:** All path logic stays in `paths.py`. Inline paths are rejected at code review. `run_reconcile` detects structural drift.
 - **Closure:** Permanent operating rule. Not a phase.
 
-### RI-002: Regex Extraction Fragility
+### RI-002: Regex Extraction Fragility (SUBSTANTIALLY MITIGATED 2026-04-14)
 - **Description:** `relationships.py` and `relationships_sections.py` match candidates via fixed regex patterns. Variations in legal language leak into false positives (82% rejection at review).
 - **Impact:** MEDIUM — feeds the review layer with noise, inflating compute cost and review time.
-- **Mitigation:** Phase 1C (normalization) reduces input variance. Phase 5E (LLM-assisted extraction) is planned but gated on Phase 6B to avoid multiplying noise.
-- **Closure:** Addressed by Phase 1C (partial) and Phase 5E (full, long-term).
-- **Update (2026-04-14):** Endpoint-pair dedup (AD-014) cuts candidate volume by collapsing the 5-predicates-per-edge pattern into a single candidate. Real-data impact on refined PD 1096: 23 → 9 candidates (−61%). The deeper fragility (paragraph-boundary sensitivity) remains — Phase 5E is still the full fix.
+- **Mitigation — layered (all shipping):**
+  1. **Phase 1C normalization** — reduces input variance (Tier A/B rules).
+  2. **Endpoint-pair dedup (AD-014)** — collapses 5-predicates-per-edge variants. Real-data: 23 → 9 candidates (−61%).
+  3. **Registry-aware dedup (AD-016)** — ensures the surviving predicate is compatible with the endpoint types.
+  4. **Pre-review filter R7 (AD-018, AD-021)** — auto-rejects candidates where neither endpoint phrase appears in the evidence. Real-data: 6/9 additional rejections.
+- **Current effective rejection rate:** ~22% (2 of 9 actually reach the LLM). The LLM sees only the genuinely ambiguous subset.
+- **Closure:** Phase 5E (LLM-assisted extraction) remains the long-term full fix for paragraph-boundary sensitivity. The 4 layers above make it non-urgent.
 
 ### RI-003: External Dependency — Ollama (CLOSED 2026-04-14)
 - **Description:** The review layer requires an Ollama server at `127.0.0.1:11434` with the configured model loaded. Previously the URL was hardcoded.
@@ -60,11 +64,15 @@
 - **Mitigation:** Add SHA-256 computation in `scanner.build_file_entries`. Store in `latest_raw_file_registry.csv`.
 - **Closure:** Sprint C as a prerequisite for Phase 1B.
 
-### RI-010: Concept Generator Produces Placeholder Content (PARTIALLY CLOSED 2026-04-14)
+### RI-010: Concept Generator Produces Placeholder Content (SUBSTANTIALLY CLOSED 2026-04-14)
 - **Description:** `concepts.py` writes "X is a defined concept within the Vitruvius system." as the body. No definition extraction, no regulatory linkage.
 - **Impact:** MEDIUM — concepts look populated in the filesystem but carry no knowledge.
 - **Mitigation:** Phase 3C (concept enrichment) replaces placeholders with extracted definitions.
-- **Status:** **13/20 CLOSED** as of 2026-04-14. Phase 3C deterministic enrichment pipeline (AD-020) enriched 13 PD 1096 concepts end-to-end with zero LLM calls. The 7 missing concepts (`exit-width`, `means-of-egress`, `occupancy-load`, `occupancy-separation`, `parking-and-loading-spaces`, `setbacks`, `yards`) need either (a) extended section-title alias dictionary, (b) PD 1096 IRR ingestion + re-run, or (c) a co-occurrence fallback in `concept_definitions.py`. None of these require LLM involvement.
+- **Status:** **16/20 CLOSED** as of 2026-04-14. Phase 3C deterministic enrichment pipeline (AD-019, AD-020) enriched 16 PD 1096 concepts end-to-end with zero LLM calls. Additional gains came from:
+  - Compound-section-title multi-concept matching (recovered `occupancy-load` from `Stairs, Exits, and Occupant Loads`)
+  - Alias dictionary expansion (`means-of-egress`, `occupancy-separation`)
+  - Punctuation-stripping normalization
+  The 4 remaining (`exit-width`, `parking-and-loading-spaces`, `setbacks`, `yards`) don't have matching section titles in PD 1096 or its IRR. They need either (a) inline phrase-density extraction, (b) a second corpus, or (c) manual curation. None require LLM involvement.
 
 ### RI-011: Canonicalizer Regression (CLOSED 2026-04-14)
 - **Description:** `canonicalize.py` generates YAML frontmatter + header only. The hand-curated canonical files under `003/shared/sources/` show a richer structure (Overview / Coverage / Key Points / Referenced Concepts) that the current script cannot reproduce.
@@ -78,12 +86,13 @@
 - **Mitigation:** ✅ Sprint B Phase 6A added `run-with-review` composite command that chains `run → convert → refine → review-relationships-ollama`. Default `run` stays minimal so CI doesn't invoke Ollama accidentally.
 - **Status:** **CLOSED.**
 
-## Risk Severity Summary (updated 2026-04-14 after Sprints A + B)
+## Risk Severity Summary (updated 2026-04-14 after Sprints A + B + Phase 3C + quality pass)
 | Severity | Count | IDs |
 |---|---|---|
 | HIGH | 1 | RI-001 (permanent operating rule) |
-| MEDIUM | 4 | RI-002, RI-008, RI-009, RI-010 |
+| MEDIUM | 3 | RI-008, RI-009, RI-010 (4/20 remaining) |
 | LOW | 1 | RI-004 |
+| MITIGATED (not formally closed) | 1 | RI-002 (pre-review filter cut false positives from 82% → ~22%) |
 | CLOSED | 6 ✅ | RI-003, RI-005 (next pass), RI-006, RI-007, RI-011, RI-012 |
 
 ## Closure Timeline

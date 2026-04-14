@@ -37,11 +37,24 @@
     "count": 20,
     "directory": "003_Canonical-Knowledge-Layer/shared/concepts/",
     "canonical_status_breakdown": {
-      "placeholder": 20,
+      "placeholder": 4,
       "draft": 0,
-      "enriched": 0,
+      "enriched": 16,
       "verified": 0
     },
+    "enriched_concepts": [
+      "building-height", "building-permit", "certificate-of-occupancy",
+      "doors-and-exits", "fire-resistive-construction", "floor-area",
+      "light-and-ventilation", "lot-occupancy", "means-of-egress",
+      "mixed-occupancy", "occupancy-classification", "occupancy-load",
+      "occupancy-separation", "open-courts", "projections-over-public-ways",
+      "stairs"
+    ],
+    "still_placeholder_concepts": [
+      "exit-width", "parking-and-loading-spaces", "setbacks", "yards"
+    ],
+    "enrichment_method": "deterministic (regex anchor + section-title extractors + 14-entry alias dict), zero LLM calls",
+    "enrichment_decision_refs": ["AD-019", "AD-020"],
     "known_slugs": [
       "building-height",
       "building-permit",
@@ -67,19 +80,24 @@
     "enrichment_target": "Phase 3C moves all 20 concepts to enriched status with regulatory_basis pointers."
   },
   "seeded_relationships": {
-    "count": 4,
+    "count": 7,
     "directory": "003_Canonical-Knowledge-Layer/shared/relationships/",
     "hand_curated_draft": [
       "occupancy-governs-fire-requirements.md"
     ],
-    "phase_7_promoted": [
+    "phase_7_promoted_sprint_a": [
       "rel-law-national-building-code-of-the-philippines-governs-concept-building-permit.md",
       "rel-concept-occupancy-classification-depends-on-concept-mixed-occupancy.md",
       "rel-concept-occupancy-classification-affects-concept-mixed-occupancy.md"
     ],
+    "phase_7_promoted_post_dedup": [
+      "rel-concept-occupancy-separation-affects-concept-occupancy-classification.md",
+      "rel-concept-occupancy-separation-depends-on-concept-occupancy-classification.md",
+      "rel-concept-occupancy-separation-requires-concept-occupancy-classification.md"
+    ],
     "first_promotion_batch_id": "20260414T035210Z_0959acf9",
     "promoted_at_utc": "2026-04-14T03:52:10Z",
-    "status": "3 promoted by Phase 7 pipeline (Sprint A). 1 pre-existing hand-curated draft retained for reference."
+    "status": "6 promoted by Phase 7 pipeline across two experiments + 1 pre-existing hand-curated draft."
   },
   "gated_datasets": [
     {

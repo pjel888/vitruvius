@@ -1,110 +1,67 @@
-# Current Phase — Sprint A: Unblock Promotion (Phase 7)
+# Current Phase — (between sprints)
 
 > **Authoritative roadmap:** `/.ai/01_roadmap/master-roadmap.md` (v2.0.0)
-> **This document is the execution snapshot for the active sprint only.**
-> **Revised:** 2026-04-14 · **Sprint ends:** 2026-04-28 (2 weeks)
+> **This document:** snapshot of where work is currently paused.
+> **Updated:** 2026-04-14 — all active implementation sprints closed.
 
 ---
 
-## North-Star Objective
-Land **Phase 7 — Promotion Governance** on top of the existing Ollama review output so approved candidates graduate from `latest_relationship_review_ollama.json` into the Canonical Knowledge Layer under a strict schema and audit log.
+## State
 
-This unblocks the entire downstream stack (Phase 8 graph, Phase 9 query, Phase 11 expansion) and exercises the governance contract end-to-end for the first time.
+**No active sprint.** The project is currently between user-driven execution
+passes. Sprints A and B are both closed, plus a post-Sprint-B quality pass
+that delivered the pre-review filter, concept enrichment, integration tests,
+and README refresh.
 
-## Why Now
-- **Phase 6A (LLM Review) is functional** — verified by the 2026-04-13 audit. It produces structured `keep` / `review_further` / `reject` decisions with bounded confidence. We already have output to promote.
-- **Phase 7 is independent of upstream noise.** Even with the current 82% rejection rate, high-confidence `keep` decisions exist and are safe to promote behind the 0.90 confidence threshold.
-- **Every downstream phase is blocked on Phase 7.** No graph, no query, no corpus expansion until promotion works.
-- **Normalization (Phase 1C) is happening in parallel** in Sprint B — it shrinks the noise but is not on Sprint A's critical path.
+## Phases completed in the most recent work window (2026-04-14)
 
-## Sprint A Task List (strict order)
+| Phase | Outcome |
+|---|---|
+| **Phase 7 — Promotion Governance** | ✅ Complete — 6 PD 1096 relationships promoted, idempotency + rollback verified, 17-rule validator enforced |
+| **Phase 1C — Centralized Normalization (MVP)** | ✅ MVP — `NormalizationEngine` + 5 Tier A + 3 Tier B rules + `refine` CLI + `.refined.json` manifests. Tier C deferred. |
+| **Phase 2 — Canonicalizer Restoration** | ✅ Complete — structured section generator restored, diff-before-write protection |
+| **Phase 6A — Review Gap Closure** | ✅ Complete — retry, resume, parallel, warmup, config-driven URL, `run-with-review` composite |
+| **Phase 6B — Second-Pass Review** | ✅ Complete — routing + Tier-2 orchestrator + agreement matrix + human escalation worklist |
+| **Phase 3C — Concept Enrichment** | ✅ 16/20 (80%) — deterministic regex anchor + section-title + alias miner, **zero LLM calls** |
+| **Pre-review filter** | ✅ Shipped — 22% → 78% LLM savings on PD 1096 (AD-018, AD-021) |
+| **Integration tests** | ✅ 4 tests covering full pipeline wire-to-wire (AD-021) |
 
-### A-1. Phase 6A Minimal Gap Closure (1–2 days)
-- [ ] Move hardcoded Ollama URL from `ollama_review.py` into `config/vitruvius.yaml` under `review.ollama.url`.
-- [ ] Add a `latest_relationship_review_high_confidence.json` writer that filters Gemma output to `keep` decisions with `confidence >= 0.90`. This is the Phase 7 input file.
-- [ ] Verify the writer emits an empty-but-valid file when no candidates clear the threshold.
+## Snapshot numbers
 
-**Exit criteria:** Phase 7 has a clean, schema-stable input file to consume.
+- **Test suite:** 177 passing (under strict `-W error::DeprecationWarning`)
+- **Canonical relationship files:** 7 (6 promoted + 1 hand-curated)
+- **Enriched concept files:** 16 out of 20 PD 1096 concepts
+- **AI budget on PD 1096 full pipeline run:** ~4 Ollama calls (was ~25)
+- **Commits on `feat/phase-7-promotion-governance`:** ~65+ ahead of main
+- **Decision log:** AD-001 through AD-021 (chronological)
 
-### A-2. Relationship Type Registry (0.5 day)
-- [ ] Create `scripts/vitruvius/rules/relationship_registry.yaml`.
-- [ ] Populate with the closed vocabulary from master-roadmap §3.1: `governs`, `requires`, `defines`, `depends_on`, `limits`, `affects`, `supersedes`.
-- [ ] Encode compatibility rules as `allowed_pairs: [{subject_type, object_type}]` per predicate.
-- [ ] Add version: `schema_version: 1.0.0`.
+## Still unfinished in the active roadmap (`.ai/03_plans/`)
 
-**Exit criteria:** Registry loads, validates YAML, and is importable by `promotion_validator.py`.
+- **Phase 1B — Multi-Parser Integration** — design spec, ready to expand into TDD
+- **Phase 8 — Graph Contract & Indexing** — gated on ≥50 verified relationships (currently 7)
+- **Phase 9 — Query & AI Layer** — gated on Phase 8
+- **ingestion-refinement-contract** — frozen contract, no action needed
 
-### A-3. Promotion Validator (1–2 days)
-- [ ] Create `scripts/vitruvius/promotion_validator.py`.
-- [ ] Enforce the schema in master-roadmap §3.5: required fields `source_section_id`, `evidence_snippet`, `confidence_score`, `review_decision`, `reviewer_model`, `reviewed_at_utc`, `promotion_batch_id`, `promotion_audit_log_ref`.
-- [ ] Predicate-in-registry check.
-- [ ] Subject/object type compatibility check against the registry.
-- [ ] Produce a `ValidationResult` with pass/fail + reasons (no exceptions for validation failures — treat them as data).
+## Open backlog (not blocking)
 
-**Exit criteria:** Validator is unit-tested against one valid record and three invalid records (unknown predicate, missing section_id, incompatible types).
+- **4 concepts remain as placeholders:** `exit-width`, `parking-and-loading-spaces`, `setbacks`, `yards`. They don't match any PD 1096 section title. Recoverable via inline phrase-density extraction or a second source corpus — no LLM required.
+- **Phase 3C follow-ups:** alias miner for concept files, related-concepts detection, full schema compliance including typed `regulatory_basis`. All optional.
+- **`ollama_review.py` splitting** — the module has grown to ~500 lines. Could be split into `ollama_client.py` (HTTP), `ollama_review.py` (orchestrator), `review_artifacts.py` (writers). Not urgent — integration tests would protect the refactor.
+- **Branch rename** — `feat/phase-7-promotion-governance` now contains ~65 commits spanning 6+ phases. A conceptual rename (e.g., `feat/sprint-a-b-bundle`) would improve merge-commit messaging.
 
-### A-4. Promotion Writer `run_promote` (3–4 days)
-- [ ] Create `scripts/vitruvius/promotion.py` with `run_promote`.
-- [ ] Register CLI command: `python scripts/pipeline_cli.py promote`.
-- [ ] **Dry-run by default** (`--execute` to actually write).
-- [ ] Read `latest_relationship_review_high_confidence.json`.
-- [ ] For each record: validate → locate or create the target relationship file under `003_Canonical-Knowledge-Layer/shared/relationships/` → merge evidence if the triplet already exists, else create.
-- [ ] Generate `promotion_batch_id` as `YYYYMMDDTHHMMSSZ_<short_hash>`.
-- [ ] Write `006_System-Manifests/runs/latest_promotion_audit.log` and a timestamped copy.
-- [ ] Idempotency: re-running with no new high-confidence candidates writes an empty batch, not a duplicate.
-- [ ] Add `--rollback <batch_id>` that reverses edits listed in a batch's audit entries.
+## Awaiting
 
-**Exit criteria:** `pipeline_cli.py promote --dry-run` on the PD 1096 review output lists the candidates that would be promoted. `pipeline_cli.py promote --execute` writes them.
+User direction on which phase to tackle next. Recommendations, ranked:
 
-### A-5. Golden Path (0.5 day)
-- [ ] Run the full pipeline on PD 1096 up to review.
-- [ ] Execute `promote --execute`.
-- [ ] Verify at least 3 relationships land in `003/shared/relationships/` with all required fields.
-- [ ] Verify `promotion_audit.log` records the batch.
-- [ ] Re-run `promote` to confirm idempotency (no duplicate writes, no audit noise).
+1. **Phase 1B Multi-Parser Integration** — biggest ingestion quality lever, but multi-session work.
+2. **Run the full pipeline on PD 1096 IRR** — second corpus, should yield more relationships and fill some of the 4 missing concepts.
+3. **Split `ollama_review.py`** — quality refactor with forcing function from the integration tests.
+4. **Pull `qwen3:30b`** to run a true architectural-diversity Tier-2 pass (deferred because of 8 GB hardware constraint).
 
-**Exit criteria:** Three relationship files exist in canonical storage with passing schema validation.
+## Reference
 
-### A-6. Decision Log (0.25 day)
-- [ ] Add `AD-011: Promotion Layer First Promotion` to `/.ai/10_state/decisions.md` recording:
-  - Final shape of the first promoted record.
-  - Any schema deviations from master-roadmap §3.5 and why.
-  - Observed high-confidence volume vs. total candidates.
-- [ ] Update `/.ai/10_state/active_context.md` to reflect Sprint A completion and Sprint B kickoff.
-- [ ] Update the §4 status table in `master-roadmap.md` — Phase 7 from ❌ to 🟡 PARTIAL, then ✅ COMPLETE once all exit criteria hold.
-
-## Blockers / Dependencies
-- **None internal.** Sprint A is deliberately independent of Sprint B (normalization) and Sprint C (multi-parser).
-- **External:** Ollama must be running on the developer machine for A-5. No cloud dependencies.
-
-## Out of Scope for Sprint A
-- Second-pass review (Phase 6B) — Sprint C.
-- Normalization layer (Phase 1C) — Sprint B.
-- Multi-parser orchestrator (Phase 1B) — Sprint C.
-- Graph indexing (Phase 8) — blocked on Phase 7 producing ≥50 records.
-- Adding new laws or documents — blocked by principle P10.
-
-## Sprint A Exit Criteria (Definition of Done)
-- [x] Master roadmap v2.0.0 published (this action, already done).
-- [ ] Ollama URL configurable via `config/vitruvius.yaml`.
-- [ ] High-confidence review artifact writer shipping.
-- [ ] Relationship registry YAML present and validated.
-- [ ] Promotion validator unit-tested.
-- [ ] `run_promote` CLI command registered, dry-run and execute modes working.
-- [ ] First 3 PD 1096 relationships live in `003/shared/relationships/` with passing validation.
-- [ ] `promotion_audit.log` records the batch.
-- [ ] Idempotency verified (re-run produces no new writes).
-- [ ] Rollback tested on a throwaway batch.
-- [ ] Decision log entry written.
-- [ ] Roadmap §4 status updated.
-
-## Sprint A Gating Metrics
-- Promotion schema validation pass rate == 100% on valid inputs.
-- Registry rejection rate == 0% on verified `keep` inputs.
-- Audit log completeness == 100%.
-- Dry-run / execute parity: bytes written in execute mode == bytes previewed in dry-run.
-
-## Next Sprint Preview (Sprint B — weeks 3–6)
-- **Phase 1C Text Refinement Layer** to shrink the 82% rejection rate.
-- **Phase 6A full gap closure** (retry, resume, per-candidate timeout).
-- Re-run PD 1096 end-to-end and measure the new rejection rate.
+- `/.ai/01_roadmap/master-roadmap.md` — authoritative roadmap, §4 status matrix
+- `/.ai/01_roadmap/milestone-tracker.md` — per-phase checkbox tracker
+- `/.ai/10_state/active_context.md` — pipeline architecture + AI budget
+- `/.ai/10_state/decisions.md` — AD-001 through AD-021
+- `/.ai/09_archive/plans/` — 6 archived plans (phase 7, 1C, 2, 6A, 6B, 3C, polish)

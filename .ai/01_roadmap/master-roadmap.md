@@ -194,13 +194,14 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 | 1A. Baseline Ingestion | Complete | Complete; no file hashes; sequential OCR | ✅ **COMPLETE (with known gaps)** | `ingestion-audit.md` |
 | 1B. Multi-Parser Integration | Planned | Not started; plan written | 📝 **PLANNED (detailed plan exists)** | `phase-1b-multi-parser-integration-plan.md` |
 | 1C. Centralized Normalization | Planned | **MVP shipped 2026-04-14** — NormalizationEngine with 5 Tier A + 3 Tier B rules + `refine` CLI + `.refined.json` manifest. 6 PD 1096 files refined with real-data idempotency. Tier C, semantic chunking, destructive guard deferred. | ✅ **MVP COMPLETE** | `phase-1c-centralized-normalization-plan.md` (archived) |
-| 2. Canonicalization | Complete | **Restored 2026-04-14** — structured section generation (Overview/Coverage/Key Points/Referenced Concepts) + diff-before-write protection + batch CLI. | ✅ **COMPLETE** | `phase-2-canonicalizer-restoration-plan.md` (archived) |
-| 3. Concept Layer | Complete (20+ concepts seeded) | **13/20 enriched 2026-04-14** via deterministic extractors (anchor + section-title + alias miner), zero LLM calls. 7 concepts still need dictionary expansion or IRR ingestion. | ✅ **COMPLETE (65% coverage, deterministic)** | `concept_definitions.py`, `concept_enrichment.py`, AD-020 |
+| 2. Canonicalization | Complete | **Restored 2026-04-14** — structured section generation (Overview/Coverage/Key Points/Referenced Concepts) + diff-before-write protection with volatile-field stripping + batch CLI. | ✅ **COMPLETE** | `phase-2-canonicalizer-restoration-plan.md` (archived) |
+| 3. Concept Layer | Complete (20+ concepts seeded) | **16/20 enriched 2026-04-14** via deterministic extractors (anchor + section-title + 14-entry alias dict + compound-title multi-match), zero LLM calls. 4 concepts still await inline phrase-density extraction. | ✅ **COMPLETE (80% coverage, deterministic)** | `concept_definitions.py`, `concept_enrichment.py`, AD-019, AD-020 |
 | 4. Identity Cleanup | Complete | Complete for text replacement; migration map maintained manually | ✅ **COMPLETE** | `codebase-roadmap-audit.md` |
 | 5. Relationship Extraction | Complete (Section-Aware) | Regex-based; section-aware variant exists; **82% rejection rate** at review; technically "primitive" | 🟡 **PARTIAL (regex-grade)** | `extraction-audit.md` §10 |
-| 6A. Local LLM Review | Complete ✅ | **Gap-closed 2026-04-14** — config-driven URL, high-confidence writer, bounded retries with wall-clock cap, resume-from-in-progress, opt-in parallelization, `run-with-review` composite command. Second-pass (6B) remains separate. | ✅ **COMPLETE** | `phase-6a-review-gap-closure-plan.md` (archived) |
+| 6A. Local LLM Review | Complete ✅ | **Gap-closed 2026-04-14** — config-driven URL, high-confidence writer, bounded retries with wall-clock cap, resume-from-in-progress, opt-in parallelization, warmup, `run-with-review` composite command, pre-review filter integration. | ✅ **COMPLETE** | `phase-6a-review-gap-closure-plan.md` (archived) |
 | 6B. Second-Pass Review | Planned | **Complete 2026-04-14** — `review_routing.py` (entry criteria + decision table), `ollama_review_second_pass.py` (orchestrator + agreement matrix + human worklist), CLI `review-relationships-ollama-second-pass`. End-to-end smoke-tested on real PD 1096 with `gemma4:e4b` as Tier-2 (qwen3:30b not pulled locally). | ✅ **COMPLETE** | `phase-6b-second-pass-review-plan.md` (archived) |
-| 7. Promotion Governance | Not implemented | Not started; no code in `scripts/vitruvius/` | ✅ **COMPLETE (2026-04-14)** | First batch promoted on PD 1096; 43/43 tests pass; idempotency + rollback verified |
+| **Pre-review filter** *(cross-cutting)* | *(new)* | **Shipped 2026-04-14** — `pre_review_filter.py` with 8 deterministic rules (A1-A4, R1-R2, R5, R7). Auto-accepts / auto-rejects candidates before LLM. Real-data impact: 78% LLM savings on PD 1096. | ✅ **COMPLETE** | AD-018, AD-021 |
+| 7. Promotion Governance | Not implemented | Not started; no code in `scripts/vitruvius/` | ✅ **COMPLETE (2026-04-14)** | 6 PD 1096 relationships promoted; 17-rule validator; idempotency + rollback verified |
 | 8. Graph Contract & Indexing | Not implemented | Not started | ❌ **NOT STARTED** | — |
 | 9. Query & AI Layer | Not implemented | Not started | ❌ **NOT STARTED** | — |
 | 10. Canonical Relationship Storage | Not implemented | Folder `003/shared/relationships/` is empty | ❌ **NOT STARTED** | Merged conceptually into Phase 7 |
@@ -211,12 +212,12 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 
 ---
 
-## 5. Honest Position Statement
+## 5. Honest Position Statement (updated 2026-04-14)
 
-- **Where we actually are:** Ingestion is functional but unsophisticated. The review layer works end-to-end for a single source but rejects 82% of candidates — which is *both* a sign that the reviewer is doing its job and a sign that the extractor upstream is too noisy.
-- **What's keeping us stuck:** Three interlocking gaps. (1) No Promotion Layer, so nothing graduates from `review_ollama.json` into canonical storage. (2) No normalization layer, so extraction feeds the reviewer garbage. (3) Regex extraction, so good signals drown in false positives.
-- **What unblocks the next 90 days:** Build Phase 7 on top of the *existing* Ollama review output (not blocked on upstream fixes), in parallel with Phase 1C (normalization) to reduce the 82% rejection rate. Phase 1B (multi-parser) follows.
-- **What must NOT happen next:** expanding the corpus (Phase 11), adding new concepts without enrichment (Phase 3C), or starting graph database work (Phase 8) before the filesystem graph contract is frozen.
+- **Where we actually are:** Ingestion, refinement, canonicalization, extraction, review (Tier-1 + Tier-2), promotion, and concept enrichment are all shipping. The pipeline runs end-to-end on PD 1096 with ~4 Ollama calls per full pass (down from ~25). The project is best described as **"deterministic-first with AI as the exception"**.
+- **What used to be stuck, now fixed:** (1) Phase 7 Promotion Layer now exists — 6 PD 1096 relationships live in canonical storage. (2) Phase 1C normalization MVP shipping with 8 Tier A/B rules. (3) Regex extractor noise now caught deterministically by `dedupe_by_endpoints` (AD-014/016) + `pre_review_filter` (AD-018/021) — 78% of candidates bypass the LLM. (4) Phase 3C concept enrichment shipping with 16/20 PD 1096 concepts populated from regex anchors + section-title matching, zero LLM calls.
+- **What's still gated:** (1) Phase 8 graph indexing — needs ≥50 verified relationships (currently 7). (2) Phase 9 query layer — gated on Phase 8. (3) Phase 11 corpus expansion — gated on Phase 7 stability which is now met but not yet exercised at scale. (4) Phase 1B multi-parser — design spec ready, implementation multi-session.
+- **Next high-leverage move (user's choice):** Phase 1B, or re-running the pipeline on PD 1096 IRR to get a second corpus's worth of relationships + the remaining 4 concepts, or splitting `ollama_review.py` as a quality refactor.
 
 ---
 
@@ -342,7 +343,7 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 ---
 
-### Phase 2 — Canonicalization Engine · 🟡 PARTIAL (SKELETON)
+### Phase 2 — Canonicalization Engine · ✅ COMPLETE (2026-04-14)
 
 **Objective.** Transform refined Markdown into canonical source files with strict IDs, frontmatter, and structured sections.
 
@@ -372,7 +373,7 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 ---
 
-### Phase 3 — Concept Layer · 🟡 PARTIAL (PLACEHOLDERS)
+### Phase 3 — Concept Layer · ✅ 16/20 ENRICHED (2026-04-14, deterministic)
 
 **Objective.** Promote concept files from placeholders to "Knowledge Nodes" carrying definition, regulatory basis, aliases, and cross-references.
 
@@ -440,7 +441,7 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 ### Phase 6 — Review & Validation Layer
 
-#### Phase 6A — Local LLM Review · ✅ COMPLETE (with gaps)
+#### Phase 6A — Local LLM Review · ✅ COMPLETE (full gap closure 2026-04-14)
 
 **Objective.** Validate regex-extracted candidates using a local LLM, producing `keep` / `review_further` / `reject` decisions with confidence scoring.
 
@@ -468,7 +469,7 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 **References.** `/.ai/02_audits/review-layer-audit.md`.
 
-#### Phase 6B — Second-Pass Review (Two-Stage Adjudication) · 📝 PLANNED
+#### Phase 6B — Second-Pass Review (Two-Stage Adjudication) · ✅ COMPLETE (2026-04-14)
 
 **Objective.** Minimize false consensus and reduce compute by routing only uncertain cases through a second model.
 
@@ -494,7 +495,7 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 ---
 
-### Phase 7 — Promotion Governance · ❌ NOT STARTED · 🔥 HIGHEST PRIORITY
+### Phase 7 — Promotion Governance · ✅ COMPLETE (2026-04-14)
 
 **Objective.** Transfer LLM-approved relationship records into canonical storage under the governance contract in §3.5.
 
@@ -688,7 +689,9 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 ---
 
-## 8. 90-Day Execution Sequence (Strict Order)
+## 8. 90-Day Execution Sequence (Strict Order) — SPRINTS A + B CLOSED 2026-04-14
+
+> **Status:** Sprint A (Phase 7) shipped. Sprint B (1C + 2 + 6A) shipped. Sprint C (1B + 6B) partially shipped — 6B delivered, 1B still planned. Pre-review filter (cross-cutting) added as a quality-pass.
 
 This section supersedes any prior "Next Actions" list. Items are ordered by dependency, not preference. **Do not reorder without updating §7 and §4.**
 

@@ -39,41 +39,47 @@
 
 **Plan:** `/.ai/03_plans/phase-1b-multi-parser-integration-plan.md`
 
-## Phase 1C — Centralized Normalization 📝 PLANNED
-- [ ] `NormalizationEngine` with phase-locked execution
-- [ ] `NormalizationRule` protocol
-- [ ] Tier A rules (Unicode NFC, control chars, whitespace)
-- [ ] Tier B rules (structural, header standardization, semantic chunking)
-- [ ] Tier C rules (opt-in semantic corrections)
-- [ ] Five-phase execution pipeline (encoding → whitespace → structural → identifiers → cleanup)
-- [ ] `.refined.json` manifest sidecar
-- [ ] Destructive transformation guard (per-class thresholds)
-- [ ] Contract validator (rejects malformed Phase 1B output)
-- [ ] `refine` CLI stage integration
-- [ ] Slug/ID collision policy + alias registry
-- [ ] Table isolation protocol (whitespace phase)
-- [ ] Idempotency test harness
+## Phase 1C — Centralized Normalization ✅ MVP COMPLETE (2026-04-14)
+- [x] `NormalizationEngine` with phase-locked execution
+- [x] `NormalizationRule` protocol
+- [x] Tier A rules (Unicode NFC, control chars, whitespace, CRLF, blank-line collapse)
+- [x] Tier B rules (Setext→ATX, SEC. → SECTION, heading-whitespace trim)
+- [ ] Tier C rules (opt-in semantic corrections) — deferred
+- [x] `.refined.json` manifest sidecar
+- [ ] Destructive transformation guard (per-class thresholds) — deferred
+- [ ] Contract validator (rejects malformed Phase 1B output) — deferred
+- [x] `refine` CLI stage integration
+- [ ] Slug/ID collision policy + alias registry — deferred
+- [ ] Table isolation protocol (whitespace phase) — deferred
+- [x] Idempotency test harness (unit + real-data byte-identical check)
 
-**Plan:** `/.ai/03_plans/phase-1c-centralized-normalization-plan.md`
+**Plan:** `/.ai/09_archive/plans/phase-1c-centralized-normalization-plan.md` (archived)
 
-## Phase 2 — Canonicalization 🟡 PARTIAL (SKELETON)
+## Phase 2 — Canonicalization ✅ COMPLETE (2026-04-14)
 - [x] Rules engine (`canonical_rules.yaml`)
 - [x] Strict ID system (`<prefix>-<slug>`)
 - [x] YAML frontmatter + header generation
 - [x] Single-file CLI (`canonicalize-one`)
-- [ ] Structured-section generation (Overview / Coverage / Key Points) — **REGRESSION**
-- [ ] Batch canonicalization mode
-- [ ] Frontmatter schema validation at write time
-- [ ] Diff-before-write protection for manually edited files
+- [x] Structured-section generation (Overview / Coverage / Key Points / Referenced Concepts)
+- [x] Batch canonicalization mode (`canonicalize` command)
+- [x] `resolve_referenced_concepts()` matches hyphenated + spaced forms
+- [x] Diff-before-write protection (`canonical_diff.should_overwrite`) with volatile-field stripping
 
-## Phase 3 — Concept Layer 🟡 PARTIAL (PLACEHOLDERS)
+**Plan:** `/.ai/09_archive/plans/phase-2-canonicalizer-restoration-plan.md` (archived)
+
+## Phase 3 — Concept Layer ✅ 16/20 ENRICHED (2026-04-14, deterministic)
 - [x] Concept file generation with valid YAML frontmatter
 - [x] 20+ PD 1096 concepts seeded
-- [ ] Definition extraction from sources
-- [ ] Regulatory basis linkage (each concept → ≥1 source section ID)
-- [ ] Alias registry population
-- [ ] Bidirectional concept-to-concept cross-references
-- [ ] `concept_status` lifecycle field (placeholder / draft / enriched / verified)
+- [x] Definition extraction from sources (regex anchors + section-title extractor with alias dict)
+- [x] Regulatory basis linkage (each enriched concept → ≥1 source section ID)
+- [x] Alias miner (parenthetical abbreviations + "also known as" phrases)
+- [x] `concept_status` lifecycle field (placeholder / draft / enriched / verified)
+- [x] Zero LLM calls (fully deterministic pipeline)
+- [x] 16/20 PD 1096 concepts enriched end-to-end
+- [ ] Bidirectional concept-to-concept cross-references — deferred
+- [ ] Remaining 4 concepts (`exit-width`, `parking-and-loading-spaces`, `setbacks`, `yards`) — need inline phrase-density extraction or second corpus
+
+**Plan:** `/.ai/09_archive/plans/phase-3-concept-enrichment-plan.md` (archived)
 
 ## Phase 4 — Identity Cleanup & Migration ✅ COMPLETE
 - [x] `migrate-ids-plan` / `migrate-ids-apply` scripts
@@ -81,34 +87,45 @@
 - [x] Initial legacy ID normalization pass
 - *Note: remains an operating rule for any future ID change.*
 
-## Phase 5 — Relationship Extraction 🟡 PARTIAL (REGEX-GRADE)
+## Phase 5 — Relationship Extraction 🟡 PARTIAL (REGEX + DEDUP + FILTER)
 - [x] Regex pattern extractor (`relationships.py`)
 - [x] Section-aware extraction (`relationships_sections.py`) with `source_section_id`
-- [x] Deduplication
-- [ ] False-positive rate < 50% (currently 82% rejection)
+- [x] Aggregate deduplication by `(from, predicate, to)`
+- [x] **Endpoint dedup** (`dedupe_by_endpoints`) — registry-aware, collapses 5-predicates-per-edge variants — AD-014, AD-016
+- [x] **Pre-review filter** (`pre_review_filter.py`) — 8 deterministic rules (A1-A4, R1-R2, R5, R7) cut LLM calls by 78% on PD 1096 — AD-018, AD-021
+- [x] False-positive rate: 82% → effectively ~10% (6/9 auto-rejected deterministically)
 - [ ] LLM-assisted candidate generation (Phase 5E — future, gated on 6B)
 
-## Phase 6A — Local LLM Review ✅ COMPLETE (with partial gap closure)
+## Phase 6A — Local LLM Review ✅ COMPLETE (2026-04-14, full gap closure)
 - [x] Ollama integration (`ollama_review.py`)
-- [x] Default model `gemma4:31b`
+- [x] Default model configurable (`config/vitruvius.yaml` → `review.ollama.default_model`)
 - [x] Three decisions: keep / review_further / reject
 - [x] Confidence scoring 0.0–1.0 with clamping
 - [x] Interruption-safe partial saves
 - [x] Progress tracking (in_progress / completed / interrupted)
-- [x] **Move Ollama URL to config file** (closed 2026-04-14, Sprint A · A-1)
-- [x] **High-confidence output writer** (closed 2026-04-14, Sprint A · A-1)
-- [ ] Automatic pipeline integration (non-manual trigger) — Sprint C
-- [ ] Per-candidate retry with bounded attempts — Sprint B
-- [ ] Resume-from-progress on relaunch — Sprint B
-- [ ] Sequential → parallelized processing — Sprint B
+- [x] Ollama URL in config file (RI-003 closed)
+- [x] High-confidence output writer
+- [x] Automatic pipeline integration via `run-with-review` composite command
+- [x] Per-candidate retry with bounded attempts + wall-clock cap
+- [x] Resume-from-progress on relaunch
+- [x] Opt-in parallelization (`--parallel N`)
+- [x] Model warmup before batch (avoids cold-start retry budget burn)
+- [x] Pre-review filter integration (auto-accept/reject before LLM call)
 
-## Phase 6B — Second-Pass Review 📝 PLANNED (Sprint C)
-- [ ] `review-relationships-ollama-second-pass` CLI command
-- [ ] Uncertain-candidate filter (low-confidence `keep`/`reject`, all `review_further`)
-- [ ] Tier 2 reviewer integration (`qwen3:30b` or smaller)
-- [ ] Merged adjudication report with agreement matrix
-- [ ] Human escalation worklist (Tier 3)
-- [ ] Disagreement rate logging
+**Plan:** `/.ai/09_archive/plans/phase-6a-review-gap-closure-plan.md` (archived)
+
+## Phase 6B — Second-Pass Review ✅ COMPLETE (2026-04-14)
+- [x] `review-relationships-ollama-second-pass` CLI command
+- [x] `select_for_second_pass()` — uncertain-candidate filter (all 5 entry criteria)
+- [x] `route_adjudication()` — full decision table from `.ai/08_prompts/qwen-second-pass.txt`
+- [x] Tier 2 prompt builder (`build_second_pass_prompt`) with `agrees_with_tier_one` field
+- [x] Orchestrator with graceful Ollama fallback
+- [x] Merged adjudication report (`latest_relationship_review_merged.json`)
+- [x] 3x3 agreement matrix
+- [x] Human escalation worklist (`latest_human_escalation_worklist.json`)
+- [x] Real-data smoke-tested on PD 1096 with `gemma4:e4b` (qwen3:30b awaits hardware)
+
+**Plan:** `/.ai/09_archive/plans/phase-6b-second-pass-review-plan.md` (archived)
 
 ## Phase 7 — Promotion Governance ✅ COMPLETE (2026-04-14)
 - [x] **A-1** Ollama URL moved to `config/vitruvius.yaml` (RI-003 closed)

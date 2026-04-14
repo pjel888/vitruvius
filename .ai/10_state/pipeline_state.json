@@ -215,10 +215,54 @@
       "note": "Opt-in composite command. Default `run` stays minimal to avoid CI invoking Ollama."
     },
     "review_relationships_ollama_second_pass": {
-      "module": "NOT YET IMPLEMENTED (Phase 6B)",
+      "module": "scripts/vitruvius/ollama_review_second_pass.py",
       "cli_command": "review-relationships-ollama-second-pass",
-      "status": "planned",
-      "sprint": "Sprint C (weeks 7-12)"
+      "cli_flags": ["--model", "--timeout-seconds"],
+      "handler": "run_second_pass",
+      "status": "complete",
+      "sprint": "Phase 6B (closed 2026-04-14)",
+      "default_model": "qwen3:30b (not pulled locally; e4b used for smoke test)",
+      "routing_module": "scripts/vitruvius/review_routing.py",
+      "outputs": [
+        "006_System-Manifests/runs/latest_relationship_review_merged.json",
+        "006_System-Manifests/runs/latest_human_escalation_worklist.json"
+      ],
+      "features": [
+        "select_for_second_pass entry-criteria filter",
+        "route_adjudication decision table (auto_promote/suppress/human_review)",
+        "3x3 agreement matrix",
+        "Graceful Ollama failure fallback to review_further"
+      ]
+    },
+    "pre_review_filter": {
+      "module": "scripts/vitruvius/pre_review_filter.py",
+      "cli_integration": "invoked automatically inside run_review_relationships_ollama (--skip-pre-review-filter to opt out)",
+      "status": "complete",
+      "sprint": "Cross-cutting (AD-018, AD-021)",
+      "rules": {
+        "auto_accept": ["A1 strong governs pattern", "A2 definitional anchor", "A3 high recurrence + type match", "A4 concept-requires pattern"],
+        "auto_reject": ["R1 registry incompatibility", "R2 evidence too short", "R5 self reference", "R7 endpoint not in evidence"]
+      },
+      "real_data_impact_pd_1096": "78% LLM savings (7/9 candidates handled deterministically)",
+      "outputs": [
+        "006_System-Manifests/runs/latest_pre_review_triage.json"
+      ]
+    },
+    "enrich_concepts": {
+      "module": "scripts/vitruvius/concept_enrichment.py",
+      "cli_commands": ["enrich-concept-one", "enrich-concepts"],
+      "cli_flags": ["--force"],
+      "handlers": ["run_enrich_concept_one", "run_enrich_concepts"],
+      "status": "complete",
+      "sprint": "Phase 3C (closed 2026-04-14, deterministic)",
+      "dependencies": [
+        "scripts/vitruvius/concept_definitions.py (anchor + section-title extractors)",
+        "scripts/vitruvius/concept_aliases.py (parenthetical + also-known-as miners)"
+      ],
+      "real_data_coverage_pd_1096": "16/20 concepts enriched (80%), zero LLM calls",
+      "outputs": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/<slug>.md (enriched)"
+      ]
     },
     "promote": {
       "module": "scripts/vitruvius/promotion.py",
@@ -270,10 +314,13 @@
     "refine",
     "canonicalize",
     "canonicalize_concept_one",
-    "extract_relationships_sections_one",
-    "review_relationships_ollama",
+    "enrich_concepts (Phase 3C — deterministic)",
+    "extract_relationships_sections_one (with dedupe_by_endpoints)",
+    "pre_review_filter (deterministic triage, inside review stage)",
+    "review_relationships_ollama (Tier-1 LLM on needs_review bucket only)",
+    "review_relationships_ollama_second_pass (Tier-2 on uncertain subset)",
     "promote",
-    "build_graph (Phase 8 — planned)",
-    "query (Phase 9 — planned)"
+    "build_graph (Phase 8 — gated)",
+    "query (Phase 9 — gated)"
   ]
 }
