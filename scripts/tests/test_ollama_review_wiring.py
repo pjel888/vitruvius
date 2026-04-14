@@ -245,3 +245,37 @@ def test_tension_reflection_noop_when_flag_off(monkeypatch) -> None:
     )
     assert "tension_detected" not in annotated
     assert "reflection_confidence" not in annotated
+
+
+# ---------------------------------------------------------------------------
+# Stream W2.6 — Choquet aggregator for verdict fusion
+# ---------------------------------------------------------------------------
+def test_choquet_fuses_multi_source_signals(monkeypatch) -> None:
+    from vitruvius import config as cfgmod
+    from vitruvius import ollama_review as orv
+    monkeypatch.setattr(
+        cfgmod, "_features_block",
+        lambda: {"w_review_choquet_aggregator": True},
+    )
+
+    signals = {
+        "primary_model": 0.82,
+        "second_pass_model": 0.91,
+        "nb_prefilter": 0.55,
+    }
+    fused = orv._fuse_verdicts_via_choquet(signals)
+    assert 0.70 <= fused <= 0.95
+    assert isinstance(fused, float)
+
+
+def test_choquet_falls_back_to_mean_when_flag_off(monkeypatch) -> None:
+    from vitruvius import config as cfgmod
+    from vitruvius import ollama_review as orv
+    monkeypatch.setattr(
+        cfgmod, "_features_block",
+        lambda: {"w_review_choquet_aggregator": False},
+    )
+
+    signals = {"primary_model": 0.80, "second_pass_model": 0.90}
+    fused = orv._fuse_verdicts_via_choquet(signals)
+    assert fused == pytest.approx(0.85, abs=0.01)

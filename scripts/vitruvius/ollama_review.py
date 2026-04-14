@@ -35,6 +35,31 @@ def load_relationship_report() -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _fuse_verdicts_via_choquet(signals: dict[str, float]) -> float:
+    """Stream W2.6 — fuse multi-source confidence signals into a single
+    aggregate score.
+
+    Flag-OFF path returns the arithmetic mean of the signal values so
+    byte-identity holds when callers were already averaging. Flag-ON
+    path calls the Stream F.8 Choquet integral scaffold.
+    """
+    from . import config as cfgmod
+    if not cfgmod._features_block().get("w_review_choquet_aggregator", False):
+        values = [float(v) for v in signals.values()]
+        return sum(values) / len(values) if values else 0.0
+
+    from .review.choquet_aggregator import (
+        Signal,
+        additive_measure,
+        choquet_integral,
+    )
+
+    signal_list = [Signal(name=k, value=float(v)) for k, v in signals.items()]
+    measure = additive_measure([s.name for s in signal_list])
+    result = choquet_integral(signal_list, fuzzy_measure=measure)
+    return float(result.aggregate)
+
+
 def _capture_tension_and_reflection(
     *,
     primary: dict[str, Any],
