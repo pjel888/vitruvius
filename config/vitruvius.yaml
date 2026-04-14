@@ -93,3 +93,15 @@ features:
   # Stream K — CLUP scaling foundation
   k_rosetta_stone: false
   k_jurisdictional_overrides: false
+  # Stream L — Spatial Ingestion + Z3 Solver (3D Spatial Intelligence Upgrade)
+  l_spatial_ingestion: false
+  l_z3_constraint_solver: false
+  # Stream M — IFC/OWL Ontology
+  m_ifc_ontology_mapping: false
+  m_owl_turtle_export: false
+  # Stream N — Spatial Daemon integration marker
+  n_spatial_daemon_enabled: false
+  # Stream O — Epistemic Foraging Scaffold
+  o_watched_sources_registry: false
+  o_mahalanobis_drift_detection: false
+  o_duplicate_detector: false

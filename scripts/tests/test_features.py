@@ -121,6 +121,11 @@ EXPECTED_FLAGS = {
     "i_hmm_observability",
     "j_active_learning", "j_expected_model_change",
     "k_rosetta_stone", "k_jurisdictional_overrides",
+    "l_spatial_ingestion", "l_z3_constraint_solver",
+    "m_ifc_ontology_mapping", "m_owl_turtle_export",
+    "n_spatial_daemon_enabled",
+    "o_watched_sources_registry", "o_mahalanobis_drift_detection",
+    "o_duplicate_detector",
 }
 
 

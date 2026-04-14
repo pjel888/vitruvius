@@ -27,3 +27,13 @@ POT>=0.9.4,<1.0
 # run: python3 -m spacy download en_core_web_sm
 spacy>=3.7,<4.0
 sentence-transformers>=2.7,<6.0
+
+# Stream L-O (3D Spatial Intelligence Upgrade) — see
+# .ai/03_plans/3d-spatial-intelligence-upgrade-plan.md §3.1. Every lib here
+# is optional: the Python packages under scripts/vitruvius/spatial/,
+# scripts/vitruvius/ontology/, and scripts/vitruvius/foraging/ import them
+# lazily and fall back to a "feature disabled" error when missing.
+jsonschema>=4.0,<5.0
+z3-solver>=4.12,<5.0
+rdflib>=7.0,<8.0
+ifcopenshell>=0.7,<1.0

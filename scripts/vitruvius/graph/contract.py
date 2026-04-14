@@ -4,13 +4,13 @@ import re
 from dataclasses import dataclass
 
 
-ALLOWED_NODE_TYPES = frozenset({"source", "concept", "attribute"})
+ALLOWED_NODE_TYPES = frozenset({"source", "concept", "attribute", "spatial_instance"})
 
 ALLOWED_TRUST_LEVELS = frozenset({
     "primary", "secondary", "tertiary", "unverified", "derived",
 })
 
-ALLOWED_EDGE_STATUSES = frozenset({"verified", "unverified"})
+ALLOWED_EDGE_STATUSES = frozenset({"verified", "unverified", "spatially_verified"})
 
 ALLOWED_ID_PREFIXES = frozenset({
     "law-",
@@ -21,6 +21,8 @@ ALLOWED_ID_PREFIXES = frozenset({
     "handout-",
     "reviewer-",
     "law-section-",
+    "instance-",
+    "spatial-",
 })
 
 
