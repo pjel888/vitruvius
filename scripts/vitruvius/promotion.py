@@ -73,3 +73,71 @@ def merge_evidence(existing: list[dict], new: list[dict]) -> list[dict]:
 def min_confidence(evidence: list[dict]) -> float:
     scores = [float(e.get("reviewer_confidence", 0.0)) for e in evidence]
     return min(scores) if scores else 0.0
+
+
+def _yaml_scalar(value) -> str:
+    if value is None:
+        return "null"
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, (int, float)):
+        return str(value)
+    s = str(value)
+    if any(c in s for c in ':#"\'\n') or s == "":
+        return '"' + s.replace('"', '\\"') + '"'
+    return s
+
+
+def _render_frontmatter(record: dict) -> str:
+    ordered_keys = [
+        "id", "title", "page_type", "relationship_type",
+        "from_entity", "to_entity", "trust_level", "canonical_status",
+        "confidence_score", "promotion_batch_id", "promotion_audit_log_ref",
+        "last_promoted_utc",
+    ]
+    lines = ["---"]
+    for k in ordered_keys:
+        if k in record:
+            lines.append(f"{k}: {_yaml_scalar(record[k])}")
+    lines.append("evidence:")
+    for entry in record.get("evidence", []):
+        lines.append("  -")
+        for ek, ev in entry.items():
+            lines.append(f"    {ek}: {_yaml_scalar(ev)}")
+    lines.append("---")
+    return "\n".join(lines)
+
+
+def _render_body(record: dict) -> str:
+    lines = []
+    lines.append(f"# {record.get('title', record.get('id', ''))}")
+    lines.append("")
+    lines.append("## Relationship Summary")
+    lines.append("")
+    lines.append(f"Promoted relationship of type `{record.get('relationship_type')}` "
+                 f"from `{record.get('from_entity')}` to `{record.get('to_entity')}`.")
+    lines.append("")
+    lines.append("## Evidence")
+    lines.append("")
+    for idx, ev in enumerate(record.get("evidence", []), 1):
+        lines.append(f"### Evidence {idx} - `{ev.get('source_id')}` §{ev.get('source_section_id')}")
+        lines.append("")
+        snippet = ev.get("evidence_snippet", "")
+        lines.append(f"> {snippet}")
+        lines.append("")
+        lines.append(
+            f"- Reviewer: `{ev.get('reviewer_model')}` · "
+            f"Decision: `{ev.get('review_decision')}` · "
+            f"Confidence: `{ev.get('reviewer_confidence')}`"
+        )
+        if ev.get("reviewed_at_utc"):
+            lines.append(f"- Reviewed: {ev['reviewed_at_utc']}")
+        lines.append(f"- Batch: `{record.get('promotion_batch_id')}`")
+        lines.append("")
+    return "\n".join(lines)
+
+
+def write_relationship_file(path: Path, record: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    content = _render_frontmatter(record) + "\n\n" + _render_body(record) + "\n"
+    path.write_text(content, encoding="utf-8")
