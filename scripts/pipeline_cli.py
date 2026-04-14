@@ -156,6 +156,27 @@ def build_parser() -> argparse.ArgumentParser:
                                      choices=["json"],
                                      help="Output format (default: json)")
 
+    subparsers.add_parser("ingest-spatial")
+
+    evaluate_spatial_parser = subparsers.add_parser("evaluate-spatial")
+    evaluate_spatial_parser.add_argument(
+        "--concepts",
+        required=True,
+        help="Comma-separated concept slugs to evaluate",
+    )
+    evaluate_spatial_parser.add_argument(
+        "--observations",
+        dest="observations_path",
+        required=True,
+        help="Path to JSON observation file (dict: variable -> value)",
+    )
+    evaluate_spatial_parser.add_argument(
+        "--rules",
+        dest="rules_path",
+        default=None,
+        help="Optional path to JSON rules file (concept_id -> rule)",
+    )
+
     query_parser = subparsers.add_parser("query")
     query_parser.add_argument("question", help="Natural-language question")
 
@@ -339,6 +360,18 @@ def main() -> int:
     if args.command == "export-graph-snapshot":
         from vitruvius.graph.cli import run_export_graph_snapshot
         return run_export_graph_snapshot(fmt=args.fmt)
+
+    if args.command == "ingest-spatial":
+        from vitruvius.spatial.cli import run_ingest_spatial
+        return run_ingest_spatial()
+
+    if args.command == "evaluate-spatial":
+        from vitruvius.spatial.cli import run_evaluate_spatial
+        return run_evaluate_spatial(
+            concepts=args.concepts,
+            observations_path=args.observations_path,
+            rules_path=args.rules_path,
+        )
 
     if args.command == "query":
         from vitruvius.query.cli import run_query
