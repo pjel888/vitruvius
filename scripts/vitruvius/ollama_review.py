@@ -35,6 +35,35 @@ def load_relationship_report() -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _capture_tension_and_reflection(
+    *,
+    primary: dict[str, Any],
+    second_pass: dict[str, Any] | None,
+) -> dict[str, Any]:
+    """Stream W2.5 — annotate a verdict with reflection confidence and
+    tension flags when Tier-1 and Tier-2 disagree.
+
+    Flag-OFF path returns a shallow copy of ``primary`` with no added
+    keys so byte-identity holds.
+    """
+    from . import config as cfgmod
+    from .review.reflection_parser import extract_reflection_confidence
+    if not cfgmod._features_block().get("w_review_tension_reflection", False):
+        return dict(primary)
+
+    annotated = dict(primary)
+    reflection_conf = extract_reflection_confidence(primary.get("reason", ""))
+    if reflection_conf is not None:
+        annotated["reflection_confidence"] = reflection_conf
+    if second_pass and second_pass.get("decision") != primary.get("decision"):
+        annotated["tension_detected"] = True
+        annotated["tension_detail"] = {
+            "primary_decision": primary.get("decision"),
+            "second_pass_decision": second_pass.get("decision"),
+        }
+    return annotated
+
+
 def _maybe_route_to_second_pass(verdict: dict[str, Any]) -> str:
     """Stream W2.4 — decide whether a Tier-1 verdict should escalate to
     the Tier-2 (second-pass) reviewer.

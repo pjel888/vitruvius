@@ -204,3 +204,44 @@ def test_conformal_is_noop_when_flag_off(monkeypatch) -> None:
     )
     verdict = {"decision": "keep", "confidence": 0.55}
     assert orv._maybe_route_to_second_pass(verdict) == "finalize"
+
+
+# ---------------------------------------------------------------------------
+# Stream W2.5 — tension analyzer + reflection parser
+# ---------------------------------------------------------------------------
+def test_tension_reflection_captured_when_flag_on(monkeypatch) -> None:
+    from vitruvius import config as cfgmod
+    from vitruvius import ollama_review as orv
+    monkeypatch.setattr(
+        cfgmod, "_features_block",
+        lambda: {"w_review_tension_reflection": True},
+    )
+
+    verdict = {
+        "decision": "keep",
+        "confidence": 0.75,
+        "reason": "<thought_process>I am 75% confident because the clause is ambiguous.</thought_process>",
+    }
+    annotated = orv._capture_tension_and_reflection(
+        primary=verdict,
+        second_pass={"decision": "reject", "confidence": 0.80},
+    )
+    assert annotated["tension_detected"] is True
+    assert annotated["reflection_confidence"] == 0.75
+
+
+def test_tension_reflection_noop_when_flag_off(monkeypatch) -> None:
+    from vitruvius import config as cfgmod
+    from vitruvius import ollama_review as orv
+    monkeypatch.setattr(
+        cfgmod, "_features_block",
+        lambda: {"w_review_tension_reflection": False},
+    )
+
+    verdict = {"decision": "keep", "confidence": 0.75, "reason": "ok"}
+    annotated = orv._capture_tension_and_reflection(
+        primary=verdict,
+        second_pass={"decision": "reject", "confidence": 0.80},
+    )
+    assert "tension_detected" not in annotated
+    assert "reflection_confidence" not in annotated

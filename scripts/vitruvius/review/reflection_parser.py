@@ -1,4 +1,9 @@
-"""Reflection parser — LLM <thought_process> block extraction (Task F.6)."""
+"""Reflection parser — LLM <thought_process> block extraction (Task F.6).
+
+Stream W2.5 also exposes ``extract_reflection_confidence`` — a narrow
+percentage-regex adapter used when the live-wiring path wants just the
+self-confidence number without materialising a full ``ReflectionVerdict``.
+"""
 
 from __future__ import annotations
 
@@ -10,6 +15,26 @@ THOUGHT_BLOCK_PATTERN = re.compile(
     r"<thought_process>(.*?)</thought_process>",
     re.DOTALL | re.IGNORECASE,
 )
+
+
+def extract_reflection_confidence(reason_text: str) -> float | None:
+    """Stream W2.5 adapter — pull a percentage confidence from free text.
+
+    Matches patterns like ``"I am 75% confident"`` and returns 0.75.
+    Returns ``None`` when no percentage is found. Used by
+    ``ollama_review._capture_tension_and_reflection`` to annotate
+    verdicts with the model's self-reported confidence when
+    ``features.w_review_tension_reflection`` is true.
+    """
+    if not reason_text:
+        return None
+    match = re.search(r"(\d+(?:\.\d+)?)\s*%", reason_text)
+    if match:
+        try:
+            return float(match.group(1)) / 100.0
+        except ValueError:
+            return None
+    return None
 CONFIDENCE_PATTERN = re.compile(
     r"\bconfidence[:\s]+(\d+(?:\.\d+)?)\b",
     re.IGNORECASE,
