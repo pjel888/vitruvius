@@ -271,6 +271,21 @@ def save_progress_report(
     write_text(txt_path, build_text_report(report))
 
 
+def warmup_model(*, model: str, timeout_seconds: int) -> bool:
+    """Send a minimal generate call to force Ollama to load the model.
+
+    Returns True on success, False on any error. Never raises — warmup
+    failure must not abort the batch; the per-candidate retry loop will
+    handle transient Ollama issues.
+    """
+    warmup_prompt = '{"task": "warmup ping", "respond_with": "ok"}'
+    try:
+        call_ollama(warmup_prompt, model=model, timeout_seconds=min(timeout_seconds, 120))
+        return True
+    except Exception:
+        return False
+
+
 def review_candidates_parallel(
     candidates: list[dict[str, Any]],
     *,
@@ -397,6 +412,11 @@ def run_review_relationships_ollama(
     print(f"Source: {source}")
     print(f"Total candidates: {len(candidates)}")
     print(f"Timeout per candidate: {timeout_seconds} seconds")
+    print("")
+
+    print(f"Warming up {model}...")
+    warm_ok = warmup_model(model=model, timeout_seconds=timeout_seconds)
+    print(f"Warmup: {'ok' if warm_ok else 'failed (continuing anyway)'}")
     print("")
 
     try:
