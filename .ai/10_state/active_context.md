@@ -1,8 +1,8 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-14 · Phase 3C enrichment complete (13/20 concepts)
-> **Branch:** `feat/phase-7-promotion-governance` (many commits ahead of `main`)
-> **Test suite:** 167/167 passing
+> **Updated:** 2026-04-14 · Integration tests added, pre-review filter expanded, Phase 3C at 16/20
+> **Branch:** `feat/phase-7-promotion-governance` (~60 commits ahead of `main`)
+> **Test suite:** 177/177 passing
 
 ## Where We Are
 
@@ -37,16 +37,18 @@ AI is now the *exception*, not the rule. Most stages are zero-LLM. The review la
 
 | Stage | Calls | Source |
 |---|---|---|
-| Pre-review filter (deterministic) | 0 | Auto-accept/reject by rules |
-| Tier-1 review | 7 (was 9) | Pre-filter saved 2 |
-| Tier-2 review | 2 | Only `review_further` candidates |
+| Pre-review filter (deterministic) | 0 | Auto-accept/reject by 7 rules (A1, A2, A3, A4, R1, R2, R5, R7) |
+| Tier-1 review | **2 (was 9)** | Pre-filter now saves 7/9 (78%) via R7 |
+| Tier-2 review | 1-2 | Only uncertain Tier-1 output |
 | Concept enrichment | 0 | Regex anchors + section titles |
 | Promotion | 0 | Schema validation |
-| **Total** | **9** | vs ~25 pre-session |
+| **Total** | **~4** | vs ~25 pre-session |
+
+**R7 (endpoint_not_in_evidence)** is the biggest single LLM-savings lever: it rejects candidates where neither endpoint's phrase appears in the evidence text. 5/9 PD 1096 candidates were regex-extracted via section-window coincidence and discuss unrelated topics (wood construction, glazing, property lines). R7 catches them deterministically.
 
 ## Phase 3C Enrichment Results
 
-**13/20 concepts enriched**, all via section-title matching:
+**16/20 concepts enriched**, all via section-title matching (zero LLM calls):
 
 | Slug | Confidence | Section |
 |---|---|---|
@@ -63,8 +65,11 @@ AI is now the *exception*, not the rule. Most stages are zero-LLM. The review la
 | `open-courts` | 0.75 | sec-804 |
 | `projections-over-public-ways` | 0.75 | sec-1003 |
 | `stairs` | 0.75 | sec-1207 |
+| `occupancy-load` | 0.75 | sec-1207 (compound title) |
+| `means-of-egress` | 0.75 | sec-1207 (compound title) |
+| `occupancy-separation` | 0.75 | sec-703 (via mixed-occupancy alias) |
 
-**Still missing (7):** `exit-width`, `means-of-egress`, `occupancy-load`, `occupancy-separation`, `parking-and-loading-spaces`, `setbacks`, `yards`. These don't appear as explicit section titles in the main PD 1096 file. Likely recoverable via (a) extending the alias dictionary, (b) scanning the PD 1096 IRR which has more granular sections, or (c) adding a co-occurrence fallback.
+**Still missing (4):** `exit-width`, `parking-and-loading-spaces`, `setbacks`, `yards`. These don't appear as explicit section titles anywhere in PD 1096 or its IRR. They require either an inline-phrase-density fallback or a second source corpus.
 
 ## Code Modules (Phase 3C)
 

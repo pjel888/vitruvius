@@ -128,6 +128,22 @@
 - **Real-data result on refined PD 1096:** 7/20 concepts found definitions via section-title matching (certificate-of-occupancy, mixed-occupancy, building-permit, floor-area, light-and-ventilation, lot-occupancy, stairs). The anchor approach found 0 for our concepts because PD 1096 uses section structure, not explicit "shall mean" phrasing, for building-code concepts. 35% coverage with zero AI cost.
 - **Consequence:** Phase 3C can ship without LLM dependency. The missing 13 concepts need a section-title alias dictionary (e.g., "Yards" → `yards`, "Site Occupancy" → `lot-occupancy`) which is a follow-up. Alias miner and enrichment orchestrator (the other tasks in the Phase 3C design spec) are still pending.
 
+## AD-021: End-to-End Integration Test Coverage + Pre-Review Filter R7
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** Prior iterations built strong unit test coverage (168 tests) but zero tests exercised the full pipeline wire-to-wire. Cross-module regressions from refactors would slip through unit tests. Separately, the pre-review filter only caught 22% of candidates deterministically, leaving 78% for the LLM.
+- **Decision (two-part):**
+  1. **Integration test module** (`scripts/tests/test_integration_e2e.py`) — four new tests covering: full extract → dedup → pre-filter → promote → enrich pipeline on a synthetic tmp_path tree; byte-identical determinism on re-run (modulo timestamp fields); dedup idempotency; pre-review filter idempotency.
+  2. **Rule R7: endpoint-not-in-evidence** — the pre-review filter now auto-rejects candidates where neither endpoint's concept phrase (slug with hyphens → spaces) appears in the evidence text. Rationale: the regex extractor matches candidates via sliding section windows, which produces many false positives where a concept slug happens to be in the same section as another slug but the actual evidence text discusses an unrelated topic. When neither endpoint is literally mentioned in the matched evidence, the candidate is noise.
+  Also: **Rule A4** (concept→concept `requires` with characteristic language) and punctuation-stripping normalization so compound section titles with commas match aliases.
+- **Real-data impact on refined PD 1096:**
+  - Integration test coverage: 168 → 177 tests
+  - Pre-review filter LLM savings: **22% → 78%** (1 auto_accept + 6 auto_reject / 9 candidates)
+  - Remaining LLM calls on PD 1096 Tier-1: 9 → 2 (−78%)
+  - Concept enrichment: 14/20 → 16/20 (via alias expansion for `means-of-egress` and `occupancy-separation`)
+- **Tradeoff documented:** R7 may reject candidates where the relationship is implicit but correct (e.g., `concept-occupancy-separation → requires → concept-occupancy-classification` which the LLM kept but R7 rejects because neither phrase appears literally in the evidence snippet). Rejected candidates remain in the `auto_reject` bucket for audit and can be recovered via `--skip-pre-review-filter`. Precision is the right call for a deterministic first-pass — the LLM is the fallback, not the baseline.
+- **Consequence:** The pipeline's AI budget on PD 1096 dropped from ~9 Ollama calls to ~4 (Tier-1 + Tier-2 combined). The integration test suite will catch the next cross-module regression before it ships.
+
 ## AD-020: Phase 3C Concept Enrichment — Deterministic Pipeline
 - **Date:** 2026-04-14
 - **Status:** Implemented
