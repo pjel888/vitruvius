@@ -58,11 +58,11 @@
 - **Mitigation:** Add `rotate-registries` CLI with a retention policy (e.g., keep 30 timestamped versions + always the latest).
 - **Closure:** Post-Sprint C infrastructure cleanup.
 
-### RI-009: No File Hashing in Ingestion
-- **Description:** `scanner.py` captures size + mtime but no SHA-256. Change detection can miss content changes that preserve mtime.
-- **Impact:** MEDIUM — Phase 1B telemetry contract expects `source_hash`, so this must close before 1B ships.
-- **Mitigation:** Add SHA-256 computation in `scanner.build_file_entries`. Store in `latest_raw_file_registry.csv`.
-- **Closure:** Sprint C as a prerequisite for Phase 1B.
+### RI-009: No File Hashing in Ingestion (CLOSED 2026-04-14)
+- **Description:** `scanner.py` captured size + mtime but no SHA-256. Change detection could miss content changes that preserve mtime.
+- **Impact:** MEDIUM — prerequisite for Phase 1B foundation work (content-aware dedup across re-scans, per-file sidecar keying).
+- **Mitigation:** ✅ Sprint C Phase 1B Foundation (Task 0) added a streaming `_sha256_of_file()` helper to `scanner.py`, a `sha256: str` field on `FileEntry`, a `sha256` column in `latest_raw_file_registry.csv`, and a 6-test `test_scanner_sha256.py` regression suite. Commit `1386b32`; see AD-022.
+- **Status:** **CLOSED.**
 
 ### RI-010: Concept Generator Produces Placeholder Content (SUBSTANTIALLY CLOSED 2026-04-14)
 - **Description:** `concepts.py` writes "X is a defined concept within the Vitruvius system." as the body. No definition extraction, no regulatory linkage.
@@ -86,19 +86,20 @@
 - **Mitigation:** ✅ Sprint B Phase 6A added `run-with-review` composite command that chains `run → convert → refine → review-relationships-ollama`. Default `run` stays minimal so CI doesn't invoke Ollama accidentally.
 - **Status:** **CLOSED.**
 
-## Risk Severity Summary (updated 2026-04-14 after Sprints A + B + Phase 3C + quality pass)
+## Risk Severity Summary (updated 2026-04-14 after Sprints A + B + Phase 3C + quality pass + Phase 1B Foundation)
 | Severity | Count | IDs |
 |---|---|---|
 | HIGH | 1 | RI-001 (permanent operating rule) |
-| MEDIUM | 3 | RI-008, RI-009, RI-010 (4/20 remaining) |
+| MEDIUM | 2 | RI-008, RI-010 (4/20 remaining) |
 | LOW | 1 | RI-004 |
 | MITIGATED (not formally closed) | 1 | RI-002 (pre-review filter cut false positives from 82% → ~22%) |
-| CLOSED | 6 ✅ | RI-003, RI-005 (next pass), RI-006, RI-007, RI-011, RI-012 |
+| CLOSED | 7 ✅ | RI-003, RI-005 (next pass), RI-006, RI-007, RI-009, RI-011, RI-012 |
 
 ## Closure Timeline
 | When | Risks Closed |
 |---|---|
 | **Sprint A (2026-04-14)** | ✅ RI-006, ✅ RI-003 (partial) |
 | **Sprint B (2026-04-14)** | ✅ RI-003 (full), ✅ RI-007 (MVP), ✅ RI-011, ✅ RI-012 |
-| Future | RI-002 (Phase 5E), RI-008 (post-Sprint-C cleanup), RI-009 (Phase 1B), RI-010 (Phase 3C) |
+| **Sprint C · Phase 1B Foundation (2026-04-14)** | ✅ RI-009 (Task 0 — SHA-256 file hashing) |
+| Future | RI-002 (Phase 5E), RI-008 (this session), RI-010 (Phase 3C — 4 concepts need corpus expansion) |
 | Permanent rule | RI-001, RI-004 |
