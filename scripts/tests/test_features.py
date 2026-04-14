@@ -132,6 +132,8 @@ EXPECTED_FLAGS = {
     # Sprint PHYS — Statistical Mechanics & Graph Physics (phase-16)
     "phys_pagerank", "phys_boltzmann_gate", "phys_motif_matcher",
     "phys_shannon_sampling", "phys_eigenvector_cascade",
+    # Sprint HP — High-Performance Optimizations (phase-13)
+    "hp_merkle_fs",
 }
 
 

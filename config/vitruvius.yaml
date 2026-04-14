@@ -148,3 +148,9 @@ features:
   phys_motif_matcher: false
   phys_shannon_sampling: false
   phys_eigenvector_cascade: false
+  # Sprint HP — High-Performance Optimizations (phase-13).
+  # Only HP.1 ships now (Merkle tree directory hash for zero-RAM
+  # status). HP.3 (RocksDB event sourcing), HP.4 (Rust/Wasm
+  # kernels), HP.5 (GraphSAGE) are deferred until their external
+  # toolchains / dependencies are installed on the host.
+  hp_merkle_fs: false
