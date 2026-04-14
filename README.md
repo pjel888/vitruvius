@@ -1,829 +1,430 @@
 # Vitruvius
 
-Vitruvius is a local-first knowledge pipeline for architectural board exam preparation.
+**Local-first knowledge engine** that transforms Philippine building laws and
+regulations into a validated, queryable knowledge graph.
 
-It takes raw source documents — laws, books, reviewers, manuals, scanned references — and processes them through a structured series of layers: scanning, conversion, canonicalization, and derivation. The goal is to produce a trusted, machine-readable knowledge foundation that can power learning tools, retrieval systems, and AI-assisted study.
+Vitruvius is not a RAG wrapper. It enforces a hard boundary between raw text,
+candidate signals, and canonical truth — and treats every transformation as
+auditable. The pipeline is **deterministic-first**: AI is the exception, not
+the rule. On the active PD 1096 corpus, a full end-to-end run touches the
+local LLM (Ollama / `gemma4:e4b`) roughly **4 times** — vs. ~25 in the
+pre-deterministic-filter era.
+
+> **Looking for the deep docs?** The knowledge base lives in
+> [`.ai/`](./.ai/). Start with
+> [`.ai/01_roadmap/master-roadmap.md`](./.ai/01_roadmap/master-roadmap.md)
+> for the authoritative phase contract. This README is the tourist map;
+> `.ai/` is the terrain.
 
 ---
 
-## Table of Contents
+## Table of contents
 
-- [Architecture Overview](#architecture-overview)
-- [Repository Structure](#repository-structure)
-- [Layer Descriptions](#layer-descriptions)
-- [Pipeline CLI](#pipeline-cli)
-- [Vitruvius Package](#vitruvius-package)
-- [Configuration](#configuration)
-- [Documentation](#documentation)
-- [Utility Scripts](#utility-scripts)
-- [Pipeline Workflow](#pipeline-workflow)
-- [Output Artifacts Reference](#output-artifacts-reference)
-- [Content Trust Order](#content-trust-order)
-- [Raw Source Layer Rules](#raw-source-layer-rules)
+- [Quick start](#quick-start)
+- [Architecture at a glance](#architecture-at-a-glance)
+- [Filesystem layers](#filesystem-layers)
+- [Pipeline stages](#pipeline-stages)
+- [CLI commands](#cli-commands)
+- [Deterministic-first design](#deterministic-first-design)
+- [The `.ai/` knowledge base](#the-ai-knowledge-base)
+- [Module map](#module-map)
+- [Testing](#testing)
 - [Dependencies](#dependencies)
-- [Design Philosophy](#design-philosophy)
-- [Current Status](#current-status)
+- [Current status](#current-status)
+- [Principles](#principles)
 
 ---
 
-## Architecture Overview
-
-Vitruvius organizes knowledge into six numbered layers, each with a specific role in the data lifecycle:
-
-| Layer | Folder | Purpose |
-|-------|--------|---------|
-| 1 | `001_Raw-Source-Layer/` | Original source documents (PDFs, scans, books) |
-| 2 | `002_Raw-Conversion-Layer/` | Machine-extracted text outputs (Markdown, JSON, OCR PDFs) |
-| 3 | `003_Canonical-Knowledge-Layer/` | Trusted, curated knowledge pages |
-| 4 | `004_Derived-Content-Layer/` | Generated learning content (articles, flashcards, questions) |
-| 5 | `005_Operational-Intelligence-Layer/` | Machine infrastructure (chunks, embeddings, graphs, indexes) |
-| 6 | `006_System-Manifests/` | Pipeline control, audit logs, registries, and run reports |
-
----
-
-## Repository Structure
-
-```text
-Vitruvius/
-├── .gitignore
-├── README.md
-├── init_vitruvius_structure.sh
-│
-├── config/
-│   └── vitruvius.yaml
-│
-├── docs/
-│   ├── CANONICAL_FRONTMATTER_TEMPLATE.md
-│   └── CONTENT_RULES.md
-│
-├── scripts/
-│   ├── .gitkeep
-│   ├── pipeline_cli.py                  # Main CLI entrypoint
-│   ├── Word-PPT-To-PDF.py              # Office-to-PDF batch converter
-│   ├── test_odl_one.py                  # OpenDataLoader single-file test
-│   ├── test_pdf_text_detection.py       # Standalone PDF text detection test
-│   │
-│   └── vitruvius/                       # Core pipeline package
-│       ├── __init__.py
-│       ├── constants.py                 # Layer and folder name constants
-│       ├── models.py                    # Data models (FileEntry)
-│       ├── paths.py                     # Path resolution and directory helpers
-│       ├── utils.py                     # Timestamp, normalization, and naming utilities
-│       ├── reports.py                   # JSON/CSV/TXT report writing and reading
-│       ├── scanner.py                   # Raw layer scanning and tree snapshot generation
-│       ├── status.py                    # Registry diff and change detection
-│       ├── linting.py                   # Raw layer hygiene checks
-│       ├── detection.py                 # PDF text vs scanned detection
-│       ├── conversion.py                # PDF-to-Markdown conversion (single and batch)
-│       ├── reconcile.py                 # Missing source and stale output detection
-│       └── ocr.py                       # OCR queue building and OCRmyPDF execution
-│
-├── 001_Raw-Source-Layer/                # [git-ignored] Original source documents
-│   ├── 001-Laws/
-│   ├── 002-History/
-│   ├── 003-Theory/
-│   ├── 004-Technology/
-│   ├── 005-Utilities/
-│   ├── 006-Structural/
-│   ├── 007-Planning/
-│   ├── 008-Design/
-│   └── 009-Practice/
-│
-├── 002_Raw-Conversion-Layer/
-│   └── 001-Laws/
-│       ├── raw_markdown/                # Extracted Markdown from text PDFs
-│       │   └── PD-1096/
-│       │       └── PD 1096 - National Building Code.md
-│       ├── sidecar_json/                # Structural metadata sidecar files
-│       │   └── PD-1096/
-│       │       └── PD 1096 - National Building Code.json
-│       └── ocr_pdf/                     # OCR-processed PDF outputs (for scanned PDFs)
-│
-├── 003_Canonical-Knowledge-Layer/
-│   ├── 001-Laws/
-│   │   ├── index.md
-│   │   └── log.md
-│   ├── 002-History/
-│   │   ├── index.md
-│   │   └── log.md
-│   ├── 003-Theory/
-│   │   ├── index.md
-│   │   └── log.md
-│   ├── 004-Technology/
-│   │   ├── index.md
-│   │   └── log.md
-│   ├── 005-Utilities/
-│   │   ├── index.md
-│   │   └── log.md
-│   ├── 006-Structural/
-│   │   ├── index.md
-│   │   └── log.md
-│   ├── 007-Planning/
-│   │   ├── index.md
-│   │   └── log.md
-│   ├── 008-Design/
-│   │   ├── index.md
-│   │   └── log.md
-│   ├── 009-Practice/
-│   │   ├── index.md
-│   │   └── log.md
-│   └── shared/
-│       ├── index.md
-│       ├── concepts/
-│       ├── glossary/
-│       ├── relationships/
-│       └── templates/
-│
-├── 004_Derived-Content-Layer/
-│   ├── articles/
-│   │   └── 001-Laws/ ... 009-Practice/
-│   ├── drafts/
-│   ├── explainers/
-│   │   └── 001-Laws/ ... 009-Practice/
-│   ├── exports/
-│   ├── flashcards/
-│   │   └── 001-Laws/ ... 009-Practice/
-│   ├── learning-paths/
-│   │   └── 001-Laws/ ... 009-Practice/
-│   ├── questions/
-│   │   └── 001-Laws/ ... 009-Practice/
-│   └── summaries/
-│       └── 001-Laws/ ... 009-Practice/
-│
-├── 005_Operational-Intelligence-Layer/
-│   ├── cache/
-│   ├── chunks/
-│   ├── embeddings/
-│   ├── graph/
-│   │   ├── edges/
-│   │   ├── exports/
-│   │   ├── nodes/
-│   │   └── snapshots/
-│   ├── indexes/
-│   │   ├── bm25/
-│   │   ├── hybrid/
-│   │   └── vector/
-│   ├── models/
-│   ├── pipelines/
-│   │   ├── canonicalize/
-│   │   ├── derive/
-│   │   ├── graph-build/
-│   │   └── ingest/
-│   └── retrieval/
-│
-└── 006_System-Manifests/
-    ├── checksums/
-    ├── conversions/
-    ├── duplicates/
-    ├── lineage/
-    ├── logs/
-    │   └── office_to_pdf.log
-    ├── registries/
-    │   ├── latest_raw_file_registry.csv
-    │   ├── latest_conversion_registry.csv
-    │   ├── canonical_registry.csv
-    │   ├── conversion_registry.csv
-    │   ├── graph_registry.csv
-    │   ├── source_registry.csv
-    │   └── <timestamp>_raw_file_registry.csv  (timestamped snapshots)
-    ├── runs/
-    │   ├── latest_status_report.json / .txt
-    │   ├── latest_lint_report.json / .txt
-    │   ├── latest_convert_queue.json / .txt
-    │   ├── latest_convert_batch_report.json / .txt
-    │   ├── latest_convert_one_report.json / .txt
-    │   ├── latest_detect_one_report.json / .txt
-    │   ├── latest_ocr_needed_report.json / .txt
-    │   ├── latest_ocr_queue_report.json / .txt
-    │   ├── latest_ocr_execute_report.json / .txt
-    │   ├── latest_reconcile_report.json / .txt
-    │   └── <timestamp>_*.json / .txt         (timestamped snapshots)
-    └── tree-snapshots/
-        ├── latest_raw_tree_snapshot.json
-        ├── latest_raw_tree_snapshot.txt
-        └── <timestamp>_raw_tree_snapshot.json / .txt
-```
-
----
-
-## Layer Descriptions
-
-### Layer 1 — Raw Source Layer (`001_Raw-Source-Layer/`)
-
-The evidence storage layer. Contains original, unmodified source documents organized by topic category.
-
-This layer is **git-ignored** because the source files are large binary PDFs. It is managed locally only.
-
-Accepted file types: PDFs (primary), with possible future support for DOCX, PPTX, XLSX.
-
-**Categories:**
-- `001-Laws` — legislation, codes, presidential decrees
-- `002-History` — architectural history references
-- `003-Theory` — design theory, architectural principles
-- `004-Technology` — building technology, materials, systems
-- `005-Utilities` — mechanical, electrical, plumbing, fire protection
-- `006-Structural` — structural engineering references
-- `007-Planning` — site planning, urban design, zoning
-- `008-Design` — architectural design, programming, space planning
-- `009-Practice` — professional practice, contracts, ethics, project management
-
-### Layer 2 — Raw Conversion Layer (`002_Raw-Conversion-Layer/`)
-
-Machine-extracted outputs from the raw source layer. Not editorial knowledge — just usable text extraction.
-
-Each source category can contain three subdirectories:
-
-| Subdirectory | Contents |
-|-------------|----------|
-| `raw_markdown/` | Markdown files extracted from text-based PDFs via OpenDataLoader |
-| `sidecar_json/` | Structural metadata JSON files produced alongside Markdown |
-| `ocr_pdf/` | OCR-processed PDF copies of scanned documents (produced by OCRmyPDF) |
-
-### Layer 3 — Canonical Knowledge Layer (`003_Canonical-Knowledge-Layer/`)
-
-The trusted knowledge layer. Contains curated, cleaned, and structured knowledge pages organized by topic.
-
-Each category folder has:
-- `index.md` — category overview and table of contents
-- `log.md` — change log for updates to that category
-
-The `shared/` directory contains cross-category resources:
-- `concepts/` — concept definitions
-- `glossary/` — term glossary
-- `relationships/` — cross-topic relationships
-- `templates/` — page templates
-
-### Layer 4 — Derived Content Layer (`004_Derived-Content-Layer/`)
-
-Learner-facing and AI-generated outputs built from canonical knowledge:
-
-| Subdirectory | Purpose |
-|-------------|---------|
-| `articles/` | Long-form topic articles |
-| `explainers/` | Simplified explanations |
-| `flashcards/` | Study flashcards |
-| `learning-paths/` | Structured learning sequences |
-| `questions/` | Practice questions and answer banks |
-| `summaries/` | Condensed topic summaries |
-| `drafts/` | Work-in-progress content |
-| `exports/` | Final export-ready content |
-
-### Layer 5 — Operational Intelligence Layer (`005_Operational-Intelligence-Layer/`)
-
-Machine-use infrastructure for AI and retrieval systems:
-
-| Subdirectory | Purpose |
-|-------------|---------|
-| `chunks/` | Text chunks for retrieval |
-| `embeddings/` | Vector embeddings |
-| `graph/` | Knowledge graph (nodes, edges, exports, snapshots) |
-| `indexes/` | Search indexes (bm25, vector, hybrid) |
-| `cache/` | Cached computation results |
-| `models/` | Model artifacts |
-| `pipelines/` | Pipeline configuration (ingest, canonicalize, derive, graph-build) |
-| `retrieval/` | Retrieval system artifacts |
-
-### Layer 6 — System Manifests (`006_System-Manifests/`)
-
-Control, audit, and traceability layer. All pipeline outputs are written here.
-
-| Subdirectory | Purpose |
-|-------------|---------|
-| `tree-snapshots/` | JSON and TXT snapshots of the raw source layer directory tree |
-| `registries/` | CSV file registries tracking all raw and converted files |
-| `runs/` | Timestamped JSON and TXT reports for every pipeline command execution |
-| `logs/` | Operational logs (e.g. office-to-PDF conversion log) |
-| `checksums/` | File integrity checksums (planned) |
-| `conversions/` | Conversion tracking artifacts (planned) |
-| `duplicates/` | Duplicate detection records (planned) |
-| `lineage/` | Data lineage and provenance records (planned) |
-
----
-
-## Pipeline CLI
-
-The pipeline is operated through a single entrypoint:
+## Quick start
 
 ```bash
-python scripts/pipeline_cli.py <command>
+# 1. Install dependencies (minimal path — CLI works without PDF/OCR deps)
+pip3 install PyYAML pytest
+
+# 2. Install ingestion deps only if you need to run scan/convert/ocr
+pip3 install -r requirements.txt
+
+# 3. Run the test suite
+PYTHONPATH=scripts python3 -m pytest scripts/tests/ -v
+
+# 4. Inspect a single CLI command
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py --help
+
+# 5. Run a real stage — refine all raw markdown through Tier A/B rules
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py refine
+
+# 6. Enrich all placeholder concepts (zero LLM calls)
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py enrich-concepts
 ```
 
-### Commands
+**Note on the CLI:** `pipeline_cli.py` uses lazy imports (AD-015), so
+`promote --help` and similar commands work without `opendataloader_pdf`,
+`pypdf`, or `ocrmypdf` installed. Only commands that actually touch those
+libraries will require them at call time.
 
-#### `run` — Full pipeline sequence
+---
+
+## Architecture at a glance
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ 001_Raw-Source-Layer        immutable input (PDF/DOCX/XLSX) │
+│         │                                                   │
+│         ▼   scan → status → lint                            │
+│ 006_System-Manifests        registries, runs, snapshots    │
+│         │                                                   │
+│         ▼   convert / ocr / office / spreadsheets           │
+│ 002_Raw-Conversion-Layer    raw_markdown + sidecar_json    │
+│         │                                                   │
+│         ▼   refine (Phase 1C, deterministic)                │
+│         │   → refined_markdown + .refined.json              │
+│         │                                                   │
+│         ▼   canonicalize / concepts / enrich-concepts      │
+│ 003_Canonical-Knowledge-Layer                               │
+│   ├── shared/sources/       canonical source records        │
+│   ├── shared/concepts/      Knowledge Nodes (enriched)      │
+│   └── shared/relationships/ promoted edges w/ audit trail   │
+│         │                                                   │
+│         ▼   extract-relationships-sections + dedup          │
+│         ▼   pre-review filter (deterministic)               │
+│         │                                                   │
+│         ├─→ auto_accept → Phase 7 promote (no LLM)          │
+│         ├─→ auto_reject → audit log (no LLM)                │
+│         └─→ needs_review → Tier-1 LLM review (Phase 6A)     │
+│                         └─→ uncertain → Tier-2 (Phase 6B)  │
+│                                     └─→ human review       │
+└─────────────────────────────────────────────────────────────┘
+```
+
+Every deterministic box on the left is **zero LLM**. The only AI involvement
+is Tier-1 + Tier-2 review of the `needs_review` bucket (typically 22% of
+post-dedup candidates, thanks to the pre-review filter — see AD-018 and AD-021).
+
+---
+
+## Filesystem layers
+
+The project's state lives entirely in numbered directories. There is no
+hidden database. This is **Principle P1: the filesystem is the database**.
+
+| Layer | Folder | Role |
+|---|---|---|
+| 1 | `001_Raw-Source-Layer/` | Immutable input. Original PDFs, Office docs, spreadsheets. Git-ignored. |
+| 2 | `002_Raw-Conversion-Layer/` | Machine extracts. `raw_markdown/`, `refined_markdown/`, `sidecar_json/`, `ocr_pdf/`. |
+| 3 | `003_Canonical-Knowledge-Layer/` | Trusted knowledge. `shared/sources/`, `shared/concepts/`, `shared/relationships/`. |
+| 4 | `004_Derived-Content-Layer/` | Learner-facing output (articles, flashcards). Not yet active. |
+| 5 | `005_Operational-Intelligence-Layer/` | Graph, chunks, embeddings, indices. Reserved for Phase 8+. |
+| 6 | `006_System-Manifests/` | Registries, run reports, audit logs. The audit trail. |
+
+---
+
+## Pipeline stages
+
+The pipeline is a sequence of idempotent `run_*` stages. Each stage reads
+from the previous layer(s) and writes to one or more output layers. Every
+stage is re-runnable without producing duplicates (Principle P3).
+
+| Stage | CLI | Module | AI? |
+|---|---|---|---|
+| Scan | `scan` | `scripts/vitruvius/scanner.py` | No |
+| Status | `status` | `scripts/vitruvius/status.py` | No |
+| Lint | `lint` | `scripts/vitruvius/linting.py` | No |
+| Convert | `convert` / `convert-one` | `scripts/vitruvius/conversion.py` | No |
+| OCR | `ocr-queue` / `ocr-execute` | `scripts/vitruvius/ocr.py` | No |
+| Reconcile | `reconcile` | `scripts/vitruvius/reconcile.py` | No |
+| Refine | `refine` / `refine-one` | `scripts/vitruvius/normalization/refine.py` | No |
+| Canonicalize | `canonicalize` / `canonicalize-one` | `scripts/vitruvius/canonicalize.py` | No |
+| Concept seed | `canonicalize-concept-one` | `scripts/vitruvius/concepts.py` | No |
+| Concept enrichment | `enrich-concept-one` / `enrich-concepts` | `scripts/vitruvius/concept_enrichment.py` | No |
+| Relationship extraction | `extract-relationships-one` / `extract-relationships-sections-one` | `scripts/vitruvius/relationships*.py` | No |
+| Pre-review filter | (automatic inside review) | `scripts/vitruvius/pre_review_filter.py` | No |
+| Tier-1 review | `review-relationships-ollama` | `scripts/vitruvius/ollama_review.py` | **Yes** |
+| Tier-2 review | `review-relationships-ollama-second-pass` | `scripts/vitruvius/ollama_review_second_pass.py` | **Yes** |
+| Promote | `promote` | `scripts/vitruvius/promotion.py` | No |
+| Migrate IDs | `migrate-ids-plan` / `migrate-ids-apply` | `scripts/vitruvius/migrations.py` | No |
+
+---
+
+## CLI commands
+
+All commands flow through `scripts/pipeline_cli.py`. Run `--help` on any
+command for its flags.
+
+### Ingestion stages
+- `scan` — build the raw-file registry and tree snapshot
+- `status` — diff the two latest registries
+- `lint` — check raw-layer hygiene
+- `run` — scan + status + lint (minimal default, no Ollama)
+- `run-with-review` — full pipeline ending with Tier-1 review (opt-in)
+- `convert` / `convert-one` — PDF → Markdown via OpenDataLoader
+- `convert-spreadsheet-one` — XLSX → CSV/JSON via openpyxl
+- `detect-one` — classify a PDF as TEXT_PDF or LIKELY_SCANNED_PDF
+- `ocr-queue` / `ocr-execute` — queue and run OCRmyPDF
+- `reconcile` — detect stale outputs
+
+### Refinement, canonicalization, concepts
+- `refine` / `refine-one` — run Tier A/B normalization rules (Phase 1C)
+- `canonicalize` / `canonicalize-one` / `canonicalize-plan-one` — generate canonical source records
+- `canonicalize-concept-one` — create a new placeholder concept file
+- `enrich-concept-one` / `enrich-concepts [--force]` — promote placeholder concepts to Knowledge Nodes (Phase 3C, zero-LLM)
+
+### Extraction, review, promotion
+- `extract-relationships-one` — regex extraction over canonical markdown
+- `extract-relationships-sections-one` — section-anchored extraction (preferred)
+- `review-relationships-ollama [--model M] [--parallel N]` — Tier-1 LLM review with built-in pre-review triage (Phase 6A)
+- `review-relationships-ollama-second-pass [--model M]` — Tier-2 adjudication (Phase 6B)
+- `promote [--execute] [--rollback BATCH_ID]` — Phase 7 governance layer; dry-run default
+
+### ID migration
+- `migrate-ids-plan` — compute ID migration plan from `id_migration_map.yaml`
+- `migrate-ids-apply` — apply the plan
+
+---
+
+## Deterministic-first design
+
+The project's defining principle is that **LLMs are a last resort, not a
+first pass**. Every stage that can be done with regex, rules, or schema
+validation is done without LLM involvement. The LLM is reserved for the
+residual cases where deterministic logic cannot decide.
+
+Concrete mechanisms that enforce this:
+
+1. **Pre-review filter** (`pre_review_filter.py`) — triages regex-extracted
+   candidates into `auto_accept` / `auto_reject` / `needs_review` buckets
+   before any LLM call. Rules: registry compatibility, self-reference check,
+   evidence length, structural governs pattern, definitional anchor, high
+   recurrence, concept→concept requires pattern, endpoint-in-evidence check.
+   Real-data impact on PD 1096: **78% of candidates bypass the LLM entirely**.
+
+2. **Deterministic definition extraction** (`concept_definitions.py`) —
+   anchor-based (`shall mean`, `is defined as`, etc.) + section-title-based
+   with a 14-entry alias dictionary. **16 out of 20 PD 1096 concepts enriched
+   with zero LLM calls.**
+
+3. **Phase 7 Promotion Validator** (`promotion_validator.py`) — 17 rules
+   including closed predicate vocabulary, compatibility pairs, evidence
+   integrity, trust propagation, audit integrity. Rejects bad records
+   without asking the LLM.
+
+4. **Registry-aware regex dedup** (`relationships_sections.py::dedupe_by_endpoints`) —
+   collapses 5 predicate variants per edge into 1 before the reviewer sees
+   them. On refined PD 1096: 23 candidates → 9 candidates (−61%).
+
+5. **Lazy CLI imports** (`pipeline_cli.py`) — the CLI doesn't even import
+   PDF libraries unless you're running a PDF stage. A minimal install can
+   run `promote`, `refine`, `enrich-concepts` without heavyweight deps.
+
+---
+
+## The `.ai/` knowledge base
+
+This project's long-form documentation lives in `.ai/`. It is authoritative
+and version-controlled alongside the code.
+
+| Path | Contents |
+|---|---|
+| [`.ai/00_system/`](./.ai/00_system/) | Architecture, principles, pipeline overview, naming conventions |
+| [`.ai/01_roadmap/`](./.ai/01_roadmap/) | **Master roadmap**, milestone tracker, current sprint |
+| [`.ai/02_audits/`](./.ai/02_audits/) | Code-forensic audits (2026-04-13 pack covers ingestion, extraction, normalization, review) |
+| [`.ai/03_plans/`](./.ai/03_plans/) | Active phase plans + `INDEX.md` |
+| [`.ai/06_specs/`](./.ai/06_specs/) | Schemas: source, concept, relationship |
+| [`.ai/07_experiments/`](./.ai/07_experiments/) | Experiment writeups with real-data findings |
+| [`.ai/08_prompts/`](./.ai/08_prompts/) | LLM prompt reference files (Tier-1 Gemma, Tier-2 Qwen design) |
+| [`.ai/09_archive/`](./.ai/09_archive/) | **Completed plans** (Phase 7, 1C, 2, 6A, 6B, 3C, polish) |
+| [`.ai/10_state/`](./.ai/10_state/) | Live state: `active_context.md`, `decisions.md`, `known_issues.md`, `system_state.json`, `pipeline_state.json` |
+
+**If you only read one file**: `.ai/01_roadmap/master-roadmap.md` (v2.0.0) is
+the authoritative roadmap and contains the honest status matrix (§4) and
+governance contracts (§3).
+
+**If you're looking for "why"**: `.ai/10_state/decisions.md` has the complete
+architectural decision log (AD-001 through AD-021 as of 2026-04-14).
+
+---
+
+## Module map
+
+All core logic lives in `scripts/vitruvius/`. The package is organized by
+pipeline stage, not technical layer.
+
+### Foundation
+- `constants.py` — layer name constants
+- `paths.py` — path resolution helpers (`get_repo_root`, `ensure_*`, `build_*_relative_path`)
+- `utils.py` — timestamp + legacy normalization helpers (the `normalize_text` / `normalize_filename` are deprecated; see `normalization/`)
+- `reports.py` — JSON/CSV/TXT writers, registry readers
+- `models.py` — `FileEntry` dataclass
+- `config.py` — central config loader for `config/vitruvius.yaml`
+
+### Ingestion
+- `scanner.py` — raw-layer file discovery
+- `status.py` — registry diff
+- `linting.py` — raw-layer hygiene
+- `detection.py` — PDF text vs. scanned classification
+- `conversion.py` — PDF → Markdown via OpenDataLoader
+- `office.py` — DOCX/PPTX → PDF via LibreOffice
+- `spreadsheets.py` — XLSX → CSV/JSON via openpyxl
+- `ocr.py` — OCRmyPDF queue + execution
+- `reconcile.py` — stale-output detection
+
+### Refinement (Phase 1C)
+- `normalization/__init__.py`
+- `normalization/engine.py` — `NormalizationEngine` + `NormalizationRule` protocol
+- `normalization/rules_tier_a.py` — 5 lossless rules (NFC, control-char strip, CRLF, whitespace, blank-line collapse)
+- `normalization/rules_tier_b.py` — 3 structural rules (Setext→ATX, SEC.→SECTION, heading whitespace)
+- `normalization/refine.py` — `run_refine`, `run_refine_one`, manifest writer
+
+### Canonicalization
+- `canonicalize.py` — rules-engine-driven source-record generator with structured sections, diff-before-write
+- `canonical_diff.py` — `should_overwrite` with volatile-field stripping
+- `concepts.py` — placeholder concept file generator
+
+### Concept enrichment (Phase 3C)
+- `concept_definitions.py` — regex anchor + section-title extractors with alias dict
+- `concept_aliases.py` — parenthetical abbreviation + "also known as" miners
+- `concept_enrichment.py` — orchestrator for the deterministic enrichment pipeline
+
+### Extraction, review, promotion
+- `relationships.py` — regex extractor (simpler, older)
+- `relationships_sections.py` — section-anchored extractor + `dedupe_by_endpoints`
+- `pre_review_filter.py` — deterministic triage (A1/A2/A3/A4, R1/R2/R5/R7)
+- `review_routing.py` — entry-criteria filter + post-Tier-2 decision router
+- `ollama_review.py` — Tier-1 LLM review with retry/resume/parallel support
+- `ollama_review_second_pass.py` — Tier-2 adjudication orchestrator
+- `promotion_validator.py` — 17-rule validator + canonical index builder
+- `promotion.py` — `run_promote` with dry-run, merge, audit log, rollback
+
+### Rules data
+- `rules/canonical_rules.yaml` — path-to-ID mapping for canonicalization
+- `rules/relationship_registry.yaml` — closed predicate vocabulary + compatibility
+
+---
+
+## Testing
 
 ```bash
-python scripts/pipeline_cli.py run
+# Run the full suite
+PYTHONPATH=scripts python3 -m pytest scripts/tests/
+
+# Run a single test file
+PYTHONPATH=scripts python3 -m pytest scripts/tests/test_pre_review_filter.py -v
+
+# Run only integration tests
+PYTHONPATH=scripts python3 -m pytest scripts/tests/test_integration_e2e.py -v
 ```
 
-Runs the standard pipeline sequence:
-1. `scan` — snapshot the raw source layer
-2. `status` — compare latest two snapshots for changes
-3. `lint` — check raw layer hygiene
-
-This is the **first command you should run** after adding, removing, or modifying files in the raw source layer.
-
----
-
-#### `scan` — Scan raw source layer
-
-```bash
-python scripts/pipeline_cli.py scan
-```
-
-Recursively scans `001_Raw-Source-Layer/` and produces:
-- JSON tree snapshot (`006_System-Manifests/tree-snapshots/`)
-- TXT tree snapshot (human-readable directory listing)
-- CSV file registry (`006_System-Manifests/registries/`)
-
-Each run writes both a timestamped file and a `latest_` symlink-style copy.
-
----
-
-#### `status` — Compare latest scans
-
-```bash
-python scripts/pipeline_cli.py status
-```
-
-Compares the two most recent timestamped file registries and reports:
-- New files
-- Changed files (by size, modified date, or extension)
-- Missing files
-- Unchanged files
-
-Outputs to `006_System-Manifests/runs/` as JSON and TXT.
-
----
-
-#### `lint` — Raw layer hygiene check
-
-```bash
-python scripts/pipeline_cli.py lint
-```
-
-Checks the latest raw file registry for issues:
-- **Non-PDF files** in the raw source layer
-- **Duplicate-like filenames** (normalized name collisions)
-
-Outputs to `006_System-Manifests/runs/` as JSON and TXT.
-
----
-
-#### `convert` — Batch convert all new/changed PDFs
-
-```bash
-python scripts/pipeline_cli.py convert
-```
-
-Processes all new and changed files from the latest status report:
-
-1. Detects whether each PDF is text-based or scanned
-2. Converts text-based PDFs directly using OpenDataLoader
-3. Queues scanned PDFs for OCR processing
-4. Writes a conversion registry entry for each file
-5. Produces three reports:
-   - **Convert queue** — what was queued for processing
-   - **Convert batch report** — results of the batch (converted, OCR-needed, failed)
-   - **OCR needed report** — scanned PDFs requiring OCR before conversion
-
-Also automatically runs `ocr-queue` and `ocr-execute` after batch conversion.
-
----
-
-#### `convert-one` — Convert a single text PDF
-
-```bash
-python scripts/pipeline_cli.py convert-one "001-Laws/PD-1096/PD 1096 - National Building Code.pdf"
-```
-
-Converts a single text-based PDF. The path is relative to `001_Raw-Source-Layer/`.
-
-Options:
-- `--sample-pages N` — number of pages to sample for text detection (default: 5)
-
-The command will refuse to convert scanned PDFs — they must go through OCR first.
-
----
-
-#### `detect-one` — Detect PDF type
-
-```bash
-python scripts/pipeline_cli.py detect-one "001-Laws/PD-1096/PD 1096 - National Building Code.pdf"
-```
-
-Analyzes a single PDF to determine if it contains extractable text or is likely a scanned image.
-
-Options:
-- `--sample-pages N` — number of pages to sample (default: 5)
-
-Reports:
-- `TEXT_PDF` → route to OpenDataLoader directly
-- `LIKELY_SCANNED_PDF` → route through OCR first, then OpenDataLoader
-
----
-
-#### `reconcile` — Detect stale outputs
-
-```bash
-python scripts/pipeline_cli.py reconcile
-```
-
-Checks for missing raw source files that still have derived outputs in the conversion layer. Reports:
-- **Stale converted outputs** — conversion artifacts exist but the source PDF is gone
-- **Missing without outputs** — source is gone and no conversion artifacts exist either
-
----
-
-#### `ocr-queue` — Build OCR queue
-
-```bash
-python scripts/pipeline_cli.py ocr-queue
-```
-
-Reads the latest OCR-needed report and builds a pending OCR queue. This is a report-only step — it does not execute OCR.
-
----
-
-#### `ocr-execute` — Run OCR on queued PDFs
-
-```bash
-python scripts/pipeline_cli.py ocr-execute
-python scripts/pipeline_cli.py ocr-execute --languages eng tgl
-python scripts/pipeline_cli.py ocr-execute --no-deskew
-```
-
-Processes the OCR queue:
-
-1. Runs OCRmyPDF on each queued scanned PDF
-2. Produces an OCR-processed PDF in `002_Raw-Conversion-Layer/<category>/ocr_pdf/`
-3. Converts the OCR output to Markdown and sidecar JSON via OpenDataLoader
-4. Writes conversion registry entries for each file
-
-Options:
-- `--languages` — Tesseract language codes (default: `eng`)
-- `--no-deskew` — disable page deskewing during OCR
-
----
-
-## Vitruvius Package
-
-The `scripts/vitruvius/` package contains all core pipeline logic, modularized by responsibility.
-
-### `constants.py`
-
-Layer and folder name constants used across all modules:
-
-| Constant | Value |
-|----------|-------|
-| `RAW_LAYER_NAME` | `001_Raw-Source-Layer` |
-| `CONVERSION_LAYER_NAME` | `002_Raw-Conversion-Layer` |
-| `MANIFESTS_NAME` | `006_System-Manifests` |
-| `TREE_SNAPSHOTS_NAME` | `tree-snapshots` |
-| `REGISTRIES_NAME` | `registries` |
-| `RUNS_NAME` | `runs` |
-
-### `models.py`
-
-Data models used by the scanner and report writer.
-
-- **`FileEntry`** — dataclass representing a single file in the raw source layer:
-  - `relative_path`, `name`, `extension`, `size_bytes`, `modified_utc`, `parent_folder`, `top_category`
-
-### `paths.py`
-
-Path resolution utilities:
-
-| Function | Purpose |
-|----------|---------|
-| `get_repo_root()` | Returns the repository root path |
-| `ensure_snapshot_dir()` | Creates and returns the tree snapshots directory |
-| `ensure_registry_dir()` | Creates and returns the registries directory |
-| `ensure_runs_dir()` | Creates and returns the runs directory |
-| `build_conversion_relative_paths()` | Computes Markdown and sidecar JSON output paths for a source file |
-| `build_ocr_pdf_relative_path()` | Computes the OCR PDF output path for a source file |
-
-### `utils.py`
-
-General-purpose utilities:
-
-| Function | Purpose |
-|----------|---------|
-| `utc_now_stamp()` | Returns a UTC timestamp string like `20260413T054443Z` |
-| `iso_utc_from_timestamp()` | Converts a Unix timestamp to ISO 8601 UTC string |
-| `normalize_filename()` | Strips non-alphanumeric characters and lowercases for duplicate detection |
-| `normalize_text()` | Collapses whitespace for text comparison |
-| `safe_name_for_report()` | Sanitizes a filename for use in report filenames |
-
-### `reports.py`
-
-Report I/O utilities:
-
-| Function | Purpose |
-|----------|---------|
-| `write_json()` | Writes a dict as formatted JSON |
-| `write_text()` | Writes a string to a text file |
-| `write_csv()` | Writes a list of `FileEntry` objects as CSV |
-| `read_csv_entries()` | Reads a CSV file into a list of dicts |
-| `get_timestamped_registry_files()` | Lists all timestamped registry CSVs (excluding `latest_`) |
-| `build_signature()` | Builds a comparison signature tuple from a registry row |
-| `append_conversion_registry_row()` | Appends a row to the conversion registry CSV |
-| `snapshot_conversion_registry()` | Copies the latest conversion registry to a timestamped snapshot |
-
-### `scanner.py`
-
-Scans the raw source layer and generates tree snapshots and file registries.
-
-- `build_file_entries()` — recursively lists all files with metadata
-- `build_tree_lines()` — generates a human-readable directory tree
-- `run_scan()` — orchestrates the scan command
-
-### `status.py`
-
-Compares two consecutive registry snapshots to detect changes.
-
-- `run_status()` — diffs the two latest timestamped registries
-
-### `linting.py`
-
-Checks the raw layer for hygiene issues.
-
-- `run_lint()` — flags non-PDF files and duplicate-like filenames
-
-### `detection.py`
-
-Determines whether a PDF contains extractable text or is a scanned document.
-
-- `detect_pdf_type()` — samples pages and measures extracted character counts
-- `run_detect_one()` — CLI handler for single-file detection
-
-Classification logic:
-- A page is considered to have "usable text" if it yields ≥ 50 characters
-- A PDF is classified as `TEXT_PDF` if at least half the sampled pages have usable text and total characters ≥ 300
-
-### `conversion.py`
-
-Handles PDF-to-Markdown conversion using OpenDataLoader.
-
-- `convert_pdf_at_path()` — low-level converter that takes any PDF path and a logical source path
-- `convert_text_pdf()` — converts a text-based PDF from the raw layer (with detection guard)
-- `run_convert_one()` — CLI handler for single-file conversion
-- `run_convert()` — CLI handler for batch conversion of all new/changed files
-- `_write_conversion_registry_entry()` — records each conversion attempt in the conversion registry
-
-### `reconcile.py`
-
-Detects orphaned outputs and missing sources.
-
-- `run_reconcile()` — cross-references missing files from the status report against conversion layer outputs
-
-### `ocr.py`
-
-OCR queue management and execution using OCRmyPDF.
-
-- `run_ocr_queue()` — builds a report-only queue from the OCR-needed report
-- `run_ocr_execute()` — runs OCRmyPDF on queued PDFs, then converts the OCR outputs to Markdown
-
----
-
-## Configuration
-
-### `config/vitruvius.yaml`
-
-```yaml
-project_name: Vitruvius
-version: 0.1.0
-
-categories:
-  - 001-Laws
-  - 002-History
-  - 003-Theory
-  - 004-Technology
-  - 005-Utilities
-  - 006-Structural
-  - 007-Planning
-  - 008-Design
-  - 009-Practice
-
-paths:
-  raw: 001_Raw-Source-Layer
-  conversion: 002_Raw-Conversion-Layer
-  canonical: 003_Canonical-Knowledge-Layer
-  derived: 004_Derived-Content-Layer
-  ops: 005_Operational-Intelligence-Layer
-  manifests: 006_System-Manifests
-```
-
----
-
-## Documentation
-
-### `docs/CONTENT_RULES.md`
-
-Five rules governing content trust and lineage:
-
-1. Raw source files are evidence, not truth.
-2. Raw conversion files are machine-readable extraction, not editorial knowledge.
-3. Canonical knowledge files are the trusted knowledge layer.
-4. Derived content must point back to canonical knowledge.
-5. Canonical knowledge should preserve source references and update history.
-
-### `docs/CANONICAL_FRONTMATTER_TEMPLATE.md`
-
-YAML frontmatter template for canonical knowledge pages:
-
-```yaml
----
-id: ""
-title: ""
-category: ""
-subtopic: ""
-status: draft
-source_refs: []
-related_topics: []
-last_updated: ""
----
-```
-
----
-
-## Utility Scripts
-
-### `scripts/Word-PPT-To-PDF.py`
-
-Batch converter for Office documents (DOCX, PPTX) to PDF. Used to prepare non-PDF source files for ingestion into the raw source layer.
-
-### `scripts/test_pdf_text_detection.py`
-
-Standalone test script for PDF text detection. Samples pages from a PDF and reports character counts to determine if the document is text-based or scanned.
-
-### `scripts/test_odl_one.py`
-
-Standalone test script for OpenDataLoader PDF conversion. Tests the conversion of a single PDF into Markdown and JSON output.
-
----
-
-## Pipeline Workflow
-
-### Standard workflow after adding new files
-
-```bash
-# 1. Place files into the correct category folder
-#    inside 001_Raw-Source-Layer/
-
-# 2. Run the core pipeline
-python scripts/pipeline_cli.py run
-
-# 3. Convert all new/changed text PDFs and queue scanned PDFs for OCR
-python scripts/pipeline_cli.py convert
-
-# 4. Review reports in 006_System-Manifests/runs/
-```
-
-### Conversion routing
-
-```text
-PDF detected as TEXT_PDF
-  └─→ OpenDataLoader directly
-       └─→ raw_markdown/*.md + sidecar_json/*.json
-
-PDF detected as LIKELY_SCANNED_PDF
-  └─→ OCRmyPDF first
-       └─→ ocr_pdf/*.pdf
-            └─→ OpenDataLoader on OCR output
-                 └─→ raw_markdown/*.md + sidecar_json/*.json
-```
-
-### Conversion output structure
-
-For a source file at:
-```
-001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code.pdf
-```
-
-The conversion layer produces:
-```
-002_Raw-Conversion-Layer/
-└── 001-Laws/
-    ├── raw_markdown/PD-1096/PD 1096 - National Building Code.md
-    ├── sidecar_json/PD-1096/PD 1096 - National Building Code.json
-    └── ocr_pdf/PD-1096/PD 1096 - National Building Code.pdf  (only if scanned)
-```
-
----
-
-## Output Artifacts Reference
-
-Every pipeline command produces both a `latest_` file and a timestamped copy.
-
-| Command | Report Files |
-|---------|-------------|
-| `scan` | `latest_raw_tree_snapshot.json`, `.txt`, `latest_raw_file_registry.csv` |
-| `status` | `latest_status_report.json`, `.txt` |
-| `lint` | `latest_lint_report.json`, `.txt` |
-| `convert` | `latest_convert_queue.json/.txt`, `latest_convert_batch_report.json/.txt`, `latest_ocr_needed_report.json/.txt` |
-| `convert-one` | `latest_convert_one_report.json`, `.txt` |
-| `detect-one` | `latest_detect_one_report.json`, `.txt` |
-| `reconcile` | `latest_reconcile_report.json`, `.txt` |
-| `ocr-queue` | `latest_ocr_queue_report.json`, `.txt` |
-| `ocr-execute` | `latest_ocr_execute_report.json`, `.txt` |
-
-Additionally, every conversion (successful or failed) appends a row to:
-- `006_System-Manifests/registries/latest_conversion_registry.csv`
-
----
-
-## Content Trust Order
-
-**Never treat raw source files or raw extracted text as final truth.**
-
-Trust order:
-
-1. **Canonical Knowledge Layer** — curated and verified
-2. **Raw Conversion Layer** — machine-extracted, unverified
-3. **Raw Source Layer** — original evidence, unprocessed
-
-This rule is fundamental to the integrity of the knowledge system.
-
----
-
-## Raw Source Layer Rules
-
-The raw source layer should contain **only** source knowledge assets.
-
-**Good examples:** laws, books, reviewers, manuals, technical references, scans, official circulars, guidance documents
-
-**Bad examples:** logs, pipeline scripts, temporary working notes, generated Markdown, converted outputs, random office automation files
-
-If a file is not a source knowledge asset, it does not belong in `001_Raw-Source-Layer/`.
+The test suite is organized by module, with one `test_<module>.py` per
+vitruvius module plus a dedicated `test_integration_e2e.py` that exercises
+multi-module flows (extract → dedup → pre-filter → promote → enrich).
+
+**As of 2026-04-14: 177 tests passing**, 2 intentional deprecation warnings
+from `utils.normalize_*` usage in their own test file.
+
+The integration tests include:
+- Full-pipeline determinism check (byte-identical outputs on re-run modulo
+  timestamps)
+- Dedup composition closure (`dedupe(dedupe(x)) == dedupe(x)`)
+- Pre-review filter composition closure
+
+These catch cross-module regressions that unit tests would miss.
 
 ---
 
 ## Dependencies
 
-| Package | Purpose |
-|---------|---------|
-| `pypdf` | PDF page reading and text extraction for detection |
-| `opendataloader-pdf` | PDF-to-Markdown and PDF-to-JSON conversion |
-| `ocrmypdf` | OCR processing of scanned PDFs (wraps Tesseract) |
+The CLI is designed to work with only the dependencies you actually use.
 
----
+**Always required:**
+- `PyYAML` — config + YAML frontmatter parsing
+- `pytest` — test runner
 
-## Design Philosophy
+**Only required for ingestion / conversion:**
+- `pypdf` — PDF page reading for detection
+- `opendataloader-pdf` — PDF → Markdown conversion
+- `ocrmypdf` — OCR processing of scanned PDFs
+- `openpyxl` — XLSX parsing
+- `pandas` — CSV handling (via `reports.py`)
 
-Vitruvius is built **local-first** because:
+**For review stages:**
+- **Ollama** running locally at `http://127.0.0.1:11434` (configurable in
+  `config/vitruvius.yaml`) with at least `gemma4:e4b` pulled. The review
+  layer is fully opt-in via the `review-relationships-ollama*` commands.
 
-- The dataset is local and large
-- The dataset is still actively changing
-- Source control and traceability matter
-- Canonical knowledge must be built carefully before online deployment
-- Every conversion and transformation must be auditable
-
-This project is meant to become the **knowledge foundation** behind later systems — not just a one-off script collection.
-
----
-
-## Current Status
-
-As of the current stage:
-
-- [x] Project structure initialized across all six layers
-- [x] Raw layer scanning and tree snapshot generation
-- [x] CSV file registry generation
-- [x] Change detection between scans (status)
-- [x] Raw layer linting (non-PDF detection, duplicate filename detection)
-- [x] PDF text vs scanned detection
-- [x] Single-file and batch PDF-to-Markdown conversion via OpenDataLoader
-- [x] OCR queue building and OCRmyPDF execution for scanned PDFs
-- [x] Conversion registry tracking (append-only CSV)
-- [x] Reconciliation of missing sources and stale outputs
-- [x] Pipeline modularized into the `vitruvius` package
-- [ ] Canonical knowledge page generation
-- [ ] Chunking for retrieval
-- [ ] Embedding generation
-- [ ] Knowledge graph construction
-- [ ] Derived content generation (articles, questions, flashcards)
-
----
-
-## Quick Start
-
+Install everything:
 ```bash
-# Run the full pipeline (scan → status → lint)
-python scripts/pipeline_cli.py run
-
-# Convert all new/changed PDFs
-python scripts/pipeline_cli.py convert
-
-# Detect a single PDF type
-python scripts/pipeline_cli.py detect-one "001-Laws/PD-1096/PD 1096 - National Building Code.pdf"
-
-# Convert a single text PDF
-python scripts/pipeline_cli.py convert-one "001-Laws/PD-1096/PD 1096 - National Building Code.pdf"
-
-# Run OCR on scanned PDFs
-python scripts/pipeline_cli.py ocr-execute --languages eng
-
-# Check for stale outputs
-python scripts/pipeline_cli.py reconcile
+pip3 install -r requirements.txt PyYAML pytest
 ```
+
+Install minimal (CLI + tests, no PDF/OCR deps):
+```bash
+pip3 install PyYAML pytest
+```
+
+---
+
+## Current status
+
+As of 2026-04-14 (the authoritative status is `.ai/01_roadmap/master-roadmap.md` §4):
+
+| Phase | Status | Notes |
+|---|---|---|
+| 0. Foundation | ✅ Complete | — |
+| 1A. Baseline Ingestion | ✅ Complete | Known gaps: no file hashing, sequential OCR |
+| 1B. Multi-Parser Integration | 📝 Planned | Detailed plan in `.ai/03_plans/` |
+| 1C. Centralized Normalization | ✅ MVP Complete | 8 Tier A/B rules + manifest, deferred: Tier C semantic rules |
+| 2. Canonicalization | ✅ Complete | Structured sections restored, diff-before-write |
+| 3C. Concept Enrichment | ✅ 16/20 (80%) | Deterministic, zero LLM |
+| 4. Identity Cleanup | ✅ Complete | — |
+| 5. Relationship Extraction | 🟡 Regex-grade | Section-aware + registry-aware dedup |
+| 6A. Local LLM Review | ✅ Complete | Config-driven, retry, resume, parallel, pre-review filter |
+| 6B. Second-Pass Review | ✅ Complete | Tier-2 orchestrator + agreement matrix + human worklist |
+| 7. Promotion Governance | ✅ Complete | 17-rule validator, audit log, rollback |
+| 8. Graph Contract & Indexing | 🔒 Gated | Needs ≥50 verified relationships (currently 6) |
+| 9. Query & AI Layer | 🔒 Gated | Post-Phase-8 |
+| 11. Dataset Expansion | 🔒 Gated | Post-Phase-7 stable |
+| 12. AI-Augmented Reasoning | 🔒 Gated | Long-term |
+
+**Current AI usage on PD 1096 corpus:**
+- Tier-1 review calls: ~2 (pre-review filter handles the rest)
+- Tier-2 review calls: ~1-2 (only uncertain Tier-1 output)
+- Concept enrichment calls: 0 (fully deterministic)
+- **Total: ~4 Ollama calls per full pipeline run**
+
+---
+
+## Principles
+
+The project operates under ten non-negotiable principles, formalized in
+`.ai/00_system/principles.md`:
+
+1. **Filesystem is the database** — no hidden SQLite/pickle state
+2. **Raw layer is immutable** — the pipeline never modifies `001_Raw-Source-Layer/`
+3. **Idempotent stages** — every `run_*` command is safe to re-run
+4. **Path-based traceability** — `001` → `002` → `003` paths mirror structurally
+5. **Deterministic canonicalization** — IDs come from `canonical_rules.yaml`
+6. **Immutable canonical IDs** — changes go through `migrate-ids-plan`
+7. **Explicit concept vocabulary** — extraction only uses concepts in `003/shared/concepts/`
+8. **Local-first AI** — cloud LLMs are opt-in only; the core review loop runs air-gapped
+9. **No soft output** — any extracted candidate without `source_section_id` is rejected
+10. **No schema-less growth** — new laws wait until Phase 7 validates existing PD 1096 data
+
+---
+
+## License & attribution
+
+This project is meant to become the knowledge foundation for architecture
+board-exam preparation tooling in the Philippines. Source documents (PD 1096,
+the National Building Code, its IRR) are public-domain Philippine law.
+Derived work and code are the author's.
+
+---
+
+## Further reading
+
+- [`.ai/01_roadmap/master-roadmap.md`](./.ai/01_roadmap/master-roadmap.md) — authoritative roadmap (v2.0.0)
+- [`.ai/00_system/architecture.md`](./.ai/00_system/architecture.md) — deeper architecture write-up
+- [`.ai/06_specs/source-schema.md`](./.ai/06_specs/source-schema.md) — canonical source file schema
+- [`.ai/06_specs/concept-schema.md`](./.ai/06_specs/concept-schema.md) — concept file schema
+- [`.ai/06_specs/relationship-schema.md`](./.ai/06_specs/relationship-schema.md) — relationship file schema
+- [`.ai/10_state/decisions.md`](./.ai/10_state/decisions.md) — architectural decision log
+- [`.ai/07_experiments/2026-04-14-sprint-b-end-to-end-rerun.md`](./.ai/07_experiments/2026-04-14-sprint-b-end-to-end-rerun.md) — the end-to-end experiment that motivated AD-014 through AD-021
