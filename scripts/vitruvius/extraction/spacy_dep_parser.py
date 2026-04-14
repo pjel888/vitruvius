@@ -13,7 +13,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from functools import lru_cache
-from typing import TYPE_CHECKING, Iterable
+from typing import TYPE_CHECKING, Any, Iterable
 
 if TYPE_CHECKING:
     from spacy.language import Language  # noqa: F401
@@ -34,6 +34,12 @@ class SvoCandidate:
     source_section_id: str
     sentence_start: int
     sentence_end: int
+    # Stream Y1.5 — optional identity propagation. When the caller
+    # passes a SourceIdentity to extract_svo_triplets, every emitted
+    # candidate carries its fingerprint so downstream review paths can
+    # cross-check against the priming identity. Default None preserves
+    # legacy callers byte-for-byte.
+    source_identity_fingerprint: "str | None" = None
 
 
 @lru_cache(maxsize=1)
@@ -48,6 +54,7 @@ def extract_svo_triplets(
     *,
     concept_vocabulary: Iterable[str] | None = None,
     source_section_id: str = "",
+    source_identity: "Any" = None,  # Stream Y1.5 — optional priming identity
 ) -> list[SvoCandidate]:
     if not text or not text.strip():
         return []
@@ -55,6 +62,8 @@ def extract_svo_triplets(
     vocab_terms: list[str] | None = None
     if concept_vocabulary is not None:
         vocab_terms = [term.lower() for term in concept_vocabulary if term]
+
+    fingerprint = getattr(source_identity, "fingerprint", None)
 
     nlp = _get_nlp()
     doc = nlp(text)
@@ -93,6 +102,7 @@ def extract_svo_triplets(
                             source_section_id=source_section_id,
                             sentence_start=sentence_start,
                             sentence_end=sentence_end,
+                            source_identity_fingerprint=fingerprint,
                         )
                     )
 

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections import deque
 from dataclasses import dataclass
-from typing import Sequence
+from typing import Any, Sequence
 
 
 @dataclass(frozen=True)
@@ -91,6 +91,7 @@ def build_neighborhood_prompt(
     edges: Sequence[GraphEdgeSummary],
     max_hops: int = 2,
     max_edges_per_hop: int = 10,
+    source_identity: "Any" = None,  # Stream Y1.4 — optional priming identity
 ) -> NeighborhoodPrompt:
     subject_edges = tuple(
         extract_neighborhood(
@@ -112,12 +113,22 @@ def build_neighborhood_prompt(
     subject_header = f"Subject neighborhood ({candidate_subject}):"
     object_header = f"Object neighborhood ({candidate_object}):"
 
-    rendered = "\n".join(
-        [
-            _render_section(subject_header, subject_edges),
-            _render_section(object_header, object_edges),
-        ]
-    )
+    sections = [
+        _render_section(subject_header, subject_edges),
+        _render_section(object_header, object_edges),
+    ]
+    if source_identity is not None:
+        # Stream Y1.4 — prepend a deterministic SOURCE_IDENTITY block so
+        # every downstream prompt builder gets the document's legal
+        # context for free. Flag-OFF path (source_identity=None) is
+        # byte-identical to the pre-Y1.4 render.
+        identity_block = (
+            f"SOURCE_IDENTITY[{source_identity.fingerprint}]: "
+            f"{source_identity.prose}"
+        )
+        sections.insert(0, identity_block)
+
+    rendered = "\n".join(sections)
 
     return NeighborhoodPrompt(
         subject_neighborhood=subject_edges,

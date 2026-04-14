@@ -26,9 +26,28 @@ def test_priming_subpackage_is_importable() -> None:
 
 
 def test_priming_subpackage_exports_nothing_by_default() -> None:
-    """Importing the shell must not leak symbols — Y modules are opt-in
-    via explicit imports from the flag-guarded call sites.
+    """The subpackage's ``__init__.py`` must not eagerly import submodules.
+
+    We check the source of ``__init__.py`` rather than ``dir(module)`` so
+    the assertion is independent of which submodules other tests have
+    already imported this session. Y modules are opt-in via explicit
+    imports from the flag-guarded call sites — enforced by keeping the
+    ``__init__.py`` free of any ``from .X import Y`` / ``import .X``
+    statements.
     """
+    import inspect
+
     module = importlib.import_module("vitruvius.priming")
-    public = [name for name in dir(module) if not name.startswith("_")]
-    assert public == [], f"unexpected public exports: {public}"
+    source = inspect.getsource(module)
+    for line in source.splitlines():
+        stripped = line.strip()
+        # Ignore comments and docstrings
+        if stripped.startswith("#") or not stripped:
+            continue
+        # The shell must not contain any submodule imports.
+        assert not (
+            stripped.startswith("from .") or stripped.startswith("import .")
+        ), (
+            f"vitruvius/priming/__init__.py must not auto-import submodules; "
+            f"found: {stripped!r}"
+        )
