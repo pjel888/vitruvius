@@ -1,27 +1,23 @@
+"""Vitruvius pipeline CLI entrypoint.
+
+All handler imports are lazy (inside each `if args.command == "..."` branch)
+so running, e.g., `promote --help` does NOT transitively import
+`opendataloader_pdf`, `pypdf`, or `ocrmypdf`. This makes the CLI usable in
+minimal environments without the full conversion dependency stack.
+
+See AD-015 in .ai/10_state/decisions.md for the rationale.
+"""
+
 from __future__ import annotations
 
 import argparse
 
-from vitruvius.canonicalize import run_canonicalize, run_canonicalize_one, run_canonicalize_plan_one
-from vitruvius.concepts import run_canonicalize_concept_one
-from vitruvius.conversion import run_convert, run_convert_one
-from vitruvius.detection import run_detect_one
-from vitruvius.linting import run_lint
-from vitruvius.migrations import run_migrate_ids_apply, run_migrate_ids_plan
-from vitruvius.ocr import run_ocr_execute, run_ocr_queue
-from vitruvius.config import get_ollama_default_model, get_ollama_default_timeout
-from vitruvius.normalization.refine import run_refine, run_refine_one
-from vitruvius.ollama_review import run_review_relationships_ollama
-from vitruvius.promotion import run_promote
-from vitruvius.reconcile import run_reconcile
-from vitruvius.relationships import run_extract_relationships_one
-from vitruvius.relationships_sections import run_extract_relationships_sections_one
-from vitruvius.scanner import run_scan
-from vitruvius.spreadsheets import run_convert_spreadsheet_one
-from vitruvius.status import run_status
-
 
 def run_pipeline() -> int:
+    from vitruvius.linting import run_lint
+    from vitruvius.scanner import run_scan
+    from vitruvius.status import run_status
+
     scan_code = run_scan()
     if scan_code != 0:
         return scan_code
@@ -40,6 +36,11 @@ def run_pipeline_with_review() -> int:
     status + lint) so that CI and automation don't accidentally invoke
     Ollama. Users who want the full path call `run-with-review` explicitly.
     """
+    from vitruvius.config import get_ollama_default_model, get_ollama_default_timeout
+    from vitruvius.conversion import run_convert
+    from vitruvius.normalization.refine import run_refine
+    from vitruvius.ollama_review import run_review_relationships_ollama
+
     rc = run_pipeline()
     if rc != 0:
         return rc
@@ -126,24 +127,31 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.command == "scan":
+        from vitruvius.scanner import run_scan
         return run_scan()
 
     if args.command == "status":
+        from vitruvius.status import run_status
         return run_status()
 
     if args.command == "lint":
+        from vitruvius.linting import run_lint
         return run_lint()
 
     if args.command == "convert":
+        from vitruvius.conversion import run_convert
         return run_convert()
 
     if args.command == "reconcile":
+        from vitruvius.reconcile import run_reconcile
         return run_reconcile()
 
     if args.command == "ocr-queue":
+        from vitruvius.ocr import run_ocr_queue
         return run_ocr_queue()
 
     if args.command == "ocr-execute":
+        from vitruvius.ocr import run_ocr_execute
         return run_ocr_execute(
             languages=args.languages,
             deskew=not args.no_deskew,
@@ -153,54 +161,65 @@ def main() -> int:
         return run_pipeline()
 
     if args.command == "detect-one":
+        from vitruvius.detection import run_detect_one
         return run_detect_one(
             relative_pdf_path=args.relative_pdf_path,
             sample_pages=args.sample_pages,
         )
 
     if args.command == "convert-one":
+        from vitruvius.conversion import run_convert_one
         return run_convert_one(
             relative_pdf_path=args.relative_pdf_path,
             sample_pages=args.sample_pages,
         )
 
     if args.command == "convert-spreadsheet-one":
+        from vitruvius.spreadsheets import run_convert_spreadsheet_one
         return run_convert_spreadsheet_one(
             relative_source_path=args.relative_source_path,
         )
 
     if args.command == "canonicalize-plan-one":
+        from vitruvius.canonicalize import run_canonicalize_plan_one
         return run_canonicalize_plan_one(
             relative_markdown_path=args.relative_markdown_path,
         )
 
     if args.command == "canonicalize-one":
+        from vitruvius.canonicalize import run_canonicalize_one
         return run_canonicalize_one(
             relative_markdown_path=args.relative_markdown_path,
         )
 
     if args.command == "canonicalize-concept-one":
+        from vitruvius.concepts import run_canonicalize_concept_one
         return run_canonicalize_concept_one(
             concept_name=args.concept_name,
         )
 
     if args.command == "migrate-ids-plan":
+        from vitruvius.migrations import run_migrate_ids_plan
         return run_migrate_ids_plan()
 
     if args.command == "migrate-ids-apply":
+        from vitruvius.migrations import run_migrate_ids_apply
         return run_migrate_ids_apply()
 
     if args.command == "extract-relationships-one":
+        from vitruvius.relationships import run_extract_relationships_one
         return run_extract_relationships_one(
             relative_markdown_path=args.relative_markdown_path,
         )
 
     if args.command == "extract-relationships-sections-one":
+        from vitruvius.relationships_sections import run_extract_relationships_sections_one
         return run_extract_relationships_sections_one(
             relative_markdown_path=args.relative_markdown_path,
         )
 
     if args.command == "review-relationships-ollama":
+        from vitruvius.ollama_review import run_review_relationships_ollama
         return run_review_relationships_ollama(
             model=args.model,
             timeout_seconds=args.timeout_seconds,
@@ -208,21 +227,25 @@ def main() -> int:
         )
 
     if args.command == "promote":
+        from vitruvius.promotion import run_promote
         return run_promote(
             execute=args.execute,
             rollback_batch_id=args.rollback_batch_id,
         )
 
     if args.command == "canonicalize":
+        from vitruvius.canonicalize import run_canonicalize
         return run_canonicalize()
 
     if args.command == "refine":
+        from vitruvius.normalization.refine import run_refine
         return run_refine()
 
     if args.command == "run-with-review":
         return run_pipeline_with_review()
 
     if args.command == "refine-one":
+        from vitruvius.normalization.refine import run_refine_one
         return run_refine_one(relative_markdown_path=args.relative_markdown_path)
 
     parser.print_help()
