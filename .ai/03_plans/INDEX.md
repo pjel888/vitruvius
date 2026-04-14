@@ -32,6 +32,7 @@ Each plan is a self-contained document keyed by a `plan_id` and a `phase` label 
 | 7 | `phase-7-promotion-governance` | Promotion Governance Layer | ✅ Complete (archived 2026-04-14) | Sprint A — closed | implementation_tdd | [../09_archive/plans/phase-7-promotion-governance-plan.md](../09_archive/plans/phase-7-promotion-governance-plan.md) |
 | 8 | `phase-8-graph-contract-indexing` | Graph Contract & Filesystem-Backed Indexing | 🔒 Gated | Post-Sprint-C | design_spec | [phase-8-graph-contract-indexing-plan.md](phase-8-graph-contract-indexing-plan.md) |
 | 9 | `phase-9-query-ai-layer` | Query & AI Augmentation Layer | 🔒 Gated | Post-Phase-8 | design_spec | [phase-9-query-ai-layer-plan.md](phase-9-query-ai-layer-plan.md) |
+| — | `sprint-b-polish-improvements` | Sprint B Polish (extractor dedup, Ollama warmup, lazy CLI, timestamp-aware diff, utils deprecation, concept status) | 📝 Planned | Sprint B follow-on | implementation_tdd | [sprint-b-polish-improvements-plan.md](sprint-b-polish-improvements-plan.md) |
 
 **Status legend:** ✅ complete · 🟡 partial · 🔥 in progress (active sprint) · 📝 planned · 🔒 gated (do not start) · ❄️ frozen (contract)
 
