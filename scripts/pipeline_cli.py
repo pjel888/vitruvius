@@ -9,6 +9,7 @@ from vitruvius.detection import run_detect_one
 from vitruvius.linting import run_lint
 from vitruvius.migrations import run_migrate_ids_apply, run_migrate_ids_plan
 from vitruvius.ocr import run_ocr_execute, run_ocr_queue
+from vitruvius.normalization.refine import run_refine, run_refine_one
 from vitruvius.ollama_review import run_review_relationships_ollama
 from vitruvius.promotion import run_promote
 from vitruvius.reconcile import run_reconcile
@@ -85,6 +86,10 @@ def build_parser() -> argparse.ArgumentParser:
     promote_parser.add_argument("--rollback", dest="rollback_batch_id",
                                 default=None,
                                 help="Rollback the given promotion batch ID")
+
+    subparsers.add_parser("refine")
+    refine_one_parser = subparsers.add_parser("refine-one")
+    refine_one_parser.add_argument("relative_markdown_path")
 
     return parser
 
@@ -179,6 +184,12 @@ def main() -> int:
             execute=args.execute,
             rollback_batch_id=args.rollback_batch_id,
         )
+
+    if args.command == "refine":
+        return run_refine()
+
+    if args.command == "refine-one":
+        return run_refine_one(relative_markdown_path=args.relative_markdown_path)
 
     parser.print_help()
     return 1
