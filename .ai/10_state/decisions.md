@@ -102,12 +102,40 @@
 - **Decision:** Add a `skipped` action to the orchestrator: when `merge_evidence` returns the same list as the existing evidence (no new fingerprints), classify the candidate as `skipped`, do not rewrite the file, do not update metadata, and do not add an audit log entry. Strict byte-identical determinism is now a test invariant (`test_idempotent_file_bytes_unchanged`).
 - **Consequence:** Downstream consumers (Phase 8 graph builder) can rely on deterministic canonical output. Git-diff-based change detection works as expected.
 
+## AD-013: yaml.safe_dump for Frontmatter Emission
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** The initial `_render_frontmatter` used a hand-rolled `_yaml_scalar` emitter to control key ordering. It was not perfectly round-trip-safe: loading the written file via `yaml.safe_load` returned slightly different strings, which caused `evidence_fingerprint` to produce a different hash and `merge_evidence` to treat identical evidence as new.
+- **Decision:** Replace the custom emitter with `yaml.safe_dump(ordered_dict, sort_keys=False, default_flow_style=False, allow_unicode=True, width=1000000)`. Key ordering is preserved by inserting keys into a Python dict in the desired order (dict preserves insertion order since Python 3.7).
+- **Consequence:** Round-trip loads are byte-stable. Any future field additions must be added to the `ordered_keys` list in `_render_frontmatter`; PyYAML handles all escaping automatically.
+
 ## AD-014: Regex Extractor Dedup by (from, to)
 - **Date:** 2026-04-14
 - **Status:** Implemented
 - **Context:** The 2026-04-14 end-to-end experiment exposed that the regex extractor in `relationships_sections.py` produces up to 5 candidates per endpoint pair (one per predicate pattern match). This inflated the review workload and was the dominant contributor to the 82% rejection rate. Running the deduper against the refined PD 1096 corpus cut the candidate count from 23 to 9 (−61%) without losing any information — dropped predicates are recorded in `alternate_predicates` for Phase 6B to revisit.
 - **Decision:** Dedup candidates by `(from, to)` in `relationships_sections.dedupe_by_endpoints` after aggregation. The surviving candidate carries the highest-occurrence predicate (tie-broken by `PREDICATE_PRIORITY` order: `governs > defines > requires > depends_on > limits > affects > supersedes`). Sections and examples from all siblings are merged into the survivor.
 - **Consequence:** Directly cuts candidate volume by up to 5×. Review layer no longer wastes cycles on predicate variants. The true Phase 1C rejection-rate impact becomes measurable because the extraction is no longer the dominant noise source.
+
+## AD-015: Lazy CLI Imports
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** `scripts/pipeline_cli.py` eagerly imported every handler at module load, pulling in heavy PDF/OCR dependencies (`opendataloader_pdf`, `pypdf`, `ocrmypdf`) even for commands like `promote`, `refine`, and `canonicalize` that never touch conversion. This blocked the CLI from running in minimal environments and was hit firsthand during Phase 7 execution when `pip3 install -r requirements.txt` was required before `promote --help` would work.
+- **Decision:** Move every handler import inside its `if args.command == "..."` branch. Top-level imports reduced to `argparse` only. Each command handler is imported lazily the first time it is dispatched.
+- **Consequence:** `pipeline_cli.py promote --help` now works without any PDF libraries installed. Minimal-deployment environments (audit/CI containers, minimal operator workstations) can use promote/refine/canonicalize without the full conversion stack. Test `test_cli_lazy_imports.test_promote_help_does_not_import_conversion` asserts that `vitruvius.conversion`, `opendataloader_pdf`, `pypdf`, and `ocrmypdf` are NOT in `sys.modules` after importing `pipeline_cli`. The test runs in a subprocess so it cannot pollute the parent pytest process — an initial in-process approach broke `test_ollama_warmup` by leaving stale module references.
+
+## AD-016: Registry-Aware Extractor Dedup
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** The first post-dedup experiment showed the priority-only picker could select a predicate whose `(subject_type, object_type)` was incompatible with the registry (e.g., `defines` for a concept→concept edge requires a source subject). That single bad pick lost 3 would-be valid concept→concept promotions. The dedup was correct in spirit (collapse 5 variants to 1) but wrong in implementation (priority ignored compatibility).
+- **Decision:** Extend `dedupe_by_endpoints` to infer `(from_type, to_type)` from canonical ID prefixes and prefer predicates whose compatibility pair is in the registry. Fall back to priority-only when no predicate in the group is compatible (so Rule 7 can report the real problem downstream instead of silently discarding).
+- **Consequence:** The dedup now picks `requires` for concept→concept edges (compatible) instead of `defines` (incompatible). Real-data rerun confirmed zero Rule 7 rejections from the dedup's choices. The helper `_infer_entity_type` is a prefix-based shortcut — a more robust version would load the canonical index, but prefix inference is sufficient for the current ID conventions.
+
+## AD-017: Phase 6B Second-Pass Review
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** The dedup exposed that Tier-1 review still leaves `review_further` candidates with insufficient signal. Phase 6B adds a Tier-2 adjudicator that runs only on the uncertain subset.
+- **Decision:** Implement `select_for_second_pass` (entry-criteria filter) + `route_adjudication` (decision table) + `ollama_review_second_pass.run_second_pass_inner` (orchestrator with graceful Ollama fallback). The Tier-2 prompt matches `.ai/08_prompts/qwen-second-pass.txt` byte-for-byte. Outputs: `latest_relationship_review_merged.json` (with agreement matrix) and `latest_human_escalation_worklist.json`.
+- **Consequence:** The full two-stage adjudication pipeline is shipping. Only uncertain Tier-1 decisions go to Tier-2, bounding compute cost. A small real-data smoke test on PD 1096 (9 Tier-1 candidates → 2 routed → 1 suppress, 1 human_review) validated the end-to-end flow. Full calibration awaits pulling `qwen3:30b` for architectural-diversity adjudication.
 
 ## AD-018: Deterministic Pre-Review Filter
 - **Date:** 2026-04-14
@@ -128,22 +156,6 @@
 - **Real-data result on refined PD 1096:** 7/20 concepts found definitions via section-title matching (certificate-of-occupancy, mixed-occupancy, building-permit, floor-area, light-and-ventilation, lot-occupancy, stairs). The anchor approach found 0 for our concepts because PD 1096 uses section structure, not explicit "shall mean" phrasing, for building-code concepts. 35% coverage with zero AI cost.
 - **Consequence:** Phase 3C can ship without LLM dependency. The missing 13 concepts need a section-title alias dictionary (e.g., "Yards" → `yards`, "Site Occupancy" → `lot-occupancy`) which is a follow-up. Alias miner and enrichment orchestrator (the other tasks in the Phase 3C design spec) are still pending.
 
-## AD-021: End-to-End Integration Test Coverage + Pre-Review Filter R7
-- **Date:** 2026-04-14
-- **Status:** Implemented
-- **Context:** Prior iterations built strong unit test coverage (168 tests) but zero tests exercised the full pipeline wire-to-wire. Cross-module regressions from refactors would slip through unit tests. Separately, the pre-review filter only caught 22% of candidates deterministically, leaving 78% for the LLM.
-- **Decision (two-part):**
-  1. **Integration test module** (`scripts/tests/test_integration_e2e.py`) — four new tests covering: full extract → dedup → pre-filter → promote → enrich pipeline on a synthetic tmp_path tree; byte-identical determinism on re-run (modulo timestamp fields); dedup idempotency; pre-review filter idempotency.
-  2. **Rule R7: endpoint-not-in-evidence** — the pre-review filter now auto-rejects candidates where neither endpoint's concept phrase (slug with hyphens → spaces) appears in the evidence text. Rationale: the regex extractor matches candidates via sliding section windows, which produces many false positives where a concept slug happens to be in the same section as another slug but the actual evidence text discusses an unrelated topic. When neither endpoint is literally mentioned in the matched evidence, the candidate is noise.
-  Also: **Rule A4** (concept→concept `requires` with characteristic language) and punctuation-stripping normalization so compound section titles with commas match aliases.
-- **Real-data impact on refined PD 1096:**
-  - Integration test coverage: 168 → 177 tests
-  - Pre-review filter LLM savings: **22% → 78%** (1 auto_accept + 6 auto_reject / 9 candidates)
-  - Remaining LLM calls on PD 1096 Tier-1: 9 → 2 (−78%)
-  - Concept enrichment: 14/20 → 16/20 (via alias expansion for `means-of-egress` and `occupancy-separation`)
-- **Tradeoff documented:** R7 may reject candidates where the relationship is implicit but correct (e.g., `concept-occupancy-separation → requires → concept-occupancy-classification` which the LLM kept but R7 rejects because neither phrase appears literally in the evidence snippet). Rejected candidates remain in the `auto_reject` bucket for audit and can be recovered via `--skip-pre-review-filter`. Precision is the right call for a deterministic first-pass — the LLM is the fallback, not the baseline.
-- **Consequence:** The pipeline's AI budget on PD 1096 dropped from ~9 Ollama calls to ~4 (Tier-1 + Tier-2 combined). The integration test suite will catch the next cross-module regression before it ships.
-
 ## AD-020: Phase 3C Concept Enrichment — Deterministic Pipeline
 - **Date:** 2026-04-14
 - **Status:** Implemented
@@ -160,33 +172,21 @@
   3. `--force` bypassed the already-enriched check but hit the diff-guard wall. Fixed by having `--force` bypass the diff guard as well.
 - **Consequence:** RI-010 (concepts.py placeholder content) is now **closed** for the 13 enriched concepts. The pipeline has one more deterministic stage between raw text and canonical layer that used to be a likely LLM target. Phase 3C remaining tasks (alias miner for concept files, related-concepts detection) are optional follow-ups; the MVP is sufficient for Rule 17 of the Promotion Validator to do real work on the 13 enriched endpoints.
 
-## AD-016: Registry-Aware Extractor Dedup
+## AD-021: End-to-End Integration Test Coverage + Pre-Review Filter R7
 - **Date:** 2026-04-14
 - **Status:** Implemented
-- **Context:** The first post-dedup experiment showed the priority-only picker could select a predicate whose `(subject_type, object_type)` was incompatible with the registry (e.g., `defines` for a concept→concept edge requires a source subject). That single bad pick lost 3 would-be valid concept→concept promotions. The dedup was correct in spirit (collapse 5 variants to 1) but wrong in implementation (priority ignored compatibility).
-- **Decision:** Extend `dedupe_by_endpoints` to infer `(from_type, to_type)` from canonical ID prefixes and prefer predicates whose compatibility pair is in the registry. Fall back to priority-only when no predicate in the group is compatible (so Rule 7 can report the real problem downstream instead of silently discarding).
-- **Consequence:** The dedup now picks `requires` for concept→concept edges (compatible) instead of `defines` (incompatible). Real-data rerun confirmed zero Rule 7 rejections from the dedup's choices. The helper `_infer_entity_type` is a prefix-based shortcut — a more robust version would load the canonical index, but prefix inference is sufficient for the current ID conventions.
-
-## AD-017: Phase 6B Second-Pass Review
-- **Date:** 2026-04-14
-- **Status:** Implemented
-- **Context:** The dedup exposed that Tier-1 review still leaves `review_further` candidates with insufficient signal. Phase 6B adds a Tier-2 adjudicator that runs only on the uncertain subset.
-- **Decision:** Implement `select_for_second_pass` (entry-criteria filter) + `route_adjudication` (decision table) + `ollama_review_second_pass.run_second_pass_inner` (orchestrator with graceful Ollama fallback). The Tier-2 prompt matches `.ai/08_prompts/qwen-second-pass.txt` byte-for-byte. Outputs: `latest_relationship_review_merged.json` (with agreement matrix) and `latest_human_escalation_worklist.json`.
-- **Consequence:** The full two-stage adjudication pipeline is shipping. Only uncertain Tier-1 decisions go to Tier-2, bounding compute cost. A small real-data smoke test on PD 1096 (9 Tier-1 candidates → 2 routed → 1 suppress, 1 human_review) validated the end-to-end flow. Full calibration awaits pulling `qwen3:30b` for architectural-diversity adjudication.
-
-## AD-015: Lazy CLI Imports
-- **Date:** 2026-04-14
-- **Status:** Implemented
-- **Context:** `scripts/pipeline_cli.py` eagerly imported every handler at module load, pulling in heavy PDF/OCR dependencies (`opendataloader_pdf`, `pypdf`, `ocrmypdf`) even for commands like `promote`, `refine`, and `canonicalize` that never touch conversion. This blocked the CLI from running in minimal environments and was hit firsthand during Phase 7 execution when `pip3 install -r requirements.txt` was required before `promote --help` would work.
-- **Decision:** Move every handler import inside its `if args.command == "..."` branch. Top-level imports reduced to `argparse` only. Each command handler is imported lazily the first time it is dispatched.
-- **Consequence:** `pipeline_cli.py promote --help` now works without any PDF libraries installed. Minimal-deployment environments (audit/CI containers, minimal operator workstations) can use promote/refine/canonicalize without the full conversion stack. Test `test_cli_lazy_imports.test_promote_help_does_not_import_conversion` asserts that `vitruvius.conversion`, `opendataloader_pdf`, `pypdf`, and `ocrmypdf` are NOT in `sys.modules` after importing `pipeline_cli`. The test runs in a subprocess so it cannot pollute the parent pytest process — an initial in-process approach broke `test_ollama_warmup` by leaving stale module references.
-
-## AD-013: yaml.safe_dump for Frontmatter Emission
-- **Date:** 2026-04-14
-- **Status:** Implemented
-- **Context:** The initial `_render_frontmatter` used a hand-rolled `_yaml_scalar` emitter to control key ordering. It was not perfectly round-trip-safe: loading the written file via `yaml.safe_load` returned slightly different strings, which caused `evidence_fingerprint` to produce a different hash and `merge_evidence` to treat identical evidence as new.
-- **Decision:** Replace the custom emitter with `yaml.safe_dump(ordered_dict, sort_keys=False, default_flow_style=False, allow_unicode=True, width=1000000)`. Key ordering is preserved by inserting keys into a Python dict in the desired order (dict preserves insertion order since Python 3.7).
-- **Consequence:** Round-trip loads are byte-stable. Any future field additions must be added to the `ordered_keys` list in `_render_frontmatter`; PyYAML handles all escaping automatically.
+- **Context:** Prior iterations built strong unit test coverage (168 tests) but zero tests exercised the full pipeline wire-to-wire. Cross-module regressions from refactors would slip through unit tests. Separately, the pre-review filter only caught 22% of candidates deterministically, leaving 78% for the LLM.
+- **Decision (two-part):**
+  1. **Integration test module** (`scripts/tests/test_integration_e2e.py`) — four new tests covering: full extract → dedup → pre-filter → promote → enrich pipeline on a synthetic tmp_path tree; byte-identical determinism on re-run (modulo timestamp fields); dedup idempotency; pre-review filter idempotency.
+  2. **Rule R7: endpoint-not-in-evidence** — the pre-review filter now auto-rejects candidates where neither endpoint's concept phrase (slug with hyphens → spaces) appears in the evidence text. Rationale: the regex extractor matches candidates via sliding section windows, which produces many false positives where a concept slug happens to be in the same section as another slug but the actual evidence text discusses an unrelated topic. When neither endpoint is literally mentioned in the matched evidence, the candidate is noise.
+  Also: **Rule A4** (concept→concept `requires` with characteristic language) and punctuation-stripping normalization so compound section titles with commas match aliases.
+- **Real-data impact on refined PD 1096:**
+  - Integration test coverage: 168 → 177 tests
+  - Pre-review filter LLM savings: **22% → 78%** (1 auto_accept + 6 auto_reject / 9 candidates)
+  - Remaining LLM calls on PD 1096 Tier-1: 9 → 2 (−78%)
+  - Concept enrichment: 14/20 → 16/20 (via alias expansion for `means-of-egress` and `occupancy-separation`)
+- **Tradeoff documented:** R7 may reject candidates where the relationship is implicit but correct (e.g., `concept-occupancy-separation → requires → concept-occupancy-classification` which the LLM kept but R7 rejects because neither phrase appears literally in the evidence snippet). Rejected candidates remain in the `auto_reject` bucket for audit and can be recovered via `--skip-pre-review-filter`. Precision is the right call for a deterministic first-pass — the LLM is the fallback, not the baseline.
+- **Consequence:** The pipeline's AI budget on PD 1096 dropped from ~9 Ollama calls to ~4 (Tier-1 + Tier-2 combined). The integration test suite will catch the next cross-module regression before it ships.
 
 ---
 
