@@ -109,6 +109,25 @@
 - **Decision:** Dedup candidates by `(from, to)` in `relationships_sections.dedupe_by_endpoints` after aggregation. The surviving candidate carries the highest-occurrence predicate (tie-broken by `PREDICATE_PRIORITY` order: `governs > defines > requires > depends_on > limits > affects > supersedes`). Sections and examples from all siblings are merged into the survivor.
 - **Consequence:** Directly cuts candidate volume by up to 5×. Review layer no longer wastes cycles on predicate variants. The true Phase 1C rejection-rate impact becomes measurable because the extraction is no longer the dominant noise source.
 
+## AD-018: Deterministic Pre-Review Filter
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** User is running on an 8 GB M2 MacBook Pro with only `gemma4:e4b` (4B params) locally. Every LLM call is a resource cost. The question: "can we design the pipeline so AI input is minimal?"
+- **Decision:** Insert a deterministic triage layer (`scripts/vitruvius/pre_review_filter.py`) between extraction and LLM review. The filter sorts candidates into `auto_accept`, `auto_reject`, `needs_review` using rules that require no LLM: registry-compatibility (R1), self-reference (R5), evidence length (R2), structural governs pattern (A1), definitional anchor (A2), high-recurrence + type match (A3). Auto-accepted candidates are synthesized into the review output as reviews with `source="pre_review_filter"` at conf 0.95, and flow through the existing high-confidence writer and Phase 7 promotion without ever hitting the LLM.
+- **Rejected rule:** R3 (negation detection) was designed but removed on the first real-data run because legal text frequently embeds "except" / "shall not" in otherwise-valid evidence. A clause-boundary-aware detector is deferred.
+- **Consequence:** Real-data impact on refined PD 1096: 2/9 candidates bypassed the LLM (22% savings with zero correctness regressions). The savings grow as R3 (corrected), R4 (weak attribute edge), and domain-specific A4 rules are added. The architectural pattern — "deterministic triage before LLM" — is the right way to scale the pipeline to new corpora without proportional AI cost.
+
+## AD-019: Deterministic Definition Extractor (Phase 3C Task 1 MVP)
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** Phase 3C concept enrichment needs to populate the 20 placeholder concept files with definitions. An LLM-based extractor would be the obvious path, but it's expensive on 8 GB hardware. Can we do it deterministically?
+- **Decision:** Build two complementary regex-based extractors in `scripts/vitruvius/concept_definitions.py`:
+  1. **Anchor-based** (`extract_definitions_from_text`) — scans for "shall mean", "is defined as", "means", "refers to", "is the" with a confidence ladder 0.70-0.95.
+  2. **Section-title-based** (`extract_definitions_from_sections`) — walks section headers and claims the section body as a definition when the title matches a known concept slug (exact match 0.85, contains match 0.75).
+  Zero LLM calls. Both are pure regex.
+- **Real-data result on refined PD 1096:** 7/20 concepts found definitions via section-title matching (certificate-of-occupancy, mixed-occupancy, building-permit, floor-area, light-and-ventilation, lot-occupancy, stairs). The anchor approach found 0 for our concepts because PD 1096 uses section structure, not explicit "shall mean" phrasing, for building-code concepts. 35% coverage with zero AI cost.
+- **Consequence:** Phase 3C can ship without LLM dependency. The missing 13 concepts need a section-title alias dictionary (e.g., "Yards" → `yards`, "Site Occupancy" → `lot-occupancy`) which is a follow-up. Alias miner and enrichment orchestrator (the other tasks in the Phase 3C design spec) are still pending.
+
 ## AD-016: Registry-Aware Extractor Dedup
 - **Date:** 2026-04-14
 - **Status:** Implemented

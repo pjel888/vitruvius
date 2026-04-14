@@ -101,6 +101,41 @@ User review and confirmation to continue. The branch `feat/phase-7-promotion-gov
 - **Phase 8 Graph Contract & Indexing** — gated on ≥50 verified relationships (we have 3 so far; need 47 more, i.e., more PD 1096 review cycles or corpus expansion).
 - **End-to-end rerun** — run `run-with-review` against the current corpus to generate more candidates, then re-promote. This is the highest-signal move if the question is *"does the 82% rejection rate shrink now that 1C is in place?"*.
 
+## Minimizing AI Reliance (Post-Phase-6B, 2026-04-14)
+
+Answer to the user's question "can we design the pipeline such that AI input is minimal?" — **yes**, in two ways now shipping:
+
+### AD-018: Pre-Review Filter
+`scripts/vitruvius/pre_review_filter.py` triages candidates before the LLM reviewer. Deterministic rules (registry compatibility, self-reference, evidence length, structural patterns) auto-accept or auto-reject candidates that don't need LLM judgment.
+
+**Real-data impact on refined PD 1096:**
+- Before filter: 9 candidates → 9 LLM calls
+- After filter: 9 candidates → 7 LLM calls + 1 auto-accept + 1 auto-reject = **22% LLM savings, zero correctness loss**
+
+The auto-accepted candidate (`law-nbc → governs → concept-building-permit` at 0.95 conf via structural pattern) flows straight through to Phase 7 promotion without touching Ollama.
+
+### AD-019: Deterministic Concept Definition Extractor
+`scripts/vitruvius/concept_definitions.py` — two extractors:
+- **Anchor-based**: "shall mean", "is defined as", "means", etc. with 0.70-0.95 confidence ladder.
+- **Section-title-based**: claims section bodies as definitions when the title matches a known concept.
+
+**Real-data impact:** **7/20 PD 1096 concepts got definitions via section-title matching, zero LLM calls.** Gaps (13 concepts) require a section-title alias dictionary — still zero-LLM, just more configuration.
+
+### Current pipeline AI-usage profile
+| Stage | AI? | Notes |
+|---|---|---|
+| Ingestion, conversion, OCR | No | Deterministic parsers |
+| Refinement (Phase 1C) | No | Tier A/B regex rules |
+| Canonicalization (Phase 2) | No | Section/key-point extractors |
+| Relationship extraction | No | Regex + dedup |
+| **Pre-review filter** | **No** | **NEW: eliminates 22% of LLM calls** |
+| Tier-1 review (Phase 6A) | Yes (reduced) | Only `needs_review` bucket |
+| Tier-2 review (Phase 6B) | Yes (tiny subset) | Only uncertain Tier-1 output |
+| Promotion (Phase 7) | No | Schema validation + merge |
+| **Concept definition** | **No** | **NEW: 35% coverage deterministic** |
+
+**Rough AI budget** on PD 1096 today: 7 Tier-1 calls + 2 Tier-2 calls = **9 Ollama calls for the full pipeline** (vs. 25+ in the pre-dedup, pre-filter era).
+
 ## Sprint B Polish (Post-Experiment, 2026-04-14)
 
 Six tactical improvements landed after the end-to-end experiment, all committed to `feat/phase-7-promotion-governance`:
