@@ -9,12 +9,12 @@ from typing import Any
 
 import yaml
 
-from .promotion_validator import (
+from ..promotion_validator import (
     build_canonical_index,
     load_registry,
     validate_promotion_record,
 )
-from .utils import utc_now_stamp
+from ..utils import utc_now_stamp
 
 
 @dataclass
