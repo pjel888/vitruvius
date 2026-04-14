@@ -1,8 +1,24 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-14 · Phase 1B Foundation + Sprint C quality pass shipped (parsers subpackage, OpenDataLoader adapter, rotate-registries CLI)
-> **Branch:** `feat/phase-7-promotion-governance` (~73 commits ahead of `main`)
-> **Test suite:** 297/297 passing
+> **Updated:** 2026-04-15 · Sprint Q (Live Wiring & 8GB Hardening) CODE-COMPLETE; Sprint R (Per-Layer Embeddings & Agentic) IN PROGRESS — Streams Y0 + Y2 shipped, Y1 blocked on sentence_transformers, Y3-Y5 pending
+> **Branch:** `feat/sprint-r-per-layer-embeddings`
+> **Test suite:** 1074 / 1074 passing (excluding the pre-existing untracked `test_ontology_owl_exporter.py` that references an unimplemented Stream M.3 OWL exporter — Sprint H scope)
+> **Tag:** `sprint-q-closed` at commit `c3eb939` (code-complete; live RSS/latency bench pending)
+
+## Sprint R Progress (2026-04-15)
+
+| Stream | Scope | Status | Commits |
+|---|---|---|---|
+| Y0 — Bootstrap & flags | priming/ shell, 5 y_* flags in YAML, backward-compat regression | ✅ 2/3 (Y0.3 golden-fixture regression adapted to module-level asserts because `fixtures/golden_3_files` + `vitruvius.pipeline` don't exist in this codebase) | 9d7fc42, 570f162 |
+| Y1 — Contextual priming (PLE) | Source identity vector, prompt prefix injector, drift detector, ontology prompt wiring, extraction wiring | ⚠ **BLOCKED** — requires `sentence_transformers` library which is not installed in this environment. Plan §3.1 assumed Stream A already installed it. Defer until operator runs `pip install sentence-transformers torch`. | — |
+| Y2 — Domain-routing MoE | Domain classifier, route_with_moe, policy file + loader, select_review_model hook | ✅ 4/4 closed | ec746c5, d1edcfe, a511de3, bea5a93 |
+| Y3 — Thinking mode + CoT audit | parse_cot_strict, cot_audit writer, ollama_review CoT enforcement, ple-cotrace-dump CLI | 📝 Next | — |
+| Y4 — Stateful agentic registry | SQLite registry core, wire into ollama_review, vacuum + purge CLI, Phase 6A Resume integration test | 📝 Pending | — |
+| Y5 — Vision OCR (gated) | Vision wrapper, table_graph_extractor fallback, ple-vision-probe, operator checklist | 🔒 Gated on `ple-vision-probe` pass (requires live Ollama) | — |
+
+Sprint R is executing on `feat/sprint-r-per-layer-embeddings`. Every Y flag
+defaults false, so the pipeline is still byte-identical to the pre-Sprint-R
+baseline until an operator flips one on.
 
 ## Where We Are
 
