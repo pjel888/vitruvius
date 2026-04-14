@@ -118,6 +118,15 @@ def build_parser() -> argparse.ArgumentParser:
                                     help="Tier-2 model (default: qwen3:30b)")
     second_pass_parser.add_argument("--timeout-seconds", type=int, default=None)
 
+    enrich_one_parser = subparsers.add_parser("enrich-concept-one")
+    enrich_one_parser.add_argument("concept_slug")
+    enrich_one_parser.add_argument("--force", action="store_true",
+                                   help="Re-enrich even if canonical_status is already enriched")
+
+    enrich_parser = subparsers.add_parser("enrich-concepts")
+    enrich_parser.add_argument("--force", action="store_true",
+                               help="Re-enrich even already-enriched concepts")
+
     subparsers.add_parser("canonicalize")
     subparsers.add_parser("refine")
     subparsers.add_parser("run-with-review")
@@ -244,6 +253,17 @@ def main() -> int:
             model=args.model,
             timeout_seconds=args.timeout_seconds,
         )
+
+    if args.command == "enrich-concept-one":
+        from vitruvius.concept_enrichment import run_enrich_concept_one
+        return run_enrich_concept_one(
+            concept_slug=args.concept_slug,
+            force=args.force,
+        )
+
+    if args.command == "enrich-concepts":
+        from vitruvius.concept_enrichment import run_enrich_concepts
+        return run_enrich_concepts(force=args.force)
 
     if args.command == "canonicalize":
         from vitruvius.canonicalize import run_canonicalize
