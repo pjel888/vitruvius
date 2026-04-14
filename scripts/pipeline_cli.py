@@ -113,6 +113,11 @@ def build_parser() -> argparse.ArgumentParser:
                                 default=None,
                                 help="Rollback the given promotion batch ID")
 
+    second_pass_parser = subparsers.add_parser("review-relationships-ollama-second-pass")
+    second_pass_parser.add_argument("--model", default=None,
+                                    help="Tier-2 model (default: qwen3:30b)")
+    second_pass_parser.add_argument("--timeout-seconds", type=int, default=None)
+
     subparsers.add_parser("canonicalize")
     subparsers.add_parser("refine")
     subparsers.add_parser("run-with-review")
@@ -231,6 +236,13 @@ def main() -> int:
         return run_promote(
             execute=args.execute,
             rollback_batch_id=args.rollback_batch_id,
+        )
+
+    if args.command == "review-relationships-ollama-second-pass":
+        from vitruvius.ollama_review_second_pass import run_second_pass
+        return run_second_pass(
+            model=args.model,
+            timeout_seconds=args.timeout_seconds,
         )
 
     if args.command == "canonicalize":

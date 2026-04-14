@@ -1,0 +1,90 @@
+{
+  "generated_at": "20260414T050529Z",
+  "tier_one_model": "gemma4:e4b",
+  "tier_two_model": "gemma4:e4b",
+  "total_tier_one": 9,
+  "total_second_pass": 2,
+  "disagreement_rate": 0.5,
+  "actions": {
+    "auto_promote": 0,
+    "suppress": 1,
+    "human_review": 1
+  },
+  "agreement_matrix": {
+    "keep": {
+      "keep": 0,
+      "review_further": 0,
+      "reject": 0
+    },
+    "review_further": {
+      "keep": 0,
+      "review_further": 1,
+      "reject": 1
+    },
+    "reject": {
+      "keep": 0,
+      "review_further": 0,
+      "reject": 0
+    }
+  },
+  "items": [
+    {
+      "candidate": {
+        "from": "concept-certificate-of-occupancy",
+        "type": "defines",
+        "to": "concept-occupancy-classification",
+        "occurrences": 1,
+        "sections": [
+          "section-309"
+        ],
+        "examples": [
+          "occupancy classification of a building or structure or portion thereof shall be made until the Building Official has issued a Certificate of Occupancy therefor as provided in this Code. A Certificate of Occupancy shall be issued by the Building Official within thirty (30) days if after final inspect"
+        ],
+        "alternate_predicates": []
+      },
+      "tier_one": {
+        "decision": "review_further",
+        "confidence": 0.7,
+        "reason": "The example shows that the Certificate of Occupancy is related to the requirement of an occupancy classification, but the relationship 'defines' is too strong. The text suggests the classification must be made *until* the Certificate is issued, implying a temporal or prerequisite relationship, not a definition.",
+        "suggested_type": "prerequisite_for"
+      },
+      "tier_two": {
+        "decision": "review_further",
+        "confidence": 0.9,
+        "reason": "The example shows that the Certificate of Occupancy is the *result* or *endpoint* of the process that requires an occupancy classification, suggesting a prerequisite or necessary step relationship, rather than a definitional one. The relationship 'defines' is too strong based on the provided text.",
+        "suggested_type": "prerequisite_for",
+        "agrees_with_tier_one": true
+      },
+      "action": "human_review"
+    },
+    {
+      "candidate": {
+        "from": "concept-floor-area",
+        "type": "depends_on",
+        "to": "concept-light-and-ventilation",
+        "occurrences": 1,
+        "sections": [
+          "section-801"
+        ],
+        "examples": [
+          "- (a) Subject to the provisions of the Civil Code of the Philippines on Easements of Light and View, and to the provisions of this part of the Code, every building shall be designed, constructed, and equipped to provide adequate light and ventilation. - (b) All buildings shall face a street or publi"
+        ],
+        "alternate_predicates": []
+      },
+      "tier_one": {
+        "decision": "review_further",
+        "confidence": 0.7,
+        "reason": "The candidate relationship suggests that 'concept-floor-area' depends on 'concept-light-and-ventilation'. The provided example text, however, discusses the general requirement for buildings to be designed for adequate light and ventilation (Section 801). While floor area is related to building design, the text does not explicitly establish a dependency of 'floor area' on 'light and ventilation' in a way that confirms the 'depends_on' relationship.",
+        "suggested_type": null
+      },
+      "tier_two": {
+        "decision": "reject",
+        "confidence": 0.9,
+        "reason": "The provided example text (Section 801) discusses the general requirement for buildings to provide adequate light and ventilation. It does not establish a direct dependency relationship where 'concept-floor-area' depends on 'concept-light-and-ventilation'. The relationship is too weak or non-existent based solely on the evidence.",
+        "suggested_type": null,
+        "agrees_with_tier_one": false
+      },
+      "action": "suppress"
+    }
+  ]
+}
