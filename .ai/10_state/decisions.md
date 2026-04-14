@@ -128,6 +128,22 @@
 - **Real-data result on refined PD 1096:** 7/20 concepts found definitions via section-title matching (certificate-of-occupancy, mixed-occupancy, building-permit, floor-area, light-and-ventilation, lot-occupancy, stairs). The anchor approach found 0 for our concepts because PD 1096 uses section structure, not explicit "shall mean" phrasing, for building-code concepts. 35% coverage with zero AI cost.
 - **Consequence:** Phase 3C can ship without LLM dependency. The missing 13 concepts need a section-title alias dictionary (e.g., "Yards" → `yards`, "Site Occupancy" → `lot-occupancy`) which is a follow-up. Alias miner and enrichment orchestrator (the other tasks in the Phase 3C design spec) are still pending.
 
+## AD-020: Phase 3C Concept Enrichment — Deterministic Pipeline
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** User is resource-constrained (8 GB M2 MBP, `gemma4:e4b` only) and explicitly asked to minimize AI reliance. Phase 3C concept enrichment was the obvious Phase where LLM use was planned but could be replaced entirely with deterministic logic.
+- **Decision:** Ship Phase 3C as a fully deterministic pipeline composed of four zero-LLM modules:
+  1. `concept_definitions.py` — regex-anchor extractor ("shall mean", "is defined as", "means", "refers to", "is the") + section-title extractor with a 14-entry alias dictionary grounded in real PD 1096 section titles.
+  2. `concept_aliases.py` — parenthetical abbreviation miner + "also known as" phrase miner. Stopwords, single-letter and digit-only tokens filtered.
+  3. `concept_enrichment.py` — orchestrator that loads placeholder concept files, runs both definition passes, mines aliases from the *snippet neighborhood only* (not the whole source — prevents cross-concept noise), renders enriched frontmatter + body, and writes back under diff-before-write protection (bypassed with `--force`).
+  4. `pipeline_cli.py` — `enrich-concept-one <slug>` and `enrich-concepts` commands.
+- **Real-data result:** 13/20 PD 1096 concepts enriched end-to-end with zero LLM calls (65% coverage). The remaining 7 missing concepts don't match any section titles yet; they need either dictionary expansion or IRR ingestion.
+- **Bugs caught during execution:**
+  1. Whole-file alias mining produced "the strategic program for climate resilience" as an alias for "occupancy classification" — unrelated text from elsewhere in the PD 1096 corpus. Fixed by narrowing alias scope to the definition snippet.
+  2. Stale aliases from a prior enrichment pass persisted across re-runs because `_render_enriched` only overwrote the `aliases` key when new aliases were non-empty. Fixed by always clearing the key first.
+  3. `--force` bypassed the already-enriched check but hit the diff-guard wall. Fixed by having `--force` bypass the diff guard as well.
+- **Consequence:** RI-010 (concepts.py placeholder content) is now **closed** for the 13 enriched concepts. The pipeline has one more deterministic stage between raw text and canonical layer that used to be a likely LLM target. Phase 3C remaining tasks (alias miner for concept files, related-concepts detection) are optional follow-ups; the MVP is sufficient for Rule 17 of the Promotion Validator to do real work on the 13 enriched endpoints.
+
 ## AD-016: Registry-Aware Extractor Dedup
 - **Date:** 2026-04-14
 - **Status:** Implemented

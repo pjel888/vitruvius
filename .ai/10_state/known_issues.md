@@ -60,12 +60,11 @@
 - **Mitigation:** Add SHA-256 computation in `scanner.build_file_entries`. Store in `latest_raw_file_registry.csv`.
 - **Closure:** Sprint C as a prerequisite for Phase 1B.
 
-### RI-010: Concept Generator Produces Placeholder Content
+### RI-010: Concept Generator Produces Placeholder Content (PARTIALLY CLOSED 2026-04-14)
 - **Description:** `concepts.py` writes "X is a defined concept within the Vitruvius system." as the body. No definition extraction, no regulatory linkage.
-- **Impact:** MEDIUM — concepts look populated in the filesystem but carry no knowledge. Extraction uses them as vocabulary, so placeholder sprawl is safe structurally but semantically thin.
+- **Impact:** MEDIUM — concepts look populated in the filesystem but carry no knowledge.
 - **Mitigation:** Phase 3C (concept enrichment) replaces placeholders with extracted definitions.
-- **Closure:** Phase 3C — starts after Phase 2 restoration.
-- **Update (2026-04-14):** Newly generated concepts now honestly declare `canonical_status: placeholder` + `concept_status: placeholder`, closing the Rule 17 loophole where the Validator was implicitly permissive. Existing 20 placeholder files on disk still say `canonical_status: draft` and need a one-shot migration before Phase 3C.
+- **Status:** **13/20 CLOSED** as of 2026-04-14. Phase 3C deterministic enrichment pipeline (AD-020) enriched 13 PD 1096 concepts end-to-end with zero LLM calls. The 7 missing concepts (`exit-width`, `means-of-egress`, `occupancy-load`, `occupancy-separation`, `parking-and-loading-spaces`, `setbacks`, `yards`) need either (a) extended section-title alias dictionary, (b) PD 1096 IRR ingestion + re-run, or (c) a co-occurrence fallback in `concept_definitions.py`. None of these require LLM involvement.
 
 ### RI-011: Canonicalizer Regression (CLOSED 2026-04-14)
 - **Description:** `canonicalize.py` generates YAML frontmatter + header only. The hand-curated canonical files under `003/shared/sources/` show a richer structure (Overview / Coverage / Key Points / Referenced Concepts) that the current script cannot reproduce.
