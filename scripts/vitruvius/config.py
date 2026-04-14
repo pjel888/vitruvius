@@ -27,6 +27,16 @@ def get_ollama_model_pool() -> dict[str, str]:
     return {str(k): str(v) for k, v in pool.items()}
 
 
+def get_ollama_num_ctx_cap() -> int:
+    cfg = load_config()
+    raw = cfg.get("review", {}).get("ollama", {}).get("num_ctx_cap", 8192)
+    try:
+        value = int(raw)
+    except (TypeError, ValueError):
+        return 8192
+    return max(1024, min(value, 131072))
+
+
 def _features_block() -> dict:
     cfg = load_config()
     block = cfg.get("features", {})

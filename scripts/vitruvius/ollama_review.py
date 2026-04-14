@@ -67,8 +67,16 @@ def build_prompt(candidate: dict[str, Any]) -> str:
     return json.dumps(payload, ensure_ascii=False, indent=2)
 
 
-def call_ollama(prompt: str, model: str, timeout_seconds: int) -> str:
-    body = {
+def _build_ollama_request_body(*, model: str, prompt: str) -> dict[str, Any]:
+    """Stream W1.2 — construct the Ollama /api/generate body.
+
+    Flag-OFF path is byte-identical to the pre-W1.2 inline dict
+    (model / prompt / stream / format / options with temperature=0 and
+    num_predict=300). Flag-ON path additionally injects
+    ``options.num_ctx = get_ollama_num_ctx_cap()``.
+    """
+    from . import config as cfgmod
+    body: dict[str, Any] = {
         "model": model,
         "prompt": prompt,
         "stream": False,
@@ -78,6 +86,13 @@ def call_ollama(prompt: str, model: str, timeout_seconds: int) -> str:
             "num_predict": 300,
         },
     }
+    if cfgmod._features_block().get("w_llm_num_ctx_enforcement", False):
+        body["options"]["num_ctx"] = cfgmod.get_ollama_num_ctx_cap()
+    return body
+
+
+def call_ollama(prompt: str, model: str, timeout_seconds: int) -> str:
+    body = _build_ollama_request_body(model=model, prompt=prompt)
 
     data = json.dumps(body).encode("utf-8")
     base_url = get_ollama_url().rstrip("/")
