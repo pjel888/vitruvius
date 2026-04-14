@@ -2,7 +2,7 @@
 plan_id: phase-1b-multi-parser-integration
 phase: 1B
 title: Multi-Parser Integration
-status: planned
+status: in-progress
 priority: medium
 sprint: "Sprint C (weeks 7-12)"
 version: 2.0.0
@@ -10,6 +10,7 @@ plan_type: design_spec
 created: 2026-04-13
 last_updated: 2026-04-14
 owner: Senior Systems Architect
+progress_note: Foundation (§11 Phase 1) shipped 2026-04-14 — see AD-022
 prerequisites:
   - Phase 1A baseline ingestion complete
 dependencies:
@@ -152,6 +153,9 @@ If the fallback chain is exhausted without success:
 *   **Formulas**: Preserved in JSON sidecar; evaluated for Markdown.
 
 ## 11. Implementation Plan
+
+> **Progress (2026-04-14):** Foundation (§11 Phase 1) shipped in 5 atomic commits on branch `feat/phase-7-promotion-governance`. `scripts/vitruvius/parsers/` subpackage created with `base_parser.py`, `document_taxonomy.py`, `quality_gates.py`, `orchestrator.py` (synchronous fallback skeleton). 80 new tests (177 → 257); no production call-site integration yet. Modernization (§11 Phase 2) and Scaling & Governance (§11 Phase 3) remain pending.
+
 ### Phase 1: Foundation
 1. Define `BaseParser` and `ParserOrchestrator` with quality gates.
 2. Implement `document_taxonomy` classification logic.

@@ -17,25 +17,38 @@
 - [x] Office ingestion (LibreOffice → PDF → OpenDataLoader)
 - [x] Spreadsheet ingestion (`openpyxl`)
 - [x] OCR integration (`ocrmypdf`)
-- [ ] File hashing (size + mtime only — carried as RI-009)
-- [ ] OCR parallelization (carried as Phase 1B §11)
+- [x] File hashing — SHA-256 via `_sha256_of_file()` (RI-009 closed 2026-04-14)
+- [ ] OCR parallelization (carried as Phase 1B §11 Phase 2/3)
 - [ ] Registry rotation (carried as RI-008)
 
-## Phase 1B — Multi-Parser Integration 📝 PLANNED
-- [ ] `BaseParser` interface + `ParserOrchestrator`
-- [ ] Document taxonomy classifier (9 classes)
-- [ ] Wrap existing parsers (OpenDataLoader, OpenPyxl)
-- [ ] Integrate Docling parser
-- [ ] Integrate Marker parser
+## Phase 1B — Multi-Parser Integration 🔥 IN PROGRESS (Foundation shipped 2026-04-14)
+
+**Foundation (§11 Phase 1) — COMPLETE** (9 commits, 80 new tests, 177 → 257 passing):
+- [x] RI-009: SHA-256 content hash (`FileEntry.sha256`, `_sha256_of_file()`, CSV output)
+- [x] `BaseParser` ABC + `ParserTelemetry` (17 fields, kw_only) + `ParseResult` (kw_only)
+- [x] Document taxonomy classifier (`DocumentClass` enum 9 members, `classify_document()`, CL-001–CL-008)
+- [x] Quality Gates module (`GateStatus`, `GateResult`, `GateReport`, `run_quality_gates()`, GATE-001–004)
+- [x] `ParserOrchestrator` skeleton — synchronous fallback chain walker with defensive chain copy
+- [x] `scripts/vitruvius/parsers/` subpackage with public re-exports from `__init__.py`
+
+**Modernization (§11 Phase 2) — PENDING (Sprint C continuation):**
+- [ ] Wrap existing parsers (OpenDataLoader, OpenPyxl) behind `BaseParser`
+- [ ] Integrate Docling parser (`DoclingParser`)
+- [ ] Integrate Marker parser (`MarkerParser`)
 - [ ] Integrate Surya OCR
 - [ ] OCR preprocessor + LibreOffice preprocessor
-- [ ] Flattened telemetry JSON sidecar
-- [ ] Quality Gates 001–004
-- [ ] Fallback chain orchestration
-- [ ] Page-level isolation for OOM/timeout
-- [ ] Dynamic resource allocation (`ProcessPoolExecutor` + memory buckets)
-- [ ] Manual Review Lane + Ranger Audit Payload generator
+- [ ] Post-LibreOffice quality gates
+- [ ] Migrate `scripts/vitruvius/conversion.py` parser selection to `BaseParser` wrappers
+- [ ] Flattened telemetry JSON sidecar per file
+
+**Scaling & Governance (§11 Phase 3) — PENDING (Sprint C continuation):**
+- [ ] `ProcessPoolExecutor` with dynamic resource allocation (RAM queues)
+- [ ] Timeout enforcement (120s per parser)
+- [ ] Page-level isolation for OOM/timeout recovery
 - [ ] Golden Corpus Benchmark (30 documents)
+- [ ] Expanded registry + per-file sidecar metadata writers
+- [ ] Hallucination Trap quality gate
+- [ ] Manual Review Lane + Ranger Audit Payload generator
 
 **Plan:** `/.ai/03_plans/phase-1b-multi-parser-integration-plan.md`
 

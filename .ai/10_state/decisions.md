@@ -188,6 +188,19 @@
 - **Tradeoff documented:** R7 may reject candidates where the relationship is implicit but correct (e.g., `concept-occupancy-separation → requires → concept-occupancy-classification` which the LLM kept but R7 rejects because neither phrase appears literally in the evidence snippet). Rejected candidates remain in the `auto_reject` bucket for audit and can be recovered via `--skip-pre-review-filter`. Precision is the right call for a deterministic first-pass — the LLM is the fallback, not the baseline.
 - **Consequence:** The pipeline's AI budget on PD 1096 dropped from ~9 Ollama calls to ~4 (Tier-1 + Tier-2 combined). The integration test suite will catch the next cross-module regression before it ships.
 
+## AD-022: Phase 1B Foundation — BaseParser, Taxonomy, Quality Gates, Orchestrator skeleton shipped
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** Phase 1B is a `design_spec` in `.ai/03_plans/phase-1b-multi-parser-integration-plan.md`. Plan §11 decomposes the work into 3 phases: Foundation (BaseParser + Orchestrator + Taxonomy + Quality Gates), Modernization (concrete parser implementations), and Scaling & Governance (concurrency, resource allocation). This session executed Foundation as 5 atomic commits (9 commits total including RI-009 file hashing) on branch `feat/phase-7-promotion-governance`.
+- **Decision:** Ship Foundation as a self-contained slab — new `scripts/vitruvius/parsers/` subpackage — with 100% test coverage and no production call-site integration yet. The orchestrator (`orchestrator.py`) is synchronous and in-process; all concurrency, timeout enforcement, and resource-allocation concerns are deferred to Phase 2/3. RI-009 (SHA-256 content hash) was cleared as a prerequisite blocker in the same session.
+- **Consequences:**
+  * 80 new tests (177 → 257 passing); zero deprecation warnings
+  * New type surface: downstream consumers (query layer, relationship extractors) can import `BaseParser`, `ParseResult`, `ParserTelemetry`, `DocumentClass`, `GateReport`, `ParserOrchestrator` from `vitruvius.parsers`
+  * RI-009 file hashing cleared — `FileEntry.sha256` is now populated by `build_file_entries()` and written to CSV output
+  * The existing `scripts/vitruvius/conversion.py` parser selection logic remains unmigrated — Phase 2 Modernization will port it behind `BaseParser` wrappers
+  * Docling, Marker, Surya, and OCRPreprocessor are still unimplemented; concrete parser implementations await Phase 2
+  * Phase 1B plan frontmatter updated from `planned` → `in-progress`
+
 ---
 
 ## Decision Process

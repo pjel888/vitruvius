@@ -1,8 +1,8 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-14 · Integration tests added, pre-review filter expanded, Phase 3C at 16/20
-> **Branch:** `feat/phase-7-promotion-governance` (~60 commits ahead of `main`)
-> **Test suite:** 177/177 passing
+> **Updated:** 2026-04-14 · Phase 1B Foundation shipped (parsers subpackage, 80 new tests), RI-009 cleared
+> **Branch:** `feat/phase-7-promotion-governance` (~68 commits ahead of `main`)
+> **Test suite:** 257/257 passing
 
 ## Where We Are
 
@@ -23,10 +23,11 @@ AI is now the *exception*, not the rule. Most stages are zero-LLM. The review la
 | Phase | Status | AI? | Notes |
 |---|---|---|---|
 | 0 Foundation | ✅ | No | — |
-| 1A Baseline Ingestion | ✅ | No | Known gaps carried as RI-008, RI-009 |
+| 1A Baseline Ingestion | ✅ | No | RI-008 open; RI-009 **closed** (SHA-256 hash added) |
+| 1B Multi-Parser Integration | 🔥 Foundation shipped | No | `parsers/` subpackage; Modernization + Scaling pending |
 | 1C Centralized Normalization | ✅ MVP | No | 8 rules, `.refined.json` manifest |
 | 2 Canonicalizer Restoration | ✅ | No | Structured sections + diff-before-write |
-| 3C Concept Enrichment | ✅ 13/20 | **No** | Deterministic anchors + section titles + alias miner |
+| 3C Concept Enrichment | ✅ 16/20 | **No** | Deterministic anchors + section titles + alias miner |
 | 4 Identity Cleanup | ✅ | No | — |
 | 5 Extraction + dedup | ✅ | No | Registry-aware dedup |
 | 6A Review + gap closure | ✅ | Reduced | Retry, resume, parallel, pre-review filter |
@@ -78,18 +79,31 @@ AI is now the *exception*, not the rule. Most stages are zero-LLM. The review la
 - `scripts/vitruvius/concept_enrichment.py` — orchestrator + batch mode + diff-guard integration
 - `scripts/pipeline_cli.py` — new `enrich-concept-one <slug>` and `enrich-concepts` commands
 
+## Code Modules (Phase 1B Foundation — shipped 2026-04-14)
+
+- `scripts/vitruvius/parsers/__init__.py` — public re-exports for the subpackage
+- `scripts/vitruvius/parsers/base_parser.py` — `BaseParser` ABC, `ParserTelemetry` (17 fields, kw_only), `ParseResult` (kw_only)
+- `scripts/vitruvius/parsers/document_taxonomy.py` — `DocumentClass` enum (9 members), `DocumentFeatures` (frozen, kw_only), `classify_document()` implementing CL-001–CL-008
+- `scripts/vitruvius/parsers/quality_gates.py` — `GateStatus`, `GateResult`, `GateReport` (frozen, kw_only), `check_gate_*` functions, `run_quality_gates()` orchestrator (GATE-001–004)
+- `scripts/vitruvius/parsers/orchestrator.py` — `TerminalStatus` enum, `AttemptRecord`, `OrchestratorResult` (frozen, kw_only), `ParserOrchestrator` synchronous fallback chain walker
+- `scripts/vitruvius/models.py` — `FileEntry.sha256` field (RI-009)
+- `scripts/vitruvius/scanner.py` — `_sha256_of_file()` helper + wire-up in `build_file_entries()`
+- `scripts/vitruvius/reports.py` — `sha256` added to CSV fieldnames
+
 ## Awaiting
 
-User review of the 13 enriched concept files under `003_Canonical-Knowledge-Layer/shared/concepts/`. Branch `feat/phase-7-promotion-governance` is now carrying Sprints A + B + polish + Phase 6B + Phase 3C. Nothing has been pushed.
+User review of the 13 enriched concept files under `003_Canonical-Knowledge-Layer/shared/concepts/`. Branch `feat/phase-7-promotion-governance` is now carrying Sprints A + B + polish + Phase 6B + Phase 3C + Phase 1B Foundation. Nothing has been pushed.
+
+**Phase 1B next steps:** Phase 2 (Modernization — wrap existing parsers, implement Docling/Marker/Surya) and Phase 3 (Scaling & Governance — ProcessPoolExecutor, timeout enforcement, Golden Corpus) are the next natural Sprint C continuations.
 
 ## Next Phase Candidates
 
 Ordered by estimated value per hour of work:
 
-1. **Phase 3C second pass** — fill the 7 missing concepts by extending the alias dictionary and scanning PD 1096 IRR. Pure config, zero code changes.
-2. **Extraction on PD 1096 IRR** — the IRR has richer section structure; extraction + review + promote on it would produce more relationship candidates for Phase 7.
-3. **Pre-review filter A4/R4 rules** — expand the deterministic filter to push LLM savings from 22% → 40%+.
-4. **Phase 1B Multi-Parser Integration** — the biggest ingestion upgrade. Multi-session work.
+1. **Phase 1B Modernization (§11 Phase 2)** — wrap existing parsers behind `BaseParser`, implement `DoclingParser`, `MarkerParser`. Natural Sprint C continuation.
+2. **Phase 3C second pass** — fill the 4 missing concepts by extending the alias dictionary and scanning PD 1096 IRR. Pure config, zero code changes.
+3. **Extraction on PD 1096 IRR** — the IRR has richer section structure; extraction + review + promote on it would produce more relationship candidates for Phase 7.
+4. **Pre-review filter A4/R4 rules** — expand the deterministic filter to push LLM savings further.
 5. **Phase 8 Graph Contract & Indexing** — gated on ≥50 verified relationships; currently at 6.
 
 ## Reference Map
@@ -99,5 +113,5 @@ Ordered by estimated value per hour of work:
 - Phase plans (active) → `/.ai/03_plans/` + `INDEX.md`
 - Archived plans → `/.ai/09_archive/plans/`
 - Known issues → `/.ai/10_state/known_issues.md`
-- Decisions → `/.ai/10_state/decisions.md` (AD-009 through AD-019)
+- Decisions → `/.ai/10_state/decisions.md` (AD-009 through AD-022)
 - Experiments → `/.ai/07_experiments/`
