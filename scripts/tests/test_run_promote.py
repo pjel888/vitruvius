@@ -95,5 +95,21 @@ def test_idempotent_execute(tmp_path):
     run_promote_inner(repo_root=tmp_path, execute=True, rollback_batch_id=None)
     second = run_promote_inner(repo_root=tmp_path, execute=True, rollback_batch_id=None)
 
-    # Second run must merge (or skip), not create a duplicate.
+    # Second run must skip (identical evidence fingerprint), not merge or create.
     assert second["created"] == 0
+    assert second["merged"] == 0
+    assert second["skipped"] == 1
+
+
+def test_idempotent_file_bytes_unchanged(tmp_path):
+    _seed_canonical_tree(tmp_path)
+    _seed_high_conf_file(tmp_path)
+
+    run_promote_inner(repo_root=tmp_path, execute=True, rollback_batch_id=None)
+    rels_dir = tmp_path / "003_Canonical-Knowledge-Layer" / "shared" / "relationships"
+    first_bytes = {p.name: p.read_bytes() for p in rels_dir.iterdir() if p.name.startswith("rel-")}
+
+    run_promote_inner(repo_root=tmp_path, execute=True, rollback_batch_id=None)
+    second_bytes = {p.name: p.read_bytes() for p in rels_dir.iterdir() if p.name.startswith("rel-")}
+
+    assert first_bytes == second_bytes

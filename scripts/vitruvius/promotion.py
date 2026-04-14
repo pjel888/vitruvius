@@ -249,8 +249,8 @@ def run_promote_inner(
     result: dict[str, Any] = {
         "batch_id": batch_id,
         "total_candidates": len(candidates),
-        "created": 0, "merged": 0, "rejected": 0,
-        "would_create": 0, "would_merge": 0, "would_reject": 0,
+        "created": 0, "merged": 0, "skipped": 0, "rejected": 0,
+        "would_create": 0, "would_merge": 0, "would_skip": 0, "would_reject": 0,
         "errors": [],
     }
 
@@ -268,15 +268,29 @@ def run_promote_inner(
         target_path = rels_dir / f"{record['id']}.md"
         existing = _load_existing_record(target_path)
         is_merge = existing is not None
+        is_noop = False
 
         if is_merge:
-            merged = merge_evidence(existing.get("evidence", []), record["evidence"])
-            existing["evidence"] = merged
-            existing["confidence_score"] = min_confidence(merged)
-            existing["promotion_batch_id"] = batch_id
-            existing["last_promoted_utc"] = utc_now_stamp()
-            existing["promotion_audit_log_ref"] = str(audit_log.relative_to(repo_root))
-            record = existing
+            existing_evidence = existing.get("evidence", []) or []
+            merged = merge_evidence(existing_evidence, record["evidence"])
+            if len(merged) == len(existing_evidence):
+                # No new fingerprints — the candidate adds nothing.
+                is_noop = True
+                record = existing
+            else:
+                existing["evidence"] = merged
+                existing["confidence_score"] = min_confidence(merged)
+                existing["promotion_batch_id"] = batch_id
+                existing["last_promoted_utc"] = utc_now_stamp()
+                existing["promotion_audit_log_ref"] = str(audit_log.relative_to(repo_root))
+                record = existing
+
+        if is_noop:
+            if execute:
+                result["skipped"] += 1
+            else:
+                result["would_skip"] += 1
+            continue
 
         validation = validate_promotion_record(record, registry, canonical_index)
         if not validation.passed:
