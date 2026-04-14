@@ -9,6 +9,7 @@ from vitruvius.parsers.orchestrator import (
     ParserOrchestrator,
     TerminalStatus,
 )
+from vitruvius.parsers.opendataloader_parser import OpenDataLoaderParser
 
 __all__ = [
     "BaseParser",
@@ -25,4 +26,5 @@ __all__ = [
     "AttemptRecord",
     "OrchestratorResult",
     "ParserOrchestrator",
+    "OpenDataLoaderParser",
 ]
