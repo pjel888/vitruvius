@@ -9,6 +9,7 @@ from vitruvius.detection import run_detect_one
 from vitruvius.linting import run_lint
 from vitruvius.migrations import run_migrate_ids_apply, run_migrate_ids_plan
 from vitruvius.ocr import run_ocr_execute, run_ocr_queue
+from vitruvius.config import get_ollama_default_model, get_ollama_default_timeout
 from vitruvius.normalization.refine import run_refine, run_refine_one
 from vitruvius.ollama_review import run_review_relationships_ollama
 from vitruvius.promotion import run_promote
@@ -30,6 +31,28 @@ def run_pipeline() -> int:
         return status_code
 
     return run_lint()
+
+
+def run_pipeline_with_review() -> int:
+    """Full pipeline ending with LLM review.
+
+    Opt-in composite command. The default `run` stays minimal (scan +
+    status + lint) so that CI and automation don't accidentally invoke
+    Ollama. Users who want the full path call `run-with-review` explicitly.
+    """
+    rc = run_pipeline()
+    if rc != 0:
+        return rc
+    rc = run_convert()
+    if rc != 0:
+        return rc
+    rc = run_refine()
+    if rc != 0:
+        return rc
+    return run_review_relationships_ollama(
+        model=get_ollama_default_model(),
+        timeout_seconds=get_ollama_default_timeout(),
+    )
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -91,6 +114,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     subparsers.add_parser("canonicalize")
     subparsers.add_parser("refine")
+    subparsers.add_parser("run-with-review")
     refine_one_parser = subparsers.add_parser("refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -194,6 +218,9 @@ def main() -> int:
 
     if args.command == "refine":
         return run_refine()
+
+    if args.command == "run-with-review":
+        return run_pipeline_with_review()
 
     if args.command == "refine-one":
         return run_refine_one(relative_markdown_path=args.relative_markdown_path)
