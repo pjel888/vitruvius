@@ -32,3 +32,64 @@ review:
 promotion:
   confidence_threshold: 0.90
   audit_log_name: "latest_promotion_audit.log"
+
+# Stream A-K feature flags — Statistical & Architectural Intelligence Upgrade.
+# EVERY FLAG DEFAULTS FALSE. See .ai/03_plans/statistical-architectural-upgrade-plan.md
+# §3.5 for the authoritative list and §1.3 for the non-breaking contract.
+# Flipping any flag to true activates the corresponding stream; flipping it
+# back to false restores prior behaviour with no code rollback required.
+features:
+  # Stream A — Dependency bootstrap + Merkle hash + feature-flag framework
+  a_merkle_hash: false
+  # Stream B — Ingestion intelligence
+  b_shannon_classifier: false
+  b_table_graph: false
+  b_parametric_ner: false
+  # Stream C — Normalization Tier C
+  c_tier_c_ocr_fix: false
+  c_ast_chunking: false
+  c_hybrid_chunking: false
+  c_mahalanobis_outlier: false
+  # Stream D — Concept enrichment v2
+  d_tfidf_concepts: false
+  d_pmi_aliases: false
+  d_fca_lattice: false
+  d_contrastive_embedder: false
+  # Stream E — Extraction v2
+  e_spacy_svo: false
+  e_crf_extractor: false
+  e_kg_link_prediction: false
+  # Stream F — Review v2
+  f_naive_bayes_filter: false
+  f_slm_swarm: false
+  f_ontology_embedded_prompt: false
+  f_conformal_prediction: false
+  f_tension_point: false
+  f_self_reflection: false
+  f_ollama_speculative: false
+  f_ollama_kv_cache: false
+  f_choquet_aggregation: false
+  # Stream G — Promotion v2
+  g_bayesian_fusion: false
+  g_stringency_matrix: false
+  g_temporal_edges: false
+  # Stream H — Graph layer intelligence
+  h_centrality: false
+  h_spectral: false
+  h_community: false
+  h_mcmc: false
+  h_tda: false
+  h_wasserstein: false
+  h_causal_dag: false
+  h_tensor_factorisation: false
+  # Stream I — Query layer v2
+  i_ontology_nl_translator: false
+  i_graphrag_routing: false
+  i_mcmc_ranking: false
+  i_hmm_observability: false
+  # Stream J — Active learning
+  j_active_learning: false
+  j_expected_model_change: false
+  # Stream K — CLUP scaling foundation
+  k_rosetta_stone: false
+  k_jurisdictional_overrides: false
