@@ -1,0 +1,32 @@
+{
+  "edge_count": 1,
+  "edges": [
+    {
+      "evidence_id": "rel-pd-1096-governs-concept-building-permit",
+      "from_id": "law-pd-1096",
+      "is_governing_standard": null,
+      "status": "unverified",
+      "to_id": "concept-building-permit",
+      "type": "governs"
+    }
+  ],
+  "generated_at_utc": "2026-04-15T00:00:00Z",
+  "node_count": 2,
+  "nodes": [
+    {
+      "id": "concept-building-permit",
+      "last_updated_utc": "2026-04-01T00:00:00Z",
+      "slug": "building-permit",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "law-pd-1096",
+      "last_updated_utc": "2026-04-01T00:00:00Z",
+      "slug": "pd-1096",
+      "trust_level": "primary",
+      "type": "source"
+    }
+  ],
+  "schema_version": "1.0.0"
+}
