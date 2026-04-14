@@ -1,10 +1,19 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
+import yaml
+
+from .promotion_validator import (
+    build_canonical_index,
+    load_registry,
+    validate_promotion_record,
+)
 from .utils import utc_now_stamp
 
 
@@ -141,3 +150,214 @@ def write_relationship_file(path: Path, record: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     content = _render_frontmatter(record) + "\n\n" + _render_body(record) + "\n"
     path.write_text(content, encoding="utf-8")
+
+
+def _load_high_confidence(repo_root: Path) -> list[dict]:
+    path = repo_root / "006_System-Manifests" / "runs" / "latest_relationship_review_high_confidence.json"
+    if not path.exists():
+        return []
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return payload.get("candidates", [])
+
+
+def _candidate_to_record(
+    candidate_envelope: dict,
+    *,
+    canonical_index: dict,
+    batch_id: str,
+    audit_log_ref: str,
+) -> dict | None:
+    candidate = candidate_envelope["candidate"]
+    review = candidate_envelope["review"]
+
+    from_entity = candidate["from"]
+    to_entity = candidate["to"]
+    predicate = candidate["type"]
+    rel_id = build_relationship_id(from_entity, predicate, to_entity)
+
+    # Pull the first section and first example as the initial evidence entry.
+    section_id = (candidate.get("sections") or [None])[0]
+    snippet = (candidate.get("examples") or [""])[0]
+
+    # The evidence source_id must match an entity in the canonical index.
+    # Prefer the from_entity if it is a source; otherwise use it anyway (Rule 10
+    # will fail loudly if the ID is bad).
+    evidence_source = from_entity
+    trust_level = canonical_index.get(evidence_source, {}).get("trust_level")
+
+    evidence_entry = {
+        "source_id": evidence_source,
+        "source_section_id": section_id,
+        "evidence_snippet": snippet,
+        "review_decision": review["decision"],
+        "reviewer_model": "gemma4:31b",
+        "reviewer_confidence": float(review["confidence"]),
+        "reviewer_reason": review.get("reason", ""),
+        "extracted_at_utc": utc_now_stamp(),
+        "reviewed_at_utc": utc_now_stamp(),
+    }
+
+    record = {
+        "id": rel_id,
+        "title": f"{from_entity} {predicate} {to_entity}",
+        "page_type": "relationship",
+        "relationship_type": predicate,
+        "from_entity": from_entity,
+        "to_entity": to_entity,
+        "trust_level": trust_level or "unverified",
+        "canonical_status": "promoted",
+        "confidence_score": float(review["confidence"]),
+        "promotion_batch_id": batch_id,
+        "promotion_audit_log_ref": audit_log_ref,
+        "last_promoted_utc": utc_now_stamp(),
+        "evidence": [evidence_entry],
+    }
+    return record
+
+
+def _load_existing_record(path: Path) -> dict | None:
+    if not path.exists():
+        return None
+    text = path.read_text(encoding="utf-8")
+    if not text.startswith("---"):
+        return None
+    end = text.find("\n---", 3)
+    if end == -1:
+        return None
+    return yaml.safe_load(text[3:end].strip()) or None
+
+
+def run_promote_inner(
+    *,
+    repo_root: Path,
+    execute: bool,
+    rollback_batch_id: str | None,
+) -> dict:
+    if rollback_batch_id is not None:
+        return _run_rollback(repo_root, rollback_batch_id)
+
+    canonical_index = build_canonical_index(repo_root)
+    registry = load_registry()
+
+    rels_dir = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "relationships"
+    runs_dir = repo_root / "006_System-Manifests" / "runs"
+    audit_log = runs_dir / "latest_promotion_audit.log"
+
+    candidates = _load_high_confidence(repo_root)
+    batch_id = build_promotion_batch_id()
+
+    result: dict[str, Any] = {
+        "batch_id": batch_id,
+        "total_candidates": len(candidates),
+        "created": 0, "merged": 0, "rejected": 0,
+        "would_create": 0, "would_merge": 0, "would_reject": 0,
+        "errors": [],
+    }
+
+    for envelope in candidates:
+        record = _candidate_to_record(
+            envelope,
+            canonical_index=canonical_index,
+            batch_id=batch_id,
+            audit_log_ref=str(audit_log.relative_to(repo_root)),
+        )
+        if record is None:
+            result["rejected"] += 1
+            continue
+
+        target_path = rels_dir / f"{record['id']}.md"
+        existing = _load_existing_record(target_path)
+        is_merge = existing is not None
+
+        if is_merge:
+            merged = merge_evidence(existing.get("evidence", []), record["evidence"])
+            existing["evidence"] = merged
+            existing["confidence_score"] = min_confidence(merged)
+            existing["promotion_batch_id"] = batch_id
+            existing["last_promoted_utc"] = utc_now_stamp()
+            existing["promotion_audit_log_ref"] = str(audit_log.relative_to(repo_root))
+            record = existing
+
+        validation = validate_promotion_record(record, registry, canonical_index)
+        if not validation.passed:
+            if execute:
+                result["rejected"] += 1
+            else:
+                result["would_reject"] += 1
+            result["errors"].append({"record_id": record["id"], "errors": validation.errors})
+            if execute:
+                append_audit_entry(audit_log, AuditEntry(
+                    batch_id=batch_id,
+                    record_id=record["id"],
+                    action="rejected",
+                    path=str(target_path),
+                    detail="; ".join(validation.errors),
+                ))
+            continue
+
+        if not execute:
+            if is_merge:
+                result["would_merge"] += 1
+            else:
+                result["would_create"] += 1
+            continue
+
+        write_relationship_file(target_path, record)
+        action = "merged" if is_merge else "created"
+        result[action] += 1
+        append_audit_entry(audit_log, AuditEntry(
+            batch_id=batch_id,
+            record_id=record["id"],
+            action=action,
+            path=str(target_path),
+            detail=f"evidence_count={len(record['evidence'])}",
+        ))
+
+    return result
+
+
+def _run_rollback(repo_root: Path, batch_id: str) -> dict:
+    runs_dir = repo_root / "006_System-Manifests" / "runs"
+    audit_log = runs_dir / "latest_promotion_audit.log"
+    if not audit_log.exists():
+        return {"rolled_back": 0, "errors": ["no audit log found"]}
+
+    rolled_back = 0
+
+    for line in audit_log.read_text(encoding="utf-8").splitlines():
+        parts = line.split("\t")
+        if len(parts) < 5:
+            continue
+        _stamp, bid, action, rid, path_str = parts[:5]
+        if bid != batch_id or action != "created":
+            continue
+        target = Path(path_str)
+        if not target.is_absolute():
+            target = repo_root / target
+        if target.exists():
+            target.unlink()
+            rolled_back += 1
+            append_audit_entry(audit_log, AuditEntry(
+                batch_id=batch_id,
+                record_id=rid,
+                action="rolled_back",
+                path=str(target),
+                detail="reversal",
+            ))
+
+    return {"rolled_back": rolled_back, "batch_id": batch_id}
+
+
+def run_promote(
+    *,
+    execute: bool = False,
+    rollback_batch_id: str | None = None,
+) -> int:
+    repo_root = Path(__file__).resolve().parent.parent.parent
+    result = run_promote_inner(
+        repo_root=repo_root,
+        execute=execute,
+        rollback_batch_id=rollback_batch_id,
+    )
+    print(json.dumps(result, indent=2, default=str))
+    return 0
