@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -9,6 +10,14 @@ from .models import FileEntry
 from .paths import ensure_registry_dir, ensure_snapshot_dir, get_repo_root
 from .reports import write_csv, write_json, write_text
 from .utils import iso_utc_from_timestamp, utc_now_stamp
+
+
+def _sha256_of_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        while chunk := f.read(65536):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def build_file_entries(raw_root: Path) -> list[FileEntry]:
@@ -30,6 +39,7 @@ def build_file_entries(raw_root: Path) -> list[FileEntry]:
                 extension=path.suffix.lower(),
                 size_bytes=stat.st_size,
                 modified_utc=iso_utc_from_timestamp(stat.st_mtime),
+                sha256=_sha256_of_file(path),
                 parent_folder=path.parent.relative_to(raw_root).as_posix()
                 if path.parent != raw_root
                 else ".",

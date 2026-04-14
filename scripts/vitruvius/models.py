@@ -10,5 +10,6 @@ class FileEntry:
     extension: str
     size_bytes: int
     modified_utc: str
+    sha256: str
     parent_folder: str
     top_category: str

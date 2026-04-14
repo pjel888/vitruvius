@@ -95,6 +95,7 @@ def write_csv(path: Path, entries: list[FileEntry]) -> None:
         "extension",
         "size_bytes",
         "modified_utc",
+        "sha256",
         "parent_folder",
         "top_category",
     ]
