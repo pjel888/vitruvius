@@ -144,22 +144,47 @@ def parse_model_json(text: str) -> dict[str, Any]:
 
 
 def review_relationship(candidate: dict[str, Any], model: str, timeout_seconds: int) -> dict[str, Any]:
+    """Review a single candidate with bounded retries and a wall-clock cap.
+
+    The `timeout_seconds` argument is the per-candidate wall budget: all
+    retries plus backoffs must finish before it elapses. Each individual
+    HTTP call also respects the remaining budget.
+    """
+    from .config import get_ollama_max_retries, get_ollama_retry_backoff
+
+    max_retries = get_ollama_max_retries()
+    backoff = get_ollama_retry_backoff()
     prompt = build_prompt(candidate)
 
-    try:
-        raw_response = call_ollama(prompt, model=model, timeout_seconds=timeout_seconds)
-        review = parse_model_json(raw_response)
-    except Exception as exc:
-        review = {
-            "decision": "review_further",
-            "confidence": 0.0,
-            "reason": f"Ollama review failed: {exc}",
-            "suggested_type": None,
-        }
+    deadline = time.monotonic() + timeout_seconds
+    last_exc: Exception | None = None
+
+    for attempt in range(1, max_retries + 1):
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            break
+        call_timeout = min(timeout_seconds, max(1, int(remaining)))
+        try:
+            raw_response = call_ollama(prompt, model=model, timeout_seconds=call_timeout)
+            review = parse_model_json(raw_response)
+            return {"candidate": candidate, "review": review}
+        except Exception as exc:
+            last_exc = exc
+            if attempt < max_retries:
+                sleep_for = backoff * attempt
+                if time.monotonic() + sleep_for < deadline:
+                    time.sleep(sleep_for)
+                else:
+                    break
 
     return {
         "candidate": candidate,
-        "review": review,
+        "review": {
+            "decision": "review_further",
+            "confidence": 0.0,
+            "reason": f"Ollama review failed after retries: {last_exc}",
+            "suggested_type": None,
+        },
     }
 
 

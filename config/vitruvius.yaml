@@ -25,6 +25,9 @@ review:
     url: "http://127.0.0.1:11434"
     default_model: "gemma4:31b"
     default_timeout_seconds: 600
+    max_retries_per_candidate: 3
+    retry_backoff_seconds: 2
+    default_parallelism: 1
 
 promotion:
   confidence_threshold: 0.90

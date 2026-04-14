@@ -29,6 +29,21 @@ def get_ollama_default_timeout() -> int:
     return int(cfg.get("review", {}).get("ollama", {}).get("default_timeout_seconds", 600))
 
 
+def get_ollama_max_retries() -> int:
+    cfg = load_config()
+    return int(cfg.get("review", {}).get("ollama", {}).get("max_retries_per_candidate", 3))
+
+
+def get_ollama_retry_backoff() -> float:
+    cfg = load_config()
+    return float(cfg.get("review", {}).get("ollama", {}).get("retry_backoff_seconds", 2))
+
+
+def get_ollama_default_parallelism() -> int:
+    cfg = load_config()
+    return int(cfg.get("review", {}).get("ollama", {}).get("default_parallelism", 1))
+
+
 def get_confidence_threshold() -> float:
     cfg = load_config()
     return float(cfg.get("promotion", {}).get("confidence_threshold", 0.90))
