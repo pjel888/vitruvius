@@ -2,15 +2,15 @@
 plan_id: statistical-architectural-upgrade
 phase: "cross-phase (touches 1A → 12)"
 title: Statistical & Architectural Intelligence Upgrade
-status: in-progress — Stream A CLOSED 2026-04-14
+status: in-progress — Streams A + B + D.1 CLOSED 2026-04-14
 priority: highest
-sprint: "Sprint D — Stream A (Bootstrap + Merkle + Features) CLOSED; Streams B-K pending"
-version: 1.0.1
+sprint: "Sprint D — Streams A, B, D.1 CLOSED; D.2-D.4 + C + E-K pending"
+version: 1.0.2
 stream_progress:
   A_bootstrap_merkle_features: closed (7 tasks — A1a, A1b, A2, A5, A6, A7 shipped; A3, A4 won't-fix rationale in A5 commit)
-  B_ingestion_intelligence: pending
+  B_ingestion_intelligence: closed (4 tasks — B.1 Shannon, B.2 Shannon integration, B.3 Table-to-Graph CSV, B.3.1 XLSX wrapper, B.4 Parametric NER shipped)
   C_normalization_tier_c: pending
-  D_concept_enrichment_v2: pending
+  D_concept_enrichment_v2: partial (D.1 TF-IDF matcher shipped; D.2 PMI aliases, D.3 FCA lattice, D.4 contrastive adapter pending)
   E_extraction_v2: pending
   F_review_v2: pending
   G_promotion_v2: pending
