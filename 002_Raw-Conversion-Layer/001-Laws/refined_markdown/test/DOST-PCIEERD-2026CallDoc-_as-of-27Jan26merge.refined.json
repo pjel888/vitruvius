@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260414T040912Z",
+  "source_relative_path": "001-Laws/raw_markdown/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md",
+  "refined_relative_path": "001-Laws/refined_markdown/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md",
+  "source_hash": "769d8110ecf219d983ef26c42b318e063bd5b44398ba001cacc593a77f96fd7f",
+  "output_hash": "1b60438393f51e7a598e6842c8e4ede3abfb07ee87cef146f6c3c2c1337669bd",
+  "chars_before": 616660,
+  "chars_after": 616161,
+  "chars_delta": -499,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "strip-control-chars",
+    "collapse-consecutive-blank-lines",
+    "normalize-section-abbreviation"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 616660,
+      "chars_after": 616660,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 616660,
+      "chars_after": 616648,
+      "changed": true
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 616648,
+      "chars_after": 616648,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 616648,
+      "chars_after": 616648,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 616648,
+      "chars_after": 616155,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 616155,
+      "chars_after": 616155,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 616155,
+      "chars_after": 616161,
+      "changed": true
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 616161,
+      "chars_after": 616161,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}
