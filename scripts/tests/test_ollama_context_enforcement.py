@@ -73,3 +73,42 @@ def test_request_body_preserves_existing_options_when_flag_off(monkeypatch) -> N
     )
     assert body["options"]["temperature"] == 0
     assert body["options"]["num_predict"] == 300
+
+
+# ---------------------------------------------------------------------------
+# Stream W1.3 — pre-call context budget guard
+# ---------------------------------------------------------------------------
+from vitruvius.ollama_review import (
+    ContextBudgetExceeded,
+    _enforce_context_budget,
+    _estimate_prompt_tokens,
+)
+
+
+def test_estimate_tokens_is_characters_over_four() -> None:
+    prompt = "abcd" * 1000  # 4000 chars
+    assert _estimate_prompt_tokens(prompt) == 1000
+
+
+def test_enforce_budget_passes_under_cap(monkeypatch) -> None:
+    from vitruvius import config as cfgmod
+    monkeypatch.setattr(cfgmod, "_features_block", lambda: {"w_llm_context_budget_guard": True})
+    monkeypatch.setattr(cfgmod, "get_ollama_num_ctx_cap", lambda: 4096)
+    _enforce_context_budget("abcd" * 100)  # ~100 tokens
+
+
+def test_enforce_budget_raises_over_cap(monkeypatch) -> None:
+    from vitruvius import config as cfgmod
+    monkeypatch.setattr(cfgmod, "_features_block", lambda: {"w_llm_context_budget_guard": True})
+    monkeypatch.setattr(cfgmod, "get_ollama_num_ctx_cap", lambda: 1024)
+    huge_prompt = "abcd" * 5000  # ~5000 tokens, cap is 1024
+    with pytest.raises(ContextBudgetExceeded, match="5000"):
+        _enforce_context_budget(huge_prompt)
+
+
+def test_enforce_budget_is_noop_when_flag_off(monkeypatch) -> None:
+    from vitruvius import config as cfgmod
+    monkeypatch.setattr(cfgmod, "_features_block", lambda: {"w_llm_context_budget_guard": False})
+    monkeypatch.setattr(cfgmod, "get_ollama_num_ctx_cap", lambda: 1024)
+    # Flag off → don't raise even on a 20000-token prompt
+    _enforce_context_budget("abcd" * 20000)

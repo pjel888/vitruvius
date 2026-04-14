@@ -67,6 +67,39 @@ def build_prompt(candidate: dict[str, Any]) -> str:
     return json.dumps(payload, ensure_ascii=False, indent=2)
 
 
+class ContextBudgetExceeded(ValueError):
+    """Raised when a prompt exceeds the configured num_ctx budget."""
+
+
+def _estimate_prompt_tokens(prompt: str) -> int:
+    """Stream W1.3 — rough token estimate (~4 English chars per token).
+
+    Intentionally pessimistic so the budget guard has headroom for the
+    model's response window. A real tokenizer would be more accurate
+    but would add a dependency; this approximation is what
+    spaCy/HuggingFace fallback tokenisers use when the model-specific
+    tokenizer is unavailable.
+    """
+    return max(1, len(prompt) // 4)
+
+
+def _enforce_context_budget(prompt: str) -> None:
+    """Stream W1.3 — raise ContextBudgetExceeded if the estimated token
+    count of ``prompt`` exceeds the configured num_ctx cap.
+
+    No-op unless features.w_llm_context_budget_guard is true.
+    """
+    from . import config as cfgmod
+    if not cfgmod._features_block().get("w_llm_context_budget_guard", False):
+        return
+    cap = cfgmod.get_ollama_num_ctx_cap()
+    estimated = _estimate_prompt_tokens(prompt)
+    if estimated > cap:
+        raise ContextBudgetExceeded(
+            f"prompt estimated at {estimated} tokens exceeds num_ctx cap {cap}"
+        )
+
+
 def _build_ollama_request_body(*, model: str, prompt: str) -> dict[str, Any]:
     """Stream W1.2 — construct the Ollama /api/generate body.
 
@@ -92,6 +125,7 @@ def _build_ollama_request_body(*, model: str, prompt: str) -> dict[str, Any]:
 
 
 def call_ollama(prompt: str, model: str, timeout_seconds: int) -> str:
+    _enforce_context_budget(prompt)
     body = _build_ollama_request_body(model=model, prompt=prompt)
 
     data = json.dumps(body).encode("utf-8")
