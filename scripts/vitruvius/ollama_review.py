@@ -245,6 +245,45 @@ def save_progress_report(
     write_text(txt_path, build_text_report(report))
 
 
+def write_high_confidence_review(
+    report: dict[str, Any],
+    runs_dir: Path,
+    *,
+    threshold: float | None = None,
+) -> Path:
+    """Filter the review report to keep-only, confidence >= threshold.
+
+    Writes 006_System-Manifests/runs/latest_relationship_review_high_confidence.json
+    and returns the output path. An empty-but-valid file is written when no
+    candidates clear the threshold.
+    """
+    from .config import get_confidence_threshold
+
+    if threshold is None:
+        threshold = get_confidence_threshold()
+
+    high_conf: list[dict[str, Any]] = []
+    for item in report.get("reviews", []):
+        review = item.get("review", {})
+        if review.get("decision") == "keep" and float(review.get("confidence", 0.0)) >= threshold:
+            high_conf.append(item)
+
+    payload = {
+        "generated_at": utc_now_stamp(),
+        "source_report_generated_at": report.get("generated_at"),
+        "source_model": report.get("model"),
+        "source": report.get("source"),
+        "threshold": threshold,
+        "count": len(high_conf),
+        "candidates": high_conf,
+    }
+
+    runs_dir.mkdir(parents=True, exist_ok=True)
+    output_path = runs_dir / "latest_relationship_review_high_confidence.json"
+    write_json(output_path, payload)
+    return output_path
+
+
 def run_review_relationships_ollama(
     *,
     model: str = DEFAULT_MODEL,
@@ -342,10 +381,23 @@ def run_review_relationships_ollama(
         status="completed",
     )
 
+    final_report = {
+        "generated_at": utc_now_stamp(),
+        "model": model,
+        "source": source,
+        "total_candidates": len(candidates),
+        "completed_reviews": len(reviews),
+        "status": "completed",
+        "summary": summarize_reviews(reviews),
+        "reviews": reviews,
+    }
+    high_conf_path = write_high_confidence_review(final_report, runs_dir)
+
     print("")
     print("review-relationships-ollama complete.")
     print(f"Candidates reviewed: {len(candidates)}")
     print(f"JSON: {runs_dir / 'latest_relationship_review_ollama.json'}")
     print(f"TXT: {runs_dir / 'latest_relationship_review_ollama.txt'}")
+    print(f"High-confidence: {high_conf_path}")
 
     return 0
