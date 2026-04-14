@@ -190,29 +190,115 @@ def _priority_rank(predicate: str) -> int:
         return len(PREDICATE_PRIORITY)
 
 
+def _infer_entity_type(entity_id: str) -> str:
+    """Infer a canonical entity type from its ID prefix.
+
+    Used by dedupe_by_endpoints to check registry compatibility without
+    requiring a full canonical-index load. Prefixes that map to `source`:
+    law-, irr-, source-, handout-, reviewer-, law-section-. `concept-`
+    maps to concept. `attribute-` maps to attribute. Anything else falls
+    back to the raw first segment (useful for debugging).
+    """
+    if not isinstance(entity_id, str):
+        return "unknown"
+    source_prefixes = ("law-", "irr-", "source-", "handout-", "reviewer-", "law-section-")
+    if any(entity_id.startswith(p) for p in source_prefixes):
+        return "source"
+    if entity_id.startswith("concept-"):
+        return "concept"
+    if entity_id.startswith("attribute-"):
+        return "attribute"
+    if entity_id.startswith("section-"):
+        return "section"
+    return "unknown"
+
+
+def _load_registry_compat_table() -> dict[str, set[tuple[str, str]]]:
+    """Load the relationship registry and flatten it into a compatibility
+    lookup table: predicate -> set of (subject_type, object_type) pairs.
+
+    Returns an empty table if the registry file is missing or unparseable —
+    in that case dedupe_by_endpoints degrades to priority-only behavior.
+    """
+    import yaml
+
+    path = get_repo_root() / "scripts" / "vitruvius" / "rules" / "relationship_registry.yaml"
+    if not path.exists():
+        return {}
+    try:
+        with path.open("r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+    except yaml.YAMLError:
+        return {}
+
+    table: dict[str, set[tuple[str, str]]] = {}
+    for predicate, spec in (data.get("predicates") or {}).items():
+        pairs: set[tuple[str, str]] = set()
+        for pair in spec.get("allowed_pairs", []) or []:
+            s = pair.get("subject_type")
+            o = pair.get("object_type")
+            if s and o:
+                pairs.add((s, o))
+        table[predicate] = pairs
+    return table
+
+
 def dedupe_by_endpoints(candidates: List[Dict]) -> List[Dict]:
     """Collapse multiple (from, X, to) candidates into one per (from, to).
 
     The regex extractor produces up to 5 candidates for the same endpoint pair
     because 5 predicate patterns can each match the same section text. Given
-    the review layer rejects 4 of them as false positives, we dedup before
-    review: keep the candidate with the highest `occurrences`, breaking ties
-    by PREDICATE_PRIORITY (lower index wins). Sections and examples from all
-    dropped candidates are merged into the surviving one. The dropped
-    predicates are recorded in `alternate_predicates` so downstream (Phase 6B)
-    can revisit them.
+    the review layer rejects most of them as false positives, we dedup before
+    review.
+
+    Selection order:
+      1. Partition candidates by (from, to).
+      2. For each pair, infer the (from_type, to_type) from ID prefixes.
+      3. Prefer candidates whose predicate is REGISTRY-COMPATIBLE with that
+         type pair. If any compatible candidates exist, pick only from them.
+      4. Within the preferred subset, pick highest `occurrences`, tie-broken
+         by PREDICATE_PRIORITY (lower rank wins).
+      5. If NO predicate is registry-compatible, fall back to the full group
+         with priority-only selection. The resulting candidate will likely be
+         rejected at Rule 7 downstream but we don't silently discard it.
+
+    This is the fix for the 2026-04-14 post-dedup experiment finding: the
+    priority-only picker chose `defines` for concept->concept edges, losing
+    three promotions that would have been valid under `requires` / `affects`
+    / `depends_on`.
+
+    Sections and examples from all dropped siblings are merged into the
+    survivor. Dropped predicates are recorded in `alternate_predicates` so
+    Phase 6B can revisit them.
     """
     from collections import defaultdict
+
+    compat = _load_registry_compat_table()
 
     groups: dict[tuple[str, str], list[dict]] = defaultdict(list)
     for cand in candidates:
         groups[(cand["from"], cand["to"])].append(cand)
 
     result: list[dict] = []
-    for (_from_id, _to_id), group in groups.items():
-        # Sort: highest occurrences first; then priority (smaller rank first).
+    for (from_id, to_id), group in groups.items():
+        from_type = _infer_entity_type(from_id)
+        to_type = _infer_entity_type(to_id)
+        type_pair = (from_type, to_type)
+
+        # Filter to candidates whose predicate is registry-compatible for
+        # this endpoint type pair. Empty compat table (no registry) or no
+        # matches -> fall back to the full group.
+        if compat:
+            compatible = [
+                c for c in group
+                if type_pair in compat.get(c["type"], set())
+            ]
+        else:
+            compatible = []
+        selection_pool = compatible if compatible else group
+
         group_sorted = sorted(
-            group,
+            selection_pool,
             key=lambda c: (-int(c.get("occurrences", 0)), _priority_rank(c["type"])),
         )
         winner = dict(group_sorted[0])
