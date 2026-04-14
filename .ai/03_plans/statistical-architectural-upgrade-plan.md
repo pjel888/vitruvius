@@ -2,10 +2,10 @@
 plan_id: statistical-architectural-upgrade
 phase: "cross-phase (touches 1A → 12)"
 title: Statistical & Architectural Intelligence Upgrade
-status: in-progress — Streams A-G CLOSED 2026-04-14
+status: in-progress — Streams A-I CLOSED (Phase 8 + Phase 9 base also shipped) 2026-04-14
 priority: highest
-sprint: "Sprint D — Streams A-G CLOSED; Streams H-K pending"
-version: 1.0.6
+sprint: "Sprint D — Streams A-I + Phase 8 base + Phase 9 base CLOSED; Streams J, K pending"
+version: 1.0.7
 stream_progress:
   A_bootstrap_merkle_features: closed (7 tasks — A1a, A1b, A2, A5, A6, A7 shipped; A3, A4 won't-fix rationale in A5 commit)
   B_ingestion_intelligence: closed (5 tasks — B.1 Shannon, B.2 Shannon integration, B.3 Table-to-Graph CSV, B.3.1 XLSX wrapper, B.4 Parametric NER shipped)
@@ -14,8 +14,10 @@ stream_progress:
   E_extraction_v2: closed (4 tasks — E.1 spaCy SVO dep parser, E.2 CRF trainer scaffold with <50 examples guard, E.3 CRF extractor, E.4 TransE link predictor shipped. E.2/E.4 are scaffolds that will train on real data once Phase 6 audit logs accumulate and Phase 7 produces more promoted relationships.)
   F_review_v2: closed (8 tasks — F.1 NB pre-review filter, F.2 SLM complexity router, F.3 ontology prompt builder, F.4 conformal prediction calibrator, F.5 tension analyzer, F.6 reflection parser, F.7 Ollama env config helper, F.8 Choquet integral aggregator shipped. All 8 modules are pure-library scaffolds in the new review/ subpackage; caller wiring into ollama_review.py is a future task.)
   G_promotion_v2: closed (3 tasks — G.1 Bayesian evidence fusion, G.2 Stringency matrix resolver + concept frontmatter migration helper, G.3 Temporal graph edge schema + helpers shipped. Shipped as additions to promotion/ subpackage after converting the flat promotion.py → promotion/__init__.py in G.1.)
-  H_graph_intelligence: pending (9 tasks — depends on Phase 8 base plan execution)
-  I_query_v2: pending (4 tasks — depends on Phase 9 base plan + Stream H)
+  phase_8_base: closed (7 tasks — contract, source+concept walker, relationship walker + snapshot builder, integrity checks, JSON snapshot writer, traverse helpers, CLI commands. Real canonical layer walks cleanly with 24 nodes + 6 edges, zero errors. Builds the filesystem graph layer that Stream H overlays depend on.)
+  H_graph_intelligence: closed (8 tasks — H.1 centrality, H.2 spectral, H.3 Louvain community, H.4 MCMC random walk, H.5 TDA Betti numbers, H.6 Wasserstein merge, H.7 causal DAG overlay, H.8 tensor factorisation scaffold. All stacked on Phase 8 base; all pure numpy/networkx/POT/python-louvain; all deterministic via seed/random_state.)
+  phase_9_base: closed (7 tasks — Phase 9 plan executed in full. result.py, engine.py with 9 query functions, aggregate_confidence helper, nl_translator.py with regex fallback + mock LLM hook, cli_formatter.py, pipeline_cli wiring for query + query-structured, seed question suite with 10 fixture questions. LLM calls mocked in tests.)
+  I_query_v2: closed (4 tasks — I.1 ontology-embedded prompt builder, I.2 GraphRAG community router, I.3 MCMC answer ranker, I.4 HMM pipeline observability. All stacked on Phase 9 base + Stream H overlays.)
   J_active_learning: pending (2 tasks — depends on Ranger dashboard that doesn't exist yet)
   K_clup_scaling: pending (3 tasks — gated on 2nd jurisdiction corpus)
 plan_type: implementation_tdd
