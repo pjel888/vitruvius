@@ -4,7 +4,7 @@ import dataclasses
 
 import pytest
 
-from scripts.vitruvius.parsers.document_taxonomy import (
+from vitruvius.parsers.document_taxonomy import (
     DocumentClass,
     DocumentFeatures,
     classify_document,
