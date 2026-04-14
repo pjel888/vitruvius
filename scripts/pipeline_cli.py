@@ -156,6 +156,12 @@ def build_parser() -> argparse.ArgumentParser:
                                      choices=["json"],
                                      help="Output format (default: json)")
 
+    # Stream M.4 — export-graph-owl
+    subparsers.add_parser(
+        "export-graph-owl",
+        help="Export the latest Phase 8 snapshot as an RDF Turtle file",
+    )
+
     subparsers.add_parser("ingest-spatial")
 
     evaluate_spatial_parser = subparsers.add_parser("evaluate-spatial")
@@ -408,6 +414,10 @@ def main() -> int:
     if args.command == "export-graph-snapshot":
         from vitruvius.graph.cli import run_export_graph_snapshot
         return run_export_graph_snapshot(fmt=args.fmt)
+
+    if args.command == "export-graph-owl":
+        from vitruvius.ontology.cli import run_export_graph_owl
+        return run_export_graph_owl()
 
     if args.command == "ingest-spatial":
         from vitruvius.spatial.cli import run_ingest_spatial
