@@ -97,6 +97,65 @@ class ContextBudgetExceeded(ValueError):
     """Raised when a prompt exceeds the configured num_ctx budget."""
 
 
+def _run_nb_pre_filter(candidate: dict[str, Any]) -> tuple[str, float]:
+    """Stream W2.1 — invoke the Stream F.1 Naive Bayes scaffold.
+
+    Returns ``(action, confidence)`` where action is one of
+    ``auto_accept`` | ``auto_reject`` | ``forward_to_llm``.
+
+    The classifier itself only works once ≥MIN_TRAINING_EXAMPLES audit
+    logs exist. Until then we call the lightweight rule-based cold-start
+    fallback below — same decision surface, same feature shape.
+    """
+    from .review.naive_bayes_filter import (
+        CandidateFeatures,
+        DEFAULT_AUTO_ACCEPT_THRESHOLD,
+        DEFAULT_AUTO_REJECT_THRESHOLD,
+    )
+    examples = candidate.get("examples") or [{}]
+    first = examples[0] if isinstance(examples[0], dict) else {}
+    evidence_length = len(str(first.get("snippet", "")))
+    features = CandidateFeatures(
+        predicate=str(candidate.get("type", "")),
+        regex_pattern_id=str(candidate.get("pattern_id", "unknown")),
+        char_distance=int(candidate.get("char_distance", 100)),
+        evidence_length=evidence_length,
+        verb_voice=str(candidate.get("verb_voice", "unknown")),
+        has_negation=bool(candidate.get("has_negation", False)),
+    )
+    if features.has_negation and features.evidence_length < 40:
+        return ("auto_reject", DEFAULT_AUTO_REJECT_THRESHOLD)
+    if features.evidence_length > 120 and features.predicate in {
+        "governs", "defines", "requires", "limits", "affects",
+    }:
+        return ("auto_accept", DEFAULT_AUTO_ACCEPT_THRESHOLD)
+    return ("forward_to_llm", 0.5)
+
+
+def _maybe_pre_filter(candidate: dict[str, Any]) -> dict[str, Any] | None:
+    """Stream W2.1 — short-circuit the LLM call when the NB prefilter is
+    confident. Returns a canned decision dict when it auto-accepts or
+    auto-rejects, or ``None`` to let the candidate proceed to
+    :func:`review_relationship`.
+
+    No-op unless ``features.w_review_nb_prefilter`` is true.
+    """
+    from . import config as cfgmod
+    if not cfgmod._features_block().get("w_review_nb_prefilter", False):
+        return None
+    action, confidence = _run_nb_pre_filter(candidate)
+    if action == "forward_to_llm":
+        return None
+    decision_map = {"auto_accept": "keep", "auto_reject": "reject"}
+    return {
+        "action": action,
+        "decision": decision_map.get(action, "review_further"),
+        "confidence": confidence,
+        "source": "nb_prefilter",
+        "reason": f"NB prefilter action {action} with confidence {confidence:.2f}",
+    }
+
+
 def _estimate_prompt_tokens(prompt: str) -> int:
     """Stream W1.3 — rough token estimate (~4 English chars per token).
 
@@ -545,6 +604,33 @@ def run_review_relationships_ollama(
                 f"{from_id} -> {rel_type} -> {to_id} "
                 f"(occurrences={occurrences})"
             )
+
+            pre_decision = _maybe_pre_filter(candidate)
+            if pre_decision is not None:
+                print(
+                    f"    NB prefilter {pre_decision['action']} "
+                    f"confidence={pre_decision['confidence']:.2f} — skipping LLM call"
+                )
+                review_item = {
+                    "candidate": candidate,
+                    "review": {
+                        "decision": pre_decision["decision"],
+                        "confidence": pre_decision["confidence"],
+                        "reason": pre_decision["reason"],
+                        "suggested_type": None,
+                    },
+                    "source": pre_decision["source"],
+                }
+                reviews.append(review_item)
+                save_progress_report(
+                    runs_dir=runs_dir,
+                    model=model,
+                    source=source,
+                    candidates=candidates,
+                    reviews=reviews,
+                    status="in_progress" if idx < len(candidates) else "completed",
+                )
+                continue
 
             review_item = review_relationship(
                 candidate,
