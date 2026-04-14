@@ -357,6 +357,74 @@ def _run_rollback(repo_root: Path, batch_id: str) -> dict:
     return {"rolled_back": rolled_back, "batch_id": batch_id}
 
 
+def _concept_stringency_vector(concept_id: str) -> str:
+    """Stream W3.3 — read the ``stringency_vector`` field from a concept
+    file's frontmatter. Returns ``"qualitative"`` (the safe default)
+    whenever the file is missing, unparseable, or the field is absent.
+    """
+    from ..paths import get_repo_root
+    slug = concept_id.removeprefix("concept-")
+    path = (
+        get_repo_root()
+        / "003_Canonical-Knowledge-Layer"
+        / "shared"
+        / "concepts"
+        / f"{slug}.md"
+    )
+    if not path.exists():
+        return "qualitative"
+    text = path.read_text(encoding="utf-8")
+    if not text.startswith("---"):
+        return "qualitative"
+    end = text.find("\n---", 3)
+    if end == -1:
+        return "qualitative"
+    try:
+        fm = yaml.safe_load(text[3:end].strip())
+    except yaml.YAMLError:
+        return "qualitative"
+    if isinstance(fm, dict):
+        vector = fm.get("stringency_vector", "qualitative")
+        if vector in {"maximize", "minimize", "qualitative"}:
+            return vector
+    return "qualitative"
+
+
+def _maybe_resolve_stringency_conflict(
+    edge_a: Any,
+    edge_b: Any,
+) -> dict[str, object] | None:
+    """Stream W3.3 — consult ``resolve_stringency`` when two promoted edges
+    target the same concept and the feature flag is on.
+
+    Returns:
+      - ``None`` when ``features.w_promotion_stringency_gate`` is false
+      - ``None`` when the resolver returns ``unresolved`` (e.g. both
+        numeric_values are None under a qualitative vector) — the
+        caller keeps both edges without a governing tag
+      - A dict with ``winner_edge_id`` / ``loser_edge_id`` /
+        ``is_governing_standard=True`` / ``reason`` when the resolver
+        picks a winner
+    """
+    from ..config import _features_block
+    from .stringency_resolver import resolve_stringency
+    if not _features_block().get("w_promotion_stringency_gate", False):
+        return None
+    vector = _concept_stringency_vector(edge_a.to_entity)
+    try:
+        verdict = resolve_stringency(edge_a, edge_b, stringency_vector=vector)
+    except ValueError:
+        return None
+    if verdict.unresolved or verdict.winner_edge_id is None:
+        return None
+    return {
+        "winner_edge_id": verdict.winner_edge_id,
+        "loser_edge_id": verdict.loser_edge_id,
+        "is_governing_standard": True,
+        "reason": verdict.reason,
+    }
+
+
 def run_promote(
     *,
     execute: bool = False,
