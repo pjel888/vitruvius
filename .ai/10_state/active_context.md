@@ -1,8 +1,8 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-14 · Phase 1B Foundation shipped (parsers subpackage, 80 new tests), RI-009 cleared
-> **Branch:** `feat/phase-7-promotion-governance` (~68 commits ahead of `main`)
-> **Test suite:** 257/257 passing
+> **Updated:** 2026-04-14 · Phase 1B Foundation + Sprint C quality pass shipped (parsers subpackage, OpenDataLoader adapter, rotate-registries CLI)
+> **Branch:** `feat/phase-7-promotion-governance` (~73 commits ahead of `main`)
+> **Test suite:** 297/297 passing
 
 ## Where We Are
 
@@ -23,8 +23,8 @@ AI is now the *exception*, not the rule. Most stages are zero-LLM. The review la
 | Phase | Status | AI? | Notes |
 |---|---|---|---|
 | 0 Foundation | ✅ | No | — |
-| 1A Baseline Ingestion | ✅ | No | RI-008 open; RI-009 **closed** (SHA-256 hash added) |
-| 1B Multi-Parser Integration | 🔥 Foundation shipped | No | `parsers/` subpackage; Modernization + Scaling pending |
+| 1A Baseline Ingestion | ✅ | No | RI-008 **closed** (rotate-registries CLI); RI-009 **closed** (SHA-256 hash) |
+| 1B Multi-Parser Integration | 🔥 Foundation + OpenDataLoader adapter | No | `parsers/` subpackage; OpenDataLoaderParser bridges abstraction → real library; Modernization (Docling/Marker/OCR) + Scaling pending |
 | 1C Centralized Normalization | ✅ MVP | No | 8 rules, `.refined.json` manifest |
 | 2 Canonicalizer Restoration | ✅ | No | Structured sections + diff-before-write |
 | 3C Concept Enrichment | ✅ 16/20 | **No** | Deterministic anchors + section titles + alias miner |

@@ -201,6 +201,21 @@
   * Docling, Marker, Surya, and OCRPreprocessor are still unimplemented; concrete parser implementations await Phase 2
   * Phase 1B plan frontmatter updated from `planned` → `in-progress`
 
+## AD-023: Sprint C Quality Pass — RI-008 closed, Foundation bridged to production adapter
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** After the Phase 1B Foundation slab landed (AD-022), the branch sat with 257 tests green but two outstanding quality gaps: (a) the new `parsers/` subpackage was dead code — no real parser adapter consumed the `BaseParser` abstraction, leaving the design unvalidated against production libraries; (b) RI-008 (unbounded registry CSV growth) remained open with a concrete-but-unshipped mitigation proposal. This session opted to focus on quality and execution over MVP velocity — ship the two concrete quality improvements instead of rushing the graph/query layers.
+- **Decision (three parts):**
+  1. **Close RI-008 by shipping `rotate-registries` CLI** — new `vitruvius/registry_rotation.py` module with pure `plan_rotation()` / destructive `apply_rotation()` split, deterministic newest-first retention (default keep=30), `--dry-run` and `--keep N` flags, lazy-imported into `pipeline_cli.py` per AD-015. Only touches timestamped `{YYYYMMDDTHHMMSSZ}_*_registry.csv` files; `latest_*.csv` and non-timestamped static registries (canonical, source, graph) are never rotated. 22 tests covering retention boundaries, pattern matching, dry-run isolation, and a regression pin on negative `keep`. Commits `452df57` + `f7166a1`.
+  2. **Ship `OpenDataLoaderParser` adapter bridging the Phase 1B Foundation to the real parser library** — new `vitruvius/parsers/opendataloader_parser.py` that wraps `opendataloader_pdf.convert()` behind `BaseParser`. Lazy-imports the heavy dependency inside `parse()` so the type surface stays importable in minimal environments. Translates file-based library output into `ParseResult` with `ParserTelemetry` populated from both sidecar JSON (pages, text_length) and direct markdown analysis (headers via `#`, tables via `|---|` separator rows, images via `![` markers). On parser exception or missing output files, returns a failure `ParseResult` with `valid=False` and a descriptive error string instead of crashing the caller. 18 tests using mocked `opendataloader_pdf.convert`. Commits `1214df7` + `8a8b855`. Does NOT migrate `conversion.py` — that wiring is a separate future task; this adapter is specifically shipped to validate the abstraction holds against a real library, not to move production callers.
+  3. **Housekeeping** — RI-009 status corrected in `known_issues.md` (commit `b7059cd`) now that SHA-256 hashing is in-tree; Risk Severity Summary updated MEDIUM 2 → 1 / CLOSED 7 → 8 as RI-008 joins the closed set.
+- **Consequences:**
+  * 40 new tests (257 → 297 passing); zero deprecation warnings
+  * `vitruvius.parsers.OpenDataLoaderParser` is the first real-library parser behind the new interface — downstream phases can now reason about fallback chains against a concrete anchor rather than stubs
+  * Unbounded registry CSV growth is no longer an operational risk; operators can invoke `python3 scripts/pipeline_cli.py rotate-registries --dry-run` before applying retention
+  * `known_issues.md` MEDIUM count drops from 2 to 1 (only RI-010's 4 remaining concept gaps remain, and those need corpus expansion or manual curation, not code)
+  * Next natural quality steps: wire `conversion.py` to construct a `ParserOrchestrator` with `{DocumentClass.TEXT_PDF_SIMPLE: [OpenDataLoaderParser()]}` as a single-entry fallback chain; add a coverage baseline; start Phase 1B Phase 2 (Modernization — Docling, Marker, OCR adapters)
+
 ---
 
 ## Decision Process

@@ -52,11 +52,11 @@
 - **Mitigation:** ✅ Sprint B Phase 1C built the `NormalizationEngine` with phase-locked execution, scope routing, and 8 Tier A/B rules. `refine` CLI stage emits `.refined.json` manifests. 6 PD 1096 files refined with idempotency verified.
 - **Status:** **CLOSED** for the MVP scope. Tier C semantic rules, full semantic chunking, and destructive-guard rollback tracked as post-Sprint-B follow-ups.
 
-### RI-008: Registry Growth Without Rotation
-- **Description:** `006_System-Manifests/registries/*.csv` appends indefinitely. No rotation or pruning.
-- **Impact:** MEDIUM — unbounded CSV growth will slow comparison logic in `status.py` as corpus scales.
-- **Mitigation:** Add `rotate-registries` CLI with a retention policy (e.g., keep 30 timestamped versions + always the latest).
-- **Closure:** Post-Sprint C infrastructure cleanup.
+### RI-008: Registry Growth Without Rotation (CLOSED 2026-04-14)
+- **Description:** `006_System-Manifests/registries/*.csv` appended indefinitely. No rotation or pruning.
+- **Impact:** MEDIUM — unbounded CSV growth would have slowed comparison logic in `status.py` as corpus scales.
+- **Mitigation:** ✅ Sprint C quality pass shipped the `rotate-registries` CLI command with a deterministic retention policy. Default keep=30 per timestamped family (raw_file, conversion, spreadsheet); `latest_*.csv` pointers and non-timestamped static registries are never touched. Supports `--dry-run` and `--keep N`. Pure `plan_rotation()` separated from destructive `apply_rotation()` for safety. Commits `452df57` + `f7166a1`; see AD-023.
+- **Status:** **CLOSED.** The CLI ships but has not yet been run against the real `006_System-Manifests/registries/` dir — operators invoke it manually when ready.
 
 ### RI-009: No File Hashing in Ingestion (CLOSED 2026-04-14)
 - **Description:** `scanner.py` captured size + mtime but no SHA-256. Change detection could miss content changes that preserve mtime.
@@ -86,14 +86,14 @@
 - **Mitigation:** ✅ Sprint B Phase 6A added `run-with-review` composite command that chains `run → convert → refine → review-relationships-ollama`. Default `run` stays minimal so CI doesn't invoke Ollama accidentally.
 - **Status:** **CLOSED.**
 
-## Risk Severity Summary (updated 2026-04-14 after Sprints A + B + Phase 3C + quality pass + Phase 1B Foundation)
+## Risk Severity Summary (updated 2026-04-14 after Sprints A + B + Phase 3C + quality pass + Phase 1B Foundation + Sprint C quality pass)
 | Severity | Count | IDs |
 |---|---|---|
 | HIGH | 1 | RI-001 (permanent operating rule) |
-| MEDIUM | 2 | RI-008, RI-010 (4/20 remaining) |
+| MEDIUM | 1 | RI-010 (4/20 remaining) |
 | LOW | 1 | RI-004 |
 | MITIGATED (not formally closed) | 1 | RI-002 (pre-review filter cut false positives from 82% → ~22%) |
-| CLOSED | 7 ✅ | RI-003, RI-005 (next pass), RI-006, RI-007, RI-009, RI-011, RI-012 |
+| CLOSED | 8 ✅ | RI-003, RI-005 (next pass), RI-006, RI-007, RI-008, RI-009, RI-011, RI-012 |
 
 ## Closure Timeline
 | When | Risks Closed |
@@ -101,5 +101,6 @@
 | **Sprint A (2026-04-14)** | ✅ RI-006, ✅ RI-003 (partial) |
 | **Sprint B (2026-04-14)** | ✅ RI-003 (full), ✅ RI-007 (MVP), ✅ RI-011, ✅ RI-012 |
 | **Sprint C · Phase 1B Foundation (2026-04-14)** | ✅ RI-009 (Task 0 — SHA-256 file hashing) |
-| Future | RI-002 (Phase 5E), RI-008 (this session), RI-010 (Phase 3C — 4 concepts need corpus expansion) |
+| **Sprint C · Quality Pass (2026-04-14)** | ✅ RI-008 (Q2 — rotate-registries CLI) |
+| Future | RI-002 (Phase 5E), RI-010 (Phase 3C — 4 concepts need corpus expansion) |
 | Permanent rule | RI-001, RI-004 |
