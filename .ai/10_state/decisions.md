@@ -261,6 +261,47 @@
 
 ---
 
+## AD-025: Sprint R — Per-Layer Embeddings & Agentic Reasoning (Streams Y0/Y2/Y3/Y4 shipped; Y1+Y5 deferred)
+- **Date:** 2026-04-15
+- **Status:** Partial — 15/20 tasks landed; 2 streams deferred for infra reasons
+- **Context:** Sprint R is the planned successor to Sprint Q per the governing plan §3. The per-layer-embeddings plan lists 5 streams (Y0–Y5, 20 tasks total). Sprint R launched on branch `feat/sprint-r-per-layer-embeddings` immediately after Sprint Q was tagged `sprint-q-closed`.
+- **Decision:** Execute every stream that can be landed under TDD in-session; defer streams that require infrastructure not available to the in-session agent (network-installed libraries, live LLM endpoints, large model pulls). Document deferrals with a named unblock path.
+- **Streams shipped:**
+  1. **Y0 — Bootstrap, flags, backcompat (2/3):**
+     * Y0.1 — `scripts/vitruvius/priming/__init__.py` empty subpackage shell + 2 importability tests (commit `9d7fc42`).
+     * Y0.2 — 5 `y_*` feature flags in `config/vitruvius.yaml`, added to `EXPECTED_FLAGS` in `test_features.py` so the Stream A non-breaking-contract regression automatically covers them. 2 new direct cases (commit `570f162`).
+     * Y0.3 — **adapted**: the plan's fixture-based golden-file regression cannot run because neither `fixtures/golden_3_files` nor `vitruvius.pipeline` exist in this codebase. Sprint Q's `test_wiring_backcompat` already regression-tests flag-OFF byte identity at the module-import level, so Y0 ships the narrower "priming shell exports nothing by default" assertion instead. The richer golden-file regression remains a future enhancement once a golden fixture directory is seeded.
+  2. **Y2 — Domain-routing MoE (4/4):**
+     * Y2.1 — `domain_classifier.py` with a 6-way `Domain` enum + deterministic regex-keyword `classify_domain()`. Pattern order puts FEES before ADMINISTRATIVE so "permit fee: 5000 PHP" lands in FEES (commit `ec746c5`, 9 tests).
+     * Y2.2 — Append-only `route_with_moe()` + `MoEVerdict` on `slm_router.py`; the legacy `route(signals)` is untouched (commit `d1edcfe`, 4 tests).
+     * Y2.3 — `load_moe_policy()` + shipped `config/moe_routing.yaml` with 6-domain → 7b/3b Ollama model mapping. Refuses policies missing any domain (commit `a511de3`, 3 tests).
+     * Y2.4 — `ollama_review.select_review_model()` flag-gated hook. Flag OFF returns `get_ollama_default_model()`; flag ON loads the policy and dispatches via `route_with_moe` (commit `bea5a93`, 3 tests).
+  3. **Y3 — Thinking mode + CoT audit (4/4):**
+     * Y3.1 — Appended `CotParseError`, `CotResult`, `parse_cot_strict()` to `reflection_parser.py`. Hard-fails on missing `<think>` block, missing VERDICT line, missing ≥5-char quoted citation, missing `Self-confidence:` line. Low confidence sets `escalate=True` without raising (commit `ffe5e83`, 5 tests).
+     * Y3.2 — New `review/cot_audit.py` with `write_cot_trace()` + `CotAuditSummary.from_directory()`. Microsecond-precision filename timestamps for fast-loop determinism (commit `4e5d3ae`, 2 tests).
+     * Y3.3 — `ollama_review.adjudicate_with_cot()` flag-gated hook. Flag OFF delegates to `_legacy_adjudicate()` (maps `parse_reflection.halt_auto_promote` → verdict dict). Flag ON runs strict CoT + writes the audit trace + surfaces escalate for malformed responses and low confidence (commit `1e0b987`, 4 tests).
+     * Y3.4 — `run_ple_cotrace_dump(cot_dir)` handler in `cot_audit.py` + `ple-cotrace-dump --cot-dir <path>` subcommand wired into `scripts/pipeline_cli.py` (commit `02b068d`, 1 test).
+  4. **Y4 — Stateful agentic registry (4/4 — Phase 6A Resume gap CLOSED AT ROOT):**
+     * Y4.1 — `review/stateful_registry.py` with `VerdictRecord` + `StatefulReviewRegistry` backed by stdlib `sqlite3`. PRIMARY KEY is `(source_hash, relationship_hash, model_version)`. Methods: `put`, `get`, `count`, `vacuum`, `purge_all`, `purge_older_than`, `disk_size_mb`, `close` (commit `169145e`, 4 tests).
+     * Y4.2 — `ollama_review.review_with_cache()` hook: flag OFF inlined no-op (no SQLite file created); flag ON cache hit → skip LLM with `cache_hit=True`, cache miss → call `_call_llm`, write back, return `cache_hit=False` (commit `8c38bbf` bundle, 3 tests).
+     * Y4.3 — `purge_older_than(cutoff_utc)` + `disk_size_mb()` methods + `run_ple_registry_purge(db_path=, days=)` CLI handler + `ple-registry-purge --db <path> --days <N>` subcommand wiring (same commit, 4 tests).
+     * Y4.4 — Phase 6A Resume regression lock: simulates a 3-candidate run that "crashes" after 2 are cached, resumes, and asserts the LLM is invoked exactly once on the resume (same commit, 1 test).
+- **Streams deferred:**
+  1. **Y1 — Contextual priming (PLE) — 5 tasks.** Requires `sentence-transformers` (with its torch transitive) which is not installed in this environment. Plan §3.1 assumed Stream A already installed it. Unblock path: `pip install sentence-transformers` on a box with network + ~2 GB disk, then dispatch Y1.1 (context vector builder) through Y1.5 (priming wiring into extraction candidates) via `superpowers:subagent-driven-development` against the existing plan.
+  2. **Y5 — Vision OCR — 4 tasks.** Explicitly gated behind a `ple-vision-probe` CLI that needs a live Ollama host and a manually pulled ≤2B-param vision model. No unblock path is possible under TDD without live infra. Y5.4 (operator checklist) could land as docs-only if desired; Y5.1–Y5.3 wait for an operator pass.
+- **Consequences:**
+  * Test suite: 1051 (post-Sprint-Q) → 1098 (post-Y4) — **+47 new Sprint R test cases**.
+  * Plan adaptations documented per-commit (FeatureFlags dataclass → Features+is_enabled, ComplexitySignals field rename, parse_reflection return type, pipeline_cli location). None of these changes the research intent — the mappings stay 1:1 with the plan's data flow.
+  * The per-layer-embeddings plan stays in `.ai/03_plans/` (not archived) because 25% of the work remains. Archival happens when Y1 + Y5 land.
+  * Sprint H entry gate (≥25 verified relationships) is still unmet — only 7 live in `003_Canonical-Knowledge-Layer/shared/relationships/`. Sprint H remains blocked on Task 4a (grow relationships) until the live pipeline runs against PD 1096 IRR with Ollama.
+- **Follow-up queue:**
+  * Install sentence-transformers on an ops box; dispatch Y1.1–Y1.5.
+  * Run `ple-vision-probe` manually; if pass, dispatch Y5.1–Y5.4.
+  * Run the live PD 1096 bench (deferred from Sprint Q AD-024) + grow relationships so Sprint H can unblock.
+  * TDD-expand phase-16 (PHYS) + phase-13 (HP) + phase-14 (WIKI) before those sprints start, per governing plan Task 6.
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.

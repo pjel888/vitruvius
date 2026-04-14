@@ -12,13 +12,26 @@
 | Y0 — Bootstrap & flags | priming/ shell, 5 y_* flags in YAML, backward-compat regression | ✅ 2/3 (Y0.3 golden-fixture regression adapted to module-level asserts because `fixtures/golden_3_files` + `vitruvius.pipeline` don't exist in this codebase) | 9d7fc42, 570f162 |
 | Y1 — Contextual priming (PLE) | Source identity vector, prompt prefix injector, drift detector, ontology prompt wiring, extraction wiring | ⚠ **BLOCKED** — requires `sentence_transformers` library which is not installed in this environment. Plan §3.1 assumed Stream A already installed it. Defer until operator runs `pip install sentence-transformers torch`. | — |
 | Y2 — Domain-routing MoE | Domain classifier, route_with_moe, policy file + loader, select_review_model hook | ✅ 4/4 closed | ec746c5, d1edcfe, a511de3, bea5a93 |
-| Y3 — Thinking mode + CoT audit | parse_cot_strict, cot_audit writer, ollama_review CoT enforcement, ple-cotrace-dump CLI | 📝 Next | — |
-| Y4 — Stateful agentic registry | SQLite registry core, wire into ollama_review, vacuum + purge CLI, Phase 6A Resume integration test | 📝 Pending | — |
-| Y5 — Vision OCR (gated) | Vision wrapper, table_graph_extractor fallback, ple-vision-probe, operator checklist | 🔒 Gated on `ple-vision-probe` pass (requires live Ollama) | — |
+| Y3 — Thinking mode + CoT audit | parse_cot_strict, cot_audit writer, ollama_review CoT enforcement, ple-cotrace-dump CLI | ✅ 4/4 closed | ffe5e83, 4e5d3ae, 1e0b987, 02b068d |
+| Y4 — Stateful agentic registry | SQLite registry core, wire into ollama_review, vacuum + purge CLI, Phase 6A Resume integration test | ✅ 4/4 closed (Phase 6A Resume gap closed at root) | 169145e, 8c38bbf |
+| Y5 — Vision OCR (gated) | Vision wrapper, table_graph_extractor fallback, ple-vision-probe, operator checklist | 🔒 Deferred — `ple-vision-probe` requires a live Ollama host and a manually pulled ≤2B-param vision model; impossible to land under TDD without live infra | — |
 
-Sprint R is executing on `feat/sprint-r-per-layer-embeddings`. Every Y flag
+Sprint R is executing on `feat/sprint-r-per-layer-embeddings`. **15 of
+20 Sprint R tasks shipped; test suite at 1098 passing**. Every Y flag
 defaults false, so the pipeline is still byte-identical to the pre-Sprint-R
 baseline until an operator flips one on.
+
+Deferred Sprint R scope:
+- **Stream Y1 (5 tasks)** — blocked on `sentence-transformers` + its
+  torch dependency (~2 GB install). Unblock path: run
+  `pip install sentence-transformers` on a machine with network +
+  disk budget, then dispatch Y1.1–Y1.5 via `subagent-driven-development`
+  against the existing per-layer-embeddings plan.
+- **Stream Y5 (4 tasks)** — gated on a live Ollama host and a manually
+  pulled ≤2B-param vision model (moondream or qwen2-vl). Unblock path:
+  follow the plan's §10 checklist, pull the model, run
+  `ple-vision-probe` manually, then dispatch Y5.1–Y5.4. Pillow is the
+  only new Python dep.
 
 ## Where We Are
 
