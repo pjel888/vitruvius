@@ -133,6 +133,12 @@ def build_parser() -> argparse.ArgumentParser:
     refine_one_parser = subparsers.add_parser("refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
+    rotate_parser = subparsers.add_parser("rotate-registries")
+    rotate_parser.add_argument("--keep", type=int, default=30,
+                               help="Number of timestamped snapshots to retain per family (default: 30)")
+    rotate_parser.add_argument("--dry-run", action="store_true",
+                               help="Show what would be pruned without deleting")
+
     return parser
 
 
@@ -279,6 +285,10 @@ def main() -> int:
     if args.command == "refine-one":
         from vitruvius.normalization.refine import run_refine_one
         return run_refine_one(relative_markdown_path=args.relative_markdown_path)
+
+    if args.command == "rotate-registries":
+        from vitruvius.registry_rotation import run_rotate_registries
+        return run_rotate_registries(keep=args.keep, dry_run=args.dry_run)
 
     parser.print_help()
     return 1
