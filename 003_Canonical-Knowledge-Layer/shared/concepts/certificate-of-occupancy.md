@@ -4,8 +4,8 @@ title: Certificate Of Occupancy
 page_type: concept
 canonical_status: enriched
 concept_status: enriched
-last_canonicalized_utc: '2026-04-14T05:39:21.388912+00:00'
-enriched_at_utc: '2026-04-14T05:39:21.388912+00:00'
+last_canonicalized_utc: '2026-04-14T05:44:37.418859+00:00'
+enriched_at_utc: '2026-04-14T05:44:37.418859+00:00'
 regulatory_basis:
 - source_id: law-national-building-code-of-the-philippines
   section_id: sec-309

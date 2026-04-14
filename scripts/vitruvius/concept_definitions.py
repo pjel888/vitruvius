@@ -225,41 +225,55 @@ SECTION_TITLE_ALIASES: dict[str, list[str]] = {
 }
 
 
-def _section_title_to_concept(title: str, known_slugs: set[str]) -> tuple[str | None, float]:
-    """Match a section title to a known concept slug.
+def _section_title_to_concepts(title: str, known_slugs: set[str]) -> list[tuple[str, float]]:
+    """Match a section title to a LIST of known concept slugs.
 
-    Returns (slug, confidence) on match, (None, 0.0) otherwise.
+    A single section title like "Stairs, Exits, and Occupant Loads"
+    legitimately covers multiple concepts (stairs, doors-and-exits,
+    occupancy-load). Returning only the first match drops the others.
 
-    Match order (first match wins):
+    Match passes (all passes run; duplicates deduped):
     1. Exact slug match of the entire title          -> 0.85
-    2. Title contains concept phrase verbatim         -> 0.75
+    2. Title contains any known concept phrase verbatim -> 0.75
     3. Title contains an alias from SECTION_TITLE_ALIASES -> 0.75
-
-    Aliases are only considered when the slug is in `known_slugs` so an
-    out-of-repo concept can't be claimed by accident.
     """
     normalized = _normalize_phrase(title)
     title_slug = normalized.replace(" ", "-")
 
-    # 1. Exact slug match
-    if title_slug in known_slugs:
-        return title_slug, 0.85
+    found: dict[str, float] = {}
 
-    # 2. Containing phrase match
+    # 1. Exact slug match — highest confidence
+    if title_slug in known_slugs:
+        found[title_slug] = 0.85
+
+    # 2. Containing phrase match — each slug that appears in the title
     for known in known_slugs:
+        if known in found:
+            continue
         concept_phrase = known.replace("-", " ")
         if concept_phrase in normalized:
-            return known, 0.75
+            found[known] = 0.75
 
-    # 3. Alias dictionary match — only for slugs in the known set.
+    # 3. Alias dictionary match — each alias-matched slug
     for slug, aliases in SECTION_TITLE_ALIASES.items():
-        if slug not in known_slugs:
+        if slug not in known_slugs or slug in found:
             continue
         for alias in aliases:
             if alias in normalized:
-                return slug, 0.75
+                found[slug] = 0.75
+                break
 
-    return None, 0.0
+    return [(slug, conf) for slug, conf in found.items()]
+
+
+def _section_title_to_concept(title: str, known_slugs: set[str]) -> tuple[str | None, float]:
+    """Back-compat wrapper returning the first match only. New callers
+    should use `_section_title_to_concepts`.
+    """
+    matches = _section_title_to_concepts(title, known_slugs)
+    if not matches:
+        return None, 0.0
+    return matches[0]
 
 
 def extract_definitions_from_sections(
@@ -288,8 +302,12 @@ def extract_definitions_from_sections(
         section_num = match.group(1).lower()
         title = match.group(2).strip()
 
-        slug, confidence = _section_title_to_concept(title, known_slugs)
-        if not slug:
+        # One section title may cover multiple concepts — emit a candidate
+        # for each. This is essential for compound titles like
+        # "Stairs, Exits, and Occupant Loads" which legitimately cover
+        # stairs + doors-and-exits + occupancy-load.
+        slug_matches = _section_title_to_concepts(title, known_slugs)
+        if not slug_matches:
             continue
 
         body_start = match.end()
@@ -298,13 +316,14 @@ def extract_definitions_from_sections(
         body = re.sub(r"\s+", " ", body)
         snippet = body[:max_snippet_chars]
 
-        candidates.append(DefinitionCandidate(
-            concept_slug=slug,
-            source_id=source_id,
-            source_section_id=f"sec-{section_num}",
-            snippet=snippet,
-            anchor=f"section_title: {title}",
-            confidence=confidence,
-        ))
+        for slug, confidence in slug_matches:
+            candidates.append(DefinitionCandidate(
+                concept_slug=slug,
+                source_id=source_id,
+                source_section_id=f"sec-{section_num}",
+                snippet=snippet,
+                anchor=f"section_title: {title}",
+                confidence=confidence,
+            ))
 
     return candidates

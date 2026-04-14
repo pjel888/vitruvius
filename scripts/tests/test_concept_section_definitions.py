@@ -102,3 +102,24 @@ def test_multiple_sections_produce_one_candidate_each():
     assert "occupancy-classification" in slugs
     assert "building-height" in slugs
     assert "setbacks" in slugs
+
+
+def test_compound_section_title_emits_one_candidate_per_concept():
+    """`Stairs, Exits, and Occupant Loads` should match multiple concepts
+    in one pass, not just the first one (occupancy-load was dropped
+    pre-fix because stairs won the first-match check).
+    """
+    text = (
+        "### SECTION 1207. Stairs, Exits, and Occupant Loads\n\n"
+        "The construction of stairs and exits shall conform to the occupant\n"
+        "load requirements of the building.\n"
+    )
+    big_known = KNOWN | {"stairs", "doors-and-exits", "occupancy-load"}
+    candidates = extract_definitions_from_sections(
+        text,
+        source_id="law-pd-1096",
+        known_slugs=big_known,
+    )
+    slugs = {c.concept_slug for c in candidates}
+    assert "stairs" in slugs
+    assert "occupancy-load" in slugs  # via alias "occupant loads"
