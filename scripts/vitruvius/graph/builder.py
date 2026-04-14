@@ -124,3 +124,62 @@ def walk_concepts(concepts_dir: Path) -> list[GraphNode]:
         nodes.append(node)
     nodes.sort(key=lambda n: n.id)
     return nodes
+
+
+def walk_relationships(relationships_dir: Path) -> list[GraphEdge]:
+    edges: list[GraphEdge] = []
+    for path in _iter_md_files(relationships_dir):
+        fm = _load_frontmatter(path)
+        if not fm:
+            continue
+        status_raw = fm.get("canonical_status")
+        if status_raw not in _PROMOTED_STATUSES:
+            continue
+        evidence_id = fm.get("id")
+        if not isinstance(evidence_id, str) or not evidence_id.startswith("rel-"):
+            continue
+        from_id = fm.get("from_entity") or fm.get("from_id")
+        to_id = fm.get("to_entity") or fm.get("to_id")
+        predicate = fm.get("relationship_type") or fm.get("predicate")
+        if not (isinstance(from_id, str) and isinstance(to_id, str) and isinstance(predicate, str)):
+            continue
+        edge_status = "verified" if status_raw == "verified" else "unverified"
+        edge = GraphEdge(
+            from_id=from_id,
+            to_id=to_id,
+            type=predicate,
+            evidence_id=evidence_id,
+            status=edge_status,
+        )
+        try:
+            validate_edge(edge)
+        except ValueError:
+            continue
+        edges.append(edge)
+    edges.sort(key=lambda e: (e.from_id, e.type, e.to_id, e.evidence_id))
+    return edges
+
+
+def build_snapshot(
+    canonical_root: Path,
+    *,
+    schema_version: str = "1.0.0",
+    now: str | None = None,
+) -> GraphSnapshot:
+    sources = walk_sources(canonical_root / "sources")
+    concepts = walk_concepts(canonical_root / "concepts")
+    edges = walk_relationships(canonical_root / "relationships")
+
+    nodes = sources + concepts
+    nodes.sort(key=lambda n: n.id)
+    edges = sorted(edges, key=lambda e: (e.from_id, e.type, e.to_id, e.evidence_id))
+
+    generated_at_utc = now or datetime.now(tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return GraphSnapshot(
+        schema_version=schema_version,
+        generated_at_utc=generated_at_utc,
+        node_count=len(nodes),
+        edge_count=len(edges),
+        nodes=nodes,
+        edges=edges,
+    )
