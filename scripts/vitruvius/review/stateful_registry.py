@@ -118,5 +118,55 @@ class StatefulReviewRegistry:
         self._conn.commit()
         return before
 
+    def purge_older_than(self, *, cutoff_utc: str) -> int:
+        """Stream Y4.3 — delete every row whose ``created_utc`` is
+        strictly less than ``cutoff_utc`` (a lexicographically-sortable
+        ISO-8601 timestamp). Returns the number of rows deleted.
+        """
+        cursor = self._conn.execute(
+            "DELETE FROM verdicts WHERE created_utc < ?",
+            (cutoff_utc,),
+        )
+        self._conn.commit()
+        return int(cursor.rowcount)
+
+    def disk_size_mb(self) -> float:
+        """Stream Y4.3 — return the on-disk size of the SQLite file in MB."""
+        try:
+            return self._db_path.stat().st_size / (1024 * 1024)
+        except FileNotFoundError:
+            return 0.0
+
     def close(self) -> None:
         self._conn.close()
+
+
+def run_ple_registry_purge(
+    *,
+    db_path: Path,
+    days: int = 30,
+) -> int:
+    """Stream Y4.3 — CLI handler for the ``ple-registry-purge`` subcommand.
+
+    Deletes every row older than ``days`` days from the registry at
+    ``db_path``, runs VACUUM to reclaim space, prints a one-line
+    summary, and returns ``0`` on success. If ``db_path`` does not
+    exist the handler prints ``no registry at <path>`` and still
+    returns ``0`` (idempotent).
+    """
+    from datetime import datetime, timedelta, timezone
+
+    db_path = Path(db_path)
+    if not db_path.exists():
+        print(f"no registry at {db_path}")
+        return 0
+    reg = StatefulReviewRegistry(db_path=db_path)
+    try:
+        cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
+        deleted = reg.purge_older_than(cutoff_utc=cutoff)
+        reg.vacuum()
+        size_mb = reg.disk_size_mb()
+        print(f"purged: {deleted} rows | size_after: {size_mb:.2f} MB")
+    finally:
+        reg.close()
+    return 0

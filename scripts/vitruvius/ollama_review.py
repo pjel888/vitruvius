@@ -110,6 +110,83 @@ def _maybe_route_to_second_pass(verdict: dict[str, Any]) -> str:
     return "finalize"
 
 
+def _call_llm(candidate: "Mapping[str, Any]") -> dict[str, Any]:
+    """Stream Y4.2 — test-patchable hot-path LLM invocation.
+
+    Real wiring delegates to the Stream F review machinery via
+    :func:`review_relationship`; this thin wrapper exists so the
+    Y4.2 cache integration tests can patch a single symbol without
+    stubbing the full HTTP stack.
+    """
+    raise NotImplementedError(
+        "_call_llm is intended to be patched in tests or wired to the "
+        "Ollama client by the Y4.2 follow-on that integrates with the "
+        "live review loop"
+    )
+
+
+def review_with_cache(
+    *,
+    candidate: "Mapping[str, Any]",
+    source_hash: str,
+    relationship_hash: str,
+    model_version: str,
+    db_path: "Path",
+) -> dict[str, Any]:
+    """Stream Y4.2 — registry-aware review wrapper.
+
+    Flag OFF (``features.y_stateful_registry=false``): inlined no-op
+    that just calls :func:`_call_llm`. No SQLite file is created.
+
+    Flag ON: consults :class:`StatefulReviewRegistry` keyed on
+    ``(source_hash, relationship_hash, model_version)``:
+      * cache hit → returns ``{"verdict", "self_confidence",
+        "cache_hit": True}`` without touching the LLM
+      * cache miss → calls ``_call_llm``, writes the verdict back
+        to the registry, returns ``{**result, "cache_hit": False}``
+
+    Closes the Phase 6A Resume gap: re-running the pipeline after a
+    crash only invokes the LLM for candidates whose
+    ``relationship_hash`` is not yet cached under the current
+    ``model_version``.
+    """
+    from datetime import datetime, timezone
+
+    from . import config as cfgmod
+
+    if not cfgmod._features_block().get("y_stateful_registry", False):
+        return _call_llm(candidate)
+
+    from .review.stateful_registry import StatefulReviewRegistry, VerdictRecord
+
+    reg = StatefulReviewRegistry(db_path=db_path)
+    try:
+        cached = reg.get(
+            source_hash=source_hash,
+            relationship_hash=relationship_hash,
+            model_version=model_version,
+        )
+        if cached is not None:
+            return {
+                "verdict": cached.verdict,
+                "self_confidence": cached.self_confidence,
+                "cache_hit": True,
+            }
+
+        result = _call_llm(candidate)
+        reg.put(VerdictRecord(
+            source_hash=source_hash,
+            relationship_hash=relationship_hash,
+            model_version=model_version,
+            verdict=str(result.get("verdict", "abstain")),
+            self_confidence=float(result.get("self_confidence", 0.0)),
+            created_utc=datetime.now(timezone.utc).isoformat(),
+        ))
+        return {**result, "cache_hit": False}
+    finally:
+        reg.close()
+
+
 def _legacy_adjudicate(
     *,
     candidate: "Mapping[str, Any]",

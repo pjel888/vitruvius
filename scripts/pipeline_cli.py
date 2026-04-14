@@ -189,6 +189,24 @@ def build_parser() -> argparse.ArgumentParser:
         help="Directory containing <utc-ts>_<hash>.json CoT trace files",
     )
 
+    # Stream Y4.3 — ple-registry-purge
+    ple_purge_parser = subparsers.add_parser(
+        "ple-registry-purge",
+        help="Delete rows older than --days from the stateful review registry",
+    )
+    ple_purge_parser.add_argument(
+        "--db",
+        dest="registry_db",
+        required=True,
+        help="Path to the SQLite registry file",
+    )
+    ple_purge_parser.add_argument(
+        "--days",
+        type=int,
+        default=30,
+        help="Retention window in days (default: 30)",
+    )
+
     query_parser = subparsers.add_parser("query")
     query_parser.add_argument("question", help="Natural-language question")
 
@@ -389,6 +407,14 @@ def main() -> int:
         from pathlib import Path
         from vitruvius.review.cot_audit import run_ple_cotrace_dump
         return run_ple_cotrace_dump(cot_dir=Path(args.cot_dir))
+
+    if args.command == "ple-registry-purge":
+        from pathlib import Path
+        from vitruvius.review.stateful_registry import run_ple_registry_purge
+        return run_ple_registry_purge(
+            db_path=Path(args.registry_db),
+            days=args.days,
+        )
 
     if args.command == "query":
         from vitruvius.query.cli import run_query
