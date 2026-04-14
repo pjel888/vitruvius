@@ -1,0 +1,11 @@
+# Stream Y2.3 — MoE routing policy.
+# Maps classified Domain (see scripts/vitruvius/review/domain_classifier.py)
+# to an Ollama model name. load_moe_policy() in slm_router.py refuses to
+# load this file if any of the 6 domains are missing, so the "other"
+# fallback is always present — no verdict can leak through routing.
+geometric: qwen2.5:3b-instruct-q4_K_M
+administrative: qwen2.5:7b-instruct-q4_K_M
+occupancy: qwen2.5:7b-instruct-q4_K_M
+safety: qwen2.5:7b-instruct-q4_K_M
+fees: qwen2.5:3b-instruct-q4_K_M
+other: qwen2.5:7b-instruct-q4_K_M

@@ -142,3 +142,30 @@ def route_with_moe(
     domain = classify_domain(subject=subject, predicate=predicate, object_=obj)
     model = moe_policy.get(domain) or moe_policy[Domain.OTHER]
     return MoEVerdict(model=model, domain=domain)
+
+
+def load_moe_policy(path: "Path") -> dict[Domain, str]:
+    """Stream Y2.3 — read a ``Domain → model`` mapping from a YAML file.
+
+    The file must contain every :class:`Domain` value (including
+    ``other``) exactly once; a missing domain raises ``ValueError``.
+    This refusal is deliberate — the MoE router must have a fallback
+    for every classified candidate, so a policy that would leak a
+    ``None`` model is rejected up front.
+    """
+    from pathlib import Path as _Path
+
+    import yaml as _yaml
+
+    raw = _yaml.safe_load(_Path(path).read_text(encoding="utf-8"))
+    if not isinstance(raw, dict):
+        raise ValueError(
+            f"MoE policy file {path!s} did not parse to a mapping"
+        )
+    required = {d.value for d in Domain}
+    missing = required - set(raw.keys())
+    if missing:
+        raise ValueError(
+            f"missing domain(s) in MoE policy file {path!s}: {sorted(missing)}"
+        )
+    return {Domain(k): str(v) for k, v in raw.items() if k in required}
