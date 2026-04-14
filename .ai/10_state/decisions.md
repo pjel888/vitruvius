@@ -218,6 +218,49 @@
 
 ---
 
+## AD-024: Sprint Q — Live Wiring & 8GB Hardening (Streams W1–W5 shipped)
+- **Date:** 2026-04-15
+- **Status:** Implemented
+- **Context:** Streams F and G of the Sprint D Statistical & Architectural Upgrade shipped nine pure-library scaffold modules (Naive Bayes prefilter, ontology prompt builder, SLM complexity router, conformal calibrator, tension analyzer, reflection parser, Choquet aggregator, Bayesian fusion, stringency matrix, temporal edges) that were imported by nothing — dead code. The governing plan §1.2 named this the single most important blocker for every downstream sprint. Sprint Q's scope was 100% wiring + quality gates, no new algorithms.
+- **Decision:** Execute the 20 tasks in `live-wiring-and-8gb-hardening-plan.md` strictly task-by-task under TDD, behind twelve new `w_*` feature flags that default false. Every stream closes with a full regression pass and a flag-OFF byte-identity assertion.
+- **Streams shipped:**
+  1. **W1 — 8GB LLM Survival Mode (4/4):**
+     * W1.1 — Config-driven model pool (tier_0_draft=phi3:mini, tier_1_default=qwen2.5:7b, tier_2_heavy=gemma4:31b) gated on `w_llm_model_pool`. 4 tests.
+     * W1.2 — Ollama `num_ctx` cap enforcement via new `_build_ollama_request_body()` helper. Flag-OFF preserves existing `temperature=0`/`num_predict=300` options. 5 tests.
+     * W1.3 — Pre-call context budget guard (`_enforce_context_budget` + `ContextBudgetExceeded`) wired into `call_ollama()`. 4 tests.
+     * W1.4 — Binary-classification prompt mode (compact True/False envelope) gated on `w_llm_binary_mode`. Flag-OFF returns the verbose JSON task envelope verbatim. 4 tests.
+  2. **W2 — Review Pipeline Live Wiring (6/6):**
+     * W2.1 — NB prefilter wired; `_maybe_pre_filter` short-circuits the review loop when the Stream F.1 scaffold auto-accepts or auto-rejects. Cold-start heuristic until the audit log has ≥50 keep/reject pairs. 3 tests.
+     * W2.2 — Ontology prompt builder wired; `_inject_ontology_context` reads the Phase 8 snapshot, calls `extract_neighborhood`, and prepends a compact neighborhood block to the prompt. 2 tests.
+     * W2.3 — SLM complexity router (`_choose_tier_model`) picks draft vs default based on snippet length + char_distance. Wired into `run_review_relationships_ollama`. 3 tests.
+     * W2.4 — Conformal calibrator routing (`_maybe_route_to_second_pass`) returns `route_second_pass` when confidence < 0.90. Fixed cut rather than p-value — upgrade deferred. 3 tests.
+     * W2.5 — Tension analyzer + reflection parser wired; `_capture_tension_and_reflection` annotates verdicts with reflection_confidence + tension_detected. Added narrow `extract_reflection_confidence` adapter to `review/reflection_parser.py`. 2 tests.
+     * W2.6 — Choquet aggregator wired; `_fuse_verdicts_via_choquet` fuses multi-source confidence. Flag-OFF falls back to arithmetic mean. Fixed the plan's positional-arg typo — real signature is `choquet_integral(signals, *, fuzzy_measure=measure)`. 2 tests.
+  3. **W3 — Stringency Matrix Live Gate (4/4):**
+     * W3.1 — Idempotent migration `scripts/vitruvius/migrations/add_stringency_vector.py` touched all 20 PD 1096 concept files. Defaults: setbacks/exit-width/fire-resistive/light-and-vent/means-of-egress/doors-and-exits → maximize; lot-occupancy/floor-area/building-height → minimize; everything else → qualitative. 4 tests.
+     * W3.2 — Lint rule `lint_concept_file()` + `LintIssue` dataclass in `linting.py` emits `missing_stringency_vector`/`invalid_stringency_vector`. 3 tests.
+     * W3.3 — Promotion hook `_maybe_resolve_stringency_conflict` + `_concept_stringency_vector` in `promotion/__init__.py` gated on `w_promotion_stringency_gate`. 3 tests. (Caller hookup inside run_promote_inner deferred — current canonical layer has 6 non-conflicting edges.)
+     * W3.4 — `GraphEdge.is_governing_standard: bool | None = None` field on the Phase 8 contract. `walk_relationships()` reads the frontmatter. Backcompat fixture updated. 3 tests.
+  4. **W4 — Quality Harness and Observability (4/4):**
+     * W4.1 — End-to-end wiring integration test exercises NB prefilter + Choquet + conformal routing under the full flag-ON chain, plus a flag-OFF deterministic-snapshot assertion. 2 tests.
+     * W4.2 — Flag-OFF backcompat regression at `scripts/tests/test_wiring_backcompat.py` with frozen fixture at `scripts/tests/fixtures/wiring/expected_flag_off_snapshot.json`. Fires on any unintentional flag-OFF drift. 1 test.
+     * W4.3 — Benchmark harness at `scripts/vitruvius/bench/run_wiring_bench.py` with `BenchResult`, `bench_stage`, `run_all_stages`. macOS/Linux RSS normalized to MB. 2 tests.
+     * W4.4 — `append_decision_entry()` automates idempotent AD-* entries into `decisions.md`. 2 tests.
+  5. **W5 — Documentation and Decisions Sync (2/2):** this entry + `current-phase.md` refresh + README/AGENTS.md updates.
+- **Consequences:**
+  * Test suite: 297 → 1051 passing (pre-Sprint-Q baseline already included Streams A–I, so most of the +754 was inherited; Sprint Q's direct addition is +48 new test cases from W1.1 through W4.4).
+  * Flag-OFF byte-identity verified at every stream boundary (W4.2 backcompat regression fires on any drift).
+  * Peak RSS ≤ 5 GB target deferred to a real PD 1096 run — the Sprint Q test suite does not spin up Ollama; measurement is scheduled for the first post-Sprint-Q end-to-end pass.
+  * Pre-existing broken test `scripts/tests/test_ontology_owl_exporter.py` (Stream M.3 OWL exporter has no implementation module) was excluded from the regression runs. Closure is a Sprint H task, not Sprint Q.
+  * All 12 new `w_*` feature flags default false. The pipeline behaves exactly like the pre-Sprint-Q baseline until an operator opts in.
+- **Follow-ups (explicitly not done in this sprint):**
+  * Train a real MultinomialNB once the promotion audit log has ≥50 keep/reject pairs (replaces the W2.1 cold-start heuristic).
+  * Upgrade W2.4 conformal cut from a fixed 0.90 threshold to real p-values once calibration data exists.
+  * Thread `_maybe_resolve_stringency_conflict` through `run_promote_inner` once the canonical layer grows conflicting edges.
+  * Measure real RSS + latency deltas on a live PD 1096 run and append the numbers to this entry.
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.

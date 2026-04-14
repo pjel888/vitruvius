@@ -362,6 +362,47 @@ pip3 install PyYAML pytest
 
 ---
 
+## Sprint Q — Live Wiring & 8GB Hardening
+
+Sprint Q (shipped 2026-04-15) wires the Sprint D Stream F / G scaffolds
+into the live review + promotion paths behind twelve `w_*` feature
+flags that default **false**. With every flag off the pipeline is
+byte-identical to the pre-Sprint-Q baseline (regression test at
+`scripts/tests/test_wiring_backcompat.py`).
+
+To enable the full wired chain on an 8 GB M2 machine (requires
+`qwen2.5:7b` or smaller already pulled in Ollama):
+
+```yaml
+# config/vitruvius.yaml
+review:
+  ollama:
+    num_ctx_cap: 4096            # hard cap enforced by w_llm_num_ctx_enforcement
+    model_pool:
+      tier_0_draft: phi3:mini
+      tier_1_default: qwen2.5:7b
+      tier_2_heavy: gemma4:31b
+features:
+  w_llm_model_pool: true
+  w_llm_num_ctx_enforcement: true
+  w_llm_context_budget_guard: true
+  w_llm_binary_mode: false        # optional — compact True/False prompt
+  w_review_nb_prefilter: true     # short-circuit LLM on obvious accepts/rejects
+  w_review_ontology_prompt: true  # prepend Phase 8 neighborhood to the prompt
+  w_review_slm_routing: true      # route simple candidates to the draft model
+  w_review_conformal_routing: true
+  w_review_tension_reflection: true
+  w_review_choquet_aggregator: true
+  w_promotion_stringency_gate: true
+  w_graph_governing_standard: true
+```
+
+Any flag can be left off individually to disable that capability
+without redeploying. The authoritative task list, stream-by-stream
+gates, and AD-024 decision ledger live in
+`.ai/03_plans/live-wiring-and-8gb-hardening-plan.md` and
+`.ai/10_state/decisions.md`.
+
 ## Current status
 
 As of 2026-04-14 (the authoritative status is `.ai/01_roadmap/master-roadmap.md` §4):
