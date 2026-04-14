@@ -1,14 +1,13 @@
 Section-Aware Relationship Extraction
 
-Sections: 63
-Unique relationships: 9
+Sections: 25
+Unique relationships: 8
 
-law-national-building-code-of-the-philippines -> governs -> concept-building-permit (x6) sections=['section-207', 'section-209', 'section-303', 'section-306', 'section-1101']
-concept-certificate-of-occupancy -> defines -> concept-occupancy-classification (x1) sections=['section-309']
-law-national-building-code-of-the-philippines -> governs -> concept-stairs (x2) sections=['section-401']
-concept-occupancy-separation -> requires -> concept-occupancy-classification (x1) sections=['section-703'] alt=['depends_on', 'affects']
-concept-floor-area -> requires -> concept-yards (x1) sections=['section-704'] alt=['depends_on', 'affects']
-concept-light-and-ventilation -> depends_on -> concept-stairs (x1) sections=['section-708']
-concept-floor-area -> depends_on -> concept-light-and-ventilation (x1) sections=['section-801']
-concept-occupancy-separation -> requires -> concept-floor-area (x2) sections=['section-1201'] alt=['depends_on', 'affects']
-law-national-building-code-of-the-philippines -> governs -> concept-floor-area (x3) sections=['section-1603']
+concept-yards -> requires -> concept-building-permit (x1) sections=['section-1501'] alt=['depends_on', 'affects']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-building-permit (x4) sections=['section-201', 'section-477']
+concept-certificate-of-occupancy -> requires -> concept-occupancy-classification (x1) sections=['section-103'] alt=['depends_on', 'affects']
+concept-stairs -> depends_on -> concept-floor-area (x1) sections=['section-401']
+concept-yards -> requires -> concept-occupancy-classification (x1) sections=['section-701'] alt=['depends_on', 'affects']
+concept-yards -> depends_on -> concept-light-and-ventilation (x1) sections=['section-801']
+concept-exit-width -> requires -> concept-fire-resistive-construction (x2) sections=['section-1001'] alt=['depends_on', 'affects']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-floor-area (x5) sections=['section-1501']

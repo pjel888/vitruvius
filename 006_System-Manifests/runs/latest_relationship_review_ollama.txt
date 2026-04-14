@@ -1,45 +1,187 @@
 Ollama Relationship Review Report
 
 Model: gemma4:e4b
-Source: 001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md
-Candidates reviewed: 9
-Keep: 2
-Review Further: 2
-Reject: 5
+Source: 001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md
+Candidates reviewed: 44
+Keep: 24
+Review Further: 1
+Reject: 19
 
-law-national-building-code-of-the-philippines -> governs -> concept-building-permit
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-building-permit
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-certificate-of-occupancy
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-stairs
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-floor-area
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-mixed-occupancy
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-occupancy-classification
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-occupancy-separation
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-light-and-ventilation
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-building-height
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-yards
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-lot-occupancy
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-exit-width
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+concept-stairs -> requires -> concept-fire-resistive-construction
   decision=keep confidence=0.90
-  reason=The examples show the 'Building Official' (whose duties are governed by the Code) is directly involved in the process of issuing and reviewing 'building permits', confirming a strong relationship.
+  reason=pre_review_filter: concept_requires_pattern: concept->concept, occ>=2, 'shall comply' language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-means-of-egress
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+concept-certificate-of-occupancy -> defines -> concept-building-permit
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-mixed-occupancy -> defines -> concept-occupancy-separation
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-setbacks -> defines -> concept-yards
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-building-height -> defines -> concept-light-and-ventilation
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-yards -> defines -> concept-light-and-ventilation
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-lot-occupancy -> defines -> concept-yards
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-floor-area -> defines -> concept-yards
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-floor-area -> defines -> concept-light-and-ventilation
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-setbacks -> defines -> concept-floor-area
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-floor-area -> defines -> concept-stairs
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-means-of-egress -> defines -> concept-stairs
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-stairs -> defines -> concept-fire-resistive-construction
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-floor-area -> defines -> concept-means-of-egress
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
+
+concept-floor-area -> defines -> concept-building-height
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
 
 concept-certificate-of-occupancy -> defines -> concept-occupancy-classification
-  decision=review_further confidence=0.70
-  reason=The example shows that the Certificate of Occupancy is related to the requirement of an occupancy classification, but the relationship 'defines' is too strong. The text suggests the classification must be made *until* the Certificate is issued, implying a temporal or prerequisite relationship, not a definition.
-  suggested_type=prerequisite_for
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
 
-law-national-building-code-of-the-philippines -> governs -> concept-stairs
-  decision=reject confidence=0.90
-  reason=The provided examples discuss general building types (Type I, Type II) and structural elements, but they do not contain the specific term 'concept-stairs' or establish a direct governing relationship between the 'law-national-building-code-of-the-philippines' and 'concept-stairs'.
+concept-stairs -> defines -> concept-exit-width
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'defines'
 
-concept-occupancy-separation -> requires -> concept-occupancy-classification
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-setbacks
   decision=keep confidence=0.90
-  reason=The example shows a requirement (building shall be subject to the most restrictive requirement) based on the types of occupancy found (occupancy classification), supporting the 'requires' relationship.
+  reason=The examples consistently show that the 'irr-implementing-rules-and-regulations-of-the-national-building-code' governs the establishment and compliance checks for 'concept-setbacks' (e.g., checking easements/setbacks and grades in relation to road lots, property lines, etc.).
 
-concept-floor-area -> requires -> concept-yards
-  decision=reject confidence=0.90
-  reason=The candidate relationship 'concept-floor-area requires concept-yards' is not supported by the provided example text. The example discusses property lines, eaves, and fire resistance, but does not establish a requirement between floor area and yards.
+concept-occupancy-classification -> affects -> concept-occupancy-separation
+  decision=keep confidence=0.90
+  reason=The examples show that the concept of 'minor accessory uses' (related to occupancy classification) is directly discussed in the context of determining the rules for 'Occupancy Separation', supporting the 'affects' relationship.
 
-concept-light-and-ventilation -> depends_on -> concept-stairs
+concept-floor-area -> depends_on -> concept-building-height
+  decision=keep confidence=0.90
+  reason=The examples show a calculation for 'Allowable Maximum Total Gross Floor Area (TGFA)' which explicitly uses 'Building Height Limit (BHL)' multiplied by 'Allowable Maximum Building Footprint (AMBF)'. Since 'concept-floor-area' relates to floor area and 'concept-building-height' relates to height, this calculation demonstrates a direct dependency relationship.
+  suggested_type=calculates_based_on
+
+concept-floor-area -> depends_on -> concept-yards
+  decision=keep confidence=0.90
+  reason=The examples explicitly link 'floor areas' (concept-floor-area) to the existence of 'yards' (concept-yards) as a condition for increasing floor area.
+
+concept-setbacks -> affects -> concept-yards
+  decision=keep confidence=0.90
+  reason=The examples explicitly mention that building bulk may be governed by 'other applicable provisions for light and ventilation (including incremental setbacks as a result of satisfying natural light and ventilation requirements for RROW and front yards...)' which directly supports the relationship 'concept-setbacks' affects 'concept-yards'.
+
+concept-yards -> affects -> concept-light-and-ventilation
+  decision=keep confidence=0.90
+  reason=The examples show 'concept-yards' (front yards) and 'concept-light-and-ventilation' are discussed together in the context of establishing building limits (OFB, OLBP) to satisfy natural light and ventilation requirements for RROW and front yards.
+
+concept-floor-area -> affects -> concept-yards
   decision=reject confidence=0.90
-  reason=The candidate relationship 'concept-light-and-ventilation' depends_on 'concept-stairs'. The provided example text discusses light and ventilation requirements for dwellings and does not mention or depend on stairs.
+  reason=The candidate relationship 'concept-floor-area affects concept-yards' is not supported by the provided examples. The examples discuss establishing building limits (OFB, OLBP) and calculating Gross Floor Area (GFA) and Allowable Maximum Volume of Building (AMVB), but they do not show 'floor area' directly affecting 'yards' in a clear, definable way.
 
 concept-floor-area -> depends_on -> concept-light-and-ventilation
-  decision=review_further confidence=0.70
-  reason=The candidate relationship suggests that 'concept-floor-area' depends on 'concept-light-and-ventilation'. The provided example text, however, discusses the general requirement for buildings to be designed for adequate light and ventilation (Section 801). While floor area is related to building design, the text does not explicitly establish a dependency of 'floor area' on 'light and ventilation' in a way that confirms the 'depends_on' relationship.
+  decision=keep confidence=0.90
+  reason=The examples show that the calculation of Site Occupancy (PSO) and the resulting building footprint/gross floor area must consider multiple provisions, including 'light and ventilation provisions' and 'local zoning requirements,' indicating a dependency relationship.
+  suggested_type=governed_by
 
-concept-occupancy-separation -> requires -> concept-floor-area
+concept-floor-area -> affects -> concept-stairs
+  decision=keep confidence=0.90
+  reason=The examples show that the floor area (determined by dividing the floor area assigned to that use by the unit area allowed per occupant) is directly used to determine the occupant load, which in turn governs the requirements for stairs and exits.
+
+concept-building-height -> affects -> concept-yards
   decision=reject confidence=0.90
-  reason=The provided examples show the phrase 'type of occupancy' being mentioned in the context of structural design and building codes, but they do not demonstrate a direct 'requires' relationship between 'concept-occupancy-separation' and 'concept-floor-area'.
+  reason=The provided examples discuss building codes, volume, and area limits (AMBF, AMVB) and airport/runway terminology (APPROACH/DEPARTURE SURFACE). There is no evidence linking 'concept-building-height' to 'concept-yards' using the specified relationship type 'affects'.
 
-law-national-building-code-of-the-philippines -> governs -> concept-floor-area
+concept-floor-area -> affects -> concept-building-height
+  decision=keep confidence=0.90
+  reason=The provided example explicitly discusses 'BUILDING BULK' which is characterized by the overall size, including dimensions related to 'gross floor area' (GFA) and 'height' (BHL). The relationship 'concept-floor-area' affects 'concept-building-height' is supported by the text linking GFA/floor area to the overall size calculation which includes height.
+
+concept-setbacks -> affects -> concept-building-height
+  decision=review_further confidence=0.70
+  reason=The examples show 'concept-setbacks' affecting 'concept-building-height' because the setback calculation (diagonal line/plane) is used to determine the limits of the roof height and configuration, which are components of the overall building height. However, the relationship is complex and involves multiple concepts (AMBF, BHL, OFB, setbacks) simultaneously, making a definitive 'keep' difficult without more context on the precise nature of the 'affects' relationship.
+
+concept-setbacks -> depends_on -> concept-yards
+  decision=keep confidence=0.90
+  reason=The provided examples explicitly mention that the review process determines compliance to 'setbacks, yards/easements', indicating a dependency or relationship between setbacks and yards.
+  suggested_type=dependency
+
+concept-stairs -> requires -> concept-exit-width
   decision=reject confidence=1.00
-  reason=The provided examples discuss glazing, walls, and fire protection requirements, but they do not mention or relate to 'concept-floor-area' or suggest that the 'law-national-building-code-of-the-philippines' governs it.
+  reason=The candidate relationship links 'concept-stairs' (source) to 'concept-exit-width' (target). The provided examples discuss floor levels, door identification, and additional doors, but they do not establish a direct relationship or constraint between the concept of stairs and the required exit width.

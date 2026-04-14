@@ -430,7 +430,13 @@ def run_promote(
     execute: bool = False,
     rollback_batch_id: str | None = None,
 ) -> int:
-    repo_root = Path(__file__).resolve().parent.parent.parent
+    # Resolve via the shared helper so the repo root stays correct after
+    # promotion became a subpackage — the previous hardcoded
+    # `parent.parent.parent` walk only worked when promotion was a flat
+    # module (one level shallower).
+    from ..paths import get_repo_root
+
+    repo_root = get_repo_root()
     result = run_promote_inner(
         repo_root=repo_root,
         execute=execute,
