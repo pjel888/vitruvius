@@ -81,3 +81,19 @@ class CotAuditSummary:
             confidences.append(float(data.get("self_confidence", 0.0)))
         mean = sum(confidences) / total if total else 0.0
         return cls(total=total, verdict_counts=counts, mean_self_confidence=mean)
+
+
+def run_ple_cotrace_dump(*, cot_dir: Path) -> int:
+    """Stream Y3.4 — CLI handler for the ``ple-cotrace-dump`` subcommand.
+
+    Reads every JSON trace under ``cot_dir`` via
+    :meth:`CotAuditSummary.from_directory`, prints a short summary
+    (total / per-verdict counts / mean self-confidence) to stdout
+    and returns ``0`` on success.
+    """
+    summary = CotAuditSummary.from_directory(cot_dir)
+    print(f"total: {summary.total}")
+    for v, n in sorted(summary.verdict_counts.items()):
+        print(f"{v}: {n}")
+    print(f"mean_self_confidence: {summary.mean_self_confidence:.3f}")
+    return 0

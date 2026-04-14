@@ -54,3 +54,29 @@ def test_audit_summary_counts_verdicts(tmp_path: Path) -> None:
     assert summary.total == 5
     assert summary.verdict_counts == {"keep": 3, "reject": 1, "abstain": 1}
     assert summary.mean_self_confidence == pytest.approx(0.8)
+
+
+# ---------------------------------------------------------------------------
+# Stream Y3.4 — ple-cotrace-dump CLI handler
+# ---------------------------------------------------------------------------
+def test_cli_ple_cotrace_dump_emits_summary(tmp_path: Path, capsys) -> None:
+    from vitruvius.review.cot_audit import run_ple_cotrace_dump
+
+    # Seed a synthetic trace
+    write_cot_trace(
+        out_dir=tmp_path,
+        relationship_hash="h1",
+        cot=CotResult(
+            verdict="keep",
+            self_confidence=0.9,
+            reasoning_steps=["s"],
+            evidence_citation="citation text here",
+        ),
+        model="m",
+        candidate_raw_response="",
+    )
+    rc = run_ple_cotrace_dump(cot_dir=tmp_path)
+    assert rc == 0
+    out = capsys.readouterr().out
+    assert "total: 1" in out
+    assert "keep: 1" in out

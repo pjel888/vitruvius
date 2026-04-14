@@ -177,6 +177,18 @@ def build_parser() -> argparse.ArgumentParser:
         help="Optional path to JSON rules file (concept_id -> rule)",
     )
 
+    # Stream Y3.4 — ple-cotrace-dump
+    ple_cotrace_parser = subparsers.add_parser(
+        "ple-cotrace-dump",
+        help="Summarise a Chain-of-Thought audit trace directory",
+    )
+    ple_cotrace_parser.add_argument(
+        "--cot-dir",
+        dest="cot_dir",
+        required=True,
+        help="Directory containing <utc-ts>_<hash>.json CoT trace files",
+    )
+
     query_parser = subparsers.add_parser("query")
     query_parser.add_argument("question", help="Natural-language question")
 
@@ -372,6 +384,11 @@ def main() -> int:
             observations_path=args.observations_path,
             rules_path=args.rules_path,
         )
+
+    if args.command == "ple-cotrace-dump":
+        from pathlib import Path
+        from vitruvius.review.cot_audit import run_ple_cotrace_dump
+        return run_ple_cotrace_dump(cot_dir=Path(args.cot_dir))
 
     if args.command == "query":
         from vitruvius.query.cli import run_query
