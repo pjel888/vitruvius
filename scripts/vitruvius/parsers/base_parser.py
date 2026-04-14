@@ -27,7 +27,7 @@ class ParserTelemetry:
     error: str | None = field(default=None)
 
 
-@dataclass
+@dataclass(kw_only=True)
 class ParseResult:
     markdown_text: str
     telemetry: ParserTelemetry
@@ -40,7 +40,25 @@ class BaseParser(abc.ABC):
 
     def __init_subclass__(cls, **kwargs: Any) -> None:
         super().__init_subclass__(**kwargs)
-        if abc.ABC in cls.__bases__:
+        # Skip the check for any class that is still abstract: either it
+        # declares new abstractmethods of its own, or it inherits unresolved
+        # ones from a parent (note: __abstractmethods__ is not yet set on cls
+        # at __init_subclass__ time, so we must compute this ourselves).
+        own_abstracts = {
+            name
+            for name, val in cls.__dict__.items()
+            if getattr(val, "__isabstractmethod__", False)
+        }
+        inherited_abstracts: frozenset[str] = frozenset().union(
+            *(getattr(base, "__abstractmethods__", frozenset()) for base in cls.__mro__[1:])
+        )
+        resolved = {
+            name
+            for name in inherited_abstracts
+            if name in cls.__dict__
+            and not getattr(cls.__dict__[name], "__isabstractmethod__", False)
+        }
+        if own_abstracts or (inherited_abstracts - resolved):
             return
         parser_id = getattr(cls, "parser_id", None)
         if not parser_id:

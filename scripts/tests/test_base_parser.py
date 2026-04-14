@@ -169,3 +169,54 @@ def test_parser_telemetry_field_order_matches_contract():
         "error",
     ]
     assert keys == expected, f"Field order mismatch — got: {keys}"
+
+
+def test_abstract_intermediate_subclass_allowed(tmp_path):
+    """Regression pin: intermediate abstract subclasses must not require parser_id/parser_version."""
+    import abc
+
+    class OCRCapableParser(BaseParser):
+        @abc.abstractmethod
+        def preprocess(self, source_path: Path) -> bytes: ...
+
+    class ConcreteOCRParser(OCRCapableParser):
+        parser_id = "ocr_stub"
+        parser_version = "1.0.0"
+
+        def preprocess(self, source_path: Path) -> bytes:
+            return b""
+
+        def parse(self, source_path: Path, work_dir: Path) -> ParseResult:
+            t = ParserTelemetry(
+                parser_id=self.parser_id,
+                attempt_index=0,
+                duration_ms=1,
+                pages_total=1,
+                pages_processed=1,
+                page_coverage_ratio=1.0,
+                text_length=5,
+                md_length=5,
+                headers=0,
+                tables=0,
+                images=0,
+                captions=0,
+                ocr_applied=True,
+                confidence=0.9,
+                valid=True,
+            )
+            return ParseResult(markdown_text="ocr", telemetry=t)
+
+    tmp_file = tmp_path / "input.pdf"
+    tmp_file.write_bytes(b"")
+    result = ConcreteOCRParser().parse(tmp_file, tmp_path)
+    assert isinstance(result, ParseResult)
+    assert result.markdown_text == "ocr"
+
+
+def test_parse_result_positional_rejected():
+    """Regression pin: ParseResult must reject positional construction (kw_only=True)."""
+    t = _minimal_telemetry()
+    with pytest.raises(TypeError):
+        ParseResult("md text", {}, t)  # type: ignore[call-arg]
+    result = ParseResult(markdown_text="md text", sidecar_metadata={}, telemetry=t)
+    assert result.markdown_text == "md text"
