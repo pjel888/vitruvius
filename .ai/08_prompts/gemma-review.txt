@@ -1,0 +1,110 @@
+Prompt Spec: Gemma4:31b Relationship Review (Tier 1)
+Last Updated: 2026-04-14
+Module: scripts/vitruvius/ollama_review.py
+CLI: python scripts/pipeline_cli.py review-relationships-ollama
+Temperature: 0 (deterministic)
+num_predict: 300
+Format: json (Ollama /api/generate with "format": "json")
+
+PURPOSE
+Given a single candidate relationship extracted from a canonical source document,
+return a strict JSON decision: keep / review_further / reject, with a bounded
+confidence score, a short reason, and an optional suggested replacement predicate.
+
+This is Tier 1 of the two-stage adjudication model defined in master-roadmap §1.2.
+Only high-confidence Tier 1 decisions (>= 0.90) are promoted directly by Phase 7.
+Lower-confidence or "review_further" cases escalate to Tier 2 (Qwen) — see
+qwen-second-pass.txt — and then to Tier 3 (human) as needed.
+
+EXACT PROMPT PAYLOAD (build_prompt() in ollama_review.py lines 33-62)
+```json
+{
+  "task": "Review candidate legal relationship",
+  "allowed_decisions": ["keep", "review_further", "reject"],
+  "candidate": {
+    "from": "<canonical subject ID, e.g. concept-occupancy-classification>",
+    "type": "<predicate, e.g. governs>",
+    "to": "<canonical object ID, e.g. concept-fire-resistive-construction>",
+    "occurrences": 0,
+    "sections": ["<source section identifiers>"],
+    "examples": ["<verbatim evidence snippets>"]
+  },
+  "instructions": [
+    "Judge only the candidate relationship provided.",
+    "Use only the supplied evidence examples.",
+    "Do not invent facts or new relationships.",
+    "If the evidence is clearly supportive, choose keep.",
+    "If the relationship may be plausible but the type is too strong or unclear, choose review_further.",
+    "If the evidence does not support the relationship, choose reject.",
+    "Return valid JSON only with no markdown fences."
+  ],
+  "output_schema": {
+    "decision": "keep|review_further|reject",
+    "confidence": "number from 0.0 to 1.0",
+    "reason": "short explanation",
+    "suggested_type": "string or null"
+  }
+}
+```
+
+OUTPUT CONTRACT
+The model MUST return a JSON object matching output_schema exactly. The parser
+(`parse_model_json` in ollama_review.py lines 101-137) strips markdown fences
+defensively but expects pure JSON.
+
+Validation applied after the response arrives:
+- decision in {keep, review_further, reject}
+- confidence is float-castable and clamped to [0, 1]
+- reason is a non-empty string
+- suggested_type is string or null
+
+If any check fails the review falls back to:
+  {"decision": "review_further", "confidence": 0.0,
+   "reason": "Ollama review failed: <exception>", "suggested_type": null}
+
+DECISION GUIDANCE (for the model)
+- "keep" requires the evidence to directly express the predicate, not merely be
+  consistent with it. Example: "Occupancy classification determines fire-resistive
+  requirements" directly supports a `governs` edge between occupancy-classification
+  and fire-resistive-construction.
+- "review_further" is correct when the evidence supports *some* relationship but
+  the predicate may be too strong (e.g., `governs` when `affects` is more apt),
+  or the endpoints may be wrong (wrong concept, wrong scope).
+- "reject" requires positive evidence that the relationship is false or that the
+  evidence does not mention either endpoint in a meaningful way.
+
+CONFIDENCE CALIBRATION (target)
+- 0.90-1.00: Evidence is explicit, unambiguous, and cites either side.
+- 0.70-0.89: Evidence supports the edge but leaves room for a different predicate.
+- 0.40-0.69: Evidence is indirect or the predicate is uncertain. Default to
+  review_further.
+- 0.00-0.39: Evidence is weak, irrelevant, or contradicts the claim. Default to
+  reject.
+
+CRITICAL CONSTRAINTS
+1. Do NOT invent source sections. If the candidate has no "examples", the answer
+   MUST be review_further with confidence 0.0, not a guess.
+2. Do NOT propose new subjects or objects. Only the given `candidate.from` and
+   `candidate.to` may be judged.
+3. Do NOT output anything outside the JSON object. No prose, no fences, no preamble.
+
+FAILURE MODES OBSERVED (2026-04-13 review-layer-audit.md)
+- Models occasionally wrap the JSON in ```json fences. The parser strips them.
+- Models occasionally emit a confidence score as a string ("0.92") or with
+  out-of-range values. The parser clamps and casts; invalid inputs become
+  review_further with confidence 0.0.
+- Long timeouts (> 600s) on the first call due to model loading. The CLI retries
+  on URLError; timeouts are global per run.
+
+PIPELINE CONTEXT
+- Input file: 006_System-Manifests/runs/latest_relationship_extraction_sections.json
+- Output files:
+    - 006_System-Manifests/runs/latest_relationship_review_ollama.json
+    - 006_System-Manifests/runs/latest_relationship_review_ollama.txt
+- Phase 7 (Sprint A) adds a filtered artifact
+  `latest_relationship_review_high_confidence.json` containing only
+  decision == "keep" AND confidence >= 0.90. That is the Promotion Layer input.
+
+CHANGELOG
+- 2026-04-14 — Prompt documented from ollama_review.py source. No wording changes
+  to the in-code prompt — this file is the reference copy.

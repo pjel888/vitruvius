@@ -1,4 +1,29 @@
-# Phase 1C: Centralized Normalization Implementation Plan (Combined) <!-- updated: 2026-04-13 -->
+---
+plan_id: phase-1c-centralized-normalization
+phase: 1C
+title: Centralized Normalization — Text Refinement Layer
+status: planned
+priority: high
+sprint: "Sprint B (weeks 3-6)"
+version: 2.0.0
+plan_type: design_spec
+created: 2026-04-13
+last_updated: 2026-04-14
+owner: Senior Systems Architect
+prerequisites:
+  - Phase 1B telemetry contract frozen (cross-validates via ingestion-refinement-contract)
+dependencies:
+  - .ai/03_plans/ingestion-refinement-contract.md
+  - .ai/02_audits/normalization-audit.md
+related_plans:
+  - phase-1b-multi-parser-integration-plan.md (upstream)
+  - ingestion-refinement-contract.md (handoff contract)
+unblocks:
+  - Lower 82% extraction rejection rate
+  - Phase 2 canonicalizer restoration (consumes refined Markdown)
+---
+
+# Phase 1C: Centralized Normalization Implementation Plan (Combined) <!-- updated: 2026-04-14 -->
 
 ## 1. Executive Summary
 The Vitruvius Knowledge Engine currently suffers from fragmentation in text and data normalization across multiple modules. Phase 1C centralizes all text refinement into a formal **Text Refinement Layer** (between Parser Output 1B and Canonicalization 1D) with strict governance over rule safety, execution order, and scope boundaries.

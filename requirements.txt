@@ -1,0 +1,8 @@
+# Vitruvius Python Dependencies
+# Install with: pip3 install -r requirements.txt
+
+pypdf>=4.0.0
+opendataloader-pdf>=0.1.0
+ocrmypdf>=16.0.0
+PyYAML>=6.0
+openpyxl>=3.1.0

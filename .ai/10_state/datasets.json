@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-04-14T02:49:00Z",
+  "description": "Registry of datasets active in the Vitruvius pipeline. Kept consistent with 003_Canonical-Knowledge-Layer/shared/sources/ and the raw files under 001_Raw-Source-Layer/.",
+  "active_datasets": [
+    {
+      "id": "law-national-building-code-of-the-philippines",
+      "title": "National Building Code of the Philippines",
+      "short_name": "PD 1096",
+      "trust_level": "primary",
+      "canonical_status": "draft",
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code of the Philippines.pdf"
+      ],
+      "canonical_source_file": "003_Canonical-Knowledge-Layer/shared/sources/national-building-code-of-the-philippines.md",
+      "category": "001-Laws",
+      "jurisdiction": "philippines",
+      "effective_date": "1977-02-19",
+      "notes": "Anchor corpus for all current phase work. Phase 7 promotion targets this document first."
+    },
+    {
+      "id": "irr-pd-1096",
+      "title": "PD 1096 Implementing Rules and Regulations",
+      "short_name": "PD 1096 IRR",
+      "trust_level": "secondary",
+      "canonical_status": "draft",
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.pdf"
+      ],
+      "canonical_source_file": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-national-building-code.md",
+      "category": "001-Laws",
+      "jurisdiction": "philippines",
+      "notes": "Formally promoted via Phase 11 expansion after Phase 7 stabilizes on PD 1096 proper."
+    }
+  ],
+  "seeded_concepts": {
+    "count": 20,
+    "directory": "003_Canonical-Knowledge-Layer/shared/concepts/",
+    "canonical_status_breakdown": {
+      "placeholder": 20,
+      "draft": 0,
+      "enriched": 0,
+      "verified": 0
+    },
+    "known_slugs": [
+      "building-height",
+      "building-permit",
+      "certificate-of-occupancy",
+      "doors-and-exits",
+      "exit-width",
+      "fire-resistive-construction",
+      "floor-area",
+      "light-and-ventilation",
+      "lot-occupancy",
+      "means-of-egress",
+      "mixed-occupancy",
+      "occupancy-classification",
+      "occupancy-load",
+      "occupancy-separation",
+      "open-courts",
+      "parking-and-loading-spaces",
+      "projections-over-public-ways",
+      "setbacks",
+      "stairs",
+      "yards"
+    ],
+    "enrichment_target": "Phase 3C moves all 20 concepts to enriched status with regulatory_basis pointers."
+  },
+  "seeded_relationships": {
+    "count": 1,
+    "directory": "003_Canonical-Knowledge-Layer/shared/relationships/",
+    "known_files": [
+      "occupancy-governs-fire-requirements.md"
+    ],
+    "status": "draft (hand-curated, predates Phase 7 Promotion Layer)",
+    "note": "This record is used as a golden-example for Sprint A but has not yet been processed by run_promote. Sprint A · A-5 will produce the first promoted records."
+  },
+  "gated_datasets": [
+    {
+      "id": "occupancy-tables",
+      "title": "PD 1096 Occupancy Tables",
+      "raw_format": "xlsx",
+      "gate": "Phase 11 — requires Phase 1B structured spreadsheet pathway and Phase 7 stability."
+    },
+    {
+      "id": "lighting-ventilation-sections",
+      "title": "PD 1096 Lighting & Ventilation Sections",
+      "gate": "Phase 11 — requires Phase 1B and Phase 7 stability."
+    }
+  ],
+  "out_of_scope_datasets": [
+    {
+      "rationale": "Principle P10: no new laws until Phase 7 validates existing PD 1096.",
+      "list_note": "Other Philippine building laws (fire code, electrical code, plumbing code) are deliberately excluded until after Sprint C."
+    }
+  ]
+}

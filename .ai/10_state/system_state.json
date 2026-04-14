@@ -1,35 +1,64 @@
 {
-  "project": "Vitruvius",
-  "version": "1.0.0",
-  "last_audit_utc": "2026-04-13T00:00:00Z",
-  "subsystems": {
-    "ingestion": {
-      "status": "implemented",
-      "components": ["scanner.py", "status.py"]
-    },
-    "conversion": {
-      "status": "implemented",
-      "components": ["conversion.py", "ocr.py", "office.py", "spreadsheets.py"]
-    },
-    "canonicalization": {
-      "status": "implemented",
-      "components": ["canonicalize.py", "concepts.py"]
-    },
-    "extraction": {
-      "status": "implemented",
-      "components": ["relationships.py", "relationships_sections.py"]
-    },
-    "review": {
-      "status": "implemented",
-      "components": ["ollama_review.py"]
-    }
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-04-14T02:49:00Z",
+  "project": "vitruvius",
+  "vision_completion_pct": 35,
+  "pipeline_completion_pct": 55,
+  "active_sprint": "Sprint A — Unblock Promotion (Phase 7)",
+  "sprint_window_utc": {
+    "start": "2026-04-14T00:00:00Z",
+    "end": "2026-04-28T00:00:00Z"
   },
-  "layers": [
-    "001_Raw-Source-Layer",
-    "002_Raw-Conversion-Layer",
-    "003_Canonical-Knowledge-Layer",
-    "004_Derived-Content-Layer",
-    "005_Operational-Intelligence-Layer",
-    "006_System-Manifests"
-  ]
+  "phase_status": {
+    "phase_0_foundation": "complete",
+    "phase_1a_baseline_ingestion": "complete_with_gaps",
+    "phase_1b_multi_parser": "planned",
+    "phase_1c_normalization": "planned",
+    "phase_2_canonicalization": "partial_skeleton",
+    "phase_3_concept_layer": "partial_placeholders",
+    "phase_4_identity_cleanup": "complete",
+    "phase_5_relationship_extraction": "partial_regex",
+    "phase_6a_llm_review": "complete_with_gaps",
+    "phase_6b_second_pass": "planned",
+    "phase_7_promotion": "in_progress_sprint_a",
+    "phase_8_graph": "not_started",
+    "phase_9_query": "not_started",
+    "phase_10_relationship_storage": "merged_into_phase_7",
+    "phase_11_dataset_expansion": "gated",
+    "phase_12_ai_reasoning": "gated"
+  },
+  "authoritative_docs": {
+    "master_roadmap": ".ai/01_roadmap/master-roadmap.md",
+    "current_phase": ".ai/01_roadmap/current-phase.md",
+    "milestone_tracker": ".ai/01_roadmap/milestone-tracker.md",
+    "active_context": ".ai/10_state/active_context.md",
+    "known_issues": ".ai/10_state/known_issues.md",
+    "decisions": ".ai/10_state/decisions.md"
+  },
+  "schemas": {
+    "source": ".ai/06_specs/source-schema.md",
+    "concept": ".ai/06_specs/concept-schema.md",
+    "relationship": ".ai/06_specs/relationship-schema.md"
+  },
+  "audits_2026_04_13": [
+    ".ai/02_audits/codebase-roadmap-audit.md",
+    ".ai/02_audits/ingestion-audit.md",
+    ".ai/02_audits/extraction-audit.md",
+    ".ai/02_audits/normalization-audit.md",
+    ".ai/02_audits/review-layer-audit.md"
+  ],
+  "plans": [
+    ".ai/03_plans/phase-1b-multi-parser-integration-plan.md",
+    ".ai/03_plans/phase-1c-centralized-normalization-plan.md",
+    ".ai/03_plans/ingestion-refinement-contract.md"
+  ],
+  "risk_counts": {
+    "high": 2,
+    "medium": 9,
+    "low": 1
+  },
+  "open_decisions": [
+    "AD-011: First promoted relationship record shape (fills in at Sprint A exit)"
+  ],
+  "next_review_due_utc": "2026-04-28T00:00:00Z"
 }

@@ -1,4 +1,25 @@
-# Ingestion-Refinement Contract (Combined) <!-- updated: 2026-04-13 -->
+---
+plan_id: contract-ingestion-refinement
+phase: "1B↔1C"
+title: Ingestion → Refinement Handoff Contract
+status: frozen
+priority: high
+sprint: "N/A — contract frozen for both sides"
+version: 2.0.0
+plan_type: contract
+created: 2026-04-13
+last_updated: 2026-04-14
+owner: Senior Systems Architect
+prerequisites: []
+dependencies:
+  - .ai/01_roadmap/master-roadmap.md §3.2
+related_plans:
+  - phase-1b-multi-parser-integration-plan.md (producer side)
+  - phase-1c-centralized-normalization-plan.md (consumer side)
+contract_version: 2.0.0
+---
+
+# Ingestion-Refinement Contract (Combined) <!-- updated: 2026-04-14 -->
 
 ## 1. Purpose
 This contract defines the strict, non-negotiable interface between Phase 1B (Ingestion/Parsing) and Phase 1C (Normalization/Refinement). It ensures structural fidelity and metadata consistency as documents move through the Vitruvius Knowledge Engine.

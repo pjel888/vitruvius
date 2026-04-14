@@ -1,46 +1,240 @@
 {
-  "pipeline_name": "Vitruvius Knowledge Extraction",
-  "stages": [
-    {
-      "name": "scan",
-      "description": "Index raw source layer",
-      "implemented": true
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-04-14T02:49:00Z",
+  "description": "Snapshot of the pipeline stages as implemented in scripts/vitruvius/ as of the 2026-04-13 audit pack. Stage names match the run_* functions in pipeline_cli.py.",
+  "stages": {
+    "scan": {
+      "module": "scripts/vitruvius/scanner.py",
+      "cli_command": "scan",
+      "handler": "run_scan",
+      "status": "implemented",
+      "input": "001_Raw-Source-Layer/",
+      "outputs": [
+        "006_System-Manifests/registries/latest_raw_file_registry.csv",
+        "006_System-Manifests/tree-snapshots/latest_raw_tree_snapshot.json",
+        "006_System-Manifests/tree-snapshots/latest_raw_tree_snapshot.txt"
+      ],
+      "metadata_fields": [
+        "relative_path",
+        "name",
+        "extension",
+        "size_bytes",
+        "modified_utc",
+        "parent_folder",
+        "top_category"
+      ],
+      "known_gaps": [
+        "No SHA-256 hashing (RI-009)",
+        "No registry rotation (RI-008)"
+      ]
     },
-    {
-      "name": "status",
-      "description": "Identify changes",
-      "implemented": true
+    "status": {
+      "module": "scripts/vitruvius/status.py",
+      "cli_command": "status",
+      "handler": "run_status",
+      "status": "implemented",
+      "input": "latest_raw_file_registry.csv + prior snapshot",
+      "outputs": [
+        "006_System-Manifests/runs/latest_status_report.json"
+      ],
+      "comparison_key": "(relative_path, size_bytes, modified_utc, extension)"
     },
-    {
-      "name": "lint",
-      "description": "Validate structure",
-      "implemented": true
+    "lint": {
+      "module": "scripts/vitruvius/linting.py",
+      "cli_command": "lint",
+      "handler": "run_lint",
+      "status": "implemented",
+      "checks": [
+        "Unsupported extensions",
+        "Duplicate-like normalized filenames"
+      ],
+      "outputs": [
+        "006_System-Manifests/runs/latest_lint_report.json"
+      ]
     },
-    {
-      "name": "convert",
-      "description": "Transform to Markdown/JSON",
-      "implemented": true
+    "detect_one": {
+      "module": "scripts/vitruvius/detection.py",
+      "cli_command": "detect-one",
+      "handler": "run_detect_one",
+      "status": "implemented",
+      "logic": "pypdf text extraction; usable_pages >= sample/2 AND total_chars >= 300 -> TEXT_PDF else LIKELY_SCANNED_PDF",
+      "outputs": [
+        "006_System-Manifests/runs/latest_detect_one_report.json"
+      ]
     },
-    {
-      "name": "normalization",
-      "description": "Text cleanup and structure repair",
-      "implemented": false,
-      "notes": "Fragmented and inline across multiple modules."
+    "convert": {
+      "module": "scripts/vitruvius/conversion.py",
+      "cli_commands": ["convert", "convert-one"],
+      "handlers": ["run_convert", "run_convert_one"],
+      "status": "implemented",
+      "parsers": {
+        "text_pdf": "opendataloader_pdf",
+        "office": "soffice (LibreOffice) -> PDF -> opendataloader_pdf",
+        "spreadsheet": "openpyxl",
+        "scanned_pdf": "routed to OCR queue"
+      },
+      "outputs": [
+        "002_Raw-Conversion-Layer/<category>/raw_markdown/**/*.md",
+        "002_Raw-Conversion-Layer/<category>/sidecar_json/**/*.json",
+        "006_System-Manifests/registries/latest_conversion_registry.csv"
+      ]
     },
-    {
-      "name": "canonicalize",
-      "description": "Map to knowledge layer",
-      "implemented": true
+    "ocr_queue": {
+      "module": "scripts/vitruvius/ocr.py",
+      "cli_command": "ocr-queue",
+      "handler": "run_ocr_queue",
+      "status": "implemented",
+      "outputs": [
+        "006_System-Manifests/runs/latest_ocr_needed_report.json"
+      ]
     },
-    {
-      "name": "relationships",
-      "description": "Extract links",
-      "implemented": true
+    "ocr_execute": {
+      "module": "scripts/vitruvius/ocr.py",
+      "cli_command": "ocr-execute",
+      "handler": "run_ocr_execute",
+      "status": "implemented",
+      "engine": "ocrmypdf",
+      "known_gaps": ["Sequential only, no parallelization (Phase 1B §11)"],
+      "outputs": [
+        "002_Raw-Conversion-Layer/<category>/ocr_pdf/**/*.pdf",
+        "then: raw_markdown + sidecar_json via OpenDataLoader"
+      ]
     },
-    {
-      "name": "review",
-      "description": "LLM verification",
-      "implemented": true
+    "reconcile": {
+      "module": "scripts/vitruvius/reconcile.py",
+      "cli_command": "reconcile",
+      "handler": "run_reconcile",
+      "status": "implemented",
+      "outputs": [
+        "006_System-Manifests/runs/latest_reconcile_report.json"
+      ]
+    },
+    "refine": {
+      "module": "NOT YET IMPLEMENTED (Phase 1C)",
+      "cli_command": "refine",
+      "status": "planned",
+      "plan_ref": ".ai/03_plans/phase-1c-centralized-normalization-plan.md",
+      "sprint": "Sprint B (weeks 3-6)"
+    },
+    "canonicalize_one": {
+      "module": "scripts/vitruvius/canonicalize.py",
+      "cli_command": "canonicalize-one",
+      "handler": "run_canonicalize_one",
+      "status": "partial_skeleton",
+      "rules_file": "scripts/vitruvius/rules/canonical_rules.yaml",
+      "outputs": [
+        "003_Canonical-Knowledge-Layer/shared/sources/<slug>.md"
+      ],
+      "known_gaps": [
+        "Only emits YAML frontmatter + header",
+        "No Overview / Coverage / Key Points / Referenced Concepts generation (RI-011)",
+        "No batch mode"
+      ]
+    },
+    "canonicalize_concept_one": {
+      "module": "scripts/vitruvius/concepts.py",
+      "cli_command": "canonicalize-concept-one",
+      "handler": "run_canonicalize_concept_one",
+      "status": "partial_placeholders",
+      "outputs": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/<slug>.md"
+      ],
+      "known_gaps": [
+        "Body is a single placeholder sentence (RI-010)",
+        "No definition extraction",
+        "No regulatory_basis field"
+      ]
+    },
+    "extract_relationships_one": {
+      "module": "scripts/vitruvius/relationships.py",
+      "cli_command": "extract-relationships-one",
+      "handler": "run_extract_relationships_one",
+      "status": "partial_regex",
+      "method": "regex patterns over windowed lines",
+      "outputs": [
+        "006_System-Manifests/runs/latest_relationship_extraction.json"
+      ],
+      "known_gaps": [
+        "82% rejection rate at review (RI-002)",
+        "Fragile across line breaks"
+      ]
+    },
+    "extract_relationships_sections_one": {
+      "module": "scripts/vitruvius/relationships_sections.py",
+      "cli_command": "extract-relationships-sections-one",
+      "handler": "run_extract_relationships_sections_one",
+      "status": "implemented",
+      "method": "section-anchored regex with source_section_id preserved",
+      "outputs": [
+        "006_System-Manifests/runs/latest_relationship_extraction_sections.json"
+      ]
+    },
+    "review_relationships_ollama": {
+      "module": "scripts/vitruvius/ollama_review.py",
+      "cli_command": "review-relationships-ollama",
+      "handler": "run_review_relationships_ollama",
+      "status": "complete_with_gaps",
+      "default_model": "gemma4:31b",
+      "default_timeout_seconds": 600,
+      "endpoint": "http://127.0.0.1:11434/api/generate (hardcoded — RI-003)",
+      "outputs": [
+        "006_System-Manifests/runs/latest_relationship_review_ollama.json",
+        "006_System-Manifests/runs/latest_relationship_review_ollama.txt"
+      ],
+      "known_gaps": [
+        "Manual trigger only — not in default pipeline (RI-012)",
+        "Ollama URL hardcoded (RI-003)",
+        "No auto-threshold filter",
+        "No retry, no resume, no parallelization"
+      ]
+    },
+    "review_relationships_ollama_second_pass": {
+      "module": "NOT YET IMPLEMENTED (Phase 6B)",
+      "cli_command": "review-relationships-ollama-second-pass",
+      "status": "planned",
+      "sprint": "Sprint C (weeks 7-12)"
+    },
+    "promote": {
+      "module": "NOT YET IMPLEMENTED (Phase 7)",
+      "cli_command": "promote",
+      "status": "in_progress_sprint_a",
+      "sprint": "Sprint A (weeks 1-2)",
+      "planned_inputs": [
+        "006_System-Manifests/runs/latest_relationship_review_high_confidence.json"
+      ],
+      "planned_outputs": [
+        "003_Canonical-Knowledge-Layer/shared/relationships/**/*.md",
+        "006_System-Manifests/runs/latest_promotion_audit.log"
+      ]
+    },
+    "build_graph": {
+      "module": "NOT YET IMPLEMENTED (Phase 8)",
+      "cli_command": "build-graph",
+      "status": "not_started",
+      "gate": "Phase 7 producing >= 50 verified relationships"
+    },
+    "query": {
+      "module": "NOT YET IMPLEMENTED (Phase 9)",
+      "cli_command": "query",
+      "status": "not_started",
+      "gate": "Phase 8 stable + >= 200 verified relationships"
     }
+  },
+  "pipeline_flow_order": [
+    "scan",
+    "status",
+    "lint",
+    "convert",
+    "ocr_queue",
+    "ocr_execute",
+    "reconcile",
+    "refine (Phase 1C — planned)",
+    "canonicalize_one",
+    "canonicalize_concept_one",
+    "extract_relationships_sections_one",
+    "review_relationships_ollama",
+    "promote (Phase 7 — Sprint A)",
+    "build_graph (Phase 8 — planned)",
+    "query (Phase 9 — planned)"
   ]
 }

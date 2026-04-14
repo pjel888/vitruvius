@@ -1,0 +1,123 @@
+Prompt Spec: Qwen3:30b Second-Pass Review (Tier 2 — Planned, Sprint C)
+Last Updated: 2026-04-14
+Module: scripts/vitruvius/ollama_review_second_pass.py (to be created in Phase 6B)
+CLI: python scripts/pipeline_cli.py review-relationships-ollama-second-pass
+Temperature: 0 (deterministic)
+num_predict: 400
+Format: json
+
+STATUS: PLANNED. This file is the design reference for Phase 6B (Sprint C, weeks 7-12).
+See master-roadmap §6 Phase 6B and the ralph of Sprint A unblocking Promotion first.
+
+PURPOSE
+Second-pass adjudication for candidate relationships that Tier 1 (Gemma) flagged
+as uncertain. Goals:
+1. Reduce false consensus — two different model architectures disagreeing is a
+   stronger signal than one model being confidently wrong.
+2. Shrink the "review_further" queue by 70% before it reaches human review.
+3. Provide a compute-cheaper backstop: Tier 2 only runs on the uncertain subset,
+   not the full candidate list.
+
+ENTRY CRITERIA (which candidates get routed to Tier 2)
+Filtering happens in code before the prompt is built. Route to Tier 2 when ANY
+of these is true of the Tier 1 decision:
+- decision == "review_further" (any confidence)
+- decision == "keep" AND confidence < 0.90
+- decision == "reject" AND confidence < 0.90
+- suggested_type is non-null and differs from candidate.type
+
+Skip Tier 2 when:
+- decision == "keep" AND confidence >= 0.90 → auto-promote
+- decision == "reject" AND confidence >= 0.90 → auto-suppress
+
+EXACT PROMPT PAYLOAD (to implement in second-pass module)
+```json
+{
+  "task": "Second-pass adjudication of a legal relationship candidate",
+  "allowed_decisions": ["keep", "review_further", "reject"],
+  "candidate": {
+    "from": "<subject ID>",
+    "type": "<predicate>",
+    "to": "<object ID>",
+    "occurrences": 0,
+    "sections": ["<section IDs>"],
+    "examples": ["<verbatim snippets>"]
+  },
+  "tier_one_decision": {
+    "model": "gemma4:31b",
+    "decision": "keep|review_further|reject",
+    "confidence": 0.0,
+    "reason": "<Tier 1's short explanation>",
+    "suggested_type": "string or null"
+  },
+  "instructions": [
+    "You are a second-pass adjudicator. A different model has already reviewed this candidate.",
+    "Independently assess the candidate using only the supplied evidence examples.",
+    "Consider but do not blindly defer to the Tier 1 decision.",
+    "If you disagree with Tier 1, say so explicitly in your reason.",
+    "If the evidence clearly supports the candidate and the predicate, choose keep with high confidence.",
+    "If the predicate is wrong but the endpoints are right, choose review_further and set suggested_type.",
+    "If the evidence is irrelevant, weak, or contradicts the claim, choose reject.",
+    "Do not invent facts. Do not propose new subjects or objects.",
+    "Return valid JSON only with no markdown fences."
+  ],
+  "output_schema": {
+    "decision": "keep|review_further|reject",
+    "confidence": "number from 0.0 to 1.0",
+    "reason": "short explanation",
+    "suggested_type": "string or null",
+    "agrees_with_tier_one": "boolean"
+  }
+}
+```
+
+OUTPUT CONTRACT
+Identical parsing rules to Tier 1 (see gemma-review.txt) plus:
+- `agrees_with_tier_one` is a boolean. True iff (decision, suggested_type) match
+  the Tier 1 output within the fuzzing tolerance (suggested_type is treated as
+  matching if both sides are null).
+- If parsing fails, fall back to {decision: "review_further", confidence: 0.0,
+  reason: "Qwen second pass failed: <exception>", suggested_type: null,
+  agrees_with_tier_one: false}.
+
+DECISION TABLE (post-Tier 2 routing)
+Tier 1             | Tier 2             | Action
+------------------|-------------------|----------------------------
+keep (conf >=.90) | — (skipped)        | auto-promote (Tier 1 sufficient)
+keep (conf <.90)  | keep (>=.90)       | promote
+keep (conf <.90)  | keep (<.90)        | human review (low confidence consensus)
+keep (conf <.90)  | reject             | human review (disagreement)
+keep (conf <.90)  | review_further     | human review
+reject (conf <.90)| reject (>=.90)     | suppress (do not promote; log)
+reject (conf <.90)| keep               | human review (disagreement)
+reject (conf <.90)| review_further     | human review
+review_further    | keep (>=.90)       | human review (borderline promotion)
+review_further    | reject (>=.90)     | suppress
+review_further    | review_further     | human review
+anything          | parse error        | human review
+
+Human review uses the Ranger Audit Payload shape (master-roadmap Phase 1B §12.1).
+
+GATING METRICS (Phase 6B §8)
+- Human-escalation rate: target < 5% of all candidates after Tier 2.
+- Model disagreement rate: expected 10-20% on the uncertain subset.
+- review_further reduction: target >= 70% vs pre-Tier-2 baseline.
+
+DELIBERATE DIFFERENCES FROM TIER 1
+- Tier 1 is single-model, single-pass. Tier 2 sees Tier 1's decision and must
+  render an independent judgement with explicit agreement tracking.
+- Tier 2 uses num_predict 400 (slightly higher) to accommodate the extra
+  `agrees_with_tier_one` field and longer reasoning.
+- Tier 2 runs on a smaller model (target: qwen3:30b, fallback to smaller) to
+  conserve compute — the expensive Tier 1 pass already happened.
+
+OPEN QUESTIONS
+- Whether Tier 2 should be shown Tier 1's reason text at all, or only its
+  decision + confidence. Showing the reason risks anchoring; hiding it loses
+  signal. Default design: show it, but the instructions explicitly tell Tier 2
+  not to blindly defer.
+- Whether to use a different model entirely (Llama 3.2, DeepSeek, etc.) for
+  maximum architectural diversity. Deferred to Sprint C benchmarking.
+
+CHANGELOG
+- 2026-04-14 — Initial design. Not yet in code. Target: Sprint C (Phase 6B).

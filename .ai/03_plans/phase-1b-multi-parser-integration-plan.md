@@ -1,4 +1,28 @@
-# Phase 1B: Multi-parser Integration Implementation Plan (Combined) <!-- updated: 2026-04-13 -->
+---
+plan_id: phase-1b-multi-parser-integration
+phase: 1B
+title: Multi-Parser Integration
+status: planned
+priority: medium
+sprint: "Sprint C (weeks 7-12)"
+version: 2.0.0
+plan_type: design_spec
+created: 2026-04-13
+last_updated: 2026-04-14
+owner: Senior Systems Architect
+prerequisites:
+  - Phase 1A baseline ingestion complete
+dependencies:
+  - .ai/03_plans/ingestion-refinement-contract.md
+  - .ai/02_audits/ingestion-audit.md
+related_plans:
+  - phase-1c-centralized-normalization-plan.md (downstream consumer)
+  - ingestion-refinement-contract.md (handoff contract)
+unblocks:
+  - Phase 11 dataset expansion (new documents must enter through hardened pipeline)
+---
+
+# Phase 1B: Multi-parser Integration Implementation Plan (Combined) <!-- updated: 2026-04-14 -->
 
 ## 1. Executive Summary
 The Vitruvius Knowledge Engine currently relies on siloed scripts with hardcoded selection logic, leading to "upstream noise" and lack of fallback. Phase 1B establishes a high-fidelity, deterministic, and self-correcting ingestion pipeline with explicit governance over failure modes and output quality.

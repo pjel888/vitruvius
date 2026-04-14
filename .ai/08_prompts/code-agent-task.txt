@@ -1,0 +1,234 @@
+Agent Briefing: Vitruvius Sprint A — Phase 7 Promotion Layer
+Last Updated: 2026-04-14
+Target Audience: Autonomous coding agent (Claude Code / similar) working inside
+                 the vitruvius repository on a dedicated worktree.
+
+================================================================================
+MISSION
+================================================================================
+Implement Phase 7 — Promotion Governance — on top of the existing Ollama review
+output. Your deliverable is a working `pipeline_cli.py promote` command that
+transforms high-confidence relationship review decisions into canonical
+relationship files under 003_Canonical-Knowledge-Layer/shared/relationships/,
+with a full audit log and dry-run default.
+
+Stop when the Sprint A exit criteria in .ai/01_roadmap/current-phase.md §
+"Sprint A Exit Criteria" are all satisfied.
+
+================================================================================
+AUTHORITATIVE CONTEXT (read these in order)
+================================================================================
+1. .ai/01_roadmap/master-roadmap.md                  — v2.0.0 full roadmap
+2. .ai/01_roadmap/current-phase.md                   — Sprint A task list (A-1…A-6)
+3. .ai/10_state/active_context.md                    — Where we are
+4. .ai/06_specs/relationship-schema.md               — The output shape you are producing
+5. .ai/06_specs/source-schema.md                     — Endpoint type for `from`/`to`
+6. .ai/06_specs/concept-schema.md                    — Endpoint type for `from`/`to`
+7. .ai/02_audits/review-layer-audit.md               — What Phase 6A already does
+8. .ai/00_system/principles.md                       — Enforcement rules (P1-P10)
+9. .ai/00_system/naming-conventions.md               — Required naming patterns
+10. .ai/00_system/architecture.md                    — Subsystem layout
+
+================================================================================
+STRICT RULES (violating any of these invalidates the work)
+================================================================================
+R1. NEVER modify files under 001_Raw-Source-Layer/. (Principle P2)
+R2. ALL new path logic lives in scripts/vitruvius/paths.py. No inline paths in
+    your new code. (RI-001)
+R3. NEVER hardcode the Ollama URL in new code. Read from config/vitruvius.yaml.
+    If the config key does not exist, you must add it as part of A-1. (RI-003)
+R4. Promotion Validator MUST implement all 17 rules in relationship-schema.md §10.
+    No shortcuts.
+R5. Closed predicate vocabulary is exactly seven: governs, defines, requires,
+    depends_on, limits, affects, supersedes. Any other predicate is a
+    validation failure, not a default. (master-roadmap §3.1)
+R6. Only records with `review_decision == "keep"` AND `reviewer_confidence >= 0.90`
+    may be auto-promoted. Everything else is filtered out at the input stage.
+R7. Dry-run is the default for `pipeline_cli.py promote`. `--execute` is required
+    to actually write files.
+R8. Duplicate triplets (subject, predicate, object) MUST merge their evidence
+    arrays. Never duplicate a relationship file. (relationship-schema.md §6)
+R9. Every promotion batch MUST emit a new entry in
+    006_System-Manifests/runs/latest_promotion_audit.log and a timestamped copy.
+R10. Idempotency: re-running `promote --execute` with no new high-confidence
+     candidates MUST write zero new content.
+R11. Your Python code follows the naming conventions in naming-conventions.md:
+     snake_case modules, `run_*` CLI entry points, `build_*` path builders,
+     `ensure_*` directory enforcers.
+R12. NO new external dependencies without justification in decisions.md.
+     Prefer standard library (json, pathlib, urllib, dataclasses, yaml is OK —
+     it is already in the project).
+
+================================================================================
+DELIVERABLES (in dependency order)
+================================================================================
+
+--- A-1. Config + Input Filter (start here) ---
+Files to create/modify:
+  - config/vitruvius.yaml: add `review.ollama.url: "http://127.0.0.1:11434"` and
+    `review.ollama.default_model: "gemma4:31b"`.
+  - scripts/vitruvius/ollama_review.py: replace hardcoded OLLAMA_URL with a
+    config loader. Preserve backwards compatibility — existing callers continue
+    to work.
+  - scripts/vitruvius/ollama_review.py: add `write_high_confidence_review()` that
+    filters the existing review output to `keep` with confidence >= 0.90 and
+    writes `006_System-Manifests/runs/latest_relationship_review_high_confidence.json`.
+    Trigger it automatically at the end of `run_review_relationships_ollama`.
+
+--- A-2. Relationship Type Registry ---
+File to create:
+  - scripts/vitruvius/rules/relationship_registry.yaml
+
+Shape (exactly this):
+```yaml
+schema_version: 1.0.0
+predicates:
+  governs:
+    allowed_pairs:
+      - {subject_type: source, object_type: concept}
+  defines:
+    allowed_pairs:
+      - {subject_type: source, object_type: concept}
+  requires:
+    allowed_pairs:
+      - {subject_type: concept, object_type: concept}
+      - {subject_type: concept, object_type: attribute}
+  depends_on:
+    allowed_pairs:
+      - {subject_type: concept, object_type: concept}
+  limits:
+    allowed_pairs:
+      - {subject_type: source, object_type: concept}
+      - {subject_type: source, object_type: attribute}
+      - {subject_type: section, object_type: concept}
+      - {subject_type: section, object_type: attribute}
+  affects:
+    allowed_pairs:
+      - {subject_type: concept, object_type: concept}
+      - {subject_type: source, object_type: concept}
+  supersedes:
+    allowed_pairs:
+      - {subject_type: source, object_type: source}
+      - {subject_type: concept, object_type: concept}
+```
+
+--- A-3. Promotion Validator ---
+File to create:
+  - scripts/vitruvius/promotion_validator.py
+
+Interface:
+```python
+from dataclasses import dataclass
+from typing import List
+
+@dataclass
+class ValidationResult:
+    passed: bool
+    errors: List[str]       # empty if passed
+    record_id: str          # relationship ID or candidate fingerprint
+
+def validate_promotion_record(record: dict, registry: dict, canonical_index: dict) -> ValidationResult:
+    """Apply all 17 rules from relationship-schema.md §10. Never raise on
+    validation failures — return them as errors. Raise only on unexpected
+    system errors (e.g., corrupt YAML)."""
+```
+
+Tests (pytest-style, in scripts/tests/test_promotion_validator.py):
+  - One valid record passes.
+  - Unknown predicate fails rule 4.
+  - Missing source_section_id on an evidence entry fails rule 8.
+  - Incompatible subject/object pair for the predicate fails rule 7.
+  - confidence_score below 0.90 (first-time promotion) fails rule 13.
+
+--- A-4. run_promote + promotion.py ---
+File to create:
+  - scripts/vitruvius/promotion.py
+
+Entry point: `run_promote(execute: bool, rollback_batch_id: str | None) -> int`
+
+Flow:
+1. Load `latest_relationship_review_high_confidence.json`. If missing, print a
+   helpful error and return 1.
+2. Load the registry, the source index (walk 003/shared/sources), and the
+   concept index (walk 003/shared/concepts).
+3. For each reviewed candidate:
+   a. Build a provisional relationship record per relationship-schema.md §4.
+   b. Compute the relationship ID: `rel-<slug>` where slug is
+      `slugify(f"{from_entity}-{predicate}-{to_entity}")`.
+   c. Check if the file already exists. If yes, load it, merge evidence per
+      §6, and recompute confidence_score as the minimum across all evidence.
+   d. Validate via promotion_validator.
+   e. If valid and --execute, write the file.
+   f. Record outcome in the audit log (per-record: accepted / merged /
+      rejected + reason).
+4. Generate promotion_batch_id = `{utc_stamp}_{short_hash}`.
+5. Write 006_System-Manifests/runs/latest_promotion_audit.log and a timestamped
+   copy.
+6. Print a summary to stdout.
+
+Register in pipeline_cli.py as:
+  `python scripts/pipeline_cli.py promote [--execute] [--rollback BATCH_ID]`
+
+Rollback mode (--rollback):
+- Load the audit log for the specified batch_id.
+- For each write recorded in that batch, either delete the file (if it was
+  created in that batch) or remove the merged evidence entries (if it was
+  updated). Leave the audit log in place, add a rollback entry.
+
+--- A-5. Golden Path Verification ---
+Run the full pipeline on PD 1096, then run `promote --execute`, then verify:
+- At least 3 relationship files exist in 003/shared/relationships/.
+- Each file passes promotion_validator when reloaded from disk.
+- The audit log records the batch.
+- Re-running `promote --execute` writes zero new content.
+- Rollback on the test batch correctly removes the created files.
+
+--- A-6. Decision Log ---
+Append to .ai/10_state/decisions.md an AD-011 entry recording:
+- The final shape of the first promoted record (paste the YAML frontmatter).
+- Any deviations from relationship-schema.md §4 and why.
+- Observed counts: total candidates reviewed, how many cleared the 0.90 gate,
+  how many files were created vs merged.
+
+Update .ai/10_state/active_context.md to reflect Sprint A closure.
+Update the §4 status table in .ai/01_roadmap/master-roadmap.md: Phase 7 from
+🟡 in-progress to ✅ complete.
+
+================================================================================
+NON-GOALS (do NOT do these, even if tempting)
+================================================================================
+- Do NOT start Phase 1C normalization. That is Sprint B.
+- Do NOT start Phase 1B multi-parser. That is Sprint C.
+- Do NOT add new concepts or relationships beyond what the existing review
+  output provides.
+- Do NOT modify canonical source files or concept files.
+- Do NOT introduce a graph database. Phase 8 is gated.
+- Do NOT add parallel processing to the promotion layer. Single-threaded is
+  fine for Sprint A volumes.
+- Do NOT attempt to "fix" the 82% rejection rate from upstream. That is Sprint B.
+
+================================================================================
+DEBUGGING & VERIFICATION
+================================================================================
+- Start with `pipeline_cli.py promote --dry-run` on existing review output.
+- If the input file is empty (no candidates cleared 0.90), that's fine — your
+  promote command should print a useful message and return 0.
+- Every error path must produce an audit log entry; silent failures are
+  forbidden by principle P9 and the master roadmap §12 warnings.
+- Verify idempotency by running `promote --execute` twice in a row and
+  diffing `003/shared/relationships/` — the diff must be empty.
+
+================================================================================
+HOW TO REPORT
+================================================================================
+When done, provide:
+1. List of files created/modified with one-line descriptions.
+2. Exit criteria checklist with each item checked off and evidence
+   (command run + output excerpt).
+3. Any deviations from this briefing with explicit justification.
+4. Updated decisions.md AD-011 entry.
+
+If you discover that a Sprint A assumption is wrong (e.g., no high-confidence
+candidates exist in the review output, or the review output file is malformed
+in an unexpected way), STOP and report back before proceeding. Do not improvise
+around a broken premise.
