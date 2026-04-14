@@ -35,6 +35,37 @@ def load_relationship_report() -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _choose_tier_model(candidate: dict[str, Any]) -> str:
+    """Stream W2.3 — pick a model tier based on candidate complexity.
+
+    Simple candidates (short evidence, short endpoint span) route to
+    the draft model so sub-4B models can burn through the easy
+    majority. Everything else routes to the default.
+
+    When ``features.w_review_slm_routing`` is false, returns
+    :func:`get_ollama_default_model` so flag-OFF byte-identity holds.
+    """
+    from . import config as cfgmod
+    features = cfgmod._features_block()
+    if not features.get("w_review_slm_routing", False):
+        return cfgmod.get_ollama_default_model()
+
+    pool = cfgmod.get_ollama_model_pool()
+    draft = pool.get("tier_0_draft")
+    default = pool.get("tier_1_default") or cfgmod.get_ollama_default_model()
+
+    examples = candidate.get("examples", [])
+    snippet_len = 0
+    if examples and isinstance(examples[0], dict):
+        snippet_len = len(str(examples[0].get("snippet", "")))
+    char_distance = int(candidate.get("char_distance", 0))
+
+    is_simple = snippet_len <= 200 and char_distance <= 120
+    if is_simple and draft:
+        return draft
+    return default
+
+
 def _load_graph_edge_summaries() -> list[Any]:
     """Stream W2.2 — project the Phase 8 snapshot into GraphEdgeSummary rows.
 
@@ -696,9 +727,13 @@ def run_review_relationships_ollama(
                 )
                 continue
 
+            from . import config as _cfgmod
+            per_candidate_model = model
+            if _cfgmod._features_block().get("w_review_slm_routing", False):
+                per_candidate_model = _choose_tier_model(candidate)
             review_item = review_relationship(
                 candidate,
-                model=model,
+                model=per_candidate_model,
                 timeout_seconds=timeout_seconds,
             )
             reviews.append(review_item)
