@@ -101,3 +101,44 @@ def route(
         model_name=model_map[level],
         reason=reason,
     )
+
+
+# ---------------------------------------------------------------------------
+# Stream Y2.2 — domain-aware MoE router (append-only extension; the original
+# complexity-only `route()` function above is unchanged).
+# ---------------------------------------------------------------------------
+from typing import Any, Mapping as _Mapping  # noqa: E402 — append-only
+
+from .domain_classifier import Domain, classify_domain  # noqa: E402
+
+
+@dataclass(frozen=True)
+class MoEVerdict:
+    """Result of :func:`route_with_moe` — which model to dispatch and why."""
+
+    model: str
+    domain: Domain
+
+
+def route_with_moe(
+    *,
+    candidate: _Mapping[str, Any],
+    moe_policy: _Mapping[Domain, str],
+) -> MoEVerdict:
+    """Pick a model by the classified domain of a relationship candidate.
+
+    Does NOT replace the legacy ``route`` function — composes with it.
+    Callers that still want complexity-only routing stay on ``route``;
+    new callers that want domain routing call ``route_with_moe``.
+
+    Falls back to ``moe_policy[Domain.OTHER]`` if the classified domain
+    is missing from the policy map, so partial policies still produce a
+    deterministic model pick.
+    """
+    subject = str(candidate.get("subject", ""))
+    predicate = str(candidate.get("predicate", ""))
+    obj = str(candidate.get("object", ""))
+
+    domain = classify_domain(subject=subject, predicate=predicate, object_=obj)
+    model = moe_policy.get(domain) or moe_policy[Domain.OTHER]
+    return MoEVerdict(model=model, domain=domain)
