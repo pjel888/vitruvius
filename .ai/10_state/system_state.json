@@ -1,27 +1,37 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-04-14T03:55:00Z",
+  "generated_at_utc": "2026-04-14T04:25:00Z",
   "project": "vitruvius",
-  "vision_completion_pct": 45,
-  "pipeline_completion_pct": 65,
-  "active_sprint": "Sprint A closed 2026-04-14 — awaiting user to start Sprint B",
-  "last_sprint_completed": {
-    "name": "Sprint A — Unblock Promotion (Phase 7)",
-    "closed_utc": "2026-04-14T03:55:00Z",
-    "outcome": "Phase 7 Promotion Governance shipped end-to-end. 43/43 tests pass. 3 PD 1096 relationships promoted. Idempotency and rollback verified.",
-    "tests_passing": "43/43",
-    "records_promoted": 3
-  },
+  "vision_completion_pct": 60,
+  "pipeline_completion_pct": 80,
+  "active_sprint": "Sprints A + B closed 2026-04-14 — awaiting user to choose next phase",
+  "sprints_completed": [
+    {
+      "name": "Sprint A — Unblock Promotion (Phase 7)",
+      "closed_utc": "2026-04-14T03:55:00Z",
+      "phases": ["phase_7_promotion"],
+      "outcome": "Phase 7 Promotion Governance shipped end-to-end. 3 PD 1096 relationships promoted.",
+      "tests_added": 43
+    },
+    {
+      "name": "Sprint B — Shrink noise, restore canonicalizer, harden review",
+      "closed_utc": "2026-04-14T04:25:00Z",
+      "phases": ["phase_1c_normalization_mvp", "phase_2_canonicalization", "phase_6a_full_gap_closure"],
+      "outcome": "NormalizationEngine with 8 rules + refine CLI. Canonicalizer restored with structured sections. Review layer retry/resume/parallel/run-with-review composite.",
+      "tests_added": 38,
+      "files_refined": 6
+    }
+  ],
   "phase_status": {
     "phase_0_foundation": "complete",
     "phase_1a_baseline_ingestion": "complete_with_gaps",
     "phase_1b_multi_parser": "planned",
-    "phase_1c_normalization": "planned",
-    "phase_2_canonicalization": "partial_skeleton",
+    "phase_1c_normalization": "mvp_complete",
+    "phase_2_canonicalization": "complete",
     "phase_3_concept_layer": "partial_placeholders",
     "phase_4_identity_cleanup": "complete",
     "phase_5_relationship_extraction": "partial_regex",
-    "phase_6a_llm_review": "complete_with_partial_gap_closure",
+    "phase_6a_llm_review": "complete",
     "phase_6b_second_pass": "planned",
     "phase_7_promotion": "complete",
     "phase_8_graph": "not_started",
@@ -57,17 +67,19 @@
   ],
   "risk_counts": {
     "high": 1,
-    "medium": 8,
+    "medium": 4,
     "low": 1,
-    "closed_this_sprint": 1
+    "closed_total": 6
   },
-  "decisions_logged_sprint_a": [
+  "decisions_logged": [
     "AD-009: Master roadmap v2.0.0 published",
     "AD-010: Three-sprint execution sequence",
-    "AD-011: First promoted relationship record shape (filled in)",
+    "AD-011: First promoted relationship record shape",
     "AD-012: Strict byte-identical idempotency",
     "AD-013: yaml.safe_dump for frontmatter emission"
   ],
+  "tests_passing": "81/81",
   "next_review_due_utc": "awaiting_user_signoff",
-  "feature_branch": "feat/phase-7-promotion-governance"
+  "feature_branch": "feat/phase-7-promotion-governance",
+  "branch_note": "Despite the name, this branch now contains Sprints A + B (Phases 7, 1C MVP, 2, 6A). User may choose to merge to main or rename the branch to feat/sprint-a-b-bundle before merging."
 }

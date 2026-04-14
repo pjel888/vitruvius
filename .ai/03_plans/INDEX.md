@@ -24,12 +24,12 @@ Each plan is a self-contained document keyed by a `plan_id` and a `phase` label 
 |---|---|---|---|---|---|---|
 | 1B | `phase-1b-multi-parser-integration` | Multi-Parser Integration | 📝 Planned | Sprint C | design_spec | [phase-1b-multi-parser-integration-plan.md](phase-1b-multi-parser-integration-plan.md) |
 | 1B↔1C | `contract-ingestion-refinement` | Ingestion → Refinement Handoff Contract | ❄️ Frozen | N/A | contract | [ingestion-refinement-contract.md](ingestion-refinement-contract.md) |
-| 1C | `phase-1c-centralized-normalization` | Centralized Normalization — Text Refinement Layer | 📝 Planned | Sprint B | design_spec | [phase-1c-centralized-normalization-plan.md](phase-1c-centralized-normalization-plan.md) |
-| 2 | `phase-2-canonicalizer-restoration` | Canonicalizer Restoration — Structured Section Generation | 📝 Planned | Sprint C | implementation_tdd | [phase-2-canonicalizer-restoration-plan.md](phase-2-canonicalizer-restoration-plan.md) |
+| 1C | `phase-1c-centralized-normalization` | Centralized Normalization — Text Refinement Layer | ✅ MVP Complete (archived 2026-04-14) | Sprint B — closed MVP scope | design_spec | [../09_archive/plans/phase-1c-centralized-normalization-plan.md](../09_archive/plans/phase-1c-centralized-normalization-plan.md) |
+| 2 | `phase-2-canonicalizer-restoration` | Canonicalizer Restoration — Structured Section Generation | ✅ Complete (archived 2026-04-14) | Sprint B — closed | implementation_tdd | [../09_archive/plans/phase-2-canonicalizer-restoration-plan.md](../09_archive/plans/phase-2-canonicalizer-restoration-plan.md) |
 | 3C | `phase-3-concept-enrichment` | Concept Enrichment — Placeholder to Knowledge Node | 📝 Planned | Post-Sprint-C | design_spec | [phase-3-concept-enrichment-plan.md](phase-3-concept-enrichment-plan.md) |
-| 6A | `phase-6a-review-gap-closure` | Review Layer Gap Closure | 🟡 Partial | Sprint A + B | implementation_tdd | [phase-6a-review-gap-closure-plan.md](phase-6a-review-gap-closure-plan.md) |
+| 6A | `phase-6a-review-gap-closure` | Review Layer Gap Closure | ✅ Complete (archived 2026-04-14) | Sprint A + B — closed | implementation_tdd | [../09_archive/plans/phase-6a-review-gap-closure-plan.md](../09_archive/plans/phase-6a-review-gap-closure-plan.md) |
 | 6B | `phase-6b-second-pass-review` | Second-Pass Review (Two-Stage Adjudication) | 📝 Planned | Sprint C | implementation_tdd | [phase-6b-second-pass-review-plan.md](phase-6b-second-pass-review-plan.md) |
-| 7 | `phase-7-promotion-governance` | Promotion Governance Layer | 🔥 In Progress | **Sprint A (active)** | implementation_tdd | [phase-7-promotion-governance-plan.md](phase-7-promotion-governance-plan.md) |
+| 7 | `phase-7-promotion-governance` | Promotion Governance Layer | ✅ Complete (archived 2026-04-14) | Sprint A — closed | implementation_tdd | [../09_archive/plans/phase-7-promotion-governance-plan.md](../09_archive/plans/phase-7-promotion-governance-plan.md) |
 | 8 | `phase-8-graph-contract-indexing` | Graph Contract & Filesystem-Backed Indexing | 🔒 Gated | Post-Sprint-C | design_spec | [phase-8-graph-contract-indexing-plan.md](phase-8-graph-contract-indexing-plan.md) |
 | 9 | `phase-9-query-ai-layer` | Query & AI Augmentation Layer | 🔒 Gated | Post-Phase-8 | design_spec | [phase-9-query-ai-layer-plan.md](phase-9-query-ai-layer-plan.md) |
 

@@ -193,12 +193,12 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 | 0. Foundation | Complete | Complete | ✅ **COMPLETE** | CLI, layer scaffolding, paths/constants verified |
 | 1A. Baseline Ingestion | Complete | Complete; no file hashes; sequential OCR | ✅ **COMPLETE (with known gaps)** | `ingestion-audit.md` |
 | 1B. Multi-Parser Integration | Planned | Not started; plan written | 📝 **PLANNED (detailed plan exists)** | `phase-1b-multi-parser-integration-plan.md` |
-| 1C. Centralized Normalization | Planned | Not started; normalization is fragmented across 3 modules | 📝 **PLANNED (detailed plan exists)** | `normalization-audit.md`, `phase-1c-centralized-normalization-plan.md` |
-| 2. Canonicalization | Complete | Skeleton — wrapper producing YAML frontmatter only; does not generate "Overview", "Coverage", or "Key Points" | 🟡 **PARTIAL (skeleton)** | `codebase-roadmap-audit.md` §3 |
+| 1C. Centralized Normalization | Planned | **MVP shipped 2026-04-14** — NormalizationEngine with 5 Tier A + 3 Tier B rules + `refine` CLI + `.refined.json` manifest. 6 PD 1096 files refined with real-data idempotency. Tier C, semantic chunking, destructive guard deferred. | ✅ **MVP COMPLETE** | `phase-1c-centralized-normalization-plan.md` (archived) |
+| 2. Canonicalization | Complete | **Restored 2026-04-14** — structured section generation (Overview/Coverage/Key Points/Referenced Concepts) + diff-before-write protection + batch CLI. | ✅ **COMPLETE** | `phase-2-canonicalizer-restoration-plan.md` (archived) |
 | 3. Concept Layer | Complete (20+ concepts seeded) | Placeholder generator — only writes "X is a defined concept"; no definitions, no regulatory basis | 🟡 **PARTIAL (placeholders)** | `extraction-audit.md` §9 |
 | 4. Identity Cleanup | Complete | Complete for text replacement; migration map maintained manually | ✅ **COMPLETE** | `codebase-roadmap-audit.md` |
 | 5. Relationship Extraction | Complete (Section-Aware) | Regex-based; section-aware variant exists; **82% rejection rate** at review; technically "primitive" | 🟡 **PARTIAL (regex-grade)** | `extraction-audit.md` §10 |
-| 6A. Local LLM Review | Complete ✅ | Implemented and functional; **manual trigger only**, not in `run`; no second pass; no confidence-threshold auto-filter; hardcoded Ollama URL | ✅ **COMPLETE (with known gaps)** | `review-layer-audit.md` |
+| 6A. Local LLM Review | Complete ✅ | **Gap-closed 2026-04-14** — config-driven URL, high-confidence writer, bounded retries with wall-clock cap, resume-from-in-progress, opt-in parallelization, `run-with-review` composite command. Second-pass (6B) remains separate. | ✅ **COMPLETE** | `phase-6a-review-gap-closure-plan.md` (archived) |
 | 6B. Second-Pass Review | Planned | Not started | 📝 **PLANNED** | — |
 | 7. Promotion Governance | Not implemented | Not started; no code in `scripts/vitruvius/` | ✅ **COMPLETE (2026-04-14)** | First batch promoted on PD 1096; 43/43 tests pass; idempotency + rollback verified |
 | 8. Graph Contract & Indexing | Not implemented | Not started | ❌ **NOT STARTED** | — |
@@ -207,7 +207,7 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 | 11. Dataset Expansion | Not implemented | Gated on Phase 7 | 🔒 **GATED (do not start)** | Principle P10 |
 | 12. AI-Augmented Reasoning | Not implemented | Long-term | 🔒 **GATED (do not start)** | — |
 
-**Honest overall completion (updated 2026-04-14 after Sprint A):** *ingestion ≈ 90%, refinement ≈ 0%, canonicalization ≈ 30%, concept layer ≈ 15%, extraction ≈ 40%, review ≈ 75% (config migration done), promotion ≈ 100%, downstream (8, 9, 11, 12) ≈ 0%*. The project now has a working end-to-end path from raw source to canonical relationship file via the Phase 7 Promotion Layer. Next sprint: Phase 1C normalization to shrink the 82% rejection rate.
+**Honest overall completion (updated 2026-04-14 after Sprints A + B):** *ingestion ≈ 90%, refinement ≈ 60% (Tier A/B rules shipping; Tier C + semantic chunking deferred), canonicalization ≈ 75% (restored with structured sections), concept layer ≈ 15%, extraction ≈ 40%, review ≈ 95% (retry, resume, parallelism, composite command; 6B separate), promotion ≈ 100%, downstream (8, 9, 11, 12) ≈ 0%*. The project now has a working end-to-end path: `run-with-review` → scan → status → lint → convert → refine → canonicalize → extract → review → promote. **Next candidates:** Phase 6B second-pass adjudication, Phase 3C concept enrichment, Phase 8 graph contract.
 
 ---
 

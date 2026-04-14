@@ -110,25 +110,38 @@
       ]
     },
     "refine": {
-      "module": "NOT YET IMPLEMENTED (Phase 1C)",
-      "cli_command": "refine",
-      "status": "planned",
-      "plan_ref": ".ai/03_plans/phase-1c-centralized-normalization-plan.md",
-      "sprint": "Sprint B (weeks 3-6)"
+      "module": "scripts/vitruvius/normalization/refine.py",
+      "cli_commands": ["refine", "refine-one"],
+      "handlers": ["run_refine", "run_refine_one"],
+      "status": "mvp_complete",
+      "sprint": "Sprint B (closed 2026-04-14)",
+      "engine": {
+        "module": "scripts/vitruvius/normalization/engine.py",
+        "tier_a_rules": 5,
+        "tier_b_rules": 3,
+        "tier_c_rules": 0,
+        "deferred": ["tier_c_semantic", "semantic_chunking_512_tokens", "destructive_guard_rollback", "table_isolation"]
+      },
+      "outputs": [
+        "002_Raw-Conversion-Layer/<category>/refined_markdown/<...>/*.md",
+        "002_Raw-Conversion-Layer/<category>/refined_markdown/<...>/*.refined.json"
+      ],
+      "real_data_verified": "6 PD 1096 files refined with byte-identical idempotency"
     },
     "canonicalize_one": {
       "module": "scripts/vitruvius/canonicalize.py",
-      "cli_command": "canonicalize-one",
-      "handler": "run_canonicalize_one",
-      "status": "partial_skeleton",
+      "cli_commands": ["canonicalize", "canonicalize-one"],
+      "handlers": ["run_canonicalize", "run_canonicalize_one"],
+      "status": "complete",
+      "sprint": "Sprint B (closed 2026-04-14)",
       "rules_file": "scripts/vitruvius/rules/canonical_rules.yaml",
       "outputs": [
         "003_Canonical-Knowledge-Layer/shared/sources/<slug>.md"
       ],
-      "known_gaps": [
-        "Only emits YAML frontmatter + header",
-        "No Overview / Coverage / Key Points / Referenced Concepts generation (RI-011)",
-        "No batch mode"
+      "features": [
+        "Overview / Coverage / Key Points / Referenced Concepts generation",
+        "Diff-before-write protection via canonical_diff.should_overwrite",
+        "Batch mode walks 002_Raw-Conversion-Layer/*/raw_markdown/**/*.md"
       ]
     },
     "canonicalize_concept_one": {
@@ -172,21 +185,34 @@
     "review_relationships_ollama": {
       "module": "scripts/vitruvius/ollama_review.py",
       "cli_command": "review-relationships-ollama",
+      "cli_flags": ["--model", "--timeout-seconds", "--parallel"],
       "handler": "run_review_relationships_ollama",
-      "status": "complete_with_gaps",
-      "default_model": "gemma4:31b",
-      "default_timeout_seconds": 600,
-      "endpoint": "http://127.0.0.1:11434/api/generate (hardcoded — RI-003)",
+      "status": "complete",
+      "sprint": "Phase 6A full gap closure — Sprint B (closed 2026-04-14)",
+      "default_model_config_key": "review.ollama.default_model",
+      "default_timeout_config_key": "review.ollama.default_timeout_seconds",
+      "endpoint_config_key": "review.ollama.url",
+      "features": [
+        "Config-driven URL (RI-003 closed)",
+        "Bounded retries with linear backoff and per-candidate wall-clock cap",
+        "Resume from in_progress snapshot on relaunch",
+        "Opt-in parallelization via ThreadPoolExecutor",
+        "High-confidence output writer feeds Phase 7"
+      ],
       "outputs": [
         "006_System-Manifests/runs/latest_relationship_review_ollama.json",
-        "006_System-Manifests/runs/latest_relationship_review_ollama.txt"
-      ],
-      "known_gaps": [
-        "Manual trigger only — not in default pipeline (RI-012)",
-        "Ollama URL hardcoded (RI-003)",
-        "No auto-threshold filter",
-        "No retry, no resume, no parallelization"
+        "006_System-Manifests/runs/latest_relationship_review_ollama.txt",
+        "006_System-Manifests/runs/latest_relationship_review_high_confidence.json"
       ]
+    },
+    "run_with_review": {
+      "module": "scripts/pipeline_cli.py",
+      "cli_command": "run-with-review",
+      "handler": "run_pipeline_with_review",
+      "status": "complete",
+      "sprint": "Phase 6A — Sprint B (closed 2026-04-14)",
+      "chain": ["scan", "status", "lint", "convert", "refine", "review-relationships-ollama"],
+      "note": "Opt-in composite command. Default `run` stays minimal to avoid CI invoking Ollama."
     },
     "review_relationships_ollama_second_pass": {
       "module": "NOT YET IMPLEMENTED (Phase 6B)",
@@ -241,12 +267,12 @@
     "ocr_queue",
     "ocr_execute",
     "reconcile",
-    "refine (Phase 1C — planned)",
-    "canonicalize_one",
+    "refine",
+    "canonicalize",
     "canonicalize_concept_one",
     "extract_relationships_sections_one",
     "review_relationships_ollama",
-    "promote (Phase 7 — Sprint A)",
+    "promote",
     "build_graph (Phase 8 — planned)",
     "query (Phase 9 — planned)"
   ]

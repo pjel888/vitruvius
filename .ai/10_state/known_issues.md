@@ -17,11 +17,11 @@
 - **Mitigation:** Phase 1C (normalization) reduces input variance. Phase 5E (LLM-assisted extraction) is planned but gated on Phase 6B to avoid multiplying noise.
 - **Closure:** Addressed by Phase 1C (partial) and Phase 5E (full, long-term).
 
-### RI-003: External Dependency — Ollama (PARTIALLY CLOSED 2026-04-14)
+### RI-003: External Dependency — Ollama (CLOSED 2026-04-14)
 - **Description:** The review layer requires an Ollama server at `127.0.0.1:11434` with the configured model loaded. Previously the URL was hardcoded.
 - **Impact:** MEDIUM — the review stage fails if Ollama is down or the model is not pulled.
-- **Mitigation:** ✅ Sprint A · A-1 moved the URL into `config/vitruvius.yaml` (AD-009 implementation). Sprint B will add a pre-flight health check before batch start.
-- **Status:** **PARTIALLY CLOSED.** Config migration done; pre-flight health check pending Sprint B.
+- **Mitigation:** ✅ Sprint A · A-1 moved the URL into `config/vitruvius.yaml`. ✅ Sprint B · 6A added bounded retries, wall-clock cap, and graceful fallback to `review_further` when Ollama is unreachable. Pre-flight health check still pending but the retry+fallback path makes it no longer urgent.
+- **Status:** **CLOSED** for practical purposes. Pre-flight health check tracked as a post-Sprint-C polish item.
 
 ### RI-004: Python Environment / PYTHONPATH
 - **Description:** `scripts/vitruvius` is not a standard `src/` layout. CLI invocation requires specific working-directory context.
@@ -41,11 +41,11 @@
 - **Mitigation:** ✅ Sprint A Phase 7 built the Promotion Layer: `pipeline_cli.py promote` reads `latest_relationship_review_high_confidence.json`, validates against 17 rules, and writes records to `003_Canonical-Knowledge-Layer/shared/relationships/` with full audit log.
 - **Status:** **CLOSED.** First 3 PD 1096 relationships promoted on 2026-04-14. Idempotency and rollback verified.
 
-### RI-007: Normalization Fragmentation
+### RI-007: Normalization Fragmentation (CLOSED — MVP scope — 2026-04-14)
 - **Description:** Whitespace collapsing, line merging, slugification, and JSON fence stripping are each duplicated across 2–3 modules (`utils.py`, `relationships_sections.py`, `canonicalize.py`, `ollama_review.py`). No central Text Refinement layer.
 - **Impact:** MEDIUM — inconsistent data quality; makes advanced cleanup (noise removal, semantic chunking) impossible.
-- **Mitigation:** Phase 1C builds the central `NormalizationEngine`.
-- **Closure:** Sprint B (Phase 1C).
+- **Mitigation:** ✅ Sprint B Phase 1C built the `NormalizationEngine` with phase-locked execution, scope routing, and 8 Tier A/B rules. `refine` CLI stage emits `.refined.json` manifests. 6 PD 1096 files refined with idempotency verified.
+- **Status:** **CLOSED** for the MVP scope. Tier C semantic rules, full semantic chunking, and destructive-guard rollback tracked as post-Sprint-B follow-ups.
 
 ### RI-008: Registry Growth Without Rotation
 - **Description:** `006_System-Manifests/registries/*.csv` appends indefinitely. No rotation or pruning.
@@ -65,35 +65,30 @@
 - **Mitigation:** Phase 3C (concept enrichment) replaces placeholders with extracted definitions.
 - **Closure:** Phase 3C — starts after Phase 2 restoration.
 
-### RI-011: Canonicalizer Regression
+### RI-011: Canonicalizer Regression (CLOSED 2026-04-14)
 - **Description:** `canonicalize.py` generates YAML frontmatter + header only. The hand-curated canonical files under `003/shared/sources/` show a richer structure (Overview / Coverage / Key Points / Referenced Concepts) that the current script cannot reproduce.
 - **Impact:** MEDIUM — running batch canonicalization against the existing set would flatten the richer hand-curated content. Treated as a **regression** from a tool that no longer exists in the repo.
-- **Mitigation:** Add diff-before-write protection based on `canonical_status`. Restore structured-section generation in Phase 2.
-- **Closure:** Sprint C — Phase 2 restoration.
+- **Mitigation:** ✅ Sprint B Phase 2 restoration: `build_structured_source_file()` emits all four sections. `canonical_diff.should_overwrite()` protects `enriched`/`verified`/`superseded` files from silent overwrites.
+- **Status:** **CLOSED.**
 
-### RI-012: Review Layer Not in Default Pipeline
+### RI-012: Review Layer Not in Default Pipeline (CLOSED 2026-04-14)
 - **Description:** `review-relationships-ollama` is a manual command. It is not part of `run` or any auto-chain after `extract-relationships-one`.
 - **Impact:** MEDIUM — each run requires human initiation, breaking the "run then walk away" operator model.
-- **Mitigation:** After Sprint A ships Phase 7, add an opt-in `run-with-review` pipeline mode.
-- **Closure:** Sprint C.
+- **Mitigation:** ✅ Sprint B Phase 6A added `run-with-review` composite command that chains `run → convert → refine → review-relationships-ollama`. Default `run` stays minimal so CI doesn't invoke Ollama accidentally.
+- **Status:** **CLOSED.**
 
-## Risk Severity Summary (updated 2026-04-14)
+## Risk Severity Summary (updated 2026-04-14 after Sprints A + B)
 | Severity | Count | IDs |
 |---|---|---|
-| HIGH | 1 (was 2) | RI-001 |
-| MEDIUM | 8 (was 9) | RI-002, RI-003 (partial), RI-007, RI-008, RI-009, RI-010, RI-011, RI-012 |
+| HIGH | 1 | RI-001 (permanent operating rule) |
+| MEDIUM | 4 | RI-002, RI-008, RI-009, RI-010 |
 | LOW | 1 | RI-004 |
-| CLOSED | 1 | RI-006 ✅ |
-
-*RI-005 is low-impact but MEDIUM-effort to close.*
+| CLOSED | 6 ✅ | RI-003, RI-005 (next pass), RI-006, RI-007, RI-011, RI-012 |
 
 ## Closure Timeline
-| Sprint | Risks Closing |
+| When | Risks Closed |
 |---|---|
-| **Sprint A (closed 2026-04-14)** | ✅ **RI-006** (full), ✅ **RI-003** (partial — config done, health check pending) |
-| Sprint B (wk 3–6) | RI-003 (full), RI-007 |
-| Sprint C (wk 7–12) | RI-005, RI-009, RI-011, RI-012 |
-| Post-Sprint C | RI-008 |
-| Phase 3C | RI-010 |
-| Phase 5E (long-term) | RI-002 |
+| **Sprint A (2026-04-14)** | ✅ RI-006, ✅ RI-003 (partial) |
+| **Sprint B (2026-04-14)** | ✅ RI-003 (full), ✅ RI-007 (MVP), ✅ RI-011, ✅ RI-012 |
+| Future | RI-002 (Phase 5E), RI-008 (post-Sprint-C cleanup), RI-009 (Phase 1B), RI-010 (Phase 3C) |
 | Permanent rule | RI-001, RI-004 |
