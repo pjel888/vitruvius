@@ -35,6 +35,27 @@ def load_relationship_report() -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _maybe_route_to_second_pass(verdict: dict[str, Any]) -> str:
+    """Stream W2.4 — decide whether a Tier-1 verdict should escalate to
+    the Tier-2 (second-pass) reviewer.
+
+    Returns ``"route_second_pass"`` if the scaffold-compatible
+    confidence cut flags the verdict as uncertain, else ``"finalize"``.
+
+    The full Stream F.4 conformal calibrator emits p-values; we use a
+    fixed 0.90 cut here so the wiring is trivially auditable. The
+    p-value upgrade is an isolated future task once verified
+    calibration data exists.
+    """
+    from . import config as cfgmod
+    if not cfgmod._features_block().get("w_review_conformal_routing", False):
+        return "finalize"
+    confidence = float(verdict.get("confidence", 0.0))
+    if confidence < 0.90:
+        return "route_second_pass"
+    return "finalize"
+
+
 def _choose_tier_model(candidate: dict[str, Any]) -> str:
     """Stream W2.3 — pick a model tier based on candidate complexity.
 

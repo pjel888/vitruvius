@@ -166,3 +166,41 @@ def test_slm_router_returns_default_when_flag_off(monkeypatch) -> None:
 
     simple = {"from": "law-pd-1096", "type": "governs", "to": "concept-x", "char_distance": 10, "examples": []}
     assert orv._choose_tier_model(simple) == "gemma4:31b"
+
+
+# ---------------------------------------------------------------------------
+# Stream W2.4 — conformal calibrator (second-pass routing)
+# ---------------------------------------------------------------------------
+def test_conformal_routes_low_confidence_to_second_pass(monkeypatch) -> None:
+    from vitruvius import config as cfgmod
+    from vitruvius import ollama_review as orv
+    monkeypatch.setattr(
+        cfgmod, "_features_block",
+        lambda: {"w_review_conformal_routing": True},
+    )
+    verdict = {"decision": "keep", "confidence": 0.55}
+    routed = orv._maybe_route_to_second_pass(verdict)
+    assert routed == "route_second_pass"
+
+
+def test_conformal_keeps_high_confidence(monkeypatch) -> None:
+    from vitruvius import config as cfgmod
+    from vitruvius import ollama_review as orv
+    monkeypatch.setattr(
+        cfgmod, "_features_block",
+        lambda: {"w_review_conformal_routing": True},
+    )
+    verdict = {"decision": "keep", "confidence": 0.97}
+    routed = orv._maybe_route_to_second_pass(verdict)
+    assert routed == "finalize"
+
+
+def test_conformal_is_noop_when_flag_off(monkeypatch) -> None:
+    from vitruvius import config as cfgmod
+    from vitruvius import ollama_review as orv
+    monkeypatch.setattr(
+        cfgmod, "_features_block",
+        lambda: {"w_review_conformal_routing": False},
+    )
+    verdict = {"decision": "keep", "confidence": 0.55}
+    assert orv._maybe_route_to_second_pass(verdict) == "finalize"
