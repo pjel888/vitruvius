@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import warnings
 from datetime import datetime, timezone
 
 
@@ -12,6 +13,18 @@ def iso_utc_from_timestamp(ts: float) -> str:
 
 
 def normalize_filename(name: str) -> str:
+    """DEPRECATED: use direct slugify logic or Path operations.
+
+    Preserved for backward compatibility with pre-Phase-1C callers.
+    Behavior unchanged: lowercase the stem, strip non-alphanumerics,
+    append the lowercased suffix.
+    """
+    warnings.warn(
+        "normalize_filename is deprecated; migrate callers to direct slugify "
+        "logic or to vitruvius.normalization when a general text pipeline is needed.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
     from pathlib import Path
 
     path = Path(name)
@@ -21,6 +34,17 @@ def normalize_filename(name: str) -> str:
 
 
 def normalize_text(text: str) -> str:
+    """DEPRECATED: use vitruvius.normalization.NormalizationEngine instead.
+
+    Preserved for backward compatibility with pre-Phase-1C callers. Behavior
+    matches the historical " ".join(text.split()) — whitespace-collapse only.
+    """
+    warnings.warn(
+        "utils.normalize_text is deprecated; use "
+        "vitruvius.normalization.NormalizationEngine for document text.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
     return " ".join(text.split())
 
 
