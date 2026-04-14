@@ -2,10 +2,10 @@
 plan_id: statistical-architectural-upgrade
 phase: "cross-phase (touches 1A → 12)"
 title: Statistical & Architectural Intelligence Upgrade
-status: in-progress — Streams A-I CLOSED (Phase 8 + Phase 9 base also shipped) 2026-04-14
+status: in-progress — Streams A-I CLOSED (Phase 8 + Phase 9 base also shipped) 2026-04-14. Stream L renamed to **Stream L_conf** (constraint-conflict engine) 2026-04-15 per governing plan §4.1. Stream O **moved_to: Sprint PHYS** (phase-16) per governing plan §4.4.
 priority: highest
-sprint: "Sprint D — Streams A-I + Phase 8 base + Phase 9 base CLOSED; Streams J, K pending"
-version: 1.0.7
+sprint: "Sprint D — Streams A-I CLOSED; L_conf / M / N pending; Stream O moved to Sprint PHYS; J / K gated (Ranger dashboard / 2nd jurisdiction)"
+version: 1.0.9
 stream_progress:
   A_bootstrap_merkle_features: closed (7 tasks — A1a, A1b, A2, A5, A6, A7 shipped; A3, A4 won't-fix rationale in A5 commit)
   B_ingestion_intelligence: closed (5 tasks — B.1 Shannon, B.2 Shannon integration, B.3 Table-to-Graph CSV, B.3.1 XLSX wrapper, B.4 Parametric NER shipped)
@@ -20,6 +20,10 @@ stream_progress:
   I_query_v2: closed (4 tasks — I.1 ontology-embedded prompt builder, I.2 GraphRAG community router, I.3 MCMC answer ranker, I.4 HMM pipeline observability. All stacked on Phase 9 base + Stream H overlays.)
   J_active_learning: pending (2 tasks — depends on Ranger dashboard that doesn't exist yet)
   K_clup_scaling: pending (3 tasks — gated on 2nd jurisdiction corpus)
+  L_constraint_conflict_engine: pending (2 tasks — CSP solver + Dempster-Shafer conflict analyzer; integrates research doc v3)
+  M_hyperbolic_retrieval: pending (2 tasks — Poincaré trainer + hyperbolic reranker; integrates research doc v3)
+  N_info_theoretic_dedup: pending (3 tasks — MinHash/Jaccard + Kolmogorov delta + Nyquist-Shannon adaptive chunking; integrates research doc v3)
+  O_topological_clash_and_energy: pending (2 tasks — VF2 subgraph motif matcher + Boltzmann graph-energy promotion gate; integrates research doc v3)
 plan_type: implementation_tdd
 created: 2026-04-14
 last_updated: 2026-04-14
@@ -36,7 +40,10 @@ prerequisites:
 dependencies:
   - .ai/13_research/statistical-improvements.md
   - .ai/13_research/advanced architectural and code-level optimizations.md
+  - .ai/13_research/mathematical and statistical relevance of architectural constraints,.md
   - .ai/03_plans/phase-1b-multi-parser-integration-plan.md
+  - .ai/03_plans/3d-spatial-intelligence-upgrade-plan.md          # delegated target for v3 geometry concepts
+  - .ai/03_plans/ultimate-architecture-upgrade-plan.md            # overlap on v3 §6 §16 §19 — this plan is the authoritative statistical substrate
   - .ai/03_plans/phase-8-graph-contract-indexing-plan.md
   - .ai/03_plans/phase-9-query-ai-layer-plan.md
   - .ai/03_plans/ingestion-refinement-contract.md (v2.0.0 frozen)
@@ -186,9 +193,28 @@ The machine target is an 8 GB M2 MacBook Pro. Every stream is sized such that:
 | Expected Model Change scoring for Ranger routing | Absent | J |
 | CLUP Rosetta Stone (alias ontology alignment) | Absent | K |
 | Jurisdictional precedence routing | Absent | K |
+| Parametric Constraint Satisfaction (CSP) Solver | Absent — Stream B extracts tuples but no solver runs over them | L |
+| Dempster-Shafer Legal Conflict Analyzer | Absent — Stream G fuses Bayesian only; no conflict-mass quantification | L |
+| Hyperbolic / Poincaré Embeddings for Legal Hierarchy | Absent — all retrieval is Euclidean cosine | M |
+| Hyperbolic Reranker at Query Layer | Absent | M |
+| MinHash + Jaccard Near-Duplicate Dedup | Absent — no ordinance/corpus dedup path exists | N |
+| Kolmogorov Complexity / Delta-Only Persistence | Absent — every clause stored as full text | N |
+| Nyquist-Shannon Adaptive Chunk Density | Absent — Stream C.3 uses a hand-tuned 20% constant | N |
+| Subgraph Isomorphism (VF2) Violation Motif Matcher | Absent — clash detection is single-edge only | O |
+| Boltzmann Graph-Energy Promotion Gate | Absent — Stream G validator is local; no global energy check | O |
 | Bayesian Knowledge Tracing (BKT) | **DEFERRED** — requires learner interactions | — |
 | LoRA fine-tuning | **DEFERRED** — requires GPU | — |
 | DPO pedagogical alignment | **DEFERRED** — requires GPU + preference dataset | — |
+| Monte Carlo Stochastic Site Feasibility (v3-§4) | **DEFERRED** — requires irregular-lot geometry data | — |
+| Multi-Objective Pareto Optimization (v3-§3) | **DEFERRED** — requires CAD geometry + ROI model | — |
+| Ant Colony Optimization (v3-§7) | **DEFERRED** — requires learner interaction traces (ILXP) | — |
+| Item Response Theory / 3PL (v3-§8) | **DEFERRED** — requires quiz-response telemetry (ILXP) | — |
+| Markov Decision Process teaching policy (v3-§10) | **DEFERRED** — requires ILXP state/action/reward traces | — |
+| Cellular Automata / Percolation Theory (v3-§11) | **DEFERRED** — belongs to B2G urban-scale phase | — |
+| Ebbinghaus Forgetting Curve (v3-§12) | **DEFERRED** — requires learner recall telemetry (ILXP) | — |
+| Elo Rating System (v3-§13) | **DEFERRED** — requires interactive cohort (ILXP) | — |
+| Graph Coloring / Chromatic Number (v3-§15) | **DEFERRED** — requires floor-plan/CAD adjacency ingest | — |
+| Computational Geometry / Buildable Envelope (v3-§2) | **DELEGATED** — covered by `3d-spatial-intelligence-upgrade-plan.md` Stream L | — |
 
 ### 2.3 Items Explicitly Deferred (with rationale)
 Three research items cannot ship on an 8 GB M2 without an offline GPU. They are recorded here so nothing is silently skipped — each will be picked up when its prerequisite hardware or data becomes available.
@@ -197,7 +223,106 @@ Three research items cannot ship on an 8 GB M2 without an offline GPU. They are 
 2. **DPO Pedagogical Alignment (adv-doc §4).** Requires (a) a GPU, (b) a preference-labelled corpus of 1000+ explanation pairs graded by Rangers. Prerequisite: Active Learning Stream J shipped + Ranger dashboard live + ≥1000 labelled pairs. Tracked as `FUTURE-ML-02`.
 3. **Bayesian Knowledge Tracing (stat-doc §3).** Requires learner interaction data from an ILXP frontend. Prerequisite: Phase 12 (AI-Augmented Reasoning + learning platform). Tracked as `FUTURE-LRN-01`.
 
-These three are **catalogued in the research-item coverage matrix in §11** with `deferred` status and the exact prerequisite gates. They are not implemented in this plan, but neither are they lost.
+**Additional deferrals introduced by research doc v3 (see §2.4 for the full audit):**
+
+4. **Computational Geometry / Buildable Envelope (v3-§2).** Delegated to `3d-spatial-intelligence-upgrade-plan.md` Stream L which owns the spatial substrate. Tracked as `FUTURE-SPAT-01`. Re-plan trigger: whenever 3D spatial plan ships its Buildable-Envelope module — a one-line cross-reference from this plan is enough.
+5. **Multi-Objective Pareto Optimization (v3-§3).** Requires CAD geometry + an ROI model. Prerequisite: spatial plan ships Buildable-Envelope + a cost model. Tracked as `FUTURE-LRN-02`.
+6. **Monte Carlo Stochastic Site Feasibility (v3-§4).** Requires irregular-lot geometry sampler. Prerequisite: spatial plan ships Buildable-Envelope. Tracked as `FUTURE-LRN-03`.
+7. **Ant Colony Optimization — learning-path routing (v3-§7).** Requires learner interaction traces. Prerequisite: ILXP frontend + Phase 12 cohort. Tracked as `FUTURE-LRN-04`.
+8. **Item Response Theory / 3PL (v3-§8).** Requires graded quiz-response telemetry. Prerequisite: ILXP + Phase 12 cohort. Tracked as `FUTURE-LRN-05`.
+9. **Markov Decision Process / Optimal Teaching Policy (v3-§10).** Requires state/action/reward traces. Prerequisite: ILXP + Phase 12 cohort. Tracked as `FUTURE-LRN-06`.
+10. **Cellular Automata / Percolation Theory (v3-§11).** City-scale simulation; belongs to the B2G urban-digital-twin phase. Prerequisite: multi-jurisdiction graph + parcel-level spatial data. Tracked as `FUTURE-URB-01`.
+11. **Ebbinghaus Forgetting Curve / Spaced Repetition (v3-§12).** Requires per-learner recall telemetry. Tracked as `FUTURE-LRN-07`.
+12. **Elo Rating System for Quiz Calibration (v3-§13).** Requires a cohort of interactive learners answering questions. Tracked as `FUTURE-LRN-08`.
+13. **Graph Coloring / Chromatic Number for Room Adjacency (v3-§15).** Requires floor-plan ingestion (room nodes + door edges). Prerequisite: 3D spatial plan ships floor-plan parser. Tracked as `FUTURE-SPAT-02`.
+
+All thirteen deferrals are **catalogued in the research-item coverage matrix in §20** with `deferred` status and the exact prerequisite gates. They are not implemented in this plan, but neither are they lost.
+
+### 2.4 Research Document v3 — Mathematical & Statistical Relevance of Architectural Constraints
+
+On 2026-04-14 a third research document landed at
+[`.ai/13_research/mathematical and statistical relevance of architectural constraints,.md`](../13_research/mathematical%20and%20statistical%20relevance%20of%20architectural%20constraints,.md).
+It introduces **19 additional mathematical frameworks** spanning legal
+computation, cognitive science, graph theory, information theory, and
+statistical mechanics. This audit classifies every framework against
+Vitruvius scope **before** adding a single line of task code — the
+principle is: every v3 concept that upgrades the *core knowledge
+engine* lands in a new stream here; every v3 concept that upgrades the
+*downstream learning or 3D experience* is catalogued with a prerequisite
+in §2.3 and cross-referenced in §20.4.
+
+#### 2.4.1 v3 Concepts That Belong In Vitruvius (Core Knowledge Engine)
+
+These eight concepts directly upgrade the deterministic knowledge-graph
+engine. They are added to this plan via four new streams (L, M, N, O).
+
+| # | v3 Research Item | Why It Fits Vitruvius Now | New Stream.Task |
+|---|---|---|---|
+| v3-§1 | Constraint Satisfaction Problems (CSP) | Converts Stream B.4 parametric tuples into a deterministic inequality solver; proves compliance without any LLM guesswork | L.1 |
+| v3-§5 | Dempster-Shafer Theory | Explicit ignorance/conflict modelling across PD 1096 vs local ordinances; exposes contradictions as a scalar conflict mass instead of hiding them behind Bayesian averaging (Stream G.1) | L.2 |
+| v3-§9 | Hyperbolic / Poincaré Embeddings | The legal hierarchy (Code→Chapter→Section→Clause) is strictly tree-structured; Euclidean cosine flattens it. Poincaré distance preserves ancestry natively | M.1 |
+| v3-§9 | Hyperbolic Reranker at Query Layer | Replaces Stream I.2's cosine reranker for macro-queries where ancestors matter | M.2 |
+| v3-§14 | Jaccard + MinHashing | O(1) near-duplicate detection over clause tokens; unblocks Phase 11 ordinance ingest without doubling graph size | N.1 |
+| v3-§17 | Kolmogorov Complexity / Delta Compression | Stores local ordinances as deltas of canonical PD 1096 clauses — the graph stays mathematically dense and every variant remains round-trippable | N.2 |
+| v3-§16 | Nyquist-Shannon Sampling Theorem | Replaces Stream C.3's hand-tuned 20% chunk-overlap constant with a density-adaptive formula that guarantees parametric clauses are never aliased across a boundary | N.3 |
+| v3-§6 | Subgraph Isomorphism (VF2) | Detects multi-variable code clashes (e.g., wood-frame→sprinkler→low-water-pressure) by running VF2 over the Phase 8 graph against a declarative motif library — no schema-coupled code | O.1 |
+| v3-§19 | Boltzmann Distribution / Graph Energy | A *global* consistency check on top of Stream G's *local* 17-rule validator; blocks promotion when system-wide energy (contradictions × unverified × orphans) exceeds the stringency-temperature threshold | O.2 |
+
+#### 2.4.2 v3 Concepts Already Covered By Earlier Streams
+| # | v3 Item | Already Covered By | Evidence |
+|---|---|---|---|
+| v3-§18 | PageRank (Centrality of Truth) | Stream H.1 `graph/centrality.py` (eigenvector + PageRank) | §12.3 H.1 |
+| v3-§20 | Eigenvector Centrality / Influence Mapping | Stream H.1 `graph/centrality.py` | §12.3 H.1 |
+
+For these two items **no new task is added** — the existing coverage in
+Stream H.1 already ships the algorithm. §20.4 records them with status
+`COVERED-EXISTING` so the coverage matrix does not create duplicate work.
+
+#### 2.4.3 v3 Concepts Explicitly Deferred (ILXP / 3D / B2G)
+These belong to downstream experiences (Interactive Learning Experience
+Platform, CAD/3D analysis, B2G urban scaling). Each is catalogued in
+§2.3 under a new `FUTURE-*` ID with an explicit prerequisite gate. They
+do **not** vanish — they become first-class re-plan triggers.
+
+| # | v3 Item | Why Deferred | Deferral ID |
+|---|---|---|---|
+| v3-§2 | Computational Geometry / Buildable Envelope | Delegated to `3d-spatial-intelligence-upgrade-plan.md` Stream L | FUTURE-SPAT-01 |
+| v3-§3 | Multi-Objective Pareto Optimization | Needs CAD geometry + ROI model (no data yet) | FUTURE-LRN-02 |
+| v3-§4 | Monte Carlo Site Feasibility | Needs irregular-lot geometry sampler | FUTURE-LRN-03 |
+| v3-§7 | Ant Colony Optimization (learning paths) | Needs learner interaction traces | FUTURE-LRN-04 |
+| v3-§8 | Item Response Theory (3PL) | Needs quiz-response telemetry | FUTURE-LRN-05 |
+| v3-§10 | Markov Decision Process teaching policy | Needs ILXP state/action/reward traces | FUTURE-LRN-06 |
+| v3-§11 | Cellular Automata / Percolation | City-scale urban twin | FUTURE-URB-01 |
+| v3-§12 | Ebbinghaus Forgetting Curve | Needs per-learner recall telemetry | FUTURE-LRN-07 |
+| v3-§13 | Elo Rating for Quiz Calibration | Needs interactive cohort | FUTURE-LRN-08 |
+| v3-§15 | Graph Coloring / Chromatic Number | Needs floor-plan adjacency ingest | FUTURE-SPAT-02 |
+
+#### 2.4.4 Would Integration Really Improve Vitruvius? (Honest Tests)
+
+The user's instruction was explicit: *"we also need to test if it would
+really improve and make our application better."* For every in-scope
+concept above, the test is recorded here so the plan is not a theory
+dump — it has a pass/fail bar per addition.
+
+| Addition | Improvement Test (A/B baseline vs new module) | Pass Bar |
+|---|---|---|
+| L.1 CSP Solver | Run the solver against 20 hand-labelled compliant/non-compliant design cases; compare to the regex-only pipeline's verdict | ≥95% correct vs 0% (regex cannot answer this question at all) |
+| L.2 Dempster-Shafer | Compute conflict mass on PD 1096 vs QC Fire Clearance pair; compare to Stream G.1's Bayesian fused confidence | K > 0.3 for known contradictions (Bayesian fusion collapses to a single average and loses signal) |
+| M.1–M.2 Hyperbolic Retrieval | NDCG@5 on a 30-question benchmark vs Stream I.2 cosine baseline | ≥15% lift, p<0.05 |
+| N.1 MinHash/Jaccard | Precision/recall on 100 hand-labelled PD 1096 / QC clause pairs | ≥95% precision at ≥90% recall |
+| N.2 Kolmogorov Delta | Compression ratio on the full QC ordinance corpus | ≥4× bytes saved, round-trip lossless 100% |
+| N.3 Nyquist-Shannon Chunking | Parametric-clause recall on the golden parametric-heavy benchmark | ≥10% lift vs 20% fixed overlap |
+| O.1 VF2 Motif Matcher | Known-clash detection on the seed graph | 100% recall on ≥5 planted motifs |
+| O.2 Boltzmann Gate | Correctly blocks promotion on a rigged 20-contradiction fixture AND correctly admits a 0-contradiction fixture | 100% on 10-case suite |
+
+Every addition below is justified only if its test above passes. Any
+module that fails its improvement test is reverted and the flag is held
+OFF — no measurable lift = no merge.
+
+**Principle.** Every v3 concept that upgrades the *core knowledge
+engine* is added. Every v3 concept that upgrades the *downstream
+learning or 3D experience* is catalogued with an explicit prerequisite
+gate. **Nothing is silently skipped.**
 
 ---
 
@@ -218,6 +343,12 @@ networkx>=3.2,<4.0
 python-louvain>=0.16,<1.0        # Leiden/Louvain community detection (adds to networkx)
 sentence-transformers>=2.7,<3.0  # all-MiniLM-L6-v2 CPU inference
 POT>=0.9.4,<1.0                  # Python Optimal Transport — Wasserstein merge
+datasketch>=1.6,<2.0             # Stream N.1 MinHash + Jaccard near-duplicate dedup (v3-§14)
+# NOTE: Stream L_conf (CSP + Dempster-Shafer), Stream M (Poincaré embeddings),
+# Stream N.2 (Kolmogorov delta via stdlib difflib), Stream N.3 (Nyquist-Shannon
+# overlap formula) and Stream O (VF2 via networkx, Boltzmann gate via numpy —
+# moved to Sprint PHYS per governing plan §4.4) introduce no new dependencies
+# — they land entirely on numpy/networkx/stdlib.
 ```
 
 ### 3.2 spaCy Model
@@ -293,6 +424,15 @@ features:
   j_expected_model_change: false # Stream J: EMC scoring for Ranger routing
   k_rosetta_stone: false        # Stream K: CLUP ontology alignment
   k_jurisdictional_overrides: false # Stream K: jurisdictional precedence at query
+  l_csp_solver: false           # Stream L_conf: parametric constraint satisfaction solver (v3-§1)
+  l_dempster_shafer: false      # Stream L_conf: Dempster-Shafer legal conflict analyzer (v3-§5)
+  m_poincare_trainer: false     # Stream M: Poincaré hyperbolic embedding trainer (v3-§9)
+  m_hyperbolic_retrieval: false # Stream M: hyperbolic reranker at query layer (v3-§9)
+  n_minhash_dedup: false        # Stream N: MinHash + Jaccard near-duplicate dedup (v3-§14)
+  n_delta_compression: false    # Stream N: Kolmogorov delta-only persistence (v3-§17)
+  n_adaptive_sampling: false    # Stream N: Nyquist-Shannon adaptive chunk overlap (v3-§16)
+  o_motif_matcher: false        # Stream O: VF2 subgraph isomorphism motif matcher (v3-§6)
+  o_boltzmann_gate: false       # Stream O: Boltzmann graph-energy promotion gate (v3-§19)
 ```
 
 ---
@@ -371,10 +511,28 @@ scripts/vitruvius/
 │   ├── __init__.py
 │   ├── active_learning.py          # Stream J
 │   └── expected_model_change.py    # Stream J
-└── jurisdictions/                  # Stream K
-    ├── __init__.py
-    ├── rosetta_stone.py
-    └── precedence_router.py
+├── jurisdictions/                  # Stream K
+│   ├── __init__.py
+│   ├── rosetta_stone.py
+│   └── precedence_router.py
+├── constraints/                    # Stream L_conf — new, for v3 research doc
+│   ├── __init__.py
+│   ├── csp_solver.py               # Stream L_conf.1 — parametric CSP (v3-§1)
+│   └── dempster_shafer.py          # Stream L_conf.2 — DST conflict analyzer (v3-§5)
+└── (additions to existing subpackages for Streams M, N, O)
+    # concepts/
+    #   hyperbolic_trainer.py       # Stream M.1 — Poincaré embedding trainer (v3-§9)
+    # query/
+    #   hyperbolic_retrieval.py     # Stream M.2 — hyperbolic reranker (v3-§9)
+    # normalization/
+    #   minhash_dedup.py            # Stream N.1 — MinHash + Jaccard (v3-§14)
+    #   delta_compression.py        # Stream N.2 — Kolmogorov delta (v3-§17)
+    #   adaptive_sampling.py        # Stream N.3 — Nyquist-Shannon chunk density (v3-§16)
+    # graph/
+    #   motif_matcher.py            # Stream O.1 — VF2 subgraph isomorphism (v3-§6)
+    #   motif_library.yaml          # Stream O.1 — declarative violation motif seed file
+    # promotion/
+    #   boltzmann_gate.py           # Stream O.2 — graph-energy promotion gate (v3-§19)
 ```
 
 ### 4.2 New test files
@@ -2478,6 +2636,828 @@ Triggers `graph/tensor_factorisation.py` (scaffolded in Stream H.8) once ≥2 ju
 
 ---
 
+## 15L. Stream L_conf — Constraint Satisfaction & Legal Conflict Engine
+
+> **Rename note (2026-04-15):** This stream was formerly labelled "Stream L".
+> Per `00-governing-implementation-plan.md` §4.1, the label `Stream L` is now
+> owned canonically by `3d-spatial-intelligence-upgrade-plan.md` (spatial
+> ingestion + Z3 solver). This stream is now **Stream L_conf** to disambiguate.
+> The `features.l_csp_solver` and `features.l_dempster_shafer` flag names
+> are unchanged (code-level identifiers are unaffected by the rename).
+
+**Priority:** P1 (unlocks deterministic compliance validation — the single
+largest v3 capability jump)
+**Sprint:** G, week 19
+**Research-Item Coverage:** CSP (v3-§1), Dempster-Shafer Theory (v3-§5)
+
+### 15L.1 Goal
+Transform Stream B.4's parametric constraint tuples
+(`entity, operator, value, unit, start, end, evidence`) into a
+**deterministic CSP solver** that mathematically proves whether a design
+candidate is `COMPLIANT`, `PARTIAL` (with numeric deficits per entity),
+or `IMPOSSIBLE` (empty feasible interval → legally unsatisfiable)
+against PD 1096. Then add a **Dempster-Shafer evidence analyzer** that
+computes the *conflict mass* K between contradicting rules (e.g., PD 1096
+Fire Clearance = 2.0 m vs QC Ordinance Fire Clearance = 2.5 m) —
+producing a numerical conflict score the graph can expose rather than
+averaging away under Bayesian fusion.
+
+### 15L.2 Files
+- **Create:** `scripts/vitruvius/constraints/__init__.py`
+- **Create:** `scripts/vitruvius/constraints/csp_solver.py`
+- **Create:** `scripts/vitruvius/constraints/dempster_shafer.py`
+- **Create:** `scripts/tests/test_csp_solver.py`
+- **Create:** `scripts/tests/test_dempster_shafer.py`
+- **Create:** `005_Operational-Intelligence-Layer/constraints/` output directory (runtime JSON artifacts)
+
+### 15L.3 Task Sequence
+
+#### Task L.1 — Parametric CSP Solver (`csp_solver.py`)
+**What it is.** Takes the list of `Parameter` tuples produced by Stream
+B.4's parametric NER, groups them by *entity* (e.g., `front_setback`,
+`stair_width`, `ceiling_height`), projects each tuple into a half-plane
+inequality, intersects all half-planes per entity, and returns the
+feasible interval $[L_e, U_e]$. If the intersection is empty, the
+solver flags the entity as `INFEASIBLE`. Given a candidate design
+`{entity: value}`, the solver returns:
+
+- `"COMPLIANT"`: every candidate value lies inside its feasible interval
+- `"PARTIAL"`: ≥1 violation; returns `{entity: numeric_deficit}`
+- `"IMPOSSIBLE"`: ≥1 entity has an empty feasible interval
+
+**Mapping from parameter tuples to half-planes:**
+```
+op == "≥"  →  value ≥ threshold
+op == "≤"  →  value ≤ threshold
+op == "=="  →  value ∈ [threshold, threshold]
+op == "<"   →  value < threshold  (tightened internally to ≤ threshold - ε)
+op == ">"   →  value > threshold  (tightened internally to ≥ threshold + ε)
+```
+
+with `ε = 1e-9` for numerical stability. Unit coercion uses a small
+`units.yaml` table (`mm ↔ m`, `cm ↔ m`, `in ↔ m`); any tuple with an
+unknown unit is **rejected at parse time**, never silently coerced.
+
+**Why closed form, not an optimiser.** Half-plane intersection on one
+variable is just `[max(lower_bounds), min(upper_bounds)]`. No LP solver
+needed; pure numpy. Runs in <100 ms on a 50-parameter graph subset.
+
+**Wiring point.** Does **not** modify Stream B.4. Runs as a post-hoc
+reader over the Phase 8 graph snapshot, loading parameter edges via
+`graph/traverse.py::collect_parameters_by_entity`.
+
+- [ ] **Step 1: Write the failing tests**
+
+```python
+# scripts/tests/test_csp_solver.py
+import json
+from pathlib import Path
+import pytest
+from scripts.vitruvius.constraints.csp_solver import (
+    CSPSolver,
+    Parameter,
+    Verdict,
+)
+
+
+def _p(entity: str, op: str, value: float, unit: str = "m") -> Parameter:
+    return Parameter(
+        entity=entity, operator=op, value=value, unit=unit,
+        start=0, end=1, evidence="fixture",
+    )
+
+
+def test_csp_parses_parameter_list_to_intervals():
+    solver = CSPSolver()
+    solver.load_parameters([
+        _p("front_setback", "≥", 4.5),
+        _p("front_setback", "≤", 10.0),
+    ])
+    assert solver.feasible_interval("front_setback") == (4.5, 10.0)
+
+
+def test_csp_flags_compliant_design():
+    solver = CSPSolver()
+    solver.load_parameters([_p("stair_width", "≥", 1.2)])
+    verdict = solver.evaluate({"stair_width": 1.5})
+    assert verdict.status == "COMPLIANT"
+    assert verdict.deficits == {}
+
+
+def test_csp_flags_partial_violation_with_deficit():
+    solver = CSPSolver()
+    solver.load_parameters([_p("stair_width", "≥", 1.2)])
+    verdict = solver.evaluate({"stair_width": 1.0})
+    assert verdict.status == "PARTIAL"
+    assert verdict.deficits == {"stair_width": pytest.approx(0.2)}
+
+
+def test_csp_flags_infeasible_intersection():
+    solver = CSPSolver()
+    solver.load_parameters([
+        _p("ceiling_height", "≥", 3.0),
+        _p("ceiling_height", "≤", 2.4),
+    ])
+    assert solver.feasible_interval("ceiling_height") is None
+    verdict = solver.evaluate({"ceiling_height": 2.7})
+    assert verdict.status == "IMPOSSIBLE"
+
+
+def test_csp_handles_unit_coercion():
+    solver = CSPSolver()
+    solver.load_parameters([
+        _p("front_setback", "≥", 4500, unit="mm"),
+    ])
+    # Internally normalised to metres — 4.5 m passes, 4.0 m fails.
+    assert solver.evaluate({"front_setback": 4.5}).status == "COMPLIANT"
+    assert solver.evaluate({"front_setback": 4.0}).status == "PARTIAL"
+
+
+def test_flag_off_is_noop(tmp_path, monkeypatch):
+    from scripts.vitruvius.features import Features
+    monkeypatch.setattr(Features, "l_csp_solver", False)
+    solver = CSPSolver()
+    solver.load_parameters([_p("front_setback", "≥", 4.5)])
+    # When flag is OFF, evaluate() returns Verdict(status="DISABLED")
+    verdict = solver.evaluate({"front_setback": 0.1})
+    assert verdict.status == "DISABLED"
+```
+
+- [ ] **Step 2: Run tests to verify they fail**
+
+Run: `pytest scripts/tests/test_csp_solver.py -v`
+Expected: FAIL with `ImportError: cannot import name 'CSPSolver'`
+
+- [ ] **Step 3: Write minimal implementation**
+
+```python
+# scripts/vitruvius/constraints/csp_solver.py
+from dataclasses import dataclass, field
+from typing import Optional
+
+from scripts.vitruvius.features import Features
+
+
+_UNIT_TO_METRES = {
+    "m": 1.0, "cm": 0.01, "mm": 0.001, "in": 0.0254, "ft": 0.3048,
+}
+
+
+@dataclass(frozen=True)
+class Parameter:
+    entity: str
+    operator: str
+    value: float
+    unit: str
+    start: int
+    end: int
+    evidence: str
+
+
+@dataclass(frozen=True)
+class Verdict:
+    status: str  # COMPLIANT | PARTIAL | IMPOSSIBLE | DISABLED
+    deficits: dict = field(default_factory=dict)
+
+
+class CSPSolver:
+    def __init__(self) -> None:
+        self._intervals: dict[str, tuple[float, float] | None] = {}
+
+    def load_parameters(self, params: list[Parameter]) -> None:
+        by_entity: dict[str, list[Parameter]] = {}
+        for p in params:
+            by_entity.setdefault(p.entity, []).append(p)
+        for entity, plist in by_entity.items():
+            self._intervals[entity] = self._intersect(plist)
+
+    def feasible_interval(self, entity: str) -> Optional[tuple[float, float]]:
+        return self._intervals.get(entity)
+
+    def evaluate(self, candidate: dict[str, float]) -> Verdict:
+        if not Features.l_csp_solver:
+            return Verdict(status="DISABLED")
+        deficits: dict[str, float] = {}
+        impossible = False
+        for entity, value in candidate.items():
+            interval = self._intervals.get(entity)
+            if interval is None:
+                impossible = True
+                continue
+            lo, hi = interval
+            if value < lo:
+                deficits[entity] = lo - value
+            elif value > hi:
+                deficits[entity] = value - hi
+        if impossible:
+            return Verdict(status="IMPOSSIBLE", deficits=deficits)
+        if deficits:
+            return Verdict(status="PARTIAL", deficits=deficits)
+        return Verdict(status="COMPLIANT")
+
+    @staticmethod
+    def _normalise(p: Parameter) -> float:
+        if p.unit not in _UNIT_TO_METRES:
+            raise ValueError(f"unknown unit: {p.unit!r}")
+        return p.value * _UNIT_TO_METRES[p.unit]
+
+    @classmethod
+    def _intersect(cls, plist: list[Parameter]) -> Optional[tuple[float, float]]:
+        lowers: list[float] = [float("-inf")]
+        uppers: list[float] = [float("+inf")]
+        eps = 1e-9
+        for p in plist:
+            v = cls._normalise(p)
+            op = p.operator
+            if op == "≥" or op == ">=":
+                lowers.append(v)
+            elif op == "≤" or op == "<=":
+                uppers.append(v)
+            elif op == "==" or op == "=":
+                lowers.append(v)
+                uppers.append(v)
+            elif op == "<":
+                uppers.append(v - eps)
+            elif op == ">":
+                lowers.append(v + eps)
+            else:
+                raise ValueError(f"unknown operator {op!r}")
+        lo = max(lowers)
+        hi = min(uppers)
+        if lo > hi:
+            return None
+        return (lo, hi)
+```
+
+- [ ] **Step 4: Run tests to verify they pass**
+
+Run: `pytest scripts/tests/test_csp_solver.py -v`
+Expected: 6 PASS
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add scripts/vitruvius/constraints/__init__.py \
+        scripts/vitruvius/constraints/csp_solver.py \
+        scripts/tests/test_csp_solver.py
+git commit -m "feat(constraints): add parametric CSP solver (Task L.1, v3-§1)"
+```
+
+#### Task L.2 — Dempster-Shafer Conflict Analyzer (`dempster_shafer.py`)
+**What it is.** Given N extracted parameter candidates for the *same*
+entity from N different jurisdictions, compute the Dempster-Shafer
+belief, plausibility and conflict mass:
+
+$$m_{1 \oplus 2}(A) = \frac{1}{1 - K} \sum_{B \cap C = A} m_1(B) \cdot m_2(C)$$
+
+where `K = Σ_{B ∩ C = ∅} m₁(B) · m₂(C)` is the joint mass assigned to
+the empty set (the conflict mass). When `K > 0.3`, emit a
+`HIGH_STATUTORY_CONFLICT` record that Stream G promotion consumes to
+mark the edge as `contradictory` rather than `verified`.
+
+**Why it's better than Stream G.1 Bayesian fusion alone.** Bayesian
+fusion collapses two contradicting parameters into a single posterior
+mean — structural information about the disagreement is *lost*. DST
+preserves it: `belief` is the lower bound of truth, `plausibility` the
+upper bound, and the gap exposes ignorance. Stream G.1 continues to
+produce its fused posterior for the cases where K is low; DST runs in
+parallel on the same evidence set and tags the edges where K is high.
+
+- [ ] **Step 1: Write the failing tests**
+
+```python
+# scripts/tests/test_dempster_shafer.py
+import pytest
+from scripts.vitruvius.constraints.dempster_shafer import (
+    DempsterShaferAnalyzer,
+    EvidenceSource,
+)
+
+
+def test_dst_no_conflict_returns_zero_mass():
+    a = DempsterShaferAnalyzer()
+    result = a.combine([
+        EvidenceSource(jurisdiction="national", interval=(2.0, 3.0), mass=0.9),
+        EvidenceSource(jurisdiction="qc", interval=(2.0, 3.0), mass=0.9),
+    ])
+    assert result.conflict_mass == pytest.approx(0.0, abs=1e-6)
+    assert result.status == "CONSISTENT"
+
+
+def test_dst_full_conflict_returns_one_mass():
+    a = DempsterShaferAnalyzer()
+    result = a.combine([
+        EvidenceSource(jurisdiction="national", interval=(2.0, 2.0), mass=1.0),
+        EvidenceSource(jurisdiction="qc", interval=(2.5, 2.5), mass=1.0),
+    ])
+    assert result.conflict_mass == pytest.approx(1.0, abs=1e-6)
+    assert result.status == "HIGH_STATUTORY_CONFLICT"
+
+
+def test_dst_partial_overlap_produces_fractional_conflict():
+    a = DempsterShaferAnalyzer()
+    result = a.combine([
+        EvidenceSource(jurisdiction="national", interval=(2.0, 3.0), mass=0.8),
+        EvidenceSource(jurisdiction="qc", interval=(2.5, 3.5), mass=0.7),
+    ])
+    assert 0.0 < result.conflict_mass < 1.0
+    assert result.belief <= result.plausibility
+
+
+def test_dst_belief_lower_bounded_by_plausibility():
+    a = DempsterShaferAnalyzer()
+    result = a.combine([
+        EvidenceSource(jurisdiction="national", interval=(2.0, 3.0), mass=0.9),
+        EvidenceSource(jurisdiction="qc", interval=(2.2, 2.8), mass=0.9),
+    ])
+    assert result.belief <= result.plausibility
+
+
+def test_dst_dempster_combination_is_associative_on_non_conflicting_sources():
+    a = DempsterShaferAnalyzer()
+    e1 = EvidenceSource(jurisdiction="a", interval=(2.0, 3.0), mass=0.9)
+    e2 = EvidenceSource(jurisdiction="b", interval=(2.0, 3.0), mass=0.9)
+    e3 = EvidenceSource(jurisdiction="c", interval=(2.0, 3.0), mass=0.9)
+    left = a.combine([e1, e2, e3])
+    right = a.combine([e3, e2, e1])
+    assert left.belief == pytest.approx(right.belief, abs=1e-6)
+    assert left.plausibility == pytest.approx(right.plausibility, abs=1e-6)
+
+
+def test_dst_emits_report_json_schema(tmp_path):
+    a = DempsterShaferAnalyzer()
+    report_path = tmp_path / "report.json"
+    a.write_report(
+        [
+            EvidenceSource(jurisdiction="national", interval=(2.0, 2.0), mass=1.0),
+            EvidenceSource(jurisdiction="qc", interval=(2.5, 2.5), mass=1.0),
+        ],
+        entity="fire_clearance",
+        path=report_path,
+    )
+    import json
+    payload = json.loads(report_path.read_text())
+    assert set(payload.keys()) == {
+        "entity", "sources", "belief", "plausibility",
+        "conflict_mass", "status",
+    }
+
+
+def test_flag_off_is_noop(monkeypatch):
+    from scripts.vitruvius.features import Features
+    monkeypatch.setattr(Features, "l_dempster_shafer", False)
+    a = DempsterShaferAnalyzer()
+    result = a.combine([
+        EvidenceSource(jurisdiction="national", interval=(2.0, 2.0), mass=1.0),
+        EvidenceSource(jurisdiction="qc", interval=(2.5, 2.5), mass=1.0),
+    ])
+    assert result.status == "DISABLED"
+```
+
+- [ ] **Step 2: Run tests to verify they fail**
+
+Run: `pytest scripts/tests/test_dempster_shafer.py -v`
+Expected: FAIL with `ImportError: cannot import name 'DempsterShaferAnalyzer'`
+
+- [ ] **Step 3: Write minimal implementation**
+
+Pseudocode reference — the executing agent expands to full implementation
+at task time. The DST combination loop is ~80 lines of numpy; the heart
+is:
+
+```python
+# scripts/vitruvius/constraints/dempster_shafer.py (reference sketch)
+from dataclasses import dataclass
+from pathlib import Path
+import json
+from scripts.vitruvius.features import Features
+
+HIGH_CONFLICT_THRESHOLD = 0.3
+
+
+@dataclass(frozen=True)
+class EvidenceSource:
+    jurisdiction: str
+    interval: tuple[float, float]   # focal element
+    mass: float                     # m(interval), remainder is Ω (ignorance)
+
+
+@dataclass(frozen=True)
+class DSTResult:
+    status: str  # CONSISTENT | HIGH_STATUTORY_CONFLICT | DISABLED
+    belief: float
+    plausibility: float
+    conflict_mass: float
+
+
+class DempsterShaferAnalyzer:
+    def combine(self, sources: list[EvidenceSource]) -> DSTResult:
+        if not Features.l_dempster_shafer:
+            return DSTResult("DISABLED", 0.0, 0.0, 0.0)
+        # Iteratively apply Dempster's rule across sources.
+        # Focal elements = the N distinct intervals from the sources.
+        # Full computation: build the mass function dict, compute K as
+        # sum over B ∩ C = ∅ of m1(B) · m2(C), normalise the rest by 1-K,
+        # then bel = sum of masses of subsets of target, pl = 1 - bel of
+        # complement.
+        ...  # full expansion at execution time
+        return DSTResult(
+            status="HIGH_STATUTORY_CONFLICT" if K > HIGH_CONFLICT_THRESHOLD else "CONSISTENT",
+            belief=belief,
+            plausibility=plausibility,
+            conflict_mass=K,
+        )
+
+    def write_report(
+        self, sources: list[EvidenceSource], entity: str, path: Path
+    ) -> None:
+        result = self.combine(sources)
+        path.write_text(json.dumps({
+            "entity": entity,
+            "sources": [s.__dict__ for s in sources],
+            "belief": result.belief,
+            "plausibility": result.plausibility,
+            "conflict_mass": result.conflict_mass,
+            "status": result.status,
+        }, indent=2, sort_keys=True))
+```
+
+- [ ] **Step 4: Run tests to verify they pass**
+
+Run: `pytest scripts/tests/test_dempster_shafer.py -v`
+Expected: 7 PASS
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add scripts/vitruvius/constraints/dempster_shafer.py \
+        scripts/tests/test_dempster_shafer.py
+git commit -m "feat(constraints): add Dempster-Shafer conflict analyzer (Task L.2, v3-§5)"
+```
+
+### 15L.4 Stream L_conf Definition of Done
+- [ ] CSP solver produces COMPLIANT/PARTIAL/IMPOSSIBLE verdicts on the 20-case hand-curated fixture in <100 ms total
+- [ ] Dempster-Shafer analyzer flags K > 0.3 for every known contradicting clause pair in the audit set
+- [ ] Both modules ship behind `features.l_csp_solver` and `features.l_dempster_shafer` (default OFF)
+- [ ] `test_backward_compat.py` green (flag-OFF path is byte-identical)
+- [ ] Stream L_conf modules are additive only — no existing module altered
+
+### 15L.5 Stream L_conf Gating Metrics
+- **CSP correctness:** 100% on the 20-case hand-curated unit test suite
+- **CSP runtime:** <100 ms on a 50-parameter graph subset
+- **DST conflict detection:** K > 0.3 for every planted contradiction, K < 0.1 for every consistent pair
+- **DST associativity:** |belief(order A) − belief(order B)| < 1e-6 for non-conflicting sources
+- **Non-breaking guarantee:** byte-identical output when flags OFF
+
+### 15L.6 Research-Item Coverage (Stream L_conf)
+- ✅ v3-§1 (Constraint Satisfaction Problems)
+- ✅ v3-§5 (Dempster-Shafer Theory)
+
+---
+
+## 15M. Stream M — Hyperbolic Hierarchical Retrieval
+
+**Priority:** P2
+**Sprint:** G, week 20
+**Research-Item Coverage:** Hyperbolic / Poincaré Embeddings (v3-§9)
+
+### 15M.1 Goal
+Euclidean cosine similarity flattens the legal hierarchy
+(Code → Chapter → Section → Clause): ancestor/descendant relations
+become indistinguishable from sibling relations at retrieval time, and
+Stream I.2 GraphRAG occasionally returns an unrelated sibling clause
+when the correct answer is the parent Chapter. Embed the Phase 8
+`ContainsEdge` subgraph into a **Poincaré disk** $\mathbb{B}^d$ so that
+hyperbolic distance preserves the tree topology, then route Stream I.2
+query results through a hyperbolic reranker behind a feature flag.
+
+### 15M.2 Files
+- **Create:** `scripts/vitruvius/concepts/hyperbolic_trainer.py`
+- **Create:** `scripts/vitruvius/query/hyperbolic_retrieval.py`
+- **Create:** `scripts/tests/test_hyperbolic_trainer.py`
+- **Create:** `scripts/tests/test_hyperbolic_retrieval.py`
+- **Create:** `005_Operational-Intelligence-Layer/embeddings/poincare_v1.npz` (runtime artifact)
+
+### 15M.3 Task Sequence (summary)
+
+#### Task M.1 — Poincaré Embedding Trainer (`hyperbolic_trainer.py`)
+**What it is.** Pure-numpy implementation of the Nickel-Kiela Poincaré
+embedding algorithm. Reads the Phase 8 graph's `ContainsEdge` subgraph
+(Code→Chapter→Section→Clause), fits 32-dim vectors $x \in \mathbb{B}^{32}$
+for every node, writes them to an `.npz` archive keyed by `node_id`.
+
+Distance formula:
+
+$$d_{\mathbb{B}}(u, v) = \text{arcosh}\left(1 + 2\frac{\|u - v\|^2}{(1 - \|u\|^2)(1 - \|v\|^2)}\right)$$
+
+Loss: cross-entropy with 10 negative samples per positive edge.
+Optimiser: Riemannian SGD (project Euclidean gradient onto the tangent
+space of the Poincaré ball, retract the step through the exponential
+map). 500 epochs on a ~10 000-node hierarchy completes in <30 s on CPU.
+
+**Why numpy only.** 32-dim × 10 000 nodes = 2.4 MB state. Retraction and
+exponential map are ~20 lines. No torch/geoopt needed.
+
+Failing tests (6):
+1. `test_poincare_vectors_inside_unit_ball` — assert `max ‖x‖ < 1.0`
+2. `test_parent_child_distance_smaller_than_parent_sibling` — tree topology check
+3. `test_hierarchical_loss_monotonically_decreases` — sanity on 100 epochs of a 20-node fixture
+4. `test_deterministic_given_seed` — two trainings with `seed=7` produce identical `.npz`
+5. `test_save_and_load_npz_round_trip` — `load(save(x)) == x` for every vector
+6. `test_flag_off_is_noop` — training short-circuits to a zero-length `.npz` when flag is OFF
+
+Writes to `005_Operational-Intelligence-Layer/embeddings/poincare_v1.npz`.
+
+#### Task M.2 — Hyperbolic Retrieval Router (`hyperbolic_retrieval.py`)
+**What it is.** A reranker that consumes Stream I.2 GraphRAG's candidate
+set and reorders by $d_{\mathbb{B}}(q, c_i)$ ascending. Hook point: runs
+*after* `query/graphrag_router.py` populates candidates, *before*
+`query/mcmc_ranker.py` (Stream I.3) ranks answers. Wired into
+`query/engine.py` behind `features.m_hyperbolic_retrieval`.
+
+**Expected lift — with A/B test.** Macro-queries ("what ties setbacks
+to fire clearances in Chapter 8?") should return the ancestor Chapter
+section first; Euclidean retrieval historically mixes unrelated sibling
+sections. Gate: ≥15% NDCG@5 lift on a 30-question benchmark.
+
+Failing tests (5):
+1. `test_hyperbolic_retrieval_prefers_ancestor_over_unrelated_sibling`
+2. `test_retrieval_is_deterministic_given_embedding`
+3. `test_retrieval_preserves_candidate_set_membership` — no candidate dropped or added, only reordered
+4. `test_ndcg_lift_over_cosine_on_fixture_benchmark` — asserts ≥15% on the curated benchmark
+5. `test_flag_off_routes_through_cosine` — flag OFF returns the GraphRAG order byte-identically
+
+### 15M.4 Stream M Definition of Done
+- [ ] Poincaré trainer converges on the PD 1096 `ContainsEdge` subgraph in <30 s
+- [ ] All trained vectors strictly inside unit ball (no wall escapes)
+- [ ] Hyperbolic retrieval beats cosine by ≥15% NDCG@5 on the 30-question benchmark
+- [ ] `test_backward_compat.py` green
+
+### 15M.5 Stream M Gating Metrics
+- **Training runtime:** <30 s on 10 000-node hierarchy (CPU)
+- **Embedding norm:** `max ‖x‖ < 1.0 − 1e-6` strictly
+- **NDCG@5 lift:** ≥ 15% vs cosine baseline, p<0.05 paired test
+- **Determinism:** identical `.npz` across 3 runs with same seed
+
+### 15M.6 Research-Item Coverage (Stream M)
+- ✅ v3-§9 (Hyperbolic / Poincaré Embeddings — trainer + reranker)
+
+---
+
+## 15N. Stream N — Information-Theoretic Compression & Near-Duplicate Dedup
+
+**Priority:** P1 (unblocks Phase 11 multi-jurisdiction scaling)
+**Sprint:** G, week 21
+**Research-Item Coverage:** Jaccard + MinHashing (v3-§14), Kolmogorov Complexity / Delta Compression (v3-§17), Nyquist-Shannon Sampling Theorem (v3-§16)
+
+### 15N.1 Goal
+When Phase 11 ingests local ordinances that heavily overlap PD 1096,
+the graph must not double-store identical clauses, must store local
+variants as *deltas* instead of full text, and must chunk parameter-heavy
+sections at a density high enough to avoid aliasing. This stream adds:
+
+1. **MinHash-based Jaccard similarity** for near-duplicate detection
+   (Task N.1, v3-§14)
+2. **Kolmogorov-inspired delta-only persistence** for variant clauses
+   (Task N.2, v3-§17)
+3. **Nyquist-Shannon adaptive chunk overlap** driven by local numeric
+   density (Task N.3, v3-§16)
+
+### 15N.2 Files
+- **Create:** `scripts/vitruvius/normalization/minhash_dedup.py`
+- **Create:** `scripts/vitruvius/normalization/delta_compression.py`
+- **Create:** `scripts/vitruvius/normalization/adaptive_sampling.py`
+- **Create:** `scripts/tests/test_minhash_dedup.py`
+- **Create:** `scripts/tests/test_delta_compression.py`
+- **Create:** `scripts/tests/test_adaptive_sampling.py`
+- **Create:** `005_Operational-Intelligence-Layer/dedup/` runtime output directory
+
+### 15N.3 Task Sequence (summary)
+
+#### Task N.1 — MinHash + Jaccard Dedup (`minhash_dedup.py`)
+**What it is.** For each normalised clause emits a 128-permutation
+MinHash signature over its 5-gram token set. Two clauses with estimated
+Jaccard similarity
+
+$$\hat{J}(A, B) = \frac{|A \cap B|}{|A \cup B|} \ge 0.90$$
+
+are proposed for merge under a single canonical node with both source
+citations appended. Uses `datasketch` (≤50 KB wheel, pure Python).
+Comparison cost $O(128)$ vs $O(|A| + |B|)$ for naive Jaccard.
+
+**Why 0.90.** Below 0.90 the overlap is likely a partial copy that
+preserves a legally distinct modifier; above 0.90 the drift is below
+5-gram granularity and merging is safe.
+
+Failing tests (6):
+1. `test_minhash_signatures_stable_under_token_permutation` — two MinHashes on re-ordered tokens produce the same hash set
+2. `test_identical_clauses_have_jaccard_one`
+3. `test_distinct_clauses_have_low_jaccard`
+4. `test_threshold_merge_emits_merge_report_json` — writes to `005_.../dedup/latest_minhash_dedup_report.json`
+5. `test_merge_preserves_both_source_citations`
+6. `test_flag_off_is_noop`
+
+#### Task N.2 — Kolmogorov Delta Compressor (`delta_compression.py`)
+**What it is.** When MinHash flags a pair as near-duplicate at
+`0.75 ≤ Ĵ < 0.90`, store the *difference* instead of both full texts.
+Uses stdlib `difflib.ndiff` as the "shortest program" approximation to
+Kolmogorov complexity. The delta record:
+
+```json
+{
+  "base_clause_id": "pd1096-sec804",
+  "delta_ops": [
+    {"op": "replace", "start": 42, "end": 45, "text": "2.5m"}
+  ],
+  "source": "qc-ordinance-2019-fire.md",
+  "variant_hash": "sha256:..."
+}
+```
+
+Round-trip check (`apply_delta(base, delta) == variant`) enforces
+lossless reversibility. The delta becomes a first-class Phase 8 node
+type: `DeltaClause` with a `derived_from` edge to the base clause —
+queries on the base return both base and variants transparently.
+
+**Why not zlib.** zlib compresses bytes; delta compression compresses
+*semantics*. A one-word legal amendment becomes a 1-op delta — mathematically
+minimal in edit-distance terms.
+
+Failing tests (5):
+1. `test_delta_apply_round_trip`
+2. `test_delta_smaller_than_full_text_for_single_word_change`
+3. `test_delta_graph_node_is_reachable_from_base_clause`
+4. `test_delta_ops_are_deterministic`
+5. `test_flag_off_is_noop`
+
+#### Task N.3 — Nyquist-Shannon Adaptive Chunk Density (`adaptive_sampling.py`)
+**What it is.** Replaces Stream C.3's hand-tuned 20% chunk-overlap
+constant with a density-adaptive formula. For a text section, compute
+the local `bandwidth`:
+
+$$f_{max} = \frac{\text{parametric tuples per 100 tokens}}{100}$$
+
+and set the overlap to satisfy $f_s > 2 f_{max}$ via
+
+`overlap_ratio = min(0.5, max(0.1, 2 * f_max))`
+
+Plain-prose sections get 10% overlap (the minimum). Heavy-parameter
+sections (e.g., Fire Section 804 table) get up to 50%, ensuring no
+constraint is aliased across a chunk boundary.
+
+**Why this beats Stream C.3's 20% constant.** 20% over-samples prose
+(wastes cycles) and under-samples parametric clauses (loses recall).
+The density formula is locally adaptive and cheap to compute (a single
+count + ratio per window).
+
+Failing tests (5):
+1. `test_prose_section_gets_low_overlap` — returns 0.10 on a 200-word no-parameter paragraph
+2. `test_parametric_section_gets_high_overlap` — returns ≥0.4 on a Section-804-like fixture with 10 parameters per 100 tokens
+3. `test_overlap_ratio_bounded_between_0_10_and_0_50` — clipped regardless of `f_max`
+4. `test_overlap_formula_deterministic_given_text`
+5. `test_flag_off_falls_back_to_20_percent_constant`
+
+### 15N.4 Stream N Definition of Done
+- [ ] MinHash detects all known PD 1096 / QC ordinance near-duplicates in the fixture (≥95% precision, ≥90% recall)
+- [ ] Delta compressor round-trips on every fixture clause — zero data loss
+- [ ] Nyquist-Shannon overlap lifts parametric-clause recall by ≥10% on the golden benchmark
+- [ ] `test_backward_compat.py` green
+
+### 15N.5 Stream N Gating Metrics
+- **MinHash precision:** ≥95% at ≥90% recall on 100 hand-labelled pairs
+- **Delta compression ratio:** ≥4× on the QC ordinance corpus (bytes saved)
+- **Nyquist-Shannon recall lift:** ≥10% on parametric-heavy sections vs 20% constant
+- **Runtime:** all three modules ship <500 ms per document
+
+### 15N.6 Research-Item Coverage (Stream N)
+- ✅ v3-§14 (Jaccard + MinHashing)
+- ✅ v3-§17 (Kolmogorov Complexity / Delta Compression)
+- ✅ v3-§16 (Nyquist-Shannon Sampling Theorem)
+
+---
+
+## 15O. Stream O — Topological Clash Detection & Graph Energy
+
+> **moved_to: Sprint PHYS (phase-16-statistical-mechanics-graph-physics-plan.md)**
+>
+> Per `00-governing-implementation-plan.md` §4.4, the VF2 motif matcher
+> (Task O.1) and the Boltzmann graph-energy promotion gate (Task O.2)
+> have been re-homed into **Sprint PHYS**, specifically into Stream PHYS.2
+> (Graph Stability: Energy/Temperature). The `phase-16` TDD-expansion pass
+> (governing plan Task 6) will copy the task bodies below into the Sprint
+> PHYS plan file. Do **not** dispatch this stream as part of the
+> statistical-architectural-upgrade plan — execute it inside Sprint PHYS.
+>
+> The `features.o_motif_matcher` and `features.o_boltzmann_gate` flag
+> names are preserved to keep code identifiers stable across the move.
+
+**Priority:** P2
+**Sprint:** PHYS (formerly "Sprint G, week 22")
+**Research-Item Coverage:** Subgraph Isomorphism (v3-§6), Boltzmann Distribution / Graph Energy (v3-§19)
+
+### 15O.1 Goal
+Detect **multi-variable code violations** by sweeping the Phase 8
+knowledge graph for known "violation motifs" (declarative YAML
+subgraphs representing illegal architectural conditions), and gate
+promotion of new relationships on the graph's **statistical-mechanical
+energy** — if the graph contains too many contradictions, the promotion
+gate freezes until reconcile lowers the energy.
+
+### 15O.2 Files
+- **Create:** `scripts/vitruvius/graph/motif_matcher.py`
+- **Create:** `scripts/vitruvius/graph/motif_library.yaml` (declarative motif seed file)
+- **Create:** `scripts/vitruvius/promotion/boltzmann_gate.py`
+- **Create:** `scripts/tests/test_motif_matcher.py`
+- **Create:** `scripts/tests/test_boltzmann_gate.py`
+
+### 15O.3 Task Sequence (summary)
+
+#### Task O.1 — VF2 Subgraph Isomorphism Motif Matcher (`motif_matcher.py`)
+**What it is.** Stacks on Stream H.0 Phase 8 base. Loads YAML-defined
+violation motifs from `motif_library.yaml`, converts each to a
+`networkx.DiGraph`, runs `networkx.algorithms.isomorphism.DiGraphMatcher`
+(VF2) against the Phase 8 snapshot graph. For every isomorphic match
+emits a Violation Instance record.
+
+Seed motif library (example):
+```yaml
+# scripts/vitruvius/graph/motif_library.yaml
+- motif_id: wood_frame_sprinkler_low_pressure
+  description: "Wood-frame structure requiring sprinklers in a low-pressure zone"
+  nodes:
+    - {id: A, type: ConstructionType, attr: {category: "wood_frame"}}
+    - {id: B, type: Requirement, attr: {category: "sprinkler"}}
+    - {id: C, type: Zone, attr: {category: "low_water_pressure"}}
+  edges:
+    - {src: A, dst: B, type: requires}
+    - {src: B, dst: C, type: restricted_by}
+```
+
+Runs in <1 s per motif on a 10 000-node graph. Writes matches to
+`005_Operational-Intelligence-Layer/graph/latest_motif_matches.json`.
+
+**Why declarative YAML motifs beat hard-coded clash rules.** New clash
+patterns land as a YAML PR, never as code. Every motif is reviewable,
+diffable, and versionable independently of the matcher.
+
+Failing tests (6):
+1. `test_motif_match_finds_single_subgraph`
+2. `test_motif_match_finds_all_occurrences`
+3. `test_motif_match_returns_zero_on_disjoint_graph`
+4. `test_motif_attribute_filter_applied` — attribute predicates correctly narrow matches
+5. `test_motif_library_yaml_loads` — round-trip load/dump parity
+6. `test_flag_off_is_noop`
+
+#### Task O.2 — Boltzmann Graph-Energy Promotion Gate (`boltzmann_gate.py`)
+**What it is.** Computes a scalar "system energy" over the Phase 8
+snapshot:
+
+$$E = w_1 \cdot |\text{contradictions}| + w_2 \cdot |\text{unverified edges}| + w_3 \cdot |\text{orphans}|$$
+
+with default weights `w1 = 1.0`, `w2 = 0.25`, `w3 = 0.1`. "Temperature"
+$T$ is derived from the Stream G.2 stringency level — lower stringency
+yields higher $T$ (more permissive); higher stringency yields lower $T$
+(strict). The Boltzmann acceptance probability:
+
+$$P(\text{accept}) = e^{-E / (kT)}, \quad k = 1$$
+
+If `P(accept) < 0.5`, the promotion gate **refuses** to run Stream G.1
+Bayesian fusion until a `run_reconcile` pass lowers $E$ below threshold.
+Emits `005_Operational-Intelligence-Layer/promotion/latest_boltzmann_energy.json`.
+
+**How it complements Stream G.** Stream G's 17-rule validator checks
+each edge in isolation (local check). Boltzmann checks the *global*
+health of the graph (system check). A local-clean-but-globally-contradictory
+graph now fails fast at a single numeric threshold instead of drifting
+under the radar.
+
+Failing tests (7):
+1. `test_energy_zero_on_clean_graph`
+2. `test_energy_increases_with_contradictions` — monotonicity
+3. `test_acceptance_probability_monotonic_in_negative_energy`
+4. `test_high_energy_blocks_promotion`
+5. `test_temperature_from_stringency_level` — correct mapping for each stringency tier
+6. `test_energy_report_json_schema` — fields = {energy, temperature, acceptance_probability, decision, breakdown}
+7. `test_flag_off_always_accepts` — byte-identical to the pre-Boltzmann path
+
+### 15O.4 Stream O Definition of Done
+- [ ] Motif matcher finds ≥1 known clash in the PD 1096 + QC ordinance seed graph
+- [ ] Boltzmann gate correctly blocks a rigged 20-contradiction fixture AND admits a 0-contradiction fixture
+- [ ] Both modules ship behind flags `features.o_motif_matcher` and `features.o_boltzmann_gate` (default OFF)
+- [ ] `test_backward_compat.py` green
+
+### 15O.5 Stream O Gating Metrics
+- **Motif matching runtime:** ≤ 1 s per motif on a 10 000-node graph
+- **Motif matching precision:** ≥95% on hand-labelled seed set
+- **Boltzmann gate correctness:** 100% on the 10-case curated fixture
+- **Non-breaking guarantee:** flag-OFF promotion path is byte-identical
+
+### 15O.6 Research-Item Coverage (Stream O)
+- ✅ v3-§6 (Subgraph Isomorphism VF2)
+- ✅ v3-§19 (Boltzmann Distribution / Graph Energy)
+
+---
+
 ## 16. Sprint Rollout Plan
 
 ### 16.1 Sprint D — Foundation (weeks 1-5) 🔥
@@ -2522,10 +3502,24 @@ Triggers `graph/tensor_factorisation.py` (scaffolded in Stream H.8) once ≥2 ju
 
 **Exit criteria:** Phase 8 graph snapshot stable with ≥50 verified PD 1096 relationships; Phase 9 seed-question accuracy ≥95%; active queue populated.
 
-### 16.4 Sprint G — Scaling (weeks 19+, gated)
-**Goal:** Second jurisdiction (e.g., IRR or a QC CLUP) ingested through the hardened pipeline. Stream K activates.
+### 16.4 Sprint G — Mathematical Intelligence + Scaling (weeks 19-25, gated)
+**Goal:** Land the four research-doc-v3 streams (L–O), then activate Stream K once a second jurisdiction lands. Sprint G is intentionally split into **Math Intelligence (weeks 19-22)** which can ship before any second-jurisdiction corpus exists, and **Scaling (weeks 23-25)** which is gated on Stream K's prerequisite.
 
-**Entry condition:** All Sprint D/E/F exit criteria hold for ≥1 week without a single `test_backward_compat.py` failure.
+| Week | Stream(s) | Deliverables |
+|---|---|---|
+| 19 | L | CSP solver (L.1), Dempster-Shafer conflict analyzer (L.2) |
+| 20 | M | Poincaré embedding trainer (M.1), hyperbolic retrieval reranker (M.2) |
+| 21 | N | MinHash/Jaccard dedup (N.1), Kolmogorov delta compression (N.2), Nyquist-Shannon adaptive chunking (N.3) |
+| 22 | O | VF2 motif matcher (O.1), Boltzmann graph-energy gate (O.2) |
+| 23 | K (gated) | Rosetta Stone alias registry — runs only after a 2nd jurisdiction corpus lands |
+| 24 | K (gated) | Precedence router |
+| 25 | K (gated) | Tensor factorisation training (Stream H.8 activation) |
+
+**Entry condition (weeks 19-22):** All Sprint D/E/F exit criteria hold for ≥1 week without a single `test_backward_compat.py` failure.
+
+**Entry condition (weeks 23-25):** Same as above **plus** a 2nd jurisdiction corpus (e.g., QC IRR or QC CLUP) committed to `001A_Raw-Source-Layer/`.
+
+**Exit criteria (weeks 19-22):** Streams L/M/N/O each pass their improvement test in §2.4.4; every flag remains OFF in shipped config; `test_backward_compat.py` green for every commit.
 
 ### 16.5 Deferred Milestones
 | Milestone | Prerequisite | ETA |
@@ -2533,6 +3527,16 @@ Triggers `graph/tensor_factorisation.py` (scaffolded in Stream H.8) once ≥2 ju
 | FUTURE-ML-01 LoRA | External GPU (RunPod A10G) + ≥1000 distilled examples | Post Sprint G |
 | FUTURE-ML-02 DPO | Ranger dashboard + ≥1000 preference pairs | Post Sprint G |
 | FUTURE-LRN-01 BKT | ILXP frontend + first cohort of learners | Phase 12 |
+| FUTURE-SPAT-01 Buildable Envelope | 3D spatial plan ships Stream L (delegated) | When spatial plan closes |
+| FUTURE-LRN-02 Pareto Optimization | CAD geometry + ROI model | Post spatial plan |
+| FUTURE-LRN-03 Monte Carlo Feasibility | Irregular-lot geometry sampler | Post spatial plan |
+| FUTURE-LRN-04 Ant Colony Learning Paths | ILXP interaction traces | Phase 12 |
+| FUTURE-LRN-05 Item Response Theory (3PL) | Quiz-response telemetry | Phase 12 |
+| FUTURE-LRN-06 MDP Teaching Policy | ILXP state/action/reward logs | Phase 12 |
+| FUTURE-LRN-07 Ebbinghaus Spaced Repetition | Per-learner recall telemetry | Phase 12 |
+| FUTURE-LRN-08 Elo Rating | Interactive learner cohort | Phase 12 |
+| FUTURE-URB-01 Cellular Automata / Percolation | City-block parcel graph + multi-jurisdiction corpus | B2G phase |
+| FUTURE-SPAT-02 Graph Coloring (Room Adjacency) | Floor-plan adjacency ingest from spatial plan | Post spatial plan |
 
 ---
 
@@ -2593,6 +3597,16 @@ Triggers `graph/tensor_factorisation.py` (scaffolded in Stream H.8) once ≥2 ju
 | I | GraphRAG lift on macro-queries | ≥ 15% |
 | J | EMC top-K overlap | ≥ 70% |
 | K | Rosetta alignment accuracy | ≥ 85% |
+| L | CSP correctness on 20-case fixture | 100% |
+| L | CSP runtime on 50-parameter subset | < 100 ms |
+| L | DST conflict detection on planted pairs | K > 0.3 (100%) |
+| M | Poincaré training runtime | < 30 s |
+| M | Hyperbolic NDCG@5 lift vs cosine | ≥ 15% |
+| N | MinHash precision@recall 0.90 | ≥ 95% |
+| N | Delta compression ratio (QC corpus) | ≥ 4× |
+| N | Nyquist-Shannon recall lift | ≥ 10% |
+| O | Motif matching runtime per motif | ≤ 1 s |
+| O | Boltzmann gate correctness | 100% |
 
 ---
 
@@ -2659,8 +3673,47 @@ Every numbered technique from both research documents is mapped to a concrete ta
 | FUTURE-ML-01 | LoRA fine-tuning | External GPU + ≥1000 distilled examples from Stream J | When GPU becomes available |
 | FUTURE-ML-02 | DPO pedagogical alignment | Ranger dashboard + ≥1000 preference pairs | Dashboard shipped |
 | FUTURE-LRN-01 | Bayesian Knowledge Tracing | ILXP frontend + active learners | Phase 12 starts |
+| FUTURE-SPAT-01 | Computational Geometry / Buildable Envelope (v3-§2) | Delegated — see `3d-spatial-intelligence-upgrade-plan.md` Stream L | Spatial plan closes Stream L |
+| FUTURE-LRN-02 | Multi-Objective Pareto Optimization (v3-§3) | CAD geometry + ROI model | Post spatial plan |
+| FUTURE-LRN-03 | Monte Carlo Site Feasibility (v3-§4) | Irregular-lot geometry sampler | Post spatial plan |
+| FUTURE-LRN-04 | Ant Colony Optimization learning paths (v3-§7) | ILXP interaction traces | Phase 12 |
+| FUTURE-LRN-05 | Item Response Theory / 3PL (v3-§8) | Quiz-response telemetry | Phase 12 |
+| FUTURE-LRN-06 | MDP teaching policy (v3-§10) | ILXP state/action/reward logs | Phase 12 |
+| FUTURE-URB-01 | Cellular Automata / Percolation (v3-§11) | City-block parcel graph | B2G phase |
+| FUTURE-LRN-07 | Ebbinghaus Spaced Repetition (v3-§12) | Per-learner recall telemetry | Phase 12 |
+| FUTURE-LRN-08 | Elo Rating for Quiz Calibration (v3-§13) | Interactive learner cohort | Phase 12 |
+| FUTURE-SPAT-02 | Graph Coloring / Room Adjacency (v3-§15) | Floor-plan adjacency ingest | Post spatial plan |
 
-**Verification.** 25 items from statistical-improvements.md + 17 items from advanced-architectural.md = **42 items total**. 39 are Planned, 3 are Deferred with explicit gates. **Zero skipped.**
+### 20.4 `.ai/13_research/mathematical and statistical relevance of architectural constraints,.md`
+
+| # | Research Item | Stream | Task | Status |
+|---|---|---|---|---|
+| v3-§1 | Constraint Satisfaction Problems (CSP) | L | L.1 | Planned |
+| v3-§2 | Computational Geometry / Buildable Envelope | — | — | **DELEGATED** (FUTURE-SPAT-01 → 3d-spatial-intelligence-upgrade-plan.md Stream L) |
+| v3-§3 | Multi-Objective Pareto Optimization | — | — | **DEFERRED** (FUTURE-LRN-02) |
+| v3-§4 | Monte Carlo Site Feasibility | — | — | **DEFERRED** (FUTURE-LRN-03) |
+| v3-§5 | Dempster-Shafer Theory | L | L.2 | Planned |
+| v3-§6 | Subgraph Isomorphism (VF2 Motif Matching) | O | O.1 | Planned |
+| v3-§7 | Ant Colony Optimization (learning paths) | — | — | **DEFERRED** (FUTURE-LRN-04) |
+| v3-§8 | Item Response Theory (3PL) | — | — | **DEFERRED** (FUTURE-LRN-05) |
+| v3-§9 | Hyperbolic / Poincaré Embeddings | M | M.1 + M.2 | Planned |
+| v3-§10 | Markov Decision Process teaching policy | — | — | **DEFERRED** (FUTURE-LRN-06) |
+| v3-§11 | Cellular Automata / Percolation Theory | — | — | **DEFERRED** (FUTURE-URB-01) |
+| v3-§12 | Ebbinghaus Forgetting Curve | — | — | **DEFERRED** (FUTURE-LRN-07) |
+| v3-§13 | Elo Rating System | — | — | **DEFERRED** (FUTURE-LRN-08) |
+| v3-§14 | Jaccard + MinHashing (Dedup) | N | N.1 | Planned |
+| v3-§15 | Graph Coloring / Chromatic Number | — | — | **DEFERRED** (FUTURE-SPAT-02) |
+| v3-§16 | Nyquist-Shannon Sampling Theorem | N | N.3 | Planned |
+| v3-§17 | Kolmogorov Complexity / Delta Compression | N | N.2 | Planned |
+| v3-§18 | PageRank (Centrality of Truth) | H | H.1 | **COVERED-EXISTING** |
+| v3-§19 | Boltzmann Distribution / Graph Energy | O | O.2 | Planned |
+| v3-§20 | Eigenvector Centrality / Influence Mapping | H | H.1 | **COVERED-EXISTING** |
+
+**Verification (v3).** 20 items in research doc v3 → 8 Planned (Streams L/M/N/O), 2 Covered-Existing (Stream H.1), 10 Deferred with explicit `FUTURE-*` prerequisites in §20.3. **Zero skipped.**
+
+**Cumulative verification.** 25 items (stat-doc) + 17 items (adv-doc) + 20 items (v3-doc) = **62 research items total**. **49 Planned** (39 original + 8 new from v3 + 2 existing-coverage citations), **13 Deferred** with explicit gates. Zero silent skips.
+
+**Verification.** 25 items from statistical-improvements.md + 17 items from advanced-architectural.md = **42 items total**. 39 are Planned, 3 are Deferred with explicit gates. **Zero skipped.** (Historic count — preserved for audit; superseded by the cumulative verification above.)
 
 ---
 
@@ -2738,3 +3791,9 @@ Run this checklist once before handing the plan to a subagent.
 ## 23. Changelog
 
 - **2026-04-14 · v1.0.0** — Initial plan consolidating every technique from `.ai/13_research/statistical-improvements.md` and `.ai/13_research/advanced architectural and code-level optimizations.md` into 11 execution streams (A–K), 4 sprints (D–G), and 3 deferred milestones. Supersedes priority on Phases 8, 9, and 11 plans but leaves their contracts intact — it extends, does not replace. 42 research items: 39 Planned, 3 Deferred with explicit GPU/ILXP gates. Non-breaking guarantee enforced by a backward-compat regression suite built in Stream A Task A4. — *Senior Systems Architect*
+- **2026-04-14 · v1.0.8** — Integrated research doc v3 (`.ai/13_research/mathematical and statistical relevance of architectural constraints,.md`). Added §2.4 honest audit that classifies all 20 v3 concepts as (a) core-fit → 4 new streams, (b) already-covered → 2 existing-coverage citations, (c) ILXP/3D/B2G → 10 explicit deferrals with `FUTURE-*` prerequisite gates. Added four new streams (L, M, N, O) after Stream K and before Sprint Rollout, with stream sections numbered 15L / 15M / 15N / 15O to avoid renumbering §16–§23:
+  - **Stream L_conf — Constraint Satisfaction & Legal Conflict Engine**: Task L_conf.1 Parametric CSP Solver (v3-§1, full TDD body), Task L_conf.2 Dempster-Shafer Conflict Analyzer (v3-§5, full TDD body). *(Renamed from "Stream L" on 2026-04-15 per governing plan §4.1 to resolve a label collision with `3d-spatial-intelligence-upgrade-plan.md` Stream L.)*
+  - **Stream M — Hyperbolic Hierarchical Retrieval**: Task M.1 Poincaré Embedding Trainer (v3-§9), Task M.2 Hyperbolic Retrieval Reranker (v3-§9).
+  - **Stream N — Information-Theoretic Compression & Dedup**: Task N.1 MinHash/Jaccard (v3-§14), Task N.2 Kolmogorov Delta Compression (v3-§17), Task N.3 Nyquist-Shannon Adaptive Chunk Density (v3-§16).
+  - **Stream O — Topological Clash Detection & Graph Energy**: Task O.1 VF2 Motif Matcher (v3-§6), Task O.2 Boltzmann Graph-Energy Promotion Gate (v3-§19). *(moved_to: Sprint PHYS / `phase-16-statistical-mechanics-graph-physics-plan.md` per governing plan §4.4 — the TDD-expansion pass for Sprint PHYS copies these tasks into Stream PHYS.2; do not dispatch from this plan.)*
+  Added one new dependency (`datasketch` for MinHash); all other v3 additions ride on numpy/networkx/stdlib. Added 11 new feature flags (all default OFF). §2.4.4 records an explicit improvement test for every new module — modules that fail their A/B lift test are reverted, flag stays OFF. §16.4 Sprint G restructured into Math Intelligence (weeks 19-22) + Scaling (weeks 23-25). §19 adds 11 new stream-level gating rows. §20.4 lists every v3 research item with Planned / Covered-Existing / Deferred status. Deferred roster grows from 3 → 13 items with explicit `FUTURE-*` IDs. Cumulative coverage: 62 research items, 49 planned, 13 deferred, zero silent skips. Non-breaking guarantee preserved — every v3 module ships behind a flag and is tested against the Stream A backward-compat regression suite. — *Senior Systems Architect*

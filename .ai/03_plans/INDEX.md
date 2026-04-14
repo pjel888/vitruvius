@@ -1,8 +1,9 @@
 # `.ai/03_plans/` — Plan Index
 
 > **Purpose:** One-stop index of every implementation plan, design spec, and contract in this directory.
+> **Authoritative execution order:** `00-governing-implementation-plan.md` (v1.0.0, 2026-04-15) — read this *before* picking a plan to execute.
 > **Authoritative roadmap:** `/.ai/01_roadmap/master-roadmap.md`
-> **Updated:** 2026-04-14
+> **Updated:** 2026-04-15
 
 Each plan is a self-contained document keyed by a `plan_id` and a `phase` label in its YAML frontmatter. Plans are one of three types:
 
@@ -22,7 +23,8 @@ Each plan is a self-contained document keyed by a `plan_id` and a `phase` label 
 
 | Phase | Plan ID | Title | Status | Sprint | Type | File |
 |---|---|---|---|---|---|---|
-| 1A→12 | `statistical-architectural-upgrade` | **Statistical & Architectural Intelligence Upgrade** | 🔥 In progress (Streams A-G CLOSED 2026-04-14; H-K pending) | Sprint D onwards | implementation_tdd | [statistical-architectural-upgrade-plan.md](statistical-architectural-upgrade-plan.md) |
+| META | `governing-implementation` | **Governing Implementation Plan** (sprint order, gates, conflict resolutions) | 🔥 Active | Meta (all sprints) | orchestration | [00-governing-implementation-plan.md](00-governing-implementation-plan.md) |
+| 1A→12 | `statistical-architectural-upgrade` | **Statistical & Architectural Intelligence Upgrade** | 🔥 Streams A–I CLOSED 2026-04-14; J–K deferred; Stream L_conf / O migrated (see governing plan §4) | Sprint D | implementation_tdd | [statistical-architectural-upgrade-plan.md](statistical-architectural-upgrade-plan.md) |
 | 1B | `phase-1b-multi-parser-integration` | Multi-Parser Integration | 🔥 In progress (Foundation shipped) | Sprint C | design_spec | [phase-1b-multi-parser-integration-plan.md](phase-1b-multi-parser-integration-plan.md) |
 | 1B↔1C | `contract-ingestion-refinement` | Ingestion → Refinement Handoff Contract | ❄️ Frozen | N/A | contract | [ingestion-refinement-contract.md](ingestion-refinement-contract.md) |
 | 1C | `phase-1c-centralized-normalization` | Centralized Normalization — Text Refinement Layer | ✅ MVP Complete (archived 2026-04-14) | Sprint B — closed MVP scope | design_spec | [../09_archive/plans/phase-1c-centralized-normalization-plan.md](../09_archive/plans/phase-1c-centralized-normalization-plan.md) |
@@ -31,15 +33,27 @@ Each plan is a self-contained document keyed by a `plan_id` and a `phase` label 
 | 6A | `phase-6a-review-gap-closure` | Review Layer Gap Closure | ✅ Complete (archived 2026-04-14) | Sprint A + B — closed | implementation_tdd | [../09_archive/plans/phase-6a-review-gap-closure-plan.md](../09_archive/plans/phase-6a-review-gap-closure-plan.md) |
 | 6B | `phase-6b-second-pass-review` | Second-Pass Review (Two-Stage Adjudication) | ✅ Complete (archived 2026-04-14) | Sprint C — closed | implementation_tdd | [../09_archive/plans/phase-6b-second-pass-review-plan.md](../09_archive/plans/phase-6b-second-pass-review-plan.md) |
 | 7 | `phase-7-promotion-governance` | Promotion Governance Layer | ✅ Complete (archived 2026-04-14) | Sprint A — closed | implementation_tdd | [../09_archive/plans/phase-7-promotion-governance-plan.md](../09_archive/plans/phase-7-promotion-governance-plan.md) |
-| 8 | `phase-8-graph-contract-indexing` | Graph Contract & Filesystem-Backed Indexing | 🔒 Gated | Post-Sprint-C | design_spec | [phase-8-graph-contract-indexing-plan.md](phase-8-graph-contract-indexing-plan.md) |
-| 9 | `phase-9-query-ai-layer` | Query & AI Augmentation Layer | 🔒 Gated | Post-Phase-8 | design_spec | [phase-9-query-ai-layer-plan.md](phase-9-query-ai-layer-plan.md) |
+| 8 | `phase-8-graph-contract-indexing` | Graph Contract & Filesystem-Backed Indexing | 🧩 **Subsumed** by Stream H of statistical upgrade | — | design_spec | [phase-8-graph-contract-indexing-plan.md](phase-8-graph-contract-indexing-plan.md) |
+| 8B | `phase-8b-geo-topological-graph` | **Geo-Topological Knowledge Graph: Binary Vault & Octree Engine** (Rust Data Plane + SIMD Octree + FlatBuffers + Temporal Graph + Spatial GraphRAG) | 📝 Planned (needs TDD expansion) | **Sprint GT — System Hardening** | design_spec | [phase-8b-geo-topological-graph-plan.md](phase-8b-geo-topological-graph-plan.md) |
+| 9 | `phase-9-query-ai-layer` | Query & AI Augmentation Layer | 🧩 **Subsumed** by Stream I of statistical upgrade | — | design_spec | [phase-9-query-ai-layer-plan.md](phase-9-query-ai-layer-plan.md) |
+| 1D+6+8 | `3d-spatial-intelligence-upgrade` | 3D Spatial Intelligence Upgrade (Streams L-O: spatial ingest + Z3 solver + IFC/OWL + foraging scaffold + TS daemon) | 📝 Planned | **Sprint H (post Sprint Q, parallel w/ R)** | implementation_tdd | [3d-spatial-intelligence-upgrade-plan.md](3d-spatial-intelligence-upgrade-plan.md) |
+| 6+7+8 | `live-wiring-8gb-hardening` | **Live Wiring & 8GB Hardening** (Streams W1-W5: wire Stream F+G scaffolds into live pipeline + 8GB LLM hardening + stringency gate rollout + quality harness) | 🔥 **Next up** | **Sprint Q — HIGHEST PRIORITY** | implementation_tdd | [live-wiring-and-8gb-hardening-plan.md](live-wiring-and-8gb-hardening-plan.md) |
+| 1A+5+6 | `per-layer-embeddings-agentic-upgrade` | **Per-Layer Embeddings & Agentic Reasoning Upgrade** (Streams Y0-Y5: contextual priming + MoE domain routing + thinking-mode CoT audit + stateful agentic registry + vision OCR) | 📝 Planned | **Sprint R (post Sprint Q, parallel w/ H)** | implementation_tdd | [per-layer-embeddings-agentic-upgrade-plan.md](per-layer-embeddings-agentic-upgrade-plan.md) |
+| 9+ | `ultimate-architecture-upgrade` | Ultimate Architecture Upgrade (legacy superset covering Streams I–X) | ❌ **Superseded** — narrative retained, tasks distributed across 3D-Spatial / phase-8B / phase-13 / phase-16 / per-layer-embeddings (see governing plan §4.6) | — | design_spec | [ultimate-architecture-upgrade-plan.md](ultimate-architecture-upgrade-plan.md) |
+| 12 | `phase-12-compound-ai-evolution` | Compound AI Evolution: Reactive Neuro-Symbolic OS (Streams S1-S5: Datalog bridge + adversarial swarm + differential dataflow + Wasm kernel + DSPy prompt compilation) | 📝 Planned (needs TDD expansion) | **Sprint Z (stretch — gated on GEOM+PHYS closure)** | design_spec | [phase-12-compound-ai-evolution-plan.md](phase-12-compound-ai-evolution-plan.md) |
+| 13 | `phase-13-high-performance-optimizations` | High-Performance Optimizations (Streams HP.1-HP.5: Merkle fs + AST chunking + event-sourced graph + Wasm spatial + GraphSAGE PQ) | 📝 Planned (needs TDD expansion) | **Sprint HP (post Sprint GT)** | design_spec | [phase-13-high-performance-optimizations-plan.md](phase-13-high-performance-optimizations-plan.md) |
+| 14 | `phase-14-autonomous-knowledge-synthesis` | Autonomous Knowledge Synthesis: Persistent LLM Wiki (Streams WIKI.1-WIKI.4: Docling/Heron ingestion + synthesis loop + Kuzu hybrid store + SHA-256 delta linting) | 📝 Planned (needs TDD expansion) | **Sprint WIKI (post Sprint HP)** | design_spec | [phase-14-autonomous-knowledge-synthesis-plan.md](phase-14-autonomous-knowledge-synthesis-plan.md) |
+| 15 | `phase-15-geometric-constraint-engine` | Geometric Constraint Engine: Buildable Envelope (Streams GEOM.1-GEOM.4: inequality extraction + Z3 CSP solver + 3D envelope generator + multimodal IoU audit) | 📝 Planned (needs TDD expansion) | **Sprint GEOM (post Sprint WIKI, reuses Sprint H Z3 bridge)** | design_spec | [phase-15-geometric-constraint-engine-plan.md](phase-15-geometric-constraint-engine-plan.md) |
+| 16 | `phase-16-statistical-mechanics-graph-physics` | Statistical Mechanics & Graph Physics: Authority Engine (Streams PHYS.1-PHYS.4: PageRank + Boltzmann stability + Shannon sampling + eigenvector cascade; absorbs orphan Stream O VF2 from statistical plan) | 📝 Planned (needs TDD expansion) | **Sprint PHYS (post Sprint GEOM)** | design_spec | [phase-16-statistical-mechanics-graph-physics-plan.md](phase-16-statistical-mechanics-graph-physics-plan.md) |
 | — | `sprint-b-polish-improvements` | Sprint B Polish (extractor dedup, Ollama warmup, lazy CLI, timestamp-aware diff, utils deprecation, concept status) | ✅ Complete (archived 2026-04-14) | Sprint B follow-on — closed | implementation_tdd | [../09_archive/plans/sprint-b-polish-improvements-plan.md](../09_archive/plans/sprint-b-polish-improvements-plan.md) |
 
 **Status legend:** ✅ complete · 🟡 partial · 🔥 in progress (active sprint) · 📝 planned · 🔒 gated (do not start) · ❄️ frozen (contract)
 
 ## Execution Order (Dependency-Correct)
 
-> **2026-04-14 update:** `statistical-architectural-upgrade` now takes precedence over all other plans per user directive (see its §1.2). Phases 8, 9, and 11 are *extended* by this plan, not replaced — their base MVPs ship first inside Streams H.0 and I.0.
+> **2026-04-15 update:** Authoritative execution order now lives in `00-governing-implementation-plan.md` §3. The block below is a summary view. If this diagram and the governing plan diverge, the governing plan wins — update this file in the next reconciliation pass.
+>
+> **2026-04-14 update (retained for history):** `statistical-architectural-upgrade` previously took precedence over all other plans. Its Streams A–I closed 2026-04-14; Phase 8 base and Phase 9 base shipped inside Streams H and I respectively (so `phase-8-graph-contract-indexing` and `phase-9-query-ai-layer` are now **subsumed**, not separately dispatchable).
 
 ```
 Sprint A-C (CLOSED 2026-04-14)
@@ -69,6 +83,59 @@ Sprint F — Graph & Query (weeks 12-18)
 
 Sprint G — Scaling (weeks 19+, gated on second jurisdiction)
   └── Stream K — Rosetta Stone + Precedence Router + Tensor activation
+
+Sprint Q — Live Wiring & 8GB Hardening 🔥 [HIGHEST PRIORITY — QUALITY]
+  ├── Stream W1 — 8GB LLM Survival Mode (model pool + num_ctx cap + context guard + binary mode)
+  ├── Stream W2 — Review Pipeline Wiring (NB prefilter + ontology prompt + SLM router + conformal + tension + Choquet)
+  ├── Stream W3 — Stringency Matrix Live Gate (migrate concepts + lint + promotion gate + graph surface)
+  ├── Stream W4 — Quality Harness (e2e + backcompat + bench + decisions automation)
+  └── Stream W5 — Docs & Decisions Sync (current-phase + README + AGENTS.md)
+
+Sprint R — Per-Layer Embeddings & Agentic Reasoning (weeks 20+, gated on Sprint Q closure)
+  ├── Stream Y0 — Bootstrap + features.y_* flags + backward-compat regression
+  ├── Stream Y1 — Contextual Priming (PLE) — priming/ subpackage + inject_prefix
+  ├── Stream Y2 — Domain-Routing MoE — domain_classifier + route_with_moe
+  ├── Stream Y3 — Thinking Mode + CoT Audit — parse_cot_strict + cot_audit
+  ├── Stream Y4 — Stateful Agentic Registry — SQLite verdict cache (closes Phase 6A Resume gap)
+  └── Stream Y5 — Vision OCR Integration (GATED on ple-vision-probe pass)
+
+Sprint H — 3D Spatial Intelligence Upgrade (weeks 20+, gated on Sprint Q closure)
+  ├── Stream L — Spatial Ingestion + Z3 Solver (001B layer + JSON contract + walker + mapper + constraint evaluator + CLI)
+  ├── Stream M — IFC/OWL Ontology Mapping (registry + frontmatter validator + OWL/Turtle exporter)
+  ├── Stream N — Decoupled Spatial Daemon (TypeScript/Node.js: AABB + GJK + contract writer + CLI)
+  └── Stream O — Epistemic Foraging Scaffold (watched-sources registry + Mahalanobis drift + duplicate detector; NO live scrapers)
+
+Sprint HP — Performance & Scale (Weeks 25+, gated on Phase 8B/12)
+  ├── Stream HP.1 — Merkle Tree Filesystem (Zero-RAM Status)
+  ├── Stream HP.2 — AST-Based Semantic Chunking (Legal Precision)
+  ├── Stream HP.3 — Event-Sourced Graph Engine (Auditability)
+  ├── Stream HP.4 — Wasm-Compiled Spatial Kernels (Math Speed)
+  └── Stream HP.5 — Knowledge Graph Representation Learning (GraphSAGE)
+
+Sprint WIKI — Autonomous Knowledge Synthesis (The Compounding Asset)
+  ├── Stream WIKI.1 — Structural Ingestion (Docling + Heron)
+  ├── Stream WIKI.2 — The Maintainer (Synthesis Loop + Schema Invariants)
+  ├── Stream WIKI.3 — Hybrid Storage (Kuzu + Markdown Sync)
+  └── Stream WIKI.4 — Governance & Linting (SHA-256 Delta Tracking)
+
+Sprint GEOM — Mathematical Truth (Dimensional Building Code)
+  ├── Stream GEOM.1 — Inequality Extraction (Math-First NLP)
+  ├── Stream GEOM.2 — The CSP Solver (Z3 SMT Integration)
+  ├── Stream GEOM.3 — 3D Buildable Envelope Generator (Boolean Polygons)
+  └── Stream GEOM.4 — Multimodal Compliance Auditing (Stochastic Simulations)
+
+Sprint PHYS — Structural Physics (Graph Authority & Stability)
+  ├── Stream PHYS.1 — Statutory Authority (PageRank Centrality)
+  ├── Stream PHYS.2 — Graph Stability (Boltzmann Energy/Temperature)
+  ├── Stream PHYS.3 — Information Density (Nyquist-Shannon Sampling)
+  └── Stream PHYS.4 — Influence Mapping (Eigenvector Cascade)
+
+Sprint Z — Compound Evolution (Future State)
+  ├── Stream S1 — Neuro-Symbolic Logic Bridge (Rust + Datalog)
+  ├── Stream S2 — Adversarial Swarm Topology (Proposer/Inspector/Adjudicator)
+  ├── Stream S3 — Differential Dataflow Engine (O(Δ) Reactive Graph)
+  ├── Stream S4 — Isomorphic Spatial Wasm Kernel (Shared Rust/Wasm Math)
+  └── Stream S5 — Algorithmic Prompt Compilation (DSPy integration)
 
 Deferred (prerequisites outside Vitruvius)
   ├── FUTURE-ML-01 — LoRA fine-tuning      (needs GPU)
@@ -124,6 +191,11 @@ Deferred (prerequisites outside Vitruvius)
 | `.ai/07_experiments/` | Experimental protocols that *inform* plans (parser comparison, model comparison). Not themselves plans. |
 | `.ai/08_prompts/` | LLM prompt reference files. Plans reference them verbatim. |
 | `.ai/10_state/` | Live snapshot of project state. Update after executing any plan. |
+
+## Changelog
+
+- **2026-04-14** — Initial index. Added frontmatter headers to the 3 pre-existing plans (1B, 1C, contract). Created 7 new plans: Phase 2, 3C, 6A, 6B, 7, 8, 9. Phase 7 is the most detailed (`implementation_tdd`, Sprint A active).
+after executing any plan. |
 
 ## Changelog
 

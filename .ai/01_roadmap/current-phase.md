@@ -1,67 +1,75 @@
-# Current Phase — (between sprints)
+# Current Phase — Sprint Q · Live Wiring & 8GB Hardening (pending dispatch)
 
 > **Authoritative roadmap:** `/.ai/01_roadmap/master-roadmap.md` (v2.0.0)
-> **This document:** snapshot of where work is currently paused.
-> **Updated:** 2026-04-14 — all active implementation sprints closed.
+> **Authoritative execution order:** `/.ai/03_plans/00-governing-implementation-plan.md` (v1.0.0)
+> **This document:** snapshot of which sprint is currently active and the next gate.
+> **Updated:** 2026-04-15
 
 ---
 
 ## State
 
-**No active sprint.** The project is currently between user-driven execution
-passes. Sprints A and B are both closed, plus a post-Sprint-B quality pass
-that delivered the pre-review filter, concept enrichment, integration tests,
-and README refresh.
+**Active sprint:** **Sprint Q — Live Wiring & 8GB Hardening** (pending user "go" — plan ready).
+**Sub-plan:** `.ai/03_plans/live-wiring-and-8gb-hardening-plan.md`
+**Streams in order:** W1 (LLM survival mode) → W2 (review pipeline wiring) → W3 (stringency matrix live gate) → W4 (quality harness) → W5 (docs sync).
 
-## Phases completed in the most recent work window (2026-04-14)
+**Why Sprint Q first:** Streams F (review) and G (promotion) of the statistical upgrade shipped Python modules that are currently imported by nothing — see `pre_review/nb_filter.py`, `review/ontology_prompt.py`, `review/slm_router.py`, `review/conformal.py`, `review/tension_analyzer.py`, `review/reflection_parser.py`, `review/choquet.py`, `promotion/bayesian_fusion.py`, `promotion/stringency_matrix.py`, `promotion/temporal_edges.py`. Every downstream sprint depends on those scaffolds being wired into live paths first.
 
-| Phase | Outcome |
-|---|---|
-| **Phase 7 — Promotion Governance** | ✅ Complete — 6 PD 1096 relationships promoted, idempotency + rollback verified, 17-rule validator enforced |
-| **Phase 1C — Centralized Normalization (MVP)** | ✅ MVP — `NormalizationEngine` + 5 Tier A + 3 Tier B rules + `refine` CLI + `.refined.json` manifests. Tier C deferred. |
-| **Phase 2 — Canonicalizer Restoration** | ✅ Complete — structured section generator restored, diff-before-write protection |
-| **Phase 6A — Review Gap Closure** | ✅ Complete — retry, resume, parallel, warmup, config-driven URL, `run-with-review` composite |
-| **Phase 6B — Second-Pass Review** | ✅ Complete — routing + Tier-2 orchestrator + agreement matrix + human escalation worklist |
-| **Phase 3C — Concept Enrichment** | ✅ 16/20 (80%) — deterministic regex anchor + section-title + alias miner, **zero LLM calls** |
-| **Pre-review filter** | ✅ Shipped — 22% → 78% LLM savings on PD 1096 (AD-018, AD-021) |
-| **Integration tests** | ✅ 4 tests covering full pipeline wire-to-wire (AD-021) |
+## Most recently closed sprints
+
+| Sprint | Scope | Notes |
+|---|---|---|
+| A (Sprint A) | Phase 7 Promotion Governance | Closed 2026-04-14. 6 PD 1096 relationships promoted; 17-rule validator enforced. |
+| B (Sprint B) | Phase 1C MVP + Phase 2 + Phase 6A gap closure + Phase 6B | Closed 2026-04-14. Review layer end-to-end. |
+| C (Sprint C) | Phase 1B Foundation + polish | Closed 2026-04-14. 9 commits, 80 new tests. Parsers subpackage + `FileEntry.sha256` + rotate-registries CLI. |
+| D (Sprint D — Statistical & Architectural Upgrade, Streams A–I) | Stream A bootstrap, B ingestion, C OCR/chunking, D concepts, E extraction, F review scaffolds, G promotion scaffolds, H graph intelligence (Phase 8 base), I query (Phase 9 base) | Closed 2026-04-14. **F and G scaffolds are dead code until Sprint Q wires them.** |
 
 ## Snapshot numbers
 
-- **Test suite:** 177 passing (under strict `-W error::DeprecationWarning`)
-- **Canonical relationship files:** 7 (6 promoted + 1 hand-curated)
-- **Enriched concept files:** 16 out of 20 PD 1096 concepts
-- **AI budget on PD 1096 full pipeline run:** ~4 Ollama calls (was ~25)
-- **Commits on `feat/phase-7-promotion-governance`:** ~65+ ahead of main
-- **Decision log:** AD-001 through AD-021 (chronological)
+- **Test suite:** 297/297 passing
+- **Canonical relationship files:** 6 PD 1096 promoted + 1 hand-curated (Sprint H entry gate needs ≥25)
+- **Enriched concept files:** 16/20 PD 1096 concepts
+- **Active branch:** `feat/sprint-d-intelligence-upgrade`
+- **Decision log:** AD-001 through AD-023
 
-## Still unfinished in the active roadmap (`.ai/03_plans/`)
+## Next gates
 
-- **Phase 1B — Multi-Parser Integration** — design spec, ready to expand into TDD
-- **Phase 8 — Graph Contract & Indexing** — gated on ≥50 verified relationships (currently 7)
-- **Phase 9 — Query & AI Layer** — gated on Phase 8
-- **ingestion-refinement-contract** — frozen contract, no action needed
+### Sprint Q entry gate
+**None.** Sprint Q can start immediately. The `live-wiring-and-8gb-hardening-plan.md` is already in `implementation_tdd` form.
 
-## Open backlog (not blocking)
+### Sprint Q exit gate (must all be true to close Q)
+- All 8 Stream F review modules imported by `ollama_review.py`.
+- All 3 Stream G promotion modules imported by `promotion.py`.
+- All 20 canonical concept files have `stringency_vector` frontmatter.
+- `pytest tests/test_livewiring_e2e.py -v` green.
+- Peak RSS ≤ 5 GB on PD 1096 run under `gemma4:e4b`.
+- `features.livewiring_*=false` produces byte-identical output vs pre-Sprint-Q baseline.
+- `AD-024` recorded in `.ai/10_state/decisions.md`.
 
-- **4 concepts remain as placeholders:** `exit-width`, `parking-and-loading-spaces`, `setbacks`, `yards`. They don't match any PD 1096 section title. Recoverable via inline phrase-density extraction or a second source corpus — no LLM required.
-- **Phase 3C follow-ups:** alias miner for concept files, related-concepts detection, full schema compliance including typed `regulatory_basis`. All optional.
-- **`ollama_review.py` splitting** — the module has grown to ~500 lines. Could be split into `ollama_client.py` (HTTP), `ollama_review.py` (orchestrator), `review_artifacts.py` (writers). Not urgent — integration tests would protect the refactor.
-- **Branch rename** — `feat/phase-7-promotion-governance` now contains ~65 commits spanning 6+ phases. A conceptual rename (e.g., `feat/sprint-a-b-bundle`) would improve merge-commit messaging.
+### Immediately after Sprint Q
+- **Sprint R** (Per-Layer Embeddings & Agentic) — entry gate is `sprint-q-closed` tag.
+- **Sprint H** (3D Spatial Intelligence) — entry gate is `sprint-q-closed` AND ≥25 verified relationships.
+- R and H are parallelizable if agent capacity allows.
+
+## Parallel side-track (any time)
+
+**Phase 1B Modernization (§11 Phase 2 + Phase 3)** — parser wrapping + ProcessPoolExecutor + Golden Corpus. Independent of Sprint Q and can run in a side worktree without blocking anything. Plan is `phase-1b-multi-parser-integration-plan.md` but needs a TDD expansion pass before dispatch (see governing plan §5 Task 6).
 
 ## Awaiting
 
-User direction on which phase to tackle next. Recommendations, ranked:
+User direction on one of:
 
-1. **Phase 1B Multi-Parser Integration** — biggest ingestion quality lever, but multi-session work.
-2. **Run the full pipeline on PD 1096 IRR** — second corpus, should yield more relationships and fill some of the 4 missing concepts.
-3. **Split `ollama_review.py`** — quality refactor with forcing function from the integration tests.
-4. **Pull `qwen3:30b`** to run a true architectural-diversity Tier-2 pass (deferred because of 8 GB hardware constraint).
+1. **Dispatch Sprint Q Task 1 (reconcile plans)** followed by Task 2 (Sprint Q dispatch) — the default path per the governing plan.
+2. **Expand a later design-spec plan to TDD form** ahead of time (phase-13 / phase-14 / phase-15 / phase-16 / phase-8B / phase-12).
+3. **Run Phase 1B Modernization in parallel** while Sprint Q executes.
 
 ## Reference
 
-- `/.ai/01_roadmap/master-roadmap.md` — authoritative roadmap, §4 status matrix
-- `/.ai/01_roadmap/milestone-tracker.md` — per-phase checkbox tracker
-- `/.ai/10_state/active_context.md` — pipeline architecture + AI budget
-- `/.ai/10_state/decisions.md` — AD-001 through AD-021
-- `/.ai/09_archive/plans/` — 6 archived plans (phase 7, 1C, 2, 6A, 6B, 3C, polish)
+- Governing plan → `/.ai/03_plans/00-governing-implementation-plan.md` — read this first
+- Master roadmap → `/.ai/01_roadmap/master-roadmap.md`
+- Plan index → `/.ai/03_plans/INDEX.md`
+- Milestone tracker → `/.ai/01_roadmap/milestone-tracker.md`
+- Active context → `/.ai/10_state/active_context.md`
+- Decisions → `/.ai/10_state/decisions.md` (AD-001 through AD-023)
+- Known issues → `/.ai/10_state/known_issues.md`
+- Archived plans → `/.ai/09_archive/plans/`

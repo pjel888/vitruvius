@@ -735,6 +735,31 @@ This section supersedes any prior "Next Actions" list. Items are ordered by depe
 - **Phase 8 graph indexing** starts once Phase 7 has ≥50 verified relationships.
 - **Phase 11 corpus expansion** remains gated until all Sprint B and C exit criteria hold.
 
+### §8.4 Sprint Order (post-2026-04-15)
+
+> **Status:** Sprints A, B, C **CLOSED 2026-04-14**. Sprint D (Statistical & Architectural Upgrade) Streams A–I **CLOSED 2026-04-14**, which also shipped Phase 8 base (Stream H) and Phase 9 base (Stream I). Those two formerly-separate plans (`phase-8-graph-contract-indexing-plan.md` and `phase-9-query-ai-layer-plan.md`) are therefore **subsumed**, not separately dispatchable.
+>
+> **Authoritative execution order:** `/.ai/03_plans/00-governing-implementation-plan.md` §3. This subsection is a short forward reference; if it disagrees with the governing plan, the governing plan wins.
+
+The post-2026-04-15 sprint sequence is:
+
+| Order | Sprint | Sub-plan | Purpose |
+|---|---|---|---|
+| 1 | **Q — Live Wiring & 8GB Hardening** 🔥 | `live-wiring-and-8gb-hardening-plan.md` | Wire the Stream F review + Stream G promotion scaffolds into `ollama_review.py` / `promotion.py`; migrate 20 concepts to have `stringency_vector`; install quality harness. HIGHEST PRIORITY — all downstream sprints are value-gated by this. |
+| 2a | **R — Per-Layer Embeddings & Agentic** (parallel with 2b) | `per-layer-embeddings-agentic-upgrade-plan.md` | Port Gemma 4 PLE/MoE/CoT/stateful/vision innovations; absorbs Stream U psutil hardware router from superseded ultimate plan. |
+| 2b | **H — 3D Spatial Intelligence** (parallel with 2a) | `3d-spatial-intelligence-upgrade-plan.md` | Add Z3 spatial ingestion + IFC/OWL ontology + TS daemon + foraging scaffold. Gated on ≥25 verified relationships. |
+| 3 | **D-residual J / K** (conditional, skip if gates unmet) | `statistical-architectural-upgrade-plan.md` §Streams J, K | Active learning (gated on Ranger dashboard); CLUP scaling (gated on 2nd jurisdiction corpus). |
+| 4 | **GT — Geo-Topological Rust Vault** | `phase-8b-geo-topological-graph-plan.md` | Replace TS spatial daemon with Rust `engine_rs` crate via `pyo3`, FlatBuffers, RocksDB, linear octree. |
+| 5 | **HP — High-Performance Optimizations** | `phase-13-high-performance-optimizations-plan.md` | Merkle fs status, AST chunking, event-sourced graph, Wasm spatial kernels, GraphSAGE PQ. |
+| 6 | **WIKI — Autonomous Knowledge Synthesis** | `phase-14-autonomous-knowledge-synthesis-plan.md` | Docling+Heron ingestion, synthesis loop, Kuzu hybrid store, SHA-256 delta linting. |
+| 7 | **GEOM — Geometric Constraint Engine** | `phase-15-geometric-constraint-engine-plan.md` | Inequality extraction, Z3 CSP solver, 3D buildable envelope, multimodal IoU audit. |
+| 8 | **PHYS — Graph Physics** | `phase-16-statistical-mechanics-graph-physics-plan.md` | PageRank authority, Boltzmann stability, Shannon sampling, eigenvector cascade. Absorbs orphan Stream O VF2 + Boltzmann gate from the statistical plan. |
+| 9 (stretch) | **Z — Compound AI Evolution** | `phase-12-compound-ai-evolution-plan.md` | Neuro-symbolic Datalog bridge, adversarial swarm, differential dataflow, Wasm kernel, DSPy prompt compilation. Gated on GEOM + PHYS closure. |
+
+All sprints from GT onwards require a **TDD-expansion pass** (governing plan Task 6) on the owning plan before dispatch, because those plans currently ship as `plan_type: design_spec`.
+
+A non-blocking parallel side-track is **Phase 1B Modernization** (`phase-1b-multi-parser-integration-plan.md` §11 Phase 2–3), which can run in a side worktree at any time without gating any sprint.
+
 ---
 
 ## 9. KPIs and Health Indicators
