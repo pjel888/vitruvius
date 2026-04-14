@@ -139,6 +139,23 @@ def build_parser() -> argparse.ArgumentParser:
     rotate_parser.add_argument("--dry-run", action="store_true",
                                help="Show what would be pruned without deleting")
 
+    build_graph_parser = subparsers.add_parser("build-graph")
+    build_graph_parser.add_argument("--dry-run", action="store_true",
+                                    help="Run walker + integrity checks only; do not write files")
+
+    query_graph_parser = subparsers.add_parser("query-graph")
+    query_graph_parser.add_argument("--from", dest="from_id", required=True,
+                                    help="Source node id")
+    query_graph_parser.add_argument("--to", dest="to_id", required=True,
+                                    help="Target node id")
+    query_graph_parser.add_argument("--max-depth", type=int, default=3,
+                                    help="Max path depth (default: 3)")
+
+    export_graph_parser = subparsers.add_parser("export-graph-snapshot")
+    export_graph_parser.add_argument("--format", dest="fmt", default="json",
+                                     choices=["json"],
+                                     help="Output format (default: json)")
+
     return parser
 
 
@@ -289,6 +306,22 @@ def main() -> int:
     if args.command == "rotate-registries":
         from vitruvius.registry_rotation import run_rotate_registries
         return run_rotate_registries(keep=args.keep, dry_run=args.dry_run)
+
+    if args.command == "build-graph":
+        from vitruvius.graph.cli import run_build_graph
+        return run_build_graph(dry_run=args.dry_run)
+
+    if args.command == "query-graph":
+        from vitruvius.graph.cli import run_query_graph
+        return run_query_graph(
+            from_id=args.from_id,
+            to_id=args.to_id,
+            max_depth=args.max_depth,
+        )
+
+    if args.command == "export-graph-snapshot":
+        from vitruvius.graph.cli import run_export_graph_snapshot
+        return run_export_graph_snapshot(fmt=args.fmt)
 
     parser.print_help()
     return 1
