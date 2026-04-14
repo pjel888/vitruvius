@@ -28,3 +28,26 @@ def build_relationship_id(from_entity: str, predicate: str, to_entity: str) -> s
 def build_promotion_batch_id() -> str:
     stamp = utc_now_stamp()
     return f"{stamp}_{short_hash(stamp)}"
+
+
+def evidence_fingerprint(evidence_entry: dict) -> str:
+    key = "|".join([
+        str(evidence_entry.get("source_id", "")),
+        str(evidence_entry.get("source_section_id", "")),
+        short_hash(str(evidence_entry.get("evidence_snippet", ""))),
+    ])
+    return key
+
+
+def merge_evidence(existing: list[dict], new: list[dict]) -> list[dict]:
+    seen = {evidence_fingerprint(e): e for e in existing}
+    for entry in new:
+        fp = evidence_fingerprint(entry)
+        if fp not in seen:
+            seen[fp] = entry
+    return list(seen.values())
+
+
+def min_confidence(evidence: list[dict]) -> float:
+    scores = [float(e.get("reviewer_confidence", 0.0)) for e in evidence]
+    return min(scores) if scores else 0.0
