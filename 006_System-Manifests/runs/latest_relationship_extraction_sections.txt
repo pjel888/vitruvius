@@ -1,28 +1,14 @@
 Section-Aware Relationship Extraction
 
 Sections: 63
-Unique relationships: 23
+Unique relationships: 9
 
 law-national-building-code-of-the-philippines -> governs -> concept-building-permit (x6) sections=['section-207', 'section-209', 'section-303', 'section-306', 'section-1101']
-concept-occupancy-classification -> defines -> concept-certificate-of-occupancy (x1) sections=['section-309']
+concept-certificate-of-occupancy -> defines -> concept-occupancy-classification (x1) sections=['section-309']
 law-national-building-code-of-the-philippines -> governs -> concept-stairs (x2) sections=['section-401']
-concept-occupancy-separation -> depends_on -> concept-occupancy-classification (x1) sections=['section-703']
-concept-occupancy-separation -> limits -> concept-occupancy-classification (x1) sections=['section-703']
-concept-occupancy-separation -> affects -> concept-occupancy-classification (x1) sections=['section-703']
-concept-occupancy-separation -> defines -> concept-occupancy-classification (x1) sections=['section-703']
-concept-occupancy-separation -> requires -> concept-occupancy-classification (x1) sections=['section-703']
-concept-yards -> depends_on -> concept-floor-area (x1) sections=['section-704']
-concept-yards -> limits -> concept-floor-area (x1) sections=['section-704']
-concept-yards -> affects -> concept-floor-area (x1) sections=['section-704']
-concept-yards -> defines -> concept-floor-area (x1) sections=['section-704']
-concept-yards -> requires -> concept-floor-area (x1) sections=['section-704']
+concept-occupancy-separation -> requires -> concept-occupancy-classification (x1) sections=['section-703'] alt=['depends_on', 'affects']
+concept-floor-area -> requires -> concept-yards (x1) sections=['section-704'] alt=['depends_on', 'affects']
 concept-light-and-ventilation -> depends_on -> concept-stairs (x1) sections=['section-708']
-concept-light-and-ventilation -> defines -> concept-stairs (x1) sections=['section-708']
-concept-light-and-ventilation -> depends_on -> concept-yards (x1) sections=['section-801']
-concept-light-and-ventilation -> defines -> concept-yards (x1) sections=['section-801']
-concept-stairs -> requires -> concept-fire-resistive-construction (x2) sections=['section-1201']
-concept-stairs -> depends_on -> concept-fire-resistive-construction (x1) sections=['section-1201']
-concept-stairs -> limits -> concept-fire-resistive-construction (x1) sections=['section-1201']
-concept-stairs -> affects -> concept-fire-resistive-construction (x1) sections=['section-1201']
-concept-stairs -> defines -> concept-fire-resistive-construction (x1) sections=['section-1201']
+concept-floor-area -> depends_on -> concept-light-and-ventilation (x1) sections=['section-801']
+concept-occupancy-separation -> requires -> concept-floor-area (x2) sections=['section-1201'] alt=['depends_on', 'affects']
 law-national-building-code-of-the-philippines -> governs -> concept-floor-area (x3) sections=['section-1603']

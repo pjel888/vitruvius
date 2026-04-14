@@ -1,16 +1,16 @@
 {
-  "generated_at": "20260414T042739Z",
+  "generated_at": "20260414T050107Z",
   "model": "gemma4:e4b",
   "source": "001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md",
-  "total_candidates": 23,
-  "completed_reviews": 23,
+  "total_candidates": 9,
+  "completed_reviews": 9,
   "status": "completed",
   "summary": {
-    "keep": 6,
-    "review_further": 1,
-    "reject": 16,
-    "high_confidence_keep": 6,
-    "high_confidence_reject": 16
+    "keep": 2,
+    "review_further": 2,
+    "reject": 5,
+    "high_confidence_keep": 2,
+    "high_confidence_reject": 5
   },
   "reviews": [
     {
@@ -30,33 +30,35 @@
           "the enforcement of the provisions of this Code as well as of the implementing rules and regulations issued therefor. He is the official charged with the duties of issuing building permits. In the performance of his duties, a Building Official may enter any building or its premises at all reasonable ",
           "building permit fees. As used in this Code, the term “traditional indigenous family dwelling” means a dwelling intended for the use and occupancy by the family of the owner only and constructed of native materials such as bamboo, nipa, logs, or lumber, the total cost of which does not exceed fifteen",
           "supervision of the Building Official and his technical staff of qualified professionals. In processing an application for a building permit, the Building Official shall see to it that the applicant satisfies and conforms with approved standard requirements on zoning and land use, lines and grades, s"
-        ]
+        ],
+        "alternate_predicates": []
       },
       "review": {
         "decision": "keep",
         "confidence": 0.9,
-        "reason": "The examples show the 'Code' (law-national-building-code-of-the-philippines) directly referencing and discussing the process and requirements for obtaining a 'building permit' (concept-building-permit), indicating a governing relationship.",
-        "suggested_type": "governs"
+        "reason": "The examples show the 'Building Official' (whose duties are governed by the Code) is directly involved in the process of issuing and reviewing 'building permits', confirming a strong relationship.",
+        "suggested_type": null
       }
     },
     {
       "candidate": {
-        "from": "concept-occupancy-classification",
+        "from": "concept-certificate-of-occupancy",
         "type": "defines",
-        "to": "concept-certificate-of-occupancy",
+        "to": "concept-occupancy-classification",
         "occurrences": 1,
         "sections": [
           "section-309"
         ],
         "examples": [
           "occupancy classification of a building or structure or portion thereof shall be made until the Building Official has issued a Certificate of Occupancy therefor as provided in this Code. A Certificate of Occupancy shall be issued by the Building Official within thirty (30) days if after final inspect"
-        ]
+        ],
+        "alternate_predicates": []
       },
       "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The example shows that the 'occupancy classification' must be made until the 'Certificate of Occupancy' is issued, indicating a definitional or prerequisite relationship.",
-        "suggested_type": "defines"
+        "decision": "review_further",
+        "confidence": 0.7,
+        "reason": "The example shows that the Certificate of Occupancy is related to the requirement of an occupancy classification, but the relationship 'defines' is too strong. The text suggests the classification must be made *until* the Certificate is issued, implying a temporal or prerequisite relationship, not a definition.",
+        "suggested_type": "prerequisite_for"
       }
     },
     {
@@ -71,7 +73,8 @@
         "examples": [
           "identified according to the following types: - (1) Type I – Type I buildings shall be of wood construction. The structural elements may be any of the materials permitted by this Code. - (2) Type II – Type II buildings shall be of wood construction with protective fire-resistant materials and one-hou",
           "identified according to the following types: - (1) Type I – Type I buildings shall be of wood construction. The structural elements may be any of the materials permitted by this Code. - (2) Type II – Type II buildings shall be of wood construction with protective fire-resistant materials and one-hou"
-        ]
+        ],
+        "alternate_predicates": []
       },
       "review": {
         "decision": "reject",
@@ -83,86 +86,6 @@
     {
       "candidate": {
         "from": "concept-occupancy-separation",
-        "type": "depends_on",
-        "to": "concept-occupancy-classification",
-        "occurrences": 1,
-        "sections": [
-          "section-703"
-        ],
-        "examples": [
-          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The example shows that the building's requirements depend on the type of occupancy found within it, directly supporting the 'depends_on' relationship.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-occupancy-separation",
-        "type": "limits",
-        "to": "concept-occupancy-classification",
-        "occurrences": 1,
-        "sections": [
-          "section-703"
-        ],
-        "examples": [
-          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The example shows a rule governing how a building's requirements are determined based on multiple occupancies, which is a limitation or constraint (limits) placed on the relationship between occupancy types and their classifications.",
-        "suggested_type": "limits"
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-occupancy-separation",
-        "type": "affects",
-        "to": "concept-occupancy-classification",
-        "occurrences": 1,
-        "sections": [
-          "section-703"
-        ],
-        "examples": [
-          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The example shows that the occupancy type (concept-occupancy-classification) dictates the requirements for the building, which is directly affected by the separation of occupancy types (concept-occupancy-separation).",
-        "suggested_type": "affects"
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-occupancy-separation",
-        "type": "defines",
-        "to": "concept-occupancy-classification",
-        "occurrences": 1,
-        "sections": [
-          "section-703"
-        ],
-        "examples": [
-          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
-        ]
-      },
-      "review": {
-        "decision": "review_further",
-        "confidence": 0.7,
-        "reason": "The example shows a relationship between 'occupancy' and 'type' (or 'portion of the building'), suggesting a constraint or requirement based on occupancy type. While the candidate relationship 'concept-occupancy-separation' defines 'concept-occupancy-classification', the provided example is too specific and does not clearly demonstrate a general 'separation' concept or how 'occupancy' defines 'classification' in a general sense. It suggests a complex interaction of requirements.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-occupancy-separation",
         "type": "requires",
         "to": "concept-occupancy-classification",
         "occurrences": 1,
@@ -171,6 +94,10 @@
         ],
         "examples": [
           "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
+        ],
+        "alternate_predicates": [
+          "depends_on",
+          "affects"
         ]
       },
       "review": {
@@ -182,101 +109,25 @@
     },
     {
       "candidate": {
-        "from": "concept-yards",
-        "type": "depends_on",
-        "to": "concept-floor-area",
+        "from": "concept-floor-area",
+        "type": "requires",
+        "to": "concept-yards",
         "occurrences": 1,
         "sections": [
           "section-704"
         ],
         "examples": [
           "or street on at least one of its sides. For the purpose of this Section, the center line of an adjoining street or alley shall be considered an adjacent property line. Eaves over required windows shall not be less than 750 millimeters from the side and rear property lines. (b) Fire Resistance of Wal"
-        ]
-      },
-      "review": {
-        "decision": "reject",
-        "confidence": 1.0,
-        "reason": "The candidate relationship 'depends_on' suggests a dependency between 'concept-yards' and 'concept-floor-area'. The provided example text is a building code excerpt discussing property lines, eaves, and fire resistance, which does not demonstrate a dependency relationship between yards and floor area.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-yards",
-        "type": "limits",
-        "to": "concept-floor-area",
-        "occurrences": 1,
-        "sections": [
-          "section-704"
         ],
-        "examples": [
-          "or street on at least one of its sides. For the purpose of this Section, the center line of an adjoining street or alley shall be considered an adjacent property line. Eaves over required windows shall not be less than 750 millimeters from the side and rear property lines. (b) Fire Resistance of Wal"
-        ]
-      },
-      "review": {
-        "decision": "reject",
-        "confidence": 1.0,
-        "reason": "The provided example text discusses building codes, property lines, and window requirements, but does not contain any explicit relationship or connection between 'concept-yards' and 'concept-floor-area'.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-yards",
-        "type": "affects",
-        "to": "concept-floor-area",
-        "occurrences": 1,
-        "sections": [
-          "section-704"
-        ],
-        "examples": [
-          "or street on at least one of its sides. For the purpose of this Section, the center line of an adjoining street or alley shall be considered an adjacent property line. Eaves over required windows shall not be less than 750 millimeters from the side and rear property lines. (b) Fire Resistance of Wal"
+        "alternate_predicates": [
+          "depends_on",
+          "affects"
         ]
       },
       "review": {
         "decision": "reject",
         "confidence": 0.9,
-        "reason": "The candidate relationship 'affects' is too broad and not supported by the provided example text, which discusses specific building codes and measurements (e.g., eaves, property lines, fire resistance).",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-yards",
-        "type": "defines",
-        "to": "concept-floor-area",
-        "occurrences": 1,
-        "sections": [
-          "section-704"
-        ],
-        "examples": [
-          "or street on at least one of its sides. For the purpose of this Section, the center line of an adjoining street or alley shall be considered an adjacent property line. Eaves over required windows shall not be less than 750 millimeters from the side and rear property lines. (b) Fire Resistance of Wal"
-        ]
-      },
-      "review": {
-        "decision": "reject",
-        "confidence": 1.0,
-        "reason": "The provided example text discusses building codes, property lines, and fire resistance, but does not contain any evidence linking 'concept-yards' to 'concept-floor-area' using the 'defines' relationship.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-yards",
-        "type": "requires",
-        "to": "concept-floor-area",
-        "occurrences": 1,
-        "sections": [
-          "section-704"
-        ],
-        "examples": [
-          "or street on at least one of its sides. For the purpose of this Section, the center line of an adjoining street or alley shall be considered an adjacent property line. Eaves over required windows shall not be less than 750 millimeters from the side and rear property lines. (b) Fire Resistance of Wal"
-        ]
-      },
-      "review": {
-        "decision": "reject",
-        "confidence": 1.0,
-        "reason": "The candidate relationship 'requires' between 'concept-yards' and 'concept-floor-area' is not supported by the provided example text. The example discusses property lines, eaves, and fire resistance, but does not establish a direct requirement link between yards and floor area.",
+        "reason": "The candidate relationship 'concept-floor-area requires concept-yards' is not supported by the provided example text. The example discusses property lines, eaves, and fire resistance, but does not establish a requirement between floor area and yards.",
         "suggested_type": null
       }
     },
@@ -291,7 +142,8 @@
         ],
         "examples": [
           "an inside lot, and subject to the provisions on Easements of Light and View of the Civil Code of Philippines, shall be at least 2 meters from the property line. (b) Light and Ventilation Every dwelling shall be so constructed and arranged as to provide adequate light and ventilation as provided unde"
-        ]
+        ],
+        "alternate_predicates": []
       },
       "review": {
         "decision": "reject",
@@ -302,69 +154,30 @@
     },
     {
       "candidate": {
-        "from": "concept-light-and-ventilation",
-        "type": "defines",
-        "to": "concept-stairs",
-        "occurrences": 1,
-        "sections": [
-          "section-708"
-        ],
-        "examples": [
-          "an inside lot, and subject to the provisions on Easements of Light and View of the Civil Code of Philippines, shall be at least 2 meters from the property line. (b) Light and Ventilation Every dwelling shall be so constructed and arranged as to provide adequate light and ventilation as provided unde"
-        ]
-      },
-      "review": {
-        "decision": "reject",
-        "confidence": 0.9,
-        "reason": "The candidate relationship 'concept-light-and-ventilation' defines 'concept-stairs'. The provided example text discusses light and ventilation requirements for dwellings and does not mention stairs or define them.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-light-and-ventilation",
+        "from": "concept-floor-area",
         "type": "depends_on",
-        "to": "concept-yards",
+        "to": "concept-light-and-ventilation",
         "occurrences": 1,
         "sections": [
           "section-801"
         ],
         "examples": [
           "- (a) Subject to the provisions of the Civil Code of the Philippines on Easements of Light and View, and to the provisions of this part of the Code, every building shall be designed, constructed, and equipped to provide adequate light and ventilation. - (b) All buildings shall face a street or publi"
-        ]
-      },
-      "review": {
-        "decision": "reject",
-        "confidence": 0.9,
-        "reason": "The candidate relationship shows 'concept-light-and-ventilation' depends on 'concept-yards'. The provided example text, however, discusses general requirements for light and ventilation for buildings (e.g., 'every building shall be designed, constructed, and equipped to provide adequate light and ventilation,' and 'All buildings shall face a street or publi'). There is no mention or evidence linking this requirement directly to 'concept-yards'.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-light-and-ventilation",
-        "type": "defines",
-        "to": "concept-yards",
-        "occurrences": 1,
-        "sections": [
-          "section-801"
         ],
-        "examples": [
-          "- (a) Subject to the provisions of the Civil Code of the Philippines on Easements of Light and View, and to the provisions of this part of the Code, every building shall be designed, constructed, and equipped to provide adequate light and ventilation. - (b) All buildings shall face a street or publi"
-        ]
+        "alternate_predicates": []
       },
       "review": {
-        "decision": "reject",
-        "confidence": 0.9,
-        "reason": "The candidate relationship 'concept-light-and-ventilation' defines 'concept-yards'. The provided example text discusses the requirement for buildings to provide adequate light and ventilation, but it does not define or establish a relationship between 'light and ventilation' and 'yards'.",
+        "decision": "review_further",
+        "confidence": 0.7,
+        "reason": "The candidate relationship suggests that 'concept-floor-area' depends on 'concept-light-and-ventilation'. The provided example text, however, discusses the general requirement for buildings to be designed for adequate light and ventilation (Section 801). While floor area is related to building design, the text does not explicitly establish a dependency of 'floor area' on 'light and ventilation' in a way that confirms the 'depends_on' relationship.",
         "suggested_type": null
       }
     },
     {
       "candidate": {
-        "from": "concept-stairs",
+        "from": "concept-occupancy-separation",
         "type": "requires",
-        "to": "concept-fire-resistive-construction",
+        "to": "concept-floor-area",
         "occurrences": 2,
         "sections": [
           "section-1201"
@@ -372,92 +185,16 @@
         "examples": [
           "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the",
           "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the"
-        ]
-      },
-      "review": {
-        "decision": "reject",
-        "confidence": 0.9,
-        "reason": "The provided examples show the concept 'concept-stairs' being related to general structural design requirements (Chapter/Section 1201), but they do not specifically establish a direct 'requires' relationship with 'concept-fire-resistive-construction'. The relationship is not supported by the evidence.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-stairs",
-        "type": "depends_on",
-        "to": "concept-fire-resistive-construction",
-        "occurrences": 1,
-        "sections": [
-          "section-1201"
         ],
-        "examples": [
-          "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the"
+        "alternate_predicates": [
+          "depends_on",
+          "affects"
         ]
       },
       "review": {
         "decision": "reject",
         "confidence": 0.9,
-        "reason": "The candidate relationship 'depends_on' suggests a structural dependency between 'concept-stairs' and 'concept-fire-resistive-construction'. However, the provided example text is general boilerplate language about structural design and building codes, and does not contain any explicit mention or evidence linking the concept of stairs to the requirement of fire-resistive construction.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-stairs",
-        "type": "limits",
-        "to": "concept-fire-resistive-construction",
-        "occurrences": 1,
-        "sections": [
-          "section-1201"
-        ],
-        "examples": [
-          "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the"
-        ]
-      },
-      "review": {
-        "decision": "reject",
-        "confidence": 0.9,
-        "reason": "The provided example text discusses general structural design and building codes (Chapter 1201) and does not contain any explicit connection or evidence linking 'concept-stairs' (stairs) to 'concept-fire-resistive-construction'.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-stairs",
-        "type": "affects",
-        "to": "concept-fire-resistive-construction",
-        "occurrences": 1,
-        "sections": [
-          "section-1201"
-        ],
-        "examples": [
-          "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the"
-        ]
-      },
-      "review": {
-        "decision": "reject",
-        "confidence": 0.9,
-        "reason": "The provided example text discusses general structural design and building codes, but does not explicitly show that 'concept-stairs' 'affects' 'concept-fire-resistive-construction'.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-stairs",
-        "type": "defines",
-        "to": "concept-fire-resistive-construction",
-        "occurrences": 1,
-        "sections": [
-          "section-1201"
-        ],
-        "examples": [
-          "herein set forth governing quality, characteristics and properties of materials, methods of design and construction, type of occupancy and classification. All other matters relative to the structural design of all buildings and other structures not provided for in this Chapter shall conform with the"
-        ]
-      },
-      "review": {
-        "decision": "reject",
-        "confidence": 0.9,
-        "reason": "The candidate relationship 'defines' between 'concept-stairs' and 'concept-fire-resistive-construction' is not supported by the provided evidence. The example text discusses general structural design and building codes, not a definition of stairs in terms of fire resistance.",
+        "reason": "The provided examples show the phrase 'type of occupancy' being mentioned in the context of structural design and building codes, but they do not demonstrate a direct 'requires' relationship between 'concept-occupancy-separation' and 'concept-floor-area'.",
         "suggested_type": null
       }
     },
@@ -474,7 +211,8 @@
           "V Constructions may be glazed or equipped with approved plastics: Provided, that: - (1) The wall in which such glazing is installed is so located that openings are not required to be fire-protected. - (2) Except for Type I Construction, the location, size, and spacing of such glazed openings do not ",
           "V Constructions may be glazed or equipped with approved plastics: Provided, that: - (1) The wall in which such glazing is installed is so located that openings are not required to be fire-protected. - (2) Except for Type I Construction, the location, size, and spacing of such glazed openings do not ",
           "V Constructions may be glazed or equipped with approved plastics: Provided, that: - (1) The wall in which such glazing is installed is so located that openings are not required to be fire-protected. - (2) Except for Type I Construction, the location, size, and spacing of such glazed openings do not "
-        ]
+        ],
+        "alternate_predicates": []
       },
       "review": {
         "decision": "reject",
