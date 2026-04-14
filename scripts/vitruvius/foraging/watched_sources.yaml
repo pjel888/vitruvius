@@ -1,0 +1,16 @@
+# Stream O.1 — registry of external sources the pipeline *should*
+# eventually monitor. No fetcher ships in this plan (see §2.2 of
+# 3d-spatial-intelligence-upgrade-plan.md). This file is a data
+# contract only — the fetcher lands in a separate security-reviewed
+# follow-on commit.
+sources:
+  - name: DPWH-Circulars
+    url: https://example.invalid/dpwh/circulars
+    category: 001-Laws
+    subcategory: DPWH-pending
+    frequency: weekly
+  - name: ASTM-International
+    url: https://example.invalid/astm
+    category: 004-Technology
+    subcategory: material-standards
+    frequency: monthly
