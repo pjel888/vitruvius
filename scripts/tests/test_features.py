@@ -134,6 +134,8 @@ EXPECTED_FLAGS = {
     "phys_shannon_sampling", "phys_eigenvector_cascade",
     # Sprint HP — High-Performance Optimizations (phase-13)
     "hp_merkle_fs",
+    # Sprint GEOM — Geometric Constraint Engine (phase-15)
+    "geom_csp_compiler", "geom_envelope_2d",
 }
 
 

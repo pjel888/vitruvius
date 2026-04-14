@@ -154,3 +154,10 @@ features:
   # kernels), HP.5 (GraphSAGE) are deferred until their external
   # toolchains / dependencies are installed on the host.
   hp_merkle_fs: false
+  # Sprint GEOM — Geometric Constraint Engine (phase-15).
+  # Narrow slice: GEOM.1 inequality→Z3 compiler (needs z3 only) and
+  # GEOM.3 2D buildable envelope (needs shapely only). GEOM.3 full 3D
+  # and GEOM.4 multimodal audit are deferred until trimesh + cvxpy
+  # are installed on the ops host.
+  geom_csp_compiler: false
+  geom_envelope_2d: false
