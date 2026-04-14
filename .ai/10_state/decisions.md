@@ -102,6 +102,20 @@
 - **Decision:** Add a `skipped` action to the orchestrator: when `merge_evidence` returns the same list as the existing evidence (no new fingerprints), classify the candidate as `skipped`, do not rewrite the file, do not update metadata, and do not add an audit log entry. Strict byte-identical determinism is now a test invariant (`test_idempotent_file_bytes_unchanged`).
 - **Consequence:** Downstream consumers (Phase 8 graph builder) can rely on deterministic canonical output. Git-diff-based change detection works as expected.
 
+## AD-014: Regex Extractor Dedup by (from, to)
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** The 2026-04-14 end-to-end experiment exposed that the regex extractor in `relationships_sections.py` produces up to 5 candidates per endpoint pair (one per predicate pattern match). This inflated the review workload and was the dominant contributor to the 82% rejection rate. Running the deduper against the refined PD 1096 corpus cut the candidate count from 23 to 9 (−61%) without losing any information — dropped predicates are recorded in `alternate_predicates` for Phase 6B to revisit.
+- **Decision:** Dedup candidates by `(from, to)` in `relationships_sections.dedupe_by_endpoints` after aggregation. The surviving candidate carries the highest-occurrence predicate (tie-broken by `PREDICATE_PRIORITY` order: `governs > defines > requires > depends_on > limits > affects > supersedes`). Sections and examples from all siblings are merged into the survivor.
+- **Consequence:** Directly cuts candidate volume by up to 5×. Review layer no longer wastes cycles on predicate variants. The true Phase 1C rejection-rate impact becomes measurable because the extraction is no longer the dominant noise source.
+
+## AD-015: Lazy CLI Imports
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** `scripts/pipeline_cli.py` eagerly imported every handler at module load, pulling in heavy PDF/OCR dependencies (`opendataloader_pdf`, `pypdf`, `ocrmypdf`) even for commands like `promote`, `refine`, and `canonicalize` that never touch conversion. This blocked the CLI from running in minimal environments and was hit firsthand during Phase 7 execution when `pip3 install -r requirements.txt` was required before `promote --help` would work.
+- **Decision:** Move every handler import inside its `if args.command == "..."` branch. Top-level imports reduced to `argparse` only. Each command handler is imported lazily the first time it is dispatched.
+- **Consequence:** `pipeline_cli.py promote --help` now works without any PDF libraries installed. Minimal-deployment environments (audit/CI containers, minimal operator workstations) can use promote/refine/canonicalize without the full conversion stack. Test `test_cli_lazy_imports.test_promote_help_does_not_import_conversion` asserts that `vitruvius.conversion`, `opendataloader_pdf`, `pypdf`, and `ocrmypdf` are NOT in `sys.modules` after importing `pipeline_cli`. The test runs in a subprocess so it cannot pollute the parent pytest process — an initial in-process approach broke `test_ollama_warmup` by leaving stale module references.
+
 ## AD-013: yaml.safe_dump for Frontmatter Emission
 - **Date:** 2026-04-14
 - **Status:** Implemented

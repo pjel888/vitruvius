@@ -16,6 +16,7 @@
 - **Impact:** MEDIUM — feeds the review layer with noise, inflating compute cost and review time.
 - **Mitigation:** Phase 1C (normalization) reduces input variance. Phase 5E (LLM-assisted extraction) is planned but gated on Phase 6B to avoid multiplying noise.
 - **Closure:** Addressed by Phase 1C (partial) and Phase 5E (full, long-term).
+- **Update (2026-04-14):** Endpoint-pair dedup (AD-014) cuts candidate volume by collapsing the 5-predicates-per-edge pattern into a single candidate. Real-data impact on refined PD 1096: 23 → 9 candidates (−61%). The deeper fragility (paragraph-boundary sensitivity) remains — Phase 5E is still the full fix.
 
 ### RI-003: External Dependency — Ollama (CLOSED 2026-04-14)
 - **Description:** The review layer requires an Ollama server at `127.0.0.1:11434` with the configured model loaded. Previously the URL was hardcoded.
@@ -64,6 +65,7 @@
 - **Impact:** MEDIUM — concepts look populated in the filesystem but carry no knowledge. Extraction uses them as vocabulary, so placeholder sprawl is safe structurally but semantically thin.
 - **Mitigation:** Phase 3C (concept enrichment) replaces placeholders with extracted definitions.
 - **Closure:** Phase 3C — starts after Phase 2 restoration.
+- **Update (2026-04-14):** Newly generated concepts now honestly declare `canonical_status: placeholder` + `concept_status: placeholder`, closing the Rule 17 loophole where the Validator was implicitly permissive. Existing 20 placeholder files on disk still say `canonical_status: draft` and need a one-shot migration before Phase 3C.
 
 ### RI-011: Canonicalizer Regression (CLOSED 2026-04-14)
 - **Description:** `canonicalize.py` generates YAML frontmatter + header only. The hand-curated canonical files under `003/shared/sources/` show a richer structure (Overview / Coverage / Key Points / Referenced Concepts) that the current script cannot reproduce.
