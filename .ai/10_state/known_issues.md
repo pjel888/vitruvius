@@ -17,11 +17,11 @@
 - **Mitigation:** Phase 1C (normalization) reduces input variance. Phase 5E (LLM-assisted extraction) is planned but gated on Phase 6B to avoid multiplying noise.
 - **Closure:** Addressed by Phase 1C (partial) and Phase 5E (full, long-term).
 
-### RI-003: External Dependency — Ollama
-- **Description:** The review layer requires an Ollama server at `127.0.0.1:11434` with the configured model loaded. Currently the URL is hardcoded.
+### RI-003: External Dependency — Ollama (PARTIALLY CLOSED 2026-04-14)
+- **Description:** The review layer requires an Ollama server at `127.0.0.1:11434` with the configured model loaded. Previously the URL was hardcoded.
 - **Impact:** MEDIUM — the review stage fails if Ollama is down or the model is not pulled.
-- **Mitigation:** Sprint A · A-1 moves the URL into `config/vitruvius.yaml`. Sprint B adds a pre-flight health check before batch start.
-- **Closure:** Sprint A (partial) + Sprint B (full).
+- **Mitigation:** ✅ Sprint A · A-1 moved the URL into `config/vitruvius.yaml` (AD-009 implementation). Sprint B will add a pre-flight health check before batch start.
+- **Status:** **PARTIALLY CLOSED.** Config migration done; pre-flight health check pending Sprint B.
 
 ### RI-004: Python Environment / PYTHONPATH
 - **Description:** `scripts/vitruvius` is not a standard `src/` layout. CLI invocation requires specific working-directory context.
@@ -35,11 +35,11 @@
 - **Mitigation:** Rename under a dedicated cleanup PR using `migrate-ids-plan` after Sprint C.
 - **Closure:** Post-Sprint C cleanup pass.
 
-### RI-006: Manual Promotion Gap
+### RI-006: Manual Promotion Gap (CLOSED 2026-04-14)
 - **Description:** No automated bridge between the Review Layer (`latest_relationship_review_ollama.json`) and the Canonical Knowledge Layer.
 - **Impact:** HIGH — blocks the entire downstream stack.
-- **Mitigation:** Sprint A (Phase 7) is building the automated bridge.
-- **Closure:** Sprint A exit criteria.
+- **Mitigation:** ✅ Sprint A Phase 7 built the Promotion Layer: `pipeline_cli.py promote` reads `latest_relationship_review_high_confidence.json`, validates against 17 rules, and writes records to `003_Canonical-Knowledge-Layer/shared/relationships/` with full audit log.
+- **Status:** **CLOSED.** First 3 PD 1096 relationships promoted on 2026-04-14. Idempotency and rollback verified.
 
 ### RI-007: Normalization Fragmentation
 - **Description:** Whitespace collapsing, line merging, slugification, and JSON fence stripping are each duplicated across 2–3 modules (`utils.py`, `relationships_sections.py`, `canonicalize.py`, `ollama_review.py`). No central Text Refinement layer.
@@ -77,19 +77,20 @@
 - **Mitigation:** After Sprint A ships Phase 7, add an opt-in `run-with-review` pipeline mode.
 - **Closure:** Sprint C.
 
-## Risk Severity Summary
+## Risk Severity Summary (updated 2026-04-14)
 | Severity | Count | IDs |
 |---|---|---|
-| HIGH | 2 | RI-001, RI-006 |
-| MEDIUM | 9 | RI-002, RI-003, RI-007, RI-008, RI-009, RI-010, RI-011, RI-012, RI-005* |
+| HIGH | 1 (was 2) | RI-001 |
+| MEDIUM | 8 (was 9) | RI-002, RI-003 (partial), RI-007, RI-008, RI-009, RI-010, RI-011, RI-012 |
 | LOW | 1 | RI-004 |
+| CLOSED | 1 | RI-006 ✅ |
 
 *RI-005 is low-impact but MEDIUM-effort to close.*
 
 ## Closure Timeline
 | Sprint | Risks Closing |
 |---|---|
-| Sprint A (wk 1–2) | RI-003 (partial), RI-006 |
+| **Sprint A (closed 2026-04-14)** | ✅ **RI-006** (full), ✅ **RI-003** (partial — config done, health check pending) |
 | Sprint B (wk 3–6) | RI-003 (full), RI-007 |
 | Sprint C (wk 7–12) | RI-005, RI-009, RI-011, RI-012 |
 | Post-Sprint C | RI-008 |

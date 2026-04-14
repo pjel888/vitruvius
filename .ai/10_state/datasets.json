@@ -67,13 +67,19 @@
     "enrichment_target": "Phase 3C moves all 20 concepts to enriched status with regulatory_basis pointers."
   },
   "seeded_relationships": {
-    "count": 1,
+    "count": 4,
     "directory": "003_Canonical-Knowledge-Layer/shared/relationships/",
-    "known_files": [
+    "hand_curated_draft": [
       "occupancy-governs-fire-requirements.md"
     ],
-    "status": "draft (hand-curated, predates Phase 7 Promotion Layer)",
-    "note": "This record is used as a golden-example for Sprint A but has not yet been processed by run_promote. Sprint A · A-5 will produce the first promoted records."
+    "phase_7_promoted": [
+      "rel-law-national-building-code-of-the-philippines-governs-concept-building-permit.md",
+      "rel-concept-occupancy-classification-depends-on-concept-mixed-occupancy.md",
+      "rel-concept-occupancy-classification-affects-concept-mixed-occupancy.md"
+    ],
+    "first_promotion_batch_id": "20260414T035210Z_0959acf9",
+    "promoted_at_utc": "2026-04-14T03:52:10Z",
+    "status": "3 promoted by Phase 7 pipeline (Sprint A). 1 pre-existing hand-curated draft retained for reference."
   },
   "gated_datasets": [
     {

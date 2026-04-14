@@ -195,17 +195,30 @@
       "sprint": "Sprint C (weeks 7-12)"
     },
     "promote": {
-      "module": "NOT YET IMPLEMENTED (Phase 7)",
+      "module": "scripts/vitruvius/promotion.py",
       "cli_command": "promote",
-      "status": "in_progress_sprint_a",
-      "sprint": "Sprint A (weeks 1-2)",
-      "planned_inputs": [
-        "006_System-Manifests/runs/latest_relationship_review_high_confidence.json"
+      "cli_flags": ["--execute", "--rollback BATCH_ID"],
+      "handler": "run_promote",
+      "status": "complete",
+      "sprint": "Sprint A (closed 2026-04-14)",
+      "default_mode": "dry-run",
+      "inputs": [
+        "006_System-Manifests/runs/latest_relationship_review_high_confidence.json",
+        "scripts/vitruvius/rules/relationship_registry.yaml",
+        "003_Canonical-Knowledge-Layer/shared/sources/*.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/*.md"
       ],
-      "planned_outputs": [
+      "outputs": [
         "003_Canonical-Knowledge-Layer/shared/relationships/**/*.md",
         "006_System-Manifests/runs/latest_promotion_audit.log"
-      ]
+      ],
+      "properties": {
+        "idempotent": true,
+        "byte_identical_on_rerun": true,
+        "rollback_supported": true,
+        "validator_rules": 17,
+        "test_coverage": "43/43"
+      }
     },
     "build_graph": {
       "module": "NOT YET IMPLEMENTED (Phase 8)",

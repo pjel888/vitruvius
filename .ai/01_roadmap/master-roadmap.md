@@ -200,14 +200,14 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 | 5. Relationship Extraction | Complete (Section-Aware) | Regex-based; section-aware variant exists; **82% rejection rate** at review; technically "primitive" | 🟡 **PARTIAL (regex-grade)** | `extraction-audit.md` §10 |
 | 6A. Local LLM Review | Complete ✅ | Implemented and functional; **manual trigger only**, not in `run`; no second pass; no confidence-threshold auto-filter; hardcoded Ollama URL | ✅ **COMPLETE (with known gaps)** | `review-layer-audit.md` |
 | 6B. Second-Pass Review | Planned | Not started | 📝 **PLANNED** | — |
-| 7. Promotion Governance | Not implemented | Not started; no code in `scripts/vitruvius/` | ❌ **NOT STARTED (top priority)** | Audit confirms |
+| 7. Promotion Governance | Not implemented | Not started; no code in `scripts/vitruvius/` | ✅ **COMPLETE (2026-04-14)** | First batch promoted on PD 1096; 43/43 tests pass; idempotency + rollback verified |
 | 8. Graph Contract & Indexing | Not implemented | Not started | ❌ **NOT STARTED** | — |
 | 9. Query & AI Layer | Not implemented | Not started | ❌ **NOT STARTED** | — |
 | 10. Canonical Relationship Storage | Not implemented | Folder `003/shared/relationships/` is empty | ❌ **NOT STARTED** | Merged conceptually into Phase 7 |
 | 11. Dataset Expansion | Not implemented | Gated on Phase 7 | 🔒 **GATED (do not start)** | Principle P10 |
 | 12. AI-Augmented Reasoning | Not implemented | Long-term | 🔒 **GATED (do not start)** | — |
 
-**Honest overall completion:** *ingestion ≈ 90%, refinement ≈ 0%, canonicalization ≈ 30%, concept layer ≈ 15%, extraction ≈ 40%, review ≈ 70%, promotion onwards ≈ 0%*. The project is best described as *late-ingestion / early-extraction*, not *starting Phase 7*.
+**Honest overall completion (updated 2026-04-14 after Sprint A):** *ingestion ≈ 90%, refinement ≈ 0%, canonicalization ≈ 30%, concept layer ≈ 15%, extraction ≈ 40%, review ≈ 75% (config migration done), promotion ≈ 100%, downstream (8, 9, 11, 12) ≈ 0%*. The project now has a working end-to-end path from raw source to canonical relationship file via the Phase 7 Promotion Layer. Next sprint: Phase 1C normalization to shrink the 82% rejection rate.
 
 ---
 

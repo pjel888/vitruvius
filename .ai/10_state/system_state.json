@@ -1,13 +1,16 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-04-14T02:49:00Z",
+  "generated_at_utc": "2026-04-14T03:55:00Z",
   "project": "vitruvius",
-  "vision_completion_pct": 35,
-  "pipeline_completion_pct": 55,
-  "active_sprint": "Sprint A — Unblock Promotion (Phase 7)",
-  "sprint_window_utc": {
-    "start": "2026-04-14T00:00:00Z",
-    "end": "2026-04-28T00:00:00Z"
+  "vision_completion_pct": 45,
+  "pipeline_completion_pct": 65,
+  "active_sprint": "Sprint A closed 2026-04-14 — awaiting user to start Sprint B",
+  "last_sprint_completed": {
+    "name": "Sprint A — Unblock Promotion (Phase 7)",
+    "closed_utc": "2026-04-14T03:55:00Z",
+    "outcome": "Phase 7 Promotion Governance shipped end-to-end. 43/43 tests pass. 3 PD 1096 relationships promoted. Idempotency and rollback verified.",
+    "tests_passing": "43/43",
+    "records_promoted": 3
   },
   "phase_status": {
     "phase_0_foundation": "complete",
@@ -18,9 +21,9 @@
     "phase_3_concept_layer": "partial_placeholders",
     "phase_4_identity_cleanup": "complete",
     "phase_5_relationship_extraction": "partial_regex",
-    "phase_6a_llm_review": "complete_with_gaps",
+    "phase_6a_llm_review": "complete_with_partial_gap_closure",
     "phase_6b_second_pass": "planned",
-    "phase_7_promotion": "in_progress_sprint_a",
+    "phase_7_promotion": "complete",
     "phase_8_graph": "not_started",
     "phase_9_query": "not_started",
     "phase_10_relationship_storage": "merged_into_phase_7",
@@ -53,12 +56,18 @@
     ".ai/03_plans/ingestion-refinement-contract.md"
   ],
   "risk_counts": {
-    "high": 2,
-    "medium": 9,
-    "low": 1
+    "high": 1,
+    "medium": 8,
+    "low": 1,
+    "closed_this_sprint": 1
   },
-  "open_decisions": [
-    "AD-011: First promoted relationship record shape (fills in at Sprint A exit)"
+  "decisions_logged_sprint_a": [
+    "AD-009: Master roadmap v2.0.0 published",
+    "AD-010: Three-sprint execution sequence",
+    "AD-011: First promoted relationship record shape (filled in)",
+    "AD-012: Strict byte-identical idempotency",
+    "AD-013: yaml.safe_dump for frontmatter emission"
   ],
-  "next_review_due_utc": "2026-04-28T00:00:00Z"
+  "next_review_due_utc": "awaiting_user_signoff",
+  "feature_branch": "feat/phase-7-promotion-governance"
 }

@@ -88,19 +88,19 @@
 - [ ] False-positive rate < 50% (currently 82% rejection)
 - [ ] LLM-assisted candidate generation (Phase 5E — future, gated on 6B)
 
-## Phase 6A — Local LLM Review ✅ COMPLETE (with gaps)
+## Phase 6A — Local LLM Review ✅ COMPLETE (with partial gap closure)
 - [x] Ollama integration (`ollama_review.py`)
 - [x] Default model `gemma4:31b`
 - [x] Three decisions: keep / review_further / reject
 - [x] Confidence scoring 0.0–1.0 with clamping
 - [x] Interruption-safe partial saves
 - [x] Progress tracking (in_progress / completed / interrupted)
-- [ ] **Move Ollama URL to config file** (Sprint A · A-1)
-- [ ] **High-confidence output writer** (Sprint A · A-1)
-- [ ] Automatic pipeline integration (non-manual trigger)
-- [ ] Per-candidate retry with bounded attempts
-- [ ] Resume-from-progress on relaunch
-- [ ] Sequential → parallelized processing
+- [x] **Move Ollama URL to config file** (closed 2026-04-14, Sprint A · A-1)
+- [x] **High-confidence output writer** (closed 2026-04-14, Sprint A · A-1)
+- [ ] Automatic pipeline integration (non-manual trigger) — Sprint C
+- [ ] Per-candidate retry with bounded attempts — Sprint B
+- [ ] Resume-from-progress on relaunch — Sprint B
+- [ ] Sequential → parallelized processing — Sprint B
 
 ## Phase 6B — Second-Pass Review 📝 PLANNED (Sprint C)
 - [ ] `review-relationships-ollama-second-pass` CLI command
@@ -110,19 +110,24 @@
 - [ ] Human escalation worklist (Tier 3)
 - [ ] Disagreement rate logging
 
-## Phase 7 — Promotion Governance 🔥 SPRINT A
-- [ ] **A-2** `relationship_registry.yaml` (closed vocabulary + compatibility)
-- [ ] **A-3** `promotion_validator.py` (§3.5 schema enforcement)
-- [ ] **A-4** `run_promote` CLI with dry-run default
-- [ ] **A-4** Evidence-array merge logic for duplicate triplets
-- [ ] **A-4** `promotion_audit.log` writer
-- [ ] **A-4** `--rollback <batch_id>` mode
-- [ ] **A-5** First 3 PD 1096 relationships promoted end-to-end
-- [ ] **A-5** Idempotency verified on re-run
-- [ ] **A-6** Decision log `AD-011` written
+## Phase 7 — Promotion Governance ✅ COMPLETE (2026-04-14)
+- [x] **A-1** Ollama URL moved to `config/vitruvius.yaml` (RI-003 closed)
+- [x] **A-1** `latest_relationship_review_high_confidence.json` writer
+- [x] **A-2** `relationship_registry.yaml` (closed vocabulary + compatibility)
+- [x] **A-3** `promotion_validator.py` (§3.5 schema enforcement — all 17 rules)
+- [x] **A-4** `run_promote` CLI with dry-run default
+- [x] **A-4** Evidence-array merge logic with fingerprint deduplication
+- [x] **A-4** `promotion_audit.log` writer (append-only)
+- [x] **A-4** `--rollback <batch_id>` mode
+- [x] **A-5** First 3 PD 1096 relationships promoted end-to-end
+- [x] **A-5** Idempotency verified (byte-identical files on re-run, `skipped=3`)
+- [x] **A-5** Rollback verified
+- [x] **A-6** Decision log `AD-011` written
 
-**Input file:** `latest_relationship_review_high_confidence.json` (created in A-1)
-**Output dir:** `003_Canonical-Knowledge-Layer/shared/relationships/`
+**Input file:** `latest_relationship_review_high_confidence.json` (A-1, working)
+**Output dir:** `003_Canonical-Knowledge-Layer/shared/relationships/` (3 new records)
+**Test coverage:** 43/43 passing
+**Sprint A closed:** 2026-04-14
 
 ## Phase 8 — Graph Contract & Indexing [ ] NOT STARTED
 **Gate:** Phase 7 producing ≥50 verified relationships.

@@ -78,12 +78,36 @@
   3. **Sprint C (weeks 7–12) — Harden the Front End.** Phase 1B (multi-parser) + Phase 6B (second-pass) + Phase 2 (canonicalizer restoration) in parallel.
 - **Consequence:** Phase 7 exists and exercises the governance contract before upstream is perfect. The 0.90 gate ensures only high-signal edges enter canonical storage regardless of input noise. Downstream phases (8, 9, 11, 12) remain gated until after Sprint C.
 
-## AD-011: First Promoted Relationship Record Shape *(pending)*
-- **Date:** TBD (Sprint A exit)
-- **Status:** Planned
-- **Context:** Sprint A writes the first canonical relationship files. Their final shape must be recorded here before Sprint B begins, so downstream phases have a stable contract.
-- **Decision:** *(To be filled in after A-5 runs.)*
-- **Consequence:** Any deviation from master-roadmap §3.5 is documented here and back-propagated into the roadmap.
+## AD-011: First Promoted Relationship Record Shape
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** Sprint A · Task 13 produced the first promoted relationships from the existing Gemma review output.
+- **Decision:** The record shape matches `/.ai/06_specs/relationship-schema.md` §4 with one minor deviation: `last_promoted_utc` and `extracted_at_utc` use the compact `%Y%m%dT%H%M%SZ` format (e.g. `20260414T035210Z`) rather than RFC-3339 (`2026-04-14T03:52:10Z`). Python 3.11's `datetime.fromisoformat` parses both, so Rule 16 of the validator accepts both forms. A future task may normalize to RFC-3339 for external consumers that don't share this leniency.
+- **Observed counts on PD 1096:**
+  - Total Gemma review candidates: 23
+  - Cleared 0.90 confidence gate: 3
+  - Created in Phase 7 batch: 3
+  - Merged or skipped on re-run: 3 (idempotent)
+- **First batch ID:** `20260414T035210Z_0959acf9`
+- **Golden-path records:**
+  - `rel-law-national-building-code-of-the-philippines-governs-concept-building-permit` (confidence 1.0)
+  - `rel-concept-occupancy-classification-depends-on-concept-mixed-occupancy` (confidence 0.9)
+  - `rel-concept-occupancy-classification-affects-concept-mixed-occupancy` (confidence 0.9)
+- **Consequence:** Phase 8 (graph contract) is unblocked, gated on the ≥50-record threshold. Future Phase 7 behavior locked: YAML frontmatter via `yaml.safe_dump` (round-trip safe), strict byte-identical idempotency, rollback keyed on batch ID.
+
+## AD-012: Strict Byte-Identical Idempotency
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** During Sprint A golden-path verification, the first implementation had weak idempotency: re-running `promote --execute` rewrote files with fresh `promotion_batch_id` and `last_promoted_utc` even when no new evidence was present. This violated the plan's exit criterion "re-run produces no new writes."
+- **Decision:** Add a `skipped` action to the orchestrator: when `merge_evidence` returns the same list as the existing evidence (no new fingerprints), classify the candidate as `skipped`, do not rewrite the file, do not update metadata, and do not add an audit log entry. Strict byte-identical determinism is now a test invariant (`test_idempotent_file_bytes_unchanged`).
+- **Consequence:** Downstream consumers (Phase 8 graph builder) can rely on deterministic canonical output. Git-diff-based change detection works as expected.
+
+## AD-013: yaml.safe_dump for Frontmatter Emission
+- **Date:** 2026-04-14
+- **Status:** Implemented
+- **Context:** The initial `_render_frontmatter` used a hand-rolled `_yaml_scalar` emitter to control key ordering. It was not perfectly round-trip-safe: loading the written file via `yaml.safe_load` returned slightly different strings, which caused `evidence_fingerprint` to produce a different hash and `merge_evidence` to treat identical evidence as new.
+- **Decision:** Replace the custom emitter with `yaml.safe_dump(ordered_dict, sort_keys=False, default_flow_style=False, allow_unicode=True, width=1000000)`. Key ordering is preserved by inserting keys into a Python dict in the desired order (dict preserves insertion order since Python 3.7).
+- **Consequence:** Round-trip loads are byte-stable. Any future field additions must be added to the `ordered_keys` list in `_render_frontmatter`; PyYAML handles all escaping automatically.
 
 ---
 
