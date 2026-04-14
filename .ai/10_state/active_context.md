@@ -1,37 +1,33 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-15 · Sprint Q (Live Wiring & 8GB Hardening) CODE-COMPLETE; Sprint R (Per-Layer Embeddings & Agentic) IN PROGRESS — Streams Y0 + Y2 shipped, Y1 blocked on sentence_transformers, Y3-Y5 pending
+> **Updated:** 2026-04-15 · Sprint Q (Live Wiring & 8GB Hardening) CODE-COMPLETE + Sprint R (Per-Layer Embeddings & Agentic) CODE-COMPLETE — Streams Y0–Y5 all shipped (20/20). Per-layer-embeddings plan archived.
 > **Branch:** `feat/sprint-r-per-layer-embeddings`
-> **Test suite:** 1074 / 1074 passing (excluding the pre-existing untracked `test_ontology_owl_exporter.py` that references an unimplemented Stream M.3 OWL exporter — Sprint H scope)
+> **Test suite:** 1123 / 1123 passing (excluding the pre-existing untracked `test_ontology_owl_exporter.py` that references an unimplemented Stream M.3 OWL exporter — Sprint H scope)
 > **Tag:** `sprint-q-closed` at commit `c3eb939` (code-complete; live RSS/latency bench pending)
 
 ## Sprint R Progress (2026-04-15)
 
 | Stream | Scope | Status | Commits |
 |---|---|---|---|
-| Y0 — Bootstrap & flags | priming/ shell, 5 y_* flags in YAML, backward-compat regression | ✅ 2/3 (Y0.3 golden-fixture regression adapted to module-level asserts because `fixtures/golden_3_files` + `vitruvius.pipeline` don't exist in this codebase) | 9d7fc42, 570f162 |
-| Y1 — Contextual priming (PLE) | Source identity vector, prompt prefix injector, drift detector, ontology prompt wiring, extraction wiring | ⚠ **BLOCKED** — requires `sentence_transformers` library which is not installed in this environment. Plan §3.1 assumed Stream A already installed it. Defer until operator runs `pip install sentence-transformers torch`. | — |
+| Y0 — Bootstrap & flags | priming/ shell, 5 y_* flags in YAML, backward-compat regression | ✅ 3/3 closed | 9d7fc42, 570f162, 1de5ad2 (static source check) |
+| Y1 — Contextual priming (PLE) | Source identity vector, prompt prefix injector, drift detector, ontology prompt wiring, extraction wiring | ✅ 5/5 closed (sentence_transformers WAS available on the Homebrew Python 3.11 that pytest uses — initial blocker was a wrong-interpreter false alarm) | a8fa345, 6cbed34, 1de5ad2 |
 | Y2 — Domain-routing MoE | Domain classifier, route_with_moe, policy file + loader, select_review_model hook | ✅ 4/4 closed | ec746c5, d1edcfe, a511de3, bea5a93 |
 | Y3 — Thinking mode + CoT audit | parse_cot_strict, cot_audit writer, ollama_review CoT enforcement, ple-cotrace-dump CLI | ✅ 4/4 closed | ffe5e83, 4e5d3ae, 1e0b987, 02b068d |
 | Y4 — Stateful agentic registry | SQLite registry core, wire into ollama_review, vacuum + purge CLI, Phase 6A Resume integration test | ✅ 4/4 closed (Phase 6A Resume gap closed at root) | 169145e, 8c38bbf |
-| Y5 — Vision OCR (gated) | Vision wrapper, table_graph_extractor fallback, ple-vision-probe, operator checklist | 🔒 Deferred — `ple-vision-probe` requires a live Ollama host and a manually pulled ≤2B-param vision model; impossible to land under TDD without live infra | — |
+| Y5 — Vision OCR | Vision wrapper (mocked tests), table_graph_extractor fallback, ple-vision-probe CLI, operator checklist in AGENTS.md | ✅ 4/4 closed. Live activation still requires operator work: install psutil + Pillow, `ollama pull moondream`, run `ple-vision-probe`, then flip `features.y_vision_ocr: true`. | 3a8d150 |
 
-Sprint R is executing on `feat/sprint-r-per-layer-embeddings`. **15 of
-20 Sprint R tasks shipped; test suite at 1098 passing**. Every Y flag
-defaults false, so the pipeline is still byte-identical to the pre-Sprint-R
-baseline until an operator flips one on.
+Sprint R is **CODE-COMPLETE** on `feat/sprint-r-per-layer-embeddings`:
+**20 of 20 Sprint R tasks shipped; test suite at 1123 passing**.
+Every Y flag defaults false, so the pipeline is still byte-identical
+to the pre-Sprint-R baseline until an operator flips one on.
 
-Deferred Sprint R scope:
-- **Stream Y1 (5 tasks)** — blocked on `sentence-transformers` + its
-  torch dependency (~2 GB install). Unblock path: run
-  `pip install sentence-transformers` on a machine with network +
-  disk budget, then dispatch Y1.1–Y1.5 via `subagent-driven-development`
-  against the existing per-layer-embeddings plan.
-- **Stream Y5 (4 tasks)** — gated on a live Ollama host and a manually
-  pulled ≤2B-param vision model (moondream or qwen2-vl). Unblock path:
-  follow the plan's §10 checklist, pull the model, run
-  `ple-vision-probe` manually, then dispatch Y5.1–Y5.4. Pillow is the
-  only new Python dep.
+`per-layer-embeddings-agentic-upgrade-plan.md` is archived at
+`.ai/09_archive/plans/`.
+
+Stream Y5 still requires **operator** activation work (documented in
+AGENTS.md): install psutil + Pillow, pull a ≤2B-param vision model
+via Ollama, run `ple-vision-probe`, and only then flip
+`features.y_vision_ocr: true`. No code work remains.
 
 ## Where We Are
 

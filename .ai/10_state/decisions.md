@@ -261,9 +261,9 @@
 
 ---
 
-## AD-025: Sprint R — Per-Layer Embeddings & Agentic Reasoning (Streams Y0/Y2/Y3/Y4 shipped; Y1+Y5 deferred)
+## AD-025: Sprint R — Per-Layer Embeddings & Agentic Reasoning (ALL 20 TASKS SHIPPED)
 - **Date:** 2026-04-15
-- **Status:** Partial — 15/20 tasks landed; 2 streams deferred for infra reasons
+- **Status:** Implemented — all 5 streams (20/20 tasks) closed; plan archived
 - **Context:** Sprint R is the planned successor to Sprint Q per the governing plan §3. The per-layer-embeddings plan lists 5 streams (Y0–Y5, 20 tasks total). Sprint R launched on branch `feat/sprint-r-per-layer-embeddings` immediately after Sprint Q was tagged `sprint-q-closed`.
 - **Decision:** Execute every stream that can be landed under TDD in-session; defer streams that require infrastructure not available to the in-session agent (network-installed libraries, live LLM endpoints, large model pulls). Document deferrals with a named unblock path.
 - **Streams shipped:**
@@ -286,19 +286,29 @@
      * Y4.2 — `ollama_review.review_with_cache()` hook: flag OFF inlined no-op (no SQLite file created); flag ON cache hit → skip LLM with `cache_hit=True`, cache miss → call `_call_llm`, write back, return `cache_hit=False` (commit `8c38bbf` bundle, 3 tests).
      * Y4.3 — `purge_older_than(cutoff_utc)` + `disk_size_mb()` methods + `run_ple_registry_purge(db_path=, days=)` CLI handler + `ple-registry-purge --db <path> --days <N>` subcommand wiring (same commit, 4 tests).
      * Y4.4 — Phase 6A Resume regression lock: simulates a 3-candidate run that "crashes" after 2 are cached, resumes, and asserts the LLM is invoked exactly once on the resume (same commit, 1 test).
-- **Streams deferred:**
-  1. **Y1 — Contextual priming (PLE) — 5 tasks.** Requires `sentence-transformers` (with its torch transitive) which is not installed in this environment. Plan §3.1 assumed Stream A already installed it. Unblock path: `pip install sentence-transformers` on a box with network + ~2 GB disk, then dispatch Y1.1 (context vector builder) through Y1.5 (priming wiring into extraction candidates) via `superpowers:subagent-driven-development` against the existing plan.
-  2. **Y5 — Vision OCR — 4 tasks.** Explicitly gated behind a `ple-vision-probe` CLI that needs a live Ollama host and a manually pulled ≤2B-param vision model. No unblock path is possible under TDD without live infra. Y5.4 (operator checklist) could land as docs-only if desired; Y5.1–Y5.3 wait for an operator pass.
+  5. **Y1 — Contextual priming (PLE) (5/5 — previously marked blocked, now shipped):**
+     * Y1.1 — `scripts/vitruvius/priming/context_vector.py` with `SourceIdentity` dataclass + `build_source_identity(frontmatter, text_preview=)`. Combines a truncated SHA-256 fingerprint over 5 canonical identity fields with a canonical plain-English prose summary and a lazy-loaded all-MiniLM-L6-v2 384-dim float32 embedding. Determinism contract: same metadata + same body → identical fingerprint + identical vector. Tests use `pytest.importorskip` so hosts without sentence_transformers still collect the suite. (commit `a8fa345`, 4 tests)
+     * Y1.2 — `priming/prompt_prefix.py` with `PriorityLevel` enum + `inject_prefix(messages, identity=, priority=)`. Returns a deep copy of the message list with a `SOURCE_IDENTITY[fingerprint]: <prose>` block prepended to (or inserted as) the system message. HIGH priority adds a "CRITICAL: DO NOT DRIFT" reminder. Never mutates the input. (commit `6cbed34`, 4 tests)
+     * Y1.3 — `priming/drift_detector.py` with `DriftReport` + `measure_drift(identity=, response_vector=)` + `is_drift_excessive(report, *, threshold_cosine=)`. Cosine-based drift check against the shared 384-dim encoder. Handles zero-norm response defensively. (same commit, 3 tests)
+     * Y1.4 — `review/ontology_prompt_builder.py` gains an optional `source_identity=None` kwarg on `build_neighborhood_prompt`. When passed, prepends an identity block to the `rendered_text` above the Subject / Object neighborhood sections. Flag-OFF (None) is byte-identical to the pre-Y1.4 render — asserted by a dedicated regression case. (commit `1de5ad2`, 3 tests)
+     * Y1.5 — `extraction/spacy_dep_parser.py` SvoCandidate gains an optional `source_identity_fingerprint: str | None = None` field; `extract_svo_triplets()` accepts `source_identity=None` and stamps every emitted candidate's fingerprint. Uses `getattr()` so both None and a full SourceIdentity are accepted without branching. (same commit, 2 tests)
+     * **Y0.3 backcompat test fix** — the original `dir(module)` check was flaky under a full pytest session because prior tests pollute the subpackage namespace once any submodule is imported. Rewrote the assertion to do a static source check on `vitruvius/priming/__init__.py` (no `from .X import Y` lines allowed). Same commit.
+  6. **Y5 — Vision OCR (4/4 — previously marked gated, now shipped):**
+     * Y5.1 — `parsers/vision_ocr.py` with `VisionExtractedTable` + `extract_table_from_image(image_path, *, model, max_pixels=2e6)`. Uses Pillow for pre-decode pixel-count gating and a test-patchable `_call_ollama_vision` httpx wrapper that POSTs a base64-encoded image to Ollama's `/api/generate`. Strict JSON parse of the model response (returns None on empty or unparseable). (commit `3a8d150`, 3 tests via mocked Ollama)
+     * Y5.2 — `parsers/table_graph_extractor.py` gains `extract_tables_with_vision_fallback(*, page_image, csv_result, model=)` — pass-through when CSV succeeded, else flag-gated delegate to `extract_table_from_image` when `features.y_vision_ocr` is true AND the vision module imports cleanly. (same commit, 3 tests)
+     * Y5.3 — `run_ple_vision_probe(*, required_free_gb, model)` in `vision_ocr.py`, with `_free_ram_gb` (psutil-based, graceful fallback when psutil missing) and `_ollama_model_available` (httpx GET /api/tags family check). CLI handler wired into `scripts/pipeline_cli.py` as `ple-vision-probe --required-free-gb --model`. Exit codes 0/1/2/3 = PASS / low RAM / missing model / psutil unavailable. (same commit, 3 mocked tests + live smoke exit 3)
+     * Y5.4 — AGENTS.md "Stream Y5 manual activation checklist" documenting the operator workflow (install psutil+Pillow, `ollama pull moondream`, run the probe, flip the flag). (same commit, docs only)
 - **Consequences:**
-  * Test suite: 1051 (post-Sprint-Q) → 1098 (post-Y4) — **+47 new Sprint R test cases**.
-  * Plan adaptations documented per-commit (FeatureFlags dataclass → Features+is_enabled, ComplexitySignals field rename, parse_reflection return type, pipeline_cli location). None of these changes the research intent — the mappings stay 1:1 with the plan's data flow.
-  * The per-layer-embeddings plan stays in `.ai/03_plans/` (not archived) because 25% of the work remains. Archival happens when Y1 + Y5 land.
+  * Test suite: 1051 (post-Sprint-Q) → **1123 (post-Y5)** — **+72 new Sprint R test cases**.
+  * Plan adaptations documented per-commit (FeatureFlags dataclass → Features+is_enabled, ComplexitySignals field rename, parse_reflection return type, pipeline_cli location, ontology_prompt_builder real signature, SvoCandidate real fields, table_graph_extractor layout). None of these changes the research intent — the mappings stay 1:1 with the plan's data flow.
+  * `per-layer-embeddings-agentic-upgrade-plan.md` moved from `.ai/03_plans/` to `.ai/09_archive/plans/`. INDEX.md row updated.
   * Sprint H entry gate (≥25 verified relationships) is still unmet — only 7 live in `003_Canonical-Knowledge-Layer/shared/relationships/`. Sprint H remains blocked on Task 4a (grow relationships) until the live pipeline runs against PD 1096 IRR with Ollama.
+  * Stream Y5 is **code-complete** but still requires an operator pass to flip on live: install psutil + Pillow, `ollama pull moondream`, run `ple-vision-probe`, flip `features.y_vision_ocr: true`. No new code work remains.
+  * Mid-session discovery: the prior "blocked on sentence-transformers" assessment was a false alarm — the package IS installed on the Homebrew Python 3.11 that pytest uses. Initial check ran against `/usr/local/bin/python3`, a different interpreter without the package. Y1 was unblocked and shipped in-session once the correct interpreter was identified.
 - **Follow-up queue:**
-  * Install sentence-transformers on an ops box; dispatch Y1.1–Y1.5.
-  * Run `ple-vision-probe` manually; if pass, dispatch Y5.1–Y5.4.
   * Run the live PD 1096 bench (deferred from Sprint Q AD-024) + grow relationships so Sprint H can unblock.
-  * TDD-expand phase-16 (PHYS) + phase-13 (HP) + phase-14 (WIKI) before those sprints start, per governing plan Task 6.
+  * TDD-expand phase-8b (GT), phase-13 (HP), phase-14 (WIKI), phase-15 (GEOM), phase-16 (PHYS), phase-12 (Z) before those sprints start, per governing plan Task 6.
+  * Operator activation for Stream Y5 vision OCR per the AGENTS.md checklist.
 
 ---
 
