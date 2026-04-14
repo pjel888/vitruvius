@@ -144,24 +144,120 @@ _SECTION_HEADER = re.compile(
 )
 
 
+# Section-title alias dictionary: slug -> list of alternate phrasings that
+# can appear in a real section title. Each alternate is matched as a
+# substring of the normalized (lowercase, dehyphenated) title.
+#
+# Add new entries when a real PD 1096 section title uses a phrasing that
+# the naive slug match misses. This is deliberately conservative — overly
+# broad aliases produce false matches. Every entry below is grounded in a
+# real SECTION title seen in the refined PD 1096 text.
+SECTION_TITLE_ALIASES: dict[str, list[str]] = {
+    "building-height": [
+        "maximum height of buildings",
+        "building height",
+        "height of buildings",
+        "height regulations",
+    ],
+    "lot-occupancy": [
+        "lot occupancy",
+        "site occupancy",
+        "percentage of site occupancy",
+        "measurement of site occupancy",
+    ],
+    "fire-resistive-construction": [
+        "fire-resistive construction",
+        "fire-resistive regulations",
+        "fire resistive",
+        "type of construction",
+    ],
+    "open-courts": [
+        "open courts",
+        "size and dimensions of courts",
+        "dimensions of courts",
+    ],
+    "projections-over-public-ways": [
+        "projections over public ways",
+        "projection of balconies",
+        "projection of appendages",
+        "projection over streets",
+    ],
+    "occupancy-load": [
+        "occupancy load",
+        "occupant load",
+        "occupant loads",
+    ],
+    "means-of-egress": [
+        "means of egress",
+        "egress",
+    ],
+    "yards": [
+        "yards",
+    ],
+    "doors-and-exits": [
+        "doors and exits",
+        "doors",
+        "exits",
+    ],
+    "exit-width": [
+        "exit width",
+        "width of exits",
+    ],
+    "parking-and-loading-spaces": [
+        "parking and loading spaces",
+        "parking",
+        "loading spaces",
+    ],
+    "setbacks": [
+        "setbacks",
+        "required setbacks",
+        "setback requirements",
+    ],
+    "occupancy-separation": [
+        "occupancy separation",
+        "separation of occupancies",
+    ],
+    "occupancy-classification": [
+        "occupancy classification",
+        "occupancy classified",
+        "classification of occupancy",
+    ],
+}
+
+
 def _section_title_to_concept(title: str, known_slugs: set[str]) -> tuple[str | None, float]:
     """Match a section title to a known concept slug.
 
     Returns (slug, confidence) on match, (None, 0.0) otherwise.
 
-    - Exact slug match              -> 0.85
-    - Title contains concept phrase -> 0.75
+    Match order (first match wins):
+    1. Exact slug match of the entire title          -> 0.85
+    2. Title contains concept phrase verbatim         -> 0.75
+    3. Title contains an alias from SECTION_TITLE_ALIASES -> 0.75
+
+    Aliases are only considered when the slug is in `known_slugs` so an
+    out-of-repo concept can't be claimed by accident.
     """
     normalized = _normalize_phrase(title)
     title_slug = normalized.replace(" ", "-")
 
+    # 1. Exact slug match
     if title_slug in known_slugs:
         return title_slug, 0.85
 
+    # 2. Containing phrase match
     for known in known_slugs:
         concept_phrase = known.replace("-", " ")
         if concept_phrase in normalized:
             return known, 0.75
+
+    # 3. Alias dictionary match — only for slugs in the known set.
+    for slug, aliases in SECTION_TITLE_ALIASES.items():
+        if slug not in known_slugs:
+            continue
+        for alias in aliases:
+            if alias in normalized:
+                return slug, 0.75
 
     return None, 0.0
 
