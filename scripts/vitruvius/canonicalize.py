@@ -174,6 +174,80 @@ def run_canonicalize_plan_one(relative_path: str) -> int:
 # EXECUTION COMMAND
 # --------------------------------------------------
 
+def extract_section_headers(markdown_text: str) -> list[dict]:
+    headers = []
+    for line in markdown_text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("## "):
+            headers.append({"level": 2, "title": stripped[3:].strip()})
+        elif stripped.startswith("### "):
+            headers.append({"level": 3, "title": stripped[4:].strip()})
+    return headers
+
+
+def extract_key_points(markdown_text: str, *, limit: int = 5) -> list[str]:
+    """Pick short, standalone assertions: first sentence after each H2 that is
+    not itself a header, trimmed to 300 chars."""
+    points: list[str] = []
+    current: list[str] = []
+    collecting = False
+
+    for line in markdown_text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("## "):
+            if current:
+                sentence = " ".join(current).split(". ")[0].strip()
+                if sentence:
+                    points.append(sentence[:300].rstrip(".") + ".")
+            current = []
+            collecting = True
+            continue
+        if collecting and stripped and not stripped.startswith("#"):
+            current.append(stripped)
+
+    if current:
+        sentence = " ".join(current).split(". ")[0].strip()
+        if sentence:
+            points.append(sentence[:300].rstrip(".") + ".")
+
+    return points[:limit]
+
+
+def build_overview_paragraph(markdown_text: str) -> str:
+    for line in markdown_text.splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        return stripped[:500]
+    return ""
+
+
+def _concept_title_from_slug(concept_slug: str) -> str:
+    return concept_slug.replace("-", " ")
+
+
+def resolve_referenced_concepts(body: str, *, repo_root: Path) -> list[str]:
+    concepts_dir = Path(repo_root) / "003_Canonical-Knowledge-Layer" / "shared" / "concepts"
+    if not concepts_dir.exists():
+        return []
+
+    body_lower = body.lower()
+    found: list[str] = []
+    for md in sorted(concepts_dir.glob("*.md")):
+        slug = md.stem
+        spaced = slug.replace("-", " ")
+        hyphenated = slug  # already hyphenated
+        # Also check mixed forms where some words are hyphenated in body
+        # but separated by spaces in others, e.g., "fire-resistive construction".
+        # Simple heuristic: replace spaces in body with normalized separator,
+        # then check if either spaced or hyphenated form appears.
+        body_normalized = body_lower.replace("-", " ")
+        if spaced in body_lower or hyphenated in body_lower or spaced in body_normalized:
+            found.append(f"concept-{slug}")
+
+    return found
+
+
 def run_canonicalize_one(*, relative_markdown_path: str) -> int:
     repo_root = get_repo_root()
 
