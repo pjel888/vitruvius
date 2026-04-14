@@ -1,0 +1,76 @@
+{
+  "generated_at": "20260414T034610Z",
+  "source_report_generated_at": "20260413T093415Z",
+  "source_model": "gemma4:31b",
+  "source": "001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code.md",
+  "threshold": 0.9,
+  "count": 3,
+  "candidates": [
+    {
+      "candidate": {
+        "from": "law-national-building-code-of-the-philippines",
+        "type": "governs",
+        "to": "concept-building-permit",
+        "occurrences": 6,
+        "sections": [
+          "section-207",
+          "section-209",
+          "section-303",
+          "section-306",
+          "section-1101"
+        ],
+        "examples": [
+          "the enforcement of the provisions of this Code as well as of the implementing rules and regulations issued therefor. He is the official charged with the duties of issuing building permits. In the performance of his duties, a Building Official may enter any building or its premises at all reasonable ",
+          "building permit fees. As used in this Code, the term “traditional indigenous family dwelling” means a dwelling intended for the use and occupancy by the family of the owner only and constructed of native materials such as bamboo, nipa, logs, or lumber, the total cost of which does not exceed fifteen",
+          "supervision of the Building Official and his technical staff of qualified professionals. In processing an application for a building permit, the Building Official shall see to it that the applicant satisfies and conforms with approved standard requirements on zoning and land use, lines and grades, s"
+        ]
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 1.0,
+        "reason": "The evidence explicitly states that the Building Official is charged with the duties of issuing building permits under the provisions of the Code, and describes the process for processing applications for building permits, confirming that the law governs the issuance and requirements of building permits.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-occupancy-classification",
+        "type": "depends_on",
+        "to": "concept-mixed-occupancy",
+        "occurrences": 1,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
+        ]
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.9,
+        "reason": "The example text explicitly discusses how requirements apply to buildings with more than one occupancy (mixed occupancy), indicating that the classification of occupancy for a building depends on the same rules governing mixed occupancy.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-occupancy-classification",
+        "type": "affects",
+        "to": "concept-mixed-occupancy",
+        "occurrences": 1,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
+        ]
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.9,
+        "reason": "The example text explicitly states that the requirements for a building with more than one occupancy (mixed occupancy) are determined by the occupancy classification, indicating that occupancy classification affects the requirements for mixed occupancy buildings.",
+        "suggested_type": null
+      }
+    }
+  ]
+}
