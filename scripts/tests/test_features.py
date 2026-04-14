@@ -126,6 +126,9 @@ EXPECTED_FLAGS = {
     "n_spatial_daemon_enabled",
     "o_watched_sources_registry", "o_mahalanobis_drift_detection",
     "o_duplicate_detector",
+    # Stream Y — Per-Layer Embeddings & Agentic Reasoning (Sprint R)
+    "y_contextual_priming", "y_domain_routing_moe", "y_thinking_mode_cot",
+    "y_stateful_registry", "y_vision_ocr",
 }
 
 
@@ -148,3 +151,31 @@ def test_repo_config_every_flag_is_false() -> None:
         f"These Stream A-K flags are enabled in config/vitruvius.yaml "
         f"and violate the non-breaking contract: {sorted(enabled)}"
     )
+
+
+# ---------------------------------------------------------------------------
+# Stream Y0.2 — per-layer embeddings feature flags
+# ---------------------------------------------------------------------------
+def test_y_flags_default_false() -> None:
+    """Every Sprint R Y flag must default to False on a fresh load
+    of the repo config, preserving the non-breaking contract."""
+    features = load_features(REPO_CONFIG)
+    assert features.is_enabled("y_contextual_priming") is False
+    assert features.is_enabled("y_domain_routing_moe") is False
+    assert features.is_enabled("y_thinking_mode_cot") is False
+    assert features.is_enabled("y_stateful_registry") is False
+    assert features.is_enabled("y_vision_ocr") is False
+
+
+def test_y_flags_load_from_config(tmp_path: Path) -> None:
+    """A YAML override flips a single Y flag but unspecified ones default
+    to False."""
+    cfg = tmp_path / "vitruvius.yaml"
+    cfg.write_text(
+        "features:\n"
+        "  y_contextual_priming: true\n",
+        encoding="utf-8",
+    )
+    features = load_features(cfg)
+    assert features.is_enabled("y_contextual_priming") is True
+    assert features.is_enabled("y_domain_routing_moe") is False

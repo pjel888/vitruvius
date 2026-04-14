@@ -129,3 +129,13 @@ features:
   w_review_choquet_aggregator: false
   w_promotion_stringency_gate: false
   w_graph_governing_standard: false
+  # Stream Y — Per-Layer Embeddings & Agentic Reasoning (Sprint R)
+  # See .ai/03_plans/per-layer-embeddings-agentic-upgrade-plan.md for
+  # the intent behind each flag. All default false — the Y1-Y5
+  # modules are opt-in via explicit imports from flag-guarded call
+  # sites so `from vitruvius.priming import *` stays empty.
+  y_contextual_priming: false
+  y_domain_routing_moe: false
+  y_thinking_mode_cot: false
+  y_stateful_registry: false
+  y_vision_ocr: false
