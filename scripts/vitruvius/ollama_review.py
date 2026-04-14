@@ -35,6 +35,63 @@ def load_relationship_report() -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _load_graph_edge_summaries() -> list[Any]:
+    """Stream W2.2 — project the Phase 8 snapshot into GraphEdgeSummary rows.
+
+    Returns an empty list if the snapshot is missing or unreadable; the
+    ontology context block then becomes a noop so review still runs.
+    """
+    from .review.ontology_prompt_builder import GraphEdgeSummary
+    from .graph.snapshot import read_snapshot
+    from .paths import get_repo_root
+
+    snapshot_path = (
+        get_repo_root()
+        / "005_Operational-Intelligence-Layer"
+        / "graph"
+        / "latest_graph_snapshot.json"
+    )
+    if not snapshot_path.exists():
+        return []
+    try:
+        snap = read_snapshot(snapshot_path)
+    except Exception:
+        return []
+    return [
+        GraphEdgeSummary(
+            from_id=e.from_id,
+            to_id=e.to_id,
+            predicate=e.type,
+        )
+        for e in snap.edges
+    ]
+
+
+def _inject_ontology_context(candidate: dict[str, Any]) -> str:
+    """Stream W2.2 — render a compact graph neighborhood block for the
+    focal concept. Returns an empty string when the graph is empty or
+    the focal node is absent, so the caller can safely concatenate.
+    """
+    from .review.ontology_prompt_builder import extract_neighborhood
+
+    edges = _load_graph_edge_summaries()
+    if not edges:
+        return ""
+    focal = str(candidate.get("from", ""))
+    neighborhood = extract_neighborhood(
+        edges,
+        focal_node=focal,
+        max_hops=2,
+        max_edges_per_hop=5,
+    )
+    if not neighborhood:
+        return ""
+    lines = ["--- graph neighborhood ---"]
+    for edge in neighborhood[:10]:
+        lines.append(f"  {edge.from_id} --[{edge.predicate}]--> {edge.to_id}")
+    return "\n".join(lines) + "\n"
+
+
 def _build_binary_prompt(candidate: dict[str, Any]) -> str:
     """Stream W1.4 — compact True/False prompt for small-model binary mode.
 
@@ -60,8 +117,12 @@ def _build_binary_prompt(candidate: dict[str, Any]) -> str:
 
 def build_prompt(candidate: dict[str, Any]) -> str:
     from . import config as cfgmod
-    if cfgmod._features_block().get("w_llm_binary_mode", False):
+    features = cfgmod._features_block()
+    if features.get("w_llm_binary_mode", False):
         return _build_binary_prompt(candidate)
+    neighborhood_block = ""
+    if features.get("w_review_ontology_prompt", False):
+        neighborhood_block = _inject_ontology_context(candidate)
     payload = {
         "task": "Review candidate legal relationship",
         "allowed_decisions": ["keep", "review_further", "reject"],
@@ -90,7 +151,10 @@ def build_prompt(candidate: dict[str, Any]) -> str:
         }
     }
 
-    return json.dumps(payload, ensure_ascii=False, indent=2)
+    rendered = json.dumps(payload, ensure_ascii=False, indent=2)
+    if neighborhood_block:
+        rendered = neighborhood_block + "\n" + rendered
+    return rendered
 
 
 class ContextBudgetExceeded(ValueError):
