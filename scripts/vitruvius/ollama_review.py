@@ -270,6 +270,23 @@ def save_progress_report(
     write_text(txt_path, build_text_report(report))
 
 
+def load_resume_state(runs_dir: Path) -> dict[str, Any]:
+    """Read the latest in_progress snapshot, if any, for resume-on-relaunch."""
+    snapshot_path = runs_dir / "latest_relationship_review_ollama.json"
+    if not snapshot_path.exists():
+        return {"reviews": [], "status": None, "completed_count": 0}
+
+    payload = json.loads(snapshot_path.read_text(encoding="utf-8"))
+    if payload.get("status") != "in_progress":
+        return {"reviews": [], "status": payload.get("status"), "completed_count": 0}
+
+    return {
+        "reviews": payload.get("reviews", []),
+        "status": "in_progress",
+        "completed_count": len(payload.get("reviews", [])),
+    }
+
+
 def write_high_confidence_review(
     report: dict[str, Any],
     runs_dir: Path,
@@ -335,7 +352,14 @@ def run_review_relationships_ollama(
         )
         return 0
 
-    reviews: list[dict[str, Any]] = []
+    resume_state = load_resume_state(runs_dir)
+    if resume_state["status"] == "in_progress" and resume_state["reviews"]:
+        reviews: list[dict[str, Any]] = list(resume_state["reviews"])
+        skip_first_n = resume_state["completed_count"]
+        print(f"Resuming from in_progress snapshot ({skip_first_n}/{len(candidates)} already done).")
+    else:
+        reviews = []
+        skip_first_n = 0
 
     print(f"Starting Ollama relationship review with model: {model}")
     print(f"Source: {source}")
@@ -345,6 +369,8 @@ def run_review_relationships_ollama(
 
     try:
         for idx, candidate in enumerate(candidates, start=1):
+            if idx <= skip_first_n:
+                continue
             start_time = time.time()
 
             from_id = candidate["from"]
