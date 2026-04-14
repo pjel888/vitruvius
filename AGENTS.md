@@ -228,26 +228,70 @@ To check whether embeddings exist, inspect `.gitnexus/meta.json` — the `stats.
 
 ## Active Sprint (2026-04-15)
 
-Sprint Q — Live Wiring & 8GB Hardening is **code-complete** on branch
-`feat/sprint-q-live-wiring`. All five streams (W1–W5) shipped under
-TDD on 2026-04-15. The authoritative stream-by-stream ledger is
-AD-024 in `.ai/10_state/decisions.md`; the authoritative sprint
-execution order across the entire plan inventory is
-`.ai/03_plans/00-governing-implementation-plan.md`.
+**Sprint Q — Live Wiring & 8GB Hardening** is code-complete and
+tagged `sprint-q-closed` at commit `c3eb939` on branch
+`feat/sprint-q-live-wiring`. Live PD 1096 RSS/latency bench is
+deferred to a manual operator run. See AD-024 for the ledger.
 
-Sprint Q ships twelve new `w_*` feature flags (all default false). To
-enable the full wired chain on an 8 GB host, see the **Sprint Q —
-Live Wiring & 8GB Hardening** section in `README.md`.
+**Sprint R — Per-Layer Embeddings & Agentic** is code-complete on
+branch `feat/sprint-r-per-layer-embeddings`:
+
+- Stream Y0 — `features.y_*` flags + `priming/` subpackage shell.
+- Stream Y1 — context vector builder (`all-MiniLM-L6-v2`),
+  prompt prefix injector, cosine drift detector, ontology prompt
+  identity propagation, SVO candidate fingerprint propagation.
+- Stream Y2 — deterministic domain classifier, `route_with_moe`,
+  MoE policy loader + `config/moe_routing.yaml`, flag-gated
+  `select_review_model` hook.
+- Stream Y3 — strict CoT parser (`parse_cot_strict`), append-only
+  `cot_audit` writer, `adjudicate_with_cot` hook, `ple-cotrace-dump`
+  CLI.
+- Stream Y4 — SQLite stateful verdict registry (closes the Phase 6A
+  Resume gap at root), flag-gated `review_with_cache`,
+  `ple-registry-purge` CLI.
+- Stream Y5 — Ollama vision OCR wrapper (mocked in tests),
+  `extract_tables_with_vision_fallback` flag-gated hook in
+  `table_graph_extractor`, `ple-vision-probe` hardware pre-flight CLI.
+
+See AD-025 (in-progress) for the full commit ledger.
+
+All `y_*` flags default false; with every flag off, the pipeline is
+byte-identical to the pre-Sprint-R baseline.
+
+### Stream Y5 manual activation checklist
+
+Vision OCR never auto-activates. To turn it on:
+
+1. Install `psutil`: `pip install psutil` (needed by `ple-vision-probe`).
+2. Install `Pillow` if not present: `pip install pillow`.
+3. Pull a ≤2B-param vision model on the local Ollama host:
+   ```
+   ollama pull moondream:latest   # ~1.8 GB Q4
+   # OR
+   ollama pull qwen2-vl:2b        # ~2.1 GB Q4
+   ```
+4. Run the pre-flight probe:
+   ```
+   python3 scripts/pipeline_cli.py ple-vision-probe \
+       --required-free-gb 3.5 --model moondream:latest
+   ```
+   Exit 0 = PASS; 1 = not enough free RAM; 2 = model not pulled; 3 = psutil missing.
+5. Only after the probe reports PASS, flip
+   `features.y_vision_ocr: true` in `config/vitruvius.yaml`. The
+   Stream B table extractor will then call the vision model as a
+   last-resort fallback when CSV/XLSX extraction fails.
 
 **Next gates:**
 
-1. Live PD 1096 bench run with every `w_*` flag turned on to
-   measure peak RSS + end-to-end latency. Append numbers to AD-024.
-2. Tag `sprint-q-closed` on `feat/sprint-q-live-wiring` once the bench
-   exit gate passes.
-3. Start Sprint R (Per-Layer Embeddings & Agentic) and Sprint H (3D
-   Spatial Intelligence) — they are parallelizable per the governing
-   plan §3.
+1. Archive `per-layer-embeddings-agentic-upgrade-plan.md` once this
+   commit lands.
+2. Start Sprint H (3D Spatial Intelligence) — blocked on ≥25 verified
+   relationships; currently at 7. Run the live Ollama pipeline on PD
+   1096 IRR to grow the count per governing plan Task 4a.
+3. TDD-expand the design-spec plans (phase-13 HP, phase-14 WIKI,
+   phase-15 GEOM, phase-16 PHYS, phase-12 Z, phase-8b GT) before
+   dispatching their sprints, per governing plan Task 6.
 
-If you are a subagent opening this repo fresh, read the governing plan
-first before choosing which task to execute.
+If you are a subagent opening this repo fresh, read the governing
+plan first (`.ai/03_plans/00-governing-implementation-plan.md`)
+before choosing which task to execute.

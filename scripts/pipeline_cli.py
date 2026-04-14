@@ -207,6 +207,24 @@ def build_parser() -> argparse.ArgumentParser:
         help="Retention window in days (default: 30)",
     )
 
+    # Stream Y5.3 — ple-vision-probe
+    ple_vision_probe_parser = subparsers.add_parser(
+        "ple-vision-probe",
+        help="Pre-flight check for vision OCR: RAM headroom + Ollama model availability",
+    )
+    ple_vision_probe_parser.add_argument(
+        "--required-free-gb",
+        type=float,
+        default=3.5,
+        dest="required_free_gb",
+        help="Minimum free RAM to require (default: 3.5 GB)",
+    )
+    ple_vision_probe_parser.add_argument(
+        "--model",
+        default="moondream:latest",
+        help="Vision model family to check for (default: moondream:latest)",
+    )
+
     query_parser = subparsers.add_parser("query")
     query_parser.add_argument("question", help="Natural-language question")
 
@@ -414,6 +432,13 @@ def main() -> int:
         return run_ple_registry_purge(
             db_path=Path(args.registry_db),
             days=args.days,
+        )
+
+    if args.command == "ple-vision-probe":
+        from vitruvius.parsers.vision_ocr import run_ple_vision_probe
+        return run_ple_vision_probe(
+            required_free_gb=args.required_free_gb,
+            model=args.model,
         )
 
     if args.command == "query":

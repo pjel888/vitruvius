@@ -144,3 +144,38 @@ def extract_xlsx_subgraphs(xlsx_path: Path) -> list[TableSubgraph]:
         )
 
     return subgraphs
+
+
+# ---------------------------------------------------------------------------
+# Stream Y5.2 — vision OCR fallback hook
+# ---------------------------------------------------------------------------
+try:
+    from .vision_ocr import extract_table_from_image  # noqa: F401
+    _VISION_AVAILABLE = True
+except ImportError:
+    _VISION_AVAILABLE = False
+
+
+def extract_tables_with_vision_fallback(
+    *,
+    page_image: Path,
+    csv_result: "Any | None",
+    model: str = "moondream:latest",
+) -> "Any | None":
+    """Stream Y5.2 — if CSV extraction produced a result, return it
+    unchanged. Otherwise, if ``features.y_vision_ocr`` is ON and the
+    vision module is importable, delegate to
+    :func:`extract_table_from_image` as a last-resort fallback.
+
+    Returns ``None`` when the CSV extractor failed AND the vision flag
+    is off — the caller then knows to skip the table entirely.
+    """
+    if csv_result is not None:
+        return csv_result
+    from .. import config as cfgmod
+
+    if not cfgmod._features_block().get("y_vision_ocr", False):
+        return None
+    if not _VISION_AVAILABLE:
+        return None
+    return extract_table_from_image(page_image, model=model)
