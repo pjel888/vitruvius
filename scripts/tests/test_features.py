@@ -129,6 +129,9 @@ EXPECTED_FLAGS = {
     # Stream Y — Per-Layer Embeddings & Agentic Reasoning (Sprint R)
     "y_contextual_priming", "y_domain_routing_moe", "y_thinking_mode_cot",
     "y_stateful_registry", "y_vision_ocr",
+    # Sprint PHYS — Statistical Mechanics & Graph Physics (phase-16)
+    "phys_pagerank", "phys_boltzmann_gate", "phys_motif_matcher",
+    "phys_shannon_sampling", "phys_eigenvector_cascade",
 }
 
 
