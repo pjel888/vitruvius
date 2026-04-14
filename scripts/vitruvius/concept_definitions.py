@@ -47,9 +47,13 @@ def _build_anchor_pattern(anchor: str) -> re.Pattern:
 
 def _normalize_phrase(phrase: str) -> str:
     phrase = phrase.strip().lower()
+    # Strip hyphens, underscores, and punctuation so aliases like
+    # "exits and occupant" match normalized titles like
+    # "stairs, exits, and occupant loads".
     phrase = re.sub(r"[\-_]+", " ", phrase)
+    phrase = re.sub(r"[,;:.\"'()]", "", phrase)
     phrase = re.sub(r"\s+", " ", phrase)
-    return phrase
+    return phrase.strip()
 
 
 def _slug_from_phrase(phrase: str) -> str:
@@ -190,6 +194,10 @@ SECTION_TITLE_ALIASES: dict[str, list[str]] = {
     "means-of-egress": [
         "means of egress",
         "egress",
+        # Sec 1207 "Stairs, Exits, and Occupant Loads" also covers egress.
+        # With multi-concept section matching, stairs/doors-and-exits/
+        # occupancy-load/means-of-egress all legitimately claim this section.
+        "exits and occupant",
     ],
     "yards": [
         "yards",
@@ -216,6 +224,11 @@ SECTION_TITLE_ALIASES: dict[str, list[str]] = {
     "occupancy-separation": [
         "occupancy separation",
         "separation of occupancies",
+        # Sec 703 "Mixed Occupancy" body describes occupancy separation
+        # rules ("building shall be subject to the most restrictive
+        # requirement"). mixed-occupancy and occupancy-separation both
+        # legitimately claim sec-703 via multi-concept matching.
+        "mixed occupancy",
     ],
     "occupancy-classification": [
         "occupancy classification",
