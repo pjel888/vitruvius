@@ -10,6 +10,7 @@ regulatory_basis:
 - source_id: law-national-building-code-of-the-philippines
   section_id: sec-1207
   evidence_snippet: '- (a) General. The construction of stairs and exits shall conform to the occupant load requirements of buildings, reviewing stands, bleachers, and grandstands. - (1) Determination of Occupant Loads. The occupant load permitted in any building or portion thereof shall be determined by dividing the floor area assigned to that use by the unit area allowed per occupant as determined by the Secretary. - (2) Exit Requirements. Exist requirements of a building or portion thereof used for different purp'
+stringency_vector: maximize
 ---
 
 # Means Of Egress

@@ -10,6 +10,7 @@ regulatory_basis:
 - source_id: law-national-building-code-of-the-philippines
   section_id: sec-1215
   evidence_snippet: 'requirements and the type of construction of building. ### ELECTRICAL AND MECHANICAL REGULATIONS'
+stringency_vector: maximize
 ---
 
 # Fire-Resistive Construction

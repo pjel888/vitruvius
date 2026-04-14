@@ -10,6 +10,7 @@ regulatory_basis:
 - source_id: law-national-building-code-of-the-philippines
   section_id: sec-1007
   evidence_snippet: not, when fully opened or upon opening, project beyond the property line except fire exit doors.
+stringency_vector: maximize
 ---
 
 # Doors And Exits

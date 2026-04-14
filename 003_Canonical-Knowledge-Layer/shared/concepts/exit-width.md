@@ -4,6 +4,7 @@ title: Exit Width
 page_type: concept
 canonical_status: draft
 last_canonicalized_utc: 2026-04-13T08:45:49.813845+00:00
+stringency_vector: maximize
 ---
 
 # Exit Width

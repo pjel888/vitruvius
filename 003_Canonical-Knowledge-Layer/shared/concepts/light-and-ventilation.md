@@ -10,6 +10,7 @@ regulatory_basis:
 - source_id: law-national-building-code-of-the-philippines
   section_id: sec-801
   evidence_snippet: '- (a) Subject to the provisions of the Civil Code of the Philippines on Easements of Light and View, and to the provisions of this part of the Code, every building shall be designed, constructed, and equipped to provide adequate light and ventilation. - (b) All buildings shall face a street or public alley or a private street which has been duly approved. - (c) No building shall be altered nor arranged so as to reduce the size of any room or the relative area of windows to less than that provide'
+stringency_vector: maximize
 ---
 
 # Light And Ventilation

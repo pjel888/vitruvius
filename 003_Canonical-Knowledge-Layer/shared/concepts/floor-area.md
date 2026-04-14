@@ -10,6 +10,7 @@ regulatory_basis:
 - source_id: law-national-building-code-of-the-philippines
   section_id: sec-705
   evidence_snippet: The allowable floor areas for one-storey building and buildings over one-storey shall not exceed the limits prescribed by the Secretary for each occupancy groups and/or types of construction. For purposes of this Section, each portion of a building separated by one or more area separation walls may be considered a separate building provided the area separation walls meet the requirements prescribed therefor by the Secretary.
+stringency_vector: minimize
 ---
 
 # Floor Area

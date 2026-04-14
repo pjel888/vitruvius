@@ -10,6 +10,7 @@ regulatory_basis:
 - source_id: law-national-building-code-of-the-philippines
   section_id: sec-1003
   evidence_snippet: '- (a) The extent of any projection over an alley or street shall be uniform within a block and shall conform to the limitations set forth in Table 1003-A; Projection of Balconies and Appendages (Annex B-2). - (b) The clearance between the established grade of the street and/or sidewalk and the lowest under surface of any part of the balcony shall not be less than 3.00 meters.'
+stringency_vector: qualitative
 ---
 
 # Projections Over Public Ways
