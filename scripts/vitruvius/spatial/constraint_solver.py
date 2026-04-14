@@ -103,3 +103,34 @@ def evaluate_batch(
             continue
         results.append(evaluate_constraint(constraint, observed=observations[constraint.variable]))
     return results
+
+
+import re as _re
+
+from ..parsers.parametric_ner import Parameter as _Parameter
+
+
+def _slugify(value: str) -> str:
+    lowered = value.strip().lower()
+    slug = _re.sub(r"[^a-z0-9]+", "-", lowered)
+    return slug.strip("-")
+
+
+def parameters_to_constraints(
+    parameters: Sequence[_Parameter],
+) -> list[ParametricConstraint]:
+    out: list[ParametricConstraint] = []
+    for param in parameters:
+        entity_slug = _slugify(param.entity)
+        concept_id = f"concept-{entity_slug}" if entity_slug else "concept-unknown"
+        unit_suffix = param.unit or "unitless"
+        variable = f"{entity_slug}_{unit_suffix}" if entity_slug else unit_suffix
+        out.append(
+            ParametricConstraint(
+                concept_id=concept_id,
+                variable=variable,
+                operator=param.operator,
+                threshold=float(param.value),
+            )
+        )
+    return out
