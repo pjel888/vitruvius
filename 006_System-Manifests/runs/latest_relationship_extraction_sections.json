@@ -1,6 +1,6 @@
 {
-  "generated_at": "20260413T084609Z",
-  "source": "001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code.md",
+  "generated_at": "20260414T042321Z",
+  "source": "001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md",
   "total_sections": 63,
   "total_relationships": 23,
   "relationships": [
@@ -48,9 +48,9 @@
       ]
     },
     {
-      "from": "concept-occupancy-classification",
+      "from": "concept-occupancy-separation",
       "type": "depends_on",
-      "to": "concept-mixed-occupancy",
+      "to": "concept-occupancy-classification",
       "occurrences": 1,
       "sections": [
         "section-703"
@@ -60,9 +60,9 @@
       ]
     },
     {
-      "from": "concept-occupancy-classification",
+      "from": "concept-occupancy-separation",
       "type": "limits",
-      "to": "concept-mixed-occupancy",
+      "to": "concept-occupancy-classification",
       "occurrences": 1,
       "sections": [
         "section-703"
@@ -72,9 +72,9 @@
       ]
     },
     {
-      "from": "concept-occupancy-classification",
+      "from": "concept-occupancy-separation",
       "type": "affects",
-      "to": "concept-mixed-occupancy",
+      "to": "concept-occupancy-classification",
       "occurrences": 1,
       "sections": [
         "section-703"
@@ -84,9 +84,9 @@
       ]
     },
     {
-      "from": "concept-occupancy-classification",
+      "from": "concept-occupancy-separation",
       "type": "defines",
-      "to": "concept-mixed-occupancy",
+      "to": "concept-occupancy-classification",
       "occurrences": 1,
       "sections": [
         "section-703"
@@ -96,9 +96,9 @@
       ]
     },
     {
-      "from": "concept-occupancy-classification",
+      "from": "concept-occupancy-separation",
       "type": "requires",
-      "to": "concept-mixed-occupancy",
+      "to": "concept-occupancy-classification",
       "occurrences": 1,
       "sections": [
         "section-703"
@@ -108,9 +108,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-yards",
       "type": "depends_on",
-      "to": "concept-yards",
+      "to": "concept-floor-area",
       "occurrences": 1,
       "sections": [
         "section-704"
@@ -120,9 +120,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-yards",
       "type": "limits",
-      "to": "concept-yards",
+      "to": "concept-floor-area",
       "occurrences": 1,
       "sections": [
         "section-704"
@@ -132,9 +132,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-yards",
       "type": "affects",
-      "to": "concept-yards",
+      "to": "concept-floor-area",
       "occurrences": 1,
       "sections": [
         "section-704"
@@ -144,9 +144,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-yards",
       "type": "defines",
-      "to": "concept-yards",
+      "to": "concept-floor-area",
       "occurrences": 1,
       "sections": [
         "section-704"
@@ -156,9 +156,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-yards",
       "type": "requires",
-      "to": "concept-yards",
+      "to": "concept-floor-area",
       "occurrences": 1,
       "sections": [
         "section-704"
@@ -192,9 +192,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-light-and-ventilation",
       "type": "depends_on",
-      "to": "concept-lot-occupancy",
+      "to": "concept-yards",
       "occurrences": 1,
       "sections": [
         "section-801"
@@ -204,9 +204,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-light-and-ventilation",
       "type": "defines",
-      "to": "concept-lot-occupancy",
+      "to": "concept-yards",
       "occurrences": 1,
       "sections": [
         "section-801"
@@ -216,9 +216,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-stairs",
       "type": "requires",
-      "to": "concept-occupancy-separation",
+      "to": "concept-fire-resistive-construction",
       "occurrences": 2,
       "sections": [
         "section-1201"
@@ -229,9 +229,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-stairs",
       "type": "depends_on",
-      "to": "concept-occupancy-separation",
+      "to": "concept-fire-resistive-construction",
       "occurrences": 1,
       "sections": [
         "section-1201"
@@ -241,9 +241,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-stairs",
       "type": "limits",
-      "to": "concept-occupancy-separation",
+      "to": "concept-fire-resistive-construction",
       "occurrences": 1,
       "sections": [
         "section-1201"
@@ -253,9 +253,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-stairs",
       "type": "affects",
-      "to": "concept-occupancy-separation",
+      "to": "concept-fire-resistive-construction",
       "occurrences": 1,
       "sections": [
         "section-1201"
@@ -265,9 +265,9 @@
       ]
     },
     {
-      "from": "concept-floor-area",
+      "from": "concept-stairs",
       "type": "defines",
-      "to": "concept-occupancy-separation",
+      "to": "concept-fire-resistive-construction",
       "occurrences": 1,
       "sections": [
         "section-1201"

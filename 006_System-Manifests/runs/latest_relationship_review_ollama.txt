@@ -1,101 +1,104 @@
 Ollama Relationship Review Report
 
-Model: gemma4:31b
-Source: 001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code.md
+Model: gemma4:e4b
+Source: 001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md
 Candidates reviewed: 23
-Keep: 3
+Keep: 6
 Review Further: 1
-Reject: 19
+Reject: 16
 
 law-national-building-code-of-the-philippines -> governs -> concept-building-permit
-  decision=keep confidence=1.00
-  reason=The evidence explicitly states that the Building Official is charged with the duties of issuing building permits under the provisions of the Code, and describes the process for processing applications for building permits, confirming that the law governs the issuance and requirements of building permits.
-
-concept-occupancy-classification -> defines -> concept-certificate-of-occupancy
-  decision=reject confidence=1.00
-  reason=The provided text describes a procedural requirement (that a Certificate of Occupancy is issued based on occupancy classification), but it does not provide a definition of the Certificate of Occupancy.
-
-law-national-building-code-of-the-philippines -> governs -> concept-stairs
-  decision=reject confidence=1.00
-  reason=The provided examples do not mention 'stairs' or any regulations governing them; they describe building types based on construction materials (Type I and Type II).
-
-concept-occupancy-classification -> depends_on -> concept-mixed-occupancy
   decision=keep confidence=0.90
-  reason=The example text explicitly discusses how requirements apply to buildings with more than one occupancy (mixed occupancy), indicating that the classification of occupancy for a building depends on the same rules governing mixed occupancy.
-
-concept-occupancy-classification -> limits -> concept-mixed-occupancy
-  decision=review_further confidence=0.80
-  reason=The evidence mentions that buildings with multiple occupancies are subject to the most restrictive requirement unless certain conditions apply, but it does not explicitly state that occupancy classification limits mixed occupancy. Instead, it describes how requirements are applied to mixed occupancy buildings.
+  reason=The examples show the 'Code' (law-national-building-code-of-the-philippines) directly referencing and discussing the process and requirements for obtaining a 'building permit' (concept-building-permit), indicating a governing relationship.
   suggested_type=governs
 
-concept-occupancy-classification -> affects -> concept-mixed-occupancy
+concept-occupancy-classification -> defines -> concept-certificate-of-occupancy
   decision=keep confidence=0.90
-  reason=The example text explicitly states that the requirements for a building with more than one occupancy (mixed occupancy) are determined by the occupancy classification, indicating that occupancy classification affects the requirements for mixed occupancy buildings.
+  reason=The example shows that the 'occupancy classification' must be made until the 'Certificate of Occupancy' is issued, indicating a definitional or prerequisite relationship.
+  suggested_type=defines
 
-concept-occupancy-classification -> defines -> concept-mixed-occupancy
+law-national-building-code-of-the-philippines -> governs -> concept-stairs
   decision=reject confidence=0.90
-  reason=The provided example text describes how requirements apply to buildings with multiple occupancies, but it does not provide a definition of 'mixed-occupancy' or 'occupancy classification' and does not show that one defines the other.
+  reason=The provided examples discuss general building types (Type I, Type II) and structural elements, but they do not contain the specific term 'concept-stairs' or establish a direct governing relationship between the 'law-national-building-code-of-the-philippines' and 'concept-stairs'.
 
-concept-occupancy-classification -> requires -> concept-mixed-occupancy
-  decision=reject confidence=1.00
-  reason=The provided example describes how requirements are applied to mixed occupancy buildings, but it does not state that occupancy classification requires mixed occupancy. It describes a condition (mixed occupancy) and the subsequent regulatory requirement, not a dependency where one concept requires the other.
+concept-occupancy-separation -> depends_on -> concept-occupancy-classification
+  decision=keep confidence=0.90
+  reason=The example shows that the building's requirements depend on the type of occupancy found within it, directly supporting the 'depends_on' relationship.
 
-concept-floor-area -> depends_on -> concept-yards
-  decision=reject confidence=1.00
-  reason=The provided example text discusses property lines, eaves, and fire resistance, but it does not mention 'concept-floor-area' or 'concept-yards' and does not establish a dependency between them.
+concept-occupancy-separation -> limits -> concept-occupancy-classification
+  decision=keep confidence=0.90
+  reason=The example shows a rule governing how a building's requirements are determined based on multiple occupancies, which is a limitation or constraint (limits) placed on the relationship between occupancy types and their classifications.
+  suggested_type=limits
 
-concept-floor-area -> limits -> concept-yards
-  decision=reject confidence=1.00
-  reason=The provided example text does not mention 'concept-floor-area' or any limiting relationship between floor area and yards. It discusses property lines, eaves, and fire resistance.
+concept-occupancy-separation -> affects -> concept-occupancy-classification
+  decision=keep confidence=0.90
+  reason=The example shows that the occupancy type (concept-occupancy-classification) dictates the requirements for the building, which is directly affected by the separation of occupancy types (concept-occupancy-separation).
+  suggested_type=affects
 
-concept-floor-area -> affects -> concept-yards
-  decision=reject confidence=1.00
-  reason=The provided example text discusses property lines, eaves, and fire resistance, but it does not mention 'concept-floor-area' or how it affects 'concept-yards'.
+concept-occupancy-separation -> defines -> concept-occupancy-classification
+  decision=review_further confidence=0.70
+  reason=The example shows a relationship between 'occupancy' and 'type' (or 'portion of the building'), suggesting a constraint or requirement based on occupancy type. While the candidate relationship 'concept-occupancy-separation' defines 'concept-occupancy-classification', the provided example is too specific and does not clearly demonstrate a general 'separation' concept or how 'occupancy' defines 'classification' in a general sense. It suggests a complex interaction of requirements.
 
-concept-floor-area -> defines -> concept-yards
-  decision=reject confidence=1.00
-  reason=The provided example text does not mention 'concept-floor-area' or 'concept-yards' and does not establish a definition relationship between them.
+concept-occupancy-separation -> requires -> concept-occupancy-classification
+  decision=keep confidence=0.90
+  reason=The example shows a requirement (building shall be subject to the most restrictive requirement) based on the types of occupancy found (occupancy classification), supporting the 'requires' relationship.
 
-concept-floor-area -> requires -> concept-yards
+concept-yards -> depends_on -> concept-floor-area
   decision=reject confidence=1.00
-  reason=The provided example text does not mention 'concept-floor-area' or 'concept-yards' and does not establish any requirement relationship between them.
+  reason=The candidate relationship 'depends_on' suggests a dependency between 'concept-yards' and 'concept-floor-area'. The provided example text is a building code excerpt discussing property lines, eaves, and fire resistance, which does not demonstrate a dependency relationship between yards and floor area.
+
+concept-yards -> limits -> concept-floor-area
+  decision=reject confidence=1.00
+  reason=The provided example text discusses building codes, property lines, and window requirements, but does not contain any explicit relationship or connection between 'concept-yards' and 'concept-floor-area'.
+
+concept-yards -> affects -> concept-floor-area
+  decision=reject confidence=0.90
+  reason=The candidate relationship 'affects' is too broad and not supported by the provided example text, which discusses specific building codes and measurements (e.g., eaves, property lines, fire resistance).
+
+concept-yards -> defines -> concept-floor-area
+  decision=reject confidence=1.00
+  reason=The provided example text discusses building codes, property lines, and fire resistance, but does not contain any evidence linking 'concept-yards' to 'concept-floor-area' using the 'defines' relationship.
+
+concept-yards -> requires -> concept-floor-area
+  decision=reject confidence=1.00
+  reason=The candidate relationship 'requires' between 'concept-yards' and 'concept-floor-area' is not supported by the provided example text. The example discusses property lines, eaves, and fire resistance, but does not establish a direct requirement link between yards and floor area.
 
 concept-light-and-ventilation -> depends_on -> concept-stairs
-  decision=reject confidence=1.00
-  reason=The provided example text mentions both 'light and ventilation' and 'stairs' (implied by the context of building codes, though 'stairs' is not explicitly mentioned in the text snippet provided), but it does not establish a dependency relationship between the concept of light and ventilation and the concept of stairs. The text discusses property lines and easements, not a dependency on stairs.
+  decision=reject confidence=0.90
+  reason=The candidate relationship 'concept-light-and-ventilation' depends_on 'concept-stairs'. The provided example text discusses light and ventilation requirements for dwellings and does not mention or depend on stairs.
 
 concept-light-and-ventilation -> defines -> concept-stairs
-  decision=reject confidence=1.00
-  reason=The provided text mentions light and ventilation in the context of property lines and dwelling construction, but it does not define the 'concept-stairs' (concept-light-and-ventilation defines concept-stairs). The relationship 'defines' is completely unsupported by the evidence.
+  decision=reject confidence=0.90
+  reason=The candidate relationship 'concept-light-and-ventilation' defines 'concept-stairs'. The provided example text discusses light and ventilation requirements for dwellings and does not mention stairs or define them.
 
-concept-floor-area -> depends_on -> concept-lot-occupancy
-  decision=reject confidence=1.00
-  reason=The provided evidence example does not mention 'concept-floor-area' or 'concept-lot-occupancy', nor does it describe any dependency between them.
+concept-light-and-ventilation -> depends_on -> concept-yards
+  decision=reject confidence=0.90
+  reason=The candidate relationship shows 'concept-light-and-ventilation' depends on 'concept-yards'. The provided example text, however, discusses general requirements for light and ventilation for buildings (e.g., 'every building shall be designed, constructed, and equipped to provide adequate light and ventilation,' and 'All buildings shall face a street or publi'). There is no mention or evidence linking this requirement directly to 'concept-yards'.
 
-concept-floor-area -> defines -> concept-lot-occupancy
-  decision=reject confidence=1.00
-  reason=The provided example text discusses light, ventilation, and building orientation toward a street, but it does not mention 'concept-floor-area' or 'concept-lot-occupancy', nor does it explain how one defines the other.
+concept-light-and-ventilation -> defines -> concept-yards
+  decision=reject confidence=0.90
+  reason=The candidate relationship 'concept-light-and-ventilation' defines 'concept-yards'. The provided example text discusses the requirement for buildings to provide adequate light and ventilation, but it does not define or establish a relationship between 'light and ventilation' and 'yards'.
 
-concept-floor-area -> requires -> concept-occupancy-separation
-  decision=reject confidence=1.00
-  reason=The provided examples are identical and do not mention 'floor area' or 'occupancy separation' specifically, nor do they describe a relationship between them. The text is generic boilerplate about structural design and materials.
+concept-stairs -> requires -> concept-fire-resistive-construction
+  decision=reject confidence=0.90
+  reason=The provided examples show the concept 'concept-stairs' being related to general structural design requirements (Chapter/Section 1201), but they do not specifically establish a direct 'requires' relationship with 'concept-fire-resistive-construction'. The relationship is not supported by the evidence.
 
-concept-floor-area -> depends_on -> concept-occupancy-separation
-  decision=reject confidence=1.00
-  reason=The provided example text does not mention 'floor area' or 'occupancy separation' and does not establish any dependency between the concepts.
+concept-stairs -> depends_on -> concept-fire-resistive-construction
+  decision=reject confidence=0.90
+  reason=The candidate relationship 'depends_on' suggests a structural dependency between 'concept-stairs' and 'concept-fire-resistive-construction'. However, the provided example text is general boilerplate language about structural design and building codes, and does not contain any explicit mention or evidence linking the concept of stairs to the requirement of fire-resistive construction.
 
-concept-floor-area -> limits -> concept-occupancy-separation
-  decision=reject confidence=1.00
-  reason=The provided example text does not mention 'concept-floor-area' or 'concept-occupancy-separation' and does not describe a limiting relationship between them.
+concept-stairs -> limits -> concept-fire-resistive-construction
+  decision=reject confidence=0.90
+  reason=The provided example text discusses general structural design and building codes (Chapter 1201) and does not contain any explicit connection or evidence linking 'concept-stairs' (stairs) to 'concept-fire-resistive-construction'.
 
-concept-floor-area -> affects -> concept-occupancy-separation
-  decision=reject confidence=1.00
-  reason=The provided example text does not mention 'floor area' or 'occupancy separation' and does not show any relationship between them.
+concept-stairs -> affects -> concept-fire-resistive-construction
+  decision=reject confidence=0.90
+  reason=The provided example text discusses general structural design and building codes, but does not explicitly show that 'concept-stairs' 'affects' 'concept-fire-resistive-construction'.
 
-concept-floor-area -> defines -> concept-occupancy-separation
-  decision=reject confidence=1.00
-  reason=The provided example text does not mention 'concept-floor-area' or 'concept-occupancy-separation' and does not show any definitional relationship between them.
+concept-stairs -> defines -> concept-fire-resistive-construction
+  decision=reject confidence=0.90
+  reason=The candidate relationship 'defines' between 'concept-stairs' and 'concept-fire-resistive-construction' is not supported by the provided evidence. The example text discusses general structural design and building codes, not a definition of stairs in terms of fire resistance.
 
 law-national-building-code-of-the-philippines -> governs -> concept-floor-area
   decision=reject confidence=1.00
-  reason=The provided examples are identical and discuss glazing and plastics in constructions, but they do not mention 'floor area' or how the law governs it in the context of these specific snippets.
+  reason=The provided examples discuss glazing, walls, and fire protection requirements, but they do not mention or relate to 'concept-floor-area' or suggest that the 'law-national-building-code-of-the-philippines' governs it.

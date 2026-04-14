@@ -1,10 +1,10 @@
 {
-  "generated_at": "20260414T034610Z",
-  "source_report_generated_at": "20260413T093415Z",
-  "source_model": "gemma4:31b",
-  "source": "001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code.md",
+  "generated_at": "20260414T042739Z",
+  "source_report_generated_at": "20260414T042739Z",
+  "source_model": "gemma4:e4b",
+  "source": "001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md",
   "threshold": 0.9,
-  "count": 3,
+  "count": 6,
   "candidates": [
     {
       "candidate": {
@@ -27,16 +27,36 @@
       },
       "review": {
         "decision": "keep",
-        "confidence": 1.0,
-        "reason": "The evidence explicitly states that the Building Official is charged with the duties of issuing building permits under the provisions of the Code, and describes the process for processing applications for building permits, confirming that the law governs the issuance and requirements of building permits.",
-        "suggested_type": null
+        "confidence": 0.9,
+        "reason": "The examples show the 'Code' (law-national-building-code-of-the-philippines) directly referencing and discussing the process and requirements for obtaining a 'building permit' (concept-building-permit), indicating a governing relationship.",
+        "suggested_type": "governs"
       }
     },
     {
       "candidate": {
         "from": "concept-occupancy-classification",
+        "type": "defines",
+        "to": "concept-certificate-of-occupancy",
+        "occurrences": 1,
+        "sections": [
+          "section-309"
+        ],
+        "examples": [
+          "occupancy classification of a building or structure or portion thereof shall be made until the Building Official has issued a Certificate of Occupancy therefor as provided in this Code. A Certificate of Occupancy shall be issued by the Building Official within thirty (30) days if after final inspect"
+        ]
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.9,
+        "reason": "The example shows that the 'occupancy classification' must be made until the 'Certificate of Occupancy' is issued, indicating a definitional or prerequisite relationship.",
+        "suggested_type": "defines"
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-occupancy-separation",
         "type": "depends_on",
-        "to": "concept-mixed-occupancy",
+        "to": "concept-occupancy-classification",
         "occurrences": 1,
         "sections": [
           "section-703"
@@ -48,15 +68,15 @@
       "review": {
         "decision": "keep",
         "confidence": 0.9,
-        "reason": "The example text explicitly discusses how requirements apply to buildings with more than one occupancy (mixed occupancy), indicating that the classification of occupancy for a building depends on the same rules governing mixed occupancy.",
+        "reason": "The example shows that the building's requirements depend on the type of occupancy found within it, directly supporting the 'depends_on' relationship.",
         "suggested_type": null
       }
     },
     {
       "candidate": {
-        "from": "concept-occupancy-classification",
-        "type": "affects",
-        "to": "concept-mixed-occupancy",
+        "from": "concept-occupancy-separation",
+        "type": "limits",
+        "to": "concept-occupancy-classification",
         "occurrences": 1,
         "sections": [
           "section-703"
@@ -68,7 +88,47 @@
       "review": {
         "decision": "keep",
         "confidence": 0.9,
-        "reason": "The example text explicitly states that the requirements for a building with more than one occupancy (mixed occupancy) are determined by the occupancy classification, indicating that occupancy classification affects the requirements for mixed occupancy buildings.",
+        "reason": "The example shows a rule governing how a building's requirements are determined based on multiple occupancies, which is a limitation or constraint (limits) placed on the relationship between occupancy types and their classifications.",
+        "suggested_type": "limits"
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-occupancy-separation",
+        "type": "affects",
+        "to": "concept-occupancy-classification",
+        "occurrences": 1,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
+        ]
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.9,
+        "reason": "The example shows that the occupancy type (concept-occupancy-classification) dictates the requirements for the building, which is directly affected by the separation of occupancy types (concept-occupancy-separation).",
+        "suggested_type": "affects"
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-occupancy-separation",
+        "type": "requires",
+        "to": "concept-occupancy-classification",
+        "occurrences": 1,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following: - (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy h"
+        ]
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.9,
+        "reason": "The example shows a requirement (building shall be subject to the most restrictive requirement) based on the types of occupancy found (occupancy classification), supporting the 'requires' relationship.",
         "suggested_type": null
       }
     }
