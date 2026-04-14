@@ -156,6 +156,23 @@ def build_parser() -> argparse.ArgumentParser:
                                      choices=["json"],
                                      help="Output format (default: json)")
 
+    query_parser = subparsers.add_parser("query")
+    query_parser.add_argument("question", help="Natural-language question")
+
+    query_struct_parser = subparsers.add_parser("query-structured")
+    query_struct_parser.add_argument(
+        "--function", required=True,
+        help="One of what_governs, what_requires, what_limits, what_defines, "
+             "what_depends_on, what_affects, supersession_chain, neighbors, "
+             "edges_between",
+    )
+    query_struct_parser.add_argument("--subject", default=None,
+                                     help="Subject entity id")
+    query_struct_parser.add_argument("--a", dest="a", default=None,
+                                     help="Entity a (edges_between only)")
+    query_struct_parser.add_argument("--b", dest="b", default=None,
+                                     help="Entity b (edges_between only)")
+
     return parser
 
 
@@ -322,6 +339,19 @@ def main() -> int:
     if args.command == "export-graph-snapshot":
         from vitruvius.graph.cli import run_export_graph_snapshot
         return run_export_graph_snapshot(fmt=args.fmt)
+
+    if args.command == "query":
+        from vitruvius.query.cli import run_query
+        return run_query(args.question)
+
+    if args.command == "query-structured":
+        from vitruvius.query.cli import run_query_structured
+        return run_query_structured(
+            function=args.function,
+            subject=args.subject,
+            a=args.a,
+            b=args.b,
+        )
 
     parser.print_help()
     return 1
