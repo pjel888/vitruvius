@@ -2,22 +2,22 @@
 plan_id: statistical-architectural-upgrade
 phase: "cross-phase (touches 1A → 12)"
 title: Statistical & Architectural Intelligence Upgrade
-status: in-progress — Streams A-E + G CLOSED 2026-04-14
+status: in-progress — Streams A-G CLOSED 2026-04-14
 priority: highest
-sprint: "Sprint D — Streams A-E, G CLOSED; Streams F, H-K pending"
-version: 1.0.5
+sprint: "Sprint D — Streams A-G CLOSED; Streams H-K pending"
+version: 1.0.6
 stream_progress:
   A_bootstrap_merkle_features: closed (7 tasks — A1a, A1b, A2, A5, A6, A7 shipped; A3, A4 won't-fix rationale in A5 commit)
   B_ingestion_intelligence: closed (5 tasks — B.1 Shannon, B.2 Shannon integration, B.3 Table-to-Graph CSV, B.3.1 XLSX wrapper, B.4 Parametric NER shipped)
   C_normalization_tier_c: closed (4 tasks — C.1 Jaro-Winkler OCR, C.2 AST chunker, C.3 hybrid embedding chunker, C.4 Mahalanobis outlier detector shipped)
   D_concept_enrichment_v2: closed (4 tasks — D.1 TF-IDF matcher, D.2 PMI alias miner, D.3 FCA lattice, D.4 contrastive whitening adapter shipped)
   E_extraction_v2: closed (4 tasks — E.1 spaCy SVO dep parser, E.2 CRF trainer scaffold with <50 examples guard, E.3 CRF extractor, E.4 TransE link predictor shipped. E.2/E.4 are scaffolds that will train on real data once Phase 6 audit logs accumulate and Phase 7 produces more promoted relationships.)
-  F_review_v2: pending
+  F_review_v2: closed (8 tasks — F.1 NB pre-review filter, F.2 SLM complexity router, F.3 ontology prompt builder, F.4 conformal prediction calibrator, F.5 tension analyzer, F.6 reflection parser, F.7 Ollama env config helper, F.8 Choquet integral aggregator shipped. All 8 modules are pure-library scaffolds in the new review/ subpackage; caller wiring into ollama_review.py is a future task.)
   G_promotion_v2: closed (3 tasks — G.1 Bayesian evidence fusion, G.2 Stringency matrix resolver + concept frontmatter migration helper, G.3 Temporal graph edge schema + helpers shipped. Shipped as additions to promotion/ subpackage after converting the flat promotion.py → promotion/__init__.py in G.1.)
-  H_graph_intelligence: pending
-  I_query_v2: pending
-  J_active_learning: pending
-  K_clup_scaling: pending
+  H_graph_intelligence: pending (9 tasks — depends on Phase 8 base plan execution)
+  I_query_v2: pending (4 tasks — depends on Phase 9 base plan + Stream H)
+  J_active_learning: pending (2 tasks — depends on Ranger dashboard that doesn't exist yet)
+  K_clup_scaling: pending (3 tasks — gated on 2nd jurisdiction corpus)
 plan_type: implementation_tdd
 created: 2026-04-14
 last_updated: 2026-04-14
