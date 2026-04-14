@@ -1,0 +1,15 @@
+{
+  "spatial_context_id": "spatial-smoke-01",
+  "entities": [
+    {
+      "instance_id": "instance-corridor",
+      "canonical_concept_id": "concept-means-of-egress",
+      "vertices": [0, 0, 0, 10, 0, 0, 0, 1.1, 0, 10, 1.1, 0, 0, 0, 2.4, 10, 0, 2.4, 0, 1.1, 2.4, 10, 1.1, 2.4]
+    },
+    {
+      "instance_id": "instance-fire-door",
+      "canonical_concept_id": "concept-doors-and-exits",
+      "vertices": [5, 0, 0, 5.9, 0, 0, 5, 0.1, 0, 5.9, 0.1, 0, 5, 0, 2.1, 5.9, 0, 2.1, 5, 0.1, 2.1, 5.9, 0.1, 2.1]
+    }
+  ]
+}

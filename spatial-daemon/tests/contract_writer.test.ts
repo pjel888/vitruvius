@@ -1,0 +1,69 @@
+import { describe, expect, it } from "vitest";
+import { mkdtempSync, readFileSync, rmSync } from "fs";
+import { tmpdir } from "os";
+import { join } from "path";
+import { writeContract } from "../src/contract_writer";
+import type { SpatialContract } from "../src/types";
+
+describe("writeContract", () => {
+  it("writes a valid JSON file with the schema_version field", () => {
+    const dir = mkdtempSync(join(tmpdir(), "vitruvius-daemon-"));
+    try {
+      const contract: SpatialContract = {
+        schema_version: "1.0.0",
+        spatial_context_id: "spatial-test-01",
+        generated_at_utc: "2026-04-15T09:00:00Z",
+        source_daemon: "vitruvius-spatial-daemon@0.1.0",
+        instances: [
+          {
+            instance_id: "instance-door-01",
+            canonical_concept_id: "concept-doors-and-exits",
+          },
+        ],
+        spatial_edges: [],
+      };
+      const path = writeContract(contract, dir);
+      const onDisk = JSON.parse(readFileSync(path, "utf-8"));
+      expect(onDisk.schema_version).toBe("1.0.0");
+      expect(onDisk.spatial_context_id).toBe("spatial-test-01");
+      expect(path.endsWith("spatial-test-01.json")).toBe(true);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it("throws when spatial_context_id does not start with 'spatial-'", () => {
+    const dir = mkdtempSync(join(tmpdir(), "vitruvius-daemon-"));
+    try {
+      const contract: SpatialContract = {
+        schema_version: "1.0.0",
+        spatial_context_id: "bad" as SpatialContract["spatial_context_id"],
+        generated_at_utc: "2026-04-15T09:00:00Z",
+        instances: [],
+        spatial_edges: [],
+      };
+      expect(() => writeContract(contract, dir)).toThrow();
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it("throws when an instance_id lacks the 'instance-' prefix", () => {
+    const dir = mkdtempSync(join(tmpdir(), "vitruvius-daemon-"));
+    try {
+      const contract: SpatialContract = {
+        schema_version: "1.0.0",
+        spatial_context_id: "spatial-ok",
+        generated_at_utc: "2026-04-15T09:00:00Z",
+        instances: [
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          { instance_id: "door", canonical_concept_id: "concept-door" } as any,
+        ],
+        spatial_edges: [],
+      };
+      expect(() => writeContract(contract, dir)).toThrow();
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});

@@ -1,0 +1,24 @@
+{
+  "name": "vitruvius-spatial-daemon",
+  "version": "0.1.0",
+  "description": "Headless spatial translator for Vitruvius — consumes CAD exports, emits JSON manifests into 001B_Spatial-Source-Layer.",
+  "type": "module",
+  "main": "dist/cli.js",
+  "bin": {
+    "vitruvius-spatial": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
