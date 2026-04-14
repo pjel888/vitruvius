@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, ClassVar
 
 
-@dataclass
+@dataclass(kw_only=True)
 class ParserTelemetry:
     parser_id: str
     attempt_index: int
@@ -20,10 +20,10 @@ class ParserTelemetry:
     tables: int
     images: int
     captions: int
+    assets_extracted: list[str] = field(default_factory=list)
     ocr_applied: bool
     confidence: float
     valid: bool
-    assets_extracted: list[str] = field(default_factory=list)
     error: str | None = field(default=None)
 
 

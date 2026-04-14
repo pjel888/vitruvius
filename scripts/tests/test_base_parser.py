@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import asdict
 from pathlib import Path
 
 import pytest
@@ -126,3 +127,45 @@ def test_base_parser_valid_concrete_subclass_works(tmp_path):
     tmp_file.write_bytes(b"")
     result = StubParser().parse(tmp_file, tmp_path)
     assert result.markdown_text == "# stub"
+
+
+def test_parser_telemetry_field_order_matches_contract():
+    """Regression pin: asdict() key order must exactly match the §6 JSON schema contract."""
+    t = ParserTelemetry(
+        parser_id="x",
+        attempt_index=0,
+        duration_ms=0,
+        pages_total=0,
+        pages_processed=0,
+        page_coverage_ratio=0.0,
+        text_length=0,
+        md_length=0,
+        headers=0,
+        tables=0,
+        images=0,
+        captions=0,
+        ocr_applied=False,
+        confidence=0.0,
+        valid=True,
+    )
+    keys = list(asdict(t).keys())
+    expected = [
+        "parser_id",
+        "attempt_index",
+        "duration_ms",
+        "pages_total",
+        "pages_processed",
+        "page_coverage_ratio",
+        "text_length",
+        "md_length",
+        "headers",
+        "tables",
+        "images",
+        "captions",
+        "assets_extracted",
+        "ocr_applied",
+        "confidence",
+        "valid",
+        "error",
+    ]
+    assert keys == expected, f"Field order mismatch — got: {keys}"
