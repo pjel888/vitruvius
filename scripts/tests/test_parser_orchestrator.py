@@ -325,7 +325,7 @@ def test_missing_document_class_raises_key_error() -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_successful_parse_short_circuits_chain(orch_passing: ParserOrchestrator) -> None:
+def test_successful_parse_short_circuits_chain() -> None:
     orch = ParserOrchestrator(
         parser_chains={
             DocumentClass.TEXT_PDF_SIMPLE: [_PassingParser(), _FailingGateParser()]
@@ -425,3 +425,32 @@ def test_auto_accepted_only_when_first_attempt_wins() -> None:
     )
     assert r2.terminal_status == TerminalStatus.AUTO_REFINED
     assert r2.terminal_status != TerminalStatus.AUTO_ACCEPTED
+
+
+# ---------------------------------------------------------------------------
+# Test 16: orchestrator isolates against external chain mutation
+# ---------------------------------------------------------------------------
+
+
+def test_orchestrator_isolates_external_chain_mutation() -> None:
+    passing_parser = _PassingParser()
+    failing_parser = _FailingGateParser()
+
+    chain: list[_StubParser] = [passing_parser]
+    chains_dict: dict[DocumentClass, list[_StubParser]] = {
+        DocumentClass.TEXT_PDF_SIMPLE: chain
+    }
+    orch = ParserOrchestrator(parser_chains=chains_dict)  # type: ignore[arg-type]
+
+    # Mutate the original list and dict after construction
+    chain.append(failing_parser)
+    chains_dict[DocumentClass.TEXT_PDF_SIMPLE] = [failing_parser, passing_parser]
+
+    result = orch.process(
+        source_path=_DUMMY_PATH,
+        doc_class=DocumentClass.TEXT_PDF_SIMPLE,
+        work_dir=_DUMMY_WORK,
+    )
+    # Defensive copy means the orchestrator still has only the original single parser
+    assert result.terminal_status == TerminalStatus.AUTO_ACCEPTED
+    assert len(result.attempts) == 1

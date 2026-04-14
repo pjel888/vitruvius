@@ -34,7 +34,7 @@ class OrchestratorResult:
 
 class ParserOrchestrator:
     def __init__(self, parser_chains: dict[DocumentClass, list[BaseParser]]) -> None:
-        self._chains = parser_chains
+        self._chains = {k: list(v) for k, v in parser_chains.items()}
 
     def process(
         self,
