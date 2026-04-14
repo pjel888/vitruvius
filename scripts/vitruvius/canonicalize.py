@@ -248,22 +248,27 @@ def resolve_referenced_concepts(body: str, *, repo_root: Path) -> list[str]:
     return found
 
 
-def run_canonicalize_one(*, relative_markdown_path: str) -> int:
-    repo_root = get_repo_root()
+def build_structured_source_file(
+    *,
+    repo_root: Path,
+    relative_markdown_path: str,
+) -> tuple[Path, str]:
+    """Build the full canonical source markdown for one refined input.
 
+    Returns the target path and the rendered content (the caller decides
+    whether to write via canonical_diff.should_overwrite).
+    """
     source_path = repo_root / CONVERSION_LAYER_NAME / relative_markdown_path
-
     if not source_path.exists():
-        print("ERROR: Source not found")
-        return 1
+        raise FileNotFoundError(f"Refined markdown not found: {source_path}")
 
+    refined_text = source_path.read_text(encoding="utf-8")
     plan = build_plan(relative_markdown_path)
 
-    target = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "sources"
-    target.mkdir(parents=True, exist_ok=True)
-
-    filename = f"{slugify(plan['title'])}.md"
-    target_file = target / filename
+    headers = extract_section_headers(refined_text)
+    key_points = extract_key_points(refined_text, limit=5)
+    overview = build_overview_paragraph(refined_text)
+    referenced = resolve_referenced_concepts(refined_text, repo_root=repo_root)
 
     lines = [
         "---",
@@ -271,29 +276,100 @@ def run_canonicalize_one(*, relative_markdown_path: str) -> int:
         f"title: {plan['title']}",
         "page_type: source",
         f"trust_level: {plan['trust']}",
-        "aliases:",
+        "canonical_status: draft",
+        f"last_canonicalized_utc: {datetime.now(timezone.utc).isoformat()}",
     ]
-
     if plan["aliases"]:
+        lines.append("aliases:")
         for a in plan["aliases"]:
             lines.append(f"  - {a}")
-    else:
-        lines.append("  - none")
+    lines.append("---")
+    lines.append("")
+    lines.append(f"# {plan['title']}")
+    lines.append("")
+    lines.append("## Overview")
+    lines.append("")
+    lines.append(overview or f"{plan['title']} is a canonical source within the Vitruvius system.")
+    lines.append("")
+    lines.append("## Coverage")
+    lines.append("")
+    for h in headers:
+        lines.append(f"- {h['title']}")
+    if not headers:
+        lines.append("- (no headers detected in refined source)")
+    lines.append("")
+    lines.append("## Key Points")
+    lines.append("")
+    for kp in key_points:
+        lines.append(f"- {kp}")
+    if not key_points:
+        lines.append("- (no key points extracted)")
+    lines.append("")
+    lines.append("## Referenced Concepts")
+    lines.append("")
+    for ref in referenced:
+        lines.append(f"- {ref}")
+    if not referenced:
+        lines.append("- (none resolved against shared/concepts)")
+    lines.append("")
 
-    lines.append("---\n")
+    target = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "sources"
+    target.mkdir(parents=True, exist_ok=True)
+    filename = f"{slugify(plan['title'])}.md"
+    target_file = target / filename
+    return target_file, "\n".join(lines)
 
-    lines.append(f"# {plan['title']}\n")
-    lines.append("## Related Concepts\n")
 
-    if plan["concepts"]:
-        for c in plan["concepts"]:
-            lines.append(f"- concept-{slugify(c)}")
-    else:
-        lines.append("- none")
+def run_canonicalize_one(*, relative_markdown_path: str) -> int:
+    from .canonical_diff import should_overwrite
 
-    target_file.write_text("\n".join(lines), encoding="utf-8")
+    repo_root = get_repo_root()
+    try:
+        target_file, content = build_structured_source_file(
+            repo_root=repo_root,
+            relative_markdown_path=relative_markdown_path,
+        )
+    except FileNotFoundError as exc:
+        print(f"ERROR: {exc}")
+        return 1
 
-    print("canonicalize-one complete.")
-    print(f"Created: {target_file}")
+    decision = should_overwrite(target_file, content)
+    if not decision.allowed:
+        print(f"SKIP ({decision.reason}): {target_file}")
+        return 0
 
+    target_file.write_text(content, encoding="utf-8")
+    print(f"canonicalize-one complete. Wrote: {target_file}")
+    return 0
+
+
+def run_canonicalize() -> int:
+    """Walk 002_Raw-Conversion-Layer/*/raw_markdown/**/*.md and canonicalize each."""
+    repo_root = get_repo_root()
+    conversion_root = repo_root / CONVERSION_LAYER_NAME
+    if not conversion_root.exists():
+        print("No conversion layer found.")
+        return 0
+
+    processed = 0
+    skipped = 0
+    failed = 0
+    for md_path in sorted(conversion_root.rglob("*.md")):
+        rel = md_path.relative_to(conversion_root).as_posix()
+        # Prefer refined markdown when available; fall back to raw.
+        parts = Path(rel).parts
+        if "raw_markdown" not in parts:
+            continue
+        try:
+            rc = run_canonicalize_one(relative_markdown_path=rel)
+        except Exception as exc:
+            print(f"FAIL ({exc}): {rel}")
+            failed += 1
+            continue
+        if rc == 0:
+            processed += 1
+        else:
+            skipped += 1
+
+    print(f"canonicalize (batch) complete. Processed: {processed}, Skipped: {skipped}, Failed: {failed}")
     return 0

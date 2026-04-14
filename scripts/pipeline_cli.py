@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import argparse
 
-from vitruvius.canonicalize import run_canonicalize_one, run_canonicalize_plan_one
+from vitruvius.canonicalize import run_canonicalize, run_canonicalize_one, run_canonicalize_plan_one
 from vitruvius.concepts import run_canonicalize_concept_one
 from vitruvius.conversion import run_convert, run_convert_one
 from vitruvius.detection import run_detect_one
@@ -87,6 +87,7 @@ def build_parser() -> argparse.ArgumentParser:
                                 default=None,
                                 help="Rollback the given promotion batch ID")
 
+    subparsers.add_parser("canonicalize")
     subparsers.add_parser("refine")
     refine_one_parser = subparsers.add_parser("refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
@@ -184,6 +185,9 @@ def main() -> int:
             execute=args.execute,
             rollback_batch_id=args.rollback_batch_id,
         )
+
+    if args.command == "canonicalize":
+        return run_canonicalize()
 
     if args.command == "refine":
         return run_refine()
