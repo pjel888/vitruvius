@@ -28,6 +28,12 @@ review:
     max_retries_per_candidate: 3
     retry_backoff_seconds: 2
     default_parallelism: 1
+    # NEW — Stream W1.1 model pool for 8GB survival mode.
+    # Read only when features.w_llm_model_pool is true.
+    model_pool:
+      tier_0_draft: phi3:mini            # ~2.3 GB quantized
+      tier_1_default: qwen2.5:7b         # ~4.4 GB quantized (8GB survival)
+      tier_2_heavy: gemma4:31b           # ~18 GB — only on >=32 GB hosts
 
 promotion:
   confidence_threshold: 0.90
@@ -105,3 +111,18 @@ features:
   o_watched_sources_registry: false
   o_mahalanobis_drift_detection: false
   o_duplicate_detector: false
+  # Stream W — Live Wiring & 8GB Hardening (live-wiring-and-8gb-hardening-plan.md)
+  # Every flag defaults false. With all off, the pipeline behaviour is
+  # byte-identical to the pre-Sprint-Q baseline.
+  w_llm_model_pool: false
+  w_llm_num_ctx_enforcement: false
+  w_llm_context_budget_guard: false
+  w_llm_binary_mode: false
+  w_review_nb_prefilter: false
+  w_review_ontology_prompt: false
+  w_review_slm_routing: false
+  w_review_conformal_routing: false
+  w_review_tension_reflection: false
+  w_review_choquet_aggregator: false
+  w_promotion_stringency_gate: false
+  w_graph_governing_standard: false

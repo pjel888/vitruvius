@@ -19,9 +19,29 @@ def get_ollama_url() -> str:
     return cfg.get("review", {}).get("ollama", {}).get("url", "http://127.0.0.1:11434")
 
 
+def get_ollama_model_pool() -> dict[str, str]:
+    cfg = load_config()
+    pool = cfg.get("review", {}).get("ollama", {}).get("model_pool", {})
+    if not isinstance(pool, dict):
+        return {}
+    return {str(k): str(v) for k, v in pool.items()}
+
+
+def _features_block() -> dict:
+    cfg = load_config()
+    block = cfg.get("features", {})
+    return block if isinstance(block, dict) else {}
+
+
 def get_ollama_default_model() -> str:
     cfg = load_config()
-    return cfg.get("review", {}).get("ollama", {}).get("default_model", "gemma4:31b")
+    raw_default = cfg.get("review", {}).get("ollama", {}).get("default_model", "gemma4:31b")
+    if _features_block().get("w_llm_model_pool", False):
+        pool = get_ollama_model_pool()
+        tier1 = pool.get("tier_1_default")
+        if isinstance(tier1, str) and tier1:
+            return tier1
+    return str(raw_default)
 
 
 def get_ollama_default_timeout() -> int:
