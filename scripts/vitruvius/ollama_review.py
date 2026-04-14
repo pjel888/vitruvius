@@ -4,6 +4,7 @@ import json
 import time
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any
 
@@ -270,6 +271,32 @@ def save_progress_report(
     write_text(txt_path, build_text_report(report))
 
 
+def review_candidates_parallel(
+    candidates: list[dict[str, Any]],
+    *,
+    model: str,
+    timeout_seconds: int,
+    parallelism: int,
+) -> list[dict[str, Any]]:
+    """Review a list of candidates optionally in parallel.
+
+    Results are returned in the same order as the input. For parallelism=1
+    this degrades gracefully to the sequential implementation.
+    """
+    if parallelism <= 1:
+        return [
+            review_relationship(c, model=model, timeout_seconds=timeout_seconds)
+            for c in candidates
+        ]
+
+    with ThreadPoolExecutor(max_workers=parallelism) as pool:
+        futures = [
+            pool.submit(review_relationship, c, model, timeout_seconds)
+            for c in candidates
+        ]
+        return [f.result() for f in futures]
+
+
 def load_resume_state(runs_dir: Path) -> dict[str, Any]:
     """Read the latest in_progress snapshot, if any, for resume-on-relaunch."""
     snapshot_path = runs_dir / "latest_relationship_review_ollama.json"
@@ -330,7 +357,12 @@ def run_review_relationships_ollama(
     *,
     model: str = DEFAULT_MODEL,
     timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS,
+    parallelism: int | None = None,
 ) -> int:
+    from .config import get_ollama_default_parallelism
+
+    if parallelism is None:
+        parallelism = get_ollama_default_parallelism()
     repo_root = get_repo_root()
     runs_dir = repo_root / "006_System-Manifests" / "runs"
     runs_dir.mkdir(parents=True, exist_ok=True)

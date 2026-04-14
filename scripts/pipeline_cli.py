@@ -79,6 +79,8 @@ def build_parser() -> argparse.ArgumentParser:
     review_parser = subparsers.add_parser("review-relationships-ollama")
     review_parser.add_argument("--model", default="gemma4:31b")
     review_parser.add_argument("--timeout-seconds", type=int, default=600)
+    review_parser.add_argument("--parallel", type=int, default=None,
+                               help="Concurrent Ollama requests (default: config)")
 
     promote_parser = subparsers.add_parser("promote")
     promote_parser.add_argument("--execute", action="store_true",
@@ -178,6 +180,7 @@ def main() -> int:
         return run_review_relationships_ollama(
             model=args.model,
             timeout_seconds=args.timeout_seconds,
+            parallelism=args.parallel,
         )
 
     if args.command == "promote":
