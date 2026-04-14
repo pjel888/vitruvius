@@ -168,6 +168,76 @@ def extract_section_relationships(
 # AGGREGATION
 # --------------------------------------------------
 
+# --------------------------------------------------
+# ENDPOINT-PAIR DEDUPLICATION
+# --------------------------------------------------
+
+PREDICATE_PRIORITY = [
+    "governs",
+    "defines",
+    "requires",
+    "depends_on",
+    "limits",
+    "affects",
+    "supersedes",
+]
+
+
+def _priority_rank(predicate: str) -> int:
+    try:
+        return PREDICATE_PRIORITY.index(predicate)
+    except ValueError:
+        return len(PREDICATE_PRIORITY)
+
+
+def dedupe_by_endpoints(candidates: List[Dict]) -> List[Dict]:
+    """Collapse multiple (from, X, to) candidates into one per (from, to).
+
+    The regex extractor produces up to 5 candidates for the same endpoint pair
+    because 5 predicate patterns can each match the same section text. Given
+    the review layer rejects 4 of them as false positives, we dedup before
+    review: keep the candidate with the highest `occurrences`, breaking ties
+    by PREDICATE_PRIORITY (lower index wins). Sections and examples from all
+    dropped candidates are merged into the surviving one. The dropped
+    predicates are recorded in `alternate_predicates` so downstream (Phase 6B)
+    can revisit them.
+    """
+    from collections import defaultdict
+
+    groups: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for cand in candidates:
+        groups[(cand["from"], cand["to"])].append(cand)
+
+    result: list[dict] = []
+    for (_from_id, _to_id), group in groups.items():
+        # Sort: highest occurrences first; then priority (smaller rank first).
+        group_sorted = sorted(
+            group,
+            key=lambda c: (-int(c.get("occurrences", 0)), _priority_rank(c["type"])),
+        )
+        winner = dict(group_sorted[0])
+
+        alternates: list[str] = []
+        merged_sections: list = list(winner.get("sections", []))
+        merged_examples: list = list(winner.get("examples", []))
+        for other in group_sorted[1:]:
+            if other["type"] != winner["type"]:
+                alternates.append(other["type"])
+            for s in other.get("sections", []):
+                if s not in merged_sections:
+                    merged_sections.append(s)
+            for ex in other.get("examples", []):
+                if ex not in merged_examples and len(merged_examples) < 5:
+                    merged_examples.append(ex)
+
+        winner["sections"] = merged_sections
+        winner["examples"] = merged_examples
+        winner["alternate_predicates"] = alternates
+        result.append(winner)
+
+    return result
+
+
 def aggregate_relationships(rel_list: List[Dict]) -> List[Dict]:
     agg: Dict[Tuple[str, str, str], Dict] = {}
 
@@ -225,6 +295,7 @@ def run_extract_relationships_sections_one(*, relative_markdown_path: str) -> in
         all_relationships.extend(rels)
 
     aggregated = aggregate_relationships(all_relationships)
+    deduped = dedupe_by_endpoints(aggregated)
 
     runs_dir = repo_root / "006_System-Manifests" / "runs"
     runs_dir.mkdir(parents=True, exist_ok=True)
@@ -233,8 +304,8 @@ def run_extract_relationships_sections_one(*, relative_markdown_path: str) -> in
         "generated_at": utc_now_stamp(),
         "source": relative_markdown_path,
         "total_sections": len(sections),
-        "total_relationships": len(aggregated),
-        "relationships": aggregated,
+        "total_relationships": len(deduped),
+        "relationships": deduped,
     }
 
     json_path = runs_dir / "latest_relationship_extraction_sections.json"
@@ -245,19 +316,20 @@ def run_extract_relationships_sections_one(*, relative_markdown_path: str) -> in
     lines = []
     lines.append("Section-Aware Relationship Extraction\n")
     lines.append(f"Sections: {len(sections)}")
-    lines.append(f"Unique relationships: {len(aggregated)}\n")
+    lines.append(f"Unique relationships: {len(deduped)}\n")
 
-    for rel in aggregated:
+    for rel in deduped:
+        alt_str = f" alt={rel.get('alternate_predicates')}" if rel.get('alternate_predicates') else ""
         lines.append(
             f"{rel['from']} -> {rel['type']} -> {rel['to']} "
-            f"(x{rel['occurrences']}) sections={rel['sections']}"
+            f"(x{rel['occurrences']}) sections={rel['sections']}{alt_str}"
         )
 
     write_text(txt_path, "\n".join(lines))
 
     print("extract-relationships-sections-one complete.")
     print(f"Sections processed: {len(sections)}")
-    print(f"Unique relationships: {len(aggregated)}")
+    print(f"Unique relationships: {len(deduped)}")
     print(f"JSON: {json_path}")
     print(f"TXT: {txt_path}")
 
