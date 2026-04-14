@@ -1,9 +1,9 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-15 · Sprint Q (Live Wiring & 8GB Hardening) CODE-COMPLETE + Sprint R (Per-Layer Embeddings & Agentic) CODE-COMPLETE — Streams Y0–Y5 all shipped (20/20). Per-layer-embeddings plan archived.
-> **Branch:** `feat/sprint-r-per-layer-embeddings`
-> **Test suite:** 1123 / 1123 passing (excluding the pre-existing untracked `test_ontology_owl_exporter.py` that references an unimplemented Stream M.3 OWL exporter — Sprint H scope)
-> **Tag:** `sprint-q-closed` at commit `c3eb939` (code-complete; live RSS/latency bench pending)
+> **Updated:** 2026-04-15 · Sprint Q ✅ + Sprint R ✅ + Sprint PHYS ✅ + Sprint HP 🟡 partial + Sprint GEOM 🟡 partial — see AD-024, AD-025, AD-026 for the per-sprint ledgers.
+> **Branch:** `feat/sprint-r-per-layer-embeddings` (will likely be renamed when merged to main)
+> **Test suite:** 1166 / 1166 passing (excluding the pre-existing untracked `test_ontology_owl_exporter.py` that references an unimplemented Stream M.3 OWL exporter — Sprint H scope)
+> **Tags:** `sprint-q-closed` (c3eb939), `sprint-r-closed` (f192593), `sprint-phys-closed` (de86d78)
 
 ## Sprint R Progress (2026-04-15)
 

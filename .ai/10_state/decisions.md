@@ -312,6 +312,61 @@
 
 ---
 
+## AD-026: Sprint PHYS shipped + HP.1/GEOM narrow slices (autonomous pass)
+- **Date:** 2026-04-15
+- **Status:** Sprint PHYS fully implemented + archived; Sprint HP partial (HP.1 only); Sprint GEOM partial (narrow slice); phase-13 and phase-15 stay unarchived until their deferred streams land.
+- **Context:** The governing plan Task 7 chain (GT → HP → WIKI → GEOM → PHYS → Z) was bottlenecked on external toolchains (Rust, RocksDB, Docling, trimesh). The `/superpowers:executing-plans` dispatch with the argument "proceed with tasks that do not require human intervention first" asked the agent to work only on streams that can land under in-session TDD. This entry records that autonomous pass.
+- **Decision:** Execute every design-spec stream that can be TDD-shipped with only the dependencies already installed on the Homebrew Python 3.11 that pytest uses (networkx, scipy, numpy, sklearn, sentence-transformers, spacy, z3, rdflib, shapely, yaml, rapidfuzz, Pillow, httpx). Skip streams gated on missing toolchains with an explicit deferral note.
+- **Shipped (PHYS — phase-16 closed 4/4 streams and archived):**
+  * PHYS.1 — `compute_pagerank` + `resolve_conflict_by_pagerank` in `scripts/vitruvius/graph/physics.py` with weighted-edge collapse so parallel edges from the same source accumulate authority. 5 tests. (commit `0b8f816`)
+  * PHYS.2 — `compute_system_energy` + `should_promote_boltzmann` + `find_violation_motifs` (VF2 subgraph isomorphism). Absorbs the orphan Stream O tasks from the statistical plan per governing plan §4.4. 8 tests. (same commit)
+  * PHYS.3 — `compute_shannon_entropy` + `adaptive_window_overlap` + `compute_kolmogorov_delta` (difflib-based approximation). 9 tests. (same commit)
+  * PHYS.4 — `compute_eigenvector_centrality` (with numpy fallback on convergence failure) + `simulate_cascade` (undirected connected component) + `find_impact_radius` (top-k by centrality). 5 tests. (same commit)
+  * Feature flags: `phys_pagerank`, `phys_boltzmann_gate`, `phys_motif_matcher`, `phys_shannon_sampling`, `phys_eigenvector_cascade`. All default false.
+  * phase-16 plan archived to `.ai/09_archive/plans/` (commit `de86d78`).
+  * Tag: `sprint-phys-closed`.
+- **Shipped (HP — phase-13 partial, 1/5 streams):**
+  * HP.1 — `scripts/vitruvius/merkle_fs.py` with `DirectoryHash` + `calculate_directory_hash` (stable sorted recursive SHA-256 with 1 MiB streaming reads; skips symlinks and non-regular files) + `dir_has_changed` pure check against a caller-owned manifest store. 6 tests. (commit `8a9303b`)
+  * Feature flag: `hp_merkle_fs` (default false).
+  * Deferred (need external deps / toolchain):
+    - HP.1.2 / HP.1.3 — scanner + run_status wire-in (deeper integration, scoped as a follow-on).
+    - HP.2 — AST chunking: Stream C.2 already shipped `ast_chunker.py`; the HP.2 task of section-boundary grouping + parent metadata propagation is largely redundant and not re-shipped.
+    - HP.3 — RocksDB event-sourced graph: needs `python-rocksdb`. Missing.
+    - HP.4 — Rust/Wasm spatial kernels: needs `rustup` + `maturin` + `wasmtime` Python bindings. Missing.
+    - HP.5 — GraphSAGE representation learning: needs DGL or PyTorch Geometric. Missing.
+  * phase-13 plan stays in `.ai/03_plans/` until HP.3-HP.5 land.
+- **Shipped (GEOM — phase-15 partial, 2 narrow-slice streams):**
+  * GEOM.1 — `scripts/vitruvius/geometric/inequality_compiler.py` with `compile_parameter_expression(Parameter)` → (z3.Real, z3_expression) and `check_compliance(parameters, *, proposals)` → `ComplianceVerdict`. Uses z3 (already installed) and the existing Stream B.4 `Parameter` record. 6 tests. (commit `c4aefc1`)
+  * GEOM.3 (2D subset) — `scripts/vitruvius/geometric/envelope_2d.py` with `compute_buildable_envelope(corners, *, setback_meters)` → `BuildableEnvelope2D` via shapely's negative buffer. Normalises collapsed envelopes to area=0 / is_buildable=False. 4 tests. (same commit)
+  * Feature flags: `geom_csp_compiler`, `geom_envelope_2d` (both default false).
+  * Deferred:
+    - GEOM.2 — full conditional-dependency CSP ("if Zone == R1 then Setback == 4.5m"): the existing `constraint_solver.py` from Sprint H covers the simple numeric case but the conditional layer lands when the Stream B NER is extended to emit guarded rules.
+    - GEOM.3 full 3D — needs trimesh (missing).
+    - GEOM.4 — multimodal IoU audit + Pareto optimizer: needs trimesh + cvxpy (both missing).
+  * phase-15 plan stays in `.ai/03_plans/` until GEOM.3 3D + GEOM.4 land.
+- **Blocked (not attempted):**
+  * Sprint GT (phase-8b) — Rust toolchain + maturin not installed.
+  * Sprint WIKI (phase-14) — Docling + Kuzu not installed.
+  * Sprint Z (phase-12) — Rust toolchain + DSPy not installed.
+  * Sprint H (3D Spatial Intelligence) — gated on ≥25 verified relationships (only 7 present) AND requires a live Ollama to grow the count.
+  * Sprint D residuals (J/K) — externally gated on Ranger dashboard / 2nd jurisdiction.
+- **Consequences:**
+  * Test suite: 1123 (post-Sprint-R) → **1166 (post-GEOM)** — **+43 new cases across PHYS+HP.1+GEOM**.
+  * All new modules are behind feature flags that default false; flag-OFF behavior is byte-identical to the pre-autonomous-pass baseline.
+  * Three new feature flag families (`phys_*`, `hp_merkle_fs`, `geom_*`) added to `EXPECTED_FLAGS` so the non-breaking-contract regression automatically covers them.
+  * Two plans archived this session (live-wiring + per-layer-embeddings); one plan archived in this autonomous pass (phase-16 PHYS); two plans remain in `.ai/03_plans/` with partial completions documented (phase-13 HP and phase-15 GEOM).
+- **Follow-up queue:**
+  * Install `python-rocksdb` + run HP.3 (event-sourced graph engine).
+  * Install Rust toolchain + run HP.4 (Wasm spatial kernels), Sprint GT, Sprint Z Stream S4.
+  * Install DGL or PyG + run HP.5 (GraphSAGE loophole detector).
+  * Install `trimesh` + `cvxpy` + run GEOM.3 (3D envelope) + GEOM.4 (IoU audit + Pareto optimizer).
+  * Install Docling + Kuzu + run Sprint WIKI.
+  * Install DSPy + run Sprint Z Stream S5.
+  * Run the live PD 1096 bench (deferred from Sprint Q AD-024).
+  * Grow verified relationships to ≥25 to unblock Sprint H (requires live Ollama on PD 1096 IRR).
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.
