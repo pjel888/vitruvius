@@ -62,8 +62,8 @@ def test_tfidf_matches_exit_width_to_stairs_section(tmp_path: Path):
         markdown_paths=[_write_fixture(tmp_path)],
         threshold=0.0,
     )
-    assert report.below_threshold, "expected at least one candidate"
-    top = report.below_threshold[0]
+    assert report.all_candidates, "expected at least one candidate"
+    top = report.all_candidates[0]
     assert top.concept_slug == "exit-width"
     assert "804" in top.section_title or "Stairs" in top.section_title
 
@@ -79,7 +79,7 @@ def test_tfidf_ignores_common_words(tmp_path: Path):
         threshold=0.0,
     )
     # Stopword-only slugs should score effectively zero on every section.
-    for cand in report.below_threshold:
+    for cand in report.all_candidates:
         assert cand.score < 0.1, f"common-word slug scored unreasonably high: {cand}"
 
 
@@ -97,8 +97,8 @@ def test_deterministic_ranking(tmp_path: Path):
         markdown_paths=[_write_fixture(tmp_path)],
         threshold=0.0,
     )
-    assert [(c.concept_slug, c.section_title, round(c.score, 6)) for c in r1.below_threshold] \
-        == [(c.concept_slug, c.section_title, round(c.score, 6)) for c in r2.below_threshold]
+    assert [(c.concept_slug, c.section_title, round(c.score, 6)) for c in r1.all_candidates] \
+        == [(c.concept_slug, c.section_title, round(c.score, 6)) for c in r2.all_candidates]
 
 
 def test_writes_candidates_json(tmp_path: Path):
@@ -115,7 +115,7 @@ def test_writes_candidates_json(tmp_path: Path):
     out = runs_dir / "latest_tfidf_concept_match.json"
     assert out.exists()
     data = json.loads(out.read_text())
-    assert "matched" in data and "below_threshold" in data
+    assert "matched" in data and "all_candidates" in data
     assert "threshold" in data
 
 
@@ -131,7 +131,7 @@ def test_flag_off_is_noop(tmp_path: Path):
         runs_dir=runs_dir,
     )
     assert report.matched == []
-    assert report.below_threshold == []
+    assert report.all_candidates == []
     out = runs_dir / "latest_tfidf_concept_match.json"
     assert not out.exists()
 
@@ -145,7 +145,7 @@ def test_threshold_separates_matched_from_below(tmp_path: Path):
         threshold=999.0,  # absurdly high
     )
     assert report.matched == []  # nothing clears 999
-    assert len(report.below_threshold) >= 1
+    assert len(report.all_candidates) >= 1
 
 
 def test_score_concept_returns_top_k_sorted(tmp_path: Path):

@@ -44,11 +44,17 @@ class ConceptCandidate:
 
 @dataclass(frozen=True)
 class MatchReport:
-    """Result of matching a batch of concept slugs against the corpus."""
+    """Result of matching a batch of concept slugs against the corpus.
+
+    ``all_candidates`` is the full top-K browsable list for every input slug,
+    regardless of threshold; ``matched`` is the subset whose score cleared
+    ``threshold``. Callers that want unmatched concepts must filter
+    ``all_candidates`` themselves.
+    """
 
     threshold: float
     matched: list[ConceptCandidate]
-    below_threshold: list[ConceptCandidate]
+    all_candidates: list[ConceptCandidate]
 
 
 def split_into_sections(markdown: str) -> list[tuple[str, str]]:
@@ -80,7 +86,6 @@ def build_tfidf_matrix(sections: list[tuple[str, str]]):
 
 
 def _slug_to_query(concept_slug: str) -> str:
-    """Turn 'exit-width' into 'exit width' for the vectorizer."""
     return " ".join(part for part in concept_slug.split("-") if part)
 
 
@@ -134,7 +139,7 @@ def _write_report(runs_dir: Path, report: MatchReport) -> None:
     payload = {
         "threshold": report.threshold,
         "matched": [_candidate_to_dict(c) for c in report.matched],
-        "below_threshold": [_candidate_to_dict(c) for c in report.below_threshold],
+        "all_candidates": [_candidate_to_dict(c) for c in report.all_candidates],
     }
     out = runs_dir / _OUTPUT_FILENAME
     out.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
@@ -153,7 +158,7 @@ def match_concepts(
     Returns an empty MatchReport and writes nothing when the feature flag is OFF.
     """
     if not features.is_enabled(_FLAG_NAME):
-        return MatchReport(threshold=threshold, matched=[], below_threshold=[])
+        return MatchReport(threshold=threshold, matched=[], all_candidates=[])
 
     # Build the unified corpus: every section from every file gets one row.
     sections: list[tuple[str, str]] = []
@@ -165,13 +170,12 @@ def match_concepts(
         section_sources.extend([str(path.name)] * len(file_sections))
 
     if not sections:
-        report = MatchReport(threshold=threshold, matched=[], below_threshold=[])
+        report = MatchReport(threshold=threshold, matched=[], all_candidates=[])
         if runs_dir is not None:
             _write_report(runs_dir, report)
         return report
 
-    vectorizer = TfidfVectorizer(ngram_range=(1, 3), stop_words=list(_STOPWORDS))
-    matrix = vectorizer.fit_transform([body for _title, body in sections])
+    vectorizer, matrix = build_tfidf_matrix(sections)
 
     all_candidates: list[ConceptCandidate] = []
     for slug in concept_slugs:
@@ -198,9 +202,8 @@ def match_concepts(
     # Deterministic global ordering for the report.
     all_candidates.sort(key=lambda c: (c.concept_slug, -c.score, c.section_title))
     matched = [c for c in all_candidates if c.score >= threshold]
-    below = list(all_candidates)
 
-    report = MatchReport(threshold=threshold, matched=matched, below_threshold=below)
+    report = MatchReport(threshold=threshold, matched=matched, all_candidates=list(all_candidates))
     if runs_dir is not None:
         _write_report(runs_dir, report)
     return report
