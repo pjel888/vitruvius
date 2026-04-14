@@ -1,0 +1,43 @@
+# Stream M.1 — concept → IFC class + Pset registry (static lookup).
+# No real .ifc parsing happens here; ifcopenshell is used only as a lazy
+# reference lookup in validators, not at import time.
+- concept_id: concept-building-permit
+  ifc_class: IfcBuildingElementProxy
+  psets: [Pset_ElementCommon]
+  notes: "Permit is a process entity, not a physical element."
+- concept_id: concept-setback
+  ifc_class: IfcSpace
+  psets: [Pset_SpaceCommon, Pset_SpaceOccupancyRequirements]
+  notes: "Setback represents a required clearance volume."
+- concept_id: concept-doors-and-exits
+  ifc_class: IfcDoor
+  psets: [Pset_DoorCommon, Pset_DoorFireRating]
+  notes: "Physical door element with fire-rating properties."
+- concept_id: concept-fire-resistive-construction
+  ifc_class: IfcWall
+  psets: [Pset_WallCommon, Pset_WallFireRating]
+  notes: "Walls and assemblies with required fire-resistance ratings."
+- concept_id: concept-means-of-egress
+  ifc_class: IfcSpace
+  psets: [Pset_SpaceCommon]
+  notes: "Egress path modelled as a traversable space region."
+- concept_id: concept-building-height
+  ifc_class: IfcBuilding
+  psets: [Pset_BuildingCommon]
+  notes: "Height attribute applies at the building level."
+- concept_id: concept-floor-area
+  ifc_class: IfcSpace
+  psets: [Pset_SpaceCommon]
+  notes: "Floor area aggregates usable IfcSpace volumes per storey."
+- concept_id: concept-lot-occupancy
+  ifc_class: IfcSite
+  psets: [Pset_SiteCommon]
+  notes: "Maximum footprint fraction of a site covered by buildings."
+- concept_id: concept-exit-width
+  ifc_class: IfcDoor
+  psets: [Pset_DoorCommon]
+  notes: "Clear width requirement applied at door openings on egress paths."
+- concept_id: concept-light-and-ventilation
+  ifc_class: IfcWindow
+  psets: [Pset_WindowCommon]
+  notes: "Natural light and ventilation served by window openings."
