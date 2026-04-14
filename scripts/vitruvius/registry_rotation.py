@@ -7,7 +7,7 @@ from pathlib import Path
 from .paths import get_repo_root
 from .constants import MANIFESTS_NAME, REGISTRIES_NAME
 
-_TIMESTAMP_RE = re.compile(r"^(?P<stamp>\d{8}T\d{6}Z)_(?P<family>.+\.csv)$")
+_TIMESTAMP_RE = re.compile(r"(?P<stamp>\d{8}T\d{6}Z)_(?P<family>.+\.csv)")
 
 
 @dataclass(kw_only=True, frozen=True)
@@ -30,9 +30,12 @@ def plan_rotation(
     *,
     keep: int = 30,
 ) -> RotationReport:
+    if keep < 0:
+        raise ValueError(f"keep must be >= 0, got {keep}")
+
     families: dict[str, list[tuple[str, Path]]] = {}
     for p in registries_dir.glob("*.csv"):
-        m = _TIMESTAMP_RE.match(p.name)
+        m = _TIMESTAMP_RE.fullmatch(p.name)
         if not m:
             continue
         family = m.group("family")
@@ -41,6 +44,7 @@ def plan_rotation(
 
     plans: list[RotationPlan] = []
     for family in sorted(families):
+        # YYYYMMDDTHHMMSSZ is ISO-ish — lexicographic sort equals chronological sort.
         entries = sorted(families[family], key=lambda x: x[0], reverse=True)
         kept_paths = tuple(p for _, p in entries[:keep])
         pruned_paths = tuple(p for _, p in entries[keep:])
@@ -61,12 +65,8 @@ def apply_rotation(report: RotationReport) -> RotationReport:
         for p in plan.pruned:
             p.unlink()
 
-    new_plans = tuple(
-        RotationPlan(family=pl.family, kept=pl.kept, pruned=pl.pruned)
-        for pl in report.plans
-    )
     return RotationReport(
-        plans=new_plans,
+        plans=report.plans,
         total_kept=report.total_kept,
         total_pruned=report.total_pruned,
         dry_run=False,

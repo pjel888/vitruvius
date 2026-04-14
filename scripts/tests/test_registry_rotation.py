@@ -288,3 +288,8 @@ def test_rotation_report_is_frozen():
     report = RotationReport(plans=(), total_kept=0, total_pruned=0, dry_run=True)
     with pytest.raises(Exception):
         report.dry_run = False  # type: ignore[misc]
+
+
+def test_plan_rotation_rejects_negative_keep(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="keep must be"):
+        plan_rotation(tmp_path, keep=-1)
