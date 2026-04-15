@@ -11,6 +11,7 @@
    ─────────────────────────────────────────────────────────────────
      A headless, mathematically rigorous AEC physics & compliance engine.
                 Geometry is a derivative of Physics and Law.
+                    Firmitas · Utilitas · Venustas
    ─────────────────────────────────────────────────────────────────
 ```
 
