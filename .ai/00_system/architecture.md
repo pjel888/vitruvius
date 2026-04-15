@@ -124,7 +124,7 @@ The system uses a **path-based addressing scheme**.
 
 ## Post-Sprint-D Layered Additions (2026-04-15)
 
-The **ten** sprints closed in 2026-04-15 (Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, and the follow-on Sprint HP.3-R RocksDB migration) added substantial capability on top of the pre-existing filesystem pipeline. The core ingestion/canonicalization layout above is unchanged; the additions below are **layered on top** and most are gated behind feature flags that default to `false` (the two `hp_rocksdb_*` flags default `true` as of AD-029).
+The **21** sprints closed on 2026-04-15 (Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, HP.3-R, 1B-M1, 1B-M2, RUST-PDF-1, 1B-M3, DISTILL-1, RUST-MIG-1, AUDIT-1, PIPELINE-CLI, PQ-1, LSH-1, and a Meta docs-cleanup sprint) added substantial capability on top of the pre-existing filesystem pipeline. The core ingestion/canonicalization layout above is unchanged; the additions below are **layered on top** and most are gated behind feature flags that default to `false` (the four flags `hp_rocksdb_event_store`, `hp_rocksdb_verdict_cache`, `rust_mig_spatial_kernels`, and `rust_mig_stats_kernels` default `true` per AD-029 and AD-038 respectively).
 
 ### New Python subpackages
 
@@ -174,7 +174,7 @@ Both crates are optional dependencies. Pure-Python paths remain intact and are e
 
 ### Feature-flag governance
 
-All ten sprints added flag families under `features:` in `config/vitruvius.yaml`. Default is **false** for every new flag so pre-session behaviour is byte-identical until an operator opts in — except the two `hp_rocksdb_*` backend-switch flags, which default **true** per AD-029. The `EXPECTED_FLAGS` registry in `scripts/tests/test_features.py` enumerates every expected flag and fails CI if a flag is added to the YAML without a test entry.
+All 21 sprints added flag families under `features:` in `config/vitruvius.yaml`. Default is **false** for every new flag so pre-session behaviour is byte-identical until an operator opts in — except the four flags that have been promoted to live-by-default (see "Live-by-default flags" table below). The `EXPECTED_FLAGS` registry in `scripts/tests/test_features.py` enumerates every expected flag and fails CI if a flag is added to the YAML without a test entry.
 
 Flag families by sprint:
 
@@ -197,7 +197,51 @@ Two items remain externally gated:
 - **Sprint D Streams J (query integration) + K (docs+CI)** — need the Ranger dashboard surface and a 2nd jurisdiction corpus to benchmark against.
 - **Phase 1B Modernization §11 Phase 2 + Phase 3** — ✅ **shipped 2026-04-15**. Tranche 1 (Docling + LibreOfficePreprocessor + GATE-005, AD-031), Tranche 2 (OCRPreprocessor + process_batch + GoldenCorpusBenchmark, AD-032, marker/surya DEFERred on feasibility), Tranche 3 (RustPdfParser + GATE-006, AD-034), and Sprint PIPELINE-CLI (`convert-parsers-one` + 5 `p1b_*` flag integrations, AD-040) closed the Phase 2 + Phase 3 backlog. Archived design spec at `.ai/09_archive/plans/phase-1b-multi-parser-integration-plan.md`.
 
-For the authoritative per-sprint ledger see `.ai/10_state/decisions.md` AD-024 through AD-042 (plus AD-038a for the Sprint RUST-MIG-1 N1 DEFER_ALREADY_NATIVE verdict).
+For the authoritative per-sprint ledger see `.ai/10_state/decisions.md` AD-024 through AD-042 (plus sub-decision AD-038a).
+
+### Sprint RUST-PDF-1 — Rust PDF Ingestion (p1b_rust_pdf_parser, AD-033/034)
+
+- `scripts/vitruvius/parsers/rust_pdf_parser.py` — `RustPdfParser(BaseParser)` pyo3 adapter wrapping `vitruvius_rust_pdf` (lopdf-based). 13.7 MB peak RSS, 0.05 s wall vs docling's 659 MB / 31 s (625× faster). GATE-006 `check_gate_006_min_chars_per_page` ships alongside.
+- Flag `p1b_rust_pdf_parser` defaults **false** until real-corpus validation.
+
+### Sprint RUST-MIG-1 — Python→Rust polyglot kernels (rust_mig_* flags, AD-036/AD-038)
+
+Extends `scripts/vitruvius/engine_rs/` workspace with two new member crates — `spatial_kernels` and `stats_kernels`:
+
+- `spatial_kernels` — S1 `build_spatial_adjacency_edges_rs` (200× raw kernel), S2 `weight_by_distance_rs` (12.18× raw / 2.84× end-to-end). Consumed via `scripts/vitruvius/spatial/spatial_edge_builder.py` and `scripts/vitruvius/spatial/proximity_jump.py`.
+- `stats_kernels` — N4 `mahalanobis_distance_rs` (2.73× end-to-end). Consumed via `scripts/vitruvius/normalization/outlier_detector.py`.
+- N1 (`wasserstein_merge_decision`) is DEFER_ALREADY_NATIVE — POT's `ot.emd2` backend is already native C++.
+- Both `rust_mig_spatial_kernels` and `rust_mig_stats_kernels` default **true** per AD-038. Python fallback retained for each.
+
+### Sprint AUDIT-1 — Advanced Tech Audit (AD-039)
+
+Three-topic audit. FlatBuffers: NO_GO (5–10× slower than CPython `_json` at ~150-record payloads). Monte Carlo Dropout: PARK (0 viable injection sites). Numerical Integrity: GO_GAP — SHA-256 footer shipped:
+
+- `scripts/vitruvius/spatial/contract_reader.py` — `parse_contract()` / `ContractParseResult` / `IntegrityError`. Reads `# sha256: <hex>` footer appended by the TypeScript writer.
+- `spatial-daemon/src/contract_writer.ts` — `INTEGRITY_FOOTER_PREFIX` + `computeContractBodySha256()` + `writeContract()` footer append.
+- `scripts/vitruvius/spatial/walker.py` now reads all contract files through `parse_contract()`, skipping on `IntegrityError`.
+
+### Sprint PIPELINE-CLI — p1b_* live wiring (AD-040)
+
+- New `convert-parsers-one` subcommand wired into `pipeline_cli.py`. Dispatches through `scripts/vitruvius/parsers/factory.py::build_default_orchestrator()` which resolves `p1b_*` flags to parser chains. Parallel to existing `convert-one` — byte-identity guarantee with all flags off.
+- All five `p1b_*` flags stay **false** until real-corpus validation.
+
+### Sprint PQ-1 — GraphSAGE Product Quantization (hp_graphsage_pq, AD-041)
+
+- `scripts/vitruvius/graph/pq_codebook.py` — pure-numpy PQ implementation: `train_pq_codebook`, `encode_to_pq`, `decode_from_pq`, `adc_distance`. 32× compression (256 B → 8 B per node; M=8, k=256). Cosine delta 0.00017 on held-out set.
+- `scripts/vitruvius/graph/graphsage_pq.py` — `compress_graphsage_report`.
+- Flag `hp_graphsage_pq` defaults **false** pending an embedding-persistence layer.
+
+### Sprint LSH-1 — MinHash LSH fuzzy dedup (w_lsh_dedup, AD-042)
+
+- `scripts/vitruvius/relationships/minhash.py` — `compute_minhash_signature`, vectorized NumPy permutation.
+- `scripts/vitruvius/relationships/lsh_index.py` — `LSHIndex` band-based bucketing (BLAKE2b-128 per band).
+- `scripts/vitruvius/relationships/lsh_dedup.py` — `dedupe_by_endpoints_lsh` union-find collapse.
+- Flag `w_lsh_dedup` defaults **false** per plan §1.3 non-breaking contract.
+
+### Sprint 1B-M1 / M2 / M3 — Phase 1B Modernization Tranches (p1b_* flags, AD-031/032/034)
+
+Library-level parser chain wiring. All flags default false. See "Phase 1B parser chain" in the Core Packages listing for the `parsers/` subpackage layout.
 
 ---
 
