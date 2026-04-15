@@ -3,7 +3,8 @@
 For each canonical concept slug, scans a sliding window over the corpus and
 ranks co-occurring unigrams by pointwise mutual information. Emits a
 deterministic JSON report for human review — never auto-updates a concept
-file. See .ai/03_plans/statistical-architectural-upgrade-plan.md §8.3.
+file. See .ai/09_archive/plans/statistical-architectural-upgrade-plan.md §8.3
+(archived 2026-04-15).
 """
 
 from __future__ import annotations

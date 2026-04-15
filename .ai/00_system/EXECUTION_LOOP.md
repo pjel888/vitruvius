@@ -72,9 +72,9 @@ Any plan that proposes editing any of the files below triggers automatic **ESCAL
 | `.ai/00_system/principles.md` | Defines the 10 non-negotiable principles (P1–P10). Changes rewrite the contract. |
 | `.ai/00_system/naming-conventions.md` | Defines the ID prefix / slug / timestamp format contract. Changes break graph lineage. |
 | `.ai/00_system/EXECUTION_LOOP.md` (this file) | Changes rewrite the workflow itself. Meta-edit escalation. |
-| `.ai/03_plans/ingestion-refinement-contract.md` | Frozen per INDEX.md ❄️. Interface between Phase 1B and Phase 1C. Version bumps only. |
+| `.ai/09_archive/plans/ingestion-refinement-contract.md` | Frozen per INDEX.md ❄️ (archived 2026-04-15). Interface between Phase 1B and Phase 1C. Version bumps only. |
 | `.ai/03_plans/00-governing-implementation-plan.md` | Authoritative execution order. Only the STEWARD role may update it after a sprint closes. |
-| `.ai/01_roadmap/master-roadmap.md` | v2.2.0 single source of truth for phase status. |
+| `.ai/01_roadmap/master-roadmap.md` | v2.3.0 single source of truth for phase status. |
 | `.ai/06_specs/source-schema.md` | Canonical source front-matter schema. |
 | `.ai/06_specs/concept-schema.md` | Canonical concept front-matter schema. |
 | `.ai/06_specs/relationship-schema.md` | Canonical relationship schema (7-predicate vocabulary). |

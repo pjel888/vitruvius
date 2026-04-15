@@ -8,9 +8,9 @@ This module is deliberately minimal — it owns exactly one config key
 and unknown flags all return False. The returned Features is frozen to
 prevent accidental mutation after load.
 
-See .ai/03_plans/statistical-architectural-upgrade-plan.md §3.5 for the
-canonical flag list and the non-breaking contract that depends on
-default-False behaviour.
+See .ai/09_archive/plans/statistical-architectural-upgrade-plan.md §3.5
+(archived 2026-04-15) for the canonical flag list and the non-breaking
+contract that depends on default-False behaviour.
 """
 
 from __future__ import annotations

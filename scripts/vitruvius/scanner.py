@@ -130,8 +130,8 @@ def run_scan() -> int:
 # without touching the filesystem. Callers (new CLI subcommands, future
 # status.py fast-skip, etc.) opt in by passing a Features instance.
 #
-# See .ai/03_plans/statistical-architectural-upgrade-plan.md §5 for
-# the full rationale and the non-breaking contract.
+# See .ai/09_archive/plans/statistical-architectural-upgrade-plan.md §5
+# (archived 2026-04-15) for the full rationale and the non-breaking contract.
 # ---------------------------------------------------------------------------
 
 

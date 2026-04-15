@@ -150,7 +150,7 @@ Every document that exits Phase 1B (ingestion) and enters Phase 1C (refinement) 
 | `versioning` | object | `parser_version`, `pipeline_version`, `config_version` |
 | `manual_review` | object | `{required: bool, reason: string\|null}` |
 
-**Full contract:** `/.ai/03_plans/ingestion-refinement-contract.md` (v2.0.0).
+**Full contract:** `/.ai/09_archive/plans/ingestion-refinement-contract.md` (v2.0.0, archived 2026-04-15 — still frozen and authoritative for the Phase 1B ↔ Phase 1C interface).
 Phase 1C MUST reject any document missing these fields. No defaults, no soft validation.
 
 ### 3.3 Document Taxonomy (Phase 1B)
@@ -158,7 +158,7 @@ Parser selection is driven by a closed taxonomy, priority-ordered `scanned > hyb
 
 `text_pdf_simple`, `text_pdf_complex`, `hybrid_pdf`, `scanned_pdf_clean`, `scanned_pdf_noisy`, `office_doc`, `office_slide`, `spreadsheet_structured`, `spreadsheet_unstructured`.
 
-Classification is deterministic, driven by measurable signals (`text_density`, `image_density`, `vector_density`, `ocr_confidence`, `table_clues`, `garbled_ratio`). See `/.ai/03_plans/phase-1b-multi-parser-integration-plan.md` §4.
+Classification is deterministic, driven by measurable signals (`text_density`, `image_density`, `vector_density`, `ocr_confidence`, `table_clues`, `garbled_ratio`). See `/.ai/09_archive/plans/phase-1b-multi-parser-integration-plan.md` §4 (archived 2026-04-15 after Phase 1B shipped).
 
 ### 3.4 Refinement Rule Tiers (Phase 1C)
 All normalization rules are classified by risk:
@@ -311,10 +311,10 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 **Objective.** Replace single-path parsing with a classified, fallback-chained parser orchestrator that emits strict telemetry and a provenance sidecar. Reduce upstream noise so that downstream refinement and extraction do not have to compensate.
 
-**Prerequisites.** Phase 1A complete. Plan `/.ai/03_plans/phase-1b-multi-parser-integration-plan.md` accepted.
+**Prerequisites.** Phase 1A complete. Plan `/.ai/09_archive/plans/phase-1b-multi-parser-integration-plan.md` accepted (archived 2026-04-15).
 
 **Deliverables.**
-1. **`BaseParser` interface** + `ParserOrchestrator` honoring the taxonomy in §3.3 and the fallback chains in `phase-1b-multi-parser-integration-plan.md` §5.
+1. **`BaseParser` interface** + `ParserOrchestrator` honoring the taxonomy in §3.3 and the fallback chains in `.ai/09_archive/plans/phase-1b-multi-parser-integration-plan.md` §5.
 2. **Document taxonomy classifier** (deterministic, threshold-driven — no ML).
 3. **Parser implementations**: wrap existing `opendataloader`; add `Docling`, `Marker`, `Surya`; integrate `OCR preprocessor` and `LibreOffice preprocessor`.
 4. **Strict telemetry JSON** (flattened schema in plan §6) per parser attempt.
@@ -341,7 +341,7 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 **Non-goals.** Semantic interpretation of extracted images; relationship extraction; visual diagram understanding.
 
-**References.** `/.ai/03_plans/phase-1b-multi-parser-integration-plan.md`.
+**References.** `/.ai/09_archive/plans/phase-1b-multi-parser-integration-plan.md` (archived 2026-04-15).
 
 ---
 

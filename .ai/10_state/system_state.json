@@ -4,19 +4,25 @@
   "project": "vitruvius",
   "vision_completion_pct": 75,
   "pipeline_completion_pct": 90,
-  "active_sprint": "Sprints A + B closed 2026-04-14 — awaiting user to choose next phase",
+  "active_sprint": "Sprints A + B closed 2026-04-14 \u2014 awaiting user to choose next phase",
   "sprints_completed": [
     {
-      "name": "Sprint A — Unblock Promotion (Phase 7)",
+      "name": "Sprint A \u2014 Unblock Promotion (Phase 7)",
       "closed_utc": "2026-04-14T03:55:00Z",
-      "phases": ["phase_7_promotion"],
+      "phases": [
+        "phase_7_promotion"
+      ],
       "outcome": "Phase 7 Promotion Governance shipped end-to-end. 3 PD 1096 relationships promoted.",
       "tests_added": 43
     },
     {
-      "name": "Sprint B — Shrink noise, restore canonicalizer, harden review",
+      "name": "Sprint B \u2014 Shrink noise, restore canonicalizer, harden review",
       "closed_utc": "2026-04-14T04:25:00Z",
-      "phases": ["phase_1c_normalization_mvp", "phase_2_canonicalization", "phase_6a_full_gap_closure"],
+      "phases": [
+        "phase_1c_normalization_mvp",
+        "phase_2_canonicalization",
+        "phase_6a_full_gap_closure"
+      ],
       "outcome": "NormalizationEngine with 8 rules + refine CLI. Canonicalizer restored with structured sections. Review layer retry/resume/parallel/run-with-review composite.",
       "tests_added": 38,
       "files_refined": 6
@@ -63,9 +69,9 @@
     ".ai/02_audits/review-layer-audit.md"
   ],
   "plans": [
-    ".ai/03_plans/phase-1b-multi-parser-integration-plan.md",
-    ".ai/03_plans/phase-1c-centralized-normalization-plan.md",
-    ".ai/03_plans/ingestion-refinement-contract.md"
+    ".ai/09_archive/plans/phase-1b-multi-parser-integration-plan.md",
+    ".ai/09_archive/plans/phase-1c-centralized-normalization-plan.md",
+    ".ai/09_archive/plans/ingestion-refinement-contract.md"
   ],
   "risk_counts": {
     "high": 1,
@@ -73,7 +79,7 @@
     "low": 1,
     "closed_total": 7
   },
-  "tests_passing": "177/177",
+  "tests_passing": "81/81",
   "ai_budget_pd_1096_full_run": "~4 Ollama calls (down from ~25)",
   "concept_enrichment_coverage_pd_1096": "16/20 (80%)",
   "promoted_relationships_pd_1096": 6,
@@ -94,7 +100,6 @@
     "AD-020: Phase 3C concept enrichment pipeline (deterministic)",
     "AD-021: End-to-end integration test coverage + pre-review filter R7"
   ],
-  "tests_passing": "81/81",
   "next_review_due_utc": "awaiting_user_signoff",
   "feature_branch": "feat/phase-7-promotion-governance",
   "branch_note": "Despite the name, this branch now contains Sprints A + B (Phases 7, 1C MVP, 2, 6A). User may choose to merge to main or rename the branch to feat/sprint-a-b-bundle before merging."

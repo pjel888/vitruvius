@@ -43,8 +43,8 @@ promotion:
   audit_log_name: "latest_promotion_audit.log"
 
 # Stream A-K feature flags — Statistical & Architectural Intelligence Upgrade.
-# EVERY FLAG DEFAULTS FALSE. See .ai/03_plans/statistical-architectural-upgrade-plan.md
-# §3.5 for the authoritative list and §1.3 for the non-breaking contract.
+# EVERY FLAG DEFAULTS FALSE. See .ai/09_archive/plans/statistical-architectural-upgrade-plan.md
+# §3.5 (archived 2026-04-15) for the authoritative list and §1.3 for the non-breaking contract.
 # Flipping any flag to true activates the corresponding stream; flipping it
 # back to false restores prior behaviour with no code rollback required.
 features:

@@ -8,8 +8,8 @@ PyYAML>=6.0
 openpyxl>=3.1.0
 
 # Stream A (Sprint D) — core scientific stack for statistical/architectural upgrade.
-# See .ai/03_plans/statistical-architectural-upgrade-plan.md §3 for RAM/disk
-# accounting on 8GB M2. Pure-C or pure-Python; installs in seconds.
+# See .ai/09_archive/plans/statistical-architectural-upgrade-plan.md §3 (archived
+# 2026-04-15) for RAM/disk accounting on 8GB M2. Pure-C or pure-Python; installs in seconds.
 numpy>=1.26,<3.0
 scipy>=1.11,<2.0
 scikit-learn>=1.3,<2.0

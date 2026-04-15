@@ -195,9 +195,9 @@ Flag families by sprint:
 Two items remain externally gated:
 
 - **Sprint D Streams J (query integration) + K (docs+CI)** — need the Ranger dashboard surface and a 2nd jurisdiction corpus to benchmark against.
-- **Phase 1B Modernization §11 Phase 2 + Phase 3** — parser wrapping + Docling/Marker + ProcessPoolExecutor + Golden Corpus. Design spec exists at `.ai/03_plans/phase-1b-multi-parser-integration-plan.md` but needs a TDD expansion pass.
+- **Phase 1B Modernization §11 Phase 2 + Phase 3** — ✅ **shipped 2026-04-15**. Tranche 1 (Docling + LibreOfficePreprocessor + GATE-005, AD-031), Tranche 2 (OCRPreprocessor + process_batch + GoldenCorpusBenchmark, AD-032, marker/surya DEFERred on feasibility), Tranche 3 (RustPdfParser + GATE-006, AD-034), and Sprint PIPELINE-CLI (`convert-parsers-one` + 5 `p1b_*` flag integrations, AD-040) closed the Phase 2 + Phase 3 backlog. Archived design spec at `.ai/09_archive/plans/phase-1b-multi-parser-integration-plan.md`.
 
-For the authoritative per-sprint ledger see `.ai/10_state/decisions.md` AD-024 through AD-029.
+For the authoritative per-sprint ledger see `.ai/10_state/decisions.md` AD-024 through AD-042 (plus AD-038a for the Sprint RUST-MIG-1 N1 DEFER_ALREADY_NATIVE verdict).
 
 ---
 

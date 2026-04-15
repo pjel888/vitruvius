@@ -2,7 +2,8 @@
 
 Enumerates every formal concept of a binary object-attribute context via
 Ganter's NextClosure (1984), then builds the Hasse diagram of immediate
-covers. See .ai/03_plans/statistical-architectural-upgrade-plan.md §8.4.
+covers. See .ai/09_archive/plans/statistical-architectural-upgrade-plan.md §8.4
+(archived 2026-04-15).
 """
 
 from __future__ import annotations

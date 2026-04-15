@@ -50,7 +50,7 @@
 - [ ] Hallucination Trap quality gate
 - [ ] Manual Review Lane + Ranger Audit Payload generator
 
-**Plan:** `/.ai/03_plans/phase-1b-multi-parser-integration-plan.md`
+**Plan:** `/.ai/09_archive/plans/phase-1b-multi-parser-integration-plan.md` (archived 2026-04-15 after Tranches 1-3 + Sprint PIPELINE-CLI closed the Phase 2 + Phase 3 backlog — AD-031/032/034/040)
 
 ## Phase 1C — Centralized Normalization ✅ MVP COMPLETE (2026-04-14)
 - [x] `NormalizationEngine` with phase-locked execution

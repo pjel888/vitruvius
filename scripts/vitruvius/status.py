@@ -135,8 +135,8 @@ def run_status() -> int:
 # diff when the raw tree is byte-identical can call this first; if skipped
 # is True, they bypass run_status entirely.
 #
-# See .ai/03_plans/statistical-architectural-upgrade-plan.md §5 for the
-# full rationale and the non-breaking contract.
+# See .ai/09_archive/plans/statistical-architectural-upgrade-plan.md §5
+# (archived 2026-04-15) for the full rationale and the non-breaking contract.
 # ---------------------------------------------------------------------------
 
 

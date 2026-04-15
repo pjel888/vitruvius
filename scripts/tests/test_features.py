@@ -220,7 +220,7 @@ def test_repo_config_every_flag_is_false() -> None:
     ]
     assert enabled == [], (
         f"flags enabled in config/vitruvius.yaml outside the AD-029+AD-038 allowlist: {enabled}. "
-        "See .ai/03_plans/statistical-architectural-upgrade-plan.md §1.3 and "
+        "See .ai/09_archive/plans/statistical-architectural-upgrade-plan.md §1.3 and "
         ".ai/10_state/decisions.md AD-029 + AD-038."
     )
 
