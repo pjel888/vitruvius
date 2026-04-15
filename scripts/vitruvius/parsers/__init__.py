@@ -16,6 +16,7 @@ from vitruvius.parsers.libreoffice_preprocessor import (
     PreprocessResult,
 )
 from vitruvius.parsers.ocr_preprocessor import OCRPreprocessor
+from vitruvius.parsers.rust_pdf_parser import RustPdfParser
 
 __all__ = [
     "BaseParser",
