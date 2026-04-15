@@ -179,6 +179,11 @@ features:
   # lands in a follow-up plan.
   p1b_ocr_preprocessor: false
   p1b_process_pool_orchestration: false
+  # Sprint 1B-M3 — Phase 1B Modernization Tranche 3 (Rust PDF).
+  # Deployment-readiness marker for RustPdfParser(BaseParser).
+  # Default false until real-corpus validation through
+  # pipeline_cli.py integration confirms no regression vs docling.
+  p1b_rust_pdf_parser: false
   # Sprint GEOM — Geometric Constraint Engine (phase-15).
   # All four streams now land: GEOM.1 inequality→Z3 compiler,
   # GEOM.3 2D+3D buildable envelope, GEOM.4 IoU audit + Pareto

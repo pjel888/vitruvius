@@ -141,6 +141,8 @@ EXPECTED_FLAGS = {
     "p1b_docling_parser", "p1b_libreoffice_preprocessor",
     # Sprint 1B-M2 — Phase 1B Modernization Tranche 2 (scoped)
     "p1b_ocr_preprocessor", "p1b_process_pool_orchestration",
+    # Sprint 1B-M3 — Phase 1B Modernization Tranche 3 (Rust PDF)
+    "p1b_rust_pdf_parser",
     # Sprint GEOM — Geometric Constraint Engine (phase-15)
     "geom_csp_compiler", "geom_envelope_2d", "geom_envelope_3d",
     "geom_iou_audit", "geom_pareto_optimizer",
@@ -295,3 +297,17 @@ def test_p1b_process_pool_orchestration_defaults_false() -> None:
     cfg = load_config()
     flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
     assert flags.get("p1b_process_pool_orchestration") is False
+
+
+def test_p1b_rust_pdf_parser_defaults_false() -> None:
+    """Sprint 1B-M3 AD-034 — RustPdfParser deployment-readiness marker
+    defaults false until real-corpus validation through pipeline_cli.py
+    integration confirms no regression vs docling. AD-033 bench +
+    AD-034 quality spot check (similarity 0.9925) cleared the code,
+    but live-pipeline validation on PD 1096 ingestion is still the
+    gating condition for flipping to true."""
+    from vitruvius.config import load_config
+
+    cfg = load_config()
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    assert flags.get("p1b_rust_pdf_parser") is False
