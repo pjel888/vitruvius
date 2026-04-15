@@ -133,7 +133,7 @@ EXPECTED_FLAGS = {
     "phys_pagerank", "phys_boltzmann_gate", "phys_motif_matcher",
     "phys_shannon_sampling", "phys_eigenvector_cascade",
     # Sprint HP — High-Performance Optimizations (phase-13)
-    "hp_merkle_fs", "hp_event_sourced_graph",
+    "hp_merkle_fs", "hp_event_sourced_graph", "hp_graphsage",
     # Sprint GEOM — Geometric Constraint Engine (phase-15)
     "geom_csp_compiler", "geom_envelope_2d", "geom_envelope_3d",
     "geom_iou_audit", "geom_pareto_optimizer",
