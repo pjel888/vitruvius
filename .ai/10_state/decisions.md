@@ -692,6 +692,50 @@ We scoped **Tranche 1** to the dep-compatible subset: `DoclingParser` + `LibreOf
 
 ---
 
+## AD-032 — Phase 1B Modernization Tranche 2 (scoped: OCR + ProcessPool + Golden Corpus) (2026-04-15)
+
+**Context.** Tranche 1 (AD-031) shipped Docling + LibreOffice preprocessor. The parent design spec §11 Phase 2 also listed MarkerParser and Surya / OCRPreprocessor as deliverables, plus §11 Phase 3 Dynamic Resource Allocation (ProcessPoolExecutor) and Golden Corpus benchmark. We deferred Marker + Surya at the end of Tranche 1 pending 8 GB M2 ML-dep feasibility testing.
+
+**Feasibility test result (2026-04-15):** recorded in `.ai/10_state/feasibility_ml_deps_2026-04-15.json`. Key findings:
+
+- Available RAM: **2.03 GB** out of 8.59 GB total (76.4% used). Marker-pdf + surya-ocr inference needs **2-4 GB** peak — would crash into swap.
+- Free disk: **11.71 GB** out of 245 GB (95.2% used — already above the macOS critical threshold of 95%). Marker + surya would need **3-5 GB** of install + model weights, pushing us to 97-98% (catastrophic zone).
+- **Decision gate: DEFER.** Blocking factors: disk at critical threshold, RAM insufficient for inference peak. Unblockers required: free ≥15 GB disk (target 20% free) AND ≥4 GB RAM available at inference time, OR move ML inference to a different machine with 16+ GB RAM.
+
+**Decision.** Scoped Tranche 2 to **zero-new-heavy-dep** deliverables that ship real value without the ML risk:
+
+- **Task 1 (`a4b8f1e`)** — `scripts/vitruvius/parsers/ocr_preprocessor.py`: `OCRPreprocessor` class wrapping the already-installed `ocrmypdf 17.4.1`. Duck-typed to match `LibreOfficePreprocessor` (`preprocessor_id` + `preprocess(*, source_path, workdir) -> PreprocessResult`). Routes scanned PDFs through OCR to produce text-layered output that the downstream parser chain consumes via the same code path as native text PDFs. 4 tests mock `ocrmypdf.ocr`. **Low-spec note:** ocrmypdf wraps tesseract (~200 MB RAM for typical scanned pages, no torch, no transformers). Fits the 8 GB M2 profile and the long-term low-spec target.
+- **Task 2 (`42a309d`)** — `scripts/vitruvius/parsers/orchestrator.py`: extended `ParserOrchestrator` with `process_batch(*, jobs, max_workers=None)` method and `BatchJob` dataclass. The implementation runs jobs sequentially inside `process_batch` because `BaseParser` subclasses hold non-pickleable lazy-imported state (docling, ocrmypdf) that can't cross a process boundary today. The `max_workers` kwarg is accepted for API compatibility with a future `ProcessPoolExecutor` upgrade. 3 tests cover input-order preservation, empty batch, and max_workers kwarg acceptance. Upgrade path documented in the docstring.
+- **Task 3 (`fe21618`)** — `scripts/vitruvius/bench/golden_corpus.py`: `GoldenCorpusBenchmark` test-fixture harness that runs `ParserOrchestrator` against 3 synthetic representative documents covering `text_pdf_simple`, `hybrid_pdf`, and `scanned_pdf_clean` classes. Returns a `GoldenCorpusResult` with gate_pass_rate, total_duration_ms, and per-class success counts. Uses an embedded `_StubGoldenParser` so the harness has no external dep. 2 tests.
+- **Task 4 (`c8a0533`)** — `config/vitruvius.yaml` + `scripts/tests/test_features.py`: new flags `p1b_ocr_preprocessor` and `p1b_process_pool_orchestration`, both default false. Registered in `EXPECTED_FLAGS`. 2 default-false unit tests. Deployment-readiness markers following the Tranche 1 pattern.
+
+**Deferred (Tranche 3 or later):**
+
+- **marker-pdf + surya-ocr** — pending environment unblock (disk cleanup + RAM headroom). Revisit when the 8 GB M2 environment has ≥15 GB free disk AND ≥4 GB available RAM, OR when ML inference can be moved to a different machine.
+- **Dynamic Resource Allocation** per design spec §11 Phase 3 (4 GB vs 8 GB memory queues). Only meaningful with heavy ML parsers in the chain.
+- **Real PD 1096 corpus benchmark** — Golden Corpus uses synthetic fixtures for fast CI. Live corpus benchmark can be a separate integration test.
+- **`pipeline_cli.py` integration** — remains deferred. The orchestrator stays a library call. Item 3 on the current session queue will address this.
+- **Real `ProcessPoolExecutor` parallelism** — deferred until all parsers are pickle-safe. The `process_batch` API is already in place for the upgrade.
+
+**Test delta.** Baseline 1413 → **1424 passing**, 1 skipped (+11 tests across 4 tasks: Task 1 +4, Task 2 +3, Task 3 +2, Task 4 +2).
+
+**Commits.**
+- Task 1 — `a4b8f1e` — `OCRPreprocessor` + 4 tests
+- Task 2 — `42a309d` — `process_batch` + `BatchJob` + 3 tests
+- Task 3 — `fe21618` — `GoldenCorpusBenchmark` + 2 tests
+- Task 4 — `c8a0533` — feature flags + 2 default-false tests
+- Task 5 — `[this commit]` — docs + AD-032 + archival
+
+**Low-spec alignment note.** Tranche 2 is the first sprint explicitly scoped to the user's new low-spec directive ("ultimate goal: run Vitruvius on low-spec machines"). Every shipped item uses existing deps or stdlib; zero new RAM overhead. The deferred Marker + Surya items are incompatible with low-spec because torch + transformer model weights dominate the RAM footprint. The Tranche 2 outcome confirms the low-spec approach: stay dep-minimal, use deterministic parsers first, push ML inference to Ollama where it's already INT4-quantized and shared across sessions.
+
+**Follow-ups (queued this session):**
+- **Rust PDF ingestion audit** — explore whether a pure-Rust PDF parser (pdfium-render or lopdf) via the `engine_rs` workspace could replace docling + ocrmypdf in the low-spec profile. Audit-first, GO/NO_GO verdict with measured RAM + wall-time deltas. This is the next immediate item on the queue.
+- **LLM reviewer distillation audit** — train a scikit-learn / lightgbm student model on the Sprint R Y4 stateful verdict cache to handle 60-80% of review cases without calling Ollama. Biggest single RAM win (frees ~4 GB the LLM currently holds). Queued after the Rust PDF audit.
+- **Advanced Tech Audit** (FlatBuffers / BLAKE3 / MC Dropout) — queued after the distillation audit.
+- **`pipeline_cli.py` integration** for the parser chain — queued last.
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.

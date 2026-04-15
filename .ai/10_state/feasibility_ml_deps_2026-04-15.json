@@ -1,0 +1,75 @@
+{
+  "timestamp_utc": "2026-04-15T05:20:00Z",
+  "host": "darwin-arm64 / 8 GB M2",
+  "python_interpreter": "/opt/homebrew/opt/python@3.11/bin/python3.11",
+  "test_type": "ml_dependency_feasibility",
+  "candidates": [
+    "marker-pdf==1.10.2",
+    "surya-ocr==0.17.1"
+  ],
+  "preflight_measurements": {
+    "ram": {
+      "total_gb": 8.59,
+      "available_gb": 2.03,
+      "used_gb": 3.35,
+      "used_percent": 76.4
+    },
+    "disk": {
+      "total_gb": 245.11,
+      "free_gb": 11.71,
+      "used_gb": 233.4,
+      "used_percent": 95.2
+    },
+    "cpu_count": 8
+  },
+  "cost_estimates": {
+    "marker_pdf_install_gb": 0.05,
+    "surya_ocr_install_gb": 0.1,
+    "torch_arm64_wheel_gb": 0.7,
+    "transformers_gb": 0.2,
+    "marker_model_weights_gb": "1.0 to 2.0",
+    "surya_model_weights_gb": "1.0 to 2.0",
+    "total_disk_footprint_gb": "3.0 to 5.0",
+    "runtime_ram_peak_gb": "2.0 to 4.0"
+  },
+  "headroom_analysis": {
+    "post_install_disk_free_gb_conservative": 6.71,
+    "post_install_disk_free_gb_optimistic": 8.71,
+    "post_install_disk_used_percent_conservative": 97.2,
+    "post_install_disk_used_percent_optimistic": 96.4,
+    "runtime_ram_headroom_worst_case_gb": -1.97,
+    "runtime_ram_headroom_best_case_gb": 0.03,
+    "macos_critical_disk_threshold_percent": 95,
+    "macos_catastrophic_disk_threshold_percent": 98,
+    "recommended_ram_headroom_for_8gb_system_gb": 1.5
+  },
+  "decision_gate": {
+    "recommendation": "DEFER",
+    "blocking_factors": [
+      "Disk at 95.2 percent would cross into macOS critical zone post-install",
+      "RAM available (2.03 GB) is below the 2-4 GB peak required by marker-pdf + surya-ocr inference; runtime would thrash swap",
+      "No headroom for concurrent work in a dev session"
+    ],
+    "unblockers_required": [
+      "Free at least 15 GB of disk (target 20 percent free) before any install",
+      "Close background memory consumers to free at least 4 GB RAM for inference, OR move ML inference to a different machine with 16 GB+ RAM",
+      "Alternatively: use lighter PDF parsing alternatives that already ship (docling from Sprint WIKI + ocrmypdf 17.4.1 already installed)"
+    ],
+    "notes": "The expected finding from plan-write time (marker-pdf + surya-ocr are heavy ML libs that stress an 8 GB M2) has been empirically confirmed with real numbers. Deferring until either the environment is freed up or a different target machine is available. Tranche 2 will be scoped to what can ship on current deps — ProcessPoolExecutor parallelism (stdlib), OCRPreprocessor wrapping ocrmypdf (already installed), and a Golden Corpus benchmark harness (no new deps)."
+  },
+  "available_alternatives": {
+    "pdf_markdown_conversion": [
+      "docling (already installed via Sprint WIKI) — primary parser, handles most PDFs including scanned",
+      "opendataloader-pdf (already installed) — baseline parser for text PDFs",
+      "LibreOffice → PDF → docling (Sprint 1B-M1 Tranche 1) — office docs"
+    ],
+    "ocr": [
+      "ocrmypdf 17.4.1 (already installed) — wraps tesseract, the industry standard",
+      "docling built-in OCR — handles scanned PDFs without external tools"
+    ],
+    "parallelism": [
+      "concurrent.futures.ProcessPoolExecutor (stdlib)",
+      "multiprocessing.Pool (stdlib)"
+    ]
+  }
+}

@@ -164,7 +164,16 @@ Library-level wiring of the new parser chain. Defaults are **false**; pipeline_c
 - `p1b_docling_parser` — marks `DoclingParser(BaseParser)` as deployed; ready to be registered in `ParserOrchestrator` chains for `hybrid_pdf` / `text_pdf_complex` classes
 - `p1b_libreoffice_preprocessor` — marks `LibreOfficePreprocessor` as deployed; ready to be registered as the `office_doc` preprocessor in `ParserOrchestrator`
 
-Both flags are **deployment-readiness markers**, not routing gates — they signal that the classes are available for library consumption without changing any pipeline behaviour. `GATE-005` (`check_gate_005_libreoffice_pdf`) ships alongside. **Deferred to Tranche 2 after 8 GB M2 ML-dep feasibility testing:** Marker, Surya, ProcessPoolExecutor, Golden Corpus benchmark.
+Both flags are **deployment-readiness markers**, not routing gates — they signal that the classes are available for library consumption without changing any pipeline behaviour. `GATE-005` (`check_gate_005_libreoffice_pdf`) ships alongside.
+
+### Sprint 1B-M2 — Phase 1B Modernization Tranche 2 scoped (p1b_* flags cont.)
+
+Additional library-level wiring. Feasibility audit (`.ai/10_state/feasibility_ml_deps_2026-04-15.json`) deferred marker-pdf + surya-ocr on the current 8 GB M2 environment (disk at 95.2%, RAM at 2.03 GB available). The scoped Tranche 2 shipped zero-new-heavy-dep deliverables instead:
+
+- `p1b_ocr_preprocessor` — marks `OCRPreprocessor` as deployed. Wraps the already-installed `ocrmypdf` (tesseract-backed, ~200 MB RAM per scanned page, low-spec friendly). Ready to be registered as the preprocessor for `SCANNED_PDF_CLEAN` / `SCANNED_PDF_NOISY` classes.
+- `p1b_process_pool_orchestration` — marks `ParserOrchestrator.process_batch` as deployed. Current implementation runs jobs sequentially because parsers are not pickle-safe; the `max_workers` kwarg is accepted for a future ProcessPoolExecutor upgrade once parser pickle-safety is verified.
+
+**Deferred to Tranche 3 or later (pending environment unblock):** marker-pdf, surya-ocr, Dynamic Resource Allocation per §11 Phase 3. See AD-032 for full rationale.
 
 ### Sprint HP.3-R — RocksDB KV backends (hp_rocksdb_* flags, default TRUE)
 
