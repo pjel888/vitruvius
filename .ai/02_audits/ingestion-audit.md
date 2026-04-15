@@ -1,13 +1,29 @@
 > ⚠️ **HISTORICAL SNAPSHOT — SUPERSEDED 2026-04-15**
 >
-> This audit was written on 2026-04-13 against a pre-Sprint-A baseline. It is retained here as a frozen historical record of what the codebase looked like before Sprints A + B + C + D + Q + R + PHYS + H + GEOM + WIKI + GT + HP + Z + HP.3-R shipped. Almost every "weakness" or "missing feature" flagged below has since been addressed.
+> This audit was written on 2026-04-13 against a pre-Sprint-A baseline.
+> It is retained here as a frozen historical record of what the ingestion
+> layer looked like before 21 sprints shipped in a single session.
+>
+> The 21 closed sprints (in execution order) are: Q · R · H · GT · HP ·
+> HP.3-R · WIKI · GEOM · PHYS · Z · Meta-Docs · 1B-M1 · 1B-M2 ·
+> RUST-PDF-1 · 1B-M3 · DISTILL-1 · RUST-MIG-1 · AUDIT-1 · PIPELINE-CLI ·
+> PQ-1 · LSH-1. See the governing plan §1.1 for the full per-sprint ledger.
+>
+> Architecture decisions now span AD-001 through AD-042 (plus sub-decision
+> AD-038a). The pointer "AD-001 through AD-029" in this file is outdated.
 >
 > **For the current state of the codebase, read these instead:**
+> - `/.ai/03_plans/00-governing-implementation-plan.md` — authoritative sprint ledger (v3.0.0)
+> - `/.ai/00_system/EXECUTION_LOOP.md` — v3.0 canonical operating contract
+> - `/.ai/01_roadmap/master-roadmap.md` — roadmap v2.2.0
 > - `/.ai/10_state/active_context.md` — current session state
-> - `/.ai/10_state/decisions.md` — architecture decisions AD-001 through AD-029
+> - `/.ai/10_state/decisions.md` — architecture decisions AD-001 through AD-042
+> - `/.ai/10_state/known_issues.md` — open risks + closure timeline
 > - `/.ai/01_roadmap/current-phase.md` — current sprint / phase
-> - `/.ai/00_system/architecture.md` — current package layout (including post-Sprint-D additions)
+> - `/.ai/00_system/architecture.md` — current package layout
 > - `/.ai/00_system/pipeline-overview.md` — current execution flow
+> - `/.ai/00_system/naming-conventions.md` — naming rules
+> - `/.ai/00_system/principles.md` — architectural principles
 
 ---
 
@@ -393,3 +409,58 @@ No dead code found. All ingestion modules are actively imported via pipeline_cli
 ---
 
 *Audit completed via code-forensic analysis. All claims traced to actual file contents.*
+
+---
+
+## 2026-04-15 Post-Sprint Reality Check
+
+### Machine context
+The "Audit Target" path in the body header uses Windows-format paths. The canonical
+repo location is `/Users/philiplewis/vitruvius/` on macOS.
+
+### File hashing — SHIPPED (Sprint C, AD-022; 2026-04-14)
+Body §5 notes "No file hashes computed" and §12 marks file hashing as MISSING.
+Sprint C Phase 1B Foundation (Task 0, commit `1386b32`) closed this gap completely:
+- `scripts/vitruvius/scanner.py` line 17: `def _sha256_of_file(path: Path) -> str:`
+  — streaming SHA-256 via `hashlib.sha256()`.
+- `FileEntry` dataclass gained a `sha256: str` field.
+- `latest_raw_file_registry.csv` gained a `sha256` column.
+- 6-test regression suite in `scripts/tests/test_scanner_sha256.py`.
+Risk RI-009 (No File Hashing in Ingestion) is **CLOSED**.
+
+### Registry rotation — SHIPPED (Sprint C, AD-023; 2026-04-14)
+Body §14 marks registry growth as MEDIUM risk with "no rotation."
+Sprint C quality pass shipped `rotate-registries` CLI command:
+- Deterministic retention policy (default keep=30 per timestamped registry family).
+- `latest_*.csv` pointers and non-timestamped static registries are never touched.
+- Supports `--dry-run` and `--keep N`. Pure `plan_rotation()` / `apply_rotation()` split.
+Risk RI-008 (Registry Growth Without Rotation) is **CLOSED**.
+
+### Parser modernization — SHIPPED (Sprints 1B-M1/M2/M3, AD-031/032/034; 2026-04-15)
+The 25-file repository map in §1 is missing the entire `parsers/` subpackage (14 files),
+which is the primary Phase 1B ingestion modernization:
+- `parsers/base_parser.py` — `BaseParser` ABC with `parse(path) → ParseResult`
+- `parsers/docling_parser.py` — Docling-backed parser (flag `p1b_docling_parser`)
+- `parsers/rust_pdf_parser.py` — lopdf-backed Rust PDF parser via pyo3 (flag `p1b_rust_pdf_parser`); 13.7 MB peak RSS / 0.05s wall = 48× smaller, 625× faster than docling. Quality gate: LCS 0.9925 vs pypdf on real corpus.
+- `parsers/ocr_preprocessor.py` — `OCRPreprocessor` (flag `p1b_ocr_preprocessor`)
+- `parsers/libreoffice_preprocessor.py` — `LibreOfficePreprocessor` (flag `p1b_libreoffice_preprocessor`)
+- `parsers/orchestrator.py` — `ParserOrchestrator` with `process_batch()` scaffolded for `ProcessPoolExecutor` (flag `p1b_process_pool_orchestration` reserved)
+- `parsers/factory.py` — `build_default_orchestrator()` dispatches all 5 `p1b_*` flags
+- `parsers/cli_handler.py` — `run_convert_parsers_one()` handler for `convert-parsers-one` subcommand (Sprint PIPELINE-CLI, AD-040)
+- `parsers/quality_gates.py`, `parsers/shannon_classifier.py`, `parsers/document_taxonomy.py`, `parsers/parametric_ner.py`, `parsers/vision_ocr.py`, `parsers/table_graph_extractor.py`
+
+### OCR parallelization — scaffolded, not yet active
+Body §14 rates sequential OCR as HIGH severity with no parallelization.
+`parsers/orchestrator.py::process_batch()` has `max_workers` reserved for
+`ProcessPoolExecutor` upgrade and the `p1b_process_pool_orchestration` flag is
+registered in the feature registry (defaults false, Sprint 1B-M2 AD-032). The
+architecture is ready; activation is one flag-flip + validation away.
+
+Additionally, the Rust PDF parser (`p1b_rust_pdf_parser`) handles text-based PDFs
+at 625× the speed of the OpenDataLoader baseline, which dramatically reduces the
+effective batch-convert wall time and shrinks the OCR queue on modern Philippine
+building-code corpora (which are mostly text-based PDFs).
+
+### Current sprint count and AD ceiling
+As of 2026-04-15: **21 sprints closed**. Architecture decisions span **AD-001 through
+AD-042** (plus sub-decision AD-038a).
