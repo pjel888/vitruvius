@@ -33,3 +33,34 @@ def test_verdict_cache_sqlite_bench_runs(tmp_path: Path) -> None:
     assert "put_seconds" in result.breakdown
     assert "get_hit_seconds" in result.breakdown
     assert "get_miss_seconds" in result.breakdown
+
+
+import pytest
+
+
+def test_event_store_rocksdb_bench_runs(tmp_path):
+    pytest.importorskip("rocksdict")
+    from vitruvius.bench.bench_kv_backends import bench_event_store_rocksdb
+    result = bench_event_store_rocksdb(db_path=tmp_path / "events.rocksdb", n_events=100)
+    assert result.backend == "rocksdb"
+    assert result.op == "event_store"
+    assert result.n == 100
+    assert result.wall_seconds > 0
+    assert result.throughput_per_second > 0
+    assert "append_seconds" in result.breakdown
+    assert "point_lookup_seconds" in result.breakdown
+    assert "project_graph_at_seconds" in result.breakdown
+
+
+def test_verdict_cache_rocksdb_bench_runs(tmp_path):
+    pytest.importorskip("rocksdict")
+    from vitruvius.bench.bench_kv_backends import bench_verdict_cache_rocksdb
+    result = bench_verdict_cache_rocksdb(db_path=tmp_path / "reg.rocksdb", n_verdicts=100)
+    assert result.backend == "rocksdb"
+    assert result.op == "verdict_cache"
+    assert result.n == 100
+    assert result.wall_seconds > 0
+    assert result.throughput_per_second > 0
+    assert "put_seconds" in result.breakdown
+    assert "get_hit_seconds" in result.breakdown
+    assert "get_miss_seconds" in result.breakdown
