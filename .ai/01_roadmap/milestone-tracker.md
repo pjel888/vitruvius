@@ -2,7 +2,7 @@
 
 > **Source of truth:** This tracker is reconciled against `/.ai/01_roadmap/master-roadmap.md` §4 and the 2026-04-13 audit pack.
 > **Legend:** `[x]` complete · `[~]` partial / skeleton · `[ ]` not started · `🔒` gated (do not start) · `🔥` highest priority
-> **Revised:** 2026-04-14
+> **Revised:** 2026-04-15
 
 ## Phase 0 — Foundation ✅ COMPLETE
 - [x] Layered root structure `001_` through `006_`
@@ -159,7 +159,10 @@
 **Test coverage:** 43/43 passing
 **Sprint A closed:** 2026-04-14
 
-## Phase 8 — Graph Contract & Indexing [ ] NOT STARTED
+## Phase 8 — Graph Contract & Indexing ✅ SUBSUMED (Sprint D Stream H, 2026-04-14)
+Base work shipped inside Sprint D Stream H. Sprint GT (tag `sprint-gt-closed`) extended with temporal edges, Parquet archiver, spatial GraphRAG, pyo3 Rust crate + linear octree. Sprint HP.3-R (tag `sprint-hp3r-closed`) replaced the SQLite event store with a RocksDB-backed `RocksDBEventStore` (AD-029: 18.7× faster at n=10000). See `.ai/09_archive/plans/phase-8-graph-contract-indexing-plan.md`.
+
+## Phase 8 — Graph Contract & Indexing (historical checklist — for reference only)
 **Gate:** Phase 7 producing ≥50 verified relationships.
 - [ ] `graph_contract.py` schema validator
 - [ ] Filesystem graph builder (in `005_Operational-Intelligence-Layer/graph/`)
@@ -169,7 +172,10 @@
 - [ ] Integrity checks (orphans, dangling edges, type compatibility)
 - [ ] Determinism test (same input → byte-identical snapshot)
 
-## Phase 9 — Query & AI Layer [ ] NOT STARTED
+## Phase 9 — Query & AI Layer ✅ SUBSUMED (Sprint D Stream I, 2026-04-14)
+Base work shipped inside Sprint D Stream I. No follow-up sprint has extended this — Query/AI integration for external consumers is gated on Sprint D Stream J (Ranger dashboard surface), externally blocked. See `.ai/09_archive/plans/phase-9-query-ai-layer-plan.md`.
+
+## Phase 9 — Query & AI Layer (historical checklist — for reference only)
 **Gate:** Phase 8 stable; ≥200 verified relationships.
 - [ ] Structured query interface
 - [ ] Source-traceable answers (every response cites section IDs)
@@ -208,3 +214,104 @@ See `/.ai/10_state/known_issues.md` for the risk register (RI-001…RI-011).
 - Phase plans: `/.ai/03_plans/*`
 - Schemas: `/.ai/06_specs/*`
 - State snapshot: `/.ai/10_state/*`
+
+---
+
+# 2026-04-15 Session — All Governing-Plan Sprints Closed
+
+The following **ten** sprints were delivered under subagent-driven-development in a single session and all produced `sprint-*-closed` git tags. Full ledgers live in `.ai/10_state/decisions.md` AD-024 through AD-029.
+
+## Sprint Q — Live Wiring & 8GB Hardening ✅ CLOSED (tag `sprint-q-closed`)
+- [x] W1 — 8GB LLM Survival Mode (model pool + num_ctx cap + budget guard + binary mode, +17 tests)
+- [x] W2 — Review Pipeline Wiring (NB prefilter + ontology prompt + SLM router + conformal + tension/reflection + Choquet, +15 tests)
+- [x] W3 — Stringency Matrix Live Gate (20-concept migration + lint rule + promotion hook + governing-standard field, +13 tests)
+- [x] W4 — Quality Harness (e2e chain test + flag-OFF regression + bench harness + decision-log automation, +7 tests)
+- [x] W5 — Docs Sync (bundled in docs commit)
+- **Total:** +48 tests, 15 functional commits, archived at `.ai/09_archive/plans/live-wiring-and-8gb-hardening-plan.md`
+
+## Sprint R — Per-Layer Embeddings & Agentic ✅ CLOSED (tag `sprint-r-closed`)
+- [x] Y0 — Bootstrap & flags (priming/ shell, 5 y_* flags, backward-compat regression)
+- [x] Y1 — Contextual priming (source identity vector, prompt prefix injector, drift detector, ontology wiring, extraction wiring)
+- [x] Y2 — Domain-routing MoE (classifier, route_with_moe, policy file + loader, reviewer model hook)
+- [x] Y3 — Thinking mode + CoT audit (parse_cot_strict, audit writer, enforcement, ple-cotrace-dump CLI)
+- [x] Y4 — Stateful agentic registry (SQLite core, ollama_review wiring, vacuum/purge CLI, Phase 6A Resume integration)
+- [x] Y5 — Vision OCR (wrapper with mocked tests, table_graph_extractor fallback, ple-vision-probe CLI, operator checklist)
+- **Total:** 20/20 tasks, archived at `.ai/09_archive/plans/per-layer-embeddings-agentic-upgrade-plan.md`
+- Note: Y5 requires operator activation (install psutil + Pillow + pull moondream + run probe + flip flag). Non-Y5 flags fully code-complete.
+
+## Sprint PHYS — Graph Physics ✅ CLOSED (tag `sprint-phys-closed`)
+- [x] PHYS.1 — PageRank over canonical relationship graph
+- [x] PHYS.2 — Boltzmann stability gate (absorbs orphan Stream O VF2 motif matcher)
+- [x] PHYS.3 — Shannon entropy sampler
+- [x] PHYS.4 — Eigenvector centrality cascade sim
+- **Total:** 4 streams + orphan absorption shipped atomically, archived at `.ai/09_archive/plans/phase-16-statistical-mechanics-graph-physics-plan.md`
+
+## Sprint H — 3D Spatial Intelligence ✅ CLOSED (tag `sprint-h-closed`)
+- [x] Streams L/M/N/O — 20/20 tasks shipped
+- [x] TypeScript sibling subproject at `spatial-daemon/` (GJK + AABB + contract writer + CLI; 20/20 vitest tests)
+- [x] Z3 solver integration for spatial constraints (Stream L.5)
+- [x] IFC registry loader + OWL exporter (M.1/M.2)
+- **Total:** 20/20 tasks, archived at `.ai/09_archive/plans/3d-spatial-intelligence-upgrade-plan.md`
+
+## Sprint GEOM — Geometric Constraint Engine ✅ CLOSED (tag `sprint-geom-closed`)
+- [x] GEOM.1 — Inequality compiler (Z3 CSP from canonical rules)
+- [x] GEOM.2 — Envelope 2D (shapely)
+- [x] GEOM.3 — Envelope 3D (trimesh + mapbox-earcut + manifold3d)
+- [x] GEOM.4 — Multimodal IoU audit (cvxpy Pareto optimizer)
+- **Total:** 4 streams shipped, archived at `.ai/09_archive/plans/phase-15-geometric-constraint-engine-plan.md`
+
+## Sprint WIKI — Autonomous Knowledge Synthesis ✅ CLOSED (tag `sprint-wiki-closed`)
+- [x] WIKI.1 — Docling parser + Kuzu hybrid store
+- [x] WIKI.2 — Delta tracker + synthesis loop
+- [x] WIKI.3 — SHA-256 delta linting + LLM ego-graph linter
+- [x] WIKI.4 — Ollama client adapter for synthesis loop + ego linter
+- **Total:** 4 streams shipped, archived at `.ai/09_archive/plans/phase-14-autonomous-knowledge-synthesis-plan.md`
+
+## Sprint GT — Geo-Topological Knowledge Graph ✅ CLOSED (tag `sprint-gt-closed`)
+- [x] GT.1 — pyo3 Rust crate scaffold (Cargo workspace, core + pyo3_shim)
+- [x] GT.2 — Linear octree (SpatialPoint + LinearOctree exposed to Python)
+- [x] GT.3 — Temporal knowledge graph (TemporalEdge + versioned query + Parquet archiver)
+- [x] GT.4 — Spatial GraphRAG bridge (proximity jump + decay-weighted edges)
+- [x] GT.5 — Hardware hardening (mmap + Bloom filter + MC dropout)
+- **Total:** 5 streams shipped, archived at `.ai/09_archive/plans/phase-8b-geo-topological-graph-plan.md`
+
+## Sprint HP — High-Performance Optimizations ✅ CLOSED (tag `sprint-hp-closed`)
+- [x] HP.1 — Merkle directory hash
+- [x] HP.2 — AST chunking (retroactively covered by Sprint D Stream C.2)
+- [x] HP.3 — SQLite append-only event store (pivoted from RocksDB — no wheel at time of HP closure)
+- [x] HP.4 — Wasm spatial kernels (engine_rs workspace split)
+- [x] HP.5 — GraphSAGE loopholes detector
+- **Total:** 5 streams shipped, archived at `.ai/09_archive/plans/phase-13-high-performance-optimizations-plan.md`
+
+## Sprint Z — Compound AI Evolution ✅ CLOSED (tag `sprint-z-closed`)
+- [x] S1 — Neuro-symbolic Datalog bridge (Rust `datalog_rs` crate + pyo3 + prompt directive)
+- [x] S2 — Proposer/Inspector/Adjudicator adversarial swarm
+- [x] S3 — Differential dataflow (Delta + DependencyTracker + DifferentialPropagator)
+- [x] S4 — Wasm kernel (workspace split + wasmtime loader)
+- [x] S5 — DSPy prompt compiler
+- **Total:** 5 streams shipped, archived at `.ai/09_archive/plans/phase-12-compound-ai-evolution-plan.md`
+
+## Sprint HP.3-R — RocksDB KV Migration ✅ CLOSED (tag `sprint-hp3r-closed`)
+- [x] Task 1 — SQLite baseline bench harness (`scripts/vitruvius/bench/bench_kv_backends.py`)
+- [x] Task 2 — Install rocksdict 0.3.29 binding + smoke test
+- [x] Task 3 — Feature flags `hp_rocksdb_event_store` + `hp_rocksdb_verdict_cache`
+- [x] Task 4 — `RocksDBEventStore` class (+ concurrent-read lock fix via `AccessType.read_only()`)
+- [x] Task 5 — `RocksDBStatefulReviewRegistry` class
+- [x] Task 6 — Factory dispatch (`make_event_store`, `make_stateful_registry`; purge CLI routed through factory)
+- [x] Task 7 — `ple-kv-migrate` CLI (idempotent, dry-run capable, both event + registry paths)
+- [x] Task 8 — RocksDB bench + decision gate + O(1) count() optimization via `meta:*_count` keys
+- [x] Task 9 — Flag flip + AD-029 + docs + archival + closing fixes (`flush()` API parity on SQLite class)
+- **Total:** 14 commits shipped, archived at `.ai/09_archive/plans/2026-04-15-rocksdb-kv-migration-plan.md`
+- **Bench at n=10000:** RocksDB **18.7× faster** on event store (0.1888s vs 3.5313s), **24.3× faster** on verdict cache (0.1480s vs 3.6004s). Flag defaults flipped to `true` per AD-029.
+
+## Session-level totals
+- **Python test suite:** 297 → **1396 passing**, 1 skipped (+1099 delta)
+- **TypeScript test suite:** 20 / 20 passing (spatial-daemon/)
+- **Rust unit tests:** 10 passing (engine_rs core + datalog_rs)
+- **New Rust crates:** 2 (`engine_rs` workspace + `datalog_rs`)
+- **New TypeScript sibling:** 1 (`spatial-daemon/`)
+- **New Python subpackages:** 6 (`compound/`, `wiki/`, `geometric/`, `foraging/`, `priming/`, `bench/`)
+- **Plans archived:** 12 in the sprint burst + 3 more in the 2026-04-15 cleanup pass (phase-8, phase-9, ultimate-architecture)
+- **ADs added:** AD-024 through AD-029
+- **Git tags:** 10 (all listed above)
+- **Branch:** merged and deleted the 4 feature branches on 2026-04-15; `main` is now at `eabc05e`, 242 commits ahead of `origin/main`

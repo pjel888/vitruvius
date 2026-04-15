@@ -122,6 +122,85 @@ The system uses a **path-based addressing scheme**.
 ## Changelog
 - **2026-04-13:** Initial Architecture Document created from code-to-document audit. Traced all functional modules and filesystem interactions.
 
+## Post-Sprint-D Layered Additions (2026-04-15)
+
+The **ten** sprints closed in 2026-04-15 (Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, and the follow-on Sprint HP.3-R RocksDB migration) added substantial capability on top of the pre-existing filesystem pipeline. The core ingestion/canonicalization layout above is unchanged; the additions below are **layered on top** and most are gated behind feature flags that default to `false` (the two `hp_rocksdb_*` flags default `true` as of AD-029).
+
+### New Python subpackages
+
+- `scripts/vitruvius/compound/` — Sprint Z reactive neuro-symbolic OS. Subcomponents:
+  - `adversarial.py` — Proposer/Inspector/Adjudicator swarm (S2)
+  - `dspy_compiler.py` — prompt compiler with metric-driven search (S5)
+  - `dependency_tracker.py` + `differential_propagator.py` — incremental dataflow (S3)
+  - `logic_schema.py` — Pydantic envelope for `<logic>` Datalog fact sets (S1)
+  - `wasm_kernel.py` — lazy-import wrapper around the Wasm spatial kernel (S4)
+- `scripts/vitruvius/wiki/` — Sprint WIKI autonomous knowledge synthesis:
+  - `docling_parser.py`, `kuzu_store.py`, `delta_tracker.py`, `synthesis_loop.py`, `ego_linter.py`
+  - `llm_client.py` (Protocol) + `ollama_client.py` (concrete adapter)
+- `scripts/vitruvius/geometric/` — Sprint GEOM buildable-envelope engine:
+  - `inequality_compiler.py` (Z3 CSP), `envelope_2d.py` (shapely), `envelope_3d.py` (trimesh + mapbox-earcut + manifold3d), `pareto_optimizer.py` (cvxpy)
+- `scripts/vitruvius/foraging/` — Sprint GT.5.2 Bloom filter foraging hints
+- `scripts/vitruvius/spatial/` — Sprint H / GT.4 spatial data plane:
+  - `spatial_edge_builder.py` (decay-weighted edges), `proximity_jump.py` (Sprint GT.4), `constraint_solver.py` (Sprint H Stream L.5 Z3 SMT evaluator)
+- `scripts/vitruvius/graph/` — Phase 8 base plus Sprint GT/HP/PHYS/HP.3-R additions:
+  - `contract.py` — `GraphNode` / `GraphEdge` / `GraphSnapshot` / `TemporalEdge` (GT.3.1)
+  - `event_store.py` — SQLite append-only event log (HP.3) + `Delta` wrapper (S3.1)
+  - `rocksdb_event_store.py` — RocksDB-backed event store (Sprint HP.3-R; O(1) count via `meta:event_count` key)
+  - `graphsage.py` — HP.5 GraphSAGE embeddings + loopholes detector
+  - `temporal_query.py` — GT.3.2 versioned retrieval (`query_at`)
+  - `parquet_archiver.py` — GT.3.3 pyarrow round-trip
+  - `mc_dropout.py` — GT.5.3 epistemic uncertainty
+  - `physics.py` — Sprint PHYS PageRank / Boltzmann gate / VF2 / Shannon entropy / eigenvector centrality / cascade sim
+- `scripts/vitruvius/pre_review/` + `review/` + `promotion/` — Sprint Q W2/W3 wiring plus Sprint R Y4 stateful registry and Sprint HP.3-R RocksDB registry:
+  - `pre_review/nb_filter.py`, `review/ontology_prompt.py`, `review/slm_router.py`, `review/conformal.py`, `review/tension_analyzer.py`, `review/reflection_parser.py`, `review/choquet.py`, `review/ontology_prompt_builder.py`, `review/cot_audit.py`, `review/stateful_registry.py`, `review/rocksdb_stateful_registry.py`
+  - `promotion/bayesian_fusion.py`, `promotion/stringency_matrix.py`, `promotion/temporal_edges.py`
+- `scripts/vitruvius/priming/` — Sprint R Stream Y1 contextual priming (source identity vector, prefix injector, drift detector)
+- `scripts/vitruvius/bench/` — Sprint Q W4 + Sprint HP.3-R benchmark harnesses (live PD 1096 wall-clock + peak RSS; KV backend comparison)
+- `scripts/vitruvius/merkle_fs.py` — HP.1 Merkle directory hash (single-file module)
+- `scripts/vitruvius/kv_migrate.py` — Sprint HP.3-R one-shot SQLite → RocksDB migration CLI handler
+
+### Rust data plane
+
+Vitruvius now ships two pyo3 Rust crates built via `maturin develop --release`:
+
+- `scripts/vitruvius/engine_rs/` — **Cargo workspace** split into `core/` (pure Rust, compiles for both native and `wasm32-unknown-unknown`) and `pyo3_shim/` (pyo3 bindings). Exports `SpatialPoint` + `LinearOctree` to Python and an `aabb_intersects` C-ABI function to Wasm. Consumed by `scripts/vitruvius/compound/wasm_kernel.py` via wasmtime.
+- `scripts/vitruvius/datalog_rs/` — Sprint Z Stream S1.2 Rust evaluator. Hand-rolled Datalog engine (crepe proved too fragile on our ruleset). Entry point: `evaluate_datalog(facts, rules)`. 7 Rust unit tests.
+
+Both crates are optional dependencies. Pure-Python paths remain intact and are exercised by the test suite when the Rust extension isn't built.
+
+### TypeScript sibling subproject
+
+- `spatial-daemon/` — Node.js 25 + vitest sibling subproject (not inside `scripts/vitruvius/`). Implements GJK collision detection, AABB overlap, and a filesystem contract writer that the Python side consumes. Entry point: `spatial-daemon/src/cli.ts`. 20/20 vitest tests. Used for 3D spatial verification when ingesting building geometries.
+
+### Feature-flag governance
+
+All ten sprints added flag families under `features:` in `config/vitruvius.yaml`. Default is **false** for every new flag so pre-session behaviour is byte-identical until an operator opts in — except the two `hp_rocksdb_*` backend-switch flags, which default **true** per AD-029. The `EXPECTED_FLAGS` registry in `scripts/tests/test_features.py` enumerates every expected flag and fails CI if a flag is added to the YAML without a test entry.
+
+Flag families by sprint:
+
+| Sprint | Prefix | Example |
+|---|---|---|
+| Q — Live Wiring | `w_*` | `w_nb_prefilter`, `w_slm_router`, `w_choquet_fusion` |
+| R — Per-Layer Embeddings | `y_*` | `y_contextual_priming`, `y_domain_routing_moe`, `y_vision_ocr` |
+| PHYS — Graph Physics | `phys_*` | `phys_pagerank`, `phys_boltzmann_gate` |
+| HP — High-Performance | `hp_*` | `hp_merkle_fs`, `hp_event_sourced_graph`, `hp_wasm_kernels`, `hp_graphsage` |
+| HP.3-R — RocksDB KV backends | `hp_rocksdb_*` (defaults **true**) | `hp_rocksdb_event_store`, `hp_rocksdb_verdict_cache` |
+| GEOM — Constraint Engine | `geom_*` | `geom_csp_compiler`, `geom_envelope_3d` |
+| WIKI — Knowledge Synthesis | `wiki_*` | `wiki_docling_parser`, `wiki_kuzu_store`, `wiki_ego_linter` |
+| GT — Geo-Topological | `gt_*` | `gt_temporal_graph`, `gt_proximity_jump`, `gt_engine_rs` |
+| Z — Compound AI | `z_*` | `z_neuro_symbolic`, `z_adversarial_swarm`, `z_dspy_compiler` |
+
+### Deferred items
+
+Two items remain externally gated:
+
+- **Sprint D Streams J (query integration) + K (docs+CI)** — need the Ranger dashboard surface and a 2nd jurisdiction corpus to benchmark against.
+- **Phase 1B Modernization §11 Phase 2 + Phase 3** — parser wrapping + Docling/Marker + ProcessPoolExecutor + Golden Corpus. Design spec exists at `.ai/03_plans/phase-1b-multi-parser-integration-plan.md` but needs a TDD expansion pass.
+
+For the authoritative per-sprint ledger see `.ai/10_state/decisions.md` AD-024 through AD-029.
+
+---
+
 ## KV Storage Backends (Sprint HP.3-R, 2026-04-15)
 
 The two persistent KV stores in the project now ship with parallel

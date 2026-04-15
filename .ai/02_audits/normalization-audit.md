@@ -1,3 +1,16 @@
+> ⚠️ **HISTORICAL SNAPSHOT — SUPERSEDED 2026-04-15**
+>
+> This audit was written on 2026-04-13 against a pre-Sprint-A baseline. It is retained here as a frozen historical record of what the codebase looked like before Sprints A + B + C + D + Q + R + PHYS + H + GEOM + WIKI + GT + HP + Z + HP.3-R shipped. Almost every "weakness" or "missing feature" flagged below has since been addressed.
+>
+> **For the current state of the codebase, read these instead:**
+> - `/.ai/10_state/active_context.md` — current session state
+> - `/.ai/10_state/decisions.md` — architecture decisions AD-001 through AD-029
+> - `/.ai/01_roadmap/current-phase.md` — current sprint / phase
+> - `/.ai/00_system/architecture.md` — current package layout (including post-Sprint-D additions)
+> - `/.ai/00_system/pipeline-overview.md` — current execution flow
+
+---
+
 # Normalization Audit — Vitruvius
 
 ## Purpose

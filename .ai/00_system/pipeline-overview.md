@@ -110,5 +110,103 @@ The Vitruvius pipeline is a **sequential, file-driven workflow** that uses the f
 - **LLM Review:** Reviewing thousands of relationship candidates via Ollama takes significant time.
 - **Registry Size:** As the number of files in `001` grows, CSV-based registry comparisons will slow down.
 
+## Post-Sprint-D Pipeline Additions (2026-04-15)
+
+The baseline flow above is the authoritative default-off path. The **ten** sprints closed in this session (Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, and the follow-on Sprint HP.3-R RocksDB migration) layered additional optional stages on top, all gated behind `features.*` flags in `config/vitruvius.yaml`. When every non-RocksDB flag is `false`, the pipeline is byte-identical to the pre-Sprint-D baseline described above. (The `hp_rocksdb_*` flags default `true` per AD-029 because the RocksDB migration replaces only the storage layer under the `EventStore` / `StatefulReviewRegistry` API contracts — consumer code is unchanged.)
+
+### Sprint Q — Live Wiring (w_* flags)
+
+The review stage (`run_review_ollama`) now has optional live hooks for the Stream F + G scaffolds that Sprint D shipped as dead code:
+
+1. **NB prefilter** (`w_review_nb_prefilter`) — auto-rejects candidates a Naive Bayes head scores below threshold before any LLM call.
+2. **Ontology prompt builder** (`w_review_ontology_prompt`) — renders 2-hop graph neighborhoods from the canonical relationships store into the reviewer prompt so the LLM can cross-reference prior decisions.
+3. **SLM domain router** (`w_review_slm_routing`) — picks between draft / default / heavy local models by document class and candidate novelty.
+4. **Conformal gate** (`w_review_conformal_routing`) — decorates every review decision with a p-value that drops anything above the calibrated α.
+5. **Tension analyzer + Choquet fuzzy aggregation** (`w_review_tension_reflection` + `w_review_choquet_aggregator`) — fuses multiple reviewer votes when Tier 2 fires.
+6. **8GB LLM survival mode** (`w_llm_model_pool`, `w_llm_num_ctx_enforcement`, `w_llm_context_budget_guard`) — caps memory so small local models fit on 8 GB M2.
+
+Promotion (`run_promote`) gained a **stringency matrix gate** (`w_promotion_stringency_gate`) that compares each candidate edge against the governing standard in the 20-concept stringency vectors. Losing edges are marked `is_governing_standard=False`; the winner is marked `True`.
+
+### Sprint R — Per-Layer Embeddings & Agentic Reasoning (y_* flags)
+
+Layered on top of the review stage:
+
+1. **Source identity vector + prefix injector** (`y_contextual_priming`) — every reviewer prompt is prefixed with a deterministic `SOURCE_IDENTITY[fingerprint]: <prose>` block so the LLM sees the document's legal context for free.
+2. **Domain classifier + MoE router** (`y_domain_routing_moe`) — routes candidates to specialized reviewer models by detected domain (building-law vs. fire-code vs. sanitation, etc.).
+3. **Thinking mode + CoT audit** (`y_thinking_mode_cot`) — enforces `<thinking>` / `<answer>` envelope in the reviewer output and dumps the trace to `005_Operational-Intelligence-Layer/cot_audit/`.
+4. **Stateful agentic registry** (`y_stateful_registry`) — persistent cache of every reviewer decision keyed on `(source_hash, relationship_hash, model_version)`. Consumed by Phase 6A Resume to avoid re-reviewing unchanged candidates. Sprint HP.3-R added a RocksDB backend behind this, routed via `make_stateful_registry()`.
+5. **Vision OCR** (`y_vision_ocr`) — falls back to a vision LLM (moondream) when OCR confidence is below threshold. Operator-gated: requires `ple-vision-probe` activation.
+
+### Sprint GT — Spatial GraphRAG (gt_* flags)
+
+New optional stage between extraction and review:
+
+- **Proximity jump + decay-weighted edges** (`gt_proximity_jump`, `gt_spatial_edges`) — when `spatial_edge_builder` has ingested a building's geometry, candidates are re-ranked so spatially adjacent sections boost each other's confidence before the LLM sees them.
+- **Temporal edges** (`gt_temporal_graph`) — graph contract now supports `valid_from` / `valid_until` on every edge so rollback-aware queries work through `temporal_query.query_at(timestamp)`. Data lives in the event store (Sprint HP.3 SQLite or Sprint HP.3-R RocksDB, selected via `hp_rocksdb_event_store`).
+- **Parquet archiver** (Sprint GT.3.3) — snapshots the graph to Parquet via pyarrow for cold-storage archival.
+- **Hardware hardening** (`gt_hardware_hardening`) — mmap + Bloom filter foraging + MC dropout uncertainty utility (GT.5.1/5.2/5.3).
+- **Rust data plane** (`gt_engine_rs`) — linear octree + `SpatialPoint` shipped via the `engine_rs` pyo3 crate.
+
+### Sprint Z — Compound AI (z_* flags)
+
+A new post-review stage that only activates on Tier 2 candidates:
+
+- **Adversarial swarm** (`z_adversarial_swarm`) — Proposer generates candidates, Inspector argues against them, Adjudicator picks a winner.
+- **Differential dataflow** (`z_differential_dataflow`) — `DependencyTracker` + `DifferentialPropagator` propagate deltas from the graph store to downstream consumers without re-evaluating the whole graph. Walks the tracker per `Delta` batch, so amendments to PD 1096 run in O(Δ) in the changed set rather than in the total graph size.
+- **DSPy prompt compiler** (`z_dspy_compiler`) — metric-driven prompt optimization that compiles prompt templates against a held-out set of review decisions.
+- **Neuro-symbolic Datalog bridge** (`z_neuro_symbolic`) — reviewer prompts are decorated with a `<logic-directive>` that forces the LLM to emit a `<logic>` Datalog block the Rust `datalog_rs` evaluator verifies. Rejects the verdict if the block fails to parse or fails to derive the conclusion from the facts.
+- **Wasm spatial kernel** (`hp_wasm_kernels`) — loads the `engine_rs` `aabb_intersects` function via wasmtime for hermetic spatial verification that can run in constrained environments.
+
+### Sprint HP.3-R — RocksDB KV backends (hp_rocksdb_* flags, default TRUE)
+
+Storage-layer swap for the two persistent KV stores. No change to pipeline flow — consumers go through `make_event_store()` / `make_stateful_registry()` factories that pick the backend from the flag:
+
+- `hp_rocksdb_event_store` (default `true` per AD-029) — event store uses `RocksDBEventStore`. Bench at n=10000: **18.7× faster** than SQLite on append + count + project_graph_at. Fallback to SQLite by flipping to `false`.
+- `hp_rocksdb_verdict_cache` (default `true` per AD-029) — verdict cache uses `RocksDBStatefulReviewRegistry`. Bench at n=10000: **24.3× faster** than SQLite on put + get-hit + get-miss. Fallback to SQLite by flipping to `false`.
+
+Migration tool: `ple-kv-migrate --store {event,registry} --source SQLITE_PATH --dest ROCKSDB_DIR [--dry-run]`. Idempotent (event store catches duplicate `event_id` ValueError; registry does a pre-write existence check and reports skipped rows).
+
+### Sprint WIKI — Knowledge Synthesis (wiki_* flags)
+
+Standalone side-pipeline (not in the main `run` chain):
+
+- `wiki_docling_parser` — Docling parser for PDF → structured markdown
+- `wiki_kuzu_store` — Kuzu graph store (hybrid vector + graph)
+- `wiki_delta_tracking` — SHA-256 delta tracker for incremental synthesis
+- `wiki_synthesis_loop` — LLM-driven wiki synthesis loop (uses `OllamaLLMClient`)
+- `wiki_ego_linter` — LLM ego-graph linter that rejects drafts with internal contradictions
+
+### Sprint PHYS — Graph Physics (phys_* flags)
+
+Post-promotion analytics layer:
+
+- `phys_pagerank` — PageRank over the canonical relationship graph
+- `phys_boltzmann_gate` — Boltzmann stability gate
+- `phys_motif_matcher` — VF2 motif matcher (absorbs orphan Stream O)
+- `phys_shannon_sampling` — Shannon entropy sampler
+- `phys_eigenvector_cascade` — eigenvector centrality cascade simulation
+
+### Sprint GEOM — Geometric Constraint Engine (geom_* flags)
+
+Standalone side-pipeline for buildable-envelope generation:
+
+- `geom_csp_compiler` — Z3 CSP compiler from canonical rules
+- `geom_envelope_2d` — 2D envelope via shapely
+- `geom_envelope_3d` — 3D polyhedral envelope via trimesh + mapbox-earcut + manifold3d
+- `geom_iou_audit` — multimodal IoU audit
+- `geom_pareto_optimizer` — Pareto optimizer via cvxpy
+
+### Sprint HP — High-Performance Optimizations (hp_* flags)
+
+Transparent perf wins:
+
+- `hp_merkle_fs` — Merkle directory hash (replaces brute-force reconcile walks)
+- `hp_event_sourced_graph` — turns on the append-only event log at all (defaults false; orthogonal to which backend is used)
+- `hp_wasm_kernels` — Wasm spatial kernels (via `engine_rs` wasm32 target)
+- `hp_graphsage` — GraphSAGE embeddings + structural loopholes detector
+
+See `.ai/10_state/decisions.md` AD-024 through AD-029 for the per-sprint ledger including commit SHAs and sprint tags.
+
 ## Changelog
 - **2026-04-13:** Initial Pipeline Overview document created from codebase audit. Traced all `run_` commands and artifact flows.
+- **2026-04-15:** Added **Post-Sprint-D Pipeline Additions** section covering all ten sprints (Q/R/PHYS/H/GEOM/WIKI/GT/HP/Z/HP.3-R) and their feature flags. Baseline flow documented above is unchanged.

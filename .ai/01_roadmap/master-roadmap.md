@@ -4,7 +4,7 @@
 > **Audience:** Architects, engineers, auditors, and autonomous agents operating on this repo.
 > **Authoritative for:** Phase order, definitions of done, gating metrics, status reconciliation.
 > **Supersedes:** Prior phase lists, ad-hoc README roadmaps, and any conflicting status claims.
-> **Version:** 2.0.0 · **Last revised:** 2026-04-14 · **Next review due:** 2026-05-01
+> **Version:** 2.1.0 · **Last revised:** 2026-04-15 · **Next review due:** 2026-05-01
 > **Owner:** Senior Systems Architect
 
 ---
@@ -212,12 +212,39 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 
 ---
 
-## 5. Honest Position Statement (updated 2026-04-14)
+## 5. Honest Position Statement (updated 2026-04-15)
 
-- **Where we actually are:** Ingestion, refinement, canonicalization, extraction, review (Tier-1 + Tier-2), promotion, and concept enrichment are all shipping. The pipeline runs end-to-end on PD 1096 with ~4 Ollama calls per full pass (down from ~25). The project is best described as **"deterministic-first with AI as the exception"**.
-- **What used to be stuck, now fixed:** (1) Phase 7 Promotion Layer now exists — 6 PD 1096 relationships live in canonical storage. (2) Phase 1C normalization MVP shipping with 8 Tier A/B rules. (3) Regex extractor noise now caught deterministically by `dedupe_by_endpoints` (AD-014/016) + `pre_review_filter` (AD-018/021) — 78% of candidates bypass the LLM. (4) Phase 3C concept enrichment shipping with 16/20 PD 1096 concepts populated from regex anchors + section-title matching, zero LLM calls.
-- **What's still gated:** (1) Phase 8 graph indexing — needs ≥50 verified relationships (currently 7). (2) Phase 9 query layer — gated on Phase 8. (3) Phase 11 corpus expansion — gated on Phase 7 stability which is now met but not yet exercised at scale. (4) Phase 1B multi-parser — design spec ready, implementation multi-session.
-- **Next high-leverage move (user's choice):** Phase 1B, or re-running the pipeline on PD 1096 IRR to get a second corpus's worth of relationships + the remaining 4 concepts, or splitting `ollama_review.py` as a quality refactor.
+**What works end-to-end today:**
+- Ingestion → conversion → refinement (Phase 1C MVP) → canonicalization → extraction → pre-review filter → Tier 1 LLM review → Tier 2 adjudication → promotion → canonical graph write.
+- Sprint D Streams A–I shipped on 2026-04-14: dependency bootstrap, Shannon classifier, table-to-graph, parametric NER, Tier C OCR, AST chunker, TF-IDF/PMI/FCA, spaCy/CRF/TransE extraction, Bayesian fusion + stringency matrix + temporal edges (as scaffolds), Phase 8 base, Phase 9 base.
+- Sprint Q (Live Wiring & 8GB Hardening) shipped on 2026-04-15: wired every Stream F + G scaffold into the live pipeline, rolled out the 20-concept stringency matrix gate, added the 8GB LLM survival mode, shipped the quality harness.
+- Sprint R (Per-Layer Embeddings & Agentic) shipped on 2026-04-15: contextual priming, MoE domain routing, thinking-mode CoT audit, stateful agentic registry, vision OCR (operator-gated).
+- Sprint PHYS (Statistical Mechanics & Graph Physics) shipped on 2026-04-15.
+- Sprint H (3D Spatial Intelligence) shipped on 2026-04-15: all 20 tasks across Streams L/M/N/O; TypeScript sibling subproject at `spatial-daemon/`.
+- Sprint GEOM (Geometric Constraint Engine) shipped on 2026-04-15: Z3 CSP, shapely/trimesh/cvxpy pipeline.
+- Sprint WIKI (Autonomous Knowledge Synthesis) shipped on 2026-04-15: Docling + Kuzu + Ollama + ego linter.
+- Sprint GT (Geo-Topological Knowledge Graph) shipped on 2026-04-15: pyo3 Rust crate + linear octree + temporal graph + spatial GraphRAG + hardware hardening.
+- Sprint HP (High-Performance Optimizations) shipped on 2026-04-15: Merkle fs, SQLite event store (pivoted from RocksDB at the time), Wasm spatial kernels, GraphSAGE loopholes.
+- Sprint Z (Compound AI Evolution) shipped on 2026-04-15: neuro-symbolic Datalog bridge (Rust `datalog_rs` crate), adversarial swarm, differential dataflow, Wasm kernel, DSPy prompt compiler.
+- **Sprint HP.3-R (RocksDB KV Migration) shipped on 2026-04-15**: completed the original HP.3 spec. `RocksDBEventStore` + `RocksDBStatefulReviewRegistry` + factory dispatch + `ple-kv-migrate` CLI + O(1) count optimization. Bench at n=10000 measured RocksDB **18.7× faster** (event store) and **24.3× faster** (verdict cache) than SQLite; flag defaults flipped to `true` per AD-029.
+
+**Current hard numbers (as of 2026-04-15):**
+- Python test suite: **1396 passed, 1 skipped** (grew from pre-session 297)
+- TypeScript test suite: **20 / 20 passing** (`spatial-daemon/`)
+- Rust unit tests: **10 passing** (`engine_rs` core + `datalog_rs`)
+- Canonical relationships: **31 verified** (up from 7 via PD 1096 IRR ingest)
+- Enriched concept files: **20 / 20** PD 1096 concepts (all carry `stringency_vector` frontmatter)
+- Sprint tags: **10** — `sprint-q-closed`, `sprint-r-closed`, `sprint-phys-closed`, `sprint-h-closed`, `sprint-geom-closed`, `sprint-wiki-closed`, `sprint-gt-closed`, `sprint-hp-closed`, `sprint-z-closed`, `sprint-hp3r-closed`
+- Decision log: **AD-001 through AD-029** in `.ai/10_state/decisions.md`
+- Active branch: **`main`** (242 commits ahead of `origin/main` — the four feature branches were merged and deleted on 2026-04-15)
+
+**What still needs doing:**
+- **Sprint D Streams J (query integration) + K (docs+CI)** — externally gated on the Ranger dashboard surface (J) and a 2nd jurisdiction corpus (K). Will light up when their external unblockers land.
+- **Phase 1B Modernization §11 Phase 2 + Phase 3** — parser wrapping + Docling/Marker/Surya + ProcessPoolExecutor + Golden Corpus. Design spec exists at `.ai/03_plans/phase-1b-multi-parser-integration-plan.md` but needs a TDD expansion pass before dispatch.
+- **Push to remote** — the Git remote `github.com/pjel888/vitruvius.git` returned "Repository not found" at merge time; needs auth or URL fix before `git push origin main`.
+- **Fresh roadmap brainstorm** — the project is materially ahead of the v2.0.0 roadmap envelope. Next horizon is undefined; v2.1.0 extends only where the roadmap was visibly wrong, not where it was silent.
+
+**Where to read the per-sprint ledger:** `.ai/10_state/decisions.md` AD-024 through AD-029 have the full commit SHAs, test counts, and exit gates for every sprint closed this session.
 
 ---
 
@@ -529,7 +556,9 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 ---
 
-### Phase 8 — Graph Contract & Indexing · ❌ NOT STARTED
+### Phase 8 — Graph Contract & Indexing · ✅ **SUBSUMED** (Sprint D Stream H, 2026-04-14)
+
+**Status:** ✅ **SUBSUMED** — base work shipped inside Sprint D Stream H on 2026-04-14. Original design spec archived 2026-04-15 at `.ai/09_archive/plans/phase-8-graph-contract-indexing-plan.md`. Sprint GT (`sprint-gt-closed`) subsequently extended this with temporal edges (GT.3.1), Parquet archiver (GT.3.3), spatial GraphRAG bridge (GT.4), and the `engine_rs` Rust data plane (GT.1/GT.2) — see `.ai/09_archive/plans/phase-8b-geo-topological-graph-plan.md` (also archived). Sprint HP.3-R (`sprint-hp3r-closed`) further replaced the SQLite event store with a RocksDB-backed `RocksDBEventStore` measured 18.7× faster at n=10000 — see AD-029.
 
 **Objective.** Build the first queryable index over promoted relationships, backed by the Filesystem Graph Contract (§3.6).
 
@@ -557,7 +586,9 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 ---
 
-### Phase 9 — Query & AI Augmentation · ❌ NOT STARTED
+### Phase 9 — Query & AI Augmentation · ✅ **SUBSUMED** (Sprint D Stream I, 2026-04-14)
+
+**Status:** ✅ **SUBSUMED** — base work shipped inside Sprint D Stream I on 2026-04-14. Original design spec archived 2026-04-15 at `.ai/09_archive/plans/phase-9-query-ai-layer-plan.md`. No follow-up sprint has extended it — Query/AI integration for external consumers is gated on Sprint D Stream J (Ranger dashboard surface), which is externally blocked.
 
 **Objective.** Enable high-fidelity, evidence-linked domain queries: *"What governs X?"*, *"Which sections affect building permits?"*.
 
@@ -689,9 +720,57 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 ---
 
-## 8. 90-Day Execution Sequence (Strict Order) — SPRINTS A + B CLOSED 2026-04-14
+## 8. 90-Day Execution Sequence — ALL GOVERNING-PLAN SPRINTS CLOSED 2026-04-15
 
-> **Status:** Sprint A (Phase 7) shipped. Sprint B (1C + 2 + 6A) shipped. Sprint C (1B + 6B) partially shipped — 6B delivered, 1B still planned. Pre-review filter (cross-cutting) added as a quality-pass.
+> **Status:** All ten governing-plan sprints (Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, HP.3-R) shipped in the 2026-04-15 session via subagent-driven-development. Sprints A–C from the pre-session pass are retained below for historical context; the authoritative "what's next" is the **Sprint chain** table in the v2.1.0 addendum below.
+
+### Sprint chain (all closed)
+
+| # | Sprint | Scope | Tag | AD ref |
+|---|---|---|---|---|
+| 1 | A — Phase 7 Promotion Governance | 17-rule validator, audit log, rollback | (pre-session) | AD-015 |
+| 2 | B — Phase 1C + Phase 2 + Phase 6A/B | Normalization, canonicalizer, review gap closure | (pre-session) | AD-016/017 |
+| 3 | C — Phase 1B Foundation + polish | Parsers subpackage, FileEntry.sha256, rotate-registries | (pre-session) | AD-022/023 |
+| 4 | D — Statistical & Architectural Upgrade | Streams A-I (J/K deferred) | (pre-session) | AD-024 |
+| 5 | Q — Live Wiring & 8GB Hardening | Wire F/G scaffolds live, 8GB LLM mode | `sprint-q-closed` | AD-024 |
+| 6 | R — Per-Layer Embeddings & Agentic | Priming, MoE router, CoT audit, registry, vision OCR | `sprint-r-closed` | AD-025 |
+| 7 | PHYS — Graph Physics | PageRank, Boltzmann gate, Shannon, eigenvector cascade | `sprint-phys-closed` | AD-026 |
+| 8 | H — 3D Spatial Intelligence | Spatial ingest, Z3 solver, IFC/OWL, TS daemon | `sprint-h-closed` | AD-026 |
+| 9 | GEOM — Geometric Constraint Engine | Z3 CSP, 2D/3D envelope, Pareto optimizer | `sprint-geom-closed` | AD-027 |
+| 10 | WIKI — Autonomous Knowledge Synthesis | Docling, Kuzu, Ollama, ego linter | `sprint-wiki-closed` | AD-027 |
+| 11 | GT — Geo-Topological Knowledge Graph | Rust crate, linear octree, temporal graph, spatial GraphRAG | `sprint-gt-closed` | AD-028 |
+| 12 | HP — High-Performance Optimizations | Merkle fs, SQLite events, Wasm kernels, GraphSAGE | `sprint-hp-closed` | AD-028 |
+| 13 | Z — Compound AI Evolution | Datalog bridge, adversarial swarm, differential dataflow, DSPy | `sprint-z-closed` | AD-028 |
+| 14 | **HP.3-R — RocksDB KV Migration** | RocksDBEventStore + RocksDBStatefulReviewRegistry + factory + CLI + O(1) count; bench 18.7×/24.3× faster than SQLite | `sprint-hp3r-closed` | **AD-029** |
+
+### What's next (open options)
+
+The governing plan's mandatory sprint chain is done. The remaining candidates, in priority order:
+
+1. **Phase 1B Modernization (§11 Phase 2 + Phase 3)** — parser wrapping + Docling/Marker/Surya + ProcessPoolExecutor + Golden Corpus. Needs a TDD expansion pass on `phase-1b-multi-parser-integration-plan.md` first. Natural Sprint C continuation.
+2. **Sprint D Streams J + K** — externally gated:
+   - Stream J (query integration) needs the Ranger dashboard surface
+   - Stream K (docs+CI) needs a 2nd jurisdiction corpus to benchmark against
+3. **Git remote fix + push** — `github.com/pjel888/vitruvius.git` returned "Repository not found" at merge time. Needs URL/auth fix before `git push origin main`.
+4. **Fresh roadmap brainstorm** — project is materially ahead of the v2.0.0 envelope. Worth a fresh strategy pass before committing to a new sprint chain.
+
+### Delivery pattern validation
+
+The 2026-04-15 session validated **subagent-driven-development** as the working delivery pattern. Key parameters:
+- Wave-parallel dispatch (up to 6 parallel implementers per wave with file-disjoint work)
+- Two-stage review per task (spec compliance → code quality)
+- Fresh subagent per task to avoid context pollution
+- Single orchestrator-held commit at end of each wave to avoid `git add` races
+
+Ten sprints closed in one session (test suite 297 → 1396 passing, 12 plans archived) is the delivery ceiling observed so far. Future planning can reasonably assume this cadence is repeatable when the plan specs are solid and the flag defaults are disciplined.
+
+---
+
+### §8.HISTORICAL — Original Sprint A-C plan (retained for history)
+
+The original pre-Sprint-D execution plan is retained below as historical context. All three sprints shipped and are superseded by the Sprint chain table above.
+
+> **Status (historical):** Sprint A (Phase 7) shipped. Sprint B (1C + 2 + 6A) shipped. Sprint C (1B + 6B) partially shipped — 6B delivered, 1B still planned. Pre-review filter (cross-cutting) added as a quality-pass.
 
 This section supersedes any prior "Next Actions" list. Items are ordered by dependency, not preference. **Do not reorder without updating §7 and §4.**
 
@@ -812,6 +891,18 @@ Carried forward from `/.ai/10_state/known_issues.md` and the 2026-04-13 audits. 
 - **How to revise.** Bump the version in the header, update the relevant section, and record the change in `/.ai/10_state/decisions.md` with an `AD-XXX` entry. Do not rewrite silently — this document has archaeological value.
 - **Conflict resolution.** If this document disagrees with any README, wiki page, or `current-phase.md`, **this document wins** until a reconciliation PR updates both.
 
+### 11.X — Subagent-Driven Wave Delivery (2026-04-15 addition)
+
+Validated in the 2026-04-15 session that closed ten sprints in a single working block. The pattern:
+
+1. **Orchestrator extracts all tasks upfront** from the plan and creates a TodoWrite / TaskCreate checklist (so parallel dispatches can be tracked).
+2. **Wave-parallel dispatch** — up to ~6 parallel `Agent` calls per wave, each with file-disjoint work. More than 6 risks `git add` races and human-scale coordination errors.
+3. **Per-task two-stage review** — spec compliance review first, then code quality review. Both are cheap model dispatches; both must pass before the task is marked complete.
+4. **Orchestrator-held commits** — subagents write files but never run `git add` or `git commit`. The orchestrator stages and commits once per wave.
+5. **Per-sprint AD ledger entry** — every sprint closure must produce an `AD-###` entry in `.ai/10_state/decisions.md` with commit SHAs, test deltas, sprint tag, and archival status.
+
+Ceiling observed so far: **10 sprints per session** (including a follow-on bench-driven migration), **+1099 test delta** (297 → 1396), **~15 subagent dispatches** across 3 waves + a 4th wave for HP.3-R. Future sessions can use this as a planning baseline.
+
 ---
 
 ## 12. Strategic Warnings & Non-Goals
@@ -837,7 +928,29 @@ Carried forward from `/.ai/10_state/known_issues.md` and the 2026-04-13 audits. 
 
 **System docs.** `/.ai/00_system/architecture.md`, `/.ai/00_system/principles.md`, `/.ai/00_system/pipeline-overview.md`, `/.ai/00_system/naming-conventions.md`.
 
-**Audits (2026-04-13).** `codebase-roadmap-audit.md`, `ingestion-audit.md`, `extraction-audit.md`, `normalization-audit.md`, `review-layer-audit.md`.
+**Audits (2026-04-13, historical).** `codebase-roadmap-audit.md`, `ingestion-audit.md`, `extraction-audit.md`, `normalization-audit.md`, `review-layer-audit.md` — all marked ⚠️ `HISTORICAL SNAPSHOT — SUPERSEDED 2026-04-15` in their own header banners and pointed at current state docs.
+
+**Active plans.**
+- `/.ai/03_plans/00-governing-implementation-plan.md` — governing orchestration plan (v1.0.0, 2026-04-15) — read this first before picking a plan to execute
+- `/.ai/03_plans/INDEX.md` — plan index
+- `/.ai/03_plans/statistical-architectural-upgrade-plan.md` — Sprint D (Streams A–I shipped; J/K deferred)
+- `/.ai/03_plans/phase-1b-multi-parser-integration-plan.md` — Phase 1B Modernization design spec (pending TDD expansion)
+- `/.ai/03_plans/ingestion-refinement-contract.md` — frozen contract between Phase 1B and Phase 1C
+
+**Archived plans (successor sprint plans).**
+- `/.ai/09_archive/plans/phase-8-graph-contract-indexing-plan.md` — ✅ subsumed by Sprint D Stream H, archived 2026-04-15
+- `/.ai/09_archive/plans/phase-9-query-ai-layer-plan.md` — ✅ subsumed by Sprint D Stream I, archived 2026-04-15
+- `/.ai/09_archive/plans/ultimate-architecture-upgrade-plan.md` — ❌ superseded, archived 2026-04-15
+- `/.ai/09_archive/plans/phase-8b-geo-topological-graph-plan.md` — ✅ Sprint GT, archived 2026-04-15
+- `/.ai/09_archive/plans/phase-12-compound-ai-evolution-plan.md` — ✅ Sprint Z, archived 2026-04-15
+- `/.ai/09_archive/plans/phase-13-high-performance-optimizations-plan.md` — ✅ Sprint HP, archived 2026-04-15
+- `/.ai/09_archive/plans/phase-14-autonomous-knowledge-synthesis-plan.md` — ✅ Sprint WIKI, archived 2026-04-15
+- `/.ai/09_archive/plans/phase-15-geometric-constraint-engine-plan.md` — ✅ Sprint GEOM, archived 2026-04-15
+- `/.ai/09_archive/plans/phase-16-statistical-mechanics-graph-physics-plan.md` — ✅ Sprint PHYS, archived 2026-04-15
+- `/.ai/09_archive/plans/3d-spatial-intelligence-upgrade-plan.md` — ✅ Sprint H, archived 2026-04-15
+- `/.ai/09_archive/plans/live-wiring-and-8gb-hardening-plan.md` — ✅ Sprint Q, archived 2026-04-15
+- `/.ai/09_archive/plans/per-layer-embeddings-agentic-upgrade-plan.md` — ✅ Sprint R, archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-rocksdb-kv-migration-plan.md` — ✅ Sprint HP.3-R, archived 2026-04-15
 
 **Plans & contracts.** `phase-1b-multi-parser-integration-plan.md`, `phase-1c-centralized-normalization-plan.md`, `ingestion-refinement-contract.md`.
 
@@ -849,7 +962,8 @@ Carried forward from `/.ai/10_state/known_issues.md` and the 2026-04-13 audits. 
 
 ## Changelog
 
+- **2026-04-15 · v2.1.0** — Reconciled §5 Honest Position, §6 Phase 8 + Phase 9 contracts, §8 90-Day Execution Sequence, §11 Cadence, and §13 Reference Index against the 2026-04-15 session (**10 sprints closed**: Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, HP.3-R). §5 rewritten with 1396/1 Python test count, 20/20 TypeScript, 10 Rust unit tests, 31 verified relationships, and all 10 sprint tags. §6 Phase 8 marked ✅ SUBSUMED by Sprint D Stream H + extended by Sprint GT + RocksDB-backed by Sprint HP.3-R (AD-029). §6 Phase 9 marked ✅ SUBSUMED by Sprint D Stream I. §8 rewritten with the Sprint chain table (14 rows through HP.3-R) and a "what's next" block pointing at Phase 1B Modernization, Streams J/K externally gated, git remote fix, fresh roadmap brainstorm. §11 adds the Subagent-Driven Wave Delivery addendum. §13 refreshes the Reference Index with active plans, archived plans (13 archival entries), and audit pack marked as historical. No breaking changes to §1–§4 (vision, architecture map, governance contracts) or §9–§10 (KPIs, tech debt) — those remain authoritative as written in 2.0.0. — *Senior Systems Architect*
 - **2026-04-14 · v2.0.0** — Full rewrite. Reconciled status against the 2026-04-13 audit pack (ingestion, extraction, normalization, review-layer, codebase-roadmap). Integrated Phase 1B Multi-Parser plan, Phase 1C Refinement plan, and the Ingestion-Refinement Contract. Added governance contract section (§3), dependency graph (§7), 90-day sprint sequence (§8), KPI table (§9), and cadence protocol (§11). Corrected inflated "complete" claims in Phases 2, 3, and 5 to match audit reality. Added non-goals and strategic warnings explicitly. — *Senior Systems Architect*
 - **2026-04-13 · v1.x** — Prior version with inflated Phase 2/3/5 claims. Retained in git history.
 
-**Timestamp:** 2026-04-14T02:49:00Z
+**Timestamp:** 2026-04-15T12:15:00Z (+08:00 GMT)

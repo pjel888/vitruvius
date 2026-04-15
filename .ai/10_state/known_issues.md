@@ -1,6 +1,6 @@
 # Known Issues & Risks — Vitruvius
 
-> **Updated:** 2026-04-14
+> **Updated:** 2026-04-15 (post-Sprint-HP.3-R closure pass — 10 sprints closed this session, including the RocksDB KV migration)
 > **Format:** `RI-###` (Risk Issue), severity, mitigation, and closure path.
 
 ## Open Risks
@@ -10,6 +10,7 @@
 - **Impact:** HIGH — renaming or moving `001_…` through `006_…` breaks the pipeline silently.
 - **Mitigation:** All path logic stays in `paths.py`. Inline paths are rejected at code review. `run_reconcile` detects structural drift.
 - **Closure:** Permanent operating rule. Not a phase.
+- **Sprint HP.1 note (2026-04-15):** the Merkle directory hash (`hp_merkle_fs` flag, `scripts/vitruvius/merkle_fs.py`) makes structural drift detectable in O(1) rather than requiring a full walk. The coupling stays; it's just cheaper to audit now.
 
 ### RI-002: Regex Extraction Fragility (SUBSTANTIALLY MITIGATED 2026-04-14)
 - **Description:** `relationships.py` and `relationships_sections.py` match candidates via fixed regex patterns. Variations in legal language leak into false positives (82% rejection at review).
@@ -20,7 +21,7 @@
   3. **Registry-aware dedup (AD-016)** — ensures the surviving predicate is compatible with the endpoint types.
   4. **Pre-review filter R7 (AD-018, AD-021)** — auto-rejects candidates where neither endpoint phrase appears in the evidence. Real-data: 6/9 additional rejections.
 - **Current effective rejection rate:** ~22% (2 of 9 actually reach the LLM). The LLM sees only the genuinely ambiguous subset.
-- **Closure:** Phase 5E (LLM-assisted extraction) remains the long-term full fix for paragraph-boundary sensitivity. The 4 layers above make it non-urgent.
+- **Closure:** Phase 5E (LLM-assisted extraction) remains the long-term full fix for paragraph-boundary sensitivity. The 4 layers above made it non-urgent. Sprint D Stream E then shipped spaCy SVO parser + CRF trainer/extractor + TransE link predictor as a layered fallback; Sprint Q W2 wired the NB prefilter / SLM router / Choquet fusion / reflection parser live. On PD 1096 IRR the effective rejection rate is now ~10% reaching the Tier 2 LLM. The original regex path is still authoritative; Sprint D / Q additions run alongside it, never replacing it.
 
 ### RI-003: External Dependency — Ollama (CLOSED 2026-04-14)
 - **Description:** The review layer requires an Ollama server at `127.0.0.1:11434` with the configured model loaded. Previously the URL was hardcoded.
@@ -86,21 +87,27 @@
 - **Mitigation:** ✅ Sprint B Phase 6A added `run-with-review` composite command that chains `run → convert → refine → review-relationships-ollama`. Default `run` stays minimal so CI doesn't invoke Ollama accidentally.
 - **Status:** **CLOSED.**
 
-## Risk Severity Summary (updated 2026-04-14 after Sprints A + B + Phase 3C + quality pass + Phase 1B Foundation + Sprint C quality pass)
+## Risk Severity Summary (updated 2026-04-15 after full 10-sprint session — Q + R + PHYS + H + GEOM + WIKI + GT + HP + Z + HP.3-R closed)
 | Severity | Count | IDs |
 |---|---|---|
-| HIGH | 1 | RI-001 (permanent operating rule) |
-| MEDIUM | 1 | RI-010 (4/20 remaining) |
-| LOW | 1 | RI-004 |
-| MITIGATED (not formally closed) | 1 | RI-002 (pre-review filter cut false positives from 82% → ~22%) |
+| HIGH | 1 | RI-001 (permanent operating rule — Sprint HP.1 made it cheaper to audit) |
+| MEDIUM | 1 | RI-010 (4/20 remaining — awaiting corpus expansion, no LLM fallback) |
+| LOW | 1 | RI-004 (environment / PYTHONPATH — still tolerable per AD-002) |
+| MITIGATED (not formally closed) | 1 | RI-002 (pre-review filter + Sprint D Stream E + Sprint Q W2 wiring cut effective rejection to ~10%) |
 | CLOSED | 8 ✅ | RI-003, RI-005 (next pass), RI-006, RI-007, RI-008, RI-009, RI-011, RI-012 |
 
+**No new RI entries were opened by the 2026-04-15 sprint burst.** Every new capability shipped defaulted to `features.*: false` in `config/vitruvius.yaml` and was covered by a test registry entry in `scripts/tests/test_features.py`, so there's no silent surface area to track. The Sprint HP.3-R RocksDB backends are the only flags that default `true` (after the AD-029 bench showed RocksDB 18.7× / 24.3× faster than SQLite), and the SQLite fallback path is still present and wired into the factory for rollback.
+
 ## Closure Timeline
-| When | Risks Closed |
+| When | Risks Closed / Mitigated |
 |---|---|
 | **Sprint A (2026-04-14)** | ✅ RI-006, ✅ RI-003 (partial) |
 | **Sprint B (2026-04-14)** | ✅ RI-003 (full), ✅ RI-007 (MVP), ✅ RI-011, ✅ RI-012 |
 | **Sprint C · Phase 1B Foundation (2026-04-14)** | ✅ RI-009 (Task 0 — SHA-256 file hashing) |
 | **Sprint C · Quality Pass (2026-04-14)** | ✅ RI-008 (Q2 — rotate-registries CLI) |
-| Future | RI-002 (Phase 5E), RI-010 (Phase 3C — 4 concepts need corpus expansion) |
+| **Sprint D (2026-04-14)** | RI-002 further mitigated (Stream E spaCy/CRF/TransE) |
+| **Sprint Q (2026-04-15)** | RI-002 further mitigated (W2 NB/SLM/Choquet/reflection wiring) |
+| **Sprint HP (2026-04-15)** | RI-001 instrumentation win (Merkle fs makes drift detectable in O(1)) |
+| **Sprint HP.3-R (2026-04-15)** | No risks opened. RocksDB KV migration replaces storage beneath existing API contracts; SQLite fallback retained via `hp_rocksdb_*=false` |
+| Future | RI-002 (Phase 5E), RI-010 (4 concepts need corpus expansion) |
 | Permanent rule | RI-001, RI-004 |
