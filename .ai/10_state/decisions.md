@@ -1434,6 +1434,67 @@ At n=10000 the LSH path produces 9999 output (1 false-positive collapse over ~50
 
 ---
 
+## AD-044 — Documentation Refresh plan closure — 13 files reconciled (2026-04-15)
+
+**plan_id:** `doc-refresh-2026-04-15`
+**Sprint:** Meta — Documentation Refresh Sprint
+**Status:** Accepted
+
+**Context.** On 2026-04-15 the user wrote a Documentation Refresh plan
+(`.ai/03_plans/2026-04-15-documentation-refresh-plan.md`, 2345 lines)
+to bring 13 governance / reference / schema / audit documents into
+alignment with post-2026-04-15 reality: 21 sprints closed, AD-042
+ceiling, P1-P10 principles, the RocksDB + Rust polyglot storage
+exception, the spatial integrity footer contract, and the 41-subcommand
+CLI surface. Execution ran in PARALLEL with Sprint CLEANUP-1 — each
+file-edit task landed as an individual commit interleaved with the
+CLEANUP-1 sprint commits.
+
+**Decision.**
+
+Phase 1 — System Documentation (4 files):
+- Task 1.1 `.ai/00_system/architecture.md` — refreshed for 21-sprint reality + AD-042 + spatial integrity footer addendum (commit `41d93f9`)
+- Task 1.2 `.ai/00_system/naming-conventions.md` — refreshed for 41-cmd CLI + flag/Rust/TS rules (commit `4a1581b`)
+- Task 1.3 `.ai/00_system/pipeline-overview.md` — refreshed for Promotion + Storage + 21 sprints (commit `cf47caa`)
+- Task 1.4 `.ai/00_system/principles.md` — P1 storage exception + P9/P10 + I5/I6/I8/I9 (`45a7f97`) + P5-P7 renumber to align with EXECUTION_LOOP.md (`34503c8`)
+
+Phase 2 — Schema Specs (4 files):
+- Task 2.1 `.ai/06_specs/concept-schema.md` — added `stringency_vector`, fixed `ifc_registry` path (commit `abbd1d6`)
+- Task 2.2 `.ai/06_specs/relationship-schema.md` — added `is_governing_standard` + temporal fields (commit `6a68c56`)
+- Task 2.3 `.ai/06_specs/source-schema.md` — added priming fields (`document_type`, `issuing_body`, `issue_date`) (commit `2e6eaca`)
+- Task 2.4 `.ai/06_specs/spatial-schema.md` — added Integrity Footer section (AD-039) (commit `60a78ba`)
+
+Phase 3 — Historical Audits (5 files, banner + appendix updates):
+- Task 3.1 `.ai/02_audits/codebase-roadmap-audit.md` — banner + post-sprint appendix (commit `629ef86`)
+- Task 3.2 `.ai/02_audits/extraction-audit.md` — banner + 100+ module appendix (commit `10b7ed8`)
+- Task 3.3 `.ai/02_audits/ingestion-audit.md` — banner + parser+hashing+rotation appendix (commit `7861724`)
+- Task 3.4 `.ai/02_audits/normalization-audit.md` — banner + NormalizationEngine appendix (commit `1300c9e`)
+- Task 3.5 `.ai/02_audits/review-layer-audit.md` — banner + Sprint Q/R reality appendix (commit `d356a2d`)
+
+Phase 4 — Cross-file verification (all PASS as of 2026-04-15 21:xx):
+- Task 4.1 No stale sprint counts (ten/10/nine/9/eleven/11/twelve/12) — PASS
+- Task 4.2 No stale AD ceilings (AD-029/031/035/038/040/041 ceiling) — PASS
+- Task 4.3 Principles P1-P10 correctly numbered (principles.md uses `### N.` format, no gaps/duplicates) — PASS
+- Task 4.4 No stale "to be created" / "future Phase 7" references in specs — PASS (2 legitimate historical/deferral exceptions)
+- Task 4.5 Test baseline **1566 passed, 1 skipped** — matches post-CLEANUP-1 baseline monotonically
+
+**Consequences.**
+- 13 governance / reference / schema / audit documents now reflect 2026-04-15 reality: 21 sprints, AD-042 ceiling (now AD-044 with this entry), P1-P10, Rust Line discipline, RocksDB exception, spatial integrity footer
+- Test baseline unchanged at 1566 passed / 1 skipped — no code changes, pure docs
+- Plan is archived to `.ai/09_archive/plans/2026-04-15-documentation-refresh-plan.md`
+- Active plans folder returns to 2 files (governing plan + INDEX) plus 1 if a new plan is queued
+
+**Notable:** Task 2.4 (spatial-schema.md) initially landed via `60a78ba` which covered the Integrity Footer section addition. A verification pass during closure confirmed all 5 sub-steps of Task 2.4 were complete — no gap fixes required. The literal string "AD-039" is absent from spatial-schema.md; the Changelog entry cross-references "Sprint AUDIT-1 Task 5B" instead, which resolves to the same commit chain.
+
+**Commits touching this AD.** See Phase 1/2/3 SHAs above. This closure commit is the only edit to decisions.md + INDEX.md + the plan archive `git mv`.
+
+**References.**
+- Plan (archived): `.ai/09_archive/plans/2026-04-15-documentation-refresh-plan.md`
+- EXECUTION_LOOP.md v3.0 (the Standard Execution Loop this sprint honored)
+- Prior ADs: AD-043 (Sprint CLEANUP-1 closure — ran in parallel), AD-039 (spatial integrity footer), AD-036 (Rust Line)
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.
