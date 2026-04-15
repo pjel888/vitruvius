@@ -155,9 +155,11 @@ features:
   # toolchains / dependencies are installed on the host.
   hp_merkle_fs: false
   # Sprint GEOM — Geometric Constraint Engine (phase-15).
-  # Narrow slice: GEOM.1 inequality→Z3 compiler (needs z3 only) and
-  # GEOM.3 2D buildable envelope (needs shapely only). GEOM.3 full 3D
-  # and GEOM.4 multimodal audit are deferred until trimesh + cvxpy
-  # are installed on the ops host.
+  # All four streams now land: GEOM.1 inequality→Z3 compiler,
+  # GEOM.3 2D+3D buildable envelope, GEOM.4 IoU audit + Pareto
+  # optimizer. trimesh + cvxpy installed 2026-04-15.
   geom_csp_compiler: false
   geom_envelope_2d: false
+  geom_envelope_3d: false
+  geom_iou_audit: false
+  geom_pareto_optimizer: false

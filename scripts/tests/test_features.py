@@ -135,7 +135,8 @@ EXPECTED_FLAGS = {
     # Sprint HP — High-Performance Optimizations (phase-13)
     "hp_merkle_fs",
     # Sprint GEOM — Geometric Constraint Engine (phase-15)
-    "geom_csp_compiler", "geom_envelope_2d",
+    "geom_csp_compiler", "geom_envelope_2d", "geom_envelope_3d",
+    "geom_iou_audit", "geom_pareto_optimizer",
 }
 
 
