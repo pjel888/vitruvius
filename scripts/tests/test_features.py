@@ -135,6 +135,8 @@ EXPECTED_FLAGS = {
     # Sprint HP — High-Performance Optimizations (phase-13)
     "hp_merkle_fs", "hp_event_sourced_graph", "hp_graphsage",
     "hp_wasm_kernels",
+    # Sprint HP.3-R — RocksDB KV backend migration
+    "hp_rocksdb_event_store", "hp_rocksdb_verdict_cache",
     # Sprint GEOM — Geometric Constraint Engine (phase-15)
     "geom_csp_compiler", "geom_envelope_2d", "geom_envelope_3d",
     "geom_iou_audit", "geom_pareto_optimizer",
@@ -207,3 +209,24 @@ def test_y_flags_load_from_config(tmp_path: Path) -> None:
     features = load_features(cfg)
     assert features.is_enabled("y_contextual_priming") is True
     assert features.is_enabled("y_domain_routing_moe") is False
+
+
+def test_hp_rocksdb_event_store_defaults_false() -> None:
+    """Sprint HP.3-R — the backend-switch flag must default false so
+    the existing SQLite code path remains the default until the
+    Task 8 bench decision gate is satisfied."""
+    from vitruvius.config import load_config
+
+    cfg = load_config()
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    assert flags.get("hp_rocksdb_event_store") is False
+
+
+def test_hp_rocksdb_verdict_cache_defaults_false() -> None:
+    """Sprint HP.3-R — the verdict-cache backend-switch flag must
+    default false for the same reason as hp_rocksdb_event_store."""
+    from vitruvius.config import load_config
+
+    cfg = load_config()
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    assert flags.get("hp_rocksdb_verdict_cache") is False
