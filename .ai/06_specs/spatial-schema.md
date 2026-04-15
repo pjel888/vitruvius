@@ -16,12 +16,12 @@ cross-references) will ship as `1.1.0` under a new migration plan.
 ## Purpose
 
 JSON manifests that land in `001B_Spatial-Source-Layer/` carry geometric
-metadata produced by an external spatial daemon (Stream N, future). Each
-manifest describes one physical model: a set of tagged instances (doors,
-walls, corridors) plus a set of spatial edges between them (clearance,
-intersection, containment). The ingestion walker validates every file on
-load and emits `SpatialCandidate` records downstream for constraint
-evaluation.
+metadata produced by the Vitruvius spatial daemon (`spatial-daemon/src/`,
+gated by feature flag `n_spatial_daemon_enabled`). Each manifest describes
+one physical model: a set of tagged instances (doors, walls, corridors)
+plus a set of spatial edges between them (clearance, intersection,
+containment). The ingestion walker validates every file on load and emits
+`SpatialCandidate` records downstream for constraint evaluation.
 
 ## JSON Schema (Draft-07)
 
@@ -120,3 +120,47 @@ A hand-authored fixture lives at
 exercises every required field plus optional bounding boxes. The
 `sample_residential_01_expected_candidates.json` sibling is produced by
 Task L.8 and locks the walker's output.
+
+To read a spatial contract file in Python, use
+`scripts/vitruvius/spatial/contract_reader.py::parse_contract(path)` rather
+than calling `json.load()` directly. This verifies the SHA-256 integrity
+footer (when present) and raises `IntegrityError` on corruption. Fixture
+files that predate Sprint AUDIT-1 Task 5B have no footer and are still
+parseable with the default `require_footer=False`.
+
+## Integrity Footer
+
+Every spatial contract file written by `spatial-daemon/src/contract_writer.ts` (Sprint AUDIT-1 Task 5B) carries an integrity footer appended after the JSON body:
+
+```
+<pretty-printed JSON body>\n
+# sha256: <64 hex characters>\n
+```
+
+The footer is the SHA-256 hex digest of the exact UTF-8 bytes of the JSON body (including the trailing newline that follows the closing `}`). It is written by `computeContractBodySha256()` in `contract_writer.ts` using Node.js `crypto.createHash("sha256")`.
+
+### Reading and verifying
+
+Use `scripts/vitruvius/spatial/contract_reader.py::parse_contract(path)`. It:
+1. Reads the raw file as UTF-8.
+2. Splits on the last occurrence of `\n# sha256: ` to separate body from footer.
+3. Recomputes `hashlib.sha256(body.encode("utf-8")).hexdigest()`.
+4. Raises `IntegrityError` if the footer digest does not match.
+
+The default is `require_footer=False` for backward compatibility with fixture files that predate Task 5B. Call sites that require a hard guarantee should pass `require_footer=True`.
+
+### Legacy files
+
+Files produced before Sprint AUDIT-1 Task 5B have no footer. They parse correctly with `require_footer=False` (the default). `ContractParseResult.has_footer` will be `False` for such files.
+
+### Implementation constants
+
+- Python: `contract_reader.INTEGRITY_FOOTER_PREFIX = "# sha256: "`
+- TypeScript: `contract_writer.INTEGRITY_FOOTER_PREFIX = "# sha256: "`
+
+Both constants are identical; any change to one requires a matching change to the other.
+
+## Changelog
+
+- **2026-04-14** — Initial schema published (Stream L.2). JSON schema frozen at v1.0.0. Authoritative validator: `scripts/vitruvius/spatial/schema.py`.
+- **2026-04-15** — Added Integrity Footer section documenting SHA-256 footer contract written by `spatial-daemon/src/contract_writer.ts` and verified by `scripts/vitruvius/spatial/contract_reader.py` (Sprint AUDIT-1 Task 5B). Updated §Purpose: spatial daemon is shipped, no longer "future". Updated Sample section to reference `parse_contract()`.
