@@ -157,6 +157,15 @@ A new post-review stage that only activates on Tier 2 candidates:
 - **Neuro-symbolic Datalog bridge** (`z_neuro_symbolic`) — reviewer prompts are decorated with a `<logic-directive>` that forces the LLM to emit a `<logic>` Datalog block the Rust `datalog_rs` evaluator verifies. Rejects the verdict if the block fails to parse or fails to derive the conclusion from the facts.
 - **Wasm spatial kernel** (`hp_wasm_kernels`) — loads the `engine_rs` `aabb_intersects` function via wasmtime for hermetic spatial verification that can run in constrained environments.
 
+### Sprint 1B-M1 — Phase 1B Modernization Tranche 1 (p1b_* flags)
+
+Library-level wiring of the new parser chain. Defaults are **false**; pipeline_cli.py integration is deferred to a follow-up.
+
+- `p1b_docling_parser` — marks `DoclingParser(BaseParser)` as deployed; ready to be registered in `ParserOrchestrator` chains for `hybrid_pdf` / `text_pdf_complex` classes
+- `p1b_libreoffice_preprocessor` — marks `LibreOfficePreprocessor` as deployed; ready to be registered as the `office_doc` preprocessor in `ParserOrchestrator`
+
+Both flags are **deployment-readiness markers**, not routing gates — they signal that the classes are available for library consumption without changing any pipeline behaviour. `GATE-005` (`check_gate_005_libreoffice_pdf`) ships alongside. **Deferred to Tranche 2 after 8 GB M2 ML-dep feasibility testing:** Marker, Surya, ProcessPoolExecutor, Golden Corpus benchmark.
+
 ### Sprint HP.3-R — RocksDB KV backends (hp_rocksdb_* flags, default TRUE)
 
 Storage-layer swap for the two persistent KV stores. No change to pipeline flow — consumers go through `make_event_store()` / `make_stateful_registry()` factories that pick the backend from the flag:

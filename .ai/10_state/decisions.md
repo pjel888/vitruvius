@@ -651,6 +651,47 @@ onward; the full Sprint HP.3-R delta from baseline 1364 is
 
 ---
 
+## AD-031 — Phase 1B Modernization Tranche 1 (Docling + LibreOffice) (2026-04-15)
+
+**Context.** The Phase 1B design spec (`.ai/03_plans/phase-1b-multi-parser-integration-plan.md`) §11 Phase 2 Modernization lists four deliverables: DoclingParser, MarkerParser, Surya / OCRPreprocessor, and post-LibreOffice quality gates. At plan-dispatch time we verified: `docling` is already installed (Sprint WIKI), but `marker-pdf 1.10.2` and `surya-ocr 0.17.1` are not — and both pull in `torch` + transformer model weights (~2-5 GB each) that would stress the 8 GB M2 default profile.
+
+We scoped **Tranche 1** to the dep-compatible subset: `DoclingParser` + `LibreOfficePreprocessor` + `GATE-005`. Marker, Surya, ProcessPoolExecutor, and the Golden Corpus benchmark are deferred to **Tranche 2** in a future session that dedicates time to 8 GB M2 ML-dep feasibility testing.
+
+**Decision.** Shipped Tranche 1 as 4 atomic commits:
+
+- **Task 1 (`73645f5`)** — `scripts/vitruvius/parsers/docling_parser.py`: `DoclingParser(BaseParser)` adapter around the Sprint WIKI docling facade. Reshapes `DoclingParseResult` into the Phase 1B §6 telemetry contract. 5 tests mock `convert_pdf_to_markdown` so the test suite never loads Docling. Plan drift caught at execution: the real `ParseResult` uses field names `markdown_text` + `sidecar_metadata` (not `markdown` + `sidecar_json` as the plan assumed) and `BaseParser.parse` takes positional `(source_path, work_dir)` — adapted on the fly.
+- **Task 2 (`741d9ad`)** — `scripts/vitruvius/parsers/libreoffice_preprocessor.py`: `LibreOfficePreprocessor` class + `PreprocessResult` frozen dataclass. Reuses `vitruvius.office.find_soffice_executable` for discovery and invokes `soffice --headless --convert-to pdf` with a 120s timeout. 4 tests cover missing-soffice, non-office-extension, happy-path mock, and returncode-failure.
+- **Task 3 (`edf6335`)** — `scripts/vitruvius/parsers/quality_gates.py::check_gate_005_libreoffice_pdf`: post-conversion PDF sanity check (exists, non-empty, ≥256 bytes). 3 tests. Plan drift caught: the real `GateResult` requires `gate_name: str` + `reason: str` (no Optional) — all `reason` values updated to be non-empty strings.
+- **Task 4 (`cd8805f`)** — `scripts/vitruvius/parsers/orchestrator.py`: extended `ParserOrchestrator` with `preprocessors: dict[DocumentClass, object] | None = None` kwarg. When a preprocessor is registered for the current `doc_class`, `process()` runs it before the parser chain: successful output replaces `source_path`, failed output short-circuits to `FALLBACK_EXHAUSTED` with a single AttemptRecord. Added 2 feature flags (`p1b_docling_parser`, `p1b_libreoffice_preprocessor`) + 2 default-false unit tests. Plan drift caught: the real orchestrator has a `process(source_path, doc_class, work_dir)` method, not my plan's invented `run_chain` — integrated into the existing API instead of inventing a parallel path.
+
+**Backcompat guarantee.** Both flags default **false** — matching the non-breaking contract from `statistical-architectural-upgrade-plan.md` §1.3. Without a preprocessor registered, the orchestrator behaves exactly as it did before Tranche 1 (verified by `test_no_preprocessor_registered_backcompat`). The pre-tranche ingestion path via `pipeline_cli.py::run_convert` is untouched — it still calls `opendataloader` directly. CLI integration is follow-up work.
+
+**Deferred to Tranche 2 (explicit):**
+
+- **MarkerParser** — requires `marker-pdf 1.10.2` + `torch` + model weights
+- **SuryaParser / OCRPreprocessor** — requires `surya-ocr 0.17.1` + `torch` + surya weights
+- **ProcessPoolExecutor with dynamic resource allocation** — only meaningful with 3+ parsers
+- **Golden Corpus benchmark** — depends on the full parser set
+- **Page-level isolation / chunked fallback** (design spec §7.2) — no observed failures yet
+- **Ranger Audit Review Payload** (§12.1) — depends on Phase 7 Supabase integration
+- **`pipeline_cli.py` integration** — Tranche 1 wires orchestrator at library level only
+
+**Test delta.** Baseline 1396 → **1413 passing**, 1 skipped (+17: Task 1 +5, Task 2 +4, Task 3 +3, Task 4 +5). TypeScript 20/20. Rust 10/10.
+
+**Commits (4 tasks + 1 closure):**
+- Task 1 — `73645f5` — `DoclingParser(BaseParser)` + 5 tests
+- Task 2 — `741d9ad` — `LibreOfficePreprocessor` + 4 tests
+- Task 3 — `edf6335` — `GATE-005` + 3 tests
+- Task 4 — `cd8805f` — Orchestrator wiring + flags + 5 tests
+- Task 5 — `[this commit]` — docs + AD-031 + plan archival
+
+**Follow-ups.**
+- When 8 GB M2 feasibility is verified for marker-pdf + surya-ocr, write and execute a Tranche 2 TDD plan covering MarkerParser, SuryaParser, ProcessPoolExecutor, Golden Corpus.
+- Default-flip gate: Tranche 1 flags stay `false` until the Golden Corpus benchmark (Tranche 2) measures that Docling + LibreOffice routing produces a measurable quality improvement on real PD 1096 corpus documents. Without real bench data, we can't justify flipping the defaults.
+- `pipeline_cli.py` integration for the new parser chain is not in Tranche 1 — the orchestrator is available as a library call but no CLI surface exists yet. This is the simplest tranche-2 follow-on if you want to keep the Marker/Surya deferral.
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.
