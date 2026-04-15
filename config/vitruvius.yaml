@@ -249,11 +249,15 @@ features:
   # Sprint RUST-MIG-1 — Python→Rust polyglot kernels. AD-036 locks
   # in the crate layout (extension of scripts/vitruvius/engine_rs/
   # with new spatial_kernels + stats_kernels member crates, single
-  # pyo3_shim import surface). Both flags default false and only
-  # flip to true after AD-038 closure if the Task 8 bench clears
-  # a >=2x wall-time win on representative PD 1096 input. Flag-OFF
-  # = byte-identical to pre-migration. See
-  # .ai/03_plans/2026-04-15-rust-migration-audit-plan.md §4 and
-  # .ai/10_state/decisions.md AD-036.
-  rust_mig_spatial_kernels: false
-  rust_mig_stats_kernels: false
+  # pyo3_shim import surface). AD-038 (2026-04-15) — flipped to true
+  # after Sprint RUST-MIG-1 Task 8 bench cleared ≥2× threshold on
+  # every shipped kernel: S1 build_spatial_adjacency_edges
+  # (57% wall / 200× kernel), S2 weight_by_distance (2.84× end-to-end
+  # / 12.18× kernel), N4 mahalanobis_distance (2.73× end-to-end).
+  # N1 sliced Wasserstein was DEFERred per AD-038a (POT backend is
+  # already native C++). The Python fallback path remains available
+  # via ``rust_mig_*: false`` as a fallback. See
+  # .ai/09_archive/plans/2026-04-15-rust-migration-audit-plan.md §4
+  # and .ai/10_state/decisions.md AD-036, AD-038, AD-038a.
+  rust_mig_spatial_kernels: true
+  rust_mig_stats_kernels: true

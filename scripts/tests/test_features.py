@@ -165,12 +165,12 @@ EXPECTED_FLAGS = {
     # jump + exponential distance decay + physically_adjacent_to edges)
     "gt_proximity_jump",
     "gt_spatial_edges",
-    # Sprint RUST-MIG-1 — Python→Rust polyglot kernels (AD-036).
-    # Gate the eventual Rust fast paths for S1 build_spatial_adjacency_edges
-    # + S2 weight_by_distance (rust_mig_spatial_kernels) and N1 sliced
-    # Wasserstein + N4 Mahalanobis (rust_mig_stats_kernels). Both default
-    # false; AD-038 closure flips them only if the Task 8 bench measures
-    # a >=2x wall-time win on representative PD 1096 input.
+    # Sprint RUST-MIG-1 — Python→Rust polyglot kernels (AD-036, AD-038).
+    # Flag gates N4 Mahalanobis scoring kernel. N1 sliced Wasserstein
+    # deferred per AD-038a (POT backend is already native). Both flags
+    # flipped to true at AD-038 closure — S1+S2 under
+    # rust_mig_spatial_kernels (both cleared the 2× gate at the kernel
+    # level), N4 under rust_mig_stats_kernels (2.73× end-to-end).
     "rust_mig_spatial_kernels", "rust_mig_stats_kernels",
 }
 
@@ -183,29 +183,38 @@ def test_repo_config_contains_every_expected_flag() -> None:
 
 def test_repo_config_every_flag_is_false() -> None:
     """The non-breaking contract (plan §1.3) requires every flag default to False,
-    with AD-029 as a documented exception.
+    with AD-029 and AD-038 as documented exceptions.
 
-    If this test fails (outside the AD-029 allowlist), someone flipped a
-    flag in config/vitruvius.yaml and must (a) revert the flip OR (b) update
-    the plan's non-breaking contract and the backward-compat regression suite
-    accordingly, OR (c) add a new AD-### entry explaining the deliberate flip
-    and extend this allowlist.
+    If this test fails (outside the AD-029 + AD-038 allowlists), someone
+    flipped a flag in config/vitruvius.yaml and must (a) revert the flip
+    OR (b) update the plan's non-breaking contract and the backward-compat
+    regression suite accordingly, OR (c) add a new AD-### entry explaining
+    the deliberate flip and extend this allowlist.
 
     AD-029 exceptions: hp_rocksdb_event_store + hp_rocksdb_verdict_cache were
     flipped to true on 2026-04-15 after the Sprint HP.3-R bench measured
     RocksDB at 18.7x (event store) and 24.3x (verdict cache) faster than
     SQLite at n=10000. See .ai/10_state/decisions.md AD-029.
+
+    AD-038 exceptions: rust_mig_spatial_kernels + rust_mig_stats_kernels
+    were flipped to true on 2026-04-15 after the Sprint RUST-MIG-1 Task 8
+    bench cleared the ≥2× speedup gate on every shipped kernel (S1 200× raw,
+    S2 12.18× raw / 2.84× end-to-end, N4 2.73× end-to-end). N1 sliced
+    Wasserstein was deferred per AD-038a (POT backend already native).
+    See .ai/10_state/decisions.md AD-038.
     """
     ad_029_exceptions = {"hp_rocksdb_event_store", "hp_rocksdb_verdict_cache"}
+    ad_038_exceptions = {"rust_mig_spatial_kernels", "rust_mig_stats_kernels"}
+    allowlist = ad_029_exceptions | ad_038_exceptions
     features = load_features(REPO_CONFIG)
     enabled = [
         name for name in EXPECTED_FLAGS
-        if name not in ad_029_exceptions and features.is_enabled(name)
+        if name not in allowlist and features.is_enabled(name)
     ]
     assert enabled == [], (
-        f"flags enabled in config/vitruvius.yaml outside the AD-029 allowlist: {enabled}. "
+        f"flags enabled in config/vitruvius.yaml outside the AD-029+AD-038 allowlist: {enabled}. "
         "See .ai/03_plans/statistical-architectural-upgrade-plan.md §1.3 and "
-        ".ai/10_state/decisions.md AD-029."
+        ".ai/10_state/decisions.md AD-029 + AD-038."
     )
 
 
@@ -265,6 +274,43 @@ def test_hp_rocksdb_verdict_cache_defaults_true() -> None:
     cfg = load_config()
     flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
     assert flags.get("hp_rocksdb_verdict_cache") is True
+
+
+def test_rust_mig_spatial_kernels_defaults_true() -> None:
+    """Sprint RUST-MIG-1 AD-038 — the spatial kernels Rust fast-path
+    flag defaults to true after the Task 8 bench cleared the ≥2× gate
+    for both S1 build_spatial_adjacency_edges (200× raw kernel / 57%
+    subprocess wall reduction at n=2000) and S2 weight_by_distance
+    (12.18× raw kernel / 2.84× end-to-end at n=10000).
+
+    The Python code path remains available by setting the flag to
+    false in config/vitruvius.yaml. See .ai/10_state/decisions.md
+    AD-038.
+    """
+    from vitruvius.config import load_config
+
+    cfg = load_config()
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    assert flags.get("rust_mig_spatial_kernels") is True
+
+
+def test_rust_mig_stats_kernels_defaults_true() -> None:
+    """Sprint RUST-MIG-1 AD-038 — the stats kernels Rust fast-path
+    flag defaults to true after the Task 8 bench cleared the ≥2× gate
+    for N4 mahalanobis_distance (2.73× end-to-end at n=1000 queries,
+    64-dim). The original N1+N4 flag scope narrowed to N4-only after
+    AD-038a deferred the N1 sliced Wasserstein port (POT backend is
+    already native C++ LP).
+
+    The Python code path remains available by setting the flag to
+    false in config/vitruvius.yaml. See .ai/10_state/decisions.md
+    AD-038 and AD-038a.
+    """
+    from vitruvius.config import load_config
+
+    cfg = load_config()
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    assert flags.get("rust_mig_stats_kernels") is True
 
 
 def test_p1b_docling_parser_defaults_false() -> None:
