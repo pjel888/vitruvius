@@ -13,6 +13,14 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from vitruvius.cli_experience import (
+    RAW_HELP_FORMATTER,
+    ROOT_PARSER_DESCRIPTION,
+    ROOT_PARSER_EPILOG,
+    add_command_parser,
+    execute_with_cli_experience,
+)
+
 
 def run_pipeline() -> int:
     from vitruvius.linting import run_lint
@@ -58,33 +66,43 @@ def run_pipeline_with_review() -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Vitruvius pipeline entrypoint")
+    parser = argparse.ArgumentParser(
+        description=ROOT_PARSER_DESCRIPTION,
+        epilog=ROOT_PARSER_EPILOG,
+        formatter_class=RAW_HELP_FORMATTER,
+    )
+    parser.add_argument(
+        "--output-mode",
+        choices=["auto", "operator", "concise"],
+        default="auto",
+        help="How much operator framing to print around command output (default: auto).",
+    )
     subparsers = parser.add_subparsers(dest="command")
 
-    subparsers.add_parser("scan")
-    subparsers.add_parser("status")
-    subparsers.add_parser("lint")
-    subparsers.add_parser("convert")
-    subparsers.add_parser("reconcile")
-    subparsers.add_parser("ocr-queue")
-    subparsers.add_parser("run")
-    subparsers.add_parser("migrate-ids-plan")
-    subparsers.add_parser("migrate-ids-apply")
+    add_command_parser(subparsers, "scan")
+    add_command_parser(subparsers, "status")
+    add_command_parser(subparsers, "lint")
+    add_command_parser(subparsers, "convert")
+    add_command_parser(subparsers, "reconcile")
+    add_command_parser(subparsers, "ocr-queue")
+    add_command_parser(subparsers, "run")
+    add_command_parser(subparsers, "migrate-ids-plan")
+    add_command_parser(subparsers, "migrate-ids-apply")
 
-    p_kv_migrate = subparsers.add_parser(
+    p_kv_migrate = add_command_parser(
+        subparsers,
         "ple-kv-migrate",
-        help="Sprint HP.3-R: migrate SQLite KV store to RocksDB",
     )
     p_kv_migrate.add_argument("--store", choices=["event", "registry"], required=True)
     p_kv_migrate.add_argument("--source", type=Path, required=True)
     p_kv_migrate.add_argument("--dest", type=Path, required=True)
     p_kv_migrate.add_argument("--dry-run", action="store_true")
 
-    detect_parser = subparsers.add_parser("detect-one")
+    detect_parser = add_command_parser(subparsers, "detect-one")
     detect_parser.add_argument("relative_pdf_path")
     detect_parser.add_argument("--sample-pages", type=int, default=5)
 
-    convert_one_parser = subparsers.add_parser("convert-one")
+    convert_one_parser = add_command_parser(subparsers, "convert-one")
     convert_one_parser.add_argument("relative_pdf_path")
     convert_one_parser.add_argument("--sample-pages", type=int, default=5)
 
@@ -93,81 +111,78 @@ def build_parser() -> argparse.ArgumentParser:
     # ParserOrchestrator + the p1b_* feature flags. See
     # scripts/vitruvius/parsers/cli_handler.py for the handler and
     # scripts/vitruvius/parsers/factory.py for the flag dispatch.
-    convert_parsers_one_parser = subparsers.add_parser(
+    convert_parsers_one_parser = add_command_parser(
+        subparsers,
         "convert-parsers-one",
-        help=(
-            "Phase 1B — convert a single document through the "
-            "ParserOrchestrator chain (gated on p1b_* flags)"
-        ),
     )
     convert_parsers_one_parser.add_argument("relative_pdf_path")
 
-    spreadsheet_parser = subparsers.add_parser("convert-spreadsheet-one")
+    spreadsheet_parser = add_command_parser(subparsers, "convert-spreadsheet-one")
     spreadsheet_parser.add_argument("relative_source_path")
 
-    ocr_parser = subparsers.add_parser("ocr-execute")
+    ocr_parser = add_command_parser(subparsers, "ocr-execute")
     ocr_parser.add_argument("--languages", nargs="+", default=["eng"])
     ocr_parser.add_argument("--no-deskew", action="store_true")
 
-    plan_parser = subparsers.add_parser("canonicalize-plan-one")
+    plan_parser = add_command_parser(subparsers, "canonicalize-plan-one")
     plan_parser.add_argument("relative_markdown_path")
 
-    execute_parser = subparsers.add_parser("canonicalize-one")
+    execute_parser = add_command_parser(subparsers, "canonicalize-one")
     execute_parser.add_argument("relative_markdown_path")
 
-    concept_parser = subparsers.add_parser("canonicalize-concept-one")
+    concept_parser = add_command_parser(subparsers, "canonicalize-concept-one")
     concept_parser.add_argument("concept_name")
 
-    rel_parser = subparsers.add_parser("extract-relationships-one")
+    rel_parser = add_command_parser(subparsers, "extract-relationships-one")
     rel_parser.add_argument("relative_markdown_path")
 
-    sec_parser = subparsers.add_parser("extract-relationships-sections-one")
+    sec_parser = add_command_parser(subparsers, "extract-relationships-sections-one")
     sec_parser.add_argument("relative_markdown_path")
 
-    review_parser = subparsers.add_parser("review-relationships-ollama")
+    review_parser = add_command_parser(subparsers, "review-relationships-ollama")
     review_parser.add_argument("--model", default="gemma4:31b")
     review_parser.add_argument("--timeout-seconds", type=int, default=600)
     review_parser.add_argument("--parallel", type=int, default=None,
                                help="Concurrent Ollama requests (default: config)")
 
-    promote_parser = subparsers.add_parser("promote")
+    promote_parser = add_command_parser(subparsers, "promote")
     promote_parser.add_argument("--execute", action="store_true",
                                 help="Write changes (default: dry-run)")
     promote_parser.add_argument("--rollback", dest="rollback_batch_id",
                                 default=None,
                                 help="Rollback the given promotion batch ID")
 
-    second_pass_parser = subparsers.add_parser("review-relationships-ollama-second-pass")
+    second_pass_parser = add_command_parser(subparsers, "review-relationships-ollama-second-pass")
     second_pass_parser.add_argument("--model", default=None,
                                     help="Tier-2 model (default: qwen3:30b)")
     second_pass_parser.add_argument("--timeout-seconds", type=int, default=None)
 
-    enrich_one_parser = subparsers.add_parser("enrich-concept-one")
+    enrich_one_parser = add_command_parser(subparsers, "enrich-concept-one")
     enrich_one_parser.add_argument("concept_slug")
     enrich_one_parser.add_argument("--force", action="store_true",
                                    help="Re-enrich even if canonical_status is already enriched")
 
-    enrich_parser = subparsers.add_parser("enrich-concepts")
+    enrich_parser = add_command_parser(subparsers, "enrich-concepts")
     enrich_parser.add_argument("--force", action="store_true",
                                help="Re-enrich even already-enriched concepts")
 
-    subparsers.add_parser("canonicalize")
-    subparsers.add_parser("refine")
-    subparsers.add_parser("run-with-review")
-    refine_one_parser = subparsers.add_parser("refine-one")
+    add_command_parser(subparsers, "canonicalize")
+    add_command_parser(subparsers, "refine")
+    add_command_parser(subparsers, "run-with-review")
+    refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
-    rotate_parser = subparsers.add_parser("rotate-registries")
+    rotate_parser = add_command_parser(subparsers, "rotate-registries")
     rotate_parser.add_argument("--keep", type=int, default=30,
                                help="Number of timestamped snapshots to retain per family (default: 30)")
     rotate_parser.add_argument("--dry-run", action="store_true",
                                help="Show what would be pruned without deleting")
 
-    build_graph_parser = subparsers.add_parser("build-graph")
+    build_graph_parser = add_command_parser(subparsers, "build-graph")
     build_graph_parser.add_argument("--dry-run", action="store_true",
                                     help="Run walker + integrity checks only; do not write files")
 
-    query_graph_parser = subparsers.add_parser("query-graph")
+    query_graph_parser = add_command_parser(subparsers, "query-graph")
     query_graph_parser.add_argument("--from", dest="from_id", required=True,
                                     help="Source node id")
     query_graph_parser.add_argument("--to", dest="to_id", required=True,
@@ -175,20 +190,20 @@ def build_parser() -> argparse.ArgumentParser:
     query_graph_parser.add_argument("--max-depth", type=int, default=3,
                                     help="Max path depth (default: 3)")
 
-    export_graph_parser = subparsers.add_parser("export-graph-snapshot")
+    export_graph_parser = add_command_parser(subparsers, "export-graph-snapshot")
     export_graph_parser.add_argument("--format", dest="fmt", default="json",
                                      choices=["json"],
                                      help="Output format (default: json)")
 
     # Stream M.4 — export-graph-owl
-    subparsers.add_parser(
+    add_command_parser(
+        subparsers,
         "export-graph-owl",
-        help="Export the latest Phase 8 snapshot as an RDF Turtle file",
     )
 
-    subparsers.add_parser("ingest-spatial")
+    add_command_parser(subparsers, "ingest-spatial")
 
-    evaluate_spatial_parser = subparsers.add_parser("evaluate-spatial")
+    evaluate_spatial_parser = add_command_parser(subparsers, "evaluate-spatial")
     evaluate_spatial_parser.add_argument(
         "--concepts",
         required=True,
@@ -208,9 +223,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     # Stream Y3.4 — ple-cotrace-dump
-    ple_cotrace_parser = subparsers.add_parser(
+    ple_cotrace_parser = add_command_parser(
+        subparsers,
         "ple-cotrace-dump",
-        help="Summarise a Chain-of-Thought audit trace directory",
     )
     ple_cotrace_parser.add_argument(
         "--cot-dir",
@@ -220,9 +235,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     # Stream Y4.3 — ple-registry-purge
-    ple_purge_parser = subparsers.add_parser(
+    ple_purge_parser = add_command_parser(
+        subparsers,
         "ple-registry-purge",
-        help="Delete rows older than --days from the stateful review registry",
     )
     ple_purge_parser.add_argument(
         "--db",
@@ -238,9 +253,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     # Stream Y5.3 — ple-vision-probe
-    ple_vision_probe_parser = subparsers.add_parser(
+    ple_vision_probe_parser = add_command_parser(
+        subparsers,
         "ple-vision-probe",
-        help="Pre-flight check for vision OCR: RAM headroom + Ollama model availability",
     )
     ple_vision_probe_parser.add_argument(
         "--required-free-gb",
@@ -255,10 +270,10 @@ def build_parser() -> argparse.ArgumentParser:
         help="Vision model family to check for (default: moondream:latest)",
     )
 
-    query_parser = subparsers.add_parser("query")
+    query_parser = add_command_parser(subparsers, "query")
     query_parser.add_argument("question", help="Natural-language question")
 
-    query_struct_parser = subparsers.add_parser("query-structured")
+    query_struct_parser = add_command_parser(subparsers, "query-structured")
     query_struct_parser.add_argument(
         "--function", required=True,
         help="One of what_governs, what_requires, what_limits, what_defines, "
@@ -279,229 +294,312 @@ def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
 
+    def _run(command_name: str, handler) -> int:
+        return execute_with_cli_experience(
+            command_name,
+            output_mode=args.output_mode,
+            handler=handler,
+        )
+
     if args.command == "scan":
         from vitruvius.scanner import run_scan
-        return run_scan()
+        return _run("scan", run_scan)
 
     if args.command == "status":
         from vitruvius.status import run_status
-        return run_status()
+        return _run("status", run_status)
 
     if args.command == "lint":
         from vitruvius.linting import run_lint
-        return run_lint()
+        return _run("lint", run_lint)
 
     if args.command == "convert":
         from vitruvius.conversion import run_convert
-        return run_convert()
+        return _run("convert", run_convert)
 
     if args.command == "reconcile":
         from vitruvius.reconcile import run_reconcile
-        return run_reconcile()
+        return _run("reconcile", run_reconcile)
 
     if args.command == "ocr-queue":
         from vitruvius.ocr import run_ocr_queue
-        return run_ocr_queue()
+        return _run("ocr-queue", run_ocr_queue)
 
     if args.command == "ocr-execute":
         from vitruvius.ocr import run_ocr_execute
-        return run_ocr_execute(
+        return _run(
+            "ocr-execute",
+            lambda: run_ocr_execute(
             languages=args.languages,
             deskew=not args.no_deskew,
+            ),
         )
 
     if args.command == "run":
-        return run_pipeline()
+        return _run("run", run_pipeline)
 
     if args.command == "detect-one":
         from vitruvius.detection import run_detect_one
-        return run_detect_one(
+        return _run(
+            "detect-one",
+            lambda: run_detect_one(
             relative_pdf_path=args.relative_pdf_path,
             sample_pages=args.sample_pages,
+            ),
         )
 
     if args.command == "convert-one":
         from vitruvius.conversion import run_convert_one
-        return run_convert_one(
+        return _run(
+            "convert-one",
+            lambda: run_convert_one(
             relative_pdf_path=args.relative_pdf_path,
             sample_pages=args.sample_pages,
+            ),
         )
 
     if args.command == "convert-parsers-one":
         # Sprint PIPELINE-CLI Task 3. Lazy-import — see AD-015.
         from vitruvius.parsers.cli_handler import run_convert_parsers_one
-        return run_convert_parsers_one(
+        return _run(
+            "convert-parsers-one",
+            lambda: run_convert_parsers_one(
             relative_pdf_path=args.relative_pdf_path,
+            ),
         )
 
     if args.command == "convert-spreadsheet-one":
         from vitruvius.spreadsheets import run_convert_spreadsheet_one
-        return run_convert_spreadsheet_one(
+        return _run(
+            "convert-spreadsheet-one",
+            lambda: run_convert_spreadsheet_one(
             relative_source_path=args.relative_source_path,
+            ),
         )
 
     if args.command == "canonicalize-plan-one":
         from vitruvius.canonicalize import run_canonicalize_plan_one
-        return run_canonicalize_plan_one(
+        return _run(
+            "canonicalize-plan-one",
+            lambda: run_canonicalize_plan_one(
             relative_markdown_path=args.relative_markdown_path,
+            ),
         )
 
     if args.command == "canonicalize-one":
         from vitruvius.canonicalize import run_canonicalize_one
-        return run_canonicalize_one(
+        return _run(
+            "canonicalize-one",
+            lambda: run_canonicalize_one(
             relative_markdown_path=args.relative_markdown_path,
+            ),
         )
 
     if args.command == "canonicalize-concept-one":
         from vitruvius.concepts import run_canonicalize_concept_one
-        return run_canonicalize_concept_one(
+        return _run(
+            "canonicalize-concept-one",
+            lambda: run_canonicalize_concept_one(
             concept_name=args.concept_name,
+            ),
         )
 
     if args.command == "migrate-ids-plan":
         from vitruvius.migrations import run_migrate_ids_plan
-        return run_migrate_ids_plan()
+        return _run("migrate-ids-plan", run_migrate_ids_plan)
 
     if args.command == "migrate-ids-apply":
         from vitruvius.migrations import run_migrate_ids_apply
-        return run_migrate_ids_apply()
+        return _run("migrate-ids-apply", run_migrate_ids_apply)
 
     if args.command == "ple-kv-migrate":
         from vitruvius.kv_migrate import run_kv_migrate
-        return run_kv_migrate(
+        return _run(
+            "ple-kv-migrate",
+            lambda: run_kv_migrate(
             store=args.store,
             source=args.source,
             dest=args.dest,
             dry_run=args.dry_run,
+            ),
         )
 
     if args.command == "extract-relationships-one":
         from vitruvius.relationships import run_extract_relationships_one
-        return run_extract_relationships_one(
+        return _run(
+            "extract-relationships-one",
+            lambda: run_extract_relationships_one(
             relative_markdown_path=args.relative_markdown_path,
+            ),
         )
 
     if args.command == "extract-relationships-sections-one":
         from vitruvius.relationships_sections import run_extract_relationships_sections_one
-        return run_extract_relationships_sections_one(
+        return _run(
+            "extract-relationships-sections-one",
+            lambda: run_extract_relationships_sections_one(
             relative_markdown_path=args.relative_markdown_path,
+            ),
         )
 
     if args.command == "review-relationships-ollama":
         from vitruvius.ollama_review import run_review_relationships_ollama
-        return run_review_relationships_ollama(
+        return _run(
+            "review-relationships-ollama",
+            lambda: run_review_relationships_ollama(
             model=args.model,
             timeout_seconds=args.timeout_seconds,
             parallelism=args.parallel,
+            ),
         )
 
     if args.command == "promote":
         from vitruvius.promotion import run_promote
-        return run_promote(
+        return _run(
+            "promote",
+            lambda: run_promote(
             execute=args.execute,
             rollback_batch_id=args.rollback_batch_id,
+            ),
         )
 
     if args.command == "review-relationships-ollama-second-pass":
         from vitruvius.ollama_review_second_pass import run_second_pass
-        return run_second_pass(
+        return _run(
+            "review-relationships-ollama-second-pass",
+            lambda: run_second_pass(
             model=args.model,
             timeout_seconds=args.timeout_seconds,
+            ),
         )
 
     if args.command == "enrich-concept-one":
         from vitruvius.concept_enrichment import run_enrich_concept_one
-        return run_enrich_concept_one(
+        return _run(
+            "enrich-concept-one",
+            lambda: run_enrich_concept_one(
             concept_slug=args.concept_slug,
             force=args.force,
+            ),
         )
 
     if args.command == "enrich-concepts":
         from vitruvius.concept_enrichment import run_enrich_concepts
-        return run_enrich_concepts(force=args.force)
+        return _run(
+            "enrich-concepts",
+            lambda: run_enrich_concepts(force=args.force),
+        )
 
     if args.command == "canonicalize":
         from vitruvius.canonicalize import run_canonicalize
-        return run_canonicalize()
+        return _run("canonicalize", run_canonicalize)
 
     if args.command == "refine":
         from vitruvius.normalization.refine import run_refine
-        return run_refine()
+        return _run("refine", run_refine)
 
     if args.command == "run-with-review":
-        return run_pipeline_with_review()
+        return _run("run-with-review", run_pipeline_with_review)
 
     if args.command == "refine-one":
         from vitruvius.normalization.refine import run_refine_one
-        return run_refine_one(relative_markdown_path=args.relative_markdown_path)
+        return _run(
+            "refine-one",
+            lambda: run_refine_one(relative_markdown_path=args.relative_markdown_path),
+        )
 
     if args.command == "rotate-registries":
         from vitruvius.registry_rotation import run_rotate_registries
-        return run_rotate_registries(keep=args.keep, dry_run=args.dry_run)
+        return _run(
+            "rotate-registries",
+            lambda: run_rotate_registries(keep=args.keep, dry_run=args.dry_run),
+        )
 
     if args.command == "build-graph":
         from vitruvius.graph.cli import run_build_graph
-        return run_build_graph(dry_run=args.dry_run)
+        return _run(
+            "build-graph",
+            lambda: run_build_graph(dry_run=args.dry_run),
+        )
 
     if args.command == "query-graph":
         from vitruvius.graph.cli import run_query_graph
-        return run_query_graph(
+        return _run(
+            "query-graph",
+            lambda: run_query_graph(
             from_id=args.from_id,
             to_id=args.to_id,
             max_depth=args.max_depth,
+            ),
         )
 
     if args.command == "export-graph-snapshot":
         from vitruvius.graph.cli import run_export_graph_snapshot
-        return run_export_graph_snapshot(fmt=args.fmt)
+        return _run(
+            "export-graph-snapshot",
+            lambda: run_export_graph_snapshot(fmt=args.fmt),
+        )
 
     if args.command == "export-graph-owl":
         from vitruvius.ontology.cli import run_export_graph_owl
-        return run_export_graph_owl()
+        return _run("export-graph-owl", run_export_graph_owl)
 
     if args.command == "ingest-spatial":
         from vitruvius.spatial.cli import run_ingest_spatial
-        return run_ingest_spatial()
+        return _run("ingest-spatial", run_ingest_spatial)
 
     if args.command == "evaluate-spatial":
         from vitruvius.spatial.cli import run_evaluate_spatial
-        return run_evaluate_spatial(
+        return _run(
+            "evaluate-spatial",
+            lambda: run_evaluate_spatial(
             concepts=args.concepts,
             observations_path=args.observations_path,
             rules_path=args.rules_path,
+            ),
         )
 
     if args.command == "ple-cotrace-dump":
-        from pathlib import Path
         from vitruvius.review.cot_audit import run_ple_cotrace_dump
-        return run_ple_cotrace_dump(cot_dir=Path(args.cot_dir))
+        return _run(
+            "ple-cotrace-dump",
+            lambda: run_ple_cotrace_dump(cot_dir=Path(args.cot_dir)),
+        )
 
     if args.command == "ple-registry-purge":
-        from pathlib import Path
         from vitruvius.review.stateful_registry import run_ple_registry_purge
-        return run_ple_registry_purge(
+        return _run(
+            "ple-registry-purge",
+            lambda: run_ple_registry_purge(
             db_path=Path(args.registry_db),
             days=args.days,
+            ),
         )
 
     if args.command == "ple-vision-probe":
         from vitruvius.parsers.vision_ocr import run_ple_vision_probe
-        return run_ple_vision_probe(
+        return _run(
+            "ple-vision-probe",
+            lambda: run_ple_vision_probe(
             required_free_gb=args.required_free_gb,
             model=args.model,
+            ),
         )
 
     if args.command == "query":
         from vitruvius.query.cli import run_query
-        return run_query(args.question)
+        return _run("query", lambda: run_query(args.question))
 
     if args.command == "query-structured":
         from vitruvius.query.cli import run_query_structured
-        return run_query_structured(
+        return _run(
+            "query-structured",
+            lambda: run_query_structured(
             function=args.function,
             subject=args.subject,
             a=args.a,
             b=args.b,
+            ),
         )
 
     parser.print_help()
