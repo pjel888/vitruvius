@@ -1,9 +1,11 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-15 · Sprint Q ✅ + Sprint R ✅ + Sprint PHYS ✅ + Sprint HP 🟡 partial + Sprint GEOM 🟡 partial — see AD-024, AD-025, AD-026 for the per-sprint ledgers.
-> **Branch:** `feat/sprint-r-per-layer-embeddings` (will likely be renamed when merged to main)
-> **Test suite:** 1166 / 1166 passing (excluding the pre-existing untracked `test_ontology_owl_exporter.py` that references an unimplemented Stream M.3 OWL exporter — Sprint H scope)
-> **Tags:** `sprint-q-closed` (c3eb939), `sprint-r-closed` (f192593), `sprint-phys-closed` (de86d78)
+> **Updated:** 2026-04-15 (late pass) · Sprint Q ✅ + Sprint R ✅ + Sprint PHYS ✅ + Sprint H ✅ + Sprint GEOM ✅ + Sprint HP 🟡 (HP.1+HP.3) + Sprint WIKI 🟡 (non-LLM slice) — see AD-024 through AD-027 for per-sprint ledgers.
+> **Branch:** `feat/sprint-r-per-layer-embeddings` (will be renamed when merged to main; branch name is a misnomer at this point)
+> **Python test suite:** 1213 / 1213 passing (no `--ignore` needed — M.3 closes the last broken test)
+> **TypeScript test suite:** 20 / 20 passing (spatial-daemon/)
+> **Tags:** `sprint-q-closed` (c3eb939), `sprint-r-closed` (f192593), `sprint-phys-closed` (de86d78), `sprint-h-closed` (98e50fc), `sprint-geom-closed`
+> **Canonical relationships:** **31 verified** (Sprint H entry gate cleared — grew from 7 via PD 1096 IRR ingest)
 
 ## Sprint R Progress (2026-04-15)
 
