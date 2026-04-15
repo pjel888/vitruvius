@@ -1,0 +1,11 @@
+[package]
+name = "vitruvius_spatial_kernels"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["rlib"]
+
+[dependencies]
+vitruvius_engine_rs_core = { path = "../core" }
+ndarray = "0.15"

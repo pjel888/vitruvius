@@ -21,6 +21,8 @@ members = [
     "core",
     "pyo3_shim",
     "pdf",
+    "spatial_kernels",
+    "stats_kernels",
 ]
 
 # Note: the legacy `src/` directory is preserved as a build reference
