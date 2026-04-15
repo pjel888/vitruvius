@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-04-15T06:58:01Z",
+  "timestamp_utc": "2026-04-15T07:08:44Z",
   "python_interpreter": "/opt/homebrew/opt/python@3.11/bin/python3.11",
   "host": "darwin-arm64 / 8 GB M2",
   "threshold_wall_ms": 25,
@@ -7,50 +7,50 @@
   "rng_seed": 42,
   "candidates": {
     "s1_adjacency_edges": {
-      "wall_ms": 250.0,
-      "peak_rss_mb": 31.953,
+      "wall_ms": 350.0,
+      "peak_rss_mb": 31.859,
       "n": 2000,
       "verdict": "hot"
     },
     "s2_weight_by_distance": {
       "wall_ms": 70.0,
-      "peak_rss_mb": 32.609,
+      "peak_rss_mb": 32.422,
       "n": 10000,
       "verdict": "hot"
     },
     "n1_wasserstein": {
-      "wall_ms": 3830.0,
-      "peak_rss_mb": 368.875,
+      "wall_ms": 4030.0,
+      "peak_rss_mb": 370.344,
       "n": 500,
       "verdict": "hot"
     },
     "n4_mahalanobis": {
-      "wall_ms": 190.0,
-      "peak_rss_mb": 35.406,
+      "wall_ms": 180.0,
+      "peak_rss_mb": 33.094,
       "n": 1000,
       "verdict": "hot"
     },
     "s10_bloom": {
       "wall_ms": 110.0,
-      "peak_rss_mb": 30.344,
+      "peak_rss_mb": 30.312,
       "n": 10000,
       "verdict": "hot"
     },
     "g2_duplicate_detector": {
-      "wall_ms": 250.0,
-      "peak_rss_mb": 32.656,
+      "wall_ms": 260.0,
+      "peak_rss_mb": 32.359,
       "n": 1000,
       "verdict": "hot"
     },
     "p9_scanner_sha256": {
       "wall_ms": 230.0,
-      "peak_rss_mb": 34.578,
+      "peak_rss_mb": 34.406,
       "n": 100,
       "verdict": "hot"
     },
     "p10_merkle_fs": {
       "wall_ms": 100.0,
-      "peak_rss_mb": 32.125,
+      "peak_rss_mb": 31.984,
       "n": 100,
       "verdict": "hot"
     }

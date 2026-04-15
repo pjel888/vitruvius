@@ -112,3 +112,34 @@ def test_bench_rust_mig_baseline_writes_report(tmp_path: Path) -> None:
     # The report carries a timestamp so the bench is traceable.
     assert "timestamp_utc" in on_disk
     assert isinstance(on_disk["timestamp_utc"], str)
+
+
+def test_run_baseline_fails_fast_when_interpreter_missing(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Pre-flight guard: if ``PYTHON_INTERPRETER`` does not exist on disk,
+    ``run_baseline`` raises ``RuntimeError`` BEFORE spawning any subprocess.
+
+    Without this guard, every candidate would hit ``FileNotFoundError``
+    inside ``subprocess.run`` and silently record ``"aborted"``, producing
+    a report that looks like a timeout sweep rather than a configuration
+    error. The test asserts the guard short-circuits the dispatch loop,
+    so it must be FAST (<0.1 s) — the dispatcher mock must NOT be called.
+    """
+    bogus_path = str(tmp_path / "definitely" / "not" / "a" / "python3.11")
+    monkeypatch.setattr(baseline, "PYTHON_INTERPRETER", bogus_path)
+
+    out_path = tmp_path / "baseline.json"
+
+    with patch.object(
+        baseline,
+        "_run_candidate_subprocess",
+        side_effect=_fake_dispatch,
+    ) as mock_dispatch:
+        with pytest.raises(RuntimeError, match="PYTHON_INTERPRETER not found"):
+            baseline.run_baseline(out_path)
+
+    # The guard must fire BEFORE any candidate dispatch, not after.
+    assert mock_dispatch.call_count == 0
+    # And no report file should be written on a pre-flight failure.
+    assert not out_path.exists()

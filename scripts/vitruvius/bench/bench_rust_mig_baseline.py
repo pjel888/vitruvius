@@ -37,6 +37,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -182,6 +183,14 @@ def _spec_n4_mahalanobis(n: int) -> str:
     one via ``mahalanobis_distance``. Measures the hot scoring loop
     directly (``score_chunks`` is just the same loop wrapped around
     ``EmbeddedChunk``, which would drag in sentence-transformers).
+
+    Perf note (review fix): the embeddings stay as a 2-D numpy array
+    end-to-end. The previous version called ``.tolist()`` and then
+    iterated a Python list-of-lists, which added list-materialization
+    and float-boxing noise on top of the real Mahalanobis cost — the
+    exact thing a Rust port would target. Keeping numpy avoids that
+    measurement noise; ``fit_outlier_model`` accepts any 2-D array,
+    and ``mahalanobis_distance`` accepts a numpy row vector.
     """
     return f"""
 import sys
@@ -197,10 +206,11 @@ def _main() -> None:
     rng = np.random.default_rng({RNG_SEED})
     n = {n}
     dim = 64
-    embeddings = rng.standard_normal((n, dim)).tolist()
-    model = fit_outlier_model(embeddings)
+    # Stay in numpy: no .tolist() round-trip, no list-of-lists box step.
+    embeddings_np = rng.standard_normal((n, dim))
+    model = fit_outlier_model(embeddings_np)
     total = 0.0
-    for row in embeddings:
+    for row in embeddings_np:
         total += mahalanobis_distance(row, model)
     print(f"OUT_N={{total:.4f}}", file=sys.stderr)
 
@@ -425,8 +435,6 @@ def _run_candidate_subprocess(
 
     # Pass the repo's scripts/ path on PYTHONPATH so the child can
     # ``from vitruvius.spatial... import ...`` without installing.
-    import os
-
     repo_root = Path(__file__).resolve().parents[3]
     scripts_dir = repo_root / "scripts"
     env = os.environ.copy()
@@ -513,6 +521,20 @@ def run_baseline(
         ("run the bench with n=10 everywhere") — production runs should
         pass ``None`` so every candidate uses its spec-defined ``n``.
     """
+    # Pre-flight: fail loudly if the pinned interpreter is missing.
+    # Without this guard every candidate would hit ``FileNotFoundError``
+    # inside ``subprocess.run`` and silently record ``"aborted"``,
+    # producing a report that looks like a timeout sweep rather than a
+    # configuration error. Fail fast instead.
+    interpreter = Path(PYTHON_INTERPRETER)
+    if not interpreter.exists():
+        raise RuntimeError(
+            f"PYTHON_INTERPRETER not found at {PYTHON_INTERPRETER}. "
+            f"Set PYTHON_INTERPRETER to a valid Python 3.11 executable or install "
+            f"python3.11 at the expected path. The subprocess harness cannot run "
+            f"without a real interpreter path."
+        )
+
     candidates: dict[str, dict[str, Any]] = {}
     for cid, (default_n, _builder) in CANDIDATE_SPECS.items():
         n = (overrides or {}).get(cid, default_n)
