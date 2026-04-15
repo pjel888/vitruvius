@@ -1,34 +1,99 @@
 # Vitruvius
 
-**Local-first, domain-agnostic knowledge engine** that transforms any body of
-professional reference material — statutes, codes, standards, clinical
-guidelines, engineering specs, or textbooks — into a validated, queryable
-knowledge graph.
+```
+ ██╗   ██╗██╗████████╗██████╗ ██╗   ██╗██╗   ██╗██╗██╗   ██╗███████╗
+ ██║   ██║██║╚══██╔══╝██╔══██╗██║   ██║██║   ██║██║██║   ██║██╔════╝
+ ██║   ██║██║   ██║   ██████╔╝██║   ██║██║   ██║██║██║   ██║███████╗
+ ╚██╗ ██╔╝██║   ██║   ██╔══██╗██║   ██║╚██╗ ██╔╝██║██║   ██║╚════██║
+  ╚████╔╝ ██║   ██║   ██║  ██║╚██████╔╝ ╚████╔╝ ██║╚██████╔╝███████║
+   ╚═══╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═╝ ╚═════╝ ╚══════╝
 
-Vitruvius is not a RAG wrapper and is not limited to any single field. Its
-pipeline is built as a **professional-domain specialist**: the deterministic
-rule engine, promotion governance, stringency matrix, and parametric
-constraint solver are all designed for corpora where precision matters more
-than coverage. Fields it is designed to serve include:
+   ─────────────────────────────────────────────────────────────────
+     A headless, mathematically rigorous AEC physics & compliance engine.
+                Geometry is a derivative of Physics and Law.
+   ─────────────────────────────────────────────────────────────────
+```
 
-- **Architecture & the built environment** — building codes, zoning
-  ordinances, IFC/BIM standards, design review precedent
-- **Engineering** — civil, structural, mechanical, and electrical codes;
-  ASTM/ISO material standards; inspection + compliance checklists
-- **Medicine & clinical practice** — clinical practice guidelines, drug
-  compendia, diagnostic criteria, procedural checklists
-- **Law & regulatory compliance** — statutes, administrative rulings,
-  case-law precedent, regulatory filings
-- **Science & academia** — course syllabi, textbook concept networks,
-  exam-preparation corpora
+**Vitruvius is a Multi-Objective Constraint Solver for the built environment** —
+a headless, deterministic engine for Architecture, Engineering, and Construction
+that treats physics, building code, and cost as first-class inputs and treats
+geometry as a *derivative* that falls out when all constraints are satisfied.
+It is not a 3D modeler. It is not a general knowledge graph that incidentally
+handles buildings. It is purpose-built for AEC, vertically specialized, and
+designed around a single guiding principle:
+
+> **The Physics are Universal, but the Parameters are Local.**
+>
+> Gravity, fluid dynamics, electrical resistance, and spatial collision behave
+> identically in Manila, Singapore, and New York. A 2.0 m setback carves the
+> same mathematical voxel regardless of what language the law is written in.
+> Only the numerical parameters of the law — the actual 2.0 m, the actual
+> fire-rated wall thickness, the actual minimum ceiling clearance — vary by
+> jurisdiction. This separation is the core enabler of international
+> scalability without engine bloat.
+
+A second principle runs alongside the first:
+
+> **The computer is blind to human concepts. It only knows lines, points,
+> bounds, and graphs.**
+>
+> A plumbing pipe is a line segment with a 0.05 m clearance radius. A
+> subdivision road is a line segment with a 5.0 m clearance radius. The Rust
+> kernel does not know the difference. The same `aabb_intersects` math routes
+> a fire sprinkler through a ceiling plenum and a highway through topography.
+> This is **true fractal scale agnosticism** — the same data structures and
+> algorithms operate at every scale without scale-specific code.
+
+Vitruvius is built as a **Compound AI System** rather than a monolithic LLM.
+Responsibilities are strictly separated across five layers, each structurally
+incapable of the failure modes of the others:
+
+```
+ ┌──────────────────────────────────────────────────────────────────┐
+ │                       Natural Language                           │
+ │                   (English questions in / out)                   │
+ └──────────────────────────────┬───────────────────────────────────┘
+                                ▼
+ ┌──────────────────────────────────────────────────────────────────┐
+ │   LLM  ─  "Mouth and Ears"            Ollama / gemma4:e4b         │
+ │   English → tool-call JSON → English. Never computes.             │
+ └──────────────────────────────┬───────────────────────────────────┘
+                                ▼
+ ┌──────────────────────────────────────────────────────────────────┐
+ │   Python  ─  "Logic"                  pipeline_cli + orchestration │
+ │   Routes requests, compiles ASTs, dispatches to kernels.          │
+ └───┬──────────────────┬──────────────────┬──────────────────┬─────┘
+     ▼                  ▼                  ▼                  ▼
+ ┌────────┐    ┌────────────────┐   ┌────────────────┐   ┌──────────┐
+ │RocksDB │    │  Rust (Kernels)│   │   Z3 SMT       │   │ Datalog  │
+ │        │    │                │   │                │   │  (_rs)   │
+ │ Rules  │    │  ECS + BVH +   │   │  Adjudicator   │   │          │
+ │        │    │  A* + parry3d  │   │                │   │ <logic>  │
+ │versioned│   │  voxel CSG +   │   │  inequality    │   │ fact set │
+ │ legal  │    │  FEA + fluid   │   │  compiler      │   │ verified │
+ │ ASTs   │    │  + Wasm target │   │  sat / unsat   │   │          │
+ └────────┘    └────────────────┘   └────────────────┘   └──────────┘
+```
+
+- **RocksDB holds the Rules** — versioned legal ASTs, jurisdictional parameters, pricing data.
+- **Python holds the Logic** — orchestration, Z3 compilation, tool-call dispatch.
+- **Rust holds the Physics** — compiled deterministic kernels for collision, pathfinding, FEA, fluid dynamics, voxel CSG. Evolving toward an Entity-Component-System (bevy_ecs) data-oriented design — see [The Next Phase](#the-next-phase--aec-constraint-solver).
+- **Z3 is the Adjudicator** — formal verification of whether a proposed configuration satisfies all active constraints.
+- **The LLM is the Mouth and Ears** — structured tool calls only, never raw mathematical answers.
+
+This defense-in-depth structure is what makes Vitruvius **mathematically incapable
+of lying about physics or law**: the LLM cannot hallucinate a clearance because
+it is never permitted to compute one, and the Rust kernel cannot bend a rule
+because rules are not in Rust — they arrive compiled from RocksDB via Python.
 
 > **Reference corpus.** This repository's active development corpus is
-> **PD 1096 — The National Building Code of the Philippines and its IRR**.
-> PD 1096 is the benchmark the tests, audits, and decision-log numbers are
-> measured against — not the product scope. The same pipeline has been
-> designed to drop in any other professional domain by swapping the contents
-> of `001_Raw-Source-Layer/` and the rules under
-> `scripts/vitruvius/rules/`.
+> **PD 1096 — The National Building Code of the Philippines and its IRR**,
+> with RA 9514 (Fire Code), NSCP (Structural Code), PEC (Electrical Code),
+> BP 344 (Accessibility), BP 220/PD 957 (Subdivision & socialized housing),
+> and PD 1067 (Water Code) as adjacent rule packages. PD 1096 is the
+> benchmark the tests, audits, and decision-log numbers are measured
+> against. Additional jurisdictions plug in through the rule-package system
+> (see [Adapting Vitruvius to a new jurisdiction](#adapting-vitruvius-to-a-new-jurisdiction)).
 
 Vitruvius enforces a hard boundary between raw text, candidate signals, and
 canonical truth — and treats every transformation as auditable. The pipeline
@@ -40,8 +105,10 @@ era.
 > **Looking for the deep docs?** The knowledge base lives in
 > [`.ai/`](./.ai/). Start with
 > [`.ai/01_roadmap/master-roadmap.md`](./.ai/01_roadmap/master-roadmap.md)
-> for the authoritative phase contract. This README is the tourist map;
-> `.ai/` is the terrain.
+> for the authoritative phase contract, and
+> [`.ai/13_research/AEC-ECS-SC_RESEARCH.md`](./.ai/13_research/AEC-ECS-SC_RESEARCH.md)
+> for the consolidated research document that defines the next phase. This
+> README is the tourist map; `.ai/` is the terrain.
 
 ---
 
@@ -209,6 +276,9 @@ AD-029 (RocksDB migration) for the per-sprint ledgers.
 - [Compound AI System Definition](#vitruvius-compound-ai-system-definition)
 - [Quick start](#quick-start)
 - [Architecture at a glance](#architecture-at-a-glance)
+- [Use cases](#use-cases)
+- [Hierarchy of Precedence](#hierarchy-of-precedence)
+- [The Next Phase — AEC Constraint Solver](#the-next-phase--aec-constraint-solver)
 - [Filesystem layers](#filesystem-layers)
 - [Pipeline stages](#pipeline-stages)
 - [CLI commands](#cli-commands)
@@ -219,7 +289,7 @@ AD-029 (RocksDB migration) for the per-sprint ledgers.
 - [Dependencies](#dependencies)
 - [Feature-flag operation](#feature-flag-operation)
 - [Current status](#current-status)
-- [Adapting Vitruvius to a new professional domain](#adapting-vitruvius-to-a-new-professional-domain)
+- [Adapting Vitruvius to a new jurisdiction](#adapting-vitruvius-to-a-new-jurisdiction)
 - [Principles](#principles)
 
 ---
@@ -288,6 +358,210 @@ libraries will require them at call time.
 Every deterministic box on the left is **zero LLM**. The only AI involvement
 is Tier-1 + Tier-2 review of the `needs_review` bucket (typically 22% of
 post-dedup candidates, thanks to the pre-review filter — see AD-018 and AD-021).
+
+---
+
+## Use cases
+
+The research document at
+[`.ai/13_research/AEC-ECS-SC_RESEARCH.md`](./.ai/13_research/AEC-ECS-SC_RESEARCH.md)
+§13 names two flagship use cases that the Vitruvius architecture is designed
+to unlock as it moves through its next phase:
+
+### 1. Multi-Disciplinary Zero-Clash Generation
+
+Generate Architectural, Structural, and MEP (Mechanical, Electrical, Plumbing)
+systems **mathematically from the start**, guaranteeing zero spatial clashes
+for a typical five-story building. The concrete pipeline:
+
+1. **Architecture solves first.** Legal envelope is computed (voxel boolean subtraction against setbacks, FAR, daylight planes, easements). Vertical shafts are placed. Minimum clear ceiling heights are noted.
+2. **Structural solves second.** Column grid is dropped; spans are assigned; beams are sized via Euler-Bernoulli (or Timoshenko for deep beams). The structural mesh registers in the Global BVH as `OCCUPIED_RIGID`.
+3. **HVAC solves third.** Duct centerlines are routed as capsules around structural obstacles via A* in the voxelized plenum. Duct cross-sections are sized per ASHRAE.
+4. **Plumbing solves fourth.** Same pattern, weaving through HVAC volumes, with the additional constraint of gravity slopes (e.g., 2% drop for waste).
+5. **Electrical solves fifth.** Same pattern, in the remaining ceiling-plenum gaps.
+6. **Negotiation runs throughout.** When a kernel fails to find a feasible solution, the [Hierarchy of Precedence](#hierarchy-of-precedence) triggers and the appropriate higher-precedence discipline yields incrementally.
+7. **Z3 verifies the final layout.** Every active rule is asserted; the layout is checked for `unsat`.
+8. **Rendering happens last.** The 3D model is generated only after verification passes.
+
+**The candid limitations.** Vitruvius will eliminate the clash-detection
+coordination meeting. It will not replace construction professionals. Two
+real-world constraints pure spatial math does not capture:
+
+- **Constructability (means and methods).** A pipe might mathematically fit between a steel beam and a slab with 2 mm of clearance, but a human welder cannot fit a hand and a torch in 2 mm.
+- **Physical entropy.** Math assumes perfect rigidity. Real buildings deflect, settle, and expand with heat over years.
+
+Vitruvius elevates engineers from clash-resolution clerks to **Superhuman Editors**
+who review five clash-free, code-compliant variations the engine produced in
+microseconds and apply human intuition about what is actually buildable on a
+rainy Tuesday in Manila.
+
+### 2. Business-Driven Urban Planning
+
+Auto-generate a 2-hectare subdivision that perfectly satisfies both local
+zoning laws and strict business goals:
+
+- **Hard constraints (the law).** PD 1096, BP 220, PD 957 — minimum 30% open space, roads minimum 10 m wide. Z3 treats these as unbreakable. Layouts that violate are discarded immediately.
+- **Fitness functions (the business).** Maximize lot yield, minimize linear meters of expensive road paving, target ROI of 24 months.
+
+Because the Rust kernel evaluates geometry in milliseconds, Vitruvius does
+not draw one subdivision. It uses a genetic algorithm (NSGA-II) or simulated
+annealing to draw *ten thousand* subdivisions, throws away the illegal ones,
+scores the remaining legal ones against the financial targets, and hands the
+developer the Pareto frontier — the top three layouts that maximize profit
+while mathematically guaranteeing legal compliance. This is **algorithmic
+real estate**.
+
+### The Bi-Directional Feedback Loop
+
+The two use cases are not separate — they are different resolutions of the
+same fractal model. A change at the macro scale (developer raises target unit
+count from 120 to 130) propagates down through resolutions (smaller lots →
+smaller footprints → tighter MEP → new shaft sizing). And in reverse: a
+constraint failure at the micro scale (MEP cannot fit) triggers a pressure
+signal back to the macro scale (drop the unit count to 118 to preserve
+setbacks). The result is a **living, breathing mathematical organism** where
+a millimeter change in pipe diameter can dynamically ripple up to alter the
+multi-million-dollar ROI of a subdivision.
+
+### Use cases beyond the two flagships
+
+The same engine, with no architectural changes, supports: renovation and
+adaptive reuse, insurance and underwriting exposure analysis, disaster
+simulation (seismic / wind), embodied and operational carbon accounting,
+retroactive regulatory authoring ("what happens if this proposed amendment
+passes?"), architecture board-exam scenario generation (the SlateCamp
+connection), and deterministic computational testbeds for AEC research.
+
+---
+
+## Hierarchy of Precedence
+
+Vitruvius cannot calculate Architecture, Structural, and MEP simultaneously —
+that would require solving a million simultaneous equations. Instead, it
+solves them in a strict **Hierarchy of Physical Inflexibility**:
+
+| # | Discipline | Role | Flexibility |
+|---|---|---|---|
+| 1 | **Architecture** | Bounds (legal envelope, vertical shafts, ceiling heights) | Highly inflexible — dictated by law |
+| 2 | **Structural** | Skeleton (columns, beams, load paths) | Gravity does not compromise |
+| 3 | **Mechanical / HVAC** | Lungs (large ducts, specific turning radii) | Flexible within plenum limits |
+| 4 | **Plumbing** | Veins (waste pipes with strict gravity slopes) | Flexible within slope constraint |
+| 5 | **Electrical / Fire** | Nerves (cables, small conduit) | Highly flexible — snakes through gaps |
+
+The order is not arbitrary. It reflects the *cost of relocation* for each
+discipline. Moving a load-bearing column is enormously expensive (and
+potentially structurally unsafe); moving a cable tray is cheap. The hierarchy
+minimizes the expected cost of changes during the negotiation phase.
+
+### The Negotiation Protocol
+
+When the Electrical kernel tries to route a cable tray but the Structural
+beams and HVAC ducts have already taken the ceiling space, the orchestrator
+runs an automated negotiation instead of failing:
+
+1. Electrical kernel fails, sends `Constraint_Violation` to the orchestrator.
+2. Orchestrator asks HVAC: "Can you flatten your duct aspect ratio from 1:1 to 1:3 to save vertical space?"
+3. If HVAC cannot compress further, orchestrator asks Architecture: "Drop the drop-ceiling by 150 mm to create more plenum."
+4. Architecture drops the ceiling, re-checks against PD 1096 minimum lobby clearance, and either accepts or escalates further.
+
+The protocol is recursive: any concession can trigger renegotiation in
+adjacent disciplines. The orchestrator must detect cycles and either
+terminate (declaring the configuration infeasible) or escalate to a
+higher-level optimization (changing structural bay sizing, which ripples
+back to architectural envelope, which ripples back to subdivision lot
+count).
+
+---
+
+## The Next Phase — AEC Constraint Solver
+
+The [`AEC-ECS-SC_RESEARCH.md`](./.ai/13_research/AEC-ECS-SC_RESEARCH.md)
+consolidated research document surveys the design space for the next phase
+of Vitruvius: a fully-fledged headless AEC physics and compliance engine
+with a Rust-core ECS kernel, Wasm deployment, and multi-disciplinary
+coordination. The research document is **not an implementation plan** — it
+is a reference document from which future implementation plans will be
+derived under the Standard Execution Loop. Key research bets:
+
+### Rust Core — Entity-Component-System
+
+The Rust kernel evolves from its current Sprint GT pyo3 workspace
+(`scripts/vitruvius/engine_rs/`) into an **ECS data-oriented design** using
+`bevy_ecs`. Core components:
+
+- **`VectorSegment`** — `[f64; 3]` start/end, the 1D math primitive for every linear element.
+- **`ClearanceCapsule`** — a single `radius` defining the legally-required buffer volume around the element.
+- **`AABB`** — coarse bounding box for the broad-phase spatial index.
+- **`DomainDiscipline`** — enum `Arch | Struct | HVAC | Plumbing | Elec` driving the Hierarchy of Precedence.
+- **`EntityLink`** — pointer back to the RocksDB vault ID so every mathematical entity traces to its semantic identity.
+- **`IfcOntology`** — optional, lightweight IFC class label used only at the export boundary (see the Boundary Translation Protocol in the research doc §10).
+- **Engineering components** — `LoadBearing` (structural), `ElectricalNode` (electrical), `FluidDynamics` (plumbing/HVAC). Each ~12–16 bytes, so a 100 k-element building costs ~4 MB total.
+
+Systems (pure functions iterating over arrays) run in parallel where their
+component queries do not overlap. Foundational spatial systems:
+`Broadphase_Octree_Update`, `Narrowphase_Capsule_Clash`, `Precedence_Negotiator`.
+
+### Mathematical and Algorithmic Arsenal
+
+The research document §7 catalogs the algorithms the Rust kernel will use:
+
+| Concept | Algorithm | Rust crate |
+|---|---|---|
+| Space-filling locality | Morton codes / Z-order curves | `morton-encoding`, `lindel` |
+| Convex collision | GJK / EPA | `parry3d` |
+| Spatial index | Loose octree + linear octree | custom over `parry3d` BVH |
+| Pathfinding | A\* / Theta\* / JPS / D\* Lite | `pathfinding` |
+| Layout generation | Wave Function Collapse | `wfc` |
+| Voxel CSG | Union / intersection / difference | `building_blocks`, OpenVDB bindings |
+| Optimization | Simulated annealing, NSGA-II, MCTS | `argmin`, `oxigen`, `genevo` |
+| Constraint satisfaction | Z3 SMT + MILP fallback | `z3`, `good_lp`, `highs` |
+| Linear algebra | Matrices, transforms, decompositions | `nalgebra`, `glam` |
+| B-Rep CAD | Exact boolean + volume / moment | `truck` |
+| Graphs | MEP topology, egress, rule deps | `petgraph` |
+
+### Engineering Solvers
+
+Code-compliant sizing is a deterministic chain of pure functions:
+
+- **Structural** — Euler-Bernoulli beam theory (`M = wL²/8`, `δ = 5wL⁴/384EI`), with a fallback to Timoshenko for deep beams and FFI to CalculiX / Code_Aster for full 3D FEA.
+- **Plumbing** — Hazen-Williams for water friction (`h_f = 10.67 · L · Q^1.852 / (C^1.852 · D^4.87)`), Darcy-Weisbach for non-water fluids.
+- **Electrical** — Voltage drop (`V_drop = 2·L·R·I`), conductor ampacity tables, short-circuit calculations, selective coordination.
+- **HVAC** — ASHRAE CLTD/CLF for load, rectangular-to-circular duct equivalence, Darcy-Weisbach pressure loss.
+
+Each solver is a pure Rust function with inputs (entity properties +
+jurisdiction context) and outputs (sized component + compliance status).
+
+### Hierarchical Lazy Evaluation
+
+Computing the exact 3D path of every pipe in a 2-hectare subdivision
+simultaneously is impossible. Vitruvius solves the project in cascading
+resolutions:
+
+- **Resolution 1 — Macro Envelope.** Subdivision level. Buildings are solid empty blocks. Optimizer maximizes lot yield.
+- **Resolution 2 — Core and Shell.** Building level. Structural grid and MEP shafts placed.
+- **Resolution 3 — Micro Routing.** Floor level. A\* pathfinding routes individual pipes from shaft to fixture.
+
+Memory and compute are spent only at the resolution currently under
+inspection. The bi-directional feedback loop propagates failures upward.
+
+### Wasm Deployment
+
+The Rust kernel compiles to `wasm32-unknown-unknown` so the same code that
+runs locally on an 8 GB M2 also runs in the browser, with React Three Fiber
+doing only the rendering and Wasm doing all the math. The current `hp_wasm_kernels`
+flag (default false) exercises this path through `compound/wasm_kernel.py` and
+`wasmtime`.
+
+### What's already in this repo vs. what the research points to
+
+| Layer | Today (committed, 21 sprints closed) | The Next Phase (from research) |
+|---|---|---|
+| Compound AI System | Ollama + Python + Z3 + RocksDB event store + Datalog evaluator | All of Today + full Rust ECS kernel + Wasm deployment |
+| Rust crates | `engine_rs` (core + pyo3 shim + spatial/stats kernels), `datalog_rs` | Full `bevy_ecs` architecture with `parry3d`, `building_blocks`, `wfc`, `argmin`, `truck` |
+| Spatial | Schema-validated spatial contract JSON + Z3 constraint solver + TypeScript spatial-daemon with SHA-256 integrity footer | Full 3D BVH, loose octree, capsule-vs-capsule narrowphase, A\* router |
+| Optimization | Stringency matrix + Pareto optimizer (`cvxpy`) | NSGA-II / SA over ten-thousand-candidate subdivision layouts |
+| Rule vault | RocksDB event store with temporal queries | Versioned jurisdictional rule packages with retroactive compliance queries |
+| Multi-discipline | Single-discipline extraction on PD 1096 | Full Architecture → Structural → MEP negotiation protocol |
 
 ---
 
@@ -730,46 +1004,61 @@ As of 2026-04-15 — after closing ten governing-plan sprints this session (Q, R
 
 ---
 
-## Adapting Vitruvius to a new professional domain
+## Adapting Vitruvius to a new jurisdiction
 
-The core machinery is corpus-agnostic. Porting to a new domain (another
-jurisdiction's building code, a medical specialty's clinical guidelines, an
-engineering-standards library, an exam syllabus, etc.) touches a small,
-well-defined set of files:
+Vitruvius is **vertically specialized for AEC** — it does not pretend to be
+a general-purpose knowledge engine that incidentally handles buildings.
+That specialization is a deliberate choice: it lets every line of Rust
+optimization work target spatial geometry, clash detection, and building
+code compliance, and it lets the hardcoded AEC ontology (`Site > Building >
+Floor > Room > Element`) accelerate spatial queries that a generic engine
+cannot.
 
-1. **Drop the source documents** into `001_Raw-Source-Layer/` under a new
-   category directory. The scanner (`scripts/vitruvius/scanner.py`) is
-   format-agnostic and will pick up PDFs, DOCX, PPTX, XLSX, or plain
-   markdown.
-2. **Teach the canonicalizer** the new corpus's ID scheme by adding rules
+What Vitruvius **does** generalize cleanly is **across jurisdictions**.
+The physics are universal, only the parameters vary. Porting the engine
+from the Philippines (PD 1096, RA 9514, NSCP, PEC, BP 344, BP 220/PD 957,
+PD 1067) to Singapore, Manila → New York, or any other jurisdiction
+touches a small, well-defined set of files:
+
+1. **Drop the new code of practice** into `001_Raw-Source-Layer/<jurisdiction>/`.
+   The scanner (`scripts/vitruvius/scanner.py`) is format-agnostic and will
+   pick up PDFs, DOCX, PPTX, XLSX, or plain markdown.
+2. **Teach the canonicalizer** the jurisdiction's ID scheme by adding rules
    to `scripts/vitruvius/rules/canonical_rules.yaml`. Each rule maps a
-   path pattern to a canonical-ID prefix.
+   path pattern to a canonical-ID prefix — e.g. `law-sg-scdf-ss-510` for
+   Singapore Civil Defence Force fire-safety code, or
+   `law-us-nfpa-101` for the US Life Safety Code.
 3. **Populate the concept vocabulary** at
-   `003_Canonical-Knowledge-Layer/shared/concepts/` with one markdown file
-   per atomic concept in the domain (e.g. `myocardial-infarction.md` for
-   cardiology, `rebar-yield-strength.md` for structural engineering). The
-   enrichment pipeline is deterministic and does not call an LLM.
-4. **Extend the relationship registry** at
-   `scripts/vitruvius/rules/relationship_registry.yaml` with the closed
-   predicate vocabulary that makes sense for the domain — e.g.
-   `contraindicated_with` / `dose_adjusted_by` / `escalates_to` for
-   medicine, `load_bearing_for` / `supports_against` / `connected_via` for
-   structural engineering, `governs` / `defined_by` / `exempt_from` for
-   statute work. The Phase 7 promotion validator will reject any edge whose
-   predicate is not in this registry.
-5. **(Optional) Fork the stringency matrix** at
-   `scripts/vitruvius/rules/` if the domain has quantitative compliance
-   axes. The Sprint Q promotion stringency gate reads it verbatim.
-6. **(Optional) Re-tune the Ollama prompt** in `.ai/08_prompts/` — the
-   Sprint Z DSPy compiler (`compound/dspy_compiler.py`) can do this
-   metric-driven against a held-out set, but hand-tuning is faster for
-   the first pass.
+   `003_Canonical-Knowledge-Layer/shared/concepts/` with the building-code
+   terms used in the new jurisdiction. Most AEC concepts are universal
+   (`occupancy-classification`, `setback`, `fire-resistive-construction`)
+   with jurisdiction-local numerical parameters; a subset may be genuinely
+   new (Singapore's `GFA-exclusion-list`, Philippine `arkong-bato` clearance).
+4. **Extend the rule-package JSON** at
+   `scripts/vitruvius/rules/` with the jurisdiction-specific numerical
+   parameters (setbacks, FAR, BHL, PSO, road widths, etc.). The
+   parameter vectors are what the Z3 inequality compiler consumes at
+   verification time.
+5. **(Optional) Fork the stringency matrix** if the new jurisdiction has a
+   different conflict-resolution semantic — e.g. "always take the stricter
+   of the national and local rule" vs. "take the later rule in time."
+6. **(Optional) Translate the reviewer prompt** in `.ai/08_prompts/` if
+   the source material is in a non-English language. The Sprint Z DSPy
+   compiler (`compound/dspy_compiler.py`) can do this metric-driven
+   against a held-out set.
 
 Nothing in `scripts/vitruvius/` below the `rules/` directory hard-codes a
-specific domain. The tests under `scripts/tests/` are themselves the
-regression harness for the pipeline mechanics and should keep passing
-against any corpus that respects the source/concept/relationship schemas
-in `.ai/06_specs/`.
+specific jurisdiction. The tests under `scripts/tests/` are the regression
+harness for the pipeline mechanics and pass against any AEC corpus that
+respects the source / concept / relationship schemas in `.ai/06_specs/`.
+
+**What the engine does NOT adapt to:** medical guidelines, legal statutes
+unrelated to the built environment, generic academic syllabi, or other
+non-AEC professional corpora. Those use cases are explicitly out of scope
+per the AEC-vertical specialization decision. If you need a knowledge
+engine for those domains, fork the repo before the Rust ECS kernel lands
+and keep the deterministic-first pipeline as a general-purpose extractor;
+the Vitruvius trunk will continue specializing downward into AEC physics.
 
 ---
 
@@ -793,25 +1082,33 @@ The project operates under ten non-negotiable principles, formalized in
 
 ## License & attribution
 
-Vitruvius is a general-purpose knowledge engine for professional domains.
-Its first application is architecture board-exam preparation tooling in the
-Philippines, where PD 1096 (the National Building Code and its IRR) serves
-as the development reference corpus. PD 1096 and its IRR are public-domain
-Philippine law. The same pipeline is intended to anchor further tools across
-engineering, medicine, law, and other professional domains — the core
-machinery is corpus-agnostic; only the contents of `001_Raw-Source-Layer/`,
-the `rules/` YAML, and the concept vocabulary under
-`003_Canonical-Knowledge-Layer/shared/concepts/` are domain-specific. Derived
-work and code are the author's.
+Vitruvius is a **headless, mathematically rigorous AEC physics and
+compliance engine** — a Multi-Objective Constraint Solver for the built
+environment. Its first application is architecture board-exam preparation
+tooling in the Philippines, where PD 1096 (the National Building Code and
+its IRR) serves as the development reference corpus. PD 1096 and its IRR
+are public-domain Philippine law. The same engine, with the rule-package
+system described in
+[Adapting Vitruvius to a new jurisdiction](#adapting-vitruvius-to-a-new-jurisdiction),
+is designed to anchor AEC tools in Singapore, the United States, and any
+other jurisdiction — the physics are universal, only the numerical
+parameters of the law vary. Vertical specialization into AEC is
+deliberate: it lets every line of Rust optimization work target spatial
+geometry, clash detection, and building code compliance. Derived work
+and code are the author's.
 
 ---
 
 ## Further reading
 
-- [`.ai/01_roadmap/master-roadmap.md`](./.ai/01_roadmap/master-roadmap.md) — authoritative roadmap (v2.0.0)
+- [`.ai/13_research/AEC-ECS-SC_RESEARCH.md`](./.ai/13_research/AEC-ECS-SC_RESEARCH.md) — **consolidated research document** defining the next phase: ECS architecture, Spatial Comprehension, the Knowledge Vault, the Compound AI System pattern, multi-disciplinary coordination, the mathematical and algorithmic arsenal, engineering solvers, 5D BIM, IFC Boundary Translation Protocol, international rule packages, performance engineering, use cases, and open research questions
+- [`.ai/01_roadmap/master-roadmap.md`](./.ai/01_roadmap/master-roadmap.md) — authoritative roadmap
 - [`.ai/00_system/architecture.md`](./.ai/00_system/architecture.md) — deeper architecture write-up
+- [`.ai/00_system/principles.md`](./.ai/00_system/principles.md) — the ten non-negotiable principles (P1–P10) plus operational invariants I5–I9
+- [`.ai/00_system/EXECUTION_LOOP.md`](./.ai/00_system/EXECUTION_LOOP.md) — canonical operating contract v3.0
 - [`.ai/06_specs/source-schema.md`](./.ai/06_specs/source-schema.md) — canonical source file schema
 - [`.ai/06_specs/concept-schema.md`](./.ai/06_specs/concept-schema.md) — concept file schema
 - [`.ai/06_specs/relationship-schema.md`](./.ai/06_specs/relationship-schema.md) — relationship file schema
-- [`.ai/10_state/decisions.md`](./.ai/10_state/decisions.md) — architectural decision log
+- [`.ai/06_specs/spatial-schema.md`](./.ai/06_specs/spatial-schema.md) — spatial contract JSON schema (with AD-039 SHA-256 integrity footer)
+- [`.ai/10_state/decisions.md`](./.ai/10_state/decisions.md) — architectural decision log (AD-001 through AD-042)
 - [`.ai/07_experiments/2026-04-14-sprint-b-end-to-end-rerun.md`](./.ai/07_experiments/2026-04-14-sprint-b-end-to-end-rerun.md) — the end-to-end experiment that motivated AD-014 through AD-021
