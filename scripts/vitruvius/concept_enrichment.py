@@ -105,11 +105,44 @@ def _render_enriched(
     if aliases:
         fm["aliases"] = aliases
 
+    # Sprint CLEANUP-1 C2.2 — optional bidirectional concept cross-refs.
+    # Flag-off is byte-identical: the block below only mutates `fm` when
+    # `p3_bidirectional_refs` is enabled AND relationship files exist for
+    # the current concept id. Any failure is swallowed to preserve
+    # flag-off byte-identity guarantees.
+    try:
+        from .spatial._feature_gate import _load_features_cached
+        _features_xref = _load_features_cached()
+    except Exception:
+        _features_xref = None
+
+    if _features_xref is not None and _features_xref.is_enabled("p3_bidirectional_refs"):
+        try:
+            from .concept_cross_ref import build_concept_cross_ref_map
+
+            _xref_repo_root = get_repo_root()
+            _xref_rels_dir = (
+                _xref_repo_root
+                / "003_Canonical-Knowledge-Layer"
+                / "shared"
+                / "relationships"
+            )
+            if _xref_rels_dir.exists():
+                _xref_map = build_concept_cross_ref_map(_xref_rels_dir)
+                _concept_id = fm.get("id")
+                if isinstance(_concept_id, str):
+                    _related = _xref_map.get(_concept_id, [])
+                    if _related:
+                        fm["related_concepts"] = _related
+        except Exception:
+            pass  # graceful degrade — flag-off byte-identity preserved
+
     ordered_keys = [
         "id", "title", "page_type",
         "canonical_status", "concept_status",
         "last_canonicalized_utc", "enriched_at_utc",
         "aliases",
+        "related_concepts",
         "regulatory_basis",
     ]
     ordered: dict[str, Any] = {}
