@@ -11,6 +11,7 @@ See AD-015 in .ai/10_state/decisions.md for the rationale.
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 
 
 def run_pipeline() -> int:
@@ -69,6 +70,15 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("run")
     subparsers.add_parser("migrate-ids-plan")
     subparsers.add_parser("migrate-ids-apply")
+
+    p_kv_migrate = subparsers.add_parser(
+        "ple-kv-migrate",
+        help="Sprint HP.3-R: migrate SQLite KV store to RocksDB",
+    )
+    p_kv_migrate.add_argument("--store", choices=["event", "registry"], required=True)
+    p_kv_migrate.add_argument("--source", type=Path, required=True)
+    p_kv_migrate.add_argument("--dest", type=Path, required=True)
+    p_kv_migrate.add_argument("--dry-run", action="store_true")
 
     detect_parser = subparsers.add_parser("detect-one")
     detect_parser.add_argument("relative_pdf_path")
@@ -334,6 +344,15 @@ def main() -> int:
     if args.command == "migrate-ids-apply":
         from vitruvius.migrations import run_migrate_ids_apply
         return run_migrate_ids_apply()
+
+    if args.command == "ple-kv-migrate":
+        from vitruvius.kv_migrate import run_kv_migrate
+        return run_kv_migrate(
+            store=args.store,
+            source=args.source,
+            dest=args.dest,
+            dry_run=args.dry_run,
+        )
 
     if args.command == "extract-relationships-one":
         from vitruvius.relationships import run_extract_relationships_one
