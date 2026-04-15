@@ -59,6 +59,10 @@ draft ─► enriched ─► verified ─┐
 | `source_artifacts` | string[] | Relative paths to the refined Markdown under `002_Raw-Conversion-Layer/`. |
 | `jurisdiction` | string | e.g., `philippines`. |
 | `effective_date` | ISO-8601 date | When the source took legal effect. |
+| `document_type` | string | *(Sprint R / Stream Y1.1)* Machine-readable document type for priming (e.g., `presidential_decree`, `implementing_rules`, `department_order`). Read by `scripts/vitruvius/priming/context_vector.py` to build the source-identity fingerprint. |
+| `issuing_body` | string | *(Sprint R / Stream Y1.1)* Government body or agency that issued the document (e.g., `Office of the President`, `DPWH`). Read by `scripts/vitruvius/priming/context_vector.py`. |
+| `issue_date` | ISO-8601 date | *(Sprint R / Stream Y1.1)* Date the document was signed or published (distinct from `effective_date`, which is when it took legal effect). Read by `scripts/vitruvius/priming/context_vector.py` to build the source-identity fingerprint. |
+| `identity_fingerprint` | string | *(NEW — not yet persisted to source files)* SHA-256 hex digest (16-char prefix) of the tuple `(jurisdiction, document_type, issuing_body, issue_date, title)`. Computed at review time by `scripts/vitruvius/priming/context_vector.py::build_source_identity()` and injected into every LLM prompt as `SOURCE_IDENTITY[<fingerprint>]: ...`. Not currently written back to the source file — it is deterministic from the other fields and is recomputed on each call. May be persisted here for audit-log cross-referencing in a future sprint. |
 | `supersedes` | string[] | IDs of source documents this record replaces. |
 | `superseded_by` | string | ID of the newer source, if any. |
 | `language` | string | ISO 639-1 (e.g., `en`, `fil`). |
@@ -106,6 +110,9 @@ topic_tags:
   - philippines
 jurisdiction: philippines
 effective_date: 1977-02-19
+document_type: presidential_decree
+issuing_body: Office of the President
+issue_date: 1977-02-19
 language: en
 source_documents:
   - 001-Laws/PD-1096/PD 1096 - National Building Code of the Philippines.pdf
@@ -164,7 +171,8 @@ These rules MUST be enforced by the canonicalizer and by `run_lint`.
 
 ## 11. Open Questions
 - Whether `trust_level: unverified` sources should be readable by the extractor at all. Current position: yes, but no relationship extracted from them can be promoted (the Promotion Validator rejects them).
-- Whether `supersedes` / `superseded_by` links should generate automatic `supersedes` predicate edges. Deferred until Phase 7 Promotion Layer ships.
+- Whether `supersedes` / `superseded_by` links should generate automatic `supersedes` predicate edges. The Promotion Layer has shipped and the `supersedes` predicate is registered in `scripts/vitruvius/rules/relationship_registry.yaml`. Automatic edge generation from `superseded_by` frontmatter is not yet implemented in `run_promote` — deferred until a dedicated migration sprint.
 
 ## Changelog
 - **2026-04-14** — Initial schema published. Derived from the existing hand-curated source file shape plus master-roadmap §3 contracts.
+- **2026-04-15** — Added `document_type`, `issuing_body`, `issue_date` optional fields consumed by Sprint R / Stream Y1.1 source-identity priming (`scripts/vitruvius/priming/context_vector.py`). Added `identity_fingerprint` forward-compat field note. Updated §11 open question on `supersedes` to reflect Phase 7 shipped status.
