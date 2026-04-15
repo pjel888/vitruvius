@@ -11,6 +11,10 @@ from vitruvius.parsers.orchestrator import (
 )
 from vitruvius.parsers.opendataloader_parser import OpenDataLoaderParser
 from vitruvius.parsers.docling_parser import DoclingParser
+from vitruvius.parsers.libreoffice_preprocessor import (
+    LibreOfficePreprocessor,
+    PreprocessResult,
+)
 
 __all__ = [
     "BaseParser",
@@ -29,4 +33,6 @@ __all__ = [
     "ParserOrchestrator",
     "OpenDataLoaderParser",
     "DoclingParser",
+    "LibreOfficePreprocessor",
+    "PreprocessResult",
 ]
