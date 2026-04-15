@@ -111,3 +111,49 @@ def validate_edge(edge: GraphEdge) -> None:
         raise ContractViolation(
             f"edge status {edge.status!r} not in {sorted(ALLOWED_EDGE_STATUSES)}"
         )
+
+
+@dataclass(frozen=True)
+class TemporalEdge:
+    """Stream GT.3.1 — a time-bound edge: (s, p, o, [valid_from, valid_until)).
+
+    ``valid_until`` is ``None`` for open intervals (edge is still valid).
+    Timestamps MUST be ISO-8601 UTC strings to match the rest of the
+    graph contract.
+    """
+    from_id: str
+    to_id: str
+    type: str
+    evidence_id: str
+    status: str
+    valid_from: str
+    valid_until: str | None = None
+
+
+def validate_temporal_edge(edge: TemporalEdge) -> None:
+    """Validate a TemporalEdge. Delegates the s/p/o checks to the
+    regular ``validate_edge`` helper by projecting onto a GraphEdge,
+    then layers on the valid_from/valid_until checks on top."""
+    projection = GraphEdge(
+        from_id=edge.from_id,
+        to_id=edge.to_id,
+        type=edge.type,
+        evidence_id=edge.evidence_id,
+        status=edge.status,
+    )
+    validate_edge(projection)
+
+    if not isinstance(edge.valid_from, str) or not _ISO_DATE_RE.match(edge.valid_from):
+        raise ContractViolation(
+            f"temporal edge valid_from {edge.valid_from!r} is not a valid ISO-8601 date"
+        )
+    if edge.valid_until is not None:
+        if not isinstance(edge.valid_until, str) or not _ISO_DATE_RE.match(edge.valid_until):
+            raise ContractViolation(
+                f"temporal edge valid_until {edge.valid_until!r} is not a valid ISO-8601 date"
+            )
+        if edge.valid_until <= edge.valid_from:
+            raise ContractViolation(
+                f"temporal edge valid_until {edge.valid_until!r} must be strictly after "
+                f"valid_from {edge.valid_from!r}"
+            )
