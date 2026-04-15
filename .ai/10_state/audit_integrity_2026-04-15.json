@@ -1,0 +1,101 @@
+{
+  "timestamp_utc": "2026-04-15T09:49:39.900415Z",
+  "python_interpreter": "/opt/homebrew/opt/python@3.11/bin/python3.11",
+  "host": "darwin-arm64",
+  "benchmarks": [
+    {
+      "size_label": "1KB",
+      "size_bytes": 1024,
+      "iterations": 1953,
+      "sha256_wall_seconds": 0.001483,
+      "blake3_wall_seconds": 0.003578,
+      "speedup_ratio": 0.4143
+    },
+    {
+      "size_label": "64KB",
+      "size_bytes": 65536,
+      "iterations": 32,
+      "sha256_wall_seconds": 0.000872,
+      "blake3_wall_seconds": 0.001166,
+      "speedup_ratio": 0.7479
+    },
+    {
+      "size_label": "1024KB",
+      "size_bytes": 1048576,
+      "iterations": 32,
+      "sha256_wall_seconds": 0.013715,
+      "blake3_wall_seconds": 0.019598,
+      "speedup_ratio": 0.6998
+    }
+  ],
+  "admission_gate_gaps": [
+    {
+      "site": "scripts/vitruvius/scanner.py::build_file_entries",
+      "description": "Raw-layer file entry \u2014 SHA-256 via _sha256_of_file",
+      "has_integrity_check": true,
+      "algorithm": "sha256",
+      "closed_by": "RI-009"
+    },
+    {
+      "site": "scripts/vitruvius/merkle_fs.py::compute_directory_hash",
+      "description": "Merkle directory hash \u2014 Sprint HP.1",
+      "has_integrity_check": true,
+      "algorithm": "sha256",
+      "flag": "hp_merkle_fs"
+    },
+    {
+      "site": "scripts/vitruvius/wiki/delta_tracker.py::compute_delta",
+      "description": "Wiki delta tracker \u2014 SHA-256 per content block",
+      "has_integrity_check": true,
+      "algorithm": "sha256",
+      "flag": "wiki_delta_tracking"
+    },
+    {
+      "site": "scripts/vitruvius/promotion/__init__.py::run_promote",
+      "description": "Phase 7 promotion \u2014 schema + registry validation + audit log",
+      "has_integrity_check": true,
+      "algorithm": "schema+audit_log",
+      "closed_by": "Phase 7"
+    },
+    {
+      "site": "scripts/vitruvius/graph/rocksdb_event_store.py::append",
+      "description": "RocksDB event store append \u2014 JSON serialize, no content hash in value",
+      "has_integrity_check": false,
+      "algorithm": null,
+      "gap_severity": "LOW",
+      "gap_reason": "RocksDB internal block-level checksums already protect against on-disk corruption. A per-value cryptographic commitment would catch RAM corruption or malicious writes but is not currently in the threat model."
+    },
+    {
+      "site": "scripts/vitruvius/review/rocksdb_stateful_registry.py::put",
+      "description": "RocksDB verdict cache put \u2014 JSON serialize, no content hash",
+      "has_integrity_check": false,
+      "algorithm": null,
+      "gap_severity": "LOW",
+      "gap_reason": "Same as event store: RocksDB block checksums cover disk corruption. Verdict cache entries are regeneratable from the LLM; corruption is recoverable."
+    },
+    {
+      "site": "scripts/vitruvius/geometric/inequality_compiler.py::check_compliance",
+      "description": "Z3 SAT admission check for parametric constraints",
+      "has_integrity_check": true,
+      "algorithm": "z3_sat_check",
+      "flag": "geom_csp_compiler"
+    },
+    {
+      "site": "spatial-daemon/src/contract_writer.ts",
+      "description": "TypeScript daemon contract file \u2014 writes JSON without a signature",
+      "has_integrity_check": false,
+      "algorithm": null,
+      "gap_severity": "MEDIUM",
+      "gap_reason": "Python reads this file and trusts its contents. A truncated or corrupt write would silently produce wrong spatial results. Adding a SHA-256 or BLAKE3 footer would let the Python reader detect integrity failures."
+    }
+  ],
+  "open_gap_count": 3,
+  "medium_or_higher_open_gap_count": 1,
+  "decision_gate": {
+    "blake3_vs_sha256_1mb_ratio": 0.6998,
+    "threshold_go_replace": 2.5,
+    "threshold_go_supplement": 1.5,
+    "recommendation": "GO_GAP",
+    "notes": "BLAKE3 at 1MB: 0.7x vs SHA-256. 1 medium+ open admission-gate gap(s). Decision: GO_GAP."
+  }
+}
