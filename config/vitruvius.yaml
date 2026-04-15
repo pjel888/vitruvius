@@ -149,11 +149,12 @@ features:
   phys_shannon_sampling: false
   phys_eigenvector_cascade: false
   # Sprint HP — High-Performance Optimizations (phase-13).
-  # Only HP.1 ships now (Merkle tree directory hash for zero-RAM
-  # status). HP.3 (RocksDB event sourcing), HP.4 (Rust/Wasm
-  # kernels), HP.5 (GraphSAGE) are deferred until their external
-  # toolchains / dependencies are installed on the host.
+  # HP.1 Merkle fs + HP.3 event-sourced graph (SQLite-backed)
+  # shipped. HP.4 (Rust/Wasm kernels) + HP.5 (GraphSAGE)
+  # remain deferred until DGL/PyTorch Geometric and wasmtime
+  # Python bindings are installed.
   hp_merkle_fs: false
+  hp_event_sourced_graph: false
   # Sprint GEOM — Geometric Constraint Engine (phase-15).
   # All four streams now land: GEOM.1 inequality→Z3 compiler,
   # GEOM.3 2D+3D buildable envelope, GEOM.4 IoU audit + Pareto
