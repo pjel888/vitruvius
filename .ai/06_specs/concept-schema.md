@@ -56,8 +56,9 @@ placeholder ─► draft ─► enriched ─► verified ─┐
 | `enriched_at_utc` | ISO-8601 UTC | When the concept transitioned past `draft`. |
 | `reviewed_at_utc` | ISO-8601 UTC | When the concept transitioned to `verified`. |
 | `reviewer` | string | Reviewer identifier (model or human). |
-| `ifc_class` | string | *(Stream M.2)* IFC 4.3 class name that best models this concept (e.g., `IfcDoor`, `IfcWall`, `IfcSpace`). Must start with `Ifc`. Validated by `scripts/vitruvius/ontology/ifc_validator.py` against `scripts/vitruvius/ontology/ifc_mapping.yaml`. |
+| `ifc_class` | string | *(Stream M.2)* IFC 4.3 class name that best models this concept (e.g., `IfcDoor`, `IfcWall`, `IfcSpace`). Must start with `Ifc`. Loaded and validated by `scripts/vitruvius/ontology/ifc_registry.py` against `scripts/vitruvius/ontology/ifc_mapping.yaml`. |
 | `ifc_psets` | string[] | *(Stream M.2)* Optional list of IFC Property Set names paired with `ifc_class` (e.g., `[Pset_DoorCommon]`). Purely descriptive until Stream M.4 lint runs — no behaviour change if omitted. |
+| `stringency_vector` | enum | *(Sprint W3.1/W3.2)* Numeric conflict-resolution policy when two edges compete for the same `(from_entity, predicate, to_entity)` triplet. Allowed values: `maximize` \| `minimize` \| `qualitative`. Default: `qualitative`. Enforced by `run_lint` (`scripts/vitruvius/linting.py`); injected by migration at `scripts/vitruvius/migrations/add_stringency_vector.py`. |
 
 ## 5. Body Structure — Required Sections
 
@@ -91,6 +92,7 @@ title: Occupancy Classification
 page_type: concept
 canonical_status: placeholder
 concept_status: placeholder
+stringency_vector: qualitative
 last_canonicalized_utc: 2026-04-13T08:44:19.832285+00:00
 ---
 
@@ -120,6 +122,7 @@ topic_tags:
   - philippines
 jurisdiction: philippines
 language: en
+stringency_vector: qualitative
 regulatory_basis:
   - source_id: law-national-building-code-of-the-philippines
     section_id: sec-701
@@ -167,7 +170,7 @@ Code of the Philippines (PD 1096).
 
 ### 9.3 Cross-Schema
 - Every concept ID referenced in a source's `## Referenced Concepts` MUST exist as a concept file (enforced by source schema §8 rule 10).
-- Every concept ID used in a relationship's `from_entity` or `to_entity` MUST exist as a concept file with `canonical_status != "placeholder"` **at promotion time** (enforced by Promotion Validator in Phase 7).
+- Every concept ID used in a relationship's `from_entity` or `to_entity` MUST exist as a concept file with `canonical_status != "placeholder"` **at promotion time** (enforced by `validate_promotion_record` in `scripts/vitruvius/promotion_validator.py`, called by `run_promote`).
 
 ## 10. Relationship to Other Schemas
 - **Source schema:** Concepts reference sources through `regulatory_basis`. The Promotion Validator cross-checks that every `source_id` used by a concept resolves to an existing canonical source file.
@@ -179,8 +182,8 @@ Code of the Philippines (PD 1096).
 - **Splitting concepts:** the original concept goes to `superseded`, replaced by two or more new IDs that cross-reference each other. A migration record is required in `/.ai/10_state/decisions.md`.
 
 ## 12. Open Questions
-- Whether `placeholder` concepts should still be usable by the extractor as vocabulary. Current position: yes — vocabulary presence is the minimum bar for Phase 5 to match. The review layer catches any weak matches downstream.
 - Whether `regulatory_basis` should support multi-source concepts with conflict resolution. Deferred until Phase 11 (dataset expansion).
 
 ## Changelog
 - **2026-04-14** — Initial schema published. Derived from current placeholder generator output + Phase 3C enrichment targets in the master roadmap.
+- **2026-04-15** — Added `stringency_vector` optional field (Sprint W3.1/W3.2; `scripts/vitruvius/migrations/add_stringency_vector.py` + `linting.py`). Corrected IFC validator reference from `ifc_validator.py` to `ifc_registry.py`. Closed placeholder-vocabulary open question. Updated §9.3 to reference shipped `validate_promotion_record` instead of future Phase 7.
