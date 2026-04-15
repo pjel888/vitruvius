@@ -207,3 +207,43 @@ def check_gate_005_libreoffice_pdf(*, pdf_path: Path) -> GateResult:
         status=GateStatus.PASSED,
         reason=f"PDF {pdf_path.name} is {size_bytes} bytes (>=256)",
     )
+
+
+def check_gate_006_min_chars_per_page(
+    parse_result: ParseResult,
+    *,
+    min_chars_per_page: int = 20,
+) -> GateResult:
+    """GATE-006 — minimum characters per extracted page.
+
+    Catches silent failures where a parser returns non-error but
+    empty (or near-empty) text — typical for encrypted PDFs and
+    lopdf decode failures on non-standard font dictionaries.
+    Sprint 1B-M3 Task 3.
+    """
+    telemetry = parse_result.telemetry
+    if telemetry.pages_total == 0:
+        return GateResult(
+            gate_id="GATE-006",
+            gate_name="min_chars_per_page",
+            status=GateStatus.FAILED,
+            reason=f"zero pages extracted; parser_id={telemetry.parser_id!r}",
+        )
+    avg = telemetry.md_length / telemetry.pages_total
+    if avg < min_chars_per_page:
+        return GateResult(
+            gate_id="GATE-006",
+            gate_name="min_chars_per_page",
+            status=GateStatus.FAILED,
+            reason=(
+                f"average chars per page {avg:.1f} below threshold "
+                f"{min_chars_per_page} ({telemetry.md_length} chars / "
+                f"{telemetry.pages_total} pages)"
+            ),
+        )
+    return GateResult(
+        gate_id="GATE-006",
+        gate_name="min_chars_per_page",
+        status=GateStatus.PASSED,
+        reason=f"{avg:.1f} chars/page >= {min_chars_per_page}",
+    )
