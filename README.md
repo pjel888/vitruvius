@@ -9,19 +9,28 @@
    ╚═══╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═╝ ╚═════╝ ╚══════╝
 
    ─────────────────────────────────────────────────────────────────
-     A headless, mathematically rigorous AEC physics & compliance engine.
-                Geometry is a derivative of Physics and Law.
+     An auditable document-to-knowledge engine for technical rule systems.
+         Building toward compliance-grade reasoning and AEC decision support.
                     Firmitas · Utilitas · Venustas
    ─────────────────────────────────────────────────────────────────
 ```
 
-**Vitruvius is a Multi-Objective Constraint Solver for the built environment** —
-a headless, deterministic engine for Architecture, Engineering, and Construction
-that treats physics, building code, and cost as first-class inputs and treats
-geometry as a *derivative* that falls out when all constraints are satisfied.
+**Vitruvius is, today, an auditable document-to-knowledge pipeline for complex
+technical and regulatory corpora** — with the built environment as its primary
+target domain in this repository. It ingests messy source material, converts it
+into machine-readable text, refines and canonicalizes that text into structured
+knowledge, and builds governed relationships, graph artifacts, and traceable
+query surfaces on top of it.
+
+**Vitruvius is also building toward a Multi-Objective Constraint Solver for the
+built environment** — a headless, deterministic engine for Architecture,
+Engineering, and Construction that treats physics, building code, and cost as
+first-class inputs and treats geometry as a *derivative* that falls out when
+all constraints are satisfied. That AEC reasoning layer is the strategic
+direction, not the cleanest description of what the repository delivers today.
+
 It is not a 3D modeler. It is not a general knowledge graph that incidentally
-handles buildings. It is purpose-built for AEC, vertically specialized, and
-designed around a single guiding principle:
+handles buildings. It is designed around a single guiding principle:
 
 > **The Physics are Universal, but the Parameters are Local.**
 >
@@ -276,6 +285,7 @@ AD-029 (RocksDB migration) for the per-sprint ledgers.
 
 - [Compound AI System Definition](#vitruvius-compound-ai-system-definition)
 - [Vitruvius in plain English](#vitruvius-in-plain-english)
+- [From source documents to investor value](#from-source-documents-to-investor-value)
 - [Quick start](#quick-start)
 - [Architecture at a glance](#architecture-at-a-glance)
 - [Use cases](#use-cases)
@@ -315,6 +325,51 @@ In this repository, the current working corpus is mostly Philippine
 building-code material such as PD 1096 and its IRR. The same workflow is
 meant to carry over to other technical or regulatory document sets once
 their source corpus and rules are added.
+
+---
+
+## From source documents to investor value
+
+The shortest accurate investor version is:
+
+> **Vitruvius turns complex professional documents into auditable,
+> structured knowledge today, and is building toward compliance-grade
+> reasoning and decision support on top of that verified knowledge base.**
+
+```mermaid
+flowchart TD
+    A["1. Source documents<br/>PDFs, scans, Office files, spreadsheets"]
+    B["2. Conversion<br/>extract text into markdown and structured sidecar data"]
+    C["3. Refinement<br/>clean, normalize, and stabilize the text"]
+    D["4. Canonical knowledge<br/>create trusted source records, concepts, and IDs"]
+    E["5. Governance<br/>extract candidate relationships, review them, and promote approved ones"]
+    F["6. Value today<br/>auditable knowledge base, cited answers, reusable rule assets"]
+    G["7. Roadmap direction<br/>compliance workflows, scenario analysis, and AEC decision support"]
+
+    A --> B --> C --> D --> E --> F
+    F -. planned next layer .-> G
+
+    classDef live fill:#eef7ff,stroke:#2563eb,color:#0f172a;
+    classDef future fill:#fff7ed,stroke:#ea580c,color:#7c2d12,stroke-dasharray: 5 5;
+    class A,B,C,D,E,F live;
+    class G future;
+```
+
+How to read this diagram:
+
+- **Everything in the solid flow is what the repository is built to do
+  today:** take messy source material and turn it into governed,
+  traceable knowledge.
+- **Each stage increases trust:** raw files become machine-readable
+  text, then normalized text, then canonical records, then reviewed and
+  promoted knowledge assets.
+- **The “value today” box is the current platform outcome:** a
+  knowledge base with provenance, citations, audit trails, and reusable
+  structured rule assets.
+- **The dashed roadmap box is deliberate:** Vitruvius is clearly
+  building toward higher-level compliance and AEC decision support, but
+  that layer should be read as direction, not as a fully shipped product
+  surface in this repo yet.
 
 ---
 
@@ -626,11 +681,11 @@ inspection. The bi-directional feedback loop propagates failures upward.
 
 ### Wasm Deployment
 
-The Rust kernel compiles to `wasm32-unknown-unknown` so the same code that
-runs locally on an 8 GB M2 also runs in the browser, with React Three Fiber
-doing only the rendering and Wasm doing all the math. The current `hp_wasm_kernels`
-flag (default false) exercises this path through `compound/wasm_kernel.py` and
-`wasmtime`.
+The Rust kernel can compile to `wasm32-unknown-unknown`, but this remains an
+**experimental compute path**, not a shipped browser UI in the current repo.
+Today the `hp_wasm_kernels` flag (default false) exercises the path through
+`compound/wasm_kernel.py` and `wasmtime`; any future browser/React Three Fiber
+surface is still directional rather than present-tense product reality.
 
 ### What's already in this repo vs. what the research points to
 
@@ -927,7 +982,7 @@ before running the full suite. The full suite is broader than "basic CLI
 works": it also checks the spaCy dependency parser and the Rust parity
 paths.
 
-**Validation snapshot as of 2026-04-16 on `main`: 1512 Python tests passed, 14 skipped** after installing `en_core_web_sm` and a CPython 3.12 build of `vitruvius_engine_rs`. Also: **21 TypeScript tests passing** in the `spatial-daemon/` sibling subproject (vitest), and **33 Rust tests passing** across `scripts/vitruvius/engine_rs` (26) and `scripts/vitruvius/datalog_rs` (7).
+**Validation snapshot as of 2026-04-16 on `main`: 1572 Python tests passed, 1 skipped.** Also: **21 TypeScript tests passing** in the `spatial-daemon/` sibling subproject (vitest), **33 Rust unit tests passing** across `scripts/vitruvius/engine_rs` + `scripts/vitruvius/datalog_rs`, and strict Rust static gates are green (`cargo fmt --all --check`, `cargo clippy --workspace --all-targets -- -D warnings`).
 
 The integration tests include:
 - Full-pipeline determinism check (byte-identical outputs on re-run modulo
@@ -1112,7 +1167,7 @@ As of 2026-04-15 — after closing ten governing-plan sprints this session (Q, R
 - Sprint Z neuro-symbolic verification: 0 runtime cost (flag-off by default)
 - **Total: ~4 Ollama calls per full pipeline run**
 
-**Test suite as of 2026-04-16:** Python **1512 passed / 14 skipped** on `main` after installing `en_core_web_sm` and a CPython 3.12 build of `vitruvius_engine_rs`; TypeScript **21 passed** (`spatial-daemon`); Rust tests **33 passed** (`engine_rs` + `datalog_rs`).
+**Test suite as of 2026-04-16:** Python **1572 passed / 1 skipped** on `main`; TypeScript **21 passed** (`spatial-daemon`); Rust unit tests **33 passed** (`engine_rs` + `datalog_rs`); Rust fmt/clippy are green. The prior duplicate canonical source ID blocker has been remediated; `build-graph` now passes with warnings only.
 
 ---
 
