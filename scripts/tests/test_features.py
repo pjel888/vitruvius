@@ -137,6 +137,8 @@ EXPECTED_FLAGS = {
     # Sprint GEOM — Geometric Constraint Engine (phase-15)
     "geom_csp_compiler", "geom_envelope_2d", "geom_envelope_3d",
     "geom_iou_audit", "geom_pareto_optimizer",
+    # Sprint WIKI — Autonomous Knowledge Synthesis (phase-14)
+    "wiki_docling_parser", "wiki_kuzu_store", "wiki_delta_tracking",
 }
 
 

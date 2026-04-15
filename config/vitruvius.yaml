@@ -163,3 +163,12 @@ features:
   geom_envelope_3d: false
   geom_iou_audit: false
   geom_pareto_optimizer: false
+  # Sprint WIKI — Autonomous Knowledge Synthesis (phase-14).
+  # Narrow slice: WIKI.1 Docling PDF→Markdown converter,
+  # WIKI.3 Kuzu hybrid store, WIKI.4.1 delta tracking via the
+  # Merkle primitive from HP.1. WIKI.2 LLM synthesis loop and
+  # WIKI.4.2 LLM linter deferred — they need live Ollama round
+  # trips that are out of scope for in-session TDD.
+  wiki_docling_parser: false
+  wiki_kuzu_store: false
+  wiki_delta_tracking: false
