@@ -382,6 +382,40 @@ def run_extract_relationships_sections_one(*, relative_markdown_path: str) -> in
 
     aggregated = aggregate_relationships(all_relationships)
 
+    # Sprint CLEANUP-1 C4.3 — optional Phase 5E LLM-assisted extraction.
+    # Flag-gated behind `p5e_llm_extraction`. Flag-off is byte-identical —
+    # aggregated flows unchanged to dedupe. Flag-on runs the LLM proposer
+    # for each section, then merges the LLM candidates with `aggregated`
+    # (regex wins on overlap). Any exception falls back to regex-only.
+    try:
+        from vitruvius.spatial._feature_gate import _load_features_cached
+        _features = _load_features_cached()
+    except Exception:
+        _features = None
+
+    if _features is not None and _features.is_enabled("p5e_llm_extraction"):
+        try:
+            from vitruvius.relationships.llm_proposer import propose_relationships_llm
+            from vitruvius.relationships.phase_5e_merger import merge_regex_and_llm
+
+            llm_candidates = []
+            for section in sections:
+                sec_id = section.get("section_id", "section-unknown")
+                sec_text = normalize_text(section.get("lines", []))
+                if not sec_text:
+                    continue
+                llm_candidates.extend(
+                    propose_relationships_llm(
+                        section_text=sec_text,
+                        section_id=sec_id,
+                        source_id=source_id,
+                    )
+                )
+            aggregated = merge_regex_and_llm(aggregated, llm_candidates)
+        except Exception:
+            # Graceful degrade: fall through with regex-only candidates
+            pass
+
     # Sprint LSH-1 — optional fuzzy near-duplicate layer per AD-037.
     # Off by default (plan §1.3 non-breaking contract). On a
     # byte-identical run the flag-off path must produce exactly the
