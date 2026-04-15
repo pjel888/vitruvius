@@ -1,0 +1,32 @@
+{
+  "timestamp_utc": "2026-04-15T02:23:26Z",
+  "n": 10000,
+  "python_interpreter": "/opt/homebrew/opt/python@3.11/bin/python3.11",
+  "host": "darwin-arm64",
+  "results": [
+    {
+      "backend": "sqlite",
+      "op": "event_store",
+      "n": 10000,
+      "wall_seconds": 3.6468,
+      "throughput_per_second": 2742.16,
+      "breakdown": {
+        "append_seconds": 3.5565,
+        "point_lookup_seconds": 0.0799,
+        "project_graph_at_seconds": 0.0103
+      }
+    },
+    {
+      "backend": "sqlite",
+      "op": "verdict_cache",
+      "n": 10000,
+      "wall_seconds": 3.3633,
+      "throughput_per_second": 2973.3,
+      "breakdown": {
+        "put_seconds": 3.2351,
+        "get_hit_seconds": 0.0734,
+        "get_miss_seconds": 0.0548
+      }
+    }
+  ]
+}
