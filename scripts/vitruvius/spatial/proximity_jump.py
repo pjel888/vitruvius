@@ -26,9 +26,6 @@ flag in ``config/vitruvius.yaml``.
 from __future__ import annotations
 
 import math
-import os
-from functools import lru_cache
-from pathlib import Path
 from typing import Any, Iterable, Mapping, Protocol
 
 # Sprint RUST-MIG-1 Task 5 — import the Rust fast path lazily.
@@ -36,34 +33,13 @@ from typing import Any, Iterable, Mapping, Protocol
 # extension module is not built, so the fast-path guard below is
 # a pure attribute check with no ImportError risk at call time.
 from vitruvius.engine_rs import weight_by_distance_rs
-from vitruvius.features import Features, load_features
 
-
-def _resolve_config_path() -> Path:
-    """Mirror of ``vitruvius.spatial.cli._resolve_config_path``.
-
-    Honours ``VITRUVIUS_CONFIG`` for hermetic tests, falls back to
-    ``<cwd>/config/vitruvius.yaml``. Kept local to this module so the
-    proximity-jump helpers do not pull in the CLI command stack on
-    the hot import path.
-    """
-    env_path = os.environ.get("VITRUVIUS_CONFIG")
-    if env_path:
-        return Path(env_path)
-    return Path.cwd() / "config" / "vitruvius.yaml"
-
-
-@lru_cache(maxsize=1)
-def _load_features_cached() -> Features:
-    """Load the feature-flag block once per process.
-
-    The parity test in ``test_proximity_jump_weight_parity.py``
-    monkey-patches this function directly, so keep it as a plain
-    module-level attribute — do NOT inline the ``load_features``
-    call inside ``weight_by_distance`` or the test's flag flip will
-    not take effect.
-    """
-    return load_features(_resolve_config_path())
+# Sprint RUST-MIG-1 Task 5 review fix — import the shared feature-gate
+# helper. Parity tests monkey-patch ``_load_features_cached`` on THIS
+# module (``_pj_module._load_features_cached``), so we must rebind the
+# name locally rather than calling ``_feature_gate._load_features_cached``
+# at the call site.
+from vitruvius.spatial._feature_gate import _load_features_cached
 
 
 class _OctreeLike(Protocol):
@@ -192,13 +168,15 @@ def weight_by_distance(
         for seed_id, (x, y, z) in seeds.items():
             seed_ids.append(seed_id)
             seed_payload.append((float(x), float(y), float(z)))
-        focal_tuple = (
-            float(focal_xyz[0]),
-            float(focal_xyz[1]),
-            float(focal_xyz[2]),
-        )
+        # Sprint RUST-MIG-1 Task 5 review fix — ``focal_xyz`` is already
+        # typed as ``tuple[float, float, float]`` and ``lambda_decay`` is
+        # already typed as ``float`` in the public signature, so we pass
+        # both through to the Rust kernel without any redundant
+        # reconstruction or cast. Dropping the previous ``focal_tuple``
+        # local eliminates a per-call tuple allocation on the hot FFI
+        # boundary.
         rust_weights = weight_by_distance_rs(
-            seed_payload, focal_tuple, float(lambda_decay)
+            seed_payload, focal_xyz, lambda_decay
         )
         return dict(zip(seed_ids, rust_weights))
 

@@ -188,3 +188,45 @@ def test_rust_fast_path_is_noop_when_flag_off(monkeypatch) -> None:
     # Non-empty — proves the Python baseline actually emitted something.
     assert len(out) == 50
     assert all(0.0 < w <= 1.0 for w in out.values())
+
+
+def test_rust_lambda_zero_returns_all_ones_via_integration(monkeypatch) -> None:
+    """``lambda_decay=0.0`` through the full Python→pyo3 round trip → all 1.0.
+
+    Sprint RUST-MIG-1 Task 5 review fix (Fix 3). The Rust unit tests in
+    ``engine_rs/spatial_kernels/src/weight_decay.rs`` already cover
+    ``lambda=0`` at the kernel level, but there was no Python parity
+    test exercising the end-to-end FFI marshal with ``lambda=0``. This
+    test closes that gap — it catches any regression where the
+    ``lambda_decay`` scalar somehow fails to reach the Rust kernel
+    intact (e.g. a future edit that accidentally hard-codes a default
+    or clamps the argument).
+
+    Mathematically: ``exp(-0 * d) = exp(0) = 1`` for ANY ``d``, so every
+    returned weight must be EXACTLY 1.0 (not just close to it — the
+    kernel short-circuits or the libm implementation is bug-free, both
+    give an exact bit pattern).
+    """
+    if getattr(_pj_module, "weight_by_distance_rs", None) is None:
+        pytest.skip("Rust fast path not built.")
+
+    class _FlagsOn:
+        def is_enabled(self, name: str) -> bool:
+            return name == "rust_mig_spatial_kernels"
+
+    monkeypatch.setattr(_pj_module, "_load_features_cached", lambda: _FlagsOn())
+
+    # 100 random seeds via numpy's deterministic rng — same seed=42 the
+    # main parity test uses so any repro goes through the same fixture
+    # generator code path.
+    seeds = _make_synthetic_seeds(100)
+
+    out = weight_by_distance(seeds, focal_xyz=_FOCAL, lambda_decay=0.0)
+
+    assert len(out) == 100
+    # Every weight must be EXACTLY 1.0 — not 1.0 ± 1e-12, but bit-exact.
+    for seed_id, weight in out.items():
+        assert weight == 1.0, (
+            f"lambda_decay=0 round-trip returned {weight!r} for {seed_id!r} — "
+            "scalar failed to reach the Rust kernel intact."
+        )
