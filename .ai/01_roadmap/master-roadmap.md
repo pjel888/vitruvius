@@ -4,7 +4,7 @@
 > **Audience:** Architects, engineers, auditors, and autonomous agents operating on this repo.
 > **Authoritative for:** Phase order, definitions of done, gating metrics, status reconciliation.
 > **Supersedes:** Prior phase lists, ad-hoc README roadmaps, and any conflicting status claims.
-> **Version:** 2.1.0 · **Last revised:** 2026-04-15 · **Next review due:** 2026-05-01
+> **Version:** 2.2.0 · **Last revised:** 2026-04-15 · **Next review due:** 2026-05-01
 > **Owner:** Senior Systems Architect
 
 ---
@@ -23,9 +23,11 @@
 ## 1. Vision and Strategy
 
 ### 1.1 Long-Term Vision
-Vitruvius is a **local-first, governance-first knowledge engine** that converts heterogeneous domain sources (laws, regulations, technical standards, reference material) into a **validated, queryable knowledge graph**. It is not a RAG wrapper. It enforces a hard boundary between *raw text*, *candidate signals*, and *canonical truth*, and treats every transformation as auditable.
+Vitruvius is a **local-first, governance-first, domain-agnostic knowledge engine** that converts heterogeneous professional-domain sources (statutes, codes, technical standards, clinical guidelines, engineering specs, reference material) into a **validated, queryable knowledge graph**. It is not a RAG wrapper. It enforces a hard boundary between *raw text*, *candidate signals*, and *canonical truth*, and treats every transformation as auditable.
 
-Initial corpus: **Philippine building laws and regulations** (PD 1096 and its IRR). Long-term: any structured legal or technical domain that can be expressed through the same ingestion → refinement → extraction → review → promotion pipeline.
+**Positioning.** Vitruvius is optimized as a **professional-domain specialist** — a tool for fields where precision matters more than coverage. Target domains include architecture & the built environment, engineering (civil / structural / mechanical / electrical), medicine & clinical practice, law & regulatory compliance, and science & academia. The core pipeline is corpus-agnostic: porting to a new domain is a matter of swapping the contents of `001_Raw-Source-Layer/`, the rules under `scripts/vitruvius/rules/`, and the concept vocabulary under `003_Canonical-Knowledge-Layer/shared/concepts/`.
+
+**Active reference corpus.** **Philippine building laws and regulations** (PD 1096 and its IRR). PD 1096 is the benchmark the tests, audits, and per-sprint decision-log numbers are measured against — not the product scope. The README's "Adapting Vitruvius to a new professional domain" section is the operating recipe for a second-domain port.
 
 ### 1.2 Multi-Layer Verification Model
 No fact enters the Canonical layer without clearing three gates:
@@ -65,7 +67,7 @@ These are enforced in code review, by `run_lint`, and in the audits. They are re
 | P7 | **Explicit concept vocabulary.** Relationship extraction may only use concepts that exist in `003/shared/concepts`. | `relationships.py` + `concepts.py` |
 | P8 | **Local-first AI.** Cloud LLMs are opt-in only. Review must run air-gapped. | `ollama_review.py` default |
 | P9 | **No soft output.** Any extracted candidate without a `source_section_id` is rejected at the validation boundary. | Schema validation (Phase 7) |
-| P10 | **No schema-less growth.** New laws are not ingested until the Promotion Layer is validating existing PD 1096 data. | Project policy, Section 8 gate |
+| P10 | **No schema-less growth.** A new corpus (a second jurisdiction's building code, a new medical specialty's guidelines, a new code of practice) is not ingested until the Promotion Layer is validating existing reference-corpus data. | Project policy, Section 8 gate |
 
 Full text and rationale: `/.ai/00_system/principles.md`.
 
@@ -212,7 +214,7 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 
 ---
 
-## 5. Honest Position Statement (updated 2026-04-15)
+## 5. Honest Position Statement (updated 2026-04-15 14:45)
 
 **What works end-to-end today:**
 - Ingestion → conversion → refinement (Phase 1C MVP) → canonicalization → extraction → pre-review filter → Tier 1 LLM review → Tier 2 adjudication → promotion → canonical graph write.
@@ -227,24 +229,37 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 - Sprint HP (High-Performance Optimizations) shipped on 2026-04-15: Merkle fs, SQLite event store (pivoted from RocksDB at the time), Wasm spatial kernels, GraphSAGE loopholes.
 - Sprint Z (Compound AI Evolution) shipped on 2026-04-15: neuro-symbolic Datalog bridge (Rust `datalog_rs` crate), adversarial swarm, differential dataflow, Wasm kernel, DSPy prompt compiler.
 - **Sprint HP.3-R (RocksDB KV Migration) shipped on 2026-04-15**: completed the original HP.3 spec. `RocksDBEventStore` + `RocksDBStatefulReviewRegistry` + factory dispatch + `ple-kv-migrate` CLI + O(1) count optimization. Bench at n=10000 measured RocksDB **18.7× faster** (event store) and **24.3× faster** (verdict cache) than SQLite; flag defaults flipped to `true` per AD-029.
+- **Sprint 1B-M1 (Phase 1B Modernization Tranche 1) shipped on 2026-04-15**: `DoclingParser(BaseParser)` + `LibreOfficePreprocessor` + `GATE-005` quality gate + orchestrator `preprocessors` kwarg wiring. Two `p1b_*` feature flags default false until pipeline_cli.py integration lands. AD-031.
+- **Sprint 1B-M2 (Phase 1B Modernization Tranche 2, scoped) shipped on 2026-04-15**: `OCRPreprocessor` (wraps `ocrmypdf`) + `ParserOrchestrator.process_batch` + `GoldenCorpusBenchmark` harness + 2 `p1b_*` flags. Marker/Surya **DEFERRED** per AD-032 feasibility finding (disk at 95.2% during tranche execution, RAM headroom 2.03 GB — insufficient for safe ML-dep install on 8 GB M2). AD-032.
+- **Sprint RUST-PDF-1 (Rust PDF Ingestion Audit) shipped on 2026-04-15**: **GO verdict.** lopdf-based `vitruvius_rust_pdf` crate measured at **13.7 MB peak RSS (48× smaller than docling) and 0.05 s wall-clock (625× faster)** on synthetic PDFs. This audit unblocks the "low-spec M2 target" and is the single largest ingestion RAM win in the tree. AD-033.
+- **Sprint 1B-M3 (Phase 1B Modernization Tranche 3) shipped on 2026-04-15**: `RustPdfParser(BaseParser)` wraps `vitruvius_rust_pdf`; `GATE-006` min-chars-per-page quality gate added; `p1b_rust_pdf_parser` flag (default false); real-PDF LCS quality rollback gate at **0.9925** on `History of Architecture Sample Exam.pdf` (pypdf baseline comparison). AD-034.
+- **Sprint DISTILL-1 (LLM Reviewer Distillation Audit) shipped on 2026-04-15**: **DEFER_NO_DATA verdict.** Audit harness walks the Sprint R Y4 `StatefulReviewRegistry` + RocksDB verdict cache at 5 known locations and found 0 verdicts. Pre-committed threshold was ≥50 verdicts. Harness committed for re-run after the live review pipeline has been run with `y_stateful_registry=true` + `w_review_nb_prefilter=true` + `w_review_choquet_aggregator=true` on ≥20 PD 1096 sections. AD-035.
+- **Meta Docs Cleanup Sprint shipped on 2026-04-15**: `.ai/00_system/architecture.md` + `.ai/00_system/pipeline-overview.md` refreshed; `.ai/01_roadmap/master-roadmap.md` bumped to v2.1.0 (this file, now v2.2.0); `.ai/02_audits/` banners marked historical; `.ai/10_state/known_issues.md` reconciled; 3 superseded plans archived (phase-8, phase-9, ultimate-architecture). Plan written + executed in-session via subagent dispatch.
 
-**Current hard numbers (as of 2026-04-15):**
-- Python test suite: **1396 passed, 1 skipped** (grew from pre-session 297)
+**Current hard numbers (as of 2026-04-15 14:45 local):**
+- Python test suite: **1437 passed, 1 skipped** (grew from pre-session 297 — +1140 delta)
 - TypeScript test suite: **20 / 20 passing** (`spatial-daemon/`)
-- Rust unit tests: **10 passing** (`engine_rs` core + `datalog_rs`)
-- Canonical relationships: **31 verified** (up from 7 via PD 1096 IRR ingest)
+- Rust unit tests: **10 passing** (`engine_rs` core + `datalog_rs`) + wasm api tests + adjacent lopdf smoke tests
+- Canonical relationships: **31 verified** (unchanged — 2026-04-14 baseline)
 - Enriched concept files: **20 / 20** PD 1096 concepts (all carry `stringency_vector` frontmatter)
-- Sprint tags: **10** — `sprint-q-closed`, `sprint-r-closed`, `sprint-phys-closed`, `sprint-h-closed`, `sprint-geom-closed`, `sprint-wiki-closed`, `sprint-gt-closed`, `sprint-hp-closed`, `sprint-z-closed`, `sprint-hp3r-closed`
-- Decision log: **AD-001 through AD-029** in `.ai/10_state/decisions.md`
-- Active branch: **`main`** (242 commits ahead of `origin/main` — the four feature branches were merged and deleted on 2026-04-15)
+- Sprint tags: **15** — `sprint-q-closed`, `sprint-r-closed`, `sprint-phys-closed`, `sprint-h-closed`, `sprint-geom-closed`, `sprint-wiki-closed`, `sprint-gt-closed`, `sprint-hp-closed`, `sprint-z-closed`, `sprint-hp3r-closed`, `sprint-1b-m1-closed`, `sprint-1b-m2-closed`, `sprint-rust-pdf-1-closed`, `sprint-1b-m3-closed`, `sprint-distill-1-closed`
+- Decision log: **AD-001 through AD-035** in `.ai/10_state/decisions.md` (AD-024–AD-035 are the 2026-04-15 session ledgers)
+- Active branch: **`main`** — fully pushed to `origin/main` (HEAD `c2c154a`); all 15 sprint tags published
+- Git remote: **FIXED** — `gh auth setup-git` ran; `origin` (`github.com/pjel888/vitruvius.git`) authenticates and accepts pushes
 
-**What still needs doing:**
-- **Sprint D Streams J (query integration) + K (docs+CI)** — externally gated on the Ranger dashboard surface (J) and a 2nd jurisdiction corpus (K). Will light up when their external unblockers land.
-- **Phase 1B Modernization §11 Phase 2 + Phase 3** — parser wrapping + Docling/Marker/Surya + ProcessPoolExecutor + Golden Corpus. Design spec exists at `.ai/03_plans/phase-1b-multi-parser-integration-plan.md` but needs a TDD expansion pass before dispatch.
-- **Push to remote** — the Git remote `github.com/pjel888/vitruvius.git` returned "Repository not found" at merge time; needs auth or URL fix before `git push origin main`.
-- **Fresh roadmap brainstorm** — the project is materially ahead of the v2.0.0 roadmap envelope. Next horizon is undefined; v2.1.0 extends only where the roadmap was visibly wrong, not where it was silent.
+**Active work queue (5 queued plans, unexecuted — see governing plan §6 Task 8):**
+- **Advanced Tech Audit** (`.ai/03_plans/2026-04-15-advanced-tech-audit-plan.md`) — scoping audit, dispatched first so it can re-rank the queue.
+- **Sprint RUST-MIG-1** (`.ai/03_plans/2026-04-15-rust-migration-audit-plan.md`) — Python → Rust polyglot split. Ports S1 `build_spatial_adjacency_edges` (O(n²) → O(n log n) via existing `LinearOctree::query_aabb`), S2 `weight_by_distance`, N4 Mahalanobis core, N1 sliced Wasserstein into two new workspace-member crates (`spatial_kernels`, `stats_kernels`) inside the existing `scripts/vitruvius/engine_rs/` Cargo workspace. Single largest wall-time win identified by the fresh 2026-04-15 audit.
+- **pipeline_cli.py integration** (`.ai/03_plans/2026-04-15-pipeline-cli-integration-plan.md`) — wires the six `p1b_*` feature flags into `pipeline_cli.py` routing so flipping any of them actually changes which parser runs on an incoming document. Unblocks user-facing use of every Tranche 1/2/3 deliverable.
+- **Sprint PQ-1** (`.ai/03_plans/2026-04-15-graphsage-pq-embeddings-plan.md`) — 32× disk footprint reduction on GraphSAGE structural embeddings via Product Quantization.
+- **Sprint LSH-1** (`.ai/03_plans/2026-04-15-lsh-dedup-plan.md`) — fuzzy near-duplicate relationship dedup via MinHash LSH. **Note:** RUST-MIG-1's audit found that the Sprint LSH-1 plan's "O(n²) → O(n log n) scaling fix" premise is WRONG — `dedupe_by_endpoints` is already O(n log n) dict-grouped. LSH-1's actual value is semantic fuzzy matching for predicate variants like "lot area ≥ 100 sqm" vs "minimum lot area of 100 square meters". Sprint LSH-1 must be reframed (Sprint RUST-MIG-1 Task 2 writes AD-037) before dispatch.
 
-**Where to read the per-sprint ledger:** `.ai/10_state/decisions.md` AD-024 through AD-029 have the full commit SHAs, test counts, and exit gates for every sprint closed this session.
+**What still needs doing (open options, not yet plans):**
+- **Sprint D Streams J (active learning) + K (CLUP scaling)** — externally gated on the Ranger dashboard surface (J) and a 2nd jurisdiction corpus (K). Will light up when their external unblockers land.
+- **Phase 1B Modernization §11 Phase 3 (Scaling & Governance)** — Tranches 1, 2, 3 all shipped (M1, M2-scoped, M3). The remaining Phase 3 work (ProcessPoolExecutor-scale orchestration already scaffolded by M2 behind `p1b_process_pool_orchestration`, additional parser coverage) is pending the pipeline_cli integration plan above.
+- **Fresh roadmap brainstorm** — the project is materially ahead of the v2.0.0 roadmap envelope and is producing 5–6 sprints per session. Next horizon (Phase 12+ / corpus expansion / real-world evaluation against board-exam prep use case) is undefined. Worth a fresh strategy pass before committing to a new sprint chain.
+
+**Where to read the per-sprint ledger:** `.ai/10_state/decisions.md` AD-024 through AD-035 have the full commit SHAs, test counts, and exit gates for every sprint closed this session.
 
 ---
 
@@ -720,9 +735,9 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 ---
 
-## 8. 90-Day Execution Sequence — ALL GOVERNING-PLAN SPRINTS CLOSED 2026-04-15
+## 8. 90-Day Execution Sequence — 16 SPRINTS CLOSED, 5 QUEUED (2026-04-15 14:45 local)
 
-> **Status:** All ten governing-plan sprints (Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, HP.3-R) shipped in the 2026-04-15 session via subagent-driven-development. Sprints A–C from the pre-session pass are retained below for historical context; the authoritative "what's next" is the **Sprint chain** table in the v2.1.0 addendum below.
+> **Status:** **All** governing-plan sprints + a Phase 1B Modernization three-tranche push + a Rust PDF audit + an LLM reviewer distillation audit + a meta docs cleanup sprint shipped in the 2026-04-15 session via subagent-driven-development. **16 sprints closed, 5 new optimization plans queued but unexecuted.** Sprints A–C from the pre-session pass are retained below for historical context; the authoritative "what's next" is the **queued work** block under the Sprint chain.
 
 ### Sprint chain (all closed)
 
@@ -741,18 +756,37 @@ Every phase below follows the same contract template. A phase is not "done" unti
 | 11 | GT — Geo-Topological Knowledge Graph | Rust crate, linear octree, temporal graph, spatial GraphRAG | `sprint-gt-closed` | AD-028 |
 | 12 | HP — High-Performance Optimizations | Merkle fs, SQLite events, Wasm kernels, GraphSAGE | `sprint-hp-closed` | AD-028 |
 | 13 | Z — Compound AI Evolution | Datalog bridge, adversarial swarm, differential dataflow, DSPy | `sprint-z-closed` | AD-028 |
-| 14 | **HP.3-R — RocksDB KV Migration** | RocksDBEventStore + RocksDBStatefulReviewRegistry + factory + CLI + O(1) count; bench 18.7×/24.3× faster than SQLite | `sprint-hp3r-closed` | **AD-029** |
+| 14 | HP.3-R — RocksDB KV Migration | RocksDBEventStore + RocksDBStatefulReviewRegistry + factory + CLI + O(1) count; bench 18.7×/24.3× faster than SQLite | `sprint-hp3r-closed` | AD-029 |
+| 15 | Meta — Docs Cleanup Sprint | `.ai/00_system/` + `.ai/01_roadmap/` + `.ai/02_audits/` + `.ai/10_state/known_issues.md` refreshed; 3 superseded plans archived; INDEX reconciled | (no tag; meta) | AD-030 |
+| 16 | 1B-M1 — Phase 1B Modernization Tranche 1 | DoclingParser + LibreOfficePreprocessor + GATE-005 + orchestrator preprocessor wiring | `sprint-1b-m1-closed` | AD-031 |
+| 17 | 1B-M2 — Phase 1B Modernization Tranche 2 (scoped) | OCRPreprocessor + process_batch + GoldenCorpusBenchmark; marker/surya DEFERRED on feasibility evidence | `sprint-1b-m2-closed` | AD-032 |
+| 18 | **RUST-PDF-1 — Rust PDF Ingestion Audit** | lopdf `vitruvius_rust_pdf` crate + pyo3 bindings + subprocess-isolated bench vs docling/opendataloader_pdf. **GO verdict.** 13.7 MB RSS (48× smaller) + 0.05 s wall (625× faster) — **single largest ingestion RAM win** | `sprint-rust-pdf-1-closed` | **AD-033** |
+| 19 | 1B-M3 — Phase 1B Modernization Tranche 3 | RustPdfParser(BaseParser) + GATE-006 min-chars-per-page + real-PDF LCS quality gate (0.9925) + `p1b_rust_pdf_parser` flag | `sprint-1b-m3-closed` | AD-034 |
+| 20 | DISTILL-1 — LLM Reviewer Distillation Audit | Audit harness walks 5 known cache locations. **DEFER_NO_DATA verdict** — Sprint R Y4 verdict cache empty; needs ≥50 live verdicts before training a student model is meaningful. Harness committed for re-run. | `sprint-distill-1-closed` | AD-035 |
 
-### What's next (open options)
+### Queued work (5 optimization plans written 2026-04-15, unexecuted)
 
-The governing plan's mandatory sprint chain is done. The remaining candidates, in priority order:
+Authoritative queue lives in `.ai/03_plans/00-governing-implementation-plan.md` §6 Task 8. Summary:
 
-1. **Phase 1B Modernization (§11 Phase 2 + Phase 3)** — parser wrapping + Docling/Marker/Surya + ProcessPoolExecutor + Golden Corpus. Needs a TDD expansion pass on `phase-1b-multi-parser-integration-plan.md` first. Natural Sprint C continuation.
-2. **Sprint D Streams J + K** — externally gated:
-   - Stream J (query integration) needs the Ranger dashboard surface
-   - Stream K (docs+CI) needs a 2nd jurisdiction corpus to benchmark against
-3. **Git remote fix + push** — `github.com/pjel888/vitruvius.git` returned "Repository not found" at merge time. Needs URL/auth fix before `git push origin main`.
-4. **Fresh roadmap brainstorm** — project is materially ahead of the v2.0.0 envelope. Worth a fresh strategy pass before committing to a new sprint chain.
+| Order | Plan | Sub-plan file | Purpose |
+|---|---|---|---|
+| 1 | **Advanced Tech Audit** | `2026-04-15-advanced-tech-audit-plan.md` | Scans the codebase for additional statistical / mathematical optimization opportunities beyond the items already identified by RUST-MIG-1, PQ, and LSH. Cheap (no code changes), dispatched first so it can re-rank the rest of the queue. Produces GO/DEFER verdicts per candidate. |
+| 2 | **Sprint RUST-MIG-1** (Python → Rust polyglot split) 🔥 | `2026-04-15-rust-migration-audit-plan.md` | Extends the existing `scripts/vitruvius/engine_rs/` Cargo workspace with two new member crates (`spatial_kernels`, `stats_kernels`). Ports S1 `build_spatial_adjacency_edges` (O(n²) → O(n log n) via existing `LinearOctree::query_aabb` — the single largest wall-time win in the entire codebase), S2 `weight_by_distance` (pure O(n) `exp(-λ·d)` kernel), N4 Mahalanobis core (pure nalgebra covariance invert), N1 sliced Wasserstein (pure ndarray sort). Every port is parity-tested against the Python baseline and gated behind `rust_mig_spatial_kernels` + `rust_mig_stats_kernels` feature flags (default false). Flipped to true iff AD-038 clears a 2× bench threshold. Also issues **AD-037** correcting Sprint LSH-1's "O(n²) premise" — the audit found `dedupe_by_endpoints` is already O(n log n) dict-grouped, so LSH-1 must be reframed before dispatch. |
+| 3 | **pipeline_cli.py integration** | `2026-04-15-pipeline-cli-integration-plan.md` | Wires the six `p1b_*` feature flags into `pipeline_cli.py` routing so flipping any of them actually routes documents through the new parser chain end-to-end. Unblocks user-facing use of every Tranche 1/2/3 deliverable. |
+| 4 | **Sprint PQ-1 (GraphSAGE PQ embeddings)** | `2026-04-15-graphsage-pq-embeddings-plan.md` | 32× disk footprint reduction on structural embeddings via Product Quantization, cosine-similarity delta ≤ 0.02 vs float32 baseline. |
+| 5 | **Sprint LSH-1 (MinHash fuzzy dedup)** | `2026-04-15-lsh-dedup-plan.md` | Fuzzy near-duplicate relationship dedup via MinHash LSH. Reframed by AD-037 from "O(n²) scaling fix" to "semantic fuzzy match unlock" — current dedup is already O(n log n). Uses Python `datasketch`, NOT Rust. |
+
+**Dispatch order rationale.** Advanced Tech Audit is cheap and re-scopes the queue. RUST-MIG-1 goes next because (a) its fresh audit already identified S1 as the single largest wall-time win in the codebase and (b) its AD-037 output unblocks LSH-1 by correcting that plan's premise. pipeline_cli integration unblocks user-facing use of the three Phase 1B tranches. PQ + LSH are the remaining scaling / quality unlocks.
+
+**Parallelism.** Tasks #3 and #4 are independent (CLI routing vs embedding storage). They can dispatch in parallel after #2 lands. Tasks #2 and #5 must be sequenced because #2 corrects #5's premise. Commit each in its own sprint tag.
+
+### What's NOT in the queue (still open options)
+
+- **Sprint D Streams J + K** — externally gated:
+  - Stream J (active learning) needs the Ranger dashboard surface
+  - Stream K (CLUP scaling) needs a 2nd jurisdiction corpus to benchmark against
+- **Phase 1B Modernization §11 Phase 3 (Scaling & Governance)** beyond what Tranches 1/2/3 already delivered — the remaining work is rolled into the pipeline_cli integration plan and AD-032's marker/surya deferral
+- **Fresh roadmap brainstorm** — the project is materially ahead of the v2.0.0 envelope and producing 5–6 sprints per session. Next horizon is undefined (Phase 12+ / corpus expansion / real-world evaluation against board-exam prep). Worth a fresh strategy pass before committing to a new sprint chain
 
 ### Delivery pattern validation
 
@@ -762,7 +796,7 @@ The 2026-04-15 session validated **subagent-driven-development** as the working 
 - Fresh subagent per task to avoid context pollution
 - Single orchestrator-held commit at end of each wave to avoid `git add` races
 
-Ten sprints closed in one session (test suite 297 → 1396 passing, 12 plans archived) is the delivery ceiling observed so far. Future planning can reasonably assume this cadence is repeatable when the plan specs are solid and the flag defaults are disciplined.
+**Ceiling observed so far: 16 sprints closed in one session** (test suite 297 → 1437 passing, +1140 delta; 13+ plans archived; 15 sprint tags published; main fully pushed to origin). Future planning can reasonably assume this cadence is repeatable when the plan specs are solid and the flag defaults are disciplined. The **16th sprint was an audit** — which reinforces that audits count as delivery work and should be ranked alongside implementation sprints rather than discounted as "just research".
 
 ---
 
@@ -901,7 +935,7 @@ Validated in the 2026-04-15 session that closed ten sprints in a single working 
 4. **Orchestrator-held commits** — subagents write files but never run `git add` or `git commit`. The orchestrator stages and commits once per wave.
 5. **Per-sprint AD ledger entry** — every sprint closure must produce an `AD-###` entry in `.ai/10_state/decisions.md` with commit SHAs, test deltas, sprint tag, and archival status.
 
-Ceiling observed so far: **10 sprints per session** (including a follow-on bench-driven migration), **+1099 test delta** (297 → 1396), **~15 subagent dispatches** across 3 waves + a 4th wave for HP.3-R. Future sessions can use this as a planning baseline.
+Ceiling observed so far: **16 sprints per session** (ten governing-plan sprints + HP.3-R bench-driven migration + docs cleanup meta sprint + Phase 1B three-tranche push + Rust PDF audit + LLM distillation audit), **+1140 test delta** (297 → 1437), **~30+ subagent dispatches** across 6+ waves. Future sessions can use this as a planning baseline; the 16-sprint bound came from time-boxing, not agent capacity.
 
 ---
 
@@ -931,11 +965,18 @@ Ceiling observed so far: **10 sprints per session** (including a follow-on bench
 **Audits (2026-04-13, historical).** `codebase-roadmap-audit.md`, `ingestion-audit.md`, `extraction-audit.md`, `normalization-audit.md`, `review-layer-audit.md` — all marked ⚠️ `HISTORICAL SNAPSHOT — SUPERSEDED 2026-04-15` in their own header banners and pointed at current state docs.
 
 **Active plans.**
-- `/.ai/03_plans/00-governing-implementation-plan.md` — governing orchestration plan (v1.0.0, 2026-04-15) — read this first before picking a plan to execute
+- `/.ai/03_plans/00-governing-implementation-plan.md` — governing orchestration plan (**v2.0.0**, 2026-04-15 post-session) — read this first before picking a plan to execute
 - `/.ai/03_plans/INDEX.md` — plan index
-- `/.ai/03_plans/statistical-architectural-upgrade-plan.md` — Sprint D (Streams A–I shipped; J/K deferred)
-- `/.ai/03_plans/phase-1b-multi-parser-integration-plan.md` — Phase 1B Modernization design spec (pending TDD expansion)
+- `/.ai/03_plans/statistical-architectural-upgrade-plan.md` — Sprint D (Streams A–I shipped; J/K externally gated)
+- `/.ai/03_plans/phase-1b-multi-parser-integration-plan.md` — Phase 1B Modernization design spec (Tranches 1/2/3 all shipped; Phase 3 Scaling remainder folded into pipeline_cli integration plan)
 - `/.ai/03_plans/ingestion-refinement-contract.md` — frozen contract between Phase 1B and Phase 1C
+
+**Queued implementation plans (written 2026-04-15, unexecuted — dispatch via governing plan §6 Task 8).**
+- `/.ai/03_plans/2026-04-15-advanced-tech-audit-plan.md` — scoping audit for next optimization wave
+- `/.ai/03_plans/2026-04-15-rust-migration-audit-plan.md` — **Sprint RUST-MIG-1** Python→Rust polyglot split (S1/S2/N4/N1 kernels via `spatial_kernels` + `stats_kernels` crates). Single largest wall-time win in the queue per AD-036 draft.
+- `/.ai/03_plans/2026-04-15-pipeline-cli-integration-plan.md` — wires `p1b_*` flags into `pipeline_cli.py` end-to-end
+- `/.ai/03_plans/2026-04-15-graphsage-pq-embeddings-plan.md` — Sprint PQ-1 (GraphSAGE Product Quantization, 32× compression)
+- `/.ai/03_plans/2026-04-15-lsh-dedup-plan.md` — Sprint LSH-1 (MinHash fuzzy near-duplicate dedup; reframed by RUST-MIG-1 AD-037)
 
 **Archived plans (successor sprint plans).**
 - `/.ai/09_archive/plans/phase-8-graph-contract-indexing-plan.md` — ✅ subsumed by Sprint D Stream H, archived 2026-04-15
@@ -951,6 +992,12 @@ Ceiling observed so far: **10 sprints per session** (including a follow-on bench
 - `/.ai/09_archive/plans/live-wiring-and-8gb-hardening-plan.md` — ✅ Sprint Q, archived 2026-04-15
 - `/.ai/09_archive/plans/per-layer-embeddings-agentic-upgrade-plan.md` — ✅ Sprint R, archived 2026-04-15
 - `/.ai/09_archive/plans/2026-04-15-rocksdb-kv-migration-plan.md` — ✅ Sprint HP.3-R, archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-phase-1b-modernization-tdd-plan.md` — ✅ Sprint 1B-M1, archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-phase-1b-modernization-tranche-2-plan.md` — ✅ Sprint 1B-M2, archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-rust-pdf-audit-plan.md` — ✅ Sprint RUST-PDF-1, archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-phase-1b-modernization-tranche-3-plan.md` — ✅ Sprint 1B-M3, archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-llm-distillation-audit-plan.md` — ✅ Sprint DISTILL-1, archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-docs-cleanup-plan.md` — ✅ Meta Docs Cleanup Sprint, archived 2026-04-15
 
 **Plans & contracts.** `phase-1b-multi-parser-integration-plan.md`, `phase-1c-centralized-normalization-plan.md`, `ingestion-refinement-contract.md`.
 
@@ -962,8 +1009,9 @@ Ceiling observed so far: **10 sprints per session** (including a follow-on bench
 
 ## Changelog
 
+- **2026-04-15 · v2.2.0** — Second-wave reconciliation after §8's queued work grew by **6 more sprints** (1B-M1, 1B-M2, RUST-PDF-1, 1B-M3, DISTILL-1, meta Docs Cleanup) and **5 new queued plans** landed (Advanced Tech Audit, RUST-MIG-1, pipeline_cli integration, PQ-1, LSH-1). §1.1 Long-Term Vision rewritten to reflect the repositioned "domain-agnostic professional-domain specialist" framing from the README update (PD 1096 is now named the "reference corpus", not the "initial corpus"). §1.4 Principle P10 generalized to "new corpus" from "new laws". §5 rewritten with 1437/1 Python test count (grew from 1396), 15 sprint tags (grew from 10), AD-001–AD-035 (grew from AD-029), git remote marked FIXED, and a new "active work queue" block listing the 5 queued optimization plans. §8 Sprint chain table grew to 20 rows, with a new "Queued work" block ranking the 5 plans and a "Dispatch order rationale" paragraph explaining why Sprint RUST-MIG-1 dispatches before pipeline_cli and Sprint LSH-1. §8 delivery-pattern ceiling updated to **16 sprints per session** (from 10). §11.X ceiling also updated. §13 Reference Index grew to list the 5 queued plans + 6 new archived plans. No breaking changes to §2 Architecture Map, §3 Governance Contracts, §6 Phase Contracts, §7 Dependency Graph, §9 KPIs, §10 Tech Debt, or §12 Non-Goals — those remain authoritative as written in v2.1.0 / v2.0.0. — *Senior Systems Architect*
 - **2026-04-15 · v2.1.0** — Reconciled §5 Honest Position, §6 Phase 8 + Phase 9 contracts, §8 90-Day Execution Sequence, §11 Cadence, and §13 Reference Index against the 2026-04-15 session (**10 sprints closed**: Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, HP.3-R). §5 rewritten with 1396/1 Python test count, 20/20 TypeScript, 10 Rust unit tests, 31 verified relationships, and all 10 sprint tags. §6 Phase 8 marked ✅ SUBSUMED by Sprint D Stream H + extended by Sprint GT + RocksDB-backed by Sprint HP.3-R (AD-029). §6 Phase 9 marked ✅ SUBSUMED by Sprint D Stream I. §8 rewritten with the Sprint chain table (14 rows through HP.3-R) and a "what's next" block pointing at Phase 1B Modernization, Streams J/K externally gated, git remote fix, fresh roadmap brainstorm. §11 adds the Subagent-Driven Wave Delivery addendum. §13 refreshes the Reference Index with active plans, archived plans (13 archival entries), and audit pack marked as historical. No breaking changes to §1–§4 (vision, architecture map, governance contracts) or §9–§10 (KPIs, tech debt) — those remain authoritative as written in 2.0.0. — *Senior Systems Architect*
 - **2026-04-14 · v2.0.0** — Full rewrite. Reconciled status against the 2026-04-13 audit pack (ingestion, extraction, normalization, review-layer, codebase-roadmap). Integrated Phase 1B Multi-Parser plan, Phase 1C Refinement plan, and the Ingestion-Refinement Contract. Added governance contract section (§3), dependency graph (§7), 90-day sprint sequence (§8), KPI table (§9), and cadence protocol (§11). Corrected inflated "complete" claims in Phases 2, 3, and 5 to match audit reality. Added non-goals and strategic warnings explicitly. — *Senior Systems Architect*
 - **2026-04-13 · v1.x** — Prior version with inflated Phase 2/3/5 claims. Retained in git history.
 
-**Timestamp:** 2026-04-15T12:15:00Z (+08:00 GMT)
+**Timestamp:** 2026-04-15T14:45:00+08:00

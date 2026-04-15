@@ -108,10 +108,11 @@ Four new implementation plans were written during the session but have **not bee
 
 | # | Plan file | Type | Target | Status |
 |---|-----------|------|--------|--------|
-| 6 | `2026-04-15-advanced-tech-audit-plan.md` | audit | Next wave of optimizations | 📝 Queued (run first — identifies scope for #7–#9) |
-| 7 | `2026-04-15-pipeline-cli-integration-plan.md` | implementation_tdd | Wire `p1b_*` flags into `pipeline_cli.py` end-to-end | 📝 Queued |
-| 8 | `2026-04-15-graphsage-pq-embeddings-plan.md` | implementation_tdd | Sprint PQ-1 — 32× GraphSAGE embedding compression | 📝 Queued |
-| 9 | `2026-04-15-lsh-dedup-plan.md` | implementation_tdd | Sprint LSH-1 — O(n log n) MinHash dedup | 📝 Queued |
+| 6 | `2026-04-15-advanced-tech-audit-plan.md` | audit | Next wave of optimizations | 📝 Queued (run first — identifies scope for #7–#10) |
+| 7 | `2026-04-15-rust-migration-audit-plan.md` | audit_then_conditional_implementation | **Sprint RUST-MIG-1** — Python→Rust polyglot split. Ports S1 `build_spatial_adjacency_edges` (O(n²) → O(n log n)) + S2 `weight_by_distance` + N4 Mahalanobis core + N1 sliced Wasserstein. Extends existing `engine_rs` Cargo workspace with `spatial_kernels` + `stats_kernels` crates. Single largest wall-time win: S1. | 📝 Queued — dispatch immediately after Advanced Tech Audit |
+| 8 | `2026-04-15-pipeline-cli-integration-plan.md` | implementation_tdd | Wire `p1b_*` flags into `pipeline_cli.py` end-to-end | 📝 Queued |
+| 9 | `2026-04-15-graphsage-pq-embeddings-plan.md` | implementation_tdd | Sprint PQ-1 — 32× GraphSAGE embedding compression | 📝 Queued |
+| 10 | `2026-04-15-lsh-dedup-plan.md` | implementation_tdd | Sprint LSH-1 — fuzzy near-duplicate dedup via MinHash (**NB:** AD-037 corrects the plan's "O(n²) → O(n log n)" premise — current dedup is already O(n log n) dict-grouped; LSH-1's actual value is semantic fuzzy matching, not a scaling fix) | 📝 Queued |
 
 ### 2.3 Closed sprints (archived in `.ai/09_archive/plans/` — reference only)
 
@@ -161,11 +162,12 @@ Sprint Q   ✅ Live Wiring & 8GB Hardening
    │
    └───► Sprint D residuals   🔒 externally gated (Ranger + second-jurisdiction)
 
-📝 NEXT — 4 queued optimization plans (see §6 Task 8)
+📝 NEXT — 5 queued optimization plans (see §6 Task 8)
    ├───► Advanced Tech Audit         (audit — identifies next optimization scope)
+   ├───► Sprint RUST-MIG-1           (Python→Rust polyglot split: S1/S2/N4/N1 kernels — single largest wall-time win)
    ├───► pipeline_cli.py integration (wire p1b_* flags into live routing)
    ├───► Sprint PQ-1                 (GraphSAGE Product Quantization, 32× compression)
-   └───► Sprint LSH-1                (MinHash LSH dedup, O(n log n))
+   └───► Sprint LSH-1                (MinHash fuzzy near-duplicate dedup — reframed by RUST-MIG-1 AD-037)
 ```
 
 ### 3.2 Gate matrix (historical — all closed except residuals + queued work)
@@ -384,26 +386,28 @@ Each of these sprints follows the same template once its entry gate from §3.2 i
 - [ ] **Step 5: Exit gate** — Record metrics into an `AD-###` entry, update `milestone-tracker.md`, tag `sprint-<name>-closed`.
 - [ ] **Step 6: Hand off to the next sprint** by rewriting `current-phase.md`.
 
-### Task 8: Dispatch the 4 queued optimization plans (2026-04-15 post-session queue)
+### Task 8: Dispatch the 5 queued optimization plans (2026-04-15 post-session queue)
 
-Four plans were written in this session but not executed. They are the **active work queue** for the next session. Dispatch in the order listed — the audit (#1) scopes the remaining three.
+Five plans were written in this session but not executed. They are the **active work queue** for the next session. Dispatch in the order listed — the audit (#1) scopes the remaining four, and the Rust migration (#2) depends on the audit's RAM/wall-time findings.
 
 **Sub-plans:**
 - `.ai/03_plans/2026-04-15-advanced-tech-audit-plan.md`
+- `.ai/03_plans/2026-04-15-rust-migration-audit-plan.md` (**Sprint RUST-MIG-1** — added 2026-04-15 14:40 after a fresh codebase audit; see §2.2 row 7)
 - `.ai/03_plans/2026-04-15-pipeline-cli-integration-plan.md`
 - `.ai/03_plans/2026-04-15-graphsage-pq-embeddings-plan.md` (Sprint PQ-1)
 - `.ai/03_plans/2026-04-15-lsh-dedup-plan.md` (Sprint LSH-1)
 
-- [ ] **Step 1: Dispatch Advanced Tech Audit first** — This is an audit-then-conditional-implementation plan that scans the codebase for statistical/mathematical optimization opportunities beyond PQ and LSH. It produces a structured report with GO/DEFER verdicts per candidate. Review the report before proceeding to #2–#4 so the queue can be re-ranked if the audit uncovers a higher-impact win.
-- [ ] **Step 2: Dispatch pipeline_cli.py integration** — Entry gate: none. Wires the `p1b_docling_parser`, `p1b_libreoffice_preprocessor`, `p1b_ocr_preprocessor`, `p1b_process_pool_orchestration`, and `p1b_rust_pdf_parser` feature flags into `pipeline_cli.py` routing so flipping any of them actually changes which parser runs on an incoming document. Exit gate: end-to-end ingestion through each of the five parsers on a representative PD 1096 section, plus byte-identity test with every flag OFF. Produces `AD-036`.
-- [ ] **Step 3: Dispatch Sprint PQ-1 (GraphSAGE PQ embeddings)** — Entry gate: none (GraphSAGE already ships via Sprint HP HP.5). Target: **32× disk footprint reduction** on structural embeddings via Product Quantization. Exit gate: cosine-similarity delta ≤ 0.02 on a held-out set vs the raw float32 embeddings; disk footprint measured end-to-end; no quality regression on downstream structural loopholes detector. Produces `AD-037`.
-- [ ] **Step 4: Dispatch Sprint LSH-1 (MinHash LSH dedup)** — Entry gate: none. Replaces the O(n²) pairwise dedup at `scripts/vitruvius/relationships_sections.py:246` (`dedupe_by_endpoints()`) with a MinHash LSH index giving O(n log n) scaling. Exit gate: wall-time comparison at n=100/1000/10000 showing the expected scaling curve; zero false negatives vs the pairwise baseline on the PD 1096 corpus. Produces `AD-038`.
-- [ ] **Step 5: Re-rank after the audit** — If the Advanced Tech Audit surfaces a candidate with a higher RAM/quality payoff than any of #2–#4, insert it as a new task between Step 1 and Step 2 with its own AD number. Do not silently replace the plans in the queue — add.
-- [ ] **Step 6: Close the queue** — When all four plans are shipped (or explicitly deferred), update `.ai/01_roadmap/current-phase.md` to reflect the next active sprint (or "maintenance mode" if no new work is queued), archive each executed plan to `.ai/09_archive/plans/`, and update this §2 inventory table.
+- [ ] **Step 1: Dispatch Advanced Tech Audit first** — This is an audit-then-conditional-implementation plan that scans the codebase for statistical/mathematical optimization opportunities beyond PQ, LSH, and the Rust-migration candidates. It produces a structured report with GO/DEFER verdicts per candidate. Review the report before proceeding to #2–#5 so the queue can be re-ranked if the audit uncovers a higher-impact win.
+- [ ] **Step 2: Dispatch Sprint RUST-MIG-1 (Python→Rust polyglot split)** — Entry gate: the Rust toolchain is installed (`rustup show` + `maturin --version`). Ports S1 `build_spatial_adjacency_edges` (O(n²) → O(n log n) via existing `LinearOctree::query_aabb`), S2 `weight_by_distance`, N4 Mahalanobis core, and N1 sliced Wasserstein into two new workspace-member crates (`spatial_kernels`, `stats_kernels`) inside the existing `scripts/vitruvius/engine_rs/` Cargo workspace. Target: the single largest RAM + wall-time win identified in the queue — S1 alone is expected to drop a 2k-node spatial snapshot's edge-build from ~1 second to ~5 ms and eliminate O(n²) scaling. Exit gate: parity tests green on every port, `rust_mig_spatial_kernels` + `rust_mig_stats_kernels` flags default true iff AD-038 clears the 2× bench threshold. Produces `AD-036`, `AD-037`, `AD-038`. **Also corrects Sprint LSH-1's O(n²) premise** (AD-037) — the audit found `dedupe_by_endpoints` is already O(n log n) dict-grouped, so Sprint LSH-1 must be reframed to "fuzzy near-duplicate dedup" before dispatch in Step 5.
+- [ ] **Step 3: Dispatch pipeline_cli.py integration** — Entry gate: none. Wires the `p1b_docling_parser`, `p1b_libreoffice_preprocessor`, `p1b_ocr_preprocessor`, `p1b_process_pool_orchestration`, and `p1b_rust_pdf_parser` feature flags into `pipeline_cli.py` routing so flipping any of them actually changes which parser runs on an incoming document. Exit gate: end-to-end ingestion through each of the five parsers on a representative PD 1096 section, plus byte-identity test with every flag OFF. Produces `AD-039`.
+- [ ] **Step 4: Dispatch Sprint PQ-1 (GraphSAGE PQ embeddings)** — Entry gate: none (GraphSAGE already ships via Sprint HP HP.5). Target: **32× disk footprint reduction** on structural embeddings via Product Quantization. Exit gate: cosine-similarity delta ≤ 0.02 on a held-out set vs the raw float32 embeddings; disk footprint measured end-to-end; no quality regression on downstream structural loopholes detector. Produces `AD-040`.
+- [ ] **Step 5: Dispatch Sprint LSH-1 (MinHash near-duplicate dedup)** — Entry gate: Sprint RUST-MIG-1 Task 2 (AD-037) has landed and reframed this plan from "O(n²) → O(n log n) scaling fix" to "fuzzy near-duplicate detection for predicate variants". Uses Python `datasketch` — does NOT migrate to Rust. Exit gate: fuzzy-match hit rate ≥ 10% on the PD 1096 corpus for known predicate variants (e.g., "lot area ≥ 100 sqm" vs "minimum lot area of 100 square meters"); zero false positives on disjoint relationship pairs. Produces `AD-041`.
+- [ ] **Step 6: Re-rank after the audit** — If the Advanced Tech Audit surfaces a candidate with a higher RAM/quality payoff than any of #2–#5, insert it as a new task between Step 1 and Step 2 with its own AD number. Do not silently replace the plans in the queue — add.
+- [ ] **Step 7: Close the queue** — When all five plans are shipped (or explicitly deferred), update `.ai/01_roadmap/current-phase.md` to reflect the next active sprint (or "maintenance mode" if no new work is queued), archive each executed plan to `.ai/09_archive/plans/`, and update this §2 inventory table.
 
-**Ordering rationale.** The audit is cheap (no code changes) and re-scopes the queue. The pipeline_cli integration unblocks **user-facing** use of every parser Phase 1B shipped — without it, the three tranches are behind feature flags nobody can flip. PQ + LSH are pure scaling wins that run after the user can actually exercise the new parsers.
+**Ordering rationale.** The Advanced Tech Audit is cheap (no code changes) and re-scopes the queue. Sprint RUST-MIG-1 goes next because (a) its own audit already identified S1 as the single largest wall-time win in the codebase, and (b) the AD-037 finding corrects Sprint LSH-1's premise, so LSH-1 must not dispatch until that correction lands. The pipeline_cli integration unblocks **user-facing** use of every parser Phase 1B shipped — without it, the three tranches are behind feature flags nobody can flip. PQ + LSH are the remaining scaling / quality unlocks.
 
-**Parallelism.** Tasks #2, #3, #4 are independent — they touch different subsystems (CLI routing vs embedding storage vs relationship dedup). If the user has capacity, dispatch them in parallel via `superpowers:dispatching-parallel-agents` after #1 (the audit) has completed. Commit each in its own sprint tag (`sprint-pipeline-cli-closed`, `sprint-pq-1-closed`, `sprint-lsh-1-closed`).
+**Parallelism.** Tasks #3 and #4 are independent — pipeline_cli touches CLI routing, PQ touches embedding storage. They can dispatch in parallel via `superpowers:dispatching-parallel-agents` after #2 lands. Task #2 (RUST-MIG-1) and Task #5 (LSH-1) must be sequenced because #2 corrects #5's premise. Commit each in its own sprint tag (`sprint-rust-mig-1-closed`, `sprint-pipeline-cli-closed`, `sprint-pq-1-closed`, `sprint-lsh-1-closed`).
 
 ### Task 9: Continuous maintenance of `current-phase.md`
 
