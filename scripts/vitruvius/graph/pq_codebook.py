@@ -126,3 +126,52 @@ def train_pq_codebook(
         k=k,
         sub_dim=sub_dim,
     )
+
+
+def encode_to_pq(embeddings: np.ndarray, codebook: PQCodebook) -> np.ndarray:
+    """Quantize ``embeddings`` to uint8 PQ codes.
+
+    Input shape: ``(N, M * sub_dim)``. Output shape: ``(N, M)`` uint8.
+    Each output byte is the index of the nearest centroid in its
+    sub-quantizer.
+
+    Rust Line: hot loop is M iterations of vectorised L2 distance via
+    BLAS gemm + ``np.argmin``. C-backed end-to-end.
+    DEFER_ALREADY_NATIVE.
+    """
+    n = embeddings.shape[0]
+    expected_dim = codebook.M * codebook.sub_dim
+    if embeddings.shape[1] != expected_dim:
+        raise ValueError(
+            f"embedding dim {embeddings.shape[1]} does not match codebook "
+            f"{codebook.M}*{codebook.sub_dim}={expected_dim}"
+        )
+    codes = np.zeros((n, codebook.M), dtype=np.uint8)
+    for m in range(codebook.M):
+        sub = embeddings[:, m * codebook.sub_dim : (m + 1) * codebook.sub_dim]
+        cent = codebook.centroids[m]  # (k, sub_dim)
+        # Squared distances: (n, k)
+        sub_sq = np.sum(sub * sub, axis=1, keepdims=True)
+        cent_sq = np.sum(cent * cent, axis=1, keepdims=True).T
+        cross = sub.astype(np.float32) @ cent.T
+        dist = sub_sq - 2.0 * cross + cent_sq
+        labels = np.argmin(dist, axis=1)
+        codes[:, m] = labels.astype(np.uint8)
+    return codes
+
+
+def decode_from_pq(codes: np.ndarray, codebook: PQCodebook) -> np.ndarray:
+    """Reconstruct approximate embeddings from PQ codes.
+
+    Input shape: ``(N, M)`` uint8. Output shape: ``(N, M * sub_dim)``
+    float32. Reconstruction is lossy — the returned vectors are the
+    concatenated centroids selected by each code byte.
+    """
+    n = codes.shape[0]
+    dim = codebook.M * codebook.sub_dim
+    reconstructed = np.zeros((n, dim), dtype=np.float32)
+    for m in range(codebook.M):
+        reconstructed[:, m * codebook.sub_dim : (m + 1) * codebook.sub_dim] = (
+            codebook.centroids[m][codes[:, m]]
+        )
+    return reconstructed

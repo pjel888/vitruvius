@@ -37,3 +37,36 @@ def test_train_pq_codebook_empty_input() -> None:
     empty = np.zeros((0, 64), dtype=np.float32)
     with pytest.raises(ValueError, match="empty"):
         train_pq_codebook(empty, M=8, k=16, n_iter=1)
+
+
+def test_encode_to_pq_shape_and_dtype() -> None:
+    rng = np.random.default_rng(seed=0)
+    embeddings = rng.standard_normal((100, 64)).astype(np.float32)
+    codebook = train_pq_codebook(embeddings, M=8, k=32, n_iter=5, seed=42)
+
+    from vitruvius.graph.pq_codebook import encode_to_pq
+
+    codes = encode_to_pq(embeddings, codebook)
+    assert codes.shape == (100, 8)
+    assert codes.dtype == np.uint8
+    assert codes.max() < 32  # all centroid indices in range
+
+
+def test_decode_from_pq_shape_and_reconstruction() -> None:
+    rng = np.random.default_rng(seed=0)
+    embeddings = rng.standard_normal((50, 64)).astype(np.float32)
+    codebook = train_pq_codebook(embeddings, M=8, k=128, n_iter=25, seed=42)
+
+    from vitruvius.graph.pq_codebook import decode_from_pq, encode_to_pq
+
+    codes = encode_to_pq(embeddings, codebook)
+    reconstructed = decode_from_pq(codes, codebook)
+    assert reconstructed.shape == embeddings.shape
+    assert reconstructed.dtype == np.float32
+
+    # Reconstruction error: average L2 norm ratio. At k=128 on
+    # random input the error is bounded but non-zero.
+    diff_norms = np.linalg.norm(embeddings - reconstructed, axis=1)
+    orig_norms = np.linalg.norm(embeddings, axis=1)
+    rel_error = (diff_norms / np.maximum(orig_norms, 1e-8)).mean()
+    assert rel_error < 1.0  # reconstruction is at least somewhat useful
