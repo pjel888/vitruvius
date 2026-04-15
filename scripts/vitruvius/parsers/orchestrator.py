@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
+from typing import Sequence
 
 from vitruvius.parsers.base_parser import BaseParser, ParseResult
 from vitruvius.parsers.document_taxonomy import DocumentClass
@@ -30,6 +31,16 @@ class OrchestratorResult:
     successful_parser_id: str | None
     final_parse_result: ParseResult | None
     attempts: tuple[AttemptRecord, ...]
+
+
+@dataclass(kw_only=True, frozen=True)
+class BatchJob:
+    """Sprint 1B-M2 Task 2 — a single document job for
+    :meth:`ParserOrchestrator.process_batch`.
+    """
+    source_path: Path
+    doc_class: DocumentClass
+    work_dir: Path
 
 
 class ParserOrchestrator:
@@ -144,3 +155,38 @@ class ParserOrchestrator:
             final_parse_result=winning_parse_result,
             attempts=tuple(attempts),
         )
+
+    def process_batch(
+        self,
+        *,
+        jobs: Sequence[BatchJob],
+        max_workers: int | None = None,
+    ) -> tuple[OrchestratorResult, ...]:
+        """Sprint 1B-M2 Task 2 — batch-process multiple documents.
+
+        Returns results in input order. ``max_workers`` is accepted
+        for API compatibility with a future ProcessPoolExecutor
+        implementation; the current implementation runs jobs
+        sequentially because :class:`BaseParser` subclasses hold
+        non-pickleable lazy-imported state (docling, ocrmypdf) that
+        can't currently cross a process boundary. The sequential
+        loop still benefits from the factory / chain pre-registration
+        at construction time — the slowdown is I/O-bound work, not
+        CPU-bound.
+
+        Upgrade path: once all parsers are pickle-safe, swap the
+        loop body for a :class:`concurrent.futures.ProcessPoolExecutor`
+        invocation. The public API stays the same.
+        """
+        _ = max_workers  # reserved for future ProcessPool upgrade
+        if not jobs:
+            return ()
+        results = tuple(
+            self.process(
+                source_path=job.source_path,
+                doc_class=job.doc_class,
+                work_dir=job.work_dir,
+            )
+            for job in jobs
+        )
+        return results
