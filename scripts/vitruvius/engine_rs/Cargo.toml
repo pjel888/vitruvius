@@ -20,6 +20,7 @@ resolver = "2"
 members = [
     "core",
     "pyo3_shim",
+    "pdf",
 ]
 
 # Note: the legacy `src/` directory is preserved as a build reference

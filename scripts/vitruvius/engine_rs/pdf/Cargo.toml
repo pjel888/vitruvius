@@ -1,0 +1,13 @@
+[package]
+name = "vitruvius_rust_pdf"
+version = "0.1.0"
+edition = "2021"
+description = "Sprint RUST-PDF-1 audit — pure-Rust PDF text extraction via lopdf for low-spec ingestion."
+
+[lib]
+name = "vitruvius_rust_pdf"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+lopdf = "0.36"
+pyo3 = { version = "0.22", features = ["extension-module"] }
