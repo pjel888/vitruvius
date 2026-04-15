@@ -54,6 +54,7 @@ def _require_rocksdict() -> tuple[Any, Any]:
 
 
 _PREFIX = b"v:"
+_META_COUNT_KEY = b"meta:verdict_count"
 
 
 def _verdict_key(source_hash: str, relationship_hash: str, model_version: str) -> bytes:
@@ -70,18 +71,25 @@ class RocksDBStatefulReviewRegistry:
         self._db = Rdict(str(self._db_path))
 
     def put(self, record: VerdictRecord) -> None:
-        """Upsert a verdict. Re-putting the same PK replaces the value."""
+        """Upsert a verdict. Re-putting the same PK replaces the value
+        without incrementing the O(1) row counter.
+        """
         key = _verdict_key(
             record.source_hash,
             record.relationship_hash,
             record.model_version,
         )
+        is_new = self._db.get(key) is None
         value = json.dumps({
             "verdict": record.verdict,
             "self_confidence": record.self_confidence,
             "created_utc": record.created_utc,
         }, sort_keys=True).encode("utf-8")
         self._db[key] = value
+        if is_new:
+            current = self._db.get(_META_COUNT_KEY)
+            next_value = (int(current) if current is not None else 0) + 1
+            self._db[_META_COUNT_KEY] = str(next_value).encode("ascii")
 
     def get(
         self,
@@ -105,12 +113,17 @@ class RocksDBStatefulReviewRegistry:
         )
 
     def count(self) -> int:
-        """Count rows by prefix scan. O(n); acceptable at current scale.
+        """O(1) row count backed by a reserved meta:count key.
 
-        Optimize via a reserved ``meta:count`` key if the Task 8 bench
-        shows this is hot.
+        The counter is maintained by :meth:`put` (new keys only),
+        :meth:`purge_all` (resets to 0), and :meth:`purge_older_than`
+        (decrements by deleted count). Pre-Task 8 behaviour iterated
+        every key with the v: prefix, which was O(n) per call.
         """
-        return sum(1 for k in self._db.keys() if k.startswith(_PREFIX))
+        raw = self._db.get(_META_COUNT_KEY)
+        if raw is None:
+            return 0
+        return int(raw)
 
     def flush(self) -> None:
         """Force the active memtable to disk so ``disk_size_mb()`` is
@@ -152,6 +165,8 @@ class RocksDBStatefulReviewRegistry:
         to_delete = [k for k in self._db.keys() if k.startswith(_PREFIX)]
         for k in to_delete:
             del self._db[k]
+        # Reset the O(1) counter
+        self._db[_META_COUNT_KEY] = b"0"
         return len(to_delete)
 
     def purge_older_than(self, *, cutoff_utc: str) -> int:
@@ -171,6 +186,12 @@ class RocksDBStatefulReviewRegistry:
                 to_delete.append(k)
         for k in to_delete:
             del self._db[k]
+        # Decrement the O(1) counter by the number deleted
+        if to_delete:
+            current = self._db.get(_META_COUNT_KEY)
+            current_int = int(current) if current is not None else 0
+            new_value = max(0, current_int - len(to_delete))
+            self._db[_META_COUNT_KEY] = str(new_value).encode("ascii")
         return len(to_delete)
 
     def close(self) -> None:

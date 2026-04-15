@@ -54,6 +54,7 @@ def _require_rocksdict() -> tuple[Any, Any]:
 
 _EVENT_PREFIX = b"event:"
 _TS_PREFIX = b"ts:"
+_META_COUNT_KEY = b"meta:event_count"
 
 
 def _event_key(event_id: int) -> bytes:
@@ -90,9 +91,25 @@ class RocksDBEventStore:
         self._db[_ts_key(event.timestamp_utc, event.event_id)] = (
             f"{event.event_id:010d}".encode("ascii")
         )
+        # Sprint HP.3-R Task 8 optimization: maintain an O(1) count
+        # so count() doesn't have to scan every key.
+        current = self._db.get(_META_COUNT_KEY)
+        next_value = (int(current) if current is not None else 0) + 1
+        self._db[_META_COUNT_KEY] = str(next_value).encode("ascii")
 
     def count(self) -> int:
-        return sum(1 for k in self._db.keys() if k.startswith(_EVENT_PREFIX))
+        """O(1) row count backed by a reserved meta:count key.
+
+        The counter is maintained by :meth:`append` — each successful
+        insert increments the value, duplicate rejections do not.
+        Pre-Task 8 behaviour iterated every key with the event:
+        prefix, which was O(n) per call and caused a 33.5s bottleneck
+        in the Task 8 bench when called in a loop.
+        """
+        raw = self._db.get(_META_COUNT_KEY)
+        if raw is None:
+            return 0
+        return int(raw)
 
     def close(self) -> None:
         self._db.close()

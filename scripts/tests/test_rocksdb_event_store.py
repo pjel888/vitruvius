@@ -89,6 +89,52 @@ def test_reopen_persists(tmp_path: Path) -> None:
         store2.close()
 
 
+def test_count_is_o1_not_on_scan(tmp_path: Path) -> None:
+    """Sprint HP.3-R Task 8 optimization: RocksDBEventStore.count()
+    must be O(1), backed by a reserved meta:count key that append()
+    increments. The Task 8 bench exposed that the previous O(n)
+    implementation caused a 33.5s bottleneck when called in a loop.
+
+    We assert both:
+    1. The meta:count key exists and tracks the correct value
+    2. The count is preserved after close + reopen
+    3. Attempting to insert a duplicate event_id does NOT increment
+       the counter
+    """
+    db = tmp_path / "events.rocksdb"
+    store = RocksDBEventStore(db_path=db)
+    try:
+        for i in range(50):
+            store.append(_event(
+                i, kind="PROMOTED", edge_id=f"rel-{i}",
+                ts=f"2026-04-15T10:00:{i % 60:02d}Z",
+            ))
+        assert store.count() == 50
+
+        # Duplicate append must not increment the counter
+        with pytest.raises(ValueError, match="duplicate"):
+            store.append(_event(
+                0, kind="PROMOTED", edge_id="rel-0-dup",
+                ts="2026-04-15T10:30:00Z",
+            ))
+        assert store.count() == 50
+    finally:
+        store.close()
+
+    # Reopen — counter must persist
+    store2 = RocksDBEventStore(db_path=db)
+    try:
+        assert store2.count() == 50
+        # One more append should increment to 51
+        store2.append(_event(
+            100, kind="PROMOTED", edge_id="rel-100",
+            ts="2026-04-15T11:00:00Z",
+        ))
+        assert store2.count() == 51
+    finally:
+        store2.close()
+
+
 def test_project_graph_at_concurrent_with_open_writer(tmp_path: Path) -> None:
     """Sprint HP.3-R bug fix: project_graph_at_rocksdb must open a
     read-only handle so it can run alongside a live writer without

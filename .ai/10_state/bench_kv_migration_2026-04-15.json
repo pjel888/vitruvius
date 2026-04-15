@@ -1,68 +1,69 @@
 {
-  "timestamp_utc": "2026-04-15T03:21:49Z",
+  "timestamp_utc": "2026-04-15T03:27:03Z",
   "n": 10000,
   "python_interpreter": "/opt/homebrew/opt/python@3.11/bin/python3.11",
   "host": "darwin-arm64",
   "baseline_reference": ".ai/10_state/bench_sqlite_baseline.json",
+  "notes_on_previous_run": "Initial bench at commit 8b91210 measured rocksdb event_store at 33.66s wall because count() was O(n) and the bench called it in a loop. Task 8 optimization (this commit) made count() O(1) via a reserved meta:event_count key. Numbers below are the re-run after the fix.",
   "results": [
     {
       "backend": "sqlite",
       "op": "event_store",
       "n": 10000,
-      "wall_seconds": 3.5092,
-      "throughput_per_second": 2849.69,
+      "wall_seconds": 3.5313,
+      "throughput_per_second": 2831.83,
       "breakdown": {
-        "append_seconds": 3.4209,
-        "point_lookup_seconds": 0.0786,
-        "project_graph_at_seconds": 0.0097
+        "append_seconds": 3.4409,
+        "point_lookup_seconds": 0.0801,
+        "project_graph_at_seconds": 0.0102
       }
     },
     {
       "backend": "sqlite",
       "op": "verdict_cache",
       "n": 10000,
-      "wall_seconds": 3.4623,
-      "throughput_per_second": 2888.22,
+      "wall_seconds": 3.6004,
+      "throughput_per_second": 2777.46,
       "breakdown": {
-        "put_seconds": 3.3424,
-        "get_hit_seconds": 0.0664,
-        "get_miss_seconds": 0.0535
+        "put_seconds": 3.4797,
+        "get_hit_seconds": 0.0674,
+        "get_miss_seconds": 0.0533
       }
     },
     {
       "backend": "rocksdb",
       "op": "event_store",
       "n": 10000,
-      "wall_seconds": 33.6614,
-      "throughput_per_second": 297.08,
+      "wall_seconds": 0.1888,
+      "throughput_per_second": 52952.7,
       "breakdown": {
-        "append_seconds": 0.116,
-        "point_lookup_seconds": 33.5203,
-        "project_graph_at_seconds": 0.0251
+        "append_seconds": 0.1559,
+        "point_lookup_seconds": 0.009,
+        "project_graph_at_seconds": 0.0239
       }
     },
     {
       "backend": "rocksdb",
       "op": "verdict_cache",
       "n": 10000,
-      "wall_seconds": 0.1062,
-      "throughput_per_second": 94150.03,
+      "wall_seconds": 0.148,
+      "throughput_per_second": 67556.88,
       "breakdown": {
-        "put_seconds": 0.0656,
-        "get_hit_seconds": 0.03,
-        "get_miss_seconds": 0.0106
+        "put_seconds": 0.1077,
+        "get_hit_seconds": 0.0296,
+        "get_miss_seconds": 0.0107
       }
     }
   ],
   "ratios": {
-    "event_store_rocks_vs_sqlite": 9.592329,
-    "verdict_cache_rocks_vs_sqlite": 0.030673
+    "event_store_rocks_vs_sqlite": 0.053465,
+    "verdict_cache_rocks_vs_sqlite": 0.041107
   },
   "decision_gate": {
-    "event_store_ratio": 9.592329,
-    "verdict_cache_ratio": 0.030673,
-    "bucket": "rocksdb_loses",
-    "recommendation": "stop_investigate",
-    "notes": "RocksDB verdict cache is 32.6x faster (clear win), but RocksDB event store is 9.6x slower than SQLite because count() scans all keys in Python per call (O(n) per op, O(n^2) for n calls) — Task 9 must investigate the event store scan path before flipping defaults."
+    "event_store_ratio": 0.053465,
+    "verdict_cache_ratio": 0.041107,
+    "bucket": "rocksdb_wins",
+    "recommendation": "flip_defaults_true",
+    "notes": "After the O(1) count() optimization (meta:event_count + meta:verdict_count keys), RocksDB event store is 18.7x faster (0.1888s vs 3.5313s) and RocksDB verdict cache is 24.3x faster (0.148s vs 3.6004s) than SQLite at n=10000; both ratios are <<0.5, so Task 9 should flip feature-flag defaults to RocksDB and schedule archival of the SQLite backends."
   }
 }
