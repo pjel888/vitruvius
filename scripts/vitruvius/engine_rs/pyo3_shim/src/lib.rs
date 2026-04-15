@@ -13,7 +13,7 @@ use pyo3::prelude::*;
 use pyo3::wrap_pyfunction;
 
 use vitruvius_engine_rs_core as core;
-use vitruvius_spatial_kernels::adjacency_edges;
+use vitruvius_spatial_kernels::{adjacency_edges, distance_weight};
 
 // ---------------------------------------------------------------------------
 // SpatialPoint — pyo3 newtype wrapper over core::SpatialPoint.
@@ -238,6 +238,38 @@ fn build_spatial_adjacency_edges(
 }
 
 // ---------------------------------------------------------------------------
+// Sprint RUST-MIG-1 Task 5 — S2 weight_by_distance fast path.
+//
+// Rust port of `scripts/vitruvius/spatial/proximity_jump.py`
+// :: `weight_by_distance`. The Python control-plane marshals its
+// `dict[str, tuple[x, y, z]]` input into an ordered list of tuples
+// keyed by dict-insertion order, passes them plus the focal point
+// and `lambda_decay` coefficient into this function, and receives
+// a `Vec<f64>` back in the same order. The Python wrapper re-zips
+// the returned list against the original key order to rebuild the
+// `dict[str, float]` so the public API shape is byte-identical to
+// the pure-Python path. Flag gate lives in
+// `spatial/proximity_jump.py` (`rust_mig_spatial_kernels`).
+// ---------------------------------------------------------------------------
+
+/// Compute `exp(-lambda_decay * d)` for each seed's Euclidean
+/// distance to `focal`. Returns a `Vec<f64>` in input order.
+///
+/// This is the O(n) Rust replacement for the Python `math.exp(...)`
+/// loop measured at ~70 ms wall time at n=10 000 in the Task 1
+/// baseline (see `.ai/10_state/audit_rust_migration_baseline_2026-04-15.json`).
+#[pyfunction]
+#[pyo3(signature = (seeds, focal, lambda_decay))]
+fn weight_by_distance(
+    _py: Python<'_>,
+    seeds: Vec<(f64, f64, f64)>,
+    focal: (f64, f64, f64),
+    lambda_decay: f64,
+) -> PyResult<Vec<f64>> {
+    Ok(distance_weight::weight_by_distance(&seeds, focal, lambda_decay))
+}
+
+// ---------------------------------------------------------------------------
 // Module entry point.
 // ---------------------------------------------------------------------------
 
@@ -246,6 +278,7 @@ fn vitruvius_engine_rs(py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> 
     m.add_class::<SpatialPoint>()?;
     m.add_class::<LinearOctree>()?;
     m.add_function(wrap_pyfunction!(build_spatial_adjacency_edges, m)?)?;
+    m.add_function(wrap_pyfunction!(weight_by_distance, m)?)?;
 
     m.add("__version__", env!("CARGO_PKG_VERSION"))?;
     m.add("__doc__", "Vitruvius Sprint GT Rust data plane.")?;

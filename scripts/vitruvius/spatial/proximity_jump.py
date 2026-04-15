@@ -26,7 +26,44 @@ flag in ``config/vitruvius.yaml``.
 from __future__ import annotations
 
 import math
+import os
+from functools import lru_cache
+from pathlib import Path
 from typing import Any, Iterable, Mapping, Protocol
+
+# Sprint RUST-MIG-1 Task 5 — import the Rust fast path lazily.
+# The ``vitruvius.engine_rs`` facade returns ``None`` when the
+# extension module is not built, so the fast-path guard below is
+# a pure attribute check with no ImportError risk at call time.
+from vitruvius.engine_rs import weight_by_distance_rs
+from vitruvius.features import Features, load_features
+
+
+def _resolve_config_path() -> Path:
+    """Mirror of ``vitruvius.spatial.cli._resolve_config_path``.
+
+    Honours ``VITRUVIUS_CONFIG`` for hermetic tests, falls back to
+    ``<cwd>/config/vitruvius.yaml``. Kept local to this module so the
+    proximity-jump helpers do not pull in the CLI command stack on
+    the hot import path.
+    """
+    env_path = os.environ.get("VITRUVIUS_CONFIG")
+    if env_path:
+        return Path(env_path)
+    return Path.cwd() / "config" / "vitruvius.yaml"
+
+
+@lru_cache(maxsize=1)
+def _load_features_cached() -> Features:
+    """Load the feature-flag block once per process.
+
+    The parity test in ``test_proximity_jump_weight_parity.py``
+    monkey-patches this function directly, so keep it as a plain
+    module-level attribute — do NOT inline the ``load_features``
+    call inside ``weight_by_distance`` or the test's flag flip will
+    not take effect.
+    """
+    return load_features(_resolve_config_path())
 
 
 class _OctreeLike(Protocol):
@@ -114,11 +151,58 @@ def weight_by_distance(
     in ``(0.0, 1.0]`` — the seed AT the focal point scores 1.0, seeds
     far away asymptote to 0.0. Empty input returns an empty dict.
 
+    Two execution paths:
+
+    * **Rust fast path** (``rust_mig_spatial_kernels=true``): delegate
+      to ``vitruvius_engine_rs.weight_by_distance`` which runs the
+      ``exp(-λd)`` loop in Rust. The Python wrapper marshals each
+      seed tuple into the ffi once, then re-zips the returned weight
+      list against the original key order to rebuild the ``dict[str,
+      float]`` so the return shape is byte-identical to the Python
+      path.
+    * **Python baseline** (default): ``math.sqrt`` + ``math.exp``
+      loop in pure Python. Pre-migration byte-for-byte behaviour.
+
     The helper is deliberately pure math with no dependency on the
     octree — the caller is expected to already have resolved each
     seed ID back to an ``(x, y, z)`` centroid (via a separate
     snapshot lookup or directly from the octree point cloud).
     """
+    # ---- Sprint RUST-MIG-1 Task 5 — Rust fast path. ----
+    # Minimal glue: one flag check, one list comprehension to marshal
+    # seed tuples into a Rust-friendly `list[(f64, f64, f64)]` in the
+    # same order as `seeds.items()`. We keep the key order in a
+    # separate list and re-zip the returned weight vec back into a
+    # dict so the public return type is unchanged.
+    #
+    # Flag-OFF short-circuits past this block entirely so the Python
+    # path below runs unchanged (non-breaking contract from AD-036).
+    #
+    # Note: we only walk `seeds.items()` once. Any future editor who
+    # tries to hoist `list(seeds.items())` above the branch for a
+    # putative "clean up" should NOT — the Python baseline path wants
+    # the raw mapping (dict.items() is O(1) in Python 3.7+ and the
+    # pure-Python loop iterates it directly).
+    if (
+        weight_by_distance_rs is not None
+        and _load_features_cached().is_enabled("rust_mig_spatial_kernels")
+    ):
+        seed_ids: list[str] = []
+        seed_payload: list[tuple[float, float, float]] = []
+        for seed_id, (x, y, z) in seeds.items():
+            seed_ids.append(seed_id)
+            seed_payload.append((float(x), float(y), float(z)))
+        focal_tuple = (
+            float(focal_xyz[0]),
+            float(focal_xyz[1]),
+            float(focal_xyz[2]),
+        )
+        rust_weights = weight_by_distance_rs(
+            seed_payload, focal_tuple, float(lambda_decay)
+        )
+        return dict(zip(seed_ids, rust_weights))
+
+    # ---- Pure-Python baseline (default). ----
     fx, fy, fz = focal_xyz
     weights: dict[str, float] = {}
     for seed_id, (x, y, z) in seeds.items():

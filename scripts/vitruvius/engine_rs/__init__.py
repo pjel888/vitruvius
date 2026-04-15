@@ -32,6 +32,7 @@ __all__ = [
     "SpatialPoint",
     "LinearOctree",
     "build_spatial_adjacency_edges_rs",
+    "weight_by_distance_rs",
     "SPRINT_CODENAME",
     "ENGINE_RS_VERSION",
     "ENGINE_RS_AVAILABLE",
@@ -57,6 +58,12 @@ if _ext is not None:
     build_spatial_adjacency_edges_rs = getattr(
         _ext, "build_spatial_adjacency_edges", None
     )
+    # Sprint RUST-MIG-1 Task 5 — S2 Rust fast path.
+    # Same lazy-getattr pattern as Task 4: older wheels that predate
+    # Task 5 leave this as None and the call site in
+    # spatial/proximity_jump.py transparently falls back to the
+    # pure-Python ``math.exp`` loop.
+    weight_by_distance_rs = getattr(_ext, "weight_by_distance", None)
     SPRINT_CODENAME: str = getattr(_ext, "SPRINT_CODENAME", "GT.1+GT.2")
     ENGINE_RS_VERSION: str = getattr(_ext, "__version__", "0.0.0")
     ENGINE_RS_AVAILABLE = True
@@ -82,6 +89,9 @@ else:
     # check, but the `is not None` check alone already protects the
     # non-breaking contract.
     build_spatial_adjacency_edges_rs = None
+    # Sprint RUST-MIG-1 Task 5 — same unbuilt-host fallback for the
+    # S2 fast path; proximity_jump.py short-circuits on this None.
+    weight_by_distance_rs = None
     SPRINT_CODENAME = "GT.1+GT.2"
     ENGINE_RS_VERSION = "0.0.0"
     ENGINE_RS_AVAILABLE = False
