@@ -125,11 +125,22 @@ def test_rust_matches_python_on_synthetic_snapshot(monkeypatch) -> None:
 
 
 def test_rust_fast_path_is_noop_when_flag_off(monkeypatch) -> None:
-    """Flag-OFF → pure-Python path, even if the Rust extension is importable.
+    """Flag-OFF → the Rust kernel is NOT called, pure-Python path runs.
 
     This is the non-breaking contract from AD-036 §Decision 5:
     ``rust_mig_spatial_kernels=false`` must be byte-identical to
     pre-migration behaviour.
+
+    The test proves this actively by replacing
+    ``build_spatial_adjacency_edges_rs`` with a sentinel that raises
+    ``AssertionError`` if invoked. Running with the flag OFF must:
+      1. Not raise (the sentinel is never reached).
+      2. Produce a non-empty edge set — otherwise the assertion is
+         vacuous and the test would silently pass on a broken
+         short-circuit.
+      3. Match the edge set from a direct call with the sentinel
+         still in place (same pure-Python path both times), so we
+         also verify determinism of the baseline.
     """
     if getattr(_seb_module, "build_spatial_adjacency_edges_rs", None) is None:
         pytest.skip("Rust fast path not built — nothing to test flag-off behavior for.")
@@ -141,13 +152,41 @@ def test_rust_fast_path_is_noop_when_flag_off(monkeypatch) -> None:
 
     monkeypatch.setattr(_seb_module, "_load_features_cached", lambda: _FlagsOff())
 
+    # Replace the Rust fast-path symbol with a sentinel that blows up
+    # if called. If the flag-OFF short-circuit is ever broken (e.g. a
+    # future refactor inverts the guard) this sentinel will trigger
+    # and the test fails loudly instead of silently running Rust.
+    def _must_not_be_called(*_args, **_kwargs):  # pragma: no cover - sentinel
+        raise AssertionError(
+            "build_spatial_adjacency_edges_rs was invoked with the feature "
+            "flag OFF — the Python short-circuit is broken."
+        )
+
+    monkeypatch.setattr(
+        _seb_module, "build_spatial_adjacency_edges_rs", _must_not_be_called
+    )
+
     points = _make_synthetic_points(50)
     edges = build_spatial_adjacency_edges(points)
-    # If the Python path ran we get SpatialEdge dataclass instances
-    # with the ``physically_adjacent_to`` type. That is the only
-    # observable signal that the Python code path was taken — the
-    # Rust path would return the same dataclasses (it has to, for
-    # parity) so we can't distinguish by type alone. What we CAN
-    # check is that the call succeeded without raising and produced
-    # the same dataclass type as the existing Python tests.
-    assert all(hasattr(e, "from_id") and hasattr(e, "to_id") for e in edges)
+
+    # (1) Non-empty — proves the Python baseline actually emitted
+    # edges on this synthetic snapshot, so the no-raise assertion
+    # below is not vacuous over an empty iteration.
+    assert len(edges) > 0, (
+        "Flag-off path produced zero edges on 50-point synthetic snapshot — "
+        "test would be vacuous; bump n or tighten box-size distribution."
+    )
+    # (2) Shape — every edge carries the canonical predicate and
+    # the SpatialEdge dataclass contract. Belt-and-braces, but cheap.
+    assert all(
+        isinstance(e.from_id, str)
+        and isinstance(e.to_id, str)
+        and e.type == "physically_adjacent_to"
+        for e in edges
+    )
+    # (3) Determinism — a second call on the same input must return
+    # the same unordered pair set. With the sentinel still patched,
+    # this doubly proves the Rust kernel was NOT reached on either
+    # invocation (otherwise the sentinel would have raised).
+    edges_again = build_spatial_adjacency_edges(points)
+    assert _edge_pair_set(edges) == _edge_pair_set(edges_again)

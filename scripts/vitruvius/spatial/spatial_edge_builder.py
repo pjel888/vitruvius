@@ -144,6 +144,15 @@ def build_spatial_adjacency_edges(
     path (the predicate is symmetric), so swapping paths via the
     feature flag is a safe behaviour-preserving swap.
     """
+    # Hoist materialisation above the flag branch so a generator-backed
+    # ``points`` argument is consumed exactly once regardless of which
+    # path runs. This also saves one list allocation on the Python
+    # baseline path (previously the Rust-disabled path paid the same
+    # ``list(points)`` twice in total across the two branches); more
+    # importantly it eliminates a maintenance trap where a future
+    # editor could miss the implicit exclusivity between branches.
+    materialised = list(points)
+
     # ---- Sprint RUST-MIG-1 Task 4 — Rust fast path. ----
     # Minimal glue: one flag check, one list-comprehension to marshal
     # nodes. The Python wrapper must NOT pre-compute anything the
@@ -154,18 +163,17 @@ def build_spatial_adjacency_edges(
         build_spatial_adjacency_edges_rs is not None
         and _load_features_cached().is_enabled("rust_mig_spatial_kernels")
     ):
-        materialised = list(points)
         nodes_payload = [
             (
                 p.id,
-                [
+                (
                     float(p.aabb.min_xyz[0]),
                     float(p.aabb.min_xyz[1]),
                     float(p.aabb.min_xyz[2]),
                     float(p.aabb.max_xyz[0]),
                     float(p.aabb.max_xyz[1]),
                     float(p.aabb.max_xyz[2]),
-                ],
+                ),
             )
             for p in materialised
         ]
@@ -176,7 +184,6 @@ def build_spatial_adjacency_edges(
         ]
 
     # ---- Pure-Python baseline (default). ----
-    materialised = list(points)
     edges: list[SpatialEdge] = []
     for i in range(len(materialised)):
         a = materialised[i]
