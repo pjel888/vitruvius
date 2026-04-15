@@ -214,3 +214,31 @@ def adc_distance(
     for m in range(codebook.M):
         dists += lut[m][codes[:, m]]
     return dists
+
+
+def save_codebook(codebook: PQCodebook, path: Path | str) -> None:
+    """Save a codebook to ``path`` as a compressed numpy archive.
+
+    Rust Line: ``np.savez_compressed`` is C + zlib. Python orchestration
+    is fine here. DEFER_ALREADY_NATIVE.
+    """
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(
+        path,
+        centroids=codebook.centroids,
+        M=np.int32(codebook.M),
+        k=np.int32(codebook.k),
+        sub_dim=np.int32(codebook.sub_dim),
+    )
+
+
+def load_codebook(path: Path | str) -> PQCodebook:
+    """Load a codebook from ``path``."""
+    with np.load(Path(path)) as data:
+        return PQCodebook(
+            centroids=data["centroids"].astype(np.float32, copy=True),
+            M=int(data["M"]),
+            k=int(data["k"]),
+            sub_dim=int(data["sub_dim"]),
+        )

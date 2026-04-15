@@ -98,3 +98,22 @@ def test_adc_distance_matches_decoded_approximation() -> None:
     ref = np.sum((decoded - query) ** 2, axis=1)
 
     np.testing.assert_allclose(adc, ref, rtol=1e-4, atol=1e-4)
+
+
+def test_save_load_codebook_roundtrip(tmp_path) -> None:
+    rng = np.random.default_rng(seed=0)
+    embeddings = rng.standard_normal((50, 64)).astype(np.float32)
+    codebook = train_pq_codebook(embeddings, M=8, k=16, n_iter=5, seed=42)
+
+    from vitruvius.graph.pq_codebook import load_codebook, save_codebook
+
+    out = tmp_path / "codebook.npz"
+    save_codebook(codebook, out)
+    assert out.exists()
+    assert out.stat().st_size > 0
+
+    loaded = load_codebook(out)
+    assert loaded.M == codebook.M
+    assert loaded.k == codebook.k
+    assert loaded.sub_dim == codebook.sub_dim
+    np.testing.assert_array_equal(loaded.centroids, codebook.centroids)
