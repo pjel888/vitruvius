@@ -1,13 +1,30 @@
 > ⚠️ **HISTORICAL SNAPSHOT — SUPERSEDED 2026-04-15**
 >
-> This audit was written on 2026-04-13 against a pre-Sprint-A baseline. It is retained here as a frozen historical record of what the codebase looked like before Sprints A + B + C + D + Q + R + PHYS + H + GEOM + WIKI + GT + HP + Z + HP.3-R shipped. Almost every "weakness" or "missing feature" flagged below has since been addressed.
+> This audit was written on 2026-04-13 against a pre-Sprint-A baseline.
+> It is retained here as a frozen historical record of what the codebase
+> looked like before 21 sprints shipped in a single session. Almost every
+> "weakness" or "missing feature" flagged below has since been addressed.
+>
+> The 21 closed sprints (in execution order) are: Q · R · H · GT · HP ·
+> HP.3-R · WIKI · GEOM · PHYS · Z · Meta-Docs · 1B-M1 · 1B-M2 ·
+> RUST-PDF-1 · 1B-M3 · DISTILL-1 · RUST-MIG-1 · AUDIT-1 · PIPELINE-CLI ·
+> PQ-1 · LSH-1. See the governing plan §1.1 for the full per-sprint ledger.
+>
+> Architecture decisions now span AD-001 through AD-042 (plus sub-decision
+> AD-038a). The pointer "AD-001 through AD-029" in this file is outdated.
 >
 > **For the current state of the codebase, read these instead:**
+> - `/.ai/03_plans/00-governing-implementation-plan.md` — authoritative sprint ledger (v3.0.0)
+> - `/.ai/00_system/EXECUTION_LOOP.md` — v3.0 canonical operating contract
+> - `/.ai/01_roadmap/master-roadmap.md` — roadmap v2.2.0
 > - `/.ai/10_state/active_context.md` — current session state
-> - `/.ai/10_state/decisions.md` — architecture decisions AD-001 through AD-029
+> - `/.ai/10_state/decisions.md` — architecture decisions AD-001 through AD-042
+> - `/.ai/10_state/known_issues.md` — open risks + closure timeline
 > - `/.ai/01_roadmap/current-phase.md` — current sprint / phase
-> - `/.ai/00_system/architecture.md` — current package layout (including post-Sprint-D additions)
+> - `/.ai/00_system/architecture.md` — current package layout
 > - `/.ai/00_system/pipeline-overview.md` — current execution flow
+> - `/.ai/00_system/naming-conventions.md` — naming rules
+> - `/.ai/00_system/principles.md` — architectural principles
 
 ---
 
@@ -765,3 +782,77 @@ The Vitruvius extraction pipeline is **most operational**:
 ---
 
 *Audit completed via code-forensic analysis. All claims traced to actual file contents.*
+
+---
+
+## 2026-04-15 Post-Sprint Reality Check
+
+### Machine context
+The Windows-format "Audit Target" path in the body (`C:\Users\Philip Lewis\...`) is a
+macOS audit run that was captured with a Windows-style path string. The canonical repo
+path is `/Users/philiplewis/vitruvius/`. All subsequent development has been on macOS.
+
+### Repository size: 19 files → 100+ modules
+The 19-file table in §1 reflects the pre-Sprint-A baseline. As of 2026-04-15 the
+`scripts/vitruvius/` package has grown to approximately 100+ Python modules across
+18 subpackages, plus two pyo3 Rust crates and a TypeScript sibling subproject.
+Major additions (subpackage level):
+
+| Subpackage | Sprint that shipped it | Key modules |
+|---|---|---|
+| `normalization/` | Sprint B | `engine.py`, `rules_tier_{a,b,c}.py`, `ast_chunker.py`, `embedding_chunker.py`, `refine.py` |
+| `parsers/` | Sprint C / 1B-M1/M2/M3 | `base_parser.py`, `docling_parser.py`, `rust_pdf_parser.py`, `orchestrator.py`, `factory.py`, `cli_handler.py`, `quality_gates.py`, `ocr_preprocessor.py`, `libreoffice_preprocessor.py` |
+| `promotion/` | Sprint A / Sprint Q | `bayesian_fusion.py`, `stringency_resolver.py`, `temporal_edges.py` |
+| `review/` | Sprint Q / Sprint R | `naive_bayes_filter.py`, `slm_router.py`, `choquet_aggregator.py`, `conformal_calibrator.py`, `tension_analyzer.py`, `reflection_parser.py`, `cot_audit.py`, `stateful_registry.py`, `rocksdb_stateful_registry.py` |
+| `wiki/` | Sprint WIKI | `docling_parser.py`, `kuzu_store.py`, `delta_tracker.py`, `synthesis_loop.py`, `ego_linter.py`, `llm_client.py`, `ollama_client.py` |
+| `compound/` | Sprint Z | `adversarial.py`, `dspy_compiler.py`, `logic_schema.py`, `dependency_tracker.py`, `differential_propagator.py`, `wasm_kernel.py` |
+| `graph/` | Phase 8 / Sprint GT/HP/PHYS/HP.3-R | 24 modules including `builder.py`, `graphsage.py`, `graphsage_pq.py`, `pq_codebook.py`, `physics.py`, `event_store.py`, `rocksdb_event_store.py`, `wasserstein_merge.py` |
+| `concepts/` | Sprint D / Phase 3C | `tfidf_matcher.py`, `pmi_alias_miner.py`, `fca_lattice.py`, `contrastive_adapter.py` |
+| `relationships/` | Sprint LSH-1 | `lsh_index.py`, `lsh_dedup.py`, `minhash.py` |
+| `spatial/` | Sprint H / Sprint GT | `schema.py`, `concept_mapper.py`, `constraint_solver.py`, `cli.py`, `contract_reader.py` (AD-039) |
+| `query/` | Phase 9 / Sprint D | `engine.py`, `graphrag_router.py`, `ontology_prompt.py`, `mcmc_ranker.py`, `pipeline_hmm.py` |
+| `geometric/` | Sprint GEOM | `inequality_compiler.py`, `envelope_2d.py`, `envelope_3d.py`, `pareto_optimizer.py` |
+| `extraction/` | Sprint D | `crf_trainer.py`, `crf_extractor.py`, `kg_link_predictor.py` |
+| `priming/` | Sprint R | contextual priming modules |
+| `bench/` | Sprint Q / Sprint HP.3-R | bench harnesses |
+| `merkle/` | Sprint HP | `directory_hash.py` |
+| `engine_rs/` (Rust) | Sprint GT + RUST-MIG-1 | pyo3 workspace — `core/`, `pyo3_shim/`, `spatial_kernels/`, `stats_kernels/` |
+| `datalog_rs/` (Rust) | Sprint Z | hand-rolled Datalog evaluator |
+
+Single-file additions: `merkle_fs.py` (HP.1), `kv_migrate.py` (HP.3-R), `features.py`,
+`config.py`, `registry_rotation.py`, `promotion_validator.py`, `concept_enrichment.py`,
+`concept_definitions.py`, `concept_aliases.py`, `pre_review_filter.py`,
+`ollama_review_second_pass.py`, `review_routing.py`, `canonical_diff.py`.
+
+TypeScript sibling: `spatial-daemon/` (GJK, AABB, filesystem contract writer with
+SHA-256 integrity footer per AD-039, 20/20 vitest tests).
+
+### Layer 3→4 and Layer 4→5 — both SHIPPED
+The closing conclusion in §17 ("Layer 3→4: NOT IMPLEMENTED / Layer 4→5: NOT IMPLEMENTED")
+and the "Key Gaps" list are now wrong for every item.
+
+- **Layer 3→4 (derived content + promotion):** Sprint A shipped the `promote` CLI command
+  (17-rule validator, audit log). Sprint Q (AD-024) wired 3 Stream G promotion modules.
+  Sprint WIKI (AD-030) shipped autonomous LLM knowledge synthesis. `promotion/` subpackage
+  is fully operational. First 3 PD 1096 relationships promoted 2026-04-14.
+- **Layer 4→5 (chunking, embeddings, graph):** `normalization/ast_chunker.py` (AST-based
+  semantic chunking) and `normalization/embedding_chunker.py` shipped in Sprint B.
+  `graph/graphsage.py` (GraphSAGE embeddings, Sprint HP) and `graph/graphsage_pq.py`
+  (32× product-quantization compression, Sprint PQ-1 AD-041) ship the embedding layer.
+  `wiki/kuzu_store.py` provides vector+graph hybrid storage. `graph/` contains 24 modules
+  covering the full graph stack from construction to physics simulation.
+- **Relationship extraction beyond regex:** `extraction/crf_trainer.py` and
+  `extraction/crf_extractor.py` (Sprint D Stream E CRF-based extraction) plus the
+  pre-review NaiveBayes filter (`review/naive_bayes_filter.py`, Sprint Q AD-024) reduce
+  the effective rejection rate from 82% to approximately 10% on PD 1096.
+- **OCR parallelization:** `parsers/orchestrator.py::process_batch()` has the API
+  contract in place for `ProcessPoolExecutor` (flag `p1b_process_pool_orchestration`
+  reserved, Sprint 1B-M2 AD-032). Full parallel activation is one flag-flip away once
+  validated. Additionally, `parsers/rust_pdf_parser.py` (lopdf-backed, AD-034) runs at
+  0.05s wall / 13.7 MB RSS (625× faster than docling), changing the batch-convert
+  performance profile dramatically.
+
+### Current sprint count and AD ceiling
+As of 2026-04-15: **21 sprints closed**. Architecture decisions span **AD-001 through
+AD-042** (plus sub-decision AD-038a). CLI command count has grown well beyond the 18
+commands enumerated in §2 of this audit.
