@@ -170,3 +170,36 @@ def run_ple_registry_purge(
     finally:
         reg.close()
     return 0
+
+
+# ---------------------------------------------------------------------------
+# Sprint HP.3-R — factory dispatch
+# ---------------------------------------------------------------------------
+
+
+def make_stateful_registry(*, db_path: Path):
+    """Return the active verdict-cache backend based on the
+    ``hp_rocksdb_verdict_cache`` feature flag.
+
+    Flag OFF (default): returns a :class:`StatefulReviewRegistry`
+    (SQLite). The pre-Sprint-HP.3-R behaviour is byte-identical.
+
+    Flag ON: imports and returns a
+    :class:`RocksDBStatefulReviewRegistry`. The import is deferred so
+    systems without ``rocksdict`` installed never pay the cost on
+    the default code path.
+
+    Both backends have identical public APIs.
+    """
+    try:
+        from vitruvius import config as cfgmod
+        flags = cfgmod._features_block()
+    except Exception:
+        flags = {}
+    use_rocksdb = bool(flags.get("hp_rocksdb_verdict_cache", False))
+    if use_rocksdb:
+        from vitruvius.review.rocksdb_stateful_registry import (
+            RocksDBStatefulReviewRegistry,
+        )
+        return RocksDBStatefulReviewRegistry(db_path=db_path)
+    return StatefulReviewRegistry(db_path=db_path)

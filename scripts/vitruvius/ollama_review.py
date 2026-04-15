@@ -157,9 +157,13 @@ def review_with_cache(
     if not cfgmod._features_block().get("y_stateful_registry", False):
         return _call_llm(candidate)
 
-    from .review.stateful_registry import StatefulReviewRegistry, VerdictRecord
+    from .review.stateful_registry import (
+        StatefulReviewRegistry,
+        VerdictRecord,
+        make_stateful_registry,
+    )
 
-    reg = StatefulReviewRegistry(db_path=db_path)
+    reg = make_stateful_registry(db_path=db_path)
     try:
         cached = reg.get(
             source_hash=source_hash,

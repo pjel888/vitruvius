@@ -166,3 +166,36 @@ class Delta:
             kind=data["kind"],
             payload=data.get("payload", {}),
         )
+
+
+# ---------------------------------------------------------------------------
+# Sprint HP.3-R — factory dispatch
+# ---------------------------------------------------------------------------
+
+
+def make_event_store(*, db_path: Path):
+    """Return the active event-store backend based on the
+    ``hp_rocksdb_event_store`` feature flag.
+
+    Flag OFF (default): returns an :class:`EventStore` (SQLite). The
+    pre-Sprint-HP.3-R behaviour is byte-identical to what it was
+    before this factory existed.
+
+    Flag ON: imports and returns a :class:`RocksDBEventStore`. The
+    import is deferred so systems without ``rocksdict`` installed
+    never pay the cost and never hit an ImportError on the default
+    code path.
+
+    Both backends have identical public APIs, so callers do not need
+    to type-check the returned object.
+    """
+    try:
+        from vitruvius import config as cfgmod
+        flags = cfgmod._features_block()
+    except Exception:
+        flags = {}
+    use_rocksdb = bool(flags.get("hp_rocksdb_event_store", False))
+    if use_rocksdb:
+        from vitruvius.graph.rocksdb_event_store import RocksDBEventStore
+        return RocksDBEventStore(db_path=db_path)
+    return EventStore(db_path=db_path)
