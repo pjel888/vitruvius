@@ -122,3 +122,72 @@ def test_rust_pdf_parser_reports_failed_pages_when_flag_on(
     # Blank pages decode cleanly — failed_pages should be empty
     assert result.failed_pages == []
     assert isinstance(result.markdown_text, str)
+
+
+def test_orchestrator_surfaces_failed_pages_in_telemetry(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """``ParserOrchestrator.process()`` preserves ``failed_pages`` from the winning parser.
+
+    Sprint CLEANUP-1 Stream C3.1b — regression guard ensuring the
+    orchestrator passes :class:`ParseResult` through as-is (no field
+    reconstruction) so the downstream telemetry layer can observe which
+    pages failed in the winning parser's output.
+    """
+    from vitruvius.parsers.base_parser import BaseParser
+    from vitruvius.parsers.document_taxonomy import DocumentClass
+    from vitruvius.parsers.orchestrator import ParserOrchestrator
+
+    class _FakeParser(BaseParser):
+        parser_id = "fake"
+        parser_version = "0.0.1"
+
+        def parse(
+            self, source_path: Path, work_dir: Path
+        ) -> ParseResult:  # type: ignore[override]
+            telemetry = _make_telemetry(
+                pages_total=5,
+                pages_processed=3,
+                page_coverage_ratio=0.6,
+            )
+            return ParseResult(
+                markdown_text="hello world sample text to satisfy quality gates",
+                telemetry=telemetry,
+                sidecar_metadata={},
+                failed_pages=[2, 4],
+            )
+
+    orch = ParserOrchestrator(
+        parser_chains={DocumentClass.TEXT_PDF_SIMPLE: [_FakeParser()]},
+    )
+    fake_pdf = tmp_path / "fake.pdf"
+    fake_pdf.write_bytes(b"%PDF-1.4\n")
+
+    orch_result = orch.process(
+        source_path=fake_pdf,
+        doc_class=DocumentClass.TEXT_PDF_SIMPLE,
+        work_dir=tmp_path,
+    )
+
+    assert orch_result is not None
+
+    # Primary contract: the winning ParseResult is exposed on
+    # OrchestratorResult.final_parse_result with failed_pages intact.
+    preserved: list[int] | None = None
+    if (
+        getattr(orch_result, "final_parse_result", None) is not None
+        and orch_result.final_parse_result is not None
+    ):
+        preserved = orch_result.final_parse_result.failed_pages
+    elif getattr(orch_result, "attempts", None):
+        last_attempt = orch_result.attempts[-1]
+        if getattr(last_attempt, "parse_result", None) is not None:
+            preserved = last_attempt.parse_result.failed_pages
+
+    assert preserved == [2, 4], (
+        "Orchestrator did not preserve ParseResult.failed_pages. "
+        f"orch_result type: {type(orch_result).__name__}, "
+        f"terminal_status: {getattr(orch_result, 'terminal_status', None)!r}, "
+        f"final_parse_result: {getattr(orch_result, 'final_parse_result', None)!r}"
+    )
