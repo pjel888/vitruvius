@@ -2,10 +2,12 @@
 name = "vitruvius_spatial_kernels"
 version = "0.1.0"
 edition = "2021"
+description = "Vitruvius spatial kernels — Sprint RUST-MIG-1 AABB-pairwise + distance-decay Rust ports (scaffold)."
+license = "MIT OR Apache-2.0"
 
 [lib]
 crate-type = ["rlib"]
 
 [dependencies]
 vitruvius_engine_rs_core = { path = "../core" }
-ndarray = "0.15"
+ndarray = { workspace = true }

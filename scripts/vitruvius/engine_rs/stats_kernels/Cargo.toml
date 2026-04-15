@@ -2,10 +2,12 @@
 name = "vitruvius_stats_kernels"
 version = "0.1.0"
 edition = "2021"
+description = "Vitruvius stats kernels — Sprint RUST-MIG-1 Mahalanobis + sliced Wasserstein Rust ports (scaffold)."
+license = "MIT OR Apache-2.0"
 
 [lib]
 crate-type = ["rlib"]
 
 [dependencies]
 nalgebra = "0.33"
-ndarray = "0.15"
+ndarray = { workspace = true }

@@ -32,6 +32,15 @@ members = [
 # consumer has confirmed the shim-based build.
 exclude = ["src"]
 
+# Workspace-level dependency pins — any dep shared across ≥2 member
+# crates lives here so a single-crate bump cannot cause version drift.
+# Sprint RUST-MIG-1 Task 3 introduced this section when both
+# `spatial_kernels` and `stats_kernels` landed on `ndarray = "0.15"`.
+# Only add a dep here once it is used by ≥2 crates (nalgebra stays
+# inline in `stats_kernels` because it is the sole consumer today).
+[workspace.dependencies]
+ndarray = "0.15"
+
 # Workspace-level profile — cargo requires these live at the workspace
 # root, not the member crates. Members inherit these settings
 # automatically.
