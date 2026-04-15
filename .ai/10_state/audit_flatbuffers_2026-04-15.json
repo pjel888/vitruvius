@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2026-04-15T09:48:21.879098Z",
+  "n": 10000,
+  "python_interpreter": "/opt/homebrew/opt/python@3.11/bin/python3.11",
+  "host": "darwin-arm64",
+  "results": [
+    {
+      "site": "event_store_serialization",
+      "n": 10000,
+      "json_wall_seconds": 0.039139,
+      "flatbuffers_wall_seconds": 0.402452,
+      "speedup_ratio": 0.0973,
+      "breakdown": {
+        "json_bytes_per_record_estimate": 146.778
+      }
+    },
+    {
+      "site": "verdict_cache_serialization",
+      "n": 10000,
+      "json_wall_seconds": 0.03286,
+      "flatbuffers_wall_seconds": 0.170098,
+      "speedup_ratio": 0.1932,
+      "breakdown": {
+        "json_bytes_per_record_estimate": 83.5
+      }
+    }
+  ],
+  "decision_gate": {
+    "event_store_ratio": 0.0973,
+    "verdict_cache_ratio": 0.1932,
+    "threshold_go": 2.0,
+    "threshold_defer_lower": 1.25,
+    "recommendation": "NO_GO",
+    "notes": "FlatBuffers < 2x faster than JSON on event_store_serialization (0.1x) and verdict_cache_serialization (0.19x). Decision: NO_GO."
+  }
+}
