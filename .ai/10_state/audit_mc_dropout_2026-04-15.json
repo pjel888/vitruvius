@@ -1,0 +1,50 @@
+{
+  "timestamp_utc": "2026-04-15T09:50:46.354285Z",
+  "python_interpreter": "/opt/homebrew/opt/python@3.11/bin/python3.11",
+  "host": "darwin-arm64",
+  "surveyed_sites": [
+    {
+      "file": "scripts/vitruvius/graph/graphsage.py",
+      "model_type": "GraphSAGE (torch_geometric + mean aggregator)",
+      "dropout_enabled_at_inference": false,
+      "evidence": "graphsage.py:219 explicitly says 'Deterministic forward pass \u2014 no dropout, no training loop.' The forward pass runs inside torch.no_grad() with model.eval(), which disables dropout.",
+      "sprint": "HP.5"
+    },
+    {
+      "file": "scripts/vitruvius/review/naive_bayes_filter.py",
+      "model_type": "Multinomial Naive Bayes (closed-form, not neural)",
+      "dropout_enabled_at_inference": false,
+      "evidence": "Naive Bayes is a probabilistic classifier with no hidden layers and no dropout concept. MC dropout is inapplicable.",
+      "sprint": "Q-W2"
+    },
+    {
+      "file": "scripts/vitruvius/extraction/crf_trainer.py",
+      "model_type": "Linear-chain CRF",
+      "dropout_enabled_at_inference": false,
+      "evidence": "CRFs are discriminative sequence models with no neural dropout. The uncertainty signal here is the marginal probability from the forward-backward algorithm, not MC dropout.",
+      "sprint": "D-E"
+    },
+    {
+      "file": "scripts/vitruvius/extraction/kg_link_predictor.py",
+      "model_type": "TransE-family link predictor",
+      "dropout_enabled_at_inference": false,
+      "evidence": "TransE uses learned entity and relation embeddings; inference is a vector arithmetic score. No dropout in the inference path.",
+      "sprint": "D-E"
+    },
+    {
+      "file": "scripts/vitruvius/ollama_review.py",
+      "model_type": "Remote LLM (Ollama)",
+      "dropout_enabled_at_inference": false,
+      "evidence": "Ollama exposes a completion API \u2014 it does not expose a dropout-at-inference knob to clients. Even if it did, running the same prompt N times with a non-zero temperature gives different samples, but that is aleatoric sampling variance, not MC dropout. Alternative uncertainty signals for LLM review are provided by the Sprint Q W2 conformal gate and the self_confidence field parsed from the response.",
+      "sprint": "6A"
+    }
+  ],
+  "viable_sites": [],
+  "viable_site_count": 0,
+  "utility_path": "scripts/vitruvius/graph/mc_dropout.py",
+  "utility_production_call_sites": 0,
+  "decision_gate": {
+    "recommendation": "PARK",
+    "notes": "0 viable MC-dropout site(s) found out of 5 neural-inference modules surveyed. Park the utility; it stays available but unused."
+  }
+}
