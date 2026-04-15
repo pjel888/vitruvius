@@ -1,13 +1,30 @@
 > ⚠️ **HISTORICAL SNAPSHOT — SUPERSEDED 2026-04-15**
 >
-> This audit was written on 2026-04-13 against a pre-Sprint-A baseline. It is retained here as a frozen historical record of what the codebase looked like before Sprints A + B + C + D + Q + R + PHYS + H + GEOM + WIKI + GT + HP + Z + HP.3-R shipped. Almost every "weakness" or "missing feature" flagged below has since been addressed.
+> This audit was written on 2026-04-13 against a pre-Sprint-A baseline.
+> It is retained here as a frozen historical record of what the codebase
+> looked like before 21 sprints shipped in a single session. Almost every
+> "weakness" or "missing feature" flagged below has since been addressed.
+>
+> The 21 closed sprints (in execution order) are: Q · R · H · GT · HP ·
+> HP.3-R · WIKI · GEOM · PHYS · Z · Meta-Docs · 1B-M1 · 1B-M2 ·
+> RUST-PDF-1 · 1B-M3 · DISTILL-1 · RUST-MIG-1 · AUDIT-1 · PIPELINE-CLI ·
+> PQ-1 · LSH-1. See the governing plan §1.1 for the full per-sprint ledger.
+>
+> Architecture decisions now span AD-001 through AD-042 (plus sub-decision
+> AD-038a). The pointer "AD-001 through AD-029" in this file is outdated.
 >
 > **For the current state of the codebase, read these instead:**
+> - `/.ai/03_plans/00-governing-implementation-plan.md` — authoritative sprint ledger (v3.0.0)
+> - `/.ai/00_system/EXECUTION_LOOP.md` — v3.0 canonical operating contract
+> - `/.ai/01_roadmap/master-roadmap.md` — roadmap v2.2.0
 > - `/.ai/10_state/active_context.md` — current session state
-> - `/.ai/10_state/decisions.md` — architecture decisions AD-001 through AD-029
+> - `/.ai/10_state/decisions.md` — architecture decisions AD-001 through AD-042
+> - `/.ai/10_state/known_issues.md` — open risks + closure timeline
 > - `/.ai/01_roadmap/current-phase.md` — current sprint / phase
-> - `/.ai/00_system/architecture.md` — current package layout (including post-Sprint-D additions)
+> - `/.ai/00_system/architecture.md` — current package layout
 > - `/.ai/00_system/pipeline-overview.md` — current execution flow
+> - `/.ai/00_system/naming-conventions.md` — naming rules
+> - `/.ai/00_system/principles.md` — architectural principles
 
 ---
 
@@ -63,3 +80,53 @@ These features are marked "Complete" in roadmaps but are actually minimal placeh
 ---
 **Audit result: PROJECT IS IN LATE INGESTION / EARLY EXTRACTION PHASE.**
 *Claims of being "Starting Phase 7" are technically correct in terms of sequence, but the foundations (Phase 2, 3, 5) are much thinner than documented.*
+
+---
+
+## 2026-04-15 Post-Sprint Reality Check
+
+This appendix corrects four findings from the body above that are now factually wrong.
+The body text is frozen as a historical record; this appendix is the delta.
+
+### Promotion Layer — SHIPPED (Sprint A, 2026-04-14; Sprint Q, 2026-04-15)
+Body §4 states "No code exists in `scripts/vitruvius/`." This is no longer true.
+- `scripts/vitruvius/promotion/` subpackage ships `bayesian_fusion.py`,
+  `stringency_resolver.py`, `temporal_edges.py`, `__init__.py`.
+- The `promote` CLI command reads `latest_relationship_review_high_confidence.json`,
+  runs a 17-rule validator, and writes records to
+  `003_Canonical-Knowledge-Layer/shared/relationships/` with a full audit log.
+- Sprint Q (AD-024) wired all 3 Stream G promotion modules into live paths.
+  First 3 PD 1096 relationships were promoted on 2026-04-14.
+- Risk RI-006 (Manual Promotion Gap) is formally CLOSED.
+
+### Concept Enrichment — SUBSTANTIALLY SHIPPED (Phase 3C, AD-019, AD-020; 2026-04-14)
+Body §3 states concepts.py "simply asserts that 'X is a concept'."
+- 16/20 PD 1096 concepts now carry real definitions extracted via section-title
+  anchors, alias mining, and compound-title matching — zero LLM calls.
+- `scripts/vitruvius/concepts/` subpackage: `tfidf_matcher.py`, `pmi_alias_miner.py`,
+  `fca_lattice.py`, `contrastive_adapter.py`.
+- The 4 remaining concepts (`exit-width`, `parking-and-loading-spaces`, `setbacks`,
+  `yards`) need a second corpus or manual curation — not an LLM issue.
+- Risk RI-010 is 16/20 closed.
+
+### Normalization Pipeline — SHIPPED (Sprint B, AD-007; 2026-04-14)
+Body §4 states "No dedicated normalization logic beyond basic text cleaning."
+- `scripts/vitruvius/normalization/` subpackage ships `engine.py` (NormalizationEngine),
+  `rules_tier_a.py`, `rules_tier_b.py`, `rules_tier_c.py`, `ast_chunker.py`,
+  `embedding_chunker.py`, `refine.py`.
+- 8 Tier A/B rules run via the `refine` CLI stage, emitting `.refined.json` manifests.
+  6 PD 1096 files refined with idempotency verified.
+- Risk RI-007 (Normalization Fragmentation) is CLOSED.
+
+### Hardcoded Ollama URL — FIXED (Sprint A, AD-003 sub-fix; 2026-04-14)
+Body §6 states "Ollama URL is hardcoded to `127.0.0.1:11434`."
+- The URL is now read from `config/vitruvius.yaml` via
+  `scripts/vitruvius/config.py::get_ollama_url()`. The hardcoded value
+  (`http://127.0.0.1:11434`) is retained only as a fallback default.
+- Sprint B added bounded retries and graceful fallback on connection failure.
+- Risk RI-003 (External Dependency — Ollama) is CLOSED.
+
+### Current sprint count and AD ceiling
+As of 2026-04-15: **21 sprints closed** in a single session (Q through LSH-1).
+Architecture decisions span **AD-001 through AD-042** (plus sub-decision AD-038a).
+See `/.ai/03_plans/00-governing-implementation-plan.md` §1.1 for the full ledger.
