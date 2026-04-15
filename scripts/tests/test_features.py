@@ -139,6 +139,8 @@ EXPECTED_FLAGS = {
     "hp_rocksdb_event_store", "hp_rocksdb_verdict_cache",
     # Sprint 1B-M1 — Phase 1B Modernization Tranche 1
     "p1b_docling_parser", "p1b_libreoffice_preprocessor",
+    # Sprint 1B-M2 — Phase 1B Modernization Tranche 2 (scoped)
+    "p1b_ocr_preprocessor", "p1b_process_pool_orchestration",
     # Sprint GEOM — Geometric Constraint Engine (phase-15)
     "geom_csp_compiler", "geom_envelope_2d", "geom_envelope_3d",
     "geom_iou_audit", "geom_pareto_optimizer",
@@ -274,3 +276,22 @@ def test_p1b_libreoffice_preprocessor_defaults_false() -> None:
     cfg = load_config()
     flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
     assert flags.get("p1b_libreoffice_preprocessor") is False
+
+
+def test_p1b_ocr_preprocessor_defaults_false() -> None:
+    """Sprint 1B-M2 — OCRPreprocessor routing defaults false until
+    pipeline_cli.py integration lands in a follow-up plan."""
+    from vitruvius.config import load_config
+
+    cfg = load_config()
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    assert flags.get("p1b_ocr_preprocessor") is False
+
+
+def test_p1b_process_pool_orchestration_defaults_false() -> None:
+    """Sprint 1B-M2 — process_batch parallelism marker defaults false."""
+    from vitruvius.config import load_config
+
+    cfg = load_config()
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    assert flags.get("p1b_process_pool_orchestration") is False

@@ -173,6 +173,12 @@ features:
   # follow-up. Defaults false until that CLI wiring lands.
   p1b_docling_parser: false
   p1b_libreoffice_preprocessor: false
+  # Sprint 1B-M2 — Phase 1B Modernization Tranche 2 (scoped).
+  # Deployment-readiness markers for OCRPreprocessor + process_batch
+  # parallelism. Both default false until pipeline_cli.py integration
+  # lands in a follow-up plan.
+  p1b_ocr_preprocessor: false
+  p1b_process_pool_orchestration: false
   # Sprint GEOM — Geometric Constraint Engine (phase-15).
   # All four streams now land: GEOM.1 inequality→Z3 compiler,
   # GEOM.3 2D+3D buildable envelope, GEOM.4 IoU audit + Pareto
