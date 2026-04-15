@@ -1383,6 +1383,57 @@ At n=10000 the LSH path produces 9999 output (1 false-positive collapse over ~50
 
 ---
 
+## AD-043 — Sprint CLEANUP-1 closure — 4-stream backlog cleanup (2026-04-15)
+
+**plan_id:** `sprint-cleanup-1`
+**Sprint:** Sprint CLEANUP-1
+**Status:** Accepted
+
+**Context.** Sprint CLEANUP-1 bundled 9 unplanned items from the Phase 1B / 1C / 3 / 5E backlogs into a single 4-stream sprint. Each item was originally deferred for a legitimate reason that has since been unblocked (Phase 1B Modernization shipped, Phase 1C MVP stable, Phase 6B live). None of the items required Rust except a 1-function addition to the existing `engine_rs/pdf/` crate for per-page error surfacing. Every other change sits above the Rust Line per AD-036.
+
+**Decision.**
+
+| Stream | Task count | Flag(s) | Kernel location |
+|---|---|---|---|
+| C1 Phase 1C Hardening | 3 (contract validator, slug collision resolver, table isolation) | `p1c_contract_validator`, `p1c_slug_collision_policy`, `p1c_table_isolation` | Python only |
+| C2 Phase 3 Completion | 2 (density extractor, bidirectional cross-ref linker) | `p3_density_extractor`, `p3_bidirectional_refs` | Python only |
+| C3 Phase 1B Hardening | 3 (failed_pages surface + orchestrator plumb + hallucination gates) | `p1b_page_isolation`, `p1b_hallucination_trap` | 1 new Rust pyo3 function (below Rust Line); everything else Python |
+| C4 Phase 5E LLM Extraction | 4 (prompt + dataclass + proposer + merger + integration tests) | `p5e_llm_extraction` | Python only |
+| Closure | 1 (AD-043 + archive) | — | — |
+
+**Consequences.**
+- 8 new feature flags, all defaulting `false` — no runtime behavior change until an operator flips a flag
+- Python test suite: **1528 → 1566 (+38 over the sprint)**
+- 1 new Rust function added to `engine_rs/pdf/src/lib.rs` (`extract_pdf_text_with_errors`). Everything else is Python.
+- 1 new dataclass field: `ParseResult.failed_pages: list[int]` (default `[]`, backwards compatible)
+- Phase 3 is **still 16/20** enriched at flag-off — Task 4 adds the mechanism, not the data. Running `enrich-concepts --force` with `p3_density_extractor=true` is a separate operator step.
+- Phase 5E is **available but not live** at flag-off. Flipping `p5e_llm_extraction=true` requires a live Ollama with the configured model.
+
+**Commits touching this AD.**
+- Task 0 (flag registration) — `a31916f`
+- Task 1 (contract validator) — `41b0412`
+- Task 2 (slug collision) — `fca74a9` (race-contaminated into a parallel docs commit; code correct)
+- Task 3 (table isolation) — `14b9c90`
+- Task 4 (density extractor) — `684e327`
+- Task 5 (bidirectional refs) — `bf1704e`
+- Task 6 (failed_pages + RustPdfParser) — `c6c90a1`
+- Task 7 (orchestrator plumb) — `6fddfcc`
+- Task 8 (hallucination gates) — `75ef1ba`
+- Task 9 (Phase 5E prompt + dataclass) — `9f50981`
+- Task 10 (LLM proposer) — `e87ef48`
+- Task 11 (merger + integration) — `9c86de2`
+- Task 12 (integration tests) — `98e22be`
+- Task 13 (closure) — `[this commit]`
+
+**Footnote on commit-message hygiene.** During Task 2 execution, a parallel documentation-refresh session was committing to `main` concurrently. The race window between `git add` and `git commit` absorbed the Task 2 files into a docs commit (`fca74a9 — docs(specs): spatial-schema.md adds Integrity Footer section`) instead of a dedicated Task 2 commit. The code is correct and testing verifies the functional outcome matches the plan; the mislabeled commit message is cosmetic and does not affect behavior. Going forward, subsequent tasks used an atomic `git add && git commit` bash pattern to minimize the race window.
+
+**References.**
+- Plan: `.ai/09_archive/plans/2026-04-15-cleanup-backlog-plan.md` (after Task 13 archive)
+- Governing plan: `.ai/03_plans/00-governing-implementation-plan.md` v3.0.0
+- Prior ADs: AD-036 (Rust Line), AD-016 (non-breaking flag contract), AD-031/032/034/040 (Phase 1B tranches + PIPELINE-CLI)
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.
