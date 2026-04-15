@@ -1,0 +1,13 @@
+{
+  "timestamp_utc": "2026-04-15T05:59:50Z",
+  "elapsed_seconds": 0.417,
+  "result": {
+    "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/002-History/History of Architecture Sample Exam.pdf",
+    "rust_char_count": 1988,
+    "pypdf_char_count": 1730,
+    "lcs_length": 1584,
+    "similarity_ratio": 0.9925,
+    "recommendation": "GO",
+    "notes": "rust/pypdf LCS similarity 0.992 meets the 0.70 threshold; Tranche 3 RustPdfParser is cleared to ship. Sample size: 5000 chars."
+  }
+}
