@@ -19,6 +19,9 @@ Ships the full phase-14 slice:
     page and its depth-2 neighbors to the LLM to detect
     contradictions and returns a :class:`ContradictionReport`.
 
-Live Ollama wiring (``ollama_client.py``) is the next follow-on and
-not shipped in this task; tests inject a mock ``LLMClient``.
+  * :mod:`ollama_client` — production :class:`LLMClient` adapter
+    backed by a local Ollama ``/api/generate`` endpoint with
+    ``format="json"`` enforced. Operators inject
+    :class:`OllamaLLMClient` into the synthesis loop and ego linter;
+    unit tests keep using tiny in-memory mocks.
 """
