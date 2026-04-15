@@ -19,6 +19,7 @@ It is not the execution-order authority. The governing plan owns execution order
 | `00-governing-implementation-plan.md` | orchestration | active | dispatches the live plan layer | you are entering `.ai/03_plans/` fresh |
 | `2026-04-16-whole-codebase-plans-upgrade-plan.md` | governance maintenance | active | current rewrite task for the plan layer | you are continuing the plan-layer rewrite task |
 | `2026-04-15-nested-agents-governance-plan.md` | governance maintenance | accepted / pending execution | nested `AGENTS.md` hierarchy | you are working on AGENTS coverage and hierarchy |
+| `2026-04-16_master-audit-implementation-plan.md` | stabilization plan | accepted / pending execution | PASS 2 audit-derived stabilization lane | you are executing the 2026-04-16 audit fix sequence |
 | `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | architecture implementation plan | proposed | governs AEC sequencing and integration boundaries | you are doing any AEC planning or future implementation |
 | `AEC_ENGINE_ECS_CORE_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | canonical ECS world state | AEC ECS work is selected |
 | `AEC_ENGINE_SPATIAL_KERNEL_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | deterministic spatial compute | AEC spatial work is selected |
@@ -54,6 +55,9 @@ It is not the execution-order authority. The governing plan owns execution order
 - `00-governing-implementation-plan.md`
 - `2026-04-16-whole-codebase-plans-upgrade-plan.md`
 - `2026-04-15-nested-agents-governance-plan.md`
+
+### Audit Stabilization
+- `2026-04-16_master-audit-implementation-plan.md`
 
 ### AEC Engine
 - `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`

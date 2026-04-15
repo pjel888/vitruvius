@@ -26,6 +26,7 @@
       DOH Guidelines for Health Facilities 20004.pdf
     DPWH/
       DPWH DO037 Enforcement of BP344 along National Roads.pdf
+      DPWH JICC Flood Control.pdf
     EO/
       E.O. 1008_0 1.pdf
       E.O. 1008_0.pdf
@@ -38,8 +39,80 @@
       HB 3391 - Out-of-Home Media Billboard Regulation Bill.pdf
     HB-5207/
       HB 5207 - Subdivision Green Parks Program Bill.pdf
-    HLURB/
+    HLURB-DHSUD/
+      CLUP GIS GUIDEBOOK HLURB.pdf
+      Guidelines on New Towns and Planned Unit Development.pdf
+      HLURB_CLUP_Guidebook_Vol_1_11042015.pdf
+      HLURB_CLUP_Vol_1.pdf
+      HLURB_CLUP_Vol_2.pdf
+      HLURB_CLUP_Vol_3.pdf
+      HLURB_Supplemental_Guidelines.pdf
+      HLURB_Supplemental_Guidelines_SLM.pdf
+      LCG of 1991.pdf
+      Local-Shelter-Planning-Manual-2016-Web-Edition.pdf
+      Open Space Development Guidelines.pdf
       R-973 s. 2018.pdf
+      Reference-Tool-on-Urban-Planning-and-Design-for-Climate-Resilience-for-LGUs-Planning-Actors-in-the-Philippines_readable.pdf
+      Resilient Urban Design and Development Guidelines.pdf
+      RPS (2008).pdf
+      Volume 4 - Planning Strategically.pdf
+    LGU/
+      253090760-Zoning-Davao-City.pdf
+      289088479-Tarlac-Zoning-Ordinances.pdf
+      320734606-Maps.pdf
+      353069306-Bgc-Master-Plan.pdf
+      356243531-Draft-Zoning-Ordinance-2012-2021-2.pdf
+      362704379-Taguig-Comprehensive-Land-Use-Plan-CLUP-Volume-II.pdf
+      371438973-Zoning-Ordinance-TAGUIG-pdf.pdf
+      383655196-PD-957.pdf
+      396551136-Comprehensive-Land-Use-Plan-of-Pasig-CIty.pdf
+      413839175-Taguig-CLUP-pdf.pdf
+      415774768-plan-gp-land-use-map-update-pdf.pdf
+      437459910-Ordinance-No-2117.pdf
+      459742704-Zoning-Ordinance-2016-2025 (1).pdf
+      459742704-Zoning-Ordinance-2016-2025.pdf
+      479541265-no-17-098b-pdf.pdf
+      490459778-Volume-2-Zoning-Ordinance.pdf
+      513821870-Map-Color-Coded-Quezon-City.pdf
+      579259927-ZONING-ORDINANCE-PASAY.pdf
+      586650111-CLUP.pdf
+      588729100-Clup-2016-2030-Volume-2-Zoning-Ordinance-Version-5-12-2018-10-31-for-Printing.pdf
+      588729112-Clup-2016-2030-Volume-3-Sectoral-Studies-Version-5-12-2018-11-04-for-Printing-Copy.pdf
+      592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa.pdf
+      597492263-Calamba-CLUP-v1-New.pdf
+      599384270-CAVITE-CLUP-VOLUME-3-REVISED.pdf
+      599384294-Volume-I-Batangas-City-Comprehensive-Land-Use-Plan-2019-2028.pdf
+      619044847-Mabalacat-CLUP-2018.pdf
+      622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.pdf
+      623689186-Manila-CLUP-2005-2020.pdf
+      648659786-Vol2-Zoning-Ordinance.pdf
+      649704913-Volume-III-Zoning-Ordinance.pdf
+      672108686-Mauban-CLUP-Vol-2-Approved.pdf
+      673810152-CLUP-Carmona-Volume-3-Final.pdf
+      674253872-Volume-1-Comprehensive-Land-Use-Plan-Sto-Tomas-1.pdf
+      700996086-Malolos-City-Zoning-Ordinance.pdf
+      721039237-TRECE-LATEST-CLUP-Volume-I.pdf
+      728639085-CLUP-Final-1.pdf
+      736227374-Vol-1-Lan-Use-Plan.pdf
+      744110354-Comprehensive-Land-Use-Plan-of-Santa-Maria-2006-2015-1.pdf
+      754536758-Volume-II-Sariaya-CLUP-EDITED-v-8-Feb-2020-Roda-docx.pdf
+      756628009-Dagupan-City-Ordinance-no-2061-2016.pdf
+      763865190-2020-2030-CLUP-Volume-2-FINAL-LAS-PINAS.pdf
+      784708893-PALAUIG-ZAMBALES-CLUP.pdf
+      794216046-San-Mateo-Zoning-Ordinance.pdf
+      794422427-BGC-Design-Standards-and-Guidelines.pdf
+      818768588-The-CLUP-2020-2030.pdf
+      820926861-CLUP-2017-2026.pdf
+      844057380-Copy-of-San-Mateo-Rizal-clup.pdf
+      853321032-CDP-2023-2028.pdf
+      866816954-Calamba-Clup (1).pdf
+      866816954-Calamba-Clup.pdf
+      912157126-San-Pedro-Comprehensive-Development-Plan.pdf
+      913356270-Pagsanjan-Volume-1-CLUP.pdf
+      933175937-Clup-Mandaue-City.pdf
+      IPSP Vol. 01 - Bonifacio Capital District Mixed-Use Development Project Competitive Challenge.pdf
+      Ord.15-2003.pdf
+      ordinance.pdf
     PD-1067/
       PD 1067 - Water Code of the Philippines.pdf
       PD 1067 IRR - Water Code Implementing Rules.pdf
@@ -135,6 +208,13 @@
       RA9514-RIRR-rev-2019.pdf
     SB-2982/
       SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago).pdf
+    test/
+      ALE - Building Laws Cross-Reference Table (Pedro Santos Jr).xlsx
+      Building Technology - Handout 1.docx
+      Building Technology Lecture - Siteworks.ppt
+      CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf
+      DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.pdf
+      TRIAL_Fake_PDF.pdf
     UAP/
       1979 UAP Documents.pdf
       Professional Practice Reviewer2.pdf
@@ -157,6 +237,7 @@
       UAP Documents Q _ A.pdf
       UAP Documents Reviewer.pdf
       UAP Documents.pdf
+    .DS_Store
   002-History/
     20th Century Architects 2.pdf
     20th Century Architects 3.pdf
@@ -271,13 +352,13 @@
     The Complete Guide to Plumbing 4th Ed (Black + Decker).pdf
     The Complete Guide to Plumbing 6th Ed (Black + Decker).pdf
   006 -Structural/
+    .DS_Store
     Advances in civil, architectural, structural and constructional engineering.pdf
     Applied Statics and Strength of Materials.pdf
     Applied Strength of Materials.pdf
     Basic Mechanics with Engineering Applications.pdf
     Bedford - Engineering Mechanics - Statics - Solution Manual 5th Ed.pdf
     Detailing of Reinforcment in Concrete Structures.pdf
-    DPWH JICC Flood Control.pdf
     Dynamics 12th Ed.pdf
     Dynamics 13th Ed Solutions.pdf
     Dynamics by Meriam Kraige 8th Ed.pdf
@@ -321,164 +402,4 @@
     McKenzie - Examples in Structural Analysis.pdf
     Mechanics and Strength of Materials.pdf
     National Structural Code of the Philippines 2015.pdf
-    Problems and Solutions on Mechanics.pdf
-    Problems in Strength of Materials (4th Ed.) - Solution Manual A_ Solutions 104 to 520.pdf
-    Pytel Strength of Materials.pdf
-    R. C. Coates, Structural Analysis, 3rd Ed, 1988.pdf
-    Schaum_s Outline Series Engineering Mechanics.pdf
-    Solution Manual Engineering Mechanics Statics 6th Ed.pdf
-    Statics - Learning from Engineering Examples.pdf
-    Statics and Strength of Materials for Architecture and Building Construction.pdf
-    Statics by Meriam Kraige 6th Ed.pdf
-    Statics by Meriam Kraige 7th Ed.PDF
-    Strength of Material by SK Mondal.pdf
-    Strength Of Materials - Elementary Theory and Problems.pdf
-    Strength of Materials 4th ed by Bansal.pdf
-    Strength of Materials and Structures - Malestrom.pdf
-    Structural Analysis - A Unified Classical and Matrix Approach - Ghali.pdf
-    Structural Analysis - Hibbeler 8E.pdf
-    Structural Analysis - Kassimali 4E Solutions Manual.pdf
-    Structural Analysis - Kassimali 4E.pdf
-    Structural Analysis Classical and Matrix Methods - Mcormac.pdf
-    Structural Analysis Module.pdf
-    Structural Analysis Notes.pdf
-    Structural Analysis with Matrix - Gupta.pdf
-    Structural Analysis with the Finite Element Method. Linear Statics_ Volume 1.pdf
-    Structural Concrete_ Theory and Design.pdf
-    Structural Design Fundamentals.pdf
-    Structural Terms - Compilation.pdf
-    Theory of Matrix Structural Analysis.pdf
-    Theory of Structure by Punma and Jaine.pdf
-    Theory of Structures - Timoshenko.pdf
-    Theory of Structures_ Fundamentals, Framed Structures, Plates and Shells.pdf
-    Understanding Mechanics by Sadler Thorning.pdf
-    Vector Mechanics for Engineers.pdf
-  007-Planning/
-    1. Site Planning - Kevin Lynch.pdf
-    2. Site Planning - P203 Land Use Planning Kevin Lynch.pdf
-    Elements of Roads and Highways (2nd Ed) by Max Fajardo.pdf
-    EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf
-    Metro Manila DRM Profile.pdf
-    Module - Site Planning and Urban Design.pdf
-    PD 1517_Urban Land Reform.pdf
-    PLANNING 1 (History).pdf
-    PLANNING 2 (Physical Configurations).pdf
-    PLANNING 3 (Agencies).pdf
-    Planning Capital Cities.pdf
-    Planning for Urban Sustainability - City Farmer_s Urban Agriculture.pdf
-    Public Places - Urban Spaces The Dimensions of Urban Design by Matthew Carmona, Tim Heath, Taner Oc, Steve Tiesdell.pdf
-    RA 7279 Urban Development and Housing Act 2009.pdf
-    Responsive Environments by Ian Bentley et.al.pdf
-    Site Analysis Informing Context-Sensitive and Sustainable Site Planning and Design by James A. LaGro.pdf
-    Site Planning and Design by Thomas Russ.pdf
-    Site Planning and Design Handbook, Second Edition by Thomas Russ.pdf
-    site planning.pdf
-    Time-Saver Standards for Landscape Architecture by Charles W. Harris, Nicholas T. Dines.pdf
-    Time-Saver Standards for Urban Design by Donald Watson.pdf
-    Urban Planning For Dummies by Jordan Yin, W. Paul Farmer.pdf
-  008-Design/
-    100 More of the Worlds Best Houses.pdf
-    14 Patterns of Biophilic Design Terrapin 2014.pdf
-    A Global History of Architecture.pdf
-    A Living Architecture Frank Lloyd Wright and Taliesin Architects by John Rattenbury, Frank Lloyd Wright.pdf
-    A Visual Dictionary of Architecture.pdf
-    ADPM 1 - Abstraction.pdf
-    ADPM 2 - Abstraction Applied to Architecture (Design).pdf
-    ADPM 2 - Abstraction Applied to Architecture 1.pdf
-    ADPM 4 - Abstraction Applied to Architecture (Form).pdf
-    Advances in Architectural Geometry 2010 by Cristiano Ceccato.pdf
-    Alvar Aalto Houses.pdf
-    Architectural Design by Anderson.pdf
-    Architectural Drafting and Design 6th Ed by Jefferis et al.pdf
-    Architectural Graphics.pdf
-    Architectural Working Drawings.pdf
-    Architectural-Visions.pdf
-    Architecture - Form, Space, and Order (3rd Edition).pdf
-    Architecture - Form, Space, and Order (4th Edition).pdf
-    Architecture Sustainable Building Design.pdf
-    Architecture Thesis Book.pdf
-    Binding Space - The Book as Spatial Practice by Macken.pdf
-    Bioclimatic Housing - Innovative Designs for Warm Climates by Richard Hyd.pdf
-    Color Fundamentals by Sherin.pdf
-    CTAD 1 - Manipulation.pdf
-    CTAD 2 - Transformation.pdf
-    CTAD 3 - Distortion.pdf
-    Design Drawing.pdf
-    Design Element - A Graphic Style Manual by Samara.pdf
-    Design Refresher.pdf
-    Design Strategies in Architecture by Baker.pdf
-    Detail in Contemporary Bar and Restaurant.pdf
-    Detail in Contemporary Concrete Architecture.pdf
-    Details in Contemporary Architecture.pdf
-    European Building Construction Illustrated.pdf
-    Frank Lloyd Wright - A Visual Encyclopedia by Iain Thomson.pdf
-    Green Building Illustrated.pdf
-    Intergrated Design in Contemporary Architecture.pdf
-    Interior Design Illustrated, 3rd edition.pdf
-    Interior Design Illustrated, 4th Edition.pdf
-    Interior Design Illustrated.pdf
-    Modern Architecture since 1900.pdf
-    Module - Structural Design.pdf
-    Parametric Design for Architecture by Jabi, Wassim.pdf
-    Post-Parametric Automation in Design and Construction by Andia, Alfredo _ Spiegelhalter, Thomas.pdf
-    Principles and Elements of Design Applied to Architecture.pdf
-    Sustainable Landscape Construction A Guide to Green Building Outdoors by Kim Sorvig, J. William Thompson.pdf
-    The Complete Book Of Underground Houses by Rob Roy.pdf
-    The Design Process Lecture.pdf
-    The Earth Sheltered Solar Greenhouse Book by Mike Oehler.pdf
-    The Interior Design Reference & Specification Book.pdf
-    The Measure of Man and Woman (Human Factors in Design) - Henry Dreyfuss and Alvin R. Tilley.pdf
-    The Measure of Man, Human Factors in Design - Henry Dreyfuss.pdf
-    Time-Saver Standards for Architectural Design Data.pdf
-    Time-Saver Standards for Interior Design  Planning by Julius Panero, Martin Zelnik, Joseph De Chiara.pdf
-    Understanding Architecture Through Drawing 2nd Ed by Edwards.pdf
-    Understanding Architecture Through Drawing.pdf
-  009-Practice/
-    PD-1096/
-      PD 1096 - National Building Code.pdf
-      Philippines_02_IRR_of_NBC_of_the_Philippines.pdf
-      Rule 7 _ 8.pdf
-      RULE VII_701 OCCUPANCY CLASSIFIED.pdf
-      RULE VII_Table VII-1 Occupancy Table.pdf
-      RULE VIII - LIGHT & VENTILATION.pdf
-    PRC/
-      PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.pdf
-      PRBoAres03,s08_temporary Permits for Foreign Architects.pdf
-      PRBoAreso1,s08_Prohibition of NonRLA's.pdf
-      RES_Architecture and AR Interiors are Exclusive.pdf
-      RES_Clarification of PD-9266 Rule II Registration.pdf
-      RES_Illegal Practice of AR.pdf
-    RA-9266/
-      IRR of RA 9266.pdf
-      RA 9266 - Architecture Act of 2004 Full Text.pdf
-      RA 9266 IRR - Architecture Act Implementing Rules (Compact).pdf
-      RA 9266 IRR - Architecture Act Implementing Rules (Full).pdf
-      RA-9266 IRR Architecture Act of 2004.pdf
-    UAP/
-      1979 UAP Documents.pdf
-      Professional Practice Reviewer2.pdf
-      SPP 201.pdf
-      SPP 202.pdf
-      SPP 203.pdf
-      SPP 204A.pdf
-      SPP 204B.pdf
-      SPP 205.pdf
-      SPP 206.pdf
-      SPP 207.pdf
-      SPP 208.pdf
-      SPP 209.pdf
-      Standards of Professional Practice2.pdf
-      UAP - 1979 Original Documents Collection.pdf
-      UAP - Code of Ethics for Architects.pdf
-      UAP Doc - Code of Ethical Conduct.pdf
-      UAP Doc - Standards of Professional Practice Compilation.pdf
-      UAP Doc 301 - General Conditions for Architects and Contractors.pdf
-      UAP Doc 401-402 - Architectural Competition Guidelines.pdf
-      UAP Document 301.pdf
-      UAP Document 3012.pdf
-      UAP Document 401-402.pdf
-      UAP Document Code of Ethics.pdf
-      UAP Document Standards of Professional Practice.pdf
-      UAP Documents Q _ A.pdf
-      UAP Documents Reviewer.pdf
-      UAP Documents.pdf
+  .DS_Store

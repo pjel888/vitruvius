@@ -5,72 +5,8 @@
       "code": "orphan_node",
       "edge_from": null,
       "edge_to": null,
-      "message": "node 'concept-building-height' has zero incident edges",
-      "node_id": "concept-building-height",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-certificate-of-occupancy' has zero incident edges",
-      "node_id": "concept-certificate-of-occupancy",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
       "message": "node 'concept-doors-and-exits' has zero incident edges",
       "node_id": "concept-doors-and-exits",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-exit-width' has zero incident edges",
-      "node_id": "concept-exit-width",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-fire-resistive-construction' has zero incident edges",
-      "node_id": "concept-fire-resistive-construction",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-floor-area' has zero incident edges",
-      "node_id": "concept-floor-area",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-light-and-ventilation' has zero incident edges",
-      "node_id": "concept-light-and-ventilation",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-lot-occupancy' has zero incident edges",
-      "node_id": "concept-lot-occupancy",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-means-of-egress' has zero incident edges",
-      "node_id": "concept-means-of-egress",
       "severity": "warning"
     },
     {
@@ -109,51 +45,11 @@
       "code": "orphan_node",
       "edge_from": null,
       "edge_to": null,
-      "message": "node 'concept-setbacks' has zero incident edges",
-      "node_id": "concept-setbacks",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-stairs' has zero incident edges",
-      "node_id": "concept-stairs",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-yards' has zero incident edges",
-      "node_id": "concept-yards",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'irr-implementing-rules-and-regulations-of-the-national-building-code' has zero incident edges",
-      "node_id": "irr-implementing-rules-and-regulations-of-the-national-building-code",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'irr-implementing-rules-and-regulations-of-the-national-building-code' has zero incident edges",
-      "node_id": "irr-implementing-rules-and-regulations-of-the-national-building-code",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
       "message": "node 'law-pd-1096-national-building-code' has zero incident edges",
       "node_id": "law-pd-1096-national-building-code",
       "severity": "warning"
     }
   ],
   "passed": true,
-  "warning_count": 19
+  "warning_count": 6
 }

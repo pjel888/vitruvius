@@ -1,0 +1,162 @@
+@prefix ifc: <https://standards.buildingsmart.org/IFC/RELEASE/IFC4/FINAL/OWL#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:concept-doors-and-exits a vitruvius:concept ;
+    rdfs:label "doors-and-exits (concept-doors-and-exits)" ;
+    owl:sameAs ifc:IfcDoor ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:53.633633+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-occupancy-load a vitruvius:concept ;
+    rdfs:label "occupancy-load (concept-occupancy-load)" ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:05.121205+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-open-courts a vitruvius:concept ;
+    rdfs:label "open-courts (concept-open-courts)" ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:07.619696+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-parking-and-loading-spaces a vitruvius:concept ;
+    rdfs:label "parking-and-loading-spaces (concept-parking-and-loading-spaces)" ;
+    vitruvius:last_updated_utc "2026-04-13T08:45:59Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-projections-over-public-ways a vitruvius:concept ;
+    rdfs:label "projections-over-public-ways (concept-projections-over-public-ways)" ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:10.164757+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:irr-implementing-rules-and-regulations-of-the-national-building-code a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-of-the-national-building-code (irr-implementing-rules-and-regulations-of-the-national-building-code)",
+        "pd-1096-irr (irr-implementing-rules-and-regulations-of-the-national-building-code)" ;
+    vitruvius:governs vitruvius:concept-building-height,
+        vitruvius:concept-building-permit,
+        vitruvius:concept-certificate-of-occupancy,
+        vitruvius:concept-exit-width,
+        vitruvius:concept-floor-area,
+        vitruvius:concept-light-and-ventilation,
+        vitruvius:concept-lot-occupancy,
+        vitruvius:concept-means-of-egress,
+        vitruvius:concept-mixed-occupancy,
+        vitruvius:concept-occupancy-classification,
+        vitruvius:concept-occupancy-separation,
+        vitruvius:concept-setbacks,
+        vitruvius:concept-stairs,
+        vitruvius:concept-yards ;
+    vitruvius:last_updated_utc "2026-04-13T00:00:00Z"^^xsd:string,
+        "2026-04-13T07:41:46Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-national-building-code-of-the-philippines a vitruvius:source ;
+    rdfs:label "national-building-code-of-the-philippines (law-national-building-code-of-the-philippines)" ;
+    vitruvius:governs vitruvius:concept-building-permit ;
+    vitruvius:last_updated_utc "2026-04-14T02:10:50Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-pd-1096-national-building-code a vitruvius:source ;
+    rdfs:label "pd-1096-national-building-code (law-pd-1096-national-building-code)" ;
+    vitruvius:last_updated_utc "2026-04-13T07:19:33Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:concept-certificate-of-occupancy a vitruvius:concept ;
+    rdfs:label "certificate-of-occupancy (concept-certificate-of-occupancy)" ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:52.318797+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-exit-width a vitruvius:concept ;
+    rdfs:label "exit-width (concept-exit-width)" ;
+    owl:sameAs ifc:IfcDoor ;
+    vitruvius:last_updated_utc "2026-04-13T08:45:49Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-fire-resistive-construction a vitruvius:concept ;
+    rdfs:label "fire-resistive-construction (concept-fire-resistive-construction)" ;
+    owl:sameAs ifc:IfcWall ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:56.166509+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-floor-area a vitruvius:concept ;
+    rdfs:label "floor-area (concept-floor-area)" ;
+    owl:sameAs ifc:IfcSpace ;
+    vitruvius:affects vitruvius:concept-building-height,
+        vitruvius:concept-stairs ;
+    vitruvius:depends_on vitruvius:concept-building-height,
+        vitruvius:concept-light-and-ventilation,
+        vitruvius:concept-yards ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:57.423702+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-lot-occupancy a vitruvius:concept ;
+    rdfs:label "lot-occupancy (concept-lot-occupancy)" ;
+    owl:sameAs ifc:IfcSite ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:00.087139+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-means-of-egress a vitruvius:concept ;
+    rdfs:label "means-of-egress (concept-means-of-egress)" ;
+    owl:sameAs ifc:IfcSpace ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:01.341113+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-setbacks a vitruvius:concept ;
+    rdfs:label "setbacks (concept-setbacks)" ;
+    vitruvius:affects vitruvius:concept-yards ;
+    vitruvius:depends_on vitruvius:concept-yards ;
+    vitruvius:last_updated_utc "2026-04-13T08:45:54Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-building-permit a vitruvius:concept ;
+    rdfs:label "building-permit (concept-building-permit)" ;
+    owl:sameAs ifc:IfcBuildingElementProxy ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:50.892417+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-occupancy-separation a vitruvius:concept ;
+    rdfs:label "occupancy-separation (concept-occupancy-separation)" ;
+    vitruvius:affects vitruvius:concept-occupancy-classification ;
+    vitruvius:depends_on vitruvius:concept-occupancy-classification ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:06.370992+00:00"^^xsd:string ;
+    vitruvius:requires vitruvius:concept-occupancy-classification ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-stairs a vitruvius:concept ;
+    rdfs:label "stairs (concept-stairs)" ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:12.692248+00:00"^^xsd:string ;
+    vitruvius:requires vitruvius:concept-fire-resistive-construction ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-building-height a vitruvius:concept ;
+    rdfs:label "building-height (concept-building-height)" ;
+    owl:sameAs ifc:IfcBuilding ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:49.640810+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-light-and-ventilation a vitruvius:concept ;
+    rdfs:label "light-and-ventilation (concept-light-and-ventilation)" ;
+    owl:sameAs ifc:IfcWindow ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:58.776077+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-mixed-occupancy a vitruvius:concept ;
+    rdfs:label "mixed-occupancy (concept-mixed-occupancy)" ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:02.585156+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-occupancy-classification a vitruvius:concept ;
+    rdfs:label "occupancy-classification (concept-occupancy-classification)" ;
+    vitruvius:affects vitruvius:concept-mixed-occupancy,
+        vitruvius:concept-occupancy-separation ;
+    vitruvius:depends_on vitruvius:concept-mixed-occupancy ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:03.823244+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-yards a vitruvius:concept ;
+    rdfs:label "yards (concept-yards)" ;
+    vitruvius:affects vitruvius:concept-light-and-ventilation ;
+    vitruvius:last_updated_utc "2026-04-13T08:45:59Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
