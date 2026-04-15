@@ -14,6 +14,22 @@
 // + scalar `sqrt`, so a Rust port with nalgebra's dense linalg wins
 // the same way the S2 `weight_by_distance` kernel did in Task 5.
 //
+// Task 6 micro-bench (n=1000 64-dim queries, pre-fitted model,
+// WeakKeyDictionary cov-inv cache warm):
+//
+//   * Python baseline:  93.28 ms wall (93.28 µs per call)
+//   * Rust fast path:   34.16 ms wall (34.16 µs per call)
+//   * Speedup:          **2.73×** — crosses AD-038's ≥2× threshold
+//                       for the Task 8 flag-default flip.
+//
+// First-pass Rust port was a 0.70× regression (slower than Python!)
+// because `cov_inv.flatten().tolist()` allocated 4096 `float` objects
+// on every call, dominating the 13 µs kernel with 120 µs of Python
+// object churn. The fix was to hoist the flatten into a
+// module-scope `weakref.WeakKeyDictionary` keyed on `OutlierModel`
+// instances so the flatten happens exactly once per model. See
+// `scripts/vitruvius/normalization/outlier_detector.py::_RS_MODEL_CACHE`.
+//
 // API shape:
 //
 //   * `fit_outlier_model` — NOT ported. The Python control plane
