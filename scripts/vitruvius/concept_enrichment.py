@@ -178,6 +178,19 @@ def enrich_concept_inner(
 
     known_slugs = _collect_known_slugs(repo_root)
     all_candidates: list[DefinitionCandidate] = []
+
+    # Sprint CLEANUP-1 C2.1 — optional density-based extractor (flag-gated).
+    # Flag-off is byte-identical: the `_density_on` short-circuit keeps the
+    # inner loop identical to the pre-C2.1 version.
+    _density_on = False
+    try:
+        from .spatial._feature_gate import _load_features_cached
+        _features = _load_features_cached()
+        if _features is not None and _features.is_enabled("p3_density_extractor"):
+            _density_on = True
+    except Exception:
+        _features = None
+
     for source_id, text in _collect_source_texts(repo_root):
         anchor_cands = extract_definitions_from_text(
             text, source_id=source_id, known_slugs=known_slugs,
@@ -187,6 +200,43 @@ def enrich_concept_inner(
         )
         all_candidates.extend(c for c in anchor_cands if c.concept_slug == concept_slug)
         all_candidates.extend(c for c in section_cands if c.concept_slug == concept_slug)
+
+        # Sprint CLEANUP-1 C2.1 — density extractor plugged here
+        if _density_on:
+            try:
+                from .concepts.density_extractor import (
+                    extract_definitions_by_density,
+                )
+
+                # Minimal alias set: the slug itself and its space-separated
+                # form. Full alias mining runs later from the picked snippet;
+                # the density pass only needs seed terms to find paragraphs.
+                _density_aliases = [
+                    concept_slug,
+                    concept_slug.replace("-", " "),
+                ]
+                density_cands = extract_definitions_by_density(
+                    text=text,
+                    slug=concept_slug,
+                    aliases=_density_aliases,
+                    min_density=2.0,
+                    window_chars=500,
+                )
+                for dc in density_cands:
+                    all_candidates.append(
+                        DefinitionCandidate(
+                            concept_slug=dc.slug,
+                            source_id=source_id,
+                            source_section_id="density-match",
+                            snippet=dc.definition,
+                            anchor="density",
+                            confidence=min(1.0, dc.density / 5.0),
+                        )
+                    )
+            except Exception:
+                # Degrade gracefully — if the extractor fails for any
+                # reason, the existing 2-pass pipeline still runs.
+                pass
 
     best = pick_best_definition(all_candidates)
     if best is None:
