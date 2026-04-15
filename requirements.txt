@@ -37,3 +37,9 @@ jsonschema>=4.0,<5.0
 z3-solver>=4.12,<5.0
 rdflib>=7.0,<8.0
 ifcopenshell>=0.7,<1.0
+
+# Sprint HP.3-R (RocksDB KV migration) — modern Rust-based Python binding
+# for RocksDB. Prebuilt cp311-macosx_11_0_arm64 wheel resolves the
+# python-rocksdb wheel blocker that forced the HP.3 pivot to SQLite.
+# See .ai/03_plans/2026-04-15-rocksdb-kv-migration-plan.md.
+rocksdict==0.3.29
