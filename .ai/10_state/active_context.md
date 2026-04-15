@@ -1,11 +1,13 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-15 (late pass) · Sprint Q ✅ + Sprint R ✅ + Sprint PHYS ✅ + Sprint H ✅ + Sprint GEOM ✅ + Sprint HP 🟡 (HP.1+HP.3) + Sprint WIKI 🟡 (non-LLM slice) — see AD-024 through AD-027 for per-sprint ledgers.
-> **Branch:** `feat/sprint-r-per-layer-embeddings` (will be renamed when merged to main; branch name is a misnomer at this point)
-> **Python test suite:** 1213 / 1213 passing (no `--ignore` needed — M.3 closes the last broken test)
+> **Updated:** 2026-04-15 (very late pass) · **ALL 9 governing-plan sprints closed this session.** Sprint Q ✅ + Sprint R ✅ + Sprint PHYS ✅ + Sprint H ✅ + Sprint GEOM ✅ + Sprint WIKI ✅ + Sprint GT ✅ + Sprint HP ✅ + Sprint Z ✅. See AD-024 through AD-028 for per-sprint ledgers.
+> **Branch:** `feat/sprint-r-per-layer-embeddings` (misnomer at this point — branch carries 9 sprints, not just Sprint R; will be renamed when merged to main)
+> **Python test suite:** **1364 / 1364 passing**, 1 skipped
 > **TypeScript test suite:** 20 / 20 passing (spatial-daemon/)
-> **Tags:** `sprint-q-closed` (c3eb939), `sprint-r-closed` (f192593), `sprint-phys-closed` (de86d78), `sprint-h-closed` (98e50fc), `sprint-geom-closed`
+> **Rust unit tests:** 10 passing (engine_rs core + datalog_rs)
+> **Sprint tags (9):** `sprint-q-closed`, `sprint-r-closed`, `sprint-phys-closed`, `sprint-h-closed`, `sprint-geom-closed`, `sprint-wiki-closed`, `sprint-gt-closed`, `sprint-hp-closed`, `sprint-z-closed`
 > **Canonical relationships:** **31 verified** (Sprint H entry gate cleared — grew from 7 via PD 1096 IRR ingest)
+> **Governing plan status:** Task 7 sprint chain **fully executed**. Remaining work is optional polish (Sprint D residuals J/K, gated externally) or side-tracks (Phase 1B Modernization §11 Phase 2/3).
 
 ## Sprint R Progress (2026-04-15)
 
@@ -119,26 +121,23 @@ AI is now the *exception*, not the rule. Most stages are zero-LLM. The review la
 
 ## Awaiting
 
-User review of the 13 enriched concept files under `003_Canonical-Knowledge-Layer/shared/concepts/`. Branch `feat/phase-7-promotion-governance` is now carrying Sprints A + B + polish + Phase 6B + Phase 3C + Phase 1B Foundation. Nothing has been pushed.
-
-**Phase 1B next steps:** Phase 2 (Modernization — wrap existing parsers, implement Docling/Marker/Surya) and Phase 3 (Scaling & Governance — ProcessPoolExecutor, timeout enforcement, Golden Corpus) are the next natural Sprint C continuations.
+The governing-plan Task 7 sprint chain is **fully executed**. The branch `feat/sprint-r-per-layer-embeddings` (misnomer — carries 9 sprints) is ready for merge review. User direction is open.
 
 ## Next Phase Candidates
 
-Ordered by estimated value per hour of work:
-
-1. **Phase 1B Modernization (§11 Phase 2)** — wrap existing parsers behind `BaseParser`, implement `DoclingParser`, `MarkerParser`. Natural Sprint C continuation.
-2. **Phase 3C second pass** — fill the 4 missing concepts by extending the alias dictionary and scanning PD 1096 IRR. Pure config, zero code changes.
-3. **Extraction on PD 1096 IRR** — the IRR has richer section structure; extraction + review + promote on it would produce more relationship candidates for Phase 7.
-4. **Pre-review filter A4/R4 rules** — expand the deterministic filter to push LLM savings further.
-5. **Phase 8 Graph Contract & Indexing** — gated on ≥50 verified relationships; currently at 6.
+1. **Merge + rename branch** — `feat/sprint-r-per-layer-embeddings` → main. Rename on merge since it now carries Sprints Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z.
+2. **Phase 1B Modernization (§11 Phase 2 + Phase 3)** — parser wrapping, Docling/Marker, ProcessPoolExecutor, Golden Corpus. Plan needs a TDD expansion pass first (see governing plan §5 Task 6).
+3. **Sprint D residuals J / K** — Stream J (query integration) and Stream K (docs+CI) are externally gated on Ranger dashboard + 2nd jurisdiction corpus.
+4. **Retroactive ledger cleanup** — split commit `61be8a2` into Sprint Z S1 + HP.4 via `git rebase -i` for cleaner history (optional).
+5. **Fresh roadmap brainstorm** — the project is materially ahead of the v2.0.0 roadmap envelope; next horizon is undefined.
 
 ## Reference Map
+- Governing plan → `/.ai/03_plans/00-governing-implementation-plan.md`
 - Master roadmap → `/.ai/01_roadmap/master-roadmap.md`
 - Milestone tracker → `/.ai/01_roadmap/milestone-tracker.md`
 - Audits → `/.ai/02_audits/`
 - Phase plans (active) → `/.ai/03_plans/` + `INDEX.md`
-- Archived plans → `/.ai/09_archive/plans/`
+- Archived plans → `/.ai/09_archive/plans/` (9 plans archived this session)
 - Known issues → `/.ai/10_state/known_issues.md`
-- Decisions → `/.ai/10_state/decisions.md` (AD-009 through AD-022)
+- Decisions → `/.ai/10_state/decisions.md` (AD-001 through AD-028)
 - Experiments → `/.ai/07_experiments/`

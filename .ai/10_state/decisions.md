@@ -473,6 +473,61 @@ Closes the deferred Sprint Q exit gate (peak RSS ≤ 5 GB on a real PD 1096 revi
 
 ---
 
+## AD-028: Wave 2 + Wave 3 parallel subagent dispatch — 4 sprints closed (GT + HP + Z + WIKI end-to-end)
+- **Date:** 2026-04-15 (very late pass)
+- **Status:** Implemented — 4 full sprint boundaries advanced via 11 parallel implementer subagents across 2 waves
+- **Context:** Following AD-027's ollama-online unblock, the governing plan had 4 partial/unstarted sprints left (GT, HP, WIKI, Z) plus HP.5 still open from Sprint HP. The operator asked for aggressive parallel execution via `superpowers:subagent-driven-development`. Ran two waves of file-disjoint subagents, 5 then 6 agents in parallel.
+- **Wave 1 (3 parallel agents, post-Sprint Q bench):** already documented in AD-024 addendum and the commit chain `a253db0` / `3b79401` / `2408d8a`. Closed Sprint Q's live RSS gate + HP.5 GraphSAGE + WIKI.2/4.2 mocked LLM loops.
+- **Wave 2 (5 parallel agents):**
+  1. **Sprint Z Stream S5 — DSPy prompt compilation** (commit `a50ea2e`): `scripts/vitruvius/compound/dspy_compiler.py` with `DSPyCompilerLM` adapter, `TrainingExample`/`CompilationResult` dataclasses, `regex_match_density` scoring, `compile_extraction_prompt`. 11 new tests. DSPy 3.1.3 installed. Deferred: full `BootstrapFewShot` teleprompter.
+  2. **Sprint Z Stream S2 — Adversarial swarm** (commit `173f31c`): `compound/adversarial.py` with `SwarmRole` enum, `RoleVerdict`/`SwarmConsensus` dataclasses, `run_proposer`/`run_inspector`/`run_adjudicator`/`run_swarm`. Deterministic adjudicator (no LLM). `hallucination_caught` audit signal. 10 new tests.
+  3. **Sprint WIKI Ollama LLM client** (commit `6f8d0ad`): `wiki/ollama_client.py` with `OllamaLLMClient` conforming to the Protocol + `OllamaClientError`. Sync httpx.Client against `/api/generate` with `format="json"`. 7+1 tests (1 skipped live-integration smoke). **Closes Sprint WIKI end-to-end — phase-14 archived in commit `ebfe0d0`.**
+  4. **Sprint GT Streams GT.1 + GT.2 — pyo3 Rust crate** (commit `b782ea3`): `scripts/vitruvius/engine_rs/` Cargo crate with `Cargo.toml`, `pyproject.toml`, `src/lib.rs`, `src/octree.rs`. Real sparse linear octree (not brute-force), pyo3 0.22.6 bindings exposing `SpatialPoint` + `LinearOctree` classes. cargo 1.94.1 + maturin 1.13.1 + pyo3 0.22.6. 24 new tests guarded by `pytest.importorskip`.
+  5. **TDD expansion for phase-12 + phase-8b** (commits `ef2ff9c` + `68f7e82`): expanded both design-spec plans to `implementation_tdd` form. phase-12: 1342 lines. phase-8b: 1571 lines. Zero placeholders, full code blocks for every remaining task.
+- **Wave 3 (6 parallel agents):**
+  1. **Sprint GT Stream GT.3 — Temporal knowledge graph** (commit `3fa6c46`): `TemporalEdge` dataclass added to `graph/contract.py`; `graph/temporal_query.py` with `query_at(edges, timestamp_utc)`; `graph/parquet_archiver.py` round-trip via pyarrow 23.0.1 (installed mid-session). 14 new tests.
+  2. **Sprint GT Stream GT.4 — Spatial GraphRAG bridge** (commit `71ef886`): `spatial/proximity_jump.py` with `proximity_jump_seed` + `weight_by_distance` (exponential decay); `spatial/spatial_edge_builder.py` with `build_spatial_adjacency_edges` behind `gt_spatial_edges` flag. Reuses the Sprint GT.2 `LinearOctree.query_sphere`. 16 new tests.
+  3. **Sprint GT Stream GT.5 — Hardware hardening** (commit `5ede10f`): `engine_rs/mmap_loader.py` (Python wrapper around stdlib mmap), `foraging/bloom_filter.py` (blake2b-based), `graph/mc_dropout.py` (epistemic variance). All stdlib, 16 new tests. Sprint GT fully closed (5/5 streams) + phase-8b archived.
+  4. **Sprint Z Stream S3 — Differential dataflow** (commit `ed17dd9`): `Delta` dataclass appended to `graph/event_store.py`; `compound/dependency_tracker.py` with `DependencyTracker` + `consumers_of`; `compound/differential_propagator.py` with stateless `propagate(deltas)` walker. 13 new tests on a 5-node DAG.
+  5. **Sprint Z Stream S1 — Neuro-symbolic Datalog bridge** (commit `61be8a2`): new Rust crate at `scripts/vitruvius/datalog_rs/` with hand-rolled evaluator (crepe 0.2 too fragile for narrow ship — documented fallback). pyo3 bindings expose `evaluate_datalog(facts, rules)`. `compound/logic_schema.py` with `LogicTriple`/`LogicProof` pydantic models. `review/ontology_prompt_builder.py` extended with `_LOGIC_DIRECTIVE` + `build_prompt_with_neighborhood()` gated on `z_neuro_symbolic` flag. 20 Python tests + 7 Rust unit tests. `.cargo/config.toml` with `-undefined dynamic_lookup` mirrors engine_rs.
+  6. **Sprint HP Stream HP.4 — Wasm spatial kernel + workspace split** (bundled into commit `61be8a2`): restructured `engine_rs/` into Cargo workspace with `core/` (pure Rust, wasm32 + native) and `pyo3_shim/` (pyo3 bindings over core). `aabb_intersects` function exported as both Rust and `wasm32-unknown-unknown` target. `compound/wasm_kernel.py` with `WasmSpatialKernel` class loading the .wasm via wasmtime 43.0 (installed mid-session). 7 Python tests + 3 Rust inline tests. All 24 existing pre-split engine_rs tests still green — API byte-identical.
+- **Mid-session dep installs (4 more):**
+  * `pyarrow 23.0.1` — GT.3 Parquet archiver
+  * `mapbox-earcut` + `manifold3d` — trimesh triangulation engines for GEOM.3 3D extrusion (from AD-027 continuation)
+  * `wasmtime 43.0` — HP.4 Python loader
+  * `rustup target add wasm32-unknown-unknown` — HP.4 Wasm compilation
+- **Plans archived this session (7):** live-wiring-and-8gb-hardening, per-layer-embeddings-agentic-upgrade, phase-16-statistical-mechanics-graph-physics, 3d-spatial-intelligence-upgrade, phase-15-geometric-constraint-engine, phase-14-autonomous-knowledge-synthesis, phase-8b-geo-topological-graph, phase-13-high-performance-optimizations, phase-12-compound-ai-evolution. **9 total plans archived this session across AD-024 through AD-028.**
+- **Remaining active plans in `.ai/03_plans/`:**
+  * `00-governing-implementation-plan.md` — the orchestration root (never archives)
+  * `ingestion-refinement-contract.md` — frozen contract (never archives)
+  * `phase-1b-multi-parser-integration-plan.md` — Sprint C continuation, parallel-track (Modernization §11 Phase 2/3 still unshipped; not blocking anything)
+  * `phase-8-graph-contract-indexing-plan.md` — subsumed by statistical-upgrade Stream H (noted in INDEX)
+  * `phase-9-query-ai-layer-plan.md` — subsumed by statistical-upgrade Stream I (noted in INDEX)
+  * `statistical-architectural-upgrade-plan.md` — Streams A–I closed; J (active learning) + K (CLUP scaling) externally gated
+  * `ultimate-architecture-upgrade-plan.md` — superseded, narrative retained
+- **Test suite progression:**
+  * Start of this session: 297 passing
+  * Post-Sprint-Q (commit `2621c46`): 1051 passing
+  * Post-Wave-1 (commit `a253db0`): 1226 passing
+  * Post-Wave-2 (commit `b782ea3`): 1278 passing (+52)
+  * **Post-Wave-3 (commit `61be8a2`): 1364 passing, 1 skipped (+86)**
+  * spatial-daemon (separate vitest runner): 20 passing
+  * Rust unit tests (embedded in `datalog_rs` + `engine_rs_core`): 10 passing across both crates
+- **Sprint closure tags (9 total):** `sprint-q-closed`, `sprint-r-closed`, `sprint-phys-closed`, `sprint-h-closed`, `sprint-geom-closed`, `sprint-wiki-closed`, `sprint-gt-closed`, `sprint-hp-closed`, `sprint-z-closed`
+- **Consequences:**
+  * The governing plan's Task 7 sprint chain (GT → HP → WIKI → GEOM → PHYS → Z) is **fully executed**. Plus Task 2 (Sprint Q), Task 3 (Sprint R), Task 4 (Sprint H). Only Task 5 (Sprint D residuals J/K) remains, and it is externally gated on a Ranger dashboard + second jurisdiction corpus.
+  * 4 new feature-flag families added this pass (phys_*, hp_*, geom_*, wiki_*, gt_*, z_*) — all default false. Flag-OFF pipeline is byte-identical to the pre-Sprint-Q baseline at every sprint boundary.
+  * Three Rust crates now live in the repo: `engine_rs/` (pyo3 + wasm32 via workspace split), `datalog_rs/` (pyo3 Datalog evaluator), `spatial-daemon/` (TypeScript — not Rust but sibling Node.js subproject). Each is independently buildable.
+  * 2 agents collided on the same commit during Wave 3 (Z S1 + HP.4 both landed in `61be8a2`). The combined commit is green and both agents reported success. A future cleanup could `git rebase -i` to split, but the test suite runs clean so no urgent action required.
+- **Follow-up queue (essentially empty for governing plan scope):**
+  * Optional: Sprint D residuals J (active learning) + K (CLUP scaling) when Ranger dashboard + second jurisdiction corpus are available.
+  * Optional: Phase 1B Modernization §11 Phase 2/3 (Docling parser wrapping, ProcessPoolExecutor, Golden Corpus) — parallel-track, no sprint gate depends on it.
+  * Optional: retroactive `git rebase -i` to split commit `61be8a2` into separate Sprint Z S1 and HP.4 commits for cleaner history.
+  * Optional: full-Datalog upgrade of `datalog_rs` from hand-rolled evaluator to a real engine (crepe, ascent, or similar) once a downstream consumer needs multi-rule evaluation.
+  * Optional: PQ (Product Quantization) vector store for HP.5 GraphSAGE embeddings once a memory-pressure problem surfaces.
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.
