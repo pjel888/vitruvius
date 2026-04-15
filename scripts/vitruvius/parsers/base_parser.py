@@ -32,6 +32,11 @@ class ParseResult:
     markdown_text: str
     telemetry: ParserTelemetry
     sidecar_metadata: dict[str, Any] = field(default_factory=dict)
+    # Sprint CLEANUP-1 C3.1 — per-page failure indices (1-indexed). Empty
+    # by default so existing callers pass through unchanged; the
+    # ``p1b_page_isolation`` flag opts RustPdfParser into surfacing the
+    # page numbers lopdf could not decode.
+    failed_pages: list[int] = field(default_factory=list)
 
 
 class BaseParser(abc.ABC):

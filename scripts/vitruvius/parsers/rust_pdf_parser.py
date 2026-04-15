@@ -24,6 +24,12 @@ from pathlib import Path
 from typing import Any
 
 from vitruvius.parsers.base_parser import BaseParser, ParseResult, ParserTelemetry
+# Sprint CLEANUP-1 C3.1 — imported as a module-level attribute so the
+# page-isolation parity test can ``monkeypatch.setattr`` it on this
+# module (same pattern as the spatial fast-path callers in
+# ``spatial._feature_gate``). Do NOT inline ``load_features`` inside
+# ``parse()`` — the monkeypatch would not take effect.
+from vitruvius.spatial._feature_gate import _load_features_cached
 
 
 class RustPdfParser(BaseParser):
@@ -62,13 +68,46 @@ class RustPdfParser(BaseParser):
                 error=f"vitruvius_rust_pdf not installed: {exc}",
             )
 
+        # Sprint CLEANUP-1 C3.1 — flag-gated per-page error surface.
+        # When ``p1b_page_isolation`` is on and the rebuilt wheel
+        # exposes ``extract_pdf_text_with_errors``, route through the
+        # tuple-returning entry point so we can populate
+        # ``ParseResult.failed_pages`` with the 1-indexed page numbers
+        # ``lopdf`` could not decode. Flag-off or missing symbol both
+        # fall through to the original byte-identical path, preserving
+        # the Phase 1B low-spec baseline.
+        failed_pages: list[int] = []
+        use_error_surface = False
         try:
-            text = vitruvius_rust_pdf.extract_pdf_text(pdf_bytes)
-        except ValueError as exc:
-            return self._failure(
-                duration_ms=int((time.perf_counter() - start) * 1000),
-                error=f"lopdf extraction failed: {exc}",
-            )
+            _features = _load_features_cached()
+        except Exception:
+            _features = None
+        if _features is not None:
+            try:
+                use_error_surface = _features.is_enabled("p1b_page_isolation")
+            except Exception:
+                use_error_surface = False
+        if use_error_surface and hasattr(
+            vitruvius_rust_pdf, "extract_pdf_text_with_errors"
+        ):
+            try:
+                text, failed_rust = vitruvius_rust_pdf.extract_pdf_text_with_errors(
+                    pdf_bytes
+                )
+                failed_pages = [int(p) for p in failed_rust]
+            except ValueError as exc:
+                return self._failure(
+                    duration_ms=int((time.perf_counter() - start) * 1000),
+                    error=f"lopdf extraction failed: {exc}",
+                )
+        else:
+            try:
+                text = vitruvius_rust_pdf.extract_pdf_text(pdf_bytes)
+            except ValueError as exc:
+                return self._failure(
+                    duration_ms=int((time.perf_counter() - start) * 1000),
+                    error=f"lopdf extraction failed: {exc}",
+                )
 
         duration_ms = int((time.perf_counter() - start) * 1000)
         pages_total = text.count("\x0c") if text else 0
@@ -105,6 +144,7 @@ class RustPdfParser(BaseParser):
             markdown_text=markdown,
             telemetry=telemetry,
             sidecar_metadata=sidecar,
+            failed_pages=failed_pages,
         )
 
     def _failure(self, *, duration_ms: int, error: str) -> ParseResult:
