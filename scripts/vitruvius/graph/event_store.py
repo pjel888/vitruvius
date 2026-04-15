@@ -121,3 +121,48 @@ def project_graph_at(
         if event_type in {"PROMOTED", "AMENDED"}:
             state[edge_id] = payload
     return state
+
+
+# ---------------------------------------------------------------------------
+# Stream S3.1 — Delta wrapper for the differential dataflow engine.
+# ---------------------------------------------------------------------------
+
+from dataclasses import asdict
+from typing import Literal
+
+DeltaKind = Literal["upsert", "delete"]
+
+
+@dataclass(frozen=True)
+class Delta:
+    """A single immutable change recorded in the event store.
+
+    The differential propagator (Stream S3.3) consumes Deltas and walks the
+    dependency tracker (Stream S3.2) to enumerate downstream consumers.
+    """
+
+    event_id: str
+    edge_id: str
+    kind: DeltaKind
+    payload: dict[str, Any] = field(default_factory=dict)
+
+    def __post_init__(self) -> None:
+        if self.kind not in ("upsert", "delete"):
+            raise ValueError(f"Delta.kind must be 'upsert' or 'delete', got {self.kind!r}")
+        if not self.event_id:
+            raise ValueError("Delta.event_id must be non-empty")
+        if not self.edge_id:
+            raise ValueError("Delta.edge_id must be non-empty")
+
+    def to_json(self) -> str:
+        return json.dumps(asdict(self), sort_keys=True)
+
+    @classmethod
+    def from_json(cls, raw: str) -> "Delta":
+        data = json.loads(raw)
+        return cls(
+            event_id=data["event_id"],
+            edge_id=data["edge_id"],
+            kind=data["kind"],
+            payload=data.get("payload", {}),
+        )
