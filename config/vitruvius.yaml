@@ -176,3 +176,8 @@ features:
   wiki_delta_tracking: false
   wiki_synthesis_loop: false
   wiki_ego_linter: false
+
+  # Sprint Z — Compound AI Evolution (phase-12). Narrow slice: Stream
+  # S5 DSPy prompt compilation lands first; S1 (Datalog), S2 (swarm),
+  # S3 (dataflow), S4 (Wasm) ship later.
+  z_dspy_compiler: false

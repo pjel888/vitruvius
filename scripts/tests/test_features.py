@@ -140,6 +140,8 @@ EXPECTED_FLAGS = {
     # Sprint WIKI — Autonomous Knowledge Synthesis (phase-14)
     "wiki_docling_parser", "wiki_kuzu_store", "wiki_delta_tracking",
     "wiki_synthesis_loop", "wiki_ego_linter",
+    # Sprint Z — Compound AI Evolution (phase-12)
+    "z_dspy_compiler",
 }
 
 
