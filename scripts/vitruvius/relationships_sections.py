@@ -381,7 +381,22 @@ def run_extract_relationships_sections_one(*, relative_markdown_path: str) -> in
         all_relationships.extend(rels)
 
     aggregated = aggregate_relationships(all_relationships)
-    deduped = dedupe_by_endpoints(aggregated)
+
+    # Sprint LSH-1 — optional fuzzy near-duplicate layer per AD-037.
+    # Off by default (plan §1.3 non-breaking contract). On a
+    # byte-identical run the flag-off path must produce exactly the
+    # same deduped list as the pre-LSH-1 baseline.
+    try:
+        from vitruvius.config import _features_block
+        use_lsh = bool(_features_block().get("w_lsh_dedup", False))
+    except Exception:
+        use_lsh = False
+
+    if use_lsh:
+        from vitruvius.relationships.lsh_dedup import dedupe_by_endpoints_lsh
+        deduped = dedupe_by_endpoints_lsh(aggregated)
+    else:
+        deduped = dedupe_by_endpoints(aggregated)
 
     runs_dir = repo_root / "006_System-Manifests" / "runs"
     runs_dir.mkdir(parents=True, exist_ok=True)

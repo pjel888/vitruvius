@@ -174,6 +174,11 @@ EXPECTED_FLAGS = {
     # rust_mig_spatial_kernels (both cleared the 2× gate at the kernel
     # level), N4 under rust_mig_stats_kernels (2.73× end-to-end).
     "rust_mig_spatial_kernels", "rust_mig_stats_kernels",
+    # Sprint LSH-1 — MinHash LSH fuzzy near-duplicate layer on top of
+    # the existing O(n log n) dict-grouped exact-endpoint dedup (see
+    # AD-037 for the premise correction + language choice). Default
+    # false per plan §1.3.
+    "w_lsh_dedup",
 }
 
 
@@ -328,6 +333,26 @@ def test_rust_mig_stats_kernels_defaults_true() -> None:
     cfg = load_config()
     flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
     assert flags.get("rust_mig_stats_kernels") is True
+
+
+def test_w_lsh_dedup_defaults_false() -> None:
+    """Sprint LSH-1 AD-037 — the MinHash LSH fuzzy near-duplicate
+    layer defaults to false. Per the plan §1.3 non-breaking contract
+    the flag stays false until a full PD 1096 operator run confirms
+    the fuzzy-match hit rate + zero-false-positive guard on live
+    data. Test suite at scripts/tests/test_lsh_dedup.py locks in
+    the byte-equivalence guarantee with the flag off and the fuzzy
+    collapse behaviour with the flag on (via direct function
+    invocation, bypassing config).
+
+    See .ai/10_state/decisions.md AD-037 (premise correction) and
+    AD-042 (sprint closure).
+    """
+    from vitruvius.config import load_config
+
+    cfg = load_config()
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    assert flags.get("w_lsh_dedup") is False
 
 
 def test_p1b_docling_parser_defaults_false() -> None:
