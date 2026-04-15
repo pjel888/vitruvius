@@ -175,3 +175,42 @@ def decode_from_pq(codes: np.ndarray, codebook: PQCodebook) -> np.ndarray:
             codebook.centroids[m][codes[:, m]]
         )
     return reconstructed
+
+
+def adc_distance(
+    query: np.ndarray,
+    codes: np.ndarray,
+    codebook: PQCodebook,
+) -> np.ndarray:
+    """Asymmetric distance from ``query`` to every code in ``codes``.
+
+    Precomputes the squared distance from each of the query's M
+    sub-vectors to each of the k centroids (one O(M*k) lookup table),
+    then sums the selected centroid distances per code row in O(M)
+    per code. At M=8, k=256, N=10000 this is ~82k flops vs ~640k for a
+    naive decode + L2.
+
+    Output: ``(N,)`` float32 array of approximate squared L2 distances.
+
+    Rust Line: M iterations of a vectorised diff + sum + an
+    integer-index gather/sum. All numpy primitives.
+    DEFER_ALREADY_NATIVE.
+    """
+    expected_dim = codebook.M * codebook.sub_dim
+    if query.shape != (expected_dim,):
+        raise ValueError(
+            f"query must have shape ({expected_dim},), got {query.shape}"
+        )
+    n = codes.shape[0]
+    lut = np.zeros((codebook.M, codebook.k), dtype=np.float32)
+    q = query.astype(np.float32, copy=False)
+    for m in range(codebook.M):
+        q_sub = q[m * codebook.sub_dim : (m + 1) * codebook.sub_dim]
+        cent = codebook.centroids[m]
+        diff = cent - q_sub  # (k, sub_dim)
+        lut[m] = np.sum(diff * diff, axis=1)
+
+    dists = np.zeros(n, dtype=np.float32)
+    for m in range(codebook.M):
+        dists += lut[m][codes[:, m]]
+    return dists

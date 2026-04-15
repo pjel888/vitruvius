@@ -70,3 +70,31 @@ def test_decode_from_pq_shape_and_reconstruction() -> None:
     orig_norms = np.linalg.norm(embeddings, axis=1)
     rel_error = (diff_norms / np.maximum(orig_norms, 1e-8)).mean()
     assert rel_error < 1.0  # reconstruction is at least somewhat useful
+
+
+def test_adc_distance_matches_decoded_approximation() -> None:
+    """ADC distance should match the L2 distance computed against
+    decoded vectors to within numerical error (both round the database
+    operand to centroids; ADC just skips materialising the
+    reconstruction)."""
+    rng = np.random.default_rng(seed=0)
+    db = rng.standard_normal((200, 64)).astype(np.float32)
+    codebook = train_pq_codebook(db, M=8, k=128, n_iter=25, seed=42)
+
+    from vitruvius.graph.pq_codebook import (
+        adc_distance,
+        decode_from_pq,
+        encode_to_pq,
+    )
+
+    codes = encode_to_pq(db, codebook)
+    query = rng.standard_normal(64).astype(np.float32)
+
+    adc = adc_distance(query, codes, codebook)
+    assert adc.shape == (200,)
+    assert adc.dtype == np.float32
+
+    decoded = decode_from_pq(codes, codebook)
+    ref = np.sum((decoded - query) ** 2, axis=1)
+
+    np.testing.assert_allclose(adc, ref, rtol=1e-4, atol=1e-4)
