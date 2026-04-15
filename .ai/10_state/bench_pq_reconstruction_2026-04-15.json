@@ -1,0 +1,27 @@
+{
+  "generated_at_utc": "2026-04-15T10:31:40.806171+00:00",
+  "sprint": "Sprint PQ-1",
+  "task": "Task 6 \u2014 reconstruction benchmark",
+  "config": {
+    "num_nodes": 500,
+    "embedding_dim": 64,
+    "M": 8,
+    "k": 256,
+    "n_iter": 25,
+    "seed": 42
+  },
+  "compression": {
+    "original_bytes_total": 128000,
+    "pq_bytes_total": 4000,
+    "original_bytes_per_node": 256,
+    "pq_bytes_per_node": 8,
+    "ratio": 32.0
+  },
+  "quality": {
+    "avg_relative_l2_error": 0.017488524317741394,
+    "avg_cosine_similarity": 0.9998301863670349,
+    "avg_cosine_delta": 0.0001697849074844271,
+    "cosine_delta_target": 0.02,
+    "cosine_delta_within_tolerance": true
+  }
+}

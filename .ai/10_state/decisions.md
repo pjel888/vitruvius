@@ -1240,6 +1240,69 @@ The expensive work — actually parsing PDFs — happens inside the parser modul
 
 ---
 
+## AD-041 — Sprint PQ-1 closure — Product Quantization for GraphSAGE embeddings (2026-04-15)
+
+**Context.** Sprint HP Stream HP.5 shipped `compute_graphsage_embeddings()` producing 64-dim float32 structural embeddings (256 bytes/node). The persistence layer that would write those embeddings to disk is queued but not yet built; before it ships, we want a low-spec disk win that doesn't add new pip deps. Sprint PQ-1 adopts classical Product Quantization (Jegou, Douze, Schmid 2010) to compress each embedding to **8 uint8 bytes (32× compression)** with negligible reconstruction loss. Pure-numpy implementation — zero new installs.
+
+**Architectural choice — parallel compressor, not a replacement.** `graphsage.py` is untouched. The new `pq_codebook.py` + `graphsage_pq.py` modules are *consumers* of `GraphSAGEReport`: callers that want compressed embeddings invoke `compress_graphsage_report(report)` and persist the returned `(codebook, codes, node_ids)` triple; callers that want the raw vectors keep using the existing API. This makes the flag-off path byte-identical to pre-PQ-1 behaviour and lets the persistence-layer follow-up plan opt in piece by piece.
+
+**Task ledger.**
+
+| Task | Description | Commit | Tests added |
+|---|---|---|---|
+| 1 | `PQCodebook` dataclass + `train_pq_codebook` (pure-numpy k-means in M sub-spaces) | `290659e` | 4 |
+| 2 | `encode_to_pq` (float32 → uint8 codes) + `decode_from_pq` (codes → approx float32) | `b3bf210` | 2 |
+| 3 | `adc_distance` (asymmetric distance computation via O(M*k) lookup table) | `074b709` | 1 |
+| 4 | `save_codebook` / `load_codebook` (compressed npz roundtrip) | `479a4ec` | 1 |
+| 5 | `compress_graphsage_report` integration helper | `0224423` | 2 |
+| 6 | Reconstruction-error benchmark + `hp_graphsage_pq` flag + this AD + plan archive | (this commit) | 1 |
+
+**Compression and quality measurements.** Bench at `.ai/10_state/bench_pq_reconstruction_2026-04-15.json` ran the full GraphSAGE pipeline on a synthetic 500-node snapshot (3-type connected graph with 2-4 outgoing edges per node, deterministic under seed 0) with `M=8, k=256, n_iter=25`:
+
+| Metric | Value | Target | Verdict |
+|---|---|---|---|
+| Original bytes/node | 256 | — | — |
+| PQ bytes/node | 8 | — | — |
+| **Compression ratio** | **32×** | 32× | met exactly |
+| Avg relative L2 error | 0.0175 | — | — |
+| Avg cosine similarity | 0.9998 | — | — |
+| **Avg cosine delta** | **0.00017** | ≤ 0.02 | ~117× under gate |
+
+The cosine delta is two orders of magnitude under the plan's tolerance gate. The downstream loopholes detector, which is the canonical PQ consumer, would see PQ-quantized inputs as effectively identical to the original embeddings for ranking purposes. The ratio is exact (256 / 8 = 32) by construction.
+
+**Flag default — false.** `hp_graphsage_pq: false` in `config/vitruvius.yaml`. The bench clears the cosine-delta gate by a wide margin, so flipping the flag would be safe from a *quality* perspective. It stays `false` because **the persistence layer that would consume the compressed codes does not exist yet** — there is no disk write path for either raw or PQ embeddings today. Flipping the flag would have zero observable effect on the live pipeline, so it stays at `false` as a deployment-readiness marker until the follow-up plan that wires PQ into the embedding persistence layer ships. Per AD-029 / AD-038 precedent: flags only flip when the path they gate is actually live and measured.
+
+**Sprint-wide perf call.** Every line of code shipped by Sprint PQ-1 sits **above the Rust Line** per AD-036:
+
+- `pq_codebook.py::_kmeans` — pure-numpy k-means. Hot loop is `points @ centroids.T` (BLAS gemm), `np.argmin` (SIMD), and `np.add.at` (vectorised scatter-add). All C-backed.
+- `pq_codebook.py::train_pq_codebook` — orchestrates M `_kmeans` calls. Pure dispatch; no compute of its own.
+- `pq_codebook.py::encode_to_pq` — M iterations of vectorised L2 distance via gemm + `np.argmin`. C-backed end-to-end.
+- `pq_codebook.py::decode_from_pq` — O(M) integer-index gather. Numpy advanced indexing is C.
+- `pq_codebook.py::adc_distance` — 2 × M numpy passes (broadcasting diff/sum + integer-index gather/sum). C-backed.
+- `pq_codebook.py::save_codebook` / `load_codebook` — `numpy.savez_compressed` is C + zlib. Pure orchestration.
+- `graphsage_pq.py::compress_graphsage_report` — calls into `train_pq_codebook` + `encode_to_pq`. No new compute.
+- `bench/bench_pq_reconstruction.py` — synthetic snapshot builder + numpy reduce ops. Bench harness only.
+
+**No Rust code was written for this sprint, and none was needed.** Every hot path is a single numpy primitive over the full batch. A Rust port would only orchestrate the same calls and add FFI overhead. This is exactly the AD-036 dispatch story: Python decides what to run; numpy does the running. Each per-task commit body records the same DEFER_ALREADY_NATIVE judgement.
+
+**Commits.**
+- Task 1 — `290659e` — `PQCodebook` + `train_pq_codebook` + 4 tests
+- Task 2 — `b3bf210` — `encode_to_pq` + `decode_from_pq` + 2 tests
+- Task 3 — `074b709` — `adc_distance` + 1 test
+- Task 4 — `479a4ec` — `save_codebook` / `load_codebook` + 1 test
+- Task 5 — `0224423` — `compress_graphsage_report` integration helper + 2 tests
+- Task 6 — (this commit) — bench script + `hp_graphsage_pq` flag + AD-041 + INDEX update + plan archive
+
+**Test suite delta.** 1494 → 1505 (+11 tests, all in the new `test_pq_codebook.py` and `test_graphsage_pq.py` files plus one default-false flag test in `test_features.py`). 1 unrelated test still skipped. No regressions.
+
+**Follow-ups.**
+- Persistence layer: once a follow-up plan defines where compressed embeddings actually live on disk, wire `compress_graphsage_report` into the write path and flip `hp_graphsage_pq` to `true` (the cosine delta is comfortable; the gate is purely "the path exists").
+- OPQ (Optimized PQ): rotates the embedding space before quantization to better balance variance across sub-quantizers. Worth revisiting if real-graph cosine delta drifts above 0.02. Today's measurement is so far inside the gate (0.00017) that this is parked.
+- IVFPQ inverted index: only relevant at >1M nodes. We're at ~10k max, so a linear scan of `adc_distance` over all codes is microseconds — no inverted index needed.
+- Real-graph bench: rerun `bench_pq_reconstruction.py` against an actual production `GraphSnapshot` (e.g. PD 1096 corpus once the live wiring + parsers ship full graphs) to confirm the cosine delta stays inside the gate on real data, not just synthetic.
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.

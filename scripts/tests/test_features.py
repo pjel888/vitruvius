@@ -135,6 +135,8 @@ EXPECTED_FLAGS = {
     # Sprint HP — High-Performance Optimizations (phase-13)
     "hp_merkle_fs", "hp_event_sourced_graph", "hp_graphsage",
     "hp_wasm_kernels",
+    # Sprint PQ-1 — Product Quantization for GraphSAGE embeddings
+    "hp_graphsage_pq",
     # Sprint HP.3-R — RocksDB KV backend migration
     "hp_rocksdb_event_store", "hp_rocksdb_verdict_cache",
     # Sprint 1B-M1 — Phase 1B Modernization Tranche 1
@@ -274,6 +276,21 @@ def test_hp_rocksdb_verdict_cache_defaults_true() -> None:
     cfg = load_config()
     flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
     assert flags.get("hp_rocksdb_verdict_cache") is True
+
+
+def test_hp_graphsage_pq_defaults_false() -> None:
+    """Sprint PQ-1 AD-041 — the PQ embedding compression deployment
+    marker defaults to false. Bench at .ai/10_state/bench_pq_
+    reconstruction_2026-04-15.json shows 32x compression with cosine
+    delta 0.00017 (target <= 0.02), but the persistence layer that
+    would consume the codes does not exist yet, so the flag stays
+    false until that follow-up plan ships.
+    """
+    from vitruvius.config import load_config
+
+    cfg = load_config()
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    assert flags.get("hp_graphsage_pq") is False
 
 
 def test_rust_mig_spatial_kernels_defaults_true() -> None:
