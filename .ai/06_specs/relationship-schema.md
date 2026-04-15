@@ -8,7 +8,7 @@
 ---
 
 ## 1. Purpose
-A Relationship is a promoted, evidence-bearing edge between two canonical entities (source↔concept or concept↔concept). It is the payload of the Phase 7 Promotion Layer and the unit of truth the Phase 8 graph is built from.
+A Relationship is a promoted, evidence-bearing edge between two canonical entities (source↔concept or concept↔concept). It is the payload of the Promotion Layer (`scripts/vitruvius/promotion/`) and the unit of truth the graph builder (`scripts/vitruvius/graph/builder.py`) consumes.
 
 Every field in this schema has the same goal: **make the edge replayable** — any reader or automated checker can trace the edge back to its source section and the review decisions that admitted it.
 
@@ -32,7 +32,7 @@ Only these predicates are allowed. The Promotion Validator rejects any record us
 | `affects` | Subject changes the behavior or value of the object without requiring or limiting it. | `concept → concept`, `source → concept` |
 | `supersedes` | Subject is a newer version that replaces the object. | `source → source`, `concept → concept` |
 
-Registry location (to be created in Sprint A · A-2): `scripts/vitruvius/rules/relationship_registry.yaml`.
+Registry location: `scripts/vitruvius/rules/relationship_registry.yaml`. Read at promotion time by `scripts/vitruvius/promotion_validator.py::load_registry()`.
 
 ## 4. Frontmatter — Required Fields
 Every relationship file MUST include these keys. The Promotion Validator rejects any file missing them.
@@ -52,6 +52,9 @@ Every relationship file MUST include these keys. The Promotion Validator rejects
 | `promotion_batch_id` | string | ID of the Phase 7 batch that created or last updated this record. |
 | `promotion_audit_log_ref` | string | Path to the audit log entry for `promotion_batch_id`. |
 | `last_promoted_utc` | ISO-8601 UTC | When the last promotion batch wrote this record. |
+| `valid_from` | ISO-8601 date (YYYY-MM-DD) | *(Sprint GT.3.1, flag `g_temporal_edges`)* Start of the temporal validity interval for this edge. Required when `g_temporal_edges` is true. Open-ended intervals use `valid_until: null`. |
+| `valid_until` | ISO-8601 date (YYYY-MM-DD) or null | *(Sprint GT.3.1, flag `g_temporal_edges`)* End of the temporal validity interval (exclusive). Null means the edge is still valid. Must be strictly after `valid_from`. |
+| `jurisdiction` | string | *(Sprint GT.3.1, flag `g_temporal_edges`)* Jurisdictional scope of the edge (e.g., `national`, `manila`). Default: `national`. |
 
 ### 4.1 Canonical Status Lifecycle
 ```
@@ -61,8 +64,11 @@ draft ─► promoted ─► verified ─┐
 ```
 - **`draft`** — Written by a manual curator but not yet processed by the Promotion Layer.
 - **`promoted`** — Written or updated by `run_promote` after passing the validator.
-- **`verified`** — Reviewed by a human expert or by Tier-3 adjudication (Phase 6B).
+- **`verified`** — Reviewed by a human expert or by the tension-point adjudication path (`scripts/vitruvius/review/tension_analyzer.py`, flag `w_review_tension_reflection`).
 - **`superseded`** — Replaced by a newer edge. Retained for history. Not consumed by the graph builder.
+
+### 4.2 Temporal Edge Semantics
+When `g_temporal_edges` is enabled, `run_promote` stamps new edges with `valid_from` equal to the signing date of the governing source and `valid_until: null`. When a newer source supersedes the governing source, the predecessor edge is capped: `valid_until` is set to the effective date of the superseding source via `scripts/vitruvius/promotion/temporal_edges.py::cap_predecessor`. Temporal filtering is done by `filter_edges_valid_at(edges, query_date=...)` in the same module.
 
 ## 5. Evidence Entry Shape
 Each item in the `evidence` array is a full audit trail for one occurrence of this relationship in a source document.
@@ -81,6 +87,7 @@ Each item in the `evidence` array is a full audit trail for one occurrence of th
   second_pass_model: null
   second_pass_decision: null
   second_pass_confidence: null
+  is_governing_standard: null
   extracted_at_utc: 2026-04-13T08:44:19Z
   reviewed_at_utc: 2026-04-13T09:01:02Z
 ```
@@ -95,7 +102,8 @@ Each item in the `evidence` array is a full audit trail for one occurrence of th
 - `reviewed_at_utc` — ISO-8601 UTC.
 
 ### 5.2 Optional Evidence Fields
-- `second_pass_*` — Populated if Phase 6B has run.
+- `is_governing_standard` — Boolean or null. Set to `true` by `run_promote` when this evidence entry's edge won a stringency-resolver contest (`w_promotion_stringency_gate` flag). `false` means it lost and another edge for the same triplet is authoritative. `null` means the field predates Stream W3.4 and no contest has been run. Consumed by `scripts/vitruvius/graph/builder.py` when building `GraphEdge` objects.
+- `second_pass_model` / `second_pass_decision` / `second_pass_confidence` — Reserved for a future second-pass adjudication step. Not written by any current pipeline stage; preserved for backward compatibility with files created before Sprint Q. The active second-pass mechanism for Sprint Q is the conformal gate (`w_review_conformal_routing`) and the Choquet aggregator (`w_review_choquet_aggregator`), whose outputs are persisted as operational signals in `005_Operational-Intelligence-Layer/` rather than in the relationship frontmatter.
 - `snippet_start_line` / `snippet_end_line` — For precise back-pointing.
 - `reviewer_reason` — Human-readable rationale from the reviewer.
 - `human_reviewer` — Set if escalated to Tier 3.
@@ -156,6 +164,9 @@ confidence_score: 0.92
 promotion_batch_id: 20260414T030000Z_a1b2c3d4
 promotion_audit_log_ref: 006_System-Manifests/runs/20260414T030000Z_a1b2c3d4_promotion_audit.log
 last_promoted_utc: 2026-04-14T03:00:00Z
+valid_from: null
+valid_until: null
+jurisdiction: null
 evidence:
   - source_id: law-national-building-code-of-the-philippines
     source_section_id: sec-701
@@ -170,6 +181,7 @@ evidence:
     second_pass_model: null
     second_pass_decision: null
     second_pass_confidence: null
+    is_governing_standard: null
     extracted_at_utc: 2026-04-13T08:44:19Z
     reviewed_at_utc: 2026-04-13T09:01:02Z
 ---
@@ -250,3 +262,4 @@ The Promotion Validator MUST enforce the following. Failure on any rule aborts p
 
 ## Changelog
 - **2026-04-14** — Initial schema published. Aligned with master-roadmap §3.1 and §3.5. Derived from the existing draft relationship file plus Phase 7 Promotion Contract requirements.
+- **2026-04-15** — Registry now exists at `scripts/vitruvius/rules/relationship_registry.yaml` (Sprint A closed). Added `is_governing_standard` optional evidence field (Sprint W3.4). Added `valid_from`, `valid_until`, `jurisdiction` optional temporal fields (Sprint GT.3.1, flag `g_temporal_edges`). Clarified `second_pass_*` status. Updated phase-label references (Phase 6B → tension analyzer path, Phase 7 → shipped `run_promote`). Updated §1 framing.
