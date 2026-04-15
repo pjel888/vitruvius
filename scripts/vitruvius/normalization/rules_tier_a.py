@@ -71,7 +71,33 @@ class CollapseTrailingWhitespace:
     _TRAILING = re.compile(r"[ \t]+(\n|$)")
 
     def apply(self, text: str) -> str:
-        return self._TRAILING.sub(r"\1", text)
+        # Sprint CLEANUP-1 C1.3 — optional table-aware whitespace collapse
+        try:
+            from vitruvius.spatial._feature_gate import _load_features_cached
+            features = _load_features_cached()
+        except Exception:
+            features = None
+
+        if features is None or not features.is_enabled("p1c_table_isolation"):
+            return self._TRAILING.sub(r"\1", text)
+
+        # Flag ON: protect table lines
+        from vitruvius.normalization.table_detector import detect_table_line_ranges
+
+        lines_no_newline = text.splitlines()  # no trailing newlines
+        ranges = detect_table_line_ranges(lines_no_newline)
+        protected = set()
+        for start, end in ranges:
+            protected.update(range(start, end + 1))
+
+        lines_with_newlines = text.splitlines(keepends=True)
+        out = []
+        for idx, line in enumerate(lines_with_newlines):
+            if idx in protected:
+                out.append(line)  # table line — preserve exactly
+            else:
+                out.append(self._TRAILING.sub(r"\1", line))
+        return "".join(out)
 
 
 class CollapseConsecutiveBlankLines:
