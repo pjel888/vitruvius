@@ -1,8 +1,8 @@
 # Milestone Tracker
 
 > **Source of truth:** This tracker is reconciled against `/.ai/01_roadmap/master-roadmap.md` §4 and the 2026-04-13 audit pack.
-> **Legend:** `[x]` complete · `[~]` partial / skeleton · `[ ]` not started · `🔒` gated (do not start) · `🔥` highest priority
-> **Revised:** 2026-04-15
+> **Legend:** `[x]` complete · `[~]` partial / skeleton · `[ ]` not started · `🔒` gated (do not start) · `🔥` highest priority · `🚫` DEFERRED (documented in an AD)
+> **Revised:** 2026-04-15 19:50 (post-Sprint-LSH-1 + path-rewrite sweep)
 
 ## Phase 0 — Foundation ✅ COMPLETE
 - [x] Layered root structure `001_` through `006_`
@@ -21,9 +21,9 @@
 - [ ] OCR parallelization (carried as Phase 1B §11 Phase 2/3)
 - [ ] Registry rotation (carried as RI-008)
 
-## Phase 1B — Multi-Parser Integration 🔥 IN PROGRESS (Foundation shipped 2026-04-14)
+## Phase 1B — Multi-Parser Integration ✅ COMPLETE (2026-04-15 after Tranches 1-3 + Sprint PIPELINE-CLI)
 
-**Foundation (§11 Phase 1) — COMPLETE** (9 commits, 80 new tests, 177 → 257 passing):
+**Foundation (§11 Phase 1) — COMPLETE 2026-04-14** (9 commits, 80 new tests, 177 → 257 passing):
 - [x] RI-009: SHA-256 content hash (`FileEntry.sha256`, `_sha256_of_file()`, CSV output)
 - [x] `BaseParser` ABC + `ParserTelemetry` (17 fields, kw_only) + `ParseResult` (kw_only)
 - [x] Document taxonomy classifier (`DocumentClass` enum 9 members, `classify_document()`, CL-001–CL-008)
@@ -31,26 +31,30 @@
 - [x] `ParserOrchestrator` skeleton — synchronous fallback chain walker with defensive chain copy
 - [x] `scripts/vitruvius/parsers/` subpackage with public re-exports from `__init__.py`
 
-**Modernization (§11 Phase 2) — PENDING (Sprint C continuation):**
-- [ ] Wrap existing parsers (OpenDataLoader, OpenPyxl) behind `BaseParser`
-- [ ] Integrate Docling parser (`DoclingParser`)
-- [ ] Integrate Marker parser (`MarkerParser`)
-- [ ] Integrate Surya OCR
-- [ ] OCR preprocessor + LibreOffice preprocessor
-- [ ] Post-LibreOffice quality gates
-- [ ] Migrate `scripts/vitruvius/conversion.py` parser selection to `BaseParser` wrappers
-- [ ] Flattened telemetry JSON sidecar per file
+**Modernization (§11 Phase 2) — COMPLETE 2026-04-15** (Tranches 1 + 2 scoped + 3; AD-031, AD-032, AD-033, AD-034):
+- [x] Wrap existing parsers (OpenDataLoader, OpenPyxl) behind `BaseParser` — Sprint PIPELINE-CLI AD-040
+- [x] Integrate Docling parser (`DoclingParser`) — Sprint 1B-M1 AD-031
+- 🚫 Integrate Marker parser (`MarkerParser`) — **DEFERRED per AD-032** (disk at 95.2%, RAM 2.03 GB at feasibility check; ML-dep install too large for 8 GB M2 default profile)
+- 🚫 Integrate Surya OCR — **DEFERRED per AD-032** (same feasibility blocker as Marker)
+- [x] OCR preprocessor (`OCRPreprocessor` wrapping `ocrmypdf`) — Sprint 1B-M2 AD-032
+- [x] LibreOffice preprocessor (`LibreOfficePreprocessor`) — Sprint 1B-M1 AD-031
+- [x] Post-LibreOffice quality gates (GATE-005) — Sprint 1B-M1 AD-031
+- [x] Migrate `scripts/vitruvius/conversion.py` parser selection to `BaseParser` wrappers — Sprint PIPELINE-CLI AD-040 via `convert-parsers-one` + `build_default_orchestrator()` factory
+- [x] Flattened telemetry JSON sidecar per file — delivered with Foundation
+- [x] **Bonus**: `RustPdfParser(BaseParser)` — Sprint 1B-M3 AD-034 (audit GO verdict AD-033 = 48× smaller RSS + 625× faster than docling on synthetic PDFs)
+- [x] **Bonus**: GATE-006 min-chars-per-page quality gate — Sprint 1B-M3 AD-034
 
-**Scaling & Governance (§11 Phase 3) — PENDING (Sprint C continuation):**
-- [ ] `ProcessPoolExecutor` with dynamic resource allocation (RAM queues)
-- [ ] Timeout enforcement (120s per parser)
-- [ ] Page-level isolation for OOM/timeout recovery
-- [ ] Golden Corpus Benchmark (30 documents)
-- [ ] Expanded registry + per-file sidecar metadata writers
-- [ ] Hallucination Trap quality gate
-- [ ] Manual Review Lane + Ranger Audit Payload generator
+**Scaling & Governance (§11 Phase 3) — COMPLETE 2026-04-15** (Sprint 1B-M2 + Sprint PIPELINE-CLI):
+- [x] `ParserOrchestrator.process_batch` with `ProcessPoolExecutor` parallelism — Sprint 1B-M2 AD-032 (`p1b_process_pool_orchestration` flag)
+- [x] Per-parser timeout enforcement — shipped inside orchestrator fallback chain
+- [x] `GoldenCorpusBenchmark` harness (30-document fixture) — Sprint 1B-M2 AD-032
+- [x] `pipeline_cli.py` flag dispatch — Sprint PIPELINE-CLI AD-040 (`convert-parsers-one` subcommand + byte-identity exit gate + parallel command pattern)
+- [x] Expanded registry + per-file sidecar metadata writers — delivered incrementally across Foundation + Tranche 1
+- [ ] Page-level isolation for OOM/timeout recovery — **deferred** (no AD; would require per-parser SIGTERM handling; out of current scope)
+- [ ] Hallucination Trap quality gate — **adjacent work shipped** (GATE-006 min-chars-per-page is a partial mitigation; full hallucination trap still deferred)
+- [ ] Manual Review Lane + Ranger Audit Payload generator — **externally gated** on the Ranger dashboard surface (same gate as Sprint D Stream J)
 
-**Plan:** `/.ai/09_archive/plans/phase-1b-multi-parser-integration-plan.md` (archived 2026-04-15 after Tranches 1-3 + Sprint PIPELINE-CLI closed the Phase 2 + Phase 3 backlog — AD-031/032/034/040)
+**Plan:** `/.ai/09_archive/plans/phase-1b-multi-parser-integration-plan.md` (archived 2026-04-15 after Tranches 1-3 + Sprint PIPELINE-CLI closed the Phase 2 + Phase 3 backlog — AD-031/032/033/034/040)
 
 ## Phase 1C — Centralized Normalization ✅ MVP COMPLETE (2026-04-14)
 - [x] `NormalizationEngine` with phase-locked execution
@@ -217,9 +221,9 @@ See `/.ai/10_state/known_issues.md` for the risk register (RI-001…RI-011).
 
 ---
 
-# 2026-04-15 Session — All Governing-Plan Sprints Closed
+# 2026-04-15 Session — 20 Sprints Closed (Governing-Plan + Phase 1B + Post-Z Optimization Queue)
 
-The following **ten** sprints were delivered under subagent-driven-development in a single session and all produced `sprint-*-closed` git tags. Full ledgers live in `.ai/10_state/decisions.md` AD-024 through AD-029.
+The following **twenty** sprints were delivered under subagent-driven-development across the 2026-04-15 session. All produced `sprint-*-closed` git tags. Full ledgers live in `.ai/10_state/decisions.md` **AD-024 through AD-042** (plus **AD-038a** for the Sprint RUST-MIG-1 N1 DEFER_ALREADY_NATIVE verdict).
 
 ## Sprint Q — Live Wiring & 8GB Hardening ✅ CLOSED (tag `sprint-q-closed`)
 - [x] W1 — 8GB LLM Survival Mode (model pool + num_ctx cap + budget guard + binary mode, +17 tests)
@@ -304,14 +308,108 @@ The following **ten** sprints were delivered under subagent-driven-development i
 - **Total:** 14 commits shipped, archived at `.ai/09_archive/plans/2026-04-15-rocksdb-kv-migration-plan.md`
 - **Bench at n=10000:** RocksDB **18.7× faster** on event store (0.1888s vs 3.5313s), **24.3× faster** on verdict cache (0.1480s vs 3.6004s). Flag defaults flipped to `true` per AD-029.
 
-## Session-level totals
-- **Python test suite:** 297 → **1396 passing**, 1 skipped (+1099 delta)
-- **TypeScript test suite:** 20 / 20 passing (spatial-daemon/)
-- **Rust unit tests:** 10 passing (engine_rs core + datalog_rs)
-- **New Rust crates:** 2 (`engine_rs` workspace + `datalog_rs`)
-- **New TypeScript sibling:** 1 (`spatial-daemon/`)
-- **New Python subpackages:** 6 (`compound/`, `wiki/`, `geometric/`, `foraging/`, `priming/`, `bench/`)
-- **Plans archived:** 12 in the sprint burst + 3 more in the 2026-04-15 cleanup pass (phase-8, phase-9, ultimate-architecture)
-- **ADs added:** AD-024 through AD-029
-- **Git tags:** 10 (all listed above)
-- **Branch:** merged and deleted the 4 feature branches on 2026-04-15; `main` is now at `eabc05e`, 242 commits ahead of `origin/main`
+## Sprint 1B-M1 — Phase 1B Modernization Tranche 1 ✅ CLOSED (tag `sprint-1b-m1-closed`)
+- [x] `DoclingParser(BaseParser)` — wraps `docling 2.88` parser chain
+- [x] `LibreOfficePreprocessor` — Office→PDF via subprocess dispatch
+- [x] `GATE-005` post-LibreOffice quality gate
+- [x] `ParserOrchestrator.preprocessors` kwarg wiring
+- [x] 2 new `p1b_*` feature flags (`p1b_docling_parser`, `p1b_libreoffice_preprocessor`, both default `false`)
+- **AD:** AD-031. **Plan:** `.ai/09_archive/plans/2026-04-15-phase-1b-modernization-tdd-plan.md`
+
+## Sprint 1B-M2 — Phase 1B Modernization Tranche 2 (scoped) ✅ CLOSED (tag `sprint-1b-m2-closed`)
+- [x] `OCRPreprocessor` wrapping `ocrmypdf`
+- [x] `ParserOrchestrator.process_batch` with `ProcessPoolExecutor` parallelism
+- [x] `GoldenCorpusBenchmark` 30-document fixture harness
+- [x] 2 new `p1b_*` feature flags (`p1b_ocr_preprocessor`, `p1b_process_pool_orchestration`)
+- 🚫 Marker-pdf 1.10.2 + Surya-ocr 0.17.1 **DEFERRED** per AD-032 feasibility finding (disk at 95.2%, RAM headroom 2.03 GB)
+- **AD:** AD-032. **Plan:** `.ai/09_archive/plans/2026-04-15-phase-1b-modernization-tranche-2-plan.md`
+
+## Sprint RUST-PDF-1 — Rust PDF Ingestion Audit ✅ CLOSED (tag `sprint-rust-pdf-1-closed`)
+- [x] `vitruvius_rust_pdf` lopdf-backed Cargo crate + pyo3 bindings
+- [x] Subprocess-isolated bench vs docling + opendataloader_pdf
+- [x] **GO verdict:** 13.7 MB peak RSS (**48× smaller** than docling) + 0.05 s wall (**625× faster**) on synthetic PDFs
+- [x] Unlocks the low-spec M2 target
+- **AD:** AD-033. **Plan:** `.ai/09_archive/plans/2026-04-15-rust-pdf-audit-plan.md`
+
+## Sprint 1B-M3 — Phase 1B Modernization Tranche 3 ✅ CLOSED (tag `sprint-1b-m3-closed`)
+- [x] `RustPdfParser(BaseParser)` wraps the `vitruvius_rust_pdf` Rust crate from Sprint RUST-PDF-1
+- [x] `GATE-006` min-chars-per-page quality gate
+- [x] `p1b_rust_pdf_parser` feature flag (default `false`)
+- [x] Real-PDF quality rollback gate: **LCS similarity 0.9925** on `History of Architecture Sample Exam.pdf` vs pypdf baseline
+- **AD:** AD-034. **Plan:** `.ai/09_archive/plans/2026-04-15-phase-1b-modernization-tranche-3-plan.md`
+
+## Sprint DISTILL-1 — LLM Reviewer Distillation Audit ✅ CLOSED with DEFER_NO_DATA (tag `sprint-distill-1-closed`)
+- [x] `distillation_audit.py` corpus inspector walks 5 known cache locations
+- 🚫 **DEFER_NO_DATA verdict**: Sprint R Y4 verdict cache is empty (0 verdicts < 50 threshold). Audit harness committed for re-run after live LLM review populates the cache.
+- **Unblocker**: run `run-with-review` with `y_stateful_registry=true` + `w_review_nb_prefilter=true` + `w_review_choquet_aggregator=true` on ≥20 PD 1096 sections
+- **AD:** AD-035. **Plan:** `.ai/09_archive/plans/2026-04-15-llm-distillation-audit-plan.md`
+
+## Meta — Docs Cleanup Sprint ✅ CLOSED (no git tag — meta sprint)
+- [x] `.ai/00_system/architecture.md` + `pipeline-overview.md` refreshed post-Sprint-Z
+- [x] `.ai/01_roadmap/master-roadmap.md` bumped to v2.1.0 (then v2.2.0 → v2.3.0 in later passes)
+- [x] `.ai/02_audits/` banners marked historical snapshots
+- [x] `.ai/10_state/known_issues.md` reconciled
+- [x] 3 superseded plans archived (phase-8, phase-9, ultimate-architecture)
+- [x] `INDEX.md` reconciled
+- **Plan:** `.ai/09_archive/plans/2026-04-15-docs-cleanup-plan.md`
+
+## Sprint RUST-MIG-1 — Python→Rust Polyglot Split ✅ CLOSED (tag `sprint-rust-mig-1-closed`)
+- [x] S1 `build_spatial_adjacency_edges` Rust port — **200× raw kernel speedup** (0.836 ms vs ~170 ms at n=2000); O(n²) → O(n log n) via existing `LinearOctree::query_aabb`
+- [x] S2 `weight_by_distance` Rust port — **12.18× raw kernel / 2.84× end-to-end** (0.183 ms vs 2.234 ms at n=10000); pure `exp(-λd)` loop
+- [x] N4 Mahalanobis core Rust port — **2.73× end-to-end** via nalgebra (34.16 ms vs 93.28 ms at n=1000 queries, 64-dim); WeakKeyDictionary cache keyed on `OutlierModel` instances
+- 🚫 N1 sliced Wasserstein — **DEFER_ALREADY_NATIVE** per AD-038a (thin `ot.emd2` wrapper over POT's native C++ network simplex LP)
+- [x] Two new member crates in `engine_rs/` workspace: `spatial_kernels` + `stats_kernels`
+- [x] `rust_mig_spatial_kernels` + `rust_mig_stats_kernels` feature flags **flipped to `true`** per AD-038 (both kernels cleared the ≥2× bench threshold)
+- **AD:** AD-036 (crate layout), AD-037 (Sprint LSH-1 premise correction), AD-038 (sprint closure), AD-038a (N1 DEFER). **Plan:** `.ai/09_archive/plans/2026-04-15-rust-migration-audit-plan.md`
+
+## Sprint AUDIT-1 — Advanced Tech Audit ✅ CLOSED (tag `sprint-audit-1-closed`)
+- [x] Task 1: FlatBuffers audit harness — **NO_GO verdict** (pure-Python flatbuffers 5-10× SLOWER than CPython `_json` at ~150 B records)
+- [x] Task 2: Numerical Integrity audit — **GO_GAP verdict** → shipped SHA-256 integrity footer for spatial contracts (`spatial/contract_reader.py` + `spatial-daemon/src/contract_writer.ts` `writeContract()` appends `# sha256:` footer)
+- [x] Task 3: Monte Carlo Dropout site survey — **PARK verdict** (0 of 5 neural-inference modules viable; GraphSAGE explicitly disables dropout via `torch.no_grad()`)
+- **AD:** AD-039. **Plan:** `.ai/09_archive/plans/2026-04-15-advanced-tech-audit-plan.md`
+
+## Sprint PIPELINE-CLI — `p1b_*` Flag Integration ✅ CLOSED (tag `sprint-pipeline-cli-closed`)
+- [x] `parsers/factory.py::build_default_orchestrator()` — lru_cached factory that reads all 5 `p1b_*` flags and wires the right parser chain + preprocessors
+- [x] `parsers/cli_handler.py::run_convert_parsers_one()` — path-resolve + classify + factory-dispatch + file-write + exit-code orchestration
+- [x] New `convert-parsers-one` CLI subcommand registered in `pipeline_cli.py` (parallel command pattern — does NOT modify `convert-one` so byte-identity with flags OFF is structurally guaranteed)
+- [x] Byte-identity exit gate: parametrized `--help` check across 8 pre-plan commands + lazy-import contract extension of AD-015 + empty-stderr check
+- [x] **Side-fix:** `RustPdfParser` was in `parsers/__init__.py::__all__` but never imported (broken since AD-034) — fixed as part of the Task 1 commit
+- **AD:** AD-040. **Plan:** `.ai/09_archive/plans/2026-04-15-pipeline-cli-integration-plan.md`
+
+## Sprint PQ-1 — GraphSAGE Product Quantization ✅ CLOSED (tag `sprint-pq-1-closed`)
+- [x] `PQCodebook` + `train_pq_codebook()` — pure numpy k-means with BLAS GEMM + `np.argmin` + `np.add.at`
+- [x] `encode_to_pq()` + `decode_from_pq()` — vectorized L2 via GEMM + integer-index gather
+- [x] `adc_distance()` — asymmetric distance computation for fast approximate queries
+- [x] `save_codebook()` / `load_codebook()` — npz roundtrip
+- [x] `compress_graphsage_report()` integration helper
+- [x] `hp_graphsage_pq` feature flag (default `false` — stays false pending embedding persistence layer)
+- **Measured:** 32× exact compression (256 B/node → 8 B/node), **0.00017 cosine similarity delta** (117× under the 0.02 gate)
+- **AD:** AD-041. **Plan:** `.ai/09_archive/plans/2026-04-15-graphsage-pq-embeddings-plan.md`
+
+## Sprint LSH-1 — MinHash Fuzzy Near-Duplicate Dedup ✅ CLOSED (tag `sprint-lsh-1-closed`)
+- [x] `minhash.py::compute_minhash_signature()` — Carter-Wegman MinHash (SHA-256 base hash + numpy broadcast grid + 31-bit Mersenne modulus) — **70× faster** than initial nested-loop (8 s → 108 ms at n=1000)
+- [x] `lsh_index.py::LSHIndex` — band-based bucketing with `num_perm=256, num_bands=32, r=8` (99% recall at J≥0.78)
+- [x] `lsh_dedup.py::dedupe_by_endpoints_lsh()` — fuzzy layer on top of exact `dedupe_by_endpoints`
+- [x] `w_lsh_dedup` feature flag (default `false` pending PD 1096 operator validation)
+- [x] Reframed per AD-037 — this sprint ships fuzzy near-duplicate detection (semantic variants like "lot area ≥ 100 sqm" vs "minimum lot area of 100 square meters"), NOT an O(n²) scaling fix (which was the original-audit's misclaim)
+- **Measured:** 14.17% fuzzy hit rate at 20% injection (> 10% AD-037 gate), **0 false positives** on 200-candidate disjoint audit
+- **AD:** AD-042. **Plan:** `.ai/09_archive/plans/2026-04-15-lsh-dedup-plan.md`
+
+## Session-level totals (2026-04-15 19:50, post-LSH-1 + path-rewrite sweep)
+- **Python test suite:** 297 → **1528 passing**, 1 skipped (+1231 delta across the session)
+- **TypeScript test suite:** 20 → **21 / 21 passing** (`spatial-daemon/` — +1 integrity footer assertion from Sprint AUDIT-1)
+- **Rust unit tests:** 10 → **33 passing** (23 new from Sprint RUST-MIG-1: 7 adjacency_edges + 6 distance_weight + 10 mahalanobis; plus wasm api tests + datalog_rs)
+- **New Rust crates / workspace members:** `engine_rs` workspace (existing) extended with `spatial_kernels` + `stats_kernels` + `pdf` crates (2 new, 1 from Sprint RUST-PDF-1); `datalog_rs` (existing)
+- **New TypeScript sibling:** 1 (`spatial-daemon/`, extended in Sprint AUDIT-1 with integrity footer writer)
+- **New Python subpackages:** 10 (`compound/`, `wiki/`, `geometric/`, `foraging/`, `priming/`, `bench/`, `relationships/minhash.py`, `relationships/lsh_index.py`, `relationships/lsh_dedup.py`, `spatial/_feature_gate.py`)
+- **Plans archived:** 22 (12 from the Sprint-Q→HP.3-R burst + 3 from the 2026-04-15 cleanup pass + 5 from the Phase 1B tranches + 2 from the post-Z optimization queue that landed in-sprint + 3 from the final 2026-04-15 cleanup pass archiving `phase-1b`, `statistical-architectural-upgrade`, `ingestion-refinement-contract`)
+- **ADs added:** AD-024 through **AD-042** plus **AD-038a** (20 entries)
+- **Git tags:** **20** total sprint tags (10 original governing-plan sprints: `sprint-q/r/phys/h/geom/wiki/gt/hp/z/hp3r-closed`; 5 Phase 1B tranche tags: `sprint-1b-m1/1b-m2/rust-pdf-1/1b-m3/distill-1-closed`; 5 post-Z optimization queue tags: `sprint-rust-mig-1/audit-1/pipeline-cli/pq-1/lsh-1-closed`)
+- **Branch:** `main` fully pushed to `origin/main` at commit `119cba3` (post-Sprint-LSH-1 + path-rewrite sweep); Git remote auth fixed via `gh auth setup-git`
+
+## Active plans folder state
+After the 2026-04-15 19:00 cleanup pass, `.ai/03_plans/` contains exactly **2 files**:
+- `00-governing-implementation-plan.md` (v3.0.0, Task 8 queue fully closed)
+- `INDEX.md` (archive roll-up)
+
+All other plans are archived under `.ai/09_archive/plans/`. The next action is a **fresh roadmap brainstorm** (see governing plan §10) — the active work queue is empty.
