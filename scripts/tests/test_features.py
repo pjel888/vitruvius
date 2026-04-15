@@ -169,17 +169,30 @@ def test_repo_config_contains_every_expected_flag() -> None:
 
 
 def test_repo_config_every_flag_is_false() -> None:
-    """The non-breaking contract (plan §1.3) requires every flag default to False.
+    """The non-breaking contract (plan §1.3) requires every flag default to False,
+    with AD-029 as a documented exception.
 
-    If this test fails, someone flipped a flag in config/vitruvius.yaml and
-    must (a) revert the flip OR (b) update the plan's non-breaking contract
-    and the backward-compat regression suite accordingly.
+    If this test fails (outside the AD-029 allowlist), someone flipped a
+    flag in config/vitruvius.yaml and must (a) revert the flip OR (b) update
+    the plan's non-breaking contract and the backward-compat regression suite
+    accordingly, OR (c) add a new AD-### entry explaining the deliberate flip
+    and extend this allowlist.
+
+    AD-029 exceptions: hp_rocksdb_event_store + hp_rocksdb_verdict_cache were
+    flipped to true on 2026-04-15 after the Sprint HP.3-R bench measured
+    RocksDB at 18.7x (event store) and 24.3x (verdict cache) faster than
+    SQLite at n=10000. See .ai/10_state/decisions.md AD-029.
     """
+    ad_029_exceptions = {"hp_rocksdb_event_store", "hp_rocksdb_verdict_cache"}
     features = load_features(REPO_CONFIG)
-    enabled = [name for name in EXPECTED_FLAGS if features.is_enabled(name)]
-    assert not enabled, (
-        f"These Stream A-K flags are enabled in config/vitruvius.yaml "
-        f"and violate the non-breaking contract: {sorted(enabled)}"
+    enabled = [
+        name for name in EXPECTED_FLAGS
+        if name not in ad_029_exceptions and features.is_enabled(name)
+    ]
+    assert enabled == [], (
+        f"flags enabled in config/vitruvius.yaml outside the AD-029 allowlist: {enabled}. "
+        "See .ai/03_plans/statistical-architectural-upgrade-plan.md §1.3 and "
+        ".ai/10_state/decisions.md AD-029."
     )
 
 
@@ -211,22 +224,31 @@ def test_y_flags_load_from_config(tmp_path: Path) -> None:
     assert features.is_enabled("y_domain_routing_moe") is False
 
 
-def test_hp_rocksdb_event_store_defaults_false() -> None:
-    """Sprint HP.3-R — the backend-switch flag must default false so
-    the existing SQLite code path remains the default until the
-    Task 8 bench decision gate is satisfied."""
+def test_hp_rocksdb_event_store_defaults_true() -> None:
+    """Sprint HP.3-R AD-029 — the backend-switch flag defaults to true
+    after the Task 8 bench measured RocksDB at 18.7x faster than SQLite
+    (ratio 0.053 well inside the rocksdb_wins bucket of <= 0.5).
+
+    The SQLite code path remains available by setting the flag to false
+    in config/vitruvius.yaml. See .ai/10_state/decisions.md AD-029.
+    """
     from vitruvius.config import load_config
 
     cfg = load_config()
     flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
-    assert flags.get("hp_rocksdb_event_store") is False
+    assert flags.get("hp_rocksdb_event_store") is True
 
 
-def test_hp_rocksdb_verdict_cache_defaults_false() -> None:
-    """Sprint HP.3-R — the verdict-cache backend-switch flag must
-    default false for the same reason as hp_rocksdb_event_store."""
+def test_hp_rocksdb_verdict_cache_defaults_true() -> None:
+    """Sprint HP.3-R AD-029 — the verdict-cache backend-switch flag
+    defaults to true after the Task 8 bench measured RocksDB at 24.3x
+    faster than SQLite (ratio 0.041 well inside the rocksdb_wins bucket).
+
+    The SQLite code path remains available by setting the flag to false
+    in config/vitruvius.yaml. See .ai/10_state/decisions.md AD-029.
+    """
     from vitruvius.config import load_config
 
     cfg = load_config()
     flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
-    assert flags.get("hp_rocksdb_verdict_cache") is False
+    assert flags.get("hp_rocksdb_verdict_cache") is True

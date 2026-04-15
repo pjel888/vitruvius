@@ -190,6 +190,11 @@ class RocksDBStatefulReviewRegistry:
         if to_delete:
             current = self._db.get(_META_COUNT_KEY)
             current_int = int(current) if current is not None else 0
+            # max(0, ...) is a defensive floor that only fires if the
+            # counter is desynced from the real row count — e.g. if a
+            # pre-Sprint-HP.3-R RocksDB DB (no meta:verdict_count key)
+            # is opened by this code and then purged. In normal
+            # operation the counter tracks reality exactly.
             new_value = max(0, current_int - len(to_delete))
             self._db[_META_COUNT_KEY] = str(new_value).encode("ascii")
         return len(to_delete)

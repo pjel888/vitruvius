@@ -159,12 +159,13 @@ features:
   hp_event_sourced_graph: false
   hp_graphsage: false
   hp_wasm_kernels: false
-  # Sprint HP.3-R — RocksDB KV backend migration (AD-029 pending).
-  # Orthogonal to the gating flags above: these choose the STORAGE
-  # backend when the parent feature is enabled. Defaults false so
-  # SQLite remains the default until the Task 8 bench gate passes.
-  hp_rocksdb_event_store: false
-  hp_rocksdb_verdict_cache: false
+  # Sprint HP.3-R — RocksDB KV backend migration. AD-029 bench at
+  # n=10000 landed in the rocksdb_wins bucket (event store 18.7x
+  # faster, verdict cache 24.3x faster than SQLite after the O(1)
+  # count() fix). Defaults flipped to true 2026-04-15. SQLite code
+  # path remains available via ``hp_rocksdb_*: false`` as a fallback.
+  hp_rocksdb_event_store: true
+  hp_rocksdb_verdict_cache: true
   # Sprint GEOM — Geometric Constraint Engine (phase-15).
   # All four streams now land: GEOM.1 inequality→Z3 compiler,
   # GEOM.3 2D+3D buildable envelope, GEOM.4 IoU audit + Pareto

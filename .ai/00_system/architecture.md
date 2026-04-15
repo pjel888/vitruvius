@@ -121,3 +121,39 @@ The system uses a **path-based addressing scheme**.
 
 ## Changelog
 - **2026-04-13:** Initial Architecture Document created from code-to-document audit. Traced all functional modules and filesystem interactions.
+
+## KV Storage Backends (Sprint HP.3-R, 2026-04-15)
+
+The two persistent KV stores in the project now ship with parallel
+RocksDB backends alongside the original SQLite implementations.
+
+| Module | SQLite class | RocksDB class | Flag |
+|---|---|---|---|
+| `scripts/vitruvius/graph/event_store.py` | `EventStore` | `scripts/vitruvius/graph/rocksdb_event_store.py::RocksDBEventStore` | `hp_rocksdb_event_store` |
+| `scripts/vitruvius/review/stateful_registry.py` | `StatefulReviewRegistry` | `scripts/vitruvius/review/rocksdb_stateful_registry.py::RocksDBStatefulReviewRegistry` | `hp_rocksdb_verdict_cache` |
+
+Consumers go through factory functions that dispatch on the flag:
+
+- `make_event_store(*, db_path)` in `scripts/vitruvius/graph/event_store.py`
+- `make_stateful_registry(*, db_path)` in `scripts/vitruvius/review/stateful_registry.py`
+
+Both flags default to **true** as of AD-029 (2026-04-15). The
+flag-OFF SQLite path is retained as a fallback. Operators who need
+to roll back can set either flag to `false` in
+`config/vitruvius.yaml`.
+
+**Migration tool:** `ple-kv-migrate --store {event,registry} --source SQLITE_FILE --dest ROCKSDB_DIR [--dry-run]`
+copies existing SQLite state into a fresh RocksDB directory.
+Idempotent (safe to re-run).
+
+**Binding:** `rocksdict 0.3.29` — modern Rust-based Python binding.
+NOT `python-rocksdb` (the Cython-based binding that was originally
+unavailable on Apple Silicon Python 3.11 and caused the Sprint HP
+pivot to SQLite).
+
+**Bench (n=10000, AD-029):**
+- Event store: RocksDB 18.7× faster than SQLite
+- Verdict cache: RocksDB 24.3× faster than SQLite
+
+See AD-029 in `/.ai/10_state/decisions.md` for the full bench ledger
+and the O(1) `count()` optimization story.

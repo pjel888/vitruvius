@@ -526,6 +526,129 @@ Closes the deferred Sprint Q exit gate (peak RSS ≤ 5 GB on a real PD 1096 revi
   * Optional: full-Datalog upgrade of `datalog_rs` from hand-rolled evaluator to a real engine (crepe, ascent, or similar) once a downstream consumer needs multi-rule evaluation.
   * Optional: PQ (Product Quantization) vector store for HP.5 GraphSAGE embeddings once a memory-pressure problem surfaces.
 
+## AD-029 — Sprint HP.3-R — RocksDB KV backend migration (2026-04-15)
+
+**Context.** Sprint HP Stream HP.3 (closed 2026-04-15, tag `sprint-hp-closed`)
+originally specified RocksDB for the event store per the archived
+phase-13 plan (`.ai/09_archive/plans/phase-13-high-performance-optimizations-plan.md`
+§3), but pivoted to SQLite because no `python-rocksdb` wheel was
+available for Apple Silicon Python 3.11 at the time. The Sprint R
+Stream Y4 stateful verdict cache (`stateful_registry.py`) went with
+SQLite for the same reason. The pivot was a documented compromise,
+not a design change.
+
+User installed `rocksdb 11.0.4` via Homebrew on 2026-04-15 and
+requested the migration. Verified that `rocksdict 0.3.29` ships a
+`cp311-cp311-macosx_11_0_arm64.whl` — this is the modern
+Rust-based Python binding, not the old `python-rocksdb` Cython
+binding that was the original HP.3 blocker. With the blocker
+resolved, we could complete the originally-spec'd migration.
+
+**Decision.** Shipped `RocksDBEventStore` and
+`RocksDBStatefulReviewRegistry` classes with API parity against
+the SQLite versions. Both are gated behind new feature flags
+(`hp_rocksdb_event_store`, `hp_rocksdb_verdict_cache`). Factory
+functions (`make_event_store`, `make_stateful_registry`) dispatch
+on the flag. Consumer `ollama_review.py` and the
+`ple-registry-purge` CLI both routed through the factory. A
+one-shot `ple-kv-migrate` CLI ships for operators to copy existing
+SQLite state into RocksDB. Bench harness extended to measure both
+backends at n=10000.
+
+After the initial bench and an O(1) optimization on `count()`,
+the RocksDB path shows dramatic wins:
+
+**Benchmark (n=10000, live on Homebrew Python 3.11, darwin-arm64):**
+
+| Backend | Op | Wall seconds | Throughput (ops/sec) | vs SQLite |
+|---|---|---|---|---|
+| SQLite | event_store | 3.5313 | 2,831.83 | 1.0× baseline |
+| RocksDB | event_store | **0.1888** | **52,952.70** | **18.7× faster** |
+| SQLite | verdict_cache | 3.6004 | 2,777.46 | 1.0× baseline |
+| RocksDB | verdict_cache | **0.1480** | **67,556.88** | **24.3× faster** |
+
+Raw JSON: `.ai/10_state/bench_kv_migration_2026-04-15.json`.
+SQLite baseline (independent): `.ai/10_state/bench_sqlite_baseline.json`.
+
+**The initial bench was misleading** — it showed RocksDB event
+store at 33.66s wall (apparently 9.6× slower than SQLite). The
+breakdown told a different story: `append_seconds = 0.116`
+(29.5× FASTER than SQLite), `point_lookup_seconds = 33.52`, and
+`project_graph_at_seconds = 0.025`. The entire gap was in
+`point_lookup_seconds`. That op in the bench calls `count()` in
+a loop 10000 times, and the pre-optimization `count()` on
+`RocksDBEventStore` was O(n) (scanned every key with the `event:`
+prefix), so the loop was O(n²) = 200M operations → 33.5s of pure
+scan overhead. SQLite's `SELECT COUNT(*)` is backed by an
+internal row counter, so it's effectively O(1) in practice.
+
+Task 8 optimization (commit `269abb8`) added an O(1) counter
+backed by a reserved `meta:event_count` key on the event store
+and `meta:verdict_count` on the registry. `append()` increments
+on successful write (skips on duplicate-event_id rejection);
+`put()` uses an existence check to only increment on new keys
+(upsert re-puts don't change the count); `purge_all()` resets to
+0; `purge_older_than()` decrements by the deleted count with a
+`max(0, ...)` defensive floor. One new test,
+`test_count_is_o1_not_on_scan`, asserts the counter is accurate
+across append, duplicate-rejection, close/reopen, and incremental
+growth paths.
+
+With the optimization in place the re-run landed squarely in the
+`rocksdb_wins` bucket: ratios of 0.053 (event store) and 0.041
+(verdict cache) vs the 0.5 threshold.
+
+**Outcome: flipped flag defaults to `true`.** Both
+`hp_rocksdb_event_store` and `hp_rocksdb_verdict_cache` now
+default to `true` in `config/vitruvius.yaml`. The flag-OFF SQLite
+path is retained as a fallback and operators can set either flag
+to `false` if they hit trouble. One week of live operation will
+validate the defaults before scheduling archival of the SQLite
+backends in a follow-up plan.
+
+**Migration path:** `ple-kv-migrate --store {event,registry} --source X --dest Y`
+ships as an idempotent one-shot CLI. Operators who have existing
+SQLite files from pre-Task-9 runs can migrate them to RocksDB
+before restarting. Idempotency: the event store catches the
+duplicate-event_id `ValueError` from `RocksDBEventStore.append()`
+and counts it as "skipped (idempotent)"; the registry does a
+pre-write `get()` existence check and increments a `skipped`
+counter when the destination already has the row.
+
+**Test delta:** 1392 → **1395 passed, 1 skipped** (+3 from Task 8
+onward; the full Sprint HP.3-R delta from baseline 1364 is
+**+31 tests** across Tasks 1-8 plus 3 fix/supplement commits).
+
+**Commits (13 total):**
+- Task 1 — `3b1d405` — SQLite KV baseline bench harness
+- Task 2 — `22f38ea` — install rocksdict binding + smoke test
+- Task 3 — `ae042f7` — feature flags for RocksDB backend switches
+- Task 4 — `de4413b` — RocksDBEventStore class + tests
+- Task 4 fix — `364e597` — project_graph_at_rocksdb concurrent read lock
+- Task 5 — `a3fe4bf` — RocksDBStatefulReviewRegistry class + tests
+- Task 6 — `6e22f86` — factory dispatch for KV backends
+- Task 6 supplement — `49f8866` — purge CLI uses make_stateful_registry
+- Task 7 — `ba8e0f0` — ple-kv-migrate CLI (SQLite → RocksDB)
+- Task 7 supplement — `6de2875` — registry migration idempotency counter
+- Task 8 — `8b91210` — RocksDB bench + decision gate
+- Task 8 optimization — `269abb8` — O(1) count() for RocksDB backends
+- Task 9 — `<this commit>` — flag flip, AD-029, docs, archival
+
+**Follow-ups (not in this plan):**
+- After one week of stable live operation on the RocksDB path,
+  schedule a follow-up plan to archive the SQLite backend files
+  (`scripts/vitruvius/graph/event_store.py` SQLite path,
+  `scripts/vitruvius/review/stateful_registry.py` SQLite path).
+  Keep the files until then as a safety net.
+- Sprint D Streams J + K remain externally gated (Ranger dashboard
+  + 2nd jurisdiction corpus). The RocksDB backends' advantage will
+  compound at the 100k+ events scale those unblock.
+- `rocksdb_event_store.py`'s `count()` optimization used the
+  simplest possible counter approach (reserved meta key).
+  Column-family-backed atomic counters would be more idiomatic
+  for RocksDB; deferred to future perf work if it proves
+  necessary. Not necessary at current scale.
+
 ---
 
 ## Decision Process

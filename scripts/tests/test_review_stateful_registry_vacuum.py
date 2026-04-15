@@ -51,7 +51,22 @@ def test_cli_purge_handler_missing_db(tmp_path: Path, capsys) -> None:
     assert "no registry at" in out
 
 
-def test_cli_purge_handler_deletes_old_rows(tmp_path: Path, capsys) -> None:
+def test_cli_purge_handler_deletes_old_rows(tmp_path: Path, capsys, monkeypatch) -> None:
+    """Explicitly exercise the SQLite backend path through the CLI.
+
+    Sprint HP.3-R AD-029 flipped hp_rocksdb_verdict_cache default to true.
+    This test predates that flip and was written to exercise the SQLite
+    registry specifically (it creates a file-based sqlite DB at
+    tmp_path / 'reg.sqlite'). Force the factory to return the SQLite
+    class so the test keeps exercising its original target path.
+    """
+    import vitruvius.review.stateful_registry as srmod
+    monkeypatch.setattr(
+        srmod,
+        "make_stateful_registry",
+        lambda *, db_path: StatefulReviewRegistry(db_path=db_path),
+    )
+
     db = tmp_path / "reg.sqlite"
     reg = StatefulReviewRegistry(db_path=db)
     now = datetime.now(timezone.utc)
