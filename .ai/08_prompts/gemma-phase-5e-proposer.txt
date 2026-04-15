@@ -1,0 +1,62 @@
+Prompt Spec: Phase 5E LLM Candidate Proposer
+Last Updated: 2026-04-15
+Module: scripts/vitruvius/relationships/llm_proposer.py
+Temperature: 0 (deterministic)
+num_predict: 400
+Format: json
+Sprint: CLEANUP-1 Stream C4
+
+PURPOSE
+Given a section of canonical legal text, propose candidate relationship
+triples that the regex extractor might miss. Each triple uses the closed
+predicate vocabulary from scripts/vitruvius/rules/relationship_registry.yaml.
+
+OUTPUT CONTRACT
+The model MUST return a JSON array of objects. Each object has:
+{
+  "from": "<slug-format-concept-id-or-source-id>",
+  "type": "<one of: governs | defines | requires | depends_on | limits | affects | supersedes>",
+  "to": "<slug-format-concept-id-or-source-id>",
+  "evidence": "<verbatim quote from the input text, <= 200 chars>",
+  "confidence": <float 0.0-1.0>
+}
+
+CONSTRAINTS
+1. Use ONLY the 7 predicates in the closed vocabulary. Any other predicate
+   is a contract violation.
+2. Subject and object must be slug-formatted concept/source IDs, not free
+   text. If you don't know the ID, skip the triple.
+3. Evidence must be a verbatim substring of the input (no paraphrasing).
+4. Confidence must be grounded in evidence strength, not guessing.
+5. Return [] if no candidates can be responsibly proposed.
+6. Do not invent concepts. The concept vocabulary is closed — only use
+   concept slugs visible in the input or inferable from section headings.
+
+EXAMPLE INPUT
+"""
+Section 701. Occupancy Classification. The occupancy group of a
+building shall be determined by its primary use. A mixed occupancy
+building shall comply with the most restrictive occupancy group.
+"""
+
+EXAMPLE OUTPUT
+[
+  {
+    "from": "section-701",
+    "type": "defines",
+    "to": "concept-occupancy-classification",
+    "evidence": "The occupancy group of a building shall be determined by its primary use.",
+    "confidence": 0.85
+  },
+  {
+    "from": "concept-mixed-occupancy",
+    "type": "requires",
+    "to": "concept-occupancy-classification",
+    "evidence": "A mixed occupancy building shall comply with the most restrictive occupancy group.",
+    "confidence": 0.80
+  }
+]
+
+EXAMPLE EMPTY OUTPUT
+If the input text is too vague to propose anything:
+[]
