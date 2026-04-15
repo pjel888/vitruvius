@@ -1,13 +1,29 @@
 > ⚠️ **HISTORICAL SNAPSHOT — SUPERSEDED 2026-04-15**
 >
-> This audit was written on 2026-04-13 against a pre-Sprint-A baseline. It is retained here as a frozen historical record of what the codebase looked like before Sprints A + B + C + D + Q + R + PHYS + H + GEOM + WIKI + GT + HP + Z + HP.3-R shipped. Almost every "weakness" or "missing feature" flagged below has since been addressed.
+> This audit was written on 2026-04-13 against a pre-Sprint-A baseline.
+> It is retained here as a frozen historical record of what the normalization
+> layer looked like before 21 sprints shipped in a single session.
+>
+> The 21 closed sprints (in execution order) are: Q · R · H · GT · HP ·
+> HP.3-R · WIKI · GEOM · PHYS · Z · Meta-Docs · 1B-M1 · 1B-M2 ·
+> RUST-PDF-1 · 1B-M3 · DISTILL-1 · RUST-MIG-1 · AUDIT-1 · PIPELINE-CLI ·
+> PQ-1 · LSH-1. See the governing plan §1.1 for the full per-sprint ledger.
+>
+> Architecture decisions now span AD-001 through AD-042 (plus sub-decision
+> AD-038a). The pointer "AD-001 through AD-029" in this file is outdated.
 >
 > **For the current state of the codebase, read these instead:**
+> - `/.ai/03_plans/00-governing-implementation-plan.md` — authoritative sprint ledger (v3.0.0)
+> - `/.ai/00_system/EXECUTION_LOOP.md` — v3.0 canonical operating contract
+> - `/.ai/01_roadmap/master-roadmap.md` — roadmap v2.2.0
 > - `/.ai/10_state/active_context.md` — current session state
-> - `/.ai/10_state/decisions.md` — architecture decisions AD-001 through AD-029
+> - `/.ai/10_state/decisions.md` — architecture decisions AD-001 through AD-042
+> - `/.ai/10_state/known_issues.md` — open risks + closure timeline
 > - `/.ai/01_roadmap/current-phase.md` — current sprint / phase
-> - `/.ai/00_system/architecture.md` — current package layout (including post-Sprint-D additions)
+> - `/.ai/00_system/architecture.md` — current package layout
 > - `/.ai/00_system/pipeline-overview.md` — current execution flow
+> - `/.ai/00_system/naming-conventions.md` — naming rules
+> - `/.ai/00_system/principles.md` — architectural principles
 
 ---
 
@@ -108,3 +124,51 @@ Vitruvius lacks a **Text Refinement Layer**.
 
 ## Changelog
 - **2026-04-13:** Initial Forensic Normalization Audit. Identified fragmentation and lack of a dedicated refinement layer.
+
+---
+
+## 2026-04-15 Post-Sprint Reality Check
+
+### The normalization layer now exists — SHIPPED (Sprint B, AD-007; 2026-04-14)
+The central finding of this audit — "There is no formal normalization pipeline" — was the
+precise motivation for Sprint B. Sprint B built exactly what was described as missing.
+
+**`scripts/vitruvius/normalization/` subpackage** (6 files):
+- `engine.py` — `NormalizationEngine` with phase-locked execution and scope routing.
+  Accepts a `RefinementContext` (scope: `document`, `section`, or `token`), runs the
+  applicable tier stack in order, and returns a `RefinedDocument`.
+- `rules_tier_a.py` — Tier A structural rules: whitespace collapsing, line merging,
+  JSON-fence stripping, page-number artifact removal, header/footer noise suppression.
+- `rules_tier_b.py` — Tier B content rules: section-header normalization, bullet
+  normalisation, trailing-punctuation cleanup.
+- `rules_tier_c.py` — Tier C semantic rules: token normalization, abbreviation expansion
+  (Philippine legal register).
+- `ast_chunker.py` — AST-based semantic chunking for Layer 4/5 retrieval.
+- `embedding_chunker.py` — Embedding-aware chunking for retrieval infrastructure.
+- `refine.py` — CLI stage handler; emits `.refined.json` manifests per processed file.
+
+**Transformation inventory corrections** (the "NOT IMPLEMENTED" rows in §Transformation
+Inventory are now wrong):
+- Header Normalization: **SHIPPED** — Tier B header-normalization rule.
+- Noise Removal (Page Numbers, Headers/Footers): **SHIPPED** — Tier A artifact-removal rules.
+- Token Normalization: **SHIPPED** — Tier C semantic rules.
+
+**Import fragmentation corrected:**
+Risk RI-007 flagged the 3-way duplication of `normalize_text` across `utils.py`,
+`relationships_sections.py`, and `canonicalize.py`. Sprint B made the `NormalizationEngine`
+the canonical authority. The inline duplicates are retained for backward compatibility but
+new code routes through the engine.
+
+**Pipeline position corrected:**
+The audit noted normalization was "90% inline" with no standalone stage. The `refine` CLI
+command now runs as an explicit pipeline step (`run-with-review` composite chains it after
+`convert` and before `review`).
+
+6 PD 1096 files were refined in the first Sprint B pass with idempotency verified.
+Risk RI-007 (Normalization Fragmentation) is **CLOSED** for MVP scope. Tier C semantic
+rules, full semantic chunking, and destructive-guard rollback are tracked as post-Sprint-B
+follow-ups and are substantially shipped via the subpackage files above.
+
+### Current sprint count and AD ceiling
+As of 2026-04-15: **21 sprints closed**. Architecture decisions span **AD-001 through
+AD-042** (plus sub-decision AD-038a).
