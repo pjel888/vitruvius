@@ -31,26 +31,21 @@ Every artifact produced by the system must be traceable back to its origin.
 - **Enforcement:** Output paths in `002_Raw-Conversion-Layer` MUST mirror the internal directory structure of `001_Raw-Source-Layer`.
 - **Consequence:** Failure to maintain structural parity breaks `reconcile.py` and breaks lineage tracking.
 
-### 5. Explicit Registry State
-The system’s awareness of its own data exists entirely within `006_System-Manifests/registries` (CSV files).
-- **Enforcement:** Any script that discovers or processes files MUST update or snapshot the relevant registry using functions in `reports.py`.
-- **Consequence:** If a file is on disk but not in the registry, it effectively does not exist to the pipeline orchestrator.
-
 ## Canonicalization Principles
 
-### 6. Deterministic Canonical Mapping
+### 5. Deterministic Canonical Mapping
 Mapping a raw file to a Canonical Knowledge entity must be predictable and rules-driven.
 - **Enforcement:** Hardcoding ID mappings in Python is FORBIDDEN. All canonical matching MUST go through `scripts/vitruvius/rules/canonical_rules.yaml`.
 - **Consequence:** Arbitrary canonicalization makes the system unmaintainable and breaks graph linking.
 
-### 7. Immutable Canonical IDs
+### 6. Immutable Canonical IDs
 Once an ID (e.g., `law-national-building-code`) is assigned and saved in `003_Canonical-Knowledge-Layer`, it is permanent.
 - **Enforcement:** IDs MUST adhere to the strict `<prefix>-<slug>` format defined in `naming-conventions.md`. Changing an ID requires a formal migration script (`migrate-ids-plan` / `migrate-ids-apply`).
 - **Consequence:** Silent ID changes break all downstream relationships and graph edges.
 
 ## Relationship and Knowledge Principles
 
-### 8. Explicit Concept Vocabulary
+### 7. Explicit Concept Vocabulary
 Relationship extraction must only use known, predefined concepts.
 - **Enforcement:** The extraction subsystem (`relationships.py`) MUST only match concepts that exist as markdown files in `003_Canonical-Knowledge-Layer/shared/concepts/`.
 - **Consequence:** Allowing free-text concept extraction leads to uncontrolled vocabulary sprawl.
