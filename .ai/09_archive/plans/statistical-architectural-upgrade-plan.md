@@ -2,10 +2,13 @@
 plan_id: statistical-architectural-upgrade
 phase: "cross-phase (touches 1A → 12)"
 title: Statistical & Architectural Intelligence Upgrade
-status: in-progress — Streams A-I CLOSED (Phase 8 + Phase 9 base also shipped) 2026-04-14. Stream L renamed to **Stream L_conf** (constraint-conflict engine) 2026-04-15 per governing plan §4.1. Stream O **moved_to: Sprint PHYS** (phase-16) per governing plan §4.4.
+status: partial_archived
+archive_status: "Streams A-I complete + I/L_conf/M/N migrated to other sprints; Streams J/K externally gated and preserved"
+archived_with_open_streams: "J,K (externally gated — Ranger dashboard + second jurisdiction corpus)"
 priority: highest
-sprint: "Sprint D — Streams A-I CLOSED; L_conf / M / N pending; Stream O moved to Sprint PHYS; J / K gated (Ranger dashboard / 2nd jurisdiction)"
+sprint: "Sprint D — Streams A-I CLOSED 2026-04-14; L_conf / M / N absorbed into other sprints or moved to research/v3; Stream O moved to Sprint PHYS (phase-16) per governing plan §4.4; J/K externally gated (never executed)"
 version: 1.0.9
+archived_at: 2026-04-15T19:00:00+08:00
 stream_progress:
   A_bootstrap_merkle_features: closed (7 tasks — A1a, A1b, A2, A5, A6, A7 shipped; A3, A4 won't-fix rationale in A5 commit)
   B_ingestion_intelligence: closed (5 tasks — B.1 Shannon, B.2 Shannon integration, B.3 Table-to-Graph CSV, B.3.1 XLSX wrapper, B.4 Parametric NER shipped)
@@ -70,6 +73,8 @@ gate:
 ---
 
 # Statistical & Architectural Intelligence Upgrade Plan
+
+> **ARCHIVED 2026-04-15 19:00 (with open streams).** Streams A–I all shipped 2026-04-14 and Phase 8 / Phase 9 base also landed in those streams. Streams L_conf / M / N / O were either absorbed into other sprints (L_conf / N / M elements went to Sprint D Stream work + 3d-spatial + research) or moved to Sprint PHYS (Stream O VF2 + Boltzmann gate). **Streams J (active learning) and K (CLUP scaling) remain externally gated** — J needs a Ranger dashboard surface that does not exist, K needs a second-jurisdiction corpus to benchmark against. These may never land. The `archived_with_open_streams` frontmatter field preserves the defer status so future readers can re-discover the gating conditions without needing to grep. If either external gate flips, a new plan should be written to carry those streams forward rather than un-archiving this one.
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use `superpowers:subagent-driven-development` (recommended for its per-task isolation) or `superpowers:executing-plans` to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking. **Every task ships behind a feature flag; test the flag OFF path too.**
 

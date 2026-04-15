@@ -4,7 +4,7 @@
 > **Audience:** Architects, engineers, auditors, and autonomous agents operating on this repo.
 > **Authoritative for:** Phase order, definitions of done, gating metrics, status reconciliation.
 > **Supersedes:** Prior phase lists, ad-hoc README roadmaps, and any conflicting status claims.
-> **Version:** 2.2.0 · **Last revised:** 2026-04-15 · **Next review due:** 2026-05-01
+> **Version:** 2.3.0 · **Last revised:** 2026-04-15T19:00:00+08:00 · **Next review due:** 2026-05-01
 > **Owner:** Senior Systems Architect
 
 ---
@@ -214,7 +214,7 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 
 ---
 
-## 5. Honest Position Statement (updated 2026-04-15 14:45)
+## 5. Honest Position Statement (updated 2026-04-15 19:00)
 
 **What works end-to-end today:**
 - Ingestion → conversion → refinement (Phase 1C MVP) → canonicalization → extraction → pre-review filter → Tier 1 LLM review → Tier 2 adjudication → promotion → canonical graph write.
@@ -234,32 +234,32 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 - **Sprint RUST-PDF-1 (Rust PDF Ingestion Audit) shipped on 2026-04-15**: **GO verdict.** lopdf-based `vitruvius_rust_pdf` crate measured at **13.7 MB peak RSS (48× smaller than docling) and 0.05 s wall-clock (625× faster)** on synthetic PDFs. This audit unblocks the "low-spec M2 target" and is the single largest ingestion RAM win in the tree. AD-033.
 - **Sprint 1B-M3 (Phase 1B Modernization Tranche 3) shipped on 2026-04-15**: `RustPdfParser(BaseParser)` wraps `vitruvius_rust_pdf`; `GATE-006` min-chars-per-page quality gate added; `p1b_rust_pdf_parser` flag (default false); real-PDF LCS quality rollback gate at **0.9925** on `History of Architecture Sample Exam.pdf` (pypdf baseline comparison). AD-034.
 - **Sprint DISTILL-1 (LLM Reviewer Distillation Audit) shipped on 2026-04-15**: **DEFER_NO_DATA verdict.** Audit harness walks the Sprint R Y4 `StatefulReviewRegistry` + RocksDB verdict cache at 5 known locations and found 0 verdicts. Pre-committed threshold was ≥50 verdicts. Harness committed for re-run after the live review pipeline has been run with `y_stateful_registry=true` + `w_review_nb_prefilter=true` + `w_review_choquet_aggregator=true` on ≥20 PD 1096 sections. AD-035.
-- **Meta Docs Cleanup Sprint shipped on 2026-04-15**: `.ai/00_system/architecture.md` + `.ai/00_system/pipeline-overview.md` refreshed; `.ai/01_roadmap/master-roadmap.md` bumped to v2.1.0 (this file, now v2.2.0); `.ai/02_audits/` banners marked historical; `.ai/10_state/known_issues.md` reconciled; 3 superseded plans archived (phase-8, phase-9, ultimate-architecture). Plan written + executed in-session via subagent dispatch.
+- **Meta Docs Cleanup Sprint shipped on 2026-04-15**: `.ai/00_system/architecture.md` + `.ai/00_system/pipeline-overview.md` refreshed; `.ai/01_roadmap/master-roadmap.md` bumped to v2.1.0 (this file, now v2.3.0); `.ai/02_audits/` banners marked historical; `.ai/10_state/known_issues.md` reconciled; 3 superseded plans archived (phase-8, phase-9, ultimate-architecture). Plan written + executed in-session via subagent dispatch.
+- **Sprint RUST-MIG-1 (Python → Rust polyglot split) shipped on 2026-04-15**: 3 Rust kernels ported + N1 DEFERred. S1 `build_spatial_adjacency_edges` reduced O(n²) → O(n log n) via existing `LinearOctree::query_aabb` — **200× raw kernel speedup** (n=2000, 57% end-to-end wall improvement through the subprocess path); S2 `weight_by_distance` **12.18× raw / 2.84× end-to-end** (n=10000) via nalgebra vectorized `exp(-λ·d)`; N4 Mahalanobis core **2.73× end-to-end** (n=1000, 64-dim) via nalgebra covariance invert. N1 sliced Wasserstein DEFER_ALREADY_NATIVE per **AD-038a** — POT backend is already a thin wrapper over a native C++ LP solver; a Rust port would add marshalling overhead without speed. Both `rust_mig_spatial_kernels` + `rust_mig_stats_kernels` flags flipped to `true`. AD-036 + AD-037 + AD-038 + AD-038a.
+- **Sprint AUDIT-1 (Advanced Tech Audit) shipped on 2026-04-15**: three pre-committed numeric gates, three different verdicts. FlatBuffers **NO_GO** — measured 5-10× SLOWER than CPython `_json` at the ~150B record sizes Vitruvius produces (runtime gate not met). Monte Carlo Dropout **PARK** — GraphSAGE runs under `torch.no_grad()` by design and there are no viable injection sites in the current review pipeline. Numerical Integrity **GO_GAP** — BLAKE3 measured 0.7× CPython SHA-256 on Apple Silicon (ARMv8 SHA hardware extension trumps BLAKE3's SIMD), BUT the audit identified a MEDIUM gap in spatial-daemon contract files and shipped a SHA-256 integrity footer via `spatial/contract_reader.py` + `spatial-daemon/src/contract_writer.ts`. Zero new Rust candidates surfaced. AD-039.
+- **Sprint PIPELINE-CLI (Phase 1B Flag Integration) shipped on 2026-04-15**: new `convert-parsers-one` subcommand wires all 5 `p1b_*` deployment-readiness flags (`p1b_docling_parser`, `p1b_libreoffice_preprocessor`, `p1b_ocr_preprocessor`, `p1b_process_pool_orchestration`, `p1b_rust_pdf_parser`) end-to-end via `parsers/factory.py::build_default_orchestrator()` + `parsers/cli_handler.py::run_convert_parsers_one()`. Parallel command pattern (not a replacement of the existing `convert-one` dispatch) guarantees byte-identity with all flags OFF. Side-fix: `RustPdfParser` was in `parsers.__all__` but never imported (broken since AD-034). Unblocks user-facing use of every Phase 1B Tranche 1/2/3 deliverable. AD-040.
+- **Sprint PQ-1 (GraphSAGE Product Quantization) shipped on 2026-04-15**: **32× exact compression** on GraphSAGE structural embeddings (256 B/node → 8 B/node; M=8 sub-spaces, k=256 centroids, sub_dim=8 over 64-d float32). **0.00017 cosine similarity delta** on held-out set — **117× under the pre-committed 0.02 gate**. Pure numpy implementation with k-means in M sub-spaces, `encode_to_pq` / `decode_from_pq` / `adc_distance` helpers, npz persistence, and `compress_graphsage_report` integration helper. Zero new pip dependencies, zero Rust escalation. `hp_graphsage_pq` feature flag stays false pending an embedding persistence layer that actually consumes the PQ codes. AD-041.
+- **Sprint LSH-1 (MinHash Fuzzy Near-Duplicate Dedup) shipped on 2026-04-15**: vectorized Carter-Wegman MinHash (pure numpy, no `datasketch` dependency) + band-based LSH index + union-find component walk + representative pick. Initial nested-loop implementation was 8s at n=1000; vectorization dropped it to 108ms — **70× faster**. Fuzzy hit rate **14.17% at 20% injection** (clears the ≥10% AD-037 gate); **0 false positives** on 200-candidate disjoint audit. Plan's proposed `num_bands=4` was underpowered — tuned to `num_perm=256, num_bands=32, r=8` for 99% recall at Jaccard ≥ 0.78. Reframed by AD-037 from "O(n²) scaling fix" to "fuzzy near-duplicate detection for predicate variants" — current `dedupe_by_endpoints` is already O(n log n) dict-grouped. `w_lsh_dedup` feature flag stays false pending full-PD-1096 operator run. AD-042.
 
-**Current hard numbers (as of 2026-04-15 14:45 local):**
-- Python test suite: **1437 passed, 1 skipped** (grew from pre-session 297 — +1140 delta)
-- TypeScript test suite: **20 / 20 passing** (`spatial-daemon/`)
-- Rust unit tests: **10 passing** (`engine_rs` core + `datalog_rs`) + wasm api tests + adjacent lopdf smoke tests
+**Current hard numbers (as of 2026-04-15 19:00 local):**
+- Python test suite: **1528 passed, 1 skipped** (grew from pre-session 297 — +1231 delta; +91 delta for the 5-sprint closing block alone from the prior 1437 mark at 14:45)
+- TypeScript test suite: **21 / 21 passing** (`spatial-daemon/` — +1 integrity footer test from Sprint AUDIT-1)
+- Rust unit tests: **33 passing** (`engine_rs` core + `datalog_rs` + new `spatial_kernels` + `stats_kernels` workspace members from Sprint RUST-MIG-1; +23 from the RUST-MIG-1 port parity suite) + wasm api tests + adjacent lopdf smoke tests
 - Canonical relationships: **31 verified** (unchanged — 2026-04-14 baseline)
 - Enriched concept files: **20 / 20** PD 1096 concepts (all carry `stringency_vector` frontmatter)
-- Sprint tags: **15** — `sprint-q-closed`, `sprint-r-closed`, `sprint-phys-closed`, `sprint-h-closed`, `sprint-geom-closed`, `sprint-wiki-closed`, `sprint-gt-closed`, `sprint-hp-closed`, `sprint-z-closed`, `sprint-hp3r-closed`, `sprint-1b-m1-closed`, `sprint-1b-m2-closed`, `sprint-rust-pdf-1-closed`, `sprint-1b-m3-closed`, `sprint-distill-1-closed`
-- Decision log: **AD-001 through AD-035** in `.ai/10_state/decisions.md` (AD-024–AD-035 are the 2026-04-15 session ledgers)
-- Active branch: **`main`** — fully pushed to `origin/main` (HEAD `c2c154a`); all 15 sprint tags published
+- Sprint tags: **20** — `sprint-q-closed`, `sprint-r-closed`, `sprint-phys-closed`, `sprint-h-closed`, `sprint-geom-closed`, `sprint-wiki-closed`, `sprint-gt-closed`, `sprint-hp-closed`, `sprint-z-closed`, `sprint-hp3r-closed`, `sprint-1b-m1-closed`, `sprint-1b-m2-closed`, `sprint-rust-pdf-1-closed`, `sprint-1b-m3-closed`, `sprint-distill-1-closed`, `sprint-rust-mig-1-closed`, `sprint-audit-1-closed`, `sprint-pipeline-cli-closed`, `sprint-pq-1-closed`, `sprint-lsh-1-closed`
+- Decision log: **AD-001 through AD-042 + AD-038a** in `.ai/10_state/decisions.md` (AD-024–AD-042 + AD-038a are the 2026-04-15 session ledgers)
+- Active branch: **`main`** — fully pushed to `origin/main` (HEAD `58161bd`); all 20 sprint tags published
 - Git remote: **FIXED** — `gh auth setup-git` ran; `origin` (`github.com/pjel888/vitruvius.git`) authenticates and accepts pushes
 
-**Active work queue (5 queued plans, unexecuted — see governing plan §6 Task 8):**
-- **Advanced Tech Audit** (`.ai/03_plans/2026-04-15-advanced-tech-audit-plan.md`) — scoping audit, dispatched first so it can re-rank the queue.
-- **Sprint RUST-MIG-1** (`.ai/03_plans/2026-04-15-rust-migration-audit-plan.md`) — Python → Rust polyglot split. Ports S1 `build_spatial_adjacency_edges` (O(n²) → O(n log n) via existing `LinearOctree::query_aabb`), S2 `weight_by_distance`, N4 Mahalanobis core, N1 sliced Wasserstein into two new workspace-member crates (`spatial_kernels`, `stats_kernels`) inside the existing `scripts/vitruvius/engine_rs/` Cargo workspace. Single largest wall-time win identified by the fresh 2026-04-15 audit.
-- **pipeline_cli.py integration** (`.ai/03_plans/2026-04-15-pipeline-cli-integration-plan.md`) — wires the six `p1b_*` feature flags into `pipeline_cli.py` routing so flipping any of them actually changes which parser runs on an incoming document. Unblocks user-facing use of every Tranche 1/2/3 deliverable.
-- **Sprint PQ-1** (`.ai/03_plans/2026-04-15-graphsage-pq-embeddings-plan.md`) — 32× disk footprint reduction on GraphSAGE structural embeddings via Product Quantization.
-- **Sprint LSH-1** (`.ai/03_plans/2026-04-15-lsh-dedup-plan.md`) — fuzzy near-duplicate relationship dedup via MinHash LSH. **Note:** RUST-MIG-1's audit found that the Sprint LSH-1 plan's "O(n²) → O(n log n) scaling fix" premise is WRONG — `dedupe_by_endpoints` is already O(n log n) dict-grouped. LSH-1's actual value is semantic fuzzy matching for predicate variants like "lot area ≥ 100 sqm" vs "minimum lot area of 100 square meters". Sprint LSH-1 must be reframed (Sprint RUST-MIG-1 Task 2 writes AD-037) before dispatch.
+**Active work queue: empty.** Task 8 of the governing implementation plan closed on 2026-04-15; all 5 queued optimization plans shipped. Next horizon requires a fresh roadmap brainstorm (see §8 "What's next").
 
 **What still needs doing (open options, not yet plans):**
-- **Sprint D Streams J (active learning) + K (CLUP scaling)** — externally gated on the Ranger dashboard surface (J) and a 2nd jurisdiction corpus (K). Will light up when their external unblockers land.
-- **Phase 1B Modernization §11 Phase 3 (Scaling & Governance)** — Tranches 1, 2, 3 all shipped (M1, M2-scoped, M3). The remaining Phase 3 work (ProcessPoolExecutor-scale orchestration already scaffolded by M2 behind `p1b_process_pool_orchestration`, additional parser coverage) is pending the pipeline_cli integration plan above.
-- **Fresh roadmap brainstorm** — the project is materially ahead of the v2.0.0 roadmap envelope and is producing 5–6 sprints per session. Next horizon (Phase 12+ / corpus expansion / real-world evaluation against board-exam prep use case) is undefined. Worth a fresh strategy pass before committing to a new sprint chain.
+- **Sprint D Streams J (active learning) + K (CLUP scaling)** — externally gated on the Ranger dashboard surface (J) and a 2nd jurisdiction corpus (K). Will light up when their external unblockers land. The `statistical-architectural-upgrade-plan.md` has been archived as of 2026-04-15 19:00 with an `archived_with_open_streams: "J,K"` frontmatter note preserving the defer status.
+- **Phase 1B Modernization §11 Phase 3 (Scaling & Governance)** — **✅ CLOSED.** Tranches 1/2/3 all shipped (M1, M2-scoped, M3) plus the pipeline_cli integration was shipped in Sprint PIPELINE-CLI (AD-040). `phase-1b-multi-parser-integration-plan.md` has been archived as of 2026-04-15 19:00.
+- **Fresh roadmap brainstorm** — the project is materially ahead of the v2.0.0 roadmap envelope and is producing 5–6 sprints per session (ceiling observed this session: **21 sprints**). Next horizon (Phase 12+ / corpus expansion / real-world evaluation against board-exam prep use case) is undefined. Worth a fresh strategy pass before committing to a new sprint chain.
 
-**Where to read the per-sprint ledger:** `.ai/10_state/decisions.md` AD-024 through AD-035 have the full commit SHAs, test counts, and exit gates for every sprint closed this session.
+**Where to read the per-sprint ledger:** `.ai/10_state/decisions.md` AD-024 through AD-042 (plus AD-038a) have the full commit SHAs, test counts, and exit gates for every sprint closed this session.
 
 ---
 
@@ -735,9 +735,9 @@ Every phase below follows the same contract template. A phase is not "done" unti
 
 ---
 
-## 8. 90-Day Execution Sequence — 16 SPRINTS CLOSED, 5 QUEUED (2026-04-15 14:45 local)
+## 8. 90-Day Execution Sequence — 21 SPRINTS CLOSED, QUEUE EMPTY (2026-04-15 19:00 local)
 
-> **Status:** **All** governing-plan sprints + a Phase 1B Modernization three-tranche push + a Rust PDF audit + an LLM reviewer distillation audit + a meta docs cleanup sprint shipped in the 2026-04-15 session via subagent-driven-development. **16 sprints closed, 5 new optimization plans queued but unexecuted.** Sprints A–C from the pre-session pass are retained below for historical context; the authoritative "what's next" is the **queued work** block under the Sprint chain.
+> **Status:** **All** governing-plan sprints + a Phase 1B Modernization three-tranche push + a Rust PDF audit + an LLM reviewer distillation audit + a meta docs cleanup sprint + **five optimization sprints** (RUST-MIG-1, AUDIT-1, PIPELINE-CLI, PQ-1, LSH-1) all shipped in the 2026-04-15 session via subagent-driven-development. **21 sprints closed, queue empty.** Sprints A–C from the pre-session pass are retained below for historical context; the authoritative "what's next" is a **fresh roadmap brainstorm** — no plans are queued.
 
 ### Sprint chain (all closed)
 
@@ -763,22 +763,15 @@ Every phase below follows the same contract template. A phase is not "done" unti
 | 18 | **RUST-PDF-1 — Rust PDF Ingestion Audit** | lopdf `vitruvius_rust_pdf` crate + pyo3 bindings + subprocess-isolated bench vs docling/opendataloader_pdf. **GO verdict.** 13.7 MB RSS (48× smaller) + 0.05 s wall (625× faster) — **single largest ingestion RAM win** | `sprint-rust-pdf-1-closed` | **AD-033** |
 | 19 | 1B-M3 — Phase 1B Modernization Tranche 3 | RustPdfParser(BaseParser) + GATE-006 min-chars-per-page + real-PDF LCS quality gate (0.9925) + `p1b_rust_pdf_parser` flag | `sprint-1b-m3-closed` | AD-034 |
 | 20 | DISTILL-1 — LLM Reviewer Distillation Audit | Audit harness walks 5 known cache locations. **DEFER_NO_DATA verdict** — Sprint R Y4 verdict cache empty; needs ≥50 live verdicts before training a student model is meaningful. Harness committed for re-run. | `sprint-distill-1-closed` | AD-035 |
+| 21 | **RUST-MIG-1 — Python → Rust Polyglot Split** | 3 Rust kernels shipped + N1 DEFER_ALREADY_NATIVE. S1 `build_spatial_adjacency_edges` **200× raw kernel speedup** (O(n²) → O(n log n) via existing `LinearOctree::query_aabb`), S2 `weight_by_distance` **12.18× raw / 2.84× end-to-end** via nalgebra vectorized `exp(-λ·d)`, N4 Mahalanobis core **2.73× end-to-end** via nalgebra covariance invert. N1 sliced Wasserstein DEFERred per AD-038a — POT backend is already native C++ LP. Both `rust_mig_*` flags flipped to `true`. | `sprint-rust-mig-1-closed` | **AD-036 + AD-037 + AD-038 + AD-038a** |
+| 22 | **AUDIT-1 — Advanced Tech Audit** | FlatBuffers **NO_GO** (5-10× SLOWER than CPython `_json` at ~150B records) + Monte Carlo Dropout **PARK** (GraphSAGE is `torch.no_grad()` by design — no viable injection sites) + Numerical Integrity **GO_GAP** (SHA-256 integrity footer shipped for spatial contracts via `spatial/contract_reader.py` + `spatial-daemon/src/contract_writer.ts`). Zero new Rust candidates surfaced. | `sprint-audit-1-closed` | AD-039 |
+| 23 | **PIPELINE-CLI — Phase 1B Flag Integration** | New `convert-parsers-one` subcommand + `parsers/factory.py::build_default_orchestrator()` + `parsers/cli_handler.py::run_convert_parsers_one()`. Wires all 5 `p1b_*` deployment-readiness flags end-to-end. Parallel command pattern guarantees byte-identity with flags OFF. Side-fix: `RustPdfParser` was in `__all__` but never imported (broken since AD-034). | `sprint-pipeline-cli-closed` | AD-040 |
+| 24 | **PQ-1 — GraphSAGE Product Quantization** | 32× exact compression (256 B → 8 B per node; M=8, k=256, sub_dim=8 over 64-d float32). **0.00017 cosine similarity delta** on held-out set — **117× under the 0.02 gate**. Pure numpy, zero new deps, zero Rust escalation. `hp_graphsage_pq` stays false pending an embedding persistence layer. | `sprint-pq-1-closed` | AD-041 |
+| 25 | **LSH-1 — MinHash Fuzzy Near-Duplicate Dedup** | Vectorized Carter-Wegman MinHash (pure numpy, no `datasketch` dep) — **70× faster** than initial nested-loop (8s → 108ms at n=1000). **14.17% fuzzy hit rate** at 20% injection (>10% gate); **0 false positives** on 200-candidate disjoint audit. Tuned to `num_perm=256, num_bands=32, r=8` for 99% recall at J≥0.78 (plan's `num_bands=4` was underpowered). `w_lsh_dedup` stays false pending PD 1096 operator validation. | `sprint-lsh-1-closed` | AD-042 (premise: AD-037) |
 
-### Queued work (5 optimization plans written 2026-04-15, unexecuted)
+### Queued work
 
-Authoritative queue lives in `.ai/03_plans/00-governing-implementation-plan.md` §6 Task 8. Summary:
-
-| Order | Plan | Sub-plan file | Purpose |
-|---|---|---|---|
-| 1 | **Advanced Tech Audit** | `2026-04-15-advanced-tech-audit-plan.md` | Scans the codebase for additional statistical / mathematical optimization opportunities beyond the items already identified by RUST-MIG-1, PQ, and LSH. Cheap (no code changes), dispatched first so it can re-rank the rest of the queue. Produces GO/DEFER verdicts per candidate. |
-| 2 | **Sprint RUST-MIG-1** (Python → Rust polyglot split) 🔥 | `2026-04-15-rust-migration-audit-plan.md` | Extends the existing `scripts/vitruvius/engine_rs/` Cargo workspace with two new member crates (`spatial_kernels`, `stats_kernels`). Ports S1 `build_spatial_adjacency_edges` (O(n²) → O(n log n) via existing `LinearOctree::query_aabb` — the single largest wall-time win in the entire codebase), S2 `weight_by_distance` (pure O(n) `exp(-λ·d)` kernel), N4 Mahalanobis core (pure nalgebra covariance invert), N1 sliced Wasserstein (pure ndarray sort). Every port is parity-tested against the Python baseline and gated behind `rust_mig_spatial_kernels` + `rust_mig_stats_kernels` feature flags (default false). Flipped to true iff AD-038 clears a 2× bench threshold. Also issues **AD-037** correcting Sprint LSH-1's "O(n²) premise" — the audit found `dedupe_by_endpoints` is already O(n log n) dict-grouped, so LSH-1 must be reframed before dispatch. |
-| 3 | **pipeline_cli.py integration** | `2026-04-15-pipeline-cli-integration-plan.md` | Wires the six `p1b_*` feature flags into `pipeline_cli.py` routing so flipping any of them actually routes documents through the new parser chain end-to-end. Unblocks user-facing use of every Tranche 1/2/3 deliverable. |
-| 4 | **Sprint PQ-1 (GraphSAGE PQ embeddings)** | `2026-04-15-graphsage-pq-embeddings-plan.md` | 32× disk footprint reduction on structural embeddings via Product Quantization, cosine-similarity delta ≤ 0.02 vs float32 baseline. |
-| 5 | **Sprint LSH-1 (MinHash fuzzy dedup)** | `2026-04-15-lsh-dedup-plan.md` | Fuzzy near-duplicate relationship dedup via MinHash LSH. Reframed by AD-037 from "O(n²) scaling fix" to "semantic fuzzy match unlock" — current dedup is already O(n log n). Uses Python `datasketch`, NOT Rust. |
-
-**Dispatch order rationale.** Advanced Tech Audit is cheap and re-scopes the queue. RUST-MIG-1 goes next because (a) its fresh audit already identified S1 as the single largest wall-time win in the codebase and (b) its AD-037 output unblocks LSH-1 by correcting that plan's premise. pipeline_cli integration unblocks user-facing use of the three Phase 1B tranches. PQ + LSH are the remaining scaling / quality unlocks.
-
-**Parallelism.** Tasks #3 and #4 are independent (CLI routing vs embedding storage). They can dispatch in parallel after #2 lands. Tasks #2 and #5 must be sequenced because #2 corrects #5's premise. Commit each in its own sprint tag.
+Queue fully closed on 2026-04-15; no plans queued. Governing plan §10 recommends a fresh roadmap brainstorm as the next action.
 
 ### What's NOT in the queue (still open options)
 
@@ -796,7 +789,7 @@ The 2026-04-15 session validated **subagent-driven-development** as the working 
 - Fresh subagent per task to avoid context pollution
 - Single orchestrator-held commit at end of each wave to avoid `git add` races
 
-**Ceiling observed so far: 16 sprints closed in one session** (test suite 297 → 1437 passing, +1140 delta; 13+ plans archived; 15 sprint tags published; main fully pushed to origin). Future planning can reasonably assume this cadence is repeatable when the plan specs are solid and the flag defaults are disciplined. The **16th sprint was an audit** — which reinforces that audits count as delivery work and should be ranked alongside implementation sprints rather than discounted as "just research".
+**Ceiling observed so far: 21 sprints closed in one session** (test suite 297 → 1528 passing, +1231 delta; 18+ plans archived; 20 sprint tags published; main fully pushed to origin). Five of those 21 sprints were the back-to-back closure of the Task 8 optimization queue (RUST-MIG-1 → AUDIT-1 → PIPELINE-CLI → PQ-1 → LSH-1, +91 test delta across the five alone), which validates that subagent-driven-development can sustain the cadence across optimization work just as well as feature work. Future planning can reasonably assume this cadence is repeatable when the plan specs are solid and the flag defaults are disciplined. **Two of the 21 sprints were audits** (DISTILL-1 and AUDIT-1) — reinforcing that audits count as delivery work and should be ranked alongside implementation sprints rather than discounted as "just research".
 
 ---
 
@@ -935,7 +928,7 @@ Validated in the 2026-04-15 session that closed ten sprints in a single working 
 4. **Orchestrator-held commits** — subagents write files but never run `git add` or `git commit`. The orchestrator stages and commits once per wave.
 5. **Per-sprint AD ledger entry** — every sprint closure must produce an `AD-###` entry in `.ai/10_state/decisions.md` with commit SHAs, test deltas, sprint tag, and archival status.
 
-Ceiling observed so far: **16 sprints per session** (ten governing-plan sprints + HP.3-R bench-driven migration + docs cleanup meta sprint + Phase 1B three-tranche push + Rust PDF audit + LLM distillation audit), **+1140 test delta** (297 → 1437), **~30+ subagent dispatches** across 6+ waves. Future sessions can use this as a planning baseline; the 16-sprint bound came from time-boxing, not agent capacity.
+Ceiling observed so far: **21 sprints per session** (ten governing-plan sprints + HP.3-R bench-driven migration + docs cleanup meta sprint + Phase 1B three-tranche push + Rust PDF audit + LLM distillation audit + RUST-MIG-1 polyglot split + AUDIT-1 tech audit + PIPELINE-CLI flag integration + PQ-1 GraphSAGE compression + LSH-1 fuzzy dedup), **+1231 test delta** (297 → 1528), **~35+ subagent dispatches** across 7+ waves. Future sessions can use this as a planning baseline; the 21-sprint bound came from time-boxing, not agent capacity. The last 5 sprints (the Task 8 optimization queue) shipped back-to-back at roughly ~30-45 min each, validating that subagent-driven-development holds up for optimization work just as well as feature work.
 
 ---
 
@@ -965,18 +958,10 @@ Ceiling observed so far: **16 sprints per session** (ten governing-plan sprints 
 **Audits (2026-04-13, historical).** `codebase-roadmap-audit.md`, `ingestion-audit.md`, `extraction-audit.md`, `normalization-audit.md`, `review-layer-audit.md` — all marked ⚠️ `HISTORICAL SNAPSHOT — SUPERSEDED 2026-04-15` in their own header banners and pointed at current state docs.
 
 **Active plans.**
-- `/.ai/03_plans/00-governing-implementation-plan.md` — governing orchestration plan (**v2.0.0**, 2026-04-15 post-session) — read this first before picking a plan to execute
+- `/.ai/03_plans/00-governing-implementation-plan.md` — governing orchestration plan (**v3.0.0**, 2026-04-15 19:00 post-queue-closure) — read this first before picking a plan to execute
 - `/.ai/03_plans/INDEX.md` — plan index
-- `/.ai/03_plans/statistical-architectural-upgrade-plan.md` — Sprint D (Streams A–I shipped; J/K externally gated)
-- `/.ai/03_plans/phase-1b-multi-parser-integration-plan.md` — Phase 1B Modernization design spec (Tranches 1/2/3 all shipped; Phase 3 Scaling remainder folded into pipeline_cli integration plan)
-- `/.ai/03_plans/ingestion-refinement-contract.md` — frozen contract between Phase 1B and Phase 1C
 
-**Queued implementation plans (written 2026-04-15, unexecuted — dispatch via governing plan §6 Task 8).**
-- `/.ai/03_plans/2026-04-15-advanced-tech-audit-plan.md` — scoping audit for next optimization wave
-- `/.ai/03_plans/2026-04-15-rust-migration-audit-plan.md` — **Sprint RUST-MIG-1** Python→Rust polyglot split (S1/S2/N4/N1 kernels via `spatial_kernels` + `stats_kernels` crates). Single largest wall-time win in the queue per AD-036 draft.
-- `/.ai/03_plans/2026-04-15-pipeline-cli-integration-plan.md` — wires `p1b_*` flags into `pipeline_cli.py` end-to-end
-- `/.ai/03_plans/2026-04-15-graphsage-pq-embeddings-plan.md` — Sprint PQ-1 (GraphSAGE Product Quantization, 32× compression)
-- `/.ai/03_plans/2026-04-15-lsh-dedup-plan.md` — Sprint LSH-1 (MinHash fuzzy near-duplicate dedup; reframed by RUST-MIG-1 AD-037)
+As of the 2026-04-15 19:00 cleanup pass, only the governing plan + INDEX remain in `.ai/03_plans/`. All other plans either shipped and were archived, or were archived with defer notes for externally-gated work.
 
 **Archived plans (successor sprint plans).**
 - `/.ai/09_archive/plans/phase-8-graph-contract-indexing-plan.md` — ✅ subsumed by Sprint D Stream H, archived 2026-04-15
@@ -998,8 +983,16 @@ Ceiling observed so far: **16 sprints per session** (ten governing-plan sprints 
 - `/.ai/09_archive/plans/2026-04-15-phase-1b-modernization-tranche-3-plan.md` — ✅ Sprint 1B-M3, archived 2026-04-15
 - `/.ai/09_archive/plans/2026-04-15-llm-distillation-audit-plan.md` — ✅ Sprint DISTILL-1, archived 2026-04-15
 - `/.ai/09_archive/plans/2026-04-15-docs-cleanup-plan.md` — ✅ Meta Docs Cleanup Sprint, archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-rust-migration-audit-plan.md` — ✅ Sprint RUST-MIG-1 (3 Rust kernels + N1 DEFER_ALREADY_NATIVE; AD-036/037/038/038a), archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-advanced-tech-audit-plan.md` — ✅ Sprint AUDIT-1 (FlatBuffers NO_GO + MC Dropout PARK + SHA-256 integrity footer GO; AD-039), archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-pipeline-cli-integration-plan.md` — ✅ Sprint PIPELINE-CLI (`convert-parsers-one` subcommand + 5 `p1b_*` flag integration; AD-040), archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-graphsage-pq-embeddings-plan.md` — ✅ Sprint PQ-1 (32× GraphSAGE compression, 0.00017 cosine delta — 117× under gate; AD-041), archived 2026-04-15
+- `/.ai/09_archive/plans/2026-04-15-lsh-dedup-plan.md` — ✅ Sprint LSH-1 (MinHash fuzzy dedup, 14.17% hit rate, 0 FP, Carter-Wegman 70× speedup; AD-042), archived 2026-04-15
+- `/.ai/09_archive/plans/phase-1b-multi-parser-integration-plan.md` — ✅ Phase 1B Foundation (Sprint C) + Tranches 1/2/3 (1B-M1/M2/M3, AD-031/032/034) + §11 Phase 3 Scaling (Sprint PIPELINE-CLI, AD-040) all shipped, archived 2026-04-15 19:00
+- `/.ai/09_archive/plans/statistical-architectural-upgrade-plan.md` — 🟡 Partial archive: Streams A–I all closed 2026-04-14; Streams J (active learning) + K (CLUP scaling) remain externally gated (Ranger dashboard + second-jurisdiction corpus). Archived 2026-04-15 19:00 with `archived_with_open_streams: "J,K"` frontmatter preserving the defer status.
+- `/.ai/09_archive/plans/ingestion-refinement-contract.md` — ❄️ Frozen contract between Phase 1B ↔ Phase 1C; both sides shipped. Archived 2026-04-15 19:00 per user instruction to leave only governing plan + INDEX in the active plans folder.
 
-**Plans & contracts.** `phase-1b-multi-parser-integration-plan.md`, `phase-1c-centralized-normalization-plan.md`, `ingestion-refinement-contract.md`.
+**Plans & contracts (historical references — all now archived).** `phase-1b-multi-parser-integration-plan.md`, `phase-1c-centralized-normalization-plan.md`, `ingestion-refinement-contract.md`.
 
 **State.** `/.ai/10_state/active_context.md`, `/.ai/10_state/decisions.md`, `/.ai/10_state/known_issues.md`.
 
@@ -1009,9 +1002,10 @@ Ceiling observed so far: **16 sprints per session** (ten governing-plan sprints 
 
 ## Changelog
 
+- **2026-04-15 · v2.3.0** — Third-wave reconciliation after §8's queued work grew by **5 more sprints closed back-to-back** (RUST-MIG-1, AUDIT-1, PIPELINE-CLI, PQ-1, LSH-1) — the entire Task 8 optimization queue shipped during the same session it was written in. §5 rewritten with 1528/1 Python test count (grew from 1437; +91 for the 5-sprint closing block alone), 20 sprint tags (grew from 15), AD-001–AD-042 + AD-038a (grew from AD-001–AD-035), HEAD bumped from `c2c154a` to `58161bd`, 33 Rust unit tests (grew from 10 via RUST-MIG-1's `spatial_kernels` + `stats_kernels` parity suite), 21 TypeScript tests (grew from 20 via the AUDIT-1 integrity-footer test). Five new bullets added to "What works end-to-end today" covering each sprint closure with AD references + headline numbers. "Active work queue" block replaced with a one-liner noting the queue is empty. §8 Sprint chain table grew from 20 to 25 rows. "Queued work" block replaced with a one-line closure note pointing at the governing plan §10 fresh-brainstorm recommendation. §8 delivery-pattern ceiling updated to **21 sprints per session** (from 16). §11.X ceiling also updated to 21. §13 Reference Index: "Active plans" list shrunk to just governing + INDEX after the 2026-04-15 19:00 archival pass moved `statistical-architectural-upgrade-plan.md` (with `archived_with_open_streams: "J,K"` frontmatter), `phase-1b-multi-parser-integration-plan.md` (fully shipped via 1B-M1/M2/M3 + PIPELINE-CLI), and `ingestion-refinement-contract.md` (per user instruction) into `.ai/09_archive/plans/`. "Queued implementation plans" subsection deleted entirely. "Archived plans" list grew to cover the 5 Task 8 sprint plans + the 3 former-active plan archivals. No breaking changes to §1 Vision, §2 Architecture Map, §3 Governance Contracts, §4 Status Reconciliation, §6 Phase Contracts, §7 Dependency Graph, §9 KPIs, §10 Tech Debt, or §12 Non-Goals — those remain authoritative as written in v2.2.0 / v2.1.0 / v2.0.0. — *Senior Systems Architect*
 - **2026-04-15 · v2.2.0** — Second-wave reconciliation after §8's queued work grew by **6 more sprints** (1B-M1, 1B-M2, RUST-PDF-1, 1B-M3, DISTILL-1, meta Docs Cleanup) and **5 new queued plans** landed (Advanced Tech Audit, RUST-MIG-1, pipeline_cli integration, PQ-1, LSH-1). §1.1 Long-Term Vision rewritten to reflect the repositioned "domain-agnostic professional-domain specialist" framing from the README update (PD 1096 is now named the "reference corpus", not the "initial corpus"). §1.4 Principle P10 generalized to "new corpus" from "new laws". §5 rewritten with 1437/1 Python test count (grew from 1396), 15 sprint tags (grew from 10), AD-001–AD-035 (grew from AD-029), git remote marked FIXED, and a new "active work queue" block listing the 5 queued optimization plans. §8 Sprint chain table grew to 20 rows, with a new "Queued work" block ranking the 5 plans and a "Dispatch order rationale" paragraph explaining why Sprint RUST-MIG-1 dispatches before pipeline_cli and Sprint LSH-1. §8 delivery-pattern ceiling updated to **16 sprints per session** (from 10). §11.X ceiling also updated. §13 Reference Index grew to list the 5 queued plans + 6 new archived plans. No breaking changes to §2 Architecture Map, §3 Governance Contracts, §6 Phase Contracts, §7 Dependency Graph, §9 KPIs, §10 Tech Debt, or §12 Non-Goals — those remain authoritative as written in v2.1.0 / v2.0.0. — *Senior Systems Architect*
 - **2026-04-15 · v2.1.0** — Reconciled §5 Honest Position, §6 Phase 8 + Phase 9 contracts, §8 90-Day Execution Sequence, §11 Cadence, and §13 Reference Index against the 2026-04-15 session (**10 sprints closed**: Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, HP.3-R). §5 rewritten with 1396/1 Python test count, 20/20 TypeScript, 10 Rust unit tests, 31 verified relationships, and all 10 sprint tags. §6 Phase 8 marked ✅ SUBSUMED by Sprint D Stream H + extended by Sprint GT + RocksDB-backed by Sprint HP.3-R (AD-029). §6 Phase 9 marked ✅ SUBSUMED by Sprint D Stream I. §8 rewritten with the Sprint chain table (14 rows through HP.3-R) and a "what's next" block pointing at Phase 1B Modernization, Streams J/K externally gated, git remote fix, fresh roadmap brainstorm. §11 adds the Subagent-Driven Wave Delivery addendum. §13 refreshes the Reference Index with active plans, archived plans (13 archival entries), and audit pack marked as historical. No breaking changes to §1–§4 (vision, architecture map, governance contracts) or §9–§10 (KPIs, tech debt) — those remain authoritative as written in 2.0.0. — *Senior Systems Architect*
 - **2026-04-14 · v2.0.0** — Full rewrite. Reconciled status against the 2026-04-13 audit pack (ingestion, extraction, normalization, review-layer, codebase-roadmap). Integrated Phase 1B Multi-Parser plan, Phase 1C Refinement plan, and the Ingestion-Refinement Contract. Added governance contract section (§3), dependency graph (§7), 90-day sprint sequence (§8), KPI table (§9), and cadence protocol (§11). Corrected inflated "complete" claims in Phases 2, 3, and 5 to match audit reality. Added non-goals and strategic warnings explicitly. — *Senior Systems Architect*
 - **2026-04-13 · v1.x** — Prior version with inflated Phase 2/3/5 claims. Retained in git history.
 
-**Timestamp:** 2026-04-15T14:45:00+08:00
+**Timestamp:** 2026-04-15T19:00:00+08:00

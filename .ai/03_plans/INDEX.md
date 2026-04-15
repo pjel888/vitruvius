@@ -1,10 +1,10 @@
 # `.ai/03_plans/` — Plan Index
 
 > **Purpose:** One-stop index of every implementation plan, design spec, and contract in this directory.
-> **Authoritative execution order:** `00-governing-implementation-plan.md` (v1.0.0, 2026-04-15) — read this *before* picking a plan to execute.
-> **Authoritative roadmap:** `/.ai/01_roadmap/master-roadmap.md`
-> **Updated:** 2026-04-15
-> **2026-04-15 cleanup pass:** Archived `phase-8-graph-contract-indexing`, `phase-9-query-ai-layer`, and `ultimate-architecture-upgrade` plans. All successor sprint plans have shipped and are listed as ✅ complete above. Active plan count is now **5** (governing, INDEX, ingestion contract, phase-1B, statistical-upgrade).
+> **Authoritative execution order:** `00-governing-implementation-plan.md` (**v3.0.0**, 2026-04-15 19:00 post-queue-closure) — read this *before* picking a plan to execute.
+> **Authoritative roadmap:** `/.ai/01_roadmap/master-roadmap.md` (**v2.3.0**, 2026-04-15 19:00)
+> **Updated:** 2026-04-15 19:00
+> **2026-04-15 19:00 cleanup pass:** Task 8 optimization queue closed — all 5 plans (RUST-MIG-1, AUDIT-1, PIPELINE-CLI, PQ-1, LSH-1) shipped in the same session they were written in, and archived. **Also archived 3 previously-active plans** as part of the same pass: `phase-1b-multi-parser-integration-plan.md` (fully shipped via Foundation + Tranches 1/2/3 + PIPELINE-CLI), `statistical-architectural-upgrade-plan.md` (Streams A–I shipped; Streams J/K preserved with `archived_with_open_streams: "J,K"` frontmatter for externally-gated work), and `ingestion-refinement-contract.md` (frozen contract, both sides shipped, archived per user instruction). **Active plan count is now 2** (governing + INDEX only). Prior 2026-04-15 cleanup passes archived `phase-8-graph-contract-indexing`, `phase-9-query-ai-layer`, and `ultimate-architecture-upgrade`.
 
 Each plan is a self-contained document keyed by a `plan_id` and a `phase` label in its YAML frontmatter. Plans are one of three types:
 
@@ -24,10 +24,17 @@ Each plan is a self-contained document keyed by a `plan_id` and a `phase` label 
 
 | Phase | Plan ID | Title | Status | Sprint | Type | File |
 |---|---|---|---|---|---|---|
-| META | `governing-implementation` | **Governing Implementation Plan** (sprint order, gates, conflict resolutions) | 🔥 Active | Meta (all sprints) | orchestration | [00-governing-implementation-plan.md](00-governing-implementation-plan.md) |
-| 1A→12 | `statistical-architectural-upgrade` | **Statistical & Architectural Intelligence Upgrade** | 🔥 Streams A–I CLOSED 2026-04-14; J–K deferred; Stream L_conf / O migrated (see governing plan §4) | Sprint D | implementation_tdd | [statistical-architectural-upgrade-plan.md](statistical-architectural-upgrade-plan.md) |
-| 1B | `phase-1b-multi-parser-integration` | Multi-Parser Integration | 🔥 In progress (Foundation shipped) | Sprint C | design_spec | [phase-1b-multi-parser-integration-plan.md](phase-1b-multi-parser-integration-plan.md) |
-| 1B↔1C | `contract-ingestion-refinement` | Ingestion → Refinement Handoff Contract | ❄️ Frozen | N/A | contract | [ingestion-refinement-contract.md](ingestion-refinement-contract.md) |
+| META | `governing-implementation` | **Governing Implementation Plan** (sprint order, gates, conflict resolutions) | 🔥 Active — v3.0.0 | Meta (all sprints) | orchestration | [00-governing-implementation-plan.md](00-governing-implementation-plan.md) |
+
+## Recently Archived (2026-04-15 19:00 cleanup pass)
+
+The following plans were moved to `.ai/09_archive/plans/` during the 2026-04-15 19:00 archival pass:
+
+| Phase | Plan ID | Title | Status | Sprint | Type | File |
+|---|---|---|---|---|---|---|
+| 1A→12 | `statistical-architectural-upgrade` | **Statistical & Architectural Intelligence Upgrade** | 🟡 **Partial archive 2026-04-15 19:00** — Streams A–I all closed 2026-04-14; Streams J (active learning) + K (CLUP scaling) externally gated on Ranger dashboard + second-jurisdiction corpus. Preserved with `archived_with_open_streams: "J,K"` frontmatter. May never re-open. | Sprint D + externally-gated J/K | implementation_tdd | [../09_archive/plans/statistical-architectural-upgrade-plan.md](../09_archive/plans/statistical-architectural-upgrade-plan.md) |
+| 1B | `phase-1b-multi-parser-integration` | Multi-Parser Integration | ✅ **Complete + archived 2026-04-15 19:00** — Foundation shipped via Sprint C (AD-022); Modernization Tranches 1/2/3 via 1B-M1/M2/M3 + RUST-PDF-1 audit (AD-031/032/033/034); §11 Phase 3 Scaling closed via Sprint PIPELINE-CLI (AD-040). | Sprint C + 1B-M1/M2/M3 + PIPELINE-CLI — all closed | design_spec | [../09_archive/plans/phase-1b-multi-parser-integration-plan.md](../09_archive/plans/phase-1b-multi-parser-integration-plan.md) |
+| 1B↔1C | `contract-ingestion-refinement` | Ingestion → Refinement Handoff Contract | ❄️ **Frozen + archived 2026-04-15 19:00** — both producer (1B) and consumer (1C) sides shipped. Contract itself remains authoritative; any future revision must bump `contract_version`. Archived per user instruction to leave only governing plan + INDEX active. | N/A | contract | [../09_archive/plans/ingestion-refinement-contract.md](../09_archive/plans/ingestion-refinement-contract.md) |
 | 1C | `phase-1c-centralized-normalization` | Centralized Normalization — Text Refinement Layer | ✅ MVP Complete (archived 2026-04-14) | Sprint B — closed MVP scope | design_spec | [../09_archive/plans/phase-1c-centralized-normalization-plan.md](../09_archive/plans/phase-1c-centralized-normalization-plan.md) |
 | 2 | `phase-2-canonicalizer-restoration` | Canonicalizer Restoration — Structured Section Generation | ✅ Complete (archived 2026-04-14) | Sprint B — closed | implementation_tdd | [../09_archive/plans/phase-2-canonicalizer-restoration-plan.md](../09_archive/plans/phase-2-canonicalizer-restoration-plan.md) |
 | 3C | `phase-3-concept-enrichment` | Concept Enrichment — Placeholder to Knowledge Node | ✅ MVP Complete (13/20, archived 2026-04-14) | Post-Sprint-C — closed (deterministic) | design_spec | [../09_archive/plans/phase-3-concept-enrichment-plan.md](../09_archive/plans/phase-3-concept-enrichment-plan.md) |

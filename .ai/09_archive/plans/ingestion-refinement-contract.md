@@ -2,22 +2,26 @@
 plan_id: contract-ingestion-refinement
 phase: "1B↔1C"
 title: Ingestion → Refinement Handoff Contract
-status: frozen
+status: archived
+archive_status: frozen
 priority: high
-sprint: "N/A — contract frozen for both sides"
+sprint: "N/A — contract frozen for both sides; both sides have shipped"
 version: 2.0.0
 plan_type: contract
 created: 2026-04-13
-last_updated: 2026-04-14
+last_updated: 2026-04-15
+archived_at: 2026-04-15T19:00:00+08:00
 owner: Senior Systems Architect
 prerequisites: []
 dependencies:
   - .ai/01_roadmap/master-roadmap.md §3.2
 related_plans:
-  - phase-1b-multi-parser-integration-plan.md (producer side)
-  - phase-1c-centralized-normalization-plan.md (consumer side)
+  - phase-1b-multi-parser-integration-plan.md (producer side — fully shipped via Sprints C/1B-M1/M2/M3/PIPELINE-CLI)
+  - phase-1c-centralized-normalization-plan.md (consumer side — MVP shipped 2026-04-14)
 contract_version: 2.0.0
 ---
+
+> **ARCHIVED 2026-04-15 19:00** — Contract is frozen and both producer (Phase 1B) and consumer (Phase 1C) sides have shipped their implementations. Archived per user instruction to leave only the governing plan + INDEX active in `.ai/03_plans/`. The contract itself remains authoritative — the schema, field definitions, and validation requirements in this document are load-bearing for the live pipeline. Any future revision must bump `contract_version` and coordinate producer/consumer updates.
 
 # Ingestion-Refinement Contract (Combined) <!-- updated: 2026-04-14 -->
 

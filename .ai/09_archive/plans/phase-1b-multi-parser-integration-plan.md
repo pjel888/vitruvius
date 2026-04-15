@@ -2,15 +2,17 @@
 plan_id: phase-1b-multi-parser-integration
 phase: 1B
 title: Multi-Parser Integration
-status: in-progress
+status: archived
+archive_status: complete
 priority: medium
-sprint: "Sprint C (weeks 7-12)"
+sprint: "Sprint C (Foundation) + Sprint 1B-M1/M2/M3 (Modernization Tranches 1/2/3) + Sprint PIPELINE-CLI (§11 Phase 3 Scaling)"
 version: 2.0.0
 plan_type: design_spec
 created: 2026-04-13
-last_updated: 2026-04-14
+last_updated: 2026-04-15
+archived_at: 2026-04-15T19:00:00+08:00
 owner: Senior Systems Architect
-progress_note: Foundation (§11 Phase 1) shipped 2026-04-14 — see AD-022
+progress_note: "FULLY SHIPPED. Foundation landed via Sprint C (AD-022); Modernization Tranches landed via Sprint 1B-M1 (AD-031), Sprint 1B-M2 scoped (AD-032), Sprint RUST-PDF-1 audit (AD-033), Sprint 1B-M3 (AD-034); §11 Phase 3 Scaling closed via Sprint PIPELINE-CLI (AD-040)."
 prerequisites:
   - Phase 1A baseline ingestion complete
 dependencies:
@@ -22,6 +24,8 @@ related_plans:
 unblocks:
   - Phase 11 dataset expansion (new documents must enter through hardened pipeline)
 ---
+
+> **ARCHIVED 2026-04-15 19:00** — This plan is fully shipped. All three phases (Foundation, Modernization, Scaling) landed across 5 sprint closures (AD-022/031/032/033/034/040). Retained for historical reference only.
 
 # Phase 1B: Multi-parser Integration Implementation Plan (Combined) <!-- updated: 2026-04-14 -->
 
