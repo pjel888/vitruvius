@@ -31,6 +31,7 @@ from typing import TYPE_CHECKING
 __all__ = [
     "SpatialPoint",
     "LinearOctree",
+    "build_spatial_adjacency_edges_rs",
     "SPRINT_CODENAME",
     "ENGINE_RS_VERSION",
     "ENGINE_RS_AVAILABLE",
@@ -49,6 +50,13 @@ else:
 if _ext is not None:
     SpatialPoint = _ext.SpatialPoint
     LinearOctree = _ext.LinearOctree
+    # Sprint RUST-MIG-1 Task 4 — S1 Rust fast path.
+    # Lazy getattr so older wheels built before Task 4 still import
+    # cleanly (attribute is None, call sites fall back to the pure-
+    # Python baseline in spatial/spatial_edge_builder.py).
+    build_spatial_adjacency_edges_rs = getattr(
+        _ext, "build_spatial_adjacency_edges", None
+    )
     SPRINT_CODENAME: str = getattr(_ext, "SPRINT_CODENAME", "GT.1+GT.2")
     ENGINE_RS_VERSION: str = getattr(_ext, "__version__", "0.0.0")
     ENGINE_RS_AVAILABLE = True
@@ -68,6 +76,12 @@ else:
 
     SpatialPoint = _Unbuilt  # type: ignore[assignment,misc]
     LinearOctree = _Unbuilt  # type: ignore[assignment,misc]
+    # Sprint RUST-MIG-1 Task 4 — stays None when the crate is unbuilt
+    # so the fast-path guard in spatial_edge_builder.py short-circuits
+    # to the pure-Python path. The feature-flag gate is a separate
+    # check, but the `is not None` check alone already protects the
+    # non-breaking contract.
+    build_spatial_adjacency_edges_rs = None
     SPRINT_CODENAME = "GT.1+GT.2"
     ENGINE_RS_VERSION = "0.0.0"
     ENGINE_RS_AVAILABLE = False

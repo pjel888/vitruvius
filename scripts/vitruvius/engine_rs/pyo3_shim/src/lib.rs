@@ -10,8 +10,10 @@
 
 use pyo3::exceptions::PyValueError;
 use pyo3::prelude::*;
+use pyo3::wrap_pyfunction;
 
 use vitruvius_engine_rs_core as core;
+use vitruvius_spatial_kernels::adjacency_edges;
 
 // ---------------------------------------------------------------------------
 // SpatialPoint — pyo3 newtype wrapper over core::SpatialPoint.
@@ -206,6 +208,36 @@ fn coerce_spatial_point(value: &Bound<'_, PyAny>) -> PyResult<core::SpatialPoint
 }
 
 // ---------------------------------------------------------------------------
+// Sprint RUST-MIG-1 Task 4 — S1 build_spatial_adjacency_edges fast path.
+//
+// Rust port of `scripts/vitruvius/spatial/spatial_edge_builder.py`
+// :: `build_spatial_adjacency_edges`. The Python control-plane
+// marshals each node as `(id, [min_x, min_y, min_z, max_x, max_y,
+// max_z])` — matching the raw `aabb.min_xyz` / `aabb.max_xyz`
+// tuples on the Python `SpatialPoint` dataclass — and receives a
+// list of `(id_i, id_j)` pairs. The Python wrapper then rebuilds
+// `SpatialEdge(from_id, to_id)` dataclasses so the return shape is
+// byte-identical to the pure-Python path. Flag gate lives in
+// `spatial/spatial_edge_builder.py` (`rust_mig_spatial_kernels`).
+// ---------------------------------------------------------------------------
+
+/// Build `physically_adjacent_to` edges from a slice of
+/// `(id, aabb)` records. Returns one `(id_i, id_j)` pair per
+/// intersecting AABB pair, deduped by lexicographic id ordering.
+///
+/// This is the O(n log n) Rust replacement for the O(n^2) Python
+/// pairwise loop measured at 350 ms wall time at n=2000 in the
+/// Task 1 baseline (see `.ai/10_state/audit_rust_migration_baseline_2026-04-15.json`).
+#[pyfunction]
+#[pyo3(signature = (nodes))]
+fn build_spatial_adjacency_edges(
+    _py: Python<'_>,
+    nodes: Vec<(String, [f64; 6])>,
+) -> PyResult<Vec<(String, String)>> {
+    Ok(adjacency_edges::build_spatial_adjacency_edges(&nodes))
+}
+
+// ---------------------------------------------------------------------------
 // Module entry point.
 // ---------------------------------------------------------------------------
 
@@ -213,6 +245,7 @@ fn coerce_spatial_point(value: &Bound<'_, PyAny>) -> PyResult<core::SpatialPoint
 fn vitruvius_engine_rs(py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add_class::<SpatialPoint>()?;
     m.add_class::<LinearOctree>()?;
+    m.add_function(wrap_pyfunction!(build_spatial_adjacency_edges, m)?)?;
 
     m.add("__version__", env!("CARGO_PKG_VERSION"))?;
     m.add("__doc__", "Vitruvius Sprint GT Rust data plane.")?;

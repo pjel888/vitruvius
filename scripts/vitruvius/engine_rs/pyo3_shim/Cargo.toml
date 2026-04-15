@@ -12,4 +12,8 @@ crate-type = ["cdylib"]
 [dependencies]
 pyo3 = { version = "0.22", features = ["extension-module"] }
 vitruvius_engine_rs_core = { path = "../core" }
+# Sprint RUST-MIG-1 Task 4 — re-export the kernel crates through the
+# same pyo3 shim so Python sees one extension module. The shim crate
+# stays the single CPython link point; the kernel crates are pure Rust.
+vitruvius_spatial_kernels = { path = "../spatial_kernels" }
 
