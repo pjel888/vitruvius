@@ -139,6 +139,7 @@ EXPECTED_FLAGS = {
     "geom_iou_audit", "geom_pareto_optimizer",
     # Sprint WIKI — Autonomous Knowledge Synthesis (phase-14)
     "wiki_docling_parser", "wiki_kuzu_store", "wiki_delta_tracking",
+    "wiki_synthesis_loop", "wiki_ego_linter",
 }
 
 

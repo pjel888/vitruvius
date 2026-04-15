@@ -173,3 +173,5 @@ features:
   wiki_docling_parser: false
   wiki_kuzu_store: false
   wiki_delta_tracking: false
+  wiki_synthesis_loop: false
+  wiki_ego_linter: false

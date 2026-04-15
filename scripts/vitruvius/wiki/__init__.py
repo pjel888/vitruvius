@@ -1,6 +1,6 @@
-"""Sprint WIKI — Autonomous Knowledge Synthesis narrow-slice package.
+"""Sprint WIKI — Autonomous Knowledge Synthesis package.
 
-Ships three modules:
+Ships the full phase-14 slice:
   * :mod:`docling_parser` — thin wrapper around ``docling.document_converter``
     that converts PDFs to Markdown with table + heading fidelity
     (WIKI.1 Structural Ingestion).
@@ -10,8 +10,15 @@ Ships three modules:
   * :mod:`delta_tracker` — SHA-256 delta tracking for wiki files,
     layering on top of the HP.1 Merkle primitive (WIKI.4.1
     Differential Health).
+  * :mod:`llm_client` — shared :class:`LLMClient` Protocol so the
+    LLM-driven streams are injectable and testable with mocks.
+  * :mod:`synthesis_loop` — WIKI.2 Synthesis Loop: reads raw Markdown
+    and proposes a strictly-validated :class:`WikiPageProposal` via
+    ``pydantic.TypeAdapter.validate_json``.
+  * :mod:`ego_linter` — WIKI.4.2 Ego-Graph Linter: feeds a focal
+    page and its depth-2 neighbors to the LLM to detect
+    contradictions and returns a :class:`ContradictionReport`.
 
-The LLM-driven pieces (WIKI.2 Synthesis Loop + WIKI.4.2 Ego-Graph
-Linter) are deferred because they need live Ollama round-trips
-that are out of scope for in-session TDD.
+Live Ollama wiring (``ollama_client.py``) is the next follow-on and
+not shipped in this task; tests inject a mock ``LLMClient``.
 """
