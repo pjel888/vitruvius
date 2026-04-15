@@ -4,9 +4,16 @@ import { tmpdir } from "os";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { analyzeFromInputFile } from "../src/cli";
+import { INTEGRITY_FOOTER_PREFIX } from "../src/contract_writer";
 import type { SpatialEdge } from "../src/types";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+function parseContractBody(raw: string): any {
+  const footerIdx = raw.lastIndexOf("\n" + INTEGRITY_FOOTER_PREFIX);
+  const body = footerIdx >= 0 ? raw.slice(0, footerIdx + 1) : raw;
+  return JSON.parse(body);
+}
 
 describe("analyzeFromInputFile", () => {
   it("produces a valid spatial contract file from the box_intersection fixture", () => {
@@ -17,7 +24,7 @@ describe("analyzeFromInputFile", () => {
       expect(result.writtenPath).toMatch(/spatial-smoke-01\.json$/);
       const files = readdirSync(outDir);
       expect(files).toContain("spatial-smoke-01.json");
-      const payload = JSON.parse(readFileSync(result.writtenPath, "utf-8"));
+      const payload = parseContractBody(readFileSync(result.writtenPath, "utf-8"));
       expect(payload.schema_version).toBe("1.0.0");
       expect(payload.instances).toHaveLength(2);
       // The two boxes overlap along x ∈ [5, 5.9]; expect a spatial_intersects edge

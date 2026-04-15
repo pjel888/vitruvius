@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any
 
 from ..features import Features
+from .contract_reader import IntegrityError, parse_contract
 from .schema import SpatialSchemaError, validate_spatial_payload
 
 
@@ -132,9 +133,13 @@ def walk_spatial_layer(
     files_processed = 0
     for path in files:
         try:
-            payload = json.loads(path.read_text(encoding="utf-8"))
+            parse_result = parse_contract(path)
+            payload = parse_result.payload
         except (OSError, json.JSONDecodeError) as exc:
             logger.warning("skipping unreadable spatial file %s: %s", path, exc)
+            continue
+        except IntegrityError as exc:
+            logger.warning("skipping corrupt spatial file %s: %s", path, exc)
             continue
         try:
             validate_spatial_payload(payload)
