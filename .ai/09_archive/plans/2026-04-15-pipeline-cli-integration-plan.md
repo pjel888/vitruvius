@@ -2,9 +2,9 @@
 plan_id: pipeline-cli-parser-chain-integration
 phase: 1B
 title: "pipeline_cli.py Integration for Phase 1B Parser Chain"
-status: active
+status: complete
 priority: medium
-sprint: "Sprint 1B-CLI"
+sprint: "Sprint PIPELINE-CLI"
 version: 1.0.0
 plan_type: implementation_tdd
 created: 2026-04-15

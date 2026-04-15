@@ -1184,6 +1184,62 @@ Ship: nothing. Raw audit: `.ai/10_state/audit_mc_dropout_2026-04-15.json`.
 
 ---
 
+## AD-040 — Sprint PIPELINE-CLI closure — convert-parsers-one + factory + p1b_* live wiring (2026-04-15)
+
+**Context.** Phase 1B Modernization Tranches 1/2/3 (AD-031, AD-032, AD-034) shipped DoclingParser, LibreOfficePreprocessor, OCRPreprocessor, ParserOrchestrator.process_batch, and RustPdfParser, each behind a `p1b_*` feature flag. All five flags are registered in `EXPECTED_FLAGS` and default to `false` in `config/vitruvius.yaml`, but until this sprint flipping any of them had **no effect** on `scripts/pipeline_cli.py` because the CLI never read them. The flags were deployment-readiness markers for code that was reachable only through library imports. Sprint PIPELINE-CLI closes the gap by giving operators a CLI path that actually flips behaviour when the flags change.
+
+**Architectural choice — parallel command, not in-place modification.** The plan ships a NEW `convert-parsers-one` subcommand instead of re-routing the existing `convert-one` command. Three reasons:
+
+1. **Byte-identity preservation.** `convert-one` currently routes through `vitruvius.conversion.run_convert_one`, which is the production path for the entire Raw-Source-Layer corpus. Re-routing it through the Phase 1B chain would risk byte-level diffs across the existing markdown corpus until every parser is validated end-to-end. The exit gate of this plan is byte-identity with all flags off — easiest to satisfy by simply not touching the existing dispatch.
+2. **Operator opt-in.** Operators who want to A/B-test the Phase 1B chain against the legacy convert-one path can run both side-by-side on the same source PDF, then compare outputs. A single command would make this comparison harder.
+3. **Lazy-import contract (AD-015).** `convert-parsers-one` lazy-imports `vitruvius.parsers.cli_handler`, which in turn lazy-imports `vitruvius.parsers.factory`, which lazy-imports the actual parser modules (docling / opendataloader / lopdf-rust) only inside `build_default_orchestrator`. The new command adds zero import cost to any other CLI invocation.
+
+**Task ledger.**
+
+| Task | Description | Commit | Tests added |
+|---|---|---|---|
+| 1 | `build_default_orchestrator()` factory in `scripts/vitruvius/parsers/factory.py`. Reads `features._features_block()` via `VITRUVIUS_CONFIG`, dispatches the parser_chains + preprocessors dict from the 5 `p1b_*` flag states, raises `ValueError` with a remediation message when no parser flag is on. Side-fix: `scripts/vitruvius/parsers/__init__.py` listed `RustPdfParser` in `__all__` but never imported it (broken since AD-034). | `3aa19fc` | 5 |
+| 2 | `run_convert_parsers_one(relative_pdf_path)` handler in `scripts/vitruvius/parsers/cli_handler.py`. Resolves `<repo_root>/001_Raw-Source-Layer/<rel>`, classifies by extension via `DocumentFeatures` + `classify_document`, calls `build_default_orchestrator().process()`, writes markdown to `002_Raw-Conversion-Layer/<top>/refined_markdown/<...>/<stem>.md` and telemetry sidecar (always — even on failure) to `006_System-Manifests/runs/latest_convert_parsers.json`. Returns 0 on AUTO_ACCEPTED/AUTO_REFINED, 1 on missing source / FALLBACK_EXHAUSTED / factory ValueError. | `21ae8c7` | 4 |
+| 3 | Subcommand registration in `scripts/pipeline_cli.py`. `build_parser()` adds the `convert-parsers-one` subparser with the positional `relative_pdf_path` argument; `main()` adds the dispatch branch with a lazy import of `vitruvius.parsers.cli_handler.run_convert_parsers_one`. Existing dispatch branches untouched. | `01bcad1` | 3 |
+| Exit gate | Byte-identity verification in `scripts/tests/test_pipeline_cli_byte_identity.py`. Three angles: (a) pre-plan command set is a strict subset of the post-plan set, (b) with all 5 `p1b_*` flags off, every existing subcommand's `--help` returns 0 with empty stderr (parametrized over 8 representative pre-plan commands), (c) `convert-parsers-one` with all flags off cleanly returns 1 with a remediation message — never silently does work. | `62f99dc` | 11 (3 main + 8 parametrized) |
+| 4 | This commit — AD-040, INDEX update, plan archive. | (next) | 0 |
+
+**Test count delta.** 1471 → 1494 Python tests (+23: 5 factory, 4 handler, 3 CLI smoke, 11 byte-identity). 1 skipped unchanged. The +23 is split across 4 commits matching the task structure; every task ran the full suite green before committing.
+
+**Byte-identity verification evidence.**
+
+1. **Static dispatch table.** The `_PRE_PLAN_COMMANDS` set in `test_pipeline_cli_byte_identity.py` enumerates every subcommand registered before this sprint (40 commands). The first test asserts every entry appears in the post-plan `pipeline_cli.py --help` output. If any rename / deletion had happened, this test would fail with the offending command name.
+2. **Parametrized --help check.** With all 5 `p1b_*` flags written to `false` in a temp `vitruvius.yaml` (via `VITRUVIUS_CONFIG`), `convert-one --help`, `detect-one --help`, `promote --help`, `refine --help`, `build-graph --help`, `rotate-registries --help`, `ingest-spatial --help`, and `evaluate-spatial --help` all return 0 with **empty stderr**. The argparse plumbing is structurally unchanged.
+3. **Lazy-import contract.** `test_convert_parsers_one_help_does_not_eager_import_handler` proves that importing `pipeline_cli` at module scope does NOT pull in `vitruvius.parsers.cli_handler`, `factory`, `docling_parser`, `opendataloader_parser`, `libreoffice_preprocessor`, `ocr_preprocessor`, `rust_pdf_parser`, or any of the heavy 3rd-party deps (`opendataloader_pdf`, `docling`, `ocrmypdf`, `vitruvius_rust_pdf`). The pre-existing `test_cli_lazy_imports.py` test still passes — the new wiring respects the AD-015 contract enforced for `convert` / `promote` / `refine`.
+4. **Fail-fast gate.** With all flags off, `convert-parsers-one ... --help` returns 0 (argparse builds the parser only) and `convert-parsers-one <some-pdf>` returns 1 with an error message. There is **no** code path that produces a zero exit code on this command without an operator first flipping `p1b_docling_parser` or `p1b_rust_pdf_parser` to `true`.
+
+The four legs together prove that no existing subcommand has been semantically changed by this sprint. Operators who never flip a flag get a pipeline_cli.py that is, by every test we can express, indistinguishable from the pre-sprint binary.
+
+**Flag defaults — unchanged.** Per the plan and the durable user preference, the 5 `p1b_*` flags **stay at `false`** in `config/vitruvius.yaml`. They are deployment-readiness markers; flipping them is a separate operator decision that follows real-corpus validation. Sprint PIPELINE-CLI's job is to make flipping them actually do something — not to flip them.
+
+**Sprint-wide perf call.** Every line of code shipped by Sprint PIPELINE-CLI sits **above the Rust Line** per AD-036:
+
+- `factory.py` — pure flag-dispatch, no compute. Reads YAML once via `lru_cache`, builds a dict literal, returns a `ParserOrchestrator`.
+- `cli_handler.py` — pure CLI orchestration. Path resolution, classify-by-extension, factory call, file write, exit-code mapping.
+- `pipeline_cli.py` — argparse subparser registration + dispatch branch. The lazy-import branch keeps parser modules out of the import graph for unrelated commands.
+- The byte-identity test is test-only and exercises only argparse + subprocess plumbing.
+
+The expensive work — actually parsing PDFs — happens inside the parser modules' `parse()` methods. Those are unchanged by this sprint and already sit on the right side of the line: `RustPdfParser` calls into the lopdf-backed `vitruvius_rust_pdf` Rust crate (AD-033, AD-034); `OpenDataLoaderParser` and `DoclingParser` wrap C/Java libraries. **No Rust code was written for this sprint, and none was needed.** This is exactly the AD-036 dispatch story: Python decides what to run; Rust (and other native code) does the running.
+
+**Commits.**
+- Task 1 — `3aa19fc` — `build_default_orchestrator()` factory + `__init__.py` side-fix + 5 tests
+- Task 2 — `21ae8c7` — `run_convert_parsers_one` handler + 4 tests
+- Task 3 — `01bcad1` — subcommand registration in `pipeline_cli.py` + 3 smoke tests
+- Exit gate — `62f99dc` — byte-identity verification + 11 tests
+- Task 4 — (this commit) — AD-040 + INDEX update + plan archive
+
+**Follow-ups.**
+- Real-corpus validation: run `convert-parsers-one` on the PD 1096 reference corpus with `p1b_docling_parser: true` and compare against the legacy `convert-one` output. If parity holds and the Phase 1B chain is meaningfully better on hybrid/scanned PDFs, queue a follow-up plan to flip `p1b_docling_parser` default to `true` and migrate `convert-one` to dispatch through the Phase 1B chain.
+- Batch mode: `convert-parsers-one` is single-document only. Once real-corpus validation is in, a follow-up plan can add `convert-parsers` (no `-one` suffix) using `ParserOrchestrator.process_batch` and the `p1b_process_pool_orchestration` flag.
+- Wire `p1b_rust_pdf_parser` flag-on path through the byte-identity bench harness from AD-033 to compare lopdf vs docling vs opendataloader on a representative input mix once real corpus arrives. The factory already supports it; only the bench wrapper is missing.
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.
