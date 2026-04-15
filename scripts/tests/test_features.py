@@ -143,8 +143,18 @@ EXPECTED_FLAGS = {
     # Sprint Z — Compound AI Evolution (phase-12)
     "z_dspy_compiler",
     "z_adversarial_swarm",
+    "z_differential_dataflow",
     # Sprint GT — Geo-Topological Rust engine (phase-8b)
     "gt_engine_rs",
+    # Sprint GT Stream GT.5 — Hardware Hardening (mmap + Bloom + MC dropout)
+    "gt_hardware_hardening",
+    # Sprint GT Stream GT.3 — Temporal Knowledge Graph (TemporalEdge +
+    # versioned query + Parquet archiver)
+    "gt_temporal_graph",
+    # Sprint GT Stream GT.4 — Spatial GraphRAG bridge (octree proximity
+    # jump + exponential distance decay + physically_adjacent_to edges)
+    "gt_proximity_jump",
+    "gt_spatial_edges",
 }
 
 

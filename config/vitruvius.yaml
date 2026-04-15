@@ -183,9 +183,34 @@ features:
   # and S4 (Wasm) ship later.
   z_dspy_compiler: false
   z_adversarial_swarm: false
+  z_differential_dataflow: false
   # Sprint GT — Geo-Topological Rust engine (phase-8b).
   # GT.1 pyo3 bridge + GT.2 sparse linear octree. Flag gates the
   # downstream query-path switch from the pure-Python walker at
   # scripts/vitruvius/spatial/ to the compiled vitruvius_engine_rs
   # crate. GT.3-GT.5 + HP.4 + Sprint Z S4 depend on this flag.
   gt_engine_rs: false
+  # Sprint GT Stream GT.5 — Hardware Hardening. mmap page loader
+  # (GT.5.1), stdlib Bloom filter for ingestion dedup (GT.5.2),
+  # and Monte Carlo dropout epistemic uncertainty (GT.5.3). When
+  # on, ingestion uses the Bloom filter short-circuit and review
+  # surfaces the MC dropout variance alongside confidence.
+  gt_hardware_hardening: false
+  # Sprint GT Stream GT.3 — Temporal knowledge graph (TemporalEdge
+  # dataclass + validator, versioned query_at projector, Parquet
+  # cold-storage archiver). Pure-Python; gates downstream callers
+  # that project graph state at historical timestamps or archive
+  # snapshots to Parquet.
+  gt_temporal_graph: false
+  # Sprint GT Stream GT.4.1/GT.4.2 — Spatial GraphRAG proximity
+  # jump and exponential distance decay weighting. When on, the
+  # retrieval chain seeds graph expansion from every spatial_instance
+  # whose centroid falls inside a sphere around the query's focal
+  # point, then weights each seed by exp(-lambda_decay * d).
+  gt_proximity_jump: false
+  # Sprint GT Stream GT.4.3 — physically_adjacent_to spatial edge
+  # generator. When on, the snapshot builder emits one edge per
+  # pair of spatial_instance nodes whose AABBs intersect (or touch
+  # on a shared face), giving the graph a dense geometric topology
+  # to walk during GraphRAG expansion.
+  gt_spatial_edges: false
