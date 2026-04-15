@@ -16,4 +16,8 @@ vitruvius_engine_rs_core = { path = "../core" }
 # same pyo3 shim so Python sees one extension module. The shim crate
 # stays the single CPython link point; the kernel crates are pure Rust.
 vitruvius_spatial_kernels = { path = "../spatial_kernels" }
+# Sprint RUST-MIG-1 Task 6 — N4 Mahalanobis lives in stats_kernels.
+# Same polyglot rationale as spatial_kernels: one CPython link point,
+# one wheel, one import line on the Python side.
+vitruvius_stats_kernels = { path = "../stats_kernels" }
 

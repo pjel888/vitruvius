@@ -33,6 +33,7 @@ __all__ = [
     "LinearOctree",
     "build_spatial_adjacency_edges_rs",
     "weight_by_distance_rs",
+    "mahalanobis_distance_rs",
     "SPRINT_CODENAME",
     "ENGINE_RS_VERSION",
     "ENGINE_RS_AVAILABLE",
@@ -64,6 +65,12 @@ if _ext is not None:
     # spatial/proximity_jump.py transparently falls back to the
     # pure-Python ``math.exp`` loop.
     weight_by_distance_rs = getattr(_ext, "weight_by_distance", None)
+    # Sprint RUST-MIG-1 Task 6 — N4 Mahalanobis Rust fast path.
+    # Same lazy-getattr pattern as Tasks 4 + 5: older wheels that
+    # predate Task 6 leave this as None and the call site in
+    # normalization/outlier_detector.py transparently falls back to
+    # the pure-Python ``delta @ cov_inv @ delta`` quadratic form.
+    mahalanobis_distance_rs = getattr(_ext, "mahalanobis_distance", None)
     SPRINT_CODENAME: str = getattr(_ext, "SPRINT_CODENAME", "GT.1+GT.2")
     ENGINE_RS_VERSION: str = getattr(_ext, "__version__", "0.0.0")
     ENGINE_RS_AVAILABLE = True
@@ -92,6 +99,9 @@ else:
     # Sprint RUST-MIG-1 Task 5 — same unbuilt-host fallback for the
     # S2 fast path; proximity_jump.py short-circuits on this None.
     weight_by_distance_rs = None
+    # Sprint RUST-MIG-1 Task 6 — same unbuilt-host fallback for the
+    # N4 fast path; outlier_detector.py short-circuits on this None.
+    mahalanobis_distance_rs = None
     SPRINT_CODENAME = "GT.1+GT.2"
     ENGINE_RS_VERSION = "0.0.0"
     ENGINE_RS_AVAILABLE = False

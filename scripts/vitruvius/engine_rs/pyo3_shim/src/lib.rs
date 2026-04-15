@@ -14,6 +14,7 @@ use pyo3::wrap_pyfunction;
 
 use vitruvius_engine_rs_core as core;
 use vitruvius_spatial_kernels::{adjacency_edges, distance_weight};
+use vitruvius_stats_kernels::mahalanobis as stats_mahalanobis;
 
 // ---------------------------------------------------------------------------
 // SpatialPoint — pyo3 newtype wrapper over core::SpatialPoint.
@@ -270,6 +271,66 @@ fn weight_by_distance(
 }
 
 // ---------------------------------------------------------------------------
+// Sprint RUST-MIG-1 Task 6 — N4 mahalanobis_distance fast path.
+//
+// Rust port of `scripts/vitruvius/normalization/outlier_detector.py`
+// :: `mahalanobis_distance`. The Python control-plane caches the
+// reference-set centroid and the ridge-regularised pseudoinverse of
+// the covariance as frozen tuples on the `OutlierModel` dataclass.
+// This wrapper marshals them as flat f64 arrays + the dimension,
+// calls the pure-Rust kernel in `vitruvius_stats_kernels::mahalanobis`,
+// and returns the scalar distance. Flag gate lives in
+// `normalization/outlier_detector.py` (`rust_mig_stats_kernels`).
+//
+// Shape contract (must match the Python wrapper in
+// `outlier_detector.py::mahalanobis_distance`):
+//
+//   * `x` — query vector, length `dim`.
+//   * `centroid` — cached mean, length `dim`.
+//   * `cov_inv_flat` — row-major flattened cov_inv, length `dim * dim`.
+//     The Python wrapper builds this by iterating the model's
+//     `covariance_inv` tuple-of-rows once per call; at dim=64 that is
+//     4 096 Python floats which cost ~20 μs to marshal but that cost
+//     is paid regardless of fast-path choice.
+//   * `dim` — problem dimension.
+//
+// The kernel returns `Result<f64, &'static str>` which we unwrap into
+// a `PyResult<f64>` — any shape-mismatch or NaN-input propagates as a
+// `PyValueError`. The Python baseline silently returns NaN on bad
+// inputs; we are allowed to be stricter because the fast path is
+// opt-in behind the feature flag (see the kernel comment for the
+// NaN contract discussion).
+// ---------------------------------------------------------------------------
+
+/// Compute the Mahalanobis distance
+/// `sqrt((x - centroid)^T · cov_inv · (x - centroid))`.
+///
+/// Arguments are flat f64 arrays plus the dimension. The Python
+/// wrapper in `normalization/outlier_detector.py` flattens the
+/// `OutlierModel.centroid` tuple and `OutlierModel.covariance_inv`
+/// tuple-of-rows before calling this function.
+///
+/// Raises `ValueError` on shape mismatch or if the inputs contain
+/// NaN/inf that would propagate into a non-finite distance.
+///
+/// This is the O(dim²) Rust replacement for the `delta @ cov_inv
+/// @ delta` numpy quadratic form measured at wall ~180 ms at n=1000
+/// in the Task 1 baseline (see
+/// `.ai/10_state/audit_rust_migration_baseline_2026-04-15.json`).
+#[pyfunction]
+#[pyo3(signature = (x, centroid, cov_inv_flat, dim))]
+fn mahalanobis_distance(
+    _py: Python<'_>,
+    x: Vec<f64>,
+    centroid: Vec<f64>,
+    cov_inv_flat: Vec<f64>,
+    dim: usize,
+) -> PyResult<f64> {
+    stats_mahalanobis::mahalanobis_distance(&x, &centroid, &cov_inv_flat, dim)
+        .map_err(PyValueError::new_err)
+}
+
+// ---------------------------------------------------------------------------
 // Module entry point.
 // ---------------------------------------------------------------------------
 
@@ -279,6 +340,8 @@ fn vitruvius_engine_rs(py: Python<'_>, m: &Bound<'_, PyModule>) -> PyResult<()> 
     m.add_class::<LinearOctree>()?;
     m.add_function(wrap_pyfunction!(build_spatial_adjacency_edges, m)?)?;
     m.add_function(wrap_pyfunction!(weight_by_distance, m)?)?;
+    // Sprint RUST-MIG-1 Task 6 — N4 Mahalanobis fast path.
+    m.add_function(wrap_pyfunction!(mahalanobis_distance, m)?)?;
 
     m.add("__version__", env!("CARGO_PKG_VERSION"))?;
     m.add("__doc__", "Vitruvius Sprint GT Rust data plane.")?;
