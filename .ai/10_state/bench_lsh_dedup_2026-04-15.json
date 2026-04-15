@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-04-15",
+  "sprint": "Sprint LSH-1",
+  "ad": "AD-037, AD-042",
+  "notes": "Per AD-037 the existing dedupe_by_endpoints is O(n log n) dict-grouped exact dedup. This bench does NOT document a scaling fix \u2014 it documents (1) LSH layer tax on disjoint corpora, (2) fuzzy-match hit rate on corpora with injected near-duplicates, and (3) zero-false-positive guard on disjoint corpora.",
+  "scaling": [
+    {
+      "n": 100,
+      "exact_wall_ms": 2.035,
+      "lsh_wall_ms": 12.207,
+      "lsh_tax_ratio": 6.0,
+      "exact_out_count": 100,
+      "lsh_out_count": 100,
+      "equivalence": true
+    },
+    {
+      "n": 1000,
+      "exact_wall_ms": 4.205,
+      "lsh_wall_ms": 109.812,
+      "lsh_tax_ratio": 26.11,
+      "exact_out_count": 1000,
+      "lsh_out_count": 1000,
+      "equivalence": true
+    },
+    {
+      "n": 10000,
+      "exact_wall_ms": 31.796,
+      "lsh_wall_ms": 1184.608,
+      "lsh_tax_ratio": 37.26,
+      "exact_out_count": 10000,
+      "lsh_out_count": 9999,
+      "equivalence": false
+    }
+  ],
+  "fuzzy_hit_rate": [
+    {
+      "input_count": 110,
+      "exact_count": 110,
+      "lsh_count": 102,
+      "collapsed_by_lsh": 8,
+      "hit_rate": 0.0727,
+      "injection_fraction": 0.1
+    },
+    {
+      "input_count": 120,
+      "exact_count": 120,
+      "lsh_count": 103,
+      "collapsed_by_lsh": 17,
+      "hit_rate": 0.1417,
+      "injection_fraction": 0.2
+    },
+    {
+      "input_count": 130,
+      "exact_count": 130,
+      "lsh_count": 106,
+      "collapsed_by_lsh": 24,
+      "hit_rate": 0.1846,
+      "injection_fraction": 0.3
+    }
+  ],
+  "false_positive_audit": {
+    "n": 200,
+    "exact_count": 200,
+    "lsh_count": 200,
+    "false_positive_collapses": 0,
+    "target": 0,
+    "passed": true
+  }
+}
