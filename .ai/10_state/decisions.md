@@ -917,7 +917,7 @@ The non-ported kernels (bloom filter, scanner SHA-256, Merkle fs) stayed Python 
 **Commits touching this AD.**
 
 - Task 1 — `8bddc21` → `ea0618c` — `bench_rust_mig_baseline.py` + `audit_rust_migration_baseline_2026-04-15.json`.
-- Task 2 — `[this commit]` — AD-036 + AD-037 + flag registry + plan correction. Zero compute changes.
+- Task 2 — `f9c1202` (initial) + review-fix commit (this commit resolves the `[this commit]` placeholder per code review #3) — AD-036 + AD-037 + flag registry + plan correction. Zero compute changes.
 - Tasks 3-7 — deferred, subject to AD-038 GO/NO-GO gate.
 
 **References.**
