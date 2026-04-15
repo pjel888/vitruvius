@@ -297,3 +297,34 @@ def test_gate_result_is_frozen() -> None:
     gr = report.results[0]
     with pytest.raises((dataclasses.FrozenInstanceError, TypeError, AttributeError)):
         gr.status = GateStatus.FAILED  # type: ignore[misc]
+
+
+def test_gate_005_accepts_non_empty_pdf(tmp_path):
+    from vitruvius.parsers.quality_gates import check_gate_005_libreoffice_pdf, GateStatus
+
+    pdf = tmp_path / "out.pdf"
+    # Minimum-viable payload: 256+ bytes so GATE-005 accepts it
+    pdf.write_bytes(b"%PDF-1.4\n" + b"x" * 512)
+
+    result = check_gate_005_libreoffice_pdf(pdf_path=pdf)
+    assert result.status == GateStatus.PASSED
+    assert result.gate_id == "GATE-005"
+
+
+def test_gate_005_rejects_missing_pdf(tmp_path):
+    from vitruvius.parsers.quality_gates import check_gate_005_libreoffice_pdf, GateStatus
+
+    missing = tmp_path / "missing.pdf"
+    result = check_gate_005_libreoffice_pdf(pdf_path=missing)
+    assert result.status == GateStatus.FAILED
+    assert "does not exist" in result.reason.lower()
+
+
+def test_gate_005_rejects_empty_pdf(tmp_path):
+    from vitruvius.parsers.quality_gates import check_gate_005_libreoffice_pdf, GateStatus
+
+    empty = tmp_path / "empty.pdf"
+    empty.write_bytes(b"")
+    result = check_gate_005_libreoffice_pdf(pdf_path=empty)
+    assert result.status == GateStatus.FAILED
+    assert "empty" in result.reason.lower()

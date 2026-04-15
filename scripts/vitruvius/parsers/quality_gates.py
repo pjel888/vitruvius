@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum
+from pathlib import Path
 
 from vitruvius.parsers.base_parser import ParseResult
 
@@ -161,3 +162,48 @@ def run_quality_gates(parse_result: ParseResult) -> GateReport:
     )
     passed = all(r.status != GateStatus.FAILED for r in results)
     return GateReport(results=results, passed=passed)
+
+
+def check_gate_005_libreoffice_pdf(*, pdf_path: Path) -> GateResult:
+    """GATE-005 — post-LibreOffice PDF sanity check (Sprint 1B-M1 Task 3).
+
+    Verifies the PDF produced by :class:`LibreOfficePreprocessor`:
+    - exists on disk
+    - has non-zero bytes
+    - is at least 256 bytes (empirically: any valid soffice PDF output
+      is larger than this; shorter outputs indicate a silent failure)
+
+    Returns a :class:`GateResult` with status PASSED / FAILED.
+    """
+    pdf_path = Path(pdf_path)
+    if not pdf_path.exists():
+        return GateResult(
+            gate_id="GATE-005",
+            gate_name="libreoffice_pdf_sanity",
+            status=GateStatus.FAILED,
+            reason=f"PDF does not exist: {pdf_path}",
+        )
+    size_bytes = pdf_path.stat().st_size
+    if size_bytes == 0:
+        return GateResult(
+            gate_id="GATE-005",
+            gate_name="libreoffice_pdf_sanity",
+            status=GateStatus.FAILED,
+            reason=f"PDF is empty (0 bytes): {pdf_path}",
+        )
+    if size_bytes < 256:
+        return GateResult(
+            gate_id="GATE-005",
+            gate_name="libreoffice_pdf_sanity",
+            status=GateStatus.FAILED,
+            reason=(
+                f"PDF is suspiciously small ({size_bytes} bytes, minimum 256): "
+                f"likely a silent soffice failure"
+            ),
+        )
+    return GateResult(
+        gate_id="GATE-005",
+        gate_name="libreoffice_pdf_sanity",
+        status=GateStatus.PASSED,
+        reason=f"PDF {pdf_path.name} is {size_bytes} bytes (>=256)",
+    )
