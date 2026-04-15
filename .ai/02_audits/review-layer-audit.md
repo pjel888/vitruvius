@@ -1,13 +1,30 @@
 > ⚠️ **HISTORICAL SNAPSHOT — SUPERSEDED 2026-04-15**
 >
-> This audit was written on 2026-04-13 against a pre-Sprint-A baseline. It is retained here as a frozen historical record of what the codebase looked like before Sprints A + B + C + D + Q + R + PHYS + H + GEOM + WIKI + GT + HP + Z + HP.3-R shipped. Almost every "weakness" or "missing feature" flagged below has since been addressed.
+> This audit was written on 2026-04-13 against a pre-Sprint-A baseline.
+> It is retained here as a frozen historical record of what the review/Ollama
+> layer looked like before 21 sprints shipped in a single session. Almost every
+> item in the "What is NOT Implemented" list in §14 has since shipped.
+>
+> The 21 closed sprints (in execution order) are: Q · R · H · GT · HP ·
+> HP.3-R · WIKI · GEOM · PHYS · Z · Meta-Docs · 1B-M1 · 1B-M2 ·
+> RUST-PDF-1 · 1B-M3 · DISTILL-1 · RUST-MIG-1 · AUDIT-1 · PIPELINE-CLI ·
+> PQ-1 · LSH-1. See the governing plan §1.1 for the full per-sprint ledger.
+>
+> Architecture decisions now span AD-001 through AD-042 (plus sub-decision
+> AD-038a). The pointer "AD-001 through AD-029" in this file is outdated.
 >
 > **For the current state of the codebase, read these instead:**
+> - `/.ai/03_plans/00-governing-implementation-plan.md` — authoritative sprint ledger (v3.0.0)
+> - `/.ai/00_system/EXECUTION_LOOP.md` — v3.0 canonical operating contract
+> - `/.ai/01_roadmap/master-roadmap.md` — roadmap v2.2.0
 > - `/.ai/10_state/active_context.md` — current session state
-> - `/.ai/10_state/decisions.md` — architecture decisions AD-001 through AD-029
+> - `/.ai/10_state/decisions.md` — architecture decisions AD-001 through AD-042
+> - `/.ai/10_state/known_issues.md` — open risks + closure timeline
 > - `/.ai/01_roadmap/current-phase.md` — current sprint / phase
-> - `/.ai/00_system/architecture.md` — current package layout (including post-Sprint-D additions)
+> - `/.ai/00_system/architecture.md` — current package layout
 > - `/.ai/00_system/pipeline-overview.md` — current execution flow
+> - `/.ai/00_system/naming-conventions.md` — naming rules
+> - `/.ai/00_system/principles.md` — architectural principles
 
 ---
 
@@ -592,3 +609,84 @@ The review layer is **IMPLEMENTED** as a standalone, manually-triggered Ollama-b
 ---
 
 *End of Review Layer Audit*
+
+---
+
+## 2026-04-15 Post-Sprint Reality Check
+
+### Ollama URL — no longer hardcoded (Sprint A, AD-003 sub-fix; 2026-04-14)
+Body §5 documents `OLLAMA_URL = "http://127.0.0.1:11434/api/generate"` as a hardcoded
+module-level constant and §9 lists "Configuration file support" as NOT IMPLEMENTED.
+Sprint A moved the URL to `config/vitruvius.yaml`. `scripts/vitruvius/config.py` line
+17 (`def get_ollama_url()`) reads from the config with `http://127.0.0.1:11434` as a
+fallback default. `scripts/vitruvius/ollama_review.py` imports `get_ollama_url` and
+resolves it at startup. `OLLAMA_URL` as a module-level constant no longer exists.
+Risk RI-003 (External Dependency — Ollama) is **CLOSED**.
+
+### Default model note
+The argparse default in the CLI registration (`--model default="gemma4:31b"`) is still
+present in `scripts/pipeline_cli.py` line 128. However, at runtime `ollama_review.py`
+line 21 resolves `DEFAULT_MODEL = get_ollama_default_model()` from `config/vitruvius.yaml`.
+On the 8 GB M2 target machine, `gemma4:e4b` is the operator-intended default (used in all
+bench scripts). `gemma4:31b` is retained as a config-file default for larger machines.
+
+### Review layer now integrated into the pipeline (Sprint B, AD-008; 2026-04-14)
+Body §2 states the review layer "is NOT automatically invoked in the pipeline."
+Sprint B Phase 6A shipped the `run-with-review` composite command that chains:
+`run → convert → refine → review-relationships-ollama`.
+The default `run` command remains minimal (no Ollama call) so CI does not invoke
+the LLM accidentally. Risk RI-012 (Review Layer Not in Default Pipeline) is **CLOSED**.
+
+### Second-pass review — SHIPPED (Sprint B, Phase 6B; 2026-04-14)
+Body §12 states second-pass review is NOT IMPLEMENTED.
+`scripts/vitruvius/ollama_review_second_pass.py` shipped in Sprint B Phase 6B.
+`pipeline_cli.py` registers `review-relationships-second-pass` with a Tier-2 model
+argument (default `qwen3:30b`). Only candidates where Tier-1 returned `review_further`
+with low confidence reach Tier-2.
+
+### Confidence threshold enforcement — SHIPPED (Sprint Q, AD-024; 2026-04-15)
+Body §9 lists "No confidence threshold enforcement" as NOT IMPLEMENTED.
+- `scripts/vitruvius/review/conformal_calibrator.py` (Sprint Q W3) — conformal
+  prediction calibrator that converts raw model confidence to calibrated p-values.
+- `scripts/vitruvius/review/choquet_aggregator.py` (Sprint Q W3) — Choquet integral
+  fusion of multi-criteria review scores (semantic, structural, co-occurrence).
+Both are wired under feature flags (`w_conformal_calibrator`, `w_choquet_fusion`).
+
+### Pre-review NaiveBayes filter and model routing — SHIPPED (Sprint Q, AD-024; 2026-04-15)
+Body §9 lists "No model fallback" and "Sequential processing: HIGH" as NOT IMPLEMENTED.
+- `scripts/vitruvius/review/naive_bayes_filter.py` — pre-review filter (flag `w_nb_prefilter`,
+  rule R7 `endpoint_not_in_evidence`). Cuts LLM-bound candidates from ~9 to ~2 on PD 1096
+  (78% reduction). The 100-minute sequential worst case drops to ~20 minutes on current corpus.
+- `scripts/vitruvius/review/slm_router.py` — SLM-based domain routing with
+  `complex → gemma4:31b` / `simple → <light model>` dispatch.
+- `scripts/vitruvius/review/domain_classifier.py` — domain-aware routing.
+All wired under `w_slm_router` / `w_domain_routing_moe` flags.
+
+### Progress resume — SHIPPED (Sprint R Y4, AD-025; Sprint HP.3-R, AD-029; 2026-04-15)
+Body §9 lists "No progress resume capability: PARTIAL" (partial saves but no resume).
+- `scripts/vitruvius/review/stateful_registry.py` (Sprint R Y4) — SQLite-backed
+  stateful review registry that persists all verdicts, supports vacuum/purge CLI,
+  and provides Phase 6A Resume integration test (gap closed at root).
+- `scripts/vitruvius/review/rocksdb_stateful_registry.py` (Sprint HP.3-R, AD-029) —
+  RocksDB-backed registry (24.3× faster than SQLite at n=10000). Default-true via
+  `hp_rocksdb_verdict_cache` flag. Factory `make_stateful_registry()` dispatches on flag.
+
+### Retry logic — SHIPPED (Sprint B, Phase 6A; 2026-04-14)
+Body §9 lists "No retry logic for individual candidates" as NOT IMPLEMENTED.
+Sprint B Phase 6A added bounded retries with wall-clock cap and graceful fallback
+to `review_further` on consecutive failure. Risk RI-003 sub-item resolved.
+
+### What is NOT implemented list (body §14) — fully superseded
+All 7 items in the unchecked list are now shipped. For completeness:
+- [x] Automatic pipeline integration — `run-with-review` (Sprint B)
+- [x] Second-pass review — `ollama_review_second_pass.py` (Sprint B Phase 6B)
+- [x] Confidence threshold enforcement — `conformal_calibrator.py` + `choquet_aggregator.py` (Sprint Q)
+- [x] Batch parallelization / LLM reduction — NaiveBayes pre-filter 78% reduction (Sprint Q)
+- [x] Retry logic — bounded retries + wall-clock cap (Sprint B)
+- [x] Model fallback / routing — `slm_router.py` + `domain_classifier.py` (Sprint Q / Sprint R)
+- [x] Progress resume — `stateful_registry.py` (Sprint R) + RocksDB variant (Sprint HP.3-R)
+- [x] Configuration file support — `config/vitruvius.yaml` (Sprint A)
+
+### Current sprint count and AD ceiling
+As of 2026-04-15: **21 sprints closed**. Architecture decisions span **AD-001 through
+AD-042** (plus sub-decision AD-038a).
