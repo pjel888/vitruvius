@@ -15,6 +15,7 @@ from vitruvius.parsers.libreoffice_preprocessor import (
     LibreOfficePreprocessor,
     PreprocessResult,
 )
+from vitruvius.parsers.ocr_preprocessor import OCRPreprocessor
 
 __all__ = [
     "BaseParser",
@@ -35,4 +36,5 @@ __all__ = [
     "DoclingParser",
     "LibreOfficePreprocessor",
     "PreprocessResult",
+    "OCRPreprocessor",
 ]
