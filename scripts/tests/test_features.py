@@ -137,6 +137,8 @@ EXPECTED_FLAGS = {
     "hp_wasm_kernels",
     # Sprint HP.3-R — RocksDB KV backend migration
     "hp_rocksdb_event_store", "hp_rocksdb_verdict_cache",
+    # Sprint 1B-M1 — Phase 1B Modernization Tranche 1
+    "p1b_docling_parser", "p1b_libreoffice_preprocessor",
     # Sprint GEOM — Geometric Constraint Engine (phase-15)
     "geom_csp_compiler", "geom_envelope_2d", "geom_envelope_3d",
     "geom_iou_audit", "geom_pareto_optimizer",
@@ -252,3 +254,23 @@ def test_hp_rocksdb_verdict_cache_defaults_true() -> None:
     cfg = load_config()
     flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
     assert flags.get("hp_rocksdb_verdict_cache") is True
+
+
+def test_p1b_docling_parser_defaults_false() -> None:
+    """Sprint 1B-M1 — DoclingParser routing defaults false so the
+    pre-tranche ingestion path is byte-identical until pipeline_cli.py
+    integration lands in a follow-up."""
+    from vitruvius.config import load_config
+
+    cfg = load_config()
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    assert flags.get("p1b_docling_parser") is False
+
+
+def test_p1b_libreoffice_preprocessor_defaults_false() -> None:
+    """Sprint 1B-M1 — LibreOfficePreprocessor routing defaults false."""
+    from vitruvius.config import load_config
+
+    cfg = load_config()
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    assert flags.get("p1b_libreoffice_preprocessor") is False

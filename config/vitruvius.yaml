@@ -166,6 +166,13 @@ features:
   # path remains available via ``hp_rocksdb_*: false`` as a fallback.
   hp_rocksdb_event_store: true
   hp_rocksdb_verdict_cache: true
+  # Sprint 1B-M1 — Phase 1B Modernization Tranche 1 (Docling + LibreOffice).
+  # Deployment-readiness markers for the new parser chain. Tranche 1
+  # wires the orchestrator to run DoclingParser and LibreOfficePreprocessor
+  # via library calls; pipeline_cli.py integration is deferred to a
+  # follow-up. Defaults false until that CLI wiring lands.
+  p1b_docling_parser: false
+  p1b_libreoffice_preprocessor: false
   # Sprint GEOM — Geometric Constraint Engine (phase-15).
   # All four streams now land: GEOM.1 inequality→Z3 compiler,
   # GEOM.3 2D+3D buildable envelope, GEOM.4 IoU audit + Pareto

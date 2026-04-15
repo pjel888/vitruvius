@@ -33,8 +33,13 @@ class OrchestratorResult:
 
 
 class ParserOrchestrator:
-    def __init__(self, parser_chains: dict[DocumentClass, list[BaseParser]]) -> None:
+    def __init__(
+        self,
+        parser_chains: dict[DocumentClass, list[BaseParser]],
+        preprocessors: dict[DocumentClass, object] | None = None,
+    ) -> None:
         self._chains = {k: list(v) for k, v in parser_chains.items()}
+        self._preprocessors: dict[DocumentClass, object] = dict(preprocessors or {})
 
     def process(
         self,
@@ -54,7 +59,40 @@ class ParserOrchestrator:
                 "register at least one parser"
             )
 
-        attempts: list[AttemptRecord] = []
+        # Sprint 1B-M1 Task 4 — run the registered preprocessor for
+        # this doc_class first (if any). A failed preprocessor short-
+        # circuits to FALLBACK_EXHAUSTED with the preprocessor's error
+        # captured as the only AttemptRecord. A successful preprocessor
+        # replaces source_path with its output (typically an
+        # Office → PDF conversion) before the parser chain runs.
+        current_source = source_path
+        pre_attempts: list[AttemptRecord] = []
+        preprocessor = self._preprocessors.get(doc_class)
+        if preprocessor is not None:
+            pre_result = preprocessor.preprocess(
+                source_path=current_source, workdir=work_dir
+            )
+            pre_attempts.append(
+                AttemptRecord(
+                    parser_id=getattr(
+                        preprocessor, "preprocessor_id", "preprocessor"
+                    ),
+                    attempt_index=-1,
+                    parse_result=None,
+                    gate_report=None,
+                    exception=pre_result.error,
+                )
+            )
+            if pre_result.pdf_path is None:
+                return OrchestratorResult(
+                    terminal_status=TerminalStatus.FALLBACK_EXHAUSTED,
+                    successful_parser_id=None,
+                    final_parse_result=None,
+                    attempts=tuple(pre_attempts),
+                )
+            current_source = pre_result.pdf_path
+
+        attempts: list[AttemptRecord] = list(pre_attempts)
         winner_index: int | None = None
         winning_parse_result: ParseResult | None = None
         winning_parser_id: str | None = None
@@ -62,7 +100,7 @@ class ParserOrchestrator:
         for idx, parser in enumerate(chain):
             try:
                 parse_result = parser.parse(
-                    source_path=source_path, work_dir=work_dir
+                    source_path=current_source, work_dir=work_dir
                 )
             except Exception as exc:
                 attempts.append(
