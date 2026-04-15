@@ -160,7 +160,7 @@ def run_ple_registry_purge(
     if not db_path.exists():
         print(f"no registry at {db_path}")
         return 0
-    reg = StatefulReviewRegistry(db_path=db_path)
+    reg = make_stateful_registry(db_path=db_path)
     try:
         cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).isoformat()
         deleted = reg.purge_older_than(cutoff_utc=cutoff)

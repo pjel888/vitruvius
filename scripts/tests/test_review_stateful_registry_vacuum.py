@@ -69,3 +69,60 @@ def test_cli_purge_handler_deletes_old_rows(tmp_path: Path, capsys) -> None:
         assert reg2.count() == 1
     finally:
         reg2.close()
+
+
+def test_run_ple_registry_purge_uses_factory_when_flag_on(tmp_path, monkeypatch):
+    """Sprint HP.3-R Task 6 supplement: the purge CLI must go through
+    make_stateful_registry so that when hp_rocksdb_verdict_cache is on,
+    it purges the RocksDB data directory instead of opening a stale
+    SQLite file at the same path.
+
+    Rather than require a live RocksDB at db_path (which the purge path
+    checks for file-existence first and returns 0 for), we monkeypatch
+    make_stateful_registry itself and assert it was called. This proves
+    the CLI is routing through the factory layer.
+    """
+    import pytest
+    import vitruvius.review.stateful_registry as srmod
+
+    calls = []
+
+    class _StubRegistry:
+        def __init__(self, *, db_path):
+            calls.append(("init", db_path))
+
+        def purge_older_than(self, *, cutoff_utc):
+            calls.append(("purge_older_than", cutoff_utc))
+            return 0
+
+        def vacuum(self):
+            calls.append(("vacuum",))
+
+        def disk_size_mb(self):
+            return 0.0
+
+        def close(self):
+            calls.append(("close",))
+
+    def fake_factory(*, db_path):
+        return _StubRegistry(db_path=db_path)
+
+    monkeypatch.setattr(srmod, "make_stateful_registry", fake_factory)
+
+    # Create an empty file at db_path so the existence check passes.
+    db_path = tmp_path / "reg.sqlite"
+    db_path.touch()
+
+    rc = srmod.run_ple_registry_purge(db_path=db_path, days=30)
+    assert rc == 0
+
+    # The factory must have been called exactly once with the given path.
+    init_calls = [c for c in calls if c[0] == "init"]
+    assert len(init_calls) == 1, f"expected 1 factory init call, got {init_calls}"
+    assert init_calls[0][1] == db_path
+
+    # The purge + vacuum + close calls must all fire on the stub.
+    kinds = [c[0] for c in calls]
+    assert "purge_older_than" in kinds
+    assert "vacuum" in kinds
+    assert "close" in kinds
