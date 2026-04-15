@@ -1,10 +1,10 @@
 {
-  "generated_at": "20260414T233645Z",
-  "source_report_generated_at": "20260414T233645Z",
+  "generated_at": "20260415T004658Z",
+  "source_report_generated_at": "20260415T004658Z",
   "source_model": "gemma4:e4b",
   "source": "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
   "threshold": 0.9,
-  "count": 24,
+  "count": 14,
   "candidates": [
     {
       "candidate": {
@@ -13,12 +13,9 @@
         "to": "concept-building-permit",
         "occurrences": 82,
         "examples": [
-          "- 1. The scope of this IRR shall cover the following disciplines: architectural, civil/structural, electrical, mechanical, sanitary, plumbing, and electronics. This shall also apply to the design, location, siting, construction, alteration, repair, conversion, use, occupancy, maintenance, moving, demolition of, and addition to public and private buildings and structures, except traditional indigenous family dwellings, and those covered by Batas Pambansa Bilang 220 otherwise known as the \u201cEconomic and Socialized Housing Projects\u201d. - 2. Existing buildings or structures without appropriate building permits/certificates of occupancy may be legalized and issued the necessary permits and certificates, provided, they are made to conform to these rules and regulations. However, they shall be subject to the imposition of penalties, surcharges, fines and other appropriate measures.",
-          "- 1. The scope of this IRR shall cover the following disciplines: architectural, civil/structural, electrical, mechanical, sanitary, plumbing, and electronics. This shall also apply to the design, location, siting, construction, alteration, repair, conversion, use, occupancy, maintenance, moving, demolition of, and addition to public and private buildings and structures, except traditional indigenous family dwellings, and those covered by Batas Pambansa Bilang 220 otherwise known as the \u201cEconomic and Socialized Housing Projects\u201d. - 2. Existing buildings or structures without appropriate building permits/certificates of occupancy may be legalized and issued the necessary permits and certificates, provided, they are made to conform to these rules and regulations. However, they shall be subject to the imposition of penalties, surcharges, fines and other appropriate measures.",
-          "- 1. The scope of this IRR shall cover the following disciplines: architectural, civil/structural, electrical, mechanical, sanitary, plumbing, and electronics. This shall also apply to the design, location, siting, construction, alteration, repair, conversion, use, occupancy, maintenance, moving, demolition of, and addition to public and private buildings and structures, except traditional indigenous family dwellings, and those covered by Batas Pambansa Bilang 220 otherwise known as the \u201cEconomic and Socialized Housing Projects\u201d. - 2. Existing buildings or structures without appropriate building permits/certificates of occupancy may be legalized and issued the necessary permits and certificates, provided, they are made to conform to these rules and regulations. However, they shall be subject to the imposition of penalties, surcharges, fines and other appropriate measures. - 3. The applicable and consistent provisions of the allied professional codes and other government agency codes as approved by the DPWH Secretary shall serve as the referral codes of PD 1096 and this IRR."
-        ],
-        "sections": [
-          "section-irr-general"
+          "- 1. The scope of this IRR shall cover the following disciplines: architectural, civil/structural, electrical, mechanical, sanitary, plumbing, and electronics. This shall also apply to the design, location, siting, construction, alteration, repair, conversion, use, occupancy, maintenance, moving, demolition of, and addition to public and private buildings and structures, except traditional indigenous family dwellings, and those covered by Batas Pambansa Bilang 220 otherwise known as the “Economic and Socialized Housing Projects”. - 2. Existing buildings or structures without appropriate building permits/certificates of occupancy may be legalized and issued the necessary permits and certificates, provided, they are made to conform to these rules and regulations. However, they shall be subject to the imposition of penalties, surcharges, fines and other appropriate measures.",
+          "- 1. The scope of this IRR shall cover the following disciplines: architectural, civil/structural, electrical, mechanical, sanitary, plumbing, and electronics. This shall also apply to the design, location, siting, construction, alteration, repair, conversion, use, occupancy, maintenance, moving, demolition of, and addition to public and private buildings and structures, except traditional indigenous family dwellings, and those covered by Batas Pambansa Bilang 220 otherwise known as the “Economic and Socialized Housing Projects”. - 2. Existing buildings or structures without appropriate building permits/certificates of occupancy may be legalized and issued the necessary permits and certificates, provided, they are made to conform to these rules and regulations. However, they shall be subject to the imposition of penalties, surcharges, fines and other appropriate measures.",
+          "- 1. The scope of this IRR shall cover the following disciplines: architectural, civil/structural, electrical, mechanical, sanitary, plumbing, and electronics. This shall also apply to the design, location, siting, construction, alteration, repair, conversion, use, occupancy, maintenance, moving, demolition of, and addition to public and private buildings and structures, except traditional indigenous family dwellings, and those covered by Batas Pambansa Bilang 220 otherwise known as the “Economic and Socialized Housing Projects”. - 2. Existing buildings or structures without appropriate building permits/certificates of occupancy may be legalized and issued the necessary permits and certificates, provided, they are made to conform to these rules and regulations. However, they shall be subject to the imposition of penalties, surcharges, fines and other appropriate measures. - 3. The applicable and consistent provisions of the allied professional codes and other government agency codes as approved by the DPWH Secretary shall serve as the referral codes of PD 1096 and this IRR."
         ]
       },
       "review": {
@@ -39,9 +36,6 @@
           "- perfected. In which case, the fifteen (15) day period shall be suspended accordingly. If the motion for reconsideration is denied, the movant shall have the right to perfect his appeal during the remainder of the period for appeal, reckoned from the date of receipt of the resolution of denial. If the order/decision is reversed on reconsideration, the aggrieved party, if there is any, shall have fifteen (15) days from the receipt of the resolution within which to perfect his appeal. - 12. Within fifteen (15) days from the date of receipt of notice or advice of the non-issuance, suspension or revocation of permit/certificate of occupancy or any order/decision of the Building Official, the applicant/permittee or any adversely affected party may file an appeal directly with the Secretary. For this purpose, the Secretary may secure the technical assistance of the NBCDO to initially act on the appeal.",
           "- perfected. In which case, the fifteen (15) day period shall be suspended accordingly. If the motion for reconsideration is denied, the movant shall have the right to perfect his appeal during the remainder of the period for appeal, reckoned from the date of receipt of the resolution of denial. If the order/decision is reversed on reconsideration, the aggrieved party, if there is any, shall have fifteen (15) days from the receipt of the resolution within which to perfect his appeal. - 12. Within fifteen (15) days from the date of receipt of notice or advice of the non-issuance, suspension or revocation of permit/certificate of occupancy or any order/decision of the Building Official, the applicant/permittee or any adversely affected party may file an appeal directly with the Secretary. For this purpose, the Secretary may secure the technical assistance of the NBCDO to initially act on the appeal. - 13. The order/decision of the Secretary in any case brought to him on appeal shall be final and shall become executory fifteen (15) days after the receipt by the parties concerned.",
           "- 12. Within fifteen (15) days from the date of receipt of notice or advice of the non-issuance, suspension or revocation of permit/certificate of occupancy or any order/decision of the Building Official, the applicant/permittee or any adversely affected party may file an appeal directly with the Secretary. For this purpose, the Secretary may secure the technical assistance of the NBCDO to initially act on the appeal. - 13. The order/decision of the Secretary in any case brought to him on appeal shall be final and shall become executory fifteen (15) days after the receipt by the parties concerned. - 14. For the enforcement and execution of any of his orders/decisions, the Building Official may secure the assistance of the local police or any peace officer in the locality or area where the building/structure is located, in accordance with the Memorandum of Agreement between the DILG and DPWH."
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -59,12 +53,9 @@
         "to": "concept-stairs",
         "occurrences": 100,
         "examples": [
-          "- c. Materials required to be flame-spread proofed shall be treated with a flame-retardant having a flame-spread of fifty (50) or less as determined by the \u201cTunnel Test\u201d.  ###### 3. Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs &roofs shall be governed by the pertinent provision of the Fire Code of the Philippines.",
-          "- c. Materials required to be flame-spread proofed shall be treated with a flame-retardant having a flame-spread of fifty (50) or less as determined by the \u201cTunnel Test\u201d.  ###### 3. Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs &roofs shall be governed by the pertinent provision of the Fire Code of the Philippines.",
-          "- c. Materials required to be flame-spread proofed shall be treated with a flame-retardant having a flame-spread of fifty (50) or less as determined by the \u201cTunnel Test\u201d.  ###### 3. Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs &roofs shall be governed by the pertinent provision of the Fire Code of the Philippines."
-        ],
-        "sections": [
-          "section-irr-general"
+          "- c. Materials required to be flame-spread proofed shall be treated with a flame-retardant having a flame-spread of fifty (50) or less as determined by the “Tunnel Test”.  ###### 3. Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs &roofs shall be governed by the pertinent provision of the Fire Code of the Philippines.",
+          "- c. Materials required to be flame-spread proofed shall be treated with a flame-retardant having a flame-spread of fifty (50) or less as determined by the “Tunnel Test”.  ###### 3. Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs &roofs shall be governed by the pertinent provision of the Fire Code of the Philippines.",
+          "- c. Materials required to be flame-spread proofed shall be treated with a flame-retardant having a flame-spread of fifty (50) or less as determined by the “Tunnel Test”.  ###### 3. Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs &roofs shall be governed by the pertinent provision of the Fire Code of the Philippines."
         ]
       },
       "review": {
@@ -85,9 +76,6 @@
           "- SECTION 502. Buildings Located in More Than One Fire Zone  A building/structure which is located partly in one (1) fire zone and partly in another shall be considered to be in the more highly restrictive fire zone, when more than one third (1/3) of its total floor area is located in such zone.",
           "A building/structure which is located partly in one (1) fire zone and partly in another shall be considered to be in the more highly restrictive fire zone, when more than one third (1/3) of its total floor area is located in such zone.",
           "A building/structure which is located partly in one (1) fire zone and partly in another shall be considered to be in the more highly restrictive fire zone, when more than one third (1/3) of its total floor area is located in such zone.  - SECTION 503. Moved Buildings"
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -108,9 +96,6 @@
           "No change shall be made in the character of occupancy or use of any building which would place the building in a different division of the same group of occupancy or in a different group of occupancies, unless such building is made to comply with the requirements of the Code for such division or group of occupancy. The character of occupancy of existing buildings may be changed subject to the approval of the Building Official and the building may be occupied for purposes set forth in other Groups: Provided the new or proposed use is less hazardous, based on life and fire risk, than the existing use.  - SECTION 703. Mixed Occupancy",
           "No change shall be made in the character of occupancy or use of any building which would place the building in a different division of the same group of occupancy or in a different group of occupancies, unless such building is made to comply with the requirements of the Code for such division or group of occupancy. The character of occupancy of existing buildings may be changed subject to the approval of the Building Official and the building may be occupied for purposes set forth in other Groups: Provided the new or proposed use is less hazardous, based on life and fire risk, than the existing use.  - SECTION 703. Mixed Occupancy",
           "- 1. General Requirements  When a building is of mixed occupancy or used for more than one occupancy, the whole building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following:"
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -131,9 +116,6 @@
           "- a. When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy housed therein and; - b. Where minor accessory uses do not occupy more than 10% of the area of any floor or a building, nor more than 10% of the basic area permitted in the occupancy requirements, in which case, the major use of the building shall determine the occupancy classification.",
           "- a. When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy housed therein and; - b. Where minor accessory uses do not occupy more than 10% of the area of any floor or a building, nor more than 10% of the basic area permitted in the occupancy requirements, in which case, the major use of the building shall determine the occupancy classification.",
           "- (1) When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy housed therein and; - (2) Where minor accessory uses do not occupy more than ten percent of the area of any floor or a building, nor more than ten percent of the basic area permitted in the occupancy requirements, in which case, the major use of the building shall determine the occupancy classification."
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -154,9 +136,6 @@
           "- 2. Forms of Occupancy Separation  Occupancy separations shall be vertical or horizontal or both, or when necessary, of such other forms as may be required to afford a complete separation between the various occupancy divisions in the building.",
           "- 2. Forms of Occupancy Separation  Occupancy separations shall be vertical or horizontal or both, or when necessary, of such other forms as may be required to afford a complete separation between the various occupancy divisions in the building.",
           "Occupancy separations shall be vertical or horizontal or both, or when necessary, of such other forms as may be required to afford a complete separation between the various occupancy divisions in the building."
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -177,9 +156,6 @@
           "###### SECTION 707. Maximum Height of Buildings  - 1. The maximum height and number of storeys of proposed building shall be dependent upon the character of use or occupancy and the type of construction, considering end-user population density, light and ventilation, width of RROW/streets particularly of its roadway/carriageway component, building bulk, off-street cum off-site parking requirements, etc. and in relation to local land use plan and zoning regulations as well as other environmental considerations, e.g., geological, hydrological, meteorological, topographical, prevailing traffic conditions, the availability and capacity of public utility/service systems, etc. (Refer to Guidelines on Building Bulk at the end of this Rule)",
           "The dwelling shall occupy not more than 90% of a corner lot and 80% of an inside lot, and subject to the provisions on Easements of Light and View of the Civil Code of Philippines, shall be at least 2.00 meters from the property line.  - 2. Light and Ventilation",
           "The dwelling shall occupy not more than 90% of a corner lot and 80% of an inside lot, and subject to the provisions on Easements of Light and View of the Civil Code of Philippines, shall be at least 2.00 meters from the property line.  - 2. Light and Ventilation"
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -200,9 +176,6 @@
           "- 2. Determination of Building Height:  - a. BUILDING HEIGHT LIMIT (BHL) - the maximum height to be allowed for buildings/structures based on their proposed use or occupancy; the BHL is generally determined after the application of other development controls (DC) and certain other parameters, i.e., considerations of site conditions, view, etc. (Table VII.2. of this Rule). The BHL shall be generally measured from the established grade line to the topmost portion of the proposed building/structure. If applicable, the BHL may be subject to clearance requirements of the Air Transportation Office (ATO) or of the concerned military/security authorities. (Refer to Guidelines on Development Controls at the end this Rule)",
           "- 2. Determination of Building Height:  - a. BUILDING HEIGHT LIMIT (BHL) - the maximum height to be allowed for buildings/structures based on their proposed use or occupancy; the BHL is generally determined after the application of other development controls (DC) and certain other parameters, i.e., considerations of site conditions, view, etc. (Table VII.2. of this Rule). The BHL shall be generally measured from the established grade line to the topmost portion of the proposed building/structure. If applicable, the BHL may be subject to clearance requirements of the Air Transportation Office (ATO) or of the concerned military/security authorities. (Refer to Guidelines on Development Controls at the end this Rule)",
           "- 2. Determination of Building Height:  - a. BUILDING HEIGHT LIMIT (BHL) - the maximum height to be allowed for buildings/structures based on their proposed use or occupancy; the BHL is generally determined after the application of other development controls (DC) and certain other parameters, i.e., considerations of site conditions, view, etc. (Table VII.2. of this Rule). The BHL shall be generally measured from the established grade line to the topmost portion of the proposed building/structure. If applicable, the BHL may be subject to clearance requirements of the Air Transportation Office (ATO) or of the concerned military/security authorities. (Refer to Guidelines on Development Controls at the end this Rule)"
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -223,9 +196,6 @@
           "###### Fig.VII.7.  - iv. For R-2, R-3, GI, C, C-2 and C-3 uses or occupancies, front yards abutting RROW are not to be used for long-term off-street parking. Due to the very public nature of these uses (high vehicular and pedestrian concentrations), the front yard (a transition space between the RROW and the building/structure) shall be used exclusively for driveways, off-RROW loading spaces, short-term off-RROW parking and landscaping (hardscape and softscape) treatment. Temporary or short-term off-street parking, particularly on driveways, shall preferably be only for visitors to these buildings/structures.",
           "- iv. For R-2, R-3, GI, C, C-2 and C-3 uses or occupancies, front yards abutting RROW are not to be used for long-term off-street parking. Due to the very public nature of these uses (high vehicular and pedestrian concentrations), the front yard (a transition space between the RROW and the building/structure) shall be used exclusively for driveways, off-RROW loading spaces, short-term off-RROW parking and landscaping (hardscape and softscape) treatment. Temporary or short-term off-street parking, particularly on driveways, shall preferably be only for visitors to these buildings/structures. - v. For Basic R-2 and Basic R-3 uses or occupancies (for single family dwelling units only), up to 50% of the front yard abutting the RROW may be paved/hardscaped, i.e., converted into a courtyard for carport use. Such use shall not be permitted in all other uses or occupancies.",
           "- iv. For R-2, R-3, GI, C, C-2 and C-3 uses or occupancies, front yards abutting RROW are not to be used for long-term off-street parking. Due to the very public nature of these uses (high vehicular and pedestrian concentrations), the front yard (a transition space between the RROW and the building/structure) shall be used exclusively for driveways, off-RROW loading spaces, short-term off-RROW parking and landscaping (hardscape and softscape) treatment. Temporary or short-term off-street parking, particularly on driveways, shall preferably be only for visitors to these buildings/structures. - v. For Basic R-2 and Basic R-3 uses or occupancies (for single family dwelling units only), up to 50% of the front yard abutting the RROW may be paved/hardscaped, i.e., converted into a courtyard for carport use. Such use shall not be permitted in all other uses or occupancies."
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -246,9 +216,6 @@
           "- 1. Dwelling Location and Lot Occupancy  The dwelling shall occupy not more than 90% of a corner lot and 80% of an inside lot, and subject to the provisions on Easements of Light and View of the Civil Code of Philippines, shall be at least 2.00 meters from the property line.",
           "- 1. Dwelling Location and Lot Occupancy  The dwelling shall occupy not more than 90% of a corner lot and 80% of an inside lot, and subject to the provisions on Easements of Light and View of the Civil Code of Philippines, shall be at least 2.00 meters from the property line.",
           "- (a) Dwelling Location and Lot Occupancy  The dwelling shall occupy not more than ninety percent of a corner lot and eighty percent of an inside lot, and subject to the provisions on Easements of Light and View of the Civil Code of Philippines, shall be at least 2 meters from the property line."
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -269,9 +236,6 @@
           "- a. Number of Exits. Every building or usable portion thereof shall have at least one (1) exit. In all occupancies, floors above the first storey having an occupant load of more than ten (10) shall not have less than two (2) exits. Each mezzanine floor used for other than storage purposes, if greater in area than 185 sq. meters or more than 18.00 meters in any dimension, shall have at least two (2) stairways to an adjacent floor. Every storey or portion thereof, having an occupant load of 500 to 999 shall have at least three (3) exits. Every storey or portion thereof having an occupant load of one thousand (1000) or more shall have at least four (4) exits. The number of exits required from any storey of a building shall be determined by using the occupant loads of floors which exit through the level under consideration as follows: 50% of the occupant load in the first adjacent storey above (and the first adjacent storey below, when a storey below exits through the level under consideration) and 25% of the occupant load in the storey immediately beyond the first adjacent storey. The maximum number of exits required for any storey shall be maintained until egress is provided from the structures. For purposes of this Section basement or cellars and occupied roofs shall be provided with exits as required for storeys. Floors above the second storey, basements and cellars used for other than service of the building shall have not less than two (2) exits. - b. Width. The total width of exits in meters shall not be less than the total occupant load served divided by one hundred sixty five (165). Such width of exits shall be divided approximately equally among the separate exits. The total exit width required from any storey of a building shall be determined by using the occupant load of that storey plus the percentage of the occupant loads of floors which exits through the level under consideration as follows: 50% of the occupant load in the first adjacent storey above (and the first adjacent storey below when a storey below exits through the level under consideration) and 25% of the occupant load in the storey immediately beyond the first adjacent storey. The maximum exit width from any storey of a building shall be maintained.",
           "- a. Number of Exits. Every building or usable portion thereof shall have at least one (1) exit. In all occupancies, floors above the first storey having an occupant load of more than ten (10) shall not have less than two (2) exits. Each mezzanine floor used for other than storage purposes, if greater in area than 185 sq. meters or more than 18.00 meters in any dimension, shall have at least two (2) stairways to an adjacent floor. Every storey or portion thereof, having an occupant load of 500 to 999 shall have at least three (3) exits. Every storey or portion thereof having an occupant load of one thousand (1000) or more shall have at least four (4) exits. The number of exits required from any storey of a building shall be determined by using the occupant loads of floors which exit through the level under consideration as follows: 50% of the occupant load in the first adjacent storey above (and the first adjacent storey below, when a storey below exits through the level under consideration) and 25% of the occupant load in the storey immediately beyond the first adjacent storey. The maximum number of exits required for any storey shall be maintained until egress is provided from the structures. For purposes of this Section basement or cellars and occupied roofs shall be provided with exits as required for storeys. Floors above the second storey, basements and cellars used for other than service of the building shall have not less than two (2) exits. - b. Width. The total width of exits in meters shall not be less than the total occupant load served divided by one hundred sixty five (165). Such width of exits shall be divided approximately equally among the separate exits. The total exit width required from any storey of a building shall be determined by using the occupant load of that storey plus the percentage of the occupant loads of floors which exits through the level under consideration as follows: 50% of the occupant load in the first adjacent storey above (and the first adjacent storey below when a storey below exits through the level under consideration) and 25% of the occupant load in the storey immediately beyond the first adjacent storey. The maximum exit width from any storey of a building shall be maintained.",
           "- a. Number of Exits. Every building or usable portion thereof shall have at least one (1) exit. In all occupancies, floors above the first storey having an occupant load of more than ten (10) shall not have less than two (2) exits. Each mezzanine floor used for other than storage purposes, if greater in area than 185 sq. meters or more than 18.00 meters in any dimension, shall have at least two (2) stairways to an adjacent floor. Every storey or portion thereof, having an occupant load of 500 to 999 shall have at least three (3) exits. Every storey or portion thereof having an occupant load of one thousand (1000) or more shall have at least four (4) exits. The number of exits required from any storey of a building shall be determined by using the occupant loads of floors which exit through the level under consideration as follows: 50% of the occupant load in the first adjacent storey above (and the first adjacent storey below, when a storey below exits through the level under consideration) and 25% of the occupant load in the storey immediately beyond the first adjacent storey. The maximum number of exits required for any storey shall be maintained until egress is provided from the structures. For purposes of this Section basement or cellars and occupied roofs shall be provided with exits as required for storeys. Floors above the second storey, basements and cellars used for other than service of the building shall have not less than two (2) exits. - b. Width. The total width of exits in meters shall not be less than the total occupant load served divided by one hundred sixty five (165). Such width of exits shall be divided approximately equally among the separate exits. The total exit width required from any storey of a building shall be determined by using the occupant load of that storey plus the percentage of the occupant loads of floors which exits through the level under consideration as follows: 50% of the occupant load in the first adjacent storey above (and the first adjacent storey below when a storey below exits through the level under consideration) and 25% of the occupant load in the storey immediately beyond the first adjacent storey. The maximum exit width from any storey of a building shall be maintained."
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -292,9 +256,6 @@
           "- i. Stairway Construction - Interior. Interior stairways shall be constructed as specified in this Code. Where there is enclosed usable space under the stairs the walls and soffits of the enclosed space shall be protected on the enclosed side as required for one-hour fire resistive construction. - ii. Stairway Construction - Exterior. Exterior stairways shall be of incombustible material: Except, that on Type III buildings which do not exceed two storeys in height, which are located in less fire-restrictive Fire Zones, as well as on Type I buildings which may be of wood not less than 50 millimeters in nominal thickness. Exterior stairs shall be protected as required for exterior walls due to location on property as specified in the Code. Exterior stairways shall not project into an area where openings are required to be protected. Where there is enclosed usable space under stairs, the walls and soffits of the enclosed space shall be protected on the enclosed side as required for one-hour fire-resistive construction.",
           "- i. Stairway Construction - Interior. Interior stairways shall be constructed as specified in this Code. Where there is enclosed usable space under the stairs the walls and soffits of the enclosed space shall be protected on the enclosed side as required for one-hour fire resistive construction. - ii. Stairway Construction - Exterior. Exterior stairways shall be of incombustible material: Except, that on Type III buildings which do not exceed two storeys in height, which are located in less fire-restrictive Fire Zones, as well as on Type I buildings which may be of wood not less than 50 millimeters in nominal thickness. Exterior stairs shall be protected as required for exterior walls due to location on property as specified in the Code. Exterior stairways shall not project into an area where openings are required to be protected. Where there is enclosed usable space under stairs, the walls and soffits of the enclosed space shall be protected on the enclosed side as required for one-hour fire-resistive construction.",
           "- (8) Handrails. Stairways shall have handrails on each side and every stairway required to be more than 3.00 meters in width shall be provided with not less than one intermediate handrail for each 3.00 meters of required width. Intermediate handrails shall be spaced approximately equal within the entire width of the stairway. Handrails shall be placed not less than 800 millimeters nor more than 900 millimeters above the nosing of treads, and ends of handrails shall be returned or shall terminate in newel posts or safety terminals: Except, in the following cases: Stairways 1.10 meters or less in width and stairways serving one individual dwelling unit in Group A or B Occupancies may have one handrail, except that such stairway, open on one or both, sides shall have handrails provided on the open side or sides: or stairways having less than four risers need not have handrails. - (9) Exterior Stairway Protection. All openings in the exterior wall below or within 3.00 meters, measured horizontally, of an exterior exit stairway serving a building over two storeys in height shall be protected by a self-closing fire assembly having a three-fourths hour fire-resistive rating: Except, that openings may be unprotected when two separated exterior stairways serve an exterior exit balcony. - (10a) Stairways Construction - Interior. Interior stairways shall be constructed as specified in this Code. Where there is enclosed usable space under the stairs the walls and soffits of the enclosed space shall be protected on the enclosed side as required for one-hour fire resistive construction."
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -315,9 +276,6 @@
           "- a. Boiler Rooms  Except in Group A Occupancies, every boiler room and every room containing an incinerator or liquefied petroleum gas or liquid fuel-fired equipment shall be provided with at least two (2) means of egress, one of which may be a ladder. All interior openings shall be protected as provided for in the Code.",
           "Except in Group A Occupancies, every boiler room and every room containing an incinerator or liquefied petroleum gas or liquid fuel-fired equipment shall be provided with at least two (2) means of egress, one of which may be a ladder. All interior openings shall be protected as provided for in the Code.",
           "Except in Group A Occupancies, every boiler room and every room containing an incinerator or liquefied petroleum gas or liquid fuel-fired equipment shall be provided with at least two (2) means of egress, one of which may be a ladder. All interior openings shall be protected as provided for in the Code.  - b. Cellulose Nitrate Handling"
-        ],
-        "sections": [
-          "section-irr-general"
         ]
       },
       "review": {
@@ -326,290 +284,6 @@
         "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
         "suggested_type": null,
         "source": "pre_review_filter"
-      }
-    },
-    {
-      "candidate": {
-        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
-        "type": "governs",
-        "to": "concept-setbacks",
-        "occurrences": 16,
-        "examples": [
-          "- a. Verifies the lot plan as reflected in the Torrens Title, Original Certificate of Title (OCT)/Transfer Certificate of Title (TCT) and its relation to the proposed buildings/structures. - b. Checks compliance to establish easements/setbacks and determines grades in relation to road lots, property lines, streets or highways, whether existing or proposed as reflected in the land use zoning or development plan of the city/municipality including road widening, construction of various public utilities/services and other infrastructure projects along creeks, esteros, waterways, subject to a written clearance from the DPWH.",
-          "- a. Verifies the lot plan as reflected in the Torrens Title, Original Certificate of Title (OCT)/Transfer Certificate of Title (TCT) and its relation to the proposed buildings/structures. - b. Checks compliance to establish easements/setbacks and determines grades in relation to road lots, property lines, streets or highways, whether existing or proposed as reflected in the land use zoning or development plan of the city/municipality including road widening, construction of various public utilities/services and other infrastructure projects along creeks, esteros, waterways, subject to a written clearance from the DPWH.",
-          "- a. Verifies the lot plan as reflected in the Torrens Title, Original Certificate of Title (OCT)/Transfer Certificate of Title (TCT) and its relation to the proposed buildings/structures. - b. Checks compliance to establish easements/setbacks and determines grades in relation to road lots, property lines, streets or highways, whether existing or proposed as reflected in the land use zoning or development plan of the city/municipality including road widening, construction of various public utilities/services and other infrastructure projects along creeks, esteros, waterways, subject to a written clearance from the DPWH. - c. Verifies that at least one (1) side of the lot has direct access to a street/alley and that grades in relation to road lots and streets or highways, whether existing or proposed conform to the requirements."
-        ],
-        "triage": {
-          "decision": "needs_review",
-          "confidence": 0.5,
-          "reasons": [
-            "no_deterministic_rule_matched"
-          ]
-        },
-        "sections": [
-          "section-irr-general"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples consistently show that the 'irr-implementing-rules-and-regulations-of-the-national-building-code' governs the establishment and compliance checks for 'concept-setbacks' (e.g., checking easements/setbacks and grades in relation to road lots, property lines, etc.).",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-occupancy-classification",
-        "type": "affects",
-        "to": "concept-occupancy-separation",
-        "occurrences": 2,
-        "examples": [
-          "- b. Where minor accessory uses do not occupy more than 10% of the area of any floor or a building, nor more than 10% of the basic area permitted in the occupancy requirements, in which case, the major use of the building shall determine the occupancy classification.  - 2. Forms of Occupancy Separation",
-          "- (2) Where minor accessory uses do not occupy more than ten percent of the area of any floor or a building, nor more than ten percent of the basic area permitted in the occupancy requirements, in which case, the major use of the building shall determine the occupancy classification.  - (b) Forms of Occupancy Separation"
-        ],
-        "triage": {
-          "decision": "needs_review",
-          "confidence": 0.5,
-          "reasons": [
-            "no_deterministic_rule_matched"
-          ]
-        },
-        "sections": [
-          "section-irr-general"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples show that the concept of 'minor accessory uses' (related to occupancy classification) is directly discussed in the context of determining the rules for 'Occupancy Separation', supporting the 'affects' relationship.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-floor-area",
-        "type": "depends_on",
-        "to": "concept-building-height",
-        "occurrences": 9,
-        "examples": [
-          "###### Table VII.1. Allowable Maximum Total Gross Floor Area (TGFA)Based on the Allowed Percentage of Site Occupancy (PSO)of the Total Lot Area (TLA)  |Character of Use/ Occupancy|Type of Building/ Structure|Allowable Maximum Total Gross Floor Area (TGFA)* by Type/ Location of Lot<br><br>*Note: Building Height Limit (BHL) multiplied by the Allowable Maximum Building Footprint (AMBF) expressed as a percentage (%) of the Total Lot Area or TLA (with or without firewall). Figure subject to reduction to comply with the floor area component of the Allowable Maximum Volume of Building (AMVB). Refer to Table VII.1. to arrive at the percentage (%) of TLA.| | | | | |",
-          "|Character of Use/ Occupancy|Type of Building/ Structure|Allowable Maximum Total Gross Floor Area (TGFA)* by Type/ Location of Lot<br><br>*Note: Building Height Limit (BHL) multiplied by the Allowable Maximum Building Footprint (AMBF) expressed as a percentage (%) of the Total Lot Area or TLA (with or without firewall). Figure subject to reduction to comply with the floor area component of the Allowable Maximum Volume of Building (AMVB). Refer to Table VII.1. to arrive at the percentage (%) of TLA.| | | | | | |---|---|---|---|---|---|---|---|",
-          "|Character of Use/ Occupancy|Type of Building/ Structure|Allowable Maximum Total Gross Floor Area (TGFA)* by Type/ Location of Lot<br><br>*Note: Building Height Limit (BHL) multiplied by the Allowable Maximum Building Footprint (AMBF) expressed as a percentage (%) of the Total Lot Area or TLA (with or without firewall). Figure subject to reduction to comply with the floor area component of the Allowable Maximum Volume of Building (AMVB). Refer to Table VII.1. to arrive at the percentage (%) of TLA.| | | | | | |---|---|---|---|---|---|---|---| | | |Interior (or Rear) Lot and End Lot<br><br>(see Fig. VIII.8. and VIII.5.14. of Rule VIII)|Inside (or Regular) Lot<br><br>(see Fig. VIII.9. of Rule VIII)|Corner Lot<br><br>(see Fig. VIII.10. of Rule VIII)|Through Lot<br><br>(see Fig. VIII.11. of Rule VIII)|CornerThrough Lot<br><br>(see Fig. VIII.12. of Rule VIII)|Corner Lot Abutting 3 or More Streets, etc. Rivers, Etc. (see Fig. VIII.13. of Rule VIII)|"
-        ],
-        "triage": {
-          "decision": "needs_review",
-          "confidence": 0.5,
-          "reasons": [
-            "no_deterministic_rule_matched"
-          ]
-        },
-        "sections": [
-          "section-irr-general"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples show a calculation for 'Allowable Maximum Total Gross Floor Area (TGFA)' which explicitly uses 'Building Height Limit (BHL)' multiplied by 'Allowable Maximum Building Footprint (AMBF)'. Since 'concept-floor-area' relates to floor area and 'concept-building-height' relates to height, this calculation demonstrates a direct dependency relationship.",
-        "suggested_type": "calculates_based_on"
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-floor-area",
-        "type": "depends_on",
-        "to": "concept-yards",
-        "occurrences": 7,
-        "examples": [
-          "###### SECTION 706. Allowable Floor Area Increases  The floor areas hereinabove provided may be increased in certain specific instances and under appropriate conditions, based on the existence of public space, streets or yards extending along and adjoining two or more sides of the building or structure subject to the approval of the Building Official.",
-          "The floor areas hereinabove provided may be increased in certain specific instances and under appropriate conditions, based on the existence of public space, streets or yards extending along and adjoining two or more sides of the building or structure subject to the approval of the Building Official.",
-          "The floor areas hereinabove provided may be increased in certain specific instances and under appropriate conditions, based on the existence of public space, streets or yards extending along and adjoining two or more sides of the building or structure subject to the approval of the Building Official.  (Refer to Guidelines on Determining Gross Floor Area and Total Gross Floor Area of a Building/Structure at the end of this Rule)"
-        ],
-        "triage": {
-          "decision": "needs_review",
-          "confidence": 0.5,
-          "reasons": [
-            "no_deterministic_rule_matched"
-          ]
-        },
-        "sections": [
-          "section-irr-general"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples explicitly link 'floor areas' (concept-floor-area) to the existence of 'yards' (concept-yards) as a condition for increasing floor area.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-setbacks",
-        "type": "affects",
-        "to": "concept-yards",
-        "occurrences": 12,
-        "examples": [
-          "- A. DETERMINING BUILDING BULK  - 1. General. Building bulk (a volume quantity) shall be generally determined by the application of the Floor-Lot Area Ratio (FLAR), vertically projecting the Allowable Maximum Building Footprint (AMBF), establishing the Outermost Faces of Building (OFB) and quantifying the Allowable Maximum Volume of Building (AMVB). The building bulk may be ultimately governed by the width of the RROW and other applicable provisions for light and ventilation (including incremental setbacks as a result of satisfying natural light and ventilation requirements for RROW and front yards as partly shown in Table VII.G.1. hereafter).",
-          "- 1. General. Building bulk (a volume quantity) shall be generally determined by the application of the Floor-Lot Area Ratio (FLAR), vertically projecting the Allowable Maximum Building Footprint (AMBF), establishing the Outermost Faces of Building (OFB) and quantifying the Allowable Maximum Volume of Building (AMVB). The building bulk may be ultimately governed by the width of the RROW and other applicable provisions for light and ventilation (including incremental setbacks as a result of satisfying natural light and ventilation requirements for RROW and front yards as partly shown in Table VII.G.1. hereafter). - 2. Application of the FLAR. The FLAR (Table VII.G.1.) shall be the primary or initial determinant of the building bulk.",
-          "- 1. General. Building bulk (a volume quantity) shall be generally determined by the application of the Floor-Lot Area Ratio (FLAR), vertically projecting the Allowable Maximum Building Footprint (AMBF), establishing the Outermost Faces of Building (OFB) and quantifying the Allowable Maximum Volume of Building (AMVB). The building bulk may be ultimately governed by the width of the RROW and other applicable provisions for light and ventilation (including incremental setbacks as a result of satisfying natural light and ventilation requirements for RROW and front yards as partly shown in Table VII.G.1. hereafter). - 2. Application of the FLAR. The FLAR (Table VII.G.1.) shall be the primary or initial determinant of the building bulk."
-        ],
-        "triage": {
-          "decision": "needs_review",
-          "confidence": 0.5,
-          "reasons": [
-            "no_deterministic_rule_matched"
-          ]
-        },
-        "sections": [
-          "section-irr-general"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples explicitly mention that building bulk may be governed by 'other applicable provisions for light and ventilation (including incremental setbacks as a result of satisfying natural light and ventilation requirements for RROW and front yards...)' which directly supports the relationship 'concept-setbacks' affects 'concept-yards'.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-yards",
-        "type": "affects",
-        "to": "concept-light-and-ventilation",
-        "occurrences": 2,
-        "examples": [
-          "###### 3. Establishing the OFB. The OFB shall be primarily determined by the vertical projections of theoutermost faces of the AMBF up to a height prescribed by the applicable BHL. Figure VII.G.1. shows thedetermination of the angular planes needed to establish the outer limits for walls and projections of theproposed building/structure facing RROW and for their corresponding roof configurations. Table VII.G.3.also shows the recommended angles or slopes for the angular planes originating from the centerline ofthe RROW for R-1 and C-3 properties only. Angles or slopes for other permitted uses/occupancies canbe extrapolated from the two (2) examples. (Figs. VIII.G.1. and VIII.G.2.)  - Table VII.G.3. Reference Table of Angles/Slopes* To Satisfy Natural Light and Ventilation Requirements Along RROW and Front Yards",
-          "- d. Check the resultant height against the BHL (refer to Table VII.2. of this Rule); if a greater building/structure height is desired, consult existing zoning ordinances or other applicable laws for possible relief; if relief cannot be sought, explore sub-grade (basement level) solutions or reduce the desired floor to floor heights in case it is greater than 3.00 meters; - e. Establish the Outermost Faces of Building (OFB) to help determine the Allowable Maximum Volume of Building (AMVB) and to satisfy natural light and ventilation requirements for RROW and front yards abutting RROW; an imaginary prism within which the proposed building/structure must fit shall result, unless specifically allowed under the Code; thereafter, establish the Outermost Limits of Building Projections (OLBP) to fully comply with other applicable light and ventilation provisions;"
-        ],
-        "triage": {
-          "decision": "needs_review",
-          "confidence": 0.5,
-          "reasons": [
-            "no_deterministic_rule_matched"
-          ]
-        },
-        "sections": [
-          "section-irr-general"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples show 'concept-yards' (front yards) and 'concept-light-and-ventilation' are discussed together in the context of establishing building limits (OFB, OLBP) to satisfy natural light and ventilation requirements for RROW and front yards.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-floor-area",
-        "type": "depends_on",
-        "to": "concept-light-and-ventilation",
-        "occurrences": 1,
-        "examples": [
-          "- 2. In case of proposed additional construction on a lot on which another building/structure already stands, the Percentage of Site Occupancy (PSO) arising out of such existing buildings/structures must be included in the computation of the PSO for the Total Lot Area (TLA). In case of discrepancy between the specified Maximum Allowable PSO and the other light and ventilation provisions under this Rule, the resulting lesser building/structure footprint or gross floor area at the ground floor (or at grade level) must prevail. - 3. Maximum site occupancy shall be governed by use, type of construction, and height of the building and the use, area, nature and location of the site; and subject to the provisions of the local zoning requirements and in accordance with the following types of open spaces:"
-        ],
-        "triage": {
-          "decision": "needs_review",
-          "confidence": 0.5,
-          "reasons": [
-            "no_deterministic_rule_matched"
-          ]
-        },
-        "sections": [
-          "section-irr-general"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples show that the calculation of Site Occupancy (PSO) and the resulting building footprint/gross floor area must consider multiple provisions, including 'light and ventilation provisions' and 'local zoning requirements,' indicating a dependency relationship.",
-        "suggested_type": "governed_by"
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-floor-area",
-        "type": "affects",
-        "to": "concept-stairs",
-        "occurrences": 6,
-        "examples": [
-          "- 1. General. The construction of stairs and exits shall conform to the occupant load requirements of buildings, reviewing stands, bleachers, and grandstands.  - a. Determination of Occupant Loads. The occupant load permitted in any building or portion thereof shall be determined by dividing the floor area assigned to that use by the unit area allowed per occupant as shown on Table XII.1. and as determined by the Secretary.",
-          "- 6. Ramps. A ramp conforming to the provisions of the Code may be used as an exit. The width of ramps shall be as required for corridors. - 7. Horizontal Exit. If conforming to the provisions of the Code, a horizontal exit may be considered as the required exit. All openings in a separation wall shall be protected by a fire assembly having a fire-resistive rating of not less than one hour. A horizontal exit shall not lead into a floor area having a capacity for an occupant load not less than the occupant load served by such exit. The capacity shall be determined by allowing 0.30 sq. meter of net floor area per ambulatory occupant and 1.90 sq. meters per non-ambulatory occupant. The dispersal area into which the horizontal exit leads shall be provided with exits as required by the Code. - 8. Exit Enclosure. Every interior stairway, ramp, or escalator shall be enclosed as specified in the Code; Except, that in other than Group D Occupancies, an enclosure will not be required for stairway, ramp, or escalator serving only one adjacent floor and not connected with corridors or stairways serving other floors. Stairs in Group A Occupancies need not be enclosed.",
-          "- 7. Horizontal Exit. If conforming to the provisions of the Code, a horizontal exit may be considered as the required exit. All openings in a separation wall shall be protected by a fire assembly having a fire-resistive rating of not less than one hour. A horizontal exit shall not lead into a floor area having a capacity for an occupant load not less than the occupant load served by such exit. The capacity shall be determined by allowing 0.30 sq. meter of net floor area per ambulatory occupant and 1.90 sq. meters per non-ambulatory occupant. The dispersal area into which the horizontal exit leads shall be provided with exits as required by the Code. - 8. Exit Enclosure. Every interior stairway, ramp, or escalator shall be enclosed as specified in the Code; Except, that in other than Group D Occupancies, an enclosure will not be required for stairway, ramp, or escalator serving only one adjacent floor and not connected with corridors or stairways serving other floors. Stairs in Group A Occupancies need not be enclosed."
-        ],
-        "triage": {
-          "decision": "needs_review",
-          "confidence": 0.5,
-          "reasons": [
-            "no_deterministic_rule_matched"
-          ]
-        },
-        "sections": [
-          "section-irr-general"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples show that the floor area (determined by dividing the floor area assigned to that use by the unit area allowed per occupant) is directly used to determine the occupant load, which in turn governs the requirements for stairs and exits.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-floor-area",
-        "type": "affects",
-        "to": "concept-building-height",
-        "occurrences": 1,
-        "examples": [
-          "BUILDING BULK - The overall size of a proposed building/structure as initially characterized by the expanse of its gross floor area (GFA) or total gross floor area (TGFA), by the overall dimensions of its allowable maximum building footprint (AMBF), by its height as dictated by the building height limit (BHL) and also by the extent of allowable building projections (if these are large enough to host certain types of activities). The building bulk, expressed in cubic meters, must not exceed the established AMVB above grade. All measurements pertaining to building bulk shall be made from the outermost faces of the exterior walls and roof or from the most bottom surface of the lowermost floor of the building/structure (including those below grade).  BUILDING HEIGHT LIMIT (BHL) - The maximum height to be allowed for buildings/ structures based on their proposed use or occupancy; the BHL is generally determined after the application of other development control (DC) and certain other parameters, i.e., considerations of site conditions, view, etc.. The BHL shall be generally measured from the established grade line to the topmost portion of the proposed building/structure."
-        ],
-        "triage": {
-          "decision": "needs_review",
-          "confidence": 0.5,
-          "reasons": [
-            "no_deterministic_rule_matched"
-          ]
-        },
-        "sections": [
-          "section-irr-general"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The provided example explicitly discusses 'BUILDING BULK' which is characterized by the overall size, including dimensions related to 'gross floor area' (GFA) and 'height' (BHL). The relationship 'concept-floor-area' affects 'concept-building-height' is supported by the text linking GFA/floor area to the overall size calculation which includes height.",
-        "suggested_type": null
-      }
-    },
-    {
-      "candidate": {
-        "from": "concept-setbacks",
-        "type": "depends_on",
-        "to": "concept-yards",
-        "occurrences": 3,
-        "examples": [
-          "- b. Ground Preparation and Excavation Fee  i. While the application for Building Permit is still being processed, the Building Official may issue Ground Preparation and Excavation Permit (GP&EP) for foundation, subject to the verification, inspection and review by the Line and Grade Section of the Inspection and Enforcement Division to determine compliance to line and grade, setbacks, yards/easements and parking requirements.",
-          "i. While the application for Building Permit is still being processed, the Building Official may issue Ground Preparation and Excavation Permit (GP&EP) for foundation, subject to the verification, inspection and review by the Line and Grade Section of the Inspection and Enforcement Division to determine compliance to line and grade, setbacks, yards/easements and parking requirements.",
-          "i. While the application for Building Permit is still being processed, the Building Official may issue Ground Preparation and Excavation Permit (GP&EP) for foundation, subject to the verification, inspection and review by the Line and Grade Section of the Inspection and Enforcement Division to determine compliance to line and grade, setbacks, yards/easements and parking requirements.  - (a) Inspection and Verification Fee ..\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026\u2026.. P 200.00"
-        ],
-        "triage": {
-          "decision": "needs_review",
-          "confidence": 0.5,
-          "reasons": [
-            "no_deterministic_rule_matched"
-          ]
-        },
-        "sections": [
-          "section-irr-general"
-        ]
-      },
-      "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The provided examples explicitly mention that the review process determines compliance to 'setbacks, yards/easements', indicating a dependency or relationship between setbacks and yards.",
-        "suggested_type": "dependency"
       }
     }
   ]

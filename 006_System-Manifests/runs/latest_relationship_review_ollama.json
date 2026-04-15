@@ -1,5 +1,5 @@
 {
-  "generated_at": "20260414T233645Z",
+  "generated_at": "20260415T004658Z",
   "model": "gemma4:e4b",
   "source": "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
   "total_candidates": 44,
@@ -9,11 +9,11 @@
   "completed_reviews": 44,
   "status": "completed",
   "summary": {
-    "keep": 24,
-    "review_further": 1,
-    "reject": 19,
-    "high_confidence_keep": 24,
-    "high_confidence_reject": 19
+    "keep": 14,
+    "review_further": 14,
+    "reject": 16,
+    "high_confidence_keep": 14,
+    "high_confidence_reject": 16
   },
   "reviews": [
     {
@@ -630,9 +630,9 @@
         }
       },
       "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples consistently show that the 'irr-implementing-rules-and-regulations-of-the-national-building-code' governs the establishment and compliance checks for 'concept-setbacks' (e.g., checking easements/setbacks and grades in relation to road lots, property lines, etc.).",
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
         "suggested_type": null
       }
     },
@@ -655,9 +655,9 @@
         }
       },
       "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples show that the concept of 'minor accessory uses' (related to occupancy classification) is directly discussed in the context of determining the rules for 'Occupancy Separation', supporting the 'affects' relationship.",
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
         "suggested_type": null
       }
     },
@@ -681,10 +681,10 @@
         }
       },
       "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples show a calculation for 'Allowable Maximum Total Gross Floor Area (TGFA)' which explicitly uses 'Building Height Limit (BHL)' multiplied by 'Allowable Maximum Building Footprint (AMBF)'. Since 'concept-floor-area' relates to floor area and 'concept-building-height' relates to height, this calculation demonstrates a direct dependency relationship.",
-        "suggested_type": "calculates_based_on"
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
+        "suggested_type": null
       }
     },
     {
@@ -707,9 +707,9 @@
         }
       },
       "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples explicitly link 'floor areas' (concept-floor-area) to the existence of 'yards' (concept-yards) as a condition for increasing floor area.",
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
         "suggested_type": null
       }
     },
@@ -733,9 +733,9 @@
         }
       },
       "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples explicitly mention that building bulk may be governed by 'other applicable provisions for light and ventilation (including incremental setbacks as a result of satisfying natural light and ventilation requirements for RROW and front yards...)' which directly supports the relationship 'concept-setbacks' affects 'concept-yards'.",
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
         "suggested_type": null
       }
     },
@@ -758,9 +758,9 @@
         }
       },
       "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples show 'concept-yards' (front yards) and 'concept-light-and-ventilation' are discussed together in the context of establishing building limits (OFB, OLBP) to satisfy natural light and ventilation requirements for RROW and front yards.",
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
         "suggested_type": null
       }
     },
@@ -783,9 +783,9 @@
         }
       },
       "review": {
-        "decision": "reject",
-        "confidence": 0.9,
-        "reason": "The candidate relationship 'concept-floor-area affects concept-yards' is not supported by the provided examples. The examples discuss establishing building limits (OFB, OLBP) and calculating Gross Floor Area (GFA) and Allowable Maximum Volume of Building (AMVB), but they do not show 'floor area' directly affecting 'yards' in a clear, definable way.",
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
         "suggested_type": null
       }
     },
@@ -807,10 +807,10 @@
         }
       },
       "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples show that the calculation of Site Occupancy (PSO) and the resulting building footprint/gross floor area must consider multiple provisions, including 'light and ventilation provisions' and 'local zoning requirements,' indicating a dependency relationship.",
-        "suggested_type": "governed_by"
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
+        "suggested_type": null
       }
     },
     {
@@ -833,9 +833,9 @@
         }
       },
       "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The examples show that the floor area (determined by dividing the floor area assigned to that use by the unit area allowed per occupant) is directly used to determine the occupant load, which in turn governs the requirements for stairs and exits.",
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
         "suggested_type": null
       }
     },
@@ -859,9 +859,9 @@
         }
       },
       "review": {
-        "decision": "reject",
-        "confidence": 0.9,
-        "reason": "The provided examples discuss building codes, volume, and area limits (AMBF, AMVB) and airport/runway terminology (APPROACH/DEPARTURE SURFACE). There is no evidence linking 'concept-building-height' to 'concept-yards' using the specified relationship type 'affects'.",
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
         "suggested_type": null
       }
     },
@@ -883,9 +883,9 @@
         }
       },
       "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The provided example explicitly discusses 'BUILDING BULK' which is characterized by the overall size, including dimensions related to 'gross floor area' (GFA) and 'height' (BHL). The relationship 'concept-floor-area' affects 'concept-building-height' is supported by the text linking GFA/floor area to the overall size calculation which includes height.",
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
         "suggested_type": null
       }
     },
@@ -910,8 +910,8 @@
       },
       "review": {
         "decision": "review_further",
-        "confidence": 0.7,
-        "reason": "The examples show 'concept-setbacks' affecting 'concept-building-height' because the setback calculation (diagonal line/plane) is used to determine the limits of the roof height and configuration, which are components of the overall building height. However, the relationship is complex and involves multiple concepts (AMBF, BHL, OFB, setbacks) simultaneously, making a definitive 'keep' difficult without more context on the precise nature of the 'affects' relationship.",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
         "suggested_type": null
       }
     },
@@ -935,10 +935,10 @@
         }
       },
       "review": {
-        "decision": "keep",
-        "confidence": 0.9,
-        "reason": "The provided examples explicitly mention that the review process determines compliance to 'setbacks, yards/easements', indicating a dependency or relationship between setbacks and yards.",
-        "suggested_type": "dependency"
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
+        "suggested_type": null
       }
     },
     {
@@ -959,9 +959,9 @@
         }
       },
       "review": {
-        "decision": "reject",
-        "confidence": 1.0,
-        "reason": "The candidate relationship links 'concept-stairs' (source) to 'concept-exit-width' (target). The provided examples discuss floor levels, door identification, and additional doors, but they do not establish a direct relationship or constraint between the concept of stairs and the required exit width.",
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Invalid decision from model: None",
         "suggested_type": null
       }
     }
