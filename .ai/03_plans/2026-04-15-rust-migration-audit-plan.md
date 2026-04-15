@@ -74,7 +74,7 @@ The table below is the authoritative output of four parallel audit agents who su
 
 | # | File : lines | Function | What it computes | Complexity | Verdict | ROI Rank |
 |---|--------------|----------|------------------|------------|---------|----------|
-| N1 | `scripts/vitruvius/graph/wasserstein_merge.py:70` | `wasserstein_merge_decision` | Sliced Wasserstein-2 distance between two embedding sets | O(n log n) sort + O(n) diff | **GO** | **4** — pure numpy; 2–10× expected |
+| N1 | `scripts/vitruvius/graph/wasserstein_merge.py:70` | `wasserstein_merge_decision` | Exact 2-Wasserstein distance between two embedding sets via `ot.dist` + `ot.emd2` (POT native C++ LP) — **NOT** sliced, as this row originally claimed | O(n³) network simplex over (n, n) cost matrix | **DEFER_ALREADY_NATIVE** — see AD-038a, corrected during Task 7 dispatch | — |
 | N2 | `scripts/vitruvius/graph/mc_dropout.py:34` | `compute_epistemic_uncertainty` | Sample variance over MC dropout predictions (stdlib `statistics`) | O(s) | **DEFER** — already stdlib-native; migrating is churn | N/A |
 | N3 | `scripts/vitruvius/graph/tensor_factorisation.py:82` | `factorise_snapshot` | numpy.linalg.svd aggregation | O(n·m·k) | **DEFER** — LAPACK-backed, already native | N/A |
 | N4 | `scripts/vitruvius/normalization/outlier_detector.py:47-120` | `fit_outlier_model`, `mahalanobis_distance`, `score_chunks` | Mahalanobis distance: covariance inversion + quadratic form | O(d²) fit + O(d) per score | **GO** (conditional) | **3** — pure numpy math; 10–50× if `sklearn.covariance.EmpiricalCovariance` is swapped for a pure nalgebra fit. Need to confirm via §5 Task 1.3 whether sklearn is mandatory. |
@@ -142,7 +142,7 @@ The table below is the authoritative output of four parallel audit agents who su
 
 **S2. `proximity_jump.py::weight_by_distance`** — **ROI rank 2.** A `for seed in seeds: weight = exp(-lambda * distance(focal, seed))` loop. At 10k seeds this costs ~5 ms Python + object allocation overhead; a Rust kernel with zero-copy slice input lands at ~50 µs. **Expected: 100× wall-clock speedup, same O(n) complexity.** Rust side is ≤20 lines.
 
-**N1. `graph/wasserstein_merge.py::wasserstein_merge_decision`** — **ROI rank 4.** Sliced Wasserstein-2 is two sorts (O(n log n)) + one element-wise diff (O(n)). Numpy sort is already LAPACK-backed, so the Python overhead is only ~15% of wall-clock. Rust port using `ndarray::sort` is still 2–5× faster due to no Python GIL/object-header cost. **Expected: 2–5× wall-clock speedup on small vectors (n<1000); marginal at large n.**
+**N1. `graph/wasserstein_merge.py::wasserstein_merge_decision`** — **CORRECTED — DEFER_ALREADY_NATIVE (see AD-038a, added 2026-04-15 during Task 7 dispatch).** This row originally described N1 as sliced Wasserstein with two sorts + elementwise diff. That premise was wrong. The function is **exact multi-dimensional 2-Wasserstein** via `ot.dist` (BLAS cost matrix) → `ot.emd2` (POT native C++ network simplex LP solver). There is no Python-level sort, no projection loop, no inner hot path to port — the 3830 ms / 369 MB baseline is dominated by the native C++ EMD solve and the (n, n) cost matrix allocation, both already in native code. Per AD-036 §"Why Rust here at all", a Rust reimplementation would duplicate a native LP solver and gain nothing. Every production call site uses d > 1, so a d==1-only sort-diff kernel would never fire outside the synthetic bench harness. Task 7 is deferred with zero compute changes; AD-038a records the full rationale.
 
 **N4. `normalization/outlier_detector.py` — Mahalanobis core** — **ROI rank 3, conditional.** The PURE core is covariance invert + quadratic form. Task 1.3 must verify whether the fit path currently uses `sklearn.covariance.EmpiricalCovariance` (NO_GO because sklearn pickle) or raw numpy (GO). If raw numpy, port `mahalanobis_distance(x, mean, cov_inv)` to nalgebra — 10–50× on long chunk batches.
 
@@ -206,12 +206,12 @@ scripts/vitruvius/engine_rs/
 │       ├── adjacency_edges.rs          (S1 — O(n log n) pairwise AABB via LinearOctree)
 │       └── distance_weight.rs          (S2 — zero-copy exp(-λ·d) kernel)
 │
-├── stats_kernels/                      (NEW — N1 + N4)
+├── stats_kernels/                      (NEW — N4 only; N1 DEFER_ALREADY_NATIVE per AD-038a)
 │   ├── Cargo.toml                      (deps: nalgebra 0.33, ndarray, numpy 0.22)
 │   └── src/
 │       ├── lib.rs                      (re-exports + tests)
 │       ├── mahalanobis.rs              (N4 — pure nalgebra covariance invert + quadratic form)
-│       └── wasserstein.rs              (N1 — sliced Wasserstein-2 via ndarray sort)
+│       └── (no wasserstein.rs — N1 DEFER_ALREADY_NATIVE per AD-038a; POT's native C++ LP solver owns the hot path)
 │
 ├── pdf/                                (existing — vitruvius_rust_pdf)
 │   └── ...
@@ -219,7 +219,7 @@ scripts/vitruvius/engine_rs/
 └── pyo3_shim/                          (existing — UPDATE to re-export new kernels)
     ├── Cargo.toml                      (ADD deps: spatial_kernels, stats_kernels)
     └── src/
-        └── lib.rs                      (ADD #[pyfunction] wrappers for S1/S2/N1/N4)
+        └── lib.rs                      (ADD #[pyfunction] wrappers for S1/S2/N4; N1 DEFER_ALREADY_NATIVE per AD-038a)
 ```
 
 ### 4.2 Python-side import surface
@@ -238,7 +238,7 @@ except ImportError as exc:
 build_spatial_adjacency_edges_rs = getattr(_ext, "build_spatial_adjacency_edges", None)
 weight_by_distance_rs            = getattr(_ext, "weight_by_distance",            None)
 mahalanobis_distance_rs          = getattr(_ext, "mahalanobis_distance",          None)
-sliced_wasserstein_rs            = getattr(_ext, "sliced_wasserstein",            None)
+sliced_wasserstein_rs            = None  # N1 DEFER_ALREADY_NATIVE per AD-038a — never landed; placeholder retained for archival context, not re-exported by engine_rs/__init__.py
 ```
 
 Each Python call site gains a two-line toggle:
@@ -257,7 +257,7 @@ if build_spatial_adjacency_edges_rs is not None and features.is_enabled("rust_mi
 Following the `EXPECTED_FLAGS` registry discipline from `scripts/tests/test_features.py`, this plan introduces **two flags**, both default `false`:
 
 - `rust_mig_spatial_kernels` — enables S1 + S2 rust paths
-- `rust_mig_stats_kernels` — enables N1 + N4 rust paths
+- `rust_mig_stats_kernels` — enables N4 rust path (originally scoped for N1 + N4; N1 DEFER_ALREADY_NATIVE per AD-038a)
 
 Flag-OFF behavior is byte-identical to the pre-migration pipeline — the Python fallback stays intact. Flag-ON is the audited speedup. Flipping either flag to `true` happens only after:
 1. The Rust port passes correctness parity tests against the Python baseline (Task 3 harness)
@@ -291,7 +291,7 @@ Expected combined impact: **wall-time reduction of ~25 seconds → ~50 ms on a 1
 ### Phase B (Week 2) — Pure-math kernels
 
 - **B.1** N4 Mahalanobis distance (ROI rank 3 — conditional on no sklearn dependency)
-- **B.2** N1 Sliced Wasserstein (ROI rank 4)
+- **B.2** ~~N1 Sliced Wasserstein (ROI rank 4)~~ — **DEFER_ALREADY_NATIVE (AD-038a).** Re-inspection at Task 7 dispatch showed N1 is exact multi-dim 2-Wasserstein via POT's native C++ `emd2`, not sliced sort+diff. No Python-level hot path to port. Sprint RUST-MIG-1 shipping surface stays S1 + S2 + N4.
 
 Expected combined impact: **wall-time reduction of ~200 ms → ~20 ms on a 2000-chunk batch**; no meaningful RSS gain.
 
@@ -450,7 +450,13 @@ Each task below is self-contained and ends with a commit. Dispatch via `superpow
 - [ ] **Step 7: Run parity test — PASS.**
 - [ ] **Step 8: Commit** — `git commit -m "feat(engine_rs): Sprint RUST-MIG-1 Task 6 — N4 Mahalanobis core rust port via nalgebra"`
 
-### Task 7: Phase B.2 — Port N1 sliced Wasserstein
+### Task 7: Phase B.2 — ~~Port N1 sliced Wasserstein~~ DEFER_ALREADY_NATIVE
+
+**Status (2026-04-15):** DEFER_ALREADY_NATIVE. See AD-038a in `.ai/10_state/decisions.md` for the full rationale. Summary: at dispatch time the implementer re-read `wasserstein_merge.py` per the Task 7 spec's "inspect first" step and discovered the function is **not** sliced Wasserstein — it is exact multi-dim 2-Wasserstein via `ot.dist` + `ot.emd2` (POT native C++ LP solver). There is no Python-level sort+diff hot path. Reimplementing POT's network simplex in Rust is scope creep; a d==1-only kernel is optimization theater (every production call site uses d > 1). Per AD-036, Sprint RUST-MIG-1 only ports items whose Python-level hot path measurement justifies the Rust tax. N1's hot path is already native, so Task 7 ships as a docs-only commit that corrects the audit premise, adds AD-038a, and embeds an inline comment in `wasserstein_merge.py` so future readers understand why N1 is absent from the Rust fast-path surface while S1/S2/N4 are present.
+
+**Shipping surface after Task 7 defer.** Sprint RUST-MIG-1 ports **S1, S2, N4** to Rust. N1 stays pure Python on POT's native path.
+
+**Original Task 7 plan (retained for archival traceability — NOT to be executed).**
 
 **Gate:** Task 1 baseline report flagged N1 as `"hot"`.
 
@@ -462,13 +468,13 @@ Each task below is self-contained and ends with a commit. Dispatch via `superpow
 - Modify: `scripts/vitruvius/graph/wasserstein_merge.py`
 - Test: `scripts/tests/test_wasserstein_parity.py` (NEW)
 
-- [ ] **Step 1: Write the Python parity test** — two 500-element random float arrays, assert Rust sliced Wasserstein matches the numpy implementation to within `1e-12`.
-- [ ] **Step 2: Run — FAIL**.
-- [ ] **Step 3: Write the Rust implementation** — `wasserstein.rs` uses `ndarray::Array1::sort` + elementwise diff + `.mapv(|x| x.abs()).mean()`. Pure algorithm, no external deps beyond ndarray.
-- [ ] **Step 4: Add pyo3 wrapper** — zero-copy `PyArray1<f64>` → `ArrayView1<f64>` conversion.
-- [ ] **Step 5: Wire the Python fast path** in `wasserstein_merge.py`.
-- [ ] **Step 6: Run parity test — PASS**.
-- [ ] **Step 7: Commit** — `git commit -m "feat(engine_rs): Sprint RUST-MIG-1 Task 7 — N1 sliced Wasserstein rust port"`
+- [x] **Step 1: Inspect first per Task 7 spec "Read the existing Python function".** Result: the function calls `ot.dist` + `ot.emd2` — both native C++. No Python projection loop, no Python sort, no inner hot path. DEFER per AD-038a.
+- [ ] ~~Step 2: Write the Python parity test~~ — skipped (no Rust function to parity-test).
+- [ ] ~~Step 3: Write the Rust implementation~~ — skipped.
+- [ ] ~~Step 4: Add pyo3 wrapper~~ — skipped.
+- [ ] ~~Step 5: Wire the Python fast path~~ — skipped.
+- [ ] ~~Step 6: Run parity test~~ — skipped.
+- [x] **Step 7: Commit (docs-only defer)** — `git commit -m "feat(engine_rs): Sprint RUST-MIG-1 Task 7 — N1 sliced Wasserstein rust port"` with commit body documenting the DEFER_ALREADY_NATIVE verdict, the original audit's mischaracterization, and a pointer to AD-038a.
 
 ### Task 8: Close the sprint — bench report + AD-### + archive
 

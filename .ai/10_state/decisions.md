@@ -980,6 +980,59 @@ The endpoint keys differ (`"lot-area"` ≠ `"minimum-lot-area"`), so the exact d
 
 ---
 
+## AD-038a — Sprint RUST-MIG-1 Task 7 N1 Wasserstein DEFER_ALREADY_NATIVE (2026-04-15)
+
+**plan_id:** `rust-migration-audit`
+**Sprint:** Sprint RUST-MIG-1 (Python→Rust polyglot) — Task 7
+**Status:** Accepted (sub-decision under AD-036; rolled up into AD-038 at Task 8 sprint closure)
+
+**Context.** Sprint RUST-MIG-1 Task 7 was scoped to port N1 `wasserstein_merge_decision` from `scripts/vitruvius/graph/wasserstein_merge.py` into the new `stats_kernels` crate. Task 1's baseline bench classified N1 as the heaviest candidate in the audit (wall 3830 ms, RSS 369 MB at n=500). The audit plan (§2.3 row N1 + §3) described the target as "sliced Wasserstein-2 via ndarray::sort + elementwise diff" — a pure-Python inner loop over sort+diff, the classic shape where a Rust port wins 2–5×. The Task 7 implementation step-list therefore prescribed creating `stats_kernels/src/wasserstein.rs` as an `ndarray::Array1::sort` + `mapv(|x| x.abs()).mean()` kernel.
+
+**The audit premise was wrong.** Re-inspecting `wasserstein_merge.py` during Task 7 dispatch (the Task 7 spec required "read the Python function first, decide Case A vs Case B") showed the function is not sliced Wasserstein at all:
+
+```python
+a_weights = np.ones(embeddings_a.shape[0]) / embeddings_a.shape[0]
+b_weights = np.ones(embeddings_b.shape[0]) / embeddings_b.shape[0]
+cost = ot.dist(embeddings_a, embeddings_b, metric="sqeuclidean")
+squared = float(ot.emd2(a_weights, b_weights, cost))
+distance = float(np.sqrt(max(squared, 0.0)))
+```
+
+It builds an explicit (n, n) squared-Euclidean cost matrix via `ot.dist` (native BLAS) and solves the exact multi-dimensional 2-Wasserstein via a single call to POT's `ot.emd2` — POT (Python Optimal Transport)'s network simplex LP solver, which is a native C++ backend. There is no projection loop, no Python-level sort, no inner Python hot path. The entire 3830 ms / 369 MB baseline cost is (a) allocating a dense 500×500 float64 cost matrix and (b) running the native C++ LP solver over it. Both are already in native code.
+
+**Decision.** Sprint RUST-MIG-1 Task 7 is marked **DEFER_ALREADY_NATIVE** with no Rust code written. Three mutually exclusive reasons, any one of which is sufficient:
+
+1. **AD-036 policy.** AD-036 §"Why Rust here at all" commits the sprint to "only port what wall-time measurement says is worth the Rust tax". The non-ported bloom filter, scanner SHA-256, and Merkle fs kernels were excluded because "`hashlib`'s C path already dominates". `ot.emd2` is in the same class — reimplementing it in Rust would duplicate a native C++ network simplex solver, gaining nothing at the kernel level while adding crate maintenance, parity test burden, and cross-language debugging cost.
+
+2. **Scope creep on the multi-dim case.** Every production call site (`scripts/tests/test_graph_wasserstein_merge.py` fixtures) passes `(n, d)` embeddings with d ∈ {2, 3, 4}. A multi-dimensional EMD Rust port would require re-implementing POT's network simplex over an arbitrary cost matrix — a major LP solver project that is massively beyond Sprint RUST-MIG-1's "small, high-ROI pure-compute kernels" charter (AD-036 §Context). This is a classic DEFER_SCOPE_CREEP.
+
+3. **Optimization theater on the d==1 case.** The Task 1 baseline fixture (`bench_rust_mig_baseline.py::_spec_n1_wasserstein`) reshapes 1-D random floats to `(n, 1)`. For d == 1, the exact 2-Wasserstein does equal a simple sort-and-diff kernel (the Wasserstein distance of two 1-D empirical measures with equal mass is the L² distance of sorted samples). A Rust port that only handles d == 1 would compute the same baseline number much faster — but would never fire in production because the real call sites all use d > 1. Porting a kernel that only speeds up the synthetic bench harness and not the production hot path is optimization theater, not a measurement-driven win.
+
+**Consequences.**
+
+- `stats_kernels/src/wasserstein.rs` is **not** created.
+- `stats_kernels/src/lib.rs` does **not** gain `mod wasserstein;`.
+- `pyo3_shim/src/lib.rs` does **not** gain a `sliced_wasserstein` `#[pyfunction]`.
+- `scripts/vitruvius/engine_rs/__init__.py` does **not** gain a `sliced_wasserstein_rs` re-export (it was already absent — Task 6 only added `mahalanobis_distance_rs`).
+- `scripts/vitruvius/graph/wasserstein_merge.py` gains an inline block comment pointing at this AD so future readers understand why N1 is missing from the Rust fast-path surface while S1/S2/N4 are present.
+- The audit plan N1 row (§2.3) and N1 rationale (§3) are corrected in the same commit to reflect the actual shape of the function, so the archived plan does not mislead the next agent who reads it.
+- Sprint RUST-MIG-1 shipping surface stays: **S1, S2, N4** via Rust — N1 stays pure Python with `ot.emd2` on the native path.
+- The Task 1 N1 baseline row in `audit_rust_migration_baseline_2026-04-15.json` is **still load-bearing**: it tells the next sprint's operator where the wall-time sits so a future AD can decide whether a full POT alternative (faster LP solver, dimensionality reduction before EMD, sliced approximation of the exact EMD) is worth a separate plan. This AD closes *Task 7 only*, not *every conceivable optimization of wasserstein_merge.py*.
+
+**Flag-flip impact.** `rust_mig_stats_kernels` (AD-036 §4.4) still gates N4 only. At AD-038 closure, N4 becomes the sole flag-on candidate under this flag. The flag name is retained — renaming to `rust_mig_stats_mahalanobis` would churn the feature registry and the test harness for zero user-visible benefit.
+
+**Conclusion.** Sprint RUST-MIG-1 Task 7 is DEFERred with no compute changes and no Rust code. The docs-only commit records the decision in this AD, corrects the audit plan's mischaracterization of N1, and embeds an inline pointer in `wasserstein_merge.py`. Task 8 (AD-038 sprint closure) will roll this up into the final sprint verdict alongside the S1/S2/N4 activation gates.
+
+**References.**
+- Source of truth: `scripts/vitruvius/graph/wasserstein_merge.py` (inline comment added in this commit)
+- Audit plan original premise: `.ai/03_plans/2026-04-15-rust-migration-audit-plan.md` §2.3 row N1 + §3 N1 paragraph (both corrected in this commit)
+- Task 7 spec: same plan §6 Task 7
+- Parent ADs: AD-036 (crate layout + "only port native-dominated items when measurement proves it" policy)
+- Bench baseline: `.ai/10_state/audit_rust_migration_baseline_2026-04-15.json` N1 row (3830 ms / 369 MB at n=500)
+- Sibling Task 6 (N4 Mahalanobis) commits for contrast: `4b79b66`, `caa5119`, `d5a52b6`
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.

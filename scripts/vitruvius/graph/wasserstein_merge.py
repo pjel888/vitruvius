@@ -6,6 +6,27 @@ from typing import Literal
 import numpy as np
 import ot
 
+# Sprint RUST-MIG-1 Task 7 — DEFER_ALREADY_NATIVE (see AD-038a, 2026-04-15).
+#
+# The audit plan (.ai/03_plans/2026-04-15-rust-migration-audit-plan.md §2.3
+# row N1 + §3) assumed this function was a pure ndarray sort + elementwise
+# diff kernel — "sliced Wasserstein-2 via ndarray::sort". It is not. It
+# builds a dense squared-Euclidean cost matrix via ot.dist (native BLAS) and
+# calls ot.emd2 once (native POT C++ network simplex LP solver). There is
+# no projection loop, no Python-level sort, no inner Python-level hot path
+# to port — the 3830 ms / 369 MB baseline cost is dominated by the native
+# EMD solve and the (n, n) cost matrix allocation, both already in C++.
+#
+# Per AD-036 §"Why Rust here at all": "we only port what wall-time
+# measurement says is worth the Rust tax". A Rust reimplementation would
+# either (a) duplicate POT's existing native path for d > 1 (scope creep —
+# a full network simplex solver), or (b) ship a d == 1 sort-diff kernel
+# that would never fire in production because every real call site passes
+# multi-dimensional embeddings (see scripts/tests/test_graph_wasserstein_
+# merge.py fixtures: d = 2, 3, 4). Sprint RUST-MIG-1 Task 7 is therefore
+# DEFERred with no Rust code written. Task 8 (AD-038) will record the
+# closure verdict alongside S1/S2/N4.
+
 
 MergeVerdict = Literal["merge", "review", "keep_separate"]
 DEFAULT_MERGE_THRESHOLD = 0.1
