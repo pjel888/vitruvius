@@ -27,6 +27,8 @@ from __future__ import annotations
 
 import copy
 import json
+import resource
+import sys
 import threading
 import time
 from contextlib import contextmanager
@@ -34,8 +36,12 @@ from pathlib import Path
 from typing import Any, Iterator
 from unittest.mock import patch
 
-import psutil
 import yaml
+
+try:
+    import psutil  # type: ignore[import-not-found]
+except ImportError:
+    psutil = None
 
 from vitruvius.paths import get_repo_root
 
@@ -149,21 +155,30 @@ class _RssSampler:
 
     def __init__(self, *, interval_s: float = 0.5) -> None:
         self._interval_s = interval_s
-        self._proc = psutil.Process()
+        self._proc: Any | None = psutil.Process() if psutil is not None else None
         self._stop_event = threading.Event()
         self._thread: threading.Thread | None = None
         self.peak_rss_mb: float = 0.0
+        self.backend = "psutil" if self._proc is not None else "resource.getrusage"
+
+    def _rss_mb(self) -> float:
+        """Return RSS in MB using the best available backend."""
+        if self._proc is not None:
+            return self._proc.memory_info().rss / (1024 * 1024)
+
+        rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        if sys.platform == "darwin":
+            return rss / (1024 * 1024)
+        return rss / 1024
 
     def _run(self) -> None:
         # Seed with the current RSS so even a zero-sample run returns
         # something sensible.
-        self.peak_rss_mb = max(
-            self.peak_rss_mb, self._proc.memory_info().rss / (1024 * 1024)
-        )
+        self.peak_rss_mb = max(self.peak_rss_mb, self._rss_mb())
         while not self._stop_event.is_set():
             try:
-                rss_mb = self._proc.memory_info().rss / (1024 * 1024)
-            except psutil.Error:
+                rss_mb = self._rss_mb()
+            except Exception:
                 break
             if rss_mb > self.peak_rss_mb:
                 self.peak_rss_mb = rss_mb

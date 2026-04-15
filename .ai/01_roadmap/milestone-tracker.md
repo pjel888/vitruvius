@@ -2,7 +2,7 @@
 
 > **Source of truth:** This tracker is reconciled against `/.ai/01_roadmap/master-roadmap.md` §4 and the 2026-04-13 audit pack.
 > **Legend:** `[x]` complete · `[~]` partial / skeleton · `[ ]` not started · `🔒` gated (do not start) · `🔥` highest priority · `🚫` DEFERRED (documented in an AD)
-> **Revised:** 2026-04-15 19:50 (post-Sprint-LSH-1 + path-rewrite sweep)
+> **Revised:** 2026-04-16 (post plan-layer reconciliation)
 
 ## Phase 0 — Foundation ✅ COMPLETE
 - [x] Layered root structure `001_` through `006_`
@@ -19,7 +19,7 @@
 - [x] OCR integration (`ocrmypdf`)
 - [x] File hashing — SHA-256 via `_sha256_of_file()` (RI-009 closed 2026-04-14)
 - [ ] OCR parallelization (carried as Phase 1B §11 Phase 2/3)
-- [ ] Registry rotation (carried as RI-008)
+- [x] Registry rotation — closed 2026-04-14 via Sprint C quality pass (RI-008)
 
 ## Phase 1B — Multi-Parser Integration ✅ COMPLETE (2026-04-15 after Tranches 1-3 + Sprint PIPELINE-CLI)
 

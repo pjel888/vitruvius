@@ -275,6 +275,7 @@ AD-029 (RocksDB migration) for the per-sprint ledgers.
 ## Table of contents
 
 - [Compound AI System Definition](#vitruvius-compound-ai-system-definition)
+- [Vitruvius in plain English](#vitruvius-in-plain-english)
 - [Quick start](#quick-start)
 - [Architecture at a glance](#architecture-at-a-glance)
 - [Use cases](#use-cases)
@@ -295,32 +296,110 @@ AD-029 (RocksDB migration) for the per-sprint ledgers.
 
 ---
 
+## Vitruvius in plain English
+
+Vitruvius is a tool for turning messy, hard-to-use technical documents
+into something a person can actually work with.
+
+In human terms, it does four things:
+
+- It finds and inventories the source documents you care about.
+- It cleans up machine-extracted text so the wording is more stable and
+  easier to process.
+- It turns repeated ideas, rules, and relationships into structured
+  knowledge with an audit trail.
+- It helps you answer "what does this document say, and where did that
+  answer come from?" without relying on free-form AI guesses alone.
+
+In this repository, the current working corpus is mostly Philippine
+building-code material such as PD 1096 and its IRR. The same workflow is
+meant to carry over to other technical or regulatory document sets once
+their source corpus and rules are added.
+
+---
+
 ## Quick start
 
+If you are new to Vitruvius, read the quick start as a short story:
+install the basics, confirm the codebase is healthy, inspect the command
+surface, then run two real deterministic stages so you can see useful
+output without needing an LLM.
+
+1. Install the minimum Python packages needed for the CLI and test
+runner.
+
 ```bash
-# 1. Install dependencies (minimal path — CLI works without PDF/OCR deps)
-pip3 install PyYAML pytest
+python3 -m pip install PyYAML pytest
+```
 
-# 2. Install ingestion deps only if you need to run scan/convert/ocr
-pip3 install -r requirements.txt
+2. Install the heavier ingestion stack only if you plan to work with PDF,
+OCR, or spreadsheet conversion.
 
-# 3. Run the test suite
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+3. If you want to run the exact full Python test suite shown below,
+install the extra pieces that those tests exercise: the spaCy English
+pipeline and the Rust Python extension.
+
+```bash
+python3 -m spacy download en_core_web_sm
+python3 -m pip install maturin
+
+(
+  cd scripts/vitruvius/engine_rs/pyo3_shim
+  python3 -m maturin build --release -i "$(command -v python3)"
+  python3 -m pip install --force-reinstall ../target/wheels/vitruvius_engine_rs-*.whl
+)
+```
+
+The parentheses run those Rust-build commands in a temporary subshell, so
+you do not need to manually `cd` back to the repo root afterward.
+
+4. Run the full Python suite to answer the simple question: "is this repo
+healthy on this machine?"
+
+```bash
 PYTHONPATH=scripts python3 -m pytest scripts/tests/ -v
+```
 
-# 4. Inspect a single CLI command
+5. Inspect the CLI itself. This is the fastest way to see what Vitruvius
+can do without changing any project data.
+
+```bash
 PYTHONPATH=scripts python3 scripts/pipeline_cli.py --help
+```
 
-# 5. Run a real stage — refine all raw markdown through Tier A/B rules
+6. Run `refine` to clean and normalize the raw markdown that already
+exists in the repo. In plain language, this is the "make the extracted
+text more reliable and easier to work with" step.
+
+```bash
 PYTHONPATH=scripts python3 scripts/pipeline_cli.py refine
+```
 
-# 6. Enrich all placeholder concepts (zero LLM calls)
+7. Run `enrich-concepts` to upgrade placeholder concepts into richer
+knowledge entries where enough evidence already exists. This stage is
+deterministic and does not call an LLM.
+
+```bash
 PYTHONPATH=scripts python3 scripts/pipeline_cli.py enrich-concepts
 ```
 
 **Note on the CLI:** `pipeline_cli.py` uses lazy imports (AD-015), so
 `promote --help` and similar commands work without `opendataloader_pdf`,
 `pypdf`, or `ocrmypdf` installed. Only commands that actually touch those
-libraries will require them at call time.
+libraries will require them at call time. In practice, that means the
+"look around" and "operate on already-converted data" commands work in a
+lean environment, while the document-ingestion commands need the extra
+PDF/OCR packages.
+
+**Note on the full test suite:** the exact `pytest scripts/tests/ -v`
+command also exercises the spaCy dependency parser and the Rust parity
+paths. On a fresh machine that means you need the `en_core_web_sm`
+pipeline installed and a wheel for `vitruvius_engine_rs` built for the
+same Python interpreter you will use to run pytest.
 
 ---
 
@@ -614,34 +693,50 @@ stage is re-runnable without producing duplicates (Principle P3).
 All commands flow through `scripts/pipeline_cli.py`. Run `--help` on any
 command for its flags.
 
+In plain language, the CLI walks documents through a pipeline:
+first discover what exists, then clean it up, then turn it into trusted
+knowledge, then review or promote the results.
+
 ### Ingestion stages
-- `scan` — build the raw-file registry and tree snapshot
-- `status` — diff the two latest registries
-- `lint` — check raw-layer hygiene
-- `run` — scan + status + lint (minimal default, no Ollama)
-- `run-with-review` — full pipeline ending with Tier-1 review (opt-in)
-- `convert` / `convert-one` — PDF → Markdown via OpenDataLoader
-- `convert-spreadsheet-one` — XLSX → CSV/JSON via openpyxl
-- `detect-one` — classify a PDF as TEXT_PDF or LIKELY_SCANNED_PDF
-- `ocr-queue` / `ocr-execute` — queue and run OCRmyPDF
-- `reconcile` — detect stale outputs
+Use these when you are trying to answer "what source files do we have,
+what changed, and can we safely convert them?"
+
+- `scan` — find source files and record them in the registry
+- `status` — tell you what changed since the previous scan
+- `lint` — catch obvious raw-input problems before heavier work starts
+- `run` — do the basic housekeeping pass (`scan` + `status` + `lint`)
+- `run-with-review` — run the broader pipeline and end with Tier-1 review
+- `convert` / `convert-one` — turn PDFs into Markdown
+- `convert-spreadsheet-one` — turn spreadsheets into CSV/JSON outputs
+- `detect-one` — tell you whether a PDF looks text-based or scanned
+- `ocr-queue` / `ocr-execute` — prepare and run OCR on scanned PDFs
+- `reconcile` — look for stale or missing downstream outputs
 
 ### Refinement, canonicalization, concepts
-- `refine` / `refine-one` — run Tier A/B normalization rules (Phase 1C)
-- `canonicalize` / `canonicalize-one` / `canonicalize-plan-one` — generate canonical source records
+Use these when you want cleaner, more stable text and more useful concept
+records.
+
+- `refine` / `refine-one` — normalize raw markdown so it is easier to process reliably
+- `canonicalize` / `canonicalize-one` / `canonicalize-plan-one` — turn cleaned source material into canonical source records
 - `canonicalize-concept-one` — create a new placeholder concept file
-- `enrich-concept-one` / `enrich-concepts [--force]` — promote placeholder concepts to Knowledge Nodes (Phase 3C, zero-LLM)
+- `enrich-concept-one` / `enrich-concepts [--force]` — upgrade placeholder concepts into richer knowledge nodes without calling an LLM
 
 ### Extraction, review, promotion
-- `extract-relationships-one` — regex extraction over canonical markdown
-- `extract-relationships-sections-one` — section-anchored extraction (preferred)
-- `review-relationships-ollama [--model M] [--parallel N]` — Tier-1 LLM review with built-in pre-review triage (Phase 6A)
-- `review-relationships-ollama-second-pass [--model M]` — Tier-2 adjudication (Phase 6B)
-- `promote [--execute] [--rollback BATCH_ID]` — Phase 7 governance layer; dry-run default
+Use these when you want Vitruvius to suggest relationships, judge them,
+and admit only the trusted ones.
+
+- `extract-relationships-one` — pull candidate relationships from canonical markdown
+- `extract-relationships-sections-one` — do the same with section-aware extraction, which is usually the better path
+- `review-relationships-ollama [--model M] [--parallel N]` — send uncertain candidates through the Tier-1 LLM review lane
+- `review-relationships-ollama-second-pass [--model M]` — run a stricter second-pass adjudication lane
+- `promote [--execute] [--rollback BATCH_ID]` — move approved relationships into the governed canonical layer; dry-run is the default so you can inspect before writing
 
 ### ID migration
-- `migrate-ids-plan` — compute ID migration plan from `id_migration_map.yaml`
-- `migrate-ids-apply` — apply the plan
+Use these only when canonical IDs need to change and you want that change
+to be planned and applied safely.
+
+- `migrate-ids-plan` — calculate the rename/migration plan
+- `migrate-ids-apply` — apply the migration plan
 
 ---
 
@@ -800,11 +895,17 @@ Additions to existing subpackages:
 
 ### TypeScript sibling subproject
 
-- `spatial-daemon/` — Node.js 25 + vitest subproject at repo root (not inside `scripts/vitruvius/`). Implements GJK collision detection, AABB overlap, and a filesystem contract writer that the Python side consumes. Entry point: `spatial-daemon/src/cli.ts`. 20/20 vitest tests.
+- `spatial-daemon/` — Node.js 25 + vitest subproject at repo root (not inside `scripts/vitruvius/`). Implements GJK collision detection, AABB overlap, and a filesystem contract writer that the Python side consumes. Entry point: `spatial-daemon/src/cli.ts`. 21/21 vitest tests.
 
 ---
 
 ## Testing
+
+If you want a human description of what the tests prove, it is this:
+Vitruvius can still read configs, transform text, preserve deterministic
+behavior, keep its Python/Rust/TypeScript pieces aligned, and move
+documents through the expected knowledge-building stages without quietly
+drifting.
 
 ```bash
 # Run the full suite
@@ -821,7 +922,12 @@ The test suite is organized by module, with one `test_<module>.py` per
 vitruvius module plus a dedicated `test_integration_e2e.py` that exercises
 multi-module flows (extract → dedup → pre-filter → promote → enrich).
 
-**As of 2026-04-15: 1396 Python tests passing, 1 skipped** — grew from 177 (pre-Sprint-D) via the Sprint D Streams A-I expansion and the subsequent 10 governing-plan sprints + the Sprint HP.3-R RocksDB KV migration. Also: **20 TypeScript tests passing** in the `spatial-daemon/` sibling subproject (vitest), and **10 Rust unit tests** across `scripts/vitruvius/engine_rs/core` and `scripts/vitruvius/datalog_rs/`.
+If you are on a fresh machine, do the quick-start prerequisite step first
+before running the full suite. The full suite is broader than "basic CLI
+works": it also checks the spaCy dependency parser and the Rust parity
+paths.
+
+**Validation snapshot as of 2026-04-16 on `main`: 1512 Python tests passed, 14 skipped** after installing `en_core_web_sm` and a CPython 3.12 build of `vitruvius_engine_rs`. Also: **21 TypeScript tests passing** in the `spatial-daemon/` sibling subproject (vitest), and **33 Rust tests passing** across `scripts/vitruvius/engine_rs` (26) and `scripts/vitruvius/datalog_rs` (7).
 
 The integration tests include:
 - Full-pipeline determinism check (byte-identical outputs on re-run modulo
@@ -875,6 +981,11 @@ The CLI is designed to work with only the dependencies you actually use.
 - `maturin` for building pyo3 extensions
 - Target `wasm32-unknown-unknown` for the Wasm spatial kernel build
 
+**Additional full-test prerequisites:**
+- `python3 -m spacy download en_core_web_sm` for the dependency-parser tests
+- a `vitruvius_engine_rs` wheel built from `scripts/vitruvius/engine_rs/pyo3_shim/`
+  for the Rust parity tests on the active Python interpreter
+
 Two Rust crates live in-tree:
 - `scripts/vitruvius/engine_rs/` — Cargo workspace with `core/` (pure
   Rust, compiles for native + wasm32) and `pyo3_shim/` (pyo3 bindings
@@ -889,12 +1000,12 @@ Two Rust crates live in-tree:
 
 Install the everyday path:
 ```bash
-pip3 install -r requirements.txt PyYAML pytest
+python3 -m pip install -r requirements.txt PyYAML pytest
 ```
 
 Install minimal (CLI + tests, no PDF/OCR deps):
 ```bash
-pip3 install PyYAML pytest
+python3 -m pip install PyYAML pytest
 ```
 
 ---
@@ -1001,7 +1112,7 @@ As of 2026-04-15 — after closing ten governing-plan sprints this session (Q, R
 - Sprint Z neuro-symbolic verification: 0 runtime cost (flag-off by default)
 - **Total: ~4 Ollama calls per full pipeline run**
 
-**Test suite as of 2026-04-15:** Python **1396 passed / 1 skipped**; TypeScript **20 passed** (`spatial-daemon/`); Rust unit tests **10 passed** (`engine_rs` + `datalog_rs`).
+**Test suite as of 2026-04-16:** Python **1512 passed / 14 skipped** on `main` after installing `en_core_web_sm` and a CPython 3.12 build of `vitruvius_engine_rs`; TypeScript **21 passed** (`spatial-daemon`); Rust tests **33 passed** (`engine_rs` + `datalog_rs`).
 
 ---
 

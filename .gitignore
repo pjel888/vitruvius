@@ -107,3 +107,4 @@ Thumbs.db
 # Runtime lock files (session IDs, PIDs — never commit)
 .ai/scheduled_tasks.lock
 .ai/ralph/state.json
+.omx/
