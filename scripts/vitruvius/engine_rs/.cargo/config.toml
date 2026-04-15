@@ -1,0 +1,26 @@
+# Sprint GT — pyo3 extension-module link flags.
+#
+# The pyo3 `extension-module` feature disables the libpython link step
+# so the resulting `.dylib` is loadable from any ABI-compatible CPython
+# at import time. Without the flag below, `cargo build --release`
+# outside maturin still emits an undefined-symbol error on macOS for
+# every `_Py*` symbol. The `-undefined dynamic_lookup` flag tells ld
+# to defer resolution of those symbols to runtime, which matches what
+# maturin does behind the scenes.
+#
+# This is a build-only file — the compiled artifact behaves identically
+# whether it was produced by `cargo build` or `maturin build`. Maturin
+# is still the canonical ship path; this just keeps `cargo build
+# --release` green as an acceptance-check shortcut.
+
+[target.aarch64-apple-darwin]
+rustflags = [
+    "-C", "link-arg=-undefined",
+    "-C", "link-arg=dynamic_lookup",
+]
+
+[target.x86_64-apple-darwin]
+rustflags = [
+    "-C", "link-arg=-undefined",
+    "-C", "link-arg=dynamic_lookup",
+]

@@ -183,3 +183,9 @@ features:
   # and S4 (Wasm) ship later.
   z_dspy_compiler: false
   z_adversarial_swarm: false
+  # Sprint GT — Geo-Topological Rust engine (phase-8b).
+  # GT.1 pyo3 bridge + GT.2 sparse linear octree. Flag gates the
+  # downstream query-path switch from the pure-Python walker at
+  # scripts/vitruvius/spatial/ to the compiled vitruvius_engine_rs
+  # crate. GT.3-GT.5 + HP.4 + Sprint Z S4 depend on this flag.
+  gt_engine_rs: false

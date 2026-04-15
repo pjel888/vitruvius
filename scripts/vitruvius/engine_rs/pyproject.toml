@@ -1,0 +1,20 @@
+[build-system]
+requires = ["maturin>=1.5,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "vitruvius-engine-rs"
+version = "0.1.0"
+description = "Vitruvius Sprint GT Rust data plane — sparse linear octree + pyo3 bridge."
+requires-python = ">=3.11"
+license = { text = "MIT OR Apache-2.0" }
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+module-name = "vitruvius_engine_rs"

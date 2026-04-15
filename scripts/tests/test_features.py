@@ -143,6 +143,8 @@ EXPECTED_FLAGS = {
     # Sprint Z — Compound AI Evolution (phase-12)
     "z_dspy_compiler",
     "z_adversarial_swarm",
+    # Sprint GT — Geo-Topological Rust engine (phase-8b)
+    "gt_engine_rs",
 }
 
 
