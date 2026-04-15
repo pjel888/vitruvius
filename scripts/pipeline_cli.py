@@ -88,6 +88,20 @@ def build_parser() -> argparse.ArgumentParser:
     convert_one_parser.add_argument("relative_pdf_path")
     convert_one_parser.add_argument("--sample-pages", type=int, default=5)
 
+    # Sprint PIPELINE-CLI Task 3 — Phase 1B parser-chain CLI.
+    # Parallel command to convert-one; routes through
+    # ParserOrchestrator + the p1b_* feature flags. See
+    # scripts/vitruvius/parsers/cli_handler.py for the handler and
+    # scripts/vitruvius/parsers/factory.py for the flag dispatch.
+    convert_parsers_one_parser = subparsers.add_parser(
+        "convert-parsers-one",
+        help=(
+            "Phase 1B — convert a single document through the "
+            "ParserOrchestrator chain (gated on p1b_* flags)"
+        ),
+    )
+    convert_parsers_one_parser.add_argument("relative_pdf_path")
+
     spreadsheet_parser = subparsers.add_parser("convert-spreadsheet-one")
     spreadsheet_parser.add_argument("relative_source_path")
 
@@ -311,6 +325,13 @@ def main() -> int:
         return run_convert_one(
             relative_pdf_path=args.relative_pdf_path,
             sample_pages=args.sample_pages,
+        )
+
+    if args.command == "convert-parsers-one":
+        # Sprint PIPELINE-CLI Task 3. Lazy-import — see AD-015.
+        from vitruvius.parsers.cli_handler import run_convert_parsers_one
+        return run_convert_parsers_one(
+            relative_pdf_path=args.relative_pdf_path,
         )
 
     if args.command == "convert-spreadsheet-one":
