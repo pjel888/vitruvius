@@ -113,3 +113,67 @@ def test_migrate_dry_run_does_not_write(tmp_path: Path) -> None:
     assert rc == 0
     # Dry-run must not create the dest directory.
     assert not dest.exists()
+
+
+def test_migrate_registry_is_idempotent(tmp_path: Path) -> None:
+    """Sprint HP.3-R Task 7 supplement: re-running the registry
+    migration against a populated destination must report the
+    second-run rows as ``skipped (idempotent)`` rather than silently
+    overwriting them — mirrors the event-store idempotency behaviour.
+    """
+    pytest.importorskip("rocksdict")
+    from vitruvius.review.rocksdb_stateful_registry import RocksDBStatefulReviewRegistry
+
+    src = tmp_path / "reg.sqlite"
+    dest = tmp_path / "reg.rocksdb"
+
+    src_reg = StatefulReviewRegistry(db_path=src)
+    src_reg.put(VerdictRecord(
+        source_hash="s", relationship_hash="r", model_version="m:v1",
+        verdict="keep", self_confidence=0.9, created_utc="2026-04-14T00:00:00Z",
+    ))
+    src_reg.close()
+
+    # First run.
+    assert run_kv_migrate(store="registry", source=src, dest=dest, dry_run=False) == 0
+
+    # Second run against the same dest must not double-write.
+    assert run_kv_migrate(store="registry", source=src, dest=dest, dry_run=False) == 0
+
+    dest_reg = RocksDBStatefulReviewRegistry(db_path=dest)
+    try:
+        # Still exactly 1 verdict after two runs.
+        assert dest_reg.count() == 1
+    finally:
+        dest_reg.close()
+
+
+def test_migrate_registry_reports_skipped_on_rerun(tmp_path: Path, capsys) -> None:
+    """Sprint HP.3-R Task 7 supplement: the operator-visible print
+    on a re-run must explicitly report ``skipped (idempotent)`` so
+    the operator can distinguish a first-time migration from a
+    redundant re-run.
+    """
+    pytest.importorskip("rocksdict")
+
+    src = tmp_path / "reg.sqlite"
+    dest = tmp_path / "reg.rocksdb"
+
+    src_reg = StatefulReviewRegistry(db_path=src)
+    src_reg.put(VerdictRecord(
+        source_hash="s", relationship_hash="r", model_version="m:v1",
+        verdict="keep", self_confidence=0.9, created_utc="2026-04-14T00:00:00Z",
+    ))
+    src_reg.close()
+
+    # First run: 1 copied, 0 skipped.
+    assert run_kv_migrate(store="registry", source=src, dest=dest, dry_run=False) == 0
+    out_first = capsys.readouterr().out
+    assert "1 verdicts copied" in out_first
+    assert "0 skipped" in out_first
+
+    # Second run: 0 copied, 1 skipped.
+    assert run_kv_migrate(store="registry", source=src, dest=dest, dry_run=False) == 0
+    out_second = capsys.readouterr().out
+    assert "0 verdicts copied" in out_second
+    assert "1 skipped" in out_second

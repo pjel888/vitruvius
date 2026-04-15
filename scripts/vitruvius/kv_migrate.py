@@ -118,8 +118,19 @@ def _migrate_registry(*, source: Path, dest: Path, dry_run: bool) -> int:
 
     dest_reg = RocksDBStatefulReviewRegistry(db_path=dest)
     copied = 0
+    skipped = 0
     try:
         for (src_h, rel_h, model, verdict, conf, created) in rows:
+            # Pre-write existence check so re-runs report skips
+            # correctly rather than silently overwriting.
+            existing = dest_reg.get(
+                source_hash=src_h,
+                relationship_hash=rel_h,
+                model_version=model,
+            )
+            if existing is not None:
+                skipped += 1
+                continue
             dest_reg.put(VerdictRecord(
                 source_hash=src_h,
                 relationship_hash=rel_h,
@@ -132,5 +143,5 @@ def _migrate_registry(*, source: Path, dest: Path, dry_run: bool) -> int:
     finally:
         dest_reg.close()
 
-    print(f"migrated: {copied} verdicts copied")
+    print(f"migrated: {copied} verdicts copied, {skipped} skipped (idempotent)")
     return 0
