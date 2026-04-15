@@ -1,0 +1,17 @@
+# Sprint CLEANUP-1 Stream C1.2 — slug alias registry.
+#
+# Populated automatically by vitruvius.collision_resolver when a canonical
+# ID collision is detected. Maps:
+#
+#   original_source_path -> disambiguated_canonical_id
+#
+# New entries are APPEND-ONLY. Never edit an existing entry — doing so
+# would break canonical ID immutability (Principle P6). If a rename is
+# required, go through `migrate-ids-plan` / `migrate-ids-apply` instead.
+#
+# Example (hypothetical):
+#
+#   collisions:
+#     "001_Raw-Source-Layer/001-Laws/alt-pd1096.pdf": "law-pd1096-a1b2c3"
+#
+collisions: {}

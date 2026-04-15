@@ -142,6 +142,57 @@ def build_plan(relative_path: str) -> dict[str, Any]:
 
     canonical_id = build_canonical_id(prefix, title)
 
+    # Sprint CLEANUP-1 C1.2 — optional collision-resolving canonical ID build.
+    # Gated behind `p1c_slug_collision_policy`. When off, retain legacy
+    # `build_canonical_id()` behaviour (silent overwrite on collision).
+    # Perf call: cold path (once per canonicalize run), sub-ms hash + dict
+    # lookup; above the Rust Line per AD-036.
+    try:
+        from .spatial._feature_gate import _load_features_cached
+        _features = _load_features_cached()
+    except Exception:
+        _features = None
+
+    if _features is not None and _features.is_enabled("p1c_slug_collision_policy"):
+        from .collision_resolver import SlugAliasRegistry, resolve_canonical_id
+
+        repo_root = get_repo_root()
+        registry_path = (
+            repo_root
+            / "scripts"
+            / "vitruvius"
+            / "rules"
+            / "slug_alias_registry.yaml"
+        )
+        registry = SlugAliasRegistry.load(registry_path)
+
+        # Load existing ids from canonical_registry.csv if it exists.
+        canonical_csv = (
+            repo_root
+            / "006_System-Manifests"
+            / "registries"
+            / "canonical_registry.csv"
+        )
+        existing_ids: set[str] = set()
+        if canonical_csv.exists():
+            import csv
+
+            with canonical_csv.open("r", encoding="utf-8") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    if "canonical_id" in row and row["canonical_id"]:
+                        existing_ids.add(row["canonical_id"])
+
+        validate_prefix(prefix)
+        canonical_id = resolve_canonical_id(
+            prefix=prefix,
+            slug=slugify(title),
+            source_path=str(relative_path),
+            existing_ids=existing_ids,
+            registry=registry,
+        )
+        registry.save()
+
     return {
         "title": title,
         "canonical_id": canonical_id,
