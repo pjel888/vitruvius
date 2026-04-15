@@ -246,3 +246,14 @@ features:
   # on a shared face), giving the graph a dense geometric topology
   # to walk during GraphRAG expansion.
   gt_spatial_edges: false
+  # Sprint RUST-MIG-1 — Python→Rust polyglot kernels. AD-036 locks
+  # in the crate layout (extension of scripts/vitruvius/engine_rs/
+  # with new spatial_kernels + stats_kernels member crates, single
+  # pyo3_shim import surface). Both flags default false and only
+  # flip to true after AD-038 closure if the Task 8 bench clears
+  # a >=2x wall-time win on representative PD 1096 input. Flag-OFF
+  # = byte-identical to pre-migration. See
+  # .ai/03_plans/2026-04-15-rust-migration-audit-plan.md §4 and
+  # .ai/10_state/decisions.md AD-036.
+  rust_mig_spatial_kernels: false
+  rust_mig_stats_kernels: false

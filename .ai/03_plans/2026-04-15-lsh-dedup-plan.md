@@ -1,28 +1,42 @@
 ---
 plan_id: lsh-minhash-dedup
 phase: meta
-title: "LSH MinHash Dedup for Relationship Candidates (scaling fix)"
+title: "LSH MinHash Dedup for Relationship Candidates (fuzzy near-duplicate layer on top of exact dedup)"
 status: active
 priority: medium
 sprint: "Sprint LSH-1"
-version: 1.0.0
+version: 1.1.0
+last_updated: 2026-04-15
 plan_type: implementation_tdd
 created: 2026-04-15
-last_updated: 2026-04-15
 owner: Senior Systems Architect
 prerequisites:
-  - Existing `relationships_sections.py::dedupe_by_endpoints` is O(n²) pairwise; fine at ~100 candidates per document, breaks down at 10k+ candidates
+  - Existing `relationships_sections.py::dedupe_by_endpoints` is an **O(n log n) dict-grouped exact dedup** (not O(n²)); it catches exact `(from_id, to_id)` duplicates but misses semantic near-duplicates — see AD-037 in `.ai/10_state/decisions.md`
 ---
 
 # LSH MinHash Dedup Implementation Plan
 
+> **PREMISE CORRECTED 2026-04-15 — read AD-037 first.** An earlier draft of
+> this plan claimed `dedupe_by_endpoints` was O(n²) pairwise and framed LSH-1
+> as a "scaling fix". That premise is wrong: the function is already
+> O(n log n) via a `collections.defaultdict` group-by endpoint key. Sprint
+> LSH-1's real value is adding a **fuzzy / semantic near-duplicate layer**
+> on top of the existing exact dedup — catching cases like "lot area ≥ 100
+> sqm" vs "minimum lot area of 100 square meters" that the exact endpoint
+> key misses. See `.ai/10_state/decisions.md` AD-037 for the full correction
+> and rationale. AD-037 also records the language/runtime choice: **Python
+> (`datasketch` or the pure-numpy implementation below), NOT Rust**, because
+> near-duplicate dedup is called once per ingestion batch, not in a hot
+> loop. The implementation tasks below are unchanged — only the premise
+> statements in this header block have been corrected.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add a MinHash-LSH based dedup path alongside the existing pairwise `dedupe_by_endpoints` so relationship candidate dedup scales to 10k+ candidates per document in O(n log n) instead of O(n²). Ship as an optional, flag-gated alternative — the pairwise path stays as the default and authoritative baseline. Zero new heavy deps (pure-numpy MinHash implementation, no `datasketch`).
+**Goal:** Extend the existing exact-match endpoint dedup in `relationships_sections.py::dedupe_by_endpoints` with a MinHash LSH near-duplicate layer that catches semantic variants of the same relationship (e.g., "lot area ≥ 100 sqm" vs "minimum lot area of 100 square meters") **without** claiming to be an O(n²)→O(n log n) scaling fix — the current code is already O(n log n) per AD-037. Ship as an optional, flag-gated alternative — the exact dedup stays as the default and authoritative baseline. Zero new heavy deps (pure-numpy MinHash implementation, no `datasketch`).
 
-**Architecture:** MinHash approximates Jaccard similarity between sets. We treat each relationship candidate as a "set" of features: `{subject_slug, predicate, object_slug, subject_type, object_type, first_N_chars_of_evidence_trigrams}`. Two candidates are near-duplicates if their Jaccard similarity exceeds a threshold (default 0.8). LSH (Locality-Sensitive Hashing) buckets MinHash signatures so candidates with high Jaccard collide in at least one bucket, which we then confirm with the exact per-pair Jaccard computation. Net: from O(n²) comparisons to O(n × b) where b is the number of bands (default 4) — a ~50-100× speedup at 10k candidates with negligible false-negative rate.
+**Architecture:** MinHash approximates Jaccard similarity between sets. We treat each relationship candidate as a "set" of features: `{subject_slug, predicate, object_slug, subject_type, object_type, first_N_chars_of_evidence_trigrams}`. Two candidates are near-duplicates if their Jaccard similarity exceeds a threshold (default 0.8). LSH (Locality-Sensitive Hashing) buckets MinHash signatures so candidates with high Jaccard collide in at least one bucket, which we then confirm with the exact per-pair Jaccard computation. Net: the LSH layer adds fuzzy near-duplicate collapse on top of the existing O(n log n) dict-grouped exact dedup, so semantic variants of the same relationship that differ on surface slug/wording but share a high Jaccard over the feature bag are recognised as duplicates and merged.
 
-The implementation is **pure numpy + stdlib**. No `datasketch` install. MinHash is ~40 lines, LSH bucketing is ~30. The existing `dedupe_by_endpoints` stays unchanged and is still the default. The LSH path is wired as an opt-in alternative behind a feature flag.
+The implementation is **pure numpy + stdlib**. No `datasketch` install. MinHash is ~40 lines, LSH bucketing is ~30. The existing `dedupe_by_endpoints` stays unchanged and is still the default (it continues to handle the exact-endpoint layer). The LSH path is wired as an opt-in alternative behind a feature flag.
 
 **Tech Stack:**
 - `numpy 2.1.3` — already installed
@@ -49,7 +63,7 @@ The implementation is **pure numpy + stdlib**. No `datasketch` install. MinHash 
 
 - **Installing `datasketch`** — pure-numpy implementation is ~70 lines; avoids the dep.
 - **Replacing `dedupe_by_endpoints` as the default** — that's a follow-up once LSH is proven byte-equivalent on real corpora.
-- **Optimizing `dedupe_by_endpoints`'s existing pairwise logic** — out of scope; that function works, just doesn't scale.
+- **Optimizing `dedupe_by_endpoints`'s existing dict-grouped logic** — out of scope; that function works correctly as an O(n log n) exact-endpoint dedup per AD-037, and its inner loop is not the target of this sprint.
 - **Cross-document dedup** — Phase 7 Promotion already handles this; LSH here is intra-document only.
 
 ---
@@ -397,7 +411,7 @@ git commit -m "feat(relationships): Sprint LSH-1 Task 2 — LSHIndex band-based 
 
 ## Task 3: `dedupe_by_endpoints_lsh` + equivalence test
 
-**Goal:** Public function parallel to the existing `dedupe_by_endpoints`. Extract features per candidate, MinHash them, LSH index them, then for each candidate query the bucket + exact-verify duplicates via the existing pairwise logic.
+**Goal:** Public function parallel to the existing `dedupe_by_endpoints`. Extract features per candidate, MinHash them, LSH index them, then for each candidate query the bucket + exact-verify duplicates via the existing O(n log n) dict-grouped exact-endpoint dedup (per AD-037).
 
 ### Step 1: Write failing tests
 
@@ -440,9 +454,9 @@ def test_lsh_dedup_single_candidate() -> None:
     assert result[0]["subject_slug"] == "light"
 
 
-def test_lsh_dedup_equivalence_with_pairwise_on_small_corpus() -> None:
-    """On a ~20-candidate corpus the LSH path and the pairwise path
-    should agree on which candidates survive. The LSH path may
+def test_lsh_dedup_equivalence_with_exact_on_small_corpus() -> None:
+    """On a ~20-candidate corpus the LSH path and the exact-endpoint
+    path should agree on which candidates survive. The LSH path may
     reorder within equivalence classes, so we compare sets of
     (subject, predicate, object) triples rather than list equality."""
     candidates = [
@@ -455,17 +469,17 @@ def test_lsh_dedup_equivalence_with_pairwise_on_small_corpus() -> None:
     ]
 
     lsh_result = dedupe_by_endpoints_lsh(candidates)
-    pairwise_result = dedupe_by_endpoints(candidates)
+    exact_result = dedupe_by_endpoints(candidates)
 
     lsh_triples = {
         (c["subject_slug"], c["predicate"], c["object_slug"])
         for c in lsh_result
     }
-    pairwise_triples = {
+    exact_triples = {
         (c["subject_slug"], c["predicate"], c["object_slug"])
-        for c in pairwise_result
+        for c in exact_result
     }
-    assert lsh_triples == pairwise_triples
+    assert lsh_triples == exact_triples
 
 
 def test_lsh_dedup_exact_duplicate_collapses() -> None:
@@ -487,10 +501,13 @@ Create `scripts/vitruvius/relationships/lsh_dedup.py`:
 ```python
 """Sprint LSH-1 Task 3 — LSH-based relationship dedup.
 
-Scalable alternative to :func:`vitruvius.relationships_sections.dedupe_by_endpoints`.
-Uses MinHash + LSH to find near-duplicate candidates in O(n log n)
-instead of O(n^2), then delegates the exact-match verification to
-the existing pairwise logic via a tiny per-bucket sublist.
+Fuzzy near-duplicate layer on top of
+:func:`vitruvius.relationships_sections.dedupe_by_endpoints` (the
+existing O(n log n) dict-grouped exact-endpoint dedup per AD-037).
+Uses MinHash + LSH to find fuzzy near-duplicate candidates whose
+endpoint keys differ but whose feature-bag Jaccard exceeds a
+threshold, then delegates the exact-match verification to the
+existing dedup via a tiny per-bucket sublist.
 """
 from __future__ import annotations
 
@@ -534,13 +551,14 @@ def dedupe_by_endpoints_lsh(
     num_bands: int = 4,
     seed: int = 0,
 ) -> list[dict]:
-    """Dedup a list of candidates via MinHash LSH.
+    """Dedup a list of candidates via MinHash LSH fuzzy near-duplicate layer.
 
     Equivalent in output to :func:`dedupe_by_endpoints` on small
-    corpora; asymptotically faster on large ones. Each candidate's
-    LSH-bucket neighbours are fed back through the exact pairwise
+    corpora where no fuzzy near-duplicates exist; adds a near-duplicate
+    collapse step on top for corpora where they do. Each candidate's
+    LSH-bucket neighbours are fed back through the exact-endpoint
     dedup for verification, so the LSH path never produces a result
-    the pairwise path wouldn't accept.
+    the exact-endpoint path wouldn't accept.
     """
     candidates = list(candidates)
     if not candidates:
@@ -560,7 +578,7 @@ def dedupe_by_endpoints_lsh(
         index.add(original_index=i, signature=sig)
 
     # For each candidate, gather its collision bucket, then run the
-    # exact pairwise dedup on the UNION of all bucket neighbourhoods
+    # exact-endpoint dedup on the UNION of all bucket neighbourhoods
     # for a single deterministic pass. This guarantees equivalence
     # with dedupe_by_endpoints on small inputs because the union is
     # the full candidate list when all bands collide (sparse corpora).
@@ -585,11 +603,12 @@ def dedupe_by_endpoints_lsh(
             representatives.append(c)
         already_included.update(bucket)
 
-    # Final pass: dedup the representatives via the pairwise logic so
-    # the return value is guaranteed identical to running
+    # Final pass: dedup the representatives via the exact-endpoint
+    # logic so the return value is guaranteed identical to running
     # dedupe_by_endpoints on the full input. At scale this pass runs
     # on the bucket-deduped representatives (typically << n) so it's
-    # still faster than the pairwise baseline.
+    # still cheaper than running dedupe_by_endpoints on the full
+    # candidate list.
     return dedupe_by_endpoints(representatives)
 ```
 
@@ -614,7 +633,7 @@ git commit -m "feat(relationships): Sprint LSH-1 Task 3 — dedupe_by_endpoints_
 Add to `config/vitruvius.yaml`:
 
 ```yaml
-  w_lsh_dedup: false  # Sprint LSH-1 — MinHash LSH dedup (scaling alternative to pairwise dedup)
+  w_lsh_dedup: false  # Sprint LSH-1 — MinHash LSH fuzzy near-duplicate layer on top of the exact-endpoint dedup (see AD-037)
 ```
 
 Add to `scripts/tests/test_features.py::EXPECTED_FLAGS`:
@@ -657,15 +676,15 @@ git commit -m "feat(relationships): Sprint LSH-1 Task 4 — w_lsh_dedup flag + i
 
 ---
 
-## Task 5: Scaling benchmark + AD + archival
+## Task 5: Fuzzy-layer micro-benchmark + AD + archival
 
-**Goal:** Measure wall-time of pairwise vs LSH dedup on a synthetic 1k-candidate + 10k-candidate corpus. Document the crossover point where LSH beats pairwise.
+**Goal:** Measure wall-time of the exact-endpoint path vs the LSH + exact-endpoint layered path on a synthetic 1k-candidate + 10k-candidate corpus to confirm the LSH layer does not introduce a meaningful per-call tax on corpora where no fuzzy near-duplicates exist. The point of this bench is **not** to document a scaling fix (the existing dedup is already O(n log n) per AD-037), it's to verify the LSH layer is cheap enough to leave on by default once its correctness win is validated.
 
 ### Step 1: Write benchmark
 
 Create `scripts/vitruvius/bench/bench_lsh_dedup.py`:
 
-Generates N synthetic candidates (varying subject/predicate/object triples) and measures wall-time for `dedupe_by_endpoints(candidates)` vs `dedupe_by_endpoints_lsh(candidates)` at N ∈ {100, 1000, 10000}. Writes the results to `.ai/10_state/bench_lsh_dedup_2026-04-15.json`.
+Generates N synthetic candidates (varying subject/predicate/object triples, with a configurable fraction of fuzzy near-duplicates injected) and measures wall-time for `dedupe_by_endpoints(candidates)` vs `dedupe_by_endpoints_lsh(candidates)` at N ∈ {100, 1000, 10000}. Writes the results to `.ai/10_state/bench_lsh_dedup_2026-04-15.json`.
 
 ### Step 2: Run the benchmark
 
@@ -680,17 +699,19 @@ Append to `.ai/10_state/decisions.md`:
 ```markdown
 ## AD-0XX — LSH MinHash Dedup (2026-04-15)
 
-Shipped MinHash + LSH alternative to the O(n²) pairwise
-`dedupe_by_endpoints`. Pure-numpy implementation, no datasketch
-install. Feature flag `w_lsh_dedup` default false.
+Shipped MinHash + LSH fuzzy near-duplicate layer on top of the
+existing O(n log n) dict-grouped exact-endpoint dedup in
+`dedupe_by_endpoints` (see AD-037 for the premise correction).
+Pure-numpy implementation, no datasketch install. Feature flag
+`w_lsh_dedup` default false.
 
 Benchmark results (synthetic candidates):
-- N=100: pairwise [FILL]s, LSH [FILL]s (crossover not yet)
-- N=1000: pairwise [FILL]s, LSH [FILL]s
-- N=10000: pairwise [FILL]s, LSH [FILL]s
+- N=100: exact [FILL]s, LSH+exact [FILL]s
+- N=1000: exact [FILL]s, LSH+exact [FILL]s
+- N=10000: exact [FILL]s, LSH+exact [FILL]s
 
 Equivalence with baseline verified on small corpora via
-test_lsh_dedup_equivalence_with_pairwise_on_small_corpus.
+test_lsh_dedup_equivalence_with_exact_on_small_corpus.
 ```
 
 Fill with real numbers from the benchmark. Update INDEX.md. Archive plan. Commit.
@@ -698,7 +719,7 @@ Fill with real numbers from the benchmark. Update INDEX.md. Archive plan. Commit
 ### Step 4: Tag
 
 ```bash
-cd /Users/philiplewis/vitruvius && git tag sprint-lsh-1-closed HEAD -m "Sprint LSH-1 — MinHash LSH dedup (scaling fix)"
+cd /Users/philiplewis/vitruvius && git tag sprint-lsh-1-closed HEAD -m "Sprint LSH-1 — MinHash LSH fuzzy near-duplicate layer"
 ```
 
 ---
@@ -707,9 +728,9 @@ cd /Users/philiplewis/vitruvius && git tag sprint-lsh-1-closed HEAD -m "Sprint L
 
 **1. Zero new deps.** Pure stdlib (`hashlib`) + numpy (already installed). No `datasketch`.
 
-**2. Backcompat.** The existing `dedupe_by_endpoints` is untouched and remains the default. The LSH path is a flag-gated alternative that DELEGATES to the pairwise path for exact verification, so it can never produce a result the pairwise path wouldn't accept.
+**2. Backcompat.** The existing `dedupe_by_endpoints` is untouched and remains the default exact-endpoint path. The LSH path is a flag-gated alternative that DELEGATES to the exact-endpoint path for per-bucket verification, so it can never produce a result the exact-endpoint path wouldn't accept.
 
-**3. Scale fit.** LSH is a scaling fix, not a performance win at our current ~100-candidate scale. The benchmark in Task 5 documents the crossover point so future work knows when to flip the default.
+**3. Correctness fit.** Per AD-037, the existing `dedupe_by_endpoints` is already O(n log n) and the Sprint LSH-1 win is a **correctness** improvement (catching fuzzy near-duplicates that the exact endpoint key misses), **not** an asymptotic scaling fix. The benchmark in Task 5 documents the tax of the LSH layer on corpora where no fuzzy near-duplicates exist so future work knows whether it is cheap enough to flip the default.
 
 **4. Honest limits.** MinHash is probabilistic. False negatives are possible (two near-duplicates that happen not to collide in any band). The equivalence test at ~20 candidates is a guard against regressing the common case; real-corpus validation would need to run on a 1000+ candidate PD 1096 ingestion to confirm the false-negative rate stays below an acceptable threshold.
 

@@ -876,6 +876,110 @@ Option 1 is the pragmatic stopgap. Document it in the AGENTS.md operator checkli
 
 ---
 
+## AD-036 — Python→Rust migration crate layout (2026-04-15)
+
+**plan_id:** `rust-migration-audit`
+**Sprint:** Sprint RUST-MIG-1 (Python→Rust polyglot)
+**Status:** Accepted
+
+**Context.** Sprint RUST-MIG-1 ports four pure-compute kernels (S1 `build_spatial_adjacency_edges`, S2 `weight_by_distance`, N1 `sliced_wasserstein`, N4 `mahalanobis_distance`) from Python to Rust behind the existing `scripts/vitruvius/engine_rs/` Cargo workspace. Task 1 already shipped the baseline bench harness (`8bddc21`/`e9b34f4`/`ea0618c`) — the measured report at `.ai/10_state/audit_rust_migration_baseline_2026-04-15.json` classified **every candidate as HOT** under the `wall_ms > 25` OR `peak_rss_mb > 10` rule. The subprocess isolation skews `peak_rss_mb` upward (Python interpreter startup dominates), so the load-bearing signal for the eventual AD-038 GO/NO-GO bench diff is the **`wall_ms` column**, not RSS.
+
+Before Tasks 3-7 write any Rust, this AD locks in the architectural shape so the crate tree, Python import surface, and flag defaults don't drift mid-sprint.
+
+**Decision.**
+
+1. **No parallel Cargo workspace.** Extend `scripts/vitruvius/engine_rs/` (§4.1 of the plan) with two new member crates — `spatial_kernels` and `stats_kernels` — added to the existing workspace root `Cargo.toml`. A second workspace would duplicate target/, duplicate lockfiles, and force the `pyo3_shim` to stitch two extension modules. Single workspace keeps one `cargo check --workspace` run and one shared `Cargo.lock`.
+
+2. **Single Python-facing extension module.** Re-use the existing `pyo3_shim` crate as the sole `#[pymodule] vitruvius_engine_rs` (§4.2). All new Rust kernels are re-exported through that shim. Python imports stay at a single entry point: `from vitruvius_engine_rs import build_spatial_adjacency_edges_rs, weight_by_distance_rs, sliced_wasserstein_rs, mahalanobis_distance_rs`. Callers never import the member crates directly, so adding/removing members is a non-breaking change to the Python surface.
+
+3. **Crate dependencies (§4 of the plan).**
+   - `spatial_kernels`: depends on the existing `vitruvius_engine_rs_core` crate (re-uses `LinearOctree` and `Aabb`) + `ndarray = "0.15"` for zero-copy numpy bridges.
+   - `stats_kernels`: depends on `nalgebra = "0.33"` (dense linear algebra — covariance invert, Cholesky for Mahalanobis), `ndarray = "0.15"`, and `numpy = "0.22"` (pyo3 bridge for `PyArray1<f64>` / `PyArray2<f64>`).
+   - `pyo3_shim`: gains new dependencies on both `spatial_kernels` and `stats_kernels` for the re-export layer.
+
+4. **Two feature flags, both default `false` (§4.3).** `rust_mig_spatial_kernels` gates S1+S2. `rust_mig_stats_kernels` gates N1+N4. Flag-OFF = byte-identical to pre-migration. Every port keeps its Python implementation intact as the fallback branch inside the call site, not removed, so toggling the flag back is a pure config change with no code rollback.
+
+5. **Flag-flip gate.** Defaults flip to `true` **only** after AD-038 closure — and only for kernels whose Sprint Task 8 bench clears a `≥ 2×` wall-time improvement threshold on representative PD 1096 input. Anything below 2× stays flag-off as infrastructure-for-later and AD-038 records the NO-GO reason. The Task 1 HOT/COLD classification set the *eligibility* gate; the Task 8 diff is the *activation* gate.
+
+**Why Rust here at all (perf-first discipline).**
+
+Task 1's `wall_ms` measurements (subprocess-isolated): S1 and S2 are O(n²) / O(n log n) octree walks on arrays that grow with spatial-instance count — pure-Python loop overhead dominates and numpy can't vectorize the neighbour queries across nested conditionals. N1 is a sort-heavy inner loop where numpy's `np.sort` is already C-level but the outer projection loop is Python. N4 does a Cholesky-backed solve once, then squared distance — most time is in numpy already, so the Rust win is smaller and AD-038 may measure < 2× and keep the flag off. **The perf gate is the bench diff, not the prior.** This AD records the architectural scaffold; AD-038 will record the empirical per-kernel verdict.
+
+The non-ported kernels (bloom filter, scanner SHA-256, Merkle fs) stayed Python per the audit: either `hashlib`'s C path already dominates, or they're called once per file and not in a hot loop. Pattern: we only port what wall-time measurement says is worth the Rust tax (build complexity, pyo3 FFI overhead, cross-language debugging).
+
+**Consequences.**
+
+- The workspace root `Cargo.toml` gains two new `members`. Existing member crates are untouched.
+- CI runs `cargo check --workspace` from `scripts/vitruvius/engine_rs/`; the new crates must compile red (failing unit test) at Task 3 scaffold time, then green through Tasks 4-7.
+- No changes to the Python test harness beyond two new parity tests per kernel (one inside `test_features.py` for the flag registry, one per kernel for Rust-vs-Python equivalence — to be added in Tasks 4-7).
+- Flag-OFF guarantee is testable: the backward-compat regression suite runs with both flags `false` and must stay byte-identical to the pre-sprint baseline.
+
+**Commits touching this AD.**
+
+- Task 1 — `8bddc21` → `ea0618c` — `bench_rust_mig_baseline.py` + `audit_rust_migration_baseline_2026-04-15.json`.
+- Task 2 — `[this commit]` — AD-036 + AD-037 + flag registry + plan correction. Zero compute changes.
+- Tasks 3-7 — deferred, subject to AD-038 GO/NO-GO gate.
+
+**References.**
+- Plan: `.ai/03_plans/2026-04-15-rust-migration-audit-plan.md` §4 (Target Architecture)
+- Baseline bench: `.ai/10_state/audit_rust_migration_baseline_2026-04-15.json`
+- Task 1 commits: `8bddc21`, `e9b34f4`, `ea0618c`
+
+---
+
+## AD-037 — Sprint LSH-1 premise correction (2026-04-15)
+
+**plan_id:** `lsh-minhash-dedup`
+**Sprint:** Sprint LSH-1 (MinHash LSH dedup)
+**Status:** Accepted — re-frames LSH-1 before execution
+
+**Context.** The LSH-1 plan at `.ai/03_plans/2026-04-15-lsh-dedup-plan.md` frames itself as a "scaling fix" that converts an O(n²) pairwise dedup into O(n log n). The Sprint RUST-MIG-1 audit of `dedupe_by_endpoints` in `scripts/vitruvius/relationships_sections.py` lines 246-322 shows this premise is **wrong** — the function is already O(n log n).
+
+**Code evidence (the function in question).**
+
+- Line 265: `from collections import defaultdict` — imports a hash map for grouping.
+- Line 269-271:
+  ```python
+  groups: dict[tuple[str, str], list[dict]] = defaultdict(list)
+  for cand in candidates:
+      groups[(cand["from"], cand["to"])].append(cand)
+  ```
+  Groups candidates by the `(from_id, to_id)` endpoint key in a single O(n) pass — this is a dict-grouped partition, not a pairwise scan.
+- Line 273 onwards: for each endpoint group, the function picks the highest-occurrence predicate via `sorted(selection_pool, key=lambda c: (-int(c.get("occurrences", 0)), _priority_rank(c["type"])))`. This is a groupby + top-1 selection per group, with a per-group sort whose total work across all groups is O(n log n) worst-case.
+- There is **no nested `for i: for j:` loop over candidate pairs anywhere in the function.** Complexity is dominated by the per-group sort — O(n log n) worst case from the sort + O(n) for the dict build.
+
+**Correct framing for Sprint LSH-1.** The current `dedupe_by_endpoints` catches **exact endpoint duplicates** — same `(from_id, to_id)` pair collapses to one winner. What it does **not** catch is **semantic / fuzzy near-duplicates**: two relationship candidates that refer to the same real-world constraint but express it with slightly different subject or object slugs, for example:
+
+- `{from: "lot-area", predicate: "requires", to: "100-sqm"}` (slugified from "lot area ≥ 100 sqm")
+- `{from: "minimum-lot-area", predicate: "requires", to: "100-square-meters"}` (slugified from "minimum lot area of 100 square meters")
+
+The endpoint keys differ (`"lot-area"` ≠ `"minimum-lot-area"`), so the exact dedup keeps both. A human reading the review output sees two candidates that mean the same thing, which inflates review queue length without adding information.
+
+**The real value of Sprint LSH-1** is unlocking this *fuzzy near-duplicate detection* via MinHash LSH on a feature bag extracted per candidate — exactly what the plan's Task 3 `_candidate_features` function does (feature set includes subject slug, predicate, object slug, subject/object type, and evidence n-grams). That's a **correctness / noise-reduction win**, not an **asymptotic scaling fix**. The O(n²) framing is a misdescription of the existing code.
+
+**Decision.**
+
+1. The Sprint LSH-1 plan MUST be re-framed before dispatch: title, goal, prerequisite, and any inline mention of "O(n²)" / "pairwise" / "scaling fix" must be corrected to reflect that the current code is O(n log n) dict-grouped exact dedup, and that LSH-1's value is fuzzy near-duplicate detection on top of the exact layer.
+
+2. Sprint LSH-1 should stay in **Python with `datasketch`** (or the plan's pure-numpy alternative), **not Rust**. Near-duplicate dedup runs **once per ingestion batch** — not in a hot loop — so the per-call overhead of pyo3 FFI, the crate maintenance cost, and the parity-test burden outweigh any Rust win. This is the same perf-first cost/benefit discipline that drove AD-036: port to Rust only when wall-time measurement justifies it, otherwise stay Python.
+
+3. The LSH-1 plan's pure-numpy implementation (Tasks 1-2 build `compute_minhash_signature` + `LSHIndex` in ~100 lines of stdlib + numpy) is acceptable. The `datasketch` install is **also** acceptable if it simplifies the implementation at the cost of one more pypi dep — either way, Python, not Rust.
+
+**Consequences.**
+
+- LSH-1 plan frontmatter, goal, prerequisite, and task body must be surgically updated (Task 2 Step 3 of the Rust migration plan handles this). Implementation tasks below the premise (Tasks 1-5 as written) are **unchanged** — the plan's Python-side design is correct, only the premise statements are wrong.
+- This AD adds a pointer block near the top of the LSH-1 plan file referencing `.ai/10_state/decisions.md` AD-037 so future readers see the correction before they hit the (corrected) premise text.
+- The Sprint LSH-1 feature flag `w_lsh_dedup` stays default-false per the plan's §1.3 non-breaking contract.
+
+**Conclusion.** Sprint LSH-1 must be re-framed before dispatch per this AD; Sprint LSH-1 should use Python `datasketch` (not Rust) because near-duplicate dedup is called once per ingestion batch, not in a hot loop.
+
+**References.**
+- Plan (to be corrected): `.ai/03_plans/2026-04-15-lsh-dedup-plan.md`
+- Source of truth: `scripts/vitruvius/relationships_sections.py` lines 246-322
+- Parent sprint AD: AD-036 (RUST-MIG-1 crate layout) — same Task 2, same commit
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.

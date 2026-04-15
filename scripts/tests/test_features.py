@@ -165,6 +165,13 @@ EXPECTED_FLAGS = {
     # jump + exponential distance decay + physically_adjacent_to edges)
     "gt_proximity_jump",
     "gt_spatial_edges",
+    # Sprint RUST-MIG-1 — Python→Rust polyglot kernels (AD-036).
+    # Gate the eventual Rust fast paths for S1 build_spatial_adjacency_edges
+    # + S2 weight_by_distance (rust_mig_spatial_kernels) and N1 sliced
+    # Wasserstein + N4 Mahalanobis (rust_mig_stats_kernels). Both default
+    # false; AD-038 closure flips them only if the Task 8 bench measures
+    # a >=2x wall-time win on representative PD 1096 input.
+    "rust_mig_spatial_kernels", "rust_mig_stats_kernels",
 }
 
 
