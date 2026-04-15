@@ -829,6 +829,53 @@ Combined budget on a 4 GB low-spec machine is now plausibly within reach. The ne
 
 ---
 
+## AD-035 — LLM Reviewer Distillation Audit — DEFER_NO_DATA (2026-04-15)
+
+**Context.** Plan 2 of the session queue: investigate whether a classical ML student model (scikit-learn GBT or lightgbm) trained on historical LLM reviewer verdicts could handle 60-80% of review decisions without calling Ollama. Biggest potential RAM win after the Rust PDF audit — frees ~4 GB when the local LLM is warm, without quality loss (LLM stays as adjudicator on uncertain cases).
+
+**Audit Task 1 — corpus inspection.** Built `scripts/vitruvius/bench/distillation_audit.py::inspect_verdict_cache` which walks the 5 known candidate locations for the Sprint R Y4 stateful verdict cache (`StatefulReviewRegistry` SQLite + `RocksDBStatefulReviewRegistry` RocksDB variants, at `006_System-Manifests/cache/`, `005_Operational-Intelligence-Layer/review/`, etc.) and reports verdict count + unique source hashes + label distribution + date range.
+
+**Result.** No verdict cache exists at any of the known locations. The Sprint R Y4 registry infrastructure is shipped and tested (`test_review_stateful_registry*.py` all pass), but this environment has never run the full PD 1096 ingestion with `features.y_stateful_registry=true` — so no verdicts have accumulated. The audit auto-short-circuits to the pre-committed **`DEFER_NO_DATA`** branch (plan threshold: < 50 verdicts → cannot train a meaningful classifier).
+
+Raw report: `.ai/10_state/audit_distillation_2026-04-15.json`.
+
+```
+{
+  "corpus_inspection": {
+    "cache_type": "none",
+    "cache_path": null,
+    "total_verdicts": 0,
+    "recommendation": "DEFER_NO_DATA"
+  }
+}
+```
+
+**Decision.** DEFER until the verdict cache is populated. No classifier training, no follow-up implementation plan. The audit harness is committed so a future session can run it unchanged once verdicts accumulate.
+
+**Unblocker.** To make distillation meaningful, run the live review pipeline with `features.y_stateful_registry=true` on a corpus large enough to generate ≥50 verdicts across ≥2 verdict labels (`keep` / `reject`). The most direct path is:
+
+1. Ensure `ollama_review.run_review_relationships_ollama` runs on fresh extractions (not cached)
+2. Enable `y_stateful_registry: true` + `w_review_nb_prefilter: true` + `w_review_choquet_aggregator: true` in `config/vitruvius.yaml`
+3. Run `pipeline_cli.py run-with-review` on ~20+ PD 1096 sections
+4. Re-run this audit; it should transition from `DEFER_NO_DATA` → `NEEDS_TRAINING`
+
+**Commits.**
+- Task 1 — `[this commit]` — `distillation_audit.py` corpus inspector + `.ai/10_state/audit_distillation_2026-04-15.json` with DEFER_NO_DATA verdict + AD-035 + plan archival
+
+**Follow-ups.**
+- When the verdict cache reaches ≥50 entries, re-dispatch the distillation audit. Tasks 2-3 (feature extraction + train/test) are not implemented in this session because the Task 1 short-circuit made them moot — they can be built when the data exists.
+- Sprint Q W2 NB prefilter (`pre_review_filter.py`) is the closest thing to a distilled model today. Until the GBT student ships, that filter is the primary way to bypass Ollama on common rejects.
+- The audit script is deliberately conservative: it only reports NEEDS_TRAINING at ≥50 verdicts, even though a classifier could technically be trained on fewer. 50 is the floor for meaningful test/train splits at the default 80/20 ratio (≥40 train + ≥10 test).
+
+**Relationship to the low-spec target.** Distillation was Tier A #1 on the outside-the-box optimization menu. Its RAM win (frees ~4 GB held by the warm Ollama model) would have been the largest remaining after the AD-033/AD-034 Rust PDF work. Deferring it means the low-spec target remains dependent on either:
+- Running Ollama on-demand (cold-start latency per review) instead of keeping it warm, OR
+- Replacing the local LLM entirely with a remote API (defeats the local-first principle), OR
+- Waiting for the verdict cache to accumulate through organic ingestion so distillation becomes possible.
+
+Option 1 is the pragmatic stopgap. Document it in the AGENTS.md operator checklist when next updated.
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.

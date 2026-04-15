@@ -1,0 +1,26 @@
+{
+  "timestamp_utc": "2026-04-15T06:11:08Z",
+  "elapsed_seconds": 0.0003,
+  "corpus_inspection": {
+    "cache_type": "none",
+    "cache_path": null,
+    "total_verdicts": 0,
+    "unique_source_hashes": 0,
+    "unique_model_versions": 0,
+    "label_distribution": {},
+    "date_range_utc": [
+      null,
+      null
+    ],
+    "recommendation": "DEFER_NO_DATA",
+    "notes": "No stateful verdict cache found at any known location. The Sprint R Y4 registry infrastructure ships but has not been populated by a live LLM review run. To unblock the distillation audit, run the full PD 1096 ingestion with features.y_stateful_registry=true so verdicts accumulate in 006_System-Manifests/cache/stateful_review_registry.sqlite (or the RocksDB variant when AD-029 defaults are on)."
+  },
+  "decision_gate": {
+    "recommendation": "DEFER_NO_DATA",
+    "notes": "No stateful verdict cache found at any known location. The Sprint R Y4 registry infrastructure ships but has not been populated by a live LLM review run. To unblock the distillation audit, run the full PD 1096 ingestion with features.y_stateful_registry=true so verdicts accumulate in 006_System-Manifests/cache/stateful_review_registry.sqlite (or the RocksDB variant when AD-029 defaults are on).",
+    "threshold_defer_no_data": 50,
+    "threshold_go_accuracy": 0.85,
+    "threshold_go_high_conf_coverage": 0.6,
+    "threshold_go_model_size_mb": 10
+  }
+}
