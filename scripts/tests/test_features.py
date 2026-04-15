@@ -134,6 +134,7 @@ EXPECTED_FLAGS = {
     "phys_shannon_sampling", "phys_eigenvector_cascade",
     # Sprint HP — High-Performance Optimizations (phase-13)
     "hp_merkle_fs", "hp_event_sourced_graph", "hp_graphsage",
+    "hp_wasm_kernels",
     # Sprint GEOM — Geometric Constraint Engine (phase-15)
     "geom_csp_compiler", "geom_envelope_2d", "geom_envelope_3d",
     "geom_iou_audit", "geom_pareto_optimizer",
@@ -144,6 +145,7 @@ EXPECTED_FLAGS = {
     "z_dspy_compiler",
     "z_adversarial_swarm",
     "z_differential_dataflow",
+    "z_neuro_symbolic",
     # Sprint GT — Geo-Topological Rust engine (phase-8b)
     "gt_engine_rs",
     # Sprint GT Stream GT.5 — Hardware Hardening (mmap + Bloom + MC dropout)

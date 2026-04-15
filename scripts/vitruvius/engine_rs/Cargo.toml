@@ -1,17 +1,37 @@
-[package]
-name = "vitruvius_engine_rs"
-version = "0.1.0"
-edition = "2021"
-description = "Vitruvius Sprint GT Rust data plane — sparse linear octree + pyo3 bridge."
-license = "MIT OR Apache-2.0"
+# Vitruvius Sprint HP Stream HP.4 — workspace split.
+#
+# The original Sprint GT.1+GT.2 crate was a single package with both
+# the spatial math and the pyo3 bridge baked in. That prevented the
+# `wasm32-unknown-unknown` target (libpython does not exist in the
+# browser), so HP.4 splits the crate into:
+#
+#   * `core/`      — pyo3-free spatial math. Compiles to wasm32 AND
+#                    native. Exposes `extern "C"` wasm entry points.
+#   * `pyo3_shim/` — newtype wrappers that re-export the core types
+#                    with `#[pyclass]` annotations. This is the crate
+#                    `maturin` builds into the CPython extension.
+#
+# Python side is unchanged: `from vitruvius.engine_rs import
+# SpatialPoint, LinearOctree` continues to work because the `pyo3_shim`
+# crate preserves the exact module / class / method / attribute names.
 
-[lib]
-name = "vitruvius_engine_rs"
-crate-type = ["cdylib"]
+[workspace]
+resolver = "2"
+members = [
+    "core",
+    "pyo3_shim",
+]
 
-[dependencies]
-pyo3 = { version = "0.22", features = ["extension-module"] }
+# Note: the legacy `src/` directory is preserved as a build reference
+# (see `src/lib.rs` and `src/octree.rs` for the pre-split sources) but
+# is not a workspace member; it no longer participates in the cargo
+# build graph. A follow-on commit may delete it entirely once every
+# consumer has confirmed the shim-based build.
+exclude = ["src"]
 
+# Workspace-level profile — cargo requires these live at the workspace
+# root, not the member crates. Members inherit these settings
+# automatically.
 [profile.release]
 opt-level = 3
 lto = "thin"

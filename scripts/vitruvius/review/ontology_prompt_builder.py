@@ -6,6 +6,8 @@ from collections import deque
 from dataclasses import dataclass
 from typing import Any, Sequence
 
+from vitruvius.config import load_config
+
 
 @dataclass(frozen=True)
 class GraphEdgeSummary:
@@ -135,3 +137,85 @@ def build_neighborhood_prompt(
         object_neighborhood=object_edges,
         rendered_text=rendered,
     )
+
+
+# ---------------------------------------------------------------------------
+# Stream S1.3 — neuro-symbolic <logic> directive
+# ---------------------------------------------------------------------------
+# When features.z_neuro_symbolic is true, reviewer prompts are appended
+# with a `<logic-directive>` block that forces the LLM to emit a
+# `<logic>` Datalog fact set the S1.2 Rust evaluator can verify. The
+# flag-OFF path is byte-identical to the pre-Sprint-Z baseline.
+
+_LOGIC_DIRECTIVE = (
+    "\n\n<logic-directive>\n"
+    "You MUST output a <logic> block containing Datalog facts of the form\n"
+    "    predicate(subject, object).\n"
+    "Use only these predicates: has_distance, requires_distance, less_than,\n"
+    "applies_to. End the block with a single conclusion line of the form\n"
+    "    conclusion: violates(building_X, rule_Y).\n"
+    "The Rust Datalog evaluator will reject your verdict if the logic block\n"
+    "fails to parse or fails to derive the conclusion from the facts.\n"
+    "</logic-directive>\n"
+)
+
+
+def _neuro_symbolic_enabled() -> bool:
+    """Return True iff ``features.z_neuro_symbolic`` is set in the repo config."""
+    try:
+        cfg = load_config()
+    except Exception:
+        return False
+    flags = cfg.get("features", {}) if isinstance(cfg, dict) else {}
+    if not isinstance(flags, dict):
+        return False
+    return bool(flags.get("z_neuro_symbolic", False))
+
+
+def _build_prompt_base(
+    candidate_text: str,
+    neighborhood: Sequence[dict[str, Any]],
+) -> str:
+    """Deterministic base prompt body used by :func:`build_prompt_with_neighborhood`.
+
+    Keeps the Sprint Z neuro-symbolic directive out of the pre-S1.3
+    rendering so the flag-OFF path in :func:`build_prompt_with_neighborhood`
+    stays byte-identical to the historical baseline.
+
+    The body is intentionally plain text — downstream reviewer code
+    concatenates it with graph neighborhood blocks from
+    :func:`build_neighborhood_prompt`.
+    """
+    lines: list[str] = ["Candidate:", candidate_text.strip()]
+    if neighborhood:
+        lines.append("")
+        lines.append("Neighborhood context:")
+        for entry in neighborhood:
+            lines.append(f"  - {entry}")
+    return "\n".join(lines)
+
+
+def build_prompt_with_neighborhood(
+    candidate_text: str,
+    neighborhood: list[dict[str, Any]] | None = None,
+) -> str:
+    """Build a review prompt that optionally injects a neuro-symbolic directive.
+
+    When ``features.z_neuro_symbolic`` is true, the prompt appends a
+    ``<logic-directive>`` that forces the LLM to emit a ``<logic>``
+    Datalog block the Sprint Z Stream S1.2 Rust evaluator can verify.
+    When the flag is false the returned string is byte-identical to the
+    pre-Sprint-Z baseline (the :func:`_build_prompt_base` output).
+
+    Parameters
+    ----------
+    candidate_text:
+        The raw candidate relationship text being reviewed.
+    neighborhood:
+        Optional list of graph neighborhood entries produced upstream.
+        ``None`` and ``[]`` are treated identically.
+    """
+    base = _build_prompt_base(candidate_text, neighborhood or [])
+    if _neuro_symbolic_enabled():
+        return base + _LOGIC_DIRECTIVE
+    return base

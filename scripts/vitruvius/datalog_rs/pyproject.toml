@@ -3,9 +3,9 @@ requires = ["maturin>=1.5,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "vitruvius-engine-rs"
+name = "vitruvius-datalog-rs"
 version = "0.1.0"
-description = "Vitruvius Sprint GT Rust data plane — sparse linear octree + pyo3 bridge."
+description = "Vitruvius Sprint Z Stream S1 — hand-rolled Datalog evaluator + pyo3 bridge for neuro-symbolic compliance proofs."
 requires-python = ">=3.11"
 license = { text = "MIT OR Apache-2.0" }
 classifiers = [
@@ -17,4 +17,4 @@ classifiers = [
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
-module-name = "vitruvius_engine_rs"
+module-name = "vitruvius_datalog_rs"

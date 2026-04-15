@@ -1,0 +1,15 @@
+[package]
+name = "vitruvius_engine_rs"
+version = "0.1.0"
+edition = "2021"
+description = "Vitruvius Sprint GT Rust data plane — pyo3 shim over core crate."
+license = "MIT OR Apache-2.0"
+
+[lib]
+name = "vitruvius_engine_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.22", features = ["extension-module"] }
+vitruvius_engine_rs_core = { path = "../core" }
+

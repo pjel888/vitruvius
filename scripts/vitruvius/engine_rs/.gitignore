@@ -1,4 +1,4 @@
-# Sprint GT — Rust data plane build artifacts.
+# Sprint GT / HP — Rust data plane build artifacts.
 # Never commit compiled binaries, wheels, or the Cargo target tree.
 target/
 Cargo.lock
@@ -6,4 +6,5 @@ Cargo.lock
 *.dylib
 *.pyd
 *.whl
+*.wasm
 .maturin/

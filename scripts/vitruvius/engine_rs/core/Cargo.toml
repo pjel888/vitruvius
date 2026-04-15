@@ -1,0 +1,19 @@
+[package]
+name = "vitruvius_engine_rs_core"
+version = "0.1.0"
+edition = "2021"
+description = "Vitruvius Sprint GT/HP core spatial math — wasm32 + native, zero pyo3 deps."
+license = "MIT OR Apache-2.0"
+
+# Two crate types:
+#   * `cdylib` → required for the wasm32 build so `cargo build
+#     --target wasm32-unknown-unknown` emits a `.wasm` file with the
+#     `#[no_mangle] extern "C"` exports.
+#   * `rlib`   → required so the sibling `pyo3_shim` crate can depend
+#     on us as a normal Rust library on the native target.
+[lib]
+name = "vitruvius_engine_rs_core"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+

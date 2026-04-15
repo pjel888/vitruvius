@@ -1,36 +1,36 @@
-// Vitruvius Sprint GT Stream GT.2 — Sparse Linear Octree.
+// Vitruvius Sprint GT Stream GT.2 — Sparse Linear Octree (pure core).
+//
+// This is the pyo3-free version of the original
+// `scripts/vitruvius/engine_rs/src/octree.rs` that shipped in Sprint
+// GT. The logic is byte-identical; the only difference is that the
+// pyo3 `#[pyclass]` / `#[pymethods]` annotations have been lifted up
+// into the `pyo3_shim` crate. That keeps this crate compilable on
+// `wasm32-unknown-unknown` where libpython is unavailable.
+//
+// Errors are returned as `String` (via `AabbError` / `LinearOctreeError`
+// type aliases) instead of `pyo3::PyErr`. The shim crate maps those
+// to `PyValueError::new_err(...)` one call away, so Python-facing
+// behaviour is unchanged.
+//
+// Original docs preserved verbatim below — see the pre-split commit
+// (b782ea3) for blame history.
 //
 // Data plane ownership:
 //   * `SpatialPoint` is the atomic record the Python control plane
-//     streams in. It is cloneable and `#[pyclass]`, so pyo3 can hand a
-//     brand-new Python-owned copy back on every query.
-//   * `Aabb` is a plain axis-aligned bounding box. Not exposed to
-//     Python in this ship — it is an internal pruning primitive.
+//     streams in. It is `Clone + Debug` so pyo3 can wrap it in a
+//     newtype and hand a brand-new Python-owned copy back on every
+//     query.
+//   * `Aabb` is a plain axis-aligned bounding box. Internal pruning
+//     primitive; the shim crate does not expose it.
 //   * `LinearOctree` owns the tree. Every leaf stores a
 //     `Vec<SpatialPoint>` so range queries walk a short, cache-friendly
-//     bucket; internal nodes own eight child boxes. This is the "flat
-//     Vec storage for cache locality" the plan calls out: each node's
-//     points live contiguously in memory instead of being chased
-//     through a `HashMap<id, point>`.
+//     bucket; internal nodes own eight child boxes.
 //
-// O(log n) guarantee:
+// O(log n) guarantee (unchanged from Sprint GT):
 //   Query complexity is proportional to the number of leaves that
 //   intersect the query volume. With balanced geometry and
 //   `max_depth=8` the expected walk is O(log n + k) where k is the
-//   number of points actually returned. A fully degenerate input (all
-//   points coincident) degrades to O(n) but never exceeds the
-//   brute-force cost of scanning the flat `Vec`.
-//
-// Narrow-ship caveats:
-//   * SIMD pruning (8 octants/cycle) is deferred. LLVM autovectorises
-//     the scalar `intersects_*` helpers when they're hot.
-//   * Morton-code linearisation is deferred — the `max_depth` cap plus
-//     a per-node `LEAF_CAPACITY` is enough to hit the <1 ms target in
-//     testing without the extra complexity.
-
-use pyo3::prelude::*;
-
-use crate::value_error;
+//   number of points actually returned.
 
 /// Maximum number of points a leaf may hold before it must subdivide.
 /// Keeping this small ensures query walks touch few points per leaf,
@@ -41,61 +41,42 @@ const LEAF_CAPACITY: usize = 16;
 /// Cap on the number of recursive splits. 8 levels gives a minimum
 /// leaf edge of `root_edge / 256`, which is fine for the test fixture
 /// cube of 100 units (≈ 0.39 unit resolution).
-const DEFAULT_MAX_DEPTH: usize = 8;
+pub const DEFAULT_MAX_DEPTH: usize = 8;
+
+/// Plain-string error surface. The pyo3 shim maps this to
+/// `PyValueError::new_err(...)`; other shims (wasm, CLI) stringify
+/// it directly.
+pub type AabbError = String;
+pub type LinearOctreeError = String;
 
 // ---------------------------------------------------------------------------
-// SpatialPoint — the pyo3-visible data record.
+// SpatialPoint — pure Rust. The pyo3 shim re-exports a newtype wrapper.
 // ---------------------------------------------------------------------------
 
 /// A single point in 3-space with an opaque identifier.
 ///
-/// Designed to mirror the `spatial_instance` node type from the
-/// `vitruvius.graph.contract` frozen dataclass so the Rust engine can
-/// eventually be fed straight from `GraphSnapshot.nodes`.
-#[pyclass(module = "vitruvius_engine_rs", frozen)]
-#[derive(Clone, Debug)]
+/// Mirrors the `spatial_instance` node type from
+/// `vitruvius.graph.contract` so the Rust engine can be fed straight
+/// from `GraphSnapshot.nodes`.
+#[derive(Clone, Debug, PartialEq)]
 pub struct SpatialPoint {
-    #[pyo3(get)]
     pub id: String,
-    #[pyo3(get)]
     pub x: f64,
-    #[pyo3(get)]
     pub y: f64,
-    #[pyo3(get)]
     pub z: f64,
 }
 
-#[pymethods]
 impl SpatialPoint {
-    #[new]
-    #[pyo3(signature = (id, x, y, z))]
-    pub fn new(id: String, x: f64, y: f64, z: f64) -> PyResult<Self> {
+    pub fn new(id: String, x: f64, y: f64, z: f64) -> Result<Self, String> {
         if !x.is_finite() || !y.is_finite() || !z.is_finite() {
-            return Err(value_error(
-                "SpatialPoint coordinates must be finite (no NaN/±inf).",
-            ));
+            return Err(
+                "SpatialPoint coordinates must be finite (no NaN/±inf).".to_string(),
+            );
         }
         if id.is_empty() {
-            return Err(value_error("SpatialPoint id must be a non-empty string."));
+            return Err("SpatialPoint id must be a non-empty string.".to_string());
         }
         Ok(Self { id, x, y, z })
-    }
-
-    fn __repr__(&self) -> String {
-        format!(
-            "SpatialPoint(id={:?}, x={}, y={}, z={})",
-            self.id, self.x, self.y, self.z
-        )
-    }
-
-    /// Equality check — useful from Python tests that assert on
-    /// returned query results without needing to construct a
-    /// separate equality helper.
-    fn __eq__(&self, other: &Self) -> bool {
-        self.id == other.id
-            && self.x == other.x
-            && self.y == other.y
-            && self.z == other.z
     }
 }
 
@@ -116,14 +97,14 @@ pub struct Aabb {
 }
 
 impl Aabb {
-    fn new(
+    pub fn new(
         min_x: f64,
         min_y: f64,
         min_z: f64,
         max_x: f64,
         max_y: f64,
         max_z: f64,
-    ) -> Result<Self, String> {
+    ) -> Result<Self, AabbError> {
         for v in [min_x, min_y, min_z, max_x, max_y, max_z] {
             if !v.is_finite() {
                 return Err("Aabb bounds must all be finite (no NaN/±inf).".to_string());
@@ -144,7 +125,7 @@ impl Aabb {
         })
     }
 
-    fn contains(&self, p: &SpatialPoint) -> bool {
+    pub fn contains(&self, p: &SpatialPoint) -> bool {
         p.x >= self.min_x
             && p.x <= self.max_x
             && p.y >= self.min_y
@@ -153,9 +134,8 @@ impl Aabb {
             && p.z <= self.max_z
     }
 
-    /// Do this box and the given query AABB overlap? Used to prune
-    /// child octants during `query_aabb`.
-    fn intersects_aabb(&self, q: &Aabb) -> bool {
+    /// Do this box and the given query AABB overlap?
+    pub fn intersects_aabb(&self, q: &Aabb) -> bool {
         !(self.max_x < q.min_x
             || self.min_x > q.max_x
             || self.max_y < q.min_y
@@ -165,17 +145,15 @@ impl Aabb {
     }
 
     /// Does this box intersect a sphere centred at (cx,cy,cz) with
-    /// radius `r`? Standard closest-point-to-box test — if the
-    /// squared distance from the sphere centre to the nearest box
-    /// point is ≤ r², there is overlap.
-    fn intersects_sphere(&self, cx: f64, cy: f64, cz: f64, r: f64) -> bool {
+    /// radius `r`?
+    pub fn intersects_sphere(&self, cx: f64, cy: f64, cz: f64, r: f64) -> bool {
         let dx = clamp(cx, self.min_x, self.max_x) - cx;
         let dy = clamp(cy, self.min_y, self.max_y) - cy;
         let dz = clamp(cz, self.min_z, self.max_z) - cz;
         dx * dx + dy * dy + dz * dz <= r * r
     }
 
-    fn center(&self) -> (f64, f64, f64) {
+    pub fn center(&self) -> (f64, f64, f64) {
         (
             0.5 * (self.min_x + self.max_x),
             0.5 * (self.min_y + self.max_y),
@@ -184,11 +162,8 @@ impl Aabb {
     }
 
     /// Produce the eight child octants for a split through the centre.
-    /// Order is bit-encoded `zyx`: index 0 is `(-,-,-)`, index 7 is
-    /// `(+,+,+)`. The bit encoding is irrelevant for correctness here
-    /// but gives us a stable layout that matches a future Morton-code
-    /// optimisation pass.
-    fn octants(&self) -> [Aabb; 8] {
+    /// Order is bit-encoded `zyx`.
+    pub fn octants(&self) -> [Aabb; 8] {
         let (cx, cy, cz) = self.center();
         let mut out = [*self; 8];
         for i in 0..8 {
@@ -220,9 +195,7 @@ fn clamp(v: f64, lo: f64, hi: f64) -> f64 {
 }
 
 // ---------------------------------------------------------------------------
-// Node — either a leaf (bucket of points) or an internal node with 8
-// child boxes. Using `Box<[Node; 8]>` keeps every child contiguous and
-// avoids the 8-pointer overhead of a `Vec<Node>`.
+// Node — leaf bucket or internal octant, unchanged from Sprint GT.
 // ---------------------------------------------------------------------------
 
 #[derive(Debug)]
@@ -242,7 +215,6 @@ impl Node {
         Node::Leaf(Vec::new())
     }
 
-    /// Count the points stored anywhere beneath this node.
     fn len(&self) -> usize {
         match self {
             Node::Leaf(v) => v.len(),
@@ -254,39 +226,20 @@ impl Node {
         match self {
             Node::Leaf(bucket) => {
                 bucket.push(point);
-                // If we've blown the leaf budget and still have room to
-                // subdivide, convert this leaf into an internal node.
                 if bucket.len() > LEAF_CAPACITY && depth < max_depth {
                     let points = std::mem::take(bucket);
                     let octants = bounds.octants();
-                    // Build eight fresh empty children.
                     let mut children: [Child; 8] = array_init_leaves(octants);
-                    // Re-home every previously held point into the
-                    // appropriate child. A point that sits exactly on
-                    // the split plane goes into the first child whose
-                    // bounds contain it (`contains` is inclusive on both
-                    // extremes so ties resolve deterministically).
                     for p in points {
                         if let Some(idx) = locate_child(&children, &p) {
                             match &mut children[idx].node {
                                 Node::Leaf(b) => b.push(p),
-                                // Newly-constructed leaves, so this
-                                // branch is unreachable unless
-                                // `array_init_leaves` is changed.
                                 Node::Internal(_) => unreachable!(
                                     "array_init_leaves must produce Leaf nodes"
                                 ),
                             }
-                        } else {
-                            // Point lies outside every child box — only
-                            // possible if the root bounds didn't cover
-                            // it. Fall back to the first child so we
-                            // don't silently drop data; the query path
-                            // will still find it via exhaustive bucket
-                            // scan.
-                            if let Node::Leaf(b) = &mut children[0].node {
-                                b.push(p);
-                            }
+                        } else if let Node::Leaf(b) = &mut children[0].node {
+                            b.push(p);
                         }
                     }
                     *self = Node::Internal(Box::new(children));
@@ -298,11 +251,6 @@ impl Node {
                     let child_bounds = child.bounds;
                     child.node.insert(&child_bounds, point, depth + 1, max_depth);
                 } else {
-                    // Point outside all child bounds — store in the
-                    // nearest-by-index child so it stays queryable. In
-                    // practice this should only happen if the caller
-                    // inserted a point outside the octree's root AABB,
-                    // which the public API rejects.
                     let child = &mut children[0];
                     let child_bounds = child.bounds;
                     child.node.insert(&child_bounds, point, depth + 1, max_depth);
@@ -311,7 +259,7 @@ impl Node {
         }
     }
 
-    fn query_aabb<'a>(&'a self, self_bounds: &Aabb, q: &Aabb, out: &mut Vec<SpatialPoint>) {
+    fn query_aabb(&self, self_bounds: &Aabb, q: &Aabb, out: &mut Vec<SpatialPoint>) {
         if !self_bounds.intersects_aabb(q) {
             return;
         }
@@ -367,43 +315,16 @@ impl Node {
 }
 
 fn array_init_leaves(octants: [Aabb; 8]) -> [Child; 8] {
-    // `std::array::from_fn` would be cleaner but allocates the child
-    // nodes twice. An explicit loop keeps the allocation count at one
-    // per child.
     let [b0, b1, b2, b3, b4, b5, b6, b7] = octants;
     [
-        Child {
-            bounds: b0,
-            node: Node::new_leaf(),
-        },
-        Child {
-            bounds: b1,
-            node: Node::new_leaf(),
-        },
-        Child {
-            bounds: b2,
-            node: Node::new_leaf(),
-        },
-        Child {
-            bounds: b3,
-            node: Node::new_leaf(),
-        },
-        Child {
-            bounds: b4,
-            node: Node::new_leaf(),
-        },
-        Child {
-            bounds: b5,
-            node: Node::new_leaf(),
-        },
-        Child {
-            bounds: b6,
-            node: Node::new_leaf(),
-        },
-        Child {
-            bounds: b7,
-            node: Node::new_leaf(),
-        },
+        Child { bounds: b0, node: Node::new_leaf() },
+        Child { bounds: b1, node: Node::new_leaf() },
+        Child { bounds: b2, node: Node::new_leaf() },
+        Child { bounds: b3, node: Node::new_leaf() },
+        Child { bounds: b4, node: Node::new_leaf() },
+        Child { bounds: b5, node: Node::new_leaf() },
+        Child { bounds: b6, node: Node::new_leaf() },
+        Child { bounds: b7, node: Node::new_leaf() },
     ]
 }
 
@@ -417,17 +338,11 @@ fn locate_child(children: &[Child; 8], p: &SpatialPoint) -> Option<usize> {
 }
 
 // ---------------------------------------------------------------------------
-// LinearOctree — the pyo3-visible tree handle.
+// LinearOctree — pure core handle.
 // ---------------------------------------------------------------------------
 
 /// Sparse linear octree over `SpatialPoint` records.
-///
-/// Construct with the bounding volume of the building model you are
-/// about to ingest, then call `insert` for each geometry record. The
-/// tree self-subdivides as bucket pressure grows, so there is no
-/// explicit "build" step — the structure is usable after any number
-/// of inserts.
-#[pyclass(module = "vitruvius_engine_rs")]
+#[derive(Debug)]
 pub struct LinearOctree {
     bounds: Aabb,
     max_depth: usize,
@@ -435,10 +350,7 @@ pub struct LinearOctree {
     total: usize,
 }
 
-#[pymethods]
 impl LinearOctree {
-    #[new]
-    #[pyo3(signature = (min_x, min_y, min_z, max_x, max_y, max_z, max_depth=DEFAULT_MAX_DEPTH))]
     pub fn new(
         min_x: f64,
         min_y: f64,
@@ -447,14 +359,13 @@ impl LinearOctree {
         max_y: f64,
         max_z: f64,
         max_depth: usize,
-    ) -> PyResult<Self> {
-        let bounds =
-            Aabb::new(min_x, min_y, min_z, max_x, max_y, max_z).map_err(value_error)?;
+    ) -> Result<Self, LinearOctreeError> {
+        let bounds = Aabb::new(min_x, min_y, min_z, max_x, max_y, max_z)?;
         if max_depth == 0 {
-            return Err(value_error("max_depth must be >= 1"));
+            return Err("max_depth must be >= 1".to_string());
         }
         if max_depth > 32 {
-            return Err(value_error("max_depth must be <= 32 (overflow guard)"));
+            return Err("max_depth must be <= 32 (overflow guard)".to_string());
         }
         Ok(Self {
             bounds,
@@ -464,55 +375,32 @@ impl LinearOctree {
         })
     }
 
-    /// Insert a point into the octree.
-    ///
-    /// Accepts either a `SpatialPoint` or a 4-tuple `(id, x, y, z)`
-    /// so Python callers can stream geometry without allocating
-    /// intermediate pyclass handles. The 4-tuple path is the fast
-    /// path for bulk ingest.
-    #[pyo3(signature = (point))]
-    pub fn insert(&mut self, point: &Bound<'_, PyAny>) -> PyResult<()> {
-        let sp = coerce_spatial_point(point)?;
-        if !self.bounds.contains(&sp) {
-            return Err(value_error(format!(
+    pub fn insert(&mut self, point: SpatialPoint) -> Result<(), LinearOctreeError> {
+        if !self.bounds.contains(&point) {
+            return Err(format!(
                 "Point {:?} at ({}, {}, {}) lies outside the octree bounds.",
-                sp.id, sp.x, sp.y, sp.z
-            )));
+                point.id, point.x, point.y, point.z
+            ));
         }
         let bounds = self.bounds;
-        self.root.insert(&bounds, sp, 0, self.max_depth);
+        self.root.insert(&bounds, point, 0, self.max_depth);
         self.total += 1;
         Ok(())
     }
 
-    /// Total number of points inserted (duplicate inserts are
-    /// counted — this is the "how much data have I loaded" number,
-    /// not "how many unique ids").
-    pub fn __len__(&self) -> usize {
+    pub fn total(&self) -> usize {
         self.total
     }
 
-    /// Explicit `len()` method for API symmetry with the plan spec.
-    pub fn len(&self) -> usize {
-        self.total
-    }
-
-    /// Exposed for test diagnostics — walks the tree to count the
-    /// points it actually holds. Should equal `len()`.
     pub fn live_count(&self) -> usize {
         self.root.len()
     }
 
-    /// Current maximum recursion depth.
-    #[getter]
     pub fn max_depth(&self) -> usize {
         self.max_depth
     }
 
-    /// The root bounding box as a 6-tuple `(min_x, min_y, min_z,
-    /// max_x, max_y, max_z)`.
-    #[getter]
-    pub fn bounds(&self) -> (f64, f64, f64, f64, f64, f64) {
+    pub fn bounds_tuple(&self) -> (f64, f64, f64, f64, f64, f64) {
         (
             self.bounds.min_x,
             self.bounds.min_y,
@@ -523,9 +411,6 @@ impl LinearOctree {
         )
     }
 
-    /// Return every point whose coordinate falls inside the closed
-    /// box `[min_x, max_x] × [min_y, max_y] × [min_z, max_z]`.
-    #[pyo3(signature = (min_x, min_y, min_z, max_x, max_y, max_z))]
     pub fn query_aabb(
         &self,
         min_x: f64,
@@ -534,32 +419,27 @@ impl LinearOctree {
         max_x: f64,
         max_y: f64,
         max_z: f64,
-    ) -> PyResult<Vec<SpatialPoint>> {
-        let q =
-            Aabb::new(min_x, min_y, min_z, max_x, max_y, max_z).map_err(value_error)?;
+    ) -> Result<Vec<SpatialPoint>, LinearOctreeError> {
+        let q = Aabb::new(min_x, min_y, min_z, max_x, max_y, max_z)?;
         let mut out = Vec::new();
         self.root.query_aabb(&self.bounds, &q, &mut out);
         Ok(out)
     }
 
-    /// Return every point within `radius` of `(cx, cy, cz)`.
-    #[pyo3(signature = (cx, cy, cz, radius))]
     pub fn query_sphere(
         &self,
         cx: f64,
         cy: f64,
         cz: f64,
         radius: f64,
-    ) -> PyResult<Vec<SpatialPoint>> {
+    ) -> Result<Vec<SpatialPoint>, LinearOctreeError> {
         if !cx.is_finite() || !cy.is_finite() || !cz.is_finite() {
-            return Err(value_error(
-                "query_sphere centre must be finite (no NaN/±inf).",
-            ));
+            return Err("query_sphere centre must be finite (no NaN/±inf).".to_string());
         }
         if !radius.is_finite() || radius < 0.0 {
-            return Err(value_error(
-                "query_sphere radius must be a finite non-negative number.",
-            ));
+            return Err(
+                "query_sphere radius must be a finite non-negative number.".to_string(),
+            );
         }
         let r_sq = radius * radius;
         let mut out = Vec::new();
@@ -567,39 +447,4 @@ impl LinearOctree {
             .query_sphere(&self.bounds, cx, cy, cz, radius, r_sq, &mut out);
         Ok(out)
     }
-
-    /// Alias for `query_sphere` — the plan names the point-query
-    /// entry point `query_point`; we expose both for ergonomic
-    /// reasons.
-    #[pyo3(signature = (x, y, z, radius))]
-    pub fn query_point(
-        &self,
-        x: f64,
-        y: f64,
-        z: f64,
-        radius: f64,
-    ) -> PyResult<Vec<SpatialPoint>> {
-        self.query_sphere(x, y, z, radius)
-    }
-
-    fn __repr__(&self) -> String {
-        let (a, b, c, d, e, f) = self.bounds();
-        format!(
-            "LinearOctree(bounds=({a}, {b}, {c}, {d}, {e}, {f}), max_depth={}, len={})",
-            self.max_depth, self.total
-        )
-    }
-}
-
-/// Accept either `SpatialPoint` or `(id, x, y, z)` on the insert path.
-fn coerce_spatial_point(value: &Bound<'_, PyAny>) -> PyResult<SpatialPoint> {
-    if let Ok(sp) = value.extract::<SpatialPoint>() {
-        return Ok(sp);
-    }
-    if let Ok((id, x, y, z)) = value.extract::<(String, f64, f64, f64)>() {
-        return SpatialPoint::new(id, x, y, z);
-    }
-    Err(value_error(
-        "insert() expected a SpatialPoint or (id, x, y, z) tuple",
-    ))
 }

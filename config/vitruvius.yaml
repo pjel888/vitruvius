@@ -151,11 +151,14 @@ features:
   # Sprint HP — High-Performance Optimizations (phase-13).
   # HP.1 Merkle fs + HP.3 event-sourced graph (SQLite-backed) +
   # HP.5 GraphSAGE structural embeddings + structural loopholes
-  # detector all shipped. HP.4 (Rust/Wasm kernels) remains deferred
-  # until the wasmtime Python bindings are installed.
+  # detector + HP.4 Wasm spatial kernels all shipped. HP.4 lands as
+  # a workspace split of scripts/vitruvius/engine_rs/: the pure core
+  # compiles to wasm32-unknown-unknown and is loaded via wasmtime
+  # from scripts/vitruvius/compound/wasm_kernel.py.
   hp_merkle_fs: false
   hp_event_sourced_graph: false
   hp_graphsage: false
+  hp_wasm_kernels: false
   # Sprint GEOM — Geometric Constraint Engine (phase-15).
   # All four streams now land: GEOM.1 inequality→Z3 compiler,
   # GEOM.3 2D+3D buildable envelope, GEOM.4 IoU audit + Pareto
@@ -184,6 +187,10 @@ features:
   z_dspy_compiler: false
   z_adversarial_swarm: false
   z_differential_dataflow: false
+  # Stream S1 — neuro-symbolic Datalog bridge. When true the ontology
+  # prompt builder appends a <logic-directive> forcing the LLM to emit
+  # a Datalog fact set the vitruvius_datalog_rs Rust evaluator verifies.
+  z_neuro_symbolic: false
   # Sprint GT — Geo-Topological Rust engine (phase-8b).
   # GT.1 pyo3 bridge + GT.2 sparse linear octree. Flag gates the
   # downstream query-path switch from the pure-Python walker at
