@@ -18,8 +18,161 @@ pre-deterministic-filter era.
 
 ---
 
+## Vitruvius: Compound AI System Definition
+
+Vitruvius operates as a **Compound AI System**. It abandons the
+monolithic LLM approach — where a single model is trusted to read,
+reason, and calculate — in favor of a multi-component engine. The
+generative AI is **subordinated to deterministic mathematical and
+logical constraints**: it is a modular piece within a larger,
+verifiable pipeline, never the final authority on a compliance
+decision.
+
+### 1. The Semantic Extractor (Generative Component)
+
+- **Engine:** Local LLM via Ollama, default `gemma4:e4b`.
+- **Function:** Natural language understanding and unstructured-input
+  parsing. Translates messy human input (scanned LGU ordinances,
+  fragmented client briefs, IRR text) into formal intermediate
+  representations — JSON verdicts for the Tier-1/Tier-2 review layer,
+  or `<logic>` Datalog fact sets when the Sprint Z
+  `z_neuro_symbolic` flag is on.
+- **Constraint:** Subordinated to deterministic verifiers. Every LLM
+  verdict is cross-checked by:
+  - the **pre-review filter** (`pre_review_filter.py`, 8 deterministic
+    rules) — typically auto-accepts or auto-rejects ~78% of PD 1096
+    candidates before the LLM sees them;
+  - the **17-rule Phase 7 promotion validator**
+    (`promotion_validator.py`) — rejects records that violate the
+    closed predicate vocabulary, schema, audit integrity, or
+    compatibility pairs regardless of what the LLM said;
+  - optionally the **Sprint Z Rust Datalog evaluator**
+    (`datalog_rs/` crate, `z_neuro_symbolic` flag) — rejects the
+    LLM's verdict when the `<logic>` block fails to parse or fails to
+    derive the conclusion from the facts.
+
+### 2. The Mathematical Verifier (Deterministic Component)
+
+- **Engine:** Z3 Theorem Prover + Rust/Wasm spatial kernels.
+- **Function:** Geometric and logical verification of parametric
+  constraints.
+- **Components:**
+  - **Z3 inequality compiler**
+    (`scripts/vitruvius/geometric/inequality_compiler.py`) — compiles
+    extracted parametric rules into a Z3 incremental solver and
+    returns a `ComplianceVerdict` with the specific violating
+    parameters.
+  - **Z3 spatial constraint solver**
+    (`scripts/vitruvius/spatial/constraint_solver.py`, Sprint H
+    Stream L.5) — evaluates parametric spatial constraints against
+    observed values.
+  - **Rust Datalog evaluator**
+    (`scripts/vitruvius/datalog_rs/`) — a pyo3 crate with a
+    hand-rolled Datalog engine (shipped in Sprint Z S1.2 after
+    `crepe` proved too fragile) that verifies the `<logic>` fact
+    sets emitted by the LLM.
+  - **Wasm spatial kernels**
+    (`scripts/vitruvius/engine_rs/` workspace, compiled to
+    `wasm32-unknown-unknown`, loaded via `wasmtime` in
+    `compound/wasm_kernel.py`) — run geometric primitives
+    (`aabb_intersects`) in a hermetic Wasm sandbox, suitable for
+    constrained environments.
+- **Constraint:** When the verifier returns `unsat`, the LLM's
+  assumption is rejected. The `check_compliance` function in
+  `inequality_compiler.py` collects every violating parameter, and
+  the Datalog bridge in the ontology prompt directive rejects the
+  verdict when the `<logic>` block cannot derive its stated
+  conclusion. Both paths are live behind feature flags today.
+- **Geometry representation:** 3D polyhedral meshes via `trimesh`
+  + `manifold3d` (not strict CAD B-Rep — shipped in Sprint GEOM
+  Stream GEOM.3). The mesh level-of-detail is sufficient for
+  architectural envelope checks under PD 1096.
+
+### 3. The Immutable Vault (Topological Component)
+
+- **Engine:** RocksDB (via the `rocksdict 0.3.29` binding) +
+  event-sourced graph + differential dataflow.
+- **Function:** Maintains the persistent, uncorrupted state of
+  Philippine architectural laws (PD 1096, its IRR) and historical
+  precedents.
+- **Components:**
+  - **RocksDB-backed event store**
+    (`scripts/vitruvius/graph/rocksdb_event_store.py`) — append-only
+    log with primary (`event:{event_id}`) + secondary time-index
+    (`ts:{timestamp}:{event_id}`) key layout. O(1) count via a
+    reserved `meta:event_count` key. Flag
+    `hp_rocksdb_event_store` defaults true as of AD-029.
+  - **RocksDB-backed verdict cache**
+    (`scripts/vitruvius/review/rocksdb_stateful_registry.py`) —
+    keyed on `(source_hash, relationship_hash, model_version)` for
+    Phase 6A Resume gap closure. Flag `hp_rocksdb_verdict_cache`
+    defaults true as of AD-029.
+  - **Differential dataflow**
+    (`scripts/vitruvius/compound/differential_propagator.py` +
+    `dependency_tracker.py`, Sprint Z Stream S3) — `propagate(deltas)`
+    walks the `DependencyTracker` once per `Delta` batch, so
+    downstream invalidation runs in **O(Δ)** in the size of the
+    changed set, not in the total graph size. Amendments to PD 1096
+    no longer require a full re-inference pass.
+- **Constraint:** The vault's state is updated exclusively via the
+  append-only event log; generative LLM inference is never invoked
+  during graph mutation. Migration from the older SQLite backends
+  is supported by `ple-kv-migrate --store {event,registry}`
+  (idempotent, dry-run capable).
+
+### 4. The Orchestrator (Control Component)
+
+- **Engine:** Python control plane in `scripts/pipeline_cli.py` +
+  `scripts/vitruvius/`.
+- **Function:** Routes data streams between the Generative,
+  Deterministic, and Topological components. Every stage is a
+  re-runnable `run_*` handler with lazy imports (AD-015) so the CLI
+  stays usable in minimal environments.
+- **Constraint:** Enforces ingestion-layer invariants before state
+  can transition between layers:
+  - **Merkle directory hash** (`scripts/vitruvius/merkle_fs.py`,
+    Sprint HP.1) — content-addressable lock over directory state;
+    makes structural drift cheap to detect.
+  - **SHA-256 file hash**
+    (`scripts/vitruvius/scanner.py::_sha256_of_file`, RI-009 closed)
+    — every file entry carries an immutable content hash.
+  - **Z3 admission check** (`spatial/constraint_solver.py`,
+    `geometric/inequality_compiler.py`) — parametric constraints
+    must be SAT-checkable before they enter the canonical layer.
+  - **Monte Carlo dropout uncertainty utility**
+    (`scripts/vitruvius/graph/mc_dropout.py::compute_epistemic_uncertainty`,
+    Sprint GT Stream GT.5.3) — computes the epistemic uncertainty
+    of a Bayesian model head as the sample variance of MC-dropout
+    predictions. The utility ships; wiring it into the ingestion
+    gate as a hard admission threshold is follow-up work.
+
+### Feature-flag map
+
+All generative-vs-deterministic trade-offs are gated behind feature
+flags in `config/vitruvius.yaml`. Flag-OFF behaviour is
+byte-identical to the pre-Sprint-Q pipeline.
+
+| Component | Flag | Default |
+|---|---|---|
+| Neuro-symbolic Datalog verification | `z_neuro_symbolic` | false |
+| Adversarial reviewer swarm | `z_adversarial_swarm` | false |
+| Differential dataflow | `z_differential_dataflow` | false |
+| Wasm spatial kernel | `hp_wasm_kernels` | false |
+| RocksDB event store | `hp_rocksdb_event_store` | **true** (AD-029) |
+| RocksDB verdict cache | `hp_rocksdb_verdict_cache` | **true** (AD-029) |
+| Merkle fs hash | `hp_merkle_fs` | false |
+| Z3 inequality compiler | `geom_csp_compiler` | false |
+| 3D envelope | `geom_envelope_3d` | false |
+| Spatial constraint solver | `l_z3_constraint_solver` | false |
+
+See `.ai/10_state/decisions.md` AD-028 (nine-sprint closure) and
+AD-029 (RocksDB migration) for the per-sprint ledgers.
+
+---
+
 ## Table of contents
 
+- [Compound AI System Definition](#vitruvius-compound-ai-system-definition)
 - [Quick start](#quick-start)
 - [Architecture at a glance](#architecture-at-a-glance)
 - [Filesystem layers](#filesystem-layers)
@@ -231,7 +384,7 @@ and version-controlled alongside the code.
 | [`.ai/06_specs/`](./.ai/06_specs/) | Schemas: source, concept, relationship |
 | [`.ai/07_experiments/`](./.ai/07_experiments/) | Experiment writeups with real-data findings |
 | [`.ai/08_prompts/`](./.ai/08_prompts/) | LLM prompt reference files (Tier-1 Gemma, Tier-2 Qwen design) |
-| [`.ai/09_archive/`](./.ai/09_archive/) | **Completed plans** (Phase 7, 1C, 2, 6A, 6B, 3C, polish) |
+| [`.ai/09_archive/`](./.ai/09_archive/) | **Completed plans** — Phases 7/1C/2/6A/6B/3C/polish plus the 10 sprints closed this session: Q (live wiring), R (per-layer embeddings + agentic), PHYS (graph physics), H (3D spatial), GEOM (constraint engine), WIKI (synthesis), GT (geo-topological), HP (performance), Z (compound AI), HP.3-R (RocksDB KV migration). Also: research briefs under `.ai/09_archive/research/`. |
 | [`.ai/10_state/`](./.ai/10_state/) | Live state: `active_context.md`, `decisions.md`, `known_issues.md`, `system_state.json`, `pipeline_state.json` |
 
 **If you only read one file**: `.ai/01_roadmap/master-roadmap.md` (v2.0.0) is
@@ -239,7 +392,7 @@ the authoritative roadmap and contains the honest status matrix (§4) and
 governance contracts (§3).
 
 **If you're looking for "why"**: `.ai/10_state/decisions.md` has the complete
-architectural decision log (AD-001 through AD-021 as of 2026-04-14).
+architectural decision log (AD-001 through AD-029 as of 2026-04-15). AD-024 through AD-029 cover the Sprint Q→Z→HP.3-R closure arc and the RocksDB migration bench ledger.
 
 ---
 
@@ -298,6 +451,46 @@ pipeline stage, not technical layer.
 - `rules/canonical_rules.yaml` — path-to-ID mapping for canonicalization
 - `rules/relationship_registry.yaml` — closed predicate vocabulary + compatibility
 
+### Post-Sprint-D Compound AI stack
+
+Six new subpackages layered on top of the Phase 0-7 modules above.
+All are gated behind `features.*` flags in `config/vitruvius.yaml`
+and default off (except `hp_rocksdb_*` per AD-029).
+
+- `compound/` — Sprint Z reactive neuro-symbolic OS:
+  - `adversarial.py` — Proposer/Inspector/Adjudicator swarm (S2)
+  - `dspy_compiler.py` — metric-driven prompt compiler (S5)
+  - `dependency_tracker.py` + `differential_propagator.py` — incremental dataflow (S3)
+  - `logic_schema.py` — Pydantic envelope for `<logic>` Datalog fact sets (S1)
+  - `wasm_kernel.py` — wasmtime loader for the `engine_rs` Wasm build
+- `wiki/` — Sprint WIKI autonomous knowledge synthesis:
+  - `docling_parser.py`, `kuzu_store.py`, `delta_tracker.py`, `synthesis_loop.py`, `ego_linter.py`, `ollama_client.py`, `llm_client.py`
+- `geometric/` — Sprint GEOM buildable-envelope engine:
+  - `inequality_compiler.py` (Z3), `envelope_2d.py` (shapely), `envelope_3d.py` (trimesh + manifold3d), `pareto_optimizer.py` (cvxpy)
+- `foraging/` — Sprint GT Stream GT.5.2 Bloom filter foraging
+- `priming/` — Sprint R Stream Y1 contextual priming (source identity vector, prompt prefix injector, drift detector)
+- `bench/` — Sprint Q W4 + Sprint HP.3-R benchmark harnesses (live PD 1096 wall-clock + peak RSS; KV backend comparison)
+
+Additions to existing subpackages:
+
+- `graph/` — new modules: `contract.py` (GraphNode/Edge/TemporalEdge), `event_store.py` + `rocksdb_event_store.py` (event log + RocksDB variant), `graphsage.py` (HP.5 embeddings + loopholes detector), `temporal_query.py` (GT.3.2 versioned retrieval), `parquet_archiver.py` (GT.3.3), `mc_dropout.py` (GT.5.3 epistemic uncertainty), `physics.py` (Sprint PHYS), `merkle_fs.py` (HP.1, single-file module at package root)
+- `review/` — new modules: `stateful_registry.py` + `rocksdb_stateful_registry.py` (Y4.1), `ontology_prompt_builder.py` (S1.3 neuro-symbolic directive), `cot_audit.py` (Y3), `slm_router.py`, `conformal.py`, `tension_analyzer.py`, `reflection_parser.py`, `choquet.py`
+- `promotion/` — new modules: `bayesian_fusion.py`, `stringency_matrix.py`, `temporal_edges.py`
+- `pre_review/` — new module: `nb_filter.py` (NB prefilter)
+- `spatial/` — new modules: `spatial_edge_builder.py` (GT.4 decay-weighted edges), `proximity_jump.py` (GT.4), `constraint_solver.py` (L.5 Z3 SMT evaluator)
+- `parsers/` — Phase 1B Foundation (`base_parser.py`, `document_taxonomy.py`, `quality_gates.py`, `orchestrator.py`, `opendataloader_parser.py`) shipped in Sprint C. Phase 1B Modernization Tranche 1 (`docling_parser.py`, `libreoffice_preprocessor.py`, `GATE-005`) is a TDD plan at `.ai/03_plans/2026-04-15-phase-1b-modernization-tdd-plan.md` ready to execute.
+
+### Rust data plane
+
+- `scripts/vitruvius/engine_rs/` — Cargo workspace (Sprint GT.1 + HP.4)
+  - `core/` — pure Rust; compiles for native + `wasm32-unknown-unknown`; exports `SpatialPoint`, `LinearOctree`, and the Wasm `aabb_intersects` C-ABI function
+  - `pyo3_shim/` — pyo3 bindings consumed by `scripts/vitruvius/compound/wasm_kernel.py` and the spatial modules
+- `scripts/vitruvius/datalog_rs/` — pyo3 crate shipping a hand-rolled Datalog evaluator for Sprint Z Stream S1.2. Entry point: `evaluate_datalog(facts, rules)`. 7 Rust unit tests.
+
+### TypeScript sibling subproject
+
+- `spatial-daemon/` — Node.js 25 + vitest subproject at repo root (not inside `scripts/vitruvius/`). Implements GJK collision detection, AABB overlap, and a filesystem contract writer that the Python side consumes. Entry point: `spatial-daemon/src/cli.ts`. 20/20 vitest tests.
+
 ---
 
 ## Testing
@@ -317,8 +510,7 @@ The test suite is organized by module, with one `test_<module>.py` per
 vitruvius module plus a dedicated `test_integration_e2e.py` that exercises
 multi-module flows (extract → dedup → pre-filter → promote → enrich).
 
-**As of 2026-04-14: 177 tests passing**, 2 intentional deprecation warnings
-from `utils.normalize_*` usage in their own test file.
+**As of 2026-04-15: 1396 Python tests passing, 1 skipped** — grew from 177 (pre-Sprint-D) via the Sprint D Streams A-I expansion and the subsequent 10 governing-plan sprints + the Sprint HP.3-R RocksDB KV migration. Also: **20 TypeScript tests passing** in the `spatial-daemon/` sibling subproject (vitest), and **10 Rust unit tests** across `scripts/vitruvius/engine_rs/core` and `scripts/vitruvius/datalog_rs/`.
 
 The integration tests include:
 - Full-pipeline determinism check (byte-identical outputs on re-run modulo
@@ -347,10 +539,44 @@ The CLI is designed to work with only the dependencies you actually use.
 
 **For review stages:**
 - **Ollama** running locally at `http://127.0.0.1:11434` (configurable in
-  `config/vitruvius.yaml`) with at least `gemma4:e4b` pulled. The review
-  layer is fully opt-in via the `review-relationships-ollama*` commands.
+  `config/vitruvius.yaml`) with `gemma4:e4b` (or another model in the
+  pool) pulled. The review layer is fully opt-in via the
+  `review-relationships-ollama*` commands.
 
-Install everything:
+**Compound AI stack (post-Sprint-Z, all optional / flag-gated except RocksDB):**
+- `rocksdict==0.3.29` — RocksDB Python binding for the event store and
+  verdict cache (Sprint HP.3-R, flags `hp_rocksdb_event_store` and
+  `hp_rocksdb_verdict_cache` default **true** per AD-029)
+- `z3-solver` — Z3 Theorem Prover for parametric constraint verification
+  (Sprint GEOM + Sprint H Stream L.5)
+- `trimesh` + `mapbox-earcut` + `manifold3d` — 3D polyhedral envelope
+  (Sprint GEOM Stream GEOM.3)
+- `shapely` — 2D envelope (Sprint GEOM Stream GEOM.2)
+- `cvxpy` — Pareto optimizer (Sprint GEOM Stream GEOM.4)
+- `wasmtime` — Wasm spatial kernel loader (Sprint HP.4, flag `hp_wasm_kernels`)
+- `pyarrow` — Parquet archiver (Sprint GT Stream GT.3.3)
+- `docling` — structured PDF parser (Sprint WIKI + Phase 1B Modernization Tranche 1)
+- `kuzu` — hybrid graph store (Sprint WIKI)
+- `sentence-transformers` — contextual priming embeddings (Sprint R Y1)
+
+**Rust toolchain (optional, for the Rust data plane):**
+- `rustc` / `cargo` 1.94+ via `~/.cargo/env`
+- `maturin` for building pyo3 extensions
+- Target `wasm32-unknown-unknown` for the Wasm spatial kernel build
+
+Two Rust crates live in-tree:
+- `scripts/vitruvius/engine_rs/` — Cargo workspace with `core/` (pure
+  Rust, compiles for native + wasm32) and `pyo3_shim/` (pyo3 bindings
+  that ship `SpatialPoint` + `LinearOctree` to Python).
+- `scripts/vitruvius/datalog_rs/` — hand-rolled Datalog evaluator
+  (Sprint Z Stream S1.2) with pyo3 bindings.
+
+**TypeScript sibling subproject:**
+- `spatial-daemon/` — Node.js 25 + vitest subproject implementing GJK
+  collision detection, AABB overlap, and a filesystem contract
+  writer that the Python side consumes.
+
+Install the everyday path:
 ```bash
 pip3 install -r requirements.txt PyYAML pytest
 ```
@@ -362,13 +588,18 @@ pip3 install PyYAML pytest
 
 ---
 
-## Sprint Q — Live Wiring & 8GB Hardening
+## Feature-flag operation
 
-Sprint Q (shipped 2026-04-15) wires the Sprint D Stream F / G scaffolds
-into the live review + promotion paths behind twelve `w_*` feature
-flags that default **false**. With every flag off the pipeline is
-byte-identical to the pre-Sprint-Q baseline (regression test at
-`scripts/tests/test_wiring_backcompat.py`).
+The Compound AI stack landed behind feature flags over ten sprints
+(Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, HP.3-R). Every capability is
+opt-in by default except the two RocksDB KV backends
+(`hp_rocksdb_event_store`, `hp_rocksdb_verdict_cache`), which were
+flipped to `true` on 2026-04-15 after a bench measured them at
+18.7× / 24.3× the SQLite baseline (see AD-029).
+
+Flag-off behaviour is byte-identical to the pre-Sprint-Q baseline.
+The regression gate for this invariant is
+`scripts/tests/test_wiring_backcompat.py`.
 
 To enable the full wired chain on an 8 GB M2 machine (requires
 `qwen2.5:7b` or smaller already pulled in Ollama):
@@ -383,53 +614,83 @@ review:
       tier_1_default: qwen2.5:7b
       tier_2_heavy: gemma4:31b
 features:
+  # Sprint Q — Live Wiring & 8GB Hardening
   w_llm_model_pool: true
   w_llm_num_ctx_enforcement: true
   w_llm_context_budget_guard: true
-  w_llm_binary_mode: false        # optional — compact True/False prompt
-  w_review_nb_prefilter: true     # short-circuit LLM on obvious accepts/rejects
-  w_review_ontology_prompt: true  # prepend Phase 8 neighborhood to the prompt
-  w_review_slm_routing: true      # route simple candidates to the draft model
+  w_review_nb_prefilter: true
+  w_review_ontology_prompt: true
+  w_review_slm_routing: true
   w_review_conformal_routing: true
   w_review_tension_reflection: true
   w_review_choquet_aggregator: true
   w_promotion_stringency_gate: true
-  w_graph_governing_standard: true
+
+  # Sprint Z — Compound AI (neuro-symbolic verification + adversarial + differential dataflow)
+  z_neuro_symbolic: true
+  z_adversarial_swarm: true
+  z_differential_dataflow: true
+
+  # Sprint HP — High-performance optimizations
+  hp_merkle_fs: true
+  hp_wasm_kernels: true
+  hp_graphsage: true
+
+  # Sprint GT — Geo-topological graph
+  gt_temporal_graph: true
+  gt_proximity_jump: true
+  gt_spatial_edges: true
+
+  # Sprint GEOM — Geometric constraint engine
+  geom_csp_compiler: true
+  geom_envelope_3d: true
 ```
 
-Any flag can be left off individually to disable that capability
-without redeploying. The authoritative task list, stream-by-stream
-gates, and AD-024 decision ledger live in
-`.ai/03_plans/live-wiring-and-8gb-hardening-plan.md` and
-`.ai/10_state/decisions.md`.
+The authoritative flag registry lives in
+`scripts/tests/test_features.py::EXPECTED_FLAGS` — CI fails if a
+flag is added to `config/vitruvius.yaml` without a corresponding
+test-registry entry. See `.ai/10_state/decisions.md` AD-024 through
+AD-029 for per-sprint ledgers including commit SHAs and bench
+numbers.
 
 ## Current status
 
-As of 2026-04-14 (the authoritative status is `.ai/01_roadmap/master-roadmap.md` §4):
+As of 2026-04-15 — after closing ten governing-plan sprints this session (Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, HP.3-R) plus a Phase 1B Modernization Tranche 1 TDD plan ready to execute. The authoritative status is `.ai/01_roadmap/master-roadmap.md` §4, and the per-sprint ledgers live in `.ai/10_state/decisions.md` AD-024 through AD-029 (AD-031 when Tranche 1 ships).
 
-| Phase | Status | Notes |
+| Phase / Sprint | Status | Notes |
 |---|---|---|
 | 0. Foundation | ✅ Complete | — |
-| 1A. Baseline Ingestion | ✅ Complete | Known gaps: no file hashing, sequential OCR |
-| 1B. Multi-Parser Integration | 📝 Planned | Detailed plan in `.ai/03_plans/` |
-| 1C. Centralized Normalization | ✅ MVP Complete | 8 Tier A/B rules + manifest, deferred: Tier C semantic rules |
+| 1A. Baseline Ingestion | ✅ Complete | SHA-256 file hashing closed RI-009; OCR parallelization tracked in Phase 1B §11 |
+| 1B. Multi-Parser Integration | 🟡 Foundation shipped; Tranche 1 TDD plan ready | Parsers subpackage + `FileEntry.sha256` + orchestrator skeleton. Modernization Tranche 1 (Docling + LibreOffice preprocessor + GATE-005) plan at `.ai/03_plans/2026-04-15-phase-1b-modernization-tdd-plan.md`. Tranche 2 (Marker/Surya/ProcessPool/Golden Corpus) deferred until 8 GB M2 ML-dep feasibility is verified. |
+| 1C. Centralized Normalization | ✅ MVP Complete | 8 Tier A/B rules + manifest; Tier C semantic rules deferred |
 | 2. Canonicalization | ✅ Complete | Structured sections restored, diff-before-write |
-| 3C. Concept Enrichment | ✅ 16/20 (80%) | Deterministic, zero LLM |
+| 3C. Concept Enrichment | ✅ 20/20 | All PD 1096 concepts carry `stringency_vector` frontmatter after Sprint Q W3 |
 | 4. Identity Cleanup | ✅ Complete | — |
-| 5. Relationship Extraction | 🟡 Regex-grade | Section-aware + registry-aware dedup |
-| 6A. Local LLM Review | ✅ Complete | Config-driven, retry, resume, parallel, pre-review filter |
-| 6B. Second-Pass Review | ✅ Complete | Tier-2 orchestrator + agreement matrix + human worklist |
-| 7. Promotion Governance | ✅ Complete | 17-rule validator, audit log, rollback |
-| 8. Graph Contract & Indexing | 🔒 Gated | Needs ≥50 verified relationships (currently 6) |
-| 9. Query & AI Layer | 🔒 Gated | Post-Phase-8 |
-| 11. Dataset Expansion | 🔒 Gated | Post-Phase-7 stable |
-| 12. AI-Augmented Reasoning | 🔒 Gated | Long-term |
+| 5. Relationship Extraction | 🟡 Regex + Stream E augmentation | spaCy SVO, CRF, TransE link predictor shipped in Sprint D Stream E; LLM-assisted extraction still future |
+| 6A. Local LLM Review | ✅ Complete | Retry, resume, parallel, pre-review filter, Sprint R stateful verdict cache |
+| 6B. Second-Pass Review | ✅ Complete | Tier-2 orchestrator + agreement matrix + Sprint Q Choquet fusion |
+| 7. Promotion Governance | ✅ Complete | 17-rule validator, audit log, rollback; Sprint Q stringency-matrix gate live |
+| 8. Graph Contract & Indexing | ✅ Subsumed by Sprint D Stream H | Extended by Sprint GT (temporal edges, Parquet archiver, spatial GraphRAG, Rust octree) |
+| 9. Query & AI Layer | ✅ Subsumed by Sprint D Stream I | Streams J (query integration) + K (docs+CI) externally gated on Ranger dashboard + 2nd jurisdiction corpus |
+| Sprint Q — Live Wiring & 8GB Hardening | ✅ Closed (tag `sprint-q-closed`) | Wired Stream F + G scaffolds live; 8GB LLM survival mode; stringency matrix rollout |
+| Sprint R — Per-Layer Embeddings & Agentic | ✅ Closed (tag `sprint-r-closed`) | Contextual priming, MoE domain routing, thinking-mode CoT audit, stateful registry, vision OCR |
+| Sprint PHYS — Graph Physics | ✅ Closed (tag `sprint-phys-closed`) | PageRank, Boltzmann stability, VF2 motif matcher, Shannon entropy, eigenvector cascade |
+| Sprint H — 3D Spatial Intelligence | ✅ Closed (tag `sprint-h-closed`) | Spatial ingest, Z3 solver, IFC registry + OWL exporter, TypeScript sibling at `spatial-daemon/` |
+| Sprint GEOM — Geometric Constraint Engine | ✅ Closed (tag `sprint-geom-closed`) | Z3 CSP, shapely 2D envelope, trimesh 3D envelope, cvxpy Pareto optimizer |
+| Sprint WIKI — Autonomous Knowledge Synthesis | ✅ Closed (tag `sprint-wiki-closed`) | Docling parser, Kuzu store, delta tracker, synthesis loop, ego linter, Ollama client |
+| Sprint GT — Geo-Topological Knowledge Graph | ✅ Closed (tag `sprint-gt-closed`) | pyo3 Rust `engine_rs` workspace, linear octree, temporal graph, Parquet archiver, spatial GraphRAG, MC dropout, Bloom foraging |
+| Sprint HP — High-Performance Optimizations | ✅ Closed (tag `sprint-hp-closed`) | Merkle fs, SQLite event store (pivoted from RocksDB at the time), Wasm spatial kernels, GraphSAGE loopholes |
+| Sprint Z — Compound AI Evolution | ✅ Closed (tag `sprint-z-closed`) | Neuro-symbolic Datalog bridge (`datalog_rs/` crate), adversarial swarm, differential dataflow, DSPy prompt compiler |
+| **Sprint HP.3-R — RocksDB KV Migration** | ✅ **Closed (tag `sprint-hp3r-closed`)** | Completes HP.3 spec: `RocksDBEventStore` + `RocksDBStatefulReviewRegistry` + factory dispatch + `ple-kv-migrate` CLI + O(1) count optimization. Bench at n=10000: **18.7× faster event store, 24.3× faster verdict cache**. Flag defaults flipped to true per AD-029. |
 
-**Current AI usage on PD 1096 corpus:**
+**Current AI usage on PD 1096 corpus (unchanged by the Compound AI upgrades — the deterministic-first design predates them):**
 - Tier-1 review calls: ~2 (pre-review filter handles the rest)
 - Tier-2 review calls: ~1-2 (only uncertain Tier-1 output)
 - Concept enrichment calls: 0 (fully deterministic)
+- Sprint Z neuro-symbolic verification: 0 runtime cost (flag-off by default)
 - **Total: ~4 Ollama calls per full pipeline run**
+
+**Test suite as of 2026-04-15:** Python **1396 passed / 1 skipped**; TypeScript **20 passed** (`spatial-daemon/`); Rust unit tests **10 passed** (`engine_rs` + `datalog_rs`).
 
 ---
 
