@@ -96,9 +96,19 @@
 //   * `x == centroid` → `diff` is the zero vector, so both the
 //     matrix-vector product and the dot product are exactly 0.0 by
 //     IEEE-754 — no special-casing needed.
-//   * NaN/±inf in the inputs is a bug in the Python control plane;
-//     we propagate it through `sqrt`/dot products which is
-//     byte-identical to the numpy path.
+//   * NaN/±inf in the inputs is a bug in the Python control plane.
+//     The Rust fast path is stricter than the Python baseline here —
+//     we short-circuit with an early pre-math guard (see the
+//     `any(|v| !v.is_finite())` check at the top of the kernel body,
+//     inserted immediately after the dimension checks) so that
+//     non-finite inputs never reach the `nalgebra::from_*` allocation
+//     step or the GEMV dispatch. The guard scans `dim + dim + dim²`
+//     floats and returns `Err(...)` before any heap work. The post-
+//     math `distance.is_finite()` check below is a defensive
+//     double-guard for the pathological case where a positive-definite
+//     cov_inv + finite inputs somehow produces a non-finite result
+//     (should be unreachable in practice, but costs nothing to keep).
+//     Opt-in via the `rust_mig_stats_kernels` feature flag.
 //
 // Note on matrix layout:
 //
@@ -154,6 +164,23 @@ pub fn mahalanobis_distance(
         return Err("cov_inv_flat length must be dim * dim");
     }
 
+    // Pre-math NaN/inf guard. See the kernel comment (above) about the
+    // pre-math contract — we check for non-finite values *before* any
+    // `nalgebra::from_*` allocation or GEMV kernel dispatch so that
+    // production NaN inputs short-circuit with ~25 µs of scalar scanning
+    // instead of paying the full `dim² + dim` matrix-vector cost on
+    // garbage that will only be rejected at the post-math guard. For
+    // dim=64 the scan touches 64 + 64 + 4096 = 4224 floats, a fraction
+    // of the ~34 µs kernel wall time (AD-038 §Task 6 micro-bench).
+    if x
+        .iter()
+        .chain(centroid.iter())
+        .chain(cov_inv_flat.iter())
+        .any(|v| !v.is_finite())
+    {
+        return Err("mahalanobis_distance: non-finite value (NaN/inf) in inputs");
+    }
+
     // Build the `diff = x - centroid` column vector. `DVector::from_iterator`
     // takes an exact-sized iterator and allocates once; we then subtract in
     // place. The alternative — `DVector::from_column_slice(x).sub(&DVector::from_column_slice(centroid))` —
@@ -192,16 +219,15 @@ pub fn mahalanobis_distance(
 
     let distance = clamped.sqrt();
 
-    // One last sanity check: `sqrt(finite non-negative)` is always
-    // finite, but if the caller slipped a NaN into `x` or
-    // `cov_inv_flat` (upstream control-plane bug), the dot product
-    // propagates NaN and we want to surface a clear error rather
-    // than return a NaN that the Python side will then quietly stuff
-    // into an `OutlierReport`. The Python baseline silently returns
-    // NaN in this case, but we are allowed to be stricter because
-    // the Rust fast path is gated behind an opt-in feature flag —
-    // any caller flipping the flag on also accepts the tighter NaN
-    // contract.
+    // Defensive post-math guard. The pre-math NaN/inf check above
+    // already rejects any non-finite input before we reach the GEMV,
+    // so in practice this branch is unreachable — but keeping it
+    // costs nothing (one `is_finite` on a scalar) and guarantees the
+    // kernel can never silently return a NaN from some pathological
+    // finite-input / non-PSD cov_inv combination we failed to
+    // anticipate. If this branch ever fires in production the
+    // pre-math guard has missed something and the error message
+    // still points at the same diagnosis.
     if !distance.is_finite() {
         return Err("mahalanobis_distance produced a non-finite result (NaN/inf in inputs?)");
     }
@@ -389,5 +415,45 @@ mod tests {
         // clamp -> 0 -> sqrt(0) -> 0.0.
         let d = mahalanobis_distance(&x, &centroid, &cov_inv, dim).unwrap();
         assert_eq!(d, 0.0);
+    }
+
+    #[test]
+    fn mahalanobis_off_diagonal_cov_closed_form() {
+        // A real symmetric cov_inv with non-trivial off-diagonal
+        // entries. The previous nine tests all exercised identity,
+        // diagonal, or sign-inverted diagonal matrices — none
+        // caught a bug that would only show up if the GEMV skipped
+        // the off-diagonal rows or columns. This test pins a
+        // closed-form result for a 2×2 cov_inv with known
+        // off-diagonal entries.
+        //
+        // Construction:
+        //   cov_inv = [[2.0, 0.5],
+        //              [0.5, 3.0]]
+        //   centroid = [0.0, 0.0]
+        //   x = [1.0, 1.0]
+        //   diff = x - centroid = [1.0, 1.0]
+        //
+        // Quadratic form (manual):
+        //   (cov_inv · diff)[0] = 2.0 · 1 + 0.5 · 1 = 2.5
+        //   (cov_inv · diff)[1] = 0.5 · 1 + 3.0 · 1 = 3.5
+        //   diff · (cov_inv · diff) = 1 · 2.5 + 1 · 3.5 = 6.0
+        //   distance = sqrt(6.0) ≈ 2.449489742783178
+        let dim = 2;
+        let centroid = vec![0.0, 0.0];
+        let cov_inv = vec![
+            2.0, 0.5, //
+            0.5, 3.0,
+        ];
+        let x = vec![1.0, 1.0];
+
+        let d = mahalanobis_distance(&x, &centroid, &cov_inv, dim).unwrap();
+        let expected = (6.0_f64).sqrt();
+        assert!(
+            (d - expected).abs() < 1e-12,
+            "off-diagonal closed-form mismatch: got {}, expected {}",
+            d,
+            expected
+        );
     }
 }

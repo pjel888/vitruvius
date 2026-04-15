@@ -203,13 +203,16 @@ def mahalanobis_distance(
     # Flag-OFF short-circuits past this block entirely so the Python
     # path below runs unchanged (non-breaking contract from AD-036).
     #
-    # Note: we use ``list(x)`` not ``[float(v) for v in x]`` because
-    # pyo3's ``extract::<Vec<f64>>()`` fast-path accepts any iterable
-    # yielding floats, and the extra per-element ``float()`` cast is
-    # only needed if ``x`` is e.g. a tuple of numpy scalars. The
-    # numpy-scalar-to-Python-float coercion happens inside pyo3 at
-    # native speed, so we save ~5 μs per call by skipping the
-    # pre-cast here.
+    # Note: we pass ``x`` directly when it is already a Python list
+    # (the common case — ``score_chunks`` in this module always hands
+    # us a pre-materialised ``list[float]``) and fall back to
+    # ``list(x)`` only when ``x`` is a tuple / numpy array / generator.
+    # Pyo3's ``extract::<Vec<f64>>()`` fast-path accepts ``list[float]``
+    # without a Python-side copy, and the extra per-element ``float()``
+    # cast is only needed if ``x`` is e.g. a tuple of numpy scalars —
+    # in which case the numpy-scalar-to-Python-float coercion happens
+    # inside pyo3 at native speed, so we save ~5 μs per call by
+    # skipping the pre-cast here.
     if (
         mahalanobis_distance_rs is not None
         and _load_features_cached().is_enabled("rust_mig_stats_kernels")
@@ -223,8 +226,10 @@ def mahalanobis_distance(
                 f"embedding dim ({len(x)},) does not match model "
                 f"centroid ({dim},)"
             )
+        # Pyo3's extract::<Vec<f64>> accepts list[float] directly; avoid the copy.
+        x_list = x if isinstance(x, list) else list(x)
         return float(
-            mahalanobis_distance_rs(list(x), centroid_list, cov_inv_flat, dim)
+            mahalanobis_distance_rs(x_list, centroid_list, cov_inv_flat, dim)
         )
 
     # ---- Pure-Python baseline (default). ----
