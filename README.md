@@ -1,14 +1,41 @@
 # Vitruvius
 
-**Local-first knowledge engine** that transforms Philippine building laws and
-regulations into a validated, queryable knowledge graph.
+**Local-first, domain-agnostic knowledge engine** that transforms any body of
+professional reference material — statutes, codes, standards, clinical
+guidelines, engineering specs, or textbooks — into a validated, queryable
+knowledge graph.
 
-Vitruvius is not a RAG wrapper. It enforces a hard boundary between raw text,
-candidate signals, and canonical truth — and treats every transformation as
-auditable. The pipeline is **deterministic-first**: AI is the exception, not
-the rule. On the active PD 1096 corpus, a full end-to-end run touches the
-local LLM (Ollama / `gemma4:e4b`) roughly **4 times** — vs. ~25 in the
-pre-deterministic-filter era.
+Vitruvius is not a RAG wrapper and is not limited to any single field. Its
+pipeline is built as a **professional-domain specialist**: the deterministic
+rule engine, promotion governance, stringency matrix, and parametric
+constraint solver are all designed for corpora where precision matters more
+than coverage. Fields it is designed to serve include:
+
+- **Architecture & the built environment** — building codes, zoning
+  ordinances, IFC/BIM standards, design review precedent
+- **Engineering** — civil, structural, mechanical, and electrical codes;
+  ASTM/ISO material standards; inspection + compliance checklists
+- **Medicine & clinical practice** — clinical practice guidelines, drug
+  compendia, diagnostic criteria, procedural checklists
+- **Law & regulatory compliance** — statutes, administrative rulings,
+  case-law precedent, regulatory filings
+- **Science & academia** — course syllabi, textbook concept networks,
+  exam-preparation corpora
+
+> **Reference corpus.** This repository's active development corpus is
+> **PD 1096 — The National Building Code of the Philippines and its IRR**.
+> PD 1096 is the benchmark the tests, audits, and decision-log numbers are
+> measured against — not the product scope. The same pipeline has been
+> designed to drop in any other professional domain by swapping the contents
+> of `001_Raw-Source-Layer/` and the rules under
+> `scripts/vitruvius/rules/`.
+
+Vitruvius enforces a hard boundary between raw text, candidate signals, and
+canonical truth — and treats every transformation as auditable. The pipeline
+is **deterministic-first**: AI is the exception, not the rule. On the PD 1096
+reference corpus, a full end-to-end run touches the local LLM (Ollama /
+`gemma4:e4b`) roughly **4 times** — vs. ~25 in the pre-deterministic-filter
+era.
 
 > **Looking for the deep docs?** The knowledge base lives in
 > [`.ai/`](./.ai/). Start with
@@ -32,11 +59,11 @@ decision.
 
 - **Engine:** Local LLM via Ollama, default `gemma4:e4b`.
 - **Function:** Natural language understanding and unstructured-input
-  parsing. Translates messy human input (scanned LGU ordinances,
-  fragmented client briefs, IRR text) into formal intermediate
-  representations — JSON verdicts for the Tier-1/Tier-2 review layer,
-  or `<logic>` Datalog fact sets when the Sprint Z
-  `z_neuro_symbolic` flag is on.
+  parsing. Translates messy domain-specific input (scanned ordinances,
+  clinical guidelines, engineering specs, code-of-practice PDFs, exam
+  syllabi, etc.) into formal intermediate representations — JSON
+  verdicts for the Tier-1/Tier-2 review layer, or `<logic>` Datalog
+  fact sets when the Sprint Z `z_neuro_symbolic` flag is on.
 - **Constraint:** Subordinated to deterministic verifiers. Every LLM
   verdict is cross-checked by:
   - the **pre-review filter** (`pre_review_filter.py`, 8 deterministic
@@ -86,15 +113,22 @@ decision.
 - **Geometry representation:** 3D polyhedral meshes via `trimesh`
   + `manifold3d` (not strict CAD B-Rep — shipped in Sprint GEOM
   Stream GEOM.3). The mesh level-of-detail is sufficient for
-  architectural envelope checks under PD 1096.
+  architectural envelope checks under PD 1096 and adapts cleanly to
+  any other envelope-style compliance problem (minimum-room,
+  circulation-clearance, ventilation shaft, etc.). Non-geometric
+  professional domains bypass the geometric verifier entirely —
+  the Z3 inequality compiler and the Datalog evaluator are
+  sufficient on their own.
 
 ### 3. The Immutable Vault (Topological Component)
 
 - **Engine:** RocksDB (via the `rocksdict 0.3.29` binding) +
   event-sourced graph + differential dataflow.
-- **Function:** Maintains the persistent, uncorrupted state of
-  Philippine architectural laws (PD 1096, its IRR) and historical
-  precedents.
+- **Function:** Maintains the persistent, uncorrupted state of the
+  active professional corpus (statutes, codes, clinical guidelines,
+  engineering standards, or whatever `001_Raw-Source-Layer/`
+  contains) and its historical precedents. For this repository that
+  corpus is PD 1096 + its IRR.
 - **Components:**
   - **RocksDB-backed event store**
     (`scripts/vitruvius/graph/rocksdb_event_store.py`) — append-only
@@ -183,7 +217,9 @@ AD-029 (RocksDB migration) for the per-sprint ledgers.
 - [Module map](#module-map)
 - [Testing](#testing)
 - [Dependencies](#dependencies)
+- [Feature-flag operation](#feature-flag-operation)
 - [Current status](#current-status)
+- [Adapting Vitruvius to a new professional domain](#adapting-vitruvius-to-a-new-professional-domain)
 - [Principles](#principles)
 
 ---
@@ -694,6 +730,49 @@ As of 2026-04-15 — after closing ten governing-plan sprints this session (Q, R
 
 ---
 
+## Adapting Vitruvius to a new professional domain
+
+The core machinery is corpus-agnostic. Porting to a new domain (another
+jurisdiction's building code, a medical specialty's clinical guidelines, an
+engineering-standards library, an exam syllabus, etc.) touches a small,
+well-defined set of files:
+
+1. **Drop the source documents** into `001_Raw-Source-Layer/` under a new
+   category directory. The scanner (`scripts/vitruvius/scanner.py`) is
+   format-agnostic and will pick up PDFs, DOCX, PPTX, XLSX, or plain
+   markdown.
+2. **Teach the canonicalizer** the new corpus's ID scheme by adding rules
+   to `scripts/vitruvius/rules/canonical_rules.yaml`. Each rule maps a
+   path pattern to a canonical-ID prefix.
+3. **Populate the concept vocabulary** at
+   `003_Canonical-Knowledge-Layer/shared/concepts/` with one markdown file
+   per atomic concept in the domain (e.g. `myocardial-infarction.md` for
+   cardiology, `rebar-yield-strength.md` for structural engineering). The
+   enrichment pipeline is deterministic and does not call an LLM.
+4. **Extend the relationship registry** at
+   `scripts/vitruvius/rules/relationship_registry.yaml` with the closed
+   predicate vocabulary that makes sense for the domain — e.g.
+   `contraindicated_with` / `dose_adjusted_by` / `escalates_to` for
+   medicine, `load_bearing_for` / `supports_against` / `connected_via` for
+   structural engineering, `governs` / `defined_by` / `exempt_from` for
+   statute work. The Phase 7 promotion validator will reject any edge whose
+   predicate is not in this registry.
+5. **(Optional) Fork the stringency matrix** at
+   `scripts/vitruvius/rules/` if the domain has quantitative compliance
+   axes. The Sprint Q promotion stringency gate reads it verbatim.
+6. **(Optional) Re-tune the Ollama prompt** in `.ai/08_prompts/` — the
+   Sprint Z DSPy compiler (`compound/dspy_compiler.py`) can do this
+   metric-driven against a held-out set, but hand-tuning is faster for
+   the first pass.
+
+Nothing in `scripts/vitruvius/` below the `rules/` directory hard-codes a
+specific domain. The tests under `scripts/tests/` are themselves the
+regression harness for the pipeline mechanics and should keep passing
+against any corpus that respects the source/concept/relationship schemas
+in `.ai/06_specs/`.
+
+---
+
 ## Principles
 
 The project operates under ten non-negotiable principles, formalized in
@@ -708,16 +787,22 @@ The project operates under ten non-negotiable principles, formalized in
 7. **Explicit concept vocabulary** — extraction only uses concepts in `003/shared/concepts/`
 8. **Local-first AI** — cloud LLMs are opt-in only; the core review loop runs air-gapped
 9. **No soft output** — any extracted candidate without `source_section_id` is rejected
-10. **No schema-less growth** — new laws wait until Phase 7 validates existing PD 1096 data
+10. **No schema-less growth** — new corpora (a second jurisdiction, a new medical specialty, a new code of practice) wait until Phase 7 validates the existing reference corpus
 
 ---
 
 ## License & attribution
 
-This project is meant to become the knowledge foundation for architecture
-board-exam preparation tooling in the Philippines. Source documents (PD 1096,
-the National Building Code, its IRR) are public-domain Philippine law.
-Derived work and code are the author's.
+Vitruvius is a general-purpose knowledge engine for professional domains.
+Its first application is architecture board-exam preparation tooling in the
+Philippines, where PD 1096 (the National Building Code and its IRR) serves
+as the development reference corpus. PD 1096 and its IRR are public-domain
+Philippine law. The same pipeline is intended to anchor further tools across
+engineering, medicine, law, and other professional domains — the core
+machinery is corpus-agnostic; only the contents of `001_Raw-Source-Layer/`,
+the `rules/` YAML, and the concept vocabulary under
+`003_Canonical-Knowledge-Layer/shared/concepts/` are domain-specific. Derived
+work and code are the author's.
 
 ---
 
