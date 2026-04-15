@@ -247,3 +247,155 @@ def check_gate_006_min_chars_per_page(
         status=GateStatus.PASSED,
         reason=f"{avg:.1f} chars/page >= {min_chars_per_page}",
     )
+
+
+def check_gate_007_repetition_trap(
+    *,
+    text: str,
+    min_substring_len: int = 20,
+    max_repetitions: int = 3,
+) -> GateResult:
+    """GATE-007 — Detect OCR repetition-fallback.
+
+    Fails if any substring of length >= ``min_substring_len`` appears more
+    than ``max_repetitions`` times. Classic OCR engines fall back to
+    memorized patterns when they can't decode a region — this gate catches
+    that.
+
+    Sprint CLEANUP-1 Stream C3.2 (opt-in; NOT part of the core
+    ``run_quality_gates`` tuple — callers that want hallucination detection
+    invoke this directly).
+
+    Perf call: O(n) string scan with a rolling window. ``collections.Counter``
+    is C-backed. Above the Rust Line per AD-036.
+    """
+    from collections import Counter
+
+    if len(text) < min_substring_len * 2:
+        return GateResult(
+            gate_id="GATE-007",
+            gate_name="repetition_trap",
+            status=GateStatus.PASSED,
+            reason="text too short to exhibit repetition",
+        )
+
+    counts: Counter[str] = Counter()
+    for i in range(len(text) - min_substring_len + 1):
+        window = text[i : i + min_substring_len]
+        if window.strip() == "":
+            continue
+        counts[window] += 1
+
+    worst = counts.most_common(1)
+    if not worst:
+        return GateResult(
+            gate_id="GATE-007",
+            gate_name="repetition_trap",
+            status=GateStatus.PASSED,
+            reason="no substrings to compare",
+        )
+
+    substring, count = worst[0]
+    if count > max_repetitions:
+        return GateResult(
+            gate_id="GATE-007",
+            gate_name="repetition_trap",
+            status=GateStatus.FAILED,
+            reason=(
+                f"repetition trap: substring {substring[:20]!r} appears "
+                f"{count} times (threshold={max_repetitions})"
+            ),
+        )
+
+    return GateResult(
+        gate_id="GATE-007",
+        gate_name="repetition_trap",
+        status=GateStatus.PASSED,
+        reason=f"max repetition {count} <= {max_repetitions}",
+    )
+
+
+def check_gate_008_script_mix_trap(
+    *,
+    text: str,
+    expected_scripts: set[str],
+    max_unexpected_ratio: float = 0.01,
+) -> GateResult:
+    """GATE-008 — Detect unexpected Unicode script clusters.
+
+    ``expected_scripts`` is a set of allowed script names (e.g., ``{"latin"}``).
+    Fails if the ratio of characters outside the allowed scripts exceeds
+    ``max_unexpected_ratio`` (default 1%).
+
+    Script detection uses Python's ``unicodedata.name()`` prefix matching.
+
+    Sprint CLEANUP-1 Stream C3.2 (opt-in; NOT part of the core
+    ``run_quality_gates`` tuple — callers that want hallucination detection
+    invoke this directly).
+
+    Perf call: O(n) char scan. Above the Rust Line per AD-036.
+    """
+    import unicodedata
+
+    total = 0
+    unexpected = 0
+    unexpected_sample: set[str] = set()
+
+    for ch in text:
+        if ch.isspace() or ch in "-.,;:!?'\"()[]{}/%\\|—–":
+            continue
+        total += 1
+        try:
+            name = unicodedata.name(ch, "")
+        except ValueError:
+            continue
+        lname = name.lower()
+        if "latin" in lname:
+            if "latin" not in expected_scripts:
+                unexpected += 1
+                unexpected_sample.add("latin")
+        elif (
+            "cjk" in lname
+            or "hiragana" in lname
+            or "katakana" in lname
+            or "hangul" in lname
+        ):
+            if not (expected_scripts & {"cjk", "han", "hangul", "hiragana", "katakana"}):
+                unexpected += 1
+                unexpected_sample.add("cjk")
+        elif "cyrillic" in lname:
+            if "cyrillic" not in expected_scripts:
+                unexpected += 1
+                unexpected_sample.add("cyrillic")
+        elif "arabic" in lname:
+            if "arabic" not in expected_scripts:
+                unexpected += 1
+                unexpected_sample.add("arabic")
+
+    if total == 0:
+        return GateResult(
+            gate_id="GATE-008",
+            gate_name="script_mix_trap",
+            status=GateStatus.PASSED,
+            reason="no classifiable characters",
+        )
+
+    ratio = unexpected / total
+    if ratio > max_unexpected_ratio:
+        return GateResult(
+            gate_id="GATE-008",
+            gate_name="script_mix_trap",
+            status=GateStatus.FAILED,
+            reason=(
+                f"script mix trap: {unexpected}/{total} chars "
+                f"({ratio:.1%}) in unexpected scripts "
+                f"{sorted(unexpected_sample)}"
+            ),
+        )
+
+    return GateResult(
+        gate_id="GATE-008",
+        gate_name="script_mix_trap",
+        status=GateStatus.PASSED,
+        reason=f"script mix {ratio:.1%} <= {max_unexpected_ratio:.1%}",
+    )
