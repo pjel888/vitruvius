@@ -178,6 +178,8 @@ features:
   wiki_ego_linter: false
 
   # Sprint Z — Compound AI Evolution (phase-12). Narrow slice: Stream
-  # S5 DSPy prompt compilation lands first; S1 (Datalog), S2 (swarm),
-  # S3 (dataflow), S4 (Wasm) ship later.
+  # S2 Proposer/Inspector/Adjudicator adversarial swarm and Stream S5
+  # DSPy prompt compilation land first; S1 (Datalog), S3 (dataflow),
+  # and S4 (Wasm) ship later.
   z_dspy_compiler: false
+  z_adversarial_swarm: false

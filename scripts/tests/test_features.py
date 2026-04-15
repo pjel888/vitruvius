@@ -142,6 +142,7 @@ EXPECTED_FLAGS = {
     "wiki_synthesis_loop", "wiki_ego_linter",
     # Sprint Z — Compound AI Evolution (phase-12)
     "z_dspy_compiler",
+    "z_adversarial_swarm",
 }
 
 
