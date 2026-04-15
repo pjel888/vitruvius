@@ -37,4 +37,5 @@ __all__ = [
     "LibreOfficePreprocessor",
     "PreprocessResult",
     "OCRPreprocessor",
+    "RustPdfParser",
 ]
