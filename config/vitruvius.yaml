@@ -279,3 +279,18 @@ features:
   # corpus, but exit-gate flip requires a full PD 1096 operator run
   # measurement. See .ai/10_state/decisions.md AD-037 + AD-042.
   w_lsh_dedup: false
+  # Sprint CLEANUP-1 — 4-stream backlog cleanup (AD-043 when closed).
+  # All flags default false. See .ai/03_plans/2026-04-15-cleanup-backlog-plan.md
+  # (or .ai/09_archive/plans/ after closure).
+  # Stream C1 — Phase 1C Hardening
+  p1c_contract_validator: false
+  p1c_slug_collision_policy: false
+  p1c_table_isolation: false
+  # Stream C2 — Phase 3 Completion
+  p3_density_extractor: false
+  p3_bidirectional_refs: false
+  # Stream C3 — Phase 1B Hardening
+  p1b_page_isolation: false
+  p1b_hallucination_trap: false
+  # Stream C4 — Phase 5E LLM-Assisted Extraction
+  p5e_llm_extraction: false

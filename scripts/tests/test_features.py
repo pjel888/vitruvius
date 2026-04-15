@@ -179,6 +179,11 @@ EXPECTED_FLAGS = {
     # AD-037 for the premise correction + language choice). Default
     # false per plan §1.3.
     "w_lsh_dedup",
+    # Sprint CLEANUP-1 — 4-stream backlog cleanup (AD-043)
+    "p1c_contract_validator", "p1c_slug_collision_policy", "p1c_table_isolation",
+    "p3_density_extractor", "p3_bidirectional_refs",
+    "p1b_page_isolation", "p1b_hallucination_trap",
+    "p5e_llm_extraction",
 }
 
 
