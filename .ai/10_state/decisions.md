@@ -1107,6 +1107,83 @@ The N1 row in the final bench report is kept at its pure-Python measurement (not
 
 ---
 
+## AD-039 — Sprint AUDIT-1 Advanced Tech Audit (FlatBuffers / Integrity / MC Dropout) (2026-04-15)
+
+**Context.** After Sprint RUST-MIG-1 closed (AD-038), the queued "Advanced Tech Audit" plan was dispatched to decide — with measured evidence — whether to adopt three advanced technologies: FlatBuffers (zero-copy serialization), numerical integrity checks at the admission gate, and Monte Carlo Dropout uncertainty. The user's standing rule applies: *"whenever we code something, lets always think about the performance and effectivity implications before we code in python or in rust. we must always aim for optimization, effectivity, efficiency and accuracy."* Same discipline as AD-029 and AD-038: measure first, ship only when the numbers clear a pre-committed decision gate.
+
+**Audit 1 — FlatBuffers. Verdict: NO_GO.**
+
+Benchmark at n=10000 on the two hottest JSON-serialization hot paths. Ratios are `json_wall / flatbuffers_wall` — `>1` means FlatBuffers wins:
+
+| Site | JSON wall (s) | FlatBuffers wall (s) | Ratio |
+|---|---|---|---|
+| event_store_serialization | 0.0391 | 0.4025 | **0.10×** |
+| verdict_cache_serialization | 0.0329 | 0.1701 | **0.19×** |
+
+FlatBuffers is 5–10× SLOWER than JSON at our record shapes (~150 bytes, 5 fields, Python-only wire layer). Root cause: `flatbuffers.Builder` is pure Python with per-string `CreateString` calls plus manual offset bookkeeping; CPython's `_json` C encoder dominates at small record sizes. FlatBuffers' actual win comes from partial reads via generated C++ accessors, which are irrelevant when the consumer is Python reading via the same pure-Python library. Decision gate thresholds (GO ≥2×, DEFER ≥1.25×, NO_GO otherwise) produce `NO_GO` unambiguously.
+
+Ship: nothing. Raw audit: `.ai/10_state/audit_flatbuffers_2026-04-15.json`.
+
+**Audit 2 — Numerical Integrity. Verdict: GO_GAP.**
+
+SHA-256 vs BLAKE3 at 1KB / 64KB / 1MB payloads. Ratios are `sha256_wall / blake3_wall` — `>1` means BLAKE3 wins:
+
+| Size | SHA-256 wall (s) | BLAKE3 wall (s) | Ratio |
+|---|---|---|---|
+| 1KB | 0.0015 | 0.0036 | **0.41×** |
+| 64KB | 0.00087 | 0.00117 | **0.75×** |
+| 1024KB | 0.0137 | 0.0196 | **0.70×** |
+
+BLAKE3 is 1.3–2.4× SLOWER than SHA-256 on this host. Root cause: Apple Silicon's ARMv8 crypto extensions give OpenSSL's SHA-256 hardware acceleration that BLAKE3's Python wheel does not target. On x86 without SHA-NI, BLAKE3 would likely win by 2–3×; on M-series Macs, SHA-256 is faster. The Task 2 decision gate fails the hash-swap thresholds (GO_REPLACE ≥2.5×, GO_SUPPLEMENT ≥1.5×).
+
+Static admission-gate gap survey: 8 sites surveyed, 1 MEDIUM gap found — the TypeScript spatial-daemon writes `spatial-*.json` contract files that Python consumers previously read without any integrity check. A silent truncation or corruption would propagate wrong spatial results through `walker.py` → `spatial_edge_builder`. 2 LOW gaps (RocksDB event_store / verdict_cache values) are deliberately out-of-scope — already covered by RocksDB block-level checksums and recoverable from the LLM.
+
+Since the benchmark fails but the MEDIUM gap is real, the decision gate emits `GO_GAP` and Task 5B ships a fix using the existing (and faster on this host) SHA-256 toolchain.
+
+**Ship (Task 5B).** SHA-256 integrity footer on the spatial contract:
+
+- **TypeScript writer** (`spatial-daemon/src/contract_writer.ts`) — exports `INTEGRITY_FOOTER_PREFIX` + `computeContractBodySha256()`; `writeContract()` appends `# sha256: <64 hex>\n` after the pretty-printed JSON body, hashed via `node:crypto`.
+- **Python reader** (`scripts/vitruvius/spatial/contract_reader.py`) — new module with `parse_contract()`, `split_body_and_footer()`, `compute_body_sha256()`, `ContractParseResult`, and `IntegrityError`. Default `require_footer=False` preserves backward compatibility with on-disk fixtures predating this commit; hot call sites can opt in to `require_footer=True` for strict guarantees.
+- **Walker** (`scripts/vitruvius/spatial/walker.py`) — now reads all contract files through `parse_contract()`, logging + skipping on `IntegrityError` so a single corrupt file never poisons a run.
+- **Tests** — 1 new TS test (footer presence + digest correctness), 9 new Python tests (happy path, legacy no-footer, strict-mode rejection, body corruption, truncation, flipped digest).
+
+Raw audit: `.ai/10_state/audit_integrity_2026-04-15.json`.
+
+**Audit 3 — Monte Carlo Dropout. Verdict: PARK.**
+
+Hand-curated inventory of 5 neural-or-quasi-neural inference modules with their dropout-at-inference status:
+
+| Module | Model | Dropout at inference |
+|---|---|---|
+| `graph/graphsage.py` | GraphSAGE | ❌ `graphsage.py:219` "Deterministic forward pass — no dropout, no training loop."; forward is in `torch.no_grad()` |
+| `review/naive_bayes_filter.py` | Multinomial NB | ❌ closed-form; no hidden layers; MC dropout inapplicable |
+| `extraction/crf_trainer.py` | Linear-chain CRF | ❌ uncertainty via forward-backward marginals, not dropout |
+| `extraction/kg_link_predictor.py` | TransE | ❌ vector arithmetic inference; no dropout layers |
+| `ollama_review.py` | Remote LLM | ❌ Ollama API does not expose dropout-at-inference; alternative uncertainty via Sprint Q W2 conformal gate + parsed `self_confidence` |
+
+Viable MC-dropout sites: **0 of 5**. Decision gate (GO if ≥1 viable, PARK otherwise) produces `PARK`. The `compute_epistemic_uncertainty` utility in `scripts/vitruvius/graph/mc_dropout.py` remains a checked-in library, ready for use whenever a dropout-enabled neural module is added.
+
+Ship: nothing. Raw audit: `.ai/10_state/audit_mc_dropout_2026-04-15.json`.
+
+**Sprint-wide perf call.** All three verdicts confirm the Rust Line discipline from AD-036. Every candidate the audit raised sits either in the "already native C" bucket (FlatBuffers pure-Python builder loses to CPython's `_json`; hashlib.sha256 wins via ARMv8 crypto extensions) or in the "no site exists yet" bucket (MC dropout). No Rust migration candidates surfaced. The one thing that shipped (spatial-daemon integrity footer) sits ABOVE the Rust Line — hashlib-native SHA-256 on tiny files read O(contexts) per pipeline run, not in any hot loop, and sub-millisecond per contract. The audit's most valuable output is that it eliminates three "should we adopt X?" investigations from the future backlog.
+
+**Test suite delta.** 1456 → 1471 Python tests (+15: 2 flatbuffers audit, 2 integrity audit, 2 mc dropout audit, 9 contract_reader). 20 → 21 TypeScript spatial-daemon tests (+1 integrity footer). 1 skipped unchanged.
+
+**Commits.**
+- Task 1 (FlatBuffers audit) — `0de0b25`
+- Task 2 (Integrity audit) — `fc9aa4c`
+- Task 3 (MC Dropout audit) — `191f0f3`
+- Task 5B (spatial contract integrity footer) — `2de9f9b`
+- Task 7 (this commit)
+
+**Follow-ups.**
+- If we ever retarget to x86 servers without SHA-NI, re-run the integrity benchmark — BLAKE3 is likely to win by 2–3× there and unlock a supplement path.
+- If we add a dropout-enabled neural module (e.g. a dropout variant of the NB prefilter replacement), re-run the MC dropout audit; the utility is already wired and the viable-site count will flip.
+- If the canonical event_store record count crosses 100k, FlatBuffers is still unlikely to win unless we move serialization to a generated Rust crate; JSON's `_json` encoder dominates at our record sizes because of per-object setup overhead.
+- Queue impact: **this audit's NO_GO/PARK verdicts re-rank nothing** in the 3 remaining optimization plans — the audit considered tech that was not on any of those plans' candidate lists, so they ship in their original order. The GO_GAP ship (spatial integrity footer) is an independent gap closure that none of the remaining plans would have produced.
+
+---
+
 ## Decision Process
 - New decisions land here as `AD-NNN` in numerical order.
 - Each decision references the context (audit, plan, sprint) that prompted it.
