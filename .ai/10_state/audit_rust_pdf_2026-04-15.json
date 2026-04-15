@@ -1,0 +1,116 @@
+{
+  "timestamp_utc": "2026-04-15T05:42:30Z",
+  "python_interpreter": "/opt/homebrew/opt/python@3.11/bin/python3.11",
+  "host": "darwin-arm64 / 8 GB M2",
+  "pdfs_tested": [
+    "simple.pdf",
+    "medium.pdf",
+    "layout.pdf"
+  ],
+  "results": [
+    {
+      "extractor": "vitruvius_rust_pdf",
+      "pdf_label": "simple.pdf",
+      "peak_rss_mb": 13.59,
+      "wall_seconds": 0.03,
+      "output_chars": 1,
+      "error": null
+    },
+    {
+      "extractor": "opendataloader_pdf",
+      "pdf_label": "simple.pdf",
+      "peak_rss_mb": 85.88,
+      "wall_seconds": 4.32,
+      "output_chars": 0,
+      "error": null
+    },
+    {
+      "extractor": "docling",
+      "pdf_label": "simple.pdf",
+      "peak_rss_mb": 654.17,
+      "wall_seconds": 68.73,
+      "output_chars": 0,
+      "error": null
+    },
+    {
+      "extractor": "vitruvius_rust_pdf",
+      "pdf_label": "medium.pdf",
+      "peak_rss_mb": 13.69,
+      "wall_seconds": 0.09,
+      "output_chars": 5,
+      "error": null
+    },
+    {
+      "extractor": "opendataloader_pdf",
+      "pdf_label": "medium.pdf",
+      "peak_rss_mb": 92.57,
+      "wall_seconds": 2.19,
+      "output_chars": 0,
+      "error": null
+    },
+    {
+      "extractor": "docling",
+      "pdf_label": "medium.pdf",
+      "peak_rss_mb": 662.78,
+      "wall_seconds": 12.93,
+      "output_chars": 0,
+      "error": null
+    },
+    {
+      "extractor": "vitruvius_rust_pdf",
+      "pdf_label": "layout.pdf",
+      "peak_rss_mb": 13.81,
+      "wall_seconds": 0.03,
+      "output_chars": 10,
+      "error": null
+    },
+    {
+      "extractor": "opendataloader_pdf",
+      "pdf_label": "layout.pdf",
+      "peak_rss_mb": 96.24,
+      "wall_seconds": 2.08,
+      "output_chars": 0,
+      "error": null
+    },
+    {
+      "extractor": "docling",
+      "pdf_label": "layout.pdf",
+      "peak_rss_mb": 661.55,
+      "wall_seconds": 12.37,
+      "output_chars": 0,
+      "error": null
+    }
+  ],
+  "averages": {
+    "vitruvius_rust_pdf": {
+      "n": 3,
+      "avg_peak_rss_mb": 13.7,
+      "avg_wall_seconds": 0.05
+    },
+    "opendataloader_pdf": {
+      "n": 3,
+      "avg_peak_rss_mb": 91.56,
+      "avg_wall_seconds": 2.8633
+    },
+    "docling": {
+      "n": 3,
+      "avg_peak_rss_mb": 659.5,
+      "avg_wall_seconds": 31.3433
+    }
+  },
+  "decision_gate": {
+    "docling_avg_peak_rss_mb": 659.5,
+    "docling_avg_wall_seconds": 31.3433,
+    "rust_avg_peak_rss_mb": 13.7,
+    "rust_avg_wall_seconds": 0.05,
+    "opendataloader_avg_peak_rss_mb": 91.56,
+    "opendataloader_avg_wall_seconds": 2.8633,
+    "rust_ram_ratio_docling": 0.0208,
+    "rust_wall_ratio_docling": 0.0016,
+    "threshold_go_ram_ratio": 0.3,
+    "threshold_go_wall_ratio": 0.5,
+    "threshold_defer_ram_ratio": 0.7,
+    "recommendation": "GO",
+    "notes": "Rust PDF parser averages 13.7 MB peak RSS (0.0208x docling) and 0.0500s wall (0.0016x docling). Decision: GO."
+  }
+}
