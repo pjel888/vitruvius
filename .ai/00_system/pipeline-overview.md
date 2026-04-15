@@ -79,8 +79,10 @@ The Vitruvius pipeline is a **sequential, file-driven workflow** that uses the f
 | Concept Generation | PARTIAL | Single-concept creation implemented. |
 | Relationship Extraction | IMPLEMENTED | Regex pattern matching. |
 | Review | IMPLEMENTED | Local LLM integration (Ollama). |
-| Promotion | NOT IMPLEMENTED | Moving from `draft` to `verified` is manual. |
-| Storage (Graph) | NOT IMPLEMENTED | Planned for Layer 005. |
+| Promotion | IMPLEMENTED | `run_promote()` in `scripts/vitruvius/promotion/`. Stringency matrix gate (`w_promotion_stringency_gate`), stateful registry (`y_stateful_registry`), RocksDB backend (`hp_rocksdb_verdict_cache`, default `true`). CLI: `promote --execute` / `promote --rollback <batch_id>`. |
+| Storage (Graph — Event Store) | IMPLEMENTED | Append-only SQLite event log (`graph/event_store.py`) with RocksDB backend (`graph/rocksdb_event_store.py`, `hp_rocksdb_event_store` defaults `true`). Factory: `make_event_store()`. |
+| Storage (Graph — Knowledge Synthesis) | IMPLEMENTED (feature-flagged) | Kuzu hybrid vector+graph store (`wiki/kuzu_store.py`, `wiki_kuzu_store` flag). |
+| Storage (Graph — Temporal) | IMPLEMENTED (feature-flagged) | `TemporalEdge` + `temporal_query.query_at()` + Parquet archiver (`gt_temporal_graph` flag). |
 
 ## Data Flow
 `Raw Source (.pdf/.docx)` → `Markdown (.md)` → `Canonical Markdown (ID/YAML)` → `Extraction JSON` → `Verified JSON`
@@ -99,11 +101,11 @@ The Vitruvius pipeline is a **sequential, file-driven workflow** that uses the f
 ## Current Limitations
 - **Linearity:** The pipeline is mostly linear; branched processing is handled via manual CLI routing.
 - **LLM Dependency:** Review stage requires active Ollama server.
-- **State Persistence:** Entirely filesystem-based; no database for querying across files.
+- **State Persistence:** Primary state tracking is filesystem-based (registries in `006_System-Manifests`). Optional KV and graph persistence is available via `hp_rocksdb_event_store` (default on), `hp_rocksdb_verdict_cache` (default on), and `wiki_kuzu_store` (default off).
 
-## Missing Stages
-- **Automated Promotion:** No automated workflow to promote artifacts from conversion to canonical without manual ID verification.
-- **Graph Ingestion:** No automatic sync to a graph database (e.g., Neo4j).
+## Externally-Gated Stages (deferred until external conditions met)
+- **Sprint D Stream J — Active learning loop:** Requires the Ranger dashboard surface. Not dispatchable until that external dependency is available.
+- **Sprint D Stream K — CLUP multi-jurisdiction scaling:** Requires a second jurisdiction corpus to benchmark against. Not dispatchable until that corpus is available.
 
 ## Performance Risks
 - **OCR:** Processing large scanned PDFs is slow and CPU-intensive.
@@ -223,8 +225,46 @@ Transparent perf wins:
 - `hp_wasm_kernels` — Wasm spatial kernels (via `engine_rs` wasm32 target)
 - `hp_graphsage` — GraphSAGE embeddings + structural loopholes detector
 
-See `.ai/10_state/decisions.md` AD-024 through AD-029 for the per-sprint ledger including commit SHAs and sprint tags.
+See `.ai/10_state/decisions.md` AD-024 through AD-042 for the per-sprint ledger including commit SHAs and sprint tags.
+
+### Sprint RUST-PDF-1 / 1B-M1 / 1B-M2 / 1B-M3 — Phase 1B Parser Chain (p1b_* flags, AD-031–034)
+
+New `convert-parsers-one` parallel command routes a single document through the Phase 1B `ParserOrchestrator`. Activated by `p1b_*` deployment-readiness flags (all default `false`):
+
+- `p1b_docling_parser` — DoclingParser via Docling library
+- `p1b_libreoffice_preprocessor` — LibreOffice PDF preprocessing
+- `p1b_ocr_preprocessor` — OCRPreprocessor wrapping ocrmypdf
+- `p1b_process_pool_orchestration` — `process_batch` sequential (pickle-safety deferred)
+- `p1b_rust_pdf_parser` — RustPdfParser (lopdf, 625× faster / 48× less RAM than docling)
+
+No change to existing `convert-one` path when all flags are off.
+
+### Sprint RUST-MIG-1 — Rust polyglot kernels (rust_mig_* flags, AD-036/038, defaults TRUE)
+
+Three Python compute kernels ported to Rust with Python fallback:
+
+- `build_spatial_adjacency_edges` (S1) — 200× raw kernel speedup; called in `spatial/spatial_edge_builder.py`
+- `weight_by_distance` (S2) — 12.18× raw / 2.84× end-to-end; called in `spatial/proximity_jump.py`
+- `mahalanobis_distance` (N4) — 2.73× end-to-end; called in `normalization/outlier_detector.py`
+
+Both `rust_mig_spatial_kernels` and `rust_mig_stats_kernels` default `true`. Flag-off restores pure Python behavior with byte-identical output.
+
+### Sprint AUDIT-1 — Spatial contract integrity (AD-039)
+
+Adds a SHA-256 integrity footer to all spatial contract files written by the TypeScript daemon. `spatial/walker.py` now reads all contract files through `contract_reader.parse_contract()`, skipping corrupted files. No change to pipeline flow; this is a correctness hardening of the spatial ingest stage.
+
+### Sprint PIPELINE-CLI — p1b_* live wiring (AD-040)
+
+Adds `convert-parsers-one` to `pipeline_cli.py` as a parallel conversion command. Wires all 5 `p1b_*` flags end-to-end through `parsers/factory.py::build_default_orchestrator()`. Byte-identity with all flags off verified by the `test_pipeline_cli_byte_identity.py` exit gate.
+
+### Sprint PQ-1 — GraphSAGE Product Quantization (hp_graphsage_pq, AD-041)
+
+32× compression of GraphSAGE embeddings (256 B → 8 B per node). Cosine reconstruction delta 0.00017. Flag `hp_graphsage_pq` defaults `false` pending an embedding-persistence layer. No impact on the main pipeline flow.
+
+### Sprint LSH-1 — MinHash LSH fuzzy dedup (w_lsh_dedup, AD-042)
+
+When `w_lsh_dedup` is `true`, `extract-relationships-sections-one` calls `dedupe_by_endpoints_lsh` instead of the baseline exact-endpoint dedup. Zero false positives on disjoint pairs measured; probabilistic collapse of near-duplicate pairs. Flag defaults `false` until a full PD 1096 operator run validates real-corpus behavior.
 
 ## Changelog
 - **2026-04-13:** Initial Pipeline Overview document created from codebase audit. Traced all `run_` commands and artifact flows.
-- **2026-04-15:** Added **Post-Sprint-D Pipeline Additions** section covering all ten sprints (Q/R/PHYS/H/GEOM/WIKI/GT/HP/Z/HP.3-R) and their feature flags. Baseline flow documented above is unchanged.
+- **2026-04-15:** Added **Post-Sprint-D Pipeline Additions** section covering all 21 closed sprints (Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, HP.3-R, 1B-M1, 1B-M2, RUST-PDF-1, 1B-M3, DISTILL-1, RUST-MIG-1, AUDIT-1, PIPELINE-CLI, PQ-1, LSH-1, Meta) and their feature flags. Baseline flow documented above is unchanged. Promotion and Storage (Graph) stage status rows updated from NOT IMPLEMENTED to IMPLEMENTED — both shipped in Sprint Q / WIKI / HP / HP.3-R. Missing Stages section replaced with Externally-Gated Stages (Sprint D Streams J + K only).
