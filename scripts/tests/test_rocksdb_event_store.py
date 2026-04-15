@@ -87,3 +87,40 @@ def test_reopen_persists(tmp_path: Path) -> None:
         assert store2.count() == 1
     finally:
         store2.close()
+
+
+def test_project_graph_at_concurrent_with_open_writer(tmp_path: Path) -> None:
+    """Sprint HP.3-R bug fix: project_graph_at_rocksdb must open a
+    read-only handle so it can run alongside a live writer without
+    tripping RocksDB's exclusive LOCK file.
+
+    Prior to the fix, this test raised a lock-acquisition error at
+    the project_graph_at_rocksdb call because the default Rdict open
+    is read-write and RocksDB only permits one writer at a time.
+    """
+    db = tmp_path / "events.rocksdb"
+    store = RocksDBEventStore(db_path=db)
+    try:
+        store.append(_event(
+            1, kind="PROMOTED", edge_id="rel-a",
+            ts="2026-04-15T10:00:00Z",
+            payload={"from": "law-pd-1096", "to": "concept-setbacks"},
+        ))
+
+        # Writer is still OPEN. The reader must coexist.
+        projected = project_graph_at_rocksdb(
+            db_path=db,
+            timestamp_utc="2026-04-15T10:00:00Z",
+        )
+        assert set(projected.keys()) == {"rel-a"}
+        assert projected["rel-a"]["from"] == "law-pd-1096"
+
+        # Writer must still be usable after the reader ran.
+        store.append(_event(
+            2, kind="PROMOTED", edge_id="rel-b",
+            ts="2026-04-15T10:01:00Z",
+            payload={"from": "law-pd-1096", "to": "concept-yards"},
+        ))
+        assert store.count() == 2
+    finally:
+        store.close()

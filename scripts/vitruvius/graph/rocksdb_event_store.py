@@ -26,21 +26,30 @@ from vitruvius.graph.event_store import GraphEvent
 # time, so downstream consumers that never construct a
 # RocksDBEventStore don't pay for an unavailable native lib.
 _Rdict: Any = None
+_AccessType: Any = None
 
 
-def _require_rocksdict() -> Any:
-    global _Rdict
-    if _Rdict is not None:
-        return _Rdict
+def _require_rocksdict() -> tuple[Any, Any]:
+    """Lazy-import rocksdict and return ``(Rdict, AccessType)``.
+
+    rocksdict is an optional dependency. We want ImportError to
+    surface at class instantiation / function call time (so the
+    Task 6 factory can fall back to SQLite) rather than at module
+    import time.
+    """
+    global _Rdict, _AccessType
+    if _Rdict is not None and _AccessType is not None:
+        return _Rdict, _AccessType
     try:
-        from rocksdict import Rdict
+        from rocksdict import AccessType, Rdict
     except ImportError as exc:
         raise ImportError(
             "rocksdict is required for RocksDBEventStore. "
             "Install via `pip install rocksdict==0.3.29`."
         ) from exc
     _Rdict = Rdict
-    return _Rdict
+    _AccessType = AccessType
+    return _Rdict, _AccessType
 
 
 _EVENT_PREFIX = b"event:"
@@ -61,7 +70,7 @@ class RocksDBEventStore:
     def __init__(self, *, db_path: Path) -> None:
         self._db_path = Path(db_path)
         self._db_path.parent.mkdir(parents=True, exist_ok=True)
-        Rdict = _require_rocksdict()
+        Rdict, _unused_access_type = _require_rocksdict()
         self._db = Rdict(str(self._db_path))
 
     def append(self, event: GraphEvent) -> None:
@@ -104,11 +113,14 @@ def project_graph_at_rocksdb(
     - ``REJECTED`` events remove the edge from the projected state.
     - ``PROMOTED`` / ``AMENDED`` events upsert the edge.
 
-    Opens a fresh RocksDB handle so this function can run concurrently
-    with an open :class:`RocksDBEventStore` writer.
+    Opens a read-only RocksDB handle via ``AccessType.read_only()`` so
+    it can run concurrently with an open :class:`RocksDBEventStore`
+    writer — RocksDB permits unlimited concurrent read-only handles
+    alongside a single writer via the LOCK file. A plain
+    ``Rdict(path)`` call would trip the exclusive lock.
     """
-    Rdict = _require_rocksdict()
-    db = Rdict(str(Path(db_path)))
+    Rdict, AccessType = _require_rocksdict()
+    db = Rdict(str(Path(db_path)), access_type=AccessType.read_only())
     try:
         state: dict[str, dict[str, Any]] = {}
         cutoff = timestamp_utc.encode("ascii")
