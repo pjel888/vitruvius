@@ -632,7 +632,7 @@ onward; the full Sprint HP.3-R delta from baseline 1364 is
 - Task 7 supplement — `6de2875` — registry migration idempotency counter
 - Task 8 — `8b91210` — RocksDB bench + decision gate
 - Task 8 optimization — `269abb8` — O(1) count() for RocksDB backends
-- Task 9 — `<this commit>` — flag flip, AD-029, docs, archival
+- Task 9 — `1efa2b6` — flag flip, AD-029, docs, archival
 
 **Follow-ups (not in this plan):**
 - After one week of stable live operation on the RocksDB path,

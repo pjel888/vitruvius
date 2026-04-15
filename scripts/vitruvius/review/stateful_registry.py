@@ -102,6 +102,16 @@ class StatefulReviewRegistry:
         except FileNotFoundError:
             return 0
 
+    def flush(self) -> None:
+        """No-op on SQLite. Present for API parity with
+        :class:`vitruvius.review.rocksdb_stateful_registry.RocksDBStatefulReviewRegistry`,
+        which uses it to force the memtable to disk so ``disk_size_mb``
+        is meaningful immediately after a write. SQLite writes are
+        synchronous — ``conn.commit()`` already durably persists each
+        insert — so nothing needs to be flushed here.
+        """
+        return
+
     def vacuum(self) -> None:
         """Run ``VACUUM`` on the underlying connection.
 

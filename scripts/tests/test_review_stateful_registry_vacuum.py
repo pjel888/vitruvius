@@ -7,6 +7,7 @@ from pathlib import Path
 from vitruvius.review.stateful_registry import (
     StatefulReviewRegistry,
     VerdictRecord,
+    make_stateful_registry,
     run_ple_registry_purge,
 )
 
@@ -141,3 +142,31 @@ def test_run_ple_registry_purge_uses_factory_when_flag_on(tmp_path, monkeypatch)
     assert "purge_older_than" in kinds
     assert "vacuum" in kinds
     assert "close" in kinds
+
+
+def test_flush_is_noop_on_sqlite_and_parity_with_rocksdb(tmp_path, monkeypatch):
+    """Sprint HP.3-R closing fix: StatefulReviewRegistry.flush must
+    exist as a no-op for API parity with RocksDBStatefulReviewRegistry.
+    Otherwise a caller that calls .flush() on a factory-returned
+    registry would get AttributeError when hp_rocksdb_verdict_cache
+    is False.
+    """
+    # Direct construction
+    reg = StatefulReviewRegistry(db_path=tmp_path / "direct.sqlite")
+    try:
+        reg.flush()  # must not raise
+    finally:
+        reg.close()
+
+    # Factory construction with flag forced off
+    import vitruvius.config as cfgmod
+    monkeypatch.setattr(cfgmod, "_features_block", lambda: {"hp_rocksdb_verdict_cache": False})
+
+    factory_reg = make_stateful_registry(db_path=tmp_path / "factory.sqlite")
+    try:
+        # It should be a SQLite instance
+        assert isinstance(factory_reg, StatefulReviewRegistry)
+        # flush() must exist and be callable
+        factory_reg.flush()
+    finally:
+        factory_reg.close()
