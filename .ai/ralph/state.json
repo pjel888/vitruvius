@@ -1,8 +1,0 @@
-{
-    "active": true,
-    "current_iteration": 1,
-    "max_iterations": 5,
-    "completion_promise": "INGESTION_ARCHITECTURE_TIGHTENED",
-    "original_prompt": "Refine 'ingestion-refinement-contract.md', 'phase-1b-multi-parser-integration-plan.md', and 'phase-1c-centralized-normalization-plan.md' with the following improvements: 1. Contractualize Visual Assets: Add 'assets_extracted' array to sidecar_json schema in Contract and Phase 1B telemetry. 2. Frontmatter Injection: In Phase 1C Phase 3, inject YAML frontmatter tags (requires_3d_viz, related_glb_asset) based on text/metadata evaluation. 3. Ranger Audit Workflow: Define 'Review Payload' in Phase 1B Section 12 and Phase 1C Section 14 (source PDF page, garbled markdown, review_reason). 4. Document Class Gating: In Phase 1C Normalization Engine Design, tie Rule Scope and Phase Execution directly to 'document_class'.",
-    "started_at": "2026-04-14T00:15:00Z"
-}

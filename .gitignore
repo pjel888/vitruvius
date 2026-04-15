@@ -103,3 +103,7 @@ Thumbs.db
 # AI Tooling & Indices
 .chunkhound/
 **/__pycache__/
+
+# Runtime lock files (session IDs, PIDs — never commit)
+.ai/scheduled_tasks.lock
+.ai/ralph/state.json

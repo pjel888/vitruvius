@@ -3,5 +3,14 @@
     "provider": "openai",
     "model": "nomic-embed-text:latest",
     "base_url": "http://localhost:11434/v1"
+  },
+  "indexing": {
+    "exclude": [
+      "002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+      "002_Raw-Conversion-Layer/001-Laws/raw_markdown/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md",
+      "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+      "002_Raw-Conversion-Layer/001-Laws/refined_markdown/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md",
+      ".ai/13_research/Ultimate-Improvement.md"
+    ]
   }
 }

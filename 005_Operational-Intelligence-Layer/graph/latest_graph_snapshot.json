@@ -1,0 +1,220 @@
+{
+  "edge_count": 6,
+  "edges": [
+    {
+      "evidence_id": "rel-concept-occupancy-classification-affects-concept-mixed-occupancy",
+      "from_id": "concept-occupancy-classification",
+      "status": "unverified",
+      "to_id": "concept-mixed-occupancy",
+      "type": "affects"
+    },
+    {
+      "evidence_id": "rel-concept-occupancy-classification-depends-on-concept-mixed-occupancy",
+      "from_id": "concept-occupancy-classification",
+      "status": "unverified",
+      "to_id": "concept-mixed-occupancy",
+      "type": "depends_on"
+    },
+    {
+      "evidence_id": "rel-concept-occupancy-separation-affects-concept-occupancy-classification",
+      "from_id": "concept-occupancy-separation",
+      "status": "unverified",
+      "to_id": "concept-occupancy-classification",
+      "type": "affects"
+    },
+    {
+      "evidence_id": "rel-concept-occupancy-separation-depends-on-concept-occupancy-classification",
+      "from_id": "concept-occupancy-separation",
+      "status": "unverified",
+      "to_id": "concept-occupancy-classification",
+      "type": "depends_on"
+    },
+    {
+      "evidence_id": "rel-concept-occupancy-separation-requires-concept-occupancy-classification",
+      "from_id": "concept-occupancy-separation",
+      "status": "unverified",
+      "to_id": "concept-occupancy-classification",
+      "type": "requires"
+    },
+    {
+      "evidence_id": "rel-law-national-building-code-of-the-philippines-governs-concept-building-permit",
+      "from_id": "law-national-building-code-of-the-philippines",
+      "status": "unverified",
+      "to_id": "concept-building-permit",
+      "type": "governs"
+    }
+  ],
+  "generated_at_utc": "2026-04-14T12:17:48Z",
+  "node_count": 24,
+  "nodes": [
+    {
+      "id": "concept-building-height",
+      "last_updated_utc": "2026-04-14T05:59:49.640810+00:00",
+      "slug": "building-height",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-building-permit",
+      "last_updated_utc": "2026-04-14T05:59:50.892417+00:00",
+      "slug": "building-permit",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-certificate-of-occupancy",
+      "last_updated_utc": "2026-04-14T05:59:52.318797+00:00",
+      "slug": "certificate-of-occupancy",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-doors-and-exits",
+      "last_updated_utc": "2026-04-14T05:59:53.633633+00:00",
+      "slug": "doors-and-exits",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-exit-width",
+      "last_updated_utc": "2026-04-13T08:45:49Z",
+      "slug": "exit-width",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-fire-resistive-construction",
+      "last_updated_utc": "2026-04-14T05:59:56.166509+00:00",
+      "slug": "fire-resistive-construction",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-floor-area",
+      "last_updated_utc": "2026-04-14T05:59:57.423702+00:00",
+      "slug": "floor-area",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-light-and-ventilation",
+      "last_updated_utc": "2026-04-14T05:59:58.776077+00:00",
+      "slug": "light-and-ventilation",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-lot-occupancy",
+      "last_updated_utc": "2026-04-14T06:00:00.087139+00:00",
+      "slug": "lot-occupancy",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-means-of-egress",
+      "last_updated_utc": "2026-04-14T06:00:01.341113+00:00",
+      "slug": "means-of-egress",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-mixed-occupancy",
+      "last_updated_utc": "2026-04-14T06:00:02.585156+00:00",
+      "slug": "mixed-occupancy",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-occupancy-classification",
+      "last_updated_utc": "2026-04-14T06:00:03.823244+00:00",
+      "slug": "occupancy-classification",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-occupancy-load",
+      "last_updated_utc": "2026-04-14T06:00:05.121205+00:00",
+      "slug": "occupancy-load",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-occupancy-separation",
+      "last_updated_utc": "2026-04-14T06:00:06.370992+00:00",
+      "slug": "occupancy-separation",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-open-courts",
+      "last_updated_utc": "2026-04-14T06:00:07.619696+00:00",
+      "slug": "open-courts",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-parking-and-loading-spaces",
+      "last_updated_utc": "2026-04-13T08:45:59Z",
+      "slug": "parking-and-loading-spaces",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-projections-over-public-ways",
+      "last_updated_utc": "2026-04-14T06:00:10.164757+00:00",
+      "slug": "projections-over-public-ways",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-setbacks",
+      "last_updated_utc": "2026-04-13T08:45:54Z",
+      "slug": "setbacks",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-stairs",
+      "last_updated_utc": "2026-04-14T06:00:12.692248+00:00",
+      "slug": "stairs",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-yards",
+      "last_updated_utc": "2026-04-13T08:45:59Z",
+      "slug": "yards",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+      "last_updated_utc": "2026-04-13T07:41:46Z",
+      "slug": "implementing-rules-and-regulations-of-the-national-building-code",
+      "trust_level": "primary",
+      "type": "source"
+    },
+    {
+      "id": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+      "last_updated_utc": "2026-04-13T00:00:00Z",
+      "slug": "pd-1096-irr",
+      "trust_level": "primary",
+      "type": "source"
+    },
+    {
+      "id": "law-national-building-code-of-the-philippines",
+      "last_updated_utc": "2026-04-14T02:10:50Z",
+      "slug": "national-building-code-of-the-philippines",
+      "trust_level": "primary",
+      "type": "source"
+    },
+    {
+      "id": "law-pd-1096-national-building-code",
+      "last_updated_utc": "2026-04-13T07:19:33Z",
+      "slug": "pd-1096-national-building-code",
+      "trust_level": "primary",
+      "type": "source"
+    }
+  ],
+  "schema_version": "1.0.0"
+}
