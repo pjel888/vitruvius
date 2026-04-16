@@ -69,9 +69,7 @@ pub struct SpatialPoint {
 impl SpatialPoint {
     pub fn new(id: String, x: f64, y: f64, z: f64) -> Result<Self, String> {
         if !x.is_finite() || !y.is_finite() || !z.is_finite() {
-            return Err(
-                "SpatialPoint coordinates must be finite (no NaN/±inf).".to_string(),
-            );
+            return Err("SpatialPoint coordinates must be finite (no NaN/±inf).".to_string());
         }
         if id.is_empty() {
             return Err("SpatialPoint id must be a non-empty string.".to_string());
@@ -166,11 +164,11 @@ impl Aabb {
     pub fn octants(&self) -> [Aabb; 8] {
         let (cx, cy, cz) = self.center();
         let mut out = [*self; 8];
-        for i in 0..8 {
+        for (i, slot) in out.iter_mut().enumerate() {
             let xhi = (i & 1) != 0;
             let yhi = (i & 2) != 0;
             let zhi = (i & 4) != 0;
-            out[i] = Aabb {
+            *slot = Aabb {
                 min_x: if xhi { cx } else { self.min_x },
                 max_x: if xhi { self.max_x } else { cx },
                 min_y: if yhi { cy } else { self.min_y },
@@ -234,9 +232,9 @@ impl Node {
                         if let Some(idx) = locate_child(&children, &p) {
                             match &mut children[idx].node {
                                 Node::Leaf(b) => b.push(p),
-                                Node::Internal(_) => unreachable!(
-                                    "array_init_leaves must produce Leaf nodes"
-                                ),
+                                Node::Internal(_) => {
+                                    unreachable!("array_init_leaves must produce Leaf nodes")
+                                }
                             }
                         } else if let Node::Leaf(b) = &mut children[0].node {
                             b.push(p);
@@ -249,11 +247,15 @@ impl Node {
                 if let Some(idx) = locate_child(children, &point) {
                     let child = &mut children[idx];
                     let child_bounds = child.bounds;
-                    child.node.insert(&child_bounds, point, depth + 1, max_depth);
+                    child
+                        .node
+                        .insert(&child_bounds, point, depth + 1, max_depth);
                 } else {
                     let child = &mut children[0];
                     let child_bounds = child.bounds;
-                    child.node.insert(&child_bounds, point, depth + 1, max_depth);
+                    child
+                        .node
+                        .insert(&child_bounds, point, depth + 1, max_depth);
                 }
             }
         }
@@ -279,6 +281,7 @@ impl Node {
         }
     }
 
+    #[allow(clippy::too_many_arguments)]
     fn query_sphere(
         &self,
         self_bounds: &Aabb,
@@ -317,14 +320,38 @@ impl Node {
 fn array_init_leaves(octants: [Aabb; 8]) -> [Child; 8] {
     let [b0, b1, b2, b3, b4, b5, b6, b7] = octants;
     [
-        Child { bounds: b0, node: Node::new_leaf() },
-        Child { bounds: b1, node: Node::new_leaf() },
-        Child { bounds: b2, node: Node::new_leaf() },
-        Child { bounds: b3, node: Node::new_leaf() },
-        Child { bounds: b4, node: Node::new_leaf() },
-        Child { bounds: b5, node: Node::new_leaf() },
-        Child { bounds: b6, node: Node::new_leaf() },
-        Child { bounds: b7, node: Node::new_leaf() },
+        Child {
+            bounds: b0,
+            node: Node::new_leaf(),
+        },
+        Child {
+            bounds: b1,
+            node: Node::new_leaf(),
+        },
+        Child {
+            bounds: b2,
+            node: Node::new_leaf(),
+        },
+        Child {
+            bounds: b3,
+            node: Node::new_leaf(),
+        },
+        Child {
+            bounds: b4,
+            node: Node::new_leaf(),
+        },
+        Child {
+            bounds: b5,
+            node: Node::new_leaf(),
+        },
+        Child {
+            bounds: b6,
+            node: Node::new_leaf(),
+        },
+        Child {
+            bounds: b7,
+            node: Node::new_leaf(),
+        },
     ]
 }
 
@@ -437,9 +464,7 @@ impl LinearOctree {
             return Err("query_sphere centre must be finite (no NaN/±inf).".to_string());
         }
         if !radius.is_finite() || radius < 0.0 {
-            return Err(
-                "query_sphere radius must be a finite non-negative number.".to_string(),
-            );
+            return Err("query_sphere radius must be a finite non-negative number.".to_string());
         }
         let r_sq = radius * radius;
         let mut out = Vec::new();

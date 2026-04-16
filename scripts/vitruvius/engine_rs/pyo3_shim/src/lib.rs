@@ -7,6 +7,7 @@
 // The split lets the `core` crate target wasm32-unknown-unknown for
 // Sprint HP Stream HP.4, while this crate keeps the libpython link
 // policy that maturin needs.
+#![allow(clippy::useless_conversion)]
 
 use pyo3::exceptions::PyValueError;
 use pyo3::prelude::*;
@@ -128,6 +129,10 @@ impl LinearOctree {
         self.inner.total()
     }
 
+    pub fn is_empty(&self) -> bool {
+        self.inner.total() == 0
+    }
+
     pub fn live_count(&self) -> usize {
         self.inner.live_count()
     }
@@ -175,13 +180,7 @@ impl LinearOctree {
     /// Alias for `query_sphere` — plan-spec name for the point-query
     /// entry point.
     #[pyo3(signature = (x, y, z, radius))]
-    pub fn query_point(
-        &self,
-        x: f64,
-        y: f64,
-        z: f64,
-        radius: f64,
-    ) -> PyResult<Vec<SpatialPoint>> {
+    pub fn query_point(&self, x: f64, y: f64, z: f64, radius: f64) -> PyResult<Vec<SpatialPoint>> {
         self.query_sphere(x, y, z, radius)
     }
 
@@ -267,7 +266,11 @@ fn weight_by_distance(
     focal: (f64, f64, f64),
     lambda_decay: f64,
 ) -> PyResult<Vec<f64>> {
-    Ok(distance_weight::weight_by_distance(&seeds, focal, lambda_decay))
+    Ok(distance_weight::weight_by_distance(
+        &seeds,
+        focal,
+        lambda_decay,
+    ))
 }
 
 // ---------------------------------------------------------------------------

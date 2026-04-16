@@ -73,6 +73,25 @@ def _iter_md_files(directory: Path) -> list[Path]:
     return sorted(p for p in directory.glob("*.md") if p.is_file())
 
 
+def _primary_evidence_entry(fm: dict[str, Any]) -> dict[str, Any] | None:
+    raw = fm.get("evidence")
+    if not isinstance(raw, list):
+        return None
+    entries = [entry for entry in raw if isinstance(entry, dict)]
+    if not entries:
+        return None
+
+    def _sort_key(entry: dict[str, Any]) -> tuple[float, int]:
+        confidence_raw = entry.get("reviewer_confidence")
+        try:
+            confidence = float(confidence_raw)
+        except (TypeError, ValueError):
+            confidence = -1.0
+        return (confidence, -len(str(entry.get("evidence_snippet") or "")))
+
+    return max(entries, key=_sort_key)
+
+
 def walk_sources(sources_dir: Path) -> list[GraphNode]:
     nodes: list[GraphNode] = []
     for path in _iter_md_files(sources_dir):
@@ -149,12 +168,33 @@ def walk_relationships(relationships_dir: Path) -> list[GraphEdge]:
             governing_value: bool | None = governing
         else:
             governing_value = None
+        evidence = _primary_evidence_entry(fm)
+        reviewer_confidence: float | None = None
+        if evidence is not None:
+            try:
+                reviewer_confidence = float(evidence.get("reviewer_confidence"))
+            except (TypeError, ValueError):
+                reviewer_confidence = None
         edge = GraphEdge(
             from_id=from_id,
             to_id=to_id,
             type=predicate,
             evidence_id=evidence_id,
             status=edge_status,
+            evidence_source_id=(
+                str(evidence.get("source_id")) if evidence and evidence.get("source_id") else None
+            ),
+            evidence_source_section_id=(
+                str(evidence.get("source_section_id"))
+                if evidence and evidence.get("source_section_id")
+                else None
+            ),
+            evidence_snippet=(
+                str(evidence.get("evidence_snippet"))
+                if evidence and evidence.get("evidence_snippet")
+                else None
+            ),
+            reviewer_confidence=reviewer_confidence,
             is_governing_standard=governing_value,
         )
         try:

@@ -7,6 +7,21 @@ from pathlib import Path
 from .contract import GraphEdge, GraphNode, GraphSnapshot
 
 
+def _edge_to_dict(edge: GraphEdge) -> dict:
+    payload = asdict(edge)
+    optional_evidence_fields = {
+        "evidence_source_id",
+        "evidence_source_section_id",
+        "evidence_snippet",
+        "reviewer_confidence",
+    }
+    return {
+        key: value
+        for key, value in payload.items()
+        if key not in optional_evidence_fields or value is not None
+    }
+
+
 def _snapshot_to_dict(snapshot: GraphSnapshot) -> dict:
     return {
         "schema_version": snapshot.schema_version,
@@ -14,7 +29,7 @@ def _snapshot_to_dict(snapshot: GraphSnapshot) -> dict:
         "node_count": snapshot.node_count,
         "edge_count": snapshot.edge_count,
         "nodes": [asdict(n) for n in snapshot.nodes],
-        "edges": [asdict(e) for e in snapshot.edges],
+        "edges": [_edge_to_dict(e) for e in snapshot.edges],
     }
 
 

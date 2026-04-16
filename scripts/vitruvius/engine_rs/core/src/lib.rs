@@ -21,7 +21,9 @@
 mod octree;
 mod wasm_api;
 
-pub use octree::{Aabb, AabbError, LinearOctree, LinearOctreeError, SpatialPoint, DEFAULT_MAX_DEPTH};
+pub use octree::{
+    Aabb, AabbError, LinearOctree, LinearOctreeError, SpatialPoint, DEFAULT_MAX_DEPTH,
+};
 
 // Re-export the wasm entry points at the crate root so downstream
 // tooling (wasmtime, wasm-bindgen, etc.) can find them by name.

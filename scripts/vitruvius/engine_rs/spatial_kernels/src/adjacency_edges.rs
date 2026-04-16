@@ -104,12 +104,7 @@ use vitruvius_engine_rs_core::{LinearOctree, SpatialPoint, DEFAULT_MAX_DEPTH};
 fn aabbs_overlap(a: &[f64; 6], b: &[f64; 6]) -> bool {
     // a = [min_x, min_y, min_z, max_x, max_y, max_z]
     // Fail fast if any axis is separable.
-    !(a[3] < b[0]
-        || b[3] < a[0]
-        || a[4] < b[1]
-        || b[4] < a[1]
-        || a[5] < b[2]
-        || b[5] < a[2])
+    !(a[3] < b[0] || b[3] < a[0] || a[4] < b[1] || b[4] < a[1] || a[5] < b[2] || b[5] < a[2])
 }
 
 /// Maximum half-extent per axis across every input box. Used to
@@ -198,9 +193,7 @@ fn compute_union_bounds(nodes: &[(String, [f64; 6])]) -> Option<[f64; 6]> {
 /// query — on an 8 GB M2 at n=2000 the allocator cost is negligible
 /// compared to the query walk). The output `Vec` is the only
 /// caller-visible allocation.
-pub fn build_spatial_adjacency_edges(
-    nodes: &[(String, [f64; 6])],
-) -> Vec<(String, String)> {
+pub fn build_spatial_adjacency_edges(nodes: &[(String, [f64; 6])]) -> Vec<(String, String)> {
     if nodes.len() < 2 {
         return Vec::new();
     }
@@ -213,9 +206,15 @@ pub fn build_spatial_adjacency_edges(
     // (NaN/inf from the Python caller), fall back to an empty
     // result — silent-empty matches the Python dataclass's
     // permissive-on-bad-input contract.
-    let Ok(mut tree) =
-        LinearOctree::new(root[0], root[1], root[2], root[3], root[4], root[5], DEFAULT_MAX_DEPTH)
-    else {
+    let Ok(mut tree) = LinearOctree::new(
+        root[0],
+        root[1],
+        root[2],
+        root[3],
+        root[4],
+        root[5],
+        DEFAULT_MAX_DEPTH,
+    ) else {
         return Vec::new();
     };
 

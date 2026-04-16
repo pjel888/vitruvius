@@ -47,6 +47,10 @@ class GraphEdge:
     type: str
     evidence_id: str
     status: str
+    evidence_source_id: str | None = None
+    evidence_source_section_id: str | None = None
+    evidence_snippet: str | None = None
+    reviewer_confidence: float | None = None
     # Stream W3.4 — None means "unset / legacy edge"; True means this edge
     # won a stringency resolver contest; False means it lost and another
     # edge for the same (predicate, from, to) triplet is authoritative.

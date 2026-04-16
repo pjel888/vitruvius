@@ -51,6 +51,11 @@ def _seed_canonical_tree(root: Path) -> None:
         "from_entity: law-pd-1096\n"
         "to_entity: concept-building-permit\n"
         "canonical_status: promoted\n"
+        "evidence:\n"
+        "- source_id: law-pd-1096\n"
+        "  source_section_id: sec-301\n"
+        "  evidence_snippet: No person shall erect any building without a permit.\n"
+        "  reviewer_confidence: 0.95\n"
         "---\n\n# body\n"
     ))
 

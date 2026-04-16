@@ -54,6 +54,9 @@ def _e(
     type_: str,
     evidence: str,
     status: str = "verified",
+    section: str = "sec-1",
+    snippet: str = "Snippet",
+    confidence: float | None = None,
 ) -> GraphEdge:
     return GraphEdge(
         from_id=from_id,
@@ -61,6 +64,10 @@ def _e(
         type=type_,
         evidence_id=evidence,
         status=status,
+        evidence_source_id=from_id,
+        evidence_source_section_id=section,
+        evidence_snippet=snippet,
+        reviewer_confidence=confidence,
     )
 
 

@@ -10,14 +10,20 @@ _MAX_SUPERSESSION_HOPS = 5
 
 
 def _confidence_for(edge: GraphEdge) -> float:
+    if edge.reviewer_confidence is not None:
+        return max(0.0, min(1.0, float(edge.reviewer_confidence)))
     return 1.0 if edge.status == "verified" else 0.5
 
 
-def _citation_from_edge(edge: GraphEdge) -> QueryCitation:
+def _citation_from_edge(edge: GraphEdge) -> QueryCitation | None:
+    section_id = (edge.evidence_source_section_id or "").strip()
+    snippet = (edge.evidence_snippet or "").strip()
+    if not section_id and not snippet:
+        return None
     return QueryCitation(
-        source_id=edge.from_id,
-        source_section_id="",
-        evidence_snippet="",
+        source_id=(edge.evidence_source_id or edge.from_id),
+        source_section_id=section_id,
+        evidence_snippet=snippet,
         confidence=_confidence_for(edge),
     )
 
@@ -39,14 +45,19 @@ def _build_result(
     answer_entities: tuple[str, ...],
     edges: tuple[GraphEdge, ...],
 ) -> QueryResult:
-    citations = tuple(_citation_from_edge(e) for e in edges)
+    citations = tuple(
+        citation
+        for edge in edges
+        for citation in [_citation_from_edge(edge)]
+        if citation is not None
+    )
     aggregate = compute_aggregate_confidence(citations)
     return QueryResult(
         question=question,
         answer_entities=answer_entities,
         citations=citations,
         aggregate_confidence=aggregate,
-        has_evidence=len(citations) > 0,
+        has_evidence=bool(citations),
         query_function=function,
         arguments=dict(arguments),
     )

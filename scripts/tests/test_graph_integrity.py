@@ -78,6 +78,13 @@ def test_dangling_edge_is_error() -> None:
     assert not report.passed
 
 
+def test_duplicate_node_id_is_error() -> None:
+    nodes = [_node("law-a", "source"), _node("law-a", "source")]
+    report = check_integrity(_snapshot(nodes, []))
+    assert any(f.code == "duplicate_node_id" for f in report.findings)
+    assert not report.passed
+
+
 def test_unknown_predicate_is_error_when_vocab_provided() -> None:
     nodes = [_node("law-a", "source"), _node("concept-b")]
     edges = [_edge("law-a", "concept-b", type_="zzzotron", evidence="rel-1")]

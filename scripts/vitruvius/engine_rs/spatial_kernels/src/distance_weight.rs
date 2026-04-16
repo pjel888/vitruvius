@@ -129,8 +129,18 @@ mod tests {
         let seeds = [near, mid, far];
         let out = weight_by_distance(&seeds, FOCAL, LAMBDA);
         assert_eq!(out.len(), 3);
-        assert!(out[0] > out[1], "near ({}) must exceed mid ({})", out[0], out[1]);
-        assert!(out[1] > out[2], "mid ({}) must exceed far ({})", out[1], out[2]);
+        assert!(
+            out[0] > out[1],
+            "near ({}) must exceed mid ({})",
+            out[0],
+            out[1]
+        );
+        assert!(
+            out[1] > out[2],
+            "mid ({}) must exceed far ({})",
+            out[1],
+            out[2]
+        );
         // Analytic spot-check: exp(-0.05 * 1.0) ~= 0.9512.
         let expected_near = (-LAMBDA * 1.0_f64).exp();
         assert!((out[0] - expected_near).abs() < 1e-15);
@@ -147,11 +157,7 @@ mod tests {
         // for every seed, regardless of distance. This is important
         // for GraphRAG callers that want to disable weighting without
         // a code-path change.
-        let seeds = [
-            (0.0, 0.0, 0.0),
-            (100.0, 100.0, 100.0),
-            (-50.0, 73.0, 42.0),
-        ];
+        let seeds = [(0.0, 0.0, 0.0), (100.0, 100.0, 100.0), (-50.0, 73.0, 42.0)];
         let out = weight_by_distance(&seeds, FOCAL, 0.0);
         assert_eq!(out.len(), 3);
         for w in &out {

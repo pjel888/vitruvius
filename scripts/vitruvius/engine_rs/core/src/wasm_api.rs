@@ -17,15 +17,27 @@
 /// re-exports it with a C calling convention so wasm loaders can
 /// find it by name.
 #[inline]
+#[allow(clippy::too_many_arguments)]
 pub fn aabb_intersects_core(
-    a_min_x: f64, a_min_y: f64, a_min_z: f64,
-    a_max_x: f64, a_max_y: f64, a_max_z: f64,
-    b_min_x: f64, b_min_y: f64, b_min_z: f64,
-    b_max_x: f64, b_max_y: f64, b_max_z: f64,
+    a_min_x: f64,
+    a_min_y: f64,
+    a_min_z: f64,
+    a_max_x: f64,
+    a_max_y: f64,
+    a_max_z: f64,
+    b_min_x: f64,
+    b_min_y: f64,
+    b_min_z: f64,
+    b_max_x: f64,
+    b_max_y: f64,
+    b_max_z: f64,
 ) -> bool {
-    a_min_x <= b_max_x && a_max_x >= b_min_x
-        && a_min_y <= b_max_y && a_max_y >= b_min_y
-        && a_min_z <= b_max_z && a_max_z >= b_min_z
+    a_min_x <= b_max_x
+        && a_max_x >= b_min_x
+        && a_min_y <= b_max_y
+        && a_max_y >= b_min_y
+        && a_min_z <= b_max_z
+        && a_max_z >= b_min_z
 }
 
 /// Wasm-exported AABB intersection test.
@@ -39,14 +51,22 @@ pub fn aabb_intersects_core(
 /// `scripts/vitruvius/compound/wasm_kernel.py::WasmSpatialKernel.aabb_intersects`.
 #[no_mangle]
 pub extern "C" fn aabb_intersects(
-    a_min_x: f64, a_min_y: f64, a_min_z: f64,
-    a_max_x: f64, a_max_y: f64, a_max_z: f64,
-    b_min_x: f64, b_min_y: f64, b_min_z: f64,
-    b_max_x: f64, b_max_y: f64, b_max_z: f64,
+    a_min_x: f64,
+    a_min_y: f64,
+    a_min_z: f64,
+    a_max_x: f64,
+    a_max_y: f64,
+    a_max_z: f64,
+    b_min_x: f64,
+    b_min_y: f64,
+    b_min_z: f64,
+    b_max_x: f64,
+    b_max_y: f64,
+    b_max_z: f64,
 ) -> i32 {
     if aabb_intersects_core(
-        a_min_x, a_min_y, a_min_z, a_max_x, a_max_y, a_max_z,
-        b_min_x, b_min_y, b_min_z, b_max_x, b_max_y, b_max_z,
+        a_min_x, a_min_y, a_min_z, a_max_x, a_max_y, a_max_z, b_min_x, b_min_y, b_min_z, b_max_x,
+        b_max_y, b_max_z,
     ) {
         1
     } else {
@@ -61,10 +81,7 @@ mod tests {
     #[test]
     fn overlapping_returns_one() {
         assert_eq!(
-            aabb_intersects(
-                0.0, 0.0, 0.0, 10.0, 10.0, 10.0,
-                5.0, 5.0, 5.0, 15.0, 15.0, 15.0,
-            ),
+            aabb_intersects(0.0, 0.0, 0.0, 10.0, 10.0, 10.0, 5.0, 5.0, 5.0, 15.0, 15.0, 15.0,),
             1
         );
     }
@@ -72,10 +89,7 @@ mod tests {
     #[test]
     fn disjoint_returns_zero() {
         assert_eq!(
-            aabb_intersects(
-                0.0, 0.0, 0.0, 1.0, 1.0, 1.0,
-                10.0, 10.0, 10.0, 20.0, 20.0, 20.0,
-            ),
+            aabb_intersects(0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 10.0, 10.0, 10.0, 20.0, 20.0, 20.0,),
             0
         );
     }
@@ -84,10 +98,7 @@ mod tests {
     fn edge_touching_returns_one() {
         // Boxes share a face plane at x=5. Inclusive intersection.
         assert_eq!(
-            aabb_intersects(
-                0.0, 0.0, 0.0, 5.0, 5.0, 5.0,
-                5.0, 0.0, 0.0, 10.0, 5.0, 5.0,
-            ),
+            aabb_intersects(0.0, 0.0, 0.0, 5.0, 5.0, 5.0, 5.0, 0.0, 0.0, 10.0, 5.0, 5.0,),
             1
         );
     }

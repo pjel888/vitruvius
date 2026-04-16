@@ -33,6 +33,10 @@ def _e(
     type_: str,
     evidence: str,
     status: str = "verified",
+    source_id: str | None = None,
+    section: str | None = "sec-1",
+    snippet: str | None = "Snippet",
+    confidence: float | None = 0.92,
 ) -> GraphEdge:
     return GraphEdge(
         from_id=from_id,
@@ -40,6 +44,10 @@ def _e(
         type=type_,
         evidence_id=evidence,
         status=status,
+        evidence_source_id=source_id or from_id,
+        evidence_source_section_id=section,
+        evidence_snippet=snippet,
+        reviewer_confidence=confidence,
     )
 
 
@@ -71,10 +79,13 @@ def test_what_governs_returns_source_and_citation() -> None:
 
 
 def test_what_governs_no_evidence_case() -> None:
-    snap = _snap([_n("concept-x")], [])
+    snap = _snap(
+        [_n("law-x", type_="source", trust="primary"), _n("concept-x")],
+        [_e("law-x", "concept-x", type_="governs", evidence="rel-1", section=None, snippet=None, confidence=None)],
+    )
     result = what_governs("concept-x", snap)
     assert result.has_evidence is False
-    assert result.answer_entities == ()
+    assert result.answer_entities == ("law-x",)
     assert result.citations == ()
     assert result.aggregate_confidence == 0.0
 
@@ -101,7 +112,7 @@ def test_what_limits_incoming_edges() -> None:
     )
     result = what_limits("concept-lot", snap)
     assert result.answer_entities == ("law-x",)
-    assert result.citations[0].confidence == 1.0
+    assert result.citations[0].confidence == 0.92
 
 
 def test_what_defines_verified_vs_unverified_confidence() -> None:
@@ -112,8 +123,18 @@ def test_what_defines_verified_vs_unverified_confidence() -> None:
             evidence="rel-1", status="unverified")],
     )
     result = what_defines("concept-frc", snap)
-    assert result.citations[0].confidence == 0.5
-    assert result.aggregate_confidence == 0.5
+    assert result.citations[0].confidence == 0.92
+    assert result.aggregate_confidence == 0.92
+
+
+def test_query_omits_placeholder_citations_without_real_provenance() -> None:
+    snap = _snap(
+        [_n("law-x", type_="source", trust="primary"), _n("concept-y")],
+        [_e("law-x", "concept-y", type_="governs", evidence="rel-1", section="", snippet="", confidence=None)],
+    )
+    result = what_governs("concept-y", snap)
+    assert result.has_evidence is False
+    assert result.citations == ()
 
 
 def test_what_depends_on_from_subject() -> None:

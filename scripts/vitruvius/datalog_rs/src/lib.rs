@@ -21,6 +21,7 @@
 //! propagator) with the same ruleset — replacing the interpreter with a
 //! `crepe`-based one later is a drop-in swap because the public API is
 //! just `evaluate_datalog(facts) -> bool`.
+#![allow(clippy::useless_conversion)]
 
 use std::collections::HashMap;
 use std::collections::HashSet;
@@ -63,27 +64,21 @@ fn parse_atom(raw: &str) -> Result<Atom, String> {
         return Err(format!("invalid predicate characters in: {raw}"));
     }
     // Reject trailing garbage past the closing paren.
-    if trimmed[close + 1..].trim_start().len() != 0 {
+    if !trimmed[close + 1..].trim_start().is_empty() {
         return Err(format!("trailing garbage after ')': {raw}"));
     }
     let arg_body = &trimmed[open + 1..close];
     let args: Vec<String> = if arg_body.trim().is_empty() {
         Vec::new()
     } else {
-        arg_body
-            .split(',')
-            .map(|s| s.trim().to_string())
-            .collect()
+        arg_body.split(',').map(|s| s.trim().to_string()).collect()
     };
     for arg in &args {
         if arg.is_empty() {
             return Err(format!("empty argument in: {raw}"));
         }
     }
-    Ok(Atom {
-        predicate,
-        args,
-    })
+    Ok(Atom { predicate, args })
 }
 
 /// Evaluate the hardcoded Vitruvius compliance ruleset over `facts` and
@@ -105,13 +100,15 @@ fn evaluate_ruleset(atoms: &[Atom]) -> bool {
     // Group facts by predicate for cheap lookup.
     let mut by_pred: HashMap<&str, Vec<&Atom>> = HashMap::new();
     for atom in atoms {
-        by_pred.entry(atom.predicate.as_str()).or_default().push(atom);
+        by_pred
+            .entry(atom.predicate.as_str())
+            .or_default()
+            .push(atom);
     }
 
     let empty: Vec<&Atom> = Vec::new();
     let has_distance = by_pred.get("has_distance").unwrap_or(&empty);
-    let requires_distance =
-        by_pred.get("requires_distance").unwrap_or(&empty);
+    let requires_distance = by_pred.get("requires_distance").unwrap_or(&empty);
     let less_than = by_pred.get("less_than").unwrap_or(&empty);
     let applies_to = by_pred.get("applies_to").unwrap_or(&empty);
 
@@ -163,10 +160,8 @@ fn evaluate_ruleset(atoms: &[Atom]) -> bool {
 /// the module docstring.
 #[pyfunction]
 #[pyo3(signature = (facts, rules = None))]
-fn evaluate_datalog(
-    facts: Vec<String>,
-    rules: Option<Vec<String>>,
-) -> PyResult<bool> {
+#[allow(clippy::useless_conversion)]
+fn evaluate_datalog(facts: Vec<String>, rules: Option<Vec<String>>) -> PyResult<bool> {
     let _ = rules; // reserved for future rule-compiling path
     let mut atoms: Vec<Atom> = Vec::with_capacity(facts.len());
     for raw in &facts {

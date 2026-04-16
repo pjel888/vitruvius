@@ -4,6 +4,7 @@
 //! buffer using `lopdf`. The goal is to measure peak RAM + wall-time
 //! vs the Python `docling` and `opendataloader_pdf` stacks, not to
 //! ship a production parser.
+#![allow(clippy::useless_conversion)]
 
 use lopdf::Document;
 use pyo3::exceptions::PyValueError;

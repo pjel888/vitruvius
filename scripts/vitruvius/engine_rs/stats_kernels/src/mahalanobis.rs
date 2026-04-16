@@ -172,8 +172,7 @@ pub fn mahalanobis_distance(
     // garbage that will only be rejected at the post-math guard. For
     // dim=64 the scan touches 64 + 64 + 4096 = 4224 floats, a fraction
     // of the ~34 µs kernel wall time (AD-038 §Task 6 micro-bench).
-    if x
-        .iter()
+    if x.iter()
         .chain(centroid.iter())
         .chain(cov_inv_flat.iter())
         .any(|v| !v.is_finite())
@@ -186,10 +185,8 @@ pub fn mahalanobis_distance(
     // place. The alternative — `DVector::from_column_slice(x).sub(&DVector::from_column_slice(centroid))` —
     // would allocate two intermediates. One vector allocation is the
     // minimum-allocation shape for this computation.
-    let diff = DVector::<f64>::from_iterator(
-        dim,
-        x.iter().zip(centroid.iter()).map(|(xi, ci)| xi - ci),
-    );
+    let diff =
+        DVector::<f64>::from_iterator(dim, x.iter().zip(centroid.iter()).map(|(xi, ci)| xi - ci));
 
     // Reconstruct the (dim × dim) cov_inv matrix from the flat row-major
     // slice. See the file-level comment for why `from_row_slice` is the
@@ -278,7 +275,7 @@ mod tests {
         // this; any regression producing a tiny epsilon here would
         // break the parity test's zero-diff assertion.
         let dim = 5;
-        let centroid = vec![1.5, -2.0, 3.14, 0.0, 42.0];
+        let centroid = vec![1.5, -2.0, std::f64::consts::PI, 0.0, 42.0];
         let cov_inv = identity_flat(dim);
         // Clone centroid so `x == centroid` element-wise.
         let x = centroid.clone();

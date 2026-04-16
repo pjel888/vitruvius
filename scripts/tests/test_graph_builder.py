@@ -154,13 +154,26 @@ def _rel(id_: str, from_id: str, predicate: str, to_id: str, status: str) -> str
 
 def test_walk_relationships_promoted_and_verified(tmp_path: Path) -> None:
     rels = tmp_path / "relationships"
-    _write(rels / "a.md", _rel(
-        "rel-law-x-governs-concept-y",
-        "law-x",
-        "governs",
-        "concept-y",
-        "promoted",
-    ))
+    _write(
+        rels / "a.md",
+        (
+            _rel(
+                "rel-law-x-governs-concept-y",
+                "law-x",
+                "governs",
+                "concept-y",
+                "promoted",
+            ).replace(
+                "---\n\n# body\n",
+                "evidence:\n"
+                "- source_id: law-x\n"
+                "  source_section_id: sec-1\n"
+                "  evidence_snippet: Example evidence\n"
+                "  reviewer_confidence: 0.91\n"
+                "---\n\n# body\n",
+            )
+        ),
+    )
     _write(rels / "b.md", _rel(
         "rel-concept-y-affects-concept-z",
         "concept-y",
@@ -173,6 +186,11 @@ def test_walk_relationships_promoted_and_verified(tmp_path: Path) -> None:
     statuses = {e.evidence_id: e.status for e in edges}
     assert statuses["rel-law-x-governs-concept-y"] == "unverified"
     assert statuses["rel-concept-y-affects-concept-z"] == "verified"
+    first = next(e for e in edges if e.evidence_id == "rel-law-x-governs-concept-y")
+    assert first.evidence_source_id == "law-x"
+    assert first.evidence_source_section_id == "sec-1"
+    assert first.evidence_snippet == "Example evidence"
+    assert first.reviewer_confidence == 0.91
 
 
 def test_walk_relationships_skips_draft(tmp_path: Path) -> None:
@@ -253,6 +271,20 @@ def test_build_snapshot_sorts_edges_deterministically(tmp_path: Path) -> None:
     ))
     snapshot = build_snapshot(canonical, now="2026-04-14T00:00:00Z")
     assert [e.evidence_id for e in snapshot.edges] == ["rel-alpha", "rel-beta"]
+
+
+def test_build_snapshot_preserves_duplicate_node_ids_for_integrity_reporting(tmp_path: Path) -> None:
+    canonical = tmp_path / "shared"
+    _write(canonical / "sources" / "a.md", (
+        "---\nid: irr-dup\ntrust_level: primary\n"
+        "last_canonicalized_utc: 2026-04-01T00:00:00Z\n---\n"
+    ))
+    _write(canonical / "sources" / "b.md", (
+        "---\nid: irr-dup\ntrust_level: primary\n"
+        "last_canonicalized_utc: 2026-04-01T00:00:00Z\n---\n"
+    ))
+    snapshot = build_snapshot(canonical, now="2026-04-14T00:00:00Z")
+    assert [n.id for n in snapshot.nodes] == ["irr-dup", "irr-dup"]
 
 
 def test_build_snapshot_is_deterministic(tmp_path: Path) -> None:

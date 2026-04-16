@@ -31,6 +31,26 @@ def _edge_key(edge: GraphEdge) -> tuple[str, str, str, str]:
     return (edge.from_id, edge.type, edge.to_id, edge.evidence_id)
 
 
+def _duplicate_node_findings(snapshot: GraphSnapshot) -> list[IntegrityFinding]:
+    seen: dict[str, int] = {}
+    findings: list[IntegrityFinding] = []
+    for node in snapshot.nodes:
+        seen[node.id] = seen.get(node.id, 0) + 1
+        if seen[node.id] != 2:
+            continue
+        findings.append(
+            IntegrityFinding(
+                code="duplicate_node_id",
+                severity="error",
+                node_id=node.id,
+                edge_from=None,
+                edge_to=None,
+                message=f"duplicate node id detected: {node.id!r}",
+            )
+        )
+    return findings
+
+
 def _orphan_findings(snapshot: GraphSnapshot) -> list[IntegrityFinding]:
     incident: set[str] = set()
     for edge in snapshot.edges:
@@ -159,6 +179,7 @@ def check_integrity(
     known_evidence_ids: frozenset[str] | None = None,
 ) -> IntegrityReport:
     findings: list[IntegrityFinding] = []
+    findings.extend(_duplicate_node_findings(snapshot))
     findings.extend(_orphan_findings(snapshot))
     findings.extend(_dangling_findings(snapshot))
     findings.extend(_unknown_predicate_findings(snapshot, known_predicates))
