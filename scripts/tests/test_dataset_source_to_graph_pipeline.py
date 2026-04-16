@@ -267,6 +267,7 @@ def test_run_dataset_source_to_graph_pipeline_writes_derived_manifest_and_report
     assert report['generated_relationship_count'] == 1
     assert report['filtered_relationship_count'] == 1
     assert report['source_quality_summary']['severity_counts']['low'] == 1
+    assert report['source_quality_summary']['manual_review_required_paths'] == []
     assert 'source_quality' in report['stage_results'][0]
     assert report['stage_results'][0]['source_quality']['useful_text_line_count'] >= 1
     assert report['stage_results'][0]['source_quality']['severity'] in {'low','medium','high'}
@@ -295,6 +296,8 @@ def test_run_dataset_source_to_graph_pipeline_dry_run_writes_plan_only(tmp_path,
     report = json.loads(reports[0].read_text(encoding='utf-8'))
     assert report['dry_run'] is True
     assert report['source_quality_summary']['severity_counts']['low'] == 1
+    assert report['source_quality_summary']['manual_review_required_paths'] == []
+    assert report['source_quality_summary']['manual_review_required_paths'] == []
     assert len(report['stage_results']) == 1
     assert 'planned_extract_json' in report['stage_results'][0]
     assert report['stage_results'][0]['normalized_refined_markdown_path'] == '001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md'

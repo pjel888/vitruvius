@@ -376,6 +376,7 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
     metrics["severity"] = _source_quality_severity(metrics)
     metrics["recommendations"] = _source_quality_recommendations(metrics)
     metrics["benchmark_source_hints"] = _benchmark_source_hints(normalized_refined_path, "")
+    metrics["manual_review_recommended"] = metrics["severity"] == "high"
     return metrics
 
 
@@ -384,20 +385,23 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
 def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str, object]:
     counts = {"low": 0, "medium": 0, "high": 0}
     high_paths: list[str] = []
+    manual_review_required_paths: list[str] = []
     for stage in stage_results:
         quality = stage.get("source_quality")
         if not isinstance(quality, dict):
             continue
         severity = quality.get("severity")
+        path = stage.get("normalized_refined_markdown_path") or quality.get("refined_markdown_path")
         if severity in counts:
             counts[severity] += 1
-            if severity == "high":
-                path = stage.get("normalized_refined_markdown_path") or quality.get("refined_markdown_path")
-                if isinstance(path, str):
-                    high_paths.append(path)
+            if severity == "high" and isinstance(path, str):
+                high_paths.append(path)
+        if quality.get("manual_review_recommended") and isinstance(path, str):
+            manual_review_required_paths.append(path)
     return {
         "severity_counts": counts,
         "high_severity_paths": high_paths,
+        "manual_review_required_paths": manual_review_required_paths,
     }
 
 def run_dataset_source_to_graph_pipeline(
@@ -572,6 +576,7 @@ def run_dataset_source_to_graph_pipeline(
             "dry_run": True,
             "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
             "planned_stage_count": len(stage_results),
+            "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
             "source_quality_summary": quality_summary,
         }, indent=2))
         return 0
@@ -619,6 +624,7 @@ def run_dataset_source_to_graph_pipeline(
         "derived_manifest_path": str(paths["derived_manifest"].relative_to(repo_root)),
         "generated_relationship_count": len(generated_relationship_paths),
         "filtered_relationship_count": len(filtered_relationship_paths),
+        "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
         "source_quality_summary": quality_summary,
         "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
         "graph_snapshot_path": graph_payload.get("snapshot_path"),
