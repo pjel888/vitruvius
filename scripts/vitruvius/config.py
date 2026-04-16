@@ -10,8 +10,11 @@ from .paths import get_repo_root
 @lru_cache(maxsize=1)
 def load_config() -> dict:
     path = get_repo_root() / "config" / "vitruvius.yaml"
-    with path.open("r", encoding="utf-8") as f:
-        return yaml.safe_load(f) or {}
+    try:
+        with path.open("r", encoding="utf-8") as f:
+            return yaml.safe_load(f) or {}
+    except OSError:
+        return {}
 
 
 def get_ollama_url() -> str:
@@ -52,6 +55,22 @@ def get_ollama_default_model() -> str:
         if isinstance(tier1, str) and tier1:
             return tier1
     return str(raw_default)
+
+
+def get_ollama_8gb_safe_model() -> str:
+    pool = get_ollama_model_pool()
+    tier1 = pool.get("tier_1_default")
+    if isinstance(tier1, str) and tier1:
+        return tier1
+    return "qwen2.5:7b"
+
+
+def resolve_review_model(*, explicit_model: str | None = None, preset: str | None = None) -> str:
+    if isinstance(explicit_model, str) and explicit_model.strip():
+        return explicit_model.strip()
+    if preset == "8gb-safe":
+        return get_ollama_8gb_safe_model()
+    return get_ollama_default_model()
 
 
 def get_ollama_default_timeout() -> int:

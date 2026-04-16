@@ -184,6 +184,16 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         next_step="Inspect the emitted source-to-graph report, graph build report, and visualization path, then rerun after correcting the failing bounded input or stage.",
         operator_safe=False,
     ),
+    "run-all-laws-dry-run": _doc(
+        "run-all-laws-dry-run",
+        "Inventory repo-local all-laws readiness without widening the bounded pilot into full execution.",
+        human="This is the safe first step before any broader laws expansion. It inventories current law folders, compares them with the admitted pilot bundle, resolves the requested review-model preset, and writes a readiness report without running review, promotion, or graph writes.",
+        technical="Scans repo-local laws conversion roots plus the bounded pilot manifest, summarizes per-law readiness gaps, records any inventory limitations, and writes a JSON report under `006_System-Manifests/runs/datasets/` unless an explicit output path is supplied.",
+        success="A healthy result writes a truthful readiness report that shows what is pilot-covered, what remains inventory-only, and which safe next steps are required before any wider execution.",
+        failure="The readiness scan itself failed or could not parse the bounded pilot manifest, so the repo-local widening assessment is incomplete.",
+        next_step="Use the readiness report to create research/audit/plan artifacts and keep generic Phase 11 expansion gated until a new accepted slice exists.",
+        operator_safe=False,
+    ),
     "detect-one": _doc(
         "detect-one",
         "Classify one PDF as text-usable or scan-like before conversion.",
