@@ -1171,6 +1171,148 @@ As of 2026-04-15 — after closing ten governing-plan sprints this session (Q, R
 
 ---
 
+## Building and querying graphs
+
+Yes — Vitruvius can now build both:
+
+1. a **global/latest graph** from the shared canonical knowledge layer, and
+2. a **dataset-scoped graph** from an explicit dataset manifest.
+
+### 1) Build the global/latest graph
+
+This writes the default latest snapshot and integrity report:
+
+```bash
+python3 scripts/pipeline_cli.py build-graph
+```
+
+Useful follow-ups:
+
+```bash
+# Ask a natural-language question against the latest graph
+python3 scripts/pipeline_cli.py query "What governs concept-building-permit?"
+
+# Ask a structured question against the latest graph
+python3 scripts/pipeline_cli.py query-structured \
+  --function what_governs \
+  --subject concept-building-permit
+
+# Find a path between two node IDs in the latest graph
+python3 scripts/pipeline_cli.py query-graph \
+  --from law-pd-1096 \
+  --to concept-building-permit
+
+# Export the latest graph as Turtle
+python3 scripts/pipeline_cli.py export-graph-owl \
+  --out 005_Operational-Intelligence-Layer/graph/latest_graph_snapshot.ttl
+```
+
+### 2) Build the bounded laws dataset graph
+
+This is the bounded, manifest-backed path for the current laws mini dataset:
+
+```bash
+python3 scripts/pipeline_cli.py run-dataset-graph \
+  --dataset-manifest config/datasets/laws-core-bundle-m1.yaml
+```
+
+That command writes dataset-local artifacts under:
+
+- `005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/`
+- `006_System-Manifests/runs/datasets/laws-core-bundle-m1/`
+
+It does **not** write to global graph `latest_*` artifacts.
+
+### 3) Build the bounded laws dataset graph and run verification checks
+
+This is the most useful command for reproducing the current bounded laws proof:
+
+```bash
+python3 scripts/pipeline_cli.py run-dataset-graph \
+  --dataset-manifest config/datasets/laws-core-bundle-m1.yaml \
+  --structured-check what_governs:concept-building-permit \
+  --structured-check what_governs:concept-certificate-of-occupancy \
+  --structured-check what_governs:concept-accessible-ramps \
+  --structured-check what_governs:concept-socialized-housing-projects
+```
+
+If you want to skip the dataset-local Turtle export:
+
+```bash
+python3 scripts/pipeline_cli.py run-dataset-graph \
+  --dataset-manifest config/datasets/laws-core-bundle-m1.yaml \
+  --skip-export-owl
+```
+
+### 4) Query a dataset-scoped snapshot explicitly
+
+After a dataset run, use the emitted snapshot path with `--snapshot`:
+
+```bash
+python3 scripts/pipeline_cli.py query-structured \
+  --snapshot 005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/<RUN_ID>_graph_snapshot.json \
+  --function what_governs \
+  --subject concept-accessible-ramps
+```
+
+You can also use the same explicit snapshot path for:
+
+```bash
+python3 scripts/pipeline_cli.py query \
+  --snapshot 005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/<RUN_ID>_graph_snapshot.json \
+  "What governs concept-accessible-ramps?"
+
+python3 scripts/pipeline_cli.py query-graph \
+  --snapshot 005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/<RUN_ID>_graph_snapshot.json \
+  --from irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344 \
+  --to concept-accessible-ramps
+
+python3 scripts/pipeline_cli.py export-graph-owl \
+  --snapshot 005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/<RUN_ID>_graph_snapshot.json \
+  --out 005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/<RUN_ID>_graph_snapshot.ttl
+```
+
+### 5) Generate a browser visualization
+
+For a quick interactive development view:
+
+```bash
+python3 scripts/pipeline_cli.py visualize-graph \
+  --snapshot 005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/<RUN_ID>_graph_snapshot.json
+```
+
+That writes an HTML artifact under `004_Derived-Content-Layer/graph-visualizations/` by default.
+
+For the current bounded laws dataset, the intended stack is:
+
+- **Now / CLI-generated dev view:** HTML + Cytoscape.js viewer generated from the snapshot JSON
+- **Later / browser product UI:** the same snapshot-to-elements contract can feed a richer browser app without changing the graph build pipeline
+
+Why this stack:
+
+- good pan / zoom / selection behavior for development
+- cleaner clustered graph rendering than the first lightweight HTML prototype
+- browser-friendly path for future hosted UI work
+- no change to the underlying graph truth contract
+
+### 6) Dry-run the dataset graph build without writing outputs
+
+```bash
+python3 scripts/pipeline_cli.py build-graph \
+  --dataset-manifest config/datasets/laws-core-bundle-m1.yaml \
+  --dry-run
+```
+
+### Notes
+
+- The bounded laws dataset command is currently driven by:
+  - `config/datasets/laws-core-bundle-m1.yaml`
+- Snapshot/query/export scoping is path-based via `--snapshot`.
+- The bounded dataset run now records `contributing_law_ids` in snapshot provenance.
+- Generic Phase 11 all-laws expansion is still gated; the current dataset command is a bounded pilot lane, not a blanket “all laws” switch.
+
+---
+
 ## Adapting Vitruvius to a new jurisdiction
 
 Vitruvius is **vertically specialized for AEC** — it does not pretend to be

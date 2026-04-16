@@ -267,6 +267,20 @@ def build_parser() -> argparse.ArgumentParser:
         help="Optional output Turtle path",
     )
 
+    visualize_graph_parser = add_command_parser(subparsers, "visualize-graph")
+    visualize_graph_parser.add_argument(
+        "--snapshot",
+        dest="snapshot_path",
+        default=None,
+        help="Optional explicit snapshot path",
+    )
+    visualize_graph_parser.add_argument(
+        "--out",
+        dest="out_path",
+        default=None,
+        help="Optional output HTML path",
+    )
+
     add_command_parser(subparsers, "ingest-spatial")
 
     evaluate_spatial_parser = add_command_parser(subparsers, "evaluate-spatial")
@@ -659,6 +673,16 @@ def main() -> int:
         return _run(
             "export-graph-owl",
             lambda: run_export_graph_owl(
+                snapshot_path=args.snapshot_path,
+                out_path=args.out_path,
+            ),
+        )
+
+    if args.command == "visualize-graph":
+        from vitruvius.graph.visualize import run_visualize_graph
+        return _run(
+            "visualize-graph",
+            lambda: run_visualize_graph(
                 snapshot_path=args.snapshot_path,
                 out_path=args.out_path,
             ),
