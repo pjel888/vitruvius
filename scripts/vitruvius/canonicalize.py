@@ -389,7 +389,7 @@ def _looks_like_sentence(text: str) -> bool:
     if re.search(r"\b\d+\s*-\s*\d+\b", text):
         return False
     lowered = text.lower()
-    if re.match(r"^(rule|section|chapter|division|appendix|annex|part)\b", lowered):
+    if re.match(r"^(rule|section|chapter|division|appendix|annex|part|table|figure)\b", lowered):
         return False
     if any(ch.islower() for ch in text):
         return True
@@ -451,6 +451,7 @@ def _is_useful_text_line(stripped: str) -> bool:
 
 def _clean_candidate_text(text: str) -> str:
     cleaned = text.strip()
+    cleaned = re.sub(r"^(?:[-*•·]+\s*)+", "", cleaned)
     cleaned = re.sub(r"^([A-Za-z])\s+(?=[a-z])", "", cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned)
     return cleaned.strip()
