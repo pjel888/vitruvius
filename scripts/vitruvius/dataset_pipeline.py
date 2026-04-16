@@ -450,6 +450,8 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
     high_paths: list[str] = []
     manual_review_required_paths: list[str] = []
     summary_auto_withheld_paths: list[str] = []
+    high_severity_sources: list[dict[str, object]] = []
+    manual_review_required_sources: list[dict[str, object]] = []
     benchmark_hints: dict[str, dict[str, str]] = {}
     for stage in stage_results:
         quality = stage.get("source_quality")
@@ -479,10 +481,12 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
             counts[severity] += 1
             if severity == "high" and isinstance(path, str):
                 high_paths.append(path)
+                high_severity_sources.append(stage_summary)
         if extraction_trust_level in extraction_trust_counts:
             extraction_trust_counts[extraction_trust_level] += 1
         if quality.get("manual_review_recommended") and isinstance(path, str):
             manual_review_required_paths.append(path)
+            manual_review_required_sources.append(stage_summary)
         if quality.get("summary_auto_withheld") and isinstance(path, str):
             summary_auto_withheld_paths.append(path)
         for hint in quality.get("benchmark_source_hints", []):
@@ -492,8 +496,12 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
                     benchmark_hints[url] = hint
     return {
         "severity_counts": counts,
+        "extraction_trust_counts": extraction_trust_counts,
         "high_severity_paths": list(dict.fromkeys(high_paths)),
+        "high_severity_sources": high_severity_sources,
         "manual_review_required_paths": list(dict.fromkeys(manual_review_required_paths)),
+        "manual_review_required_sources": manual_review_required_sources,
+        "summary_auto_withheld_paths": list(dict.fromkeys(summary_auto_withheld_paths)),
         "benchmark_source_hints": [benchmark_hints[url] for url in sorted(benchmark_hints)],
     }
 
