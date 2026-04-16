@@ -2,7 +2,7 @@
 
 > **Updated:** 2026-04-16
 > **Live branch:** `main`
-> **Most recent completed work:** PASS 2 stabilization plus duplicate canonical source ID remediation (`.ai/03_plans/2026-04-16_master-audit-implementation-plan.md`, `.ai/03_plans/2026-04-16_duplicate-canonical-source-id-remediation-plan.md`)
+> **Most recent completed work:** PASS 2 stabilization plus duplicate canonical source ID remediation (`.ai/09_archive/plans/2026-04-16_master-audit-implementation-plan.md`, `.ai/09_archive/plans/2026-04-16_duplicate-canonical-source-id-remediation-plan.md`)
 
 ## Live Repo Truth
 
@@ -31,13 +31,14 @@
 ## Reference Map
 
 - Governing plan: `/.ai/03_plans/00-governing-implementation-plan.md`
-- PASS 2 master plan: `/.ai/03_plans/2026-04-16_master-audit-implementation-plan.md`
+- PASS 2 master plan (archived): `/.ai/09_archive/plans/2026-04-16_master-audit-implementation-plan.md`
 - PASS 1 validation: `/.ai/05_logs/2026-04-16_audit-pass-1-validation.md`
 - PASS 2 validation: `/.ai/05_logs/2026-04-16_audit-pass-2-fix-validation.md`
+- Duplicate-ID remediation plan (archived): `/.ai/09_archive/plans/2026-04-16_duplicate-canonical-source-id-remediation-plan.md`
 - Active roadmap snapshot: `/.ai/01_roadmap/current-phase.md`
 - Milestones: `/.ai/01_roadmap/milestone-tracker.md`
 - Decisions: `/.ai/10_state/decisions.md`
 
 ## Handoff Note
 
-If you continue from here, do **not** restart with a new repo-wide audit. Continue from the accepted 2026-04-16 stabilization plan and the PASS 2 validation log.
+If you continue from here, do **not** restart with a new repo-wide audit. Consult the **archived** 2026-04-16 stabilization/remediation plans together with the PASS 2 validation log and the duplicate-ID remediation validation log.

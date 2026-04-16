@@ -2,7 +2,7 @@
 plan_id: app-integrity-reliability
 phase: 05
 title: "App Integrity Reliability Plan"
-status: accepted
+status: archived
 priority: high
 sprint: "Integrity Maintenance"
 version: 1.0.0
@@ -15,6 +15,9 @@ depends_on:
   - .ai/10_state/baselines/app-integrity-reliability-baseline.md
   - .ai/13_research/app-integrity-reliability-research.md
   - .ai/02_audits/APP_INTEGRITY_RELIABILITY_AUDIT_2026-04-16.md
+archive_status: complete
+archived_at: 2026-04-16T00:11:22Z
+archived_at: 2026-04-16T00:11:22Z
 ---
 
 # App Integrity Reliability Plan

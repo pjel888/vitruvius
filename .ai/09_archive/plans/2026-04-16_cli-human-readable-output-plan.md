@@ -4,7 +4,9 @@ phase: "05"
 created: 2026-04-16
 author: IMPLEMENTER
 supersedes: null
-status: DRAFT
+status: archived
+archive_status: complete
+archived_at: 2026-04-16T00:11:22Z
 ---
 
 # CLI Human-Readable Output Upgrade Plan — 2026-04-16

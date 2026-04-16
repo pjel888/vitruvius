@@ -1517,8 +1517,42 @@ Phase 4 — Cross-file verification (all PASS as of 2026-04-15 21:xx):
 - The remaining graph-integrity findings are warnings only (orphan nodes), not blocking errors.
 
 **References.**
-- Plan: `.ai/03_plans/2026-04-16_duplicate-canonical-source-id-remediation-plan.md`
+- Plan: `/.ai/09_archive/plans/2026-04-16_duplicate-canonical-source-id-remediation-plan.md`
 - Validation: `.ai/05_logs/2026-04-16_duplicate-canonical-source-id-remediation-validation.md`
 - Prior audit evidence: `.ai/02_audits/2026-04-16_backend-and-api-audit.md`, `.ai/02_audits/2026-04-16_targeted-stabilization-reaudit.md`
+
+---
+
+
+## AD-046 — Plan-layer cleanup archived completed non-AEC plans (2026-04-16)
+
+**Status:** Accepted
+
+**Context.** After PASS 2 stabilization and the duplicate canonical source ID remediation completed, `/.ai/03_plans/` still contained several completed non-AEC plans alongside the genuinely live governance and AEC planning files. The active plan index was also incomplete because it omitted one still-live draft warning plan. The user requested a cleanup so the live plan directory would only present plans that are still active or still planning-only.
+
+**Decision.** Archive the completed non-AEC 2026-04-16 plans to `/.ai/09_archive/plans/` and keep only the following live in `/.ai/03_plans/`: the governing plan, the active whole-codebase plan rewrite, the nested-AGENTS governance plan, the still-unexecuted graph-warning draft, and the planning-only AEC family. Update `INDEX.md`, `current-phase.md`, and `active_context.md` so live docs point at archived paths where appropriate and the index exactly matches the directory listing.
+
+**Archived in this cleanup.**
+- `2026-04-16-app-integrity-reliability-plan.md`
+- `2026-04-16_cli-human-readable-output-plan.md`
+- `2026-04-16_readme-investor-mermaid-diagram-plan.md`
+- `2026-04-16_master-audit-implementation-plan.md`
+- `2026-04-16_duplicate-canonical-source-id-remediation-plan.md`
+
+**Consequences.**
+- `/.ai/03_plans/` now reflects live governance/AEC planning reality instead of mixing completed implementation plans into the active set.
+- `INDEX.md` is now a truthful inventory of the directory, including the still-live draft `2026-04-16_graph-warning-and-gitnexus-warning-plan.md`.
+- `current-phase.md` and `active_context.md` now treat the stabilization/remediation plans as archived completed work rather than active dispatcher plans.
+
+**Validation.**
+- Exact directory/index reconciliation script returned `MATCH=True`.
+- `git diff --check` on the changed plan/state/archive files passed.
+- `python3 scripts/pipeline_cli.py --help` passed as lightweight runtime sanity.
+- Architect verification approved the archive set and live-doc updates.
+
+**References.**
+- Validation: `.ai/05_logs/2026-04-16_plans-directory-cleanup-validation.md`
+- Governing live plan: `.ai/03_plans/00-governing-implementation-plan.md`
+- Active index: `.ai/03_plans/INDEX.md`
 
 ---

@@ -11,7 +11,7 @@
 
 **Active implementation sprint:** none.
 
-Vitruvius is currently between feature sprints, but it is **not** idle. The live work on 2026-04-16 is the audit-driven stabilization lane defined by `/.ai/03_plans/2026-04-16_master-audit-implementation-plan.md`.
+Vitruvius is currently between feature sprints, but it is **not** idle. The live work is governance/planning maintenance, centered on the plan-layer rewrite and pending governance plans rather than runtime feature execution.
 
 **Live branch:** `main`
 
@@ -19,11 +19,10 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
 
 ## Active Planning / Governance Tracks
 
-### 0. Audit Stabilization PASS 2
-- Status: complete
-- Governing artifact: `/.ai/03_plans/2026-04-16_master-audit-implementation-plan.md`
-- Goal: reconcile repo truth, harden graph/query trust, clean advanced-boundary claims, and restore strict Rust hygiene before new feature work
-- Outcome: completed on 2026-04-16. The duplicate canonical source ID blocker was cleared in the follow-on remediation plan `/.ai/03_plans/2026-04-16_duplicate-canonical-source-id-remediation-plan.md`, so `build-graph` now passes with warnings only.
+### Recent Completed Governance Work (archived)
+- PASS 2 stabilization plan archived to `/.ai/09_archive/plans/2026-04-16_master-audit-implementation-plan.md`
+- Duplicate canonical source ID remediation archived to `/.ai/09_archive/plans/2026-04-16_duplicate-canonical-source-id-remediation-plan.md`
+- These are complete historical references, not active dispatcher plans.
 
 ### 1. Whole-Codebase Plan Layer Rewrite
 - Status: active

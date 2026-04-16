@@ -17,20 +17,19 @@ It is not the execution-order authority. The governing plan owns execution order
 | File | Plan Type | Status | Scope | Open Next When |
 |---|---|---|---|---|
 | `00-governing-implementation-plan.md` | orchestration | active | dispatches the live plan layer | you are entering `.ai/03_plans/` fresh |
-| `2026-04-16-whole-codebase-plans-upgrade-plan.md` | governance maintenance | active | current rewrite task for the plan layer | you are continuing the plan-layer rewrite task |
 | `2026-04-15-nested-agents-governance-plan.md` | governance maintenance | accepted / pending execution | nested `AGENTS.md` hierarchy | you are working on AGENTS coverage and hierarchy |
-| `2026-04-16_master-audit-implementation-plan.md` | stabilization plan | accepted / pending execution | PASS 2 audit-derived stabilization lane | you are executing the 2026-04-16 audit fix sequence |
-| `2026-04-16_duplicate-canonical-source-id-remediation-plan.md` | stabilization follow-up | accepted / completed | resolve the remaining duplicate canonical source ID blocker | you are reviewing the post-PASS-2 duplicate source ID fix |
-| `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | architecture implementation plan | proposed | governs AEC sequencing and integration boundaries | you are doing any AEC planning or future implementation |
+| `2026-04-16-whole-codebase-plans-upgrade-plan.md` | governance maintenance | active | current rewrite task for the plan layer | you are continuing the plan-layer rewrite task |
+| `2026-04-16_graph-warning-and-gitnexus-warning-plan.md` | maintenance draft | draft / unexecuted | graph-warning reduction and GitNexus warning investigation | you are explicitly taking up the warning-reduction draft |
+| `AEC_ENGINE_BOUNDARY_TRANSLATION_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | IFC/CAD/DTO boundary translation | AEC import/export work is selected |
 | `AEC_ENGINE_ECS_CORE_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | canonical ECS world state | AEC ECS work is selected |
-| `AEC_ENGINE_SPATIAL_KERNEL_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | deterministic spatial compute | AEC spatial work is selected |
+| `AEC_ENGINE_FINANCIAL_PRICING_ORACLE_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | pricing and quantity scoring | AEC pricing work is selected |
 | `AEC_ENGINE_KNOWLEDGE_VAULT_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | temporal rule vault and AST storage | AEC vault work is selected |
-| `AEC_ENGINE_Z3_VERIFICATION_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | formal verification compiler and replay | AEC Z3 work is selected |
+| `AEC_ENGINE_LLM_TOOL_CALLING_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | bounded tool-calling and explanation | AEC tool layer work is selected |
+| `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | architecture implementation plan | proposed | governs AEC sequencing and integration boundaries | you are doing any AEC planning or future implementation |
 | `AEC_ENGINE_MULTI_DISCIPLINARY_COORDINATION_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | cross-discipline issue coordination | AEC coordination work is selected |
 | `AEC_ENGINE_OPTIMIZATION_ENGINE_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | scoring, Pareto frontier, bounded search | AEC optimization work is selected |
-| `AEC_ENGINE_BOUNDARY_TRANSLATION_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | IFC/CAD/DTO boundary translation | AEC import/export work is selected |
-| `AEC_ENGINE_LLM_TOOL_CALLING_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | bounded tool-calling and explanation | AEC tool layer work is selected |
-| `AEC_ENGINE_FINANCIAL_PRICING_ORACLE_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | pricing and quantity scoring | AEC pricing work is selected |
+| `AEC_ENGINE_SPATIAL_KERNEL_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | deterministic spatial compute | AEC spatial work is selected |
+| `AEC_ENGINE_Z3_VERIFICATION_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | formal verification compiler and replay | AEC Z3 work is selected |
 
 ## Reader Entry Order
 
@@ -54,16 +53,28 @@ It is not the execution-order authority. The governing plan owns execution order
 
 ### Governance / Maintenance
 - `00-governing-implementation-plan.md`
-- `2026-04-16-whole-codebase-plans-upgrade-plan.md`
 - `2026-04-15-nested-agents-governance-plan.md`
-
-### Audit Stabilization
-- `2026-04-16_master-audit-implementation-plan.md`
-- `2026-04-16_duplicate-canonical-source-id-remediation-plan.md`
+- `2026-04-16-whole-codebase-plans-upgrade-plan.md`
+- `2026-04-16_graph-warning-and-gitnexus-warning-plan.md` (draft / unexecuted)
 
 ### AEC Engine
+- `AEC_ENGINE_BOUNDARY_TRANSLATION_IMPLEMENTATION_PLAN.md`
+- `AEC_ENGINE_ECS_CORE_IMPLEMENTATION_PLAN.md`
+- `AEC_ENGINE_FINANCIAL_PRICING_ORACLE_IMPLEMENTATION_PLAN.md`
+- `AEC_ENGINE_KNOWLEDGE_VAULT_IMPLEMENTATION_PLAN.md`
+- `AEC_ENGINE_LLM_TOOL_CALLING_IMPLEMENTATION_PLAN.md`
 - `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`
-- 8 subsystem plans under the same naming family
+- `AEC_ENGINE_MULTI_DISCIPLINARY_COORDINATION_IMPLEMENTATION_PLAN.md`
+- `AEC_ENGINE_OPTIMIZATION_ENGINE_IMPLEMENTATION_PLAN.md`
+- `AEC_ENGINE_SPATIAL_KERNEL_IMPLEMENTATION_PLAN.md`
+- `AEC_ENGINE_Z3_VERIFICATION_IMPLEMENTATION_PLAN.md`
+
+### Recently Archived (2026-04-16)
+- `2026-04-16-app-integrity-reliability-plan.md`
+- `2026-04-16_cli-human-readable-output-plan.md`
+- `2026-04-16_readme-investor-mermaid-diagram-plan.md`
+- `2026-04-16_master-audit-implementation-plan.md`
+- `2026-04-16_duplicate-canonical-source-id-remediation-plan.md`
 
 ## Relationship to Archived Plans
 - Archived plans live in `/.ai/09_archive/plans/`.
@@ -80,3 +91,4 @@ It is not the execution-order authority. The governing plan owns execution order
 ## Notes
 - The AEC family remains planning-only. No runtime code roots have been created yet.
 - The nested-AGENTS plan remains a live governance candidate because the repo still lacks several of the target nested `AGENTS.md` files.
+- The five completed 2026-04-16 non-AEC plans were archived to `/.ai/09_archive/plans/` during the plan-layer cleanup pass.
