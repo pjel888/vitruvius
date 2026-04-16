@@ -206,3 +206,19 @@ def test_run_dataset_graph_writes_pipeline_report_and_keeps_global_latest_absent
     assert (tmp_path / payload['snapshot_path']).exists()
     assert (tmp_path / payload['owl_path']).exists()
     assert not (tmp_path / '005_Operational-Intelligence-Layer' / 'graph' / 'latest_graph_snapshot.json').exists()
+
+
+def test_run_dataset_graph_rejects_malformed_structured_check_cleanly(tmp_path: Path) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    result = _run_cli(
+        [
+            'run-dataset-graph',
+            '--dataset-manifest', str(manifest_path),
+            '--structured-check', 'badformat',
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 2
+    payload = json.loads(result.stdout)
+    assert 'FUNCTION:SUBJECT' in payload['error']
+    assert result.stderr == ''

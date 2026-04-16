@@ -21,7 +21,7 @@ def _run_cli(args: list[str], cwd: Path) -> subprocess.CompletedProcess:
     )
 
 
-def _write_snapshot(path: Path) -> None:
+def _write_snapshot(path: Path, *, include_metadata: bool = True) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "schema_version": "1.0.0",
@@ -35,6 +35,7 @@ def _write_snapshot(path: Path) -> None:
                 "slug": "pd-1096",
                 "trust_level": "primary",
                 "last_updated_utc": "2026-04-01T00:00:00Z",
+                "title": "PD 1096",
             },
             {
                 "id": "concept-building-permit",
@@ -42,6 +43,7 @@ def _write_snapshot(path: Path) -> None:
                 "slug": "building-permit",
                 "trust_level": "derived",
                 "last_updated_utc": "2026-04-01T00:00:00Z",
+                "title": "Building Permit",
             },
         ],
         "edges": [
@@ -55,12 +57,13 @@ def _write_snapshot(path: Path) -> None:
                 "evidence_source_section_id": "sec-301",
             }
         ],
-        "metadata": {
+    }
+    if include_metadata:
+        payload["metadata"] = {
             "dataset_id": "demo-dataset",
             "run_id": "20260416T000000Z",
             "contributing_law_ids": ["pd-1096"],
-        },
-    }
+        }
     path.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
 
 
@@ -85,9 +88,70 @@ def test_visualize_graph_writes_dataset_html_artifact(tmp_path: Path) -> None:
     assert "demo-dataset" in html
     assert "20260416T000000Z" in html
     assert "concept-building-permit" in html
+    assert "Building Permit" in html
+    assert "human title" in html
+    assert "Explorer Controls" in html
+    assert "layout-select" in html
 
 
 def test_visualize_graph_missing_snapshot_returns_2(tmp_path: Path) -> None:
     result = _run_cli(["visualize-graph", "--snapshot", "missing.json"], cwd=tmp_path)
     assert result.returncode == 2
     assert "no snapshot found" in result.stdout
+
+
+def test_visualize_graph_defaults_to_global_output_folder(tmp_path: Path) -> None:
+    snapshot_path = tmp_path / '005_Operational-Intelligence-Layer' / 'graph' / 'latest_graph_snapshot.json'
+    _write_snapshot(snapshot_path, include_metadata=False)
+
+    result = _run_cli(['visualize-graph'], cwd=tmp_path)
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['out_path'] == '004_Derived-Content-Layer/graph-visualizations/global/latest_graph_snapshot.html'
+    html = (tmp_path / payload['out_path']).read_text(encoding='utf-8')
+    assert 'global/latest' in html
+
+
+def test_visualize_graph_uses_local_asset_path(tmp_path: Path) -> None:
+    snapshot_path = (
+        tmp_path
+        / "005_Operational-Intelligence-Layer"
+        / "graph"
+        / "datasets"
+        / "demo-dataset"
+        / "20260416T000000Z_graph_snapshot.json"
+    )
+    _write_snapshot(snapshot_path)
+
+    asset_path = tmp_path / "scripts" / "vitruvius" / "graph" / "assets"
+    asset_path.mkdir(parents=True, exist_ok=True)
+    (asset_path / "cytoscape.min.js").write_text("// local cytoscape", encoding="utf-8")
+
+    result = _run_cli(["visualize-graph", "--snapshot", str(snapshot_path)], cwd=tmp_path)
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    html = (tmp_path / payload["out_path"]).read_text(encoding="utf-8")
+    assert "https://unpkg.com" not in html
+    assert "cytoscape.min.js" in html
+
+
+def test_visualize_graph_accepts_relative_out_path(tmp_path: Path) -> None:
+    snapshot_path = (
+        tmp_path
+        / '005_Operational-Intelligence-Layer'
+        / 'graph'
+        / 'datasets'
+        / 'demo-dataset'
+        / '20260416T000000Z_graph_snapshot.json'
+    )
+    _write_snapshot(snapshot_path)
+
+    result = _run_cli([
+        'visualize-graph',
+        '--snapshot', str(snapshot_path),
+        '--out', 'tmp/demo.html',
+    ], cwd=tmp_path)
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['out_path'] == 'tmp/demo.html'
+    assert (tmp_path / 'tmp' / 'demo.html').exists()

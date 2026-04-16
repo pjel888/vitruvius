@@ -11,6 +11,7 @@ See AD-015 in .ai/10_state/decisions.md for the rationale.
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from vitruvius.cli_experience import (
@@ -206,6 +207,21 @@ def build_parser() -> argparse.ArgumentParser:
                                       help="Repeatable FUNCTION:SUBJECT structured check against the final snapshot")
     dataset_graph_parser.add_argument("--skip-export-owl", action="store_true",
                                       help="Skip dataset-local OWL/Turtle export")
+    dataset_source_to_graph_parser = add_command_parser(subparsers, "run-dataset-source-to-graph")
+    dataset_source_to_graph_parser.add_argument("--dataset-manifest", required=True,
+                                               help="Dataset manifest to orchestrate")
+    dataset_source_to_graph_parser.add_argument("--structured-check", action="append", default=None,
+                                               help="Repeatable FUNCTION:SUBJECT structured check against the final snapshot")
+    dataset_source_to_graph_parser.add_argument("--skip-export-owl", action="store_true",
+                                               help="Skip dataset-local OWL/Turtle export")
+    dataset_source_to_graph_parser.add_argument("--dry-run", action="store_true",
+                                               help="Validate/plans stages without executing writes")
+    dataset_source_to_graph_parser.add_argument("--review-model", default="gemma4:31b",
+                                               help="Tier-1 review model for dataset-local review")
+    dataset_source_to_graph_parser.add_argument("--review-timeout-seconds", type=int, default=600,
+                                               help="Tier-1 review timeout seconds")
+    dataset_source_to_graph_parser.add_argument("--review-parallel", type=int, default=None,
+                                               help="Tier-1 review parallelism override")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -609,16 +625,50 @@ def main() -> int:
         return _run("run-with-review", run_pipeline_with_review)
 
     if args.command == "run-dataset-graph":
-        from vitruvius.dataset_pipeline import parse_structured_check, run_dataset_graph_pipeline
-        structured_checks = [
-            parse_structured_check(raw) for raw in (args.structured_check or [])
-        ]
+        from vitruvius.dataset_pipeline import (
+            DatasetPipelineError,
+            parse_structured_check,
+            run_dataset_graph_pipeline,
+        )
+        try:
+            structured_checks = [
+                parse_structured_check(raw) for raw in (args.structured_check or [])
+            ]
+        except DatasetPipelineError as exc:
+            print(json.dumps({"error": str(exc)}, indent=2))
+            return 2
         return _run(
             "run-dataset-graph",
             lambda: run_dataset_graph_pipeline(
                 dataset_manifest=args.dataset_manifest,
                 structured_checks=structured_checks,
                 export_owl=not args.skip_export_owl,
+            ),
+        )
+
+    if args.command == "run-dataset-source-to-graph":
+        from vitruvius.dataset_pipeline import (
+            DatasetPipelineError,
+            parse_structured_check,
+            run_dataset_source_to_graph_pipeline,
+        )
+        try:
+            structured_checks = [
+                parse_structured_check(raw) for raw in (args.structured_check or [])
+            ]
+        except DatasetPipelineError as exc:
+            print(json.dumps({"error": str(exc)}, indent=2))
+            return 2
+        return _run(
+            "run-dataset-source-to-graph",
+            lambda: run_dataset_source_to_graph_pipeline(
+                dataset_manifest=args.dataset_manifest,
+                structured_checks=structured_checks,
+                export_owl=not args.skip_export_owl,
+                dry_run=args.dry_run,
+                review_model=args.review_model,
+                review_timeout_seconds=args.review_timeout_seconds,
+                review_parallelism=args.review_parallel,
             ),
         )
 

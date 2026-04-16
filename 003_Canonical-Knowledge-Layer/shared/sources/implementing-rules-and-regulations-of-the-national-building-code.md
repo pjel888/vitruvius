@@ -2,112 +2,230 @@
 id: irr-implementing-rules-and-regulations-of-the-national-building-code
 title: Implementing Rules and Regulations of the National Building Code
 page_type: source
-category: 001-Laws
-topic_tags:
-- law
-- implementing-rules
-- regulation
-- pd-1096
-- building-code
-- philippines
-- irr
-aliases:
-- PD 1096 IRR - Full Implementing Rules and Regulations
-- PD 1096
-- Presidential Decree No. 1096
-- PD 1096 IRR
-- National Building Code IRR
-- Revised IRR 2004
-- DPWH IRR
-source_documents:
-- 001-Laws/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.pdf
-- 001-Laws/PD-1096/PD 1096 RIRR 2004 - Revised IRR (DPWH Official).pdf
-- 001-Laws/PD-1096/PD 1096 RIRR 2004 - Revised IRR (Architecture Board).pdf
-- 001-Laws/PD-1096/Philippines_02_IRR_of_NBC_of_the_Philippines.pdf
-source_artifacts:
-- 002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-1096/PD 1096 IRR - Full Implementing
-  Rules and Regulations.md
-- 002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-1096/PD 1096 RIRR 2004 - Revised
-  IRR (DPWH Official).md
-- 002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-1096/PD 1096 RIRR 2004 - Revised
-  IRR (Architecture Board).md
-- 002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-1096/Philippines_02_IRR_of_NBC_of_the_Philippines.md
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: '2026-04-13T07:41:46.408230+00:00'
-relationships:
-- implements: law-national-building-code-of-the-philippines
+last_canonicalized_utc: 2026-04-16T15:23:10.820309+00:00
+aliases:
+  - PD 1096 IRR
+  - National Building Code IRR
+  - Revised IRR 2004
 ---
 
 # Implementing Rules and Regulations of the National Building Code
 
 ## Overview
 
-The Implementing Rules and Regulations (IRR) of Presidential Decree No. 1096 provide the detailed technical provisions, procedures, and interpretations necessary to enforce the National Building Code of the Philippines.
-
-## Source Identity
-
-- Type: Implementing Rules and Regulations
-- Governing Law: Presidential Decree No. 1096
-- Jurisdiction: Philippines
-- Authority Level: Primary (implementing authority)
-- Issuing Body: Department of Public Works and Highways (DPWH) and relevant regulatory bodies
+- • NBCDO MEMORANDUM CIRCULAR NO. 1, s. 2004
 
 ## Coverage
 
-The IRR expands and operationalizes the provisions of the National Building Code, including:
+- RULE I - GENERAL PROVISIONS SECTION
+- RULE II - ADMINISTRATION AND ENFORCEMENT
+- RULE III - PERMITS AND INSPECTION
+- RULE IV - TYPES OF CONSTRUCTION
+- RULE V - REQUIREMENTS OF FIRE ZONES
+- RULE VI - FIRE-RESISTIVE REQUIREMENTS INCONSTRUCTION
+- RULE VII - CLASSIFICATION AND GENERAL REQUIREMENTS OF ALL BUILDINGS BY USE OR OCCUPANCY
+- RULE VIII - LIGHT AND VENTILATION
+- RULE IX - SANITATION
+- RULE X - BUILDING PROJECTION OVER PUBLICSTREET
+- RULE XI - PROTECTION OF PEDESTRIANS DURINGCONSTRUCTION OR DEMOLITION
+- RULE XII - GENERAL DESIGN AND CONSTRUCTIONREQUIREMENTS
+- RULE XIII - ELECTRICAL AND MECHANICALREGULATIONS
+- RULE XIV - PHOTOGRAPHIC AND X-RAY FILMS
+- RULE XV - PREFABRICATED CONSTRUCTIONS
+- RULE XVI - PLASTICS
+- RULE XVII - SHEET METAL PAINT SPRAY BOOTHS
+- RULE XVIII - GLASS AND GLAZING
+- RULE XIX - THE USE OF COMPUTERS
+- RULE XX - SIGNS
+- RULE XXI - TRANSITORY AND FINAL PROVISIONS
+- RULE I – GENERAL PROVISIONS
+- SECTION 101. Title
+- SECTION 102. Declaration of Policy
+- SECTION 103. Scope and Application
+- SECTION 104. General Building Requirements
+- SECTION 105. Site Requirements
+- SECTION 106. Definitions
+- RULE II – ADMINISTRATION AND ENFORCEMENT
+- SECTION 205. Building Officials
+- SECTION 206. Qualifications of Building OfficialsNo person shall be appointed as Building Official unless he possesses the following qualifications:
+- SECTION 207. Duties of the Building OfficialThe Building Official shall have the following duties:
+- 1. Recording of Collections
+- 2. Disposition of Collections
+- SECTION 211. Implementing Rules and Regulations
+- SECTION 212. Administrative Fines
+- SECTION 213. Penal Provisions
+- SECTION 214. Dangerous and Ruinous Buildings or Structures
+- SECTION 215. Abatement of Dangerous Buildings
+- SECTION 216. Other Remedies
+- RULE III - PERMITS AND INSPECTION
+- SECTION 302. Application for Permits
+- SECTION 303. Processing of Building Permits
+- SECTION 304. Issuance of Building Permit
+- SECTION 305. Validity of Building Permits
+- SECTION 306. Non-issuance, Suspension or Revocation of Building Permits
+- SECTION 307. Appeal
+- SECTION 308. Inspection and Supervision of Work
+- SECTION 309. Certificate of Occupancy
+- RULE IV - TYPES OF CONSTRUCTION
+- 2. Interior Wall and Ceiling Finishes
+- 3. Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs &roofs shall be governed by the pertinent provision of the Fire Code of the Philippines.
+- RULE V – REQUIREMENTS OF FIRE ZONES
+- SECTION 507. Designation of Fire Zones
+- RULE VI - FIRE-RESISTIVE REQUIREMENTS IN CONSTRUCTION
+- RULE VII - CLASSIFICATION AND GENERAL REQUIREMENTS OF ALL BUILDINGS BY USE OR OCCUPANCY
+- SECTION 701. Occupancy Classified
+- SECTION 704. Location on Property
+- SECTION 705. Allowable Floor Areas
+- SECTION 706. Allowable Floor Area Increases
+- SECTION 707. Maximum Height of Buildings
+- 3. Other Considerations in Height Determination
+- SECTION 708. Minimum Requirements for Group A Dwellings
+- SECTION 709. Requirements for Other Group Occupancies
+- 3. Establishing the OFB. The OFB shall be primarily determined by the vertical projections of theoutermost faces of the AMBF up to a height prescribed by the applicable BHL. Figure VII.G.1. shows thedetermination of the angular planes needed to establish the outer limits for walls and projections of theproposed building/structure facing RROW and for their corresponding roof configurations. Table VII.G.3.also shows the recommended angles or slopes for the angular planes originating from the centerline ofthe RROW for R-1 and C-3 properties only. Angles or slopes for other permitted uses/occupancies canbe extrapolated from the two (2) examples. (Figs. VIII.G.1. and VIII.G.2.)
+- RULE VIII - LIGHT AND VENTILATION
+- SECTION 801. General Requirements of Light and Ventilation
+- SECTION 802. Measurement of Site Occupancy
+- SECTION 803. Percentage of Site Occupancy
+- SECTION 804. Sizes and Dimensions of Courts
+- SECTION 805. Ceiling Heights
+- SECTION 806. Sizes and Dimensions of Rooms
+- SECTION 807. Air Space Requirements in Determining the Size of Rooms
+- SECTION 808. Window Openings
+- SECTION 809. Vent Shafts
+- SECTION 810. Ventilation Skylights
+- SECTION 811. Artificial Ventilation
+- 3. Disallowed and Prohibited Structures/Developments Within Easements
+- 1. Preservation of View Corridors and/or Sight Lines
+- 1. General
+- SECTION 901. General Requirements
+- SECTION 902. Water Supply System
+- SECTION 903. Wastewater Disposal System
+- SECTION 904. Storm Drainage System
+- SECTION 905. Pest and Vermin Control
+- SECTION 906. Noise Pollution Control
+- SECTION 907. Pipes Materials
+- RULE X – BUILDING PROJECTION OVER PUBLIC STREETS
+- SECTION 1004. Arcades
+- SECTION 1005. Canopies (Marquees)
+- SECTION 1006. Movable Awnings or Hoods
+- SECTION 1007. Doors, Windows, and the Like
+- SECTION 1008. Corner Buildings with Chaflans
+- RULE XI - PROTECTION OF PEDESTRIANS DURING CONSTRUCTION OR DEMOLITION
+- SECTION 1105. Walkway
+- SECTION 1106. Pedestrian Protection
+- SECTION 1107. Maintenance and Removal of Protective Devices
+- SECTION 1108. Demolition
+- 12. Other Safeguards
+- RULE XII - GENERAL DESIGN AND CONSTRUCTION REQUIREMENTS
+- SECTION 1203. Veneer
+- SECTION 1204. Enclosure of Vertical Openings
+- SECTION 1205. Floor Construction
+- SECTION 1206. Roof Construction and Covering
+- SECTION 1208. Skylights
+- SECTION 1209. Bays, Porches, and Balconies
+- SECTION 1210. Penthouses and Roof Structures
+- SECTION 1211. Chimneys, Fireplaces, and Barbecues
+- 1. Chimneys a. Structural Design
+- SECTION 1213. Stages and Platform
+- SECTION 1214. Motion Picture Projection Rooms
+- SECTION 1215. Lathing, Plastering, and Installation of Wall Boards
+- RULE XIII - ELECTRICAL AND MECHANICAL REGULATIONS
+- SECTION 1302. Mechanical Regulations
+- 10. Pipings for Fuel, Gas and Steam
+- 11. Identification of piping by color and tag shall be as follows:
+- SECTION 1401. Storage and Handling
+- SECTION 1402. Classes of Film Exempted
+- SECTION 1403. Fire Extinguishing System
+- RULE XV – PREFABRICATED CONSTRUCTION
+- SECTION 1501. Prefabricated Assembly
+- RULE XVI - PLASTICS
+- SECTION 1605. Light-Transmitting Panels in Monitors and Sawtooth Roofs
+- SECTION 1606. Plastic Light Diffusers in Ceilings
+- SECTION 1607. Partitions
+- SECTION 1608. Exterior Veneer
+- SECTION 1609. Awnings and Canopies
+- RULE XVII - SHEET METAL PAINT SPRAY BOOTHS
+- 4. The discharge point for ducts in a paint spray booth shall be not less than 2.00 meters from theadjoining combustible construction nor less than 8.00 meters from adjoining exterior wall openings;except, that the discharge point for exhaust ducts is not regulated in a waterwash spray booth.
+- RULE XVIII – GLASS AND GLAZING
+- SECTION 1801. General Requirements
+- SECTION 1802. Area Limitation
+- SECTION 1803. Glazing
+- SECTION 1804. Louvered Windows
+- SECTION 1805. Impact
+- RULE XIX – THE USE OF COMPUTERS
+- SECTION 1901. General Rule
+- SECTION 1902. Program Documentation
+- SECTION 1903. Submission of Computer-Generated Computations
+- RULE XX - SIGNS
+- SECTION 2001. General Requirements
+- SECTION 2002. Maintenance
+- SECTION 2003. Design and Construction
+- SECTION 2004. Supports and Anchorages
+- SECTION 2005. Projections and Clearances
+- 1. Bases of assessment
+- Section 201 and 205 of the National Building Code (P.D. No. 1096) provide: “SECTION 201. Responsibility for Administration and Enforcement
+- Section 477 of the Local Government Code of 1991 is cited to support the view that the appellate jurisdiction over decisions of building officials has been devolved to the city/municipal mayor. But Section 477 which reads:
+- SECTION 2. Definition of Terms. – (a) The practice of civil engineering within the meaning and intent of this Act shall embrace shall embrace services in the form of consultation, design preparation of consultation, design, preparation of plans, specifications, estimates, erection, installation and supervision of the construction of streets, bridges, highways, railroads, airports and
+- SECTION 23. Preparation of plans and supervision of construction by registered civil engineer. – It shall be unlawful for any person to order or otherwise cause the construction, reconstruction, or alteration of any building or structure intended for public gathering or assembly such as theaters, cinematographs, stadia, churches or structures of like nature, and any other engineering structures mentioned in section two of this Act unless the designs, plans, and specifications of the same have been prepared under the responsible charge of, and signed and sealed by a registered civil engineer, and unless the construction, reconstruction and/or alteration thereof are executed under the responsible charge and direct supervision of a civil engineer. Plans and designs of structures must be approved by law or ordinance of a city or province or municipality where the said structure is to be constructed.4
+- SECTION 14. Definition of Terms. – xxx
+- SECTION 30. Prohibitions in the practice of architecture. – Any person who shall practice or offer to practice architecture in the Philippines without being registered or exempted from registration in accordance with the provisions of this Act, xxx6
+- SECTION 101. Title
+- SECTION 103. Scope and Application (a) The provisions of this Code shall apply to the design, location, siting, construction, alteration,
+- SECTION 206. Qualifications of Building Officials
+- SECTION 207. Duties of a Building Official
+- SECTION 208. Fees
+- SECTION 209. Exemption
+- SECTION 210. Use of Income from Fees
+- SECTION 306. Non-Issuance, Suspension or Revocation of Building Permits
+- SECTION 401. Types of Construction For purposes of this Code, all buildings proposed for construction shall be classified or identified
+- SECTION 402. Changes in Types
+- SECTION 403. Requirements on Type of Construction
+- SECTION 601. Fire-Resistive Rating defined Fire-resistive rating means the degree to which a material can withstand fire as determined by
+- SECTION 602. Fire-Resistive Time Period Rating Fire-resistive time period rating is the length of time a material can withstand being burned which
+- SECTION 603. Fire-Resistive Standards All materials of construction, and assemblies or combinations thereof shall be classified according
+- SECTION 604. Fire-Resistive Regulations
+- SECTION 701. Occupancy Classified
+- SECTION 702. Change in Use
+- SECTION 703. Mixed Occupancy
+- SECTION 801. General Requirements of Light and Ventilation
+- SECTION 804. Size and Dimensions of Courts
+- SECTION 907. Pipe Materials
+- SECTION 1001. General Requirements
+- SECTION 1002. Projection into Alleys or Streets
+- SECTION 1003. Projection of Balconies and Appendages Over Streets
+- SECTION 1007. Doors, Windows, and the like
+- SECTION 1207. Stairs, Exits, and Occupant Loads
+- SECTION 1212. Fire-Extinguishing Systems
+- SECTION 1901. General Rule
+- SECTION 2006. Lighting
+- SECTION 5. Qualifications of Board members. – Each member of the Board shall, at the time if his appointment:
+- SECTION 6. Fees and compensation of Board. – The Board of Examiners for Civil Engineers shall charge for each application for examination the sum of forty pesos payable to the collecting and disbursing officer of the Bureau of Civil Service, Board of Examiners PRC upon filing of said application for examination, and for each certificate of registration, twenty pesos. Each member of the Board shall receive a compensation of five pesos for each applicant examined. A civil engineer in the service of the Government of the Republic of the Philippines appointed as member of the Board shall receive the compensation as herein provided, in addition to his salary in the government. All authorized expenses of the Board, including the compensation provided for herein, shall be paid by the collecting and disbursing officer of the Bureau of Civil Service out of such appropriation as may be made for the purpose.
+- SECTION 23. Preparation of plans and supervision of construction by registered civil engineer. – It shall be unlawful for any person to order or otherwise cause the construction, reconstruction, or alteration of any building or structure intended for public gathering or assembly such as theaters, cinematographs, stadia, churches or structures of like nature, and any other engineering structures mentioned in section two of this Act unless the designs, plans, and specifications of same have been prepared under the responsible charge of, and signed and sealed by a registered civil engineer, and unless the construction, reconstruction and/or alteration thereof are executed under the responsible charge and direct supervision of a civil engineer. Plans and designs of structures must be approved as provided by law or ordinance of a city or province or municipality where the said structure is to be constructed.
+- SECTION 1. Short Title. – This act shall be known as “The Architecture Act of 2004”.
+- SECTION 38. Coverage of Temporary/Special Permits. – Foreign nationals who have gained entry in the Philippines to perform professional services as architects or consultants in foreignfunded or assisted projects of the government or employed or engaged by Filipino or foreign contractors or private firms, shall, before assuming the duties, functions and responsibilities as architects or consultants, secure a special/temporary permit from the Board subject to approval of the Commission, to practice his/her profession in connection with the project to which he/she was commissioned: Provided, That the foreign national of foreign firm, whose name or company name, with the title architect, architectural consultant, design consultant, consultant or designer appears on architectural plans, specifications and other related construction documents, for securing building permits, licenses and government authority clearances for actual building project construction in the Philippines and advertisements and billboards for marketing purposes, shall be deemed practicing architecture in the Philippines, whether the contract for professional services is consummated in the Philippines or in a foreign country: Provided, further, That the following conditions are satisfied as follows:
 
-- detailed building design requirements
-- occupancy classification and use regulations
-- fire-resistive standards and construction types
-- light and ventilation requirements
-- sanitation and health provisions
-- site development controls and setbacks
-- permitting procedures and administrative requirements
-- enforcement mechanisms and compliance rules
+## Key Points
 
-## Key Canonical Points
+- SUBJECT: COMPOSITION OF THE NO.___________ NATIONAL BUILDING CODE Series of 2005 DEVELOPMENT OFFICE x-x-x-x-x-x-x-x-x-x-x (NBCDO) Pursuant to Department Order No.
 
-- Provides technical specifications and measurable requirements absent in the primary decree
-- Defines rule-based sections such as Rule VII (Classification and General Requirements) and Rule VIII (Light and Ventilation)
-- Establishes detailed compliance criteria for building design and construction
-- Serves as the primary reference for practical application and enforcement of PD 1096
-- May exist in multiple revised or interpreted versions, including the Revised IRR (RIRR 2004)
+## Referenced Concepts
 
-## Relationship to PD 1096
-
-- PD 1096 defines the legal framework
-- The IRR defines how the law is implemented in practice
-- In most technical and design scenarios, the IRR is the operative reference
-
-## Related Concepts
-
-- occupancy classification
-- fire-resistive construction
-- light and ventilation
-- setbacks
-- building permits
-- site planning controls
-
-## Source Lineage
-
-Primary source files:
-
-- 001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.pdf
-- 001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 RIRR 2004 - Revised IRR (DPWH Official).pdf
-- 001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 RIRR 2004 - Revised IRR (Architecture Board).pdf
-- 001_Raw-Source-Layer/001-Laws/PD-1096/Philippines_02_IRR_of_NBC_of_the_Philippines.pdf
-
-Derived artifacts:
-
-- raw markdown and JSON outputs from ingestion pipeline
-
-## Notes
-
-This page represents the implementation layer of the National Building Code.
-
-Where PD 1096 provides general legal provisions, the IRR provides detailed and enforceable requirements.
-
-Different versions of the IRR may exist. Care must be taken to identify which version is applicable in a given context.
-
-Concept-level canonical pages should primarily reference the IRR when dealing with technical requirements.
+- concept-certificate-of-occupancy
+- concept-mixed-occupancy
+- concept-floor-area
+- concept-light-and-ventilation
+- concept-stairs
+- concept-building-permit
+- concept-socialized-housing-projects
+- concept-building-height
+- concept-occupancy-classification
+- concept-fire-resistive-construction
+- concept-yards
+- concept-accessible-ramps
+- concept-setbacks
+- concept-occupancy-separation
+- concept-lot-occupancy
+- concept-exit-width
+- concept-means-of-egress

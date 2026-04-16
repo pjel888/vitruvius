@@ -40,6 +40,7 @@ def test_walk_sources_emits_one_node_per_file(tmp_path: Path) -> None:
     assert node.trust_level == "primary"
     assert node.slug == "pd-1096"
     assert node.last_updated_utc == "2026-04-01T00:00:00Z"
+    assert node.title == "Pd 1096"
     validate_node(node)
 
 
@@ -108,6 +109,7 @@ def test_walk_concepts_sets_type_and_derived_trust(tmp_path: Path) -> None:
     assert node.type == "concept"
     assert node.trust_level == "derived"
     assert node.slug == "building-permit"
+    assert node.title == "Building Permit"
     validate_node(node)
 
 

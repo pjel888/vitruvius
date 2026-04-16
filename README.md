@@ -1208,6 +1208,31 @@ python3 scripts/pipeline_cli.py export-graph-owl \
 ```
 
 ### 2) Build the bounded laws dataset graph
+### 2A) Run the bounded produced-data source→graph pipeline
+
+When you want the bounded laws lane to orchestrate upstream produced-data stages and then build the dataset graph:
+
+```bash
+python3 scripts/pipeline_cli.py run-dataset-source-to-graph \
+  --dataset-manifest config/datasets/laws-core-bundle-m1.yaml
+```
+
+Dry-run first if you want to validate the bounded stage plan without executing writes:
+
+```bash
+python3 scripts/pipeline_cli.py run-dataset-source-to-graph \
+  --dataset-manifest config/datasets/laws-core-bundle-m1.yaml \
+  --dry-run
+```
+
+This command is designed to stay inside the bounded dataset lane:
+- it reuses produced intermediate data
+- it keeps extraction/review/promotion outputs dataset-local
+- it writes a derived manifest for the final graph run
+- it does **not** shortcut raw PDFs directly into the graph
+
+Use this when you want the bounded source→graph lane, not just the final admitted-input graph rebuild.
+
 
 This is the bounded, manifest-backed path for the current laws mini dataset:
 
@@ -1294,6 +1319,20 @@ Why this stack:
 - cleaner clustered graph rendering than the first lightweight HTML prototype
 - browser-friendly path for future hosted UI work
 - no change to the underlying graph truth contract
+- local asset path can be used for offline / air-gapped inspection
+
+Current truthfulness note:
+
+- the graph only reflects **admitted canonical / promoted inputs**
+- it does **not** mean every concept mentioned anywhere in the raw PDFs is already represented in the official bounded graph
+- graph density improves as additional concepts and relationships are truthfully admitted
+
+Important expectations for the current bounded pilot:
+
+- the current laws-core-bundle graph is still intentionally small compared with showcase Neo4j / Cambridge Intelligence screenshots
+- a recent bounded run produced about **26 nodes / 53 edges**, so the graph is real but not yet dense enough to resemble a large production knowledge map
+- dataset-scoped snapshots may include **dataset-local admitted relationship artifacts** selected by the manifest; those edges may not appear in the global `latest_graph_snapshot.json` until they are separately admitted into the global/shared path
+- if you want the exact bounded pilot truth, visualize or query the emitted dataset snapshot path rather than the global `latest_*` graph
 
 ### 6) Dry-run the dataset graph build without writing outputs
 

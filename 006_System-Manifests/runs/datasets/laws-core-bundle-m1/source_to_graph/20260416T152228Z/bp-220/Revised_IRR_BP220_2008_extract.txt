@@ -1,0 +1,12 @@
+Section-Aware Relationship Extraction
+
+Sections: 47
+Unique relationships: 7
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-socialized-housing-projects (x12) sections=['section-1', 'section-3', 'section-4', 'section-5', 'section-6', 'section-8', 'section-2']
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-yards (x3) sections=['section-5', 'section-6']
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-floor-area (x10) sections=['section-5', 'section-6']
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-light-and-ventilation (x1) sections=['section-6']
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-stairs (x3) sections=['section-6', 'section-25']
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-setbacks (x1) sections=['section-6']
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-means-of-egress (x1) sections=['section-25']

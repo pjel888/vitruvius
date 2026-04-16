@@ -75,3 +75,172 @@ def test_resolve_referenced_concepts_from_text(tmp_path):
     assert "concept-occupancy-classification" in resolved
     assert "concept-fire-resistive-construction" in resolved
     assert "concept-building-permit" in resolved
+
+
+def test_build_overview_paragraph_skips_isbn_url_and_toc_noise() -> None:
+    text = (
+        'ISBN 978-1-23-456789-0\n'
+        'https://example.com/file.pdf\n'
+        'TABLE OF CONTENTS\n'
+        'This is the first substantial paragraph with enough words to be useful.\n'
+    )
+    overview = build_overview_paragraph(text)
+    assert overview == 'This is the first substantial paragraph with enough words to be useful.'
+
+
+def test_extract_key_points_skips_noise_lines() -> None:
+    text = (
+        '## Overview\n\n'
+        'ISBN 978-1-23-456789-0\n'
+        'GOVPH https://example.com\n'
+        'This paragraph contains the actual meaningful sentence for the canonical source.\n'
+    )
+    key_points = extract_key_points(text, limit=2)
+    assert key_points == ['This paragraph contains the actual meaningful sentence for the canonical source.']
+
+
+def test_extract_section_headers_accepts_deeper_markdown_headings() -> None:
+    text = '#### RULE I General Provisions\n##### Section 1. Scope of Application\n'
+    headers = extract_section_headers(text)
+    assert headers == [
+        {"level": 4, "title": "RULE I General Provisions"},
+        {"level": 5, "title": "Section 1. Scope of Application"},
+    ]
+
+
+def test_build_overview_paragraph_cleans_leading_ocr_fragment() -> None:
+    text = 'n a country where tragic fires leave people devastated but not resolute in preventing them.\n'
+    overview = build_overview_paragraph(text)
+    assert overview == 'a country where tragic fires leave people devastated but not resolute in preventing them.'
+
+
+def test_extract_key_points_cleans_leading_ocr_fragment() -> None:
+    text = '## Message\n\ny heartfelt greetings to the Bureau of Fire Protection for the successful revision.\n'
+    key_points = extract_key_points(text, limit=1)
+    assert key_points == ['heartfelt greetings to the Bureau of Fire Protection for the successful revision.']
+
+
+def test_extract_section_headers_skips_noise_heading_titles() -> None:
+    text = '### GOVPH https://example.com\n#### EDUARDO M. ANO\n### Rule I General Provisions\n'
+    headers = extract_section_headers(text)
+    assert headers == [{"level": 3, "title": "Rule I General Provisions"}]
+
+
+def test_build_overview_paragraph_prefers_sentence_over_all_caps_banner() -> None:
+    text = (
+        'REVISED RULES AND STANDARDS FOR ECONOMIC AND SOCIALIZED HOUSING PROJECTS\n'
+        'Pursuant to Section 3 of BP 220, the Housing and Land Use Regulatory Board is authorized to establish and promulgate standards.\n'
+    )
+    overview = build_overview_paragraph(text)
+    assert overview == 'Pursuant to Section 3 of BP 220, the Housing and Land Use Regulatory Board is authorized to establish and promulgate standards.'
+
+
+def test_extract_section_headers_accepts_plain_section_lines_and_skips_toc_entries() -> None:
+    text = (
+        '- Section 1. Scope of Application 1\n'
+        'Section 1. Scope of Application\n'
+        'RULE II GENERAL PROVISIONS\n'
+    )
+    headers = extract_section_headers(text)
+    assert headers == [
+        {"level": 2, "title": "Section 1. Scope of Application"},
+        {"level": 2, "title": "RULE II GENERAL PROVISIONS"},
+    ]
+
+
+def test_extract_section_headers_skips_named_message_headings() -> None:
+    text = '###### EDUARDO M. AÑO\n###### SECRETARY EDUARDO M. AÑO\n#### DIVISION 4. COMMAND\n'
+    headers = extract_section_headers(text)
+    assert headers == [{"level": 4, "title": "DIVISION 4. COMMAND"}]
+
+
+def test_extract_section_headers_skips_numbered_sentences() -> None:
+    text = '1. Accessible Ramps\n1. For accessible ramps 3000 mm or more in width, provide intermediate handrails at the center.\n'
+    headers = extract_section_headers(text)
+    assert headers == [{"level": 2, "title": "1. Accessible Ramps"}]
+
+
+def test_build_overview_paragraph_skips_headingish_bullets() -> None:
+    text = (
+        '- Section 3. Compliance with Standards and Guidelines 1\n'
+        'Pursuant to Section 3 of BP 220, the Housing and Land Use Regulatory Board is authorized to establish and promulgate standards.\n'
+    )
+    overview = build_overview_paragraph(text)
+    assert overview == 'Pursuant to Section 3 of BP 220, the Housing and Land Use Regulatory Board is authorized to establish and promulgate standards.'
+
+
+def test_build_overview_paragraph_skips_bullet_table_lines() -> None:
+    text = (
+        '- Table 1 Parks and Playground Allocation 5\n'
+        'Pursuant to Section 3 of BP 220, the Housing and Land Use Regulatory Board is authorized to establish and promulgate standards.\n'
+    )
+    overview = build_overview_paragraph(text)
+    assert overview == 'Pursuant to Section 3 of BP 220, the Housing and Land Use Regulatory Board is authorized to establish and promulgate standards.'
+
+
+def test_extract_section_headers_skips_domain_noise_titles() -> None:
+    text = '### National Council on Disability Affairs\n### Pambansang Sanggunian Ukol sa Ugnayang Pangmaykapansanan\n### Rule I General Provisions\n'
+    headers = extract_section_headers(text)
+    assert headers == [{"level": 3, "title": "Rule I General Provisions"}]
+
+
+def test_extract_section_headers_skips_preface_before_first_structural_heading() -> None:
+    text = (
+        '### Revised Implementing Rules and Regulations\n'
+        '### GOVPH\n'
+        '### Rule I General Provisions\n'
+        '### Section 1. Scope of Application\n'
+    )
+    headers = extract_section_headers(text)
+    assert headers == [
+        {"level": 3, "title": "Rule I General Provisions"},
+        {"level": 3, "title": "Section 1. Scope of Application"},
+    ]
+
+
+def test_extract_section_headers_skips_sentence_like_definition_headers() -> None:
+    text = '### Self-Closing Fire Doors (or Self-Closing Fire-Resistive Doors). Automatic closing doors that are\n### RULE 4. AUTHORITY OF THE CHIEF, BUREAU OF FIRE PROTECTION\n'
+    headers = extract_section_headers(text)
+    assert headers == [{"level": 3, "title": "RULE 4. AUTHORITY OF THE CHIEF, BUREAU OF FIRE PROTECTION"}]
+
+
+def test_extract_section_headers_skips_table_caption_like_headings() -> None:
+    text = '### Viewing Distance (m) Size of Symbol (mm)\n### 10. Stairs\n'
+    headers = extract_section_headers(text)
+    assert headers == [{"level": 3, "title": "10. Stairs"}]
+
+
+def test_build_structured_source_file_prefers_structural_headers(tmp_path, monkeypatch) -> None:
+    import vitruvius.canonicalize as canonicalize_mod
+
+    refined = tmp_path / '002_Raw-Conversion-Layer' / 'sample.md'
+    refined.parent.mkdir(parents=True)
+    refined.write_text(
+        '### Revised Implementing Rules and Regulations\n'
+        '### RULE I GENERAL PROVISIONS\n'
+        '### Section 1. Scope of Application\n'
+        '### Viewing Distance (m) Size of Symbol (mm)\n',
+        encoding='utf-8',
+    )
+
+    monkeypatch.setattr(canonicalize_mod, 'build_plan', lambda _p: {
+        'title': 'Sample Source',
+        'canonical_id': 'source-sample-source',
+        'trust': 'primary',
+        'aliases': [],
+    })
+
+    _target, content = canonicalize_mod.build_structured_source_file(
+        repo_root=tmp_path,
+        relative_markdown_path='sample.md',
+    )
+    assert '- RULE I GENERAL PROVISIONS' in content
+    assert '- Section 1. Scope of Application' in content
+    assert 'Viewing Distance (m) Size of Symbol (mm)' not in content
+    assert 'Revised Implementing Rules and Regulations' not in content
+
+
+def test_extract_section_headers_cleans_merged_heading_words() -> None:
+    text = '###### SECTION 5.0.1.2 SOURCESThe Technical Staff may be drawn from the following:\n'
+    headers = extract_section_headers(text)
+    assert headers == [{"level": 6, "title": "SECTION 5.0.1.2 SOURCES The Technical Staff may be drawn from the following:"}]

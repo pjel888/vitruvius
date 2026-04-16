@@ -174,12 +174,14 @@ def walk_sources(
         trust_level = fm.get("trust_level") or "tertiary"
         if trust_level not in ALLOWED_TRUST_LEVELS:
             trust_level = "tertiary"
+        title = fm.get("title") if isinstance(fm.get("title"), str) and fm.get("title").strip() else path.stem.replace("-", " ").title()
         node = GraphNode(
             id=node_id,
             type="source",
             slug=path.stem,
             trust_level=trust_level,
             last_updated_utc=_resolve_date(fm, path),
+            title=title,
         )
         try:
             validate_node(node)
@@ -210,12 +212,14 @@ def walk_concepts(
             )
             if node_id not in referenced_node_ids and not has_regulatory_basis:
                 continue
+        title = fm.get("title") if isinstance(fm.get("title"), str) and fm.get("title").strip() else path.stem.replace("-", " ").title()
         node = GraphNode(
             id=node_id,
             type="concept",
             slug=path.stem,
             trust_level="derived",
             last_updated_utc=_resolve_date(fm, path),
+            title=title,
         )
         try:
             validate_node(node)

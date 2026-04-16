@@ -74,8 +74,8 @@ def seeded_repo(tmp_path: Path) -> Path:
                 id: concept-{slug}
                 title: {title}
                 page_type: concept
-                canonical_status: placeholder
-                concept_status: placeholder
+                canonical_status: draft
+                concept_status: draft
                 last_canonicalized_utc: 2026-04-14T00:00:00Z
                 ---
 

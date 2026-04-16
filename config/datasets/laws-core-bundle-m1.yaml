@@ -776,6 +776,54 @@ relationship_input_manifest:
       correction.
     include_in_m1: true
     reason: Direct source text governs means-of-egress requirements in BP-220.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md
+    folder_name: RA-9514
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: ra-9514-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs stair requirements in RA-9514.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-fire-resistive-construction.md
+    folder_name: RA-9514
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: ra-9514-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs fire-resistive construction requirements in
+      RA-9514.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md
+    folder_name: RA-9514
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: ra-9514-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs building-permit fire safety requirements in
+      RA-9514.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md
+    folder_name: RA-9514
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: ra-9514-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs occupant-load/floor-area fire safety requirements
+      in RA-9514.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md
+    folder_name: RA-9514
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: ra-9514-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs exit-width requirements in RA-9514.
 graph_output_root: 005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1
 run_output_root: 006_System-Manifests/runs/datasets/laws-core-bundle-m1
 query_snapshot_path_template: 005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/{run_id}_graph_snapshot.json
@@ -869,6 +917,11 @@ law_units:
   scope_notes:
   - Primary code plus explicit IRR variant remain admitted truth-bearing inputs.
   - Illustrated and summary editions stay excluded by manifest policy.
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 - National
+    Building Code.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full
+    Implementing Rules and Regulations.md
 - law_id: ra-9514
   folder_name: RA-9514
   raw_anchor_paths:
@@ -888,6 +941,8 @@ law_units:
   scope_notes:
   - 'Fire Code unit stays conservative: only admitted, audited relationship evidence
     enters the official graph.'
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md
 - law_id: bp-344
   folder_name: BP-344
   raw_anchor_paths:
@@ -914,6 +969,10 @@ law_units:
   scope_notes:
   - NCDA 2024 RIRR is the admitted authoritative variant for this bounded lane.
   - DPWH variant and adjacent DPWH context remain explicit but excluded.
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-344/2024 Revised Implementing
+    Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability
+    Affairs.md
 - law_id: bp-220
   folder_name: BP-220
   raw_anchor_paths:
@@ -932,3 +991,5 @@ law_units:
   scope_notes:
   - BP-220 remains represented by its admitted RIRR plus scoped concept and relationship
     inputs.
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md

@@ -1,5 +1,5 @@
 {
-  "edge_count": 47,
+  "edge_count": 49,
   "edges": [
     {
       "evidence_id": "rel-concept-floor-area-affects-concept-building-height",
@@ -360,6 +360,28 @@
       "type": "implements"
     },
     {
+      "evidence_id": "rel-basis-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-concept-socialized-housing-projects-section-1",
+      "evidence_snippet": "These rules and standards shall apply to the development of economic and socialized housing projects in urban and rural areas as defined in Section 2 of BP Blg. 220.",
+      "evidence_source_id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+      "evidence_source_section_id": "section-1",
+      "from_id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+      "is_governing_standard": null,
+      "status": "verified",
+      "to_id": "concept-socialized-housing-projects",
+      "type": "defines"
+    },
+    {
+      "evidence_id": "rel-basis-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-concept-accessible-ramps-section-1",
+      "evidence_snippet": "Accessible ramps shall have the following facilities and features and shall be provided where changes in level occur except when served by a dropped sidewalk, curb ramp, elevator, or other mechanical device.",
+      "evidence_source_id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+      "evidence_source_section_id": "section-1",
+      "from_id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+      "is_governing_standard": null,
+      "status": "verified",
+      "to_id": "concept-accessible-ramps",
+      "type": "defines"
+    },
+    {
       "evidence_id": "rel-basis-law-national-building-code-of-the-philippines-concept-building-height-sec-707",
       "evidence_snippet": "The maximum height and number of storeys of every building shall be dependent upon the character of occupancy and the type of construction as determined by the Secretary considering population density, building bulk, widths of streets and car parking requirements. The height shall be measured from the highest adjoining sidewalk or ground surface: Provided, that the height measured from the lowest adjoining surface shall not exceed such maximum height by more than 3.00 meters: Except, that towers",
       "evidence_source_id": "law-national-building-code-of-the-philippines",
@@ -548,9 +570,16 @@
       "type": "governs"
     }
   ],
-  "generated_at_utc": "2026-04-16T00:16:13Z",
-  "node_count": 21,
+  "generated_at_utc": "2026-04-16T10:14:47Z",
+  "node_count": 26,
   "nodes": [
+    {
+      "id": "concept-accessible-ramps",
+      "last_updated_utc": "2026-04-16T06:40:00Z",
+      "slug": "accessible-ramps",
+      "trust_level": "derived",
+      "type": "concept"
+    },
     {
       "id": "concept-building-height",
       "last_updated_utc": "2026-04-14T05:59:49.640810+00:00",
@@ -671,6 +700,13 @@
       "type": "concept"
     },
     {
+      "id": "concept-socialized-housing-projects",
+      "last_updated_utc": "2026-04-16T06:40:00Z",
+      "slug": "socialized-housing-projects",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
       "id": "concept-stairs",
       "last_updated_utc": "2026-04-14T06:00:12.692248+00:00",
       "slug": "stairs",
@@ -685,9 +721,30 @@
       "type": "concept"
     },
     {
+      "id": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines",
+      "last_updated_utc": "2026-04-16T05:10:36Z",
+      "slug": "implementing-rules-and-regulations-of-the-fire-code-of-the-philippines",
+      "trust_level": "primary",
+      "type": "source"
+    },
+    {
       "id": "irr-implementing-rules-and-regulations-of-the-national-building-code",
       "last_updated_utc": "2026-04-13T07:41:46.408230+00:00",
       "slug": "implementing-rules-and-regulations-of-the-national-building-code",
+      "trust_level": "primary",
+      "type": "source"
+    },
+    {
+      "id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+      "last_updated_utc": "2026-04-16T05:13:51Z",
+      "slug": "revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+      "trust_level": "primary",
+      "type": "source"
+    },
+    {
+      "id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+      "last_updated_utc": "2026-04-16T05:14:48Z",
+      "slug": "revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
       "trust_level": "primary",
       "type": "source"
     },

@@ -47,6 +47,7 @@ class DatasetLawUnit:
     law_id: str
     folder_name: str
     raw_anchor_paths: tuple[str, ...]
+    refined_markdown_paths: tuple[str, ...]
     authoritative_variant_paths: tuple[str, ...]
     excluded_variant_paths: tuple[str, ...]
     admitted_source_paths: tuple[str, ...]
@@ -309,6 +310,16 @@ def _parse_law_units(
             key="raw_anchor_paths",
             what=f"law_units entry {law_id!r}",
         )
+        refined_markdown_paths = (
+            _parse_existing_repo_relative_paths(
+                repo_root,
+                item,
+                key="refined_markdown_paths",
+                what=f"law_units entry {law_id!r}",
+            )
+            if "refined_markdown_paths" in item
+            else ()
+        )
         authoritative_variant_paths = _parse_existing_repo_relative_paths(
             repo_root,
             item,
@@ -377,6 +388,7 @@ def _parse_law_units(
                 law_id=law_id,
                 folder_name=folder_name,
                 raw_anchor_paths=raw_anchor_paths,
+                refined_markdown_paths=refined_markdown_paths,
                 authoritative_variant_paths=authoritative_variant_paths,
                 excluded_variant_paths=excluded_variant_paths,
                 admitted_source_paths=admitted_source_paths,
@@ -601,6 +613,7 @@ def law_unit_payloads(manifest: DatasetManifest) -> list[dict[str, Any]]:
             "law_id": unit.law_id,
             "folder_name": unit.folder_name,
             "raw_anchor_paths": list(unit.raw_anchor_paths),
+            "refined_markdown_paths": list(unit.refined_markdown_paths),
             "authoritative_variant_paths": list(unit.authoritative_variant_paths),
             "excluded_variant_paths": list(unit.excluded_variant_paths),
             "admitted_source_paths": list(unit.admitted_source_paths),

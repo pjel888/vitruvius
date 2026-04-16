@@ -233,20 +233,125 @@ def run_canonicalize_plan_one(
 # EXECUTION COMMAND
 # --------------------------------------------------
 
+def _is_noise_heading(title: str) -> bool:
+    lowered = title.lower()
+    if 'http://' in lowered or 'https://' in lowered:
+        return True
+    if lowered.startswith('govph'):
+        return True
+    if 'implementing rules and regulations' in lowered and not lowered.startswith(('rule ', 'section ')):
+        return True
+    if 'rules and standards for economic and socialized housing projects' in lowered:
+        return True
+    if lowered in {'message', 'list of tables', 'annexes', 'page'}:
+        return True
+    if lowered.startswith('figure ') or lowered.startswith('fig. '):
+        return True
+    if lowered.startswith('table '):
+        return True
+    if 'working group' in lowered or 'director' in lowered or 'secretary' in lowered or '(ret)' in lowered:
+        return True
+    if lowered.startswith(('arch ', 'csupt ', 'ssupt ', 'usec ', 'director ')):
+        return True
+    if 'national council on disability affairs' in lowered or 'pambansang sanggunian' in lowered:
+        return True
+    if re.search(r"\b(viewing distance|size of symbol|character proportion|finish and contrast)\b", lowered):
+        return True
+    compact = re.sub(r"[^a-z0-9]+", " ", lowered).strip()
+    if compact.startswith(('section ', 'rule ', 'chapter ', 'division ', 'appendix ', 'annex ', 'part ')):
+        return False
+    if re.match(r'^\d+\s', compact):
+        return False
+    if '. ' in title and any(ch.islower() for ch in title):
+        return True
+    if title.endswith(('that are', 'the following:', 'the following')):
+        return True
+    if title.isupper() and len(title.split()) <= 6:
+        return True
+    return False
+
+
+def _looks_like_toc_heading(title: str) -> bool:
+    return '....' in title or bool(re.search(r"\s+\d+$", title))
+
+
+def _looks_like_numbered_heading_title(title: str) -> bool:
+    body = re.sub(r"^\d+\.\s*", "", title).strip()
+    if len(body.split()) > 8:
+        return False
+    if body.endswith(('.', ';', ':')):
+        return False
+    if any(ch.islower() for ch in body) and body[0].islower():
+        return False
+    return True
+
+
+def _looks_like_headingish_line(stripped: str) -> bool:
+    lowered = stripped.lower()
+    if stripped.startswith('- ') and re.search(r'\b(section|rule|chapter|division|appendix|annex|part|table|figure|annexes|list of tables)\b', lowered):
+        return True
+    if re.match(r'^(rule|section|chapter|division|appendix|annex|part)\b', lowered):
+        return True
+    return False
+
+
+def _is_structural_heading(title: str) -> bool:
+    lowered = title.lower().strip()
+    if re.match(r'^(rule|section|chapter|division|appendix|annex|part)\b', lowered):
+        return True
+    if re.match(r'^\d+\.\s+', title):
+        return True
+    return False
+
+def _clean_heading_title(title: str) -> str:
+    cleaned = title.strip()
+    cleaned = re.sub(r'\s+', ' ', cleaned)
+    cleaned = re.sub(r'([A-Z0-9])([A-Z][a-z])', r'\1 \2', cleaned)
+    cleaned = re.sub(r'(Section\s\d[\d.]*)([A-Z])', r'\1 \2', cleaned)
+    cleaned = re.sub(r'(SECTION\s\d[\d.]*)([A-Z])', r'\1 \2', cleaned)
+    cleaned = re.sub(r'(?i)(Sources)(The\b)', r'\1 \2', cleaned)
+    cleaned = re.sub(r'(?i)(Functions)(The\b)', r'\1 \2', cleaned)
+    cleaned = re.sub(r'\s+', ' ', cleaned).strip()
+    return cleaned
+
+
 def extract_section_headers(markdown_text: str) -> list[dict]:
     headers = []
+    seen = set()
+    plain_patterns = [
+        re.compile(r"^(RULE|SECTION|CHAPTER|DIVISION|APPENDIX|ANNEX|PART)\b[ .:-]*(.*)$", re.IGNORECASE),
+        re.compile(r"^(\d+)\.\s+(.+)$"),
+    ]
     for line in markdown_text.splitlines():
         stripped = line.strip()
-        if stripped.startswith("## "):
-            title = stripped[3:].strip()
-            if len(title) < 4:
-                continue
-            headers.append({"level": 2, "title": title})
-        elif stripped.startswith("### "):
-            title = stripped[4:].strip()
-            if len(title) < 4:
-                continue
-            headers.append({"level": 3, "title": title})
+        title = None
+        level = None
+        numbered = False
+        match = re.match(r"^(#{2,6})\s+(.+?)$", stripped)
+        if match:
+            level = len(match.group(1))
+            title = match.group(2).strip()
+        elif stripped and not stripped.startswith(('-', '*', '|', '![')):
+            for pattern in plain_patterns:
+                m = pattern.match(stripped)
+                if m:
+                    title = stripped
+                    level = 2
+                    numbered = pattern is plain_patterns[1]
+                    break
+        if title is None:
+            continue
+        structural = _is_structural_heading(title)
+        if numbered and not _looks_like_numbered_heading_title(title):
+            continue
+        title = _clean_heading_title(title)
+        if len(title) < 4 or _looks_like_toc_heading(title) or _is_noise_heading(title):
+            continue
+        key = (level, title)
+        if key in seen:
+            continue
+        seen.add(key)
+        headers.append({"level": level, "title": title})
     return headers
 
 
@@ -261,7 +366,7 @@ def extract_key_points(markdown_text: str, *, limit: int = 5) -> list[str]:
         stripped = line.strip()
         if stripped.startswith("## "):
             if current:
-                sentence = " ".join(current).split(". ")[0].strip()
+                sentence = _clean_candidate_text(" ".join(current).split(". ")[0])
                 if sentence:
                     points.append(sentence[:300].rstrip(".") + ".")
             current = []
@@ -271,11 +376,24 @@ def extract_key_points(markdown_text: str, *, limit: int = 5) -> list[str]:
             current.append(stripped)
 
     if current:
-        sentence = " ".join(current).split(". ")[0].strip()
+        sentence = _clean_candidate_text(" ".join(current).split(". ")[0])
         if sentence:
             points.append(sentence[:300].rstrip(".") + ".")
 
     return points[:limit]
+
+
+def _looks_like_sentence(text: str) -> bool:
+    if len(text.split()) < 8:
+        return False
+    lowered = text.lower()
+    if re.match(r"^(rule|section|chapter|division|appendix|annex|part)\b", lowered):
+        return False
+    if any(ch.islower() for ch in text):
+        return True
+    if text.endswith(('.', ':', ';')):
+        return True
+    return False
 
 
 def build_overview_paragraph(markdown_text: str) -> str:
@@ -284,11 +402,14 @@ def build_overview_paragraph(markdown_text: str) -> str:
         stripped = line.strip()
         if not _is_useful_text_line(stripped):
             continue
+        if _looks_like_headingish_line(stripped):
+            continue
+        cleaned = _clean_candidate_text(stripped[:500])
         if fallback == "":
-            fallback = stripped[:500]
-        if len(stripped.split()) >= 8:
-            return stripped[:500]
-    return fallback
+            fallback = cleaned
+        if _looks_like_sentence(cleaned):
+            return cleaned
+    return _clean_candidate_text(fallback)
 
 
 def _is_useful_text_line(stripped: str) -> bool:
@@ -298,7 +419,29 @@ def _is_useful_text_line(stripped: str) -> bool:
         return False
     if stripped.startswith("|") and stripped.endswith("|"):
         return False
+    lowered = stripped.lower()
+    if "isbn " in lowered or lowered.startswith("isbn"):
+        return False
+    if "http://" in lowered or "https://" in lowered:
+        return False
+    if lowered.startswith("govph"):
+        return False
+    if "total registeredpersons withdisabilities" in lowered:
+        return False
+    if lowered in {"page", "downloadable files:", "list of tables", "annexes"}:
+        return False
+    if "table of contents" in lowered:
+        return False
+    if stripped.isupper() and len(stripped.split()) <= 6:
+        return False
     return True
+
+
+def _clean_candidate_text(text: str) -> str:
+    cleaned = text.strip()
+    cleaned = re.sub(r"^([A-Za-z])\s+(?=[a-z])", "", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned)
+    return cleaned.strip()
 
 
 def _concept_title_from_slug(concept_slug: str) -> str:
@@ -331,6 +474,9 @@ def build_structured_source_file(
     plan = build_plan(relative_markdown_path)
 
     headers = extract_section_headers(refined_text)
+    structural_headers = [h for h in headers if _is_structural_heading(h["title"])]
+    if structural_headers:
+        headers = structural_headers
     key_points = extract_key_points(refined_text, limit=5)
     overview = build_overview_paragraph(refined_text)
     referenced = resolve_referenced_concepts(refined_text, repo_root=repo_root)

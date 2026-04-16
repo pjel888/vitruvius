@@ -4,7 +4,7 @@ title: Revised Implementing Rules and Regulations of Batas Pambansa Blg. 220
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-16T05:13:51.847466+00:00
+last_canonicalized_utc: 2026-04-16T15:25:06.154394+00:00
 aliases:
   - BP 220
   - Batas Pambansa Blg. 220
@@ -16,20 +16,37 @@ aliases:
 
 ## Overview
 
-HOUSING AND LAND USE REGULATORY BOARD NOVEMBER 2008
+Pursuant to Section 3 of BP 220, the Housing and Land Use Regulatory Board is authorized to establish and promulgate two levels of standards and technical requirements for the development of economic and socialized housing projects/units in urban and rural areas from those provided in PD 957, PD 1216, PD 1096, and PD 1185, hence the following rules are hereby promulgated.
 
 ## Coverage
 
-- TABLE OF CONTENTS
-- REVISED RULES AND STANDARDS FOR ECONOMIC AND SOCIALIZED HOUSING PROJECTS TO IMPLEMENT BATAS PAMBANSA BLG. 220
+- RULE II. Minimum Design Standards and Requirements 1 For Economic and Socialized Housing Projects
+- RULE IV. Registration and Licensing of Economic and 42 Socialized Housing Projects
 - RULE I GENERAL PROVISIONS
 - Section 1. Scope of Application
 - Section 2. Declaration of Policies
+- RULE II MINIMUM DESIGN STANDARDS AND REQUIREMENTS FOR ECONOMIC AND SOCIALIZED HOUSING PROJECTS
 - Section 3. Compliance with Standards and Guidelines
 - Section 4. Basis and Objectives of the Minimum DesignStandards
 - Section 5. Technical Guidelines and Standards for Subdivisions
+- 3. Physical Suitability
+- 4. Accessibility
+- 3. Easements
+- 4. Circulation
+- 1. Land Allocation
+- 3. Length of Block
+- 4. Shelter Component
+- 5. Setback/Yard
+- 6. Water Supply
+- 7. Electrical Power Supply
+- 8. Sewage Disposal System
+- 9. Drainage System
+- 10. Garbage Disposal System
+- 11. Fire Firefighting
 - Section 6. Building Design Standards and Guidelines
+- 1. Lot Planning
 - Section 7. Variances/Exemptions
+- RULE III APPROVAL OF SUBDIVISION PLANS AND BUILDING DESIGNS
 - Section 8. Approval Required
 - Section 9. Approval of Proposed Residential Houses of Averageand Low-Income Earners
 - Section 10. Application for Approval of Subdivision DevelopmentPlan
@@ -50,13 +67,16 @@ HOUSING AND LAND USE REGULATORY BOARD NOVEMBER 2008
 - Section 23. Donation of Roads, Open Spaces and Water Supply
 - Section 24. Separability Clause
 - Section 25. Effectivity
-- Pursuant to Article IV Section 5 I of Executive Order No. 648 the following rules are promulgated to implement Presidential Decree 953.
+- ANNEX 1 SECTION 3.1007 DETACHED SINGLE AND TWO FAMILY DWELLINGS OF THE RULES AND REGULATIONS IMPLEMENTING THE FIRE CODE OF THE PHILIPPINES (PD NO. 1185)
+- ANNEX 2 RESOLUTION NO. R-532 Series of 1993 APPROVING THE RULES AND REGULATIONS IMPLEMENTING P.D. 953 WHICH REQUIRES AMONG OTHERS EVERY OWNER OF AN EXISTING SUBDIVISION TO PLANT TREES IN DESIGNATED AREAS
+- Annex 2.A RULES IMPLEMENTING P.D. 953 REQUIRING THE PLANTING OF TREES IN CERTAIN PLACES AND PENALIZING UNAUTHORIZED CUTTING, DESTRUCTION, DAMAGING AND INJURING OF CERTAIN TREES, PLANTS AND VEGETATION
 - RULE I
-- C E R T I F I C A T I O N
-- (SGD.) ATTY. FRANCISCO L. DAGNALAN
-- REGISTRATION STATEMENT
-- HLURB Form No. 001
-- ANNEX 4
+- RULE II
+- RULE III HLRB ACTION
+- RULE IV OBLIGATIONS OF THE OWNER/DEVELOPER OF SUBDIVISION
+- RULE V SANCTIONS
+- RULE VI MISCELLANEOUS PROVISIONS
+- ANNEX “2.B”
 
 ## Key Points
 
@@ -64,9 +84,10 @@ HOUSING AND LAND USE REGULATORY BOARD NOVEMBER 2008
 
 ## Referenced Concepts
 
+- concept-socialized-housing-projects
+- concept-yards
+- concept-setbacks
 - concept-floor-area
 - concept-light-and-ventilation
-- concept-means-of-egress
-- concept-setbacks
 - concept-stairs
-- concept-yards
+- concept-means-of-egress

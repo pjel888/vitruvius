@@ -83,7 +83,7 @@ def test_extract_section_relationships_does_not_emit_concept_defines_concept() -
         "section_id": "section-1",
         "title": "Sample",
         "lines": [
-            "Means of egress shall be a door or stairway providing unobstructed travel.",
+            "Means of egress shall be stairs for this sample sentence.",
         ],
     }
     concept_map = {

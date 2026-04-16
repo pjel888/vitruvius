@@ -1,0 +1,58 @@
+{
+  "generated_at": "20260416T155517Z",
+  "source_report_generated_at": "20260416T155517Z",
+  "source_model": "gemma4:31b",
+  "source": "001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
+  "threshold": 0.9,
+  "count": 2,
+  "candidates": [
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+        "type": "governs",
+        "to": "concept-accessible-ramps",
+        "occurrences": 9,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "Accessible ramps with a total length longer than 10.50m shall be provided with intermediate landings with a minimum length of 1800 mm.",
+          "- 10. Accessible ramps with a total length longer than 10.50m shall be provided with intermediate landings with a minimum length of 1800 mm.",
+          "Handrails shall be required for accessible ramps for changes in grade higher than 170 mm."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+        "type": "governs",
+        "to": "concept-stairs",
+        "occurrences": 17,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "Handrails shall be installed on both sides of ramps and stairs.",
+          "Handrails shall be installed on both sides of ramps and stairs. Handrails may be provided at dropped sidewalks but shall not be installed beyond the width of any crossing so as not to obstruct pedestrian trafﬁc.",
+          "Handrails shall be installed at 900 mm and 700 mm above ramps and stairs."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}

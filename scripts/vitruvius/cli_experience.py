@@ -164,6 +164,16 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         next_step="Inspect the emitted dataset run report and failing stage details, then rerun the command after correcting the scoped inputs or stage configuration.",
         operator_safe=False,
     ),
+    "run-dataset-source-to-graph": _doc(
+        "run-dataset-source-to-graph",
+        "Run the bounded dataset pipeline from produced intermediate data through the dataset graph.",
+        human="This is the bounded end-to-end dataset lane that reuses produced refined/canonical/review/promotion data and then generates the scoped graph.",
+        technical="Loads a dataset manifest, can dry-run the bounded stage plan, or runs bounded canonicalize/extract/review/promote stages with dataset-local outputs, writes a derived manifest that includes dataset-local promoted relationships, and then runs the scoped graph pipeline.",
+        success="A healthy result writes either a dry-run stage plan or dataset-local stage outputs, a derived manifest, and a final scoped graph report without touching global latest graph/review artifacts.",
+        failure="One of the bounded upstream stages or the final graph build failed, so the dataset source-to-graph run is incomplete and not trustworthy yet.",
+        next_step="Inspect the source-to-graph run report and the failing dataset-local stage outputs, then rerun after correcting the bounded inputs or stage configuration.",
+        operator_safe=False,
+    ),
     "detect-one": _doc(
         "detect-one",
         "Classify one PDF as text-usable or scan-like before conversion.",

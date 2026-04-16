@@ -39,6 +39,7 @@ class GraphNode:
     slug: str
     trust_level: str
     last_updated_utc: str
+    title: str | None = None
 
 
 @dataclass(frozen=True)
@@ -96,6 +97,8 @@ def validate_node(node: GraphNode) -> None:
         raise ContractViolation(
             f"node last_updated_utc {node.last_updated_utc!r} is not a valid ISO-8601 date"
         )
+    if node.title is not None and (not isinstance(node.title, str) or not node.title.strip()):
+        raise ContractViolation(f"node title must be null or a non-empty string (got {node.title!r})")
 
 
 def validate_edge(edge: GraphEdge) -> None:

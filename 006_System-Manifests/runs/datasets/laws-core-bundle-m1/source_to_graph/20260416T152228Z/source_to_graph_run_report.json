@@ -1,0 +1,143 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "dataset_id": "laws-core-bundle-m1",
+  "derived_manifest_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/derived_dataset_manifest.yaml",
+  "generated_at_utc": "20260416T152524Z",
+  "generated_relationship_count": 37,
+  "graph": {
+    "action": "run-dataset-graph",
+    "build_report_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/20260416T152524Z_build_graph_dataset_report.json",
+    "contributing_law_ids": [
+      "pd-1096",
+      "ra-9514",
+      "bp-344",
+      "bp-220"
+    ],
+    "dataset_id": "laws-core-bundle-m1",
+    "law_unit_count": 4,
+    "owl_path": null,
+    "pipeline_report_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/20260416T152524Z_dataset_pipeline_run_report.json",
+    "run_id": "20260416T152524Z",
+    "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/20260416T152524Z_graph_snapshot.json",
+    "structured_check_count": 0
+  },
+  "manifest_path": "config/datasets/laws-core-bundle-m1.yaml",
+  "run_id": "20260416T152228Z",
+  "stage_results": [
+    {
+      "extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/pd-1096/PD 1096 - National Building Code_extract.json",
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/pd-1096/PD 1096 - National Building Code_high_conf.json",
+      "law_id": "pd-1096",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md",
+      "promote_result": {
+        "batch_id": "20260416T152310Z_67ff4020",
+        "created": 5,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 5,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/promoted_relationships/pd-1096",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md",
+      "review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/pd-1096/PD 1096 - National Building Code_review.json",
+      "source_id": "law-national-building-code-of-the-philippines"
+    },
+    {
+      "extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/pd-1096/PD 1096 IRR - Full Implementing Rules and Regulations_extract.json",
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/pd-1096/PD 1096 IRR - Full Implementing Rules and Regulations_high_conf.json",
+      "law_id": "pd-1096",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+      "promote_result": {
+        "batch_id": "20260416T152411Z_12097633",
+        "created": 11,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 11,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/promoted_relationships/pd-1096",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+      "review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/pd-1096/PD 1096 IRR - Full Implementing Rules and Regulations_review.json",
+      "source_id": "irr-implementing-rules-and-regulations-of-the-national-building-code"
+    },
+    {
+      "extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/ra-9514/RA9514-RIRR-rev-2019_extract.json",
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/ra-9514/RA9514-RIRR-rev-2019_high_conf.json",
+      "law_id": "ra-9514",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md",
+      "promote_result": {
+        "batch_id": "20260416T152459Z_6f3e663a",
+        "created": 10,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 10,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/promoted_relationships/ra-9514",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md",
+      "review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/ra-9514/RA9514-RIRR-rev-2019_review.json",
+      "source_id": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines"
+    },
+    {
+      "extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_extract.json",
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_high_conf.json",
+      "law_id": "bp-344",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
+      "promote_result": {
+        "batch_id": "20260416T152506Z_803fe64e",
+        "created": 2,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 2,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/promoted_relationships/bp-344",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
+      "review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_review.json",
+      "source_id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344"
+    },
+    {
+      "extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-220/Revised_IRR_BP220_2008_extract.json",
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-220/Revised_IRR_BP220_2008_high_conf.json",
+      "law_id": "bp-220",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md",
+      "promote_result": {
+        "batch_id": "20260416T152524Z_2ca19c2a",
+        "created": 4,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 4,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/promoted_relationships/bp-220",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md",
+      "review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-220/Revised_IRR_BP220_2008_review.json",
+      "source_id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220"
+    }
+  ]
+}
