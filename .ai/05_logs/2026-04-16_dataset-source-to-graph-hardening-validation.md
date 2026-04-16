@@ -34,3 +34,7 @@ Follow-on hardening for the bounded source→graph lane.
   - `planned_stage_count = 5`
   - stage records include `normalized_refined_markdown_path`
   - stage records include `source_quality` and `source_quality_path`
+
+## Follow-on hardening
+- source-quality reporting now includes `benchmark_source_hints` for difficult sources when known official/public reference URLs exist
+- latest dry-run used for validation: `20260416T175803Z`

@@ -304,6 +304,42 @@ def _source_quality_recommendations(metrics: dict[str, object]) -> list[str]:
         recommendations.append("low structural-heading count: verify section detection and source structure fidelity")
     return recommendations
 
+
+
+def _benchmark_source_hints(normalized_refined_path: str, source_id: str) -> list[dict[str, str]]:
+    rel = normalized_refined_path.lower()
+    hints: list[dict[str, str]] = []
+    if 'pd-1096' in rel and 'irr' in rel:
+        hints.append({
+            'label': 'DPWH PD 1096 IRR reference page',
+            'url': 'https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096',
+            'note': 'Official DPWH-hosted IRR reference page useful for cross-checking difficult OCR/layout cases.'
+        })
+    if 'ra-9514' in rel or 'ra9514' in rel:
+        hints.append({
+            'label': 'BFP RA 9514 revised IRR page',
+            'url': 'https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/',
+            'note': 'Official BFP page for the revised IRR; useful when scanned/local extraction is noisy.'
+        })
+    if 'bp-220' in rel or 'bp220' in rel:
+        hints.append({
+            'label': 'Lawphil BP 220 revised IRR PDF',
+            'url': 'https://lawphil.net/statutes/repacts/ra2008/pdf/irr_bp220_2008.pdf',
+            'note': 'Lawphil-hosted IRR PDF for cross-checking structure and section layout.'
+        })
+    if 'bp-344' in rel or 'bp344' in rel:
+        hints.append({
+            'label': 'NCDA revised BP 344 IRR page',
+            'url': 'https://ncda.gov.ph/revised-2024-rules-and-regulations-implementing-batas-pambansa-344/',
+            'note': 'NCDA-hosted revised IRR page useful for checking structure when the PDF is hard to extract.'
+        })
+        hints.append({
+            'label': 'Lawphil BP 344 law text',
+            'url': 'https://lawphil.net/statutes/bataspam/bp1983/bp_344_1983.html',
+            'note': 'Lawphil law text for the underlying statute (not the revised IRR). Useful as a semantic benchmark.'
+        })
+    return hints
+
 def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: str) -> dict[str, object]:
     refined_path = repo_root / "002_Raw-Conversion-Layer" / normalized_refined_path
     text = refined_path.read_text(encoding="utf-8", errors="ignore")
@@ -339,6 +375,7 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
     }
     metrics["severity"] = _source_quality_severity(metrics)
     metrics["recommendations"] = _source_quality_recommendations(metrics)
+    metrics["benchmark_source_hints"] = _benchmark_source_hints(normalized_refined_path, "")
     return metrics
 
 

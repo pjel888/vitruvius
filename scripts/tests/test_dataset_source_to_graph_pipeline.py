@@ -271,6 +271,7 @@ def test_run_dataset_source_to_graph_pipeline_writes_derived_manifest_and_report
     assert report['stage_results'][0]['source_quality']['useful_text_line_count'] >= 1
     assert report['stage_results'][0]['source_quality']['severity'] in {'low','medium','high'}
     assert isinstance(report['stage_results'][0]['source_quality']['recommendations'], list)
+    assert isinstance(report['stage_results'][0]['source_quality']['benchmark_source_hints'], list)
     derived_manifest = tmp_path / report['derived_manifest_path']
     assert derived_manifest.exists()
     derived_payload = yaml.safe_load(derived_manifest.read_text(encoding='utf-8'))
@@ -301,8 +302,10 @@ def test_run_dataset_source_to_graph_pipeline_dry_run_writes_plan_only(tmp_path,
     assert report['stage_results'][0]['source_quality']['useful_text_line_count'] >= 1
     assert report['stage_results'][0]['source_quality']['severity'] in {'low','medium','high'}
     assert isinstance(report['stage_results'][0]['source_quality']['recommendations'], list)
+    assert isinstance(report['stage_results'][0]['source_quality']['benchmark_source_hints'], list)
     assert report['stage_results'][0]['source_quality']['severity'] in {'low','medium','high'}
     assert isinstance(report['stage_results'][0]['source_quality']['recommendations'], list)
+    assert isinstance(report['stage_results'][0]['source_quality']['benchmark_source_hints'], list)
     assert isinstance(report['stage_results'][0]['source_quality']['recommendations'], list)
     assert 'source_quality_path' in report['stage_results'][0]
     assert not (tmp_path / '006_System-Manifests' / 'runs' / 'datasets' / 'demo-dataset' / 'source_to_graph' / reports[0].parent.name / 'promoted_relationships').exists()
