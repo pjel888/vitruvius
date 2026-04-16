@@ -27,6 +27,24 @@ def _write(path: Path, text: str) -> None:
     path.write_text(text, encoding='utf-8')
 
 
+def _seed_conversion_inventory(root: Path, folder_name: str, stem: str) -> None:
+    for rel_path, payload in (
+        (
+            root / '002_Raw-Conversion-Layer' / '001-Laws' / 'refined_markdown' / folder_name / f'{stem}.md',
+            '---\nid: source-demo\n---\n\n# refined\n',
+        ),
+        (
+            root / '002_Raw-Conversion-Layer' / '001-Laws' / 'raw_markdown' / folder_name / f'{stem}.md',
+            '# raw\n',
+        ),
+        (
+            root / '002_Raw-Conversion-Layer' / '001-Laws' / 'sidecar_json' / folder_name / f'{stem}.json',
+            '{}\n',
+        ),
+    ):
+        _write(rel_path, payload)
+
+
 def _seed_repo(root: Path) -> Path:
     raw = root / '001_Raw-Source-Layer' / '001-Laws' / 'PD-1096'
     raw.mkdir(parents=True, exist_ok=True)
@@ -289,3 +307,55 @@ def test_run_laws_pilot_emits_progress_when_enabled(tmp_path: Path, monkeypatch)
     )
     assert result.returncode == 0, result.stderr
     assert '[vitruvius] Loaded dataset manifest demo-dataset from config/datasets/laws-core-bundle-m1.yaml' in result.stderr
+
+
+def test_run_laws_pilot_dry_run_resolves_8gb_safe_review_model_preset(tmp_path: Path) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    laws_manifest = tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml'
+    laws_manifest.write_text(manifest_path.read_text(encoding='utf-8'), encoding='utf-8')
+    result = _run_cli(
+        [
+            'run-laws-pilot',
+            '--dry-run',
+            '--review-model-preset', '8gb-safe',
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['review_model_preset'] == '8gb-safe'
+    assert payload['review_model'] == 'qwen2.5:7b'
+
+
+def test_run_all_laws_dry_run_reports_inventory_without_widening(tmp_path: Path) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    laws_manifest = tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml'
+    laws_manifest.write_text(manifest_path.read_text(encoding='utf-8'), encoding='utf-8')
+    _seed_conversion_inventory(tmp_path, 'PD-1096', 'pilot-law')
+    _seed_conversion_inventory(tmp_path, 'RA-9514', 'inventory-law')
+
+    result = _run_cli(
+        [
+            'run-all-laws-dry-run',
+            '--review-model-preset', '8gb-safe',
+        ],
+        cwd=tmp_path,
+    )
+
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['action'] == 'run-all-laws-dry-run'
+    assert payload['phase_11_generic_expansion_gated'] is True
+    assert payload['review_model_preset'] == '8gb-safe'
+    assert payload['review_model'] == 'qwen2.5:7b'
+    assert payload['pilot_manifest_law_count'] == 1
+    assert payload['pilot_covered_law_count'] == 1
+    assert payload['inventory_only_law_count'] == 1
+    assert payload['discovered_law_folder_count'] == 2
+
+    report = tmp_path / payload['report_path']
+    assert report.exists()
+    report_payload = json.loads(report.read_text(encoding='utf-8'))
+    laws = {item['folder_name']: item for item in report_payload['laws']}
+    assert laws['PD-1096']['pilot_covered'] is True
+    assert laws['RA-9514']['pilot_covered'] is False
