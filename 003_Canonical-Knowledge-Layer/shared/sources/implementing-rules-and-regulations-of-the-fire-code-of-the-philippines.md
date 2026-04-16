@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the Fire Code of the Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-16T15:24:11.466262+00:00
+last_canonicalized_utc: 2026-04-16T18:50:02.709047+00:00
 aliases:
   - RA 9514
   - Republic Act No. 9514
@@ -17,7 +17,7 @@ aliases:
 
 ## Overview
 
-a country where tragic fires leave people devastated but not resolute in preventing them, and at a time when firefighting capability hardly catches up with socio-economic and technological advancements, a proactive and effective fire safety enforcement is crucial.
+Automated summary withheld for Implementing Rules and Regulations of the Fire Code of the Philippines because the refined source includes preface/message prose, image-heavy extraction, table-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
 
 ## Coverage
 
@@ -480,9 +480,7 @@ a country where tragic fires leave people devastated but not resolute in prevent
 
 ## Key Points
 
-- heartfelt greetings to the Bureau of Fire Protection (BFP) for the successful revision of the Implementing Rules and Regulations (IRR) of Republic Act No.
-- he revision of the Implementing Rules and Regulations (IRR) of Republic Act No.
-- epublic Act No.
+- (automated key points withheld because source-summary trust is low; review operative sections directly)
 
 ## Referenced Concepts
 

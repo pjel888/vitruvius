@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the National Building Code
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-16T15:23:10.820309+00:00
+last_canonicalized_utc: 2026-04-16T18:49:02.080424+00:00
 aliases:
   - PD 1096 IRR
   - National Building Code IRR
@@ -15,7 +15,7 @@ aliases:
 
 ## Overview
 
-- • NBCDO MEMORANDUM CIRCULAR NO. 1, s. 2004
+Automated summary withheld for Implementing Rules and Regulations of the National Building Code because the refined source includes table-of-contents material, preface/message prose, administrative front matter. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
 
 ## Coverage
 
@@ -208,7 +208,7 @@ aliases:
 
 ## Key Points
 
-- SUBJECT: COMPOSITION OF THE NO.___________ NATIONAL BUILDING CODE Series of 2005 DEVELOPMENT OFFICE x-x-x-x-x-x-x-x-x-x-x (NBCDO) Pursuant to Department Order No.
+- (automated key points withheld because source-summary trust is low; review operative sections directly)
 
 ## Referenced Concepts
 

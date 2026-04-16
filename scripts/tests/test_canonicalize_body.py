@@ -270,6 +270,64 @@ def test_build_structured_source_file_prefers_structural_headers(tmp_path, monke
     assert 'Revised Implementing Rules and Regulations' not in content
 
 
+def test_build_structured_source_file_keeps_medium_severity_overview(tmp_path, monkeypatch) -> None:
+    import vitruvius.canonicalize as canonicalize_mod
+
+    refined = tmp_path / '002_Raw-Conversion-Layer' / 'sample-medium.md'
+    refined.parent.mkdir(parents=True)
+    refined.write_text(
+        'TABLE OF CONTENTS\n'
+        + '\n'.join('| table row |' for _ in range(120))
+        + '\nThis implementing rules document governs building permits and occupancy classifications across the code.\n'
+        + '\n'.join('This section provides additional operative text for the medium-severity sample.' for _ in range(220))
+        + '\n'
+        + '## Section 1. Permit Requirements\n\nAll buildings must have permits.\n',
+        encoding='utf-8',
+    )
+
+    monkeypatch.setattr(canonicalize_mod, 'build_plan', lambda _p: {
+        'title': 'Sample Source',
+        'canonical_id': 'source-sample-source',
+        'trust': 'primary',
+        'aliases': [],
+    })
+
+    _target, content = canonicalize_mod.build_structured_source_file(
+        repo_root=tmp_path,
+        relative_markdown_path='sample-medium.md',
+    )
+    assert 'This implementing rules document governs building permits and occupancy classifications across the code.' in content
+    assert 'Automated summary withheld for Sample Source' not in content
+
+
+def test_build_structured_source_file_withholds_high_severity_overview(tmp_path, monkeypatch) -> None:
+    import vitruvius.canonicalize as canonicalize_mod
+
+    refined = tmp_path / '002_Raw-Conversion-Layer' / 'sample-high.md'
+    refined.parent.mkdir(parents=True)
+    refined.write_text(
+        'TABLE OF CONTENTS\n'
+        + '\n'.join('| table row |' for _ in range(900))
+        + '\nThis implementing rules document governs building permits and occupancy classifications across the code.\n'
+        + '## Section 1. Permit Requirements\n\nAll buildings must have permits.\n',
+        encoding='utf-8',
+    )
+
+    monkeypatch.setattr(canonicalize_mod, 'build_plan', lambda _p: {
+        'title': 'Sample Source',
+        'canonical_id': 'source-sample-source',
+        'trust': 'primary',
+        'aliases': [],
+    })
+
+    _target, content = canonicalize_mod.build_structured_source_file(
+        repo_root=tmp_path,
+        relative_markdown_path='sample-high.md',
+    )
+    assert 'Automated summary withheld for Sample Source' in content
+    assert '(automated key points withheld because source-summary trust is low; review operative sections directly)' in content
+
+
 def test_extract_section_headers_cleans_merged_heading_words() -> None:
     text = '###### SECTION 5.0.1.2 SOURCESThe Technical Staff may be drawn from the following:\n'
     headers = extract_section_headers(text)

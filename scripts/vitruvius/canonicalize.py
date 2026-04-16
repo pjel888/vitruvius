@@ -479,12 +479,24 @@ def _summary_hygiene_flags(markdown_text: str) -> list[str]:
 
 def _summary_should_be_withheld(markdown_text: str) -> bool:
     lines = [line.strip() for line in markdown_text.splitlines() if line.strip()]
-    image_count = sum(1 for line in lines if line.startswith("!["))
-    table_count = sum(1 for line in lines if line.startswith("|") and line.endswith("|"))
-    if image_count > 100 or table_count > 100:
-        return True
-    flags = _summary_hygiene_flags(markdown_text)
-    return bool(flags) and (image_count > 20 or table_count > 50)
+    image_lines = [line for line in lines if line.startswith("![")]
+    table_lines = [line for line in lines if line.startswith("|") and line.endswith("|")]
+    noise_lines = [
+        line for line in lines
+        if (
+            "http://" in line.lower()
+            or "https://" in line.lower()
+            or "isbn" in line.lower()
+            or "table of contents" in line.lower()
+            or line.lower().startswith("govph")
+        )
+    ]
+    useful_lines = [
+        line for line in lines
+        if line not in image_lines and line not in table_lines and line not in noise_lines
+    ]
+    useful_ratio = (len(useful_lines) / len(lines)) if lines else 0.0
+    return useful_ratio < 0.6 or len(image_lines) > 500 or len(table_lines) > 800
 
 
 def _summary_withheld_notice(title: str, markdown_text: str) -> str:
