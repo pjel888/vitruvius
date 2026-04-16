@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -155,3 +156,31 @@ def test_visualize_graph_accepts_relative_out_path(tmp_path: Path) -> None:
     payload = json.loads(result.stdout)
     assert payload['out_path'] == 'tmp/demo.html'
     assert (tmp_path / 'tmp' / 'demo.html').exists()
+
+
+def test_visualize_graph_embeds_parseable_json_payloads(tmp_path: Path) -> None:
+    snapshot_path = (
+        tmp_path
+        / '005_Operational-Intelligence-Layer'
+        / 'graph'
+        / 'datasets'
+        / 'demo-dataset'
+        / '20260416T000000Z_graph_snapshot.json'
+    )
+    _write_snapshot(snapshot_path)
+
+    result = _run_cli(["visualize-graph", "--snapshot", str(snapshot_path)], cwd=tmp_path)
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    html = (tmp_path / payload["out_path"]).read_text(encoding="utf-8")
+
+    snapshot_match = re.search(r'<script type="application/json" id="snapshot-data">(.*?)</script>', html, re.S)
+    elements_match = re.search(r'<script type="application/json" id="elements-data">(.*?)</script>', html, re.S)
+    assert snapshot_match is not None
+    assert elements_match is not None
+
+    snapshot_payload = json.loads(snapshot_match.group(1))
+    elements_payload = json.loads(elements_match.group(1))
+    assert snapshot_payload["node_count"] == 2
+    assert len(elements_payload["nodes"]) == 2
+    assert len(elements_payload["edges"]) == 1

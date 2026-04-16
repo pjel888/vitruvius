@@ -238,3 +238,54 @@ def test_run_dataset_source_to_graph_rejects_visualize_during_dry_run(tmp_path: 
     assert result.returncode == 2
     payload = json.loads(result.stdout)
     assert '--visualize / --open-browser' in payload['error']
+
+
+def test_run_laws_pilot_dry_run_uses_bounded_manifest(tmp_path: Path) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    laws_manifest = tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml'
+    laws_manifest.write_text(manifest_path.read_text(encoding='utf-8'), encoding='utf-8')
+    result = _run_cli(
+        [
+            'run-laws-pilot',
+            '--dry-run',
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['action'] == 'run-dataset-source-to-graph'
+    assert payload['dataset_id'] == 'demo-dataset'
+    assert payload['dry_run'] is True
+
+
+def test_run_laws_pilot_dry_run_rejects_open_browser(tmp_path: Path) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    laws_manifest = tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml'
+    laws_manifest.write_text(manifest_path.read_text(encoding='utf-8'), encoding='utf-8')
+    result = _run_cli(
+        [
+            'run-laws-pilot',
+            '--dry-run',
+            '--open-browser',
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 2
+    payload = json.loads(result.stdout)
+    assert '--visualize / --open-browser' in payload['error']
+
+
+def test_run_laws_pilot_emits_progress_when_enabled(tmp_path: Path, monkeypatch) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    laws_manifest = tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml'
+    laws_manifest.write_text(manifest_path.read_text(encoding='utf-8'), encoding='utf-8')
+    monkeypatch.setenv('VITRUVIUS_CLI_PROGRESS', '1')
+    result = _run_cli(
+        [
+            'run-laws-pilot',
+            '--dry-run',
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    assert '[vitruvius] Loaded dataset manifest demo-dataset from config/datasets/laws-core-bundle-m1.yaml' in result.stderr

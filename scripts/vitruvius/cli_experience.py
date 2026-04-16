@@ -174,6 +174,16 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         next_step="Inspect the source-to-graph run report and the failing dataset-local stage outputs, then rerun after correcting the bounded inputs or stage configuration.",
         operator_safe=False,
     ),
+    "run-laws-pilot": _doc(
+        "run-laws-pilot",
+        "Run the bounded 4-law pilot from produced data through graph creation and visualization.",
+        human="This is the shortcut operator command for the current bounded laws pilot. It hardcodes the four-law pilot manifest and, unless you use --dry-run, also renders the browser HTML in the same command.",
+        technical="Delegates to `run-dataset-source-to-graph` with `config/datasets/laws-core-bundle-m1.yaml`, preserves the same review/export/check flags, enables visualization automatically for non-dry-run runs, and can optionally open the browser.",
+        success="A healthy result writes the bounded source-to-graph outputs, the scoped graph snapshot/report, and the visualization HTML path in one command.",
+        failure="The bounded pilot failed in one of the upstream dataset-local stages, the graph build, or the optional visualization step.",
+        next_step="Inspect the emitted source-to-graph report, graph build report, and visualization path, then rerun after correcting the failing bounded input or stage.",
+        operator_safe=False,
+    ),
     "detect-one": _doc(
         "detect-one",
         "Classify one PDF as text-usable or scan-like before conversion.",

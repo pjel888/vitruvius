@@ -228,6 +228,25 @@ def build_parser() -> argparse.ArgumentParser:
                                                help="Open the rendered HTML graph visualization in the default browser after a successful non-dry-run execution")
     dataset_source_to_graph_parser.add_argument("--visualization-out", default=None,
                                                help="Optional output HTML path for the post-run visualization")
+    laws_pilot_parser = add_command_parser(subparsers, "run-laws-pilot")
+    laws_pilot_parser.add_argument("--structured-check", action="append", default=None,
+                                   help="Repeatable FUNCTION:SUBJECT structured check against the final snapshot")
+    laws_pilot_parser.add_argument("--skip-export-owl", action="store_true",
+                                   help="Skip dataset-local OWL/Turtle export")
+    laws_pilot_parser.add_argument("--dry-run", action="store_true",
+                                   help="Validate/plans stages without executing writes")
+    laws_pilot_parser.add_argument("--review-model", default="gemma4:31b",
+                                   help="Tier-1 review model for dataset-local review")
+    laws_pilot_parser.add_argument("--review-timeout-seconds", type=int, default=600,
+                                   help="Tier-1 review timeout seconds")
+    laws_pilot_parser.add_argument("--review-parallel", type=int, default=None,
+                                   help="Tier-1 review parallelism override")
+    laws_pilot_parser.add_argument("--visualize", action="store_true",
+                                   help="Explicitly keep visualization enabled (default for non-dry-run pilot runs)")
+    laws_pilot_parser.add_argument("--open-browser", action="store_true",
+                                   help="Open the rendered HTML graph visualization in the default browser after a successful non-dry-run execution")
+    laws_pilot_parser.add_argument("--visualization-out", default=None,
+                                   help="Optional output HTML path for the post-run visualization")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -676,6 +695,35 @@ def main() -> int:
                 review_timeout_seconds=args.review_timeout_seconds,
                 review_parallelism=args.review_parallel,
                 visualize_graph=args.visualize or args.open_browser,
+                open_browser=args.open_browser,
+                visualization_out_path=args.visualization_out,
+            ),
+        )
+
+    if args.command == "run-laws-pilot":
+        from vitruvius.dataset_pipeline import (
+            DatasetPipelineError,
+            parse_structured_check,
+            run_dataset_source_to_graph_pipeline,
+        )
+        try:
+            structured_checks = [
+                parse_structured_check(raw) for raw in (args.structured_check or [])
+            ]
+        except DatasetPipelineError as exc:
+            print(json.dumps({"error": str(exc)}, indent=2))
+            return 2
+        return _run(
+            "run-laws-pilot",
+            lambda: run_dataset_source_to_graph_pipeline(
+                dataset_manifest="config/datasets/laws-core-bundle-m1.yaml",
+                structured_checks=structured_checks,
+                export_owl=not args.skip_export_owl,
+                dry_run=args.dry_run,
+                review_model=args.review_model,
+                review_timeout_seconds=args.review_timeout_seconds,
+                review_parallelism=args.review_parallel,
+                visualize_graph=(not args.dry_run) or args.visualize or args.open_browser,
                 open_browser=args.open_browser,
                 visualization_out_path=args.visualization_out,
             ),

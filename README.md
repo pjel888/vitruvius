@@ -1227,6 +1227,12 @@ PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-dataset-source-to-graph \
   --open-browser
 ```
 
+Inside the repo, you can also use the pilot shortcut command:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-pilot --skip-export-owl --open-browser
+```
+
 Dry-run first if you want to validate the bounded stage plan without executing writes:
 
 ```bash

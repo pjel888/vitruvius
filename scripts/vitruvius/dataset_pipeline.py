@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import io
 import json
+import os
 import re
+import sys
 import webbrowser
 from contextlib import redirect_stdout
 from dataclasses import dataclass
@@ -31,6 +33,15 @@ class StructuredCheck:
 
 class DatasetPipelineError(ValueError):
     pass
+
+
+def _progress_enabled() -> bool:
+    return sys.stderr.isatty() or os.getenv("VITRUVIUS_CLI_PROGRESS") == "1"
+
+
+def _emit_progress(message: str) -> None:
+    if _progress_enabled():
+        print(f"[vitruvius] {message}", file=sys.stderr, flush=True)
 
 
 def parse_structured_check(raw: str) -> StructuredCheck:
@@ -552,12 +563,17 @@ def run_dataset_source_to_graph_pipeline(
     manifest, manifest_path = _load_manifest_or_error(dataset_manifest, repo_root)
     if manifest is None:
         return 2
+    _emit_progress(
+        f"Loaded dataset manifest {manifest.dataset_id} from {manifest_path.relative_to(repo_root)}"
+    )
 
     run_id = utc_now_stamp().replace('-', '').replace(':', '').replace('+0000', 'Z').replace('T', 'T')
     paths = _dataset_source_to_graph_paths(manifest, run_id)
     generated_relationship_paths: list[tuple[str, str]] = []
     filtered_relationship_paths: list[str] = []
     stage_results: list[dict[str, object]] = []
+    total_stage_count = sum(len(law_unit.refined_markdown_paths or ()) for law_unit in manifest.law_units)
+    stage_index = 0
 
     for law_unit in manifest.law_units:
         law_base = paths["base"] / law_unit.law_id
@@ -565,8 +581,12 @@ def run_dataset_source_to_graph_pipeline(
         refined_paths = law_unit.refined_markdown_paths or ()
 
         for refined_path in refined_paths:
+            stage_index += 1
             normalized_refined_path = _normalize_refined_markdown_path(refined_path)
             source_id = canonical_source_id_for_relative_path(normalized_refined_path)
+            _emit_progress(
+                f"[{stage_index}/{total_stage_count}] Inspecting source quality for {law_unit.law_id} :: {Path(normalized_refined_path).name}"
+            )
             source_quality = _compute_refined_markdown_quality(repo_root, normalized_refined_path)
             try:
                 admitted_source_anchor = _resolve_admitted_source_anchor(
@@ -602,6 +622,7 @@ def run_dataset_source_to_graph_pipeline(
                 )
                 continue
 
+            _emit_progress(f"[{stage_index}/{total_stage_count}] Canonicalizing {source_id}")
             canonicalize_rc, canonicalize_output = _capture_text_handler(
                 lambda rel_path=normalized_refined_path: run_canonicalize_one(relative_markdown_path=rel_path)
             )
@@ -616,6 +637,7 @@ def run_dataset_source_to_graph_pipeline(
 
             extract_json = law_base / f"{Path(refined_path).stem}_extract.json"
             extract_txt = law_base / f"{Path(refined_path).stem}_extract.txt"
+            _emit_progress(f"[{stage_index}/{total_stage_count}] Extracting relationships for {source_id}")
             extract_rc, extract_output = _capture_text_handler(
                 lambda rel_path=normalized_refined_path: run_extract_relationships_sections_one_inner(
                     repo_root=repo_root,
@@ -638,6 +660,7 @@ def run_dataset_source_to_graph_pipeline(
             review_txt = law_base / f"{Path(refined_path).stem}_review.txt"
             triage_json = law_base / f"{Path(refined_path).stem}_triage.json"
             high_conf_json = law_base / f"{Path(refined_path).stem}_high_conf.json"
+            _emit_progress(f"[{stage_index}/{total_stage_count}] Reviewing extracted relationships for {source_id}")
             review_rc, review_output = _capture_text_handler(
                 lambda: run_review_relationships_ollama(
                     model=review_model,
@@ -660,6 +683,7 @@ def run_dataset_source_to_graph_pipeline(
                 return review_rc
 
             promoted_dir = paths["promoted_relationships"] / law_unit.law_id
+            _emit_progress(f"[{stage_index}/{total_stage_count}] Promoting dataset-local relationships for {source_id}")
             promote_result = run_promote_inner(
                 repo_root=repo_root,
                 execute=True,
@@ -733,6 +757,7 @@ def run_dataset_source_to_graph_pipeline(
         }, indent=2))
         return 0
 
+    _emit_progress("Building bounded graph snapshot from derived manifest")
     generated_relationship_paths = _dedupe_generated_relationship_paths(generated_relationship_paths, repo_root=repo_root)
     _append_generated_relationships_to_manifest(
         manifest_path,
@@ -757,6 +782,7 @@ def run_dataset_source_to_graph_pipeline(
     if visualize_graph or open_browser:
         from .graph.visualize import run_visualize_graph
 
+        _emit_progress("Rendering browser visualization HTML")
         visualize_rc, visualize_output = _capture_text_handler(
             lambda: run_visualize_graph(
                 snapshot_path=graph_payload.get("snapshot_path"),
@@ -771,6 +797,7 @@ def run_dataset_source_to_graph_pipeline(
             html_path = Path(visualization_payload["out_path"])
             if not html_path.is_absolute():
                 html_path = repo_root / html_path
+            _emit_progress(f"Opening browser for {html_path.relative_to(repo_root)}")
             browser_opened = webbrowser.open(html_path.resolve().as_uri())
 
     quality_summary = _source_quality_summary(stage_results)
@@ -810,4 +837,5 @@ def run_dataset_source_to_graph_pipeline(
         "browser_opened": browser_opened if open_browser else None,
     }
     print(json.dumps(summary, indent=2))
+    _emit_progress("Completed bounded source-to-graph pipeline")
     return 0
