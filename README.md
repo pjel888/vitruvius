@@ -1233,6 +1233,12 @@ Inside the repo, you can also use the pilot shortcut command:
 PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-pilot --skip-export-owl --open-browser
 ```
 
+Or, from the repo root, use the executable helper:
+
+```bash
+./run-laws-pilot --skip-export-owl --open-browser
+```
+
 Dry-run first if you want to validate the bounded stage plan without executing writes:
 
 ```bash
