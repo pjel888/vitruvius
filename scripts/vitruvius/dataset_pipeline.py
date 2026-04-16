@@ -305,6 +305,61 @@ def _source_quality_recommendations(metrics: dict[str, object]) -> list[str]:
     return recommendations
 
 
+def _source_summary_hygiene_flags(text: str) -> list[str]:
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    first_window = lines[:160]
+    flags: list[str] = []
+    lowered_window = [line.lower() for line in first_window]
+    if any("table of contents" in line for line in lowered_window):
+        flags.append("table_of_contents_front_matter")
+    if any(line in {"|preface|", "|message|"} for line in lowered_window):
+        flags.append("preface_or_message_front_matter")
+    if any("foreword" in line or "acknowledgement" in line for line in lowered_window):
+        flags.append("preface_or_message_front_matter")
+    if any("memorandum circular" in line for line in lowered_window):
+        flags.append("administrative_front_matter")
+    image_front_matter_count = sum(1 for line in first_window if line.startswith("!["))
+    table_front_matter_count = sum(1 for line in first_window if line.startswith("|") and line.endswith("|"))
+    if image_front_matter_count >= 3:
+        flags.append("image_heavy_front_matter")
+    if table_front_matter_count >= 6:
+        flags.append("table_heavy_front_matter")
+    return list(dict.fromkeys(flags))
+
+
+def _extraction_trust_level(metrics: dict[str, object]) -> str:
+    severity = metrics.get("severity")
+    summary_flags = metrics.get("summary_hygiene_flags") or []
+    if severity == "high":
+        return "review_required"
+    if severity == "medium" or summary_flags:
+        return "guarded"
+    return "trusted"
+
+
+def _extraction_trust_reasons(metrics: dict[str, object]) -> list[str]:
+    reasons: list[str] = []
+    severity = metrics.get("severity")
+    if severity == "high":
+        reasons.append("high extraction difficulty: require manual review before trusting unattended summaries")
+    elif severity == "medium":
+        reasons.append("moderate extraction difficulty: treat automated summaries as guarded")
+    flag_messages = {
+        "table_of_contents_front_matter": "front matter includes a table of contents before operative text",
+        "preface_or_message_front_matter": "front matter includes preface/message prose that can pollute source summaries",
+        "administrative_front_matter": "front matter includes circular or title-page material ahead of operative rules",
+        "image_heavy_front_matter": "front matter is image-heavy and may reflect OCR/layout instability",
+        "table_heavy_front_matter": "front matter is table-heavy and may reflect layout extraction noise",
+    }
+    for flag in metrics.get("summary_hygiene_flags", []):
+        message = flag_messages.get(flag)
+        if message:
+            reasons.append(message)
+    if metrics.get("manual_review_recommended"):
+        reasons.append("benchmark authoritative references before promoting summary claims")
+    return reasons
+
+
 
 def _benchmark_source_hints(normalized_refined_path: str, source_id: str) -> list[dict[str, str]]:
     rel = normalized_refined_path.lower()
@@ -376,7 +431,14 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
     metrics["severity"] = _source_quality_severity(metrics)
     metrics["recommendations"] = _source_quality_recommendations(metrics)
     metrics["benchmark_source_hints"] = _benchmark_source_hints(normalized_refined_path, "")
+    metrics["summary_hygiene_flags"] = _source_summary_hygiene_flags(text)
     metrics["manual_review_recommended"] = metrics["severity"] == "high"
+    metrics["summary_auto_withheld"] = metrics["severity"] == "high"
+    metrics["canonical_summary_action"] = (
+        "withhold_auto_summary" if metrics["summary_auto_withheld"] else "allow_auto_summary"
+    )
+    metrics["extraction_trust_level"] = _extraction_trust_level(metrics)
+    metrics["extraction_trust_reasons"] = _extraction_trust_reasons(metrics)
     return metrics
 
 
@@ -384,21 +446,28 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
 
 def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str, object]:
     counts = {"low": 0, "medium": 0, "high": 0}
+    extraction_trust_counts = {"trusted": 0, "guarded": 0, "review_required": 0}
     high_paths: list[str] = []
     manual_review_required_paths: list[str] = []
+    summary_auto_withheld_paths: list[str] = []
     benchmark_hints: dict[str, dict[str, str]] = {}
     for stage in stage_results:
         quality = stage.get("source_quality")
         if not isinstance(quality, dict):
             continue
         severity = quality.get("severity")
+        extraction_trust_level = quality.get("extraction_trust_level")
         path = stage.get("normalized_refined_markdown_path") or quality.get("refined_markdown_path")
         if severity in counts:
             counts[severity] += 1
             if severity == "high" and isinstance(path, str):
                 high_paths.append(path)
+        if extraction_trust_level in extraction_trust_counts:
+            extraction_trust_counts[extraction_trust_level] += 1
         if quality.get("manual_review_recommended") and isinstance(path, str):
             manual_review_required_paths.append(path)
+        if quality.get("summary_auto_withheld") and isinstance(path, str):
+            summary_auto_withheld_paths.append(path)
         for hint in quality.get("benchmark_source_hints", []):
             if isinstance(hint, dict):
                 url = hint.get("url")
@@ -406,10 +475,36 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
                     benchmark_hints[url] = hint
     return {
         "severity_counts": counts,
-        "high_severity_paths": list(dict.fromkeys(high_paths)),
-        "manual_review_required_paths": list(dict.fromkeys(manual_review_required_paths)),
+        "extraction_trust_counts": extraction_trust_counts,
+        "high_severity_paths": high_paths,
+        "manual_review_required_paths": manual_review_required_paths,
+        "summary_auto_withheld_paths": summary_auto_withheld_paths,
         "benchmark_source_hints": [benchmark_hints[url] for url in sorted(benchmark_hints)],
     }
+
+
+def _resolve_admitted_source_anchor(
+    *,
+    repo_root: Path,
+    law_unit,
+    expected_source_id: str,
+) -> dict[str, object]:
+    for rel_path in law_unit.admitted_source_paths:
+        frontmatter = _load_frontmatter(repo_root / rel_path)
+        source_id = frontmatter.get("id")
+        if source_id == expected_source_id:
+            return {
+                "path": rel_path,
+                "id": source_id,
+                "trust_level": frontmatter.get("trust_level"),
+                "title": frontmatter.get("title"),
+            }
+    admitted_paths = list(law_unit.admitted_source_paths)
+    raise DatasetPipelineError(
+        f"law unit {law_unit.law_id!r} has no admitted canonical source anchor for {expected_source_id!r}; "
+        "refined source-to-graph execution refuses raw/refined→graph shortcuts without a matching admitted source. "
+        f"Admitted source paths: {admitted_paths}"
+    )
 
 def run_dataset_source_to_graph_pipeline(
     *,
