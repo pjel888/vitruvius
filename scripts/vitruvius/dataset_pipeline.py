@@ -267,6 +267,24 @@ def _source_quality_severity(metrics: dict[str, object]) -> str:
         return "medium"
     return "low"
 
+
+
+def _source_quality_recommendations(metrics: dict[str, object]) -> list[str]:
+    recommendations: list[str] = []
+    image_count = int(metrics.get("image_line_count", 0) or 0)
+    table_count = int(metrics.get("table_line_count", 0) or 0)
+    useful_ratio = float(metrics.get("useful_text_ratio", 0.0) or 0.0)
+    structural_heading_count = int(metrics.get("structural_heading_count", 0) or 0)
+    if image_count > 100:
+        recommendations.append("high image-line count: verify OCR quality or alternate source availability")
+    if table_count > 100:
+        recommendations.append("high table-line count: verify layout-sensitive extraction and summary hygiene")
+    if useful_ratio < 0.8:
+        recommendations.append("low useful-text ratio: review source-summary trust before relying on canonical summaries")
+    if structural_heading_count < 5:
+        recommendations.append("low structural-heading count: verify section detection and source structure fidelity")
+    return recommendations
+
 def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: str) -> dict[str, object]:
     refined_path = repo_root / "002_Raw-Conversion-Layer" / normalized_refined_path
     text = refined_path.read_text(encoding="utf-8", errors="ignore")
@@ -301,8 +319,30 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
         "useful_text_ratio": round(len(useful_lines) / len(non_empty), 6) if non_empty else 0.0,
     }
     metrics["severity"] = _source_quality_severity(metrics)
+    metrics["recommendations"] = _source_quality_recommendations(metrics)
     return metrics
 
+
+
+
+def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str, object]:
+    counts = {"low": 0, "medium": 0, "high": 0}
+    high_paths: list[str] = []
+    for stage in stage_results:
+        quality = stage.get("source_quality")
+        if not isinstance(quality, dict):
+            continue
+        severity = quality.get("severity")
+        if severity in counts:
+            counts[severity] += 1
+            if severity == "high":
+                path = stage.get("normalized_refined_markdown_path") or quality.get("refined_markdown_path")
+                if isinstance(path, str):
+                    high_paths.append(path)
+    return {
+        "severity_counts": counts,
+        "high_severity_paths": high_paths,
+    }
 
 def run_dataset_source_to_graph_pipeline(
     *,
@@ -457,6 +497,7 @@ def run_dataset_source_to_graph_pipeline(
             )
 
     if dry_run:
+        quality_summary = _source_quality_summary(stage_results)
         report = {
             "action": "run-dataset-source-to-graph",
             "generated_at_utc": utc_now_stamp(),
@@ -464,6 +505,7 @@ def run_dataset_source_to_graph_pipeline(
             "run_id": run_id,
             "manifest_path": str(manifest_path.relative_to(repo_root)),
             "dry_run": True,
+            "source_quality_summary": quality_summary,
             "stage_results": stage_results,
         }
         write_json_report(paths["report"], report)
@@ -474,6 +516,7 @@ def run_dataset_source_to_graph_pipeline(
             "dry_run": True,
             "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
             "planned_stage_count": len(stage_results),
+            "source_quality_summary": quality_summary,
         }, indent=2))
         return 0
 
@@ -495,6 +538,7 @@ def run_dataset_source_to_graph_pipeline(
         return graph_rc
     graph_payload = json.loads(graph_output)
 
+    quality_summary = _source_quality_summary(stage_results)
     report = {
         "action": "run-dataset-source-to-graph",
         "generated_at_utc": utc_now_stamp(),
@@ -505,6 +549,7 @@ def run_dataset_source_to_graph_pipeline(
         "generated_relationship_count": len(generated_relationship_paths),
         "filtered_relationship_count": len(filtered_relationship_paths),
         "filtered_relationship_paths": filtered_relationship_paths,
+        "source_quality_summary": quality_summary,
         "stage_results": stage_results,
         "graph": graph_payload,
     }
@@ -517,6 +562,7 @@ def run_dataset_source_to_graph_pipeline(
         "derived_manifest_path": str(paths["derived_manifest"].relative_to(repo_root)),
         "generated_relationship_count": len(generated_relationship_paths),
         "filtered_relationship_count": len(filtered_relationship_paths),
+        "source_quality_summary": quality_summary,
         "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
         "graph_snapshot_path": graph_payload.get("snapshot_path"),
         "graph_build_report_path": graph_payload.get("build_report_path"),
