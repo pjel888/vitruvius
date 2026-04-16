@@ -492,10 +492,8 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
                     benchmark_hints[url] = hint
     return {
         "severity_counts": counts,
-        "extraction_trust_counts": extraction_trust_counts,
-        "high_severity_paths": high_paths,
-        "manual_review_required_paths": manual_review_required_paths,
-        "summary_auto_withheld_paths": summary_auto_withheld_paths,
+        "high_severity_paths": list(dict.fromkeys(high_paths)),
+        "manual_review_required_paths": list(dict.fromkeys(manual_review_required_paths)),
         "benchmark_source_hints": [benchmark_hints[url] for url in sorted(benchmark_hints)],
     }
 
