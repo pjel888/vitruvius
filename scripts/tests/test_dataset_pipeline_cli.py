@@ -276,6 +276,25 @@ def test_run_laws_pilot_dry_run_uses_bounded_manifest(tmp_path: Path) -> None:
     assert payload['dry_run'] is True
 
 
+def test_run_laws_pilot_dry_run_applies_8gb_review_preset(tmp_path: Path) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    laws_manifest = tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml'
+    laws_manifest.write_text(manifest_path.read_text(encoding='utf-8'), encoding='utf-8')
+    result = _run_cli(
+        [
+            'run-laws-pilot',
+            '--dry-run',
+            '--review-preset', 'm2-8gb-safe',
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['review_runtime']['model'] == 'qwen2.5:7b'
+    assert payload['review_runtime']['parallelism'] == 1
+    assert payload['review_runtime']['preset']['name'] == 'm2-8gb-safe'
+
+
 def test_run_laws_pilot_dry_run_rejects_open_browser(tmp_path: Path) -> None:
     manifest_path = _seed_repo(tmp_path)
     laws_manifest = tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml'
@@ -309,53 +328,29 @@ def test_run_laws_pilot_emits_progress_when_enabled(tmp_path: Path, monkeypatch)
     assert '[vitruvius] Loaded dataset manifest demo-dataset from config/datasets/laws-core-bundle-m1.yaml' in result.stderr
 
 
-def test_run_laws_pilot_dry_run_resolves_8gb_safe_review_model_preset(tmp_path: Path) -> None:
+def test_run_laws_all_dry_run_reports_inventory_and_gate(tmp_path: Path) -> None:
     manifest_path = _seed_repo(tmp_path)
     laws_manifest = tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml'
     laws_manifest.write_text(manifest_path.read_text(encoding='utf-8'), encoding='utf-8')
+    extra_folder = tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'BP-220'
+    extra_folder.mkdir(parents=True, exist_ok=True)
+    (extra_folder / 'bp220.pdf').write_bytes(b'%PDF-1.4\n')
+
     result = _run_cli(
         [
-            'run-laws-pilot',
-            '--dry-run',
-            '--review-model-preset', '8gb-safe',
+            'run-laws-all-dry-run',
+            '--review-preset', 'm2-8gb-safe',
         ],
         cwd=tmp_path,
     )
     assert result.returncode == 0, result.stderr
     payload = json.loads(result.stdout)
-    assert payload['review_model_preset'] == '8gb-safe'
-    assert payload['review_model'] == 'qwen2.5:7b'
-
-
-def test_run_all_laws_dry_run_reports_inventory_without_widening(tmp_path: Path) -> None:
-    manifest_path = _seed_repo(tmp_path)
-    laws_manifest = tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml'
-    laws_manifest.write_text(manifest_path.read_text(encoding='utf-8'), encoding='utf-8')
-    _seed_conversion_inventory(tmp_path, 'PD-1096', 'pilot-law')
-    _seed_conversion_inventory(tmp_path, 'RA-9514', 'inventory-law')
-
-    result = _run_cli(
-        [
-            'run-all-laws-dry-run',
-            '--review-model-preset', '8gb-safe',
-        ],
-        cwd=tmp_path,
-    )
-
-    assert result.returncode == 0, result.stderr
-    payload = json.loads(result.stdout)
-    assert payload['action'] == 'run-all-laws-dry-run'
-    assert payload['phase_11_generic_expansion_gated'] is True
-    assert payload['review_model_preset'] == '8gb-safe'
-    assert payload['review_model'] == 'qwen2.5:7b'
-    assert payload['pilot_manifest_law_count'] == 1
-    assert payload['pilot_covered_law_count'] == 1
-    assert payload['inventory_only_law_count'] == 1
-    assert payload['discovered_law_folder_count'] == 2
-
-    report = tmp_path / payload['report_path']
-    assert report.exists()
-    report_payload = json.loads(report.read_text(encoding='utf-8'))
-    laws = {item['folder_name']: item for item in report_payload['laws']}
-    assert laws['PD-1096']['pilot_covered'] is True
-    assert laws['RA-9514']['pilot_covered'] is False
+    assert payload['action'] == 'run-laws-all-dry-run'
+    assert payload['dry_run'] is True
+    assert payload['phase_11_gate'] == 'gated'
+    assert payload['raw_law_folder_count'] == 2
+    assert payload['raw_pdf_count'] == 2
+    assert payload['bounded_manifest_law_unit_count'] == 1
+    assert payload['review_runtime']['preset']['name'] == 'm2-8gb-safe'
+    report_path = tmp_path / payload['report_path']
+    assert report_path.exists()

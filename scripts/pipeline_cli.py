@@ -236,11 +236,14 @@ def build_parser() -> argparse.ArgumentParser:
                                                help="Skip dataset-local OWL/Turtle export")
     dataset_source_to_graph_parser.add_argument("--dry-run", action="store_true",
                                                help="Validate/plans stages without executing writes")
-    _add_review_model_args(dataset_source_to_graph_parser)
+    dataset_source_to_graph_parser.add_argument("--review-model", default=None,
+                                               help="Tier-1 review model for dataset-local review")
     dataset_source_to_graph_parser.add_argument("--review-timeout-seconds", type=int, default=600,
                                                help="Tier-1 review timeout seconds")
     dataset_source_to_graph_parser.add_argument("--review-parallel", type=int, default=None,
                                                help="Tier-1 review parallelism override")
+    dataset_source_to_graph_parser.add_argument("--review-preset", default=None,
+                                               help="Optional review preset (for example: m2-8gb-safe)")
     dataset_source_to_graph_parser.add_argument("--visualize", action="store_true",
                                                help="Render an HTML graph visualization after a successful non-dry-run execution")
     dataset_source_to_graph_parser.add_argument("--open-browser", action="store_true",
@@ -254,29 +257,27 @@ def build_parser() -> argparse.ArgumentParser:
                                    help="Skip dataset-local OWL/Turtle export")
     laws_pilot_parser.add_argument("--dry-run", action="store_true",
                                    help="Validate/plans stages without executing writes")
-    _add_review_model_args(laws_pilot_parser)
+    laws_pilot_parser.add_argument("--review-model", default=None,
+                                   help="Tier-1 review model for dataset-local review")
     laws_pilot_parser.add_argument("--review-timeout-seconds", type=int, default=600,
                                    help="Tier-1 review timeout seconds")
     laws_pilot_parser.add_argument("--review-parallel", type=int, default=None,
                                    help="Tier-1 review parallelism override")
+    laws_pilot_parser.add_argument("--review-preset", default=None,
+                                   help="Optional review preset (for example: m2-8gb-safe)")
     laws_pilot_parser.add_argument("--visualize", action="store_true",
                                    help="Explicitly keep visualization enabled (default for non-dry-run pilot runs)")
     laws_pilot_parser.add_argument("--open-browser", action="store_true",
                                    help="Open the rendered HTML graph visualization in the default browser after a successful non-dry-run execution")
     laws_pilot_parser.add_argument("--visualization-out", default=None,
                                    help="Optional output HTML path for the post-run visualization")
-    all_laws_dry_run_parser = add_command_parser(subparsers, "run-all-laws-dry-run")
-    all_laws_dry_run_parser.add_argument(
-        "--pilot-manifest",
-        default="config/datasets/laws-core-bundle-m1.yaml",
-        help="Bounded pilot manifest used as the current admitted-coverage baseline.",
-    )
-    _add_review_model_args(all_laws_dry_run_parser)
-    all_laws_dry_run_parser.add_argument(
-        "--report-out",
-        default=None,
-        help="Optional output path for the readiness dry-run JSON report.",
-    )
+    all_laws_dry_run_parser = add_command_parser(subparsers, "run-laws-all-dry-run")
+    all_laws_dry_run_parser.add_argument("--review-model", default=None,
+                                         help="Optional review model override for readiness planning")
+    all_laws_dry_run_parser.add_argument("--review-parallel", type=int, default=None,
+                                         help="Optional review parallelism override for readiness planning")
+    all_laws_dry_run_parser.add_argument("--review-preset", default=None,
+                                         help="Optional review preset (for example: m2-8gb-safe)")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -733,6 +734,7 @@ def main() -> int:
                 review_model_preset=args.review_model_preset,
                 review_timeout_seconds=args.review_timeout_seconds,
                 review_parallelism=args.review_parallel,
+                review_preset=args.review_preset,
                 visualize_graph=args.visualize or args.open_browser,
                 open_browser=args.open_browser,
                 visualization_out_path=args.visualization_out,
@@ -763,22 +765,21 @@ def main() -> int:
                 review_model_preset=args.review_model_preset,
                 review_timeout_seconds=args.review_timeout_seconds,
                 review_parallelism=args.review_parallel,
+                review_preset=args.review_preset,
                 visualize_graph=(not args.dry_run) or args.visualize or args.open_browser,
                 open_browser=args.open_browser,
                 visualization_out_path=args.visualization_out,
             ),
         )
 
-    if args.command == "run-all-laws-dry-run":
-        from vitruvius.laws_readiness import run_all_laws_dry_run
-
+    if args.command == "run-laws-all-dry-run":
+        from vitruvius.dataset_pipeline import run_all_laws_dry_run
         return _run(
-            "run-all-laws-dry-run",
+            "run-laws-all-dry-run",
             lambda: run_all_laws_dry_run(
-                pilot_manifest=args.pilot_manifest,
-                review_model=_resolve_review_model(),
-                review_model_preset=args.review_model_preset,
-                report_out=args.report_out,
+                review_model=args.review_model,
+                review_parallelism=args.review_parallel,
+                review_preset=args.review_preset,
             ),
         )
 
