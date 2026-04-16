@@ -534,7 +534,22 @@ def run_dataset_source_to_graph_pipeline(
 
         for refined_path in refined_paths:
             normalized_refined_path = _normalize_refined_markdown_path(refined_path)
+            source_id = canonical_source_id_for_relative_path(normalized_refined_path)
             source_quality = _compute_refined_markdown_quality(repo_root, normalized_refined_path)
+            try:
+                admitted_source_anchor = _resolve_admitted_source_anchor(
+                    repo_root=repo_root,
+                    law_unit=law_unit,
+                    expected_source_id=source_id,
+                )
+            except DatasetPipelineError as exc:
+                print(json.dumps({
+                    "error": str(exc),
+                    "law_id": law_unit.law_id,
+                    "refined_markdown_path": refined_path,
+                    "source_id": source_id,
+                }, indent=2))
+                return 2
             source_quality_path = paths["source_quality"] / law_unit.law_id / f"{Path(normalized_refined_path).stem}_source_quality.json"
             write_json_report(source_quality_path, source_quality)
             if dry_run:
@@ -543,7 +558,8 @@ def run_dataset_source_to_graph_pipeline(
                         "law_id": law_unit.law_id,
                         "refined_markdown_path": refined_path,
                         "normalized_refined_markdown_path": normalized_refined_path,
-                        "source_id": canonical_source_id_for_relative_path(normalized_refined_path),
+                        "source_id": source_id,
+                        "admitted_canonical_source_anchor": admitted_source_anchor,
                         "source_quality": source_quality,
                         "source_quality_path": str(source_quality_path.relative_to(repo_root)),
                         "planned_extract_json": str((law_base / f"{Path(refined_path).stem}_extract.json").relative_to(repo_root)),
@@ -568,7 +584,6 @@ def run_dataset_source_to_graph_pipeline(
 
             extract_json = law_base / f"{Path(refined_path).stem}_extract.json"
             extract_txt = law_base / f"{Path(refined_path).stem}_extract.txt"
-            source_id = canonical_source_id_for_relative_path(normalized_refined_path)
             extract_rc, extract_output = _capture_text_handler(
                 lambda rel_path=normalized_refined_path: run_extract_relationships_sections_one_inner(
                     repo_root=repo_root,
@@ -646,6 +661,7 @@ def run_dataset_source_to_graph_pipeline(
                     "refined_markdown_path": refined_path,
                     "normalized_refined_markdown_path": normalized_refined_path,
                     "source_id": source_id,
+                    "admitted_canonical_source_anchor": admitted_source_anchor,
                     "source_quality": source_quality,
                     "source_quality_path": str(source_quality_path.relative_to(repo_root)),
                     "extract_json": str(extract_json.relative_to(repo_root)),
@@ -679,6 +695,7 @@ def run_dataset_source_to_graph_pipeline(
             "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
             "planned_stage_count": len(stage_results),
             "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
+            "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
             "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),
             "source_quality_summary": quality_summary,
         }, indent=2))
@@ -728,6 +745,7 @@ def run_dataset_source_to_graph_pipeline(
         "generated_relationship_count": len(generated_relationship_paths),
         "filtered_relationship_count": len(filtered_relationship_paths),
         "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
+        "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
         "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),
         "source_quality_summary": quality_summary,
         "pipeline_report_path": str(paths["report"].relative_to(repo_root)),

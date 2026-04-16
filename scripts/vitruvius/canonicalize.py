@@ -444,6 +444,57 @@ def _clean_candidate_text(text: str) -> str:
     return cleaned.strip()
 
 
+def _summary_hygiene_flags(markdown_text: str) -> list[str]:
+    lines = [line.strip() for line in markdown_text.splitlines() if line.strip()]
+    first_window = lines[:160]
+    lowered_window = [line.lower() for line in first_window]
+    flags: list[str] = []
+    if any("table of contents" in line for line in lowered_window):
+        flags.append("table_of_contents_front_matter")
+    if any(line in {"|preface|", "|message|"} for line in lowered_window):
+        flags.append("preface_or_message_front_matter")
+    if any("foreword" in line or "acknowledgement" in line for line in lowered_window):
+        flags.append("preface_or_message_front_matter")
+    if any("memorandum circular" in line for line in lowered_window):
+        flags.append("administrative_front_matter")
+    if sum(1 for line in first_window if line.startswith("![")) >= 3:
+        flags.append("image_heavy_front_matter")
+    if sum(1 for line in first_window if line.startswith("|") and line.endswith("|")) >= 6:
+        flags.append("table_heavy_front_matter")
+    return list(dict.fromkeys(flags))
+
+
+def _summary_should_be_withheld(markdown_text: str) -> bool:
+    lines = [line.strip() for line in markdown_text.splitlines() if line.strip()]
+    image_count = sum(1 for line in lines if line.startswith("!["))
+    table_count = sum(1 for line in lines if line.startswith("|") and line.endswith("|"))
+    if image_count > 100 or table_count > 100:
+        return True
+    flags = _summary_hygiene_flags(markdown_text)
+    return bool(flags) and (image_count > 20 or table_count > 50)
+
+
+def _summary_withheld_notice(title: str, markdown_text: str) -> str:
+    flag_phrases = {
+        "table_of_contents_front_matter": "table-of-contents material",
+        "preface_or_message_front_matter": "preface/message prose",
+        "administrative_front_matter": "administrative front matter",
+        "image_heavy_front_matter": "image-heavy extraction",
+        "table_heavy_front_matter": "table-heavy extraction",
+    }
+    reasons = [
+        flag_phrases[flag]
+        for flag in _summary_hygiene_flags(markdown_text)
+        if flag in flag_phrases
+    ]
+    reason_text = ", ".join(reasons) if reasons else "extraction-difficulty signals"
+    return (
+        f"Automated summary withheld for {title} because the refined source includes "
+        f"{reason_text}. Review the Coverage headings and authoritative benchmark/reference "
+        "sources before relying on summary prose."
+    )
+
+
 def _concept_title_from_slug(concept_slug: str) -> str:
     return concept_slug.replace("-", " ")
 
@@ -477,8 +528,13 @@ def build_structured_source_file(
     structural_headers = [h for h in headers if _is_structural_heading(h["title"])]
     if structural_headers:
         headers = structural_headers
-    key_points = extract_key_points(refined_text, limit=5)
-    overview = build_overview_paragraph(refined_text)
+    summary_withheld = _summary_should_be_withheld(refined_text)
+    key_points = [] if summary_withheld else extract_key_points(refined_text, limit=5)
+    overview = (
+        _summary_withheld_notice(plan["title"], refined_text)
+        if summary_withheld
+        else build_overview_paragraph(refined_text)
+    )
     referenced = resolve_referenced_concepts(refined_text, repo_root=repo_root)
 
     lines = [
@@ -514,7 +570,10 @@ def build_structured_source_file(
     for kp in key_points:
         lines.append(f"- {kp}")
     if not key_points:
-        lines.append("- (no key points extracted)")
+        if summary_withheld:
+            lines.append("- (automated key points withheld because source-summary trust is low; review operative sections directly)")
+        else:
+            lines.append("- (no key points extracted)")
     lines.append("")
     lines.append("## Referenced Concepts")
     lines.append("")
