@@ -877,6 +877,7 @@ Execution status note (2026-04-16):
   - additive M2B dataset-safe stage wiring is complete
   - conservative RA-9514 relationship admission is complete
   - concept-fit follow-on slices are complete for `BP-344` and `BP-220`
+  - M3 orchestration is complete via `run-dataset-graph`
   - current bounded pilot outcome is now `SUCCESS`; see `2026-04-16_laws-core-bundle-bounded-pilot-success-validation.md`
 
 - [x] map the full source→graph path for the 4-folder core-laws-bundle pilot

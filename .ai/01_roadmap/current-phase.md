@@ -43,7 +43,7 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
   - a fresh implementation trigger must exist before coding starts
 
 ### 4. Laws Mini Dataset→Graph Pipeline
-- Status: bounded pilot success achieved on 2026-04-16; follow-on M3/M4 work remains open
+- Status: bounded pilot success achieved on 2026-04-16; M3 complete; M4 remains open
 - Governing artifact: `/.ai/03_plans/2026-04-16_laws-mini-dataset-graph-pipeline-plan.md`
 - Goal: prove a truthful, manifest-backed core-laws-bundle scoped graph first, then stage toward broader per-section and interconnected graph workflows
 - Phase 11 note: this is a **bounded pilot lane**, not a generic opening of Phase 11 dataset expansion; it may execute only within the accepted M1 scope and guardrails
@@ -54,6 +54,7 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
   - additive M2B dataset-safe stage wiring is now implemented; see `/.ai/05_logs/2026-04-16_laws-m2b-dataset-safe-stage-validation.md`
   - conservative RA-9514 relationship admission is now complete in the official scoped graph; see `/.ai/05_logs/2026-04-16_laws-m2b-relationship-admission-validation.md`
   - concept-fit follow-on slice admitted minimal concepts and relationship-backed edges for `BP-344` and `BP-220`
+  - M3 orchestration is now complete via `run-dataset-graph`; see `/.ai/05_logs/2026-04-16_laws-m3-orchestration-validation.md`
   - bounded pilot success validation: `/.ai/05_logs/2026-04-16_laws-core-bundle-bounded-pilot-success-validation.md`
   - current truthful bounded state:
     - `PD-1096` = `covered`
@@ -78,7 +79,7 @@ Do not use it for:
 1. Finish validation of the current plan-layer rewrite.
 2. If AGENTS coverage remains incomplete after validation, execute the nested-AGENTS governance plan.
 3. If AEC implementation is requested, accept the planned namespace and the relevant subsystem slice, then create fresh trigger/baseline/research/audit artifacts before coding.
-4. If follow-on laws dataset work is requested, keep it inside the accepted bounded pilot lane: the bounded four-folder pilot is now successful (`PD-1096 = covered`, `RA-9514 = covered`, `BP-344 = covered`, `BP-220 = covered`), but do not widen into generic Phase 11 expansion; remaining open work is M3/M4 follow-on orchestration and expansion, not pilot truth repair.
+4. If follow-on laws dataset work is requested, keep it inside the accepted bounded pilot lane: the bounded four-folder pilot is now successful (`PD-1096 = covered`, `RA-9514 = covered`, `BP-344 = covered`, `BP-220 = covered`), but do not widen into generic Phase 11 expansion; remaining open work is M4 expansion-path follow-on, not pilot truth repair.
 
 ## Not Current By Default
 - archived sprint plans under `/.ai/09_archive/plans/`

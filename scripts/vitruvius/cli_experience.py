@@ -154,6 +154,16 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         failure="A failure anywhere in the chain leaves downstream outputs partially updated, so review readiness is incomplete.",
         next_step="Inspect the stage that failed, rerun it directly if needed, then continue downstream from that checkpoint.",
     ),
+    "run-dataset-graph": _doc(
+        "run-dataset-graph",
+        "Run the manifest-defined dataset graph pipeline from admitted truth-bearing inputs.",
+        human="This is the bounded operator path for reproducing a dataset-scoped graph snapshot, optional OWL export, and optional structured verification checks.",
+        technical="Loads a dataset manifest, runs the scoped graph build, optionally exports Turtle, optionally runs structured checks against the final snapshot, and writes a dataset pipeline report under the dataset run root.",
+        success="A healthy result writes a fresh scoped snapshot plus a pipeline run report and optional verification outputs.",
+        failure="The manifest, scoped build, export, or structured verification failed, so the dataset run is not trustworthy yet.",
+        next_step="Inspect the emitted dataset run report and failing stage details, then rerun the command after correcting the scoped inputs or stage configuration.",
+        operator_safe=False,
+    ),
     "detect-one": _doc(
         "detect-one",
         "Classify one PDF as text-usable or scan-like before conversion.",

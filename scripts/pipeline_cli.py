@@ -199,6 +199,13 @@ def build_parser() -> argparse.ArgumentParser:
     add_command_parser(subparsers, "canonicalize")
     add_command_parser(subparsers, "refine")
     add_command_parser(subparsers, "run-with-review")
+    dataset_graph_parser = add_command_parser(subparsers, "run-dataset-graph")
+    dataset_graph_parser.add_argument("--dataset-manifest", required=True,
+                                      help="Dataset manifest to orchestrate")
+    dataset_graph_parser.add_argument("--structured-check", action="append", default=None,
+                                      help="Repeatable FUNCTION:SUBJECT structured check against the final snapshot")
+    dataset_graph_parser.add_argument("--skip-export-owl", action="store_true",
+                                      help="Skip dataset-local OWL/Turtle export")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -586,6 +593,20 @@ def main() -> int:
 
     if args.command == "run-with-review":
         return _run("run-with-review", run_pipeline_with_review)
+
+    if args.command == "run-dataset-graph":
+        from vitruvius.dataset_pipeline import parse_structured_check, run_dataset_graph_pipeline
+        structured_checks = [
+            parse_structured_check(raw) for raw in (args.structured_check or [])
+        ]
+        return _run(
+            "run-dataset-graph",
+            lambda: run_dataset_graph_pipeline(
+                dataset_manifest=args.dataset_manifest,
+                structured_checks=structured_checks,
+                export_owl=not args.skip_export_owl,
+            ),
+        )
 
     if args.command == "refine-one":
         from vitruvius.normalization.refine import run_refine_one

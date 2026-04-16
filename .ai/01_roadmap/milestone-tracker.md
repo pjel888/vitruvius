@@ -199,6 +199,7 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - M2B additive dataset-safe extraction/review/second-pass/promotion path wiring is complete
   - conservative dataset-scoped relationship admission is now complete for `RA-9514` (2 admitted relationship inputs)
   - concept-fit follow-on work admitted minimal law-specific concepts and relationship-backed edges for `BP-344` and `BP-220`
+  - M3 orchestration is now complete via the bounded `run-dataset-graph` composite command
   - the four-folder bounded pilot now reaches `SUCCESS`; see `/.ai/05_logs/2026-04-16_laws-core-bundle-bounded-pilot-success-validation.md`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
