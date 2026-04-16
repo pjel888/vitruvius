@@ -36,7 +36,7 @@ Fresh run returns `passed: true` with 6 warnings:
 All warnings are currently `orphan_node` findings from `scripts/vitruvius/graph/integrity.py::_orphan_findings()`.
 
 ### 2. GitNexus analyze
-Fresh `npx gitnexus analyze` completes successfully but prints repeated Node warnings:
+Fresh raw `npx gitnexus analyze` completes successfully but prints repeated Node warnings:
 - `MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 drain listeners added to [WriteStream]`
 
 ## Code-grounded findings

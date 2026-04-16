@@ -186,7 +186,7 @@ Fall back to Grep, Glob, or Read only when the graph does not cover the need.
 
 This project is indexed by GitNexus as **vitruvius**. Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
-> If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
+> If any GitNexus tool warns the index is stale, run `./scripts/gitnexus_analyze.sh` in terminal first.
 
 ### Always Do
 - MUST run impact analysis before editing any symbol
@@ -247,19 +247,13 @@ Before completing any code modification task, verify:
 4. All d=1 dependents were updated
 
 ### Keeping the Index Fresh
-After committing code changes, the GitNexus index becomes stale. Re-run analyze to update it:
+After committing code changes, the GitNexus index becomes stale. Re-run the pinned wrapper to update it:
 
 ```bash
-npx gitnexus analyze
+./scripts/gitnexus_analyze.sh
 ```
 
-If the index previously included embeddings, preserve them by adding `--embeddings`:
-
-```bash
-npx gitnexus analyze --embeddings
-```
-
-To check whether embeddings exist, inspect `.gitnexus/meta.json` — the `stats.embeddings` field shows the count.
+The wrapper pins GitNexus `1.6.2-rc.10`, which avoids the known `MaxListenersExceededWarning` seen on older cached releases, and it automatically preserves embeddings when `.gitnexus/meta.json` reports `stats.embeddings > 0`.
 
 ---
 
@@ -493,9 +487,9 @@ Never let implementation outrun truth.
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **vitruvius** (6807 symbols, 16706 relationships, 300 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **vitruvius**. Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
-> If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
+> If any GitNexus tool warns the index is stale, run `./scripts/gitnexus_analyze.sh` in terminal first.
 
 ## Always Do
 
@@ -563,19 +557,13 @@ Before completing any code modification task, verify:
 
 ## Keeping the Index Fresh
 
-After committing code changes, the GitNexus index becomes stale. Re-run analyze to update it:
+After committing code changes, the GitNexus index becomes stale. Re-run the pinned wrapper to update it:
 
 ```bash
-npx gitnexus analyze
+./scripts/gitnexus_analyze.sh
 ```
 
-If the index previously included embeddings, preserve them by adding `--embeddings`:
-
-```bash
-npx gitnexus analyze --embeddings
-```
-
-To check whether embeddings exist, inspect `.gitnexus/meta.json` — the `stats.embeddings` field shows the count (0 means no embeddings). **Running analyze without `--embeddings` will delete any previously generated embeddings.**
+The wrapper pins GitNexus `1.6.2-rc.10`, uses `--skip-agents-md` so GitNexus does not overwrite local operator guidance, and automatically preserves embeddings when `.gitnexus/meta.json` reports `stats.embeddings > 0`.
 
 > Claude Code users: A PostToolUse hook handles this automatically after `git commit` and `git merge`.
 

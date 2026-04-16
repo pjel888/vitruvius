@@ -231,8 +231,22 @@ Fresh filesystem evidence:
 - `RA-9514` file count: **1**
 - `BP-344` file count: **2**
 - `BP-220` file count: **1**
+- there is already at least one BP-344-adjacent source outside the `BP-344/` folder:
+  - `001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf`
+- `PD-1096/` is visibly variant-rich rather than edition-uniform, containing names such as:
+  - `...Complete Scan.pdf`
+  - `...Full Text (Malacanang Edition).pdf`
+  - `...Illustrated (Pedro Santos Jr).pdf`
+  - `...Summary.pdf`
+  - `...Compact).pdf`
+  - multiple `IRR` / `RIRR` files and partial rule extracts
+- `BP-344/` also already shows variant/authority questions:
+  - `2024 Revised Implementing Rules and Regulations ...`
+  - `BP-344 IRR Accessibility Law DPWH.pdf`
 
 This confirms the 4-folder bundle is materially richer than a 1–2 document pilot, but still quite small and bounded.
+It also confirms that folder-name heuristics are insufficient; manifest membership must stay explicit.
+It further confirms that file-role metadata is needed because bundle membership alone does not answer which variant is authoritative, supporting, summary-only, or excluded.
 
 ## 05A — Fresh Tooling Evidence
 - `python3 scripts/pipeline_cli.py build-graph --help` → PASS
@@ -246,6 +260,11 @@ This confirms the 4-folder bundle is materially richer than a 1–2 document pil
 - `npx gitnexus query`
 - `npx gitnexus context`
 - direct code inspection
+
+Fresh GitNexus status evidence:
+- `npx gitnexus status` → `Status: ⚠️ stale (re-run gitnexus analyze)`
+- indexed commit: `616c14a`
+- current commit: `e3c2bda`
 
 That bundle is more graph-useful than a one-law proof, but it should still be treated as a **bounded pilot bundle**, not as proof that current extraction/query logic is already generic across all laws folders.
 

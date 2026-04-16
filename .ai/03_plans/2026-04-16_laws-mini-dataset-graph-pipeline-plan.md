@@ -169,6 +169,7 @@ Do **not** edit code in a way that hardcodes the first bundle by folder name jus
 #### Deliverables
 - explicit path map from raw slice anchor → conversion → refinement → canonicalization → extraction → review → promotion → graph build → query/export
 - blast-radius map of all modules, commands, run artifacts, and state/docs touched by a scoped graph proof
+- pilot-bundle admission checklist covering include/exclude decisions for adjacent or related law-family documents that sit outside the four named pilot folders
 - optimization/rust triage identifying:
   - what is orchestration only and should remain Python
   - what may become hot-path enough to justify future Rust consideration
@@ -185,6 +186,9 @@ Do **not** edit code in a way that hardcodes the first bundle by folder name jus
   - `RA-9514`: 1 file
   - `BP-344`: 2 files
   - `BP-220`: 1 file
+- raw-bundle boundary evidence already shows at least one adjacent related document lives outside a pilot folder:
+  - `001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf`
+  - this makes folder-name heuristics unsafe; manifest membership must stay explicit
 - initial optimization triage says the first execution slice is still orchestration/state/artifact-routing work and should remain Python unless later profiling proves otherwise
 - team-assisted audit also confirmed:
   - current shared graph footprint: `23` nodes / `30` edges / `6` warnings / `0` errors
@@ -192,6 +196,7 @@ Do **not** edit code in a way that hardcodes the first bundle by folder name jus
   - `latest_relationship_extraction_sections.json` ≈ `96 KB`
   - `latest_relationship_review_high_confidence.json` ≈ `37 KB`
   - targeted graph/query test slice passed (`57` tests), with an additional graph/query CLI slice observed at `13` passing tests
+- `npx gitnexus status` currently reports the index as stale (`indexed commit: 616c14a`, `current commit: e3c2bda`), so any later execution-phase impact analysis must refresh GitNexus before code edits
 
 #### Acceptance Criteria
 - every touched command/module is enumerated
@@ -201,6 +206,7 @@ Do **not** edit code in a way that hardcodes the first bundle by folder name jus
 - any future Rust candidates are named only as hypotheses, with justification requirements rather than premature commitments
 - the audit explicitly distinguishes **micro pilot needs** from **macro codebase design constraints**
 - the audit explicitly records low-spec constraints and likely memory-pressure points for the scoped proof
+- any adjacent law-family sources outside the four named folders are explicitly included or excluded by manifest rather than inferred by directory heuristics
 
 #### Implementation Direction
 - inspect and document the full path through:
@@ -305,6 +311,7 @@ The first implementation should define a compact manifest contract with fields s
 - `run_output_root`
 - `query_snapshot_path`
 - `notes_on_scope`
+- `entry_role_manifest` or equivalent per-file role metadata
 
 Design rule:
 - the manifest contract must be **dataset-generic**, not “laws-core-bundle-specific”
@@ -315,7 +322,7 @@ Design rule:
 
 #### Manifest shape
 - **Default:** one dataset manifest per pilot bundle
-- **Recommended fields:** `dataset_id`, `dataset_kind`, `raw_slice_anchors`, `canonical_input_manifest`, `relationship_input_manifest`, `graph_output_root`, `run_output_root`, `query_snapshot_path`, `freshness_policy`, `pilot_gate`
+- **Recommended fields:** `dataset_id`, `dataset_kind`, `raw_slice_anchors`, `canonical_input_manifest`, `relationship_input_manifest`, `graph_output_root`, `run_output_root`, `query_snapshot_path`, `freshness_policy`, `pilot_gate`, and per-entry role/authority metadata
 - **Rationale:** this keeps scope in data, not code, and is the cleanest defense against hardcoding the first 4-folder bundle into implementation logic
 
 #### Canonical input selection
@@ -341,6 +348,19 @@ Design rule:
 
 #### Pilot acceptance gate
 - **Default:** M1 is allowed only if manifest validation, bounded inputs, bounded outputs, scoped query, anti-special-case checks, and low-spec planning are all satisfied
+
+### Pilot Manifest Entry Metadata Defaults
+At minimum, each pilot-manifest entry should be able to express:
+- `raw_path`
+- `entry_role` (`authoritative`, `reference`, `summary`, `illustrative`, `partial_extract`, `adjacent_context`)
+- `authority_tier`
+- `variant_family`
+- `edition_or_source_note`
+- `include_in_m1` (boolean)
+- `reason`
+
+Design rule:
+- file-role ambiguity must be handled in manifest data, not by silent filename heuristics or code branches
 
 ### Bundle-Wide Policy Statements
 - The 4-folder bundle is a **validation target**, not an implementation special case.
@@ -482,6 +502,19 @@ Minimum rule:
 - every folder in the manifest must appear in the final run report
 - each folder must either contribute at least one truth-bearing artifact or be explicitly marked blocked/deferred with reason
 
+### Per-Folder Coverage Report Schema
+The final M1 validation/reporting layer should include one row per bundle member with at least:
+- `folder_name`
+- `raw_file_count`
+- `converted_count`
+- `refined_count`
+- `canonical_count`
+- `approved_relationship_input_count`
+- `node_count_contributed`
+- `edge_count_contributed`
+- `status` (`covered`, `partial`, `blocked`, `deferred`)
+- `notes`
+
 ### Thin-Graph Decision Rule
 A scoped graph proof is **not** automatically successful merely because it emits a valid snapshot.
 
@@ -491,6 +524,15 @@ Minimum usefulness checks should include:
 - more than one connected relation chain
 - not mostly isolated nodes
 - 3–5 seeded questions returning evidence-bearing answers
+
+### Thin-Graph Metrics to Record
+The first proof should record, at minimum:
+- connected-component count
+- isolated-node count or rate
+- edge type diversity
+- per-folder node/edge contribution balance
+- seeded query hit rate
+- final outcome judgment: `SUCCESS` / `PARTIAL` / `FAIL`
 
 ### M1 Success vs Partial Success vs Fail Rubric
 
@@ -521,6 +563,30 @@ Call M1 failed if any of the following occur:
 - stale dataset outputs can masquerade as current truth
 - the design cannot preserve the current default/global path
 - the approach is not viable on an 8 GB-class machine without breaking the bounded-scope assumptions
+
+## 10I. M1 → M2 Boundary and Expansion Triggers
+
+### M1 may stop without widening to M2 if:
+- the scoped graph proof succeeds using manifest-selected approved relationship inputs
+- the scoped query surface is truthful and evidence-bearing
+- no review/promotion artifact scoping changes are required for the proof
+- the proof is generic enough to accept a second manifest instance without code surgery
+
+### M2 must start immediately if any of the following are true:
+- the first proof requires new relationship generation/review outputs that cannot be sourced safely from manifest-selected approved inputs
+- promotion must be involved and the only available path depends on global `latest_relationship_*`
+- the graph proof cannot stay truthful without dataset-scoped review/promotion artifacts
+- scoped artifact freshness cannot be guaranteed without dataset-tagged review/promotion outputs
+
+### After M1 success, the following may stay deferred:
+- dataset-scoped batch conversion wrappers
+- dataset-scoped batch refinement wrappers
+- dataset-scoped batch canonicalization wrappers
+- broader all-laws or per-section orchestration
+- any Rust implementation work
+
+### Planning note
+This boundary is critical: M1 is a **scoped graph proof**, not a promise that review/promotion scoping is already solved.
 
 ## 10F. M1 Execution-Readiness Gate
 
@@ -605,6 +671,8 @@ M1 may add **parallel scoped paths** and **dataset-scoped artifacts**, but it mu
 11. **Artifact-reuse risk** — stale dataset-specific outputs could be mistaken for current truth unless the plan defines clear refresh/selection semantics.
 12. **Partial-run truth risk** — a partially completed bundle could still emit a technically valid graph and mislead operators if incompleteness is not surfaced explicitly.
 13. **Thin-graph false-success risk** — a graph may be valid but too sparse or skewed to be an honest success for the intended bundle.
+14. **Adjacent-source contamination risk** — related laws or orders may live outside the four chosen pilot folders (for example, BP-344-adjacent material under `001-Laws/DPWH/`), so folder-only inclusion rules can silently widen scope.
+15. **Stale-impact-map risk** — a stale GitNexus index or stale graph-tool context can underreport the real blast radius right before coding starts.
 
 ### Stop Conditions
 Stop execution planning and revisit the contract if:
@@ -618,6 +686,8 @@ Stop execution planning and revisit the contract if:
 - stale or ambiguous dataset-specific outputs cannot be clearly distinguished from current scoped truth
 - partial bundle execution can produce a misleadingly “successful” graph without explicit incompleteness markers
 - the graph is technically valid but operationally too thin to support meaningful scoped queries
+- pilot-bundle membership is ambiguous because adjacent law-family documents outside the four selected folders have not been explicitly included or excluded
+- GitNexus freshness has not been re-established on the then-current commit before implementation planning turns into code edits
 
 ## 11. Verification Plan
 M1 must include all of the following:
@@ -701,6 +771,10 @@ M1 must include all of the following:
 21. **Low-spec budget verification**
    - verify the implemented slice stayed inside the planned low-spec working-set assumptions rather than quietly broadening to whole-layer behavior
 
+22. **M1→M2 boundary verification**
+   - explicitly state whether M1 was able to complete without widening into review/promotion scoping
+   - if M2 is triggered, state exactly which condition forced the widening
+
 ## 12. Follow-On Staffing Guidance
 
 ### Available agent types
@@ -774,6 +848,26 @@ The following are explicitly forbidden during M1 unless a separately-audited mig
 ### Planning enforcement
 If any proposed execution step requires one of the forbidden moves above, M1 must stop and return to planning.
 
+## 13B. Assumptions and Invalidation Triggers
+
+### Current planning assumptions
+1. The 4-folder pilot bundle is graph-useful enough to justify a scoped proof.
+2. Manifest-selected approved relationship inputs may be sufficient for the first proof.
+3. A scoped query/snapshot selector can be added without breaking the default/global query path.
+4. Dataset-scoped outputs can coexist with the current global `latest_*` outputs without ambiguity if freshness semantics are explicit.
+5. The first meaningful low-spec wins will come from scope control and artifact isolation, not from moving code into Rust.
+
+### Invalidation triggers
+Return to planning immediately if any of these assumptions prove false:
+- the selected bundle is too thin to support a useful graph even when scoped correctly
+- approved relationship inputs are insufficient and force a much wider review/promotion rewrite than expected
+- scoped query selection cannot be introduced without destabilizing the current global query path
+- dataset-scoped outputs cannot be kept unambiguous about freshness/selection
+- the only plausible implementation path requires pilot-specific hardcoding or high-memory behavior
+
+### Planning use
+These assumptions are allowed to guide M1 only until contradicted by path-audit evidence or future design review.
+
 ## 14. Execution Checklist
 - [ ] map the full source→graph path for the 4-folder core-laws-bundle pilot
 - [ ] produce the blast-radius list for commands/modules/artifacts/docs likely to change
@@ -816,6 +910,24 @@ If any proposed execution step requires one of the forbidden moves above, M1 mus
 - introducing pilot-specific branches before the manifest contract is settled
 - changing global `latest_*` behavior to make the first pilot appear successful
 
+## 15A. Defer Matrix After M1
+
+Even if M1 succeeds, the following should remain deferred unless explicit evidence says otherwise:
+
+| Area | Default after M1 | Why defer |
+|---|---|---|
+| dataset-scoped batch conversion wrappers | defer | graph proof does not require broad batch orchestration yet |
+| dataset-scoped batch refinement wrappers | defer | same reason; avoid widening blast radius prematurely |
+| dataset-scoped batch canonicalization wrappers | defer | same reason; shared truth boundary is too sensitive to broaden casually |
+| full dataset-scoped review pipeline | defer unless M1 requires it | review scoping is truth-sensitive and should only widen when necessary |
+| full dataset-scoped promotion pipeline | defer unless M1 requires it | promotion touches shared truth and should widen only on evidence |
+| broader all-laws support | defer | first proof is not generic all-laws support |
+| merged / interconnected multi-section graph | defer | collision/provenance policy must mature first |
+| Rust implementation work | defer | only justified after profiling shows a real hot path |
+
+### Rule
+M1 success does **not** automatically authorize widening to M2, M3, or broader corpus work. Each widening step must be justified by evidence, not momentum.
+
 ## 16. Verification Surface Map for Future M1 Work
 
 The following test/validation surfaces are the most likely to matter when M1 eventually begins:
@@ -831,3 +943,190 @@ The following test/validation surfaces are the most likely to matter when M1 eve
 
 ### Planning note
 The execution phase should prefer **small targeted test slices first**, then broader regression only after the scoped surfaces behave correctly.
+
+## 17. M1 Evidence Package Template
+
+When M1 eventually runs, the execution/validation layer should be required to produce a coherent evidence package with at least:
+
+### A. Scope identity artifacts
+- dataset manifest file
+- manifest hash
+- dataset id / run id
+- selected raw slice anchors
+
+### B. Scoped output artifacts
+- dataset-specific graph snapshot
+- dataset-specific integrity report
+- dataset-specific query evidence samples
+- dataset-specific export artifact(s) if export is in scope
+
+### C. Truth / freshness artifacts
+- upstream relationship input references
+- artifact freshness metadata proving currentness
+- statement that global `latest_*` artifacts were not used or mutated in dataset mode
+
+### D. Coverage / usefulness artifacts
+- per-folder coverage table
+- connected-component / isolated-node / edge-diversity observations
+- seeded query hit-rate summary
+- explicit `SUCCESS` / `PARTIAL` / `FAIL` judgment
+
+### E. Macro safety artifacts
+- default/global path preservation evidence
+- anti-special-case review evidence
+- low-spec observations / working-set notes
+- rollback/removability statement for dataset-scoped outputs
+
+### F. Recommended home for the evidence package
+- validation log under `.ai/05_logs/`
+- benchmark / low-spec notes under `.ai/00_performance/`
+- any machine-readable benchmark/state companions under `.ai/10_state/`
+
+### Planning rule
+M1 should not be considered complete until this evidence package exists in a form that another reviewer can inspect without reconstructing the run from memory.
+
+## 18. Pilot Bundle Admission Checklist
+
+Before M1 begins, the four-folder pilot bundle must be admitted explicitly rather than inferred casually.
+
+| Admission question | Required answer before M1 |
+|---|---|
+| What is the exact raw anchor for each bundle member? | each of `PD-1096`, `RA-9514`, `BP-344`, and `BP-220` is named explicitly in the manifest |
+| Are there adjacent related documents outside those folders? | each such document is explicitly included or excluded, with a reason |
+| Is upstream lineage known? | conversion/refinement/canonical/promoted inputs are either traceable or explicitly marked blocked |
+| Are multiple editions/variants present? | the manifest or sidecar policy states whether all, one, or a prioritized subset are in scope |
+| Is expected coverage known? | each folder has an expected coverage note so “empty but technically valid” does not surprise the verifier |
+| Is there any bundle ambiguity left? | no unresolved include/exclude ambiguity remains when M1 starts |
+
+### Current boundary evidence
+- `BP-344` already has an adjacent related source outside the pilot folder:
+  - `001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf`
+- This means the pilot cannot rely on simple directory-pattern expansion without risking scope leakage.
+
+### Rule
+If pilot-bundle admission cannot be stated explicitly in manifest terms, M1 is not ready.
+
+## 18A. Variant / Edition Admission Policy
+
+The first pilot bundle contains multiple editions, scans, summaries, illustrative materials, and partial extracts. M1 must not treat those as interchangeable by default.
+
+### Current variant evidence
+- `PD-1096/` includes:
+  - complete scan
+  - full-text edition
+  - illustrated edition
+  - summary
+  - compact edition
+  - multiple IRR / RIRR files
+  - partial rule extracts
+- `BP-344/` includes at least:
+  - a `2024 Revised Implementing Rules and Regulations...`
+  - `BP-344 IRR Accessibility Law DPWH.pdf`
+
+### Planning requirement
+Before M1 begins, the manifest must say whether each file is:
+- authoritative input
+- supporting/reference input
+- summary-only context
+- illustrative/non-authoritative context
+- excluded from the first proof
+
+### Rule
+If multiple variants are present but the manifest does not explain their role, M1 is not ready because duplicate or conflicting source semantics are still unresolved.
+
+## 19. Requirement-to-Evidence Traceability Matrix
+
+| Requirement | Governing section(s) | Minimum execution evidence | Failure signal |
+|---|---|---|---|
+| manifest-generic scoping | §§8, 9, 13A | manifest file + anti-special-case review note | folder names are hardcoded or only one pilot bundle works |
+| default/global path preservation | §§9, 10H, 11.2, 11.10 | unchanged global outputs + backcompat CLI/query evidence | dataset mode silently repoints the default/global path |
+| scoped truth/freshness | §§9, 11.4, 17C | artifact metadata + upstream refs + freshness statement | stale dataset outputs are indistinguishable from current truth |
+| bundle completeness honesty | §§9, 11.12, 17D | per-folder coverage table + incompleteness markers if needed | a missing folder or skipped input is hidden |
+| scoped query correctness | §§10G, 11.6, 11.15, 17B | seeded query evidence from the selected snapshot | answers come from the wrong snapshot or lack provenance |
+| thin-graph honesty | §§9, 11.14, 17D | connected-component / isolated-node / hit-rate metrics | a sparse graph is reported as full success |
+| low-spec viability | §§10G, 11.21, 17E | `.ai/00_performance/` notes + bounded working-set observations | proof only works by assuming large RAM or whole-corpus loads |
+| rollback/removability | §§9, 11.3, 17E | dataset-output removal/archive proof | global/shared artifacts need repair after scoped outputs are removed |
+| fresh blast-radius control | §§5A, 7(M0), 10F | fresh impact analysis on the current commit | implementation starts from stale graph/intelligence context |
+
+### Rule
+If a requirement has no clear evidence artifact, the plan is not yet execution-grade for that requirement.
+
+## 20. M1 Authorization / Sign-Off Checklist
+
+M1 should remain blocked until the following sign-off questions can each be answered clearly.
+
+| Reviewer lane | Sign-off question | Authorization condition |
+|---|---|---|
+| planning | Is the cut line still truly M1 and not a hidden M2/M3 widening? | deliverables stay within scoped build/query/export plus bounded truth inputs |
+| audit | Are leakage, adjacency, freshness, and global-latest risks explicitly controlled? | pilot admission, artifact isolation, and stop conditions are all explicit |
+| architecture | Is the design additive, generic, and still aligned with macro codebase reuse? | default/global behavior stays intact and no pilot-specialized branches are required |
+| verification | Is there a concrete evidence package and validation surface for proving success/failure? | verification plan + surface map + evidence template are all sufficient and specific |
+| performance | Can the slice be attempted honestly on an 8 GB-class machine without whole-corpus behavior? | low-spec budget and no-go conditions still hold |
+| tooling/intelligence | Is the code-intelligence context fresh enough for safe impact analysis? | GitNexus freshness is restored on the then-current commit before any code edits |
+
+### Rule
+M1 may begin only when every required authorization row can be answered **yes** on the current commit, not on an older planning snapshot.
+
+## 21. Negative Verification Matrix for Future M1 Work
+
+Later implementation should not rely only on success-path checks. The first execution slice should also prove the expected failure behavior for the following cases.
+
+| Negative scenario | Expected outcome | Why this matters |
+|---|---|---|
+| manifest references an out-of-scope adjacent law-family document without explicit admission | run is rejected or clearly flagged before proof claims success | prevents silent bundle widening |
+| manifest contains multiple variants with no role metadata | run is rejected at validation/planning gate | prevents false equivalence across summary/illustrative/authoritative files |
+| dataset mode attempts to read global `latest_relationship_*` | explicit failure or policy violation | protects truth boundary |
+| dataset mode mutates default/global graph/query outputs | explicit failure | preserves additive rollout |
+| snapshot/query points at a stale or mismatched manifest hash | explicit stale-output failure | preserves freshness honesty |
+| graph passes integrity but has near-zero useful coverage | `PARTIAL` or `FAIL`, not silent success | enforces thin-graph honesty |
+| low-spec execution requires broad whole-corpus loading | fail planning/execution gate | keeps the pilot aligned with the 8 GB-class budget |
+
+### Rule
+M1 validation is incomplete if it checks only the happy path and does not define what safe failure looks like for the major misuse cases.
+
+## 22. Implementation Session Bootstrap Protocol
+
+When a later session is authorized to implement M1, the first execution pass should follow this bootstrap sequence before any code edit is made.
+
+1. read authority/state docs in the order defined by `AGENTS.md`
+2. read the supporting audit, research pack, and this implementation plan
+3. run `npx gitnexus status`
+4. if stale, run `./scripts/gitnexus_analyze.sh`
+5. re-check the M1 readiness gate, authorization checklist, and stop conditions on the **current commit**
+6. confirm the pilot bundle admission checklist and variant/role policy are still explicit enough to drive a manifest
+7. run fresh impact analysis on the likely touched symbols/modules
+8. only then start the smallest M1 code slice
+
+### First-edit rule
+The first implementation edit should land in the narrowest control-plane surface that establishes scoped inputs/outputs, not in review/promotion truth-bearing code unless the M1→M2 trigger is actually hit.
+
+### Bootstrap failure rule
+If any bootstrap step fails, the session should stop and record the blocker rather than improvising around it.
+
+## 23. M1 Change Budget / Touchpoint Budget
+
+M1 should be attempted as a bounded additive slice, not a repo-wide refactor.
+
+### Likely initial touchpoints
+- `scripts/pipeline_cli.py`
+- `scripts/vitruvius/graph/cli.py`
+- `scripts/vitruvius/graph/builder.py`
+- `scripts/vitruvius/query/cli.py`
+- `scripts/vitruvius/ontology/cli.py`
+
+### Maybe-touch surfaces only if required by evidence
+- `scripts/vitruvius/promotion/__init__.py`
+- `scripts/vitruvius/relationships_sections.py`
+- targeted tests/fixtures needed to prove scoped behavior and default/global preservation
+
+### Default do-not-touch budget
+Unless evidence forces widening, M1 should avoid broad edits across:
+- conversion batch wrappers
+- refine batch wrappers
+- canonicalization batch wrappers
+- unrelated CLI commands
+- unrelated graph/query/export features
+- Rust crates or bindings
+
+### Budget rule
+If the first honest M1 slice appears to require broad cross-layer rewiring outside the touchpoint budget, that is evidence to stop and re-evaluate the milestone boundary rather than push through by momentum.

@@ -1,55 +1,6 @@
 {
   "error_count": 0,
-  "findings": [
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-doors-and-exits' has zero incident edges",
-      "node_id": "concept-doors-and-exits",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-occupancy-load' has zero incident edges",
-      "node_id": "concept-occupancy-load",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-open-courts' has zero incident edges",
-      "node_id": "concept-open-courts",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-parking-and-loading-spaces' has zero incident edges",
-      "node_id": "concept-parking-and-loading-spaces",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'concept-projections-over-public-ways' has zero incident edges",
-      "node_id": "concept-projections-over-public-ways",
-      "severity": "warning"
-    },
-    {
-      "code": "orphan_node",
-      "edge_from": null,
-      "edge_to": null,
-      "message": "node 'law-pd-1096-national-building-code' has zero incident edges",
-      "node_id": "law-pd-1096-national-building-code",
-      "severity": "warning"
-    }
-  ],
+  "findings": [],
   "passed": true,
-  "warning_count": 6
+  "warning_count": 0
 }

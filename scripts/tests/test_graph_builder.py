@@ -8,8 +8,10 @@ import pytest
 
 from vitruvius.graph.builder import (
     build_snapshot,
+    walk_concept_basis_edges,
     walk_concepts,
     walk_relationships,
+    walk_source_relationship_edges,
     walk_sources,
 )
 from vitruvius.graph.contract import GraphEdge, GraphNode, GraphSnapshot, validate_node
@@ -221,6 +223,61 @@ def test_walk_relationships_sorted_by_key(tmp_path: Path) -> None:
     assert [e.evidence_id for e in edges] == ["rel-a", "rel-b"]
 
 
+def test_walk_source_relationship_edges_emits_frontmatter_edges(tmp_path: Path) -> None:
+    sources = tmp_path / "sources"
+    _write(
+        sources / "irr.md",
+        (
+            "---\n"
+            "id: irr-example\n"
+            "trust_level: primary\n"
+            "relationships:\n"
+            "- implements: law-example\n"
+            "---\n"
+        ),
+    )
+    edges = walk_source_relationship_edges(
+        sources,
+        valid_target_ids={"irr-example", "law-example"},
+    )
+    assert len(edges) == 1
+    edge = edges[0]
+    assert edge.from_id == "irr-example"
+    assert edge.to_id == "law-example"
+    assert edge.type == "implements"
+    assert edge.status == "verified"
+    assert edge.evidence_id.startswith("rel-meta-")
+
+
+def test_walk_concept_basis_edges_emits_source_to_concept_edges(tmp_path: Path) -> None:
+    concepts = tmp_path / "concepts"
+    _write(
+        concepts / "doors.md",
+        (
+            "---\n"
+            "id: concept-doors\n"
+            "regulatory_basis:\n"
+            "- source_id: law-example\n"
+            "  section_id: sec-1007\n"
+            "  evidence_snippet: Example snippet\n"
+            "---\n"
+        ),
+    )
+    edges = walk_concept_basis_edges(
+        concepts,
+        valid_source_ids={"law-example"},
+    )
+    assert len(edges) == 1
+    edge = edges[0]
+    assert edge.from_id == "law-example"
+    assert edge.to_id == "concept-doors"
+    assert edge.type == "defines"
+    assert edge.status == "verified"
+    assert edge.evidence_source_section_id == "sec-1007"
+    assert edge.evidence_snippet == "Example snippet"
+    assert edge.evidence_id.startswith("rel-basis-")
+
+
 def test_build_snapshot_empty_root(tmp_path: Path) -> None:
     snapshot = build_snapshot(tmp_path, now="2026-04-14T00:00:00Z")
     assert isinstance(snapshot, GraphSnapshot)
@@ -258,7 +315,98 @@ def test_build_snapshot_full_tree(tmp_path: Path) -> None:
     ]
     assert snapshot.edges[0].from_id == "law-pd-1096"
     assert snapshot.edges[0].to_id == "concept-building-permit"
-    assert snapshot.edges[0].status == "unverified"
+
+
+def test_build_snapshot_adds_provenance_edges_and_filters_ungrounded_placeholders(
+    tmp_path: Path,
+) -> None:
+    canonical = tmp_path / "shared"
+    _write(
+        canonical / "sources" / "law.md",
+        (
+            "---\n"
+            "id: law-example\n"
+            "trust_level: primary\n"
+            "last_canonicalized_utc: 2026-04-01T00:00:00Z\n"
+            "---\n"
+        ),
+    )
+    _write(
+        canonical / "sources" / "irr.md",
+        (
+            "---\n"
+            "id: irr-example\n"
+            "trust_level: primary\n"
+            "last_canonicalized_utc: 2026-04-01T00:00:00Z\n"
+            "relationships:\n"
+            "- implements: law-example\n"
+            "---\n"
+        ),
+    )
+    _write(
+        canonical / "sources" / "stale.md",
+        (
+            "---\n"
+            "id: law-stale\n"
+            "trust_level: primary\n"
+            "last_canonicalized_utc: 2026-04-01T00:00:00Z\n"
+            "relationships:\n"
+            "- implemented_by: irr-missing\n"
+            "---\n"
+        ),
+    )
+    _write(
+        canonical / "concepts" / "doors.md",
+        (
+            "---\n"
+            "id: concept-doors\n"
+            "last_canonicalized_utc: 2026-04-01T00:00:00Z\n"
+            "regulatory_basis:\n"
+            "- source_id: law-example\n"
+            "  section_id: sec-1007\n"
+            "  evidence_snippet: Example snippet\n"
+            "---\n"
+        ),
+    )
+    _write(
+        canonical / "concepts" / "parking.md",
+        (
+            "---\n"
+            "id: concept-parking\n"
+            "canonical_status: draft\n"
+            "last_canonicalized_utc: 2026-04-01T00:00:00Z\n"
+            "---\n"
+        ),
+    )
+    snapshot = build_snapshot(canonical, now="2026-04-14T00:00:00Z")
+    node_ids = [n.id for n in snapshot.nodes]
+    assert "law-example" in node_ids
+    assert "irr-example" in node_ids
+    assert "concept-doors" in node_ids
+    assert "concept-parking" not in node_ids
+    assert "law-stale" not in node_ids
+    edge_pairs = {(e.from_id, e.type, e.to_id) for e in snapshot.edges}
+    assert ("irr-example", "implements", "law-example") in edge_pairs
+    assert ("law-example", "defines", "concept-doors") in edge_pairs
+
+
+def test_build_snapshot_keeps_unreferenced_sources_without_broken_frontmatter_links(
+    tmp_path: Path,
+) -> None:
+    canonical = tmp_path / "shared"
+    _write(
+        canonical / "sources" / "standalone.md",
+        (
+            "---\n"
+            "id: law-standalone\n"
+            "trust_level: primary\n"
+            "last_canonicalized_utc: 2026-04-01T00:00:00Z\n"
+            "---\n"
+        ),
+    )
+    snapshot = build_snapshot(canonical, now="2026-04-14T00:00:00Z")
+    assert [n.id for n in snapshot.nodes] == ["law-standalone"]
+    assert snapshot.edges == []
 
 
 def test_build_snapshot_sorts_edges_deterministically(tmp_path: Path) -> None:

@@ -67,11 +67,35 @@ Yes, Vitruvius can already output a real knowledge graph, but the first truthful
 - Added explicit **M0 Exit Criteria** to the live plan so the path-audit phase itself has a definition of done before implementation may begin.
 - Added an explicit **Decision Closure Order** so unresolved M1 design choices are closed in a dependency-aware sequence rather than ad hoc.
 - Added a **Verification Surface Map** tying likely M1 change areas to the primary test/validation surfaces that should be exercised later.
+- Added the explicit **M1→M2 boundary recommendation** and **coverage/thin-graph reporting recommendation** into the audit so milestone widening is governed rather than ad hoc.
+- Added a formal **M1 Evidence Package Template** so future execution has a concrete artifact bundle to produce before the proof can be accepted.
+- Added an **Assumptions and Invalidation Triggers** register plus a **Defer Matrix After M1** so the plan is clearer about what is currently assumed and what should still stay out of scope even after first success.
 ## Additional M0 deepening — macro/codebase guardrails
 - Added explicit **Default / Global Path Preservation Contract** to the live implementation plan.
 - Added explicit **Pilot Distortion Guardrails** so the first four-folder bundle remains a manifest instance, not a code primitive.
 - Added explicit **Rollout and Rollback Rules** to keep the first implementation slice reversible without touching existing global/shared artifacts.
 - Added explicit **Dataset Output Freshness Contract** so scoped outputs cannot be mistaken for current truth.
+
+## Additional execution-grade refinement — admission, traceability, authorization
+- Added a formal **Pilot Bundle Admission Checklist** to the live plan so the four-folder bundle is admitted explicitly instead of inferred by folder heuristics.
+- Added a formal **Requirement-to-Evidence Traceability Matrix** so each major execution requirement maps to a concrete proof artifact.
+- Added a formal **M1 Authorization / Sign-Off Checklist** so implementation cannot begin on stale assumptions or stale code-intelligence context.
+- Added supporting audit/research notes covering:
+  - the BP-344-adjacent document under `001-Laws/DPWH/`
+  - the need to refresh GitNexus before any later code-edit phase
+
+## Additional execution-grade refinement — variant policy and negative verification
+- Added a formal **Variant / Edition Admission Policy** to the live plan so the pilot cannot silently treat scans, summaries, illustrated editions, revised IRRs, and partial extracts as interchangeable.
+- Added **pilot manifest entry metadata defaults** to the dataset contract so file-role ambiguity is handled in manifest data instead of code heuristics.
+- Added a formal **Negative Verification Matrix** so future M1 validation defines the expected failure behavior for major misuse cases, not just the happy path.
+- Added matching audit/research notes covering:
+  - variant-rich evidence inside `PD-1096/`
+  - role ambiguity already visible inside `BP-344/`
+
+## Additional execution-grade refinement — bootstrap and touchpoint control
+- Added a formal **Implementation Session Bootstrap Protocol** so the next execution session has a fixed pre-edit sequence.
+- Added a formal **M1 Change Budget / Touchpoint Budget** so the first coding slice stays bounded unless evidence forces widening.
+- Added matching audit guidance that the first implementation pass should enforce both bootstrap discipline and touchpoint discipline.
 
 Fresh verification evidence:
 - `git diff --check -- .ai/03_plans/2026-04-16_laws-mini-dataset-graph-pipeline-plan.md` → PASS
@@ -84,3 +108,33 @@ Fresh verification evidence:
   - preserving the default/global graph and query path when dataset mode is unused
   - rollback validation
   - freshness/selection validation
+- `npx gitnexus status` → `Status: ⚠️ stale (re-run gitnexus analyze)` with `indexed commit: 616c14a` and `current commit: e3c2bda`
+- raw-bundle inspection confirms a BP-344-adjacent source lives outside the pilot folder:
+  - `001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf`
+- all currently named verification-surface test files are present:
+  - `scripts/tests/test_graph_builder.py`
+  - `scripts/tests/test_graph_cli.py`
+  - `scripts/tests/test_query_cli.py`
+  - `scripts/tests/test_query_engine.py`
+  - `scripts/tests/test_query_seed_accuracy.py`
+  - `scripts/tests/test_run_promote.py`
+  - `scripts/tests/test_integration_e2e.py`
+  - `scripts/tests/test_pipeline_cli_byte_identity.py`
+- raw-bundle file inspection confirms `PD-1096/` contains multiple distinct variant styles:
+  - complete scan
+  - full text
+  - illustrated edition
+  - summary
+  - compact edition
+  - multiple IRR/RIRR files and partial rule extracts
+- raw-bundle file inspection confirms `BP-344/` contains at least two distinct variant/authority candidates:
+  - `2024 Revised Implementing Rules and Regulations ...`
+  - `BP-344 IRR Accessibility Law DPWH.pdf`
+- likely initial M1 control-plane touchpoints are present in the repo:
+  - `scripts/pipeline_cli.py`
+  - `scripts/vitruvius/graph/cli.py`
+  - `scripts/vitruvius/graph/builder.py`
+  - `scripts/vitruvius/query/cli.py`
+  - `scripts/vitruvius/ontology/cli.py`
+  - `scripts/vitruvius/promotion/__init__.py`
+  - `scripts/vitruvius/relationships_sections.py`

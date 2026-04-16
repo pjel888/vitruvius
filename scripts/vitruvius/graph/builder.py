@@ -73,6 +73,50 @@ def _iter_md_files(directory: Path) -> list[Path]:
     return sorted(p for p in directory.glob("*.md") if p.is_file())
 
 
+def _slugify_id(value: str) -> str:
+    return value.replace("_", "-")
+
+
+def _iter_frontmatter_relationships(fm: dict[str, Any]) -> list[tuple[str, str]]:
+    raw = fm.get("relationships")
+    if not isinstance(raw, list):
+        return []
+    pairs: list[tuple[str, str]] = []
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        for predicate, target in item.items():
+            if not (isinstance(predicate, str) and isinstance(target, str)):
+                continue
+            if not predicate.strip() or not target.strip():
+                continue
+            pairs.append((predicate, target))
+    return pairs
+
+
+def _collect_unresolved_frontmatter_source_ids(
+    sources_dir: Path,
+    *,
+    referenced_node_ids: set[str],
+    valid_target_ids: set[str],
+) -> set[str]:
+    unresolved_ids: set[str] = set()
+    for path in _iter_md_files(sources_dir):
+        fm = _load_frontmatter(path)
+        if not fm:
+            continue
+        node_id = fm.get("id")
+        if not isinstance(node_id, str) or not node_id or node_id in referenced_node_ids:
+            continue
+        relationships = _iter_frontmatter_relationships(fm)
+        if not relationships:
+            continue
+        if any(target_id in valid_target_ids for _, target_id in relationships):
+            continue
+        unresolved_ids.add(node_id)
+    return unresolved_ids
+
+
 def _primary_evidence_entry(fm: dict[str, Any]) -> dict[str, Any] | None:
     raw = fm.get("evidence")
     if not isinstance(raw, list):
@@ -92,7 +136,11 @@ def _primary_evidence_entry(fm: dict[str, Any]) -> dict[str, Any] | None:
     return max(entries, key=_sort_key)
 
 
-def walk_sources(sources_dir: Path) -> list[GraphNode]:
+def walk_sources(
+    sources_dir: Path,
+    *,
+    referenced_node_ids: set[str] | None = None,
+) -> list[GraphNode]:
     nodes: list[GraphNode] = []
     for path in _iter_md_files(sources_dir):
         fm = _load_frontmatter(path)
@@ -100,6 +148,8 @@ def walk_sources(sources_dir: Path) -> list[GraphNode]:
             continue
         node_id = fm.get("id")
         if not isinstance(node_id, str) or not node_id:
+            continue
+        if referenced_node_ids is not None and node_id not in referenced_node_ids:
             continue
         trust_level = fm.get("trust_level") or "tertiary"
         if trust_level not in ALLOWED_TRUST_LEVELS:
@@ -120,7 +170,11 @@ def walk_sources(sources_dir: Path) -> list[GraphNode]:
     return nodes
 
 
-def walk_concepts(concepts_dir: Path) -> list[GraphNode]:
+def walk_concepts(
+    concepts_dir: Path,
+    *,
+    referenced_node_ids: set[str] | None = None,
+) -> list[GraphNode]:
     nodes: list[GraphNode] = []
     for path in _iter_md_files(concepts_dir):
         fm = _load_frontmatter(path)
@@ -129,6 +183,12 @@ def walk_concepts(concepts_dir: Path) -> list[GraphNode]:
         node_id = fm.get("id")
         if not isinstance(node_id, str) or not node_id:
             continue
+        if referenced_node_ids is not None:
+            has_regulatory_basis = isinstance(fm.get("regulatory_basis"), list) and bool(
+                fm.get("regulatory_basis")
+            )
+            if node_id not in referenced_node_ids and not has_regulatory_basis:
+                continue
         node = GraphNode(
             id=node_id,
             type="concept",
@@ -206,15 +266,152 @@ def walk_relationships(relationships_dir: Path) -> list[GraphEdge]:
     return edges
 
 
+def walk_source_relationship_edges(
+    sources_dir: Path,
+    *,
+    valid_target_ids: set[str],
+) -> list[GraphEdge]:
+    edges: list[GraphEdge] = []
+    for path in _iter_md_files(sources_dir):
+        fm = _load_frontmatter(path)
+        if not fm:
+            continue
+        source_id = fm.get("id")
+        if not isinstance(source_id, str) or not source_id:
+            continue
+        for predicate, target_id in _iter_frontmatter_relationships(fm):
+            if target_id not in valid_target_ids:
+                continue
+            evidence_id = (
+                f"rel-meta-{_slugify_id(source_id)}-"
+                f"{_slugify_id(predicate)}-{_slugify_id(target_id)}"
+            )
+            edge = GraphEdge(
+                from_id=source_id,
+                to_id=target_id,
+                type=predicate,
+                evidence_id=evidence_id,
+                status="verified",
+                evidence_source_id=source_id,
+                evidence_snippet=f"frontmatter relationship: {predicate}",
+            )
+            try:
+                validate_edge(edge)
+            except ValueError:
+                continue
+            edges.append(edge)
+    edges.sort(key=lambda e: (e.from_id, e.type, e.to_id, e.evidence_id))
+    return edges
+
+
+def walk_concept_basis_edges(
+    concepts_dir: Path,
+    *,
+    valid_source_ids: set[str],
+) -> list[GraphEdge]:
+    edges: list[GraphEdge] = []
+    for path in _iter_md_files(concepts_dir):
+        fm = _load_frontmatter(path)
+        if not fm:
+            continue
+        concept_id = fm.get("id")
+        if not isinstance(concept_id, str) or not concept_id:
+            continue
+        raw_basis = fm.get("regulatory_basis")
+        if not isinstance(raw_basis, list):
+            continue
+        for entry in raw_basis:
+            if not isinstance(entry, dict):
+                continue
+            source_id = entry.get("source_id")
+            if not isinstance(source_id, str) or source_id not in valid_source_ids:
+                continue
+            section_id = entry.get("section_id")
+            section_slug = (
+                _slugify_id(section_id)
+                if isinstance(section_id, str) and section_id.strip()
+                else "no-section"
+            )
+            edge = GraphEdge(
+                from_id=source_id,
+                to_id=concept_id,
+                type="defines",
+                evidence_id=(
+                    f"rel-basis-{_slugify_id(source_id)}-"
+                    f"{_slugify_id(concept_id)}-{section_slug}"
+                ),
+                status="verified",
+                evidence_source_id=source_id,
+                evidence_source_section_id=(
+                    section_id if isinstance(section_id, str) and section_id.strip() else None
+                ),
+                evidence_snippet=(
+                    str(entry.get("evidence_snippet"))
+                    if entry.get("evidence_snippet")
+                    else None
+                ),
+            )
+            try:
+                validate_edge(edge)
+            except ValueError:
+                continue
+            edges.append(edge)
+    edges.sort(key=lambda e: (e.from_id, e.type, e.to_id, e.evidence_id))
+    return edges
+
+
 def build_snapshot(
     canonical_root: Path,
     *,
     schema_version: str = "1.0.0",
     now: str | None = None,
 ) -> GraphSnapshot:
-    sources = walk_sources(canonical_root / "sources")
-    concepts = walk_concepts(canonical_root / "concepts")
-    edges = walk_relationships(canonical_root / "relationships")
+    raw_sources = walk_sources(canonical_root / "sources")
+    raw_concepts = walk_concepts(canonical_root / "concepts")
+    valid_source_ids = {node.id for node in raw_sources}
+    valid_concept_ids = {node.id for node in raw_concepts}
+    source_id_counts: dict[str, int] = {}
+    concept_id_counts: dict[str, int] = {}
+    for node in raw_sources:
+        source_id_counts[node.id] = source_id_counts.get(node.id, 0) + 1
+    for node in raw_concepts:
+        concept_id_counts[node.id] = concept_id_counts.get(node.id, 0) + 1
+
+    relationship_edges = walk_relationships(canonical_root / "relationships")
+    source_relationship_edges = walk_source_relationship_edges(
+        canonical_root / "sources",
+        valid_target_ids=valid_source_ids | valid_concept_ids,
+    )
+    concept_basis_edges = walk_concept_basis_edges(
+        canonical_root / "concepts",
+        valid_source_ids=valid_source_ids,
+    )
+    edges = relationship_edges + source_relationship_edges + concept_basis_edges
+    referenced_node_ids = {edge.from_id for edge in edges} | {edge.to_id for edge in edges}
+    referenced_node_ids.update(
+        {node_id for node_id, count in source_id_counts.items() if count > 1}
+    )
+    referenced_node_ids.update(
+        {node_id for node_id, count in concept_id_counts.items() if count > 1}
+    )
+    unresolved_frontmatter_source_ids = _collect_unresolved_frontmatter_source_ids(
+        canonical_root / "sources",
+        referenced_node_ids=referenced_node_ids,
+        valid_target_ids=valid_source_ids | valid_concept_ids,
+    )
+
+    sources = [
+        node
+        for node in raw_sources
+        if not (
+            node.id in unresolved_frontmatter_source_ids
+            and source_id_counts.get(node.id, 0) == 1
+        )
+    ]
+    concepts = walk_concepts(
+        canonical_root / "concepts",
+        referenced_node_ids=referenced_node_ids,
+    )
 
     nodes = sources + concepts
     nodes.sort(key=lambda n: n.id)

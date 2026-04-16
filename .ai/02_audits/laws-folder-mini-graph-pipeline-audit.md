@@ -99,6 +99,8 @@ At audit time, the likely first implementation pressure is still orchestration a
 - The first truthful scoped proof likely needs a **query snapshot selector** at the same time as a scoped graph build, otherwise graph creation and graph consumption remain mismatched.
 - The first truthful scoped proof likely needs an explicit **relationship input policy** (manifest-selected approved files or dataset staging inputs) before touching promotion code.
 - The current 4-folder bundle is graph-useful, but still small enough that **performance is not yet the main problem**. The main problem remains generic scoping design.
+- Bundle-boundary evidence is stricter than folder names alone suggest: a BP-344-adjacent document already exists outside `001-Laws/BP-344/`, so manifest membership must be explicit.
+- Current code-intelligence context is not fully fresh: `npx gitnexus status` reports the index stale (`616c14a` indexed vs `e3c2bda` current), so any future code-edit phase must refresh impact tooling first.
 
 ## Recommended M1 Execution Slice Order
 1. dataset manifest contract
@@ -227,6 +229,89 @@ The audit recommends that future validation must force one of three judgments:
 - global latest artifacts were mutated or silently reused
 - stale outputs could masquerade as current truth
 - implementation is pilot-specialized or not low-spec viable by design
+
+## M1 → M2 Boundary Recommendation
+
+### Stay in M1 if:
+- approved relationship inputs can be selected safely by manifest
+- no dataset-scoped review outputs are required for the first proof
+- no dataset-scoped promotion outputs are required for the first proof
+
+### Expand into M2 if:
+- the first proof requires new review outputs
+- the proof requires promotion but the only available path still depends on global `latest_relationship_*`
+- freshness/scope truth cannot be guaranteed without dataset-scoped review/promotion artifacts
+
+### Defer after M1 success
+- broader batch dataset wrappers
+- broader all-laws support
+- any Rust implementation work
+
+## Coverage / Thin-Graph Reporting Recommendation
+
+The audit recommends the future M1 validation log include:
+- one per-folder coverage row for each of the 4 bundle members
+- connected-component count
+- isolated-node count or rate
+- edge type diversity
+- seeded query hit rate
+- final `SUCCESS` / `PARTIAL` / `FAIL` judgment tied to those observations
+
+## Assumption Stress Points
+
+The current planning stack still rests on these assumptions:
+- the 4-folder bundle is graph-useful enough to justify a first proof
+- approved relationship inputs may be sufficient for the proof
+- scoped query selection can remain additive
+- scoped freshness semantics can be made unambiguous
+- adjacent related law-family sources can be governed cleanly by explicit manifest membership instead of accidental folder expansion
+
+The audit recommends treating each of these as an assumption that may be invalidated by later path-audit evidence rather than as a guaranteed fact.
+
+## Pilot Bundle Admission Recommendation
+
+Before M1 starts, the audit recommends an explicit pilot-bundle admission pass covering:
+- exact include/exclude membership for `PD-1096`, `RA-9514`, `BP-344`, and `BP-220`
+- explicit treatment of related out-of-folder documents, starting with the BP-344-adjacent DPWH order
+- explicit note on whether multiple editions/variants within a folder are all in scope or selectively prioritized
+- explicit per-folder expectation so sparse coverage is not mistaken for accidental failure
+
+## Variant / Role Classification Recommendation
+
+The audit recommends that pilot-manifest entries carry explicit role metadata because the current raw bundle already includes:
+- authoritative-looking law texts
+- revised rules/IRR variants
+- summary-style materials
+- illustrated/reference materials
+- partial extracts
+
+Without role metadata, M1 risks treating heterogeneous sources as interchangeable and overstating the truth quality of the first graph proof.
+
+## Authorization / Sign-Off Recommendation
+
+The audit recommends M1 remain blocked until all of the following are true:
+- the cut line is still M1 and not hidden M2/M3 widening
+- artifact isolation and default/global preservation are still additive
+- freshness semantics are explicit
+- low-spec budget remains credible for an 8 GB-class machine
+- GitNexus freshness is re-established on the then-current commit before code edits begin
+
+## Negative Verification Recommendation
+
+The audit recommends future M1 validation explicitly cover at least:
+- adjacent out-of-folder document admission failure
+- missing variant-role metadata failure
+- stale snapshot / stale manifest mismatch failure
+- global `latest_*` policy-violation failure
+- thin-graph downgrade from `SUCCESS` to `PARTIAL` / `FAIL`
+
+## Bootstrap / Touchpoint Recommendation
+
+The audit recommends that the first implementation session enforce both:
+- a **bootstrap protocol** before any edit (authority read, GitNexus freshness, readiness re-check, impact analysis)
+- a **touchpoint budget** so the first slice stays concentrated in graph/query/control-plane surfaces unless evidence forces widening
+
+This lowers the chance that M1 turns into an uncontrolled cross-layer refactor on the first coding pass.
 
 ## Audit Verdict
 **Feasible and worth planning now.**

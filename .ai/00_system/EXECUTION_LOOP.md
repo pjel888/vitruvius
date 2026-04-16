@@ -143,7 +143,7 @@ This project has **two** always-up-to-date knowledge graphs. Using them is not o
 ### 3.4 Index freshness
 
 - The `code-review-graph` index auto-updates on file changes via a hook.
-- The `gitnexus` index drifts on commit. After any commit, run `npx gitnexus analyze` (with `--embeddings` if `.gitnexus/meta.json` shows `stats.embeddings > 0` — otherwise embeddings are destroyed).
+- The `gitnexus` index drifts on commit. After any commit, run `./scripts/gitnexus_analyze.sh`. The wrapper pins GitNexus `1.6.2-rc.10` and automatically preserves embeddings when `.gitnexus/meta.json` reports `stats.embeddings > 0`.
 - A PostToolUse hook handles this automatically after `git commit` and `git merge` for Claude Code users. Other agents MUST run it manually.
 
 ---
@@ -440,7 +440,7 @@ Each finding receives `[C###]` and a disposition:
   - Bench artifact under `.ai/10_state/bench_<name>_<date>.json` with the measured numbers
 - Byte-identity check for flag-off path (the non-breaking contract)
 - Regression checks against adjacent surfaces — use `code-review-graph get_affected_flows` to list impacted execution flows
-- MCP index re-analyze: `npx gitnexus analyze` (with `--embeddings` if present) + `mcp__code-review-graph__build_or_update_graph_tool`
+- MCP index re-analyze: `./scripts/gitnexus_analyze.sh` + `mcp__code-review-graph__build_or_update_graph_tool`
 - Known limitations → becomes input to a future task's Phase 01 and may open a new RI
 
 **Gate.** No FAIL or SKIPPED step without a follow-up artifact (RI entry, new task trigger, or recorded limitation).
@@ -607,9 +607,7 @@ python3 scripts/pipeline_cli.py build-graph
 python3 scripts/pipeline_cli.py ple-kv-migrate --store event --source <path> --dest <path>
 
 # MCP index refresh (after any commit that changes symbols)
-npx gitnexus analyze
-# If embeddings exist:
-npx gitnexus analyze --embeddings
+./scripts/gitnexus_analyze.sh
 
 # Inspect index freshness
 cat .gitnexus/meta.json
