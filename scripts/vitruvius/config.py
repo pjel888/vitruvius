@@ -31,41 +31,30 @@ def get_ollama_model_pool() -> dict[str, str]:
     return {str(k): str(v) for k, v in pool.items()}
 
 
-def get_review_presets() -> dict[str, dict[str, Any]]:
-    pool = get_ollama_model_pool()
-    return {
-        "m2-8gb-safe": {
-            "machine_profile": "apple-silicon-m2-8gb",
-            "description": (
-                "Safer local review preset for bounded runs on an 8GB M2: "
-                "tier-1 small model plus single-request parallelism."
-            ),
-            "model": pool.get("tier_1_default") or "qwen2.5:7b",
-            "parallelism": 1,
-            "keeps_phase_11_gated": True,
-            "notes": [
-                "Applies only explicit per-command review overrides.",
-                "Does not flip global feature flags or open generic Phase 11 execution.",
-                "Leaves heavier tier-2 models opt-in for larger-memory machines.",
-            ],
-        }
-    }
+def get_ollama_review_preset(name: str) -> dict[str, int | str]:
+    cfg = load_config()
+    presets = cfg.get("review", {}).get("ollama", {}).get("presets", {})
+    if not isinstance(presets, dict):
+        return {}
+    raw = presets.get(name)
+    if not isinstance(raw, dict):
+        return {}
 
+    normalized: dict[str, int | str] = {}
+    model = raw.get("model")
+    if isinstance(model, str) and model.strip():
+        normalized["model"] = model.strip()
 
-def resolve_review_preset(name: str | None) -> dict[str, Any] | None:
-    if name is None:
-        return None
-    normalized = name.strip()
-    if not normalized:
-        return None
-    presets = get_review_presets()
-    preset = presets.get(normalized)
-    if preset is None:
-        available = ", ".join(sorted(presets)) or "<none>"
-        raise ValueError(
-            f"unknown review preset {normalized!r}; available presets: {available}"
-        )
-    return {"name": normalized, **preset}
+    for key in ("timeout_seconds", "parallelism", "num_ctx_cap"):
+        value = raw.get(key)
+        try:
+            parsed = int(value)
+        except (TypeError, ValueError):
+            continue
+        if parsed > 0:
+            normalized[key] = parsed
+
+    return normalized
 
 
 def get_ollama_num_ctx_cap() -> int:

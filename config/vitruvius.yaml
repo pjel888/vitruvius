@@ -37,6 +37,12 @@ review:
       tier_0_draft: phi3:mini            # ~2.3 GB quantized
       tier_1_default: qwen2.5:7b         # ~4.4 GB quantized (8GB survival)
       tier_2_heavy: gemma4:31b           # ~18 GB — only on >=32 GB hosts
+    presets:
+      8gb-safe:
+        model: qwen2.5:7b
+        timeout_seconds: 900
+        parallelism: 1
+        num_ctx_cap: 4096
 
 promotion:
   confidence_threshold: 0.90

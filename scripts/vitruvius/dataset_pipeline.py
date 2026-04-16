@@ -14,7 +14,12 @@ from typing import Sequence
 import yaml
 
 from .canonicalize import run_canonicalize_one
-from .config import get_ollama_default_model, resolve_review_preset
+from .config import (
+    get_ollama_default_model,
+    get_ollama_default_parallelism,
+    get_ollama_default_timeout,
+    get_ollama_review_preset,
+)
 from .graph.cli import run_build_graph
 from .graph.dataset_manifest import DatasetManifest, DatasetManifestError, load_dataset_manifest, write_json_report
 from .ollama_review import run_review_relationships_ollama
@@ -78,31 +83,45 @@ def _load_manifest_or_error(dataset_manifest: str, repo_root: Path) -> tuple[Dat
     return manifest, manifest_path
 
 
-def _resolve_review_runtime(
+def _resolve_review_runtime_settings(
     *,
-    review_model: str | None,
-    review_parallelism: int | None,
-    review_preset: str | None,
-) -> dict[str, object]:
-    try:
-        preset = resolve_review_preset(review_preset)
-    except ValueError as exc:
-        raise DatasetPipelineError(str(exc)) from exc
+    review_preset: str | None = None,
+    review_model: str | None = None,
+    review_timeout_seconds: int | None = None,
+    review_parallelism: int | None = None,
+) -> dict[str, int | str | None]:
+    settings: dict[str, int | str | None] = {
+        "preset": review_preset,
+        "model": get_ollama_default_model(),
+        "timeout_seconds": get_ollama_default_timeout(),
+        "parallelism": get_ollama_default_parallelism(),
+        "num_ctx_cap": None,
+    }
+    if review_preset:
+        preset = get_ollama_review_preset(review_preset)
+        if not preset:
+            raise DatasetPipelineError(f"unknown review preset: {review_preset}")
+        settings.update(preset)
+    if review_model is not None:
+        settings["model"] = review_model
+    if review_timeout_seconds is not None:
+        settings["timeout_seconds"] = review_timeout_seconds
+    if review_parallelism is not None:
+        settings["parallelism"] = review_parallelism
+    return settings
 
-    model = review_model or get_ollama_default_model()
-    parallelism = review_parallelism
-    if preset is not None:
-        if review_model is None:
-            model = str(preset["model"])
-        if review_parallelism is None:
-            preset_parallel = preset.get("parallelism")
-            if preset_parallel is not None:
-                parallelism = int(preset_parallel)
 
+def _all_laws_readiness_paths(run_id: str) -> dict[str, Path]:
+    base = (
+        Path.cwd().resolve()
+        / "006_System-Manifests"
+        / "runs"
+        / "datasets"
+        / "all-laws-readiness"
+    )
     return {
-        "model": model,
-        "parallelism": parallelism,
-        "preset": preset,
+        "base": base,
+        "report": base / f"{run_id}_all_laws_dry_run.json",
     }
 
 
@@ -570,14 +589,138 @@ def _resolve_admitted_source_anchor(
         f"Admitted source paths: {admitted_paths}"
     )
 
+
+def run_all_laws_dry_run(
+    *,
+    bounded_dataset_manifest: str = "config/datasets/laws-core-bundle-m1.yaml",
+    review_preset: str | None = None,
+    review_model: str | None = None,
+    review_timeout_seconds: int | None = None,
+    review_parallelism: int | None = None,
+) -> int:
+    repo_root = Path.cwd().resolve()
+    raw_root = repo_root / "001_Raw-Source-Layer" / "001-Laws"
+    if not raw_root.exists():
+        print(json.dumps({"error": f"missing laws raw root: {raw_root.relative_to(repo_root)}"}, indent=2))
+        return 2
+
+    try:
+        review_settings = _resolve_review_runtime_settings(
+            review_preset=review_preset,
+            review_model=review_model,
+            review_timeout_seconds=review_timeout_seconds,
+            review_parallelism=review_parallelism,
+        )
+    except DatasetPipelineError as exc:
+        print(json.dumps({"error": str(exc)}, indent=2))
+        return 2
+
+    manifest, manifest_path = _load_manifest_or_error(bounded_dataset_manifest, repo_root)
+    if manifest is None:
+        return 2
+
+    _emit_progress(
+        f"Loaded bounded coverage manifest {manifest.dataset_id} from {manifest_path.relative_to(repo_root)}"
+    )
+    _emit_progress("Scanning all law folders for dry-run readiness only")
+
+    run_id = utc_now_stamp().replace('-', '').replace(':', '').replace('+0000', 'Z').replace('T', 'T')
+    paths = _all_laws_readiness_paths(run_id)
+    paths["base"].mkdir(parents=True, exist_ok=True)
+
+    covered_by_folder = {unit.folder_name: unit for unit in manifest.law_units}
+    refined_root = repo_root / "002_Raw-Conversion-Layer" / "001-Laws" / "refined_markdown"
+    raw_folders = sorted(path for path in raw_root.iterdir() if path.is_dir())
+    folder_summaries: list[dict[str, object]] = []
+
+    for folder in raw_folders:
+        pdf_paths = sorted(
+            path for path in folder.rglob("*")
+            if path.is_file() and path.suffix.lower() == ".pdf"
+        )
+        refined_dir = refined_root / folder.name
+        refined_markdown_paths = (
+            sorted(path for path in refined_dir.glob("*.md") if path.is_file())
+            if refined_dir.exists()
+            else []
+        )
+        covered_unit = covered_by_folder.get(folder.name)
+        folder_summaries.append(
+            {
+                "folder_name": folder.name,
+                "pdf_count": len(pdf_paths),
+                "raw_pdf_paths_sample": [
+                    str(path.relative_to(repo_root)) for path in pdf_paths[:5]
+                ],
+                "refined_markdown_count": len(refined_markdown_paths),
+                "covered_by_bounded_pilot": covered_unit is not None,
+                "bounded_law_id": covered_unit.law_id if covered_unit else None,
+                "recommended_next_action": (
+                    "keep within bounded manifest until a fresh widening slice is accepted"
+                    if covered_unit
+                    else "prepare a fresh manifest-backed widening slice before any execute path"
+                ),
+            }
+        )
+
+    covered_folders = [item["folder_name"] for item in folder_summaries if item["covered_by_bounded_pilot"]]
+    uncovered_folders = [item["folder_name"] for item in folder_summaries if not item["covered_by_bounded_pilot"]]
+    total_pdf_count = sum(int(item["pdf_count"]) for item in folder_summaries)
+    total_refined_markdown_count = sum(int(item["refined_markdown_count"]) for item in folder_summaries)
+
+    report = {
+        "action": "run-all-laws-dry-run",
+        "generated_at_utc": utc_now_stamp(),
+        "run_id": run_id,
+        "dry_run_only": True,
+        "execute_enabled": False,
+        "ready_for_full_execute": False,
+        "bounded_dataset_manifest_path": str(manifest_path.relative_to(repo_root)),
+        "bounded_dataset_id": manifest.dataset_id,
+        "review_settings": review_settings,
+        "law_folder_count": len(folder_summaries),
+        "pdf_count": total_pdf_count,
+        "refined_markdown_count": total_refined_markdown_count,
+        "covered_folder_count": len(covered_folders),
+        "uncovered_folder_count": len(uncovered_folders),
+        "covered_folders": covered_folders,
+        "uncovered_folders": uncovered_folders,
+        "folder_summaries": folder_summaries,
+        "notes": [
+            "This command is a readiness-only dry-run path for all-laws planning.",
+            "It does not execute dataset review, promotion, graph build, visualization, or browser-open flows.",
+            "Generic Phase 11 expansion remains gated until a fresh widening slice is accepted.",
+        ],
+    }
+    write_json_report(paths["report"], report)
+
+    print(json.dumps({
+        "action": "run-all-laws-dry-run",
+        "run_id": run_id,
+        "dry_run_only": True,
+        "ready_for_full_execute": False,
+        "review_settings": review_settings,
+        "law_folder_count": len(folder_summaries),
+        "pdf_count": total_pdf_count,
+        "refined_markdown_count": total_refined_markdown_count,
+        "covered_folder_count": len(covered_folders),
+        "uncovered_folder_count": len(uncovered_folders),
+        "covered_folders": covered_folders,
+        "uncovered_folders_sample": uncovered_folders[:10],
+        "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
+    }, indent=2))
+    _emit_progress("Completed all-laws readiness dry-run")
+    return 0
+
 def run_dataset_source_to_graph_pipeline(
     *,
     dataset_manifest: str,
     structured_checks: Sequence[StructuredCheck] = (),
     export_owl: bool = True,
     dry_run: bool = False,
+    review_preset: str | None = None,
     review_model: str | None = None,
-    review_timeout_seconds: int = 600,
+    review_timeout_seconds: int | None = None,
     review_parallelism: int | None = None,
     review_preset: str | None = None,
     visualize_graph: bool = False,
@@ -594,10 +737,11 @@ def run_dataset_source_to_graph_pipeline(
     if manifest is None:
         return 2
     try:
-        review_runtime = _resolve_review_runtime(
-            review_model=review_model,
-            review_parallelism=review_parallelism,
+        review_settings = _resolve_review_runtime_settings(
             review_preset=review_preset,
+            review_model=review_model,
+            review_timeout_seconds=review_timeout_seconds,
+            review_parallelism=review_parallelism,
         )
     except DatasetPipelineError as exc:
         print(json.dumps({"error": str(exc)}, indent=2))
@@ -702,10 +846,9 @@ def run_dataset_source_to_graph_pipeline(
             _emit_progress(f"[{stage_index}/{total_stage_count}] Reviewing extracted relationships for {source_id}")
             review_rc, review_output = _capture_text_handler(
                 lambda: run_review_relationships_ollama(
-                    model=review_model,
-                    model=str(review_runtime["model"]),
-                    timeout_seconds=review_timeout_seconds,
-                    parallelism=review_runtime["parallelism"],
+                    model=str(review_settings["model"]),
+                    timeout_seconds=int(review_settings["timeout_seconds"]),
+                    parallelism=int(review_settings["parallelism"]),
                     extraction_report_path=extract_json,
                     review_json_path=review_json,
                     review_txt_path=review_txt,
@@ -779,7 +922,7 @@ def run_dataset_source_to_graph_pipeline(
             "run_id": run_id,
             "manifest_path": str(manifest_path.relative_to(repo_root)),
             "dry_run": True,
-            "review_runtime": review_runtime,
+            "review_settings": review_settings,
             "source_quality_summary": quality_summary,
             "stage_results": stage_results,
         }
@@ -792,7 +935,7 @@ def run_dataset_source_to_graph_pipeline(
             "review_model": review_model,
             "review_model_preset": review_model_preset,
             "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
-            "review_runtime": review_runtime,
+            "review_settings": review_settings,
             "planned_stage_count": len(stage_results),
             "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
             "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
@@ -857,7 +1000,7 @@ def run_dataset_source_to_graph_pipeline(
         "generated_relationship_count": len(generated_relationship_paths),
         "filtered_relationship_count": len(filtered_relationship_paths),
         "filtered_relationship_paths": filtered_relationship_paths,
-        "review_runtime": review_runtime,
+        "review_settings": review_settings,
         "source_quality_summary": quality_summary,
         "stage_results": stage_results,
         "graph": graph_payload,
@@ -875,7 +1018,7 @@ def run_dataset_source_to_graph_pipeline(
         "review_model_preset": review_model_preset,
         "generated_relationship_count": len(generated_relationship_paths),
         "filtered_relationship_count": len(filtered_relationship_paths),
-        "review_runtime": review_runtime,
+        "review_settings": review_settings,
         "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
         "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
         "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),
