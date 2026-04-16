@@ -21,6 +21,7 @@ from .concept_definitions import (
     pick_best_definition,
 )
 from .paths import get_repo_root
+from .source_identity import canonical_source_id_for_relative_path
 
 
 _ENRICHABLE_STATUSES = {"placeholder", "draft", "unknown"}
@@ -52,7 +53,11 @@ def _collect_source_texts(repo_root: Path) -> list[tuple[str, str]]:
             if "refined_markdown" not in md.parts:
                 continue
             try:
-                out.append(("law-national-building-code-of-the-philippines", md.read_text(encoding="utf-8")))
+                rel = str(md.relative_to(refined_root))
+                out.append((
+                    canonical_source_id_for_relative_path(rel),
+                    md.read_text(encoding="utf-8"),
+                ))
             except Exception:
                 continue
 

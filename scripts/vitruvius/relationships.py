@@ -4,8 +4,10 @@ import re
 from pathlib import Path
 from typing import List, Dict, Tuple
 
+from .concept_matching import find_concepts_in_text, load_concept_term_map
 from .paths import get_repo_root
 from .reports import write_json, write_text
+from .source_identity import canonical_source_id_for_relative_path
 from .utils import utc_now_stamp
 
 
@@ -16,15 +18,7 @@ from .utils import utc_now_stamp
 def load_concepts() -> Dict[str, str]:
     repo_root = get_repo_root()
     concepts_dir = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "concepts"
-
-    concept_map = {}
-
-    for file in concepts_dir.glob("*.md"):
-        slug = file.stem
-        phrase = slug.replace("-", " ")
-        concept_map[phrase] = f"concept-{slug}"
-
-    return concept_map
+    return load_concept_term_map(concepts_dir)
 
 
 # --------------------------------------------------
@@ -64,14 +58,7 @@ def build_windows(lines: List[str], size: int = 3) -> List[str]:
 # --------------------------------------------------
 
 def find_concepts(text: str, concept_map: Dict[str, str]) -> List[str]:
-    text_lower = text.lower()
-    matches = []
-
-    for phrase, cid in concept_map.items():
-        if phrase in text_lower:
-            matches.append(cid)
-
-    return list(set(matches))
+    return find_concepts_in_text(text, concept_map)
 
 
 # --------------------------------------------------
@@ -79,12 +66,7 @@ def find_concepts(text: str, concept_map: Dict[str, str]) -> List[str]:
 # --------------------------------------------------
 
 def build_source_id(relative_path: str) -> str:
-    slug = re.sub(r"[^a-z0-9]+", "-", Path(relative_path).stem.lower()).strip("-")
-
-    if "irr" in slug:
-        return "irr-implementing-rules-and-regulations-of-the-national-building-code"
-
-    return "law-national-building-code-of-the-philippines"
+    return canonical_source_id_for_relative_path(relative_path)
 
 
 # --------------------------------------------------

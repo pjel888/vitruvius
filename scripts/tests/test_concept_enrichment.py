@@ -10,6 +10,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from vitruvius.concept_enrichment import enrich_concept_inner, enrich_concepts_inner
+from vitruvius.concept_enrichment import _collect_source_texts
 
 
 def _seed_repo(tmp_path: Path, concept_slug: str, source_text: str) -> None:
@@ -196,3 +197,39 @@ def test_batch_enriches_multiple_concepts(tmp_path):
     assert summary["total"] == 2
     assert summary["enriched"] == 2
     assert summary["skipped"] == 0
+
+
+def test_collect_source_texts_preserves_non_pd_source_ids(tmp_path):
+    shared = tmp_path / "003_Canonical-Knowledge-Layer" / "shared" / "sources"
+    shared.mkdir(parents=True)
+    (shared / "bp344.md").write_text(
+        textwrap.dedent("""\
+            ---
+            id: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344
+            title: BP 344
+            page_type: source
+            trust_level: primary
+            canonical_status: draft
+            last_canonicalized_utc: 2026-04-14T00:00:00Z
+            ---
+
+            body
+            """),
+        encoding="utf-8",
+    )
+    refined = (
+        tmp_path
+        / "002_Raw-Conversion-Layer"
+        / "001-Laws"
+        / "refined_markdown"
+        / "BP-344"
+    )
+    refined.mkdir(parents=True)
+    (refined / "2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md").write_text(
+        "Accessible ramps text",
+        encoding="utf-8",
+    )
+
+    pairs = _collect_source_texts(tmp_path)
+    source_ids = [source_id for source_id, _text in pairs]
+    assert "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344" in source_ids

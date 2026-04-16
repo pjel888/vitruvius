@@ -713,6 +713,69 @@ relationship_input_manifest:
       improvement.
     include_in_m1: true
     reason: Evidence directly supports BP-220 governing socialized housing projects.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-stairs.md
+    folder_name: BP-344
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: bp-344-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs stair design requirements in BP-344.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-yards.md
+    folder_name: BP-220
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: bp-220-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs yard requirements in BP-220.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-floor-area.md
+    folder_name: BP-220
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: bp-220-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs floor-area requirements in BP-220.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-light-and-ventilation.md
+    folder_name: BP-220
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: bp-220-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs light-and-ventilation requirements in BP-220.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-stairs.md
+    folder_name: BP-220
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: bp-220-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs stair design requirements in BP-220.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-setbacks.md
+    folder_name: BP-220
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: bp-220-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs setback requirements in BP-220.
+  - path: 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-means-of-egress.md
+    folder_name: BP-220
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: bp-220-promoted-relationship
+    edition_or_source_note: Dataset-scoped promoted relationship admitted during graph-quality
+      correction.
+    include_in_m1: true
+    reason: Direct source text governs means-of-egress requirements in BP-220.
 graph_output_root: 005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1
 run_output_root: 006_System-Manifests/runs/datasets/laws-core-bundle-m1
 query_snapshot_path_template: 005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/{run_id}_graph_snapshot.json

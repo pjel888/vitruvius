@@ -1,4 +1,4 @@
-from vitruvius.relationships_sections import split_sections
+from vitruvius.relationships_sections import build_text_windows, extract_section_relationships, split_sections
 
 
 def test_split_sections_handles_markdown_heading_prefixes() -> None:
@@ -34,3 +34,65 @@ def test_split_sections_handles_numbered_all_caps_heading() -> None:
     assert len(sections) == 1
     assert sections[0]['section_id'] == 'section-1'
     assert sections[0]['title'] == 'GENERAL PROVISIONS'
+
+
+def test_build_text_windows_splits_paragraphs_and_sentences() -> None:
+    windows = build_text_windows([
+        "Accessible ramps shall comply with the slope rule. Handrails shall be required.",
+        "",
+        "Short",
+        "Means of egress shall comply with lighting requirements.",
+    ])
+    assert any("Accessible ramps shall comply" in window for window in windows)
+    assert any("Means of egress shall comply" in window for window in windows)
+
+
+def test_extract_section_relationships_uses_local_windows_not_whole_section() -> None:
+    section = {
+        "section_id": "section-1",
+        "title": "Sample",
+        "lines": [
+            "Accessible ramps shall comply with accessibility requirements.",
+            "",
+            "This unrelated paragraph mentions stairs without a relation trigger.",
+        ],
+    }
+    concept_map = {
+        "accessible ramps": "concept-accessible-ramps",
+        "stairs": "concept-stairs",
+    }
+    rels = extract_section_relationships(
+        section,
+        concept_map,
+        source_id="irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+    )
+    assert rels == [
+        {
+            "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+            "type": "governs",
+            "to": "concept-accessible-ramps",
+            "section": "section-1",
+            "section_title": "Sample",
+            "source_text": "Accessible ramps shall comply with accessibility requirements.",
+        }
+    ]
+
+
+def test_extract_section_relationships_does_not_emit_concept_defines_concept() -> None:
+    section = {
+        "section_id": "section-1",
+        "title": "Sample",
+        "lines": [
+            "Means of egress shall be a door or stairway providing unobstructed travel.",
+        ],
+    }
+    concept_map = {
+        "means of egress": "concept-means-of-egress",
+        "stairs": "concept-stairs",
+    }
+    rels = extract_section_relationships(
+        section,
+        concept_map,
+        source_id="irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+    )
+    assert rels == []

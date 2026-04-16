@@ -4,8 +4,10 @@ import re
 from pathlib import Path
 from typing import Iterable, List, Dict, Tuple
 
+from .concept_matching import find_concepts_in_text, load_concept_term_map
 from .paths import get_repo_root
 from .reports import write_json, write_text
+from .source_identity import canonical_source_id_for_relative_path
 from .utils import utc_now_stamp
 
 
@@ -16,24 +18,14 @@ from .utils import utc_now_stamp
 def load_concepts(*, allowed_paths: Iterable[Path] | None = None) -> Dict[str, str]:
     repo_root = get_repo_root()
     concepts_dir = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "concepts"
-
-    concept_map = {}
-    if allowed_paths is None:
-        files = sorted(concepts_dir.glob("*.md"))
-    else:
-        files = []
+    resolved_paths: list[Path] | None = None
+    if allowed_paths is not None:
+        resolved_paths = []
         for path in allowed_paths:
             candidate = path if path.is_absolute() else repo_root / path
             if candidate.exists() and candidate.is_file():
-                files.append(candidate)
-        files = sorted(set(files))
-
-    for file in files:
-        slug = file.stem
-        phrase = slug.replace("-", " ")
-        concept_map[phrase] = f"concept-{slug}"
-
-    return concept_map
+                resolved_paths.append(candidate)
+    return load_concept_term_map(concepts_dir, allowed_paths=resolved_paths)
 
 
 # --------------------------------------------------
@@ -118,6 +110,49 @@ def normalize_text(lines: List[str]) -> str:
     return text.strip()
 
 
+def _is_window_line(line: str) -> bool:
+    stripped = line.strip()
+    if not stripped:
+        return False
+    if stripped.startswith("!["):
+        return False
+    if stripped.startswith("|") and stripped.endswith("|"):
+        return False
+    return True
+
+
+def build_text_windows(lines: List[str], *, min_chars: int = 40) -> List[str]:
+    paragraphs: list[str] = []
+    current: list[str] = []
+    for line in lines:
+        if not _is_window_line(line):
+            if current:
+                paragraphs.append(normalize_text(current))
+                current = []
+            continue
+        current.append(line.strip())
+    if current:
+        paragraphs.append(normalize_text(current))
+
+    windows: list[str] = []
+    for paragraph in paragraphs:
+        sentences = re.split(r"(?<=[.!?;:])\s+", paragraph)
+        for sentence in sentences:
+            cleaned = sentence.strip()
+            if len(cleaned) >= min_chars:
+                windows.append(cleaned)
+        if len(paragraph) >= min_chars:
+            windows.append(paragraph)
+
+    deduped: list[str] = []
+    seen: set[str] = set()
+    for window in windows:
+        if window not in seen:
+            seen.add(window)
+            deduped.append(window)
+    return deduped
+
+
 # --------------------------------------------------
 # PATTERNS
 # --------------------------------------------------
@@ -139,14 +174,7 @@ PATTERNS = [
 # --------------------------------------------------
 
 def find_concepts(text: str, concept_map: Dict[str, str]) -> List[str]:
-    text_lower = text.lower()
-    matches = []
-
-    for phrase, cid in concept_map.items():
-        if phrase in text_lower:
-            matches.append(cid)
-
-    return list(set(matches))
+    return find_concepts_in_text(text, concept_map)
 
 
 # --------------------------------------------------
@@ -154,12 +182,7 @@ def find_concepts(text: str, concept_map: Dict[str, str]) -> List[str]:
 # --------------------------------------------------
 
 def build_source_id(relative_path: str) -> str:
-    slug = re.sub(r"[^a-z0-9]+", "-", Path(relative_path).stem.lower()).strip("-")
-
-    if "irr" in slug:
-        return "irr-implementing-rules-and-regulations-of-the-national-building-code"
-
-    return "law-national-building-code-of-the-philippines"
+    return canonical_source_id_for_relative_path(relative_path)
 
 
 # --------------------------------------------------
@@ -174,36 +197,48 @@ def extract_section_relationships(
 
     relationships = []
 
-    text = normalize_text(section["lines"])
+    windows = build_text_windows(section["lines"])
+    if not windows:
+        text = normalize_text(section["lines"])
+        if text:
+            windows = [text]
 
-    found = find_concepts(text, concept_map)
-
-    if not found:
-        return relationships
-
-    for pattern, rel_type in PATTERNS:
-        if not re.search(pattern, text.lower()):
+    for text in windows:
+        found = find_concepts(text, concept_map)
+        if not found:
             continue
 
-        if len(found) >= 2:
-            relationships.append({
-                "from": found[0],
-                "type": rel_type,
-                "to": found[1],
-                "section": section["section_id"],
-                "section_title": section["title"],
-                "source_text": text[:300]
-            })
+        for pattern, rel_type in PATTERNS:
+            if not re.search(pattern, text.lower()):
+                continue
 
-        elif len(found) == 1:
-            relationships.append({
-                "from": source_id,
-                "type": "governs",
-                "to": found[0],
-                "section": section["section_id"],
-                "section_title": section["title"],
-                "source_text": text[:300]
-            })
+            if len(found) >= 2:
+                if rel_type == "defines":
+                    # `defines` is only registry-compatible for source->concept
+                    # style edges. Emitting concept->concept `defines` from a
+                    # noisy shared window creates obvious false positives such
+                    # as "stairs defines ramps". Keep the safer law->concept
+                    # path for define-like language and let richer relation
+                    # types come from more explicit patterns.
+                    continue
+                relationships.append({
+                    "from": found[0],
+                    "type": rel_type,
+                    "to": found[1],
+                    "section": section["section_id"],
+                    "section_title": section["title"],
+                    "source_text": text[:300]
+                })
+
+            elif len(found) == 1:
+                relationships.append({
+                    "from": source_id,
+                    "type": "governs",
+                    "to": found[0],
+                    "section": section["section_id"],
+                    "section_title": section["title"],
+                    "source_text": text[:300]
+                })
 
     return relationships
 

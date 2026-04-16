@@ -7,6 +7,7 @@ from typing import Any
 
 import yaml
 
+from .concept_matching import find_concepts_in_text, load_concept_term_map
 from .constants import CONVERSION_LAYER_NAME
 from .paths import get_repo_root
 
@@ -308,22 +309,8 @@ def resolve_referenced_concepts(body: str, *, repo_root: Path) -> list[str]:
     concepts_dir = Path(repo_root) / "003_Canonical-Knowledge-Layer" / "shared" / "concepts"
     if not concepts_dir.exists():
         return []
-
-    body_lower = body.lower()
-    found: list[str] = []
-    for md in sorted(concepts_dir.glob("*.md")):
-        slug = md.stem
-        spaced = slug.replace("-", " ")
-        hyphenated = slug  # already hyphenated
-        # Also check mixed forms where some words are hyphenated in body
-        # but separated by spaces in others, e.g., "fire-resistive construction".
-        # Simple heuristic: replace spaces in body with normalized separator,
-        # then check if either spaced or hyphenated form appears.
-        body_normalized = body_lower.replace("-", " ")
-        if spaced in body_lower or hyphenated in body_lower or spaced in body_normalized:
-            found.append(f"concept-{slug}")
-
-    return found
+    concept_map = load_concept_term_map(concepts_dir)
+    return find_concepts_in_text(body, concept_map)
 
 
 def build_structured_source_file(
