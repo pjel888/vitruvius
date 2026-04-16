@@ -184,6 +184,19 @@ This is a **cross-layer orchestration blast radius**, not a single-module change
 
 This order intentionally delays deeper upstream rewiring until after the smallest truthful graph proof surfaces are defined.
 
+## 02F — Current Artifact Footprint Baseline
+
+Fresh team-assisted inspection found that the current shared/global artifacts are still relatively small, but already large enough that duplicate broad rewrites matter on low-spec machines:
+- `latest_graph_snapshot.json` ≈ **38 KB**
+- `latest_relationship_extraction_sections.json` ≈ **96 KB**
+- `latest_relationship_review_high_confidence.json` ≈ **37 KB**
+- current shared graph footprint: **23 nodes / 30 edges / 6 orphan warnings / 0 errors**
+
+Interpretation:
+- the first problem is still scoping and artifact routing, not raw artifact size
+- however, low-spec pressure will increase quickly if dataset mode duplicates broad `latest_*` artifacts instead of bounding them
+- this supports the plan’s bias toward **manifest-bounded outputs** and away from whole-layer/global rewrites
+
 ## 03 — Evidence of Existing Graph Capability
 - The repo already contains graph builder, integrity, traversal, query, and OWL export modules.
 - The README documents the current operator ladder from extract/review/promote to graph/query.
@@ -274,6 +287,11 @@ The following command surfaces are present and callable now:
 
 This confirms the relevant orchestration surfaces already exist; the current planning gap is scope control, not command absence.
 
+Additional team-assisted verification evidence:
+- targeted graph/query pytest slice passed at **57 tests**
+- additional graph/query CLI slice observed by a worker passed at **13 tests**
+- `build-graph --dry-run` remains healthy on the current shared graph (`23` nodes / `30` edges / `6` warnings / `0` errors)
+
 ## 09 — Initial Optimization / Rust Triage
 
 ### Clearly Python / orchestration for now
@@ -305,3 +323,70 @@ No immediate M0 finding justifies Rust work yet. The first problem is still **sc
 - prefer dataset-specific query/export against selected snapshots over global latest snapshot dependence
 - prefer scoped artifacts over global `latest_*` rewrites to reduce accidental broad reprocessing
 - keep first execution slices small and composable before considering any deeper optimization work
+
+### Additional low-spec note from team-assisted review
+Even when artifact sizes are still modest today, low-spec pressure will come from:
+- duplicated artifact generations across scoped and global lanes
+- unnecessary whole-layer traversals
+- broad review/promotion reuse of global `latest_*`
+
+So the first low-spec optimization is still **scope control**, not compute specialization.
+
+## 10 — M1 Decision Ledger (Recommended Defaults)
+
+### Manifest shape
+- Default: one dataset manifest per pilot bundle
+- Recommended fields: `dataset_id`, `dataset_kind`, `raw_slice_anchors`, `canonical_input_manifest`, `relationship_input_manifest`, `graph_output_root`, `run_output_root`, `query_snapshot_path`, `freshness_policy`, `pilot_gate`
+
+### Canonical input selection
+- Default: explicit canonical allowlist, not a free-form root scan
+
+### Relationship input policy
+- Default: manifest-selected approved relationship files or dataset staging inputs only
+- Explicit prohibition: never read global `latest_relationship_*` when dataset mode is requested
+
+### Scoped query selector
+- Default: `--snapshot <path>` first, `--dataset <dataset_id>` later
+
+### Scoped export selector
+- Default: `export-graph-owl --snapshot <path> --out <path>`
+
+### Freshness model
+- Default: outputs are fresh only when tied to exact `dataset_id` + `run_id` + `manifest_hash` + input fingerprint set
+
+### Pilot gate
+- Default: strict go/no-go checklist before coding
+
+## 11 — M1 Readiness Rubric
+
+M1 is ready to start only when:
+- path map is explicit
+- blast-radius matrix is explicit
+- artifact coupling list is explicit
+- manifest contract has recommended defaults
+- freshness/selection contract is explicit
+- scoped query selector choice is explicit
+- anti-special-case rule is explicit
+- low-spec constraints and likely working-set pressure points are documented
+- no unresolved design choice remains that would force pilot-specific hardcoding
+
+## 12 — Dataset Artifact Metadata Defaults
+
+For future dataset-scoped outputs, the planning default metadata set should be:
+- `dataset_id`
+- `dataset_kind`
+- `run_id`
+- `manifest_hash`
+- `generated_at`
+- input fingerprint summary
+- upstream artifact refs
+
+This metadata set is the minimum needed to defend freshness, replayability, and scope truthfulness.
+
+## 13 — Planning-Level Low-Spec Budget
+
+Before M1 starts, the planning layer should explicitly record:
+- expected working-set controls
+- expected traversal bounds
+- expected artifact-writing bounds
+- no-go conditions if the proof still depends on whole-layer/global-latest behavior

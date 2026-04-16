@@ -41,3 +41,46 @@ Yes, Vitruvius can already output a real knowledge graph, but the first truthful
 ## Additional user constraint captured
 - The user explicitly elevated **8 GB M2-class low-spec viability** to a first-class goal.
 - The live plan, research pack, and audit now treat low-spec operation as a real success criterion, while still rejecting premature or wrong-layer optimization.
+
+## Team-assisted M0 deepening
+- A bounded `omx team` analysis-only pass was used to deepen M0 without code edits.
+- The useful returned evidence was integrated into the research/audit/plan layers:
+  - stronger global-artifact coupling evidence
+  - current artifact footprint notes
+  - additional graph/query test-slice evidence
+  - deeper low-spec and Rust-candidacy triage
+  - concrete M1 decision defaults
+  - clearer artifact freshness / completeness / thin-graph criteria
+  - stronger go/no-go readiness framing
+  - explicit `SUCCESS` / `PARTIAL` / `FAIL` rubric for M1
+
+## Further execution-grade refinement
+- Added an explicit **Implementation Forbidden Moves** section to the live plan.
+- This now makes the planning artifact stronger by naming the shortcuts that would invalidate M1, including:
+  - pilot bundle hardcoding
+  - global `latest_*` reuse in dataset mode
+  - direct raw-folder→graph shortcuts
+  - default/global CLI repointing
+  - premature Rust moves
+
+## Additional planning hardening
+- Added explicit **M0 Exit Criteria** to the live plan so the path-audit phase itself has a definition of done before implementation may begin.
+- Added an explicit **Decision Closure Order** so unresolved M1 design choices are closed in a dependency-aware sequence rather than ad hoc.
+- Added a **Verification Surface Map** tying likely M1 change areas to the primary test/validation surfaces that should be exercised later.
+## Additional M0 deepening — macro/codebase guardrails
+- Added explicit **Default / Global Path Preservation Contract** to the live implementation plan.
+- Added explicit **Pilot Distortion Guardrails** so the first four-folder bundle remains a manifest instance, not a code primitive.
+- Added explicit **Rollout and Rollback Rules** to keep the first implementation slice reversible without touching existing global/shared artifacts.
+- Added explicit **Dataset Output Freshness Contract** so scoped outputs cannot be mistaken for current truth.
+
+Fresh verification evidence:
+- `git diff --check -- .ai/03_plans/2026-04-16_laws-mini-dataset-graph-pipeline-plan.md` → PASS
+- The live plan now contains the new sections:
+  - `Default / Global Path Preservation Contract`
+  - `Pilot Distortion Guardrails`
+  - `Rollout and Rollback Rules`
+  - `Dataset Output Freshness Contract`
+- The verification plan now explicitly includes:
+  - preserving the default/global graph and query path when dataset mode is unused
+  - rollback validation
+  - freshness/selection validation

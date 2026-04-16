@@ -115,6 +115,68 @@ Why this order:
 - it keeps low-spec working-set control front and center
 - it preserves the option to defer broader review/promotion scoping until it is proven necessary
 
+## Edge-Case and Failure-Mode Register
+
+1. **Manifest references files that do not exist downstream**
+   - raw files exist, but conversion/refinement/canonical inputs are incomplete or mismatched
+2. **Scoped graph with no approved relationships**
+   - graph may technically build but be too thin to validate query usefulness
+3. **Scoped graph/query mismatch**
+   - dataset snapshot exists, but query surface still reads the global latest snapshot
+4. **Scoped proof leaks shared truth**
+   - manifest or graph root still admits unrelated shared canonical pages or relationships
+5. **Scoped proof reuses stale dataset artifacts**
+   - previous run outputs remain and are mistaken for current scoped truth
+6. **Pilot-specialization drift**
+   - code starts recognizing `PD-1096`, `RA-9514`, `BP-344`, `BP-220` by name instead of through manifest data
+7. **Mixed maturity across bundle members**
+   - one folder has stronger canonical/promoted coverage than others, yielding skewed graph density
+8. **False confidence from small artifact size**
+   - current artifacts are modest today, but the design still encourages duplication and global coupling that will scale poorly
+9. **Low-spec working-set surprise**
+   - a seemingly small pilot still triggers broad shared traversals or broad review/promotion reads
+10. **Future merge incompatibility**
+   - scoped artifact conventions for M1 make later per-section or merged graphs harder to reconcile
+
+## Additional Team-Assisted Findings
+- worker lane 2 confirmed the strongest current global couplings are:
+  - `graph/cli.py`
+  - `query/cli.py`
+  - `promotion/__init__.py`
+  - `relationships_sections.py`
+- worker lane 2 also confirmed current artifact sizes are modest but non-trivial, supporting the low-spec argument for bounded outputs
+- worker lane 3 confirmed the relevant CLI help surfaces resolve cleanly and an additional graph/query CLI test slice passed
+
+## Open Design Decisions That Affect Blast Radius
+
+1. **Manifest of files vs dataset-specific canonical root**
+2. **Approved relationship allowlist vs dataset staging inputs**
+3. **Scoped query selector form** (`--snapshot` first vs dataset-id first)
+4. **Scoped export selector form**
+5. **Artifact freshness semantics**
+6. **Pilot gate semantics**
+
+## Recommended Defaults for Those Decisions
+- canonical and relationship scope → manifest allowlists first
+- relationship source → approved/staged manifest-selected inputs, never global `latest_relationship_*`
+- query selector → `--snapshot <path>` first
+- export selector → snapshot-in + explicit out path
+- freshness model → `dataset_id` + `run_id` + `manifest_hash` + `generated_at`
+- pilot gate → strict checklist before coding
+
+## Dataset Artifact Metadata Expectations
+
+At audit time, the following metadata should be treated as required for future dataset-scoped outputs:
+- `dataset_id`
+- `dataset_kind`
+- `run_id`
+- `manifest_hash`
+- `generated_at`
+- input fingerprint summary
+- upstream artifact references
+
+This is the minimum needed to keep freshness, scope, and provenance auditable.
+
 ## Optimization / Rust Findings
 - Immediate scoped-pilot work is overwhelmingly orchestration and artifact-selection logic, which belongs in Python.
 - The only plausible future Rust candidates are downstream graph/traversal or extraction hot loops **after** the scoped design exists and is profiled.
@@ -131,6 +193,40 @@ At audit time, the best low-spec strategy is:
 2. bounded artifact outputs
 3. minimal reprocessing
 4. only then targeted compute optimization
+
+## M1 Go / No-Go Readiness Check
+
+Treat M1 as **NO-GO** until all of the following are explicit in the planning layer:
+- manifest contract
+- relationship input policy
+- scoped query selection path
+- artifact freshness semantics
+- anti-special-case guardrails
+- low-spec execution assumptions
+
+If any of those remain fuzzy, the risk of pilot distortion or stale-output truth failure is still too high.
+
+The audit also recommends adding a **planning-level low-spec execution budget** before M1 starts, so the first scoped proof is forced to stay bounded on an 8 GB-class machine.
+
+## Recommended Outcome Rubric for M1
+
+The audit recommends that future validation must force one of three judgments:
+
+### SUCCESS
+- scoped graph is valid, attributable, fresh, queryable, and bounded
+- all four bundle members are represented or explicitly and acceptably deferred
+- no global `latest_*` contamination occurred
+
+### PARTIAL
+- scoped graph is truthful but thin
+- one or more bundle members are blocked/deferred with explicit reason
+- the proof is real, but not yet strong enough to claim the full pilot objective
+
+### FAIL
+- wrong snapshot or wrong relationship inputs were used
+- global latest artifacts were mutated or silently reused
+- stale outputs could masquerade as current truth
+- implementation is pilot-specialized or not low-spec viable by design
 
 ## Audit Verdict
 **Feasible and worth planning now.**

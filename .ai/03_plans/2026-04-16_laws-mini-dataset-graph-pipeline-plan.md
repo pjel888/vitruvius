@@ -186,6 +186,12 @@ Do **not** edit code in a way that hardcodes the first bundle by folder name jus
   - `BP-344`: 2 files
   - `BP-220`: 1 file
 - initial optimization triage says the first execution slice is still orchestration/state/artifact-routing work and should remain Python unless later profiling proves otherwise
+- team-assisted audit also confirmed:
+  - current shared graph footprint: `23` nodes / `30` edges / `6` warnings / `0` errors
+  - `latest_graph_snapshot.json` ≈ `38 KB`
+  - `latest_relationship_extraction_sections.json` ≈ `96 KB`
+  - `latest_relationship_review_high_confidence.json` ≈ `37 KB`
+  - targeted graph/query test slice passed (`57` tests), with an additional graph/query CLI slice observed at `13` passing tests
 
 #### Acceptance Criteria
 - every touched command/module is enumerated
@@ -212,6 +218,29 @@ Do **not** edit code in a way that hardcodes the first bundle by folder name jus
   - avoiding global latest-artifact rewrites
   - keeping query/build inputs manifest-bounded
   - preferring smaller working sets over convenience
+
+#### M0 Exit Criteria
+M0 is complete only when all of the following are true:
+- the source→graph path map is explicit
+- the module blast-radius matrix is explicit
+- the artifact-level blast-radius / freshness / rollback model is explicit
+- the M1 decision defaults are explicit
+- the M1 cut line is explicit
+- the low-spec execution budget is explicit
+- the anti-special-case and macro-compatibility rules are explicit
+- the M1 go/no-go readiness gate is explicit
+- the planning artifacts agree with each other
+
+#### Recommended execution slice order for M1
+1. dataset manifest contract
+2. dataset-specific output roots
+3. scoped graph build surface
+4. snapshot-selected/scoped query surface
+5. safe relationship input policy
+6. only then determine whether scoped review/promotion changes are required for the first proof
+7. leakage / isolation / determinism / low-spec / anti-special-case verification
+
+This order is chosen to keep the first proof truthful, bounded, and as low-risk as possible.
 
 ### M1 — Scoped Graph Proof for the Core Laws Bundle
 **Goal:** prove a real graph can be emitted for one bounded law-family mini-corpus slice.
@@ -282,6 +311,82 @@ Design rule:
 - the selected four folders are the first **manifest instance**, not the shape of the code
 - if the implementation cannot generalize beyond the first manifest instance without code changes, stop and revisit the design
 
+### M1 Decision Ledger — Recommended Defaults
+
+#### Manifest shape
+- **Default:** one dataset manifest per pilot bundle
+- **Recommended fields:** `dataset_id`, `dataset_kind`, `raw_slice_anchors`, `canonical_input_manifest`, `relationship_input_manifest`, `graph_output_root`, `run_output_root`, `query_snapshot_path`, `freshness_policy`, `pilot_gate`
+- **Rationale:** this keeps scope in data, not code, and is the cleanest defense against hardcoding the first 4-folder bundle into implementation logic
+
+#### Canonical input selection
+- **Default:** explicit canonical input allowlist, not a free-form root scan
+- **Rationale:** strongest leakage control, deterministic bounded working set, and safer behavior on 8 GB-class machines
+
+#### Relationship input policy
+- **Default:** manifest-selected approved relationship files or dataset staging inputs only
+- **Explicit prohibition:** never read global `latest_relationship_*` when dataset mode is requested
+- **Rationale:** this is the main truth-governance boundary for M1
+
+#### Scoped query selector
+- **Default:** add a `--snapshot <path>` selector first, then `--dataset <dataset_id>` as a convenience layer later
+- **Rationale:** path-based selection is the narrowest and easiest first contract to validate
+
+#### Export selector
+- **Default:** mirror query scoping with explicit snapshot-in / export-out selectors
+- **Recommended shape:** `export-graph-owl --snapshot <path> --out <path>`
+
+#### Freshness model
+- **Default:** dataset outputs are fresh only when tied to the exact manifest hash + input fingerprint set
+- **Minimum freshness fields:** `dataset_id`, `run_id`, `manifest_hash`, `generated_at`, upstream artifact references
+
+#### Pilot acceptance gate
+- **Default:** M1 is allowed only if manifest validation, bounded inputs, bounded outputs, scoped query, anti-special-case checks, and low-spec planning are all satisfied
+
+### Bundle-Wide Policy Statements
+- The 4-folder bundle is a **validation target**, not an implementation special case.
+- M1 builds from **canonical/promoted truth-bearing inputs**, not raw PDFs directly.
+- M1 proves a **scoped graph for one bounded pilot bundle**, not generic all-laws support.
+- Optimization priority is:
+  1. bounded working set
+  2. artifact isolation
+  3. replay/freshness discipline
+  4. only then compute-level optimization
+- No Rust in M1 unless a measured hot path appears during later profiling.
+
+### Decision Closure Order
+The unresolved design decisions should be closed in this order:
+1. manifest shape
+2. canonical input selection
+3. relationship input policy
+4. scoped query selector
+5. export selector
+6. freshness model
+7. pilot gate
+
+Why this order:
+- each later decision depends on earlier scope/freshness boundaries
+- query/export choices are weaker until manifest/input policy is settled
+- the pilot gate should be finalized last because it depends on the preceding defaults
+
+### Dataset Artifact Metadata Schema (Planning Default)
+
+Every dataset-scoped artifact family should carry, at minimum:
+- `dataset_id`
+- `dataset_kind`
+- `run_id`
+- `manifest_hash`
+- `generated_at`
+- `input_fingerprint` or equivalent source fingerprint summary
+- `upstream_artifact_refs`
+- `scope_notes`
+
+Recommended by artifact family:
+- **dataset extraction artifact** → add source markdown refs + extractor version
+- **dataset review artifact** → add model, review policy, confidence filter settings
+- **dataset promotion artifact** → add relationship-input manifest ref + promotion policy ref
+- **dataset graph snapshot** → add canonical input manifest ref + relationship input manifest ref
+- **dataset query/export output** → add selected snapshot path + selected snapshot manifest/run identity
+
 ### Performance evidence note
 Human-readable benchmark and optimization notes for this track should be written under:
 - `/.ai/00_performance/`
@@ -300,6 +405,190 @@ Recommended roots:
 Hard rule:
 - M1 must **not** mutate global `latest_*` graph or relationship artifacts.
 
+### Current artifact baseline
+Current shared/global artifacts are still small enough that the first proof is feasible on low-spec hardware, but they are already large enough that duplicated broad rewrites would be wasteful:
+- `latest_graph_snapshot.json` ≈ `38 KB`
+- `latest_relationship_extraction_sections.json` ≈ `96 KB`
+- `latest_relationship_review_high_confidence.json` ≈ `37 KB`
+
+### Default / Global Path Preservation Contract
+The first implementation must be **strictly additive** to the existing global/shared pipeline.
+
+Hard rules:
+- when dataset mode is **not** invoked, the current default/global CLI entrypoints, paths, and outputs must continue to behave as they do today
+- M1 must not repoint existing default commands from global/shared outputs to dataset-scoped outputs
+- dataset-scoped graph/query/export behavior must be entered only through an explicit manifest, dataset selector, or scoped output argument
+- compatibility should be proven by preserving current global test expectations unless a deliberate, separately-audited migration plan is approved
+
+Planning clause to preserve long-term architecture:
+- the first four-folder bundle may appear in manifests, examples, validation fixtures, and planning docs, but **must not** appear as a hardcoded routing condition, folder-name allowlist in core logic, or special branch that changes default/global behavior
+
+### Pilot Distortion Guardrails
+The first pilot must prove usefulness without bending the architecture around the pilot itself.
+
+Hard rules:
+- the four-folder core-laws bundle is a **validation target**, not an architectural primitive
+- any logic that depends on `PD-1096`, `RA-9514`, `BP-344`, or `BP-220` by name in core orchestration should be treated as a plan violation unless confined to manifest data or test fixtures
+- if supporting a second manifest instance would require code edits rather than manifest edits, stop and re-plan before implementation
+- M1 must be reviewable as a generic dataset-scoped capability even if only one pilot manifest is executed first
+
+### Rollout and Rollback Rules
+The first implementation should widen capability in reversible slices.
+
+Rollout rules:
+- M1 must be introduced behind additive dataset-scoped commands, flags, or manifest-driven entrypoints
+- no in-place migration of existing global `latest_*` artifacts is allowed during M1
+- no shared canonical truth rewrite is allowed merely to make the pilot succeed
+
+Rollback rules:
+- M1 rollback must be achievable by removing or ignoring dataset-scoped manifests and outputs without restoring overwritten global/shared artifacts
+- dataset-scoped outputs must live under dedicated dataset roots so they can be archived or removed independently
+- if an M1 slice cannot be disabled without affecting the current global/shared graph and query path, the slice is too invasive for first implementation
+
+### Dataset Output Freshness Contract
+Dataset-scoped outputs must be unambiguous about whether they are current, stale, or selected for query/export.
+
+Required metadata / semantics:
+- every dataset-scoped output family should carry `dataset_id`, `generated_at`, and a stable path contract
+- query/export must operate on an **explicitly selected** dataset snapshot path or manifest-selected snapshot, not by silently reusing a dataset-local `latest` without provenance
+- M1 validation should prove that stale dataset outputs cannot be mistaken for current truth merely because they exist under the same dataset root
+
+### Artifact Freshness / Metadata Table
+
+| Artifact family | Must identify | Must prove | Failure if missing |
+|---|---|---|---|
+| Extraction | `dataset_id`, `run_id`, `manifest_hash`, source markdown refs | which candidate set belongs to which dataset run | review may consume stale or foreign candidates |
+| Review | `dataset_id`, `run_id`, upstream extraction ref, model/policy | which review answers belong to which candidate set | promotion may consume stale or foreign review outputs |
+| Promotion input/output | `dataset_id`, `run_id`, upstream review ref, promotion policy | which approved relationships were selected and why | scoped graph may inherit wrong truth inputs |
+| Graph snapshot | `dataset_id`, `run_id`, canonical input ref, relationship input ref | exactly which truth-bearing inputs formed the graph | query/export can read the wrong graph |
+| Query/export | selected snapshot path + selected snapshot identity | which graph was actually queried/exported | operator cannot distinguish scoped vs global result |
+
+### Partial Run / Incomplete Output Contract
+Rules:
+- partial-run artifacts must be marked `incomplete`
+- partial-run outputs must not be treated as current dataset truth
+- the final scoped proof becomes “current” only after all required stage outputs pass validation
+- missing bundle members cannot silently disappear from final reporting
+
+### Bundle Coverage Contract
+For the 4-folder bundle, the implementation must report per-folder coverage:
+- raw files present
+- canonical pages produced
+- approved relationship inputs present
+- nodes contributed
+- edges contributed
+
+Minimum rule:
+- every folder in the manifest must appear in the final run report
+- each folder must either contribute at least one truth-bearing artifact or be explicitly marked blocked/deferred with reason
+
+### Thin-Graph Decision Rule
+A scoped graph proof is **not** automatically successful merely because it emits a valid snapshot.
+
+If the graph is valid but too sparse, the result should be `PARTIAL`, not `SUCCESS`.
+
+Minimum usefulness checks should include:
+- more than one connected relation chain
+- not mostly isolated nodes
+- 3–5 seeded questions returning evidence-bearing answers
+
+### M1 Success vs Partial Success vs Fail Rubric
+
+#### SUCCESS
+Call M1 a success only if all of the following are true:
+- dataset manifest is valid and generic
+- graph build is scoped and does not mutate global `latest_*`
+- query/export are scoped to the selected snapshot
+- artifact freshness contract is satisfied
+- all four bundle members are accounted for in final reporting
+- graph integrity passes for the scoped snapshot
+- seeded scoped queries return evidence-bearing answers
+- macro-compatibility and anti-special-case checks pass
+- low-spec execution constraints are respected by design
+
+#### PARTIAL
+Call M1 partial if:
+- the scoped graph is valid but too thin to be useful
+- one or more bundle members are explicitly blocked/deferred but reported honestly
+- the graph proof works but one follow-on requirement (for example export ergonomics) is intentionally deferred
+- the output is truthful, but not yet strong enough to claim the full pilot objective
+
+#### FAIL
+Call M1 failed if any of the following occur:
+- global `latest_*` artifacts are mutated or silently reused
+- the scoped query path still reads the wrong snapshot
+- the implementation hardcodes the first four folders
+- stale dataset outputs can masquerade as current truth
+- the design cannot preserve the current default/global path
+- the approach is not viable on an 8 GB-class machine without breaking the bounded-scope assumptions
+
+## 10F. M1 Execution-Readiness Gate
+
+M1 may begin only when all of the following are satisfied in the planning layer:
+- full source→graph path map exists
+- formal module blast-radius matrix exists
+- artifact-level blast-radius and rollback shape are explicit
+- manifest contract and metadata schema are explicit
+- relationship input policy is explicit
+- scoped query/export selector choice is explicit
+- freshness/selection semantics are explicit
+- anti-special-case and macro-compatibility rules are explicit
+- low-spec execution budget assumptions are explicit
+- M1 cut line is explicit
+
+If any one of these is still fuzzy, M1 remains blocked.
+
+## 10G. Low-Spec Execution Budget (Planning Level)
+
+The first scoped proof should plan against an **8 GB M2-class machine** as a real constraint.
+
+### Budget categories for M1
+- **Working-set budget** — keep inputs bounded to the manifest-selected pilot bundle only
+- **Artifact budget** — no unnecessary duplication or rewriting of global `latest_*` artifacts
+- **Traversal budget** — no whole-shared-root scans when a manifest-selected subset is sufficient
+- **Query budget** — no hidden reload of unrelated graph data when querying the scoped snapshot
+
+### Planning-level no-go conditions
+- M1 requires whole-canonical-root graph construction to function
+- M1 requires whole-layer review/promotion artifact loading to function
+- M1 cannot remain bounded in memory/work set on a modest pilot bundle
+- M1 can only succeed by broad global artifact rewrites that negate the scoped design
+
+### Default optimization stance
+- prefer bounded manifests over broad scans
+- prefer selected snapshots over global latest state
+- prefer fewer artifact rewrites over convenience
+- only escalate to Rust after later profiling identifies a true hot path
+
+### Scoped Query Correctness Contract
+The scoped query surface should echo:
+- `dataset_id`
+- selected snapshot path
+- manifest hash or run identifier
+
+The plan must explicitly prove:
+- answers come from the scoped snapshot, not the global latest snapshot
+- differing scope selections can yield appropriately different results
+
+## 10H. Codebase Protection List for M1
+
+The following behaviors and surfaces must remain unchanged during M1 unless a separately-audited migration explicitly says otherwise:
+
+### Default/global behaviors that must remain intact
+- current global `build-graph` default behavior
+- current global `query` and `query-structured` default behavior
+- current global `query-graph` default behavior
+- current global `export-graph-owl` default behavior
+- current default/global `latest_*` artifact consumers when dataset mode is not invoked
+
+### Truth-bearing locations that must not be implicitly repurposed
+- `003_Canonical-Knowledge-Layer/shared/relationships/` as the shared canonical relationship layer
+- existing shared canonical source and concept files unless the scoped proof explicitly and safely selects from them
+- existing promotion audit semantics for the global/default path
+
+### Planning rule
+M1 may add **parallel scoped paths** and **dataset-scoped artifacts**, but it must not silently redefine the default/global path in order to make the pilot work.
+
 ## 10. Risks and Stop Conditions
 
 ### Key Risks
@@ -313,6 +602,9 @@ Hard rule:
 8. **Pilot-gate risk** — the 4-folder bundle is more useful than a single-law proof, but it still needs explicit acceptance as a bounded pilot before execution.
 9. **Pilot-specialization risk** — implementation may drift into hardcoded support for the first four folders instead of a reusable dataset manifest mechanism.
 10. **Low-spec failure risk** — an implementation that silently assumes large RAM or whole-corpus in-memory behavior would violate the project’s accessibility goal even if it works on powerful hardware.
+11. **Artifact-reuse risk** — stale dataset-specific outputs could be mistaken for current truth unless the plan defines clear refresh/selection semantics.
+12. **Partial-run truth risk** — a partially completed bundle could still emit a technically valid graph and mislead operators if incompleteness is not surfaced explicitly.
+13. **Thin-graph false-success risk** — a graph may be valid but too sparse or skewed to be an honest success for the intended bundle.
 
 ### Stop Conditions
 Stop execution planning and revisit the contract if:
@@ -323,6 +615,9 @@ Stop execution planning and revisit the contract if:
 - the optimization discussion starts driving implementation before the scoped graph proof path is even mapped
 - the implementation approach only works for the first selected four folders and cannot generalize to a second manifest instance without rewrites
 - the only plausible implementation path assumes high-memory execution and cannot be made practical on an 8 GB-class machine
+- stale or ambiguous dataset-specific outputs cannot be clearly distinguished from current scoped truth
+- partial bundle execution can produce a misleadingly “successful” graph without explicit incompleteness markers
+- the graph is technically valid but operationally too thin to support meaningful scoped queries
 
 ## 11. Verification Plan
 M1 must include all of the following:
@@ -333,39 +628,78 @@ M1 must include all of the following:
 2. **Artifact isolation check**
    - verify outputs land only under dataset-specific directories
    - verify global `latest_*` files remain unchanged
+   - verify the default/global graph and query path still resolve exactly as before when dataset mode is unused
 
-3. **Scoped integrity check**
+3. **Rollback check**
+   - prove the M1 slice can be disabled or ignored without repairing overwritten global/shared artifacts
+   - prove dataset-scoped outputs can be removed or archived independently
+
+4. **Freshness / selection check**
+   - prove the chosen dataset snapshot is explicit and provenance-bearing
+   - prove stale dataset outputs cannot be silently mistaken for current scoped truth
+
+5. **Scoped integrity check**
    - run integrity against the dataset snapshot
    - require zero duplicate node IDs
    - require zero dangling edges
    - record warning count explicitly
 
-4. **Scoped query check**
+6. **Scoped query check**
    - run at least 3–5 seeded questions against the scoped snapshot
    - require evidence-bearing answers
 
-5. **Determinism / replay check**
+7. **Determinism / replay check**
    - rerun the same manifest twice
    - compare snapshot and integrity outputs
 
-6. **Boundary check**
+8. **Boundary check**
    - prove M1 did not write into shared canonical truth unintentionally
 
-7. **Non-goal verification**
+9. **Non-goal verification**
    - explicitly record that M1 is a 4-folder core-laws-bundle proof and does not claim generic all-laws support
 
-8. **Macro-compatibility verification**
+10. **Macro-compatibility verification**
    - prove the dataset-scoped implementation preserves the current default/global path when dataset mode is unused
    - prove a second manifest instance could be supplied without code surgery
 
-9. **Anti-special-case verification**
+11. **Anti-special-case verification**
    - inspect the implementation for folder-name-specific branches or constants added only to make the first bundle pass
    - reject implementation success if the first four folders are wired in as code rather than manifest data
 
-10. **Low-spec viability verification**
+12. **Low-spec viability verification**
    - explicitly record the expected working-set controls for the scoped proof
    - reject the implementation if the design depends on whole-corpus/global-latest behavior that defeats low-spec execution
    - where performance-sensitive code is identified, document whether optimization stays in Python or becomes a future Rust candidate and why
+
+13. **Artifact freshness verification**
+   - verify the dataset-specific proof defines how current run outputs are selected or refreshed
+   - reject designs that allow stale scoped artifacts to masquerade as current truth
+
+14. **Bundle completeness verification**
+   - every folder in the 4-folder manifest appears in the final run report
+   - missing/blocked members are reported explicitly
+
+15. **Thin-graph usefulness verification**
+   - record connected-component count, isolated-node rate or equivalent, edge diversity, and a success/partial/fail judgment
+
+16. **Scoped query provenance verification**
+   - query output must surface the selected dataset/snapshot identity and prove it did not read the global latest snapshot silently
+
+17. **Partial-run safety verification**
+   - confirm incomplete runs are marked incomplete and cannot masquerade as current truth
+
+18. **Outcome-classification verification**
+   - explicitly classify M1 as `SUCCESS`, `PARTIAL`, or `FAIL`
+   - reject any validation report that avoids making that judgment
+
+19. **Execution-readiness verification**
+   - explicitly state whether the M1 readiness gate was fully satisfied before coding began
+
+20. **Artifact metadata verification**
+   - verify each dataset artifact family carries the planned identity/freshness metadata needed to prove scope and recency
+
+21. **Low-spec budget verification**
+   - verify the implemented slice stayed inside the planned low-spec working-set assumptions rather than quietly broadening to whole-layer behavior
 
 ## 12. Follow-On Staffing Guidance
 
@@ -407,6 +741,39 @@ M1 must include all of the following:
 - the first pilot should be graph-useful, but the implementation must still be reusable beyond that pilot
 - low-spec viability is a core success criterion, but the plan must still refuse cargo-cult optimization that would reduce correctness or truthfulness
 
+## 13A. Implementation Forbidden Moves
+
+The following are explicitly forbidden during M1 unless a separately-audited migration or follow-on plan changes the boundary:
+
+### Forbidden scope shortcuts
+- hardcoding `PD-1096`, `RA-9514`, `BP-344`, or `BP-220` into core orchestration logic
+- treating the first 4-folder bundle as an architectural primitive instead of a manifest instance
+- widening M1 from a scoped graph proof into generic all-laws support without a new planning decision
+
+### Forbidden artifact shortcuts
+- reading global `latest_relationship_*` artifacts in dataset mode
+- writing dataset proof outputs into global `latest_graph_snapshot.json`, `latest_graph_integrity_report.json`, or `latest_graph_snapshot.ttl`
+- silently falling back from missing dataset-scoped artifacts to global latest artifacts
+- allowing stale dataset artifacts to masquerade as current truth
+
+### Forbidden truth-boundary shortcuts
+- building the graph directly from raw PDFs
+- skipping canonical/promoted truth-bearing inputs just to get a graph faster
+- rewriting shared canonical truth in order to make the pilot appear successful
+
+### Forbidden architecture shortcuts
+- changing default/global CLI behavior to make dataset mode easier
+- introducing a second parallel mini-pipeline that duplicates existing stage logic without strong justification
+- making the first implementation depend on behavior that cannot generalize to a second manifest instance
+
+### Forbidden optimization shortcuts
+- moving orchestration/state/artifact-routing logic into Rust during M1
+- introducing optimization work before the path audit and blast-radius findings are settled
+- accepting high-memory whole-corpus behavior on the grounds that stronger hardware exists elsewhere
+
+### Planning enforcement
+If any proposed execution step requires one of the forbidden moves above, M1 must stop and return to planning.
+
 ## 14. Execution Checklist
 - [ ] map the full source→graph path for the 4-folder core-laws-bundle pilot
 - [ ] produce the blast-radius list for commands/modules/artifacts/docs likely to change
@@ -423,3 +790,44 @@ M1 must include all of the following:
 - [ ] run low-spec viability checks at the design level before approving implementation
 - [ ] write validation log for the core-laws-bundle proof
 - [ ] only then plan M2 dataset-safe review/promotion scoping
+
+## 15. Recommended M1 Implementation Sequence by Dependency
+
+| Step | Depends on | Why now | What it unlocks | What must stay untouched | Rollback implication |
+|---|---|---|---|---|---|
+| 1. Finalize dataset manifest contract | M0 path map + decision ledger + readiness gate | all later scoped behavior must read from data, not code branches | dataset identity, bounded scope, future manifest reuse | default/global commands and `latest_*` artifacts | if wrong, stop before code spreads |
+| 2. Finalize artifact metadata + freshness contract | step 1 | scoped outputs cannot be trusted without identity/freshness metadata | replay, freshness checks, stale-output rejection | current global artifact semantics | metadata-only design rollback |
+| 3. Finalize dataset-specific output roots | steps 1–2 | output isolation is the first hard runtime boundary | scoped snapshot/integrity/export outputs | global snapshot, integrity, export, and review artifacts | scoped outputs removable independently |
+| 4. Add scoped graph build surface | steps 1–3 | smallest truthful graph proof surface | dataset-specific snapshot + integrity report | current `build-graph` default/global path | scoped build removable/ignorable without repairing global graph |
+| 5. Add snapshot-selected/scoped query surface | steps 1–4 | graph proof without scoped query remains half-global | seeded scoped query validation | current global `query` / `query-structured` defaults | selector removable without changing global query behavior |
+| 6. Finalize safe relationship input policy | steps 1–5 | graph proof must know which truth-bearing relationship inputs are in scope | leakage-safe node/edge population | global `latest_relationship_*` flows | if unsafe, stop before touching review/promotion |
+| 7. Validate leakage / isolation / freshness / completeness / thin-graph outcomes | steps 1–6 | prove the proof is truthful before broadening | M1 `SUCCESS` / `PARTIAL` / `FAIL` judgment | shared canonical truth and global latest artifacts | failed proof should leave only removable dataset outputs |
+| 8. Decide whether M2 review/promotion scoping is actually required | successful step 7 | do not widen the slice unless the proof truly needs it | precise M2 boundary | current review/promotion defaults if not needed | defer if approved inputs already suffice |
+
+### Why this dependency order is recommended
+- It starts with **scope, freshness, and artifact boundaries**, not broad orchestration changes.
+- It reaches the first truthful scoped graph proof as early as possible.
+- It keeps low-spec working-set control front and center.
+- It delays truth-sensitive widening until after the graph proof itself is validated.
+
+### Dependency anti-patterns to avoid
+- starting with review/promotion rewiring before scoped graph build/query exist
+- adding batch dataset wrappers before the graph proof surfaces are validated
+- introducing pilot-specific branches before the manifest contract is settled
+- changing global `latest_*` behavior to make the first pilot appear successful
+
+## 16. Verification Surface Map for Future M1 Work
+
+The following test/validation surfaces are the most likely to matter when M1 eventually begins:
+
+| Future M1 change area | Primary verification surface(s) | Why these matter |
+|---|---|---|
+| scoped graph build | `scripts/tests/test_graph_builder.py`, `scripts/tests/test_graph_cli.py`, backcompat graph snapshot tests | graph scoping, leakage, deterministic snapshot behavior |
+| scoped query/snapshot selector | `scripts/tests/test_query_cli.py`, `scripts/tests/test_query_engine.py`, `scripts/tests/test_query_seed_accuracy.py` | prove query answers come from the selected scoped snapshot |
+| relationship input policy | `scripts/tests/test_run_promote.py`, `scripts/tests/test_integration_e2e.py`, extraction/Phase 5E tests | truth-bearing relationship input path and no global-latest contamination |
+| default/global path preservation | `scripts/tests/test_pipeline_cli_byte_identity.py`, global graph/query CLI tests | prove dataset mode stays additive |
+| artifact metadata/freshness | plan-specific validation log + dataset artifact inspection + any new fixture tests | stale-output detection and replayability |
+| low-spec discipline | `.ai/00_performance/` notes + targeted runtime/size observations | record bounded working-set evidence without overclaiming |
+
+### Planning note
+The execution phase should prefer **small targeted test slices first**, then broader regression only after the scoped surfaces behave correctly.
