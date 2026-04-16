@@ -233,6 +233,19 @@ Verify that system components still work together.
 ### Rule
 A change that spans multiple modules or layers is not validated by unit tests alone.
 
+### Dataset-Scoped Graph Proof Validation
+For any future mini dataset→graph implementation, validation must explicitly cover both the **micro pilot** and the **macro codebase impact**.
+
+Minimum required checks:
+- **Path audit evidence** — the full source→graph path and blast radius are documented before implementation
+- **Leakage check** — only manifest-allowed canonical pages / relationship records enter the scoped graph
+- **Artifact isolation check** — dataset outputs land only under dataset-specific roots and do not mutate global `latest_*`
+- **Scoped integrity check** — zero duplicate node IDs, zero dangling edges, warning count recorded
+- **Scoped query check** — seeded questions against the scoped snapshot return evidence-bearing answers
+- **Determinism/replay check** — rerunning the same manifest yields stable outputs
+- **Macro-compatibility check** — the dataset-scoped mechanism still preserves the current default/global path when dataset mode is unused
+- **Anti-special-case check** — reject implementations that hardcode the pilot dataset instead of using manifest data
+
 ---
 
 ## Section 7 — Performance Validation

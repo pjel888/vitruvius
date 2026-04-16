@@ -20,6 +20,7 @@ It is not the execution-order authority. The governing plan owns execution order
 | `2026-04-15-nested-agents-governance-plan.md` | governance maintenance | accepted / pending execution | nested `AGENTS.md` hierarchy | you are working on AGENTS coverage and hierarchy |
 | `2026-04-16-whole-codebase-plans-upgrade-plan.md` | governance maintenance | active | current rewrite task for the plan layer | you are continuing the plan-layer rewrite task |
 | `2026-04-16_graph-warning-and-gitnexus-warning-plan.md` | maintenance draft | draft / unexecuted | graph-warning reduction and GitNexus warning investigation | you are explicitly taking up the warning-reduction draft |
+| `2026-04-16_laws-mini-dataset-graph-pipeline-plan.md` | implementation plan | accepted / pending execution | scoped core-laws-bundle graph proof and scale path | you are planning or implementing the mini dataset→graph pipeline |
 | `AEC_ENGINE_BOUNDARY_TRANSLATION_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | IFC/CAD/DTO boundary translation | AEC import/export work is selected |
 | `AEC_ENGINE_ECS_CORE_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | canonical ECS world state | AEC ECS work is selected |
 | `AEC_ENGINE_FINANCIAL_PRICING_ORACLE_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | pricing and quantity scoring | AEC pricing work is selected |
@@ -56,6 +57,9 @@ It is not the execution-order authority. The governing plan owns execution order
 - `2026-04-15-nested-agents-governance-plan.md`
 - `2026-04-16-whole-codebase-plans-upgrade-plan.md`
 - `2026-04-16_graph-warning-and-gitnexus-warning-plan.md` (draft / unexecuted)
+
+### Dataset→Graph Planning
+- `2026-04-16_laws-mini-dataset-graph-pipeline-plan.md`
 
 ### AEC Engine
 - `AEC_ENGINE_BOUNDARY_TRANSLATION_IMPLEMENTATION_PLAN.md`

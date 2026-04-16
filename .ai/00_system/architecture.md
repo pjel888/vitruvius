@@ -202,6 +202,28 @@ Both crates are optional dependencies. Pure-Python paths remain intact and are e
 
 - `spatial-daemon/` — Node.js 25 + vitest sibling subproject (not inside `scripts/vitruvius/`). Implements GJK collision detection, AABB overlap, and a filesystem contract writer that the Python side consumes. Entry point: `spatial-daemon/src/cli.ts`. 20/20 vitest tests. Used for 3D spatial verification when ingesting building geometries.
 
+### Dataset-scoped graph proof guidance
+
+Vitruvius already has a real canonical-layer → graph path, but the currently shipped graph/query surfaces are global by default:
+- `scripts/vitruvius/graph/cli.py` reads the shared canonical root
+- `scripts/vitruvius/query/cli.py` reads the global latest snapshot
+- review/promotion surfaces still depend on global `latest_*` artifacts
+
+Therefore, any future **mini dataset → graph** work must follow these architecture rules:
+- treat the raw folder only as the **input slice anchor**
+- build the graph from **manifest-selected canonical/promoted inputs**, not directly from raw PDFs
+- use dataset-specific output roots under:
+  - `006_System-Manifests/runs/datasets/<dataset_id>/`
+  - `005_Operational-Intelligence-Layer/graph/datasets/<dataset_id>/`
+- do **not** mutate global `latest_*` graph or relationship artifacts for a scoped proof
+- do **not** hardcode the first pilot dataset into code just to make it pass; the pilot dataset must be data in a manifest, not a one-off branch in implementation logic
+
+Planning expectation:
+- first map the full source→graph path
+- then measure the blast radius
+- then identify optimization opportunities
+- only after that decide whether any future hot-path candidate is appropriate for Rust
+
 ### Feature-flag governance
 
 All 21 sprints added flag families under `features:` in `config/vitruvius.yaml`. Default is **false** for every new flag so pre-session behaviour is byte-identical until an operator opts in — except the four flags that have been promoted to live-by-default (see "Live-by-default flags" table below). The `EXPECTED_FLAGS` registry in `scripts/tests/test_features.py` enumerates every expected flag and fails CI if a flag is added to the YAML without a test entry.

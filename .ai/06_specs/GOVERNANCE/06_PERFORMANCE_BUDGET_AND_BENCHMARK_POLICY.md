@@ -232,6 +232,9 @@ This may live in:
 - benchmark output logs
 - dedicated performance notes
 
+Preferred markdown home for human-readable benchmark and optimization notes:
+- `/.ai/00_performance/`
+
 ---
 
 ## Section 12 — Performance by Task Class

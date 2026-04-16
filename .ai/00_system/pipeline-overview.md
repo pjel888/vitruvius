@@ -149,6 +149,22 @@ New optional stage between extraction and review:
 - **Hardware hardening** (`gt_hardware_hardening`) — mmap + Bloom filter foraging + MC dropout uncertainty utility (GT.5.1/5.2/5.3).
 - **Rust data plane** (`gt_engine_rs`) — linear octree + `SpatialPoint` shipped via the `engine_rs` pyo3 crate.
 
+### Dataset-scoped graph proof rule
+
+For future mini dataset→graph work, the current shipped path should be understood as:
+
+`raw slice anchor → conversion/refinement/canonicalization/extraction/review/promotion → graph snapshot/query`
+
+not:
+
+`raw folder → graph directly`
+
+Important planning/implementation constraints:
+- the first step is a **path audit** and blast-radius study, not immediate code changes
+- the first scoped proof should use **manifest-selected canonical/promoted inputs**
+- the first scoped proof must write dataset-specific artifacts, not global `latest_*`
+- the implementation should remain generic for future dataset manifests, even if the first validation target is a specific pilot bundle
+
 ### Sprint Z — Compound AI (z_* flags)
 
 A new post-review stage that only activates on Tier 2 candidates:

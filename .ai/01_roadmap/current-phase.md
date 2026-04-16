@@ -42,6 +42,11 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
   - selected subsystem plans must be accepted for the requested slice
   - a fresh implementation trigger must exist before coding starts
 
+### 4. Laws Mini Dataset→Graph Pipeline
+- Status: accepted / pending execution
+- Governing artifact: `/.ai/03_plans/2026-04-16_laws-mini-dataset-graph-pipeline-plan.md`
+- Goal: prove a truthful, manifest-backed core-laws-bundle scoped graph first, then stage toward broader per-section and interconnected graph workflows
+
 ## Historical Runtime Context
 The prior sprint chain remains important historical context, but it is not the active dispatcher anymore.
 

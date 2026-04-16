@@ -200,6 +200,18 @@ This supports:
 - dispute handling
 - temporal forensics
 
+### Dataset-Scoped Graph Truth Rule
+When Vitruvius is used to prove a graph for a bounded dataset or pilot bundle:
+- the graph must still be built from **canonical/promoted truth-bearing inputs**
+- raw folders are only **scope anchors**, not direct graph truth
+- scoped graph proofs must not silently reuse global `latest_relationship_*` or global latest graph artifacts
+- if a pilot needs dataset-selected approved relationship inputs, that selection must be explicit in manifest/staging data, not hidden in code branches
+
+Truthfulness requirement:
+- a pilot graph may be **bounded**
+- it may be **gated**
+- but it must never pretend to be generic all-dataset support if the implementation is still tied to one pilot bundle
+
 ---
 
 ## Section 8 — Conflict Handling
