@@ -879,6 +879,7 @@ Execution status note (2026-04-16):
   - concept-fit follow-on slices are complete for `BP-344` and `BP-220`
   - M3 orchestration is complete via `run-dataset-graph`
   - current bounded pilot outcome is now `SUCCESS`; see `2026-04-16_laws-core-bundle-bounded-pilot-success-validation.md`
+  - M4 expansion-path follow-on is complete for the accepted minimal slice: model/spec artifacts plus additive `law_units` manifest/runtime/reporting support; see `2026-04-16_laws-m4-expansion-path-validation.md`
 
 - [x] map the full source→graph path for the 4-folder core-laws-bundle pilot
 - [x] produce the blast-radius list for commands/modules/artifacts/docs likely to change

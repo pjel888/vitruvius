@@ -82,7 +82,18 @@ def _seed_repo(root: Path) -> Path:
                 'edition_or_source_note': 'demo',
                 'include_in_m1': True,
                 'reason': 'demo',
-                'classified_raw_entries': [],
+                'classified_raw_entries': [
+                    {
+                        'path': '001_Raw-Source-Layer/001-Laws/PD-1096/stub.pdf',
+                        'folder_name': 'PD-1096',
+                        'entry_role': 'authoritative',
+                        'authority_tier': 'primary',
+                        'variant_family': 'demo',
+                        'edition_or_source_note': 'demo',
+                        'include_in_m1': True,
+                        'reason': 'demo',
+                    }
+                ],
             }
         ],
         'canonical_input_manifest': {
@@ -93,11 +104,23 @@ def _seed_repo(root: Path) -> Path:
                     'entry_role': 'authoritative',
                     'authority_tier': 'primary',
                     'variant_family': 'demo',
-                    'edition_or_source_note': 'demo',
-                    'include_in_m1': True,
-                    'reason': 'demo',
-                }
-            ],
+                'edition_or_source_note': 'demo',
+                'include_in_m1': True,
+                'reason': 'demo',
+                'classified_raw_entries': [
+                    {
+                        'path': '001_Raw-Source-Layer/001-Laws/PD-1096/stub.pdf',
+                        'folder_name': 'PD-1096',
+                        'entry_role': 'authoritative',
+                        'authority_tier': 'primary',
+                        'variant_family': 'demo',
+                        'edition_or_source_note': 'demo',
+                        'include_in_m1': True,
+                        'reason': 'demo',
+                    }
+                ],
+            }
+        ],
             'concepts': [
                 {
                     'path': '003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md',
@@ -130,6 +153,30 @@ def _seed_repo(root: Path) -> Path:
         'query_snapshot_path_template': '005_Operational-Intelligence-Layer/graph/datasets/demo-dataset/{run_id}_graph_snapshot.json',
         'freshness_policy': {'mode': 'exact'},
         'pilot_gate': {'require_manifest_validation': True},
+        'law_units': [
+            {
+                'law_id': 'pd-1096',
+                'folder_name': 'PD-1096',
+                'raw_anchor_paths': [
+                    '001_Raw-Source-Layer/001-Laws/PD-1096/stub.pdf',
+                ],
+                'authoritative_variant_paths': [
+                    '001_Raw-Source-Layer/001-Laws/PD-1096/stub.pdf',
+                ],
+                'excluded_variant_paths': [],
+                'admitted_source_paths': [
+                    '003_Canonical-Knowledge-Layer/shared/sources/law.md',
+                ],
+                'admitted_concept_paths': [
+                    '003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md',
+                ],
+                'admitted_relationship_paths': [
+                    '003_Canonical-Knowledge-Layer/shared/relationships/r.md',
+                ],
+                'verification_checks': ['demo scoped path remains covered'],
+                'scope_notes': ['Demo law-unit repetition contract for M4 runtime support.'],
+            }
+        ],
     }
     manifest_path = root / 'config' / 'datasets' / 'demo.yaml'
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
@@ -153,6 +200,8 @@ def test_run_dataset_graph_writes_pipeline_report_and_keeps_global_latest_absent
     assert pipeline_report.exists()
     report = json.loads(pipeline_report.read_text(encoding='utf-8'))
     assert report['dataset_id'] == 'demo-dataset'
+    assert report['law_unit_count'] == 1
+    assert report['contributing_law_ids'] == ['pd-1096']
     assert report['structured_checks'][0]['rc'] == 0
     assert (tmp_path / payload['snapshot_path']).exists()
     assert (tmp_path / payload['owl_path']).exists()

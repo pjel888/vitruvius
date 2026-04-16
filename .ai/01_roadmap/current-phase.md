@@ -13,7 +13,7 @@
 
 Vitruvius is currently between feature sprints, but it is **not** idle. The live work is governance/planning maintenance, centered on the plan-layer rewrite and pending governance plans rather than runtime feature execution.
 
-**Live branch:** `main`
+**Live branch:** `ralph/laws-dataset-phases`
 
 **Most recent validated implementation burst:** the historical multi-sprint closure recorded on 2026-04-15 remains the latest recorded runtime execution baseline. See `/.ai/10_state/active_context.md` and `/.ai/10_state/decisions.md` for that historical delivery record.
 
@@ -35,19 +35,25 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
 - Goal: finish the justified hierarchical `AGENTS.md` system at the major repo boundaries
 
 ### 3. AEC Engine Planning Family
-- Status: proposed / implementation-blocked
+- Status: planning-active / implementation-blocked
 - Governing artifact: `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`
+- Active bounded-slice candidate: `/.ai/03_plans/2026-04-16-aec-first-bounded-slice-pre-implementation-plan.md`
+- Current truth:
+  - the bounded-slice artifact exists, but it is a pre-implementation candidate only
+  - it cannot close `AEC-T020`
+  - `ready_to_implement` remains `false`
 - Blocking gates:
   - planned namespace must be accepted
   - selected subsystem plans must be accepted for the requested slice
-  - a fresh implementation trigger must exist before coding starts
+  - `G1`–`G8` plus unresolved upstream AEC tasks must be closed with evidence
+  - a true sprint plan and fresh implementation trigger must exist before coding starts
 
 ### 4. Laws Mini Dataset→Graph Pipeline
-- Status: bounded pilot success achieved on 2026-04-16; M3 complete; M4 remains open
+- Status: bounded pilot success achieved on 2026-04-16; M3 complete; M4 complete
 - Governing artifact: `/.ai/03_plans/2026-04-16_laws-mini-dataset-graph-pipeline-plan.md`
 - Goal: prove a truthful, manifest-backed core-laws-bundle scoped graph first, then stage toward broader per-section and interconnected graph workflows
 - Phase 11 note: this is a **bounded pilot lane**, not a generic opening of Phase 11 dataset expansion; it may execute only within the accepted M1 scope and guardrails
-- Latest validation: `/.ai/05_logs/2026-04-16_laws-mini-dataset-graph-pipeline-m1-validation.md`
+- Latest validation: `/.ai/05_logs/2026-04-16_laws-m4-expansion-path-validation.md`
 - Follow-on planning artifact: `/.ai/03_plans/2026-04-16_laws-m2-admission-plan.md`
 - Follow-on planning state:
   - M2A source admission has now been executed for `RA-9514`, `BP-344`, and `BP-220`; see `/.ai/05_logs/2026-04-16_laws-m2a-source-admission-validation.md`
@@ -55,7 +61,9 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
   - conservative RA-9514 relationship admission is now complete in the official scoped graph; see `/.ai/05_logs/2026-04-16_laws-m2b-relationship-admission-validation.md`
   - concept-fit follow-on slice admitted minimal concepts and relationship-backed edges for `BP-344` and `BP-220`
   - M3 orchestration is now complete via `run-dataset-graph`; see `/.ai/05_logs/2026-04-16_laws-m3-orchestration-validation.md`
+  - M4A model/spec artifacts are complete and M4B minimal additive `law_units` manifest/runtime/reporting support is now complete; see `/.ai/05_logs/2026-04-16_laws-m4-expansion-path-validation.md`
   - bounded pilot success validation: `/.ai/05_logs/2026-04-16_laws-core-bundle-bounded-pilot-success-validation.md`
+  - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
     - `RA-9514` = `covered`
@@ -79,7 +87,7 @@ Do not use it for:
 1. Finish validation of the current plan-layer rewrite.
 2. If AGENTS coverage remains incomplete after validation, execute the nested-AGENTS governance plan.
 3. If AEC implementation is requested, accept the planned namespace and the relevant subsystem slice, then create fresh trigger/baseline/research/audit artifacts before coding.
-4. If follow-on laws dataset work is requested, keep it inside the accepted bounded pilot lane: the bounded four-folder pilot is now successful (`PD-1096 = covered`, `RA-9514 = covered`, `BP-344 = covered`, `BP-220 = covered`), but do not widen into generic Phase 11 expansion; remaining open work is M4 expansion-path follow-on, not pilot truth repair.
+4. If follow-on laws dataset work is requested, keep it inside the accepted bounded pilot lane: the bounded four-folder pilot is successful and the accepted M4 slice is complete, but generic Phase 11 expansion remains gated. Any new section-scoped runtime, merged-graph runtime, or broader all-laws expansion work requires a fresh accepted slice rather than continuation by momentum.
 
 ## Not Current By Default
 - archived sprint plans under `/.ai/09_archive/plans/`

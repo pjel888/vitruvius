@@ -43,11 +43,26 @@ class DatasetRawAnchor:
 
 
 @dataclass(frozen=True)
+class DatasetLawUnit:
+    law_id: str
+    folder_name: str
+    raw_anchor_paths: tuple[str, ...]
+    authoritative_variant_paths: tuple[str, ...]
+    excluded_variant_paths: tuple[str, ...]
+    admitted_source_paths: tuple[str, ...]
+    admitted_concept_paths: tuple[str, ...]
+    admitted_relationship_paths: tuple[str, ...]
+    verification_checks: tuple[str, ...]
+    scope_notes: tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class DatasetManifest:
     manifest_path: Path
     dataset_id: str
     dataset_kind: str
     raw_slice_anchors: tuple[DatasetRawAnchor, ...]
+    law_units: tuple[DatasetLawUnit, ...]
     source_entries: tuple[DatasetFileEntry, ...]
     concept_entries: tuple[DatasetFileEntry, ...]
     relationship_entries: tuple[DatasetFileEntry, ...]
@@ -108,6 +123,13 @@ def _optional_notes(payload: dict[str, Any], key: str) -> tuple[str, ...]:
     raw = payload.get(key)
     if raw is None:
         return ()
+    if not isinstance(raw, list) or not all(isinstance(item, str) for item in raw):
+        raise DatasetManifestError(f"dataset manifest field {key!r} must be a list of strings")
+    return tuple(item.strip() for item in raw if item.strip())
+
+
+def _require_str_list(payload: dict[str, Any], key: str) -> tuple[str, ...]:
+    raw = payload.get(key)
     if not isinstance(raw, list) or not all(isinstance(item, str) for item in raw):
         raise DatasetManifestError(f"dataset manifest field {key!r} must be a list of strings")
     return tuple(item.strip() for item in raw if item.strip())
@@ -197,6 +219,176 @@ def _parse_entry_list(
     return tuple(parsed)
 
 
+def _parse_existing_repo_relative_paths(
+    repo_root: Path,
+    payload: dict[str, Any],
+    *,
+    key: str,
+    what: str,
+) -> tuple[str, ...]:
+    raw_paths = _require_str_list(payload, key)
+    normalized: list[str] = []
+    for raw_path in raw_paths:
+        abs_path, relative_path = _resolve_repo_relative_path(
+            repo_root,
+            raw_path,
+            what=f"{what} field {key!r}",
+        )
+        if not abs_path.exists():
+            raise DatasetManifestError(
+                f"{what} field {key!r} references a missing path: {relative_path}"
+            )
+        normalized.append(relative_path)
+    return tuple(normalized)
+
+
+def _parse_law_units(
+    repo_root: Path,
+    payload: dict[str, Any],
+    *,
+    raw_anchors: tuple[DatasetRawAnchor, ...],
+    source_entries: tuple[DatasetFileEntry, ...],
+    concept_entries: tuple[DatasetFileEntry, ...],
+    relationship_entries: tuple[DatasetFileEntry, ...],
+) -> tuple[DatasetLawUnit, ...]:
+    raw = payload.get("law_units")
+    if raw is None:
+        return ()
+    if not isinstance(raw, list):
+        raise DatasetManifestError("dataset manifest field 'law_units' must be a list")
+
+    anchor_folder_names = {anchor.folder_name for anchor in raw_anchors}
+    classified_raw_by_folder = {
+        anchor.folder_name: {entry.relative_path for entry in anchor.classified_raw_entries}
+        for anchor in raw_anchors
+    }
+    selected_sources_by_folder = {
+        folder_name: {
+            entry.relative_path
+            for entry in source_entries
+            if entry.include_in_m1 and entry.folder_name == folder_name
+        }
+        for folder_name in anchor_folder_names
+    }
+    selected_concepts_by_folder = {
+        folder_name: {
+            entry.relative_path
+            for entry in concept_entries
+            if entry.include_in_m1 and entry.folder_name == folder_name
+        }
+        for folder_name in anchor_folder_names
+    }
+    selected_relationships_by_folder = {
+        folder_name: {
+            entry.relative_path
+            for entry in relationship_entries
+            if entry.include_in_m1 and entry.folder_name == folder_name
+        }
+        for folder_name in anchor_folder_names
+    }
+
+    seen_law_ids: set[str] = set()
+    parsed: list[DatasetLawUnit] = []
+    for index, item in enumerate(raw):
+        if not isinstance(item, dict):
+            raise DatasetManifestError(f"law_units entry {index} must be a mapping")
+        law_id = _require_str(item, "law_id")
+        if law_id in seen_law_ids:
+            raise DatasetManifestError(f"law_units contains duplicate law_id {law_id!r}")
+        seen_law_ids.add(law_id)
+
+        folder_name = _require_str(item, "folder_name")
+        if folder_name not in anchor_folder_names:
+            raise DatasetManifestError(
+                f"law_units entry {law_id!r} references unknown folder_name {folder_name!r}"
+            )
+
+        raw_anchor_paths = _parse_existing_repo_relative_paths(
+            repo_root,
+            item,
+            key="raw_anchor_paths",
+            what=f"law_units entry {law_id!r}",
+        )
+        authoritative_variant_paths = _parse_existing_repo_relative_paths(
+            repo_root,
+            item,
+            key="authoritative_variant_paths",
+            what=f"law_units entry {law_id!r}",
+        )
+        excluded_variant_paths = _parse_existing_repo_relative_paths(
+            repo_root,
+            item,
+            key="excluded_variant_paths",
+            what=f"law_units entry {law_id!r}",
+        )
+        admitted_source_paths = _parse_existing_repo_relative_paths(
+            repo_root,
+            item,
+            key="admitted_source_paths",
+            what=f"law_units entry {law_id!r}",
+        )
+        admitted_concept_paths = _parse_existing_repo_relative_paths(
+            repo_root,
+            item,
+            key="admitted_concept_paths",
+            what=f"law_units entry {law_id!r}",
+        )
+        admitted_relationship_paths = _parse_existing_repo_relative_paths(
+            repo_root,
+            item,
+            key="admitted_relationship_paths",
+            what=f"law_units entry {law_id!r}",
+        )
+
+        known_raw = classified_raw_by_folder.get(folder_name, set())
+        for raw_path in (*raw_anchor_paths, *authoritative_variant_paths, *excluded_variant_paths):
+            if raw_path not in known_raw:
+                raise DatasetManifestError(
+                    f"law_units entry {law_id!r} references raw path outside classified_raw_entries "
+                    f"for folder {folder_name!r}: {raw_path}"
+                )
+
+        selected_sources = selected_sources_by_folder.get(folder_name, set())
+        for source_path in admitted_source_paths:
+            if source_path not in selected_sources:
+                raise DatasetManifestError(
+                    f"law_units entry {law_id!r} references source path not selected for folder "
+                    f"{folder_name!r}: {source_path}"
+                )
+
+        selected_concepts = selected_concepts_by_folder.get(folder_name, set())
+        for concept_path in admitted_concept_paths:
+            if concept_path not in selected_concepts:
+                raise DatasetManifestError(
+                    f"law_units entry {law_id!r} references concept path not selected for folder "
+                    f"{folder_name!r}: {concept_path}"
+                )
+
+        selected_relationships = selected_relationships_by_folder.get(folder_name, set())
+        for relationship_path in admitted_relationship_paths:
+            if relationship_path not in selected_relationships:
+                raise DatasetManifestError(
+                    f"law_units entry {law_id!r} references relationship path not selected for "
+                    f"folder {folder_name!r}: {relationship_path}"
+                )
+
+        parsed.append(
+            DatasetLawUnit(
+                law_id=law_id,
+                folder_name=folder_name,
+                raw_anchor_paths=raw_anchor_paths,
+                authoritative_variant_paths=authoritative_variant_paths,
+                excluded_variant_paths=excluded_variant_paths,
+                admitted_source_paths=admitted_source_paths,
+                admitted_concept_paths=admitted_concept_paths,
+                admitted_relationship_paths=admitted_relationship_paths,
+                verification_checks=_require_str_list(item, "verification_checks"),
+                scope_notes=_require_str_list(item, "scope_notes"),
+            )
+        )
+    return tuple(parsed)
+
+
 def _frontmatter_for(path: Path) -> dict[str, Any]:
     text = path.read_text(encoding="utf-8")
     if not text.startswith("---"):
@@ -257,6 +449,14 @@ def load_dataset_manifest(manifest_path: Path, repo_root: Path) -> DatasetManife
         _require_list(relationships, "relationships"),
         what="relationship input",
     )
+    law_units = _parse_law_units(
+        repo_root,
+        payload,
+        raw_anchors=raw_anchors,
+        source_entries=source_entries,
+        concept_entries=concept_entries,
+        relationship_entries=relationship_entries,
+    )
 
     if not any(entry.include_in_m1 for entry in source_entries):
         raise DatasetManifestError("dataset manifest must include at least one canonical source entry for M1")
@@ -268,6 +468,7 @@ def load_dataset_manifest(manifest_path: Path, repo_root: Path) -> DatasetManife
         dataset_id=_require_str(payload, "dataset_id"),
         dataset_kind=_require_str(payload, "dataset_kind"),
         raw_slice_anchors=raw_anchors,
+        law_units=law_units,
         source_entries=source_entries,
         concept_entries=concept_entries,
         relationship_entries=relationship_entries,
@@ -375,6 +576,8 @@ def snapshot_metadata(
     return {
         "dataset_id": manifest.dataset_id,
         "dataset_kind": manifest.dataset_kind,
+        "contributing_law_ids": [unit.law_id for unit in manifest.law_units],
+        "law_units": law_unit_payloads(manifest),
         "run_id": run_id,
         "manifest_path": manifest_rel,
         "manifest_hash": manifest_hash(manifest),
@@ -390,6 +593,24 @@ def snapshot_metadata(
         "selected_snapshot_path": snapshot_rel,
         "selected_integrity_report_path": integrity_rel,
     }
+
+
+def law_unit_payloads(manifest: DatasetManifest) -> list[dict[str, Any]]:
+    return [
+        {
+            "law_id": unit.law_id,
+            "folder_name": unit.folder_name,
+            "raw_anchor_paths": list(unit.raw_anchor_paths),
+            "authoritative_variant_paths": list(unit.authoritative_variant_paths),
+            "excluded_variant_paths": list(unit.excluded_variant_paths),
+            "admitted_source_paths": list(unit.admitted_source_paths),
+            "admitted_concept_paths": list(unit.admitted_concept_paths),
+            "admitted_relationship_paths": list(unit.admitted_relationship_paths),
+            "verification_checks": list(unit.verification_checks),
+            "scope_notes": list(unit.scope_notes),
+        }
+        for unit in manifest.law_units
+    ]
 
 
 def _node_folder_map(manifest: DatasetManifest) -> dict[str, str]:
@@ -545,6 +766,9 @@ def dataset_build_report(
         "dry_run": dry_run,
         "dataset_id": manifest.dataset_id,
         "dataset_kind": manifest.dataset_kind,
+        "law_unit_count": len(manifest.law_units),
+        "contributing_law_ids": [unit.law_id for unit in manifest.law_units],
+        "law_units": law_unit_payloads(manifest),
         "run_id": run_id,
         "manifest_path": str(manifest.manifest_path.relative_to(repo_root)),
         "manifest_hash": manifest_hash(manifest),
@@ -572,13 +796,15 @@ def provenance_for_snapshot(snapshot: GraphSnapshot, *, snapshot_path: str) -> d
     dataset_id = metadata.get("dataset_id")
     run_id = metadata.get("run_id")
     manifest_hash_value = metadata.get("manifest_hash")
-    if not dataset_id and not run_id and not manifest_hash_value:
+    contributing_law_ids = metadata.get("contributing_law_ids")
+    if not dataset_id and not run_id and not manifest_hash_value and not contributing_law_ids:
         return None
     return {
         "snapshot_path": snapshot_path,
         "dataset_id": dataset_id,
         "run_id": run_id,
         "manifest_hash": manifest_hash_value,
+        "contributing_law_ids": contributing_law_ids,
     }
 
 
@@ -590,4 +816,7 @@ def render_query_provenance(provenance: dict[str, Any] | None) -> str:
         value = provenance.get(key)
         if value:
             lines.append(f"  {key}: {value}")
+    contributing_law_ids = provenance.get("contributing_law_ids")
+    if isinstance(contributing_law_ids, list) and contributing_law_ids:
+        lines.append(f"  contributing_law_ids: {', '.join(str(item) for item in contributing_law_ids)}")
     return "\n".join(lines) + "\n\n"

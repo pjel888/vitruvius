@@ -129,6 +129,8 @@ def run_dataset_graph_pipeline(
         "generated_at_utc": utc_now_stamp(),
         "dataset_id": manifest.dataset_id,
         "dataset_kind": manifest.dataset_kind,
+        "law_unit_count": len(manifest.law_units),
+        "contributing_law_ids": [unit.law_id for unit in manifest.law_units],
         "manifest_path": str(manifest_path.relative_to(repo_root)),
         "run_id": run_id,
         "build": build_payload,
@@ -140,6 +142,8 @@ def run_dataset_graph_pipeline(
     summary = {
         "action": "run-dataset-graph",
         "dataset_id": manifest.dataset_id,
+        "law_unit_count": len(manifest.law_units),
+        "contributing_law_ids": [unit.law_id for unit in manifest.law_units],
         "run_id": run_id,
         "snapshot_path": build_payload["snapshot_path"],
         "build_report_path": build_payload.get("build_report_path"),

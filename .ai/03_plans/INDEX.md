@@ -20,8 +20,9 @@ It is not the execution-order authority. The governing plan owns execution order
 | `2026-04-15-nested-agents-governance-plan.md` | governance maintenance | accepted / pending execution | nested `AGENTS.md` hierarchy | you are working on AGENTS coverage and hierarchy |
 | `2026-04-16-whole-codebase-plans-upgrade-plan.md` | governance maintenance | active | current rewrite task for the plan layer | you are continuing the plan-layer rewrite task |
 | `2026-04-16_graph-warning-and-gitnexus-warning-plan.md` | maintenance draft | draft / unexecuted | graph-warning reduction and GitNexus warning investigation | you are explicitly taking up the warning-reduction draft |
-| `2026-04-16_laws-mini-dataset-graph-pipeline-plan.md` | implementation plan | accepted / pending execution | scoped core-laws-bundle graph proof and scale path | you are planning or implementing the mini dataset→graph pipeline |
-| `2026-04-16_laws-m2-admission-plan.md` | implementation plan | accepted / in progress | per-law truth admission + dataset-safe M2 path for blocked laws | you are advancing the blocked non-PD laws beyond the M1 partial result |
+| `2026-04-16_laws-mini-dataset-graph-pipeline-plan.md` | implementation plan | accepted / bounded pilot success achieved | scoped core-laws-bundle graph proof and scale path | you are auditing the bounded pilot lane or tracing how the laws dataset work shipped |
+| `2026-04-16_laws-m2-admission-plan.md` | implementation plan | complete | per-law truth admission + dataset-safe M2 path for blocked laws | you are tracing how the blocked non-PD laws were admitted inside the bounded lane |
+| `2026-04-16_laws-m4-expansion-path-plan.md` | implementation plan | complete | minimal post-pilot scaling contract + additive law-unit runtime support | you are tracing the accepted M4 slice or planning a future section/merge follow-on |
 | `AEC_ENGINE_BOUNDARY_TRANSLATION_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | IFC/CAD/DTO boundary translation | AEC import/export work is selected |
 | `AEC_ENGINE_ECS_CORE_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | canonical ECS world state | AEC ECS work is selected |
 | `AEC_ENGINE_FINANCIAL_PRICING_ORACLE_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | pricing and quantity scoring | AEC pricing work is selected |
@@ -62,8 +63,10 @@ It is not the execution-order authority. The governing plan owns execution order
 ### Dataset→Graph Planning
 - `2026-04-16_laws-mini-dataset-graph-pipeline-plan.md`
 - `2026-04-16_laws-m2-admission-plan.md`
+- `2026-04-16_laws-m4-expansion-path-plan.md`
 
 ### AEC Engine
+- `2026-04-16-aec-first-bounded-slice-pre-implementation-plan.md`
 - `AEC_ENGINE_BOUNDARY_TRANSLATION_IMPLEMENTATION_PLAN.md`
 - `AEC_ENGINE_ECS_CORE_IMPLEMENTATION_PLAN.md`
 - `AEC_ENGINE_FINANCIAL_PRICING_ORACLE_IMPLEMENTATION_PLAN.md`
