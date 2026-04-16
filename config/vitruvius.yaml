@@ -43,6 +43,11 @@ review:
         timeout_seconds: 900
         parallelism: 1
         num_ctx_cap: 4096
+      m2-8gb-safe:
+        model: qwen2.5:7b
+        timeout_seconds: 900
+        parallelism: 1
+        num_ctx_cap: 4096
 
 promotion:
   confidence_threshold: 0.90

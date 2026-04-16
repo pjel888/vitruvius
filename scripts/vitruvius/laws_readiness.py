@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
+from .config import get_ollama_default_model, get_ollama_default_parallelism, resolve_review_preset
 from .graph.dataset_manifest import DatasetManifestError, load_dataset_manifest, write_json_report
 from .utils import utc_now_stamp
 
@@ -66,12 +67,21 @@ def _default_report_path(repo_root: Path, run_id: str) -> Path:
 def run_all_laws_dry_run(
     *,
     pilot_manifest: str = "config/datasets/laws-core-bundle-m1.yaml",
-    review_model: str,
+    review_model: str | None = None,
     review_model_preset: str | None = None,
     report_out: str | None = None,
 ) -> int:
     repo_root = Path.cwd().resolve()
     run_id = utc_now_stamp().replace("-", "").replace(":", "").replace("+0000", "Z")
+    preset = resolve_review_preset(review_model_preset)
+    effective_model = review_model or (
+        preset.get("model") if isinstance(preset, dict) else None
+    ) or get_ollama_default_model()
+    effective_parallelism = (
+        int(preset.get("parallelism"))
+        if isinstance(preset, dict) and preset.get("parallelism") is not None
+        else get_ollama_default_parallelism()
+    )
 
     refined_counts = _count_child_files(repo_root / _REFINED_ROOT, ".md")
     raw_markdown_counts = _count_child_files(repo_root / _RAW_MARKDOWN_ROOT, ".md")
@@ -149,12 +159,19 @@ def run_all_laws_dry_run(
 
     report_path = Path(report_out).resolve() if report_out else _default_report_path(repo_root, run_id)
     report = {
-        "action": "run-all-laws-dry-run",
+        "action": "run-laws-all-dry-run",
         "generated_at_utc": utc_now_stamp(),
         "run_id": run_id,
+        "dry_run": True,
         "phase_11_generic_expansion_gated": True,
-        "review_model": review_model,
+        "phase_11_gate": "gated",
+        "review_model": effective_model,
         "review_model_preset": review_model_preset,
+        "review_runtime": {
+            "model": effective_model,
+            "parallelism": effective_parallelism,
+            "preset": preset,
+        },
         "pilot_manifest_path": _relative(manifest_path, repo_root),
         "pilot_manifest_present": manifest is not None,
         "pilot_manifest_law_count": len(pilot_units_by_folder),
@@ -180,16 +197,30 @@ def run_all_laws_dry_run(
     write_json_report(report_path, report)
 
     summary = {
-        "action": "run-all-laws-dry-run",
+        "action": "run-laws-all-dry-run",
         "run_id": run_id,
+        "dry_run": True,
         "phase_11_generic_expansion_gated": True,
-        "review_model": review_model,
+        "phase_11_gate": "gated",
+        "review_model": effective_model,
         "review_model_preset": review_model_preset,
+        "review_runtime": {
+            "model": effective_model,
+            "parallelism": effective_parallelism,
+            "preset": preset,
+        },
         "pilot_manifest_path": _relative(manifest_path, repo_root),
         "pilot_manifest_law_count": len(pilot_units_by_folder),
+        "bounded_manifest_law_unit_count": len(pilot_units_by_folder),
         "pilot_covered_law_count": pilot_covered_count,
         "inventory_only_law_count": inventory_only_count,
         "discovered_law_folder_count": len(all_law_names),
+        "raw_law_folder_count": len(raw_source_dirs),
+        "raw_pdf_count": sum(
+            1 for path in (repo_root / _RAW_SOURCE_ROOT).rglob("*.pdf")
+        ) if (repo_root / _RAW_SOURCE_ROOT).exists() else 0,
+        "refined_markdown_count": sum(refined_counts.values()),
+        "coverage_gap_law_units": inventory_only_count,
         "limitations": limitations,
         "report_path": _relative(report_path, repo_root),
     }

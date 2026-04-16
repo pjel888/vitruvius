@@ -238,7 +238,7 @@ def build_parser() -> argparse.ArgumentParser:
                                                help="Validate/plans stages without executing writes")
     dataset_source_to_graph_parser.add_argument("--review-model", default=None,
                                                help="Tier-1 review model for dataset-local review")
-    dataset_source_to_graph_parser.add_argument("--review-timeout-seconds", type=int, default=600,
+    dataset_source_to_graph_parser.add_argument("--review-timeout-seconds", type=int, default=None,
                                                help="Tier-1 review timeout seconds")
     dataset_source_to_graph_parser.add_argument("--review-parallel", type=int, default=None,
                                                help="Tier-1 review parallelism override")
@@ -259,7 +259,7 @@ def build_parser() -> argparse.ArgumentParser:
                                    help="Validate/plans stages without executing writes")
     laws_pilot_parser.add_argument("--review-model", default=None,
                                    help="Tier-1 review model for dataset-local review")
-    laws_pilot_parser.add_argument("--review-timeout-seconds", type=int, default=600,
+    laws_pilot_parser.add_argument("--review-timeout-seconds", type=int, default=None,
                                    help="Tier-1 review timeout seconds")
     laws_pilot_parser.add_argument("--review-parallel", type=int, default=None,
                                    help="Tier-1 review parallelism override")
@@ -463,14 +463,6 @@ def main() -> int:
             command_name,
             output_mode=args.output_mode,
             handler=handler,
-        )
-
-    def _resolve_review_model() -> str:
-        from vitruvius.config import resolve_review_model
-
-        return resolve_review_model(
-            explicit_model=getattr(args, "review_model", None),
-            preset=getattr(args, "review_model_preset", "default"),
         )
 
     if args.command == "scan":
@@ -730,8 +722,7 @@ def main() -> int:
                 structured_checks=structured_checks,
                 export_owl=not args.skip_export_owl,
                 dry_run=args.dry_run,
-                review_model=_resolve_review_model(),
-                review_model_preset=args.review_model_preset,
+                review_model=args.review_model,
                 review_timeout_seconds=args.review_timeout_seconds,
                 review_parallelism=args.review_parallel,
                 review_preset=args.review_preset,
@@ -761,8 +752,7 @@ def main() -> int:
                 structured_checks=structured_checks,
                 export_owl=not args.skip_export_owl,
                 dry_run=args.dry_run,
-                review_model=_resolve_review_model(),
-                review_model_preset=args.review_model_preset,
+                review_model=args.review_model,
                 review_timeout_seconds=args.review_timeout_seconds,
                 review_parallelism=args.review_parallel,
                 review_preset=args.review_preset,
@@ -773,13 +763,13 @@ def main() -> int:
         )
 
     if args.command == "run-laws-all-dry-run":
-        from vitruvius.dataset_pipeline import run_all_laws_dry_run
+        from vitruvius.laws_readiness import run_all_laws_dry_run
         return _run(
             "run-laws-all-dry-run",
             lambda: run_all_laws_dry_run(
+                pilot_manifest="config/datasets/laws-core-bundle-m1.yaml",
                 review_model=args.review_model,
-                review_parallelism=args.review_parallel,
-                review_preset=args.review_preset,
+                review_model_preset=args.review_preset,
             ),
         )
 

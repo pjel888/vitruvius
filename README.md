@@ -1243,6 +1243,25 @@ If you want to validate the bounded stage plan without executing writes:
 ./run-laws-pilot --dry-run
 ```
 
+### Next safe step after the 4-law pilot
+
+If you want to assess the broader laws corpus **without** starting a generic
+all-laws execute run, use the readiness-only dry-run:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-all-dry-run --review-preset m2-8gb-safe
+```
+
+This command:
+- inventories the repo-local laws corpus
+- compares it against the currently admitted bounded pilot
+- resolves an 8GB-safe review preset up front
+- writes a readiness report only
+- does **not** run review / promotion / graph build / browser output for the whole corpus
+
+It is intentionally a planning/readiness lane. Generic Phase 11 all-laws
+execution remains gated.
+
 ### Whole-dataset readiness dry-run first
 
 If you want the next safe step beyond the accepted 4-law pilot, inventory the

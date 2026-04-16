@@ -1,0 +1,34 @@
+{
+  "benchmark_source_hints": [
+    {
+      "label": "NCDA revised BP 344 IRR page",
+      "note": "NCDA-hosted revised IRR page useful for checking structure when the PDF is hard to extract.",
+      "url": "https://ncda.gov.ph/revised-2024-rules-and-regulations-implementing-batas-pambansa-344/"
+    },
+    {
+      "label": "Lawphil BP 344 law text",
+      "note": "Lawphil law text for the underlying statute (not the revised IRR). Useful as a semantic benchmark.",
+      "url": "https://lawphil.net/statutes/bataspam/bp1983/bp_344_1983.html"
+    }
+  ],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "moderate extraction difficulty: treat automated summaries as guarded"
+  ],
+  "image_line_count": 3,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 85,
+  "noise_line_count": 63,
+  "non_empty_line_count": 991,
+  "recommendations": [],
+  "refined_markdown_path": "001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
+  "severity": "medium",
+  "structural_heading_count": 75,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [],
+  "table_line_count": 6,
+  "total_line_count": 1832,
+  "useful_text_line_count": 919,
+  "useful_text_ratio": 0.927346
+}

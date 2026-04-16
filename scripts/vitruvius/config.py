@@ -8,6 +8,12 @@ import yaml
 from .paths import get_repo_root
 
 
+_REVIEW_PRESET_ALIASES = {
+    "8gb-safe": "m2-8gb-safe",
+    "m2-8gb-safe": "m2-8gb-safe",
+}
+
+
 @lru_cache(maxsize=1)
 def load_config() -> dict:
     path = get_repo_root() / "config" / "vitruvius.yaml"
@@ -32,29 +38,62 @@ def get_ollama_model_pool() -> dict[str, str]:
 
 
 def get_ollama_review_preset(name: str) -> dict[str, int | str]:
+    preset = resolve_review_preset(name)
+    if preset is None:
+        return {}
+    return {
+        key: value
+        for key, value in preset.items()
+        if key in {"model", "timeout_seconds", "parallelism", "num_ctx_cap"}
+    }
+
+
+def get_review_presets() -> dict[str, dict[str, int | str | bool]]:
     cfg = load_config()
     presets = cfg.get("review", {}).get("ollama", {}).get("presets", {})
     if not isinstance(presets, dict):
-        return {}
-    raw = presets.get(name)
-    if not isinstance(raw, dict):
-        return {}
+        presets = {}
 
-    normalized: dict[str, int | str] = {}
-    model = raw.get("model")
-    if isinstance(model, str) and model.strip():
-        normalized["model"] = model.strip()
-
-    for key in ("timeout_seconds", "parallelism", "num_ctx_cap"):
-        value = raw.get(key)
-        try:
-            parsed = int(value)
-        except (TypeError, ValueError):
+    normalized: dict[str, dict[str, int | str | bool]] = {}
+    for raw_name, raw in presets.items():
+        if not isinstance(raw_name, str) or not isinstance(raw, dict):
             continue
-        if parsed > 0:
-            normalized[key] = parsed
+        name = _REVIEW_PRESET_ALIASES.get(raw_name.strip(), raw_name.strip())
+        entry: dict[str, int | str | bool] = {
+            "name": name,
+            "keeps_phase_11_gated": True,
+        }
+        model = raw.get("model")
+        if isinstance(model, str) and model.strip():
+            entry["model"] = model.strip()
+        for key in ("timeout_seconds", "parallelism", "num_ctx_cap"):
+            value = raw.get(key)
+            try:
+                parsed = int(value)
+            except (TypeError, ValueError):
+                continue
+            if parsed > 0:
+                entry[key] = parsed
+        normalized[name] = entry
 
+    if "m2-8gb-safe" not in normalized:
+        normalized["m2-8gb-safe"] = {
+            "name": "m2-8gb-safe",
+            "model": "qwen2.5:7b",
+            "timeout_seconds": 900,
+            "parallelism": 1,
+            "num_ctx_cap": 4096,
+            "keeps_phase_11_gated": True,
+        }
     return normalized
+
+
+def resolve_review_preset(name: str | None) -> dict[str, int | str | bool] | None:
+    if not isinstance(name, str) or not name.strip():
+        return None
+    presets = get_review_presets()
+    canonical = _REVIEW_PRESET_ALIASES.get(name.strip(), name.strip())
+    return presets.get(canonical)
 
 
 def get_ollama_num_ctx_cap() -> int:
@@ -85,6 +124,10 @@ def get_ollama_default_model() -> str:
 
 
 def get_ollama_8gb_safe_model() -> str:
+    preset = resolve_review_preset("m2-8gb-safe")
+    model = preset.get("model") if isinstance(preset, dict) else None
+    if isinstance(model, str) and model:
+        return model
     pool = get_ollama_model_pool()
     tier1 = pool.get("tier_1_default")
     if isinstance(tier1, str) and tier1:

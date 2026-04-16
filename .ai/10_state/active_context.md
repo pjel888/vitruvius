@@ -16,6 +16,9 @@
   - `run-dataset-source-to-graph` supports one-command visualization/browser flow
   - `run-laws-pilot` and repo-root `./run-laws-pilot` exist for the 4-law pilot
   - generated graph HTML is self-contained and no longer depends on external/relative browser assets
+  - a readiness-only next-step lane now exists for broader all-laws planning:
+    - `run-laws-all-dry-run`
+    - `m2-8gb-safe` review preset
 - The 2026-04-15 sprint-wave summary remains historical context in `decisions.md` and `master-roadmap.md`; it is **not** the live dispatcher anymore.
 
 ## Current Validation Snapshot
@@ -32,6 +35,11 @@
   - **57 passed**
   - `./run-laws-pilot --dry-run` passes
   - `./run-laws-pilot --skip-export-owl --visualize` passes and emits a self-contained HTML artifact
+- All-laws readiness slice:
+  - `python3 -m pytest scripts/tests/test_config.py scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_dataset_source_to_graph_pipeline.py scripts/tests/test_graph_visualize_cli.py scripts/tests/test_canonicalize_body.py scripts/tests/test_canonicalize_integration.py scripts/tests/test_query_formatter.py -q`
+  - **65 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-all-dry-run --review-preset m2-8gb-safe` passes
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-pilot --dry-run --review-preset m2-8gb-safe` passes
 
 ## Residual Graph Caveat
 
@@ -48,6 +56,7 @@
 - Milestones: `/.ai/01_roadmap/milestone-tracker.md`
 - Decisions: `/.ai/10_state/decisions.md`
 - Latest bounded-laws operator validation: `/.ai/05_logs/2026-04-17_laws-pilot-operator-experience-validation.md`
+- Latest all-laws readiness validation: `/.ai/05_logs/2026-04-17_all-laws-readiness-8gb-implementation-validation.md`
 
 ## Handoff Note
 

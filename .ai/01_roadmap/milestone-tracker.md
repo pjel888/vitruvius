@@ -203,6 +203,7 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - the four-folder bounded pilot now reaches `SUCCESS`; see `/.ai/05_logs/2026-04-16_laws-core-bundle-bounded-pilot-success-validation.md`
   - M4 expansion-path follow-on is now complete for the accepted minimal slice: model/spec artifacts plus additive `law_units` manifest/runtime/reporting support; see `/.ai/05_logs/2026-04-16_laws-m4-expansion-path-validation.md`
   - the bounded pilot now has a single-command operator lane (`run-laws-pilot` / `./run-laws-pilot`) plus self-contained browser HTML output; see `/.ai/05_logs/2026-04-17_laws-pilot-operator-experience-validation.md`
+  - a post-pilot readiness-only expansion lane now exists: `run-laws-all-dry-run` plus `m2-8gb-safe` review preset; see `/.ai/05_logs/2026-04-17_all-laws-readiness-8gb-implementation-validation.md`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)

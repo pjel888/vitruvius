@@ -18,7 +18,7 @@ from .config import (
     get_ollama_default_model,
     get_ollama_default_parallelism,
     get_ollama_default_timeout,
-    get_ollama_review_preset,
+    resolve_review_preset,
 )
 from .graph.cli import run_build_graph
 from .graph.dataset_manifest import DatasetManifest, DatasetManifestError, load_dataset_manifest, write_json_report
@@ -91,17 +91,18 @@ def _resolve_review_runtime_settings(
     review_parallelism: int | None = None,
 ) -> dict[str, int | str | None]:
     settings: dict[str, int | str | None] = {
-        "preset": review_preset,
+        "preset": None,
         "model": get_ollama_default_model(),
         "timeout_seconds": get_ollama_default_timeout(),
         "parallelism": get_ollama_default_parallelism(),
         "num_ctx_cap": None,
     }
     if review_preset:
-        preset = get_ollama_review_preset(review_preset)
+        preset = resolve_review_preset(review_preset)
         if not preset:
             raise DatasetPipelineError(f"unknown review preset: {review_preset}")
         settings.update(preset)
+        settings["preset"] = preset
     if review_model is not None:
         settings["model"] = review_model
     if review_timeout_seconds is not None:
@@ -722,7 +723,6 @@ def run_dataset_source_to_graph_pipeline(
     review_model: str | None = None,
     review_timeout_seconds: int | None = None,
     review_parallelism: int | None = None,
-    review_preset: str | None = None,
     visualize_graph: bool = False,
     open_browser: bool = False,
     visualization_out_path: str | None = None,
@@ -923,6 +923,7 @@ def run_dataset_source_to_graph_pipeline(
             "manifest_path": str(manifest_path.relative_to(repo_root)),
             "dry_run": True,
             "review_settings": review_settings,
+            "review_runtime": review_settings,
             "source_quality_summary": quality_summary,
             "stage_results": stage_results,
         }
@@ -932,10 +933,11 @@ def run_dataset_source_to_graph_pipeline(
             "dataset_id": manifest.dataset_id,
             "run_id": run_id,
             "dry_run": True,
-            "review_model": review_model,
-            "review_model_preset": review_model_preset,
+            "review_model": review_settings["model"],
+            "review_preset": review_preset,
             "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
             "review_settings": review_settings,
+            "review_runtime": review_settings,
             "planned_stage_count": len(stage_results),
             "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
             "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
@@ -995,12 +997,13 @@ def run_dataset_source_to_graph_pipeline(
         "run_id": run_id,
         "manifest_path": str(manifest_path.relative_to(repo_root)),
         "derived_manifest_path": str(paths["derived_manifest"].relative_to(repo_root)),
-        "review_model": review_model,
-        "review_model_preset": review_model_preset,
+        "review_model": review_settings["model"],
+        "review_preset": review_preset,
         "generated_relationship_count": len(generated_relationship_paths),
         "filtered_relationship_count": len(filtered_relationship_paths),
         "filtered_relationship_paths": filtered_relationship_paths,
         "review_settings": review_settings,
+        "review_runtime": review_settings,
         "source_quality_summary": quality_summary,
         "stage_results": stage_results,
         "graph": graph_payload,
@@ -1014,11 +1017,12 @@ def run_dataset_source_to_graph_pipeline(
         "dataset_id": manifest.dataset_id,
         "run_id": run_id,
         "derived_manifest_path": str(paths["derived_manifest"].relative_to(repo_root)),
-        "review_model": review_model,
-        "review_model_preset": review_model_preset,
+        "review_model": review_settings["model"],
+        "review_preset": review_preset,
         "generated_relationship_count": len(generated_relationship_paths),
         "filtered_relationship_count": len(filtered_relationship_paths),
         "review_settings": review_settings,
+        "review_runtime": review_settings,
         "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
         "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
         "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),
@@ -1031,108 +1035,4 @@ def run_dataset_source_to_graph_pipeline(
     }
     print(json.dumps(summary, indent=2))
     _emit_progress("Completed bounded source-to-graph pipeline")
-    return 0
-
-
-def run_all_laws_dry_run(
-    *,
-    review_model: str | None = None,
-    review_parallelism: int | None = None,
-    review_preset: str | None = None,
-) -> int:
-    repo_root = Path.cwd().resolve()
-    try:
-        review_runtime = _resolve_review_runtime(
-            review_model=review_model,
-            review_parallelism=review_parallelism,
-            review_preset=review_preset,
-        )
-    except DatasetPipelineError as exc:
-        print(json.dumps({"error": str(exc)}, indent=2))
-        return 2
-
-    raw_root = repo_root / "001_Raw-Source-Layer" / "001-Laws"
-    if not raw_root.exists():
-        print(json.dumps({"error": f"raw laws root not found: {raw_root.relative_to(repo_root)}"}, indent=2))
-        return 2
-
-    law_folders = sorted(path.name for path in raw_root.iterdir() if path.is_dir())
-    pdf_paths = sorted(
-        path.relative_to(repo_root).as_posix()
-        for path in raw_root.rglob("*.pdf")
-    )
-    refined_root = repo_root / "002_Raw-Conversion-Layer" / "001-Laws" / "refined_markdown"
-    refined_markdown_count = sum(1 for _ in refined_root.rglob("*.md")) if refined_root.exists() else 0
-
-    bounded_manifest_path = repo_root / "config" / "datasets" / "laws-core-bundle-m1.yaml"
-    bounded_manifest_summary: dict[str, object] | None = None
-    bounded_manifest_error: str | None = None
-    if bounded_manifest_path.exists():
-        try:
-            bounded_manifest = load_dataset_manifest(bounded_manifest_path, repo_root)
-        except DatasetManifestError as exc:
-            bounded_manifest_error = str(exc)
-        else:
-            bounded_manifest_summary = {
-                "dataset_id": bounded_manifest.dataset_id,
-                "dataset_kind": bounded_manifest.dataset_kind,
-                "law_unit_count": len(bounded_manifest.law_units),
-                "law_ids": [unit.law_id for unit in bounded_manifest.law_units],
-                "manifest_path": str(bounded_manifest_path.relative_to(repo_root)),
-            }
-
-    run_id = utc_now_stamp().replace("-", "").replace(":", "").replace("+0000", "Z").replace("T", "T")
-    report_dir = repo_root / "006_System-Manifests" / "runs" / "datasets" / "all-laws-readiness"
-    report_path = report_dir / f"{run_id}_all_laws_dry_run_report.json"
-    coverage_gap = max(
-        0,
-        len(law_folders) - int((bounded_manifest_summary or {}).get("law_unit_count", 0)),
-    )
-    report = {
-        "action": "run-laws-all-dry-run",
-        "generated_at_utc": utc_now_stamp(),
-        "dry_run": True,
-        "phase_11_gate": "gated",
-        "gate_reason": (
-            "Generic all-laws execution remains gated; this command audits readiness "
-            "without running source-to-graph or graph-build writes."
-        ),
-        "raw_inventory": {
-            "raw_root": str(raw_root.relative_to(repo_root)),
-            "top_level_law_folder_count": len(law_folders),
-            "top_level_law_folders": law_folders,
-            "pdf_count": len(pdf_paths),
-            "sample_pdf_paths": pdf_paths[:10],
-        },
-        "refined_inventory": {
-            "refined_root": str(refined_root.relative_to(repo_root)),
-            "refined_markdown_count": refined_markdown_count,
-        },
-        "bounded_manifest": bounded_manifest_summary,
-        "bounded_manifest_error": bounded_manifest_error,
-        "coverage_gap_law_units": coverage_gap,
-        "review_runtime": review_runtime,
-        "next_safe_steps": [
-            "Review this readiness report before introducing any all-laws execute path.",
-            "Author an explicit all-laws manifest or tranche manifests instead of widening the bounded pilot by momentum.",
-            "Keep broad Phase 11 execution gated until corpus, canonical coverage, and machine-safety checks are accepted.",
-        ],
-    }
-    write_json_report(report_path, report)
-
-    summary = {
-        "action": "run-laws-all-dry-run",
-        "dry_run": True,
-        "phase_11_gate": "gated",
-        "raw_law_folder_count": len(law_folders),
-        "raw_pdf_count": len(pdf_paths),
-        "refined_markdown_count": refined_markdown_count,
-        "bounded_manifest_law_unit_count": (
-            (bounded_manifest_summary or {}).get("law_unit_count")
-        ),
-        "coverage_gap_law_units": coverage_gap,
-        "review_runtime": review_runtime,
-        "report_path": str(report_path.relative_to(repo_root)),
-    }
-    print(json.dumps(summary, indent=2))
     return 0

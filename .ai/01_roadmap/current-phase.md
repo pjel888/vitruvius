@@ -68,6 +68,11 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
   - M4A model/spec artifacts are complete and M4B minimal additive `law_units` manifest/runtime/reporting support is now complete; see `/.ai/05_logs/2026-04-16_laws-m4-expansion-path-validation.md`
   - bounded pilot success validation: `/.ai/05_logs/2026-04-16_laws-core-bundle-bounded-pilot-success-validation.md`
   - bounded pilot operator path is now available via `run-laws-pilot` and `./run-laws-pilot`, with self-contained HTML output and browser-open support; see `/.ai/05_logs/2026-04-17_laws-pilot-operator-experience-validation.md`
+  - post-pilot whole-dataset readiness follow-on is now in place as a readiness-only lane:
+    - planning artifacts created for all-laws / 8GB rollout
+    - `run-laws-all-dry-run` added as the next safe step
+    - `m2-8gb-safe` review preset added for bounded planning / dry-run work
+    - see `/.ai/05_logs/2026-04-17_all-laws-readiness-8gb-implementation-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
