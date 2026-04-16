@@ -209,8 +209,15 @@ def build_plan(relative_path: str) -> dict[str, Any]:
 # PLAN COMMAND
 # --------------------------------------------------
 
-def run_canonicalize_plan_one(relative_path: str) -> int:
-    plan = build_plan(relative_path)
+def run_canonicalize_plan_one(
+    relative_path: str | None = None,
+    *,
+    relative_markdown_path: str | None = None,
+) -> int:
+    path = relative_markdown_path or relative_path
+    if path is None:
+        raise TypeError("run_canonicalize_plan_one requires a markdown path")
+    plan = build_plan(path)
 
     print("canonicalize-plan-one complete.")
     print(f"Title: {plan['title']}")
@@ -230,9 +237,15 @@ def extract_section_headers(markdown_text: str) -> list[dict]:
     for line in markdown_text.splitlines():
         stripped = line.strip()
         if stripped.startswith("## "):
-            headers.append({"level": 2, "title": stripped[3:].strip()})
+            title = stripped[3:].strip()
+            if len(title) < 4:
+                continue
+            headers.append({"level": 2, "title": title})
         elif stripped.startswith("### "):
-            headers.append({"level": 3, "title": stripped[4:].strip()})
+            title = stripped[4:].strip()
+            if len(title) < 4:
+                continue
+            headers.append({"level": 3, "title": title})
     return headers
 
 
@@ -253,7 +266,7 @@ def extract_key_points(markdown_text: str, *, limit: int = 5) -> list[str]:
             current = []
             collecting = True
             continue
-        if collecting and stripped and not stripped.startswith("#"):
+        if collecting and _is_useful_text_line(stripped):
             current.append(stripped)
 
     if current:
@@ -265,12 +278,26 @@ def extract_key_points(markdown_text: str, *, limit: int = 5) -> list[str]:
 
 
 def build_overview_paragraph(markdown_text: str) -> str:
+    fallback = ""
     for line in markdown_text.splitlines():
         stripped = line.strip()
-        if not stripped or stripped.startswith("#"):
+        if not _is_useful_text_line(stripped):
             continue
-        return stripped[:500]
-    return ""
+        if fallback == "":
+            fallback = stripped[:500]
+        if len(stripped.split()) >= 8:
+            return stripped[:500]
+    return fallback
+
+
+def _is_useful_text_line(stripped: str) -> bool:
+    if not stripped or stripped.startswith("#"):
+        return False
+    if stripped.startswith("!["):
+        return False
+    if stripped.startswith("|") and stripped.endswith("|"):
+        return False
+    return True
 
 
 def _concept_title_from_slug(concept_slug: str) -> str:

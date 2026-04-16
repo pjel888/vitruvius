@@ -1,0 +1,56 @@
+{
+  "_human_read_me_first": [
+    "This is the AGENT-CREATED request packet. Read it for context/evidence only.",
+    "Do NOT type your answers into this file.",
+    "Put your answers in .ai/14_human_inbox/2026-04-16_ra9514-relationship-admission.response.json",
+    "When you finish answering, set status to 'answered' in the response file."
+  ],
+  "packet_id": "ra9514-relationship-admission-2026-04-16",
+  "created_at_utc": "2026-04-16T05:57:00Z",
+  "status": "open",
+  "topic": "Human review for staged RA-9514 relationships not yet admitted into the official manifest",
+  "why_human_review_is_needed": "These staged relationships were technically generated and promoted in a dataset-local lane, but at least two looked semantically questionable. The current official graph keeps them out to preserve truthfulness. Human judgment can decide whether either should be admitted, rejected permanently, or deferred for more evidence.",
+  "current_official_state": {
+    "official_dataset_report": ".ai/05_logs/2026-04-16_laws-m2b-relationship-admission-validation.md",
+    "current_truth_summary": {
+      "PD_1096": "covered",
+      "RA_9514": "covered_with_2_relationship_backed_edges",
+      "BP_344": "partial",
+      "BP_220": "partial"
+    },
+    "currently_admitted_ra9514_relationships": [
+      "rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy",
+      "rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress"
+    ]
+  },
+  "allowed_decisions": [
+    "approve",
+    "reject",
+    "defer"
+  ],
+  "instructions_to_reviewer": [
+    "Review the staged relationship files and the cited evidence snippets.",
+    "Use approve only if the predicate and endpoints look truly supported by the evidence.",
+    "Use reject if the relationship looks wrong or misleading.",
+    "Use defer if you want more evidence before admission."
+  ],
+  "items": [
+    {
+      "item_id": "ra9514-suspect-1",
+      "relationship_id": "rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards",
+      "staged_file": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards.md",
+      "current_agent_recommendation": "reject",
+      "reason_for_hesitation": "The evidence snippet appears to discuss storage areas and automatic extinguishing rather than a clear governing statement about 'yards'.",
+      "question": "Should this relationship be admitted into the official dataset manifest?"
+    },
+    {
+      "item_id": "ra9514-suspect-2",
+      "relationship_id": "rel-concept-means-of-egress-requires-concept-occupancy-classification",
+      "staged_file": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-concept-means-of-egress-requires-concept-occupancy-classification.md",
+      "current_agent_recommendation": "reject",
+      "reason_for_hesitation": "The evidence may be too indirect and concept-to-concept abstraction may be overreaching for this source slice.",
+      "question": "Should this relationship be admitted into the official dataset manifest?"
+    }
+  ],
+  "response_file": ".ai/14_human_inbox/2026-04-16_ra9514-relationship-admission.response.json"
+}

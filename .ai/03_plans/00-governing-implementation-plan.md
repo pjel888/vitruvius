@@ -67,16 +67,19 @@ Archived sprint history lives in `.ai/09_archive/plans/` and in the decision/sta
 | 2 | `INDEX.md` | inventory and lookup table | active reference | use to locate the right active plan and archived lineage |
 | 3 | `2026-04-16-whole-codebase-plans-upgrade-plan.md` | current task meta-plan | active until validation closes | governs the current plan-layer rewrite task |
 | 4 | `2026-04-15-nested-agents-governance-plan.md` | governance maintenance plan | accepted / pending execution | use only for AGENTS hierarchy work |
-| 5 | `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | AEC execution-order authority | proposed | read before any AEC subsystem plan |
-| 6 | `AEC_ENGINE_ECS_CORE_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
-| 7 | `AEC_ENGINE_SPATIAL_KERNEL_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
-| 8 | `AEC_ENGINE_KNOWLEDGE_VAULT_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
-| 9 | `AEC_ENGINE_Z3_VERIFICATION_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
-| 10 | `AEC_ENGINE_MULTI_DISCIPLINARY_COORDINATION_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
-| 11 | `AEC_ENGINE_OPTIMIZATION_ENGINE_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
-| 12 | `AEC_ENGINE_BOUNDARY_TRANSLATION_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
-| 13 | `AEC_ENGINE_LLM_TOOL_CALLING_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
-| 14 | `AEC_ENGINE_FINANCIAL_PRICING_ORACLE_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
+| 5 | `2026-04-16_graph-warning-and-gitnexus-warning-plan.md` | maintenance draft | draft / unexecuted | use only when explicitly taking up the warning-reduction draft |
+| 6 | `2026-04-16_laws-mini-dataset-graph-pipeline-plan.md` | dataset→graph implementation plan | accepted / partially executed | governs the M1→M4 laws mini dataset graph lane |
+| 7 | `2026-04-16_laws-m2-admission-plan.md` | dataset→graph follow-on implementation plan | accepted / in progress | governs the per-law M2 admission path after the M1 partial result |
+| 8 | `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | AEC execution-order authority | proposed | read before any AEC subsystem plan |
+| 9 | `AEC_ENGINE_ECS_CORE_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
+| 10 | `AEC_ENGINE_SPATIAL_KERNEL_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
+| 11 | `AEC_ENGINE_KNOWLEDGE_VAULT_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
+| 12 | `AEC_ENGINE_Z3_VERIFICATION_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
+| 13 | `AEC_ENGINE_MULTI_DISCIPLINARY_COORDINATION_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
+| 14 | `AEC_ENGINE_OPTIMIZATION_ENGINE_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
+| 15 | `AEC_ENGINE_BOUNDARY_TRANSLATION_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
+| 16 | `AEC_ENGINE_LLM_TOOL_CALLING_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
+| 17 | `AEC_ENGINE_FINANCIAL_PRICING_ORACLE_IMPLEMENTATION_PLAN.md` | AEC subsystem plan | proposed | use only with AEC master plan |
 
 ### 3.2 Archived Plans
 - Archived sprint plans live in `.ai/09_archive/plans/`.

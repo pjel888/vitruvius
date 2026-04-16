@@ -223,6 +223,17 @@ def test_walk_relationships_sorted_by_key(tmp_path: Path) -> None:
     assert [e.evidence_id for e in edges] == ["rel-a", "rel-b"]
 
 
+def test_walk_relationships_accepts_explicit_paths_outside_default_dir(tmp_path: Path) -> None:
+    rels = tmp_path / "relationships"
+    external = tmp_path / "dataset" / "staged.md"
+    _write(external, _rel(
+        "rel-staged", "law-alpha", "governs", "concept-beta", "promoted"
+    ))
+    edges = walk_relationships(rels, allowed_paths=[external])
+    assert len(edges) == 1
+    assert edges[0].evidence_id == "rel-staged"
+
+
 def test_walk_source_relationship_edges_emits_frontmatter_edges(tmp_path: Path) -> None:
     sources = tmp_path / "sources"
     _write(
@@ -451,3 +462,47 @@ def test_build_snapshot_is_deterministic(tmp_path: Path) -> None:
     a = build_snapshot(canonical, now="2026-04-14T00:00:00Z")
     b = build_snapshot(canonical, now="2026-04-14T00:00:00Z")
     assert a == b
+
+
+def test_build_snapshot_respects_explicit_allowlists(tmp_path: Path) -> None:
+    canonical = tmp_path / "shared"
+    allowed_source = canonical / "sources" / "allowed.md"
+    blocked_source = canonical / "sources" / "blocked.md"
+    allowed_concept = canonical / "concepts" / "allowed-concept.md"
+    blocked_concept = canonical / "concepts" / "blocked-concept.md"
+    allowed_relationship = canonical / "relationships" / "allowed.md"
+    blocked_relationship = canonical / "relationships" / "blocked.md"
+
+    _write(allowed_source, (
+        "---\nid: law-allowed\ntrust_level: primary\n"
+        "last_canonicalized_utc: 2026-04-01T00:00:00Z\n---\n"
+    ))
+    _write(blocked_source, (
+        "---\nid: law-blocked\ntrust_level: primary\n"
+        "last_canonicalized_utc: 2026-04-01T00:00:00Z\n---\n"
+    ))
+    _write(allowed_concept, (
+        "---\nid: concept-allowed\n"
+        "last_canonicalized_utc: 2026-04-01T00:00:00Z\n---\n"
+    ))
+    _write(blocked_concept, (
+        "---\nid: concept-blocked\n"
+        "last_canonicalized_utc: 2026-04-01T00:00:00Z\n---\n"
+    ))
+    _write(allowed_relationship, _rel(
+        "rel-allowed", "law-allowed", "governs", "concept-allowed", "promoted"
+    ))
+    _write(blocked_relationship, _rel(
+        "rel-blocked", "law-blocked", "governs", "concept-blocked", "promoted"
+    ))
+
+    snapshot = build_snapshot(
+        canonical,
+        now="2026-04-14T00:00:00Z",
+        source_paths=[allowed_source],
+        concept_paths=[allowed_concept],
+        relationship_paths=[allowed_relationship],
+    )
+
+    assert [node.id for node in snapshot.nodes] == ["concept-allowed", "law-allowed"]
+    assert [edge.evidence_id for edge in snapshot.edges] == ["rel-allowed"]

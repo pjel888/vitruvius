@@ -7,6 +7,7 @@ from vitruvius.ollama_review_second_pass import (
     compute_agreement_matrix,
     run_second_pass_inner,
 )
+from vitruvius.review_routing import select_for_second_pass
 
 
 def test_prompt_includes_tier_one_decision():
@@ -113,3 +114,31 @@ def test_run_second_pass_inner_handles_ollama_failure(tmp_path):
     # Failure routes to human_review (Tier-2 parse-error fallback)
     assert result["actions"]["human_review"] == 1
     assert result["actions"]["auto_promote"] == 0
+
+
+def test_select_for_second_pass_skips_pre_review_filter_synthetic_items():
+    items = [
+        {
+            "candidate": {"from": "a", "type": "governs", "to": "b"},
+            "review": {
+                "decision": "reject",
+                "confidence": 0.95,
+                "reason": "deterministic reject",
+                "suggested_type": None,
+                "source": "pre_review_filter",
+            },
+        },
+        {
+            "candidate": {"from": "c", "type": "governs", "to": "d"},
+            "review": {
+                "decision": "review_further",
+                "confidence": 0.4,
+                "reason": "unclear",
+                "suggested_type": None,
+            },
+        },
+    ]
+
+    selected = select_for_second_pass(items)
+    assert len(selected) == 1
+    assert selected[0]["candidate"]["from"] == "c"

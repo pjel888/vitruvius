@@ -92,6 +92,84 @@ rules:
         - "setbacks"
 
   # --------------------------------------------------
+  # RA 9514 RIRR
+  # --------------------------------------------------
+  - name: "RA 9514 RIRR"
+
+    match:
+      any_contains:
+        - "ra9514-rirr"
+        - "ra-9514"
+
+    classification:
+      source_type: irr
+      trust_level: primary
+
+    canonical:
+      title: "Implementing Rules and Regulations of the Fire Code of the Philippines"
+
+      aliases:
+        - "RA 9514"
+        - "Republic Act No. 9514"
+        - "The Fire Code of the Philippines"
+        - "RA 9514 IRR"
+        - "Fire Code RIRR 2019"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # BP 220 RIRR
+  # --------------------------------------------------
+  - name: "BP 220 RIRR"
+
+    match:
+      any_contains:
+        - "revised_irr_bp220"
+        - "bp-220"
+
+    classification:
+      source_type: irr
+      trust_level: primary
+
+    canonical:
+      title: "Revised Implementing Rules and Regulations of Batas Pambansa Blg. 220"
+
+      aliases:
+        - "BP 220"
+        - "Batas Pambansa Blg. 220"
+        - "BP 220 RIRR"
+        - "Revised IRR BP 220 2008"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # BP 344 RIRR (authoritative admission default)
+  # --------------------------------------------------
+  - name: "BP 344 RIRR"
+
+    match:
+      all_contains:
+        - "bp-344"
+        - "national council on disability affairs"
+      not_contains:
+        - "do037"
+        - "enforcement of bp344"
+
+    classification:
+      source_type: irr
+      trust_level: primary
+
+    canonical:
+      title: "Revised Implementing Rules and Regulations of Batas Pambansa Blg. 344"
+
+      aliases:
+        - "BP 344"
+        - "Batas Pambansa Blg. 344"
+        - "BP 344 RIRR"
+
+      core_concepts: []
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

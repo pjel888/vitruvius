@@ -76,6 +76,19 @@ def test_round_trip_equals_original(tmp_path: Path) -> None:
     assert loaded == original
 
 
+def test_round_trip_preserves_optional_metadata(tmp_path: Path) -> None:
+    original = _snapshot()
+    original.metadata = {
+        "dataset_id": "laws-core-bundle-m1",
+        "run_id": "20260416T000000Z",
+        "manifest_hash": "abc123",
+    }
+    out = tmp_path / "snap.json"
+    write_snapshot(original, out)
+    loaded = read_snapshot(out)
+    assert loaded == original
+
+
 def test_read_missing_file_raises(tmp_path: Path) -> None:
     with pytest.raises(FileNotFoundError):
         read_snapshot(tmp_path / "nope.json")

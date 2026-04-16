@@ -116,8 +116,10 @@ def _adjudicate_one(item: dict[str, Any], *, model: str, timeout: int) -> dict[s
     return adjudicated
 
 
-def _load_tier_one_report(repo_root: Path) -> dict[str, Any]:
-    path = repo_root / "006_System-Manifests" / "runs" / "latest_relationship_review_ollama.json"
+def _load_tier_one_report(repo_root: Path, report_path: Path | None = None) -> dict[str, Any]:
+    path = report_path or (
+        repo_root / "006_System-Manifests" / "runs" / "latest_relationship_review_ollama.json"
+    )
     if not path.exists():
         raise FileNotFoundError(
             f"Tier 1 review report not found: {path}. Run review-relationships-ollama first."
@@ -130,11 +132,14 @@ def run_second_pass_inner(
     repo_root: Path,
     model: str,
     timeout_seconds: int,
+    tier_one_report_path: Path | None = None,
+    merged_report_path: Path | None = None,
+    worklist_path: Path | None = None,
 ) -> dict[str, Any]:
     runs_dir = repo_root / "006_System-Manifests" / "runs"
     runs_dir.mkdir(parents=True, exist_ok=True)
 
-    tier_one_report = _load_tier_one_report(repo_root)
+    tier_one_report = _load_tier_one_report(repo_root, tier_one_report_path)
     tier_one_items = tier_one_report.get("reviews", [])
     selected = select_for_second_pass(tier_one_items)
 
@@ -161,11 +166,17 @@ def run_second_pass_inner(
         "items": adjudicated,
     }
 
-    write_json(runs_dir / "latest_relationship_review_merged.json", merged_report)
+    merged_report_path = merged_report_path or (
+        runs_dir / "latest_relationship_review_merged.json"
+    )
+    write_json(merged_report_path, merged_report)
 
     worklist = [a for a in adjudicated if a["action"] == "human_review"]
+    worklist_path = worklist_path or (
+        runs_dir / "latest_human_escalation_worklist.json"
+    )
     write_json(
-        runs_dir / "latest_human_escalation_worklist.json",
+        worklist_path,
         {
             "generated_at": utc_now_stamp(),
             "count": len(worklist),
@@ -180,6 +191,9 @@ def run_second_pass(
     *,
     model: str | None = None,
     timeout_seconds: int | None = None,
+    tier_one_report_path: Path | None = None,
+    merged_report_path: Path | None = None,
+    worklist_path: Path | None = None,
 ) -> int:
     if model is None:
         model = DEFAULT_SECOND_PASS_MODEL
@@ -192,6 +206,9 @@ def run_second_pass(
             repo_root=repo_root,
             model=model,
             timeout_seconds=timeout_seconds,
+            tier_one_report_path=tier_one_report_path,
+            merged_report_path=merged_report_path,
+            worklist_path=worklist_path,
         )
     except FileNotFoundError as exc:
         print(f"ERROR: {exc}")

@@ -138,12 +138,30 @@ def build_parser() -> argparse.ArgumentParser:
 
     sec_parser = add_command_parser(subparsers, "extract-relationships-sections-one")
     sec_parser.add_argument("relative_markdown_path")
+    sec_parser.add_argument("--json-out", dest="json_output_path", default=None,
+                            help="Optional explicit JSON output path")
+    sec_parser.add_argument("--txt-out", dest="txt_output_path", default=None,
+                            help="Optional explicit TXT output path")
+    sec_parser.add_argument("--source-id", dest="source_id_override", default=None,
+                            help="Optional explicit source node id override")
+    sec_parser.add_argument("--concept-path", dest="concept_paths", action="append", default=None,
+                            help="Optional concept markdown path to whitelist (repeatable)")
 
     review_parser = add_command_parser(subparsers, "review-relationships-ollama")
     review_parser.add_argument("--model", default="gemma4:31b")
     review_parser.add_argument("--timeout-seconds", type=int, default=600)
     review_parser.add_argument("--parallel", type=int, default=None,
                                help="Concurrent Ollama requests (default: config)")
+    review_parser.add_argument("--input-report", dest="extraction_report_path", default=None,
+                               help="Optional explicit extraction report JSON path")
+    review_parser.add_argument("--review-json-out", dest="review_json_path", default=None,
+                               help="Optional explicit review JSON output path")
+    review_parser.add_argument("--review-txt-out", dest="review_txt_path", default=None,
+                               help="Optional explicit review TXT output path")
+    review_parser.add_argument("--triage-out", dest="triage_report_path", default=None,
+                               help="Optional explicit triage JSON output path")
+    review_parser.add_argument("--high-confidence-out", dest="high_confidence_output_path", default=None,
+                               help="Optional explicit high-confidence JSON output path")
 
     promote_parser = add_command_parser(subparsers, "promote")
     promote_parser.add_argument("--execute", action="store_true",
@@ -151,11 +169,23 @@ def build_parser() -> argparse.ArgumentParser:
     promote_parser.add_argument("--rollback", dest="rollback_batch_id",
                                 default=None,
                                 help="Rollback the given promotion batch ID")
+    promote_parser.add_argument("--input-report", dest="high_confidence_input_path", default=None,
+                                help="Optional explicit high-confidence review JSON path")
+    promote_parser.add_argument("--relationships-out-dir", dest="relationships_output_dir", default=None,
+                                help="Optional explicit relationship output directory")
+    promote_parser.add_argument("--audit-log-path", dest="audit_log_path", default=None,
+                                help="Optional explicit promotion audit log path")
 
     second_pass_parser = add_command_parser(subparsers, "review-relationships-ollama-second-pass")
     second_pass_parser.add_argument("--model", default=None,
                                     help="Tier-2 model (default: qwen3:30b)")
     second_pass_parser.add_argument("--timeout-seconds", type=int, default=None)
+    second_pass_parser.add_argument("--input-review-report", dest="tier_one_report_path", default=None,
+                                    help="Optional explicit tier-one review JSON path")
+    second_pass_parser.add_argument("--merged-out", dest="merged_report_path", default=None,
+                                    help="Optional explicit merged review output path")
+    second_pass_parser.add_argument("--worklist-out", dest="worklist_path", default=None,
+                                    help="Optional explicit human worklist output path")
 
     enrich_one_parser = add_command_parser(subparsers, "enrich-concept-one")
     enrich_one_parser.add_argument("concept_slug")
@@ -181,6 +211,11 @@ def build_parser() -> argparse.ArgumentParser:
     build_graph_parser = add_command_parser(subparsers, "build-graph")
     build_graph_parser.add_argument("--dry-run", action="store_true",
                                     help="Run walker + integrity checks only; do not write files")
+    build_graph_parser.add_argument(
+        "--dataset-manifest",
+        default=None,
+        help="Optional dataset manifest for scoped graph output",
+    )
 
     query_graph_parser = add_command_parser(subparsers, "query-graph")
     query_graph_parser.add_argument("--from", dest="from_id", required=True,
@@ -189,16 +224,40 @@ def build_parser() -> argparse.ArgumentParser:
                                     help="Target node id")
     query_graph_parser.add_argument("--max-depth", type=int, default=3,
                                     help="Max path depth (default: 3)")
+    query_graph_parser.add_argument(
+        "--snapshot",
+        dest="snapshot_path",
+        default=None,
+        help="Optional explicit snapshot path",
+    )
 
     export_graph_parser = add_command_parser(subparsers, "export-graph-snapshot")
     export_graph_parser.add_argument("--format", dest="fmt", default="json",
                                      choices=["json"],
                                      help="Output format (default: json)")
+    export_graph_parser.add_argument(
+        "--snapshot",
+        dest="snapshot_path",
+        default=None,
+        help="Optional explicit snapshot path",
+    )
 
     # Stream M.4 — export-graph-owl
-    add_command_parser(
+    export_graph_owl_parser = add_command_parser(
         subparsers,
         "export-graph-owl",
+    )
+    export_graph_owl_parser.add_argument(
+        "--snapshot",
+        dest="snapshot_path",
+        default=None,
+        help="Optional explicit snapshot path",
+    )
+    export_graph_owl_parser.add_argument(
+        "--out",
+        dest="out_path",
+        default=None,
+        help="Optional output Turtle path",
     )
 
     add_command_parser(subparsers, "ingest-spatial")
@@ -272,6 +331,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     query_parser = add_command_parser(subparsers, "query")
     query_parser.add_argument("question", help="Natural-language question")
+    query_parser.add_argument(
+        "--snapshot",
+        dest="snapshot_path",
+        default=None,
+        help="Optional explicit snapshot path",
+    )
 
     query_struct_parser = add_command_parser(subparsers, "query-structured")
     query_struct_parser.add_argument(
@@ -286,6 +351,12 @@ def build_parser() -> argparse.ArgumentParser:
                                      help="Entity a (edges_between only)")
     query_struct_parser.add_argument("--b", dest="b", default=None,
                                      help="Entity b (edges_between only)")
+    query_struct_parser.add_argument(
+        "--snapshot",
+        dest="snapshot_path",
+        default=None,
+        help="Optional explicit snapshot path",
+    )
 
     return parser
 
@@ -439,6 +510,10 @@ def main() -> int:
             "extract-relationships-sections-one",
             lambda: run_extract_relationships_sections_one(
             relative_markdown_path=args.relative_markdown_path,
+            json_output_path=Path(args.json_output_path) if args.json_output_path else None,
+            txt_output_path=Path(args.txt_output_path) if args.txt_output_path else None,
+            source_id_override=args.source_id_override,
+            concept_paths=[Path(p) for p in args.concept_paths] if args.concept_paths else None,
             ),
         )
 
@@ -450,6 +525,11 @@ def main() -> int:
             model=args.model,
             timeout_seconds=args.timeout_seconds,
             parallelism=args.parallel,
+            extraction_report_path=Path(args.extraction_report_path) if args.extraction_report_path else None,
+            review_json_path=Path(args.review_json_path) if args.review_json_path else None,
+            review_txt_path=Path(args.review_txt_path) if args.review_txt_path else None,
+            triage_report_path=Path(args.triage_report_path) if args.triage_report_path else None,
+            high_confidence_output_path=Path(args.high_confidence_output_path) if args.high_confidence_output_path else None,
             ),
         )
 
@@ -460,6 +540,9 @@ def main() -> int:
             lambda: run_promote(
             execute=args.execute,
             rollback_batch_id=args.rollback_batch_id,
+            high_confidence_input_path=Path(args.high_confidence_input_path) if args.high_confidence_input_path else None,
+            relationships_output_dir=Path(args.relationships_output_dir) if args.relationships_output_dir else None,
+            audit_log_path=Path(args.audit_log_path) if args.audit_log_path else None,
             ),
         )
 
@@ -470,6 +553,9 @@ def main() -> int:
             lambda: run_second_pass(
             model=args.model,
             timeout_seconds=args.timeout_seconds,
+            tier_one_report_path=Path(args.tier_one_report_path) if args.tier_one_report_path else None,
+            merged_report_path=Path(args.merged_report_path) if args.merged_report_path else None,
+            worklist_path=Path(args.worklist_path) if args.worklist_path else None,
             ),
         )
 
@@ -519,7 +605,10 @@ def main() -> int:
         from vitruvius.graph.cli import run_build_graph
         return _run(
             "build-graph",
-            lambda: run_build_graph(dry_run=args.dry_run),
+            lambda: run_build_graph(
+                dry_run=args.dry_run,
+                dataset_manifest=args.dataset_manifest,
+            ),
         )
 
     if args.command == "query-graph":
@@ -530,6 +619,7 @@ def main() -> int:
             from_id=args.from_id,
             to_id=args.to_id,
             max_depth=args.max_depth,
+            snapshot_path=args.snapshot_path,
             ),
         )
 
@@ -537,12 +627,21 @@ def main() -> int:
         from vitruvius.graph.cli import run_export_graph_snapshot
         return _run(
             "export-graph-snapshot",
-            lambda: run_export_graph_snapshot(fmt=args.fmt),
+            lambda: run_export_graph_snapshot(
+                fmt=args.fmt,
+                snapshot_path=args.snapshot_path,
+            ),
         )
 
     if args.command == "export-graph-owl":
         from vitruvius.ontology.cli import run_export_graph_owl
-        return _run("export-graph-owl", run_export_graph_owl)
+        return _run(
+            "export-graph-owl",
+            lambda: run_export_graph_owl(
+                snapshot_path=args.snapshot_path,
+                out_path=args.out_path,
+            ),
+        )
 
     if args.command == "ingest-spatial":
         from vitruvius.spatial.cli import run_ingest_spatial
@@ -588,7 +687,10 @@ def main() -> int:
 
     if args.command == "query":
         from vitruvius.query.cli import run_query
-        return _run("query", lambda: run_query(args.question))
+        return _run(
+            "query",
+            lambda: run_query(args.question, snapshot_path=args.snapshot_path),
+        )
 
     if args.command == "query-structured":
         from vitruvius.query.cli import run_query_structured
@@ -599,6 +701,7 @@ def main() -> int:
             subject=args.subject,
             a=args.a,
             b=args.b,
+            snapshot_path=args.snapshot_path,
             ),
         )
 

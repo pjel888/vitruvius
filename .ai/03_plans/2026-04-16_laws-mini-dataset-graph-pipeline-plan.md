@@ -869,21 +869,31 @@ Return to planning immediately if any of these assumptions prove false:
 These assumptions are allowed to guide M1 only until contradicted by path-audit evidence or future design review.
 
 ## 14. Execution Checklist
-- [ ] map the full source→graph path for the 4-folder core-laws-bundle pilot
-- [ ] produce the blast-radius list for commands/modules/artifacts/docs likely to change
-- [ ] perform optimization/rust triage and document what stays Python vs what could become future Rust candidates
-- [ ] document low-spec constraints and likely RAM/CPU pressure points for the first proof
-- [ ] create dataset manifest contract
-- [ ] add scoped graph build mode and dataset-specific outputs
-- [ ] add snapshot-selected/scoped query surface
-- [ ] define safe M1 relationship input policy (manifest-selected approved inputs or dataset staging)
-- [ ] define the macro-compatibility contract for future dataset manifests
-- [ ] prove no writes to global `latest_*`
-- [ ] run leakage, isolation, integrity, query, determinism, and boundary checks
-- [ ] run macro-compatibility and anti-special-case checks
-- [ ] run low-spec viability checks at the design level before approving implementation
-- [ ] write validation log for the core-laws-bundle proof
-- [ ] only then plan M2 dataset-safe review/promotion scoping
+Execution status note (2026-04-16):
+- M1 implementation executed after truth reconciliation and readiness re-check.
+- Outcome: `PARTIAL` (PD-1096 covered; `RA-9514`, `BP-344`, and `BP-220` were initially blocked due absent selected canonical/promoted inputs).
+- Follow-on work is now governed by `2026-04-16_laws-m2-admission-plan.md`:
+  - M2A source admission is complete for `RA-9514`, `BP-344`, and `BP-220`
+  - additive M2B dataset-safe stage wiring is complete
+  - conservative RA-9514 relationship admission is complete
+  - concept-fit follow-on slices are complete for `BP-344` and `BP-220`
+  - current bounded pilot outcome is now `SUCCESS`; see `2026-04-16_laws-core-bundle-bounded-pilot-success-validation.md`
+
+- [x] map the full source→graph path for the 4-folder core-laws-bundle pilot
+- [x] produce the blast-radius list for commands/modules/artifacts/docs likely to change
+- [x] perform optimization/rust triage and document what stays Python vs what could become future Rust candidates
+- [x] document low-spec constraints and likely RAM/CPU pressure points for the first proof
+- [x] create dataset manifest contract
+- [x] add scoped graph build mode and dataset-specific outputs
+- [x] add snapshot-selected/scoped query surface
+- [x] define safe M1 relationship input policy (manifest-selected approved inputs or dataset staging)
+- [x] define the macro-compatibility contract for future dataset manifests
+- [x] prove no writes to global `latest_*`
+- [x] run leakage, isolation, integrity, query, determinism, and boundary checks
+- [x] run macro-compatibility and anti-special-case checks
+- [x] run low-spec viability checks at the design level before approving implementation
+- [x] write validation log for the core-laws-bundle proof
+- [x] decide M2 trigger status (`hit and executed within the bounded follow-on lane`)
 
 ## 15. Recommended M1 Implementation Sequence by Dependency
 

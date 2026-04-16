@@ -1,0 +1,97 @@
+{
+  "generated_at": "20260416T054027Z",
+  "model": "gemma4:31b",
+  "source": "001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
+  "total_candidates": 3,
+  "llm_reviewed": 1,
+  "pre_review_auto_accepted": 0,
+  "pre_review_auto_rejected": 2,
+  "completed_reviews": 3,
+  "status": "completed",
+  "summary": {
+    "keep": 0,
+    "review_further": 1,
+    "reject": 2,
+    "high_confidence_keep": 0,
+    "high_confidence_reject": 2
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+        "type": "governs",
+        "to": "concept-stairs",
+        "occurrences": 8,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "1. Accessible Ramps GOVPH (https://www.gov.ph) Home (https://ncda.gov.ph) About Us Commitments Perso Changes in level shall require a ramp except when served by a dropped sidewalk, curb ramp, an elevator, or other mechanical device. Accessible ramps shall have the following facilities and features: ",
+          "1. Accessible Ramps GOVPH (https://www.gov.ph) Home (https://ncda.gov.ph) About Us Commitments Perso Changes in level shall require a ramp except when served by a dropped sidewalk, curb ramp, an elevator, or other mechanical device. Accessible ramps shall have the following facilities and features: ",
+          "1. Accessible Ramps GOVPH (https://www.gov.ph) Home (https://ncda.gov.ph) About Us Commitments Perso Changes in level shall require a ramp except when served by a dropped sidewalk, curb ramp, an elevator, or other mechanical device. Accessible ramps shall have the following facilities and features: "
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['stairs'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+        "type": "governs",
+        "to": "concept-means-of-egress",
+        "occurrences": 2,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "###### 1. Fencing for Excavations on Roads and Sidewalks All excavations, whether on the road or footway shall be adequately protected or fenced-in to protect pedestrians in general and persons with disabilities in particular. Whatever the type of fencing used, it is important that the railings shal",
+          "###### 1. Fencing for Excavations on Roads and Sidewalks All excavations, whether on the road or footway shall be adequately protected or fenced-in to protect pedestrians in general and persons with disabilities in particular. Whatever the type of fencing used, it is important that the railings shal"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['means of egress'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-stairs",
+        "type": "requires",
+        "to": "concept-means-of-egress",
+        "occurrences": 1,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "###### 1. Swimming Pools Provide transfer walls with the following features: - 1. Identiﬁed by illuminated signage (Refer to Section on Illumination of Means of Egress of the latest edition of Fire Code of the Philippines). - 2. The minimum level of illumination of signs shall be 200 lux. - 3. A cle"
+        ],
+        "alternate_predicates": [
+          "affects"
+        ],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      "review": {
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.",
+        "suggested_type": null
+      }
+    }
+  ]
+}

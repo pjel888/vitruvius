@@ -1,0 +1,31 @@
+{
+  "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf",
+  "total_pages": 11,
+  "pages_sampled": 5,
+  "pages_with_usable_text": 5,
+  "total_extracted_characters": 5398,
+  "page_details": [
+    {
+      "page_number": 1,
+      "extracted_characters": 1745
+    },
+    {
+      "page_number": 2,
+      "extracted_characters": 1338
+    },
+    {
+      "page_number": 3,
+      "extracted_characters": 335
+    },
+    {
+      "page_number": 4,
+      "extracted_characters": 801
+    },
+    {
+      "page_number": 5,
+      "extracted_characters": 1179
+    }
+  ],
+  "result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT"
+}

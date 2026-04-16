@@ -1,0 +1,19 @@
+{
+  "packet_id": "ra9514-relationship-admission-2026-04-16",
+  "status": "answered",
+  "reviewer": "Philip Lewis",
+  "answered_at_utc": "2026-04-16T06:26:00Z",
+  "overall_notes": "",
+  "item_decisions": [
+    {
+      "item_id": "ra9514-suspect-1",
+      "decision": "reject",
+      "notes": "The relationship is not supported by the nature of RA 9514 IRR content. The Fire Code focuses on fire safety systems, hazardous storage, suppression, and life safety requirements, not zoning concepts like \u201cyards\u201d in a governing sense."
+    },
+    {
+      "item_id": "ra9514-suspect-2",
+      "decision": "defer",
+      "notes": "This is structurally plausible but currently under-evidenced.\n\nThere is a real-world dependency:\n\nMeans of egress design varies by occupancy classification (capacity, hazard level, exit widths, travel distance).\nRA 9514 clearly defines both concepts and ties them operationally (egress rules depend on occupancy type) .\n\nHowever, the relationship as stated (\u201crequires\u201d) is too strong unless explicitly codified.\n\nRoot issue:\n\nLikely true at a system level\nNot proven at a textual clause level\n\nWhat\u2019s needed to approve:\n\nA clause explicitly linking egress requirements to occupancy classification (not just both existing in the same framework)\n\nConclusion:\n\nNot wrong\nNot yet provable\n\u2192 Keep out of official graph until stronger evidence exists"
+    }
+  ]
+}

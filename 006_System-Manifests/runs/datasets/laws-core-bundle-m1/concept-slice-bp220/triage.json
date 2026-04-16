@@ -1,0 +1,44 @@
+{
+  "generated_at": "20260416T063822Z",
+  "source": "001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md",
+  "total_candidates": 1,
+  "auto_accept_count": 1,
+  "auto_reject_count": 0,
+  "needs_review_count": 0,
+  "buckets": {
+    "auto_accept": [
+      {
+        "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+        "type": "governs",
+        "to": "concept-socialized-housing-projects",
+        "occurrences": 17,
+        "sections": [
+          "section-1",
+          "section-3",
+          "section-4",
+          "section-5",
+          "section-6",
+          "section-8",
+          "section-13",
+          "section-19",
+          "section-2"
+        ],
+        "examples": [
+          "These rules and standards shall apply to the development of economic and socialized housing projects in urban and rural areas as defined in Section 2 of BP Blg. 220. They shall apply to the development of either a house and lot or a house or lot only.",
+          "Development of economic and socialized housing projects shall be in accordance with the minimum design standards herein set forth.",
+          "The minimum design standards set forth herein are intended to provide minimum requirements within the generally accepted levels of safety, health and ecological considerations. Variations, however are also possible, as may be based on some specific regional, cultural and economic setting, e.g., buil"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      }
+    ],
+    "auto_reject": [],
+    "needs_review": []
+  }
+}

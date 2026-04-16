@@ -1,0 +1,17 @@
+{
+  "generated_at_utc": "2026-04-16T06:26:00Z",
+  "pending_count": 0,
+  "entries": [
+    {
+      "packet_id": "ra9514-relationship-admission-2026-04-16",
+      "topic": "Human review for staged RA-9514 relationships not yet admitted into the official manifest",
+      "request_file": ".ai/14_human_inbox/2026-04-16_ra9514-relationship-admission.request.json",
+      "response_file": ".ai/14_human_inbox/2026-04-16_ra9514-relationship-admission.response.json",
+      "request_status": "open",
+      "response_status": "answered",
+      "needs_human_input": false,
+      "item_count": 2
+    }
+  ],
+  "human_edit_file": ".ai/14_human_inbox/ANSWER_HERE.md"
+}

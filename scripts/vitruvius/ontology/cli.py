@@ -28,7 +28,24 @@ _OWL_OUTPUT_RELPATH = (
 )
 
 
-def run_export_graph_owl() -> int:
+def _resolve_path(path_value: str | None, default_relpath: Path) -> tuple[Path, str]:
+    if path_value is None:
+        return Path.cwd() / default_relpath, str(default_relpath)
+    path = Path(path_value)
+    if not path.is_absolute():
+        path = Path.cwd() / path
+    try:
+        display_path = str(path.relative_to(Path.cwd()))
+    except ValueError:
+        display_path = str(path)
+    return path, display_path
+
+
+def run_export_graph_owl(
+    *,
+    snapshot_path: str | None = None,
+    out_path: str | None = None,
+) -> int:
     """Export the current Phase 8 snapshot to RDF Turtle.
 
     Writes ``005_Operational-Intelligence-Layer/graph/latest_graph_snapshot.ttl``
@@ -36,20 +53,29 @@ def run_export_graph_owl() -> int:
     to stdout. Returns ``0`` on success or ``2`` when the snapshot
     file is missing (caller must run ``build-graph`` first).
     """
-    repo_root = Path.cwd()
-    snapshot_path = repo_root / _SNAPSHOT_RELPATH
-    if not snapshot_path.exists():
+    snapshot_path_resolved, display_snapshot_path = _resolve_path(snapshot_path, _SNAPSHOT_RELPATH)
+    if not snapshot_path_resolved.exists():
         print(json.dumps({
             "error": "no snapshot found — run build-graph first",
-            "expected_path": str(_SNAPSHOT_RELPATH),
+            "expected_path": display_snapshot_path,
         }, indent=2))
         return 2
 
+    repo_root = Path.cwd()
     mapping_path = repo_root / _IFC_MAPPING_RELPATH
-    output_path = repo_root / _OWL_OUTPUT_RELPATH
+    if out_path is None:
+        output_path = (
+            repo_root / _OWL_OUTPUT_RELPATH
+            if snapshot_path is None
+            else snapshot_path_resolved.with_suffix(".ttl")
+        )
+    else:
+        output_path = Path(out_path)
+        if not output_path.is_absolute():
+            output_path = repo_root / output_path
 
     export_snapshot_as_turtle(
-        snapshot_path,
+        snapshot_path_resolved,
         output_path,
         ifc_mapping_path=mapping_path if mapping_path.exists() else None,
     )

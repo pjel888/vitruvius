@@ -1,0 +1,36 @@
+{
+  "generated_at": "20260416T063808Z",
+  "source": "001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
+  "total_candidates": 1,
+  "auto_accept_count": 1,
+  "auto_reject_count": 0,
+  "needs_review_count": 0,
+  "buckets": {
+    "auto_accept": [
+      {
+        "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+        "type": "governs",
+        "to": "concept-accessible-ramps",
+        "occurrences": 11,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "1. Accessible Ramps GOVPH (https://www.gov.ph) Home (https://ncda.gov.ph) About Us Commitments Perso Changes in level shall require a ramp except when served by a dropped sidewalk, curb ramp, an elevator, or other mechanical device. Accessible ramps shall have the following facilities and features: ",
+          "1. Accessible Ramps GOVPH (https://www.gov.ph) Home (https://ncda.gov.ph) About Us Commitments Perso Changes in level shall require a ramp except when served by a dropped sidewalk, curb ramp, an elevator, or other mechanical device. Accessible ramps shall have the following facilities and features: ",
+          "1. Accessible Ramps GOVPH (https://www.gov.ph) Home (https://ncda.gov.ph) About Us Commitments Perso Changes in level shall require a ramp except when served by a dropped sidewalk, curb ramp, an elevator, or other mechanical device. Accessible ramps shall have the following facilities and features: "
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      }
+    ],
+    "auto_reject": [],
+    "needs_review": []
+  }
+}

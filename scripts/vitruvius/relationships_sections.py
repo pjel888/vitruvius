@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
-from typing import List, Dict, Tuple
+from typing import Iterable, List, Dict, Tuple
 
 from .paths import get_repo_root
 from .reports import write_json, write_text
@@ -13,13 +13,22 @@ from .utils import utc_now_stamp
 # LOAD CONCEPTS
 # --------------------------------------------------
 
-def load_concepts() -> Dict[str, str]:
+def load_concepts(*, allowed_paths: Iterable[Path] | None = None) -> Dict[str, str]:
     repo_root = get_repo_root()
     concepts_dir = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "concepts"
 
     concept_map = {}
+    if allowed_paths is None:
+        files = sorted(concepts_dir.glob("*.md"))
+    else:
+        files = []
+        for path in allowed_paths:
+            candidate = path if path.is_absolute() else repo_root / path
+            if candidate.exists() and candidate.is_file():
+                files.append(candidate)
+        files = sorted(set(files))
 
-    for file in concepts_dir.glob("*.md"):
+    for file in files:
         slug = file.stem
         phrase = slug.replace("-", " ")
         concept_map[phrase] = f"concept-{slug}"
@@ -31,7 +40,25 @@ def load_concepts() -> Dict[str, str]:
 # SECTION SEGMENTATION
 # --------------------------------------------------
 
-SECTION_PATTERN = re.compile(r"(SECTION|SEC\.)\s+(\d+)[\.\-]?\s*(.*)", re.IGNORECASE)
+SECTION_PATTERN = re.compile(
+    r"^(?:SECTION|SEC\.)\s+(\d+(?:\.\d+)*)[\.\-:]?\s*(.*)$",
+    re.IGNORECASE,
+)
+NUMBERED_HEADING_PATTERN = re.compile(
+    r"^(\d+)\.\s+([A-Z][A-Z0-9 ,/&()\-]+)$"
+)
+
+
+def _normalize_heading_candidate(line: str) -> str:
+    stripped = line.strip()
+    stripped = re.sub(r"^#+\s*", "", stripped)
+    stripped = re.sub(r"^[-*]\s*", "", stripped)
+    stripped = re.sub(r"\s+", " ", stripped)
+    return stripped.strip()
+
+
+def _looks_like_toc_entry(candidate: str) -> bool:
+    return "...." in candidate or bool(re.search(r"\s+\d+$", candidate))
 
 
 def split_sections(text: str) -> List[Dict]:
@@ -41,19 +68,36 @@ def split_sections(text: str) -> List[Dict]:
     current = None
 
     for line in lines:
-        match = SECTION_PATTERN.match(line.strip())
+        candidate = _normalize_heading_candidate(line)
+        if not candidate or _looks_like_toc_entry(candidate):
+            if current:
+                current["lines"].append(line)
+            continue
+
+        match = SECTION_PATTERN.match(candidate)
+        numbered_match = NUMBERED_HEADING_PATTERN.match(candidate)
 
         if match:
             if current:
                 sections.append(current)
 
-            sec_num = match.group(2)
-            title = match.group(3).strip()
+            sec_num = match.group(1)
+            title = match.group(2).strip()
 
             current = {
-                "section_id": f"section-{sec_num}",
+                "section_id": f"section-{sec_num.lower()}",
                 "title": title if title else f"Section {sec_num}",
                 "lines": []
+            }
+        elif numbered_match:
+            if current:
+                sections.append(current)
+            sec_num = numbered_match.group(1)
+            title = numbered_match.group(2).strip()
+            current = {
+                "section_id": f"section-{sec_num.lower()}",
+                "title": title,
+                "lines": [],
             }
         elif current:
             current["lines"].append(line)
@@ -355,9 +399,33 @@ def aggregate_relationships(rel_list: List[Dict]) -> List[Dict]:
 # COMMAND
 # --------------------------------------------------
 
-def run_extract_relationships_sections_one(*, relative_markdown_path: str) -> int:
-    repo_root = get_repo_root()
+def run_extract_relationships_sections_one(
+    *,
+    relative_markdown_path: str,
+    json_output_path: Path | None = None,
+    txt_output_path: Path | None = None,
+    source_id_override: str | None = None,
+    concept_paths: Iterable[Path] | None = None,
+) -> int:
+    return run_extract_relationships_sections_one_inner(
+        repo_root=get_repo_root(),
+        relative_markdown_path=relative_markdown_path,
+        json_output_path=json_output_path,
+        txt_output_path=txt_output_path,
+        source_id_override=source_id_override,
+        concept_paths=concept_paths,
+    )
 
+
+def run_extract_relationships_sections_one_inner(
+    *,
+    repo_root: Path,
+    relative_markdown_path: str,
+    json_output_path: Path | None = None,
+    txt_output_path: Path | None = None,
+    source_id_override: str | None = None,
+    concept_paths: Iterable[Path] | None = None,
+) -> int:
     source_path = (
         repo_root
         / "002_Raw-Conversion-Layer"
@@ -371,8 +439,8 @@ def run_extract_relationships_sections_one(*, relative_markdown_path: str) -> in
     text = source_path.read_text(encoding="utf-8", errors="ignore")
 
     sections = split_sections(text)
-    concept_map = load_concepts()
-    source_id = build_source_id(relative_markdown_path)
+    concept_map = load_concepts(allowed_paths=concept_paths)
+    source_id = source_id_override or build_source_id(relative_markdown_path)
 
     all_relationships = []
 
@@ -432,19 +500,19 @@ def run_extract_relationships_sections_one(*, relative_markdown_path: str) -> in
     else:
         deduped = dedupe_by_endpoints(aggregated)
 
-    runs_dir = repo_root / "006_System-Manifests" / "runs"
-    runs_dir.mkdir(parents=True, exist_ok=True)
-
     report = {
         "generated_at": utc_now_stamp(),
         "source": relative_markdown_path,
+        "source_id": source_id,
         "total_sections": len(sections),
         "total_relationships": len(deduped),
         "relationships": deduped,
     }
 
-    json_path = runs_dir / "latest_relationship_extraction_sections.json"
-    txt_path = runs_dir / "latest_relationship_extraction_sections.txt"
+    runs_dir = repo_root / "006_System-Manifests" / "runs"
+    runs_dir.mkdir(parents=True, exist_ok=True)
+    json_path = json_output_path or runs_dir / "latest_relationship_extraction_sections.json"
+    txt_path = txt_output_path or runs_dir / "latest_relationship_extraction_sections.txt"
 
     write_json(json_path, report)
 

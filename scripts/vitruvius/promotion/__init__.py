@@ -147,8 +147,12 @@ def write_relationship_file(path: Path, record: dict) -> None:
     path.write_text(content, encoding="utf-8")
 
 
-def _load_high_confidence(repo_root: Path) -> list[dict]:
-    path = repo_root / "006_System-Manifests" / "runs" / "latest_relationship_review_high_confidence.json"
+def _load_high_confidence(repo_root: Path, input_path: Path | None = None) -> list[dict]:
+    path = input_path or (
+        repo_root / "006_System-Manifests" / "runs" / "latest_relationship_review_high_confidence.json"
+    )
+    if not path.is_absolute():
+        path = repo_root / path
     if not path.exists():
         return []
     payload = json.loads(path.read_text(encoding="utf-8"))
@@ -227,6 +231,9 @@ def run_promote_inner(
     repo_root: Path,
     execute: bool,
     rollback_batch_id: str | None,
+    high_confidence_input_path: Path | None = None,
+    relationships_output_dir: Path | None = None,
+    audit_log_path: Path | None = None,
 ) -> dict:
     if rollback_batch_id is not None:
         return _run_rollback(repo_root, rollback_batch_id)
@@ -234,11 +241,17 @@ def run_promote_inner(
     canonical_index = build_canonical_index(repo_root)
     registry = load_registry()
 
-    rels_dir = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "relationships"
+    rels_dir = relationships_output_dir or (
+        repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "relationships"
+    )
+    if not rels_dir.is_absolute():
+        rels_dir = repo_root / rels_dir
     runs_dir = repo_root / "006_System-Manifests" / "runs"
-    audit_log = runs_dir / "latest_promotion_audit.log"
+    audit_log = audit_log_path or (runs_dir / "latest_promotion_audit.log")
+    if not audit_log.is_absolute():
+        audit_log = repo_root / audit_log
 
-    candidates = _load_high_confidence(repo_root)
+    candidates = _load_high_confidence(repo_root, high_confidence_input_path)
     batch_id = build_promotion_batch_id()
 
     result: dict[str, Any] = {
@@ -429,6 +442,9 @@ def run_promote(
     *,
     execute: bool = False,
     rollback_batch_id: str | None = None,
+    high_confidence_input_path: Path | None = None,
+    relationships_output_dir: Path | None = None,
+    audit_log_path: Path | None = None,
 ) -> int:
     # Resolve via the shared helper so the repo root stays correct after
     # promotion became a subpackage — the previous hardcoded
@@ -441,6 +457,9 @@ def run_promote(
         repo_root=repo_root,
         execute=execute,
         rollback_batch_id=rollback_batch_id,
+        high_confidence_input_path=high_confidence_input_path,
+        relationships_output_dir=relationships_output_dir,
+        audit_log_path=audit_log_path,
     )
     print(json.dumps(result, indent=2, default=str))
     return 0

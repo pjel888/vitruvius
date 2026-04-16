@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import date, datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable
 
 import yaml
 
@@ -67,10 +67,28 @@ def _resolve_date(fm: dict[str, Any], path: Path) -> str:
     return _mtime_iso(path)
 
 
-def _iter_md_files(directory: Path) -> list[Path]:
+def _iter_md_files(
+    directory: Path,
+    *,
+    allowed_paths: Iterable[Path] | None = None,
+    constrain_to_directory: bool = True,
+) -> list[Path]:
+    if allowed_paths is not None:
+        resolved_dir = directory.resolve()
+        normalized: list[Path] = []
+        for path in allowed_paths:
+            resolved = Path(path).resolve()
+            if constrain_to_directory:
+                try:
+                    resolved.relative_to(resolved_dir)
+                except ValueError:
+                    continue
+            if resolved.is_file() and resolved.suffix == ".md":
+                normalized.append(resolved)
+        return sorted(set(normalized))
     if not directory.exists() or not directory.is_dir():
         return []
-    return sorted(p for p in directory.glob("*.md") if p.is_file())
+    return sorted(p.resolve() for p in directory.glob("*.md") if p.is_file())
 
 
 def _slugify_id(value: str) -> str:
@@ -99,9 +117,10 @@ def _collect_unresolved_frontmatter_source_ids(
     *,
     referenced_node_ids: set[str],
     valid_target_ids: set[str],
+    allowed_paths: Iterable[Path] | None = None,
 ) -> set[str]:
     unresolved_ids: set[str] = set()
-    for path in _iter_md_files(sources_dir):
+    for path in _iter_md_files(sources_dir, allowed_paths=allowed_paths):
         fm = _load_frontmatter(path)
         if not fm:
             continue
@@ -140,9 +159,10 @@ def walk_sources(
     sources_dir: Path,
     *,
     referenced_node_ids: set[str] | None = None,
+    allowed_paths: Iterable[Path] | None = None,
 ) -> list[GraphNode]:
     nodes: list[GraphNode] = []
-    for path in _iter_md_files(sources_dir):
+    for path in _iter_md_files(sources_dir, allowed_paths=allowed_paths):
         fm = _load_frontmatter(path)
         if not fm:
             continue
@@ -174,9 +194,10 @@ def walk_concepts(
     concepts_dir: Path,
     *,
     referenced_node_ids: set[str] | None = None,
+    allowed_paths: Iterable[Path] | None = None,
 ) -> list[GraphNode]:
     nodes: list[GraphNode] = []
-    for path in _iter_md_files(concepts_dir):
+    for path in _iter_md_files(concepts_dir, allowed_paths=allowed_paths):
         fm = _load_frontmatter(path)
         if not fm:
             continue
@@ -205,9 +226,17 @@ def walk_concepts(
     return nodes
 
 
-def walk_relationships(relationships_dir: Path) -> list[GraphEdge]:
+def walk_relationships(
+    relationships_dir: Path,
+    *,
+    allowed_paths: Iterable[Path] | None = None,
+) -> list[GraphEdge]:
     edges: list[GraphEdge] = []
-    for path in _iter_md_files(relationships_dir):
+    for path in _iter_md_files(
+        relationships_dir,
+        allowed_paths=allowed_paths,
+        constrain_to_directory=False,
+    ):
         fm = _load_frontmatter(path)
         if not fm:
             continue
@@ -270,9 +299,10 @@ def walk_source_relationship_edges(
     sources_dir: Path,
     *,
     valid_target_ids: set[str],
+    allowed_paths: Iterable[Path] | None = None,
 ) -> list[GraphEdge]:
     edges: list[GraphEdge] = []
-    for path in _iter_md_files(sources_dir):
+    for path in _iter_md_files(sources_dir, allowed_paths=allowed_paths):
         fm = _load_frontmatter(path)
         if not fm:
             continue
@@ -308,9 +338,10 @@ def walk_concept_basis_edges(
     concepts_dir: Path,
     *,
     valid_source_ids: set[str],
+    allowed_paths: Iterable[Path] | None = None,
 ) -> list[GraphEdge]:
     edges: list[GraphEdge] = []
-    for path in _iter_md_files(concepts_dir):
+    for path in _iter_md_files(concepts_dir, allowed_paths=allowed_paths):
         fm = _load_frontmatter(path)
         if not fm:
             continue
@@ -365,9 +396,13 @@ def build_snapshot(
     *,
     schema_version: str = "1.0.0",
     now: str | None = None,
+    source_paths: Iterable[Path] | None = None,
+    concept_paths: Iterable[Path] | None = None,
+    relationship_paths: Iterable[Path] | None = None,
+    metadata: dict[str, Any] | None = None,
 ) -> GraphSnapshot:
-    raw_sources = walk_sources(canonical_root / "sources")
-    raw_concepts = walk_concepts(canonical_root / "concepts")
+    raw_sources = walk_sources(canonical_root / "sources", allowed_paths=source_paths)
+    raw_concepts = walk_concepts(canonical_root / "concepts", allowed_paths=concept_paths)
     valid_source_ids = {node.id for node in raw_sources}
     valid_concept_ids = {node.id for node in raw_concepts}
     source_id_counts: dict[str, int] = {}
@@ -377,14 +412,19 @@ def build_snapshot(
     for node in raw_concepts:
         concept_id_counts[node.id] = concept_id_counts.get(node.id, 0) + 1
 
-    relationship_edges = walk_relationships(canonical_root / "relationships")
+    relationship_edges = walk_relationships(
+        canonical_root / "relationships",
+        allowed_paths=relationship_paths,
+    )
     source_relationship_edges = walk_source_relationship_edges(
         canonical_root / "sources",
         valid_target_ids=valid_source_ids | valid_concept_ids,
+        allowed_paths=source_paths,
     )
     concept_basis_edges = walk_concept_basis_edges(
         canonical_root / "concepts",
         valid_source_ids=valid_source_ids,
+        allowed_paths=concept_paths,
     )
     edges = relationship_edges + source_relationship_edges + concept_basis_edges
     referenced_node_ids = {edge.from_id for edge in edges} | {edge.to_id for edge in edges}
@@ -398,6 +438,7 @@ def build_snapshot(
         canonical_root / "sources",
         referenced_node_ids=referenced_node_ids,
         valid_target_ids=valid_source_ids | valid_concept_ids,
+        allowed_paths=source_paths,
     )
 
     sources = [
@@ -411,6 +452,7 @@ def build_snapshot(
     concepts = walk_concepts(
         canonical_root / "concepts",
         referenced_node_ids=referenced_node_ids,
+        allowed_paths=concept_paths,
     )
 
     nodes = sources + concepts
@@ -425,4 +467,5 @@ def build_snapshot(
         edge_count=len(edges),
         nodes=nodes,
         edges=edges,
+        metadata=metadata,
     )

@@ -1,0 +1,29 @@
+{
+  "_human_read_me_first": [
+    "Put your answers in THIS file.",
+    "Edit reviewer, answered_at_utc, overall_notes, and each item_decisions entry.",
+    "For each item, replace the default decision with one of: approve, reject, defer.",
+    "Write your explanation in the notes field for each item.",
+    "When done, change status from 'pending' to 'answered'."
+  ],
+  "_fields_you_should_edit": {
+    "status": "Set to 'answered' when you are done.",
+    "reviewer": "Your name or identifier.",
+    "answered_at_utc": "UTC timestamp like 2026-04-16T06:15:00Z.",
+    "overall_notes": "Optional summary of your thinking.",
+    "item_decisions[*].decision": "One of approve / reject / defer.",
+    "item_decisions[*].notes": "Why you chose that decision."
+  },
+  "packet_id": "replace-with-matching-packet-id",
+  "status": "pending",
+  "reviewer": "",
+  "answered_at_utc": "",
+  "overall_notes": "",
+  "item_decisions": [
+    {
+      "item_id": "item-1",
+      "decision": "defer",
+      "notes": ""
+    }
+  ]
+}

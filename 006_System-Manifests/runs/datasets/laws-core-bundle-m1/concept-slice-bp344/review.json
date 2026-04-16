@@ -1,0 +1,44 @@
+{
+  "generated_at": "20260416T063808Z",
+  "model": "gemma4:31b",
+  "source": "001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
+  "total_candidates": 1,
+  "llm_reviewed": 0,
+  "pre_review_auto_accepted": 1,
+  "pre_review_auto_rejected": 0,
+  "completed_reviews": 1,
+  "status": "completed",
+  "summary": {
+    "keep": 1,
+    "review_further": 0,
+    "reject": 0,
+    "high_confidence_keep": 1,
+    "high_confidence_reject": 0
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+        "type": "governs",
+        "to": "concept-accessible-ramps",
+        "occurrences": 11,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "1. Accessible Ramps GOVPH (https://www.gov.ph) Home (https://ncda.gov.ph) About Us Commitments Perso Changes in level shall require a ramp except when served by a dropped sidewalk, curb ramp, an elevator, or other mechanical device. Accessible ramps shall have the following facilities and features: ",
+          "1. Accessible Ramps GOVPH (https://www.gov.ph) Home (https://ncda.gov.ph) About Us Commitments Perso Changes in level shall require a ramp except when served by a dropped sidewalk, curb ramp, an elevator, or other mechanical device. Accessible ramps shall have the following facilities and features: ",
+          "1. Accessible Ramps GOVPH (https://www.gov.ph) Home (https://ncda.gov.ph) About Us Commitments Perso Changes in level shall require a ramp except when served by a dropped sidewalk, curb ramp, an elevator, or other mechanical device. Accessible ramps shall have the following facilities and features: "
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}

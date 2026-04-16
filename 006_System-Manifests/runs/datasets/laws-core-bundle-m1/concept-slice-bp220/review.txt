@@ -1,0 +1,12 @@
+Ollama Relationship Review Report
+
+Model: gemma4:31b
+Source: 001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md
+Candidates reviewed: 1
+Keep: 1
+Review Further: 0
+Reject: 0
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-socialized-housing-projects
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language

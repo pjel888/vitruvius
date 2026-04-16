@@ -192,7 +192,15 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
 **Merged into Phase 7.** Storage format = Phase 7 deliverable. No separate tracking.
 
 ## Phase 11 — Dataset Expansion 🔒 GATED
-**Do not start.** Gated until Phase 7 validates PD 1096 for ≥1 week with zero audit violations AND 1B/1C are shipping.
+**Do not start generic expansion.** Gated until Phase 7 validates PD 1096 for ≥1 week with zero audit violations AND 1B/1C are shipping.
+- **Bounded pilot note (2026-04-16):** the accepted `/.ai/03_plans/2026-04-16_laws-mini-dataset-graph-pipeline-plan.md` M1 scoped graph proof may proceed as a bounded validation lane only. It does **not** open generic Phase 11 dataset expansion and must remain inside the plan’s additive manifest-scoped guardrails.
+- **Execution note (2026-04-16):** the bounded `laws-core-bundle-m1` pilot was implemented and validated as `PARTIAL`; bounded follow-on work then executed inside the accepted pilot lane:
+  - M2A source admission is complete for `RA-9514`, `BP-344`, and `BP-220`
+  - M2B additive dataset-safe extraction/review/second-pass/promotion path wiring is complete
+  - conservative dataset-scoped relationship admission is now complete for `RA-9514` (2 admitted relationship inputs)
+  - concept-fit follow-on work admitted minimal law-specific concepts and relationship-backed edges for `BP-344` and `BP-220`
+  - the four-folder bounded pilot now reaches `SUCCESS`; see `/.ai/05_logs/2026-04-16_laws-core-bundle-bounded-pilot-success-validation.md`
+  - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)
 - [ ] Lighting and ventilation sections
@@ -408,8 +416,11 @@ The following **twenty** sprints were delivered under subagent-driven-developmen
 - **Branch:** `main` fully pushed to `origin/main` at commit `119cba3` (post-Sprint-LSH-1 + path-rewrite sweep); Git remote auth fixed via `gh auth setup-git`
 
 ## Active plans folder state
-After the 2026-04-15 19:00 cleanup pass, `.ai/03_plans/` contains exactly **2 files**:
-- `00-governing-implementation-plan.md` (v3.0.0, Task 8 queue fully closed)
-- `INDEX.md` (archive roll-up)
+As of 2026-04-16, `.ai/03_plans/` again contains **multiple live-reference plans**. The authoritative live inventory is `/.ai/03_plans/INDEX.md`; any older claim that the directory contains exactly 2 files is stale.
 
-All other plans are archived under `.ai/09_archive/plans/`. The next action is a **fresh roadmap brainstorm** (see governing plan §10) — the active work queue is empty.
+Current live plan families include:
+- governing dispatcher + active plan-layer rewrite
+- nested AGENTS governance
+- accepted laws mini dataset→graph plan + accepted bounded M2 follow-on
+- draft graph-warning / GitNexus warning investigation
+- planning-only AEC family

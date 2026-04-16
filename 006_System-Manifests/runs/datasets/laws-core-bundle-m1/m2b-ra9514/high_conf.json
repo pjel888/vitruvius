@@ -1,0 +1,9 @@
+{
+  "generated_at": "20260416T053044Z",
+  "source_report_generated_at": "20260416T053044Z",
+  "source_model": "gemma4:31b",
+  "source": "001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md",
+  "threshold": 0.9,
+  "count": 0,
+  "candidates": []
+}

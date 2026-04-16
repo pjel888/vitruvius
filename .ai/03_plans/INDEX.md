@@ -21,6 +21,7 @@ It is not the execution-order authority. The governing plan owns execution order
 | `2026-04-16-whole-codebase-plans-upgrade-plan.md` | governance maintenance | active | current rewrite task for the plan layer | you are continuing the plan-layer rewrite task |
 | `2026-04-16_graph-warning-and-gitnexus-warning-plan.md` | maintenance draft | draft / unexecuted | graph-warning reduction and GitNexus warning investigation | you are explicitly taking up the warning-reduction draft |
 | `2026-04-16_laws-mini-dataset-graph-pipeline-plan.md` | implementation plan | accepted / pending execution | scoped core-laws-bundle graph proof and scale path | you are planning or implementing the mini dataset→graph pipeline |
+| `2026-04-16_laws-m2-admission-plan.md` | implementation plan | accepted / in progress | per-law truth admission + dataset-safe M2 path for blocked laws | you are advancing the blocked non-PD laws beyond the M1 partial result |
 | `AEC_ENGINE_BOUNDARY_TRANSLATION_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | IFC/CAD/DTO boundary translation | AEC import/export work is selected |
 | `AEC_ENGINE_ECS_CORE_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | canonical ECS world state | AEC ECS work is selected |
 | `AEC_ENGINE_FINANCIAL_PRICING_ORACLE_IMPLEMENTATION_PLAN.md` | subsystem plan | proposed | pricing and quantity scoring | AEC pricing work is selected |
@@ -60,6 +61,7 @@ It is not the execution-order authority. The governing plan owns execution order
 
 ### Dataset→Graph Planning
 - `2026-04-16_laws-mini-dataset-graph-pipeline-plan.md`
+- `2026-04-16_laws-m2-admission-plan.md`
 
 ### AEC Engine
 - `AEC_ENGINE_BOUNDARY_TRANSLATION_IMPLEMENTATION_PLAN.md`

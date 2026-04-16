@@ -1,0 +1,42 @@
+{
+  "_human_read_me_first": [
+    "This is the AGENT-CREATED request packet. Read it, but do NOT put your answers here.",
+    "Put your answers only in the paired response file shown in response_file.",
+    "Use the same item_id values when answering."
+  ],
+  "packet_id": "replace-with-unique-packet-id",
+  "created_at_utc": "YYYY-MM-DDTHH:MM:SSZ",
+  "status": "open",
+  "topic": "Short human review topic",
+  "why_human_review_is_needed": "Why the agent is escalating this decision to a human reviewer.",
+  "current_official_state": {
+    "summary": "Current truthful state before the decision.",
+    "evidence_paths": [
+      "path/to/log-or-artifact-1",
+      "path/to/log-or-artifact-2"
+    ]
+  },
+  "allowed_decisions": [
+    "approve",
+    "reject",
+    "defer"
+  ],
+  "instructions_to_reviewer": [
+    "Read the cited evidence first.",
+    "Edit only the paired response file.",
+    "Use one of the allowed decisions for each item."
+  ],
+  "items": [
+    {
+      "item_id": "item-1",
+      "question": "What exact decision do you need from the reviewer?",
+      "current_agent_recommendation": "defer",
+      "reason_for_hesitation": "Why the agent is not auto-admitting the change.",
+      "evidence_paths": [
+        "path/to/evidence-file-1",
+        "path/to/evidence-file-2"
+      ]
+    }
+  ],
+  "response_file": ".ai/14_human_inbox/replace-with-matching-response-file.json"
+}

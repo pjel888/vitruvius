@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from ..graph.dataset_manifest import provenance_for_snapshot, render_query_provenance
 from ..graph.snapshot import read_snapshot
 from .cli_formatter import render_query_result
 from .engine import (
@@ -36,22 +37,36 @@ _STRUCTURED_FUNCTIONS = {
 }
 
 
-def _load_snapshot_or_fail():
-    path = Path.cwd() / _SNAPSHOT_RELPATH
+def _resolve_snapshot_path(snapshot_path: str | None) -> tuple[Path, str]:
+    if snapshot_path is None:
+        return Path.cwd() / _SNAPSHOT_RELPATH, str(_SNAPSHOT_RELPATH)
+    path = Path(snapshot_path)
+    if not path.is_absolute():
+        path = Path.cwd() / path
+    try:
+        display_path = str(path.relative_to(Path.cwd()))
+    except ValueError:
+        display_path = str(path)
+    return path, display_path
+
+
+def _load_snapshot_or_fail(snapshot_path: str | None = None):
+    path, display_path = _resolve_snapshot_path(snapshot_path)
     if not path.exists():
         print(json.dumps({
             "error": "no snapshot found",
-            "expected_path": str(_SNAPSHOT_RELPATH),
+            "expected_path": display_path,
             "hint": "run `build-graph` first",
         }, indent=2))
         return None
-    return read_snapshot(path)
+    return read_snapshot(path), display_path
 
 
-def run_query(question: str) -> int:
-    snapshot = _load_snapshot_or_fail()
-    if snapshot is None:
+def run_query(question: str, *, snapshot_path: str | None = None) -> int:
+    loaded = _load_snapshot_or_fail(snapshot_path)
+    if loaded is None:
         return 1
+    snapshot, display_path = loaded
     known = tuple(n.id for n in snapshot.nodes)
     translation = translate_question(question, known_entities=known)
     func = _STRUCTURED_FUNCTIONS.get(translation.function)
@@ -60,7 +75,8 @@ def run_query(question: str) -> int:
         result = neighbors_query("", snapshot)
     else:
         result = func(subject, snapshot)
-    print(render_query_result(result))
+    provenance = provenance_for_snapshot(snapshot, snapshot_path=display_path)
+    print(render_query_provenance(provenance) + render_query_result(result), end="")
     return 0 if result.has_evidence else 1
 
 
@@ -70,10 +86,12 @@ def run_query_structured(
     subject: str | None = None,
     a: str | None = None,
     b: str | None = None,
+    snapshot_path: str | None = None,
 ) -> int:
-    snapshot = _load_snapshot_or_fail()
-    if snapshot is None:
+    loaded = _load_snapshot_or_fail(snapshot_path)
+    if loaded is None:
         return 1
+    snapshot, display_path = loaded
 
     if function == "edges_between":
         if not a or not b:
@@ -96,5 +114,6 @@ def run_query_structured(
             }, indent=2))
             return 2
         result = func(subject, snapshot)
-    print(render_query_result(result))
+    provenance = provenance_for_snapshot(snapshot, snapshot_path=display_path)
+    print(render_query_provenance(provenance) + render_query_result(result), end="")
     return 0 if result.has_evidence else 1

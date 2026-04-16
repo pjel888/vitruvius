@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
+from typing import Any
 
 
 ALLOWED_NODE_TYPES = frozenset({"source", "concept", "attribute", "spatial_instance"})
@@ -65,6 +66,7 @@ class GraphSnapshot:
     edge_count: int
     nodes: list[GraphNode]
     edges: list[GraphEdge]
+    metadata: dict[str, Any] | None = None
 
 
 class ContractViolation(ValueError):

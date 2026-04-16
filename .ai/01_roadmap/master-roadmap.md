@@ -638,6 +638,17 @@ Every phase below follows the same contract template. A phase is not "done" unti
 - Phase 7 is stably validating existing PD 1096 data (at least 100 promoted relationships, zero audit violations for a full week).
 - Phase 1B and 1C are shipping — new documents must enter through the hardened pipeline.
 
+**Bounded pilot note (2026-04-16).**
+The accepted `/.ai/03_plans/2026-04-16_laws-mini-dataset-graph-pipeline-plan.md` M1 slice is allowed as a **bounded validation pilot**, not as the opening of generic Phase 11 corpus expansion.
+
+That exception is valid only because the M1 slice is explicitly constrained to:
+- manifest-selected canonical/promoted inputs
+- dataset-scoped artifacts and freshness metadata
+- preservation of the default/global path when dataset mode is unused
+- no claim of generic all-laws expansion beyond the accepted pilot bundle
+
+If implementation widens beyond that bounded pilot contract, it becomes normal Phase 11 dataset-expansion work again and remains gated by the conditions above.
+
 **Priority order once gated.**
 1. PD 1096 IRR.
 2. Occupancy tables (structured spreadsheet pathway).

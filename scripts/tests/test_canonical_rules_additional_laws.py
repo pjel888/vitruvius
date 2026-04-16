@@ -1,0 +1,27 @@
+from vitruvius.canonicalize import build_plan
+
+
+def test_build_plan_matches_ra_9514_rirr_rule() -> None:
+    plan = build_plan('001-Laws/raw_markdown/RA-9514/RA9514-RIRR-rev-2019.md')
+    assert plan['title'] == 'Implementing Rules and Regulations of the Fire Code of the Philippines'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_bp_220_rirr_rule() -> None:
+    plan = build_plan('001-Laws/raw_markdown/BP-220/Revised_IRR_BP220_2008.md')
+    assert plan['title'] == 'Revised Implementing Rules and Regulations of Batas Pambansa Blg. 220'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_bp_344_primary_variant_rule() -> None:
+    plan = build_plan(
+        '001-Laws/raw_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md'
+    )
+    assert plan['title'] == 'Revised Implementing Rules and Regulations of Batas Pambansa Blg. 344'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'

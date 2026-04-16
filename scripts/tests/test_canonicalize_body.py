@@ -32,6 +32,27 @@ def test_build_overview_paragraph_returns_first_non_header_para():
     assert not overview.startswith("#")
 
 
+def test_build_overview_paragraph_skips_images_and_short_noise() -> None:
+    text = (
+        "![image 1](foo.png)\n"
+        "\n"
+        "Short line\n"
+        "|Preface|\n"
+        "This is the first substantial paragraph with enough words to be useful.\n"
+    )
+    overview = build_overview_paragraph(text)
+    assert overview == "This is the first substantial paragraph with enough words to be useful."
+
+
+def test_extract_section_headers_skips_tiny_noise_headers() -> None:
+    text = "## M\n## Real Header\n### T\n### Another Real Header\n"
+    headers = extract_section_headers(text)
+    assert headers == [
+        {"level": 2, "title": "Real Header"},
+        {"level": 3, "title": "Another Real Header"},
+    ]
+
+
 def test_resolve_referenced_concepts_from_text(tmp_path):
     from vitruvius.canonicalize import resolve_referenced_concepts
 

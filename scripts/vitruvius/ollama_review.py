@@ -22,9 +22,11 @@ DEFAULT_MODEL = get_ollama_default_model()
 DEFAULT_TIMEOUT_SECONDS = get_ollama_default_timeout()
 
 
-def load_relationship_report() -> dict[str, Any]:
+def load_relationship_report(report_path: Path | None = None) -> dict[str, Any]:
     repo_root = get_repo_root()
-    path = repo_root / "006_System-Manifests" / "runs" / "latest_relationship_extraction_sections.json"
+    path = report_path or (
+        repo_root / "006_System-Manifests" / "runs" / "latest_relationship_extraction_sections.json"
+    )
 
     if not path.exists():
         raise FileNotFoundError(
@@ -754,6 +756,8 @@ def save_progress_report(
     candidates: list[dict[str, Any]],
     reviews: list[dict[str, Any]],
     status: str,
+    json_output_path: Path | None = None,
+    txt_output_path: Path | None = None,
 ) -> None:
     report = {
         "generated_at": utc_now_stamp(),
@@ -766,8 +770,8 @@ def save_progress_report(
         "reviews": reviews,
     }
 
-    json_path = runs_dir / "latest_relationship_review_ollama.json"
-    txt_path = runs_dir / "latest_relationship_review_ollama.txt"
+    json_path = json_output_path or runs_dir / "latest_relationship_review_ollama.json"
+    txt_path = txt_output_path or runs_dir / "latest_relationship_review_ollama.txt"
 
     write_json(json_path, report)
     write_text(txt_path, build_text_report(report))
@@ -814,9 +818,9 @@ def review_candidates_parallel(
         return [f.result() for f in futures]
 
 
-def load_resume_state(runs_dir: Path) -> dict[str, Any]:
+def load_resume_state(runs_dir: Path, *, snapshot_path: Path | None = None) -> dict[str, Any]:
     """Read the latest in_progress snapshot, if any, for resume-on-relaunch."""
-    snapshot_path = runs_dir / "latest_relationship_review_ollama.json"
+    snapshot_path = snapshot_path or (runs_dir / "latest_relationship_review_ollama.json")
     if not snapshot_path.exists():
         return {"reviews": [], "status": None, "completed_count": 0}
 
@@ -836,6 +840,7 @@ def write_high_confidence_review(
     runs_dir: Path,
     *,
     threshold: float | None = None,
+    output_path: Path | None = None,
 ) -> Path:
     """Filter the review report to keep-only, confidence >= threshold.
 
@@ -865,7 +870,7 @@ def write_high_confidence_review(
     }
 
     runs_dir.mkdir(parents=True, exist_ok=True)
-    output_path = runs_dir / "latest_relationship_review_high_confidence.json"
+    output_path = output_path or (runs_dir / "latest_relationship_review_high_confidence.json")
     write_json(output_path, payload)
     return output_path
 
@@ -876,6 +881,11 @@ def run_review_relationships_ollama(
     timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS,
     parallelism: int | None = None,
     skip_pre_review_filter: bool = False,
+    extraction_report_path: Path | None = None,
+    review_json_path: Path | None = None,
+    review_txt_path: Path | None = None,
+    triage_report_path: Path | None = None,
+    high_confidence_output_path: Path | None = None,
 ) -> int:
     from .config import get_ollama_default_parallelism
     from .pre_review_filter import triage_candidates
@@ -886,7 +896,7 @@ def run_review_relationships_ollama(
     runs_dir = repo_root / "006_System-Manifests" / "runs"
     runs_dir.mkdir(parents=True, exist_ok=True)
 
-    extraction_report = load_relationship_report()
+    extraction_report = load_relationship_report(extraction_report_path)
     raw_candidates = extraction_report.get("relationships", [])
     source = extraction_report.get("source", "")
 
@@ -900,6 +910,8 @@ def run_review_relationships_ollama(
             candidates=raw_candidates,
             reviews=[],
             status="completed",
+            json_output_path=review_json_path,
+            txt_output_path=review_txt_path,
         )
         return 0
 
@@ -923,7 +935,7 @@ def run_review_relationships_ollama(
         print(f"  needs_review: {len(triaged_buckets['needs_review'])}")
         print("")
         # Write the triage buckets so Phase 7 promotion and audits can see them.
-        triage_path = runs_dir / "latest_pre_review_triage.json"
+        triage_path = triage_report_path or (runs_dir / "latest_pre_review_triage.json")
         write_json(triage_path, {
             "generated_at": utc_now_stamp(),
             "source": source,
@@ -936,7 +948,7 @@ def run_review_relationships_ollama(
         print(f"Triage report: {triage_path}")
         print("")
 
-    resume_state = load_resume_state(runs_dir)
+    resume_state = load_resume_state(runs_dir, snapshot_path=review_json_path)
     if resume_state["status"] == "in_progress" and resume_state["reviews"]:
         reviews: list[dict[str, Any]] = list(resume_state["reviews"])
         skip_first_n = resume_state["completed_count"]
@@ -997,6 +1009,8 @@ def run_review_relationships_ollama(
                     candidates=candidates,
                     reviews=reviews,
                     status="in_progress" if idx < len(candidates) else "completed",
+                    json_output_path=review_json_path,
+                    txt_output_path=review_txt_path,
                 )
                 continue
 
@@ -1027,6 +1041,8 @@ def run_review_relationships_ollama(
                 candidates=candidates,
                 reviews=reviews,
                 status="in_progress" if idx < len(candidates) else "completed",
+                json_output_path=review_json_path,
+                txt_output_path=review_txt_path,
             )
 
     except KeyboardInterrupt:
@@ -1039,6 +1055,8 @@ def run_review_relationships_ollama(
             candidates=candidates,
             reviews=reviews,
             status="interrupted",
+            json_output_path=review_json_path,
+            txt_output_path=review_txt_path,
         )
         print("Partial results saved.")
         return 130
@@ -1050,6 +1068,8 @@ def run_review_relationships_ollama(
         candidates=candidates,
         reviews=reviews,
         status="completed",
+        json_output_path=review_json_path,
+        txt_output_path=review_txt_path,
     )
 
     # Synthesize LLM-equivalent review items for the auto-accepted candidates
@@ -1093,16 +1113,22 @@ def run_review_relationships_ollama(
     # save_progress_report calls during the loop wrote the LLM-only view
     # for resume safety; this final write adds the synthesized auto-accept
     # and auto-reject reviews so Phase 7 promotion sees the full picture.
-    write_json(runs_dir / "latest_relationship_review_ollama.json", final_report)
-    write_text(runs_dir / "latest_relationship_review_ollama.txt", build_text_report(final_report))
+    final_json_path = review_json_path or (runs_dir / "latest_relationship_review_ollama.json")
+    final_txt_path = review_txt_path or (runs_dir / "latest_relationship_review_ollama.txt")
+    write_json(final_json_path, final_report)
+    write_text(final_txt_path, build_text_report(final_report))
 
-    high_conf_path = write_high_confidence_review(final_report, runs_dir)
+    high_conf_path = write_high_confidence_review(
+        final_report,
+        runs_dir,
+        output_path=high_confidence_output_path,
+    )
 
     print("")
     print("review-relationships-ollama complete.")
     print(f"Candidates reviewed: {len(candidates)}")
-    print(f"JSON: {runs_dir / 'latest_relationship_review_ollama.json'}")
-    print(f"TXT: {runs_dir / 'latest_relationship_review_ollama.txt'}")
+    print(f"JSON: {final_json_path}")
+    print(f"TXT: {final_txt_path}")
     print(f"High-confidence: {high_conf_path}")
 
     return 0

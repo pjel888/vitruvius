@@ -1,0 +1,20 @@
+Ollama Relationship Review Report
+
+Model: gemma4:31b
+Source: 001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md
+Candidates reviewed: 3
+Keep: 0
+Review Further: 1
+Reject: 2
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344 -> governs -> concept-stairs
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['stairs'] appear in the evidence text
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344 -> governs -> concept-means-of-egress
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['means of egress'] appear in the evidence text
+
+concept-stairs -> requires -> concept-means-of-egress
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.

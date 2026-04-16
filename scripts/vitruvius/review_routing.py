@@ -19,6 +19,9 @@ def select_for_second_pass(tier_one_items: list[dict[str, Any]]) -> list[dict[st
     selected: list[dict[str, Any]] = []
     for item in tier_one_items:
         review = item["review"]
+        review_source = review.get("source") or item.get("source")
+        if review_source == "pre_review_filter":
+            continue
         decision = review["decision"]
         confidence = float(review["confidence"])
         suggested = review.get("suggested_type")

@@ -23,7 +23,7 @@ def _edge_to_dict(edge: GraphEdge) -> dict:
 
 
 def _snapshot_to_dict(snapshot: GraphSnapshot) -> dict:
-    return {
+    payload = {
         "schema_version": snapshot.schema_version,
         "generated_at_utc": snapshot.generated_at_utc,
         "node_count": snapshot.node_count,
@@ -31,6 +31,9 @@ def _snapshot_to_dict(snapshot: GraphSnapshot) -> dict:
         "nodes": [asdict(n) for n in snapshot.nodes],
         "edges": [_edge_to_dict(e) for e in snapshot.edges],
     }
+    if snapshot.metadata is not None:
+        payload["metadata"] = snapshot.metadata
+    return payload
 
 
 def write_snapshot(snapshot: GraphSnapshot, out_path: Path) -> None:
@@ -52,4 +55,5 @@ def read_snapshot(in_path: Path) -> GraphSnapshot:
         edge_count=data.get("edge_count", len(edges)),
         nodes=nodes,
         edges=edges,
+        metadata=data.get("metadata"),
     )

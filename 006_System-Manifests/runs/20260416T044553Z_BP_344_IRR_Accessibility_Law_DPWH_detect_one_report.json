@@ -1,0 +1,31 @@
+{
+  "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/BP-344/BP-344 IRR Accessibility Law DPWH.pdf",
+  "total_pages": 62,
+  "pages_sampled": 5,
+  "pages_with_usable_text": 4,
+  "total_extracted_characters": 2225,
+  "page_details": [
+    {
+      "page_number": 1,
+      "extracted_characters": 626
+    },
+    {
+      "page_number": 2,
+      "extracted_characters": 388
+    },
+    {
+      "page_number": 3,
+      "extracted_characters": 399
+    },
+    {
+      "page_number": 4,
+      "extracted_characters": 0
+    },
+    {
+      "page_number": 5,
+      "extracted_characters": 812
+    }
+  ],
+  "result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT"
+}
