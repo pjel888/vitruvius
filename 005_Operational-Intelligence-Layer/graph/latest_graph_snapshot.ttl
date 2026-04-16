@@ -31,8 +31,7 @@ vitruvius:concept-projections-over-public-ways a vitruvius:concept ;
     vitruvius:trust_level "derived"^^xsd:string .
 
 vitruvius:irr-implementing-rules-and-regulations-of-the-national-building-code a vitruvius:source ;
-    rdfs:label "implementing-rules-and-regulations-of-the-national-building-code (irr-implementing-rules-and-regulations-of-the-national-building-code)",
-        "pd-1096-irr (irr-implementing-rules-and-regulations-of-the-national-building-code)" ;
+    rdfs:label "implementing-rules-and-regulations-of-the-national-building-code (irr-implementing-rules-and-regulations-of-the-national-building-code)" ;
     vitruvius:governs vitruvius:concept-building-height,
         vitruvius:concept-building-permit,
         vitruvius:concept-certificate-of-occupancy,
@@ -47,8 +46,7 @@ vitruvius:irr-implementing-rules-and-regulations-of-the-national-building-code a
         vitruvius:concept-setbacks,
         vitruvius:concept-stairs,
         vitruvius:concept-yards ;
-    vitruvius:last_updated_utc "2026-04-13T00:00:00Z"^^xsd:string,
-        "2026-04-13T07:41:46Z"^^xsd:string ;
+    vitruvius:last_updated_utc "2026-04-13T07:41:46.408230+00:00"^^xsd:string ;
     vitruvius:trust_level "primary"^^xsd:string .
 
 vitruvius:law-national-building-code-of-the-philippines a vitruvius:source ;

@@ -1,9 +1,4 @@
 Vitruvius ID Migration Apply
 
-Files updated: 4
-Total replacements: 10
-
-C:\Users\Philip Lewis\Desktop\Vitruvius\003_Canonical-Knowledge-Layer\shared\concepts\occupancy-classification.md (replacements: 5)
-C:\Users\Philip Lewis\Desktop\Vitruvius\003_Canonical-Knowledge-Layer\shared\glossary\occupancy.md (replacements: 2)
-C:\Users\Philip Lewis\Desktop\Vitruvius\003_Canonical-Knowledge-Layer\shared\relationships\occupancy-governs-fire-requirements.md (replacements: 1)
-C:\Users\Philip Lewis\Desktop\Vitruvius\003_Canonical-Knowledge-Layer\shared\sources\pd-1096-irr.md (replacements: 2)
+Files updated: 0
+Total replacements: 0

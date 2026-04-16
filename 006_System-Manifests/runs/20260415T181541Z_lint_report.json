@@ -1,0 +1,40 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-15T18:15:41.744807+00:00",
+  "source_registry": "/Users/philiplewis/vitruvius/006_System-Manifests/registries/latest_raw_file_registry.csv",
+  "summary": {
+    "total_files": 350,
+    "non_pdf_count": 9,
+    "duplicate_like_group_count": 4
+  },
+  "non_pdf_files": [
+    ".DS_Store",
+    "001-Laws/.DS_Store",
+    "001-Laws/DOH/DOH Adolescent-Friendly Health Services 2010_Module.md",
+    "001-Laws/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003_Module.md",
+    "001-Laws/RA-1378/Board of Master Plumber.doc",
+    "001-Laws/test/ALE - Building Laws Cross-Reference Table (Pedro Santos Jr).xlsx",
+    "001-Laws/test/Building Technology - Handout 1.docx",
+    "001-Laws/test/Building Technology Lecture - Siteworks.ppt",
+    "006 -Structural/.DS_Store"
+  ],
+  "duplicate_like_files": [
+    [
+      ".DS_Store",
+      "001-Laws/.DS_Store",
+      "006 -Structural/.DS_Store"
+    ],
+    [
+      "005-Utilities/George Salvan Architectural Utilities 2 Electrical and Mechanical Equipment.pdf",
+      "005-Utilities/George-Salvan-Architectural-Utilities-2-Electrical-and-Mechanical-Equipment.pdf"
+    ],
+    [
+      "004-Technology/Building Construction Illustrated (5th Edition).pdf",
+      "004-Technology/Building Construction Illustrated, 5th edition.pdf"
+    ],
+    [
+      "001-Laws/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+      "001-Laws/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf"
+    ]
+  ]
+}

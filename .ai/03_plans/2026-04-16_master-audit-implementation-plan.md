@@ -120,3 +120,12 @@ PASS 2 should be a bounded stabilization sprint, not a feature sprint. The repo�
 - Manifest drift stays observational unless operator intent says it is incorrect.
 - Browser/dashboard/frontend language should be clarified, not implemented.
 - Query-layer fixes must prove provenance from relationship evidence, not just improve wording.
+
+## 14. PASS 2 Execution Status
+- `[x]` Re-baseline branch and validation reality on `main`
+- `[x]` Group A — truth/state/docs reconciliation updated to point at the live 2026-04-16 stabilization reality
+- `[x]` Group B — graph integrity now fails on duplicate node IDs; query citations now use real relationship evidence provenance
+- `[x]` Group C — overstated runtime claims downgraded to historical / experimental / scaffolding wording where proof was not present
+- `[x]` Group D — Rust fmt/clippy/test gates restored green; operator CLI mutation surfaces revalidated
+- `[x]` Follow-on remediation removed the duplicate live IRR source page while preserving the canonical ID; `build-graph` is now green on duplicate-node integrity
+- `[~]` OMX team runtime attempt aborted after misassigning all tasks to worker-1; PASS 2 execution continued locally and this operational caveat must be recorded in validation

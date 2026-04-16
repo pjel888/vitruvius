@@ -1500,3 +1500,25 @@ Phase 4 — Cross-file verification (all PASS as of 2026-04-15 21:xx):
 - Each decision references the context (audit, plan, sprint) that prompted it.
 - Superseded decisions are marked `Superseded by AD-NNN` rather than deleted.
 - This file is authoritative for *why* the system is the way it is. Code shows *what*; this file shows *why*.
+
+
+## AD-045 — Duplicate canonical IRR source page remediated (2026-04-16)
+
+**Status:** Accepted
+
+**Context.** PASS 2 intentionally stopped after making duplicate node IDs fail loudly in graph integrity. The remaining blocker was a live canonical-layer collision: both `003_Canonical-Knowledge-Layer/shared/sources/pd-1096-irr.md` and `003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-national-building-code.md` declared the same ID `irr-implementing-rules-and-regulations-of-the-national-building-code`. The targeted re-audit confirmed the defect was real and now the only blocking graph-integrity error.
+
+**Decision.** Retain the pipeline-backed live source path `implementing-rules-and-regulations-of-the-national-building-code.md` and keep the canonical ID unchanged. Merge the richer lineage/content from `pd-1096-irr.md` into the retained file, then remove `pd-1096-irr.md` from the live canonical source directory. No relationship IDs or source IDs were rewritten because the canonical ID stayed stable.
+
+**Consequences.**
+- `python3 scripts/pipeline_cli.py build-graph` now passes with `error_count: 0` instead of failing on `duplicate_node_id`.
+- Relationship and query provenance remain stable because the retained source ID did not change.
+- The retained IRR source page now carries the broader multi-artifact lineage previously only present on the duplicate page.
+- The remaining graph-integrity findings are warnings only (orphan nodes), not blocking errors.
+
+**References.**
+- Plan: `.ai/03_plans/2026-04-16_duplicate-canonical-source-id-remediation-plan.md`
+- Validation: `.ai/05_logs/2026-04-16_duplicate-canonical-source-id-remediation-validation.md`
+- Prior audit evidence: `.ai/02_audits/2026-04-16_backend-and-api-audit.md`, `.ai/02_audits/2026-04-16_targeted-stabilization-reaudit.md`
+
+---
