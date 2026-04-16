@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import io
 import json
+import re
 from contextlib import redirect_stdout
 from dataclasses import dataclass
 from pathlib import Path
@@ -191,6 +192,7 @@ def _dataset_source_to_graph_paths(manifest: DatasetManifest, run_id: str) -> di
         "report": base / "source_to_graph_run_report.json",
         "promoted_relationships": base / "promoted_relationships",
         "promotion_audit": base / "promotion_audit.log",
+        "source_quality": base / "source_quality",
     }
 
 
@@ -252,6 +254,41 @@ def _append_generated_relationships_to_manifest(
     out_path.write_text(yaml.safe_dump(payload, sort_keys=False, allow_unicode=True), encoding="utf-8")
 
 
+def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: str) -> dict[str, object]:
+    refined_path = repo_root / "002_Raw-Conversion-Layer" / normalized_refined_path
+    text = refined_path.read_text(encoding="utf-8", errors="ignore")
+    lines = text.splitlines()
+    non_empty = [line.strip() for line in lines if line.strip()]
+    image_lines = [line for line in non_empty if line.startswith("![")]
+    table_lines = [line for line in non_empty if line.startswith("|") and line.endswith("|")]
+    markdown_heading_lines = [line for line in non_empty if re.match(r"^#{2,6}\s+", line)]
+    structural_heading_lines = [
+        line for line in non_empty
+        if re.match(r"^(#{2,6}\s+)?(rule|section|chapter|division|appendix|annex|part)\b", line, re.IGNORECASE)
+        or re.match(r"^(#{2,6}\s+)?\d+\.\s+", line)
+    ]
+    noise_lines = [
+        line for line in non_empty
+        if ('http://' in line.lower() or 'https://' in line.lower() or 'isbn' in line.lower() or 'table of contents' in line.lower() or line.lower().startswith('govph'))
+    ]
+    useful_lines = [
+        line for line in non_empty
+        if line not in image_lines and line not in table_lines and line not in noise_lines
+    ]
+    return {
+        "refined_markdown_path": normalized_refined_path,
+        "total_line_count": len(lines),
+        "non_empty_line_count": len(non_empty),
+        "image_line_count": len(image_lines),
+        "table_line_count": len(table_lines),
+        "markdown_heading_count": len(markdown_heading_lines),
+        "structural_heading_count": len(structural_heading_lines),
+        "noise_line_count": len(noise_lines),
+        "useful_text_line_count": len(useful_lines),
+        "useful_text_ratio": round(len(useful_lines) / len(non_empty), 6) if non_empty else 0.0,
+    }
+
+
 def run_dataset_source_to_graph_pipeline(
     *,
     dataset_manifest: str,
@@ -280,6 +317,9 @@ def run_dataset_source_to_graph_pipeline(
 
         for refined_path in refined_paths:
             normalized_refined_path = _normalize_refined_markdown_path(refined_path)
+            source_quality = _compute_refined_markdown_quality(repo_root, normalized_refined_path)
+            source_quality_path = paths["source_quality"] / law_unit.law_id / f"{Path(normalized_refined_path).stem}_source_quality.json"
+            write_json_report(source_quality_path, source_quality)
             if dry_run:
                 stage_results.append(
                     {
@@ -287,6 +327,8 @@ def run_dataset_source_to_graph_pipeline(
                         "refined_markdown_path": refined_path,
                         "normalized_refined_markdown_path": normalized_refined_path,
                         "source_id": canonical_source_id_for_relative_path(normalized_refined_path),
+                        "source_quality": source_quality,
+                        "source_quality_path": str(source_quality_path.relative_to(repo_root)),
                         "planned_extract_json": str((law_base / f"{Path(refined_path).stem}_extract.json").relative_to(repo_root)),
                         "planned_review_json": str((law_base / f"{Path(refined_path).stem}_review.json").relative_to(repo_root)),
                         "planned_high_conf_json": str((law_base / f"{Path(refined_path).stem}_high_conf.json").relative_to(repo_root)),
@@ -387,6 +429,8 @@ def run_dataset_source_to_graph_pipeline(
                     "refined_markdown_path": refined_path,
                     "normalized_refined_markdown_path": normalized_refined_path,
                     "source_id": source_id,
+                    "source_quality": source_quality,
+                    "source_quality_path": str(source_quality_path.relative_to(repo_root)),
                     "extract_json": str(extract_json.relative_to(repo_root)),
                     "review_json": str(review_json.relative_to(repo_root)),
                     "high_conf_json": str(high_conf_json.relative_to(repo_root)),
