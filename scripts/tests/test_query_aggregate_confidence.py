@@ -140,3 +140,15 @@ def test_engine_what_requires_uses_aggregate_helper() -> None:
     )
     result = what_requires("concept-a", snap)
     assert result.aggregate_confidence == 0.5
+
+
+def test_engine_dedupes_duplicate_citations() -> None:
+    snap = _snap(
+        [_n("law-a", type_="source", trust="primary"), _n("concept-x")],
+        [
+            _e("law-a", "concept-x", type_="governs", evidence="rel-1", snippet="same"),
+            _e("law-a", "concept-x", type_="governs", evidence="rel-2", snippet="same"),
+        ],
+    )
+    result = what_governs("concept-x", snap)
+    assert len(result.citations) == 1

@@ -28,6 +28,30 @@ def _citation_from_edge(edge: GraphEdge) -> QueryCitation | None:
     )
 
 
+
+
+def _dedupe_citations(edges: tuple[GraphEdge, ...]) -> tuple[QueryCitation, ...]:
+    seen: set[tuple[str, str, str, str, str, str, float]] = set()
+    out: list[QueryCitation] = []
+    for edge in edges:
+        citation = _citation_from_edge(edge)
+        if citation is None:
+            continue
+        key = (
+            edge.from_id,
+            edge.to_id,
+            edge.type,
+            citation.source_id,
+            citation.source_section_id,
+            citation.evidence_snippet,
+            citation.confidence,
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(citation)
+    return tuple(out)
+
 def _sorted_edges(edges: Iterable[GraphEdge]) -> tuple[GraphEdge, ...]:
     return tuple(
         sorted(
@@ -45,12 +69,7 @@ def _build_result(
     answer_entities: tuple[str, ...],
     edges: tuple[GraphEdge, ...],
 ) -> QueryResult:
-    citations = tuple(
-        citation
-        for edge in edges
-        for citation in [_citation_from_edge(edge)]
-        if citation is not None
-    )
+    citations = _dedupe_citations(edges)
     aggregate = compute_aggregate_confidence(citations)
     return QueryResult(
         question=question,

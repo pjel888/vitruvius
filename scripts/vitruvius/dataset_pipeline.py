@@ -226,6 +226,25 @@ def _relationship_record_is_graph_admissible(path: Path) -> bool:
     source_prefixes = ("law-", "irr-", "source-", "handout-", "reviewer-", "law-section-")
     return from_entity.startswith(source_prefixes) and to_entity.startswith("concept-") and rel_type == "governs"
 
+
+
+def _dedupe_generated_relationship_paths(paths: list[tuple[str, str]], *, repo_root: Path) -> list[tuple[str, str]]:
+    try:
+        from .promotion import _load_existing_record, merge_evidence
+    except Exception:
+        return paths
+
+    deduped: dict[str, tuple[str, str]] = {}
+    for rel_path, folder_name in paths:
+        abs_path = repo_root / rel_path
+        existing = deduped.get(rel_path)
+        if existing is None:
+            deduped[rel_path] = (rel_path, folder_name)
+            continue
+        # same path already recorded; keep once
+        deduped[rel_path] = (rel_path, folder_name)
+    return list(deduped.values())
+
 def _append_generated_relationships_to_manifest(
     manifest_path: Path,
     *,
@@ -520,6 +539,7 @@ def run_dataset_source_to_graph_pipeline(
         }, indent=2))
         return 0
 
+    generated_relationship_paths = _dedupe_generated_relationship_paths(generated_relationship_paths, repo_root=repo_root)
     _append_generated_relationships_to_manifest(
         manifest_path,
         generated_relationship_paths=generated_relationship_paths,

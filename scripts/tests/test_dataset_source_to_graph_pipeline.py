@@ -341,3 +341,68 @@ def test_run_dataset_source_to_graph_pipeline_normalizes_prefixed_refined_paths(
     rc = dp.run_dataset_source_to_graph_pipeline(dataset_manifest=str(manifest_path), export_owl=False)
     assert rc == 0
     assert calls == ['001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md']
+
+
+def test_run_dataset_source_to_graph_pipeline_dedupes_generated_relationship_paths(tmp_path, monkeypatch) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    monkeypatch.chdir(tmp_path)
+
+    import vitruvius.dataset_pipeline as dp
+
+    monkeypatch.setattr(dp, 'run_canonicalize_one', lambda **kwargs: 0)
+
+    def fake_extract(**kwargs):
+        kwargs['json_output_path'].write_text(json.dumps({'generated_at':'x','source':kwargs['relative_markdown_path'],'source_id':kwargs['source_id_override'],'total_sections':0,'total_relationships':0,'relationships':[]}), encoding='utf-8')
+        kwargs['txt_output_path'].write_text('ok', encoding='utf-8')
+        return 0
+
+    def fake_review(**kwargs):
+        kwargs['review_json_path'].write_text('{}', encoding='utf-8')
+        kwargs['review_txt_path'].write_text('ok', encoding='utf-8')
+        kwargs['triage_report_path'].write_text('{}', encoding='utf-8')
+        kwargs['high_confidence_output_path'].write_text(json.dumps({'generated_at':'x','source_report_generated_at':'x','source_model':'x','source':'x','threshold':0.9,'count':0,'candidates':[]}), encoding='utf-8')
+        return 0
+
+    def fake_promote(**kwargs):
+        rel_dir = kwargs['relationships_output_dir']
+        rel_dir.mkdir(parents=True, exist_ok=True)
+        rel_path = rel_dir / 'rel-generated.md'
+        rel_path.write_text(
+            '---\n'
+            'id: rel-generated\n'
+            'page_type: relationship\n'
+            'relationship_type: governs\n'
+            'from_entity: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines\n'
+            'to_entity: concept-means-of-egress\n'
+            'canonical_status: promoted\n'
+            'evidence:\n'
+            '- source_id: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines\n'
+            '  source_section_id: section-1\n'
+            '  evidence_snippet: means of egress\n'
+            '  reviewer_confidence: 0.95\n'
+            '---\n\n# body\n',
+            encoding='utf-8',
+        )
+        kwargs['audit_log_path'].write_text('audit', encoding='utf-8')
+        return {'created': 1, 'rejected': 0, 'errors': []}
+
+    monkeypatch.setattr(dp, 'run_extract_relationships_sections_one_inner', fake_extract)
+    monkeypatch.setattr(dp, 'run_review_relationships_ollama', fake_review)
+    monkeypatch.setattr(dp, 'run_promote_inner', fake_promote)
+    monkeypatch.setattr(dp, 'run_build_graph', lambda **kwargs: print(json.dumps({'run_id':'x','snapshot_path':'a','build_report_path':'b'})) or 0)
+    monkeypatch.setattr(dp, 'run_export_graph_owl', lambda **kwargs: 0)
+    monkeypatch.setattr(dp, 'run_query_structured', lambda **kwargs: 0)
+
+    # duplicate the refined path intentionally to prove dedupe behavior
+    payload = yaml.safe_load(Path(manifest_path).read_text(encoding='utf-8'))
+    payload['law_units'][0]['refined_markdown_paths'].append(payload['law_units'][0]['refined_markdown_paths'][0])
+    Path(manifest_path).write_text(yaml.safe_dump(payload, sort_keys=False), encoding='utf-8')
+
+    rc = dp.run_dataset_source_to_graph_pipeline(dataset_manifest=str(manifest_path), export_owl=False)
+    assert rc == 0
+    reports = sorted((tmp_path / '006_System-Manifests' / 'runs' / 'datasets' / 'demo-dataset' / 'source_to_graph').glob('*/source_to_graph_run_report.json'))
+    report = json.loads(reports[0].read_text(encoding='utf-8'))
+    derived_manifest = tmp_path / report['derived_manifest_path']
+    derived_payload = yaml.safe_load(derived_manifest.read_text(encoding='utf-8'))
+    rel_paths = [entry['path'] for entry in derived_payload['relationship_input_manifest']['relationships'] if entry['path'].endswith('rel-generated.md')]
+    assert len(rel_paths) == 1
