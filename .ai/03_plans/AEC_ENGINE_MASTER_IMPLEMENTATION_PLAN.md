@@ -1,7 +1,7 @@
 ---
 title: AEC Engine Master Implementation Plan
 type: plan
-status: proposed
+status: accepted
 date: 2026-04-16
 last_updated: 2026-04-16
 planned_python_namespace: scripts/vitruvius/aec
@@ -54,7 +54,7 @@ repo_grounding:
 - Repo state: between sprints
 - Current truth: the AEC engine is not implemented in runtime code yet
 - This plan therefore governs future implementation only
-- No AEC code should start until this master plan and the selected subsystem plans are accepted together
+- This master plan is now accepted and acts as the sequencing authority for the bounded first-slice sprint plus downstream subsystem planning
 
 ## 2. Why This Plan Exists In This Repo
 Vitruvius already contains many precursor capabilities the AEC engine must build on rather than duplicate:

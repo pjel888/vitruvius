@@ -1,7 +1,7 @@
 ---
 title: AEC Engine Knowledge Vault Implementation Plan
 type: subsystem-plan
-status: proposed
+status: accepted
 date: 2026-04-16
 last_updated: 2026-04-16
 planned_code_locations:
@@ -29,6 +29,11 @@ governing_inputs:
 ---
 
 # AEC Engine Knowledge Vault Implementation Plan
+
+## 0. Planning Status
+- status: accepted
+- execution role: downstream / not in first slice
+- current use: authoritative subsystem plan paired with the accepted T013 foundation plan
 
 ## 1. Scope
 Create the machine-admitted rule vault for AEC execution:

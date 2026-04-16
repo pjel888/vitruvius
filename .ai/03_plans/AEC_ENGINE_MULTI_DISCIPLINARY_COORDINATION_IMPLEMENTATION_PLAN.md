@@ -1,7 +1,7 @@
 ---
 title: AEC Engine Multi-Disciplinary Coordination Implementation Plan
 type: subsystem-plan
-status: proposed
+status: accepted
 date: 2026-04-16
 last_updated: 2026-04-16
 planned_code_locations:
@@ -22,6 +22,11 @@ governing_inputs:
 ---
 
 # AEC Engine Multi-Disciplinary Coordination Implementation Plan
+
+## 0. Planning Status
+- status: accepted
+- execution role: downstream / not in first slice
+- current use: authoritative subsystem plan paired with the accepted T017 foundation plan
 
 ## 1. Scope
 Coordinate architecture, structure, MEP, fire/egress, and related discipline constraints on a single bounded AEC candidate model.

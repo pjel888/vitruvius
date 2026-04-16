@@ -35,18 +35,22 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
 - Goal: finish the justified hierarchical `AGENTS.md` system at the major repo boundaries
 
 ### 3. AEC Engine Planning Family
-- Status: planning-active / implementation-blocked
+- Status: baseline-ready / evidence-pending (planning/control layer)
 - Governing artifact: `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`
-- Active bounded-slice candidate: `/.ai/03_plans/2026-04-16-aec-first-bounded-slice-pre-implementation-plan.md`
+- Active sprint artifact: `/.ai/03_plans/2026-04-16-aec-first-bounded-slice-sprint-plan.md`
 - Current truth:
-  - the bounded-slice artifact exists, but it is a pre-implementation candidate only
-  - it cannot close `AEC-T020`
-  - `ready_to_implement` remains `false`
+  - the bounded-slice candidate has been converted into a true sprint plan
+  - a fresh implementation trigger now exists
+  - the clean baseline branch/worktree is explicit
+  - planning/control blockers for the first bounded slice are cleared
+  - the clean baseline exists, but the machine-readable gate artifact still holds `ready_to_implement=false` because execution evidence scaffolds are not yet present
 - Blocking gates:
-  - planned namespace must be accepted
-  - selected subsystem plans must be accepted for the requested slice
-  - `G1`–`G8` plus unresolved upstream AEC tasks must be closed with evidence
-  - a true sprint plan and fresh implementation trigger must exist before coding starts
+  - execution evidence scaffolds must exist before the first bounded slice can start
+  - execution is presently deferred while another Codex task may create conflicts on overlapping repo surfaces
+- State-model reference:
+  - `/.ai/04_tasks/aec-readiness-vocabulary-and-state-model-2026-04-16.md`
+- Conflict protocol:
+  - `/.ai/04_tasks/aec-concurrent-execution-deferral-and-write-scope-2026-04-16.md`
 
 ### 4. Laws Mini Dataset→Graph Pipeline
 - Status: bounded pilot success achieved on 2026-04-16; M3 complete; M4 complete

@@ -44,6 +44,10 @@ Every benchmark/optimization markdown note should include:
 This directory has been initialized during the laws mini dataset→graph planning task.
 No historical benchmark markdown records have been migrated here yet.
 
+## Active AEC note
+- `2026-04-16_aec-first-slice-benchmark-hotspot-matrix.md` is the current human-readable benchmark/hotspot planning note for the bounded first slice.
+- `2026-04-16_aec-first-slice-adjacent-surface-baseline-observations.md` captures bounded adjacent-surface readiness observations for future execution preflight.
+
 ## Relationship to planning
 For the laws mini dataset→graph work, this directory is the preferred markdown destination for future:
 - low-spec survivability notes

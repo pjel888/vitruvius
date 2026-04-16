@@ -1,7 +1,7 @@
 ---
 title: AEC Engine Boundary Translation Implementation Plan
 type: subsystem-plan
-status: proposed
+status: accepted
 date: 2026-04-16
 last_updated: 2026-04-16
 planned_code_locations:
@@ -24,6 +24,11 @@ governing_inputs:
 ---
 
 # AEC Engine Boundary Translation Implementation Plan
+
+## 0. Planning Status
+- status: accepted
+- execution role: selected for first bounded slice
+- current use: authoritative subsystem plan for the bounded first-slice sprint
 
 ## 1. Scope
 Translate external payloads such as IFC/CAD/OWL-adjacent data into canonical AEC DTOs and export bounded audit-safe payloads back out.

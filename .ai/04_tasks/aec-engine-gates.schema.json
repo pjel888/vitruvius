@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vitruvius.local/aec-engine-gates.schema.json",
+  "title": "AEC Engine Readiness Gates",
+  "type": "object",
+  "required": [
+    "artifact",
+    "version",
+    "created",
+    "status",
+    "ready_to_implement",
+    "global_blockers",
+    "subsystem_gates",
+    "required_test_families",
+    "hard_stop_conditions"
+  ],
+  "properties": {
+    "artifact": {
+      "type": "string",
+      "const": "aec_engine_readiness_gates"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "created": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "review",
+        "accepted"
+      ]
+    },
+    "ready_to_implement": {
+      "type": "boolean"
+    },
+    "global_blockers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "closed",
+              "waived"
+            ]
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required_fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "subsystem_gates": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "entry_requires",
+          "exit_requires",
+          "ready"
+        ],
+        "properties": {
+          "entry_requires": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "exit_requires": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ready": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required_test_families": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hard_stop_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "companion_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

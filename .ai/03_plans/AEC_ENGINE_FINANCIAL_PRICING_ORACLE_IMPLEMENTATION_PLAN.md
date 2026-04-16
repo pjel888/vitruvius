@@ -1,7 +1,7 @@
 ---
 title: AEC Engine Financial / Pricing Oracle Implementation Plan
 type: subsystem-plan
-status: proposed
+status: accepted
 date: 2026-04-16
 last_updated: 2026-04-16
 planned_code_locations:
@@ -20,6 +20,11 @@ governing_inputs:
 ---
 
 # AEC Engine Financial / Pricing Oracle Implementation Plan
+
+## 0. Planning Status
+- status: accepted
+- execution role: downstream / not in first slice
+- current use: authoritative subsystem plan paired with the accepted T018 foundation plan
 
 ## 1. Scope
 Provide deterministic quantity and price scoring for verified AEC candidates using explicit pricebook snapshots.

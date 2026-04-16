@@ -1,7 +1,7 @@
 ---
 title: AEC Engine ECS Core Implementation Plan
 type: subsystem-plan
-status: proposed
+status: accepted
 date: 2026-04-16
 last_updated: 2026-04-16
 planned_code_locations:
@@ -23,6 +23,11 @@ governing_inputs:
 ---
 
 # AEC Engine ECS Core Implementation Plan
+
+## 0. Planning Status
+- status: accepted
+- execution role: selected for first bounded slice
+- current use: authoritative subsystem plan for the bounded first-slice sprint
 
 ## 1. Scope
 Define the canonical in-memory world model for AEC execution:

@@ -1,7 +1,7 @@
 ---
 title: AEC Engine Optimization Engine Implementation Plan
 type: subsystem-plan
-status: proposed
+status: accepted
 date: 2026-04-16
 last_updated: 2026-04-16
 planned_code_locations:
@@ -19,6 +19,11 @@ governing_inputs:
 ---
 
 # AEC Engine Optimization Engine Implementation Plan
+
+## 0. Planning Status
+- status: accepted
+- execution role: downstream / not in first slice
+- current use: authoritative subsystem plan paired with the accepted T018 foundation plan
 
 ## 1. Scope
 Score verified AEC candidates and rank or filter them using deterministic objective vectors and Pareto logic.

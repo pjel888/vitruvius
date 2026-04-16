@@ -1,0 +1,60 @@
+{
+  "artifact": "aec_first_slice_g10_evidence_ledger",
+  "version": 1,
+  "status": "template",
+  "baseline": {
+    "branch": "aec/clean-baseline-20260416",
+    "worktree": "/Users/philiplewis/vitruvius-aec-clean-baseline",
+    "commit_sha": "",
+    "clean": false
+  },
+  "test_files": {
+    "test_aec_boundary_contract_parity.py": false,
+    "test_aec_boundary_dto.py": false,
+    "test_aec_boundary_refusals.py": false,
+    "test_aec_ecs_contract.py": false,
+    "test_aec_ecs_replay.py": false,
+    "test_aec_ecs_schedule.py": false,
+    "test_aec_spatial_contracts.py": false,
+    "test_aec_spatial_parity.py": false,
+    "test_aec_spatial_routing.py": false,
+    "test_aec_z3_compiler.py": false,
+    "test_aec_z3_replay.py": false,
+    "test_aec_z3_refusals.py": false,
+    "test_aec_z3_artifacts.py": false
+  },
+  "fixture_roots": {
+    "boundary": false,
+    "ecs": false,
+    "spatial": false,
+    "verification": false
+  },
+  "command_groups": {
+    "boundary": {
+      "completed": false,
+      "passed": false
+    },
+    "ecs": {
+      "completed": false,
+      "passed": false
+    },
+    "spatial": {
+      "completed": false,
+      "passed": false
+    },
+    "verification": {
+      "completed": false,
+      "passed": false
+    }
+  },
+  "artifact_roots": {
+    "candidates_checked": false,
+    "admitted_checked": false,
+    "promotions_checked": false,
+    "replay_checked": false
+  },
+  "evidence_packet_complete": false,
+  "validation_log_complete": false,
+  "g10_closable": false,
+  "notes": ""
+}
