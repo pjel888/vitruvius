@@ -28,6 +28,14 @@ def _citation_from_edge(edge: GraphEdge) -> QueryCitation | None:
     )
 
 
+def _node_title_map(snapshot: GraphSnapshot) -> dict[str, str]:
+    mapping: dict[str, str] = {}
+    for node in snapshot.nodes:
+        if node.title and node.title.strip():
+            mapping[node.id] = node.title
+    return mapping
+
+
 
 
 def _dedupe_citations(edges: tuple[GraphEdge, ...]) -> tuple[QueryCitation, ...]:
@@ -68,12 +76,24 @@ def _build_result(
     arguments: dict[str, str],
     answer_entities: tuple[str, ...],
     edges: tuple[GraphEdge, ...],
+    snapshot: GraphSnapshot,
 ) -> QueryResult:
-    citations = _dedupe_citations(edges)
+    title_map = _node_title_map(snapshot)
+    citations = tuple(
+        QueryCitation(
+            source_id=citation.source_id,
+            source_section_id=citation.source_section_id,
+            evidence_snippet=citation.evidence_snippet,
+            confidence=citation.confidence,
+            source_title=title_map.get(citation.source_id),
+        )
+        for citation in _dedupe_citations(edges)
+    )
     aggregate = compute_aggregate_confidence(citations)
     return QueryResult(
         question=question,
         answer_entities=answer_entities,
+        answer_display_entities=tuple(title_map.get(entity, entity) for entity in answer_entities),
         citations=citations,
         aggregate_confidence=aggregate,
         has_evidence=bool(citations),
@@ -120,6 +140,7 @@ def what_governs(subject_id: str, snapshot: GraphSnapshot) -> QueryResult:
         arguments={"subject": subject_id},
         answer_entities=_answer_ids(edges, pick="from"),
         edges=edges,
+        snapshot=snapshot,
     )
 
 
@@ -131,6 +152,7 @@ def what_requires(subject_id: str, snapshot: GraphSnapshot) -> QueryResult:
         arguments={"subject": subject_id},
         answer_entities=_answer_ids(edges, pick="to"),
         edges=edges,
+        snapshot=snapshot,
     )
 
 
@@ -142,6 +164,7 @@ def what_limits(subject_id: str, snapshot: GraphSnapshot) -> QueryResult:
         arguments={"subject": subject_id},
         answer_entities=_answer_ids(edges, pick="from"),
         edges=edges,
+        snapshot=snapshot,
     )
 
 
@@ -153,6 +176,7 @@ def what_defines(subject_id: str, snapshot: GraphSnapshot) -> QueryResult:
         arguments={"subject": subject_id},
         answer_entities=_answer_ids(edges, pick="from"),
         edges=edges,
+        snapshot=snapshot,
     )
 
 
@@ -164,6 +188,7 @@ def what_depends_on(subject_id: str, snapshot: GraphSnapshot) -> QueryResult:
         arguments={"subject": subject_id},
         answer_entities=_answer_ids(edges, pick="to"),
         edges=edges,
+        snapshot=snapshot,
     )
 
 
@@ -188,6 +213,7 @@ def what_affects(subject_id: str, snapshot: GraphSnapshot) -> QueryResult:
         arguments={"subject": subject_id},
         answer_entities=answer_entities,
         edges=edges,
+        snapshot=snapshot,
     )
 
 
@@ -222,6 +248,7 @@ def supersession_chain(subject_id: str, snapshot: GraphSnapshot) -> QueryResult:
         arguments={"subject": subject_id},
         answer_entities=tuple(e.to_id for e in edges),
         edges=edges,
+        snapshot=snapshot,
     )
 
 
@@ -253,6 +280,7 @@ def neighbors_query(
         arguments=arguments,
         answer_entities=tuple(sorted(other_ids)),
         edges=edges,
+        snapshot=snapshot,
     )
 
 
@@ -273,4 +301,5 @@ def edges_between(a: str, b: str, snapshot: GraphSnapshot) -> QueryResult:
         arguments={"a": a, "b": b},
         answer_entities=tuple(sorted(other_ids)),
         edges=edges,
+        snapshot=snapshot,
     )

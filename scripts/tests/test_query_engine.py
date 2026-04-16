@@ -16,13 +16,14 @@ from vitruvius.query.engine import (
 )
 
 
-def _n(id_: str, *, type_: str = "concept", trust: str = "derived") -> GraphNode:
+def _n(id_: str, *, type_: str = "concept", trust: str = "derived", title: str | None = None) -> GraphNode:
     return GraphNode(
         id=id_,
         type=type_,
         slug=id_.split("-", 1)[-1] or "x",
         trust_level=trust,
         last_updated_utc="2026-04-14T00:00:00Z",
+        title=title,
     )
 
 
@@ -220,3 +221,14 @@ def test_edges_between_none_returns_empty() -> None:
     result = edges_between("concept-a", "concept-b", snap)
     assert result.has_evidence is False
     assert result.citations == ()
+
+
+def test_what_governs_exposes_human_readable_titles() -> None:
+    snap = _snap(
+        [_n("law-pd-1096", type_="source", trust="primary", title="PD 1096"), _n("concept-x", title="Concept X")],
+        [_e("law-pd-1096", "concept-x", type_="governs", evidence="rel-1")],
+    )
+    result = what_governs("concept-x", snap)
+    assert result.answer_entities == ("law-pd-1096",)
+    assert result.answer_display_entities == ("PD 1096",)
+    assert result.citations[0].source_title == "PD 1096"

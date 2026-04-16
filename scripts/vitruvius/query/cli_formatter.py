@@ -13,8 +13,11 @@ def _escape(text: str) -> str:
 def _format_citation(index: int, citation: QueryCitation) -> list[str]:
     snippet = _escape(citation.evidence_snippet).strip() or "(no snippet)"
     section = citation.source_section_id or "(no section)"
+    source_label = citation.source_id
+    if citation.source_title and citation.source_title.strip() and citation.source_title != citation.source_id:
+        source_label = f"{citation.source_title} [{citation.source_id}]"
     lines = [
-        f"  [{index}] {citation.source_id} {section}",
+        f"  [{index}] {source_label} {section}",
         f"      \"{snippet}\"",
         f"      Confidence: {citation.confidence:.2f}",
     ]
@@ -33,7 +36,8 @@ def render_query_result(result: QueryResult) -> str:
     lines.append(f"Question: {_escape(result.question)}")
     lines.append("")
     if result.has_evidence:
-        answer = ", ".join(result.answer_entities) if result.answer_entities else "(no entities)"
+        display = result.answer_display_entities or result.answer_entities
+        answer = ", ".join(display) if display else "(no entities)"
         lines.append(f"Answer: {answer}")
         lines.append("")
         lines.append(f"Confidence: {result.aggregate_confidence:.2f}")

@@ -10,6 +10,7 @@ class QueryCitation:
     source_section_id: str
     evidence_snippet: str
     confidence: float
+    source_title: str | None = None
 
 
 @dataclass(frozen=True)
@@ -21,6 +22,7 @@ class QueryResult:
     has_evidence: bool
     query_function: str
     arguments: Mapping[str, str]
+    answer_display_entities: tuple[str, ...] | None = None
 
 
 def compute_aggregate_confidence(citations: tuple[QueryCitation, ...]) -> float:

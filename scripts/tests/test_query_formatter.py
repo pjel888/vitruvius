@@ -18,6 +18,7 @@ def _cite(
         source_section_id=section,
         evidence_snippet=snippet,
         confidence=confidence,
+        source_title=None,
     )
 
 
@@ -25,7 +26,8 @@ def test_render_happy_path_contains_all_sections() -> None:
     result = QueryResult(
         question="What governs building permits?",
         answer_entities=("law-pd-1096",),
-        citations=(_cite(),),
+        answer_display_entities=("PD 1096 - National Building Code",),
+        citations=(_cite(source='law-pd-1096'),),
         aggregate_confidence=0.92,
         has_evidence=True,
         query_function="what_governs",
@@ -33,7 +35,7 @@ def test_render_happy_path_contains_all_sections() -> None:
     )
     output = render_query_result(result)
     assert "Question: What governs building permits?" in output
-    assert "Answer: law-pd-1096" in output
+    assert "Answer: PD 1096 - National Building Code" in output
     assert "Confidence: 0.92" in output
     assert "Supporting Evidence:" in output
     assert "[1] law-pd-1096 sec-301" in output
@@ -45,6 +47,7 @@ def test_render_no_evidence_path() -> None:
     result = QueryResult(
         question="What governs nothing?",
         answer_entities=(),
+        answer_display_entities=None,
         citations=(),
         aggregate_confidence=0.0,
         has_evidence=False,
@@ -67,6 +70,7 @@ def test_render_multi_citation_preserves_order() -> None:
     result = QueryResult(
         question="q",
         answer_entities=("law-a", "law-b", "law-c"),
+        answer_display_entities=None,
         citations=citations,
         aggregate_confidence=0.92,
         has_evidence=True,
@@ -84,6 +88,7 @@ def test_render_is_deterministic() -> None:
     result = QueryResult(
         question="q",
         answer_entities=("law-a",),
+        answer_display_entities=None,
         citations=(_cite(),),
         aggregate_confidence=0.9,
         has_evidence=True,
@@ -101,6 +106,7 @@ def test_render_escapes_newlines_in_question_and_snippet() -> None:
     result = QueryResult(
         question="line1\nline2",
         answer_entities=("law-a",),
+        answer_display_entities=None,
         citations=(_cite(snippet="snip\r\nwith\nbreaks"),),
         aggregate_confidence=0.5,
         has_evidence=True,
@@ -116,3 +122,19 @@ def test_render_escapes_newlines_in_question_and_snippet() -> None:
     # Confirm the snippet line does not split mid-quote.
     snippet_lines = [ln for ln in output.splitlines() if "snip" in ln]
     assert len(snippet_lines) == 1
+
+
+def test_render_uses_source_title_when_present() -> None:
+    result = QueryResult(
+        question="q",
+        answer_entities=("law-a",),
+        answer_display_entities=("Law A",),
+        citations=(QueryCitation(source_id="law-a", source_section_id="sec-1", evidence_snippet="snippet", confidence=0.9, source_title="Law A"),),
+        aggregate_confidence=0.9,
+        has_evidence=True,
+        query_function="what_governs",
+        arguments={"subject": "concept-x"},
+    )
+    output = render_query_result(result)
+    assert "Answer: Law A" in output
+    assert "[1] Law A [law-a] sec-1" in output
