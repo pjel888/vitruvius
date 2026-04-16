@@ -320,6 +320,48 @@ def test_run_dataset_source_to_graph_pipeline_dry_run_writes_plan_only(tmp_path,
     assert not (tmp_path / '006_System-Manifests' / 'runs' / 'datasets' / 'demo-dataset' / 'source_to_graph' / reports[0].parent.name / 'promoted_relationships').exists()
 
 
+def test_run_dataset_source_to_graph_pipeline_dry_run_flags_high_severity_ra_9514_sources(tmp_path, monkeypatch) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    monkeypatch.chdir(tmp_path)
+
+    refined_path = (
+        tmp_path
+        / '002_Raw-Conversion-Layer'
+        / '001-Laws'
+        / 'refined_markdown'
+        / 'RA-9514'
+        / 'RA9514-RIRR-rev-2019.md'
+    )
+    refined_path.write_text(
+        '\n'.join([
+            'https://noise.example/cover',
+            'https://noise.example/toc',
+            'GOVPH',
+            'TABLE OF CONTENTS',
+            'SECTION 1 Means of egress shall comply.',
+        ]),
+        encoding='utf-8',
+    )
+
+    rc = run_dataset_source_to_graph_pipeline(dataset_manifest=str(manifest_path), dry_run=True, export_owl=False)
+    assert rc == 0
+
+    reports = sorted((tmp_path / '006_System-Manifests' / 'runs' / 'datasets' / 'demo-dataset' / 'source_to_graph').glob('*/source_to_graph_run_report.json'))
+    report = json.loads(reports[0].read_text(encoding='utf-8'))
+    summary = report['source_quality_summary']
+    assert summary['severity_counts']['high'] == 1
+    assert summary['high_severity_paths'] == ['001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md']
+    assert summary['manual_review_required_paths'] == ['001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md']
+    assert summary['benchmark_source_hints'] == [
+        {
+            'label': 'BFP RA 9514 revised IRR page',
+            'url': 'https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/',
+            'note': 'Official BFP page for the revised IRR; useful when scanned/local extraction is noisy.',
+        }
+    ]
+    assert report['stage_results'][0]['source_quality']['manual_review_recommended'] is True
+
+
 def test_run_dataset_source_to_graph_pipeline_normalizes_prefixed_refined_paths(tmp_path, monkeypatch) -> None:
     manifest_path = _seed_repo(tmp_path)
     monkeypatch.chdir(tmp_path)
@@ -485,3 +527,28 @@ def test_source_quality_summary_aggregates_benchmark_hints() -> None:
         }
     ]
     assert summary['manual_review_required_sources'] == summary['high_severity_sources']
+def test_source_quality_summary_dedupes_repeated_high_severity_paths() -> None:
+    from vitruvius.dataset_pipeline import _source_quality_summary
+
+    summary = _source_quality_summary([
+        {
+            'normalized_refined_markdown_path': 'a.md',
+            'source_quality': {
+                'severity': 'high',
+                'manual_review_recommended': True,
+                'benchmark_source_hints': [],
+            },
+        },
+        {
+            'normalized_refined_markdown_path': 'a.md',
+            'source_quality': {
+                'severity': 'high',
+                'manual_review_recommended': True,
+                'benchmark_source_hints': [],
+            },
+        },
+    ])
+
+    assert summary['severity_counts']['high'] == 2
+    assert summary['high_severity_paths'] == ['a.md']
+    assert summary['manual_review_required_paths'] == ['a.md']
