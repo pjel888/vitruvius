@@ -178,6 +178,36 @@ def test_build_overview_paragraph_skips_bullet_table_lines() -> None:
     assert overview == 'Pursuant to Section 3 of BP 220, the Housing and Land Use Regulatory Board is authorized to establish and promulgate standards.'
 
 
+def test_build_overview_paragraph_skips_bulleted_cover_inventory() -> None:
+    text = (
+        'INCLUDES\n'
+        '- • NBCDO MEMORANDUM CIRCULAR NO. 1, s. 2004\n'
+        'TABLE OF CONTENTS\n'
+        'This implementing rules document governs building permits and occupancy classifications across the code.\n'
+    )
+    overview = build_overview_paragraph(text)
+    assert overview == 'This implementing rules document governs building permits and occupancy classifications across the code.'
+
+
+def test_build_overview_paragraph_skips_dot_leader_toc_lines() -> None:
+    text = (
+        'Foreword…………………………………………………………………….... vii\n'
+        'Acknowledgement…………………………………………………………… viii\n'
+        'This implementing rules document governs building permits and occupancy classifications across the code.\n'
+    )
+    overview = build_overview_paragraph(text)
+    assert overview == 'This implementing rules document governs building permits and occupancy classifications across the code.'
+
+
+def test_build_overview_paragraph_skips_all_caps_page_range_toc_lines() -> None:
+    text = (
+        'NEW SCHEDULE OF FEES AND OTHER CHARGES 254 - 270 NBC FORMS 272 - 341\n'
+        'This implementing rules document governs building permits and occupancy classifications across the code.\n'
+    )
+    overview = build_overview_paragraph(text)
+    assert overview == 'This implementing rules document governs building permits and occupancy classifications across the code.'
+
+
 def test_extract_section_headers_skips_domain_noise_titles() -> None:
     text = '### National Council on Disability Affairs\n### Pambansang Sanggunian Ukol sa Ugnayang Pangmaykapansanan\n### Rule I General Provisions\n'
     headers = extract_section_headers(text)

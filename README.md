@@ -1231,6 +1231,20 @@ This command is designed to stay inside the bounded dataset lane:
 - it writes a derived manifest for the final graph run
 - it does **not** shortcut raw PDFs directly into the graph
 
+The run report now surfaces source-difficulty / extraction-trust clues in a
+human-review-friendly way:
+- `source_quality_summary.severity_counts` shows how many refined inputs were
+  low / medium / high difficulty
+- `high_severity_sources` and `manual_review_required_sources` preserve the
+  source id, refined markdown path, concrete difficulty signals, benchmark
+  reference hints, and trust recommendations for the hardest documents
+- high-severity canonical summaries are convenience aids only; use the listed
+  benchmark hints and manual review before treating them as truth-bearing
+  evidence
+
+These additions are report-only guardrails: they do not change the bounded
+governance path, and the final graph/query artifacts remain human-readable.
+
 Use this when you want the bounded source→graph lane, not just the final admitted-input graph rebuild.
 
 

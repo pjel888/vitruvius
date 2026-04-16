@@ -386,6 +386,8 @@ def extract_key_points(markdown_text: str, *, limit: int = 5) -> list[str]:
 def _looks_like_sentence(text: str) -> bool:
     if len(text.split()) < 8:
         return False
+    if re.search(r"\b\d+\s*-\s*\d+\b", text):
+        return False
     lowered = text.lower()
     if re.match(r"^(rule|section|chapter|division|appendix|annex|part)\b", lowered):
         return False
@@ -405,7 +407,7 @@ def build_overview_paragraph(markdown_text: str) -> str:
         if _looks_like_headingish_line(stripped):
             continue
         cleaned = _clean_candidate_text(stripped[:500])
-        if fallback == "":
+        if fallback == "" and not re.search(r"\b\d+\s*-\s*\d+\b", cleaned):
             fallback = cleaned
         if _looks_like_sentence(cleaned):
             return cleaned
@@ -432,6 +434,16 @@ def _is_useful_text_line(stripped: str) -> bool:
         return False
     if "table of contents" in lowered:
         return False
+    if re.search(r"[.…]{4,}", stripped) or re.search(r"\.{4,}", stripped):
+        return False
+    page_ranges = re.findall(r"\b\d+\s*-\s*\d+\b", stripped)
+    if len(page_ranges) >= 2:
+        return False
+    letters = [ch for ch in stripped if ch.isalpha()]
+    if letters and page_ranges:
+        uppercase_ratio = sum(ch.isupper() for ch in letters) / len(letters)
+        if uppercase_ratio > 0.6:
+            return False
     if stripped.isupper() and len(stripped.split()) <= 6:
         return False
     return True

@@ -425,10 +425,17 @@ def test_source_quality_summary_aggregates_benchmark_hints() -> None:
 
     summary = _source_quality_summary([
         {
+            'source_id': 'source-a',
             'normalized_refined_markdown_path': 'a.md',
             'source_quality': {
                 'severity': 'high',
                 'manual_review_recommended': True,
+                'recommendations': ['manual review'],
+                'image_line_count': 12,
+                'table_line_count': 34,
+                'noise_line_count': 1,
+                'structural_heading_count': 5,
+                'useful_text_ratio': 0.71,
                 'benchmark_source_hints': [
                     {'label': 'Hint A', 'url': 'https://example.com/a', 'note': 'a'},
                     {'label': 'Hint B', 'url': 'https://example.com/b', 'note': 'b'},
@@ -436,10 +443,17 @@ def test_source_quality_summary_aggregates_benchmark_hints() -> None:
             },
         },
         {
+            'source_id': 'source-b',
             'normalized_refined_markdown_path': 'b.md',
             'source_quality': {
                 'severity': 'medium',
                 'manual_review_recommended': False,
+                'recommendations': ['watch closely'],
+                'image_line_count': 0,
+                'table_line_count': 10,
+                'noise_line_count': 0,
+                'structural_heading_count': 8,
+                'useful_text_ratio': 0.91,
                 'benchmark_source_hints': [
                     {'label': 'Hint A', 'url': 'https://example.com/a', 'note': 'a'},
                 ],
@@ -450,3 +464,24 @@ def test_source_quality_summary_aggregates_benchmark_hints() -> None:
     assert summary['severity_counts']['medium'] == 1
     assert summary['manual_review_required_paths'] == ['a.md']
     assert len(summary['benchmark_source_hints']) == 2
+    assert summary['high_severity_sources'] == [
+        {
+            'source_id': 'source-a',
+            'refined_markdown_path': 'a.md',
+            'severity': 'high',
+            'manual_review_recommended': True,
+            'recommendations': ['manual review'],
+            'difficulty_signals': {
+                'image_line_count': 12,
+                'table_line_count': 34,
+                'noise_line_count': 1,
+                'structural_heading_count': 5,
+                'useful_text_ratio': 0.71,
+            },
+            'benchmark_source_hints': [
+                {'label': 'Hint A', 'url': 'https://example.com/a', 'note': 'a'},
+                {'label': 'Hint B', 'url': 'https://example.com/b', 'note': 'b'},
+            ],
+        }
+    ]
+    assert summary['manual_review_required_sources'] == summary['high_severity_sources']
