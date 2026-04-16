@@ -1217,7 +1217,52 @@ python3 scripts/pipeline_cli.py run-dataset-source-to-graph \
   --dataset-manifest config/datasets/laws-core-bundle-m1.yaml
 ```
 
-If you want the whole bounded pilot to run and then open the browser visualization in one command:
+### Recommended operator command (repo root)
+
+If you are already inside the repo root, the simplest operator path is:
+
+```bash
+./run-laws-pilot --skip-export-owl --open-browser
+```
+
+What this single command does:
+- runs the bounded produced-data `source -> graph` pipeline for the 4-law pilot
+- builds the dataset-scoped graph snapshot
+- renders a browser-friendly HTML visualization
+- opens the generated HTML automatically
+
+The generated HTML is self-contained (it bundles Cytoscape and embeds the graph
+data directly), so opening the file from Finder or a browser tab does not depend
+on additional repo-relative assets.
+
+### Dry-run first
+
+If you want to validate the bounded stage plan without executing writes:
+
+```bash
+./run-laws-pilot --dry-run
+```
+
+### Progress / developer experience
+
+When you run the command in an interactive terminal, it emits phase/progress
+lines while the pipeline is working (for example source-quality inspection,
+graph build, visualization rendering, browser open). The final JSON summary is
+still printed at the end.
+
+If you want to force progress lines even in a non-interactive shell:
+
+```bash
+VITRUVIUS_CLI_PROGRESS=1 ./run-laws-pilot --dry-run
+```
+
+### Equivalent explicit Python entrypoints
+
+If you prefer the explicit CLI surface, these commands are equivalent:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-pilot --skip-export-owl --open-browser
+```
 
 ```bash
 PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-dataset-source-to-graph \
@@ -1225,26 +1270,6 @@ PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-dataset-source-to-graph \
   --skip-export-owl \
   --visualize \
   --open-browser
-```
-
-Inside the repo, you can also use the pilot shortcut command:
-
-```bash
-PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-pilot --skip-export-owl --open-browser
-```
-
-Or, from the repo root, use the executable helper:
-
-```bash
-./run-laws-pilot --skip-export-owl --open-browser
-```
-
-Dry-run first if you want to validate the bounded stage plan without executing writes:
-
-```bash
-python3 scripts/pipeline_cli.py run-dataset-source-to-graph \
-  --dataset-manifest config/datasets/laws-core-bundle-m1.yaml \
-  --dry-run
 ```
 
 This command is designed to stay inside the bounded dataset lane:
