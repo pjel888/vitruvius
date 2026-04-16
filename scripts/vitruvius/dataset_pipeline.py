@@ -386,6 +386,7 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
     counts = {"low": 0, "medium": 0, "high": 0}
     high_paths: list[str] = []
     manual_review_required_paths: list[str] = []
+    benchmark_hints: dict[str, dict[str, str]] = {}
     for stage in stage_results:
         quality = stage.get("source_quality")
         if not isinstance(quality, dict):
@@ -398,10 +399,16 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
                 high_paths.append(path)
         if quality.get("manual_review_recommended") and isinstance(path, str):
             manual_review_required_paths.append(path)
+        for hint in quality.get("benchmark_source_hints", []):
+            if isinstance(hint, dict):
+                url = hint.get("url")
+                if isinstance(url, str) and url:
+                    benchmark_hints[url] = hint
     return {
         "severity_counts": counts,
         "high_severity_paths": high_paths,
         "manual_review_required_paths": manual_review_required_paths,
+        "benchmark_source_hints": [benchmark_hints[url] for url in sorted(benchmark_hints)],
     }
 
 def run_dataset_source_to_graph_pipeline(
@@ -577,6 +584,7 @@ def run_dataset_source_to_graph_pipeline(
             "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
             "planned_stage_count": len(stage_results),
             "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
+            "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),
             "source_quality_summary": quality_summary,
         }, indent=2))
         return 0
@@ -625,6 +633,7 @@ def run_dataset_source_to_graph_pipeline(
         "generated_relationship_count": len(generated_relationship_paths),
         "filtered_relationship_count": len(filtered_relationship_paths),
         "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
+        "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),
         "source_quality_summary": quality_summary,
         "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
         "graph_snapshot_path": graph_payload.get("snapshot_path"),

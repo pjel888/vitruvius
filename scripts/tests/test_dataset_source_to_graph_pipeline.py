@@ -268,10 +268,12 @@ def test_run_dataset_source_to_graph_pipeline_writes_derived_manifest_and_report
     assert report['filtered_relationship_count'] == 1
     assert report['source_quality_summary']['severity_counts']['low'] == 1
     assert report['source_quality_summary']['manual_review_required_paths'] == []
+    assert len(report['source_quality_summary']['benchmark_source_hints']) == 1
     assert 'source_quality' in report['stage_results'][0]
     assert report['stage_results'][0]['source_quality']['useful_text_line_count'] >= 1
     assert report['stage_results'][0]['source_quality']['severity'] in {'low','medium','high'}
     assert isinstance(report['stage_results'][0]['source_quality']['recommendations'], list)
+    assert isinstance(report['stage_results'][0]['source_quality']['benchmark_source_hints'], list)
     assert isinstance(report['stage_results'][0]['source_quality']['benchmark_source_hints'], list)
     derived_manifest = tmp_path / report['derived_manifest_path']
     assert derived_manifest.exists()
@@ -297,7 +299,9 @@ def test_run_dataset_source_to_graph_pipeline_dry_run_writes_plan_only(tmp_path,
     assert report['dry_run'] is True
     assert report['source_quality_summary']['severity_counts']['low'] == 1
     assert report['source_quality_summary']['manual_review_required_paths'] == []
+    assert len(report['source_quality_summary']['benchmark_source_hints']) == 1
     assert report['source_quality_summary']['manual_review_required_paths'] == []
+    assert len(report['source_quality_summary']['benchmark_source_hints']) == 1
     assert len(report['stage_results']) == 1
     assert 'planned_extract_json' in report['stage_results'][0]
     assert report['stage_results'][0]['normalized_refined_markdown_path'] == '001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md'
@@ -306,8 +310,10 @@ def test_run_dataset_source_to_graph_pipeline_dry_run_writes_plan_only(tmp_path,
     assert report['stage_results'][0]['source_quality']['severity'] in {'low','medium','high'}
     assert isinstance(report['stage_results'][0]['source_quality']['recommendations'], list)
     assert isinstance(report['stage_results'][0]['source_quality']['benchmark_source_hints'], list)
+    assert isinstance(report['stage_results'][0]['source_quality']['benchmark_source_hints'], list)
     assert report['stage_results'][0]['source_quality']['severity'] in {'low','medium','high'}
     assert isinstance(report['stage_results'][0]['source_quality']['recommendations'], list)
+    assert isinstance(report['stage_results'][0]['source_quality']['benchmark_source_hints'], list)
     assert isinstance(report['stage_results'][0]['source_quality']['benchmark_source_hints'], list)
     assert isinstance(report['stage_results'][0]['source_quality']['recommendations'], list)
     assert 'source_quality_path' in report['stage_results'][0]
@@ -412,3 +418,35 @@ def test_run_dataset_source_to_graph_pipeline_dedupes_generated_relationship_pat
     derived_payload = yaml.safe_load(derived_manifest.read_text(encoding='utf-8'))
     rel_paths = [entry['path'] for entry in derived_payload['relationship_input_manifest']['relationships'] if entry['path'].endswith('rel-generated.md')]
     assert len(rel_paths) == 1
+
+
+def test_source_quality_summary_aggregates_benchmark_hints() -> None:
+    from vitruvius.dataset_pipeline import _source_quality_summary
+
+    summary = _source_quality_summary([
+        {
+            'normalized_refined_markdown_path': 'a.md',
+            'source_quality': {
+                'severity': 'high',
+                'manual_review_recommended': True,
+                'benchmark_source_hints': [
+                    {'label': 'Hint A', 'url': 'https://example.com/a', 'note': 'a'},
+                    {'label': 'Hint B', 'url': 'https://example.com/b', 'note': 'b'},
+                ],
+            },
+        },
+        {
+            'normalized_refined_markdown_path': 'b.md',
+            'source_quality': {
+                'severity': 'medium',
+                'manual_review_recommended': False,
+                'benchmark_source_hints': [
+                    {'label': 'Hint A', 'url': 'https://example.com/a', 'note': 'a'},
+                ],
+            },
+        },
+    ])
+    assert summary['severity_counts']['high'] == 1
+    assert summary['severity_counts']['medium'] == 1
+    assert summary['manual_review_required_paths'] == ['a.md']
+    assert len(summary['benchmark_source_hints']) == 2
