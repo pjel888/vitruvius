@@ -254,6 +254,19 @@ def _append_generated_relationships_to_manifest(
     out_path.write_text(yaml.safe_dump(payload, sort_keys=False, allow_unicode=True), encoding="utf-8")
 
 
+
+
+def _source_quality_severity(metrics: dict[str, object]) -> str:
+    image_count = int(metrics.get("image_line_count", 0) or 0)
+    table_count = int(metrics.get("table_line_count", 0) or 0)
+    useful_ratio = float(metrics.get("useful_text_ratio", 0.0) or 0.0)
+    noise_count = int(metrics.get("noise_line_count", 0) or 0)
+    if useful_ratio < 0.6 or image_count > 500 or table_count > 800:
+        return "high"
+    if useful_ratio < 0.8 or image_count > 100 or table_count > 100 or noise_count > 50:
+        return "medium"
+    return "low"
+
 def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: str) -> dict[str, object]:
     refined_path = repo_root / "002_Raw-Conversion-Layer" / normalized_refined_path
     text = refined_path.read_text(encoding="utf-8", errors="ignore")
@@ -275,7 +288,7 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
         line for line in non_empty
         if line not in image_lines and line not in table_lines and line not in noise_lines
     ]
-    return {
+    metrics = {
         "refined_markdown_path": normalized_refined_path,
         "total_line_count": len(lines),
         "non_empty_line_count": len(non_empty),
@@ -287,6 +300,8 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
         "useful_text_line_count": len(useful_lines),
         "useful_text_ratio": round(len(useful_lines) / len(non_empty), 6) if non_empty else 0.0,
     }
+    metrics["severity"] = _source_quality_severity(metrics)
+    return metrics
 
 
 def run_dataset_source_to_graph_pipeline(
