@@ -136,7 +136,7 @@ Layered on top of the review stage:
 1. **Source identity vector + prefix injector** (`y_contextual_priming`) — every reviewer prompt is prefixed with a deterministic `SOURCE_IDENTITY[fingerprint]: <prose>` block so the LLM sees the document's legal context for free.
 2. **Domain classifier + MoE router** (`y_domain_routing_moe`) — routes candidates to specialized reviewer models by detected domain (building-law vs. fire-code vs. sanitation, etc.).
 3. **Thinking mode + CoT audit** (`y_thinking_mode_cot`) — enforces `<thinking>` / `<answer>` envelope in the reviewer output and dumps the trace to `005_Operational-Intelligence-Layer/cot_audit/`.
-4. **Stateful agentic registry** (`y_stateful_registry`) — persistent cache of every reviewer decision keyed on `(source_hash, relationship_hash, model_version)`. Consumed by Phase 6A Resume to avoid re-reviewing unchanged candidates. Sprint HP.3-R added a RocksDB backend behind this, routed via `make_stateful_registry()`.
+4. **Stateful agentic registry** (`y_stateful_registry`) — persistent cache infrastructure keyed on `(source_hash, relationship_hash, model_version)`. The registry factory and RocksDB backend ship, but the dedicated `review_with_cache()` wrapper is still a follow-on wiring path rather than the default live review loop.
 5. **Vision OCR** (`y_vision_ocr`) — falls back to a vision LLM (moondream) when OCR confidence is below threshold. Operator-gated: requires `ple-vision-probe` activation.
 
 ### Sprint GT — Spatial GraphRAG (gt_* flags)
@@ -156,7 +156,7 @@ A new post-review stage that only activates on Tier 2 candidates:
 - **Adversarial swarm** (`z_adversarial_swarm`) — Proposer generates candidates, Inspector argues against them, Adjudicator picks a winner.
 - **Differential dataflow** (`z_differential_dataflow`) — `DependencyTracker` + `DifferentialPropagator` propagate deltas from the graph store to downstream consumers without re-evaluating the whole graph. Walks the tracker per `Delta` batch, so amendments to PD 1096 run in O(Δ) in the changed set rather than in the total graph size.
 - **DSPy prompt compiler** (`z_dspy_compiler`) — metric-driven prompt optimization that compiles prompt templates against a held-out set of review decisions.
-- **Neuro-symbolic Datalog bridge** (`z_neuro_symbolic`) — reviewer prompts are decorated with a `<logic-directive>` that forces the LLM to emit a `<logic>` Datalog block the Rust `datalog_rs` evaluator verifies. Rejects the verdict if the block fails to parse or fails to derive the conclusion from the facts.
+- **Neuro-symbolic Datalog bridge** (`z_neuro_symbolic`) — experimental prompt/evaluator scaffolding. The Rust `datalog_rs` crate and prompt directives ship, but PASS 2 found no audited live review-loop caller proving this as an active enforcement path yet.
 - **Wasm spatial kernel** (`hp_wasm_kernels`) — loads the `engine_rs` `aabb_intersects` function via wasmtime for hermetic spatial verification that can run in constrained environments.
 
 ### Sprint 1B-M1 — Phase 1B Modernization Tranche 1 (p1b_* flags)

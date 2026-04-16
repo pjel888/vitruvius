@@ -193,7 +193,7 @@ Vitruvius now ships three pyo3 Rust crate families built via `maturin develop --
   - `pyo3_shim/` — pyo3 Python bindings. Re-exports `build_spatial_adjacency_edges_rs`, `weight_by_distance_rs`, `mahalanobis_distance_rs`.
   - `spatial_kernels/` — Sprint RUST-MIG-1 S1/S2 ports (AD-038). Depends on `core` + `ndarray`.
   - `stats_kernels/` — Sprint RUST-MIG-1 N4 port (AD-038). Depends on `nalgebra` + `ndarray`. N1 (Wasserstein) is DEFER_ALREADY_NATIVE per AD-038a.
-- `scripts/vitruvius/datalog_rs/` — Sprint Z Stream S1.2 hand-rolled Datalog evaluator (`evaluate_datalog(facts, rules)`). 7 Rust unit tests.
+- `scripts/vitruvius/datalog_rs/` — Sprint Z Stream S1.2 hand-rolled Datalog evaluator (`evaluate_datalog(facts, rules)`). 7 Rust unit tests. As of stabilization PASS 2, this is still a shipped crate plus prompt-scaffolding surface, not a separately audited live review-loop enforcement step.
 - `scripts/vitruvius/parsers/` contains a further Rust crate `vitruvius_rust_pdf` (lopdf-based PDF text extractor, AD-033/034). Peak RSS 13.7 MB vs docling's 659 MB; 625× faster wall time. Exposed as `RustPdfParser(BaseParser)` in Python.
 
 Both crates are optional dependencies. Pure-Python paths remain intact and are exercised by the test suite when the Rust extension isn't built.

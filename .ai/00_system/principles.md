@@ -95,7 +95,7 @@ These are BLOCK-level rules enforced by the daily execution loop. A plan that vi
 - **Consequence:** Unnecessary Rust porting adds FFI overhead (pyo3 boundary cost) that can easily negate the kernel speedup. The ≥2× gate filters out false positives.
 
 #### Test Baseline Monotonic (I8)
-- **Rule:** The `pytest scripts/tests/` passing test count is monotonically non-decreasing across commits. The current baseline is **1528 passed / 1 skipped** (as of Sprint LSH-1 closure, AD-042).
+- **Rule:** The `pytest scripts/tests/` passing test count is monotonically non-decreasing across commits. The current baseline is **1572 passed / 1 skipped** (validated on 2026-04-16 after the duplicate canonical source ID remediation pass).
 - **Enforcement:** Any plan that reduces the passing-test count without replacing the deleted coverage with equivalent tests is BLOCK. A sprint that adds new behavior MUST add tests for that behavior; the net test delta must be ≥0.
 - **Consequence:** Shrinking the test suite destroys the regression safety net that makes feature-flag defaults safe to flip.
 

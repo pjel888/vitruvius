@@ -80,3 +80,8 @@ Audit the real backend surface of Vitruvius: CLI orchestration, graph/query comm
 
 ## Audit Verdict
 The backend surface executes, but the graph/query trust boundary is not strong enough for confident downstream feature work.
+
+## PASS 2 Note — 2026-04-16
+- Duplicate node IDs are now surfaced as an explicit `duplicate_node_id` integrity error instead of silently passing.
+- Query citations now use relationship evidence metadata (`source_section_id`, `evidence_snippet`, reviewer confidence) when present.
+- The underlying duplicate canonical source ID remains unresolved pending a migration/curation decision.

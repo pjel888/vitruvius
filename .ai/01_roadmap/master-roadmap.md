@@ -241,7 +241,7 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 - **Sprint PQ-1 (GraphSAGE Product Quantization) shipped on 2026-04-15**: **32× exact compression** on GraphSAGE structural embeddings (256 B/node → 8 B/node; M=8 sub-spaces, k=256 centroids, sub_dim=8 over 64-d float32). **0.00017 cosine similarity delta** on held-out set — **117× under the pre-committed 0.02 gate**. Pure numpy implementation with k-means in M sub-spaces, `encode_to_pq` / `decode_from_pq` / `adc_distance` helpers, npz persistence, and `compress_graphsage_report` integration helper. Zero new pip dependencies, zero Rust escalation. `hp_graphsage_pq` feature flag stays false pending an embedding persistence layer that actually consumes the PQ codes. AD-041.
 - **Sprint LSH-1 (MinHash Fuzzy Near-Duplicate Dedup) shipped on 2026-04-15**: vectorized Carter-Wegman MinHash (pure numpy, no `datasketch` dependency) + band-based LSH index + union-find component walk + representative pick. Initial nested-loop implementation was 8s at n=1000; vectorization dropped it to 108ms — **70× faster**. Fuzzy hit rate **14.17% at 20% injection** (clears the ≥10% AD-037 gate); **0 false positives** on 200-candidate disjoint audit. Plan's proposed `num_bands=4` was underpowered — tuned to `num_perm=256, num_bands=32, r=8` for 99% recall at Jaccard ≥ 0.78. Reframed by AD-037 from "O(n²) scaling fix" to "fuzzy near-duplicate detection for predicate variants" — current `dedupe_by_endpoints` is already O(n log n) dict-grouped. `w_lsh_dedup` feature flag stays false pending full-PD-1096 operator run. AD-042.
 
-**Current hard numbers (as of 2026-04-15 19:00 local):**
+**Historical hard numbers from the 2026-04-15 sprint-closure snapshot (not the live 2026-04-16 stabilization baseline):**
 - Python test suite: **1528 passed, 1 skipped** (grew from pre-session 297 — +1231 delta; +91 delta for the 5-sprint closing block alone from the prior 1437 mark at 14:45)
 - TypeScript test suite: **21 / 21 passing** (`spatial-daemon/` — +1 integrity footer test from Sprint AUDIT-1)
 - Rust unit tests: **33 passing** (`engine_rs` core + `datalog_rs` + new `spatial_kernels` + `stats_kernels` workspace members from Sprint RUST-MIG-1; +23 from the RUST-MIG-1 port parity suite) + wasm api tests + adjacent lopdf smoke tests
@@ -249,10 +249,10 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 - Enriched concept files: **20 / 20** PD 1096 concepts (all carry `stringency_vector` frontmatter)
 - Sprint tags: **20** — `sprint-q-closed`, `sprint-r-closed`, `sprint-phys-closed`, `sprint-h-closed`, `sprint-geom-closed`, `sprint-wiki-closed`, `sprint-gt-closed`, `sprint-hp-closed`, `sprint-z-closed`, `sprint-hp3r-closed`, `sprint-1b-m1-closed`, `sprint-1b-m2-closed`, `sprint-rust-pdf-1-closed`, `sprint-1b-m3-closed`, `sprint-distill-1-closed`, `sprint-rust-mig-1-closed`, `sprint-audit-1-closed`, `sprint-pipeline-cli-closed`, `sprint-pq-1-closed`, `sprint-lsh-1-closed`
 - Decision log: **AD-001 through AD-042 + AD-038a** in `.ai/10_state/decisions.md` (AD-024–AD-042 + AD-038a are the 2026-04-15 session ledgers)
-- Active branch: **`main`** — fully pushed to `origin/main` (HEAD `58161bd`); all 20 sprint tags published
+- Active branch at that historical snapshot: **`main`** — fully pushed to `origin/main` (HEAD `58161bd`); all 20 sprint tags published
 - Git remote: **FIXED** — `gh auth setup-git` ran; `origin` (`github.com/pjel888/vitruvius.git`) authenticates and accepts pushes
 
-**Active work queue: empty.** Task 8 of the governing implementation plan closed on 2026-04-15; all 5 queued optimization plans shipped. Next horizon requires a fresh roadmap brainstorm (see §8 "What's next").
+**Historical work queue snapshot:** empty at 2026-04-15 close. Live stabilization truth for 2026-04-16 now lives in `current-phase.md`, `active_context.md`, and the dated PASS 2 validation log.
 
 **What still needs doing (open options, not yet plans):**
 - **Sprint D Streams J (active learning) + K (CLUP scaling)** — externally gated on the Ranger dashboard surface (J) and a 2nd jurisdiction corpus (K). Will light up when their external unblockers land. The `statistical-architectural-upgrade-plan.md` has been archived as of 2026-04-15 19:00 with an `archived_with_open_streams: "J,K"` frontmatter note preserving the defer status.
@@ -320,7 +320,7 @@ Every phase below follows the same contract template. A phase is not "done" unti
 4. **Strict telemetry JSON** (flattened schema in plan §6) per parser attempt.
 5. **Quality gates**: Gate-001 (UTF-8), Gate-002 (volume ≥500 chars), Gate-003 (≥1 header if pages>5), Gate-004 (Office sanity).
 6. **Fallback orchestration** with page-level isolation for OOM/timeout cases.
-7. **Dynamic resource allocation** via `ProcessPoolExecutor` with per-class memory buckets.
+7. **Batch-processing/resource-allocation API** with `process_batch(..., max_workers=...)` and a documented upgrade path to future `ProcessPoolExecutor` fan-out.
 8. **Manual Review Lane** + Ranger Audit Payload generator.
 9. **Golden Corpus Benchmark** (30 documents: 10 simple / 10 complex / 10 scanned).
 

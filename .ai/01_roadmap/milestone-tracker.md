@@ -44,8 +44,8 @@
 - [x] **Bonus**: `RustPdfParser(BaseParser)` — Sprint 1B-M3 AD-034 (audit GO verdict AD-033 = 48× smaller RSS + 625× faster than docling on synthetic PDFs)
 - [x] **Bonus**: GATE-006 min-chars-per-page quality gate — Sprint 1B-M3 AD-034
 
-**Scaling & Governance (§11 Phase 3) — COMPLETE 2026-04-15** (Sprint 1B-M2 + Sprint PIPELINE-CLI):
-- [x] `ParserOrchestrator.process_batch` with `ProcessPoolExecutor` parallelism — Sprint 1B-M2 AD-032 (`p1b_process_pool_orchestration` flag)
+**Scaling & Governance (§11 Phase 3) — PARTIAL 2026-04-15** (batch API shipped; true process-pool fan-out still deferred):
+- [~] `ParserOrchestrator.process_batch` batch API shipped with `max_workers` compatibility, but the current implementation remains sequential and reserves real `ProcessPoolExecutor` fan-out for a future upgrade — see `parsers/orchestrator.py`
 - [x] Per-parser timeout enforcement — shipped inside orchestrator fallback chain
 - [x] `GoldenCorpusBenchmark` harness (30-document fixture) — Sprint 1B-M2 AD-032
 - [x] `pipeline_cli.py` flag dispatch — Sprint PIPELINE-CLI AD-040 (`convert-parsers-one` subcommand + byte-identity exit gate + parallel command pattern)

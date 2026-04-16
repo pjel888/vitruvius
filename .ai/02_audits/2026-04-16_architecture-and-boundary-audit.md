@@ -80,3 +80,7 @@ Verify the real Python/Rust/TypeScript/Wasm/RocksDB/Z3 boundaries and expose whe
 
 ## Audit Verdict
 Boundary separation is conceptually sound, but runtime truthfulness around advanced boundaries is uneven and needs stabilization.
+
+## PASS 2 Note — 2026-04-16
+- The overstated `ProcessPoolExecutor` claim was downgraded to the shipped sequential `process_batch(..., max_workers=...)` compatibility API.
+- Stateful-registry and neuro-symbolic Datalog docs were downgraded from “live default path” wording to infrastructure / experimental wording where audited runtime proof was absent.

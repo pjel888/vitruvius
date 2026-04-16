@@ -73,3 +73,8 @@ Identify truthfulness drift between governance/state/docs claims and the live re
 
 ## Audit Verdict
 Truthfulness drift is one of the repo’s primary stabilization problems. It is not a cosmetic issue.
+
+## PASS 2 Note — 2026-04-16
+- Live state docs were refreshed to the current `main`-branch stabilization reality.
+- `active_context.md` was rewritten as a live handoff file instead of a stale feature-branch snapshot.
+- README/master-roadmap wording now distinguishes historical sprint-closure numbers from the live 2026-04-16 stabilization baseline.
