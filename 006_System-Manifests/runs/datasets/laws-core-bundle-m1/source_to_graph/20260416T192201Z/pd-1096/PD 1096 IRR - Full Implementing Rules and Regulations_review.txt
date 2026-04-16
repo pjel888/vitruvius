@@ -1,0 +1,120 @@
+Ollama Relationship Review Report
+
+Model: gemma4:31b
+Source: 001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md
+Candidates reviewed: 28
+Keep: 11
+Review Further: 10
+Reject: 7
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-building-permit
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-certificate-of-occupancy
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-stairs
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-floor-area
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-mixed-occupancy
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-occupancy-classification
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-occupancy-separation
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-yards
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-light-and-ventilation
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-exit-width
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-means-of-egress
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-socialized-housing-projects
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['socialized housing projects'] appear in the evidence text
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-fire-resistive-construction
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['fire resistive construction'] appear in the evidence text
+
+concept-occupancy-separation -> limits -> concept-fire-resistive-construction
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'limits'
+
+concept-light-and-ventilation -> affects -> concept-setbacks
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['light and ventilation', 'setbacks'] appear in the evidence text
+
+concept-building-height -> affects -> concept-setbacks
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['building height', 'setbacks'] appear in the evidence text
+
+concept-fire-resistive-construction -> limits -> concept-occupancy-separation
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'limits'
+
+concept-means-of-egress -> affects -> concept-stairs
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['means of egress', 'stairs'] appear in the evidence text
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-setbacks
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-building-height
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+concept-setbacks -> affects -> concept-yards
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+concept-light-and-ventilation -> affects -> concept-yards
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+concept-lot-occupancy -> depends_on -> concept-yards
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+concept-stairs -> requires -> concept-fire-resistive-construction
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+concept-floor-area -> affects -> concept-stairs
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+concept-building-height -> affects -> concept-light-and-ventilation
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+concept-building-permit -> depends_on -> concept-setbacks
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+concept-exit-width -> requires -> concept-means-of-egress
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.

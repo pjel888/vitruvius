@@ -1,0 +1,115 @@
+{
+  "generated_at": "20260416T185755Z",
+  "source_report_generated_at": "20260416T185755Z",
+  "source_model": "gemma4:31b",
+  "source": "001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md",
+  "threshold": 0.9,
+  "count": 4,
+  "candidates": [
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+        "type": "governs",
+        "to": "concept-socialized-housing-projects",
+        "occurrences": 12,
+        "sections": [
+          "section-1",
+          "section-3",
+          "section-4",
+          "section-5",
+          "section-6",
+          "section-8",
+          "section-2"
+        ],
+        "examples": [
+          "These rules and standards shall apply to the development of economic and socialized housing projects in urban and rural areas as defined in Section 2 of BP Blg.",
+          "These rules and standards shall apply to the development of economic and socialized housing projects in urban and rural areas as defined in Section 2 of BP Blg. 220. They shall apply to the development of either a house and lot or a house or lot only.",
+          "Development of economic and socialized housing projects shall be in accordance with the minimum design standards herein set forth."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+        "type": "governs",
+        "to": "concept-yards",
+        "occurrences": 3,
+        "sections": [
+          "section-5",
+          "section-6"
+        ],
+        "examples": [
+          "Where a good quality top soil exists in the site, it shall not be removed and shall be preserved for finishing grades of yards, playgrounds, parks and garden area.",
+          "Suitable trees with a caliper diameter of 200 milimeters or more, shrubs and desirable ground cover shall be preserved. Where a good quality top soil exists in the site, it shall not be removed and shall be preserved for finishing grades of yards, playgrounds, parks and garden area.",
+          "The minimum horizontal dimension of courts and yards shall not be less than 2.0 meters. All inner courts shall be connected to a street or yard, either by a passageway with a minimum width of 1.20 meters or by a door through a room or rooms."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+        "type": "governs",
+        "to": "concept-floor-area",
+        "occurrences": 10,
+        "sections": [
+          "section-5",
+          "section-6"
+        ],
+        "examples": [
+          "The minimum floor area requirement for single-family dwelling shall be 22 square meters for economic housing and 18 square meters for socialized housing.",
+          "- a) Rooms for habitable use shall be provided with windows with a total free area of openings equal to at least 10% of the floor area of the room.",
+          "- b) Bathrooms shall be provided with window/s with an area not less than 1/20 of its floor area."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+        "type": "governs",
+        "to": "concept-stairs",
+        "occurrences": 3,
+        "sections": [
+          "section-6",
+          "section-25"
+        ],
+        "examples": [
+          "- a) Width. Stairways shall have a minimum clear width of 0.60 meter. - b) Riser and Run. Stairs shall have a maximum riser height of 0.25 meter and a minimum tread width of 0.20 meter. Stair treads shall be exclusive of nosing and/or other projections. - c) Headroom Clearance. Stairs shall have a m",
+          "- f.1 Handrails on stairs shall not be less than 0.80 meter or more than 1.20 meters above the upper surface of the tread, measured vertically to the top of the rail from the leading edge of the tread. (See Fig. 8: Stairway Design) - f.2 Handrails shall be so designed as to permit continuous sliding",
+          "No room or a space shall be occupied for living or sleeping purposes which is accessible only by a ladder, folding stairs or through a trap door."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}

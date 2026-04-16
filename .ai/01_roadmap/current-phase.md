@@ -57,7 +57,7 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
 - Governing artifact: `/.ai/03_plans/2026-04-16_laws-mini-dataset-graph-pipeline-plan.md`
 - Goal: prove a truthful, manifest-backed core-laws-bundle scoped graph first, then stage toward broader per-section and interconnected graph workflows
 - Phase 11 note: this is a **bounded pilot lane**, not a generic opening of Phase 11 dataset expansion; it may execute only within the accepted M1 scope and guardrails
-- Latest validation: `/.ai/05_logs/2026-04-16_laws-m4-expansion-path-validation.md`
+- Latest validation: `/.ai/05_logs/2026-04-17_laws-pilot-operator-experience-validation.md`
 - Follow-on planning artifact: `/.ai/03_plans/2026-04-16_laws-m2-admission-plan.md`
 - Follow-on planning state:
   - M2A source admission has now been executed for `RA-9514`, `BP-344`, and `BP-220`; see `/.ai/05_logs/2026-04-16_laws-m2a-source-admission-validation.md`
@@ -67,6 +67,7 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
   - M3 orchestration is now complete via `run-dataset-graph`; see `/.ai/05_logs/2026-04-16_laws-m3-orchestration-validation.md`
   - M4A model/spec artifacts are complete and M4B minimal additive `law_units` manifest/runtime/reporting support is now complete; see `/.ai/05_logs/2026-04-16_laws-m4-expansion-path-validation.md`
   - bounded pilot success validation: `/.ai/05_logs/2026-04-16_laws-core-bundle-bounded-pilot-success-validation.md`
+  - bounded pilot operator path is now available via `run-laws-pilot` and `./run-laws-pilot`, with self-contained HTML output and browser-open support; see `/.ai/05_logs/2026-04-17_laws-pilot-operator-experience-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

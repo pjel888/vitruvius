@@ -1,0 +1,33 @@
+Section-Aware Relationship Extraction
+
+Sections: 361
+Unique relationships: 28
+
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-socialized-housing-projects (x2) sections=['section-103']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-building-permit (x34) sections=['section-209', 'section-210', 'section-212', 'section-301', 'section-302', 'section-304', 'section-308', 'section-707', 'section-709', 'section-1101', 'section-207']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-certificate-of-occupancy (x5) sections=['section-216', 'section-304', 'section-309']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-setbacks (x9) sections=['section-303', 'section-709', 'section-804', 'section-2006']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-fire-resistive-construction (x42) sections=['section-401', 'section-703', 'section-1005', 'section-1204', 'section-1207', 'section-1214', 'section-1401', 'section-1604']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-stairs (x44) sections=['section-403', 'section-708', 'section-1107', 'section-1108', 'section-1207', 'section-1302']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-floor-area (x46) sections=['section-502', 'section-705', 'section-709', 'section-804', 'section-807', 'section-808', 'section-1108', 'section-1207', 'section-1213', 'section-1604', 'section-1605', 'section-1606', 'section-2006']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-mixed-occupancy (x4) sections=['section-703']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-occupancy-classification (x4) sections=['section-703']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-occupancy-separation (x15) sections=['section-703', 'section-1204', 'section-1213']
+concept-occupancy-separation -> limits -> concept-fire-resistive-construction (x2) sections=['section-703']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-yards (x10) sections=['section-706', 'section-707', 'section-802', 'section-803', 'section-804', 'section-811', 'section-1102']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-light-and-ventilation (x18) sections=['section-707', 'section-708', 'section-709', 'section-801', 'section-803', 'section-804', 'section-811']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-building-height (x10) sections=['section-707', 'section-2006']
+concept-light-and-ventilation -> affects -> concept-setbacks (x1) sections=['section-709']
+concept-setbacks -> affects -> concept-yards (x3) sections=['section-709', 'section-811']
+concept-light-and-ventilation -> affects -> concept-yards (x2) sections=['section-709']
+concept-lot-occupancy -> depends_on -> concept-yards (x1) sections=['section-803']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-exit-width (x15) sections=['section-1207']
+concept-stairs -> requires -> concept-fire-resistive-construction (x2) sections=['section-1207']
+concept-floor-area -> affects -> concept-stairs (x2) sections=['section-1207']
+irr-implementing-rules-and-regulations-of-the-national-building-code -> governs -> concept-means-of-egress (x4) sections=['section-1207']
+concept-building-height -> affects -> concept-light-and-ventilation (x2) sections=['section-2006']
+concept-building-height -> affects -> concept-setbacks (x1) sections=['section-2006']
+concept-building-permit -> depends_on -> concept-setbacks (x2) sections=['section-2006'] alt=['affects']
+concept-fire-resistive-construction -> limits -> concept-occupancy-separation (x1) sections=['section-1204']
+concept-exit-width -> requires -> concept-means-of-egress (x1) sections=['section-1207']
+concept-means-of-egress -> affects -> concept-stairs (x1) sections=['section-1207']

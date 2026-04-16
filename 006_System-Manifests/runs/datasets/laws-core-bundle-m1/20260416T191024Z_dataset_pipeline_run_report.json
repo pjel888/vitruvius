@@ -1,0 +1,1462 @@
+{
+  "action": "run-dataset-graph",
+  "build": {
+    "action": "build-graph",
+    "artifact_metadata": {
+      "contributing_law_ids": [
+        "pd-1096",
+        "ra-9514",
+        "bp-344",
+        "bp-220"
+      ],
+      "dataset_id": "laws-core-bundle-m1",
+      "dataset_kind": "laws-mini-bundle",
+      "freshness_policy": {
+        "allow_dataset_local_latest": false,
+        "mode": "exact-manifest-hash-and-input-fingerprint",
+        "require_explicit_snapshot_selection": true
+      },
+      "input_fingerprint": {
+        "combined_sha256": "5a5f55ccf10c099c2c676adab8134f92ea079e525b5d83982cf444af8cd83028",
+        "file_count": 105,
+        "files": [
+          {
+            "mtime_ns": 1776321588786083348,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/accessible-ramps.md",
+            "sha256": "5311b6533210d5fdfcc7b4e6d31739d0c81f37169c852d6f3f7510221211e681",
+            "size_bytes": 1312
+          },
+          {
+            "mtime_ns": 1776189198396533043,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/building-height.md",
+            "sha256": "987c22f99d8c31a79e2d97e3f2df1c52019c5856301e93aa23eacfdb511a2b36",
+            "size_bytes": 1775
+          },
+          {
+            "mtime_ns": 1776189198396855574,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md",
+            "sha256": "d185d20a4352619607def95736aefa8f34462ddc2e0f8ebf03f778b7fb2942cd",
+            "size_bytes": 1542
+          },
+          {
+            "mtime_ns": 1776189198397325350,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/certificate-of-occupancy.md",
+            "sha256": "0cfe2d3797d91043e2ce3a044770f424dd504d17a0e2d482e322c1ebf1b43fe6",
+            "size_bytes": 1809
+          },
+          {
+            "mtime_ns": 1776189198397911039,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/doors-and-exits.md",
+            "sha256": "e5e718def415fd26a92814e585a5963cbfac27483614c0339be1a6510fb6253a",
+            "size_bytes": 863
+          },
+          {
+            "mtime_ns": 1776189198398581058,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/exit-width.md",
+            "sha256": "60b173b21be53d81096e7d7c9744278d54f176534289f0b306dac1a87a975da6",
+            "size_bytes": 267
+          },
+          {
+            "mtime_ns": 1776189198398864506,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/fire-resistive-construction.md",
+            "sha256": "c3e07138494131be362429c82f99c3410341de164dc40226350248732fbc8afc",
+            "size_bytes": 901
+          },
+          {
+            "mtime_ns": 1776189198399081708,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md",
+            "sha256": "06aae8e5c121bbfc9451e793c632a62c57893973e4d3dedf32a079654a0963c3",
+            "size_bytes": 1614
+          },
+          {
+            "mtime_ns": 1776189198399285826,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/light-and-ventilation.md",
+            "sha256": "1934558c69302a2b4f0d0c3aa6dc0b08999733522a7041318f24c5acf41ec167",
+            "size_bytes": 1792
+          },
+          {
+            "mtime_ns": 1776189198399613356,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/lot-occupancy.md",
+            "sha256": "f4fb3c6fd1c799934132dafe528251ebd216bd79e49d49994109ccb0f05852a3",
+            "size_bytes": 1767
+          },
+          {
+            "mtime_ns": 1776189198399793767,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/means-of-egress.md",
+            "sha256": "a9a4bd4f928a82063915bd503dd09290762a3532641c4f60a6b2c2a51eba9c39",
+            "size_bytes": 1777
+          },
+          {
+            "mtime_ns": 1776189198399972761,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/mixed-occupancy.md",
+            "sha256": "5a3940ab94bfa7704351b390e47189f3b06eb52ec6c8b6f55fe89f11bf881f49",
+            "size_bytes": 1777
+          },
+          {
+            "mtime_ns": 1776189198400166963,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-classification.md",
+            "sha256": "d0def9f53d8b0720e64e70ad24a768c8f8fc8085904210373fe9b77922629ae2",
+            "size_bytes": 1814
+          },
+          {
+            "mtime_ns": 1776189198400342999,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-load.md",
+            "sha256": "b56e3e343761f1f5e5cec0780fbd2edb1a3e91de1c4705dfd90d5d7f60b0efee",
+            "size_bytes": 1777
+          },
+          {
+            "mtime_ns": 1776189198400683321,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-separation.md",
+            "sha256": "0ded7f26d54b80b1b3c62821c834a49617ec9c2d6aab6ef9349f2885e3165976",
+            "size_bytes": 1793
+          },
+          {
+            "mtime_ns": 1776189198400879147,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/open-courts.md",
+            "sha256": "79d8998474872fba97e4f25aa48500d193e0020543ed6e6e63dc1301c615505c",
+            "size_bytes": 1680
+          },
+          {
+            "mtime_ns": 1776189198401080265,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/parking-and-loading-spaces.md",
+            "sha256": "fc0b0037bd71abbe348dd4e83b2b5cda602b3f599fe510751ca0db240134c040",
+            "size_bytes": 334
+          },
+          {
+            "mtime_ns": 1776189198401285008,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/projections-over-public-ways.md",
+            "sha256": "48040c29004d5136a33feb648aa270b70ca3bae063eecb6832654bbef91605e3",
+            "size_bytes": 1575
+          },
+          {
+            "mtime_ns": 1776189198401487293,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/setbacks.md",
+            "sha256": "938d58547476cbb6c9da0c179ca362db790965bdb11ef3f84b0ebfddd71361aa",
+            "size_bytes": 259
+          },
+          {
+            "mtime_ns": 1776321588787982193,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/socialized-housing-projects.md",
+            "sha256": "0a1e5c0389ed80bf82f8151231a41093299e2ace1b4ec9bc540d0edf222791fe",
+            "size_bytes": 1247
+          },
+          {
+            "mtime_ns": 1776189198401671954,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/stairs.md",
+            "sha256": "5b0d4ec737bd2cea29b54d475a2bdb969ea4e8cdd95098c925b3decf81b5d72e",
+            "size_bytes": 1753
+          },
+          {
+            "mtime_ns": 1776189198401872614,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/yards.md",
+            "sha256": "38253b69df0e5bbaab3e60aec4c37deea014ac1c960a25fccdf92e9801a8e503",
+            "size_bytes": 250
+          },
+          {
+            "mtime_ns": 1776132650185597810,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/occupancy-governs-fire-requirements.md",
+            "sha256": "02efc10b58b6d6263d679dd85e8acac9f5f53bebaddb29779df590b9e12abf8c",
+            "size_bytes": 2111
+          },
+          {
+            "mtime_ns": 1776210123956101135,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-affects-concept-building-height.md",
+            "sha256": "0e100926d309f04b58ed77fe136e5e79fa02c76285ef81ef062bfd8b5f8dff07",
+            "size_bytes": 3864
+          },
+          {
+            "mtime_ns": 1776210123954995798,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-affects-concept-stairs.md",
+            "sha256": "8175a892ed6ebad6d58f95ac7cb178da51181be49b32ae616b98f9949d783d91",
+            "size_bytes": 2198
+          },
+          {
+            "mtime_ns": 1776210123950579074,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-building-height.md",
+            "sha256": "6c2a3536425dd94e424cc1bc282ff93fee2b272bb187e40fb3bd6da85ba05cb6",
+            "size_bytes": 2848
+          },
+          {
+            "mtime_ns": 1776210123954161628,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-light-and-ventilation.md",
+            "sha256": "9014838dd5cb63ef2ab0ae630239df73705b2682f92a71040efd9913f33e0881",
+            "size_bytes": 3069
+          },
+          {
+            "mtime_ns": 1776210123951317035,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-yards.md",
+            "sha256": "c3255bfbbd81d14a0670f110223f679e5d0693d61dd6fad981be6b383e4cf6a7",
+            "size_bytes": 1963
+          },
+          {
+            "mtime_ns": 1776138730873998334,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-affects-concept-mixed-occupancy.md",
+            "sha256": "02c3302ed215843ad3b9462e9271e6d12b4cd5a3c4b95f08dbe1b19518f5d8d3",
+            "size_bytes": 2088
+          },
+          {
+            "mtime_ns": 1776210123949683321,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-affects-concept-occupancy-separation.md",
+            "sha256": "5d511c346ff8e822d919bfb93a8633305ad37e9441adb27d12269fb5159a6966",
+            "size_bytes": 2099
+          },
+          {
+            "mtime_ns": 1776138730873153247,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-depends-on-concept-mixed-occupancy.md",
+            "sha256": "51bd404be3bcbb13a3aeaeabadc6a66a70a3b16c29ea3f6a1f38022d28c7d91d",
+            "size_bytes": 2077
+          },
+          {
+            "mtime_ns": 1776140920214743844,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-affects-concept-occupancy-classification.md",
+            "sha256": "0b79d7063e8bbe30dde91c67d0e406fffe011410636dbbf3a5742f6f1d8fbbef",
+            "size_bytes": 2058
+          },
+          {
+            "mtime_ns": 1776140920213732135,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-depends-on-concept-occupancy-classification.md",
+            "sha256": "856368f04dcc486d8e57f8eba6f91127625e851c171a1bf93d78241d4287581d",
+            "size_bytes": 2007
+          },
+          {
+            "mtime_ns": 1776140920215611011,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-requires-concept-occupancy-classification.md",
+            "sha256": "6026c86ce1ff96020ce1f16bb811b8913d16f97d4d7171d9b07b27854c719af9",
+            "size_bytes": 2048
+          },
+          {
+            "mtime_ns": 1776210123952240996,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-setbacks-affects-concept-yards.md",
+            "sha256": "9b62dae2e96b52197592e0917922857be45505fa8efc1b863d1e08a9178179d0",
+            "size_bytes": 2721
+          },
+          {
+            "mtime_ns": 1776210123956855346,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-setbacks-depends-on-concept-yards.md",
+            "sha256": "06724abbc677304beddcb26667c0f43e1d41fc96343e334f493725bcaf92fc57",
+            "size_bytes": 2140
+          },
+          {
+            "mtime_ns": 1776210123947287188,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-stairs-requires-concept-fire-resistive-construction.md",
+            "sha256": "7e6d82d56b60784d9f206b5ad84defd7a2e9509e2edfd30b72647f9dcc98b236",
+            "size_bytes": 3342
+          },
+          {
+            "mtime_ns": 1776210123953167375,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-yards-affects-concept-light-and-ventilation.md",
+            "sha256": "aab9082d9a04cbb45516abbad499c492dfb87941342e06b6bb542deb556c1358",
+            "size_bytes": 3025
+          },
+          {
+            "mtime_ns": 1776210123943056632,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-height.md",
+            "sha256": "281e748e20a034853591fdd79b65e95de6fc48ef55c6381d0475772a377b4ab4",
+            "size_bytes": 3034
+          },
+          {
+            "mtime_ns": 1776210123935709939,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-permit.md",
+            "sha256": "9258aa34d8d565dccbfa484e6291128ddd977b947f177739c0c3fe995adf6c79",
+            "size_bytes": 3366
+          },
+          {
+            "mtime_ns": 1776210123936820151,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-certificate-of-occupancy.md",
+            "sha256": "cb615d241f8356eacce0621ae644e0864d6dfdf110a52f3c6efced19b5712fc3",
+            "size_bytes": 3455
+          },
+          {
+            "mtime_ns": 1776210123946332393,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-exit-width.md",
+            "sha256": "874feb08562a7942a001cf35f001fa4070fe3bc523c3b57f5b974764b53bb8a6",
+            "size_bytes": 6087
+          },
+          {
+            "mtime_ns": 1776210123938612241,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-floor-area.md",
+            "sha256": "5c597e60c300bfe50c53a044cf509c793258e82b0e1a4103c73ae32a26e51b0a",
+            "size_bytes": 2157
+          },
+          {
+            "mtime_ns": 1776210123942155295,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-light-and-ventilation.md",
+            "sha256": "89374a1cebc6a1307c0554f155928330e7e66bd078f4a2d3e27733ad0042d7a0",
+            "size_bytes": 3104
+          },
+          {
+            "mtime_ns": 1776210123944840846,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-lot-occupancy.md",
+            "sha256": "1c89ed47829ad9f056f087ca4ef13b377698737c17b2b4bf28ce891c4f560eff",
+            "size_bytes": 2132
+          },
+          {
+            "mtime_ns": 1776210123948023482,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-means-of-egress.md",
+            "sha256": "8fb05f2a699402d17c7550c802a69be148d18c469328f7e764458052a3df048d",
+            "size_bytes": 2236
+          },
+          {
+            "mtime_ns": 1776210123939526786,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-mixed-occupancy.md",
+            "sha256": "6ea8d32c7fc0683923e39fe4aec357919f2d44e6c34c7421b173a6c72c4402aa",
+            "size_bytes": 2866
+          },
+          {
+            "mtime_ns": 1776210123940328789,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-classification.md",
+            "sha256": "32e5dfff4bbe6655a304f24cd20d3622c8c1af81f8aa39d15c5cf2327173e78f",
+            "size_bytes": 2517
+          },
+          {
+            "mtime_ns": 1776210123941048250,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-separation.md",
+            "sha256": "58bf4a21065e4939c6961f38ed01d36179386c4ce3c0b716e18131dbb191b2bf",
+            "size_bytes": 2105
+          },
+          {
+            "mtime_ns": 1776210123948935068,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-setbacks.md",
+            "sha256": "b7a6880439a91e81c050ea2915da3f784cdeaa0f9f1944c73bb02153714ca234",
+            "size_bytes": 2985
+          },
+          {
+            "mtime_ns": 1776210123937653821,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-stairs.md",
+            "sha256": "bc074be8bf6a5a09790cbe1ed1a72f689c1401159711853bb5a5dfe480c64de7",
+            "size_bytes": 2301
+          },
+          {
+            "mtime_ns": 1776210123943929593,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-yards.md",
+            "sha256": "149f18482bf4923e8775627213d55ce46c367481e5f24cb4a75ba896389b0e5c",
+            "size_bytes": 2772
+          },
+          {
+            "mtime_ns": 1776138730872295327,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-law-national-building-code-of-the-philippines-governs-concept-building-permit.md",
+            "sha256": "041621df42054840f7609c43390108d35b71ff62d42a13c05c14c2c3634c65fe",
+            "size_bytes": 2218
+          },
+          {
+            "mtime_ns": 1776365402710702246,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-fire-code-of-the-philippines.md",
+            "sha256": "160d6bc3eba89f6899163fa24112065ad0cda03976e70133e4d246a44cf95342",
+            "size_bytes": 22567
+          },
+          {
+            "mtime_ns": 1776365342081214905,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-national-building-code.md",
+            "sha256": "e01f900bacb0c7748a970ed378f90323d01b00d4e6ca6b464dd951b42b9ecce1",
+            "size_bytes": 15615
+          },
+          {
+            "mtime_ns": 1776352948396551971,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/national-building-code-of-the-philippines.md",
+            "sha256": "25fc8218ff704be38e58a817781a9c82d2c2c7d499b333355948795113f85715",
+            "size_bytes": 11208
+          },
+          {
+            "mtime_ns": 1776132650185881018,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/pd-1096-national-building-code.md",
+            "sha256": "62b0e308923ac12fa4e4a8d22537630d92be4597b8a4f521e07aa82750767bb7",
+            "size_bytes": 2844
+          },
+          {
+            "mtime_ns": 1776365926043740609,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220.md",
+            "sha256": "06c89fd72e0f15dd37e3d4efdadb763a7bbde185bd981d492403fdf8d34afa32",
+            "size_bytes": 4004
+          },
+          {
+            "mtime_ns": 1776353100037093723,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344.md",
+            "sha256": "624b1ed4ae86e7cefd8cad2fdab92ed94eb03a594576f4ddfe8721e2a67e9ce5",
+            "size_bytes": 2085
+          },
+          {
+            "mtime_ns": 1776321640679497142,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp220/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects.md",
+            "sha256": "377a357f1e63869a8702c530466d43b6075b72b0283a148d7f7f08a1ff9ff8ce",
+            "size_bytes": 2200
+          },
+          {
+            "mtime_ns": 1776321640592518978,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp344/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps.md",
+            "sha256": "8c8c716612015c815481e53f5156b163d088e7d9d3b7ad9e83898804e9b9a59a",
+            "size_bytes": 2245
+          },
+          {
+            "mtime_ns": 1776318108670924228,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
+            "sha256": "38b3edba83c4794d9bed5150f729d4028dcb772badd32e24aef973e6b0a9f39c",
+            "size_bytes": 2305
+          },
+          {
+            "mtime_ns": 1776318108672632241,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
+            "sha256": "e8160d886e5e2b4d5d264b6b507e81408c5104f96cfe558579e270b025f6a956",
+            "size_bytes": 2262
+          },
+          {
+            "mtime_ns": 1776338822249352680,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
+            "sha256": "9b27415fb0504ee753d045f09ade40c2fbd162bad844cf14d7bd12c4728247ef",
+            "size_bytes": 2171
+          },
+          {
+            "mtime_ns": 1776338822249542389,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
+            "sha256": "3280ff1ef16d845d645ca7933c4b1e626d5759f8320f707976ef0f3a936201c3",
+            "size_bytes": 1882
+          },
+          {
+            "mtime_ns": 1776338822249248471,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-fire-resistive-construction.md",
+            "sha256": "4906fb7577ebd87ff139c28a22346a0e533aff3f72be88f31b1d0056aa573535",
+            "size_bytes": 2237
+          },
+          {
+            "mtime_ns": 1776338822249444264,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
+            "sha256": "4e6c93c1a5b1751384cd3bf7c3ca20262b213d093be71dad23acec56569f69d7",
+            "size_bytes": 2046
+          },
+          {
+            "mtime_ns": 1776338822249110470,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
+            "sha256": "a7e022821e323c2099b981b7576919bb8a2ddc846702eb890e1145ef4984123a",
+            "size_bytes": 1830
+          },
+          {
+            "mtime_ns": 1776336611326393904,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-floor-area.md",
+            "sha256": "748b224766642be7b2266a4dab19df16173bdea9bb7741145565b5dd73ca4cb9",
+            "size_bytes": 1932
+          },
+          {
+            "mtime_ns": 1776336611326493905,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-light-and-ventilation.md",
+            "sha256": "0a2808066372f41b0b0594cd382f344fa3757e0c97b9199a2362832cc0b2558d",
+            "size_bytes": 1991
+          },
+          {
+            "mtime_ns": 1776336611326741323,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-means-of-egress.md",
+            "sha256": "8910d2f3b627b348dc8a944675c5ace0bf6d17b88bbb02b7e7cff4e361681550",
+            "size_bytes": 1921
+          },
+          {
+            "mtime_ns": 1776336611326661406,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-setbacks.md",
+            "sha256": "3fcf1564f8a8b590280947ff89618a2baf0ade69169d40628974233fb6fed1e5",
+            "size_bytes": 1810
+          },
+          {
+            "mtime_ns": 1776336611326577155,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-stairs.md",
+            "sha256": "c1744964ac69030c27ecf47d91ed9fe75bf957e74ba378a0974b5fb83c1e3f0a",
+            "size_bytes": 1912
+          },
+          {
+            "mtime_ns": 1776336611326261528,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-yards.md",
+            "sha256": "64dc64071230d393752e21e7094e8e1e0c2d207ae7a7690970d784de0c8dc3ea",
+            "size_bytes": 1927
+          },
+          {
+            "mtime_ns": 1776336611325964359,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-stairs.md",
+            "sha256": "43c32fc0616ef31abe93fa7797d444907def91b774a6b1176adfc5eec2281ba5",
+            "size_bytes": 1732
+          },
+          {
+            "mtime_ns": 1776366624630158626,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-floor-area.md",
+            "sha256": "d2678f5a98456e5530c7eb5ab35e8507755e920f92f50f70ac778bae1b3ba826",
+            "size_bytes": 1932
+          },
+          {
+            "mtime_ns": 1776366624628335072,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects.md",
+            "sha256": "c851a45af3dcbb2c9f607ebd99644fbcaac7809c9d108eb4c9f1ab95ca60cd7f",
+            "size_bytes": 2031
+          },
+          {
+            "mtime_ns": 1776366624631049923,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-stairs.md",
+            "sha256": "bf7b0de5bcd703d1197f88c1594ce8a40b86074ac3345de3223626c7ecd07a8c",
+            "size_bytes": 2208
+          },
+          {
+            "mtime_ns": 1776366624629328412,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-yards.md",
+            "sha256": "ebc9550cce7f6fd2a79361ab213316e6622d1e8851ef005fbeea03d0c65a59d9",
+            "size_bytes": 1927
+          },
+          {
+            "mtime_ns": 1776366606456748170,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-344/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps.md",
+            "sha256": "6008d58b794c9e076c2ee69c0b676fbcbac4a7e2156430f8f1a15a87ced91547",
+            "size_bytes": 1924
+          },
+          {
+            "mtime_ns": 1776366606458952851,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-344/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-stairs.md",
+            "sha256": "5f754ff8b0c33d3e547a30ec1155510e8019c3776f9449dbfee80850089abe2b",
+            "size_bytes": 1732
+          },
+          {
+            "mtime_ns": 1776366551460246586,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-permit.md",
+            "sha256": "457d04ed383ed33fe4b1576e6aa0a798ea8ad0979355e6571f234c2c41f42548",
+            "size_bytes": 1855
+          },
+          {
+            "mtime_ns": 1776366551461438803,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-certificate-of-occupancy.md",
+            "sha256": "fbb6bb4877e39a30ee03438ab1071a48e15894b34b13a9f1495247d9c0622d98",
+            "size_bytes": 2274
+          },
+          {
+            "mtime_ns": 1776366551468229889,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-exit-width.md",
+            "sha256": "7f78aac87d870876fda601f684731036187cf108c10ae81f5e6b70e0c31477f3",
+            "size_bytes": 2076
+          },
+          {
+            "mtime_ns": 1776366551463159522,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-floor-area.md",
+            "sha256": "f6aab9f288ab5e56d7c13d48b763b95b4b6bdc5fa6338283cc9b5ede5da64eca",
+            "size_bytes": 2072
+          },
+          {
+            "mtime_ns": 1776366551467406633,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-light-and-ventilation.md",
+            "sha256": "fb83f607debe0c0d4a6aeedfe16907e4f5ef38e7667b36769e300c92f4d840b1",
+            "size_bytes": 2257
+          },
+          {
+            "mtime_ns": 1776366551469033894,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-means-of-egress.md",
+            "sha256": "db9c617afad59a73bfa9d8939906ed2dbc3935808fe022898b8dd0ce54dd0775",
+            "size_bytes": 2097
+          },
+          {
+            "mtime_ns": 1776366551463963861,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-mixed-occupancy.md",
+            "sha256": "2991b1043b15e2dd413f4a22ef44f2968360e15036f10f089be1d41f782c3f90",
+            "size_bytes": 2085
+          },
+          {
+            "mtime_ns": 1776366551464783491,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-classification.md",
+            "sha256": "747e711f1c9cae681b0fbd1c7992677288366e505efa03264b5ad2e0811605fb",
+            "size_bytes": 2196
+          },
+          {
+            "mtime_ns": 1776366551465622830,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-separation.md",
+            "sha256": "b3f7d0ae1e6ace2f9f3d6fffc2101b35655f20d1728f80a8bf27d7ab2ddc3350",
+            "size_bytes": 1998
+          },
+          {
+            "mtime_ns": 1776366551462324225,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-stairs.md",
+            "sha256": "443edaa077285129c43a54ea05c9fe5c52289ba46f067978d35793102727b69d",
+            "size_bytes": 1966
+          },
+          {
+            "mtime_ns": 1776366551466500336,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-yards.md",
+            "sha256": "3b612c481674da278ad3975bb192af585bf632d2bff6bbfa2a9e05a4799c556b",
+            "size_bytes": 2177
+          },
+          {
+            "mtime_ns": 1776366490890532636,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-exit-width.md",
+            "sha256": "6582c605dffd7cfd243141ce28eb8bd50596cc8e8825bfe12d049ca5fe8b3079",
+            "size_bytes": 1915
+          },
+          {
+            "mtime_ns": 1776366490889733214,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-floor-area.md",
+            "sha256": "a5001b5f99e3eaf9131d7e19e95027ac35592a7430f9082ec79bd55dc53d7e56",
+            "size_bytes": 2041
+          },
+          {
+            "mtime_ns": 1776366490887890160,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-occupancy-separation.md",
+            "sha256": "4840d7edfe001a5d6067fe984a98df2481fe417ca0a682a1dd22711d551a167c",
+            "size_bytes": 1737
+          },
+          {
+            "mtime_ns": 1776366490886881737,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-stairs.md",
+            "sha256": "9cacd1d322b1ff4f4c4ef4cefc558dd334b23539c2f8f97d2d70b9971ecb9d09",
+            "size_bytes": 2021
+          },
+          {
+            "mtime_ns": 1776366490888842542,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-yards.md",
+            "sha256": "0fb4edacbeb874a6bc4a248ea31fd1c2932e8b10f1d06c1ed9442c8f5fbfc6e5",
+            "size_bytes": 2016
+          },
+          {
+            "mtime_ns": 1776366600311566166,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
+            "sha256": "6b167239677b42ec58446f8be0ccc2c63bfd2b001d9637078dca7d05534c6fce",
+            "size_bytes": 2195
+          },
+          {
+            "mtime_ns": 1776366600310604576,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
+            "sha256": "ff979942238f9e7f2a06b526db5770c6554ab3c40c50abcf1f91120f0f94c3a6",
+            "size_bytes": 2078
+          },
+          {
+            "mtime_ns": 1776366600316003029,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
+            "sha256": "d63f48aa7199ef9647d0ae0b9ac4ae23f1c0160b4167b8b277e20c6148973967",
+            "size_bytes": 1868
+          },
+          {
+            "mtime_ns": 1776366600309421860,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
+            "sha256": "3b911548f63dd742b77272c07a8f921efd6b7e79220fbfd310a92f78d59fb8bb",
+            "size_bytes": 2138
+          },
+          {
+            "mtime_ns": 1776366600316868742,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-light-and-ventilation.md",
+            "sha256": "f2a0035fb1854bc29851e069bbffb031821c9bbc1461705c9233aceaf51453ec",
+            "size_bytes": 2289
+          },
+          {
+            "mtime_ns": 1776366600312573006,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-occupancy-classification.md",
+            "sha256": "6508aea8fd785d4750711ee1a210c47c32196aeec1c17cf24972132aa5a9e6c6",
+            "size_bytes": 2324
+          },
+          {
+            "mtime_ns": 1776366600313397428,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
+            "sha256": "4e2bf36a644021a17527cd8d3ef806925ff016cfdb1864bc1fc8fb79a6a5f90f",
+            "size_bytes": 1816
+          },
+          {
+            "mtime_ns": 1776366600317668706,
+            "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards.md",
+            "sha256": "eba0c15bde5efaa480ddacd3cf289d1c136c365133d456a710d4714c7647209e",
+            "size_bytes": 2105
+          }
+        ]
+      },
+      "law_units": [
+        {
+          "admitted_concept_paths": [
+            "003_Canonical-Knowledge-Layer/shared/concepts/building-height.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/certificate-of-occupancy.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/doors-and-exits.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/exit-width.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/fire-resistive-construction.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/light-and-ventilation.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/lot-occupancy.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/means-of-egress.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/mixed-occupancy.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-classification.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-load.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-separation.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/open-courts.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/parking-and-loading-spaces.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/projections-over-public-ways.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/setbacks.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/stairs.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/yards.md"
+          ],
+          "admitted_relationship_paths": [
+            "003_Canonical-Knowledge-Layer/shared/relationships/occupancy-governs-fire-requirements.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-affects-concept-building-height.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-affects-concept-stairs.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-building-height.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-light-and-ventilation.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-yards.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-affects-concept-mixed-occupancy.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-affects-concept-occupancy-separation.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-depends-on-concept-mixed-occupancy.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-affects-concept-occupancy-classification.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-depends-on-concept-occupancy-classification.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-requires-concept-occupancy-classification.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-setbacks-affects-concept-yards.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-setbacks-depends-on-concept-yards.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-stairs-requires-concept-fire-resistive-construction.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-yards-affects-concept-light-and-ventilation.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-height.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-permit.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-certificate-of-occupancy.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-exit-width.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-floor-area.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-light-and-ventilation.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-lot-occupancy.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-means-of-egress.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-mixed-occupancy.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-classification.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-separation.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-setbacks.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-stairs.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-yards.md",
+            "003_Canonical-Knowledge-Layer/shared/relationships/rel-law-national-building-code-of-the-philippines-governs-concept-building-permit.md"
+          ],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-national-building-code.md",
+            "003_Canonical-Knowledge-Layer/shared/sources/national-building-code-of-the-philippines.md",
+            "003_Canonical-Knowledge-Layer/shared/sources/pd-1096-national-building-code.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code.pdf",
+            "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 RIRR 2004 - Revised IRR (DPWH Official).pdf"
+          ],
+          "excluded_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code Illustrated (Pedro Santos Jr).pdf",
+            "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code Summary.pdf"
+          ],
+          "folder_name": "PD-1096",
+          "law_id": "pd-1096",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code.pdf",
+            "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 RIRR 2004 - Revised IRR (DPWH Official).pdf",
+            "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code Illustrated (Pedro Santos Jr).pdf",
+            "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code Summary.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md",
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md"
+          ],
+          "scope_notes": [
+            "Primary code plus explicit IRR variant remain admitted truth-bearing inputs.",
+            "Illustrated and summary editions stay excluded by manifest policy."
+          ],
+          "verification_checks": [
+            "bounded pilot remains covered for PD-1096",
+            "dataset-scoped graph/query/export preserve global latest isolation"
+          ]
+        },
+        {
+          "admitted_concept_paths": [],
+          "admitted_relationship_paths": [
+            "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
+            "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md"
+          ],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-fire-code-of-the-philippines.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-9514/RA9514-RIRR-rev-2019.pdf"
+          ],
+          "excluded_variant_paths": [],
+          "folder_name": "RA-9514",
+          "law_id": "ra-9514",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-9514/RA9514-RIRR-rev-2019.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md"
+          ],
+          "scope_notes": [
+            "Fire Code unit stays conservative: only admitted, audited relationship evidence enters the official graph."
+          ],
+          "verification_checks": [
+            "scoped query proves at least one admitted fire-code path",
+            "human-reviewed exclusions remain outside the official manifest"
+          ]
+        },
+        {
+          "admitted_concept_paths": [
+            "003_Canonical-Knowledge-Layer/shared/concepts/accessible-ramps.md"
+          ],
+          "admitted_relationship_paths": [
+            "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp344/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps.md"
+          ],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.pdf"
+          ],
+          "excluded_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/BP-344/BP-344 IRR Accessibility Law DPWH.pdf",
+            "001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf"
+          ],
+          "folder_name": "BP-344",
+          "law_id": "bp-344",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.pdf",
+            "001_Raw-Source-Layer/001-Laws/BP-344/BP-344 IRR Accessibility Law DPWH.pdf",
+            "001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md"
+          ],
+          "scope_notes": [
+            "NCDA 2024 RIRR is the admitted authoritative variant for this bounded lane.",
+            "DPWH variant and adjacent DPWH context remain explicit but excluded."
+          ],
+          "verification_checks": [
+            "concept-fit admission keeps BP-344 covered without widening scope heuristics"
+          ]
+        },
+        {
+          "admitted_concept_paths": [
+            "003_Canonical-Knowledge-Layer/shared/concepts/socialized-housing-projects.md"
+          ],
+          "admitted_relationship_paths": [
+            "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp220/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects.md"
+          ],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/BP-220/Revised_IRR_BP220_2008.pdf"
+          ],
+          "excluded_variant_paths": [],
+          "folder_name": "BP-220",
+          "law_id": "bp-220",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/BP-220/Revised_IRR_BP220_2008.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md"
+          ],
+          "scope_notes": [
+            "BP-220 remains represented by its admitted RIRR plus scoped concept and relationship inputs."
+          ],
+          "verification_checks": [
+            "concept-fit admission keeps BP-220 covered without widening scope heuristics"
+          ]
+        }
+      ],
+      "manifest_hash": "e1ca6434ecf64078f4334d328afd8342eb74fa4a4375c522cb3857707af3a31b",
+      "manifest_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/derived_dataset_manifest.yaml",
+      "pilot_gate": {
+        "require_bounded_inputs": true,
+        "require_bounded_outputs": true,
+        "require_low_spec_budget": true,
+        "require_manifest_validation": true,
+        "require_no_global_latest_reads_in_dataset_mode": true,
+        "require_scoped_query": true
+      },
+      "run_id": "20260416T191024Z",
+      "scope_notes": [
+        "Bounded M1 scoped graph proof only.",
+        "No generic Phase 11 corpus expansion is implied by this manifest.",
+        "Only manifest-selected canonical/promoted inputs may enter the scoped graph."
+      ],
+      "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/20260416T191024Z_graph_integrity_report.json",
+      "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/20260416T191024Z_graph_snapshot.json",
+      "upstream_artifact_refs": {
+        "canonical_concepts": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/building-height.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/certificate-of-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/doors-and-exits.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/exit-width.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/fire-resistive-construction.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/light-and-ventilation.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/lot-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/means-of-egress.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/mixed-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-classification.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-load.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-separation.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/open-courts.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/parking-and-loading-spaces.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/projections-over-public-ways.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/setbacks.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/stairs.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/yards.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/accessible-ramps.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/socialized-housing-projects.md"
+        ],
+        "canonical_sources": [
+          "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-national-building-code.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/national-building-code-of-the-philippines.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/pd-1096-national-building-code.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-fire-code-of-the-philippines.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344.md"
+        ],
+        "relationship_inputs": [
+          "003_Canonical-Knowledge-Layer/shared/relationships/occupancy-governs-fire-requirements.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-affects-concept-building-height.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-affects-concept-stairs.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-building-height.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-light-and-ventilation.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-yards.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-affects-concept-mixed-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-affects-concept-occupancy-separation.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-depends-on-concept-mixed-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-affects-concept-occupancy-classification.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-depends-on-concept-occupancy-classification.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-requires-concept-occupancy-classification.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-setbacks-affects-concept-yards.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-setbacks-depends-on-concept-yards.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-stairs-requires-concept-fire-resistive-construction.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-yards-affects-concept-light-and-ventilation.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-height.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-permit.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-certificate-of-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-exit-width.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-floor-area.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-light-and-ventilation.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-lot-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-means-of-egress.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-mixed-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-classification.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-separation.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-setbacks.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-stairs.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-yards.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-law-national-building-code-of-the-philippines-governs-concept-building-permit.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp344/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp220/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-stairs.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-yards.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-floor-area.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-light-and-ventilation.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-stairs.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-setbacks.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-means-of-egress.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-fire-resistive-construction.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-exit-width.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-floor-area.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-occupancy-separation.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-stairs.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-yards.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-permit.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-certificate-of-occupancy.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-exit-width.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-floor-area.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-light-and-ventilation.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-means-of-egress.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-mixed-occupancy.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-classification.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-separation.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-stairs.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-yards.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-light-and-ventilation.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-occupancy-classification.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-344/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-344/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-stairs.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-floor-area.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-stairs.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-yards.md"
+        ]
+      }
+    },
+    "build_report_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/20260416T191024Z_build_graph_dataset_report.json",
+    "contributing_law_ids": [
+      "pd-1096",
+      "ra-9514",
+      "bp-344",
+      "bp-220"
+    ],
+    "coverage": [
+      {
+        "approved_relationship_input_count": 47,
+        "canonical_count": 23,
+        "converted_count": null,
+        "edge_count_contributed": 88,
+        "folder_name": "PD-1096",
+        "node_count_contributed": 21,
+        "notes": "selected truth-bearing inputs contributed nodes/edges",
+        "raw_file_count": 15,
+        "refined_count": null,
+        "status": "covered"
+      },
+      {
+        "approved_relationship_input_count": 15,
+        "canonical_count": 1,
+        "converted_count": null,
+        "edge_count_contributed": 15,
+        "folder_name": "RA-9514",
+        "node_count_contributed": 1,
+        "notes": "selected truth-bearing inputs contributed nodes/edges",
+        "raw_file_count": 1,
+        "refined_count": null,
+        "status": "covered"
+      },
+      {
+        "approved_relationship_input_count": 4,
+        "canonical_count": 2,
+        "converted_count": null,
+        "edge_count_contributed": 5,
+        "folder_name": "BP-344",
+        "node_count_contributed": 2,
+        "notes": "selected truth-bearing inputs contributed nodes/edges",
+        "raw_file_count": 2,
+        "refined_count": null,
+        "status": "covered"
+      },
+      {
+        "approved_relationship_input_count": 11,
+        "canonical_count": 2,
+        "converted_count": null,
+        "edge_count_contributed": 12,
+        "folder_name": "BP-220",
+        "node_count_contributed": 2,
+        "notes": "selected truth-bearing inputs contributed nodes/edges",
+        "raw_file_count": 1,
+        "refined_count": null,
+        "status": "covered"
+      }
+    ],
+    "dataset_id": "laws-core-bundle-m1",
+    "dataset_kind": "laws-mini-bundle",
+    "dry_run": false,
+    "edge_count": 94,
+    "incomplete": false,
+    "integrity": {
+      "error_count": 0,
+      "findings": [
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines",
+          "edge_to": "concept-building-permit",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines -[governs]-> concept-building-permit (evidence rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines",
+          "edge_to": "concept-certificate-of-occupancy",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines -[governs]-> concept-certificate-of-occupancy (evidence rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines",
+          "edge_to": "concept-exit-width",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines -[governs]-> concept-exit-width (evidence rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines",
+          "edge_to": "concept-floor-area",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines -[governs]-> concept-floor-area (evidence rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines",
+          "edge_to": "concept-stairs",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines -[governs]-> concept-stairs (evidence rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+          "edge_to": "concept-building-permit",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-national-building-code -[governs]-> concept-building-permit (evidence rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-permit)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+          "edge_to": "concept-certificate-of-occupancy",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-national-building-code -[governs]-> concept-certificate-of-occupancy (evidence rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-certificate-of-occupancy)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+          "edge_to": "concept-exit-width",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-national-building-code -[governs]-> concept-exit-width (evidence rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-exit-width)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+          "edge_to": "concept-floor-area",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-national-building-code -[governs]-> concept-floor-area (evidence rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-floor-area)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+          "edge_to": "concept-light-and-ventilation",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-national-building-code -[governs]-> concept-light-and-ventilation (evidence rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-light-and-ventilation)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+          "edge_to": "concept-means-of-egress",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-national-building-code -[governs]-> concept-means-of-egress (evidence rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-means-of-egress)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+          "edge_to": "concept-mixed-occupancy",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-national-building-code -[governs]-> concept-mixed-occupancy (evidence rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-mixed-occupancy)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+          "edge_to": "concept-occupancy-classification",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-national-building-code -[governs]-> concept-occupancy-classification (evidence rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-classification)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+          "edge_to": "concept-occupancy-separation",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-national-building-code -[governs]-> concept-occupancy-separation (evidence rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-separation)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+          "edge_to": "concept-stairs",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-national-building-code -[governs]-> concept-stairs (evidence rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-stairs)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+          "edge_to": "concept-yards",
+          "message": "duplicate edge: irr-implementing-rules-and-regulations-of-the-national-building-code -[governs]-> concept-yards (evidence rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-yards)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+          "edge_to": "concept-floor-area",
+          "message": "duplicate edge: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -[governs]-> concept-floor-area (evidence rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-floor-area)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+          "edge_to": "concept-socialized-housing-projects",
+          "message": "duplicate edge: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -[governs]-> concept-socialized-housing-projects (evidence rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+          "edge_to": "concept-stairs",
+          "message": "duplicate edge: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -[governs]-> concept-stairs (evidence rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-stairs)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+          "edge_to": "concept-yards",
+          "message": "duplicate edge: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -[governs]-> concept-yards (evidence rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-yards)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+          "edge_to": "concept-accessible-ramps",
+          "message": "duplicate edge: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344 -[governs]-> concept-accessible-ramps (evidence rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+          "edge_to": "concept-stairs",
+          "message": "duplicate edge: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344 -[governs]-> concept-stairs (evidence rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-stairs)",
+          "node_id": null,
+          "severity": "warning"
+        }
+      ],
+      "passed": true,
+      "warning_count": 22
+    },
+    "integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/20260416T191024Z_graph_integrity_report.json",
+    "law_unit_count": 4,
+    "law_units": [
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/building-height.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/certificate-of-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/doors-and-exits.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/exit-width.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/fire-resistive-construction.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/light-and-ventilation.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/lot-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/means-of-egress.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/mixed-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-classification.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-load.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/occupancy-separation.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/open-courts.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/parking-and-loading-spaces.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/projections-over-public-ways.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/setbacks.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/stairs.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/yards.md"
+        ],
+        "admitted_relationship_paths": [
+          "003_Canonical-Knowledge-Layer/shared/relationships/occupancy-governs-fire-requirements.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-affects-concept-building-height.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-affects-concept-stairs.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-building-height.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-light-and-ventilation.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-floor-area-depends-on-concept-yards.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-affects-concept-mixed-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-affects-concept-occupancy-separation.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-classification-depends-on-concept-mixed-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-affects-concept-occupancy-classification.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-depends-on-concept-occupancy-classification.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-occupancy-separation-requires-concept-occupancy-classification.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-setbacks-affects-concept-yards.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-setbacks-depends-on-concept-yards.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-stairs-requires-concept-fire-resistive-construction.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-concept-yards-affects-concept-light-and-ventilation.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-height.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-permit.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-certificate-of-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-exit-width.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-floor-area.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-light-and-ventilation.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-lot-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-means-of-egress.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-mixed-occupancy.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-classification.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-separation.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-setbacks.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-stairs.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-yards.md",
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-law-national-building-code-of-the-philippines-governs-concept-building-permit.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-national-building-code.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/national-building-code-of-the-philippines.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/pd-1096-national-building-code.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code.pdf",
+          "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 RIRR 2004 - Revised IRR (DPWH Official).pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code Illustrated (Pedro Santos Jr).pdf",
+          "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code Summary.pdf"
+        ],
+        "folder_name": "PD-1096",
+        "law_id": "pd-1096",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code.pdf",
+          "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 RIRR 2004 - Revised IRR (DPWH Official).pdf",
+          "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code Illustrated (Pedro Santos Jr).pdf",
+          "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code Summary.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md",
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md"
+        ],
+        "scope_notes": [
+          "Primary code plus explicit IRR variant remain admitted truth-bearing inputs.",
+          "Illustrated and summary editions stay excluded by manifest policy."
+        ],
+        "verification_checks": [
+          "bounded pilot remains covered for PD-1096",
+          "dataset-scoped graph/query/export preserve global latest isolation"
+        ]
+      },
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-fire-code-of-the-philippines.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9514/RA9514-RIRR-rev-2019.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "RA-9514",
+        "law_id": "ra-9514",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9514/RA9514-RIRR-rev-2019.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md"
+        ],
+        "scope_notes": [
+          "Fire Code unit stays conservative: only admitted, audited relationship evidence enters the official graph."
+        ],
+        "verification_checks": [
+          "scoped query proves at least one admitted fire-code path",
+          "human-reviewed exclusions remain outside the official manifest"
+        ]
+      },
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/accessible-ramps.md"
+        ],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp344/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/BP-344/BP-344 IRR Accessibility Law DPWH.pdf",
+          "001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf"
+        ],
+        "folder_name": "BP-344",
+        "law_id": "bp-344",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.pdf",
+          "001_Raw-Source-Layer/001-Laws/BP-344/BP-344 IRR Accessibility Law DPWH.pdf",
+          "001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md"
+        ],
+        "scope_notes": [
+          "NCDA 2024 RIRR is the admitted authoritative variant for this bounded lane.",
+          "DPWH variant and adjacent DPWH context remain explicit but excluded."
+        ],
+        "verification_checks": [
+          "concept-fit admission keeps BP-344 covered without widening scope heuristics"
+        ]
+      },
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/socialized-housing-projects.md"
+        ],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp220/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/BP-220/Revised_IRR_BP220_2008.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "BP-220",
+        "law_id": "bp-220",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/BP-220/Revised_IRR_BP220_2008.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md"
+        ],
+        "scope_notes": [
+          "BP-220 remains represented by its admitted RIRR plus scoped concept and relationship inputs."
+        ],
+        "verification_checks": [
+          "concept-fit admission keeps BP-220 covered without widening scope heuristics"
+        ]
+      }
+    ],
+    "manifest_hash": "e1ca6434ecf64078f4334d328afd8342eb74fa4a4375c522cb3857707af3a31b",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/derived_dataset_manifest.yaml",
+    "mode": "dataset",
+    "node_count": 26,
+    "run_id": "20260416T191024Z",
+    "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/20260416T191024Z_graph_snapshot.json",
+    "thin_graph_metrics": {
+      "connected_component_count": 1,
+      "edge_type_diversity": {
+        "count": 5,
+        "types": [
+          "affects",
+          "defines",
+          "depends_on",
+          "governs",
+          "requires"
+        ]
+      },
+      "isolated_node_count": 0,
+      "isolated_node_rate": 0.0,
+      "per_folder_node_edge_balance": {
+        "BP-220": {
+          "edge_count_contributed": 12,
+          "node_count_contributed": 2,
+          "status": "covered"
+        },
+        "BP-344": {
+          "edge_count_contributed": 5,
+          "node_count_contributed": 2,
+          "status": "covered"
+        },
+        "PD-1096": {
+          "edge_count_contributed": 88,
+          "node_count_contributed": 21,
+          "status": "covered"
+        },
+        "RA-9514": {
+          "edge_count_contributed": 15,
+          "node_count_contributed": 1,
+          "status": "covered"
+        }
+      }
+    }
+  },
+  "contributing_law_ids": [
+    "pd-1096",
+    "ra-9514",
+    "bp-344",
+    "bp-220"
+  ],
+  "dataset_id": "laws-core-bundle-m1",
+  "dataset_kind": "laws-mini-bundle",
+  "generated_at_utc": "20260416T191025Z",
+  "law_unit_count": 4,
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T190728Z/derived_dataset_manifest.yaml",
+  "owl": null,
+  "run_id": "20260416T191024Z",
+  "structured_checks": []
+}

@@ -1,0 +1,670 @@
+{
+  "generated_at": "20260416T191658Z",
+  "source": "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+  "total_candidates": 28,
+  "auto_accept_count": 11,
+  "auto_reject_count": 7,
+  "needs_review_count": 10,
+  "buckets": {
+    "auto_accept": [
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-building-permit",
+        "occurrences": 34,
+        "sections": [
+          "section-209",
+          "section-210",
+          "section-212",
+          "section-301",
+          "section-302",
+          "section-304",
+          "section-308",
+          "section-707",
+          "section-709",
+          "section-1101",
+          "section-207"
+        ],
+        "examples": [
+          "Public buildings and traditional indigenous family dwellings shall be exempt from payment of building permit fees.",
+          "Compensation of consultants, experts and advisers whose services were secured shall be funded from the 20% income derived from the building permit fees and other charges.",
+          "- i. Compensation of consultants, experts and advisers whose services were secured shall be funded from the 20% income derived from the building permit fees and other charges. - ii. Any circular/s that may subsequently be issued by the proper authorities revoking or amending provisions or certain po"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-certificate-of-occupancy",
+        "occurrences": 5,
+        "sections": [
+          "section-216",
+          "section-304",
+          "section-309"
+        ],
+        "examples": [
+          "- perfected. In which case, the fifteen (15) day period shall be suspended accordingly. If the motion for reconsideration is denied, the movant shall have the right to perfect his appeal during the remainder of the period for appeal, reckoned from the date of receipt of the resolution of denial. If ",
+          "That no building/structure shall be used until the Building Official has issued a Certificate of Occupancy therefor as provided in the Code.",
+          "If, after the prescribed period no action is taken by the C/MFM, the Building Official may issue the Certificate of Occupancy with the condition that the Fire Safety requirements shall be complied with, within the prescribed period set forth in the Fire Code of the Philippines (PD 1185)."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-stairs",
+        "occurrences": 44,
+        "sections": [
+          "section-403",
+          "section-708",
+          "section-1107",
+          "section-1108",
+          "section-1207",
+          "section-1302"
+        ],
+        "examples": [
+          "Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs &roofs shall be governed by the pertinent provision of the Fire Code of the Philippines.",
+          "###### 3. Standards for materials use in structural framework, exterior walls and openings, floors, exits, stairs &roofs shall be governed by the pertinent provision of the Fire Code of the Philippines.",
+          "- 7. Roof The wind load for roofs shall be at least 120 kilograms per sq. meter for vertical projection. - 8. Stairs"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-floor-area",
+        "occurrences": 46,
+        "sections": [
+          "section-502",
+          "section-705",
+          "section-709",
+          "section-804",
+          "section-807",
+          "section-808",
+          "section-1108",
+          "section-1207",
+          "section-1213",
+          "section-1604",
+          "section-1605",
+          "section-1606",
+          "section-2006"
+        ],
+        "examples": [
+          "A building/structure which is located partly in one (1) fire zone and partly in another shall be considered to be in the more highly restrictive fire zone, when more than one third (1/3) of its total floor area is located in such zone.",
+          "- 1. General. The Allowable Maximum Total Gross Floor Area (TGFA) of any proposed building/structure shall only be as allowed under this Rule. - 2. TGFA Limitation. In Table VII.1. hereafter, the percentages (%) indicated in the third (3rd) through eighth (8th) columns, but excluding the multiplier ",
+          "Initially determine building bulk by computing for the maximum allowable Gross Floor Area (GFA) for the building/structure using the formula:"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-mixed-occupancy",
+        "occurrences": 4,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "When a building is of mixed occupancy or used for more than one occupancy, the whole building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following:",
+          "When a building is of mixed occupancy or used for more than one occupancy, the whole building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following:",
+          "When a building is of mixed occupancy or used for more than one occupancy, the whole building shall be subject to the most restrictive requirement pertaining to any of the type of occupancy found therein except in the following:"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-occupancy-classification",
+        "occurrences": 4,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "Where minor accessory uses do not occupy more than 10% of the area of any floor or a building, nor more than 10% of the basic area permitted in the occupancy requirements, in which case, the major use of the building shall determine the occupancy classification.",
+          "- a. When a one-storey building houses more than one occupancy, each portion of the building shall conform to the requirement of the particular occupancy housed therein and; - b. Where minor accessory uses do not occupy more than 10% of the area of any floor or a building, nor more than 10% of the b",
+          "- (2) Where minor accessory uses do not occupy more than ten percent of the area of any floor or a building, nor more than ten percent of the basic area permitted in the occupancy requirements, in which case, the major use of the building shall determine the occupancy classification."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-occupancy-separation",
+        "occurrences": 15,
+        "sections": [
+          "section-703",
+          "section-1204",
+          "section-1213"
+        ],
+        "examples": [
+          "Occupancy separation shall be classified as “One-Hour Fire-Resistive”, “Two-Hour Fire-Resistive”, “Three-Hour Fire-Resistive” and “Four-Hour Fire-Resistive.”",
+          "A “One-Hour Fire-Resistive Occupancy Separation” shall be of not less than one-hour fireresistive construction.",
+          "A “Two-Hour Fire-Resistive Occupancy Separation” shall be of not less than two-hour fireresistive construction."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-yards",
+        "occurrences": 10,
+        "sections": [
+          "section-706",
+          "section-707",
+          "section-802",
+          "section-803",
+          "section-804",
+          "section-811",
+          "section-1102"
+        ],
+        "examples": [
+          "The floor areas hereinabove provided may be increased in certain specific instances and under appropriate conditions, based on the existence of public space, streets or yards extending along and adjoining two or more sides of the building or structure subject to the approval of the Building Official",
+          "- iv. For R-2, R-3, GI, C, C-2 and C-3 uses or occupancies, front yards abutting RROW are not to be used for long-term off-street parking. Due to the very public nature of these uses (high vehicular and pedestrian concentrations), the front yard (a transition space between the RROW and the building/",
+          "Courts, yards, and light wells shall be measured clear of all projections from the walls enclosing such wells or yards with the exception of roof leaders, wall copings, sills, or steel fire escapes not exceeding 1.20 meters in width."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-light-and-ventilation",
+        "occurrences": 18,
+        "sections": [
+          "section-707",
+          "section-708",
+          "section-709",
+          "section-801",
+          "section-803",
+          "section-804",
+          "section-811"
+        ],
+        "examples": [
+          "The maximum height and number of storeys of proposed building shall be dependent upon the character of use or occupancy and the type of construction, considering end-user population density, light and ventilation, width of RROW/streets particularly of its roadway/carriageway component, building bulk",
+          "Every dwelling shall be so constructed and arranged as to provide adequate light and ventilation as provided under Section 805 to Section 811 of the Code.",
+          "Subject to the provisions of the Code, the Secretary shall promulgate rules and regulations for each of the other Group Occupancies covering: allowable construction, height, and area; location on property, exit facilities, light and ventilation, sanitation; enclosures of vertical openings; fire exti"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-exit-width",
+        "occurrences": 15,
+        "sections": [
+          "section-1207"
+        ],
+        "examples": [
+          "The total exit width required from any storey of a building shall be determined by using the occupant load of that storey plus the percentage of the occupant loads of floors which exits through the level under consideration as follows:",
+          "The total exit width required from any storey of a building shall be determined by using the occupant load of that storey plus the percentage of the occupant loads of floors which exits through the level under consideration as follows:",
+          "The maximum exit width from any storey of a building shall be maintained."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-means-of-egress",
+        "occurrences": 4,
+        "sections": [
+          "section-1207"
+        ],
+        "examples": [
+          "Except in Group A Occupancies, every boiler room and every room containing an incinerator or liquefied petroleum gas or liquid fuel-fired equipment shall be provided with at least two (2) means of egress, one of which may be a ladder.",
+          "Except in Group A Occupancies, every boiler room and every room containing an incinerator or liquefied petroleum gas or liquid fuel-fired equipment shall be provided with at least two (2) means of egress, one of which may be a ladder. All interior openings shall be protected as provided for in the C",
+          "Except in Group A Occupancies, every boiler room and every room containing an incinerator or liquefied petroleum gas or liquid fuel-fired equipment shall be provided with at least two means of egress, one of which may be a ladder."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      }
+    ],
+    "auto_reject": [
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-socialized-housing-projects",
+        "occurrences": 2,
+        "sections": [
+          "section-103"
+        ],
+        "examples": [
+          "- 1. The scope of this IRR shall cover the following disciplines: architectural, civil/structural, electrical, mechanical, sanitary, plumbing, and electronics. This shall also apply to the design, location, siting, construction, alteration, repair, conversion, use, occupancy, maintenance, moving, de",
+          "- 1. The scope of this IRR shall cover the following disciplines: architectural, civil/structural, electrical, mechanical, sanitary, plumbing, and electronics. This shall also apply to the design, location, siting, construction, alteration, repair, conversion, use, occupancy, maintenance, moving, de"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['socialized housing projects'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-fire-resistive-construction",
+        "occurrences": 42,
+        "sections": [
+          "section-401",
+          "section-703",
+          "section-1005",
+          "section-1204",
+          "section-1207",
+          "section-1214",
+          "section-1401",
+          "section-1604"
+        ],
+        "examples": [
+          "Exterior walls shall be of incombustible fire-resistive construction.",
+          "Type IV - shall be steel, iron, concrete, or masonry construction and walls, ceiling and permanent partitions shall be of incombustible fire-resistive construction, except, that permanent non-bearing partitions of one-hour fire-resistive construction may use fire-retardant treated wood within the fr",
+          "- 1. Type I - shall be of wood construction. The structural elements may be any of the materials permitted by the Code. - 2. Type II - shall be of wood construction with protective fire-resistant materials and one-hour fireresistive throughout, except, that permanent non-bearing partitions may use f"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['fire resistive construction'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "concept-occupancy-separation",
+        "type": "limits",
+        "to": "concept-fire-resistive-construction",
+        "occurrences": 2,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "- a. A “One-Hour Fire-Resistive Occupancy Separation” shall be of not less than one-hour fireresistive construction. All openings in such separation shall be protected by a fire-assembly having a one-hour fire-resistive rating. - b. A “Two-Hour Fire-Resistive Occupancy Separation” shall be of not le",
+          "- (1) A “One-Hour Fire-Resistive Occupancy Separation” shall be of not less than one-hour fire-resistive construction. All openings in such separation shall be protected by a fireassembly having a one-hour fire-resistive rating. - (2) A “Two-Hour Fire-Resistive Occupancy Separation” shall be of not "
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 1.0,
+          "reasons": [
+            "registry_incompatible: (concept, concept) not valid for 'limits'"
+          ]
+        }
+      },
+      {
+        "from": "concept-light-and-ventilation",
+        "type": "affects",
+        "to": "concept-setbacks",
+        "occurrences": 1,
+        "sections": [
+          "section-709"
+        ],
+        "examples": [
+          "- 1. General. Building bulk (a volume quantity) shall be generally determined by the application of the Floor-Lot Area Ratio (FLAR), vertically projecting the Allowable Maximum Building Footprint (AMBF), establishing the Outermost Faces of Building (OFB) and quantifying the Allowable Maximum Volume "
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['light and ventilation', 'setbacks'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "concept-building-height",
+        "type": "affects",
+        "to": "concept-setbacks",
+        "occurrences": 1,
+        "sections": [
+          "section-2006"
+        ],
+        "examples": [
+          "OUTERMOST FACES OF BUILDING (OFB) - The outermost and topmost vertical or angular planes of a proposed building/structure that shall govern the limits of its walls and roof. It is primarily determined by first vertically projecting the outermost lines of the Alllowable Maximum Building Footprint (AM"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['building height', 'setbacks'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "concept-fire-resistive-construction",
+        "type": "limits",
+        "to": "concept-occupancy-separation",
+        "occurrences": 1,
+        "sections": [
+          "section-1204"
+        ],
+        "examples": [
+          "- (a) General. Vertical openings shall be enclosed depending upon the fire-resistive requirements of a particular type of construction as set forth in this Code. - (b) Elevator Enclosures. Walls and partitions enclosing elevators and escalators shall be of not less than the fire-resistive constructi"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 1.0,
+          "reasons": [
+            "registry_incompatible: (concept, concept) not valid for 'limits'"
+          ]
+        }
+      },
+      {
+        "from": "concept-means-of-egress",
+        "type": "affects",
+        "to": "concept-stairs",
+        "occurrences": 1,
+        "sections": [
+          "section-1207"
+        ],
+        "examples": [
+          "- (8.1) Distance to Exit. The line of travel to an exit shall not be more than 45.00 meters. For stands with seats without backseats this distance may be measured by direct line from a seat to the exit from the stand. - (8.2) Aisle Used as Exit. An aisle may be considered as only one exit unless it "
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['means of egress', 'stairs'] appear in the evidence text"
+          ]
+        }
+      }
+    ],
+    "needs_review": [
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-setbacks",
+        "occurrences": 9,
+        "sections": [
+          "section-303",
+          "section-709",
+          "section-804",
+          "section-2006"
+        ],
+        "examples": [
+          "Checks compliance to establish easements/setbacks and determines grades in relation to road lots, property lines, streets or highways, whether existing or proposed as reflected in the land use zoning or development plan of the city/municipality including road widening, construction of various public",
+          "Checks compliance to establish easements/setbacks and determines grades in relation to road lots, property lines, streets or highways, whether existing or proposed as reflected in the land use zoning or development plan of the city/municipality including road widening, construction of various public",
+          "- a. Verifies the lot plan as reflected in the Torrens Title, Original Certificate of Title (OCT)/Transfer Certificate of Title (TCT) and its relation to the proposed buildings/structures. - b. Checks compliance to establish easements/setbacks and determines grades in relation to road lots, property"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "type": "governs",
+        "to": "concept-building-height",
+        "occurrences": 10,
+        "sections": [
+          "section-707",
+          "section-2006"
+        ],
+        "examples": [
+          "- a. BUILDING HEIGHT LIMIT (BHL) - the maximum height to be allowed for buildings/structures based on their proposed use or occupancy; the BHL is generally determined after the application of other development controls (DC) and certain other parameters, i.e., considerations of site conditions, view,",
+          "- a. BUILDING HEIGHT LIMIT (BHL) - the maximum height to be allowed for buildings/structures based on their proposed use or occupancy; the BHL is generally determined after the application of other development controls (DC) and certain other parameters, i.e., considerations of site conditions, view,",
+          "- a. BUILDING HEIGHT LIMIT (BHL) - the maximum height to be allowed for buildings/structures based on their proposed use or occupancy; the BHL is generally determined after the application of other development controls (DC) and certain other parameters, i.e., considerations of site conditions, view,"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-setbacks",
+        "type": "affects",
+        "to": "concept-yards",
+        "occurrences": 3,
+        "sections": [
+          "section-709",
+          "section-811"
+        ],
+        "examples": [
+          "a. Refer to Rule VIII for prescribed setbacks, yards, courts (at grade level), etc. applicable to the lot/project site; determine the extent of firewall construction if required and/or if permitted; refer to Rule VIII for the Percentage of Site Occupancy (PSO); compute for the Allowable Maximum Buil",
+          "For basements to be allowed, the prescribed setbacks and yards must be satisfied for the building/structure above grade inasmuch as the very same setbacks shall apply below grade to determine the maximum depth or width of the basement level;",
+          "- a. The minimum road right-of-way (RROW) width that services the lot on which the basement can be constructed should be at least 10.00 meters wide; - b. For basements to be allowed, the prescribed setbacks and yards must be satisfied for the building/structure above grade inasmuch as the very same "
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-light-and-ventilation",
+        "type": "affects",
+        "to": "concept-yards",
+        "occurrences": 2,
+        "sections": [
+          "section-709"
+        ],
+        "examples": [
+          "Establish the Outermost Faces of Building (OFB) to help determine the Allowable Maximum Volume of Building (AMVB) and to satisfy natural light and ventilation requirements for RROW and front yards abutting RROW;",
+          "- d. Check the resultant height against the BHL (refer to Table VII.2. of this Rule); if a greater building/structure height is desired, consult existing zoning ordinances or other applicable laws for possible relief; if relief cannot be sought, explore sub-grade (basement level) solutions or reduce"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-lot-occupancy",
+        "type": "depends_on",
+        "to": "concept-yards",
+        "occurrences": 1,
+        "sections": [
+          "section-803"
+        ],
+        "examples": [
+          "- 1. The measurement of the percentage (%) of site occupancy (or lot occupancy) shall be taken at the ground level and shall be exclusive of courts, yards and light wells. Courts, yards, and light wells shall be measured clear of all projections from the walls enclosing such wells or yards with the "
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-stairs",
+        "type": "requires",
+        "to": "concept-fire-resistive-construction",
+        "occurrences": 2,
+        "sections": [
+          "section-1207"
+        ],
+        "examples": [
+          "- i. Stairway Construction - Interior. Interior stairways shall be constructed as specified in this Code. Where there is enclosed usable space under the stairs the walls and soffits of the enclosed space shall be protected on the enclosed side as required for one-hour fire resistive construction. - ",
+          "- private stairways serving an occupant load of less than 10, the rise may be 200 millimeters and the run may be 250 millimeters, except as provided in sub-paragraph (3) below. - (3) Winding Stairways. In Group A Occupancy and in private stairways in Group B Occupancies, winders may be used if the r"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-floor-area",
+        "type": "affects",
+        "to": "concept-stairs",
+        "occurrences": 2,
+        "sections": [
+          "section-1207"
+        ],
+        "examples": [
+          "- 6. Ramps. A ramp conforming to the provisions of the Code may be used as an exit. The width of ramps shall be as required for corridors. - 7. Horizontal Exit. If conforming to the provisions of the Code, a horizontal exit may be considered as the required exit. All openings in a separation wall sh",
+          "- lead into a floor area having a capacity for an occupant load not less than the occupant load served by such exit. The capacity shall be determined by allowing 0.30 square meter of net floor area per ambulatory occupant and 1.90 square meters per non-ambulatory occupant. The dispersal area into wh"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-building-height",
+        "type": "affects",
+        "to": "concept-light-and-ventilation",
+        "occurrences": 2,
+        "sections": [
+          "section-2006"
+        ],
+        "examples": [
+          "It is generally determined by multiplying the AMBF for the lot by the applicable building height limit (BHL) for the lot and thereafter deducting the volume of space at the top part of the prism to satisfy natural light and ventilation requirements for RROW and front yards and to satisfy incremental",
+          "ALLOWABLE MAXIMUM VOLUME OF BUILDING (AMVB) Above-Grade - The limit of the total volume of space that can be occupied by a proposed building/structure above grade level. The AMVB is an imaginary prism within which the fully enclosed areas and courts of a proposed building/structure shall fit. It is "
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-building-permit",
+        "type": "depends_on",
+        "to": "concept-setbacks",
+        "occurrences": 2,
+        "sections": [
+          "section-2006"
+        ],
+        "examples": [
+          "While the application for Building Permit is still being processed, the Building Official may issue Ground Preparation and Excavation Permit (GP&EP) for foundation, subject to the verification, inspection and review by the Line and Grade Section of the Inspection and Enforcement Division to determin",
+          "i. While the application for Building Permit is still being processed, the Building Official may issue Ground Preparation and Excavation Permit (GP&EP) for foundation, subject to the verification, inspection and review by the Line and Grade Section of the Inspection and Enforcement Division to deter"
+        ],
+        "alternate_predicates": [
+          "affects"
+        ],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-exit-width",
+        "type": "requires",
+        "to": "concept-means-of-egress",
+        "occurrences": 1,
+        "sections": [
+          "section-1207"
+        ],
+        "examples": [
+          "- 90 degrees and shall be so mounted that the clear width of the exitway is not less than 700 millimeters. In computing the required exit width the net dimension of the exitway shall be used. - (4) Door Leaf Width. No leaf of an exit door shall exceed 1.20 meters in width. - (5) Special Doors. Revol"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "benchmark_source_hints": [
+    {
+      "label": "Lawphil BP 220 revised IRR PDF",
+      "note": "Lawphil-hosted IRR PDF for cross-checking structure and section layout.",
+      "url": "https://lawphil.net/statutes/repacts/ra2008/pdf/irr_bp220_2008.pdf"
+    }
+  ],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "moderate extraction difficulty: treat automated summaries as guarded",
+    "front matter includes a table of contents before operative text",
+    "front matter is image-heavy and may reflect OCR/layout instability",
+    "front matter is table-heavy and may reflect layout extraction noise"
+  ],
+  "image_line_count": 22,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 90,
+  "noise_line_count": 1,
+  "non_empty_line_count": 950,
+  "recommendations": [
+    "high table-line count: verify layout-sensitive extraction and summary hygiene"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md",
+  "severity": "medium",
+  "structural_heading_count": 63,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [
+    "table_of_contents_front_matter",
+    "image_heavy_front_matter",
+    "table_heavy_front_matter"
+  ],
+  "table_line_count": 119,
+  "total_line_count": 1565,
+  "useful_text_line_count": 808,
+  "useful_text_ratio": 0.850526
+}

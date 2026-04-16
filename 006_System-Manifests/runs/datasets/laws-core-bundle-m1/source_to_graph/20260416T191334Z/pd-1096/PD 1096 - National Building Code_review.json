@@ -1,0 +1,102 @@
+{
+  "generated_at": "20260416T191353Z",
+  "model": "gemma4:31b",
+  "source": "001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md",
+  "total_candidates": 7,
+  "completed_reviews": 3,
+  "status": "interrupted",
+  "summary": {
+    "keep": 0,
+    "review_further": 3,
+    "reject": 0,
+    "high_confidence_keep": 0,
+    "high_confidence_reject": 0
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "law-national-building-code-of-the-philippines",
+        "type": "governs",
+        "to": "concept-building-permit",
+        "occurrences": 1,
+        "sections": [
+          "section-207"
+        ],
+        "examples": [
+          "In the performance of his duties, a Building Official may enter any building or its premises at all reasonable times to inspect and determine compliance with the requirements of this Code, and the terms and conditions provided for in the building permit as issued."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      "review": {
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "law-national-building-code-of-the-philippines",
+        "type": "governs",
+        "to": "concept-certificate-of-occupancy",
+        "occurrences": 2,
+        "sections": [
+          "section-309"
+        ],
+        "examples": [
+          "A Certificate of Occupancy shall be issued by the Building Official within thirty (30) days if after final inspection and submittal of a Certificate of Completion referred to in the preceding Section, it is found that the building or structure complies with the provisions of this Code.",
+          "The Certificate of Occupancy shall be posted or displayed in a conspicuous place on the premises and shall not be removed except upon order of the Building Official."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      "review": {
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "law-national-building-code-of-the-philippines",
+        "type": "governs",
+        "to": "concept-occupancy-classification",
+        "occurrences": 1,
+        "sections": [
+          "section-703"
+        ],
+        "examples": [
+          "any floor or a building, nor more than ten percent of the basic area permitted in the occupancy requirements, in which case, the major use of the building shall determine the occupancy classification."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      "review": {
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.",
+        "suggested_type": null
+      }
+    }
+  ]
+}
