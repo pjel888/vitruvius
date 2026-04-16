@@ -3,6 +3,7 @@ from __future__ import annotations
 import io
 import json
 import re
+import webbrowser
 from contextlib import redirect_stdout
 from dataclasses import dataclass
 from pathlib import Path
@@ -538,8 +539,16 @@ def run_dataset_source_to_graph_pipeline(
     review_model: str = "gemma4:31b",
     review_timeout_seconds: int = 600,
     review_parallelism: int | None = None,
+    visualize_graph: bool = False,
+    open_browser: bool = False,
+    visualization_out_path: str | None = None,
 ) -> int:
     repo_root = Path.cwd().resolve()
+    if dry_run and (visualize_graph or open_browser):
+        print(json.dumps({
+            "error": "--visualize / --open-browser are only available for non-dry-run source-to-graph executions",
+        }, indent=2))
+        return 2
     manifest, manifest_path = _load_manifest_or_error(dataset_manifest, repo_root)
     if manifest is None:
         return 2
@@ -743,6 +752,27 @@ def run_dataset_source_to_graph_pipeline(
         return graph_rc
     graph_payload = json.loads(graph_output)
 
+    visualization_payload: dict[str, object] | None = None
+    browser_opened = False
+    if visualize_graph or open_browser:
+        from .graph.visualize import run_visualize_graph
+
+        visualize_rc, visualize_output = _capture_text_handler(
+            lambda: run_visualize_graph(
+                snapshot_path=graph_payload.get("snapshot_path"),
+                out_path=visualization_out_path,
+            )
+        )
+        if visualize_rc != 0:
+            print(visualize_output.strip())
+            return visualize_rc
+        visualization_payload = json.loads(visualize_output)
+        if open_browser:
+            html_path = Path(visualization_payload["out_path"])
+            if not html_path.is_absolute():
+                html_path = repo_root / html_path
+            browser_opened = webbrowser.open(html_path.resolve().as_uri())
+
     quality_summary = _source_quality_summary(stage_results)
     report = {
         "action": "run-dataset-source-to-graph",
@@ -757,6 +787,8 @@ def run_dataset_source_to_graph_pipeline(
         "source_quality_summary": quality_summary,
         "stage_results": stage_results,
         "graph": graph_payload,
+        "visualization": visualization_payload,
+        "browser_opened": browser_opened if open_browser else None,
     }
     write_json_report(paths["report"], report)
 
@@ -774,6 +806,8 @@ def run_dataset_source_to_graph_pipeline(
         "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
         "graph_snapshot_path": graph_payload.get("snapshot_path"),
         "graph_build_report_path": graph_payload.get("build_report_path"),
+        "visualization_html_path": visualization_payload.get("out_path") if visualization_payload else None,
+        "browser_opened": browser_opened if open_browser else None,
     }
     print(json.dumps(summary, indent=2))
     return 0

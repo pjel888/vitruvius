@@ -222,3 +222,19 @@ def test_run_dataset_graph_rejects_malformed_structured_check_cleanly(tmp_path: 
     payload = json.loads(result.stdout)
     assert 'FUNCTION:SUBJECT' in payload['error']
     assert result.stderr == ''
+
+
+def test_run_dataset_source_to_graph_rejects_visualize_during_dry_run(tmp_path: Path) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    result = _run_cli(
+        [
+            'run-dataset-source-to-graph',
+            '--dataset-manifest', str(manifest_path),
+            '--dry-run',
+            '--visualize',
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 2
+    payload = json.loads(result.stdout)
+    assert '--visualize / --open-browser' in payload['error']

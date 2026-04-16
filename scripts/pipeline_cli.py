@@ -222,6 +222,12 @@ def build_parser() -> argparse.ArgumentParser:
                                                help="Tier-1 review timeout seconds")
     dataset_source_to_graph_parser.add_argument("--review-parallel", type=int, default=None,
                                                help="Tier-1 review parallelism override")
+    dataset_source_to_graph_parser.add_argument("--visualize", action="store_true",
+                                               help="Render an HTML graph visualization after a successful non-dry-run execution")
+    dataset_source_to_graph_parser.add_argument("--open-browser", action="store_true",
+                                               help="Open the rendered HTML graph visualization in the default browser after a successful non-dry-run execution")
+    dataset_source_to_graph_parser.add_argument("--visualization-out", default=None,
+                                               help="Optional output HTML path for the post-run visualization")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -669,6 +675,9 @@ def main() -> int:
                 review_model=args.review_model,
                 review_timeout_seconds=args.review_timeout_seconds,
                 review_parallelism=args.review_parallel,
+                visualize_graph=args.visualize or args.open_browser,
+                open_browser=args.open_browser,
+                visualization_out_path=args.visualization_out,
             ),
         )
 

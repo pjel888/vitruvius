@@ -14,6 +14,7 @@ _DEFAULT_SNAPSHOT_RELPATH = (
 )
 _DEFAULT_VIS_ROOT = Path("004_Derived-Content-Layer") / "graph-visualizations"
 _CYTOSCAPE_ASSET = Path("scripts") / "vitruvius" / "graph" / "assets" / "cytoscape.min.js"
+_MODULE_CYTOSCAPE_ASSET = Path(__file__).resolve().parent / "assets" / "cytoscape.min.js"
 
 
 def _resolve_snapshot_path(snapshot_path: str | None) -> tuple[Path, str]:
@@ -46,11 +47,26 @@ def _asset_script_path(out_path: Path) -> str:
     return relative.replace(os.sep, "/")
 
 
+def _inline_asset_script() -> str | None:
+    asset_path = _MODULE_CYTOSCAPE_ASSET
+    if not asset_path.exists():
+        return None
+    return asset_path.read_text(encoding="utf-8").replace("</script", "<\\/script")
+
+
 def _render_html(snapshot_dict: dict[str, Any], *, snapshot_display_path: str, out_path: Path) -> str:
     metadata = snapshot_dict.get("metadata") or {}
     edge_types = sorted({edge["type"] for edge in snapshot_dict["edges"]})
     law_ids = metadata.get("contributing_law_ids") or []
     script_src = html.escape(_asset_script_path(out_path))
+    inline_cytoscape = _inline_asset_script()
+    script_tag = (
+        "<script>/* bundled cytoscape.min.js */\n"
+        + inline_cytoscape
+        + "\n</script>"
+        if inline_cytoscape
+        else f'<script src="{script_src}"></script>'
+    )
     snapshot_label = html.escape(snapshot_display_path)
     dataset_label = html.escape(str(metadata.get("dataset_id", "global/latest")))
     run_label = html.escape(str(metadata.get("run_id", "n/a")))
@@ -91,7 +107,7 @@ def _render_html(snapshot_dict: dict[str, Any], *, snapshot_display_path: str, o
 <head>
   <meta charset="utf-8" />
   <title>Vitruvius Graph Visualization</title>
-  <script src="{script_src}"></script>
+  {script_tag}
   <style>
     body {{ font-family: Inter, system-ui, sans-serif; margin: 0; background: #0b1020; color: #e5e7eb; }}
     .layout {{ display: grid; grid-template-columns: 1fr 360px; min-height: 100vh; }}

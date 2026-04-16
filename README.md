@@ -1217,6 +1217,16 @@ python3 scripts/pipeline_cli.py run-dataset-source-to-graph \
   --dataset-manifest config/datasets/laws-core-bundle-m1.yaml
 ```
 
+If you want the whole bounded pilot to run and then open the browser visualization in one command:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-dataset-source-to-graph \
+  --dataset-manifest config/datasets/laws-core-bundle-m1.yaml \
+  --skip-export-owl \
+  --visualize \
+  --open-browser
+```
+
 Dry-run first if you want to validate the bounded stage plan without executing writes:
 
 ```bash

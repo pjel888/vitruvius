@@ -167,9 +167,9 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
     "run-dataset-source-to-graph": _doc(
         "run-dataset-source-to-graph",
         "Run the bounded dataset pipeline from produced intermediate data through the dataset graph.",
-        human="This is the bounded end-to-end dataset lane that reuses produced refined/canonical/review/promotion data and then generates the scoped graph.",
-        technical="Loads a dataset manifest, can dry-run the bounded stage plan, or runs bounded canonicalize/extract/review/promote stages with dataset-local outputs, writes a derived manifest that includes dataset-local promoted relationships, and then runs the scoped graph pipeline.",
-        success="A healthy result writes either a dry-run stage plan or dataset-local stage outputs, a derived manifest, and a final scoped graph report without touching global latest graph/review artifacts.",
+        human="This is the bounded end-to-end dataset lane that reuses produced refined/canonical/review/promotion data, generates the scoped graph, and can optionally render/open the browser visualization in the same command.",
+        technical="Loads a dataset manifest, can dry-run the bounded stage plan, or runs bounded canonicalize/extract/review/promote stages with dataset-local outputs, writes a derived manifest that includes dataset-local promoted relationships, runs the scoped graph pipeline, and optionally invokes the graph visualizer/browser launch path.",
+        success="A healthy result writes either a dry-run stage plan or dataset-local stage outputs, a derived manifest, a final scoped graph report, and optional visualization metadata without touching global latest graph/review artifacts.",
         failure="One of the bounded upstream stages or the final graph build failed, so the dataset source-to-graph run is incomplete and not trustworthy yet.",
         next_step="Inspect the source-to-graph run report and the failing dataset-local stage outputs, then rerun after correcting the bounded inputs or stage configuration.",
         operator_safe=False,

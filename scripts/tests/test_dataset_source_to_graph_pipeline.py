@@ -533,3 +533,114 @@ def test_source_quality_summary_dedupes_repeated_high_severity_paths() -> None:
     assert summary['severity_counts']['high'] == 2
     assert summary['high_severity_paths'] == ['a.md']
     assert summary['manual_review_required_paths'] == ['a.md']
+
+
+def test_run_dataset_source_to_graph_pipeline_dry_run_rejects_visualize_flags(tmp_path, monkeypatch, capsys) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    monkeypatch.chdir(tmp_path)
+
+    rc = run_dataset_source_to_graph_pipeline(
+        dataset_manifest=str(manifest_path),
+        dry_run=True,
+        visualize_graph=True,
+        export_owl=False,
+    )
+    assert rc == 2
+    payload = json.loads(capsys.readouterr().out)
+    assert "--visualize / --open-browser" in payload["error"]
+
+
+def test_run_dataset_source_to_graph_pipeline_can_visualize_and_open_browser(tmp_path, monkeypatch, capsys) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    monkeypatch.chdir(tmp_path)
+
+    import vitruvius.dataset_pipeline as dp
+    import vitruvius.graph.visualize as visualize_mod
+
+    monkeypatch.setattr(dp, 'run_canonicalize_one', lambda **kwargs: 0)
+
+    def fake_extract(**kwargs):
+        kwargs['json_output_path'].write_text(json.dumps({
+            'generated_at': 'x',
+            'source': kwargs['relative_markdown_path'],
+            'source_id': kwargs['source_id_override'],
+            'total_sections': 0,
+            'total_relationships': 0,
+            'relationships': [],
+        }), encoding='utf-8')
+        kwargs['txt_output_path'].write_text('ok', encoding='utf-8')
+        return 0
+
+    def fake_review(**kwargs):
+        kwargs['review_json_path'].write_text('{}', encoding='utf-8')
+        kwargs['review_txt_path'].write_text('ok', encoding='utf-8')
+        kwargs['triage_report_path'].write_text('{}', encoding='utf-8')
+        kwargs['high_confidence_output_path'].write_text(json.dumps({
+            'generated_at': 'x',
+            'source_report_generated_at': 'x',
+            'source_model': 'x',
+            'source': 'x',
+            'threshold': 0.9,
+            'count': 0,
+            'candidates': [],
+        }), encoding='utf-8')
+        return 0
+
+    def fake_promote(**kwargs):
+        rel_dir = kwargs['relationships_output_dir']
+        rel_dir.mkdir(parents=True, exist_ok=True)
+        rel_path = rel_dir / 'rel-generated.md'
+        rel_path.write_text(
+            '---\n'
+            'id: rel-generated\n'
+            'page_type: relationship\n'
+            'relationship_type: governs\n'
+            'from_entity: law-pd-1096\n'
+            'to_entity: concept-building-permit\n'
+            'canonical_status: promoted\n'
+            'evidence:\n'
+            '- source_id: law-pd-1096\n'
+            '  source_section_id: sec-301\n'
+            '  evidence_snippet: permit\n'
+            '  reviewer_confidence: 0.95\n'
+            '---\n\n# body\n',
+            encoding='utf-8',
+        )
+        kwargs['audit_log_path'].write_text('audit', encoding='utf-8')
+        return {'created': 1, 'rejected': 0, 'errors': []}
+
+    monkeypatch.setattr(dp, 'run_extract_relationships_sections_one_inner', fake_extract)
+    monkeypatch.setattr(dp, 'run_review_relationships_ollama', fake_review)
+    monkeypatch.setattr(dp, 'run_promote_inner', fake_promote)
+    monkeypatch.setattr(dp, 'run_build_graph', lambda **kwargs: print(json.dumps({
+        'run_id': '20260416T111111Z',
+        'snapshot_path': '005_Operational-Intelligence-Layer/graph/datasets/demo-dataset/20260416T111111Z_graph_snapshot.json',
+        'build_report_path': '006_System-Manifests/runs/datasets/demo-dataset/20260416T111111Z_build_graph_dataset_report.json',
+    })) or 0)
+    monkeypatch.setattr(dp, 'run_export_graph_owl', lambda **kwargs: 0)
+    monkeypatch.setattr(dp, 'run_query_structured', lambda **kwargs: 0)
+    monkeypatch.setattr(visualize_mod, 'run_visualize_graph', lambda **kwargs: print(json.dumps({
+        'action': 'visualize-graph',
+        'snapshot_path': kwargs['snapshot_path'],
+        'out_path': 'tmp/demo.html',
+        'dataset_id': 'demo-dataset',
+        'run_id': '20260416T111111Z',
+        'node_count': 2,
+        'edge_count': 1,
+    })) or 0)
+
+    opened: list[str] = []
+    monkeypatch.setattr(dp.webbrowser, 'open', lambda url: opened.append(url) or True)
+
+    rc = dp.run_dataset_source_to_graph_pipeline(
+        dataset_manifest=str(manifest_path),
+        export_owl=False,
+        visualize_graph=True,
+        open_browser=True,
+    )
+
+    assert rc == 0
+    payload = json.loads(capsys.readouterr().out)
+    assert payload['visualization_html_path'] == 'tmp/demo.html'
+    assert payload['browser_opened'] is True
+    assert opened and opened[0].startswith('file://')
