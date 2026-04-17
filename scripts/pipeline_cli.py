@@ -387,6 +387,10 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_promote_rules_parser.add_argument("--rule-name", action="append", required=True)
     generic_aggregate_promote_rules_parser.add_argument("--generated-rules", default=None)
     generic_aggregate_promote_rules_parser.add_argument("--base-rules", default=None)
+    generic_aggregate_promote_concepts_parser = add_command_parser(subparsers, "promote-scaffolded-concepts")
+    generic_aggregate_promote_concepts_parser.add_argument("--concept-path", action="append", required=True)
+    generic_aggregate_promote_relationships_parser = add_command_parser(subparsers, "promote-scaffolded-relationships")
+    generic_aggregate_promote_relationships_parser.add_argument("--relationship-path", action="append", required=True)
     generic_aggregate_scaffold_parser = add_command_parser(subparsers, "scaffold-completed-aggregate-family")
     generic_aggregate_scaffold_parser.add_argument("--family", required=True)
     generic_aggregate_scaffold_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml",
@@ -1241,6 +1245,36 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("promote-generated-canonical-rules", _run_promote_generated_rules)
+
+    if args.command == "promote-scaffolded-concepts":
+        from vitruvius.aggregate_manifest import promote_scaffolded_concepts
+        def _run_promote_scaffolded_concepts():
+            repo_root = Path.cwd().resolve()
+            summary = promote_scaffolded_concepts(
+                repo_root=repo_root,
+                concept_paths=[Path(path) for path in (args.concept_path or [])],
+            )
+            print(json.dumps({
+                "action": "promote-scaffolded-concepts",
+                **summary,
+            }, indent=2))
+            return 0
+        return _run("promote-scaffolded-concepts", _run_promote_scaffolded_concepts)
+
+    if args.command == "promote-scaffolded-relationships":
+        from vitruvius.aggregate_manifest import promote_scaffolded_relationships
+        def _run_promote_scaffolded_relationships():
+            repo_root = Path.cwd().resolve()
+            summary = promote_scaffolded_relationships(
+                repo_root=repo_root,
+                relationship_paths=[Path(path) for path in (args.relationship_path or [])],
+            )
+            print(json.dumps({
+                "action": "promote-scaffolded-relationships",
+                **summary,
+            }, indent=2))
+            return 0
+        return _run("promote-scaffolded-relationships", _run_promote_scaffolded_relationships)
 
     if args.command == "scaffold-completed-aggregate-family":
         from vitruvius.aggregate_manifest import scaffold_completed_aggregate_family

@@ -3335,6 +3335,40 @@ def test_promote_generated_canonical_rules_moves_rules_to_base(tmp_path: Path) -
     assert generated_payload['rules'] == []
 
 
+def test_promote_scaffolded_concepts_updates_status(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import promote_scaffolded_concepts
+
+    concept_path = tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'concepts' / 'demo.md'
+    _write(
+        concept_path,
+        '---\nid: concept-demo\ntitle: demo\npage_type: concept\ntrust_level: derived\ncanonical_status: draft\n---\n',
+    )
+    summary = promote_scaffolded_concepts(
+        repo_root=tmp_path,
+        concept_paths=[concept_path],
+    )
+    assert summary['promoted_count'] == 1
+    assert 'canonical_status: enriched' in concept_path.read_text(encoding='utf-8')
+
+
+def test_promote_scaffolded_relationships_updates_status(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import promote_scaffolded_relationships
+
+    rel_path = tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-demo.md'
+    _write(
+        rel_path,
+        '---\nid: rel-demo\ntitle: demo covers concept-demo\npage_type: relationship\nrelationship_type: covers\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: promoted\n---\n',
+    )
+    summary = promote_scaffolded_relationships(
+        repo_root=tmp_path,
+        relationship_paths=[rel_path],
+    )
+    assert summary['promoted_count'] == 1
+    rel_text = rel_path.read_text(encoding='utf-8')
+    assert 'canonical_status: verified' in rel_text
+    assert 'trust_level: derived' in rel_text
+
+
 def test_pipeline_cli_promote_generated_canonical_rules_reports_summary(
     tmp_path: Path,
     monkeypatch,
@@ -3382,6 +3416,64 @@ def test_pipeline_cli_promote_generated_canonical_rules_reports_summary(
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'promote-generated-canonical-rules'
     assert stdout_payload['promoted_rule_count'] == 1
+
+
+def test_pipeline_cli_promote_scaffolded_concepts_reports_summary(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    concept_path = tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'concepts' / 'demo.md'
+    _write(
+        concept_path,
+        '---\nid: concept-demo\ntitle: demo\npage_type: concept\ntrust_level: derived\ncanonical_status: draft\n---\n',
+    )
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'promote-scaffolded-concepts',
+            '--concept-path', '003_Canonical-Knowledge-Layer/shared/concepts/demo.md',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'promote-scaffolded-concepts'
+    assert stdout_payload['promoted_count'] == 1
+
+
+def test_pipeline_cli_promote_scaffolded_relationships_reports_summary(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    rel_path = tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-demo.md'
+    _write(
+        rel_path,
+        '---\nid: rel-demo\ntitle: demo covers concept-demo\npage_type: relationship\nrelationship_type: covers\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: promoted\n---\n',
+    )
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'promote-scaffolded-relationships',
+            '--relationship-path', '003_Canonical-Knowledge-Layer/shared/relationships/rel-demo.md',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'promote-scaffolded-relationships'
+    assert stdout_payload['promoted_count'] == 1
 
 
 def test_pipeline_cli_register_completed_aggregate_family_writes_profile_and_catalog(

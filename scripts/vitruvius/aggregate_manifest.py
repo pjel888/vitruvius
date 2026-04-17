@@ -469,6 +469,94 @@ def promote_generated_canonical_rules(
     }
 
 
+def promote_scaffolded_concepts(
+    *,
+    repo_root: Path,
+    concept_paths: list[Path],
+) -> dict[str, Any]:
+    normalized_paths: list[Path] = []
+    for path in concept_paths:
+        resolved_path = path if path.is_absolute() else repo_root / path
+        if resolved_path not in normalized_paths:
+            normalized_paths.append(resolved_path)
+    if not normalized_paths:
+        raise ValueError('at least one concept path is required')
+
+    promoted_paths: list[str] = []
+    skipped_missing: list[str] = []
+    for resolved_path in normalized_paths:
+        if not resolved_path.exists():
+            skipped_missing.append(_relative(resolved_path, repo_root))
+            continue
+        text = resolved_path.read_text(encoding='utf-8')
+        if not text.startswith('---'):
+            skipped_missing.append(_relative(resolved_path, repo_root))
+            continue
+        end = text.find('\n---', 3)
+        if end == -1:
+            skipped_missing.append(_relative(resolved_path, repo_root))
+            continue
+        fm = yaml.safe_load(text[3:end].strip())
+        if not isinstance(fm, dict):
+            skipped_missing.append(_relative(resolved_path, repo_root))
+            continue
+        fm['canonical_status'] = 'enriched'
+        if fm.get('trust_level') == 'bootstrap':
+            fm['trust_level'] = 'derived'
+        body = text[end + 4:]
+        resolved_path.write_text(f"---\n{yaml.safe_dump(fm, sort_keys=False).strip()}\n---{body}", encoding='utf-8')
+        promoted_paths.append(_relative(resolved_path, repo_root))
+    return {
+        'promoted_count': len(promoted_paths),
+        'promoted_paths': promoted_paths,
+        'skipped_missing_paths': skipped_missing,
+    }
+
+
+def promote_scaffolded_relationships(
+    *,
+    repo_root: Path,
+    relationship_paths: list[Path],
+) -> dict[str, Any]:
+    normalized_paths: list[Path] = []
+    for path in relationship_paths:
+        resolved_path = path if path.is_absolute() else repo_root / path
+        if resolved_path not in normalized_paths:
+            normalized_paths.append(resolved_path)
+    if not normalized_paths:
+        raise ValueError('at least one relationship path is required')
+
+    promoted_paths: list[str] = []
+    skipped_missing: list[str] = []
+    for resolved_path in normalized_paths:
+        if not resolved_path.exists():
+            skipped_missing.append(_relative(resolved_path, repo_root))
+            continue
+        text = resolved_path.read_text(encoding='utf-8')
+        if not text.startswith('---'):
+            skipped_missing.append(_relative(resolved_path, repo_root))
+            continue
+        end = text.find('\n---', 3)
+        if end == -1:
+            skipped_missing.append(_relative(resolved_path, repo_root))
+            continue
+        fm = yaml.safe_load(text[3:end].strip())
+        if not isinstance(fm, dict):
+            skipped_missing.append(_relative(resolved_path, repo_root))
+            continue
+        fm['canonical_status'] = 'verified'
+        if fm.get('trust_level') == 'bootstrap':
+            fm['trust_level'] = 'derived'
+        body = text[end + 4:]
+        resolved_path.write_text(f"---\n{yaml.safe_dump(fm, sort_keys=False).strip()}\n---{body}", encoding='utf-8')
+        promoted_paths.append(_relative(resolved_path, repo_root))
+    return {
+        'promoted_count': len(promoted_paths),
+        'promoted_paths': promoted_paths,
+        'skipped_missing_paths': skipped_missing,
+    }
+
+
 def load_completed_aggregate_profile(*, repo_root: Path, profile_path: Path) -> dict[str, Any]:
     resolved_profile_path = profile_path if profile_path.is_absolute() else repo_root / profile_path
     payload = load_yaml_payload(resolved_profile_path)
