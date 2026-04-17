@@ -763,6 +763,128 @@ rules:
       core_concepts: []
 
   # --------------------------------------------------
+  # RA 1378 Law
+  # --------------------------------------------------
+  - name: "RA 1378 Law"
+
+    match:
+      all_contains:
+        - "1378"
+      any_contains:
+        - "plumbing law"
+        - "master plumber"
+      not_contains:
+        - "board of master plumber"
+        - "plumbing code"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Plumbing Law"
+
+      aliases:
+        - "RA 1378"
+        - "Republic Act No. 1378"
+        - "Plumbing Law"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # RA 9285 Law
+  # --------------------------------------------------
+  - name: "RA 9285 Law"
+
+    match:
+      any_contains:
+        - "ra_9285"
+        - "ra 9285"
+        - "alternative dispute resolution"
+        - "adr"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Alternative Dispute Resolution Act of 2004"
+
+      aliases:
+        - "RA 9285"
+        - "Republic Act No. 9285"
+        - "Alternative Dispute Resolution Act of 2004"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # RA 11201 Law
+  # --------------------------------------------------
+  - name: "RA 11201 Law"
+
+    match:
+      all_contains:
+        - "11201"
+      any_contains:
+        - "dhsud act"
+        - "human settlements"
+        - "urban development act"
+      not_contains:
+        - "irr"
+        - "implementing rules"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Department of Human Settlements and Urban Development Act"
+
+      aliases:
+        - "RA 11201"
+        - "Republic Act No. 11201"
+        - "DHSUD Act of 2019"
+
+      relationships:
+        implemented_by:
+          - "irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # RA 11201 IRR
+  # --------------------------------------------------
+  - name: "RA 11201 IRR"
+
+    match:
+      all_contains:
+        - "11201"
+      any_contains:
+        - "implementing rules"
+        - "dhsud act"
+        - "human settlements"
+      not_contains:
+        - "draft"
+
+    classification:
+      source_type: irr
+      trust_level: primary
+
+    canonical:
+      title: "Implementing Rules and Regulations of the Department of Human Settlements and Urban Development Act"
+
+      aliases:
+        - "RA 11201 IRR"
+        - "DHSUD Act IRR"
+        - "Implementing Rules and Regulations of the Department of Human Settlements and Urban Development Act"
+
+      relationships:
+        implements:
+          - "law-department-of-human-settlements-and-urban-development-act"
+
+      core_concepts: []
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

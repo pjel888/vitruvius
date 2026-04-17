@@ -1,0 +1,64 @@
+{
+  "generated_at": "20260417T134705Z",
+  "model": "qwen2.5:7b",
+  "source": "001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md",
+  "total_candidates": 2,
+  "llm_reviewed": 0,
+  "pre_review_auto_accepted": 0,
+  "pre_review_auto_rejected": 2,
+  "completed_reviews": 2,
+  "status": "completed",
+  "summary": {
+    "keep": 0,
+    "review_further": 0,
+    "reject": 2,
+    "high_confidence_keep": 0,
+    "high_confidence_reject": 2
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act",
+        "type": "governs",
+        "to": "concept-comprehensive-land-use-plan",
+        "occurrences": 1,
+        "sections": [
+          "section-3"
+        ],
+        "examples": [
+          "- 3.1 \"Affordable Cost\" refers to the most reasonable price of land and shelter based on the needs and financial capability of program beneficiaries and appropriat financing schemes; - 3.2 \"Agricultural Lands\" refers to lands devoted to or suitable for the cultiva .on soil, planting of crops, growin"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['comprehensive land use plan'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act",
+        "type": "governs",
+        "to": "concept-common-areas",
+        "occurrences": 1,
+        "sections": [
+          "section-34"
+        ],
+        "examples": [
+          "- (a) Actions concerning unsound real estate business practices filed by buyers or homeowners against the project owner or developer, which cause prejudice to the buyers or committed with bad faith and disregard of the buyers' rights; - (b) Claims for refund, and other claims filed by subdivision lo"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['common areas'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}

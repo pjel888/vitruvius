@@ -1,0 +1,335 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "dataset_id": "laws-tranche-7-source-to-graph-dry-run",
+  "dry_run": true,
+  "generated_at_utc": "20260417T135048Z",
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-7/source_to_graph_dry_run/20260417T135047Z/derived_dataset_manifest.yaml",
+  "review_runtime": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "review_settings": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "run_id": "20260417T135047Z",
+  "source_quality_summary": {
+    "benchmark_source_hints": [],
+    "extraction_trust_counts": {
+      "guarded": 2,
+      "review_required": 0,
+      "trusted": 1
+    },
+    "high_severity_paths": [],
+    "high_severity_sources": [],
+    "manual_review_required_paths": [],
+    "manual_review_required_sources": [],
+    "representation_guardrail_counts": {
+      "high": 0,
+      "low": 3,
+      "medium": 0
+    },
+    "severity_counts": {
+      "high": 0,
+      "low": 3,
+      "medium": 0
+    },
+    "shallow_representation_paths": [],
+    "shallow_representation_sources": [],
+    "source_acceptance_counts": {
+      "accepted": 1,
+      "accepted_with_spot_review": 2,
+      "manual_review_required": 0
+    },
+    "spot_review_required_paths": [
+      "001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md",
+      "001-Laws/refined_markdown/RA-11201/RA 11201 - DHSUD Act of 2019.md"
+    ],
+    "summary_auto_withheld_paths": [
+      "001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md",
+      "001-Laws/refined_markdown/RA-11201/RA 11201 - DHSUD Act of 2019.md"
+    ]
+  },
+  "stage_results": [
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-alternative-dispute-resolution-act-of-2004",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/alternative-dispute-resolution-act-of-2004.md",
+        "title": "Alternative Dispute Resolution Act of 2004",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-9285",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-9285/RA_9285.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/ra-9285/RA_9285_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/ra-9285/RA_9285_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/promoted_relationships/ra-9285",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/ra-9285/RA_9285_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9285/RA_9285.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 0,
+        "admitted_relationship_count": 0,
+        "folder_name": "RA-9285",
+        "law_id": "ra-9285",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 6.0,
+        "section_to_relationship_ratio": 6.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 6
+      },
+      "source_id": "law-alternative-dispute-resolution-act-of-2004",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 0,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 0,
+        "noise_line_count": 0,
+        "non_empty_line_count": 198,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-9285/RA_9285.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "RA-9285",
+          "law_id": "ra-9285",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 6.0,
+          "section_to_relationship_ratio": 6.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 6
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 6,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [],
+        "suspicious_ocr_line_count": 0,
+        "suspicious_ocr_line_ratio": 0.0,
+        "table_line_count": 0,
+        "total_line_count": 309,
+        "useful_text_line_count": 198,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/source_quality/ra-9285/RA_9285_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act.md",
+        "title": "Implementing Rules and Regulations of the Department of Human Settlements and Urban Development Act",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-11201",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/ra-11201/RA 11201 IRR - DHSUD Act Implementing Rules_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/ra-11201/RA 11201 IRR - DHSUD Act Implementing Rules_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/promoted_relationships/ra-11201",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/ra-11201/RA 11201 IRR - DHSUD Act Implementing Rules_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 3,
+        "admitted_relationship_count": 3,
+        "folder_name": "RA-11201",
+        "law_id": "ra-11201",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 2.666667,
+        "section_to_relationship_ratio": 2.666667,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 8
+      },
+      "source_id": "irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "withhold_auto_summary",
+        "extraction_trust_level": "guarded",
+        "extraction_trust_reasons": [
+          "front matter is image-heavy and may reflect OCR/layout instability",
+          "image-heavy front matter still contains suspicious OCR text near the document title/opening lines",
+          "spot-review the flagged OCR-sensitive regions before trusting summary prose"
+        ],
+        "front_matter_suspicious_ocr_line_count": 2,
+        "image_line_count": 89,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 9,
+        "noise_line_count": 0,
+        "non_empty_line_count": 511,
+        "recommendations": [
+          "spot-review OCR-sensitive title/heading lines before trusting automated summaries"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 3,
+          "admitted_relationship_count": 3,
+          "folder_name": "RA-11201",
+          "law_id": "ra-11201",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 2.666667,
+          "section_to_relationship_ratio": 2.666667,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 8
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [
+          "image-heavy front matter still contains suspicious OCR text near the document title/opening lines"
+        ],
+        "source_acceptance_status": "accepted_with_spot_review",
+        "spot_review_focus": [
+          "title/header lines and the first operative section",
+          "section numbering and other numeric provisions",
+          "image-backed front matter, page breaks, and signature/footer spillover"
+        ],
+        "spot_review_required": true,
+        "structural_heading_count": 8,
+        "summary_auto_withheld": true,
+        "summary_hygiene_flags": [
+          "image_heavy_front_matter"
+        ],
+        "suspicious_ocr_examples": [
+          "- 3.14 \"HousingCooperative\" refers to an association organized to assist or provo e to housing for the benefit of its regular members who actively participate savings program for housing. It is co-owned and controlled by its members;",
+          "- 3.15 \"Housing Finance\" refers to the comprehensive funds flow system covering the entire housing provision cycle from identification of financial requirements to fund sourcing for various aspects of the housing program, such as lot acquisition, development/construction and end-users' financing, and securitization of home mortgages and other housing related receivables or financial products;",
+          "Metro Manila LGUs shall beapprovedbytheSecretary withoutundergoingt the review and approval process set forth under EO 72, series of 1993, or as provided by other existing laws and regulations;",
+          "- 21.4 Developprogramsthatwill establishandpromotelinkagewiththeprovince, city<-",
+          "- 25.3.4 Suspend, revoke and cancel certificates of registration/incorporation, certificates of filing of amended articles of incorporation and by-laws;"
+        ],
+        "suspicious_ocr_line_count": 7,
+        "suspicious_ocr_line_ratio": 0.013699,
+        "table_line_count": 0,
+        "total_line_count": 831,
+        "useful_text_line_count": 422,
+        "useful_text_ratio": 0.825832
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/source_quality/ra-11201/RA 11201 IRR - DHSUD Act Implementing Rules_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-department-of-human-settlements-and-urban-development-act",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/department-of-human-settlements-and-urban-development-act.md",
+        "title": "Department of Human Settlements and Urban Development Act",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-11201",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-11201/RA 11201 - DHSUD Act of 2019.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/ra-11201/RA 11201 - DHSUD Act of 2019_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/ra-11201/RA 11201 - DHSUD Act of 2019_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/promoted_relationships/ra-11201",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/ra-11201/RA 11201 - DHSUD Act of 2019_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11201/RA 11201 - DHSUD Act of 2019.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 3,
+        "admitted_relationship_count": 3,
+        "folder_name": "RA-11201",
+        "law_id": "ra-11201",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 14.0,
+        "section_to_relationship_ratio": 14.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 42
+      },
+      "source_id": "law-department-of-human-settlements-and-urban-development-act",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "withhold_auto_summary",
+        "extraction_trust_level": "guarded",
+        "extraction_trust_reasons": [
+          "front matter is image-heavy and may reflect OCR/layout instability",
+          "image-heavy front matter still contains suspicious OCR text near the document title/opening lines",
+          "spot-review the flagged OCR-sensitive regions before trusting summary prose"
+        ],
+        "front_matter_suspicious_ocr_line_count": 11,
+        "image_line_count": 13,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 1,
+        "noise_line_count": 0,
+        "non_empty_line_count": 638,
+        "recommendations": [
+          "spot-review OCR-sensitive title/heading lines before trusting automated summaries"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-11201/RA 11201 - DHSUD Act of 2019.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 3,
+          "admitted_relationship_count": 3,
+          "folder_name": "RA-11201",
+          "law_id": "ra-11201",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 14.0,
+          "section_to_relationship_ratio": 14.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 42
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [
+          "image-heavy front matter still contains suspicious OCR text near the document title/opening lines"
+        ],
+        "source_acceptance_status": "accepted_with_spot_review",
+        "spot_review_focus": [
+          "title/header lines and the first operative section",
+          "section numbering and other numeric provisions",
+          "image-backed front matter, page breaks, and signature/footer spillover"
+        ],
+        "spot_review_required": true,
+        "structural_heading_count": 42,
+        "summary_auto_withheld": true,
+        "summary_hygiene_flags": [
+          "image_heavy_front_matter"
+        ],
+        "suspicious_ocr_examples": [
+          "SECTION 1. Short Title. — This Act shall be known as the “Department of Human Settlements and Urban",
+          "Development Act”.",
+          "affordable home. “",
+          "the creation ofnew settlements and developmentofsustainable",
+          "urban renewalprogramswhile guaranteeing the preservation of agricultural lands necessary for food security."
+        ],
+        "suspicious_ocr_line_count": 35,
+        "suspicious_ocr_line_ratio": 0.054859,
+        "table_line_count": 0,
+        "total_line_count": 1268,
+        "useful_text_line_count": 625,
+        "useful_text_ratio": 0.979624
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-dry-run/source_to_graph/20260417T135047Z/source_quality/ra-11201/RA 11201 - DHSUD Act of 2019_source_quality.json"
+    }
+  ]
+}

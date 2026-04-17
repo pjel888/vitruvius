@@ -1,0 +1,1362 @@
+{
+  "file name" : "Board of Master Plumber.pdf",
+  "number of pages" : 7,
+  "author" : "rmc",
+  "title" : "Board of Master Plumbers",
+  "creation date" : "D:20260413095500+08'00'",
+  "modification date" : "D:20260413095501+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 26,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 189.84, 696.913, 422.238, 719.302 ],
+    "heading level" : 1,
+    "font" : "ArialMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "Board of Master Plumbers"
+  }, {
+    "type" : "heading",
+    "id" : 27,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 169.44, 676.346, 442.437, 696.455 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "Resolution No. 1, Series of 1995"
+  }, {
+    "type" : "paragraph",
+    "id" : 28,
+    "page number" : 1,
+    "bounding box" : [ 109.08, 660.265, 502.888, 675.95 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 14.04,
+    "text color" : "[0.0]",
+    "content" : "Promulgation of Syllabi of Subjects in the Master Plumbing"
+  }, {
+    "type" : "paragraph",
+    "id" : 29,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 611.911, 243.392, 627.596 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 14.04,
+    "text color" : "[0.0]",
+    "content" : "Licensure Examination"
+  }, {
+    "type" : "paragraph",
+    "id" : 30,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 565.958, 521.786, 588.609 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "WHEREAS, Sec. 12 of R.A. No. 1378: “The Plumbing Law” states that all applicants for registration as Master Plumber shall be required to pass the examination;"
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 519.982, 522.019, 554.037 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "WHEREAS Sec. 13 of the supra law provides that the scope of the examination shall consist of these subjects: Plumbing Arithmetic, Plumbing Code, Plumbing Design and Installation, Practical Problems, Oral Practical Problems and experiences;"
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 485.411, 521.86, 508.062 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "WHEREAS Memorandum Circular No. 08, Series of 1992 of the Commission directed every Board to prescribe and adopt a syllabus for every examination subject;"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 439.436, 521.827, 473.61 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "WHEREAS every syllabus containing the concepts/topics with the corresponding level of knowledge/ proficiency shall be the basis of questions and problems that will be inputted into the question banks; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 34,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 393.46, 521.955, 427.516 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "WHEREAS after consultation with the National Plumbers/ Plumbing Engineering Association of the Philippines, the only accredited association of the Master Plumbers/ Plumbing Engineers came out with the syllabi of the examination subjects;"
+  }, {
+    "type" : "paragraph",
+    "id" : 35,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 347.366, 521.865, 381.54 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "NOW, THEREFORE, by virtue of Sec. 04 and 05 of R.A. No. 1378 and Sec. 6 (a) of P.D. 223, the Board hereby RESOLVED, as it now RESOLVES, to prescribe, issue and adopt the syllabi of subjects, in the Master Plumbing Licensure Examination (annex “A”)."
+  }, {
+    "type" : "paragraph",
+    "id" : 36,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 301.39, 521.892, 335.565 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "FURTHER, RESOLVED, upon approval hereof by the Commission, this resolution shall be effective after fifteen (15) days following its publication in the Official Gazette or any newspapers of general circulation."
+  }, {
+    "type" : "paragraph",
+    "id" : 37,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 266.819, 521.858, 289.47 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "FURTHERMORE, RESOLVED, the syllabi shall be enforceable three (3) months prior to the first applicable examination schedule and upon effectivity of the herein resolution."
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 220.844, 521.943, 255.018 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "FINALLY, RESOLVED, that this Resolution shall be disseminated and circularized to all concerned and the accredited Association of Master Plumbing/ Plumbing Engineers (NAMPAP). Done in the City of Manila this 30th day of January, 1995."
+  }, {
+    "type" : "paragraph",
+    "id" : 39,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 147.96, 195.072, 174.6 ],
+    "font" : "Calibri",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "ALBERTO J. AZARCON Chairman"
+  }, {
+    "type" : "paragraph",
+    "id" : 40,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 89.4, 313.812, 116.04 ],
+    "font" : "Calibri",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "FLORENTINO M. GARCIA BENJAMIN B. HAYAG Member Member"
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 588.36, 231.252, 717.6 ],
+    "font" : "Calibri",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Attested to: CARLOS G. ALMELOR Secretary, Regulatory Boards Approved: HERMOGENES P. POBRE Commission Chairman"
+  }, {
+    "type" : "paragraph",
+    "id" : 42,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 529.8, 323.758, 556.44 ],
+    "font" : "Calibri",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "MARIANO A. MENDIETA ARMANDO C. PASCUAL Commission Member Commission Member"
+  }, {
+    "type" : "heading",
+    "id" : 43,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 90.0, 446.9, 521.914, 487.655 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "The Master Plumbing Licensure Examination Syllabus"
+  }, {
+    "type" : "paragraph",
+    "id" : 44,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 400.838, 174.887, 411.965 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "PLUMBING CODE"
+  }, {
+    "type" : "paragraph",
+    "id" : 45,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 366.267, 119.898, 377.394 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Scope"
+  }, {
+    "type" : "list",
+    "id" : 46,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 125.995, 113.223, 380.364, 354.466 ],
+    "numbering style" : "english letters",
+    "number of list items" : 20,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 343.339, 203.205, 354.466 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "A. Code of Ethics",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 331.815, 172.013, 342.942 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "B. Permits",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 320.291, 211.48, 331.418 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "C. Plumbing Terms",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 308.767, 229.838, 319.895 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "D. General Regulations",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 297.244, 276.993, 308.371 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "E. Quality and Weight of Materials",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 285.84, 241.473, 296.967 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "F. Joints and Connections",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 274.316, 227.024, 285.443 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "G. Traps and Cleanout",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 262.792, 270.95, 273.919 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "H. Water Supply and Distribution",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 251.268, 214.241, 262.396 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "I. Plumbing Fixtures",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 239.745, 286.464, 250.872 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "J. Ventilation of Rooms and Fixtures",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 216.817, 380.364, 239.348 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "K. Minimum Trap Diameters, Drain Size and Fixtures Unit Value (Tables)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 205.293, 298.702, 216.42 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "L. Maximum Fixtures Unit on one stock",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 193.769, 344.294, 204.896 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "M. Maximum permissible height and size of vents",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 182.246, 267.096, 193.373 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "N. Construction of a septic vault",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 170.722, 260.511, 181.849 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "O. Hot water and steam waste",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 159.318, 272.684, 170.445 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "P. House Drain and house sewer",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 147.794, 228.158, 158.921 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Q. Horizontal branches",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 136.27, 200.415, 147.397 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "R. Special waste",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 124.746, 225.347, 135.874 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "S. Inspection and Test",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 125.995, 113.223, 219.179, 124.35 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "T. Special Provisions",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 47,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 90.0, 674.078, 144.921, 685.205 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Description"
+  }, {
+    "type" : "list",
+    "id" : 48,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 90.0, 133.419, 468.791, 650.634 ],
+    "numbering style" : "english letters",
+    "number of list items" : 9,
+    "next list id" : 50,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 639.507, 167.21, 650.634 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "A. Code of Ethics",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 16,
+        "page number" : 3,
+        "bounding box" : [ 90.0, 593.531, 521.873, 627.706 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "The topic deals with the basic knowledge of general guidelines of character, rules and regulations as covenant in the plumbing practice. This includes moral obligation and relationship with clients and benefactors."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 570.484, 174.884, 581.611 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "B. Plumbing Terms",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 17,
+        "page number" : 3,
+        "bounding box" : [ 90.0, 524.508, 521.955, 558.683 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Definitions of various plumbing terms, phrases and words used to define and interpret activities in plumbing."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 501.461, 136.493, 512.588 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "C. Permits",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 18,
+        "page number" : 3,
+        "bounding box" : [ 90.01, 467.009, 521.87, 489.66 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Documentation of requisites to the activities undertaken in the plumbing project such as applications, applicants and general conditions to be observed."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.01, 443.962, 193.853, 455.089 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "D. General Regulations",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 19,
+        "page number" : 3,
+        "bounding box" : [ 90.01, 397.986, 521.917, 432.161 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Application of alignment and pitch of pipe with inspection of the horizontal and vertical elevation above and below ground lines, pipe protection and workmanship including studies of prohibited fittings and dead end in pipe installation."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.01, 374.939, 224.446, 386.066 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "E. Quality and Weight of pipes",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 20,
+        "page number" : 3,
+        "bounding box" : [ 90.01, 340.487, 521.882, 363.138 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Study of different materials and their quality such as pipe, metal sheet lead and ferrules used in plumbing."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.01, 294.393, 468.791, 328.567 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "F. Joints and Connections Basic knowledge of joints and connections on different pipes use in plumbing.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.01, 271.465, 188.877, 282.592 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "G. Trap and Clean out",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 21,
+        "page number" : 3,
+        "bounding box" : [ 90.01, 225.489, 521.972, 259.544 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Choices and different trap types and sizes of their protection, requirements for various plumbing fixtures, classification of clean out, equivalent, location and its construction along pipe installation."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.01, 202.442, 231.606, 213.569 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "H. Water supply and distribution",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 22,
+        "page number" : 3,
+        "bounding box" : [ 90.01, 156.466, 521.989, 190.522 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Basic knowledge on the quality and redeems of potable water to meet standards of purity including sources, storage and distribution to the building from the water main through underwater into independent pipes network to the different fixtures."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.01, 133.419, 178.256, 144.546 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "I. Plumbing Fixtures",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 49,
+    "page number" : 3,
+    "bounding box" : [ 90.01, 87.444, 521.882, 121.499 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Knowledge of all kinds of receptacles used such as water closets, urinal, bathtub, wash basin, wash tray bidet, slop sink, and similar fixtures. Definition of locations, conductors, ventilation including requirements on swimming pool and roof extensions."
+  }, {
+    "type" : "list",
+    "id" : 50,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 90.0, 512.985, 394.446, 719.657 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "previous list id" : 48,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.0, 708.529, 243.268, 719.657 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "J. Ventilation of rooms and fixtures",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 23,
+        "page number" : 4,
+        "bounding box" : [ 90.01, 674.078, 521.994, 696.729 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "The topic deals with the basic knowledge of ventilation requirements of rooms in all establishments with water closets and urinals."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.01, 651.03, 347.141, 662.157 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "K. Minimum trap diameter, drain size and fixture unit valve",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 24,
+        "page number" : 4,
+        "bounding box" : [ 90.01, 605.055, 521.945, 639.11 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "The study of different plumbing fixtures as presented in table form with the corresponding nominal size of trap and waste pipe required and equivalent fixture unit values assignment for easy reference of practitioners."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.01, 582.007, 252.63, 593.135 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "L. Maximum fixture unit on one stock",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 25,
+        "page number" : 4,
+        "bounding box" : [ 90.01, 536.032, 521.953, 570.087 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "The topic deals with the soil and waste stack installation and its connections, size requirements for each type of plumbing fixtures and their root terminal and below ground installation."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.01, 512.985, 394.446, 524.112 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "M. Maximum permissible length of main vent for soil and waste stack",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 51,
+    "page number" : 4,
+    "bounding box" : [ 90.01, 478.533, 521.839, 501.064 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Basic knowledge of the waste disposal system of a building and the general fixtures of a septic tank, working performance."
+  }, {
+    "type" : "paragraph",
+    "id" : 52,
+    "page number" : 4,
+    "bounding box" : [ 90.01, 421.034, 207.604, 455.089 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "PLUMBING ARITHMETIC Scope"
+  }, {
+    "type" : "list",
+    "id" : 53,
+    "level" : "1",
+    "page number" : 4,
+    "bounding box" : [ 126.005, 352.011, 225.288, 409.114 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.005, 397.986, 209.29, 409.114 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "A. Modern Algebra",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.005, 386.463, 196.975, 397.59 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "B. Trigonometry",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.005, 374.939, 182.576, 386.066 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "C. Geometry",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.005, 363.415, 173.103, 374.543 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "D. Physics",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.005, 352.011, 225.288, 363.138 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "E. Financial Arithmetic",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 54,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 90.01, 328.964, 144.931, 340.091 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Description"
+  }, {
+    "type" : "list",
+    "id" : 55,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 90.01, 133.419, 173.294, 317.043 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "next list id" : 57,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.01, 305.916, 173.294, 317.043 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "A. Modern Algebra",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 13,
+        "page number" : 4,
+        "bounding box" : [ 90.01, 271.465, 521.83, 294.116 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Basic theory of real numbers, equation functions and graph, equation functions and graph, exponent and exponential fractions."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.01, 248.417, 160.98, 259.544 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "B. Trigonometry",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 14,
+        "page number" : 4,
+        "bounding box" : [ 90.01, 213.966, 521.764, 236.616 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Basic concepts in trigonometric functions, solution of triangles, vectors, trigonometric functions of sum and differences."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.01, 190.918, 146.582, 202.045 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "C. Geometry",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 15,
+        "page number" : 4,
+        "bounding box" : [ 90.01, 156.466, 521.954, 178.998 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Basic concepts in the theory and applications of plane coordinate system, equation and their loci, straight lines, conic sections, plane and spherical surfaces."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.01, 133.419, 137.109, 144.546 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "D. Physics",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 56,
+    "page number" : 4,
+    "bounding box" : [ 90.01, 75.92, 521.912, 121.499 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Understanding of the science of physics, language of physics, matter, theory of forces and motion, vector, velocity and acceleration, matter and energy, kinetic theory of matter specifically the behavior of liquids, solids, air and other gases. Heat and temperature, expansion, change of state and its transferance."
+  }, {
+    "type" : "list",
+    "id" : 57,
+    "level" : "2",
+    "page number" : 5,
+    "bounding box" : [ 90.0, 697.006, 189.283, 708.133 ],
+    "numbering style" : "english letters",
+    "number of list items" : 1,
+    "previous list id" : 55,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.0, 697.006, 189.283, 708.133 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "E. Financial Arithmetic",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 58,
+    "page number" : 5,
+    "bounding box" : [ 90.0, 662.554, 521.827, 685.205 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Basic concept of financial facts such as simple interest and simple discount, compound interest, simple annuities, amortization and sinking fund, depreciation and general annuities."
+  }, {
+    "type" : "paragraph",
+    "id" : 59,
+    "page number" : 5,
+    "bounding box" : [ 90.0, 605.055, 305.573, 639.11 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "PRACTICAL PROBLEMS AND EXPERIENCES Scope"
+  }, {
+    "type" : "list",
+    "id" : 60,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 125.995, 512.985, 289.704, 593.135 ],
+    "numbering style" : "english letters",
+    "number of list items" : 7,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 125.995, 582.007, 279.347, 593.135 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "A. Plan Reading and Interpretation",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 125.995, 570.484, 223.118, 581.611 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "B. Plumbing Materials",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 125.995, 558.96, 289.704, 570.087 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "C. Plumbing Fixtures and Appliances",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 125.995, 547.556, 249.867, 558.683 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "D. Hand and Machine Tools",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 125.995, 536.032, 247.005, 547.159 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "E. Maintenance and Repair",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 125.995, 524.508, 271.471, 535.636 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "F. Bill of Materials and Estimates",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 125.995, 512.985, 254.308, 524.112 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "G. Obligations and Contracts",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 61,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 90.0, 478.533, 144.921, 489.66 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Description"
+  }, {
+    "type" : "list",
+    "id" : 62,
+    "level" : "2",
+    "page number" : 5,
+    "bounding box" : [ 90.0, 87.444, 491.58, 466.613 ],
+    "numbering style" : "english letters",
+    "number of list items" : 7,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.0, 432.438, 466.013, 466.613 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "A. Plan reading and interpretation Reading and interpretation of plans, symbols and legends and specifications.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.0, 409.51, 187.122, 420.637 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "B. Plumbing materials",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 9,
+        "page number" : 5,
+        "bounding box" : [ 90.0, 374.939, 521.838, 397.59 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Shapes, sizes, dimensions, qualities and uses of different kinds and classes of pipes, fittings, gauge, valves and regulators."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.0, 340.487, 249.267, 351.615 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "C. Plumbing fixtures and appliances",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 10,
+        "page number" : 5,
+        "bounding box" : [ 90.0, 294.393, 521.85, 328.567 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Shapes, sizes, dimensions, qualities and uses of different kinds and classes of plumbing fixtures and appliances; sizes, dimension, heights and location of water supply and discharge drains."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.0, 271.465, 210.514, 282.592 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "D. Hand and Machine tools",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 11,
+        "page number" : 5,
+        "bounding box" : [ 90.0, 225.489, 521.94, 259.544 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Different kinds of hand and machine tools and their uses for cutting, reaming, threading, caulking, flaring and brazing, welding joints and connections of different pipes and fittings; hand and machine for removing stoppages of drains, and repair of leaks and rusted pipes."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.0, 202.442, 207.171, 213.569 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "E. Maintenance and repair",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 12,
+        "page number" : 5,
+        "bounding box" : [ 90.0, 156.466, 521.938, 190.522 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Periodic and regular inspection and serving of pipes and fittings, controls, valves, regulators, plumbing fixtures, appliances, pumps and similar equipment; repair of leaks and rusted pipes."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.0, 110.372, 491.58, 144.546 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "F. Bill of Materials Quantity take-off, bill of materials, cost estimates based on plans and specification.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.0, 87.444, 216.155, 98.571 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "G. Obligations and contracts",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 63,
+    "page number" : 6,
+    "bounding box" : [ 90.005, 697.006, 521.817, 719.657 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Obligations and contracts documentations, project technical reporting, inspection and acceptance of materials and workmanship."
+  }, {
+    "type" : "paragraph",
+    "id" : 64,
+    "page number" : 6,
+    "bounding box" : [ 90.0, 605.086, 348.839, 616.213 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SANITATION PLUMBING DESIGN AND INSTALLATION"
+  }, {
+    "type" : "paragraph",
+    "id" : 65,
+    "page number" : 6,
+    "bounding box" : [ 90.0, 570.514, 119.898, 581.642 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Scope"
+  }, {
+    "type" : "list",
+    "id" : 66,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 125.995, 455.516, 412.208, 570.118 ],
+    "numbering style" : "english letters",
+    "number of list items" : 10,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 125.995, 558.991, 372.736, 570.118 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "A. Development of sources of water for rural residences",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 125.995, 547.587, 412.208, 558.714 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "B. Waste water treatment and disposal for building and premises",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 125.995, 536.063, 302.025, 547.19 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "C. Water supply and distribution system",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 125.995, 524.539, 318.814, 535.666 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "D. Sanitary drainage and ventilating system",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 125.995, 513.015, 315.349, 524.143 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "E. Storm and sub-surface drainage system",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 125.995, 501.492, 234.234, 512.619 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "F. Water heating system",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 125.995, 489.968, 243.633, 501.095 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "G. Dry and wet sand pipes",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 125.995, 478.564, 297.583, 489.691 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "H. Water pumps, tank, cistern, sewage",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 125.995, 467.04, 263.147, 478.167 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "I. Installation and workmanship",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 125.995, 455.516, 233.758, 466.643 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "J. Plan and specification",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 67,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 90.0, 421.065, 144.921, 432.192 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Description"
+  }, {
+    "type" : "list",
+    "id" : 68,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 89.99, 87.474, 373.453, 397.621 ],
+    "numbering style" : "english letters",
+    "number of list items" : 6,
+    "next list id" : 70,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 90.0, 386.493, 336.739, 397.621 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "A. Development of sources of water for rural residences",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 1,
+        "page number" : 6,
+        "bounding box" : [ 90.0, 352.042, 521.896, 374.573 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Determine the amount and quality of water, develop source and provide sanitary measures against contamination and pollution."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 90.0, 328.994, 373.453, 340.122 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "B. Wastewater treatment and disposal for building and premises",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 2,
+        "page number" : 6,
+        "bounding box" : [ 90.0, 294.423, 522.056, 317.074 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Method of sewage treatment and disposal, design and construction of septic tank, privy, cesspool, seepage."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 90.0, 271.495, 266.03, 282.623 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "C. Water supply and distribution system",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 3,
+        "page number" : 6,
+        "bounding box" : [ 90.0, 236.924, 521.812, 259.575 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Planning and design of water supply, distribution, branch and all pipings to fixtures, appliances, appurtenance within the building and premises."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 90.0, 213.996, 284.977, 225.123 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "D. Sanitary drainage and ventillating system",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 4,
+        "page number" : 6,
+        "bounding box" : [ 90.0, 167.901, 521.941, 202.076 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Planning and design of house drains, house sewers, horizontal branches, stacks, vents, drains, traps, cleanouts, special waste, manhole and appurtenance within the building and premises."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 90.0, 144.973, 279.354, 156.101 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "E. Storm and sub-surface drainage system",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 5,
+        "page number" : 6,
+        "bounding box" : [ 89.99, 110.402, 521.97, 133.053 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Planning and design of ground and sub-surface drains, downspouts, floor and roof drains, area drains, catch basins, manholes and appurtenances within the building and premises."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 89.99, 87.474, 198.228, 98.602 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "F. Water heating system",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 70,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 89.995, 467.009, 521.836, 719.657 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "previous list id" : 68,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 69,
+      "page number" : 7,
+      "bounding box" : [ 90.005, 697.006, 521.836, 719.657 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Planning and design of hot water supply and return pipes, water heaters and appurtenance within the building and premises.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 90.005, 674.078, 202.683, 685.205 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "G. Dry and wet standpipe",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 6,
+        "page number" : 7,
+        "bounding box" : [ 90.005, 639.507, 521.845, 662.157 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Planning and design of dry and wet standpipes, fire for fire protection within the building and premises."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 90.005, 593.531, 313.293, 604.658 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "H. Water pump, tank cistern, sewage and scum pit",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 7,
+        "page number" : 7,
+        "bounding box" : [ 90.005, 558.96, 521.976, 581.611 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Sizing the capacity of elevated and hydropneumatic tanks, cistern, sewage and scum pits and appurtenances within the building and premises."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 90.005, 536.032, 227.156, 547.159 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "I. Installation and workmanship",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 8,
+        "page number" : 7,
+        "bounding box" : [ 89.995, 489.937, 521.837, 524.112 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "Methods and techniques of pipe laying and installation, joints and connections, pipe hangers and supports, storage and protection from damages, inspection and acceptance of workmanship."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.995, 467.009, 197.758, 478.136 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "J. Plan and specification",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 71,
+    "page number" : 7,
+    "bounding box" : [ 89.995, 432.438, 521.911, 455.089 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Preparation of orthographic working drawings, isometric, schematic diagrams, riser diagrams, details, symbols and legends and specifications."
+  } ]
+}

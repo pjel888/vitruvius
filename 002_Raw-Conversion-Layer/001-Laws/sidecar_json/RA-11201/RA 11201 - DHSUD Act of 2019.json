@@ -1,0 +1,5831 @@
+{
+  "file name" : "RA 11201 - DHSUD Act of 2019.pdf",
+  "number of pages" : 13,
+  "author" : "",
+  "title" : null,
+  "creation date" : "D:20190219161021+08'00",
+  "modification date" : "D:20260417134235+00'00",
+  "kids" : [ {
+    "type" : "image",
+    "id" : 30,
+    "page number" : 1,
+    "bounding box" : [ 0.021, 0.0, 594.979, 841.0 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile1.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 13,
+    "page number" : 1,
+    "bounding box" : [ 111.093, 686.182, 152.528, 703.243 ],
+    "font" : "NotoSans",
+    "font size" : 5.396,
+    "text color" : "[0.0]",
+    "content" : "S. No. 1578 H. No. 6775"
+  }, {
+    "type" : "paragraph",
+    "id" : 14,
+    "page number" : 1,
+    "bounding box" : [ 190.659, 658.404, 307.57, 671.142 ],
+    "font" : "NotoSans",
+    "font size" : 9.352,
+    "text color" : "[0.0]",
+    "content" : "Republic ofthe Philippines"
+  }, {
+    "type" : "heading",
+    "id" : 15,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 157.563, 633.188, 340.671, 652.784 ],
+    "heading level" : 1,
+    "font" : "NotoSans",
+    "font size" : 14.388,
+    "text color" : "[0.0]",
+    "content" : "Congress ofthe Philippines"
+  }, {
+    "type" : "paragraph",
+    "id" : 16,
+    "page number" : 1,
+    "bounding box" : [ 216.2, 613.8, 279.512, 626.538 ],
+    "font" : "NotoSans",
+    "font size" : 9.352,
+    "text color" : "[0.0]",
+    "content" : "Metro Manila"
+  }, {
+    "type" : "paragraph",
+    "id" : 17,
+    "page number" : 1,
+    "bounding box" : [ 197.853, 584.558, 297.688, 597.786 ],
+    "font" : "NotoSans",
+    "font size" : 9.712,
+    "text color" : "[0.0]",
+    "content" : "Seventeenth Congress"
+  }, {
+    "type" : "paragraph",
+    "id" : 18,
+    "page number" : 1,
+    "bounding box" : [ 197.853, 553.623, 299.298, 566.851 ],
+    "font" : "NotoSans",
+    "font size" : 9.712,
+    "text color" : "[0.0]",
+    "content" : "Ghird Regular Session"
+  }, {
+    "type" : "paragraph",
+    "id" : 19,
+    "page number" : 1,
+    "bounding box" : [ 110.078, 518.03, 386.537, 527.829 ],
+    "font" : "NotoSans",
+    "font size" : 7.194,
+    "text color" : "[0.0]",
+    "content" : "Begun and held in Metro Manila, on Monday, the twenty-third"
+  }, {
+    "type" : "paragraph",
+    "id" : 20,
+    "page number" : 1,
+    "bounding box" : [ 136.339, 506.625, 283.111, 515.934 ],
+    "font" : "NotoSans",
+    "font size" : 6.834,
+    "text color" : "[0.0]",
+    "content" : "day of July, two thousand eighteen."
+  }, {
+    "type" : "paragraph",
+    "id" : 21,
+    "page number" : 1,
+    "bounding box" : [ 160.801, 437.27, 335.632, 452.948 ],
+    "font" : "NotoSans",
+    "font size" : 11.511,
+    "text color" : "[0.0]",
+    "content" : "[RepusuicAcr No. 11201]"
+  }, {
+    "type" : "paragraph",
+    "id" : 22,
+    "page number" : 1,
+    "bounding box" : [ 110.798, 374.401, 386.589, 407.711 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "AN ACT CREATING THE DEPARTMENT OF HUMAN SETTLEMENTS AND URBAN DEVELOPMENT, DEFINING ITS MANDATE, POWERS AND FUNCTIONS,"
+  }, {
+    "type" : "paragraph",
+    "id" : 23,
+    "page number" : 1,
+    "bounding box" : [ 132.382, 362.996, 334.912, 372.795 ],
+    "font" : "NotoSans",
+    "font size" : 7.194,
+    "text color" : "[0.0]",
+    "content" : "AND APPROPRIATING FUNDS THEREFOR"
+  }, {
+    "type" : "paragraph",
+    "id" : 24,
+    "page number" : 1,
+    "bounding box" : [ 108.64, 330.157, 385.994, 340.446 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Be it enacted by the Senate and House of Representatives of the"
+  }, {
+    "type" : "paragraph",
+    "id" : 25,
+    "page number" : 1,
+    "bounding box" : [ 132.382, 318.752, 287.426, 328.55 ],
+    "font" : "NotoSans",
+    "font size" : 7.194,
+    "text color" : "[0.0]",
+    "content" : "Philippines in Congress assembled:"
+  }, {
+    "type" : "paragraph",
+    "id" : 26,
+    "page number" : 1,
+    "bounding box" : [ 219.797, 295.731, 275.196, 305.529 ],
+    "font" : "NotoSans",
+    "font size" : 7.194,
+    "text color" : "[0.0]",
+    "content" : "CHAPTER I"
+  }, {
+    "type" : "paragraph",
+    "id" : 27,
+    "page number" : 1,
+    "bounding box" : [ 160.801, 272.244, 334.191, 282.533 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "TITLE AND DECLARATION OF POLICY"
+  }, {
+    "type" : "paragraph",
+    "id" : 28,
+    "page number" : 1,
+    "bounding box" : [ 108.28, 240.23, 385.635, 260.95 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SECTION 1. Short Title. — This Act shall be known as the “Department of Human Settlements and Urban"
+  }, {
+    "type" : "paragraph",
+    "id" : 29,
+    "page number" : 1,
+    "bounding box" : [ 108.28, 229.544, 189.75, 239.343 ],
+    "font" : "NotoSans",
+    "font size" : 7.194,
+    "text color" : "[0.0]",
+    "content" : "Development Act”."
+  }, {
+    "type" : "image",
+    "id" : 81,
+    "page number" : 2,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile2.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 55,
+    "page number" : 2,
+    "bounding box" : [ 781.646, 553.531, 785.603, 562.351 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "3"
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "page number" : 2,
+    "bounding box" : [ 133.383, 506.925, 412.598, 550.529 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "SEC. 2. Declaration ofPolicy.— The State shall, pursuant to Section 9, Article XIII of the Constitution, ensure that underprivileged and homeless citizens have access to an adequate, safe, secure, habitable, sustainable, resilient and"
+  }, {
+    "type" : "paragraph",
+    "id" : 56,
+    "page number" : 2,
+    "bounding box" : [ 511.798, 522.675, 790.297, 544.774 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(a) Abandoned subdivision or condominium refers to a project whose development has not been completed in"
+  }, {
+    "type" : "paragraph",
+    "id" : 57,
+    "page number" : 2,
+    "bounding box" : [ 511.802, 491.109, 791.012, 524.294 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "accordance with the approved development plan despite the lapse of at least ten (10) years from the target date of completion and it appears that said project owner or developer"
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 2,
+    "bounding box" : [ 133.748, 496.558, 385.993, 508.85 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "affordable home. “"
+  }, {
+    "type" : "paragraph",
+    "id" : 58,
+    "page number" : 2,
+    "bounding box" : [ 511.812, 480.785, 789.921, 492.252 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "has no intention to complete the project developmentor,despite"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 2,
+    "bounding box" : [ 157.102, 474.871, 411.861, 487.216 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "The State shall, by law and for the common good,"
+  }, {
+    "type" : "paragraph",
+    "id" : 59,
+    "page number" : 2,
+    "bounding box" : [ 511.787, 469.687, 790.48, 482.205 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "diligent effort for at least the last five (5) years, the project"
+  }, {
+    "type" : "paragraph",
+    "id" : 34,
+    "page number" : 2,
+    "bounding box" : [ 133.722, 464.011, 412.576, 476.809 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "undertake, in cooperation with the private sector,a continuing"
+  }, {
+    "type" : "paragraph",
+    "id" : 60,
+    "page number" : 2,
+    "bounding box" : [ 512.182, 460.187, 685.967, 471.028 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "owner or developer cannot be located;"
+  }, {
+    "type" : "paragraph",
+    "id" : 35,
+    "page number" : 2,
+    "bounding box" : [ 133.381, 432.185, 412.239, 466.352 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "program ofhousing and urban development which shall make available at affordable cost, decent housing and basic services to underprivileged and homeless citizens in urban centers and"
+  }, {
+    "type" : "paragraph",
+    "id" : 54,
+    "page number" : 2,
+    "bounding box" : [ 454.137, 451.825, 457.593, 455.059 ],
+    "font" : "NotoSans",
+    "font size" : 2.538,
+    "text color" : "[0.0]",
+    "content" : "4:"
+  }, {
+    "type" : "paragraph",
+    "id" : 61,
+    "page number" : 2,
+    "bounding box" : [ 511.787, 427.24, 790.274, 450.188 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(b) Comprehensive Land Use Plan (CLUP) refers to the document, formulated by the local government in consultation"
+  }, {
+    "type" : "paragraph",
+    "id" : 36,
+    "page number" : 2,
+    "bounding box" : [ 133.362, 421.557, 412.768, 434.36 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "resettlement areas. Itshall also promote adequate employment"
+  }, {
+    "type" : "paragraph",
+    "id" : 62,
+    "page number" : 2,
+    "bounding box" : [ 511.786, 406.121, 790.297, 428.939 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "with its stakeholders, that defines or provides guidelines on the allocation, utilization, development and management of all"
+  }, {
+    "type" : "paragraph",
+    "id" : 37,
+    "page number" : 2,
+    "bounding box" : [ 133.722, 411.069, 411.866, 423.159 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "opportunities to such citizens. In the implementation of the"
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 2,
+    "bounding box" : [ 133.381, 400.163, 412.413, 412.751 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "program, the State shall respect the rights ofsmall property"
+  }, {
+    "type" : "paragraph",
+    "id" : 63,
+    "page number" : 2,
+    "bounding box" : [ 511.787, 384.993, 789.915, 407.74 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "lands within a given territory orjurisdiction according to the inherent qualities ofthe land itself and supportive economic,"
+  }, {
+    "type" : "paragraph",
+    "id" : 39,
+    "page number" : 2,
+    "bounding box" : [ 133.452, 392.792, 166.361, 399.652 ],
+    "font" : "NotoSans",
+    "font size" : 5.036,
+    "text color" : "[0.0]",
+    "content" : "owners."
+  }, {
+    "type" : "paragraph",
+    "id" : 64,
+    "page number" : 2,
+    "bounding box" : [ 511.8, 374.499, 773.731, 386.131 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "demographic, socio-cultural and environmental objectives;"
+  }, {
+    "type" : "paragraph",
+    "id" : 40,
+    "page number" : 2,
+    "bounding box" : [ 133.722, 357.535, 412.047, 380.76 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "The State shall pursue the realization of a modern, humane, economically-viable, and environmentally-sustainable"
+  }, {
+    "type" : "paragraph",
+    "id" : 65,
+    "page number" : 2,
+    "bounding box" : [ 535.181, 352.856, 790.466, 364.932 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(©) Housing refers to a multi-dimensional concept relating"
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "page number" : 2,
+    "bounding box" : [ 133.375, 336.417, 412.051, 359.151 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "society where the urbanization process is manifest in towns and cities being centers ofproductive economic activity and"
+  }, {
+    "type" : "paragraph",
+    "id" : 66,
+    "page number" : 2,
+    "bounding box" : [ 511.812, 342.65, 789.541, 354.115 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "to the process of residing and the objects of dwelling whose"
+  }, {
+    "type" : "paragraph",
+    "id" : 67,
+    "page number" : 2,
+    "bounding box" : [ 511.813, 321.528, 789.929, 343.298 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "main attributes are location relative to access to livelihood, tenure arrangements, cost and physical structure, as well as"
+  }, {
+    "type" : "paragraph",
+    "id" : 42,
+    "page number" : 2,
+    "bounding box" : [ 133.374, 315.56, 411.86, 338.311 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "is led by market forces; where urban areas have affordable housing, sustainable physical and social infrastructure and"
+  }, {
+    "type" : "paragraph",
+    "id" : 68,
+    "page number" : 2,
+    "bounding box" : [ 511.788, 278.977, 789.921, 322.458 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "their environment. Housing is likewise a physical structure as well as a social structure, functioning at different spatial scales from homes, neighborhoods, communities, municipalities, cities, provinces, and regions. It is also a sector of the"
+  }, {
+    "type" : "paragraph",
+    "id" : 43,
+    "page number" : 2,
+    "bounding box" : [ 133.735, 294.247, 411.859, 316.702 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "services facilitated under a democraticand decentralized system ofgovernance; and where urban areasprovide the opportunities"
+  }, {
+    "type" : "paragraph",
+    "id" : 44,
+    "page number" : 2,
+    "bounding box" : [ 133.374, 283.345, 412.06, 295.863 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "for an improved quality oflife and the eradication ofpoverty."
+  }, {
+    "type" : "paragraph",
+    "id" : 69,
+    "page number" : 2,
+    "bounding box" : [ 511.825, 268.566, 789.903, 279.265 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "economy, an important category ofland use in both urban and"
+  }, {
+    "type" : "paragraph",
+    "id" : 45,
+    "page number" : 2,
+    "bounding box" : [ 133.735, 251.801, 411.859, 274.254 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "The State shall ensure that poor dwellers in urban and rural areas shall not be evicted nor their dwelling demolished,"
+  }, {
+    "type" : "paragraph",
+    "id" : 70,
+    "page number" : 2,
+    "bounding box" : [ 511.814, 257.923, 789.917, 269.602 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "rural areas, especially in cities, and is an important factor in"
+  }, {
+    "type" : "paragraph",
+    "id" : 71,
+    "page number" : 2,
+    "bounding box" : [ 511.8, 247.594, 710.793, 258.785 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "the overall dynamics of the urban system;"
+  }, {
+    "type" : "paragraph",
+    "id" : 46,
+    "page number" : 2,
+    "bounding box" : [ 133.746, 242.191, 276.986, 252.645 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "except in accordance with law."
+  }, {
+    "type" : "paragraph",
+    "id" : 72,
+    "page number" : 2,
+    "bounding box" : [ 535.183, 225.769, 789.923, 237.586 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(d) Human Settlements comprise of (a) physical"
+  }, {
+    "type" : "paragraph",
+    "id" : 47,
+    "page number" : 2,
+    "bounding box" : [ 157.127, 219.755, 412.411, 231.83 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "In addition, the State shall encourage on-site development"
+  }, {
+    "type" : "paragraph",
+    "id" : 73,
+    "page number" : 2,
+    "bounding box" : [ 512.172, 215.304, 789.911, 226.769 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "components of shelter and infrastructure; and (b) services to"
+  }, {
+    "type" : "paragraph",
+    "id" : 48,
+    "page number" : 2,
+    "bounding box" : [ 133.735, 208.988, 412.043, 221.013 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "in the implementation ofhousing programs and shall promote"
+  }, {
+    "type" : "paragraph",
+    "id" : 74,
+    "page number" : 2,
+    "bounding box" : [ 511.802, 204.404, 789.923, 216.362 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "which the physical elements provide support, such as"
+  }, {
+    "type" : "paragraph",
+    "id" : 49,
+    "page number" : 2,
+    "bounding box" : [ 133.748, 198.648, 411.872, 210.606 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "the creation ofnew settlements and developmentofsustainable"
+  }, {
+    "type" : "paragraph",
+    "id" : 75,
+    "page number" : 2,
+    "bounding box" : [ 511.813, 194.184, 789.746, 205.16 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "community services which include education, health, culture,"
+  }, {
+    "type" : "paragraph",
+    "id" : 50,
+    "page number" : 2,
+    "bounding box" : [ 133.735, 177.756, 412.423, 199.789 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "urban renewalprogramswhile guaranteeing the preservation of agricultural lands necessary for food security."
+  }, {
+    "type" : "paragraph",
+    "id" : 76,
+    "page number" : 2,
+    "bounding box" : [ 512.174, 184.089, 664.02, 195.137 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "welfare, recreation and nutrition;"
+  }, {
+    "type" : "paragraph",
+    "id" : 77,
+    "page number" : 2,
+    "bounding box" : [ 512.174, 141.013, 789.926, 173.553 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(e) Informal Settler Families (ISFs) refer to households living in a lot, whether private or public, without the consent of the property owner; or those without legal claim over the"
+  }, {
+    "type" : "paragraph",
+    "id" : 51,
+    "page number" : 2,
+    "bounding box" : [ 243.819, 156.797, 302.512, 167.438 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "CHAPTER II"
+  }, {
+    "type" : "paragraph",
+    "id" : 52,
+    "page number" : 2,
+    "bounding box" : [ 218.985, 135.331, 325.175, 147.342 ],
+    "font" : "NotoSans",
+    "font size" : 8.274,
+    "text color" : "[0.0]",
+    "content" : "‘DEFINITION OF TERMS"
+  }, {
+    "type" : "paragraph",
+    "id" : 78,
+    "page number" : 2,
+    "bounding box" : [ 511.812, 130.405, 789.752, 141.872 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "property they are occupying; or those living in danger areas"
+  }, {
+    "type" : "paragraph",
+    "id" : 79,
+    "page number" : 2,
+    "bounding box" : [ 512.174, 110.383, 789.549, 131.464 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "such as esteros, railroad tracks, garbage dumps, riverbanks, shorelines, and waterways;"
+  }, {
+    "type" : "paragraph",
+    "id" : 53,
+    "page number" : 2,
+    "bounding box" : [ 133.812, 104.627, 411.866, 125.349 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 3. Definition of Terms. — As used in this Act, the following terms are defined as follows:"
+  }, {
+    "type" : "paragraph",
+    "id" : 80,
+    "page number" : 2,
+    "bounding box" : [ 512.174, 76.978, 790.094, 99.448 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(f) People’s plan refers to the plan formulated by the beneficiary-association, which shall contain a site development"
+  }, {
+    "type" : "image",
+    "id" : 131,
+    "page number" : 3,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile3.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 82,
+    "page number" : 3,
+    "bounding box" : [ 136.689, 558.375, 140.646, 564.745 ],
+    "font" : "NotoSans",
+    "font size" : 4.677,
+    "text color" : "[0.0]",
+    "content" : "4"
+  }, {
+    "type" : "paragraph",
+    "id" : 104,
+    "page number" : 3,
+    "bounding box" : [ 789.2, 548.855, 793.517, 557.674 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "5"
+  }, {
+    "type" : "paragraph",
+    "id" : 83,
+    "page number" : 3,
+    "bounding box" : [ 134.119, 523.953, 413.306, 545.853 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "plan that conforms to the CLUP ofthe local government unit under whose jurisdiction the project site is proposed to be"
+  }, {
+    "type" : "paragraph",
+    "id" : 105,
+    "page number" : 3,
+    "bounding box" : [ 517.863, 518.415, 795.681, 542.256 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "performance monitoring entity for all housing, human settlement and urban development concerns, primarily focusing"
+  }, {
+    "type" : "paragraph",
+    "id" : 84,
+    "page number" : 3,
+    "bounding box" : [ 134.108, 481.391, 414.008, 525.373 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "located, including community health, sanitation, and security plans, as well as non-physical development components such as self-help housing cooperative, livelihood, self-help development, capability building, and a system ofallocation of"
+  }, {
+    "type" : "paragraph",
+    "id" : 106,
+    "page number" : 3,
+    "bounding box" : [ 517.882, 507.821, 794.931, 521.006 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "on the access to and the affordability ofbasic human needs."
+  }, {
+    "type" : "paragraph",
+    "id" : 107,
+    "page number" : 3,
+    "bounding box" : [ 517.492, 486.298, 795.327, 510.984 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "It shall develop and adopt a national strategy to immediately address the provisionofadequate and affordable housingto all"
+  }, {
+    "type" : "paragraph",
+    "id" : 108,
+    "page number" : 3,
+    "bounding box" : [ 517.491, 476.054, 794.956, 489.735 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Filipinos, and shall ensure the alignment of the policies,"
+  }, {
+    "type" : "paragraph",
+    "id" : 85,
+    "page number" : 3,
+    "bounding box" : [ 134.478, 471.069, 413.14, 482.54 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "socialized housing units that promote and protect the welfare"
+  }, {
+    "type" : "paragraph",
+    "id" : 109,
+    "page number" : 3,
+    "bounding box" : [ 517.164, 465.468, 794.916, 478.173 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "programs, and projects ofall its attached agencies to facilitate"
+  }, {
+    "type" : "paragraph",
+    "id" : 86,
+    "page number" : 3,
+    "bounding box" : [ 134.468, 460.385, 377.53, 472.132 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "of the elderly, persons with disability, and children;"
+  }, {
+    "type" : "paragraph",
+    "id" : 110,
+    "page number" : 3,
+    "bounding box" : [ 517.48, 456.092, 671.565, 468.535 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "the achievement ofthis objective."
+  }, {
+    "type" : "paragraph",
+    "id" : 87,
+    "page number" : 3,
+    "bounding box" : [ 158.207, 438.939, 413.303, 450.523 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(g) Public housing is housing that is owned and/or"
+  }, {
+    "type" : "paragraph",
+    "id" : 111,
+    "page number" : 3,
+    "bounding box" : [ 540.513, 433.357, 794.949, 446.951 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 5. Powers and Functions. — The Department shall"
+  }, {
+    "type" : "paragraph",
+    "id" : 88,
+    "page number" : 3,
+    "bounding box" : [ 134.468, 428.152, 413.681, 440.116 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "managed by the government for the purpose of providing"
+  }, {
+    "type" : "paragraph",
+    "id" : 112,
+    "page number" : 3,
+    "bounding box" : [ 517.133, 423.601, 720.128, 435.75 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "exercise the following powers and functions:"
+  }, {
+    "type" : "paragraph",
+    "id" : 89,
+    "page number" : 3,
+    "bounding box" : [ 134.48, 418.755, 283.436, 429.299 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "housing to underserved families;"
+  }, {
+    "type" : "paragraph",
+    "id" : 113,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 517.107, 393.944, 794.599, 414.91 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "I. Policy Development, Coordination, Monitoring and Evaluation"
+  }, {
+    "type" : "paragraph",
+    "id" : 90,
+    "page number" : 3,
+    "bounding box" : [ 158.208, 396.28, 413.298, 408.1 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(h) Urban Development refers to the process ofoccupation"
+  }, {
+    "type" : "paragraph",
+    "id" : 91,
+    "page number" : 3,
+    "bounding box" : [ 134.48, 386.092, 412.772, 397.283 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "and use of land or space for activities such as residential,"
+  }, {
+    "type" : "paragraph",
+    "id" : 92,
+    "page number" : 3,
+    "bounding box" : [ 134.48, 375.196, 412.584, 386.875 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "industrial, commercial and the like or their combinations,"
+  }, {
+    "type" : "paragraph",
+    "id" : 114,
+    "page number" : 3,
+    "bounding box" : [ 516.424, 338.111, 794.77, 382.894 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(a) Formulate a national housing and urban development policies, strategies and standards that are consistent with the Philippine Development Plan to promote social and economic welfare, in coordination and in consultation with national and"
+  }, {
+    "type" : "paragraph",
+    "id" : 93,
+    "page number" : 3,
+    "bounding box" : [ 134.861, 364.974, 412.939, 375.674 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "necessary to carry out the functions ofurban living. It entails"
+  }, {
+    "type" : "paragraph",
+    "id" : 94,
+    "page number" : 3,
+    "bounding box" : [ 134.48, 353.968, 413.311, 365.651 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "the building or rebuilding of more or less permanent"
+  }, {
+    "type" : "paragraph",
+    "id" : 95,
+    "page number" : 3,
+    "bounding box" : [ 134.48, 323.451, 413.3, 354.474 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "structures over land that is often withdrawn or converted from its original use, resulting in the creation of a built environment; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 115,
+    "page number" : 3,
+    "bounding box" : [ 516.425, 327.205, 794.603, 340.83 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "local stakeholders, local government units (LGUs), and other"
+  }, {
+    "type" : "paragraph",
+    "id" : 116,
+    "page number" : 3,
+    "bounding box" : [ 516.784, 319.107, 611.853, 328.859 ],
+    "font" : "NotoSans",
+    "font size" : 6.115,
+    "text color" : "[0.0]",
+    "content" : "government agencies;"
+  }, {
+    "type" : "paragraph",
+    "id" : 96,
+    "page number" : 3,
+    "bounding box" : [ 134.48, 279.61, 413.31, 312.026 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(i) Urban Development Planning refers to the process that involves the planning of diverse elements that comprise an urbanizing and urbanized area, including its physical"
+  }, {
+    "type" : "paragraph",
+    "id" : 117,
+    "page number" : 3,
+    "bounding box" : [ 540.153, 295.233, 793.501, 308.814 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(b) Formulate housing finance and production policies,"
+  }, {
+    "type" : "paragraph",
+    "id" : 118,
+    "page number" : 3,
+    "bounding box" : [ 516.426, 284.866, 794.229, 297.997 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "recommend and facilitate the development ofmechanisms that"
+  }, {
+    "type" : "paragraph",
+    "id" : 119,
+    "page number" : 3,
+    "bounding box" : [ 516.086, 274.261, 793.867, 287.18 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "promote the establishment of a self-sustaining housing finance"
+  }, {
+    "type" : "paragraph",
+    "id" : 97,
+    "page number" : 3,
+    "bounding box" : [ 134.84, 268.713, 413.302, 280.394 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "infrastructure, environment, housing, transportation and"
+  }, {
+    "type" : "paragraph",
+    "id" : 120,
+    "page number" : 3,
+    "bounding box" : [ 516.424, 263.359, 794.613, 276.772 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "and housing delivery systems incoordination withthe relevant"
+  }, {
+    "type" : "paragraph",
+    "id" : 98,
+    "page number" : 3,
+    "bounding box" : [ 134.85, 258.742, 342.084, 269.577 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "management of land use and urban growth."
+  }, {
+    "type" : "paragraph",
+    "id" : 121,
+    "page number" : 3,
+    "bounding box" : [ 516.451, 255.909, 554.312, 265.596 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "agencies;"
+  }, {
+    "type" : "paragraph",
+    "id" : 99,
+    "page number" : 3,
+    "bounding box" : [ 242.74, 237.354, 305.39, 248.018 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "CHAPTER III"
+  }, {
+    "type" : "paragraph",
+    "id" : 122,
+    "page number" : 3,
+    "bounding box" : [ 539.818, 231.698, 793.92, 244.781 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(c) Formulate housing policies and programs, such as"
+  }, {
+    "type" : "paragraph",
+    "id" : 123,
+    "page number" : 3,
+    "bounding box" : [ 516.066, 221.193, 793.868, 234.324 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "public housing, in coordination with the attached agencies, for"
+  }, {
+    "type" : "paragraph",
+    "id" : 100,
+    "page number" : 3,
+    "bounding box" : [ 151.078, 205.713, 397.479, 227.153 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "DEPARTMENT OF HUMAN SETTLEMENTS AND URBAN DEVELOPMENT"
+  }, {
+    "type" : "paragraph",
+    "id" : 124,
+    "page number" : 3,
+    "bounding box" : [ 516.077, 211.475, 711.871, 223.916 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "the homeless and underprivileged families;"
+  }, {
+    "type" : "list",
+    "id" : 125,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 539.458, 157.488, 793.52, 202.332 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 539.458, 189.25, 793.52, 202.332 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(d) Conduct continuing and comprehensive studies and",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 12,
+        "page number" : 3,
+        "bounding box" : [ 516.091, 179.146, 773.2, 191.515 ],
+        "font" : "NotoSans",
+        "font size" : 7.195,
+        "text color" : "[0.0]",
+        "content" : "research necessary for housing and urban development;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 539.461, 157.488, 793.505, 170.316 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(e) Formulate a framework for resilient housing and",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 101,
+    "page number" : 3,
+    "bounding box" : [ 135.25, 142.04, 414.744, 195.137 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 4. Creation and Mandate of the Department of Human Settlements and Urban Development. — There is hereby created the Department of Human Settlements and Urban Development, hereinafter referred to as the Department, through the consolidation of the Housing and Urban"
+  }, {
+    "type" : "paragraph",
+    "id" : 126,
+    "page number" : 3,
+    "bounding box" : [ 515.707, 135.936, 793.519, 159.859 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "human settlements as a basis for the mechanisms for post-disaster housing and resiliency planning, research and"
+  }, {
+    "type" : "paragraph",
+    "id" : 102,
+    "page number" : 3,
+    "bounding box" : [ 135.25, 131.713, 413.666, 141.512 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Development Coordinating Council (HUDCC) and the Housing"
+  }, {
+    "type" : "paragraph",
+    "id" : 127,
+    "page number" : 3,
+    "bounding box" : [ 516.065, 125.043, 793.489, 138.659 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "development, extension, monitoring and evaluation ofprograms,"
+  }, {
+    "type" : "paragraph",
+    "id" : 103,
+    "page number" : 3,
+    "bounding box" : [ 135.61, 78.367, 414.024, 131.105 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "and Land Use Regulatory Board (HLURB). The Department shall act as the primary national government entity responsible for the management of housing, human settlement and urban development. It shall be the sole and main planning and policy-making, regulatory, program coordination, and"
+  }, {
+    "type" : "paragraph",
+    "id" : 128,
+    "page number" : 3,
+    "bounding box" : [ 515.719, 104.375, 793.333, 127.483 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "projects and activities to protect vulnerable communities from the adverse effects of climate change and disasters; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 129,
+    "page number" : 3,
+    "bounding box" : [ 539.461, 83.026, 793.155, 95.851 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(f) In the exercise ofits oversight functions, develop and"
+  }, {
+    "type" : "paragraph",
+    "id" : 130,
+    "page number" : 3,
+    "bounding box" : [ 515.731, 72.821, 793.188, 85.394 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "establish a sector performance monitoring and assessment"
+  }, {
+    "type" : "image",
+    "id" : 182,
+    "page number" : 4,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile4.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 132,
+    "page number" : 4,
+    "bounding box" : [ 137.049, 544.792, 141.366, 554.102 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "6"
+  }, {
+    "type" : "paragraph",
+    "id" : 133,
+    "page number" : 4,
+    "bounding box" : [ 136.626, 511.617, 414.606, 534.366 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "mechanism to accurately and independently report on the performance of national government agencies and LGUs"
+  }, {
+    "type" : "paragraph",
+    "id" : 162,
+    "page number" : 4,
+    "bounding box" : [ 513.573, 484.993, 791.352, 518.513 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(e) Formulate andprescribe land use planning and zoning standards and regulations for the guidance of cities and municipalities in the formulation of their respective CLUPs:"
+  }, {
+    "type" : "paragraph",
+    "id" : 134,
+    "page number" : 4,
+    "bounding box" : [ 136.972, 501.167, 360.961, 512.757 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "involved in the housing and urban development."
+  }, {
+    "type" : "paragraph",
+    "id" : 135,
+    "page number" : 4,
+    "bounding box" : [ 160.005, 479.489, 414.385, 491.558 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "II. Environmental, Land Use and Urban Planning and"
+  }, {
+    "type" : "paragraph",
+    "id" : 163,
+    "page number" : 4,
+    "bounding box" : [ 512.225, 476.636, 772.294, 488.394 ],
+    "font" : "NotoSans",
+    "font size" : 8.634,
+    "text color" : "[0.0]",
+    "content" : "and ,"
+  }, {
+    "type" : "paragraph",
+    "id" : 136,
+    "page number" : 4,
+    "bounding box" : [ 136.996, 470.968, 192.623, 481.101 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Development"
+  }, {
+    "type" : "paragraph",
+    "id" : 164,
+    "page number" : 4,
+    "bounding box" : [ 536.94, 452.935, 791.013, 466.017 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(f) Develop and implement a comprehensive plan for the"
+  }, {
+    "type" : "paragraph",
+    "id" : 137,
+    "page number" : 4,
+    "bounding box" : [ 136.959, 415.742, 414.39, 459.901 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(a) Develop and maintain a shelter and urban development management, standards and monitoring information system which shall include, but not be limited to, the following data sets: inventory of idle lands, CLUPs,"
+  }, {
+    "type" : "paragraph",
+    "id" : 165,
+    "page number" : 4,
+    "bounding box" : [ 513.573, 442.964, 757.374, 455.2 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "establishment of government centers in the ‘country."
+  }, {
+    "type" : "paragraph",
+    "id" : 166,
+    "page number" : 4,
+    "bounding box" : [ 536.583, 421.226, 785.252, 434.001 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "III. Housing and Real Estate Development Regulation"
+  }, {
+    "type" : "paragraph",
+    "id" : 161,
+    "page number" : 4,
+    "bounding box" : [ 454.671, 414.5, 458.988, 417.44 ],
+    "font" : "NotoSans",
+    "font size" : 2.158,
+    "text color" : "[0.0]",
+    "content" : "7"
+  }, {
+    "type" : "paragraph",
+    "id" : 138,
+    "page number" : 4,
+    "bounding box" : [ 136.97, 405.136, 414.04, 417.428 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "inventory ofhousing stocks, and list ofbeneficiaries: Provided,"
+  }, {
+    "type" : "paragraph",
+    "id" : 167,
+    "page number" : 4,
+    "bounding box" : [ 536.954, 400.053, 791.013, 412.392 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(a) Develop mechanisms and implement programs, in"
+  }, {
+    "type" : "paragraph",
+    "id" : 139,
+    "page number" : 4,
+    "bounding box" : [ 136.959, 394.236, 414.386, 407.021 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "That notwithstanding this provision, all existing CLUPs duly"
+  }, {
+    "type" : "paragraph",
+    "id" : 168,
+    "page number" : 4,
+    "bounding box" : [ 513.214, 378.764, 790.99, 401.984 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "coordination with attached agencies and concerned agencies, that will initiate and promote the establishment ofestate and"
+  }, {
+    "type" : "paragraph",
+    "id" : 140,
+    "page number" : 4,
+    "bounding box" : [ 136.972, 383.825, 414.568, 395.844 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "approved and being implemented by the LGUs shall remain"
+  }, {
+    "type" : "paragraph",
+    "id" : 141,
+    "page number" : 4,
+    "bounding box" : [ 136.612, 351.707, 414.381, 385.796 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "in full force and effect for the duration ofthe period as stated therein: Provided, further,That upon enactment ofthis Act, LGUsmay improve, amend and enhance their existing CLUPs"
+  }, {
+    "type" : "paragraph",
+    "id" : 169,
+    "page number" : 4,
+    "bounding box" : [ 513.235, 368.37, 790.994, 379.966 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "new towns, new settlements, urban renewal programs, and"
+  }, {
+    "type" : "paragraph",
+    "id" : 170,
+    "page number" : 4,
+    "bounding box" : [ 512.864, 357.476, 790.278, 369.559 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "prototypes ofhousing and urban development interventions,"
+  }, {
+    "type" : "paragraph",
+    "id" : 171,
+    "page number" : 4,
+    "bounding box" : [ 513.214, 346.751, 790.661, 359.536 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "including the people’s plan approach, while encouraging the"
+  }, {
+    "type" : "paragraph",
+    "id" : 142,
+    "page number" : 4,
+    "bounding box" : [ 136.972, 341.452, 405.026, 353.395 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "in accordance with the standards set by the Department;"
+  }, {
+    "type" : "paragraph",
+    "id" : 172,
+    "page number" : 4,
+    "bounding box" : [ 512.865, 325.909, 791.007, 348.719 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "participation therein oflocal governmentpartnerships with civil society organizations, nongovernment organizations, private"
+  }, {
+    "type" : "paragraph",
+    "id" : 143,
+    "page number" : 4,
+    "bounding box" : [ 160.364, 320.132, 414.035, 332.196 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(b) Provide technical assistance to provinces, cities and"
+  }, {
+    "type" : "paragraph",
+    "id" : 173,
+    "page number" : 4,
+    "bounding box" : [ 513.236, 316.772, 627.691, 327.11 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "groups and communities;"
+  }, {
+    "type" : "paragraph",
+    "id" : 144,
+    "page number" : 4,
+    "bounding box" : [ 136.972, 298.929, 414.386, 321.379 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "municipalities in building theircapability to undertake housing and urban development and management, such as, but not"
+  }, {
+    "type" : "paragraph",
+    "id" : 174,
+    "page number" : 4,
+    "bounding box" : [ 512.854, 251.418, 791.724, 306.295 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(b) Manage and oversee the development ofproclaimed socialized and economic housing sites, including the use of these land assets as resource mobilization strategy to raise alternative resources in developing new housing projects and efficient financing programs, either by itself or through its"
+  }, {
+    "type" : "paragraph",
+    "id" : 145,
+    "page number" : 4,
+    "bounding box" : [ 136.971, 288.032, 414.38, 300.539 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "limited to: creating a Local Housing Board (LHB) or similar"
+  }, {
+    "type" : "paragraph",
+    "id" : 146,
+    "page number" : 4,
+    "bounding box" : [ 136.982, 277.705, 414.387, 289.722 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "entity; formulating CLUPs and local shelter plans (LSPs); and"
+  }, {
+    "type" : "paragraph",
+    "id" : 147,
+    "page number" : 4,
+    "bounding box" : [ 136.983, 267.378, 414.384, 278.906 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "strengthening local government compliance with housing and"
+  }, {
+    "type" : "paragraph",
+    "id" : 148,
+    "page number" : 4,
+    "bounding box" : [ 136.972, 256.823, 371.574, 268.498 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "urban development laws, standards and guidelines;"
+  }, {
+    "type" : "paragraph",
+    "id" : 175,
+    "page number" : 4,
+    "bounding box" : [ 513.225, 242.865, 593.884, 253.389 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "attached agencies;"
+  }, {
+    "type" : "paragraph",
+    "id" : 149,
+    "page number" : 4,
+    "bounding box" : [ 136.972, 224.464, 414.387, 246.914 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(c) Assist the LGUs in the utilization of the socialized housing tax, as provided in Section 43 of Republic Act"
+  }, {
+    "type" : "paragraph",
+    "id" : 176,
+    "page number" : 4,
+    "bounding box" : [ 513.235, 209.08, 790.643, 231.805 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(c) Implement a single regulatory system that shall govern all activities relative to the planning, production,"
+  }, {
+    "type" : "paragraph",
+    "id" : 150,
+    "page number" : 4,
+    "bounding box" : [ 136.612, 192.819, 414.389, 226.074 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "No. 7279, and other sources offunds for housing which shall be exclusively used for new settlement projects, and other housing, urban development and renewal projects;"
+  }, {
+    "type" : "paragraph",
+    "id" : 177,
+    "page number" : 4,
+    "bounding box" : [ 512.854, 188.83, 790.641, 210.966 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "marketing, and management of housing and urban development projects; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 151,
+    "page number" : 4,
+    "bounding box" : [ 160.364, 171.202, 414.025, 183.266 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(ad) Own and administer government-owned lands,"
+  }, {
+    "type" : "paragraph",
+    "id" : 178,
+    "page number" : 4,
+    "bounding box" : [ 512.854, 145.298, 790.825, 178.949 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(d) Take over unfinished, incomplete or abandoned licensed real estate development projects under Presidential Decree No. 957, in coordination with the appropriate"
+  }, {
+    "type" : "paragraph",
+    "id" : 152,
+    "page number" : 4,
+    "bounding box" : [ 136.972, 160.432, 414.377, 172.449 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "whether owned by the national government or any of its"
+  }, {
+    "type" : "paragraph",
+    "id" : 153,
+    "page number" : 4,
+    "bounding box" : [ 137.345, 150.089, 414.748, 162.042 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "subdivisions, instrumentalities, or agencies, including"
+  }, {
+    "type" : "paragraph",
+    "id" : 154,
+    "page number" : 4,
+    "bounding box" : [ 137.343, 139.316, 414.384, 150.84 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "government-owned or -controlled corporations (GOCCs) and"
+  }, {
+    "type" : "paragraph",
+    "id" : 179,
+    "page number" : 4,
+    "bounding box" : [ 512.879, 135.098, 790.636, 146.139 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "government agencies and instrumentalities, under such"
+  }, {
+    "type" : "paragraph",
+    "id" : 155,
+    "page number" : 4,
+    "bounding box" : [ 136.986, 128.864, 414.396, 140.818 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "their subsidiaries, which have not been used for the purpose"
+  }, {
+    "type" : "paragraph",
+    "id" : 180,
+    "page number" : 4,
+    "bounding box" : [ 512.867, 113.554, 791.192, 136.501 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "guidelines as may be formulated. Further,the Department shall be in charge of regulating the use of road and street"
+  }, {
+    "type" : "paragraph",
+    "id" : 156,
+    "page number" : 4,
+    "bounding box" : [ 136.997, 107.452, 414.763, 130.41 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "for which they have been originally reserved or set aside for at least ten (10) years and identified by the Department as"
+  }, {
+    "type" : "paragraph",
+    "id" : 181,
+    "page number" : 4,
+    "bounding box" : [ 512.866, 103.344, 758.994, 114.867 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "systems of projects taken over under this provisions."
+  }, {
+    "type" : "paragraph",
+    "id" : 157,
+    "page number" : 4,
+    "bounding box" : [ 137.345, 96.848, 414.737, 108.801 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "suitable for urban development, particularly for housing"
+  }, {
+    "type" : "paragraph",
+    "id" : 158,
+    "page number" : 4,
+    "bounding box" : [ 137.008, 86.799, 414.379, 97.984 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "purposes: Provided, That the lands held in trust by the"
+  }, {
+    "type" : "paragraph",
+    "id" : 159,
+    "page number" : 4,
+    "bounding box" : [ 137.345, 75.981, 415.106, 87.937 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "GOCCs for and on behalfoftheir members shall be excluded"
+  }, {
+    "type" : "paragraph",
+    "id" : 160,
+    "page number" : 4,
+    "bounding box" : [ 136.985, 66.05, 253.772, 77.529 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "from the coverage hereof;"
+  }, {
+    "type" : "image",
+    "id" : 237,
+    "page number" : 5,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile5.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 213,
+    "page number" : 5,
+    "bounding box" : [ 787.402, 536.519, 791.718, 545.828 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "9"
+  }, {
+    "type" : "paragraph",
+    "id" : 183,
+    "page number" : 5,
+    "bounding box" : [ 158.913, 520.952, 414.742, 533.287 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "IV. Homeowners Association and Community"
+  }, {
+    "type" : "paragraph",
+    "id" : 214,
+    "page number" : 5,
+    "bounding box" : [ 539.112, 515.891, 792.801, 528.226 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(d) Determine, fix and collect reasonable amounts to be"
+  }, {
+    "type" : "paragraph",
+    "id" : 184,
+    "page number" : 5,
+    "bounding box" : [ 135.557, 512.335, 191.548, 522.47 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Development"
+  }, {
+    "type" : "paragraph",
+    "id" : 215,
+    "page number" : 5,
+    "bounding box" : [ 515.384, 505.311, 792.794, 517.818 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "charged as fees and charges necessary for the effective"
+  }, {
+    "type" : "paragraph",
+    "id" : 216,
+    "page number" : 5,
+    "bounding box" : [ 515.383, 494.702, 793.331, 507.002 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "implementation of all laws, rules and regulations enforced by"
+  }, {
+    "type" : "paragraph",
+    "id" : 185,
+    "page number" : 5,
+    "bounding box" : [ 158.914, 489.042, 414.57, 500.886 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(a) Register, regulate and supervise the homeowners"
+  }, {
+    "type" : "paragraph",
+    "id" : 217,
+    "page number" : 5,
+    "bounding box" : [ 515.384, 484.084, 793.153, 496.594 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "the Department and impose reasonable fines and penalties for"
+  }, {
+    "type" : "paragraph",
+    "id" : 186,
+    "page number" : 5,
+    "bounding box" : [ 135.533, 478.711, 414.93, 490.044 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "associations (HOAs) in subdivision projects and government"
+  }, {
+    "type" : "paragraph",
+    "id" : 218,
+    "page number" : 5,
+    "bounding box" : [ 515.383, 473.478, 793.327, 485.777 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "violation thereof: Provided, however,That all income generated"
+  }, {
+    "type" : "paragraph",
+    "id" : 187,
+    "page number" : 5,
+    "bounding box" : [ 135.508, 469.36, 211.337, 480.406 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "housing projects;"
+  }, {
+    "type" : "paragraph",
+    "id" : 219,
+    "page number" : 5,
+    "bounding box" : [ 515.384, 462.757, 792.796, 475.754 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "from fees, fines, charges, and other collections shall be"
+  }, {
+    "type" : "paragraph",
+    "id" : 220,
+    "page number" : 5,
+    "bounding box" : [ 515.372, 443.856, 793.332, 464.938 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "depositedwiththeNationalTreasuryasincomeofthegeneral fund;"
+  }, {
+    "type" : "paragraph",
+    "id" : 188,
+    "page number" : 5,
+    "bounding box" : [ 158.913, 446.487, 414.74, 458.822 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(b) Provide technical assistance ‘to encourage housing"
+  }, {
+    "type" : "paragraph",
+    "id" : 189,
+    "page number" : 5,
+    "bounding box" : [ 135.532, 435.803, 414.389, 447.621 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "cooperatives and civil society organizations to serve as the"
+  }, {
+    "type" : "paragraph",
+    "id" : 190,
+    "page number" : 5,
+    "bounding box" : [ 135.171, 425.257, 414.927, 437.573 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "implementing agencies oftheir housing and urban development"
+  }, {
+    "type" : "paragraph",
+    "id" : 221,
+    "page number" : 5,
+    "bounding box" : [ 515.383, 400.063, 793.869, 432.537 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(e) Recommend new legislation and amendments to existing laws as may be necessary for the attainment of government’s objectives in housing;"
+  }, {
+    "type" : "paragraph",
+    "id" : 191,
+    "page number" : 5,
+    "bounding box" : [ 135.25, 417.254, 179.133, 424.114 ],
+    "font" : "NotoSans",
+    "font size" : 5.036,
+    "text color" : "[0.0]",
+    "content" : "programs;"
+  }, {
+    "type" : "paragraph",
+    "id" : 192,
+    "page number" : 5,
+    "bounding box" : [ 158.913, 393.252, 414.02, 405.582 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(c) Promote and encourage partnerships between the"
+  }, {
+    "type" : "paragraph",
+    "id" : 193,
+    "page number" : 5,
+    "bounding box" : [ 135.542, 382.559, 414.739, 394.38 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "government and private sectors for the provision of decent"
+  }, {
+    "type" : "list",
+    "id" : 222,
+    "level" : "2",
+    "page number" : 5,
+    "bounding box" : [ 538.778, 346.39, 792.799, 390.113 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 538.778, 378.046, 792.796, 390.113 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(f) Promote, accredit and regulate the use ofindigenous",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 11,
+        "page number" : 5,
+        "bounding box" : [ 515.385, 367.805, 771.926, 379.656 ],
+        "font" : "NotoSans",
+        "font size" : 7.195,
+        "text color" : "[0.0]",
+        "content" : "materials and technologies in the housing construction;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 538.778, 346.39, 792.799, 358.456 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(g) Implement prototype projects in housing and urban",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 194,
+    "page number" : 5,
+    "bounding box" : [ 135.173, 371.835, 414.39, 384.357 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "housing, suitable living environment, and expanded economic"
+  }, {
+    "type" : "paragraph",
+    "id" : 195,
+    "page number" : 5,
+    "bounding box" : [ 135.184, 361.614, 414.384, 373.156 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "opportunities specially for the homeless and underprivileged"
+  }, {
+    "type" : "paragraph",
+    "id" : 196,
+    "page number" : 5,
+    "bounding box" : [ 135.198, 352.608, 192.089, 362.748 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "citizens; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 223,
+    "page number" : 5,
+    "bounding box" : [ 515.384, 335.515, 792.996, 348.024 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "development undertakings, with the rightto exercise the power"
+  }, {
+    "type" : "paragraph",
+    "id" : 197,
+    "page number" : 5,
+    "bounding box" : [ 158.915, 329.364, 414.737, 341.933 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "(d) Effect and oversee a single regulatory system that"
+  }, {
+    "type" : "paragraph",
+    "id" : 224,
+    "page number" : 5,
+    "bounding box" : [ 515.398, 325.832, 683.104, 337.617 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "of eminent domain, when necessary;"
+  }, {
+    "type" : "paragraph",
+    "id" : 198,
+    "page number" : 5,
+    "bounding box" : [ 135.171, 308.268, 414.376, 331.092 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "shall govern all activities relative to the planning, development, production, marketing, and management ofhousing and urban"
+  }, {
+    "type" : "paragraph",
+    "id" : 225,
+    "page number" : 5,
+    "bounding box" : [ 538.778, 303.944, 792.438, 316.008 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(h) Open roads of subdivisions to the public when the"
+  }, {
+    "type" : "paragraph",
+    "id" : 199,
+    "page number" : 5,
+    "bounding box" : [ 135.547, 297.931, 414.378, 309.892 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "development projects, without encroaching on the jurisdiction"
+  }, {
+    "type" : "paragraph",
+    "id" : 226,
+    "page number" : 5,
+    "bounding box" : [ 515.385, 293.173, 792.799, 305.191 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "general welfare requires it upon consultation with"
+  }, {
+    "type" : "paragraph",
+    "id" : 200,
+    "page number" : 5,
+    "bounding box" : [ 135.199, 288.307, 215.108, 299.485 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "ofother agencies."
+  }, {
+    "type" : "paragraph",
+    "id" : 227,
+    "page number" : 5,
+    "bounding box" : [ 515.372, 283.789, 593.878, 294.784 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "stakeholders; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 201,
+    "page number" : 5,
+    "bounding box" : [ 158.194, 266.895, 244.791, 277.876 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "V. General Powers"
+  }, {
+    "type" : "paragraph",
+    "id" : 228,
+    "page number" : 5,
+    "bounding box" : [ 538.764, 261.093, 792.446, 273.175 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(i) Perform such other related functions as may be"
+  }, {
+    "type" : "paragraph",
+    "id" : 229,
+    "page number" : 5,
+    "bounding box" : [ 515.102, 252.478, 597.501, 262.767 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "mandated by law."
+  }, {
+    "type" : "paragraph",
+    "id" : 202,
+    "page number" : 5,
+    "bounding box" : [ 135.533, 233.797, 415.456, 256.267 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(a) Enter into contracts, joint venture agreements or understanding, public-private partnerships, and memoranda of"
+  }, {
+    "type" : "paragraph",
+    "id" : 230,
+    "page number" : 5,
+    "bounding box" : [ 538.418, 229.476, 792.438, 241.543 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 6. Composition. - The Department shall be"
+  }, {
+    "type" : "paragraph",
+    "id" : 203,
+    "page number" : 5,
+    "bounding box" : [ 135.544, 223.119, 414.374, 234.658 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "agreement or understanding, either domestic or foreign, under"
+  }, {
+    "type" : "paragraph",
+    "id" : 231,
+    "page number" : 5,
+    "bounding box" : [ 515.026, 218.706, 792.791, 230.726 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "composed of the Office of the Secretary, and the various"
+  }, {
+    "type" : "paragraph",
+    "id" : 204,
+    "page number" : 5,
+    "bounding box" : [ 135.196, 202.486, 414.017, 224.611 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "such terms and conditions as the Department may deem proper and reasonable subject to existing laws;"
+  }, {
+    "type" : "paragraph",
+    "id" : 232,
+    "page number" : 5,
+    "bounding box" : [ 515.025, 197.657, 792.635, 220.678 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "bureaus, services and regional offices. The Office of the Secretary shall house the Office ofthe Department Secretary,"
+  }, {
+    "type" : "paragraph",
+    "id" : 233,
+    "page number" : 5,
+    "bounding box" : [ 515.026, 187.049, 792.79, 199.07 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "the Offices ofthe Undersecretaries, the Offices ofthe Assistant"
+  }, {
+    "type" : "paragraph",
+    "id" : 205,
+    "page number" : 5,
+    "bounding box" : [ 135.174, 158.974, 414.936, 192.594 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(b) Receive, take and hold by bequest, device, gift, purchase or lease, either absolutely or in trust for any of its purposes from foreign and domestic sources, any asset, grant"
+  }, {
+    "type" : "paragraph",
+    "id" : 234,
+    "page number" : 5,
+    "bounding box" : [ 515.397, 176.864, 731.114, 188.662 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Secretaries, and their immediate support staff."
+  }, {
+    "type" : "paragraph",
+    "id" : 235,
+    "page number" : 5,
+    "bounding box" : [ 515.025, 146.026, 792.431, 167.078 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 7. The Secretary. — The Secretary shall have the following functions:"
+  }, {
+    "type" : "paragraph",
+    "id" : 206,
+    "page number" : 5,
+    "bounding box" : [ 135.554, 148.654, 414.372, 160.193 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "or property, real or personal, subject to such limitations"
+  }, {
+    "type" : "paragraph",
+    "id" : 207,
+    "page number" : 5,
+    "bounding box" : [ 135.186, 138.505, 346.944, 149.786 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "provided under existing laws and regulations;"
+  }, {
+    "type" : "list",
+    "id" : 236,
+    "level" : "3",
+    "page number" : 5,
+    "bounding box" : [ 515.039, 60.897, 792.799, 135.062 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 515.039, 103.548, 792.791, 135.062 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(a) Advise the President of the Philippines on matters related to housing, human settlements, and rural and urban development;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 515.062, 60.897, 792.799, 92.588 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(b) Establish policies and standards for the efficient and effective operations of the Department in accordance with programs of the government;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 208,
+    "page number" : 5,
+    "bounding box" : [ 159.286, 116.618, 414.402, 128.202 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(c) Discharge all responsibilities of government that may"
+  }, {
+    "type" : "paragraph",
+    "id" : 209,
+    "page number" : 5,
+    "bounding box" : [ 135.559, 106.112, 414.392, 117.795 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "arise from treaties, agreements and other commitments on"
+  }, {
+    "type" : "paragraph",
+    "id" : 210,
+    "page number" : 5,
+    "bounding box" : [ 135.544, 95.412, 414.567, 106.953 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "human settlement and urban development to be extended"
+  }, {
+    "type" : "paragraph",
+    "id" : 211,
+    "page number" : 5,
+    "bounding box" : [ 135.187, 84.968, 414.017, 96.93 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "through bilateral or multilateral loans and/or assistance"
+  }, {
+    "type" : "paragraph",
+    "id" : 212,
+    "page number" : 5,
+    "bounding box" : [ 135.25, 76.946, 179.133, 83.806 ],
+    "font" : "NotoSans",
+    "font size" : 5.036,
+    "text color" : "[0.0]",
+    "content" : "programs;"
+  }, {
+    "type" : "image",
+    "id" : 291,
+    "page number" : 6,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile6.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 238,
+    "page number" : 6,
+    "bounding box" : [ 132.013, 542.634, 141.006, 551.943 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "10"
+  }, {
+    "type" : "paragraph",
+    "id" : 268,
+    "page number" : 6,
+    "bounding box" : [ 776.61, 535.799, 784.524, 545.108 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "i"
+  }, {
+    "type" : "paragraph",
+    "id" : 239,
+    "page number" : 6,
+    "bounding box" : [ 151.72, 519.616, 407.903, 531.463 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(c) Promulgate rules, regulations and other issuances"
+  }, {
+    "type" : "paragraph",
+    "id" : 269,
+    "page number" : 6,
+    "bounding box" : [ 508.935, 515.324, 786.334, 526.787 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "the powers and functions as provided for in Chapter 2,"
+  }, {
+    "type" : "paragraph",
+    "id" : 240,
+    "page number" : 6,
+    "bounding box" : [ 128.001, 509.21, 407.187, 520.262 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "necessary in carrying out the Department’s mandate,"
+  }, {
+    "type" : "paragraph",
+    "id" : 270,
+    "page number" : 6,
+    "bounding box" : [ 509.284, 504.426, 786.676, 516.379 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Book IV ofthe Administrative Code of 1987. The Secretary is"
+  }, {
+    "type" : "paragraph",
+    "id" : 241,
+    "page number" : 6,
+    "bounding box" : [ 127.977, 498.752, 355.584, 510.599 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "objectives, policies, plans, programs and projects;"
+  }, {
+    "type" : "paragraph",
+    "id" : 271,
+    "page number" : 6,
+    "bounding box" : [ 508.911, 483.585, 786.687, 505.563 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "further authorized to delineate and assign other functional areas or responsibilities of the Undersecretaries and Assistant"
+  }, {
+    "type" : "paragraph",
+    "id" : 242,
+    "page number" : 6,
+    "bounding box" : [ 127.999, 466.545, 407.904, 489.015 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(d) Exercise control and supervision, including disciplinary powers over officers and employees of the Department in"
+  }, {
+    "type" : "paragraph",
+    "id" : 272,
+    "page number" : 6,
+    "bounding box" : [ 509.347, 474.117, 772.294, 485.876 ],
+    "font" : "NotoSans",
+    "font size" : 8.634,
+    "text color" : "[0.0]",
+    "content" : "Secretaries. : P"
+  }, {
+    "type" : "paragraph",
+    "id" : 243,
+    "page number" : 6,
+    "bounding box" : [ 128.338, 455.653, 407.545, 468.175 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "accordance with law, including their investigation and the"
+  }, {
+    "type" : "paragraph",
+    "id" : 273,
+    "page number" : 6,
+    "bounding box" : [ 509.284, 430.321, 786.702, 463.499 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 9. Qualifications and Appointment. — No person shall be appointed Secretary, Undersecretary and Assistant Secretary ofthe Department unless he or she is a citizen and"
+  }, {
+    "type" : "paragraph",
+    "id" : 244,
+    "page number" : 6,
+    "bounding box" : [ 128.352, 445.312, 407.915, 457.768 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "designation of a committee or officer to conduct such"
+  }, {
+    "type" : "paragraph",
+    "id" : 245,
+    "page number" : 6,
+    "bounding box" : [ 128.004, 436.418, 186.333, 446.566 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "investigation;"
+  }, {
+    "type" : "paragraph",
+    "id" : 274,
+    "page number" : 6,
+    "bounding box" : [ 508.935, 409.2, 787.064, 431.457 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "resident ofthe Philippines, of good moral character,ofproven integrity, competence and expertise in housing, urban planning"
+  }, {
+    "type" : "paragraph",
+    "id" : 246,
+    "page number" : 6,
+    "bounding box" : [ 151.731, 413.288, 407.549, 425.367 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(e) Exercise control and supervision, including disciplinary"
+  }, {
+    "type" : "paragraph",
+    "id" : 247,
+    "page number" : 6,
+    "bounding box" : [ 127.638, 402.698, 407.545, 414.525 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "powers over officers and employees ofthe attached agencies"
+  }, {
+    "type" : "paragraph",
+    "id" : 275,
+    "page number" : 6,
+    "bounding box" : [ 509.296, 399.583, 586.501, 410.258 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "and development."
+  }, {
+    "type" : "paragraph",
+    "id" : 248,
+    "page number" : 6,
+    "bounding box" : [ 127.977, 391.807, 407.188, 404.118 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "in accordance with law, including their investigation and the"
+  }, {
+    "type" : "paragraph",
+    "id" : 249,
+    "page number" : 6,
+    "bounding box" : [ 127.633, 372.277, 407.556, 393.71 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "designation of a committee or officer to conduct such investigation;"
+  }, {
+    "type" : "paragraph",
+    "id" : 276,
+    "page number" : 6,
+    "bounding box" : [ 509.294, 356.585, 787.07, 388.649 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "SEC. 10. Department Bureaus and Regional Offices. The Department shallestablish, operate, and maintain Bureaus under it such as, but not limited to:"
+  }, {
+    "type" : "paragraph",
+    "id" : 250,
+    "page number" : 6,
+    "bounding box" : [ 127.977, 338.563, 407.548, 361.309 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(f) Designate and appoint officers and employees of the Department, excluding the Undersecretaries, Assistant"
+  }, {
+    "type" : "list",
+    "id" : 277,
+    "level" : "4",
+    "page number" : 6,
+    "bounding box" : [ 532.665, 283.055, 786.684, 346.201 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 532.676, 334.878, 786.684, 346.201 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(a) Environmental, Land Use and Urban Planning and",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 10,
+        "page number" : 6,
+        "bounding box" : [ 509.294, 325.623, 567.083, 335.768 ],
+        "font" : "NotoSans",
+        "font size" : 7.195,
+        "text color" : "[0.0]",
+        "content" : "Development;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 532.665, 302.756, 786.676, 314.569 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(b) Housing and Real Estate Development Regulation; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 532.728, 283.055, 786.494, 293.344 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(c) Homeowners Associations and Community Development.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 251,
+    "page number" : 6,
+    "bounding box" : [ 127.979, 327.945, 407.545, 340.47 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Secretaries, and Regional and Assistant Regional Directors, in"
+  }, {
+    "type" : "paragraph",
+    "id" : 252,
+    "page number" : 6,
+    "bounding box" : [ 127.979, 317.26, 407.379, 329.293 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "accordance with the civil service laws, rules and regulations;"
+  }, {
+    "type" : "paragraph",
+    "id" : 253,
+    "page number" : 6,
+    "bounding box" : [ 151.72, 296.224, 407.542, 308.069 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(g) Coordinate with other agencies and instrumentalities"
+  }, {
+    "type" : "paragraph",
+    "id" : 254,
+    "page number" : 6,
+    "bounding box" : [ 127.979, 285.496, 407.544, 298.021 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "of the government to ensure the effective and efficient"
+  }, {
+    "type" : "paragraph",
+    "id" : 255,
+    "page number" : 6,
+    "bounding box" : [ 127.979, 275.169, 407.567, 287.204 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "implementation of housing and urban development programs;"
+  }, {
+    "type" : "paragraph",
+    "id" : 278,
+    "page number" : 6,
+    "bounding box" : [ 531.945, 260.303, 786.665, 272.12 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "As may be necessary, a regional office may be established"
+  }, {
+    "type" : "paragraph",
+    "id" : 256,
+    "page number" : 6,
+    "bounding box" : [ 151.372, 253.564, 407.382, 265.645 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(h) Formulate such rules and regulations and exercise"
+  }, {
+    "type" : "paragraph",
+    "id" : 279,
+    "page number" : 6,
+    "bounding box" : [ 509.297, 250.461, 717.995, 261.303 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "in the administrative regions of the country."
+  }, {
+    "type" : "paragraph",
+    "id" : 257,
+    "page number" : 6,
+    "bounding box" : [ 127.979, 243.156, 407.183, 255.188 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "such other powers as may be required to implement the"
+  }, {
+    "type" : "paragraph",
+    "id" : 258,
+    "page number" : 6,
+    "bounding box" : [ 127.966, 233.394, 249.996, 244.781 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "objectives of this Act; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 280,
+    "page number" : 6,
+    "bounding box" : [ 509.296, 207.563, 787.138, 240.464 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 11. Structure and Staffing Pattern. — Subject to the approval ofthe Department of Budget and Management (DBM), the Secretary shall determine the organizational"
+  }, {
+    "type" : "paragraph",
+    "id" : 259,
+    "page number" : 6,
+    "bounding box" : [ 151.731, 211.119, 407.372, 223.197 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(i) Perform such other functions as may be provided by"
+  }, {
+    "type" : "paragraph",
+    "id" : 260,
+    "page number" : 6,
+    "bounding box" : [ 127.632, 201.471, 286.16, 212.38 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "law or assigned by the President."
+  }, {
+    "type" : "paragraph",
+    "id" : 281,
+    "page number" : 6,
+    "bounding box" : [ 509.666, 196.879, 786.697, 208.063 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "structure and create new divisions or units as may be"
+  }, {
+    "type" : "paragraph",
+    "id" : 282,
+    "page number" : 6,
+    "bounding box" : [ 509.306, 164.757, 787.04, 197.655 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "necessary, and appoint officers and employees of the Department and the Commission hereinafter created under Section 12 in accordance with the civil service laws, rules and"
+  }, {
+    "type" : "paragraph",
+    "id" : 261,
+    "page number" : 6,
+    "bounding box" : [ 151.372, 179.093, 408.28, 191.18 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "The Secretary shall also serve as a voting member of"
+  }, {
+    "type" : "paragraph",
+    "id" : 262,
+    "page number" : 6,
+    "bounding box" : [ 127.992, 168.318, 407.399, 180.773 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "the National Economic and Development Authority (NEDA)"
+  }, {
+    "type" : "paragraph",
+    "id" : 263,
+    "page number" : 6,
+    "bounding box" : [ 128.004, 158.097, 407.192, 169.571 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Board, the governing Boards of the Climate Change"
+  }, {
+    "type" : "paragraph",
+    "id" : 283,
+    "page number" : 6,
+    "bounding box" : [ 509.656, 154.43, 786.678, 165.614 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "regulations. The remuneration structure ofthe position in the"
+  }, {
+    "type" : "paragraph",
+    "id" : 264,
+    "page number" : 6,
+    "bounding box" : [ 127.993, 127.65, 407.183, 159.524 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Commission (CCC), the National Disaster RiskReduction and Management Council (NDRRMC), and the National Land Use Committee (NLUC)."
+  }, {
+    "type" : "paragraph",
+    "id" : 284,
+    "page number" : 6,
+    "bounding box" : [ 509.707, 144.812, 787.042, 155.591 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "staffing pattern shall strictly conform to Republic Act"
+  }, {
+    "type" : "paragraph",
+    "id" : 285,
+    "page number" : 6,
+    "bounding box" : [ 509.707, 134.485, 786.7, 144.774 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "No. 6758, otherwise known as the Salary Standardization Law,"
+  }, {
+    "type" : "paragraph",
+    "id" : 286,
+    "page number" : 6,
+    "bounding box" : [ 510.067, 123.799, 565.101, 133.598 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "as amended."
+  }, {
+    "type" : "paragraph",
+    "id" : 265,
+    "page number" : 6,
+    "bounding box" : [ 127.664, 83.993, 407.374, 116.331 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "SEC. 8. The Undersecretaries and Assistant Secretaries. — The Secretary shall be assisted by three (3) Undersecretaries and three (3) Assistant Secretaries, who shall be appointed by"
+  }, {
+    "type" : "paragraph",
+    "id" : 287,
+    "page number" : 6,
+    "bounding box" : [ 617.979, 102.109, 679.849, 112.398 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "CHAPTER IV"
+  }, {
+    "type" : "paragraph",
+    "id" : 288,
+    "page number" : 6,
+    "bounding box" : [ 531.599, 80.538, 765.991, 91.509 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "HUMAN SETLLEMENTS ADJUDICATION COMMISSION"
+  }, {
+    "type" : "paragraph",
+    "id" : 266,
+    "page number" : 6,
+    "bounding box" : [ 127.993, 62.305, 407.016, 85.059 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "the President, upon the recommendation of the Secretary: Provided, That at least one (1) Undersecretary and one (1)"
+  }, {
+    "type" : "paragraph",
+    "id" : 289,
+    "page number" : 6,
+    "bounding box" : [ 533.088, 60.02, 786.682, 70.31 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 12. Reconstitution of the HLURB as the Human"
+  }, {
+    "type" : "paragraph",
+    "id" : 267,
+    "page number" : 6,
+    "bounding box" : [ 127.644, 51.974, 407.191, 63.45 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Assistant Secretary shall be career officers. They shall have"
+  }, {
+    "type" : "paragraph",
+    "id" : 290,
+    "page number" : 6,
+    "bounding box" : [ 510.067, 49.694, 786.788, 59.493 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Settlements Adjudication Commission (HSAC). — The HLURB"
+  }, {
+    "type" : "image",
+    "id" : 343,
+    "page number" : 7,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile7.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 292,
+    "page number" : 7,
+    "bounding box" : [ 127.696, 543.819, 135.969, 552.638 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "12"
+  }, {
+    "type" : "paragraph",
+    "id" : 320,
+    "page number" : 7,
+    "bounding box" : [ 774.162, 536.626, 783.157, 545.799 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "13"
+  }, {
+    "type" : "paragraph",
+    "id" : 293,
+    "page number" : 7,
+    "bounding box" : [ 126.886, 520.316, 405.755, 532.902 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "is hereby reconstituted and shall henceforth be known as the"
+  }, {
+    "type" : "paragraph",
+    "id" : 321,
+    "page number" : 7,
+    "bounding box" : [ 508.227, 505.53, 785.963, 527.146 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "ten (10) years prior to the appointment: Provided, That all nominees shallhave experience in urban development planning,"
+  }, {
+    "type" : "paragraph",
+    "id" : 294,
+    "page number" : 7,
+    "bounding box" : [ 126.527, 500.407, 406.292, 522.495 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Human Settlements Adjudication Commission, hereinafter referred to as the “Commission”."
+  }, {
+    "type" : "paragraph",
+    "id" : 322,
+    "page number" : 7,
+    "bounding box" : [ 508.217, 494.629, 785.959, 506.307 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "sustainable development, climate change adaptation, disaster"
+  }, {
+    "type" : "paragraph",
+    "id" : 323,
+    "page number" : 7,
+    "bounding box" : [ 508.217, 484.629, 720.674, 495.49 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "risk reduction and/or real estate development."
+  }, {
+    "type" : "paragraph",
+    "id" : 295,
+    "page number" : 7,
+    "bounding box" : [ 126.526, 467.431, 406.496, 490.094 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "The adjudicatory function of the HLURB is hereby transferred to the Commission and shall be attached to the"
+  }, {
+    "type" : "paragraph",
+    "id" : 324,
+    "page number" : 7,
+    "bounding box" : [ 508.225, 451.905, 786.322, 474.29 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Each Commissioner shall hold office for six (6) years. In case of death, permanent disability, removal from office,"
+  }, {
+    "type" : "paragraph",
+    "id" : 296,
+    "page number" : 7,
+    "bounding box" : [ 126.875, 456.534, 406.088, 469.614 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Departmentforpolicy, planning andprogram coordination only."
+  }, {
+    "type" : "paragraph",
+    "id" : 325,
+    "page number" : 7,
+    "bounding box" : [ 499.584, 441.346, 785.96, 453.066 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "' resignation and incapacity to discharge the duties ofoffice, the"
+  }, {
+    "type" : "paragraph",
+    "id" : 297,
+    "page number" : 7,
+    "bounding box" : [ 127.259, 426.624, 406.125, 448.03 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 13. Composition, Staffing Pattern and Compensation. —"
+  }, {
+    "type" : "paragraph",
+    "id" : 326,
+    "page number" : 7,
+    "bounding box" : [ 508.228, 431.167, 785.956, 441.865 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "person appointed as Commissioner shall only serve the"
+  }, {
+    "type" : "paragraph",
+    "id" : 327,
+    "page number" : 7,
+    "bounding box" : [ 508.217, 410.184, 785.974, 431.817 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "unexpired term: Provided, That the term of office of the incumbent Commissioners shall be respected."
+  }, {
+    "type" : "paragraph",
+    "id" : 298,
+    "page number" : 7,
+    "bounding box" : [ 150.616, 403.177, 405.55, 416.014 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(a) The Commission shall be composed ofthe following:"
+  }, {
+    "type" : "paragraph",
+    "id" : 328,
+    "page number" : 7,
+    "bounding box" : [ 531.649, 389.536, 786.322, 399.826 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(b) Regional Adjudicator — Each Regional Adjudicator"
+  }, {
+    "type" : "paragraph",
+    "id" : 299,
+    "level" : "5",
+    "page number" : 7,
+    "bounding box" : [ 150.616, 381.95, 405.749, 394.79 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(1) Commission en banc — Five (5) Commissioners"
+  }, {
+    "type" : "paragraph",
+    "id" : 329,
+    "page number" : 7,
+    "bounding box" : [ 508.587, 378.176, 787.311, 389.369 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "must bea citizen ofthe Philippines, of good moral character,"
+  }, {
+    "type" : "paragraph",
+    "id" : 300,
+    "page number" : 7,
+    "bounding box" : [ 126.887, 371.876, 403.233, 383.948 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "appointed by the President shall comprise the Commission."
+  }, {
+    "type" : "paragraph",
+    "id" : 330,
+    "page number" : 7,
+    "bounding box" : [ 508.217, 325.033, 786.679, 378.961 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "has been in the practice of law and member of the Philippine Bar ofgood standing for at least seven (7) years, with at least three (3) years’ experience in realty and/or land use and development cases, prior to the appointment: Provided, That the existing HLURB Arbiters are deemed qualified."
+  }, {
+    "type" : "paragraph",
+    "id" : 301,
+    "page number" : 7,
+    "bounding box" : [ 149.907, 350.387, 406.297, 362.748 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "The Executive Commissioner, chosen by the President"
+  }, {
+    "type" : "paragraph",
+    "id" : 302,
+    "page number" : 7,
+    "bounding box" : [ 126.515, 339.622, 405.57, 352.701 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "from among the five (5) Commissioners, shall be responsible"
+  }, {
+    "type" : "paragraph",
+    "id" : 303,
+    "page number" : 7,
+    "bounding box" : [ 126.514, 328.727, 405.383, 342.293 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "for the administration and operations of the Commission,"
+  }, {
+    "type" : "paragraph",
+    "id" : 304,
+    "page number" : 7,
+    "bounding box" : [ 126.502, 317.944, 405.764, 331.092 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "including the supervision ofpersonnel, and shall be assisted"
+  }, {
+    "type" : "paragraph",
+    "id" : 305,
+    "page number" : 7,
+    "bounding box" : [ 126.168, 308.576, 328.408, 320.684 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "by the Executive Clerk of the Commission."
+  }, {
+    "type" : "paragraph",
+    "id" : 331,
+    "page number" : 7,
+    "bounding box" : [ 531.586, 303.471, 786.327, 315.288 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Each Regional Adjudicator shall hold office on good"
+  }, {
+    "type" : "paragraph",
+    "id" : 332,
+    "page number" : 7,
+    "bounding box" : [ 508.217, 272.058, 786.508, 304.471 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "behavior until otherwise incapacitated or has reached the retirement age in accordance with law, rules and regulations promulgated by duly constituted authorities, whichever comes"
+  }, {
+    "type" : "paragraph",
+    "id" : 306,
+    "level" : "5",
+    "page number" : 7,
+    "bounding box" : [ 150.255, 286.468, 405.77, 299.076 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(2) Regional Adjudication Branch — There shall be as"
+  }, {
+    "type" : "paragraph",
+    "id" : 307,
+    "page number" : 7,
+    "bounding box" : [ 126.547, 265.159, 405.768, 288.668 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "many Regional Adjudication Branches as there are Regional Offices of the Department. The President shall appoint as"
+  }, {
+    "type" : "paragraph",
+    "id" : 333,
+    "page number" : 7,
+    "bounding box" : [ 508.628, 262.55, 540.384, 272.84 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "earlier."
+  }, {
+    "type" : "paragraph",
+    "id" : 308,
+    "page number" : 7,
+    "bounding box" : [ 126.546, 254.473, 405.385, 267.059 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "many Regional Adjudicators as may be necessary upon the"
+  }, {
+    "type" : "paragraph",
+    "id" : 309,
+    "page number" : 7,
+    "bounding box" : [ 126.539, 245.539, 281.516, 256.242 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "recommendation ofthe Secretary."
+  }, {
+    "type" : "paragraph",
+    "id" : 334,
+    "page number" : 7,
+    "bounding box" : [ 532.009, 241.326, 786.681, 251.615 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 15. Jurisdiction of the Commission. — The Commission"
+  }, {
+    "type" : "paragraph",
+    "id" : 335,
+    "page number" : 7,
+    "bounding box" : [ 508.937, 229.815, 745.86, 240.799 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "shall have the exclusive appellate jurisdiction over:"
+  }, {
+    "type" : "paragraph",
+    "id" : 310,
+    "page number" : 7,
+    "bounding box" : [ 126.527, 212.196, 405.749, 235.428 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(b) Subject to the approvalofthe DBM, the Commission shall determine its organizational structure and create"
+  }, {
+    "type" : "list",
+    "id" : 336,
+    "level" : "4",
+    "page number" : 7,
+    "bounding box" : [ 532.368, 188.086, 787.041, 219.574 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 532.368, 209.775, 786.682, 219.574 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(a) All cases decided by the Regional Adjudicators; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 532.368, 188.086, 787.041, 198.375 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(b) Appeals from decisions of local and regional planning",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 311,
+    "page number" : 7,
+    "bounding box" : [ 126.526, 180.371, 405.748, 214.178 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "new divisions or units as it may deem necessary, and shall appointofficers and employees ofthe Commissionin accordance with the civil service laws, rules and regulations. The"
+  }, {
+    "type" : "paragraph",
+    "id" : 337,
+    "page number" : 7,
+    "bounding box" : [ 509.347, 177.653, 592.439, 187.942 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "and zoning bodies."
+  }, {
+    "type" : "paragraph",
+    "id" : 312,
+    "page number" : 7,
+    "bounding box" : [ 126.538, 169.786, 405.386, 181.393 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "remunerationstructure ofthe positions in the staffing pattern"
+  }, {
+    "type" : "paragraph",
+    "id" : 313,
+    "page number" : 7,
+    "bounding box" : [ 126.538, 159.062, 405.39, 171.37 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "shallstrictly conform to Republic Act No. 6758 or the Salary"
+  }, {
+    "type" : "paragraph",
+    "id" : 338,
+    "page number" : 7,
+    "bounding box" : [ 508.987, 134.87, 787.943, 166.718 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "The decision of the Commission shall be final and executory after fifteen (15) calendar days from receipt thereof by the parties."
+  }, {
+    "type" : "paragraph",
+    "id" : 314,
+    "page number" : 7,
+    "bounding box" : [ 126.899, 149.144, 285.261, 162.501 ],
+    "font" : "NotoSans",
+    "font size" : 8.993,
+    "text color" : "[0.0]",
+    "content" : "Standardization Law, as amended."
+  }, {
+    "type" : "paragraph",
+    "id" : 315,
+    "page number" : 7,
+    "bounding box" : [ 149.907, 127.001, 405.406, 139.354 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "SEC. 14. Qualifications and Terms of Office. — The"
+  }, {
+    "type" : "paragraph",
+    "id" : 316,
+    "page number" : 7,
+    "bounding box" : [ 126.899, 116.866, 350.895, 128.946 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "qualifications and terms of office are as follows:"
+  }, {
+    "type" : "paragraph",
+    "id" : 339,
+    "page number" : 7,
+    "bounding box" : [ 509.347, 103.189, 787.06, 123.91 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 16. Jurisdiction of Regional Adjudicators. — The Regional Adjudicators shall exercise original and exclusive"
+  }, {
+    "type" : "paragraph",
+    "id" : 317,
+    "page number" : 7,
+    "bounding box" : [ 150.281, 95.498, 405.415, 107.338 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(a) Commissioner — Each Commissioner must be a"
+  }, {
+    "type" : "paragraph",
+    "id" : 340,
+    "page number" : 7,
+    "bounding box" : [ 508.628, 92.862, 786.867, 102.661 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "jurisdiction to hear and decide cases involving the following:"
+  }, {
+    "type" : "paragraph",
+    "id" : 318,
+    "page number" : 7,
+    "bounding box" : [ 126.539, 85.061, 405.567, 96.88 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "natural born citizen ofthe Philippines, of good moral character"
+  }, {
+    "type" : "paragraph",
+    "id" : 319,
+    "page number" : 7,
+    "bounding box" : [ 126.527, 63.627, 405.398, 86.858 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "and has been engaged in the practice of law and a member ofthe Philippine Bar of good standing for a period ofat least"
+  }, {
+    "type" : "paragraph",
+    "id" : 341,
+    "page number" : 7,
+    "bounding box" : [ 647.475, 81.071, 648.554, 85.48 ],
+    "font" : "NotoSans",
+    "font size" : 3.238,
+    "text color" : "[0.0]",
+    "content" : "‘"
+  }, {
+    "type" : "paragraph",
+    "id" : 342,
+    "page number" : 7,
+    "bounding box" : [ 509.347, 61.1, 787.042, 81.821 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(a) Cases involving subdivisions, condominiums, memorial parks and similar real estate developments:"
+  }, {
+    "type" : "image",
+    "id" : 393,
+    "page number" : 8,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile8.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 344,
+    "page number" : 8,
+    "bounding box" : [ 126.977, 542.739, 135.97, 551.559 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "14"
+  }, {
+    "type" : "paragraph",
+    "id" : 370,
+    "page number" : 8,
+    "bounding box" : [ 776.93, 536.179, 785.254, 545.834 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "15"
+  }, {
+    "type" : "paragraph",
+    "id" : 345,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 123.662, 498.382, 404.144, 520.647 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "(1) Actions concerning unsound real estate business practices filed by buyers or homeowners against the project"
+  }, {
+    "type" : "paragraph",
+    "id" : 371,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 531.906, 504.834, 786.702, 517.434 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(2) Intra-association disputes or controversies arising out"
+  }, {
+    "type" : "paragraph",
+    "id" : 372,
+    "page number" : 8,
+    "bounding box" : [ 508.526, 494.318, 786.527, 507.386 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "of the relations between and among members of HOAs;"
+  }, {
+    "type" : "paragraph",
+    "id" : 346,
+    "page number" : 8,
+    "bounding box" : [ 124.02, 477.063, 403.601, 499.807 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "owner or developer,which cause prejudice to the buyers or committed with bad faith and disregard ofthe buyers’ rights:"
+  }, {
+    "type" : "paragraph",
+    "id" : 373,
+    "page number" : 8,
+    "bounding box" : [ 508.177, 483.988, 786.521, 496.569 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "between any or all of them and the HOA of which they are"
+  }, {
+    "type" : "paragraph",
+    "id" : 374,
+    "page number" : 8,
+    "bounding box" : [ 508.5, 472.653, 772.709, 487.316 ],
+    "font" : "NotoSans",
+    "font size" : 8.634,
+    "text color" : "[0.0]",
+    "content" : "members; ,"
+  }, {
+    "type" : "paragraph",
+    "id" : 347,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 124.01, 444.933, 404.167, 468.175 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(2) Claims for refund, and other claims filed by subdivision lot or condominium unit buyer against the project"
+  }, {
+    "type" : "paragraph",
+    "id" : 375,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 531.918, 452.207, 786.697, 464.553 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(3) Inter-association disputes or controversies arising out"
+  }, {
+    "type" : "paragraph",
+    "id" : 376,
+    "page number" : 8,
+    "bounding box" : [ 508.538, 441.356, 786.515, 454.146 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "of the relations between and among two (2) or more HOAs"
+  }, {
+    "type" : "paragraph",
+    "id" : 348,
+    "page number" : 8,
+    "bounding box" : [ 124.03, 434.609, 403.94, 446.926 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "owner,developer,dealer,broker or salesman: Provided, That"
+  }, {
+    "type" : "paragraph",
+    "id" : 377,
+    "page number" : 8,
+    "bounding box" : [ 508.189, 410.933, 786.542, 443.329 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "between and among federations and other umbrella organizations, on matters pertaining to the exercise oftheir rights, duties and functions; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 349,
+    "page number" : 8,
+    "bounding box" : [ 124.01, 412.924, 403.584, 436.519 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "when the cause ofaction arises from the buyer's rights under Section 23 of Presidential Decree No. 957 and the purchase"
+  }, {
+    "type" : "paragraph",
+    "id" : 350,
+    "page number" : 8,
+    "bounding box" : [ 123.661, 402.592, 403.611, 414.91 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "price ofthe property is paid through a housing loan from a"
+  }, {
+    "type" : "paragraph",
+    "id" : 351,
+    "page number" : 8,
+    "bounding box" : [ 123.65, 391.698, 403.225, 404.502 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "bank or other financing institutions, the latter shall be"
+  }, {
+    "type" : "paragraph",
+    "id" : 378,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 531.558, 388.175, 786.316, 400.521 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(4) Disputes between such HOA and the State, insofar"
+  }, {
+    "type" : "paragraph",
+    "id" : 352,
+    "page number" : 8,
+    "bounding box" : [ 123.649, 382.498, 262.608, 393.686 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "impleaded as necessary party;"
+  }, {
+    "type" : "paragraph",
+    "id" : 379,
+    "page number" : 8,
+    "bounding box" : [ 508.2, 377.892, 786.308, 389.704 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "as it concerns their individual franchise or right to exist and"
+  }, {
+    "type" : "paragraph",
+    "id" : 380,
+    "page number" : 8,
+    "bounding box" : [ 508.178, 356.447, 787.393, 379.681 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "those which are intrinsically connected with the regulation of HOAs or dealing with the internal affairs of such entity."
+  }, {
+    "type" : "paragraph",
+    "id" : 353,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 147.389, 359.745, 403.237, 372.102 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(3) Cases involving specific performance or contractual and"
+  }, {
+    "type" : "paragraph",
+    "id" : 354,
+    "page number" : 8,
+    "bounding box" : [ 123.662, 349.457, 403.577, 361.285 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "statutory obligations arising from the sale ofthe lot or unit"
+  }, {
+    "type" : "paragraph",
+    "id" : 355,
+    "page number" : 8,
+    "bounding box" : [ 124.022, 338.738, 403.413, 351.262 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "and development ofthe subdivision or condominium project;"
+  }, {
+    "type" : "paragraph",
+    "id" : 381,
+    "page number" : 8,
+    "bounding box" : [ 508.19, 324.719, 786.326, 347.664 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(c) Disputes involving the implementation ofSection 18 ofRepublicAct No. 7279, as amended, and its Implementing"
+  }, {
+    "type" : "paragraph",
+    "id" : 356,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 124.022, 306.726, 403.432, 329.678 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(4) Disputes involving the open spaces or common areas and their use filed by the project owner or developer or the"
+  }, {
+    "type" : "paragraph",
+    "id" : 382,
+    "page number" : 8,
+    "bounding box" : [ 508.203, 315.886, 612.586, 326.415 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Rules and Regulations."
+  }, {
+    "type" : "paragraph",
+    "id" : 357,
+    "page number" : 8,
+    "bounding box" : [ 123.661, 285.682, 403.242, 308.429 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "duly registered HOA, including the eviction ofinformal settlers therein, in accordance with the requirements of law, and the"
+  }, {
+    "type" : "paragraph",
+    "id" : 383,
+    "page number" : 8,
+    "bounding box" : [ 507.829, 282.461, 785.966, 305.191 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(d) Disputes or controversies involving laws and regulations being implemented by the Department except those"
+  }, {
+    "type" : "paragraph",
+    "id" : 358,
+    "page number" : 8,
+    "bounding box" : [ 123.662, 266.508, 403.227, 287.589 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "rules and regulations promulgated by duly constituted authorities;"
+  }, {
+    "type" : "paragraph",
+    "id" : 384,
+    "page number" : 8,
+    "bounding box" : [ 508.21, 271.841, 785.978, 284.351 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "cases falling within the jurisdiction of other judicial or"
+  }, {
+    "type" : "paragraph",
+    "id" : 385,
+    "page number" : 8,
+    "bounding box" : [ 508.202, 263.156, 593.877, 273.15 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "quasi-judicial body."
+  }, {
+    "type" : "paragraph",
+    "id" : 359,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 124.02, 232.435, 404.3, 255.188 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(5) Suits to declare subdivision, condominium or other real estate developments within the regulatory jurisdiction of"
+  }, {
+    "type" : "paragraph",
+    "id" : 386,
+    "page number" : 8,
+    "bounding box" : [ 507.843, 229.869, 786.353, 252.335 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 17. Powers and Authorities of the Commission. The Commission shall have the power and authority:"
+  }, {
+    "type" : "paragraph",
+    "id" : 360,
+    "page number" : 8,
+    "bounding box" : [ 123.662, 221.823, 403.229, 234.348 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "the Department as abandoned, as defined under Section 3"
+  }, {
+    "type" : "paragraph",
+    "id" : 361,
+    "page number" : 8,
+    "bounding box" : [ 123.661, 210.928, 403.047, 223.941 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "ofthis Actfor the purpose ofSection 35 ofPresidential Decree"
+  }, {
+    "type" : "list",
+    "id" : 387,
+    "level" : "6",
+    "page number" : 8,
+    "bounding box" : [ 508.19, 165.547, 785.62, 220.319 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 508.19, 187.05, 785.613, 220.319 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(a) Topromulgate rules and regulations governing the hearing and disposition ofcases before it and itsAdjudicators, as well as those necessary to carry out its functions;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 531.212, 165.547, 785.62, 177.87 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(b) To administer oaths, summon the parties to a",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 362,
+    "page number" : 8,
+    "bounding box" : [ 124.02, 202.598, 162.237, 212.739 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "No. 957;"
+  }, {
+    "type" : "list",
+    "id" : 363,
+    "level" : "6",
+    "page number" : 8,
+    "bounding box" : [ 147.404, 147.648, 404.316, 191.155 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 147.404, 179.307, 403.605, 191.155 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(6) Disputes involving easements within or among",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 9,
+        "page number" : 8,
+        "bounding box" : [ 124.047, 170.251, 236.333, 180.723 ],
+        "font" : "NotoSans",
+        "font size" : 7.195,
+        "text color" : "[0.0]",
+        "content" : "subdivision projects; and"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 147.763, 147.648, 404.316, 159.499 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(7) Actions to annul mortgages executed in violation of",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 388,
+    "page number" : 8,
+    "bounding box" : [ 508.202, 155.138, 785.963, 166.669 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "controversy, issue subpoenas requiring the attendance and"
+  }, {
+    "type" : "paragraph",
+    "id" : 389,
+    "page number" : 8,
+    "bounding box" : [ 508.191, 134.366, 785.594, 156.621 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "testimony ofwitnesses or the production ofsuch books, papers, contracts, records, statements of accounts, agreements, and"
+  }, {
+    "type" : "paragraph",
+    "id" : 364,
+    "page number" : 8,
+    "bounding box" : [ 124.022, 136.57, 403.218, 149.091 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Section 18 ofPresidentialDecree No. 957 filed by a subdivision"
+  }, {
+    "type" : "paragraph",
+    "id" : 365,
+    "page number" : 8,
+    "bounding box" : [ 124.023, 126.241, 403.43, 138.275 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "lot or condominium unit buyer against the project owner"
+  }, {
+    "type" : "paragraph",
+    "id" : 390,
+    "page number" : 8,
+    "bounding box" : [ 508.205, 123.468, 785.617, 135.422 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "others as may be material to a just determination ofthe case;"
+  }, {
+    "type" : "paragraph",
+    "id" : 366,
+    "page number" : 8,
+    "bounding box" : [ 124.036, 116.57, 292.088, 127.867 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "and/or developer and the mortgagee."
+  }, {
+    "type" : "paragraph",
+    "id" : 391,
+    "page number" : 8,
+    "bounding box" : [ 508.205, 83.043, 785.795, 114.197 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(c) To hold any person in contempt directly or indirectly and impose appropriate penalties therefore in accordance with law."
+  }, {
+    "type" : "paragraph",
+    "id" : 367,
+    "page number" : 8,
+    "bounding box" : [ 147.775, 94.991, 357.549, 106.258 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(b) Cases involving Homeowners Associations:"
+  }, {
+    "type" : "paragraph",
+    "id" : 368,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 147.775, 73.341, 403.414, 85.419 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(1) Controversies involving the registration and regulation"
+  }, {
+    "type" : "paragraph",
+    "id" : 392,
+    "page number" : 8,
+    "bounding box" : [ 648.195, 81.281, 649.633, 84.711 ],
+    "font" : "NotoSans",
+    "font size" : 2.518,
+    "text color" : "[0.0]",
+    "content" : "’"
+  }, {
+    "type" : "paragraph",
+    "id" : 369,
+    "page number" : 8,
+    "bounding box" : [ 124.099, 64.232, 165.664, 75.011 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "of HOAs;"
+  }, {
+    "type" : "image",
+    "id" : 443,
+    "page number" : 9,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile9.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 394,
+    "page number" : 9,
+    "bounding box" : [ 119.423, 540.116, 129.135, 549.425 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "16"
+  }, {
+    "type" : "paragraph",
+    "id" : 420,
+    "page number" : 9,
+    "bounding box" : [ 773.081, 535.801, 782.439, 545.462 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "17"
+  }, {
+    "type" : "paragraph",
+    "id" : 395,
+    "page number" : 9,
+    "bounding box" : [ 119.371, 486.183, 397.638, 529.305 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Any person committing any act of misbehavior in the presence ofor so near any member ofthe Commission or any Adjudicator as to obstruct or interrupt the proceedings before the same, including disrespect toward said officials, offensive"
+  }, {
+    "type" : "paragraph",
+    "id" : 421,
+    "page number" : 9,
+    "bounding box" : [ 504.937, 515.205, 782.364, 527.841 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "act or actually authorizing or ratifying the same after actual"
+  }, {
+    "type" : "paragraph",
+    "id" : 422,
+    "page number" : 9,
+    "bounding box" : [ 504.581, 506.784, 587.579, 517.818 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "knowledge thereof;"
+  }, {
+    "type" : "list",
+    "id" : 423,
+    "level" : "8",
+    "page number" : 9,
+    "bounding box" : [ 527.23, 387.708, 782.202, 496.21 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 527.949, 483.617, 782.099, 496.21 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(2) Substantial and irreparable injury to complainant’s",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 7,
+        "page number" : 9,
+        "bounding box" : [ 504.311, 475.618, 772.654, 485.417 ],
+        "font" : "NotoSans",
+        "font size" : 7.195,
+        "text color" : "[0.0]",
+        "content" : "property will follow; ’"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 527.949, 451.602, 781.966, 464.193 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(3) As to each item ofreliefto be granted, greater injury",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 8,
+        "page number" : 9,
+        "bounding box" : [ 504.196, 430.261, 781.998, 453.761 ],
+        "font" : "NotoSans",
+        "font size" : 7.195,
+        "text color" : "[0.0]",
+        "content" : "willbe inflicted upon complainant by the denial ofreliefthan will be inflicted upon defendants by the granting of relief;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 527.589, 409.188, 778.419, 421.745 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(4) Complainant has no adequate remedy at law; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 527.23, 387.708, 782.202, 400.545 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(5) Public officers charged with the duty to protect",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 396,
+    "page number" : 9,
+    "bounding box" : [ 120.102, 475.204, 397.855, 486.881 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "acts toward others, or refusal to be sworn, or to answer as"
+  }, {
+    "type" : "paragraph",
+    "id" : 397,
+    "page number" : 9,
+    "bounding box" : [ 120.1, 464.599, 397.828, 476.064 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "a witness or to subscribe an affidavit or deposition when"
+  }, {
+    "type" : "paragraph",
+    "id" : 398,
+    "page number" : 9,
+    "bounding box" : [ 119.72, 453.7, 397.821, 465.657 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "lawfully requiredto do so, may be summarily adjudged guilty"
+  }, {
+    "type" : "paragraph",
+    "id" : 399,
+    "page number" : 9,
+    "bounding box" : [ 119.731, 442.974, 398.021, 455.634 ],
+    "font" : "NotoSans",
+    "font size" : 8.274,
+    "text color" : "[0.0]",
+    "content" : "ofdirectcontempt by said officials and shall be punished by"
+  }, {
+    "type" : "paragraph",
+    "id" : 400,
+    "page number" : 9,
+    "bounding box" : [ 119.742, 432.753, 397.854, 444.433 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "a fine not exceeding Five thousand pesos (P5,000.00) or"
+  }, {
+    "type" : "paragraph",
+    "id" : 419,
+    "page number" : 9,
+    "bounding box" : [ 442.665, 384.195, 445.359, 440.675 ],
+    "font" : "NotoSans",
+    "font size" : 1.978,
+    "text color" : "[0.0]",
+    "content" : "Speea"
+  }, {
+    "type" : "paragraph",
+    "id" : 401,
+    "page number" : 9,
+    "bounding box" : [ 119.731, 422.256, 397.477, 433.231 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "imprisonment not exceeding five (5) days, or both if it be"
+  }, {
+    "type" : "paragraph",
+    "id" : 402,
+    "page number" : 9,
+    "bounding box" : [ 119.73, 400.926, 397.829, 422.824 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "committed against the Commission or any member thereof: and, if the offense is committed against an Adjudicator, it"
+  }, {
+    "type" : "paragraph",
+    "id" : 403,
+    "page number" : 9,
+    "bounding box" : [ 119.72, 390.027, 397.831, 401.984 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "shall be punishable by a fine notexceeding One thousand pesos"
+  }, {
+    "type" : "paragraph",
+    "id" : 404,
+    "page number" : 9,
+    "bounding box" : [ 120.09, 379.704, 397.479, 391.167 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(P1,000.00) or imprisonment not exceeding one (1) day, or both."
+  }, {
+    "type" : "paragraph",
+    "id" : 424,
+    "page number" : 9,
+    "bounding box" : [ 503.848, 377.063, 781.633, 389.704 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "complainant's property are unable or unwilling to furnish"
+  }, {
+    "type" : "paragraph",
+    "id" : 425,
+    "page number" : 9,
+    "bounding box" : [ 504.234, 368.68, 593.346, 379.681 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "adequate protection."
+  }, {
+    "type" : "paragraph",
+    "id" : 405,
+    "page number" : 9,
+    "bounding box" : [ 119.732, 336.787, 398.187, 369.968 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "The person adjudged in direct contempt by the Adjudicator may appeal to the Commission and the execution of the judgment shall be suspended pending the resolution"
+  }, {
+    "type" : "paragraph",
+    "id" : 426,
+    "page number" : 9,
+    "bounding box" : [ 527.23, 345.272, 780.926, 358.097 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(e) To exercise such other powers as are implied,"
+  }, {
+    "type" : "paragraph",
+    "id" : 427,
+    "page number" : 9,
+    "bounding box" : [ 503.883, 335.272, 781.858, 346.87 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "necessary, or incidental to carry out the express powers"
+  }, {
+    "type" : "paragraph",
+    "id" : 406,
+    "page number" : 9,
+    "bounding box" : [ 120.09, 315.669, 397.839, 337.927 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "of the appeal upon the filing by such person of a bond on condition that he/she will abide by and perform the judgment"
+  }, {
+    "type" : "paragraph",
+    "id" : 428,
+    "page number" : 9,
+    "bounding box" : [ 503.875, 326.03, 631.286, 336.848 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "granted to the Commission."
+  }, {
+    "type" : "paragraph",
+    "id" : 407,
+    "page number" : 9,
+    "bounding box" : [ 120.091, 304.944, 397.837, 317.112 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "of the Commission should the appeal be decided against"
+  }, {
+    "type" : "paragraph",
+    "id" : 429,
+    "page number" : 9,
+    "bounding box" : [ 526.87, 302.714, 780.939, 316.033 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "SEC. 18. Appeals. — Decisions, awards or orders of the"
+  }, {
+    "type" : "paragraph",
+    "id" : 408,
+    "page number" : 9,
+    "bounding box" : [ 120.09, 283.653, 397.849, 305.91 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "him/her.Judgment of the Commission on direct contempt is immediately executory and unappealable. Indirect contempt"
+  }, {
+    "type" : "paragraph",
+    "id" : 430,
+    "page number" : 9,
+    "bounding box" : [ 503.502, 292.428, 781.288, 305.216 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Regional Adjudicators shall be final and executory unless"
+  }, {
+    "type" : "paragraph",
+    "id" : 431,
+    "page number" : 9,
+    "bounding box" : [ 503.86, 281.827, 781.3, 294.399 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "appealed to the Commission within fifteen (15) calendar days"
+  }, {
+    "type" : "paragraph",
+    "id" : 409,
+    "page number" : 9,
+    "bounding box" : [ 120.092, 252.838, 398.914, 284.711 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "shall be dealt with by the Commission or Adjudicator in the manner prescribed under Rule 71 ofthe Revised Rules of Court (ROC)."
+  }, {
+    "type" : "paragraph",
+    "id" : 432,
+    "page number" : 9,
+    "bounding box" : [ 503.501, 271.55, 731.114, 284.376 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "from receipt of such decisions, awards or orders."
+  }, {
+    "type" : "paragraph",
+    "id" : 433,
+    "page number" : 9,
+    "bounding box" : [ 526.511, 249.572, 781.294, 262.408 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "The decision ofthe Commission upon any disputed matter"
+  }, {
+    "type" : "paragraph",
+    "id" : 434,
+    "page number" : 9,
+    "bounding box" : [ 503.489, 229.864, 781.105, 251.95 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "may be brought upon to the Court ofAppeals in accordance with Rule 43 of the Rules of Court."
+  }, {
+    "type" : "paragraph",
+    "id" : 410,
+    "page number" : 9,
+    "bounding box" : [ 143.831, 230.557, 397.479, 241.878 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(ad) To enjoin or restrain, after due notice and hearing,"
+  }, {
+    "type" : "paragraph",
+    "id" : 411,
+    "page number" : 9,
+    "bounding box" : [ 120.451, 187.776, 398.383, 231.47 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "any actual or threatened commission of any or all prohibited or unlawful acts or to require the performance ofa particular act in any dispute within its jurisdiction which, if not restrained or performed forthwith, may cause grave or"
+  }, {
+    "type" : "paragraph",
+    "id" : 435,
+    "page number" : 9,
+    "bounding box" : [ 526.511, 207.487, 780.934, 220.319 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 19. Execution ofDecisions, Orders orAwards. — The"
+  }, {
+    "type" : "paragraph",
+    "id" : 436,
+    "page number" : 9,
+    "bounding box" : [ 503.501, 196.635, 781.13, 209.911 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "Commission or any Regional Adjudicator may, motuproprio"
+  }, {
+    "type" : "paragraph",
+    "id" : 437,
+    "page number" : 9,
+    "bounding box" : [ 503.164, 186.514, 781.271, 198.325 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "or on motion of any interested party and under such rules"
+  }, {
+    "type" : "paragraph",
+    "id" : 412,
+    "page number" : 9,
+    "bounding box" : [ 120.452, 177.45, 398.202, 188.637 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "irreparable damage to any party or render ineffectual any"
+  }, {
+    "type" : "paragraph",
+    "id" : 438,
+    "page number" : 9,
+    "bounding box" : [ 503.153, 154.392, 781.305, 187.918 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "as may be duly promulgated, issue a writ of execution on an order,award or judgment within five (5) years from the date itbecomes final and executory, and by independent action for"
+  }, {
+    "type" : "paragraph",
+    "id" : 413,
+    "page number" : 9,
+    "bounding box" : [ 120.862, 167.941, 398.382, 178.23 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "decision in favor of such party. In no case shall a temporary"
+  }, {
+    "type" : "paragraph",
+    "id" : 414,
+    "page number" : 9,
+    "bounding box" : [ 120.502, 157.254, 399.276, 167.053 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "or permanent injunction be issued except after a finding of"
+  }, {
+    "type" : "paragraph",
+    "id" : 415,
+    "page number" : 9,
+    "bounding box" : [ 120.502, 146.716, 320.859, 157.005 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "fact by the Commission, to the effect that:"
+  }, {
+    "type" : "paragraph",
+    "id" : 439,
+    "page number" : 9,
+    "bounding box" : [ 503.142, 133.064, 781.104, 156.286 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "the enforcement ofthe order,award or decision filed with the Regional Adjudication Branch which issued the order,award"
+  }, {
+    "type" : "paragraph",
+    "id" : 416,
+    "level" : "7",
+    "page number" : 9,
+    "bounding box" : [ 144.243, 125.132, 398.197, 135.421 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(1) Prohibited or unlawful acts have been threatened and"
+  }, {
+    "type" : "paragraph",
+    "id" : 440,
+    "page number" : 9,
+    "bounding box" : [ 503.177, 124.523, 553.943, 134.677 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "or decision."
+  }, {
+    "type" : "paragraph",
+    "id" : 417,
+    "page number" : 9,
+    "bounding box" : [ 120.812, 93.581, 398.922, 124.605 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "willbe committed and will be continued unless restrained, but no injunction or temporary restraining order shall be issued on account of any threat, prohibited or unlawful act, except"
+  }, {
+    "type" : "paragraph",
+    "id" : 441,
+    "page number" : 9,
+    "bounding box" : [ 503.154, 90.535, 780.923, 113.478 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "The Commission shall appoint a Sheriff or such number of Sheriffs, in accordance with the provisions of the civil"
+  }, {
+    "type" : "paragraph",
+    "id" : 418,
+    "page number" : 9,
+    "bounding box" : [ 121.222, 72.251, 398.653, 92.973 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "against the person or persons, association or organization making the threat or committing the prohibited or unlawful"
+  }, {
+    "type" : "paragraph",
+    "id" : 442,
+    "page number" : 9,
+    "bounding box" : [ 503.153, 79.932, 780.757, 92.229 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "service laws, rules and regulations, who shall be responsible"
+  }, {
+    "type" : "image",
+    "id" : 484,
+    "page number" : 10,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile10.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 444,
+    "page number" : 10,
+    "bounding box" : [ 118.714, 540.129, 128.072, 549.79 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "18"
+  }, {
+    "type" : "paragraph",
+    "id" : 461,
+    "page number" : 10,
+    "bounding box" : [ 770.146, 536.531, 779.504, 546.192 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "19"
+  }, {
+    "type" : "paragraph",
+    "id" : 445,
+    "page number" : 10,
+    "bounding box" : [ 119.0, 517.734, 396.752, 529.69 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "for the service and execution of all writs, summonses, and"
+  }, {
+    "type" : "paragraph",
+    "id" : 462,
+    "page number" : 10,
+    "bounding box" : [ 502.782, 509.704, 780.909, 522.495 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "by its own Board ofTrustees, as provided for under Republic"
+  }, {
+    "type" : "paragraph",
+    "id" : 446,
+    "page number" : 10,
+    "bounding box" : [ 118.999, 507.56, 335.248, 518.873 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "orders and other processes ofthe Commission."
+  }, {
+    "type" : "paragraph",
+    "id" : 463,
+    "page number" : 10,
+    "bounding box" : [ 502.769, 501.179, 566.552, 511.678 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Act No. 9679."
+  }, {
+    "type" : "paragraph",
+    "id" : 447,
+    "page number" : 10,
+    "bounding box" : [ 142.381, 485.858, 396.752, 497.673 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "The Commission may designate special sheriffs and take"
+  }, {
+    "type" : "paragraph",
+    "id" : 464,
+    "page number" : 10,
+    "bounding box" : [ 611.081, 479.101, 672.652, 489.759 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "CHAPTERVI"
+  }, {
+    "type" : "paragraph",
+    "id" : 448,
+    "page number" : 10,
+    "bounding box" : [ 119.367, 475.301, 397.108, 486.832 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "any measure under existing laws to ensure compliance with"
+  }, {
+    "type" : "paragraph",
+    "id" : 449,
+    "page number" : 10,
+    "bounding box" : [ 119.012, 465.747, 273.562, 476.809 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "their decisions, orders or awards."
+  }, {
+    "type" : "paragraph",
+    "id" : 465,
+    "page number" : 10,
+    "bounding box" : [ 581.918, 456.801, 702.591, 468.175 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "ATTACHEDCORPORATIONS"
+  }, {
+    "type" : "paragraph",
+    "id" : 450,
+    "page number" : 10,
+    "bounding box" : [ 118.986, 422.58, 397.286, 455.225 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 20. Criminal Prosecution. — The criminal prosecution for violation ofhousing laws and regulations shall be instituted before criminal courts having appropriate jurisdiction."
+  }, {
+    "type" : "paragraph",
+    "id" : 466,
+    "page number" : 10,
+    "bounding box" : [ 526.535, 433.911, 780.573, 446.231 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 22. Attached Corporations. - The Department shall"
+  }, {
+    "type" : "paragraph",
+    "id" : 467,
+    "page number" : 10,
+    "bounding box" : [ 502.793, 401.894, 781.629, 435.415 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "exercise administrative supervision over the following housing agencies, which shall remain to be attached for purposes of policy and program coordination, monitoring and evaluation:"
+  }, {
+    "type" : "paragraph",
+    "id" : 451,
+    "page number" : 10,
+    "bounding box" : [ 229.134, 402.127, 288.126, 412.416 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "CHAPTER V"
+  }, {
+    "type" : "list",
+    "id" : 468,
+    "level" : "6",
+    "page number" : 10,
+    "bounding box" : [ 526.177, 306.932, 780.762, 392.606 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 526.522, 381.009, 706.465, 392.606 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(a) National Housing Authority (NHA);",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 526.536, 359.55, 780.762, 371.382 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(b) National Home Mortgage Finance Corporation",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 1,
+        "page number" : 10,
+        "bounding box" : [ 503.078, 350.427, 548.553, 360.95 ],
+        "font" : "NotoSans",
+        "font size" : 7.195,
+        "text color" : "[0.0]",
+        "content" : "(NHMFC);"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 526.177, 327.682, 761.857, 339.366 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(c) Home Development Mutual Fund (HDMF); and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 526.177, 306.932, 747.469, 318.501 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(d) Social Housing Finance Corporation (SHFC).",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 452,
+    "page number" : 10,
+    "bounding box" : [ 163.964, 379.771, 352.688, 391.192 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "NATIONALHUMAN SETTLEMENTS BOARD"
+  }, {
+    "type" : "paragraph",
+    "id" : 453,
+    "page number" : 10,
+    "bounding box" : [ 142.739, 358.258, 397.117, 370.328 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 21. Creation of a National Human Settlements"
+  }, {
+    "type" : "paragraph",
+    "id" : 454,
+    "page number" : 10,
+    "bounding box" : [ 118.987, 347.487, 397.119, 359.511 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Board. — The powers and functions of the attached agencies"
+  }, {
+    "type" : "paragraph",
+    "id" : 455,
+    "page number" : 10,
+    "bounding box" : [ 119.36, 337.15, 396.752, 349.103 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "with respect to policy and program development shall be"
+  }, {
+    "type" : "paragraph",
+    "id" : 456,
+    "page number" : 10,
+    "bounding box" : [ 119.371, 305.597, 397.12, 338.286 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "exercisedby a single Board ofTrustees, known as the National Human Settlements Board, hereinafter referred to as the Board, with the Secretary ofthe Department as Chairperson"
+  }, {
+    "type" : "paragraph",
+    "id" : 457,
+    "page number" : 10,
+    "bounding box" : [ 119.732, 295.655, 261.867, 306.655 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "and the following as members:"
+  }, {
+    "type" : "paragraph",
+    "id" : 469,
+    "page number" : 10,
+    "bounding box" : [ 502.796, 274.83, 780.55, 297.277 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "The attached corporations shall continue to function according to existing laws and their respective Charters,"
+  }, {
+    "type" : "list",
+    "id" : 458,
+    "level" : "2",
+    "page number" : 10,
+    "bounding box" : [ 143.099, 113.9, 398.023, 285.046 ],
+    "numbering style" : "english letters",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 143.111, 273.723, 397.12, 285.046 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(a) The Director General ofNEDA or his/her designated",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 2,
+        "page number" : 10,
+        "bounding box" : [ 119.423, 264.349, 240.115, 274.638 ],
+        "font" : "NotoSans",
+        "font size" : 7.554,
+        "text color" : "[0.0]",
+        "content" : "Deputy Secretary General;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 143.099, 241.813, 397.114, 253.389 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(b) The Secretary ofFinance or his/her duly designated",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 3,
+        "page number" : 10,
+        "bounding box" : [ 120.092, 232.452, 189.386, 242.597 ],
+        "font" : "NotoSans",
+        "font size" : 7.195,
+        "text color" : "[0.0]",
+        "content" : "Undersecretary;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 143.46, 209.585, 397.472, 221.398 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(c) The SecretaryofBudget and Management or his/her",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 4,
+        "page number" : 10,
+        "bounding box" : [ 119.783, 200.317, 265.291, 210.606 ],
+        "font" : "NotoSans",
+        "font size" : 7.554,
+        "text color" : "[0.0]",
+        "content" : "duly designated Undersecretary;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 143.46, 177.569, 397.472, 189.382 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(d) The Secretary of Department of Public Works and",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 5,
+        "page number" : 10,
+        "bounding box" : [ 120.143, 168.66, 365.295, 178.949 ],
+        "font" : "NotoSans",
+        "font size" : 7.554,
+        "text color" : "[0.0]",
+        "content" : "Highways or his/her duly designated Undersecretary;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 143.831, 146.016, 398.023, 157.34 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(e) The Secretary ofthe Interior and Local Government",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 6,
+        "page number" : 10,
+        "bounding box" : [ 120.102, 135.554, 338.123, 146.933 ],
+        "font" : "NotoSans",
+        "font size" : 7.554,
+        "text color" : "[0.0]",
+        "content" : "or his/her duly designated Undersecretary; and"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 143.82, 113.9, 397.101, 125.709 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(f) The Head ofeach attached agency ofthe Department.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 470,
+    "page number" : 10,
+    "bounding box" : [ 502.807, 264.691, 710.972, 276.437 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "subject to the policy directions of the Board."
+  }, {
+    "type" : "paragraph",
+    "id" : 471,
+    "page number" : 10,
+    "bounding box" : [ 525.817, 242.988, 781.039, 254.828 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "The appointment ofthe Board of Directors or Trustees"
+  }, {
+    "type" : "paragraph",
+    "id" : 472,
+    "page number" : 10,
+    "bounding box" : [ 502.809, 232.466, 780.56, 244.421 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "ofthe attached GOCCs shall be in accordance with Republic"
+  }, {
+    "type" : "paragraph",
+    "id" : 473,
+    "page number" : 10,
+    "bounding box" : [ 502.076, 221.579, 780.383, 233.604 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Act No. 10149, otherwise known as the “GOCC Governance"
+  }, {
+    "type" : "paragraph",
+    "id" : 474,
+    "page number" : 10,
+    "bounding box" : [ 502.075, 210.683, 780.203, 223.197 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Act of 2011”. However, each of the heads of the attached"
+  }, {
+    "type" : "paragraph",
+    "id" : 475,
+    "page number" : 10,
+    "bounding box" : [ 502.436, 189.566, 780.408, 212.02 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "corporations shall enter into a performance contract annually with the Secretary in accordance with their respective"
+  }, {
+    "type" : "paragraph",
+    "id" : 476,
+    "page number" : 10,
+    "bounding box" : [ 502.809, 179.224, 780.662, 191.18 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "mandates, which shall be consistent with the national targets"
+  }, {
+    "type" : "paragraph",
+    "id" : 477,
+    "page number" : 10,
+    "bounding box" : [ 502.816, 168.346, 780.201, 180.363 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "on human settlements and urban development, and the"
+  }, {
+    "type" : "paragraph",
+    "id" : 478,
+    "page number" : 10,
+    "bounding box" : [ 502.809, 158.537, 691.18, 169.956 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "overall administration ofthe corporation."
+  }, {
+    "type" : "paragraph",
+    "id" : 479,
+    "page number" : 10,
+    "bounding box" : [ 502.809, 115.556, 781.287, 148.732 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Furthermore, within two (2) years from the effectivity of this Act, the Secretary, in coordination with the Governance Commission for GOCCs (GCG), shall recommend to the"
+  }, {
+    "type" : "paragraph",
+    "id" : 480,
+    "page number" : 10,
+    "bounding box" : [ 502.448, 95.348, 780.22, 116.691 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "President, the restructuringofthe foregoing corporations guided by the objectives found hereunder:"
+  }, {
+    "type" : "paragraph",
+    "id" : 459,
+    "page number" : 10,
+    "bounding box" : [ 143.524, 94.195, 397.773, 104.484 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Provided, That the Home Development Mutual Fund’s"
+  }, {
+    "type" : "paragraph",
+    "id" : 460,
+    "page number" : 10,
+    "bounding box" : [ 120.102, 82.477, 398.381, 93.667 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "corporate powers and functions shall continue to be exercised"
+  }, {
+    "type" : "paragraph",
+    "id" : 481,
+    "page number" : 10,
+    "bounding box" : [ 526.189, 73.097, 780.215, 84.674 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(a)Toeliminateoverlaps,ifany,inprograms,withinand"
+  }, {
+    "type" : "paragraph",
+    "id" : 482,
+    "page number" : 10,
+    "bounding box" : [ 502.816, 62.333, 779.858, 73.857 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "among the attached corporations, that serve the same"
+  }, {
+    "type" : "paragraph",
+    "id" : 483,
+    "page number" : 10,
+    "bounding box" : [ 502.449, 52.874, 614.387, 63.835 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "beneficiaries or clientele;"
+  }, {
+    "type" : "image",
+    "id" : 538,
+    "page number" : 11,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile11.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 485,
+    "page number" : 11,
+    "bounding box" : [ 121.26, 541.922, 131.66, 551.588 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "20"
+  }, {
+    "type" : "paragraph",
+    "id" : 509,
+    "page number" : 11,
+    "bounding box" : [ 770.855, 538.317, 779.848, 547.626 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "2"
+  }, {
+    "type" : "paragraph",
+    "id" : 486,
+    "page number" : 11,
+    "bounding box" : [ 144.886, 519.272, 399.101, 531.104 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(b) To identify functions and programs of corporations"
+  }, {
+    "type" : "paragraph",
+    "id" : 510,
+    "page number" : 11,
+    "bounding box" : [ 526.189, 517.721, 781.284, 529.305 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "All agencies involved in the issuance of said permits,"
+  }, {
+    "type" : "paragraph",
+    "id" : 487,
+    "page number" : 11,
+    "bounding box" : [ 121.132, 487.042, 399.093, 521.056 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "that properly belong to regular government agencies such as policymaking, regulation, standard setting, and service provision from functions that are imbued with commercial"
+  }, {
+    "type" : "paragraph",
+    "id" : 511,
+    "page number" : 11,
+    "bounding box" : [ 503.874, 496.315, 781.643, 519.257 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "clearances and licenses shall be represented in the HOPC and shall assign to HOPC regional centers personnel who shall be"
+  }, {
+    "type" : "paragraph",
+    "id" : 512,
+    "page number" : 11,
+    "bounding box" : [ 503.873, 485.969, 752.9, 498.008 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "sufficiently authorized to process and issue the same."
+  }, {
+    "type" : "paragraph",
+    "id" : 488,
+    "page number" : 11,
+    "bounding box" : [ 121.144, 476.825, 398.551, 488.63 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "motives which require a corporate structure. Thereafter,line"
+  }, {
+    "type" : "paragraph",
+    "id" : 489,
+    "page number" : 11,
+    "bounding box" : [ 121.131, 465.717, 398.551, 478.992 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "functions shall be transferred to the Department while"
+  }, {
+    "type" : "paragraph",
+    "id" : 513,
+    "page number" : 11,
+    "bounding box" : [ 530.851, 464.362, 782.354, 476.424 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "SEC. 24. IdentificationandDesignationofLandsfor Housing"
+  }, {
+    "type" : "paragraph",
+    "id" : 490,
+    "page number" : 11,
+    "bounding box" : [ 121.142, 455.029, 398.749, 467.815 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "commercial functions shall be retained with the corporations;"
+  }, {
+    "type" : "paragraph",
+    "id" : 514,
+    "page number" : 11,
+    "bounding box" : [ 503.514, 453.495, 782.731, 466.017 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "and Urban and Rural Development. — For the purpose of"
+  }, {
+    "type" : "paragraph",
+    "id" : 515,
+    "page number" : 11,
+    "bounding box" : [ 503.875, 421.951, 782.223, 455.2 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "designating lands for housing and urban and rural development, the Department of Human Settlements and Urban Development (DHSUD), the Department ofEnvironment"
+  }, {
+    "type" : "paragraph",
+    "id" : 491,
+    "page number" : 11,
+    "bounding box" : [ 144.871, 433.872, 398.561, 446.207 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(c) To clarify the role of each corporation along the"
+  }, {
+    "type" : "paragraph",
+    "id" : 492,
+    "page number" : 11,
+    "bounding box" : [ 120.76, 412.298, 398.913, 435.799 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "housing value chain, including housing production, primary financing, secondary market development, and housing"
+  }, {
+    "type" : "paragraph",
+    "id" : 516,
+    "page number" : 11,
+    "bounding box" : [ 503.888, 411.144, 782.199, 423.593 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "and Natural Resources (DENR), the Department ofAgrarian"
+  }, {
+    "type" : "paragraph",
+    "id" : 493,
+    "page number" : 11,
+    "bounding box" : [ 120.772, 391.886, 398.926, 414.166 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "insurance and guarantee to promote the development of a comprehensive and synergetic housing industry; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 517,
+    "page number" : 11,
+    "bounding box" : [ 503.514, 400.623, 781.643, 413.136 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Reform (DAR), the Department of Agriculture (DA), the"
+  }, {
+    "type" : "paragraph",
+    "id" : 518,
+    "page number" : 11,
+    "bounding box" : [ 503.526, 390.401, 781.646, 401.934 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "Department ofthe Interior and Local Government (DILG), and"
+  }, {
+    "type" : "paragraph",
+    "id" : 519,
+    "page number" : 11,
+    "bounding box" : [ 503.529, 369.164, 781.653, 391.552 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "the Land Registration Authority (LRA) shall, within one hundred eighty (180) days from the effectivity of this Act,"
+  }, {
+    "type" : "paragraph",
+    "id" : 494,
+    "page number" : 11,
+    "bounding box" : [ 144.512, 370.192, 398.921, 382.534 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(d) To strengthen integration offunctions, programs, and"
+  }, {
+    "type" : "paragraph",
+    "id" : 495,
+    "page number" : 11,
+    "bounding box" : [ 121.145, 360.014, 398.928, 371.332 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "services among the corporations and the Department to"
+  }, {
+    "type" : "paragraph",
+    "id" : 520,
+    "page number" : 11,
+    "bounding box" : [ 503.179, 348.041, 782.007, 370.303 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "jointly identify government lands suitable for housing and rural development: Provided, That all government lands which"
+  }, {
+    "type" : "paragraph",
+    "id" : 496,
+    "page number" : 11,
+    "bounding box" : [ 120.772, 338.142, 399.642, 361.334 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "leverage limited public resources and maximize the value of housing products and services offered by the public sector."
+  }, {
+    "type" : "paragraph",
+    "id" : 521,
+    "page number" : 11,
+    "bounding box" : [ 503.541, 337.424, 781.643, 349.103 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "have been idle for more than ten (10) years, except lands"
+  }, {
+    "type" : "paragraph",
+    "id" : 522,
+    "page number" : 11,
+    "bounding box" : [ 503.539, 316.303, 781.992, 338.286 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "owned by the GOCCs and government financial institutions engaged in shelter financing as part ofits fiduciary obligation"
+  }, {
+    "type" : "paragraph",
+    "id" : 497,
+    "page number" : 11,
+    "bounding box" : [ 143.807, 317.094, 398.93, 328.933 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Any reorganization, merger, streamlining, abolition or"
+  }, {
+    "type" : "paragraph",
+    "id" : 498,
+    "page number" : 11,
+    "bounding box" : [ 120.782, 295.583, 398.912, 318.886 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "privatization of any attached corporation shall be formulated and implemented in coordination with the GCG and in"
+  }, {
+    "type" : "paragraph",
+    "id" : 523,
+    "page number" : 11,
+    "bounding box" : [ 503.551, 305.407, 781.836, 317.087 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "to its members and/or are taken possession ofin their ordinary"
+  }, {
+    "type" : "paragraph",
+    "id" : 524,
+    "page number" : 11,
+    "bounding box" : [ 503.539, 273.856, 782.007, 306.27 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "conduct of business, are hereby prioritized for housing and urban development purposes: Provided, further, That lands exempted from conversion under existinglaws shall be excluded"
+  }, {
+    "type" : "paragraph",
+    "id" : 499,
+    "page number" : 11,
+    "bounding box" : [ 120.785, 285.25, 399.321, 297.277 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "consultation with the GOCC concerned and the relevant"
+  }, {
+    "type" : "paragraph",
+    "id" : 500,
+    "page number" : 11,
+    "bounding box" : [ 120.809, 275.538, 294.606, 286.869 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "provisions of Republic Act No. 10149."
+  }, {
+    "type" : "paragraph",
+    "id" : 525,
+    "page number" : 11,
+    "bounding box" : [ 503.54, 262.854, 781.645, 275.023 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "from the coverage ofthis section: Provided, finally, That the"
+  }, {
+    "type" : "paragraph",
+    "id" : 501,
+    "page number" : 11,
+    "bounding box" : [ 226.925, 254.309, 292.443, 264.926 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "CHAPTERVII"
+  }, {
+    "type" : "paragraph",
+    "id" : 526,
+    "page number" : 11,
+    "bounding box" : [ 503.901, 242.198, 782.366, 263.822 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "national lands identified under this section shall be transferred to or administered by the Department, subject to the approval"
+  }, {
+    "type" : "paragraph",
+    "id" : 502,
+    "page number" : 11,
+    "bounding box" : [ 215.388, 233.061, 304.404, 244.061 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "OTHER PROVISIONS"
+  }, {
+    "type" : "paragraph",
+    "id" : 527,
+    "page number" : 11,
+    "bounding box" : [ 503.9, 232.209, 579.681, 243.366 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "of the President."
+  }, {
+    "type" : "paragraph",
+    "id" : 503,
+    "page number" : 11,
+    "bounding box" : [ 120.814, 199.895, 398.385, 223.197 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 23. Housing One-Stop Processing Centers (HOPCs). — The Department shall establish HOPCs in the regions,"
+  }, {
+    "type" : "paragraph",
+    "id" : 528,
+    "page number" : 11,
+    "bounding box" : [ 608.216, 210.763, 677.33, 221.398 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "CHAPTERVIII"
+  }, {
+    "type" : "paragraph",
+    "id" : 504,
+    "page number" : 11,
+    "bounding box" : [ 120.785, 168.349, 398.919, 201.588 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "which shall centralize the processing and issuance of all required housing-related permits, clearances, and licenses in accordance with Executive Order No. 45, series of 2001,"
+  }, {
+    "type" : "paragraph",
+    "id" : 529,
+    "page number" : 11,
+    "bounding box" : [ 585.553, 189.301, 700.449, 199.789 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "TRANSITORY PROVISIONS"
+  }, {
+    "type" : "paragraph",
+    "id" : 530,
+    "page number" : 11,
+    "bounding box" : [ 527.28, 167.599, 781.648, 178.924 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "SEC. 25. Transfer of Functions and Assets. — The"
+  }, {
+    "type" : "paragraph",
+    "id" : 505,
+    "page number" : 11,
+    "bounding box" : [ 120.799, 125.627, 398.92, 169.596 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "entitled “Prescribing Time Periods for Issuance of Housing Related Certifications, Clearances and Permits, and Imposing Sanctions for Failureto Observe the Same”: Provided, That for the foregoing purpose, the respective ceilings for socialized,"
+  }, {
+    "type" : "paragraph",
+    "id" : 531,
+    "page number" : 11,
+    "bounding box" : [ 504.26, 156.839, 782.003, 168.517 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "HUDCC and the HLURB are hereby consolidated and"
+  }, {
+    "type" : "paragraph",
+    "id" : 532,
+    "page number" : 11,
+    "bounding box" : [ 503.901, 146.573, 769.618, 157.7 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "reconstituted as the Department and HSAC, respectively."
+  }, {
+    "type" : "paragraph",
+    "id" : 533,
+    "page number" : 11,
+    "bounding box" : [ 526.973, 125.746, 782.031, 136.525 ],
+    "font" : "NotoSans",
+    "font size" : 7.914,
+    "text color" : "[0.0]",
+    "content" : "The following functions of the HLURB are hereby"
+  }, {
+    "type" : "paragraph",
+    "id" : 506,
+    "page number" : 11,
+    "bounding box" : [ 121.169, 94.078, 399.722, 126.763 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "low cost/economic and middle-income housing shall be jointly determined by the Department and NEDA: Provided, further, That at any time, but not more than once every two (2) years,"
+  }, {
+    "type" : "paragraph",
+    "id" : 534,
+    "page number" : 11,
+    "bounding box" : [ 504.311, 115.419, 668.519, 125.709 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "transferred as stipulated hereunder:"
+  }, {
+    "type" : "paragraph",
+    "id" : 535,
+    "page number" : 11,
+    "bounding box" : [ 527.692, 94.195, 781.285, 104.484 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(a) The land use planning and monitoring function,"
+  }, {
+    "type" : "paragraph",
+    "id" : 507,
+    "page number" : 11,
+    "bounding box" : [ 121.171, 83.454, 398.924, 95.131 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "such ceilings may be reviewed or revised to conform to"
+  }, {
+    "type" : "paragraph",
+    "id" : 536,
+    "page number" : 11,
+    "bounding box" : [ 504.261, 82.841, 781.651, 94.027 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "including the imposition of penalties for noncompliance to"
+  }, {
+    "type" : "paragraph",
+    "id" : 508,
+    "page number" : 11,
+    "bounding box" : [ 120.862, 74.515, 260.429, 84.314 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "prevailing economic conditions."
+  }, {
+    "type" : "paragraph",
+    "id" : 537,
+    "page number" : 11,
+    "bounding box" : [ 504.281, 72.513, 782.009, 83.21 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "ensure that LGUs will follow the planning guidelines and"
+  }, {
+    "type" : "image",
+    "id" : 584,
+    "page number" : 12,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile12.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 539,
+    "page number" : 12,
+    "bounding box" : [ 124.099, 542.02, 133.812, 550.839 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "22"
+  }, {
+    "type" : "paragraph",
+    "id" : 562,
+    "page number" : 12,
+    "bounding box" : [ 774.812, 537.238, 784.165, 546.547 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "23"
+  }, {
+    "type" : "paragraph",
+    "id" : 540,
+    "page number" : 12,
+    "bounding box" : [ 123.649, 518.528, 401.437, 531.104 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "implement their CLUPs and zoning ordinances shall be"
+  }, {
+    "type" : "paragraph",
+    "id" : 541,
+    "page number" : 12,
+    "bounding box" : [ 123.662, 509.268, 266.186, 520.696 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "transferred to the Department;"
+  }, {
+    "type" : "paragraph",
+    "id" : 563,
+    "page number" : 12,
+    "bounding box" : [ 506.393, 464.038, 785.956, 518.153 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "SEC. 28. Absorption or Separation from Service of Employees of the Consolidated Agencies. — The existing employees of HUDCC and HLURB shall enjoy security of tenure and shallbe absorbed by the Department or the HSAC, in accordance with their staffing patterns and the selection"
+  }, {
+    "type" : "list",
+    "id" : 542,
+    "level" : "3",
+    "page number" : 12,
+    "bounding box" : [ 123.649, 433.401, 401.992, 499.088 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 123.649, 454.855, 401.992, 499.088 ],
+      "font" : "NotoSans",
+      "font size" : 7.195,
+      "text color" : "[0.0]",
+      "content" : "(b) The regulatory function, including the formulation, promulgation, and enforcement of rules, standards and guidelines over subdivisions, condominiums and similar real estate developments are herebytransferred to the Department;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 147.378, 433.401, 401.64, 446.232 ],
+      "font" : "NotoSans",
+      "font size" : 7.554,
+      "text color" : "[0.0]",
+      "content" : "(c) The registration, regulation and supervision ofHOAs",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 564,
+    "page number" : 12,
+    "bounding box" : [ 506.413, 453.357, 784.153, 464.888 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "process as prescribed under Republic Act No. 6656, otherwise"
+  }, {
+    "type" : "paragraph",
+    "id" : 565,
+    "page number" : 12,
+    "bounding box" : [ 506.751, 442.763, 733.416, 454.865 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "known as the “Government Reorganization Law”."
+  }, {
+    "type" : "paragraph",
+    "id" : 543,
+    "page number" : 12,
+    "bounding box" : [ 123.669, 423.429, 342.439, 435.414 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "are hereby transferred to the Department; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 566,
+    "page number" : 12,
+    "bounding box" : [ 506.786, 410.896, 784.541, 433.641 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Employees opting to be separated from the service as a consequence ofthe consolidation and reconstitution under the"
+  }, {
+    "type" : "paragraph",
+    "id" : 544,
+    "page number" : 12,
+    "bounding box" : [ 147.018, 401.598, 401.085, 414.19 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(d) The adjudicatory mandate is hereby transferredto the"
+  }, {
+    "type" : "paragraph",
+    "id" : 567,
+    "page number" : 12,
+    "bounding box" : [ 506.393, 389.218, 784.715, 412.032 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "provisions of this Act shall, within one (1) month from their separation or phase out from the service, receive separation"
+  }, {
+    "type" : "paragraph",
+    "id" : 545,
+    "page number" : 12,
+    "bounding box" : [ 124.099, 393.494, 178.057, 403.783 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Commission."
+  }, {
+    "type" : "paragraph",
+    "id" : 568,
+    "page number" : 12,
+    "bounding box" : [ 506.406, 367.892, 784.17, 390.832 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "benefits in accordance with existing laws. In addition, those who are qualified to retire shall be allowed to retire and be"
+  }, {
+    "type" : "paragraph",
+    "id" : 546,
+    "page number" : 12,
+    "bounding box" : [ 123.289, 348.374, 401.088, 382.174 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "The Department shall, by virtue of this Act, be subrogated to all rights and assume all the liabilities of the HUDCC and HLURB, except those that may hereafter be"
+  }, {
+    "type" : "paragraph",
+    "id" : 569,
+    "page number" : 12,
+    "bounding box" : [ 506.393, 348.623, 784.72, 369.583 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "entitled to all benefits provided, under any of the existing retirement laws."
+  }, {
+    "type" : "paragraph",
+    "id" : 547,
+    "page number" : 12,
+    "bounding box" : [ 123.302, 338.518, 340.281, 350.542 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "transferred to or absorbed by the Commission."
+  }, {
+    "type" : "paragraph",
+    "id" : 570,
+    "page number" : 12,
+    "bounding box" : [ 506.752, 315.114, 784.517, 337.567 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "SEC. 29. Implementing Rules and Regulations. — The HUDCC, HLURB, DBM and Civil Service Commission, in"
+  }, {
+    "type" : "paragraph",
+    "id" : 548,
+    "page number" : 12,
+    "bounding box" : [ 122.929, 242.527, 401.53, 328.934 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "SEC. 26. Transition Period. — All transfer of functions, assets, funds, personnel, equipment, properties, transactions, and personnel inthe affected national governmentagencies and the formulation and implementation of the internal organic structures, staffing patterns, operations systems, and revised budgets of the Department and the Commission, shall be completed within six (6) months from the effectivity of this Act, during which existing personnel shall continue to assume"
+  }, {
+    "type" : "paragraph",
+    "id" : 571,
+    "page number" : 12,
+    "bounding box" : [ 506.778, 305.05, 784.521, 316.727 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "coordination with NHA, SHFC, NHMFC, HDMF and other"
+  }, {
+    "type" : "paragraph",
+    "id" : 572,
+    "page number" : 12,
+    "bounding box" : [ 506.777, 294.445, 784.537, 305.91 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "concerned agencies, shall prepare and issue the Implementing"
+  }, {
+    "type" : "paragraph",
+    "id" : 573,
+    "page number" : 12,
+    "bounding box" : [ 506.766, 283.548, 784.516, 295.503 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Rules and Regulations (IRR) ofthe Department within ninety"
+  }, {
+    "type" : "paragraph",
+    "id" : 574,
+    "level" : "5",
+    "page number" : 12,
+    "bounding box" : [ 507.136, 273.732, 699.626, 284.686 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(90) days upon the effectivity of this Act."
+  }, {
+    "type" : "paragraph",
+    "id" : 575,
+    "page number" : 12,
+    "bounding box" : [ 506.416, 241.099, 784.517, 263.487 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 30. ImplementingAuthority. — The HUDCC Chairperson is hereby authorized to undertake the implementation ofthe"
+  }, {
+    "type" : "paragraph",
+    "id" : 549,
+    "page number" : 12,
+    "bounding box" : [ 123.29, 231.634, 400.897, 244.421 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "their posts in holdover capacities until new appointments are"
+  }, {
+    "type" : "paragraph",
+    "id" : 576,
+    "page number" : 12,
+    "bounding box" : [ 506.417, 209.188, 784.545, 242.238 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "provisions of this Act and implement the necessary organizational changes within the specified six (6)-month transition period or until a Department Secretary has been"
+  }, {
+    "type" : "paragraph",
+    "id" : 550,
+    "page number" : 12,
+    "bounding box" : [ 123.301, 220.949, 400.724, 233.244 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "issued. Accordingly, all applications for permits and licenses,"
+  }, {
+    "type" : "paragraph",
+    "id" : 551,
+    "page number" : 12,
+    "bounding box" : [ 122.943, 199.531, 401.091, 222.837 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "and cases pending with HLURB upon the effectivity of this Act and filed during the transition period shall continue to"
+  }, {
+    "type" : "paragraph",
+    "id" : 577,
+    "page number" : 12,
+    "bounding box" : [ 506.778, 199.173, 663.661, 210.246 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "appointed and has assumed office."
+  }, {
+    "type" : "paragraph",
+    "id" : 552,
+    "page number" : 12,
+    "bounding box" : [ 123.301, 188.93, 401.073, 201.228 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "be acted upon by the incumbents until the rules and"
+  }, {
+    "type" : "paragraph",
+    "id" : 553,
+    "page number" : 12,
+    "bounding box" : [ 123.302, 178.312, 400.878, 190.821 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "regulations as providedunder thisAct shallhave been inforce."
+  }, {
+    "type" : "paragraph",
+    "id" : 578,
+    "page number" : 12,
+    "bounding box" : [ 530.145, 177.42, 784.163, 188.997 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "SEC. 31. Appropriations. -The amount necessary for the"
+  }, {
+    "type" : "paragraph",
+    "id" : 579,
+    "page number" : 12,
+    "bounding box" : [ 506.778, 145.689, 784.171, 178.589 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "initial implementation of the provisions of this Act shall be charged against the current year’s appropriations of the HUDCC and HLURB. Thereafter, such sums as may be"
+  }, {
+    "type" : "paragraph",
+    "id" : 554,
+    "page number" : 12,
+    "bounding box" : [ 146.696, 157.17, 400.715, 169.236 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 27. Transfer of Assets and Obligations. — The"
+  }, {
+    "type" : "paragraph",
+    "id" : 555,
+    "page number" : 12,
+    "bounding box" : [ 123.301, 146.481, 401.073, 158.779 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "following dispositive actions shall be implemented within six"
+  }, {
+    "type" : "paragraph",
+    "id" : 556,
+    "level" : "5",
+    "page number" : 12,
+    "bounding box" : [ 123.674, 136.683, 323.74, 148.372 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(6) months from theeffectivity of this Act:"
+  }, {
+    "type" : "paragraph",
+    "id" : 580,
+    "page number" : 12,
+    "bounding box" : [ 506.779, 124.571, 784.514, 146.548 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "necessary for the continued implementation of this Act shall be included in the annual General Appropriations Act. The"
+  }, {
+    "type" : "paragraph",
+    "id" : 557,
+    "page number" : 12,
+    "bounding box" : [ 147.055, 114.719, 401.446, 126.788 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "(a) The assets, equipment, funds, records, and pertinent"
+  }, {
+    "type" : "paragraph",
+    "id" : 581,
+    "page number" : 12,
+    "bounding box" : [ 507.138, 113.673, 784.53, 125.349 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "Department shall include in its proposed budget the necessary"
+  }, {
+    "type" : "paragraph",
+    "id" : 558,
+    "page number" : 12,
+    "bounding box" : [ 123.327, 104.506, 401.086, 115.971 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "transactions of HUDCC and HLURB shall be transferred to"
+  }, {
+    "type" : "paragraph",
+    "id" : 582,
+    "page number" : 12,
+    "bounding box" : [ 507.149, 103.45, 784.911, 114.147 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "amount to enable it to achieve its mandate of providing"
+  }, {
+    "type" : "paragraph",
+    "id" : 559,
+    "page number" : 12,
+    "bounding box" : [ 123.317, 94.101, 319.056, 105.564 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "the Department and the Commission; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 583,
+    "page number" : 12,
+    "bounding box" : [ 507.138, 92.722, 729.837, 104.125 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "adequate and affordable housing to all Filipinos."
+  }, {
+    "type" : "paragraph",
+    "id" : 560,
+    "page number" : 12,
+    "bounding box" : [ 123.313, 61.502, 401.077, 83.955 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(b) The Department and the Commission shall cause the creation of additional positions and augment their budget"
+  }, {
+    "type" : "paragraph",
+    "id" : 561,
+    "page number" : 12,
+    "bounding box" : [ 123.674, 52.035, 293.916, 62.706 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "appropriations, as may be necessary."
+  }, {
+    "type" : "image",
+    "id" : 618,
+    "page number" : 13,
+    "bounding box" : [ 0.0, 0.021, 841.0, 594.979 ],
+    "source" : "RA 11201 - DHSUD Act of 2019_images/imageFile13.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 585,
+    "page number" : 13,
+    "bounding box" : [ 130.934, 542.634, 140.646, 551.943 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "24"
+  }, {
+    "type" : "paragraph",
+    "id" : 605,
+    "page number" : 13,
+    "bounding box" : [ 772.332, 538.798, 782.012, 547.966 ],
+    "font" : "NotoSans",
+    "font size" : 6.475,
+    "text color" : "[0.0]",
+    "content" : "25)"
+  }, {
+    "type" : "paragraph",
+    "id" : 606,
+    "page number" : 13,
+    "bounding box" : [ 506.391, 504.063, 783.803, 527.506 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "This Act which is a consolidation of Senate Bill No. 1578 and House Bill No. 6775 was passed by the Senate and the"
+  }, {
+    "type" : "paragraph",
+    "id" : 586,
+    "page number" : 13,
+    "bounding box" : [ 237.651, 515.057, 299.999, 526.093 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "CHAPTER IX"
+  }, {
+    "type" : "paragraph",
+    "id" : 587,
+    "page number" : 13,
+    "bounding box" : [ 201.667, 493.545, 334.624, 505.203 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "MISCELLANEOUS PROVISIONS"
+  }, {
+    "type" : "paragraph",
+    "id" : 607,
+    "page number" : 13,
+    "bounding box" : [ 506.392, 481.947, 783.81, 504.868 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "House of Representatives on November 12, 2018 and October 10, 2018, respectively."
+  }, {
+    "type" : "paragraph",
+    "id" : 588,
+    "page number" : 13,
+    "bounding box" : [ 152.747, 471.138, 406.485, 484.723 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 32. Mandatory Review ofthe Implementation ofthis"
+  }, {
+    "type" : "paragraph",
+    "id" : 589,
+    "page number" : 13,
+    "bounding box" : [ 129.378, 439.293, 406.497, 473.906 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Act. - The Department shall conduct a review of the implementation of this Act at the end ofthe third (8\") year from the date ofits effectivity and submit a report to Congyess."
+  }, {
+    "type" : "paragraph",
+    "id" : 608,
+    "page number" : 13,
+    "bounding box" : [ 742.438, 457.352, 746.035, 461.762 ],
+    "font" : "NotoSans",
+    "font size" : 3.238,
+    "text color" : "[0.0]",
+    "content" : "‘"
+  }, {
+    "type" : "paragraph",
+    "id" : 609,
+    "page number" : 13,
+    "bounding box" : [ 520.78, 423.811, 773.009, 435.39 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "DANTE KOBER MALING MYRA MARIE D. VILLARICA"
+  }, {
+    "type" : "paragraph",
+    "id" : 590,
+    "page number" : 13,
+    "bounding box" : [ 152.747, 417.897, 406.504, 431.483 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 33. Separability Clause. — If, for any reason, any"
+  }, {
+    "type" : "paragraph",
+    "id" : 610,
+    "page number" : 13,
+    "bounding box" : [ 528.33, 411.693, 761.162, 425.057 ],
+    "font" : "NotoSans",
+    "font size" : 8.274,
+    "text color" : "[0.0]",
+    "content" : "Acting Secré General Secretary oftheSenate"
+  }, {
+    "type" : "paragraph",
+    "id" : 591,
+    "page number" : 13,
+    "bounding box" : [ 129.391, 407.649, 406.469, 420.281 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "portion or provision of this Act shall be held unconstitutional"
+  }, {
+    "type" : "paragraph",
+    "id" : 611,
+    "page number" : 13,
+    "bounding box" : [ 528.707, 401.874, 631.457, 412.392 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "HouseofRepresentatives"
+  }, {
+    "type" : "paragraph",
+    "id" : 592,
+    "page number" : 13,
+    "bounding box" : [ 129.769, 396.764, 405.763, 409.873 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "or invalid, the remaining provisions not affected thereby shall"
+  }, {
+    "type" : "paragraph",
+    "id" : 593,
+    "page number" : 13,
+    "bounding box" : [ 129.391, 387.612, 307.547, 399.057 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "continue to be in full force and effect."
+  }, {
+    "type" : "paragraph",
+    "id" : 594,
+    "page number" : 13,
+    "bounding box" : [ 152.412, 365.172, 405.405, 378.242 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 34. Repealing Clause. — Executive Order No. 90,"
+  }, {
+    "type" : "paragraph",
+    "id" : 595,
+    "page number" : 13,
+    "bounding box" : [ 129.404, 346.822, 406.118, 367.425 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "s. 1986 and Executive Order No. 648, s. 1981, are hereby repealed."
+  }, {
+    "type" : "paragraph",
+    "id" : 612,
+    "page number" : 13,
+    "bounding box" : [ 529.72, 326.209, 654.72, 339.465 ],
+    "font" : "NotoSans",
+    "font size" : 8.634,
+    "text color" : "[0.0]",
+    "content" : "Approved: FEB 4 4 2949"
+  }, {
+    "type" : "paragraph",
+    "id" : 596,
+    "page number" : 13,
+    "bounding box" : [ 129.02, 292.077, 406.128, 335.409 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "All other laws, executive orders, proclamations, rules, regulations, and other issuances or parts thereof which are inconsistent with the provisions of this Act are hereby amended or modified accordingly."
+  }, {
+    "type" : "paragraph",
+    "id" : 613,
+    "page number" : 13,
+    "bounding box" : [ 565.049, 221.59, 725.084, 284.44 ],
+    "font" : "NotoSans",
+    "font size" : 45.326,
+    "text color" : "[0.0]",
+    "content" : "soot OLDUTERTE"
+  }, {
+    "type" : "paragraph",
+    "id" : 597,
+    "page number" : 13,
+    "bounding box" : [ 152.052, 269.475, 405.755, 282.553 ],
+    "font" : "NotoSans",
+    "font size" : 7.554,
+    "text color" : "[0.0]",
+    "content" : "SEC. 35. Effectivity. — This Act shall take effect fifteen"
+  }, {
+    "type" : "paragraph",
+    "id" : 598,
+    "level" : "6",
+    "page number" : 13,
+    "bounding box" : [ 129.38, 258.626, 405.413, 271.736 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "(15) days after its publication in the Official Gazette or in any"
+  }, {
+    "type" : "paragraph",
+    "id" : 599,
+    "page number" : 13,
+    "bounding box" : [ 129.065, 250.112, 278.967, 260.919 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "newspaper of general circulation."
+  }, {
+    "type" : "paragraph",
+    "id" : 600,
+    "page number" : 13,
+    "bounding box" : [ 152.437, 229.542, 194.597, 239.72 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "Approved,"
+  }, {
+    "type" : "paragraph",
+    "id" : 614,
+    "page number" : 13,
+    "bounding box" : [ 583.729, 221.008, 706.469, 231.421 ],
+    "font" : "NotoSans",
+    "font size" : 6.835,
+    "text color" : "[0.0]",
+    "content" : "President ofthe Philippines"
+  }, {
+    "type" : "paragraph",
+    "id" : 601,
+    "page number" : 13,
+    "bounding box" : [ 374.097, 190.517, 382.73, 197.866 ],
+    "font" : "NotoSans",
+    "font size" : 5.396,
+    "text color" : "[0.0]",
+    "content" : "ie"
+  }, {
+    "type" : "paragraph",
+    "id" : 615,
+    "page number" : 13,
+    "bounding box" : [ 641.36, 186.076, 649.993, 197.345 ],
+    "font" : "NotoSans",
+    "font size" : 8.274,
+    "text color" : "[0.0]",
+    "content" : "oO"
+  }, {
+    "type" : "heading",
+    "id" : 602,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 129.02, 173.032, 379.872, 187.298 ],
+    "heading level" : 2,
+    "font" : "NotoSans",
+    "font size" : 8.634,
+    "text color" : "[0.0]",
+    "content" : "GLORIA CAPAGAL-ARROYO VICENTEC. SOTTO III"
+  }, {
+    "type" : "paragraph",
+    "id" : 603,
+    "page number" : 13,
+    "bounding box" : [ 153.133, 161.613, 378.413, 173.888 ],
+    "font" : "NotoSans",
+    "font size" : 7.195,
+    "text color" : "[0.0]",
+    "content" : "SpeakeroftheHouse PresidentoftheSenate"
+  }, {
+    "type" : "paragraph",
+    "id" : 604,
+    "page number" : 13,
+    "bounding box" : [ 150.613, 150.114, 234.363, 163.605 ],
+    "font" : "NotoSans",
+    "font size" : 9.353,
+    "text color" : "[0.0]",
+    "content" : "” ofRepresentatives"
+  }, {
+    "type" : "paragraph",
+    "id" : 616,
+    "page number" : 13,
+    "bounding box" : [ 500.303, 150.332, 603.947, 156.757 ],
+    "font" : "NotoSans",
+    "font size" : 3.957,
+    "text color" : "[0.0]",
+    "content" : "REPUBLIC OF THE PHILIPPINES"
+  }, {
+    "type" : "paragraph",
+    "id" : 617,
+    "page number" : 13,
+    "bounding box" : [ 518.673, 141.829, 585.61, 148.533 ],
+    "font" : "NotoSans",
+    "font size" : 4.677,
+    "text color" : "[0.0]",
+    "content" : "PRRD 2016 - 009386"
+  } ]
+}

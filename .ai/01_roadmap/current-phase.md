@@ -284,6 +284,23 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - bounded `RA-9184` procurement concept-fit follow-on is now admitted
     - see `/.ai/05_logs/2026-04-17_laws-tranche-6-execution-validation.md`
     - see `/.ai/05_logs/2026-04-17_ra9184-procurement-concept-fit-validation.md`
+  - tranche-7 is now defined and executed through the same bounded workflow:
+    - manifest: `config/datasets/laws-tranche-7.yaml`
+    - tranche-7 laws:
+      - `RA-1378`
+      - `RA-9285`
+      - `RA-11201`
+    - current execute evidence:
+      - `staged_law_folders = [RA-9285, RA-11201]`
+      - `blocked_law_folders = [RA-1378]`
+      - `generated_relationship_count = 0`
+      - `shallow_representation_count = 0`
+      - `source_to_graph_execute_completed = true`
+      - graph snapshot: `6 nodes / 6 edges`
+    - bounded `RA-11201` housing-governance concept-fit follow-on is now admitted
+    - tranche-7 still needs a clean manifest-scoped source-prep rerun to bring `RA-1378` into staged execution without auxiliary-file prep noise
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-7-execution-validation.md`
+    - see `/.ai/05_logs/2026-04-17_ra11201-housing-governance-concept-fit-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

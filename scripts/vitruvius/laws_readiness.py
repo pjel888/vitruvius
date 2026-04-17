@@ -945,6 +945,33 @@ def _prepare_raw_file(
     }
 
 
+def _manifest_scoped_raw_files(
+    *,
+    repo_root: Path,
+    folder_root: Path,
+    item: dict[str, Any],
+) -> list[Path]:
+    if not folder_root.exists():
+        return []
+    all_files = sorted(path for path in folder_root.rglob("*") if path.is_file())
+    requested_relpaths = [
+        str(path)
+        for path in [*(item.get("authoritative_variant_paths") or []), *(item.get("raw_anchor_paths") or [])]
+        if isinstance(path, str)
+    ]
+    excluded_relpaths = {
+        str(path) for path in item.get("excluded_variant_paths") or [] if isinstance(path, str)
+    }
+    if requested_relpaths:
+        requested_abs: list[Path] = []
+        for relpath in requested_relpaths:
+            abs_path = (repo_root / relpath).resolve()
+            if abs_path.is_file() and abs_path not in requested_abs:
+                requested_abs.append(abs_path)
+        return [path for path in requested_abs if _relative(path, repo_root) not in excluded_relpaths]
+    return [path for path in all_files if _relative(path, repo_root) not in excluded_relpaths]
+
+
 _STUDY_AID_MARKERS = ("illustrated", "slides", "reviewer", "summary", "handout", "lecture")
 
 
@@ -1855,7 +1882,7 @@ def run_laws_tranche_source_prep_dry_run(
     for item in tranche_payload["candidate_law_folders"]:
         folder_name = item["folder_name"]
         folder_root = raw_root / folder_name
-        files = sorted(path for path in folder_root.rglob("*") if path.is_file()) if folder_root.exists() else []
+        files = _manifest_scoped_raw_files(repo_root=repo_root, folder_root=folder_root, item=item)
         file_reports = [
             _raw_file_preparation_summary(
                 repo_root=repo_root,
@@ -1933,7 +1960,7 @@ def run_laws_tranche_source_prep(
     for item in tranche_payload["candidate_law_folders"]:
         folder_name = item["folder_name"]
         folder_root = raw_root / folder_name
-        files = sorted(path for path in folder_root.rglob("*") if path.is_file()) if folder_root.exists() else []
+        files = _manifest_scoped_raw_files(repo_root=repo_root, folder_root=folder_root, item=item)
         file_reports = [
             _prepare_raw_file(
                 repo_root=repo_root,

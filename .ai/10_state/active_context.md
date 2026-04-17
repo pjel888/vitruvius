@@ -290,6 +290,18 @@
     - `bids-and-awards-committee`
     - `competitive-bidding`
   - tranche-6 still keeps raw-alias visibility for `RA-386` and `RA-9184`
+- Tranche-7 bounded execution and richness:
+  - current tranche-7 execute evidence:
+    - `staged_law_folders = [RA-9285, RA-11201]`
+    - `blocked_law_folders = [RA-1378]`
+    - `generated_relationship_count = 0`
+    - `shallow_representation_count = 0`
+    - graph snapshot: `6 nodes / 6 edges`
+  - admitted tranche-7 concepts include:
+    - `human-settlements`
+    - `urban-development-planning`
+    - `local-shelter-plan`
+  - tranche-7 still needs a clean manifest-scoped source-prep rerun for `RA-1378`
 
 ## Residual Graph Caveat
 
@@ -332,6 +344,8 @@
 - Latest tranche-6 expansion research: `/.ai/13_research/2026-04-17_tranche-6-expansion-research.md`
 - Latest tranche-6 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-6-execution-validation.md`
 - Latest RA-9184 tranche-6 richness validation: `/.ai/05_logs/2026-04-17_ra9184-procurement-concept-fit-validation.md`
+- Latest tranche-7 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-7-execution-validation.md`
+- Latest RA-11201 tranche-7 richness validation: `/.ai/05_logs/2026-04-17_ra11201-housing-governance-concept-fit-validation.md`
 
 ## Handoff Note
 

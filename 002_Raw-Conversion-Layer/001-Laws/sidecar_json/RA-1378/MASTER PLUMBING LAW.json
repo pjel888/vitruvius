@@ -1,0 +1,736 @@
+{
+  "file name" : "MASTER PLUMBING LAW.pdf",
+  "number of pages" : 5,
+  "author" : "Administrator",
+  "title" : "Microsoft Word - MASTER PLUMBING LAW.doc",
+  "creation date" : "9/28/2004 9:23:47",
+  "modification date" : null,
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 5,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 211.44, 697.914, 400.488, 720.522 ],
+    "heading level" : 1,
+    "font" : "Helvetica-Bold",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "Republic Act No. 1378"
+  }, {
+    "type" : "heading",
+    "id" : 6,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 143.76, 682.089, 468.181, 699.724 ],
+    "heading level" : 2,
+    "font" : "Helvetica-Bold",
+    "font size" : 14.04,
+    "text color" : "[0.0]",
+    "content" : "An Act To Regulate the Trade Of Master Plumber"
+  }, {
+    "type" : "paragraph",
+    "id" : 7,
+    "page number" : 1,
+    "bounding box" : [ 108.36, 643.481, 503.58, 667.332 ],
+    "font" : "Helvetica",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Be it enacted by the Senate and House of Representatives of the Philippines in Congress assembled:"
+  }, {
+    "type" : "list",
+    "id" : 8,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 89.999, 137.561, 522.179, 632.892 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "next list id" : 11,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 90.0, 620.561, 347.289, 632.892 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 1. This Act shall be known as the “Plumbing Law”.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 90.0, 482.561, 522.129, 609.852 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 2. (a) The practice of plumbing within the meaning and intent of this Act shall embrace services in the form of consultations, designing, preparations of plans, specifications; estimates, erection, installation and supervision of plumbing work including the inspection and acceptance of materials used therein; extension and alteration of all pipings to fixtures, appliances, appurtenances in connection with any of the following: storm and sanitary drainage, facilities of buildings, the sanitary venting of fixtures, hot or cold water supply systems within or adjacent to any building, storm drains, sewerage system of any premises and/or in connection with any public disposal or any acceptable terminal. The enumeration in this paragraph shall not be construed as excluding any other work requiring plumbing knowledge and application. (b) The term “master plumber” as used in this Act shall mean a person duly registered with the Board of Examiners for Master Plumbers in the manner as hereinafter provided.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 89.999, 321.521, 522.017, 471.852 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 3. Within thirty days after the approval of this Act, there shall be created a Board of Examiners for Master Plumbers, hereinafter referred to as the Board, to be composed of a Chairman and two members who shall be appointed by the President of the Philippines upon the recommendation of the Commissioner of Civil Service3 in consultation with a duly registered national association of master plumbers. The members of the Board shall hold office for a term of three years. The first members of the Board appointed under this Act shall hold office for the following terms: One member for one year; one member for two years; and one member for three years. Each member of the Board shall qualify by taking the proper oath of office before entering upon the performance of his duties. Any member of the Board may be removed by the President of the Philippines for neglect of duty, in competency, malpractice, and unprofessional, unethical, immoral, or dishonorable conduct, after said member has been given opportunity to defend himself in an administrative investigation duly held. Vacancies in the Board shall be filled for the unexpired term.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 89.999, 137.561, 522.179, 310.932 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 4. The Board shall administer the provisions of this Act; issue, suspend or revoke certificates of registration of master plumbers; and administer oaths in connection with such certificates of registration. In carrying into effect the provisions of this Act, the Board may, under the hands of its chairman and the seal of the Board, issue subpoena and subpoena duces tecum, to compel the attendance of witnesses and require the production of books, documents, and similar evidence in a case involving violation of any of the provisions of this Act. Any member of the Board may administer oaths or affirmations to witnesses appearing before it. If any person shall refuse to obey any subpoena or subpoena duces tecum so issued, or shall refuse to testify or produce any book, record or document, the Board may present its petition to the Court of First Instance, setting forth the facts, and thereupon such court shall, in a proper case, issue its subpoena to such person, requiring his appearance before such court and there to testify or produce such books, records or documents, as may be deemed necessary and pertinent by the Board. Any person failing or refusing to obey the subpoena or subpoena duces tecum or order of the said court may be proceeded against in the same manners as for refusal to obey any other subpoena or subpoena duces tecum or order of the court.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 9,
+    "page number" : 1,
+    "bounding box" : [ 89.999, 91.601, 522.016, 126.852 ],
+    "font" : "Helvetica",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "The Board shall, from time to time, look into conditions affecting the trade of master plumber in the Philippines and whenever necessary, recommend to the President of the Philippines the adoption of such rules and regulations as may be deemed proper for the maintenance of good"
+  }, {
+    "type" : "paragraph",
+    "id" : 10,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 696.401, 522.018, 720.252 ],
+    "font" : "Helvetica",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "ethics and standards in the trade and for the protection of the public welfare, life, health, and property."
+  }, {
+    "type" : "list",
+    "id" : 11,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 90.0, 615.881, 522.076, 685.812 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 8,
+    "next list id" : 14,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 90.0, 615.881, 522.076, 685.812 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 5. The President of the Philippines6 is hereby authorized to issue rules and regulations to carry into effect the objectives of this Act, upon recommendation of the Board of Examiners for Master Plumbers7 and in consultation with a duly registered national association of master plumbers ,in accordance with the following basic principles, except in cases where it may prove oppressive or excessively burdensome to those without sufficient means and to such buildings, structures or constructions valued at five thousand pesos or less:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 12,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 89.999, 86.921, 522.179, 605.292 ],
+    "numbering style" : "english letters",
+    "number of list items" : 13,
+    "next list id" : 13,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 90.0, 569.921, 522.06, 605.292 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "a. All premises intended for human habitation, occupancy, or use shall be provided with a supply of pure and wholesome water, neither connected with unsafe water supplies nor subject to the hazards of backflow or back siphonage.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 90.0, 523.961, 522.137, 559.212 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "b. Plumbing fixtures, devices all appurtenances shall be supplied with water in sufficient volume and at pressures adequate to enable them to function satisfactorily and without undue noise under all normal conditions of use.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 90.0, 489.401, 521.897, 513.252 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "c. Plumbing shall be deigned and adjusted to use the minimum quantity of water consistent with proper performance and cleaning.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 90.0, 466.481, 521.819, 490.212 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "d. Devices for heating and storing water shall be so designed and installed as to prevent dangers from explosion through overheating.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 90.0, 420.401, 521.888, 455.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "e. Every building having plumbing fixtures installed and intended for human habitation, occupancy, or use on premises abutting on a street, alley, or easement in which there is a public sewer shall have a connection with the sewer.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 89.999, 340.001, 522.179, 409.812 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "f. Each family dwelling unit on premises abutting on sewer or with a private sewerage-disposal system shall have, at least, one water closet and one kitchen-type sink. It is further recommended that a lavatory and bathtub or shower shall be installed to meet the basic requirements of sanitation and personal hygiene. All other structures for human occupancy or use on premises abutting on a sewer or with a private sewage-disposal system shall have adequate sanitary facilities but in no case less than one water closet and one other fixture for cleansing purposes.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 89.999, 305.441, 521.896, 329.292 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "g. Plumbing fixtures shall be made of smooth non-absorbent material, and shall be free from concealed fouling surface.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 89.999, 259.481, 522.008, 294.732 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "h. The drainage system shall be designed, constructed, and maintained so as to guard against fouling, deposit of solids, and clogging, and with adequate cleanouts so arranged that the pipes may be readily cleaned.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 89.999, 213.521, 522.059, 248.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "i. The piping of the plumbing system shall be of durable materials, free from defective workmanship and so designed and constructed as to give satisfactory from service for its reasonable expected life.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 89.999, 190.481, 519.608, 202.812 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "j. Each fixture directly connected to the drainage system shall be equipped with a water-seal trap.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 89.999, 155.921, 522.017, 179.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "k. The drainage system shall be designed to provide an adequate circulation of air in pipes with no danger of siphonage, aspiration, or forcing of trap seals under condition of ordinary use.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 89.999, 121.481, 516.848, 145.332 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "l. Each terminal shall extend to the outer air and be so installed as to minimize the possibilities of clogging and the return of foul air to the building.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 89.999, 86.921, 522.017, 110.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "m. The plumbing system shall be subject to such tests as will effectively disclose all leaks and defects in the work.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 13,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 90.0, 397.481, 522.18, 720.252 ],
+    "numbering style" : "english letters",
+    "number of list items" : 9,
+    "previous list id" : 12,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 684.881, 522.017, 720.252 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "n. No substance will clog the pipes, produce explosive mixtures, destroy the pipes or their joints, or interfere unduly with the sewage-disposal process shall be allowed to enter the building drainage system.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 650.441, 521.931, 685.812 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "o. Proper protection shall be provided to prevent contamination of food, water, sterile goods, and similar materials by backflow of sewage. When necessary, the fixture, device, or appliance shall be connected indirectly with the building drainage system.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 615.881, 522.18, 639.732 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "p. No water closets nor urinal shall be located in a room or compartment which is not properly lighted and ventilated.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 569.921, 521.897, 605.292 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "q. If water closet or other plumbing fixtures are installed in buildings where there is no sewer within a reasonable distance, suitable provision shall be made for disposing of the building sewage by some accepted method of sewage treatment and disposal.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 535.481, 521.897, 559.212 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "r. Where a plumbing drainage system may be subjected to backflow of sewage, suitable provision shall be made to prevent its overflow in the building.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 512.441, 440.648, 524.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "s. Plumbing system shall be maintained in a sanitary and serviceable condition.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 477.881, 521.897, 501.732 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "t. All plumbing fixtures shall be so installed with regard to spacing as to be reasonably accessible for their intended use.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 443.441, 522.051, 467.292 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "u. Plumbing shall be installed with due regard to preservation of the strength of structural members and prevention of damage to walls and other surfaces through fixture usage.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 397.481, 522.076, 432.732 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "v. Sewage or other waste from the plumbing system which may be deleterious to surface or subsurface waters shall not be discharged into the ground or into any waterway unless it has first been rendered innocuous through subjection to some acceptable form of treatment.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 14,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 89.999, 75.521, 522.179, 386.772 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 6,
+    "previous list id" : 11,
+    "next list id" : 16,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 374.441, 419.648, 386.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 6. Each member of the Board shall, at the time of his appointment:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 1,
+        "level" : "2",
+        "page number" : 3,
+        "bounding box" : [ 90.0, 328.481, 455.288, 363.732 ],
+        "numbering style" : "english letters",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 90.0, 351.401, 292.208, 363.732 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "a. Be a citizen and resident of the Philippines;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 90.0, 340.001, 380.657, 352.332 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "b. Be at least thirty years of age and of good moral character; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 90.0, 328.481, 455.288, 340.812 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "c. Has been actively engaged in the trade of master plumber for at least five years.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 90.0, 293.921, 522.008, 317.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 7. The Board of Examiner’s shall charge for each applicant for examination, the sum of thirty five pesos, and for each certificate of registration, ten pesos.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 89.999, 224.921, 522.059, 283.332 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 8. The members of the Board shall each receive a compensation, the sum of ten pesos for each applicant examined. All authorized expenses of the Board shall be paid by the Bureau of Civil Service. All fees shall be received by the disbursing officer of the Bureau of Civil Service, and said officer shall pay all authorized expenses of the Board including the compensation provided herein above for members of the Board.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 89.999, 167.441, 522.017, 214.332 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 9. The Commissioner of Civil Service, shall be the executive officer of the Board, and shall conduct the examinations given by the board and shall designate any subordinate officer of the Bureau of Civil Service to act as secretary of the Board. All records and minutes of the Board, including all examination papers, shall be kept by the Bureau of Civil Service.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 89.999, 121.481, 522.017, 156.852 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 10. The Board shall submit an annual report to the President of the Philippines, after the close of each fiscal year, giving a detailed account of the proceedings during the year and making such recommendation as may be deemed proper.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 89.999, 75.521, 522.179, 110.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 11. A roster showing the names and address of master plumbers shall be prepared by the Commissioner of Civil Service, during the month of July of every year. Copies of this roster shall be mailed to each person so registered and placed on file with the Office of the President of",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 16,
+    "level" : "1",
+    "page number" : 4,
+    "bounding box" : [ 89.999, 86.921, 522.06, 720.252 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 8,
+    "previous list id" : 14,
+    "next list id" : 18,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 15,
+      "page number" : 4,
+      "bounding box" : [ 90.0, 673.481, 522.06, 720.252 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "the Philippines, and copies thereof shall be furnished to all Department Heads, to the mayors of all chartered cities, to the Director of Health, Director of Public Works, District Engineers, City Engineers and to such other bureaus, government agencies and provincial and municipal authorities as may be deemed necessary, and to the public, upon request.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.0, 615.881, 521.897, 662.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 12. All applicants for registration as master plumber shall be required to pass an examination as hereinafter provided. Persons applying for admission to the examination as herein provided, shall, prior to the date of the examination, establish to the satisfaction of the Board of Examiners, that he:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 2,
+        "level" : "2",
+        "page number" : 4,
+        "bounding box" : [ 90.0, 535.481, 522.017, 605.292 ],
+        "numbering style" : "english letters",
+        "number of list items" : 5,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 90.0, 592.961, 256.089, 605.292 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "a. Is at least twenty-one years of age;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 90.0, 581.441, 230.049, 593.772 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "b. Is a citizen of the Philippines;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 90.0, 569.921, 216.676, 582.252 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "c. Is of good moral character",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 90.0, 558.401, 250.569, 570.732 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "d. Is at least a high school graduate;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 90.0, 535.481, 522.017, 559.212 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "e. Has at least five years of experience in actual plumbing work under the supervision of a registered master plumber.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.0, 500.921, 521.897, 524.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 13. Applicants for registration as master plumbers shall be examined in the following subjects:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 3,
+        "level" : "2",
+        "page number" : 4,
+        "bounding box" : [ 90.0, 443.441, 359.528, 501.732 ],
+        "numbering style" : "english letters",
+        "number of list items" : 5,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 90.0, 489.401, 249.969, 501.732 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "a. Plumbing arithmetic, ten per cent;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 90.0, 477.881, 230.529, 490.212 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "b. Plumbing Code, ten per cent;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 90.0, 466.481, 359.528, 478.812 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "c. Sanitation, plumbing design and installation, forty per cent;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 90.0, 454.961, 259.329, 467.292 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "d. Practical problems, twenty per cent;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 90.0, 443.441, 346.089, 455.772 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "e. Oral practice problems and experience, twenty percent.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.0, 397.481, 521.931, 432.732 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 14. The Board shall, within one hundred and twenty days after the date of completion of the examination, report the rating obtained by each candidate to the Commissioner of Civil Service, who shall submit such ratings to the President of the Philippines.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 89.999, 293.921, 522.059, 386.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 15. The Office of the President, upon the recommendation of the Board, shall issue a certificate of registration upon payment of the registration fee as provided in this Act to any applicant who has satisfactorily met all the requirements specified in this Act. All certificates of registration shall show the full name of the registrant, shall have a serial number, and shall be signed by all members of the Board, the President of the Philippine,and the Commissioner of Civil Service, and shall bear the official seal of the Board. The issuance of a certificate of registration by the Board, to a registrant shall be evidence that the person named therein is entitled to all the rights and privileges of a registered master plumber, while said certificate remains unrevoked.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 89.999, 247.961, 522.059, 283.332 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 16. All successful candidates shall be required to take an oath before the Board or any other Government official authorized to administer oaths, prior to engaging in the trade of registered master plumber.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 89.999, 224.921, 473.648, 237.252 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 17. Examination and registration shall not be required of the following persons:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 4,
+        "level" : "2",
+        "page number" : 4,
+        "bounding box" : [ 89.999, 144.521, 522.017, 214.332 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 89.999, 178.961, 522.017, 214.332 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "a. Officers or enlisted men of the Armed Forces of the United States and of the Philippines and civilian employees of the Government of the United States stationed for the United States and/or the Philippines.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 89.999, 144.521, 504.617, 168.252 ],
+          "font" : "Helvetica",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "b. Plumbing experts called in by the Philippine Government for consultation in connection with certain specific construction, provided that their services shall be limited to such work.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 89.999, 86.921, 522.017, 133.812 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 18. The Board, shall not issue a certificate to any person convicted by a court of competent jurisdiction for any criminal offense involving moral turpitude, or to any person found guilty of immoral or dishonorable conduct, or to any person of unsound mind. In the event of a refusal to issue a certificate to any person, the Board shall give to the applicant a written",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 18,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 89.999, 213.521, 522.18, 720.252 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 7,
+    "previous list id" : 16,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 17,
+      "page number" : 5,
+      "bounding box" : [ 90.0, 696.401, 521.898, 720.252 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "statement setting forth its reason for such action, which statement shall be incorporated into the records of the Board.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.0, 615.881, 522.06, 674.292 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 19. Subject to the approval of the Philippines, the board shall have the power, after due notice and hearing, to suspend or revoke the certificate of registration for any of the causes mentioned in the preceding section. The Board may, upon application and upon satisfactory showing, reinstate a registered master plumber whose certificate of registration has been suspended or revoked.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 89.999, 466.481, 522.18, 605.292 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 20. Any person who shall engage in plumbing in the Philippines without being registered in accordance with the provisions of this Act, or any person presenting or attempting to use as his own the certificate of registration of a registered master plumber, or any person who shall give any false or forged evidence of any kind to the Board, or any person who shall impersonate any registered master plumber, or any person who shall attempt to use a revoked or suspended certificate of registration, or any person who shall use in connection with his name or otherwise assume, use, or advertise any title or description tending to convey the impression that he is a registered master plumber, without holding a valid certificate of registration, or any person who shall violate any of the provisions of this Act shall be guilty of a misdemeanor and shall, upon conviction, be sentenced to a fine of not less than five hundred pesos nor more than two thousand pesos, or to suffer imprisonment for a period of not less than six months nor more than one year, or both, in the discretion of the court.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 89.999, 374.441, 522.076, 455.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 21. No person who is not a citizen of the Philippines at the time he applies for examination shall be allowed to take it unless he can prove in the manner provided by law that, the country or state of which he is a citizen, subject, or national, either admits citizens of the Philippines to engage in the same trade without restriction or allows them to practice it after an examination on terms of strict and absolute equality with citizens, subjects, or nationals of the country concerned, including the unconditional recognition of degrees issued by institutions of learning duly recognized for the purpose by the Government of the Philippines.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 89.999, 259.481, 522.017, 363.732 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 22. As soon as this Act shall take effect, any person desiring to practice the trade of master plumber, shall be required to obtain a certificate of registration in the manner and under the conditions, herein provided. All master plumbers duly registered and examined under the provisions of the city ordinances in force one year prior to the effectivity of this Act and all persons with at least five years of continuous practice as plumbers and certified to as capable to practice the trade by the Board of Examiners, within one year after the effectivity of this Act, shall be automatically registered under the provisions hereof. Certificates of registration held by such persons in good standing shall have the same force and effect as though the same had been issued under the provisions of this Act.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 89.999, 236.441, 410.648, 248.772 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 23. The Provisions of this Act shall apply only in chartered cities.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 89.999, 213.521, 428.408, 225.852 ],
+      "font" : "Helvetica",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "Section 24. This Act shall effect upon its approval. Approved, June 18, 1955.",
+      "kids" : [ ]
+    } ]
+  } ]
+}

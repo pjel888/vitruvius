@@ -1,0 +1,40 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act (irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act)" ;
+    vitruvius:defines vitruvius:concept-local-shelter-plan ;
+    vitruvius:governs vitruvius:concept-local-shelter-plan ;
+    vitruvius:last_updated_utc "2026-04-17T13:50:53Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-alternative-dispute-resolution-act-of-2004 a vitruvius:source ;
+    rdfs:label "alternative-dispute-resolution-act-of-2004 (law-alternative-dispute-resolution-act-of-2004)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:43:22Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-department-of-human-settlements-and-urban-development-act a vitruvius:source ;
+    rdfs:label "department-of-human-settlements-and-urban-development-act (law-department-of-human-settlements-and-urban-development-act)" ;
+    vitruvius:defines vitruvius:concept-human-settlements,
+        vitruvius:concept-urban-development-planning ;
+    vitruvius:governs vitruvius:concept-human-settlements,
+        vitruvius:concept-urban-development-planning ;
+    vitruvius:last_updated_utc "2026-04-17T13:51:00Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:concept-human-settlements a vitruvius:concept ;
+    rdfs:label "human-settlements (concept-human-settlements)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:50:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-local-shelter-plan a vitruvius:concept ;
+    rdfs:label "local-shelter-plan (concept-local-shelter-plan)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:50:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-urban-development-planning a vitruvius:concept ;
+    rdfs:label "urban-development-planning (concept-urban-development-planning)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:50:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+

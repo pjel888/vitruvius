@@ -235,3 +235,43 @@ def test_build_plan_matches_ra_9184_updated_2016_irr_rule() -> None:
     assert plan['prefix'] == 'irr'
     assert plan['source_type'] == 'irr'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_1378_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-1378/MASTER PLUMBING LAW.md'
+    )
+    assert plan['title'] == 'Plumbing Law'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_9285_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-9285/RA_9285.md'
+    )
+    assert plan['title'] == 'Alternative Dispute Resolution Act of 2004'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_11201_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-11201/RA 11201 - DHSUD Act of 2019.md'
+    )
+    assert plan['title'] == 'Department of Human Settlements and Urban Development Act'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_11201_irr_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md'
+    )
+    assert plan['title'] == 'Implementing Rules and Regulations of the Department of Human Settlements and Urban Development Act'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'

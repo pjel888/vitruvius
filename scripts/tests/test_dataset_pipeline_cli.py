@@ -574,6 +574,52 @@ def test_run_laws_tranche_source_prep_dry_run_reports_expected_outputs(tmp_path:
     assert file_report['expected_refined_markdown_path'].endswith('002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/pd957.md')
 
 
+def test_run_laws_tranche_source_prep_respects_manifest_variant_scope(tmp_path: Path) -> None:
+    _seed_repo(tmp_path)
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-7.yaml'
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-7',
+                'candidate_law_folders': [
+                    {
+                        'folder_name': 'RA-1378',
+                        'reason': 'plumbing law adjacency',
+                        'authoritative_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf',
+                        ],
+                        'excluded_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.doc',
+                            '001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.pdf',
+                        ],
+                    },
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'RA-1378' / 'MASTER PLUMBING LAW.pdf')
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'RA-1378' / 'Board of Master Plumber.pdf')
+    _write(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'RA-1378' / 'Board of Master Plumber.doc', 'legacy doc')
+
+    result = _run_cli(
+        [
+            'run-laws-tranche-source-prep-dry-run',
+            '--tranche-manifest', str(tranche_manifest),
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    report = json.loads((tmp_path / payload['report_path']).read_text(encoding='utf-8'))
+    folder = report['folders'][0]
+    assert folder['raw_file_count'] == 1
+    assert [item['raw_path'] for item in folder['file_reports']] == [
+        '001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf'
+    ]
+
+
 def test_run_laws_tranche_source_prep_handles_ocr_required_pdf(tmp_path: Path) -> None:
     _seed_repo(tmp_path)
     tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-1.yaml'
