@@ -9,7 +9,7 @@
 - `EO 90 NGO for Shelter Program.pdf`
 - `EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf`
 
-### HLURB-DHSUD
+### DHSUD
 - `Open Space Development Guidelines.pdf`
 - `Resilient Urban Design and Development Guidelines.pdf`
 
@@ -25,9 +25,9 @@
 - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-admission --tranche-manifest config/datasets/laws-tranche-12.yaml`
   - `admitted_source_page_count = 5`
 - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-graph --tranche-manifest config/datasets/laws-tranche-12.yaml --review-preset m2-8gb-safe`
-  - `staged_law_folders = [EO, HLURB-DHSUD]`
+  - `staged_law_folders = [EO, DHSUD]`
   - `duplicate_law_folders = [EO]`
-  - `raw_alias_law_folders = [EO, HLURB-DHSUD]`
+  - `raw_alias_law_folders = [EO, DHSUD]`
   - `generated_relationship_count = 3`
   - `shallow_representation_count = 0`
   - graph snapshot: `7 nodes / 6 edges`
@@ -35,4 +35,5 @@
 ## Truthful residuals
 - tranche-12 is operationally clean on the scoped guidance surfaces
 - `EO` still carries explicit duplicate/raw-alias visibility
-- `HLURB-DHSUD` remains only partially connected in graph terms; it is staged but still more guidance-heavy than statute-heavy
+- `DHSUD` remains only partially connected in graph terms; it is staged but still more guidance-heavy than statute-heavy
+- the raw storage folder remains `HLURB-DHSUD`, but the staged 2025 guidance documents are explicitly DHSUD publications

@@ -1,0 +1,525 @@
+{
+  "file name" : "RES_Illegal Practice of AR.pdf",
+  "number of pages" : 3,
+  "author" : "admin",
+  "title" : "Microsoft Word - k08may30_BoA-163.doc",
+  "creation date" : "D:20080601091843",
+  "modification date" : "D:20080601091843",
+  "kids" : [ {
+    "type" : "image",
+    "id" : 18,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 855.72, 168.72, 936.0 ],
+    "source" : "RES_Illegal Practice of AR_images/imageFile1.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 20,
+    "page number" : 1,
+    "bounding box" : [ 269.52, 920.013, 421.413, 934.053 ],
+    "font" : "TTE272D838t00",
+    "font size" : 14.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Republic of the Philippines"
+  }, {
+    "type" : "heading",
+    "id" : 21,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 209.75, 898.464, 485.521, 916.464 ],
+    "heading level" : 2,
+    "font" : "TTE272D838t00",
+    "font size" : 18.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Professional Regulation Commission"
+  }, {
+    "type" : "heading",
+    "id" : 22,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 329.28, 881.013, 371.093, 895.053 ],
+    "heading level" : 3,
+    "font" : "TTE272D838t00",
+    "font size" : 14.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Manila"
+  }, {
+    "type" : "paragraph",
+    "id" : 23,
+    "page number" : 1,
+    "bounding box" : [ 90.964, 841.525, 538.984, 849.565 ],
+    "font" : "TTE272D838t00",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "________________________________________________________________________________________________________________"
+  }, {
+    "type" : "paragraph",
+    "id" : 24,
+    "page number" : 1,
+    "bounding box" : [ 266.261, 804.306, 457.747, 820.266 ],
+    "font" : "TTE272D838t00",
+    "font size" : 15.96,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The Professional Regulatory"
+  }, {
+    "type" : "heading",
+    "id" : 25,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 265.44, 751.274, 454.725, 799.994 ],
+    "heading level" : 1,
+    "font" : "TTE272D838t00",
+    "font size" : 21.96,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Board of Architecture (PRBoA)"
+  }, {
+    "type" : "heading",
+    "id" : 26,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 268.136, 728.904, 430.499, 746.904 ],
+    "heading level" : 2,
+    "font" : "TTE272D838t00",
+    "font size" : 18.0,
+    "text color" : "[0.0, 0.0, 0.5]",
+    "content" : "Office of the Chairman"
+  }, {
+    "type" : "image",
+    "id" : 19,
+    "page number" : 1,
+    "bounding box" : [ 468.0, 753.6, 542.16, 828.6 ],
+    "source" : "RES_Illegal Practice of AR_images/imageFile2.png"
+  }, {
+    "type" : "heading",
+    "id" : 27,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 269.976, 694.02, 532.8, 717.796 ],
+    "heading level" : 4,
+    "font" : "Courier-Bold",
+    "font size" : 9.96,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Email Address: prboa.prc.gov.ph@gmail.com URL/ website : www.architectureboard.ph"
+  }, {
+    "type" : "paragraph",
+    "id" : 30,
+    "page number" : 1,
+    "bounding box" : [ 90.963, 673.885, 538.983, 681.925 ],
+    "font" : "TTE272D838t00",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "________________________________________________________________________________________________________________"
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "page number" : 1,
+    "bounding box" : [ 89.999, 662.947, 461.975, 671.443 ],
+    "font" : "Courier",
+    "font size" : 9.96,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Your Ref: Our Ref: 08_PRBoA-163"
+  }, {
+    "type" : "heading",
+    "id" : 32,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 90.0, 608.82, 540.0, 646.044 ],
+    "heading level" : 4,
+    "font" : "Courier-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "30 May 2008 Arch. Rozanno Rosal, fuap"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 596.146, 195.624, 605.563 ],
+    "font" : "Courier",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Makati City, NCR"
+  }, {
+    "type" : "paragraph",
+    "id" : 34,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 501.18, 540.0, 581.628 ],
+    "font" : "Courier-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SUBJECT : REQUESTED PRBOA COMMENTS ON A JOINT PLEADING FILED AT A PROSECUTOR’S OFFICE BY AN UNREGISTERED PERSON CRIMINALLY CHARGED WITH THE ILLEGAL PRACTICE OF ARCHITECTURE AND BY THE REGISTERED AND LICENSED ARCHITECT (RLA) LIKEWISE CRIMINALLY CHARGED WITH AIDING AND ABETTING THE SAME"
+  }, {
+    "type" : "paragraph",
+    "id" : 35,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 458.026, 225.024, 488.923 ],
+    "font" : "Courier",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Dear Arch. Rosal Warm greetings."
+  }, {
+    "type" : "paragraph",
+    "id" : 36,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 411.586, 540.144, 445.844 ],
+    "font" : "Courier",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In response to Your recent request and in the due exercise of its powers and functions, please find hereafter the initial PRBoA comments on the subject pleading:"
+  }, {
+    "type" : "list",
+    "id" : 37,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 126.0, 253.097, 522.144, 399.404 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "next list id" : 42,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 126.0, 253.097, 522.144, 399.404 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "1) Anent item 4.(a) on page 2 and items 5. and 6. on page 3 of the pleading, please be advised that the regulated practice of architecture in the Philippines (under the special law R.A. No. 9266, otherwise known as The Architecture Act of 2004), specifically includes the act of architectural consulting, which does not require the natural person performing the work of architecture to sign and seal the architectural document nor to assume the attendant professional responsibility and civil liability arising from the performance of architectural work or the preparation of architectural documents normally done by an Architect-of-record (Aor), viz;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 40,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 144.0, 165.706, 504.144, 249.884 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 144.0, 228.137, 503.904, 249.884 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a) R.A. No. 9266 Sec. 3. (2) (c) which defines the Consulting Architect;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 144.0, 203.297, 504.024, 224.924 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b) 2004 IRR of R.A. No. 9266 Sec. 3. (2) (c) which also defines the Consulting Architect; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 144.0, 165.706, 504.144, 200.084 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c) 2004 IRR of R.A. No. 9266 Sec. 3. (25) which defines the limits of the liability of a Consulting Architect.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 41,
+    "page number" : 1,
+    "bounding box" : [ 89.999, 116.406, 540.023, 160.523 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 4,
+      "page number" : 1,
+      "bounding box" : [ 89.999, 116.406, 540.023, 160.523 ],
+      "font" : "Courier",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "_____________________________________________________________________________________________ REQUESTED PRBOA COMMENTS ON A JOINT PLEADING FILED AT A PROSECUTOR’S OFFICE BY AN UNREGISTERED PERSON CRIMINALLY CHARGED WITH THE ILLEGAL PRACTICE OF ARCHITECTURE AND BY THE REGISTERED AND LICENSED ARCHITECT (RLA) LIKEWISE CRIMINALLY CHARGED WITH AIDING AND ABETTING THE SAME dated 30 May 2008 page 1 of 3"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 42,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 126.0, 277.786, 522.144, 924.883 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "previous list id" : 37,
+    "next list id" : 50,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 126.0, 803.536, 522.144, 924.883 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "2) Anent item 4.(b) on page 2 and items 5. and 6. on page 3 of the pleading, please be also advised that the regulated practice of architecture in the Philippines specifically includes the planning and designing of architectural interiors, which also means that a registered and licensed architect (RLA) need not secure separate documents from the Professional Regulation Commission (PRC) to become a registered and licensed interior designer (RLID) to lawfully engage in the planning/ design of architectural interiors, viz;",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 13,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 144.0, 678.857, 504.144, 800.323 ],
+        "numbering style" : "english letters",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 144.0, 753.586, 504.024, 800.323 ],
+          "font" : "Courier",
+          "font size" : 11.04,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "a) R.A. No. 9266 Sec. 3. (4) (g) which specifically mentions architectural interiors and space planning as part of the scope of the practice of architecture;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 144.0, 703.666, 504.144, 750.523 ],
+          "font" : "Courier",
+          "font size" : 11.04,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "b) 2004 IRR of R.A. No. 9266 Sec. 3. (4) (g) which also specifically mentions architectural interiors and space planning as part of the scope of the practice of architecture; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 144.0, 678.857, 504.144, 700.603 ],
+          "font" : "Courier",
+          "font size" : 11.04,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "c) R.A. No. 9266 Sec. 3. (19) which specifically defines the term architectural interiors.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 126.0, 545.146, 522.144, 666.643 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "3) Anent items 5. and 6. on page 3 of the pleading, it may be construed that if the unregistered person (non-RLA) was indeed engaged in the planning and designing of architectural interiors, then that person may be deemed to have practiced part of the regulated profession of architecture, quite possibly under illegal circumstances; consequently, the RLA who may have aided and abetted such an unregistered person in the performance of architectural work/ services, may be deemed equally liable for potential violations of R.A. No. 9266.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 126.0, 423.826, 522.144, 532.963 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "4) Anent item 7. on page 4 of the pleading and all the other succeeding items in the pleading apparently claiming that the subject unregistered person has been engaged in the practice of interior design (rather than of architecture), the PRBoA, based on the information supplied by You, has requested a certification from the PRC, which as of the date of this writing, yielded the following information on the subject unregistered person, viz:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 17,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 144.0, 311.897, 504.144, 423.142 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 144.0, 386.506, 504.144, 423.142 ],
+          "font" : "Courier",
+          "font size" : 11.04,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "a) that there is no PRC resolution granting an interior designer registration and license to the subject unregistered person; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 144.0, 311.897, 504.144, 385.702 ],
+          "font" : "Courier",
+          "font size" : 11.04,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "b) the subject unregistered person is not a registered and licensed interior designer (RLID); therefore, the same person may not legally practice the separate regulated profession of interior design in the Philippines (as governed by the special law R.A. No. 8534, the Interior Design Act of 1998).",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 126.0, 277.786, 522.024, 299.684 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "5) Anent item 8. on page 5 of the pleading, please be advised of the following:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 43,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 144.0, 165.737, 504.144, 274.724 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "next list id" : 49,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 144.0, 252.977, 503.904, 274.724 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a) R.A. No. 9266 Sec. 3. (6) which defines the term Architectural Firm;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 144.0, 203.026, 504.144, 252.022 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b) R.A. No. 9266 Sec. 37. (b) which requires that RLAs must substantially own and operate a registered architectural firm (RAF) i.e. at least 75.0% of ownership and 75.0% of management positions;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 144.0, 165.737, 504.024, 202.222 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c) R.A. No. 9266 Sec. 37. (d) and PRBoA Resolution No. 5, series of 2007, (which took effect last January 2008), which both require that RAFs be registered",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 46,
+    "page number" : 2,
+    "bounding box" : [ 89.999, 116.406, 540.023, 160.523 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 5,
+      "page number" : 2,
+      "bounding box" : [ 89.999, 116.406, 540.023, 160.523 ],
+      "font" : "Courier",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "_____________________________________________________________________________________________ REQUESTED PRBOA COMMENTS ON A JOINT PLEADING FILED AT A PROSECUTOR’S OFFICE BY AN UNREGISTERED PERSON CRIMINALLY CHARGED WITH THE ILLEGAL PRACTICE OF ARCHITECTURE AND BY THE REGISTERED AND LICENSED ARCHITECT (RLA) LIKEWISE CRIMINALLY CHARGED WITH AIDING AND ABETTING THE SAME dated 30 May 2008 page 2 of 3"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 49,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 144.0, 625.546, 504.144, 936.262 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "previous list id" : 43,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 48,
+      "page number" : 3,
+      "bounding box" : [ 162.0, 887.296, 504.024, 936.262 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "with the PRBoA after satisfying the conditions under Sec. 37 of R.A. No. 9266; as of this writing, the respondents’ collaborative partnership is not yet registered with the PRBoA;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 144.0, 837.346, 504.144, 884.203 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "d) 2004 IRR of R.A. No. 9266 Sec. 3. (6) which also defines the term Architectural Firm and which lists the public entities with which the future RAFs must register;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 144.0, 800.176, 504.144, 834.283 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "e) 2004 IRR of R.A. No. 9266 Sec. 37. which also prescribe requirements for the registration of RAFs;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 144.0, 625.546, 504.144, 799.222 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "f) the terms Planning + Interior Design as appearing in the respondents’ description of their collaborative partnership may be misleading to the general public, particularly if none of the respondents or the listed owners of their collaborative partnership are registered and licensed environmental planners (RLEnPs, whose regulated professional practice is governed by the special law P.D. No. 1308, the Environmental Planning Law) or are registered and licensed interior designers (RLIDs, whose regulated professional practice is governed by the special law R.A. No. 8534, the Interior Design Act of 1998).",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 50,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 126.0, 554.146, 522.144, 613.363 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 42,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 126.0, 554.146, 522.144, 613.363 ],
+      "font" : "Courier",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "6) Anent items 10. and 11. on page 6 and item 12.a. on page 7 of the pleading, please be advised that R.A. No. 8534 Sec. 15. (2) lists furniture design and construction as a subject of the licensure examination for interior designers.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 51,
+    "page number" : 3,
+    "bounding box" : [ 90.0, 485.177, 297.624, 537.523 ],
+    "font" : "Courier",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "For Your information only. Yours sincerely, For the PRBoA"
+  }, {
+    "type" : "image",
+    "id" : 47,
+    "page number" : 3,
+    "bounding box" : [ 90.0, 391.68, 234.0, 483.84 ],
+    "source" : "RES_Illegal Practice of AR_images/imageFile3.png"
+  }, {
+    "type" : "heading",
+    "id" : 52,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 89.999, 361.697, 189.023, 385.702 ],
+    "heading level" : 5,
+    "font" : "Courier-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Armando N. ALLÍ Chairman"
+  }, {
+    "type" : "paragraph",
+    "id" : 53,
+    "page number" : 3,
+    "bounding box" : [ 89.999, 309.184, 493.223, 334.163 ],
+    "font" : "Courier",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "file: 08may30_PRBoA-163 cc : Offices of the PRC Chairperson, Professional Regulatory Board (PRB) Secretary;"
+  }, {
+    "type" : "paragraph",
+    "id" : 54,
+    "page number" : 3,
+    "bounding box" : [ 118.823, 281.944, 531.623, 297.923 ],
+    "font" : "Courier",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "United Architects of the Philippines (UAP), the Integrated and Accredited Professional Organization of Architects (IAPoA)"
+  }, {
+    "type" : "footer",
+    "id" : 55,
+    "page number" : 3,
+    "bounding box" : [ 89.999, 116.406, 540.023, 160.523 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 6,
+      "page number" : 3,
+      "bounding box" : [ 89.999, 116.406, 540.023, 160.523 ],
+      "font" : "Courier",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "_____________________________________________________________________________________________ REQUESTED PRBOA COMMENTS ON A JOINT PLEADING FILED AT A PROSECUTOR’S OFFICE BY AN UNREGISTERED PERSON CRIMINALLY CHARGED WITH THE ILLEGAL PRACTICE OF ARCHITECTURE AND BY THE REGISTERED AND LICENSED ARCHITECT (RLA) LIKEWISE CRIMINALLY CHARGED WITH AIDING AND ABETTING THE SAME dated 30 May 2008 page 3 of 3"
+    } ]
+  } ]
+}

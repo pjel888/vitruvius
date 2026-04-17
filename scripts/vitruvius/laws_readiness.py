@@ -211,12 +211,14 @@ def _build_folder_summary(
     sidecar_counts: dict[str, int],
     pilot_unit: Any | None,
     candidate_reason: str | None = None,
+    raw_storage_folder_name: str | None = None,
 ) -> dict[str, Any]:
+    storage_folder_name = raw_storage_folder_name or folder_name
     pilot_covered = pilot_unit is not None
     admitted_source_count = len(pilot_unit.admitted_source_paths) if pilot_unit else 0
     admitted_concept_count = len(pilot_unit.admitted_concept_paths) if pilot_unit else 0
     admitted_relationship_count = len(pilot_unit.admitted_relationship_paths) if pilot_unit else 0
-    structural_header_count = _count_structural_headers(repo_root / _REFINED_ROOT, folder_name)
+    structural_header_count = _count_structural_headers(repo_root / _REFINED_ROOT, storage_folder_name)
     guardrails = _structure_guardrails(
         structural_header_count=structural_header_count,
         admitted_concept_count=admitted_concept_count,
@@ -227,7 +229,7 @@ def _build_folder_summary(
             "Already admitted inside the bounded pilot; keep generic Phase 11 expansion gated and extend only through a fresh accepted slice."
         )
         status = "pilot-covered"
-    elif refined_counts.get(folder_name, 0) > 0:
+    elif refined_counts.get(storage_folder_name, 0) > 0:
         next_step = (
             "Inventory exists, but this law is not admitted in the bounded pilot. Require fresh research/audit/plan plus bounded source admission before any review run."
         )
@@ -248,10 +250,10 @@ def _build_folder_summary(
         "candidate_reason": candidate_reason,
         "pilot_covered": pilot_covered,
         "status": status,
-        "raw_source_present": folder_name in raw_source_dirs,
-        "refined_markdown_count": refined_counts.get(folder_name, 0),
-        "raw_markdown_count": raw_markdown_counts.get(folder_name, 0),
-        "sidecar_json_count": sidecar_counts.get(folder_name, 0),
+        "raw_source_present": storage_folder_name in raw_source_dirs,
+        "refined_markdown_count": refined_counts.get(storage_folder_name, 0),
+        "raw_markdown_count": raw_markdown_counts.get(storage_folder_name, 0),
+        "sidecar_json_count": sidecar_counts.get(storage_folder_name, 0),
         "admitted_source_count": admitted_source_count,
         "admitted_concept_count": admitted_concept_count,
         "admitted_relationship_count": admitted_relationship_count,
@@ -273,6 +275,28 @@ def _default_duplicate_report_path(repo_root: Path, scope_id: str, run_id: str) 
     )
 
 
+def _raw_folder_name_for_item(item: dict[str, Any]) -> str:
+    raw_folder_name = item.get("raw_folder_name")
+    if isinstance(raw_folder_name, str) and raw_folder_name.strip():
+        return raw_folder_name.strip()
+
+    candidate_paths = [
+        str(path)
+        for path in [*(item.get("authoritative_variant_paths") or []), *(item.get("raw_anchor_paths") or [])]
+        if isinstance(path, str)
+    ]
+    folder_names: list[str] = []
+    for rel_path in candidate_paths:
+        parts = Path(rel_path).parts
+        if len(parts) >= 3:
+            folder_name = parts[2]
+            if folder_name not in folder_names:
+                folder_names.append(folder_name)
+    if len(folder_names) == 1:
+        return folder_names[0]
+    return str(item.get("folder_name") or "")
+
+
 def _pdf_duplicate_clusters(
     *,
     repo_root: Path,
@@ -281,7 +305,6 @@ def _pdf_duplicate_clusters(
 ) -> tuple[list[dict[str, Any]], dict[str, list[str]]]:
     from .scanner import _sha256_of_file
 
-    raw_root = repo_root / _RAW_SOURCE_ROOT
     scoped_raw_paths_by_folder = scoped_raw_paths_by_folder or {}
     registry_digests: dict[str, str] = {}
     registry_path = repo_root / "006_System-Manifests" / "registries" / "latest_raw_file_registry.csv"
@@ -297,39 +320,47 @@ def _pdf_duplicate_clusters(
                         continue
                     if extension != ".pdf":
                         continue
+                    if scoped_raw_paths_by_folder:
+                        if any(relative_path in scoped_paths for scoped_paths in scoped_raw_paths_by_folder.values()):
+                            registry_digests[relative_path] = sha256
+                        continue
                     parts = Path(relative_path).parts
                     if len(parts) < 2:
                         continue
                     if parts[1] not in folder_names:
                         continue
-                    scoped_paths = scoped_raw_paths_by_folder.get(parts[1])
-                    if scoped_paths and relative_path not in scoped_paths:
-                        continue
                     registry_digests[relative_path] = sha256
         except OSError:
             registry_digests = {}
-    by_digest: dict[str, list[Path]] = {}
-    for folder_name in folder_names:
-        folder_root = raw_root / folder_name
-        if not folder_root.exists():
-            continue
-        scoped_paths = scoped_raw_paths_by_folder.get(folder_name)
-        for path in sorted(
-            path for path in folder_root.rglob("*") if path.is_file() and path.suffix.lower() == ".pdf"
-        ):
-            rel_raw_path = path.relative_to(raw_root.parent).as_posix()
-            if scoped_paths and rel_raw_path not in scoped_paths:
+    by_digest: dict[str, list[tuple[str, Path]]] = {}
+    if scoped_raw_paths_by_folder:
+        for folder_name, scoped_paths in scoped_raw_paths_by_folder.items():
+            for rel_raw_path in sorted(scoped_paths):
+                path = (repo_root / rel_raw_path).resolve()
+                if not path.is_file() or path.suffix.lower() != ".pdf":
+                    continue
+                digest = registry_digests.get(rel_raw_path) or _sha256_of_file(path)
+                by_digest.setdefault(digest, []).append((folder_name, path))
+    else:
+        raw_root = repo_root / _RAW_SOURCE_ROOT
+        for folder_name in folder_names:
+            folder_root = raw_root / folder_name
+            if not folder_root.exists():
                 continue
-            digest = registry_digests.get(rel_raw_path) or _sha256_of_file(path)
-            by_digest.setdefault(digest, []).append(path)
+            for path in sorted(
+                path for path in folder_root.rglob("*") if path.is_file() and path.suffix.lower() == ".pdf"
+            ):
+                rel_raw_path = path.relative_to(raw_root.parent).as_posix()
+                digest = registry_digests.get(rel_raw_path) or _sha256_of_file(path)
+                by_digest.setdefault(digest, []).append((folder_name, path))
 
     folder_flags: dict[str, list[str]] = {}
     clusters: list[dict[str, Any]] = []
-    for digest, paths in sorted(by_digest.items()):
-        if len(paths) < 2:
+    for digest, entries in sorted(by_digest.items()):
+        if len(entries) < 2:
             continue
-        rel_paths = [str(path.relative_to(repo_root)) for path in paths]
-        folders = sorted({path.parent.name for path in paths})
+        rel_paths = [str(path.relative_to(repo_root)) for _, path in entries]
+        folders = sorted({folder_name for folder_name, _ in entries})
         tag_union: set[str] = set()
         for rel_path in rel_paths:
             tag_union.update(_variant_semantic_tags(rel_path))
@@ -983,8 +1014,6 @@ def _manifest_scoped_raw_files(
     folder_root: Path,
     item: dict[str, Any],
 ) -> list[Path]:
-    if not folder_root.exists():
-        return []
     all_files = sorted(path for path in folder_root.rglob("*") if path.is_file())
     requested_relpaths = [
         str(path)
@@ -1001,6 +1030,8 @@ def _manifest_scoped_raw_files(
             if abs_path.is_file() and abs_path not in requested_abs:
                 requested_abs.append(abs_path)
         return [path for path in requested_abs if _relative(path, repo_root) not in excluded_relpaths]
+    if not folder_root.exists():
+        return []
     return [path for path in all_files if _relative(path, repo_root) not in excluded_relpaths]
 
 
@@ -1803,12 +1834,13 @@ def run_laws_tranche_dry_run(
     missing_raw_source_count = 0
     for item in requested:
         folder_name = item["folder_name"]
+        raw_storage_folder_name = _raw_folder_name_for_item(item)
         pilot_unit = pilot_units_by_folder.get(folder_name)
         if pilot_unit is not None:
             pilot_covered_count += 1
         else:
             inventory_only_count += 1
-        if folder_name not in raw_source_dirs:
+        if raw_storage_folder_name not in raw_source_dirs:
             missing_raw_source_count += 1
         laws.append(
             _build_folder_summary(
@@ -1820,6 +1852,7 @@ def run_laws_tranche_dry_run(
                 sidecar_counts=sidecar_counts,
                 pilot_unit=pilot_unit,
                 candidate_reason=item.get("reason"),
+                raw_storage_folder_name=raw_storage_folder_name,
             )
         )
         if duplicate_flags_by_folder.get(folder_name):
@@ -1915,7 +1948,8 @@ def run_laws_tranche_source_prep_dry_run(
     folders_report: list[dict[str, Any]] = []
     for item in tranche_payload["candidate_law_folders"]:
         folder_name = item["folder_name"]
-        folder_root = raw_root / folder_name
+        raw_folder_name = _raw_folder_name_for_item(item)
+        folder_root = raw_root / raw_folder_name
         files = _manifest_scoped_raw_files(repo_root=repo_root, folder_root=folder_root, item=item)
         file_reports = [
             _raw_file_preparation_summary(
@@ -1993,7 +2027,8 @@ def run_laws_tranche_source_prep(
     failed_count = 0
     for item in tranche_payload["candidate_law_folders"]:
         folder_name = item["folder_name"]
-        folder_root = raw_root / folder_name
+        raw_folder_name = _raw_folder_name_for_item(item)
+        folder_root = raw_root / raw_folder_name
         files = _manifest_scoped_raw_files(repo_root=repo_root, folder_root=folder_root, item=item)
         file_reports = [
             _prepare_raw_file(

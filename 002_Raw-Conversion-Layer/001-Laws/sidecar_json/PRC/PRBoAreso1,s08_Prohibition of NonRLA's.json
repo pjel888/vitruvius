@@ -1,0 +1,241 @@
+{
+  "file name" : "PRBoAreso1,s08_Prohibition of NonRLA's.pdf",
+  "number of pages" : 2,
+  "author" : "admin",
+  "title" : "Microsoft Word - okePRBoAreso1,s08.doc",
+  "creation date" : "D:20080419204804",
+  "modification date" : "D:20080419204804",
+  "kids" : [ {
+    "type" : "paragraph",
+    "id" : 7,
+    "page number" : 1,
+    "bounding box" : [ 228.72, 885.605, 401.298, 933.635 ],
+    "font" : "Times-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Republic of the Philippines Professional Regulation Commission Manila Board of Architecture"
+  }, {
+    "type" : "heading",
+    "id" : 9,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 252.24, 859.248, 377.64, 872.796 ],
+    "heading level" : 1,
+    "font" : "Times-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Board Resolution No. 01"
+  }, {
+    "type" : "paragraph",
+    "id" : 11,
+    "page number" : 1,
+    "bounding box" : [ 90.24, 758.033, 539.691, 858.95 ],
+    "font" : "Times-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Series of 2008 RESTRICTING THE PRACTICE OF THE REGULATED PROFESSION OF ARCHITECTURE BY NON-REGISTERED AND LICENSED ARCHITECTS (NONRLAS) SUCH AS B. S. ARCHITECTURE STUDENTS, GRADUATES/ GRADUATES UNDERGOING DIVERSIFIED TRAINING AND UNSUCCESSFUL EXAMINEES WHO HAVE TAKEN THE ARCHITECTURE LICENSURE EXAMINATIONS (ALE) AND WHO PERFORM WORKS OF ARCHITECTURE WITHOUT THE DIRECT SUPERVISION OF A REGISTERED AND LICENSED ARCHITECT (RLA)"
+  }, {
+    "type" : "paragraph",
+    "id" : 17,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 706.313, 540.076, 731.51 ],
+    "font" : "Times-Roman",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "WHEREAS, Secs. 29, 31 and 34 of Republic Act (R.A.) No. 9266 (The Architecture Act of 2006) state:"
+  }, {
+    "type" : "paragraph",
+    "id" : 18,
+    "page number" : 1,
+    "bounding box" : [ 126.0, 326.873, 504.24, 706.19 ],
+    "font" : "Times-Roman",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "“SEC. 29. Prohibition in the Practice of Architecture and Penal Clause. – Any person who shall practice or offer to practice architecture in the Philippines without being registered/licensed and who are not holders of temporary or special permits in accordance with the provisions of this Act, x x x or any person who shall use in connection with his/her name or otherwise assume, use or advertise any title or description tending to convey the impression that he/she is an architect when he/she is not an architect, or any person whether Filipino or foreigner, who knowingly allows the use, adoption, implementation of plans, designs or specifications made by any person, firm, partnership or company not duly licensed to engage in the practice of architecture, or any person who shall violate any of the provisions of this Act, its implementing rules and regulations, the Code of Ethical Conduct and Standards of Professional Practice, or any policy of the Board and the Commission, shall be guilty of misdemeanor and charged in court by the Commission and shall, upon conviction be sentenced to a fine of not less than One hundred thousand pesos (Pl00,000.00) but not more than Five million pesos (P5,000,000.00) or to suffer imprisonment for a period not less than six (6) months or not exceeding six (6) years, or both, at the discretion of the Court. SEC. 31. Liability of Representatives of Non-Registered Persons.- It shall be unlawful for any person or firm or corporation to seek to avoid the provisions of this Act by having a representative or employee seek architectural work in their behalf, unless and until, such persons have duly qualified and are duly registered/licensed, otherwise, both those represented and the representative, the employer and the employee shall be deemed guilty of violation of this Act. Solicitation of architectural work shall be construed as offering to practice architecture and shall be unlawful for any non-registered and unlicensed persons to do so. SEC. 34. Non-Registered Person Shall Not Claim Equivalent Service. – Persons not registered as an architect shall not claim nor represent either services or work as equivalent to those of a duly qualified registered architect, or that they are qualified for any branch or function of architectural practice, even though no form of the title \"Architect\" is used. (emphasis supplied)"
+  }, {
+    "type" : "paragraph",
+    "id" : 19,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 301.553, 539.88, 326.75 ],
+    "font" : "Times-Roman",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "WHEREAS, similar provisions are found in the Implementing Rules and Regulations (IRR) of R.A. No. 9266, in effect since 01 December 2004;"
+  }, {
+    "type" : "paragraph",
+    "id" : 20,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 250.913, 540.094, 301.43 ],
+    "font" : "Times-Roman",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "WHEREAS, the general public is deliberately mislead or confused as to the real professional status of certain entities (natural and juridical) claiming or projecting themselves to be either registered/ licensed architects (RLAs) or of being RLAs in group practice, when they are in fact neither registered nor licensed to practice architecture nor professions considered allied to architecture;"
+  }, {
+    "type" : "paragraph",
+    "id" : 21,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 187.673, 540.138, 250.91 ],
+    "font" : "Times-Roman",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "WHEREAS, the Board has confirmed that these entities are able to offer and actually practice architecture either through RLAs who aid and abet such practices or through the technical assistance being rendered by B. S. Architecture students, graduates/ graduates undergoing diversified training and unsuccessful examinees who have taken the architecture licensure examinations (ALE);"
+  }, {
+    "type" : "footer",
+    "id" : 22,
+    "page number" : 1,
+    "bounding box" : [ 89.999, 141.829, 537.3, 164.718 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 3,
+      "page number" : 1,
+      "bounding box" : [ 89.999, 141.829, 537.3, 164.718 ],
+      "heading level" : 2,
+      "font" : "TTE2636EC8t00",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "__________________________________________________________________________________________________ PRBoA Resolution No. 01, series of 2008 page 1 of 2"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 25,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 898.313, 540.12, 936.23 ],
+    "font" : "Times-Roman",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "WHEREAS, there are already sufficient processes and safeguards to address the RLAs who aid and abet such practices and who directly violate R.A. No. 9266, but that there are insufficient ones to address the second set of violators who are non-RLAs;"
+  }, {
+    "type" : "paragraph",
+    "id" : 26,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 885.713, 499.749, 898.31 ],
+    "font" : "Times-Roman",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "WHEREAS, the PRBoA herein defines the following key terms pertinent to this Resolution:"
+  }, {
+    "type" : "list",
+    "id" : 27,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 126.0, 594.713, 504.24, 885.59 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 126.0, 847.793, 504.24, 885.59 ],
+      "font" : "Times-Roman",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "1) “B.S. Architecture students”, as entities enrolled or who have been enrolled in courses forming part of the CHED-recognized curriculum for a B.S. Architecture degree;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 126.0, 759.233, 504.189, 847.67 ],
+      "font" : "Times-Roman",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "2) “B.S. Architecture graduates”, as entities who have satisfactorily completed all courses forming part of the CHED-recognized curriculum for a B.S. Architecture degree; under this definition are entities who go on to enroll in graduate/ postgraduate courses in architecture or other fields (masters or doctoral) in the Philippines or overseas, without first completing the mandatory two (2)-year diversified training prior to taking the Architecture Licensure Examinations (ALE);",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 126.0, 695.993, 504.12, 759.11 ],
+      "font" : "Times-Roman",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "3) “B.S. Architecture graduates undergoing diversified training”, as entities who have satisfactorily completed all courses forming part of the CHED-recognized curriculum for a B.S. Architecture degree and are in the process of completing the mandatory two (2)-year diversified training prior to taking the Architecture Licensure Examinations (ALE);",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 126.0, 657.953, 504.102, 695.87 ],
+      "font" : "Times-Roman",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "4) “unsuccessful examinees who have taken the Architecture Licensure Examinations (ALE)”, as entities have taken and failed the ALE and who are employed by RLAs and by non-RLAs alike; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 126.0, 594.713, 504.094, 657.95 ],
+      "font" : "Times-Roman",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "5) “works of architecture”, as any form of work or component of work or architectural deliverables/ outputs that falls within the recognized scope of professional architectural practice that are within the ambit of definitions supplied under Secs. 3.(3) and 3.(4), Article I, of R.A. No. 9266 and its pertinent IRR.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 28,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 506.273, 540.12, 594.71 ],
+    "font" : "Times-Roman",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "WHEREFORE, the PRBoA hereby RESOLVES, as it so RESOLVES, that non-RLAs such as B. S. Architecture students, graduates/ graduates undergoing diversified training and unsuccessful examinees who have taken the ALE must undertake or perform works of architecture, falling within the scope of practice of architecture, as defined under Secs. 3.(3) and 3.(4), Article I, of R.A. No. 9266, only for RLAs (with valid certificates of registration and valid PRC IDs), for qualified firms of RLAs (which have valid registration/s with the PRC), for foreign architects (with valid special/ temporary permits issued by the PRC) and the like;"
+  }, {
+    "type" : "paragraph",
+    "id" : 29,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 417.713, 540.12, 506.15 ],
+    "font" : "Times-Roman",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "FURTHER RESOLVED, that the act of non-RLAs performing works of architecture, such as those done by B. S. Architecture students, graduates/ graduates undergoing diversified training and unsuccessful examinees who have taken the ALE for other non-RLAs, whether wittingly or unwittingly, shall be deemed a willful violation of Secs. 29, 31 and 34, Article IV, of R.A. No. 9266 and its pertinent IRR provisions, and shall therefore be criminally charged with the illegal practice of architecture and/or with the applicable violation/s of R.A. No. 9266 and its IRR, subject to the appropriate penalties provided under law;"
+  }, {
+    "type" : "paragraph",
+    "id" : 30,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 367.073, 540.12, 417.59 ],
+    "font" : "Times-Roman",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "FURTHER RESOLVED, that all schools of architecture in the Philippines shall prominently display this Resolution, once approved and published, within its premises for the information of B. S. Architecture students, graduates/ graduates undergoing diversified training and their prospective recruiters/ employers; and"
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 291.233, 540.12, 367.07 ],
+    "font" : "Times-Roman",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "RESOLVED, FINALLY, that the integrated and accredited organization of architects (IAPOA) also take steps to disseminate this information to its student and graduate auxiliary organizations and to its membership in general. This Resolution shall take effect fifteen (15) days after its publication in the Official Gazette or in a newspaper of general circulation, whichever comes earlier. Done in the City of Manila this __th day of January 2008."
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 218.586, 472.698, 290.787 ],
+    "font" : "Times-Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARMANDO N. ALLÍ Chairman ANGELINE T. CHUA CHIACO MARIETTA B. SEGOVIA Member Member Noted: CARLOS G. ALMELOR Secretary of the PRBs"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 166.998, 491.916, 218.427 ],
+    "font" : "Times-Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "LEONOR T. ROSERO Chairperson RUTH RAÑA PADILLA NILO T. ROSAS Commissioner Commissioner file: PRBoAres_1, s08"
+  }, {
+    "type" : "footer",
+    "id" : 34,
+    "page number" : 2,
+    "bounding box" : [ 89.999, 141.829, 537.3, 164.718 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 4,
+      "page number" : 2,
+      "bounding box" : [ 89.999, 141.829, 537.3, 164.718 ],
+      "heading level" : 2,
+      "font" : "TTE2636EC8t00",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "__________________________________________________________________________________________________ PRBoA Resolution No. 01, series of 2008 page 2 of 2"
+    } ]
+  } ]
+}

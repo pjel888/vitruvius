@@ -1,0 +1,13 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-17T17:35:47.382119+00:00",
+  "source_relative_path": "001-Laws/PRC/RES_Clarification of PD-9266 Rule II Registration.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PRC/RES_Clarification of PD-9266 Rule II Registration.pdf",
+  "detection_result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PRC/RES_Clarification of PD-9266 Rule II Registration.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PRC/RES_Clarification of PD-9266 Rule II Registration.json",
+  "markdown_output_relative": "001-Laws/raw_markdown/PRC/RES_Clarification of PD-9266 Rule II Registration.md",
+  "json_output_relative": "001-Laws/sidecar_json/PRC/RES_Clarification of PD-9266 Rule II Registration.json",
+  "status": "converted"
+}

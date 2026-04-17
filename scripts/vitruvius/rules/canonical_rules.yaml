@@ -1496,6 +1496,132 @@ rules:
         - "RA 7279 Section 18 IRR"
         - "Balanced Housing Development IRR"
 
+  # --------------------------------------------------
+  # PRBoA Temporary Permits for Foreign Architects
+  # --------------------------------------------------
+  - name: "PRBoA Temporary Permits for Foreign Architects"
+
+    match:
+      any_contains:
+        - "temporary permits for foreign architects"
+        - "prboares03,s08_temporary permits for foreign architects"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "Guidelines on Temporary or Special Permits for Foreign Architects"
+
+      aliases:
+        - "Temporary Permits for Foreign Architects"
+        - "PRBoA Resolution No. 03 Series of 2008"
+
+  # --------------------------------------------------
+  # PRBoA Prohibition of NonRLAs
+  # --------------------------------------------------
+  - name: "PRBoA Prohibition of NonRLAs"
+
+    match:
+      any_contains:
+        - "prohibition of nonrla"
+        - "restricting the practice of the regulated profession of architecture by non-registered and licensed architects"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "Resolution Restricting Practice of Architecture by Non-Registered and Licensed Architects"
+
+      aliases:
+        - "Prohibition of NonRLAs"
+        - "PRBoA Resolution No. 01 Series of 2008"
+
+  # --------------------------------------------------
+  # PRBoA Effectivity Dates of Resolutions
+  # --------------------------------------------------
+  - name: "PRBoA Effectivity Dates of Resolutions"
+
+    match:
+      any_contains:
+        - "effectivity dates of prboa resolutions"
+        - "prboares,s08 effectivity dates of prboa resolutions"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "Resolution on Effectivity Dates of PRBoA Resolutions"
+
+      aliases:
+        - "Effectivity Dates of PRBoA Resolutions"
+
+  # --------------------------------------------------
+  # PRBoA Architecture and Architectural Interiors Exclusive
+  # --------------------------------------------------
+  - name: "PRBoA Architecture and Architectural Interiors Exclusive"
+
+    match:
+      any_contains:
+        - "architecture and ar interiors are exclusive"
+        - "architectural and architectural interior design are exclusive parts of the scope of the practice of architecture"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "Statement that Architectural and Architectural Interior Design are Exclusive to Architecture Practice"
+
+      aliases:
+        - "Architecture and AR Interiors are Exclusive"
+        - "Architectural Interior Design Exclusive"
+
+  # --------------------------------------------------
+  # PRBoA Clarification of Rule II Registration
+  # --------------------------------------------------
+  - name: "PRBoA Clarification of Rule II Registration"
+
+    match:
+      any_contains:
+        - "clarification of pd-9266 rule ii registration"
+        - "clarification re prboa resolution 05-2007"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "Clarification on PRBoA Resolution 05-2007 Rule II Registration"
+
+      aliases:
+        - "Clarification of PD-9266 Rule II Registration"
+        - "PRBoA Resolution 05-2007 Clarification"
+
+  # --------------------------------------------------
+  # PRBoA Illegal Practice of Architecture
+  # --------------------------------------------------
+  - name: "PRBoA Illegal Practice of Architecture"
+
+    match:
+      any_contains:
+        - "illegal practice of ar"
+        - "illegal practice of architecture"
+        - "requested prboa comments on a joint pleading"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "PRBoA Comments on the Illegal Practice of Architecture"
+
+      aliases:
+        - "Illegal Practice of AR"
+        - "Illegal Practice of Architecture Comments"
+
 
   # --------------------------------------------------
   # GENERIC LAW SECTION

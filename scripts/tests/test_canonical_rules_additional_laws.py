@@ -511,3 +511,51 @@ def test_build_plan_matches_ra_7279_section_18_irr_rule() -> None:
     assert plan['prefix'] == 'handout'
     assert plan['source_type'] == 'handout'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_prboa_temporary_permits_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.md')
+    assert plan['title'] == 'Guidelines on Temporary or Special Permits for Foreign Architects'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_prboa_nonrla_rule() -> None:
+    plan = build_plan("001-Laws/refined_markdown/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.md")
+    assert plan['title'] == 'Resolution Restricting Practice of Architecture by Non-Registered and Licensed Architects'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_prboa_effectivity_dates_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md')
+    assert plan['title'] == 'Resolution on Effectivity Dates of PRBoA Resolutions'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_prboa_architecture_exclusive_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md')
+    assert plan['title'] == 'Statement that Architectural and Architectural Interior Design are Exclusive to Architecture Practice'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_prboa_rule_ii_registration_clarification_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/PRC/RES_Clarification of PD-9266 Rule II Registration.md')
+    assert plan['title'] == 'Clarification on PRBoA Resolution 05-2007 Rule II Registration'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_prboa_illegal_practice_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/PRC/RES_Illegal Practice of AR.md')
+    assert plan['title'] == 'PRBoA Comments on the Illegal Practice of Architecture'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'

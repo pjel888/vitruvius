@@ -1,0 +1,62 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "withhold_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "front matter is image-heavy and may reflect OCR/layout instability",
+    "image-heavy front matter still contains suspicious OCR text near the document title/opening lines",
+    "spot-review the flagged OCR-sensitive regions before trusting summary prose"
+  ],
+  "front_matter_suspicious_ocr_line_count": 10,
+  "image_line_count": 6,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 51,
+  "noise_line_count": 0,
+  "non_empty_line_count": 542,
+  "recommendations": [
+    "spot-review OCR-sensitive title/heading lines before trusting automated summaries"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 4,
+    "admitted_relationship_count": 4,
+    "folder_name": "PRC",
+    "law_id": "prc",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 6.75,
+    "section_to_relationship_ratio": 6.75,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 27
+  },
+  "severity": "low",
+  "source_acceptance_reasons": [
+    "image-heavy front matter still contains suspicious OCR text near the document title/opening lines"
+  ],
+  "source_acceptance_status": "accepted_with_spot_review",
+  "spot_review_focus": [
+    "title/header lines and the first operative section",
+    "section numbering and other numeric provisions",
+    "image-backed front matter, page breaks, and signature/footer spillover"
+  ],
+  "spot_review_required": true,
+  "structural_heading_count": 27,
+  "summary_auto_withheld": true,
+  "summary_hygiene_flags": [
+    "image_heavy_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "#### development, welfare and cultural expression of society’s habitat in terms of space, formsand historical context;",
+    "- a. planning, architecturaldesigningand structural conceptualization;",
+    "- 3. UrbanDesignand ArchitecturalInteriors; and",
+    "- 4. ArchitecturalDesignand Site Planning.X X X",
+    "SECTION 29. Prohibition in the Practice of Architecture and Penal Clause. – Any person who shall practice or offer to practice architecture in the Philippines without being registered/licensed and who are not holders of temporary or special permits in accordance with the provisions of this Act, or any person presenting or attempting to use as his/her own the Certificate of Registration/Professional Identification Card or seal of another or temporary or special permit, or any person who shall give any false or forged evidence o any kind to the Board or to any member thereof in obtaining a Certificate of Registration/Professional Identification Card or temporary or special permit, or any person who shall falsely impersonate any registrant of like or different name, or any person who shall attempt to use a revoked or suspended Certificate of Registration/Professional Identification Card or cancelled special/temporary permit, or any person who shall use in connection with his/her name or otherwise assume, use or advertise any title or description tending to convey the impression that he/she is an architect when he/she is not an architect, or any person whether Filipino or foreigner,"
+  ],
+  "suspicious_ocr_line_count": 41,
+  "suspicious_ocr_line_ratio": 0.075646,
+  "table_line_count": 8,
+  "total_line_count": 932,
+  "useful_text_line_count": 528,
+  "useful_text_ratio": 0.97417
+}

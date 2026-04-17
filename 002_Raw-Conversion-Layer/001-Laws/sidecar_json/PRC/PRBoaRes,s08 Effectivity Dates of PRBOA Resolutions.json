@@ -1,0 +1,1546 @@
+{
+  "file name" : "PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.pdf",
+  "number of pages" : 2,
+  "author" : "admin",
+  "title" : "Microsoft Word - reso_effectivity.doc",
+  "creation date" : "D:20080524081013Z",
+  "modification date" : "D:20080524100011+08'00'",
+  "kids" : [ {
+    "type" : "paragraph",
+    "id" : 1,
+    "page number" : 1,
+    "bounding box" : [ 67.799, 494.878, 223.089, 507.557 ],
+    "font" : "Helvetica",
+    "font size" : 13.221,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Republic of the Philippines"
+  }, {
+    "type" : "paragraph",
+    "id" : 2,
+    "page number" : 1,
+    "bounding box" : [ 67.799, 455.768, 515.884, 491.6 ],
+    "font" : "Helvetica-Bold",
+    "font size" : 16.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Professional Regulation Commission (PRC) Professional Regulatory Board of Architecture (PRBoA)"
+  }, {
+    "type" : "heading",
+    "id" : 3,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 67.799, 408.151, 624.817, 428.003 ],
+    "heading level" : 1,
+    "font" : "Helvetica-Bold",
+    "font size" : 20.679,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Notice of Effectivity Dates of Recent PRBoA Resolutions"
+  }, {
+    "type" : "caption",
+    "id" : 4,
+    "page number" : 1,
+    "bounding box" : [ 67.799, 373.524, 364.994, 405.336 ],
+    "linked content id" : 0,
+    "font" : "Helvetica-Oblique",
+    "font size" : 15.029,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "based on Official Gazette Publication Dates (with Full Text of Resolutions Published) * #"
+  }, {
+    "type" : "table",
+    "id" : 5,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 62.52, 101.28, 737.52, 358.32 ],
+    "number of rows" : 6,
+    "number of columns" : 5,
+    "next table id" : 6,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 62.52, 344.817, 161.76, 355.893 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 1,
+          "bounding box" : [ 67.799, 344.817, 135.042, 355.653 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "A. Resolution"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 160.32, 344.817, 399.0, 355.893 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 2,
+          "page number" : 1,
+          "bounding box" : [ 166.079, 345.045, 259.602, 355.893 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "B. Resolution Title"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 397.56, 344.817, 509.16, 355.893 ],
+        "row number" : 1,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "page number" : 1,
+          "bounding box" : [ 403.439, 344.817, 491.988, 355.653 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "C. Date of Official"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 507.84, 344.817, 619.44, 355.893 ],
+        "row number" : 1,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 1,
+          "bounding box" : [ 513.599, 344.817, 602.061, 355.653 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "D. Official Date of"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 618.0, 344.817, 737.52, 355.893 ],
+        "row number" : 1,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 5,
+          "page number" : 1,
+          "bounding box" : [ 623.759, 344.817, 725.562, 355.653 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "E. Initially Mandated"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 62.52, 331.857, 161.76, 342.933 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 1,
+          "bounding box" : [ 83.639, 332.085, 126.195, 342.933 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Number"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 160.32, 331.857, 399.0, 342.933 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 397.56, 331.857, 509.16, 342.933 ],
+        "row number" : 2,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 1,
+          "bounding box" : [ 419.181, 331.857, 458.682, 342.693 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Gazette"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 507.84, 331.857, 619.44, 342.933 ],
+        "row number" : 2,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 8,
+          "page number" : 1,
+          "bounding box" : [ 529.439, 332.085, 583.242, 342.933 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Effectivity"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 618.0, 331.857, 737.52, 342.933 ],
+        "row number" : 2,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 9,
+          "page number" : 1,
+          "bounding box" : [ 639.599, 332.085, 703.482, 342.933 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Compliance"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 62.52, 318.897, 161.76, 329.973 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 160.32, 318.897, 399.0, 329.973 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 397.56, 318.897, 509.16, 329.973 ],
+        "row number" : 3,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 1,
+          "bounding box" : [ 419.279, 319.125, 479.944, 329.973 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Publication"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 507.84, 318.897, 619.44, 329.973 ],
+        "row number" : 3,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 618.0, 318.897, 737.52, 329.973 ],
+        "row number" : 3,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 11,
+          "page number" : 1,
+          "bounding box" : [ 639.501, 318.897, 672.042, 329.733 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Period"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 62.52, 223.137, 161.76, 299.013 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 12,
+          "page number" : 1,
+          "bounding box" : [ 67.799, 270.825, 155.955, 298.637 ],
+          "font" : "Helvetica",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "05, Series of 2007"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 160.32, 223.137, 399.0, 299.013 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 13,
+          "page number" : 1,
+          "bounding box" : [ 166.079, 223.137, 393.359, 299.013 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "RULES AND REGULATIONS IMPLEMENTING SECTION 37, ARTICLE IV OF R.A. NO. 9266, KNOWN AS “THE ARCHITECTURE ACT OF 2004”, AND SECTION 37, RULE IV OF BOARD RESOLUTION NO. 07, SERIES OF 2004,"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 397.56, 223.137, 509.16, 299.013 ],
+        "row number" : 4,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 14,
+          "page number" : 1,
+          "bounding box" : [ 403.44, 270.838, 503.482, 298.637 ],
+          "font" : "Helvetica",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "31 December 2007"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 507.84, 223.137, 619.44, 299.013 ],
+        "row number" : 4,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 15,
+          "page number" : 1,
+          "bounding box" : [ 513.6, 270.825, 613.71, 298.637 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "16 January 2008"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 618.0, 223.137, 737.52, 299.013 ],
+        "row number" : 4,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "heading",
+          "id" : 16,
+          "level" : "Subtitle",
+          "page number" : 1,
+          "bounding box" : [ 623.76, 255.705, 732.39, 298.637 ],
+          "heading level" : 2,
+          "font" : "Helvetica-Bold",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "16 January 2008 through 15 July 2008"
+        }, {
+          "type" : "paragraph",
+          "id" : 17,
+          "page number" : 1,
+          "bounding box" : [ 623.76, 223.196, 732.174, 253.91 ],
+          "font" : "Helvetica",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "(SEC. 4. Period of Registration. – Within six (6.0) months from the"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 5,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 62.52, 158.276, 161.76, 221.39 ],
+        "row number" : 5,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 160.32, 158.276, 399.0, 221.39 ],
+        "row number" : 5,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 18,
+          "page number" : 1,
+          "bounding box" : [ 166.08, 158.446, 393.382, 221.013 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "KNOWN AS THE “IRR OF THE ARCHITECTURE ACT OF 2004”, PROVIDING FOR REGISTRATION OF FIRMS, COMPANIES, PARTNERSHIPS, CORPORATIONS OR ASSOCIATIONS OF"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 397.56, 158.276, 509.16, 221.39 ],
+        "row number" : 5,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 507.84, 158.276, 619.44, 221.39 ],
+        "row number" : 5,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 618.0, 158.276, 737.52, 221.39 ],
+        "row number" : 5,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 19,
+          "page number" : 1,
+          "bounding box" : [ 623.76, 158.276, 732.174, 221.39 ],
+          "font" : "Helvetica",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "effectivity of these rules and regulations, firms, companies, partnerships, corporations or associations engaged in the practice of the"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 6,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 62.52, 114.956, 161.76, 156.35 ],
+        "row number" : 6,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 160.32, 114.956, 399.0, 156.35 ],
+        "row number" : 6,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 20,
+          "page number" : 1,
+          "bounding box" : [ 166.08, 119.217, 393.239, 155.973 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "REGISTERED AND LICENSED ARCHITECTS AND FOR OTHER PURPOSES"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 397.56, 114.956, 509.16, 156.35 ],
+        "row number" : 6,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 507.84, 114.956, 619.44, 156.35 ],
+        "row number" : 6,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 618.0, 114.956, 737.52, 156.35 ],
+        "row number" : 6,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 21,
+          "page number" : 1,
+          "bounding box" : [ 623.76, 114.956, 732.174, 156.35 ],
+          "font" : "Helvetica",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "architectural profession, shall register with the Board and the Commission x x x)"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "table",
+    "id" : 6,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 62.52, 179.28, 737.52, 509.88 ],
+    "number of rows" : 14,
+    "number of columns" : 5,
+    "previous table id" : 5,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 470.685, 161.76, 507.333 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 2,
+          "bounding box" : [ 67.799, 479.265, 155.955, 507.077 ],
+          "font" : "Helvetica",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "01, Series of 2008"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 470.685, 399.0, 507.333 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 2,
+          "page number" : 2,
+          "bounding box" : [ 166.079, 470.685, 393.358, 507.333 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "RESTRICTING THE PRACTICE OF THE REGULATED PROFESSION OF ARCHITECTURE BY NON-REGISTERED"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 470.685, 509.16, 507.333 ],
+        "row number" : 1,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "page number" : 2,
+          "bounding box" : [ 403.44, 494.398, 481.11, 507.077 ],
+          "font" : "Helvetica",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "07 April 2008"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 470.685, 619.44, 507.333 ],
+        "row number" : 1,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 2,
+          "bounding box" : [ 513.6, 494.385, 595.11, 507.077 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "23 April 2008"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 470.685, 737.52, 507.333 ],
+        "row number" : 1,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 5,
+          "page number" : 2,
+          "bounding box" : [ 623.759, 479.265, 732.396, 507.077 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "07 April 2008 and thereafter"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 457.725, 161.76, 468.573 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 457.725, 399.0, 468.573 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 457.725, 393.283, 468.573 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "AND LICENSED ARCHITECTS (NON-"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 457.725, 509.16, 468.573 ],
+        "row number" : 2,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 457.725, 619.44, 468.573 ],
+        "row number" : 2,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 457.725, 737.52, 468.573 ],
+        "row number" : 2,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 444.765, 161.76, 455.613 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 444.765, 399.0, 455.613 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 444.765, 393.217, 455.613 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "RLAS) SUCH AS B. S. ARCHITECTURE"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 444.765, 509.16, 455.613 ],
+        "row number" : 3,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 444.765, 619.44, 455.613 ],
+        "row number" : 3,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 444.765, 737.52, 455.613 ],
+        "row number" : 3,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 431.577, 161.76, 442.413 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 431.577, 399.0, 442.413 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 8,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 431.577, 393.337, 442.413 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "STUDENTS, GRADUATES/ GRADUATES"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 431.577, 509.16, 442.413 ],
+        "row number" : 4,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 431.577, 619.44, 442.413 ],
+        "row number" : 4,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 431.577, 737.52, 442.413 ],
+        "row number" : 4,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 5,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 418.497, 161.76, 429.333 ],
+        "row number" : 5,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 418.497, 399.0, 429.333 ],
+        "row number" : 5,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 9,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 418.497, 393.272, 429.333 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "UNDERGOING DIVERSIFIED TRAINING"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 418.497, 509.16, 429.333 ],
+        "row number" : 5,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 418.497, 619.44, 429.333 ],
+        "row number" : 5,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 418.497, 737.52, 429.333 ],
+        "row number" : 5,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 6,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 405.537, 161.76, 416.373 ],
+        "row number" : 6,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 405.537, 399.0, 416.373 ],
+        "row number" : 6,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 405.537, 354.457, 416.373 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "AND UNSUCCESSFUL EXAMINEES"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 405.537, 509.16, 416.373 ],
+        "row number" : 6,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 405.537, 619.44, 416.373 ],
+        "row number" : 6,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 405.537, 737.52, 416.373 ],
+        "row number" : 6,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 7,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 392.577, 161.76, 403.413 ],
+        "row number" : 7,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 392.577, 399.0, 403.413 ],
+        "row number" : 7,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 11,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 392.577, 393.337, 403.413 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "WHO HAVE TAKEN THE ARCHITECTURE"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 392.577, 509.16, 403.413 ],
+        "row number" : 7,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 392.577, 619.44, 403.413 ],
+        "row number" : 7,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 392.577, 737.52, 403.413 ],
+        "row number" : 7,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 8,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 379.497, 161.76, 390.333 ],
+        "row number" : 8,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 379.497, 399.0, 390.333 ],
+        "row number" : 8,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 12,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 379.497, 378.479, 390.333 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "LICENSURE EXAMINATIONS (ALE) AND"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 379.497, 509.16, 390.333 ],
+        "row number" : 8,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 379.497, 619.44, 390.333 ],
+        "row number" : 8,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 379.497, 737.52, 390.333 ],
+        "row number" : 8,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 9,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 366.537, 161.76, 377.373 ],
+        "row number" : 9,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 366.537, 399.0, 377.373 ],
+        "row number" : 9,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 13,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 366.537, 393.424, 377.373 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "WHO PERFORM WORKS OF"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 366.537, 509.16, 377.373 ],
+        "row number" : 9,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 366.537, 619.44, 377.373 ],
+        "row number" : 9,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 366.537, 737.52, 377.373 ],
+        "row number" : 9,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 10,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 353.577, 161.76, 364.413 ],
+        "row number" : 10,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 353.577, 399.0, 364.413 ],
+        "row number" : 10,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 14,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 353.577, 393.304, 364.413 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "ARCHITECTURE WITHOUT THE DIRECT"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 353.577, 509.16, 364.413 ],
+        "row number" : 10,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 353.577, 619.44, 364.413 ],
+        "row number" : 10,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 353.577, 737.52, 364.413 ],
+        "row number" : 10,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 11,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 340.617, 161.76, 351.453 ],
+        "row number" : 11,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 340.617, 399.0, 351.453 ],
+        "row number" : 11,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 15,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 340.617, 393.359, 351.453 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "SUPERVISION OF A REGISTERED AND"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 340.617, 509.16, 351.453 ],
+        "row number" : 11,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 340.617, 619.44, 351.453 ],
+        "row number" : 11,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 340.617, 737.52, 351.453 ],
+        "row number" : 11,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 12,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 327.537, 161.76, 338.373 ],
+        "row number" : 12,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 327.537, 399.0, 338.373 ],
+        "row number" : 12,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 16,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 327.537, 322.963, 338.373 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "LICENSED ARCHITECT (RLA)"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 327.537, 509.16, 338.373 ],
+        "row number" : 12,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 327.537, 619.44, 338.373 ],
+        "row number" : 12,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 327.537, 737.52, 338.373 ],
+        "row number" : 12,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 13,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 240.417, 161.76, 316.293 ],
+        "row number" : 13,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 17,
+          "page number" : 2,
+          "bounding box" : [ 67.799, 288.105, 155.955, 316.037 ],
+          "font" : "Helvetica",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "03, Series of 2008"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 240.417, 399.0, 316.293 ],
+        "row number" : 13,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 18,
+          "page number" : 2,
+          "bounding box" : [ 166.079, 240.417, 393.382, 316.293 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "GUIDELINES IMPLEMENTING SEC. 38, ART. IV OF R.A. NO. 9266, KNOWN AS “THE ARCHITECTURE ACT OF 2004”, AND SEC. 38, RULE IV OF BOARD RES. NO. 07, SERIES OF 2004, CITED AS THE “IRR OF THE ARCHITECTURE ACT OF"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 240.417, 509.16, 316.293 ],
+        "row number" : 13,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 19,
+          "page number" : 2,
+          "bounding box" : [ 403.44, 303.358, 491.43, 316.037 ],
+          "font" : "Helvetica",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "24 March 2008"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 240.417, 619.44, 316.293 ],
+        "row number" : 13,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 20,
+          "page number" : 2,
+          "bounding box" : [ 513.6, 303.345, 595.11, 316.037 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "09 April 2008"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 240.417, 737.52, 316.293 ],
+        "row number" : 13,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "heading",
+          "id" : 21,
+          "page number" : 2,
+          "bounding box" : [ 623.759, 272.985, 732.39, 316.037 ],
+          "heading level" : 2,
+          "font" : "Helvetica-Bold",
+          "font size" : 13.221,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "09 April 2008 through 08 May 2008"
+        }, {
+          "type" : "paragraph",
+          "id" : 22,
+          "page number" : 2,
+          "bounding box" : [ 623.76, 240.476, 732.174, 271.19 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "(SECTION 3. Period of Application for the Temporary/ Special"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 14,
+      "cells" : [ {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 62.52, 188.457, 161.76, 238.67 ],
+        "row number" : 14,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 160.32, 188.457, 399.0, 238.67 ],
+        "row number" : 14,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 23,
+          "page number" : 2,
+          "bounding box" : [ 166.08, 188.457, 393.391, 238.533 ],
+          "font" : "Helvetica",
+          "font size" : 11.3,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "2004”, THE COVERAGE OF TEMPORARY/ SPECIAL PERMITS FOR ISSUANCE TO FOREIGN ARCHITECTS AND FOR OTHER PURPOSES"
+        } ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 397.56, 188.457, 509.16, 238.67 ],
+        "row number" : 14,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 507.84, 188.457, 619.44, 238.67 ],
+        "row number" : 14,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "id" : 1,
+        "page number" : 2,
+        "bounding box" : [ 618.0, 188.457, 737.52, 238.67 ],
+        "row number" : 14,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 24,
+          "page number" : 2,
+          "bounding box" : [ 623.76, 197.276, 732.174, 238.67 ],
+          "font" : "Helvetica",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Permit. – Within one (1) month from the effective date of this Guidelines x x x)"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "caption",
+    "id" : 7,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 67.799, 125.158, 724.875, 168.317 ],
+    "linked content id" : 1,
+    "font" : "Helvetica-Oblique",
+    "font size" : 13.221,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "*Abridged edition of the PRBoA Resolutions published in the Philippine Daily Inquirer on 24 April 2008 for public information only. Publication was done with the assistance of the UAP-IAPOA (NP Medeliano Roldan, Jr.), specifically Task Force R.A. No. 9266 (Chair Robert Sac)"
+  }, {
+    "type" : "paragraph",
+    "id" : 8,
+    "page number" : 2,
+    "bounding box" : [ 67.799, 101.638, 660.636, 114.317 ],
+    "font" : "Helvetica-Oblique",
+    "font size" : 13.221,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "# Also posted at the Latest Publications section of the PRBoA website at www.architectureboard.ph"
+  } ]
+}

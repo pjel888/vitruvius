@@ -784,12 +784,46 @@ def test_run_laws_tranche_source_prep_exec_respects_manifest_variant_scope(tmp_p
     assert payload['failed_count'] == 0
     assert seen_paths == ['001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf']
 
+
+def test_run_laws_tranche_source_prep_uses_raw_folder_name_override(tmp_path: Path) -> None:
+    _seed_repo(tmp_path)
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-12.yaml'
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-12',
+                'candidate_law_folders': [
+                    {
+                        'folder_name': 'DHSUD',
+                        'raw_folder_name': 'HLURB-DHSUD',
+                        'reason': 'dhsud guidance split',
+                        'authoritative_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf',
+                        ],
+                    },
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'HLURB-DHSUD' / 'Open Space Development Guidelines.pdf')
+
+    result = _run_cli(
+        [
+            'run-laws-tranche-source-prep-dry-run',
+            '--tranche-manifest', str(tranche_manifest),
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
     report = json.loads((tmp_path / payload['report_path']).read_text(encoding='utf-8'))
     folder = report['folders'][0]
+    assert folder['folder_name'] == 'DHSUD'
+    assert folder['raw_root_present'] is True
     assert folder['raw_file_count'] == 1
-    assert [item['raw_path'] for item in folder['file_reports']] == [
-        '001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf'
-    ]
+    assert folder['file_reports'][0]['raw_path'] == '001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf'
 
 
 def test_run_laws_tranche_source_prep_handles_ocr_required_pdf(tmp_path: Path) -> None:

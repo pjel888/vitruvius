@@ -1,0 +1,218 @@
+{
+  "action": "run-laws-tranche-source-to-graph-dry-run",
+  "blocked_law_folders": [],
+  "derived_manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-prc/source_to_graph_dry_run/20260417T173739Z/derived_dataset_manifest.yaml",
+  "dry_run": true,
+  "duplicate_cluster_count": 0,
+  "duplicate_clusters": [],
+  "duplicate_law_folders": [],
+  "generated_at_utc": "20260417T173739Z",
+  "guardrail_law_folders": [],
+  "inner_source_to_graph_summary": {
+    "action": "run-dataset-source-to-graph",
+    "benchmark_hint_count": 0,
+    "dataset_id": "laws-tranche-prc-source-to-graph-dry-run",
+    "dry_run": true,
+    "manual_review_required_count": 1,
+    "pipeline_report_path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-dry-run/source_to_graph/20260417T173739Z/source_to_graph_run_report.json",
+    "planned_stage_count": 6,
+    "review_model": "qwen2.5:7b",
+    "review_preset": "m2-8gb-safe",
+    "review_runtime": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "preset": {
+        "keeps_phase_11_gated": true,
+        "model": "qwen2.5:7b",
+        "name": "m2-8gb-safe",
+        "num_ctx_cap": 4096,
+        "parallelism": 1,
+        "timeout_seconds": 900
+      },
+      "timeout_seconds": 900
+    },
+    "review_settings": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "preset": {
+        "keeps_phase_11_gated": true,
+        "model": "qwen2.5:7b",
+        "name": "m2-8gb-safe",
+        "num_ctx_cap": 4096,
+        "parallelism": 1,
+        "timeout_seconds": 900
+      },
+      "timeout_seconds": 900
+    },
+    "run_id": "20260417T173739Z",
+    "shallow_representation_count": 1,
+    "source_quality_summary": {
+      "benchmark_source_hints": [],
+      "extraction_trust_counts": {
+        "guarded": 3,
+        "review_required": 1,
+        "trusted": 2
+      },
+      "high_severity_paths": [
+        "001-Laws/refined_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md"
+      ],
+      "high_severity_sources": [
+        {
+          "benchmark_source_hints": [],
+          "difficulty_signals": {
+            "image_line_count": 0,
+            "noise_line_count": 0,
+            "structural_heading_count": 0,
+            "table_line_count": 22,
+            "useful_text_ratio": 0.214286
+          },
+          "manual_review_recommended": true,
+          "recommendations": [
+            "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+            "low structural-heading count: verify section detection and source structure fidelity",
+            "manual review required: OCR/layout instability is too high for unattended source-summary use"
+          ],
+          "refined_markdown_path": "001-Laws/refined_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md",
+          "severity": "high",
+          "source_id": "handout-resolution-on-effectivity-dates-of-prboa-resolutions"
+        }
+      ],
+      "manual_review_required_paths": [
+        "001-Laws/refined_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md"
+      ],
+      "manual_review_required_sources": [
+        {
+          "benchmark_source_hints": [],
+          "difficulty_signals": {
+            "image_line_count": 0,
+            "noise_line_count": 0,
+            "structural_heading_count": 0,
+            "table_line_count": 22,
+            "useful_text_ratio": 0.214286
+          },
+          "manual_review_recommended": true,
+          "recommendations": [
+            "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+            "low structural-heading count: verify section detection and source structure fidelity",
+            "manual review required: OCR/layout instability is too high for unattended source-summary use"
+          ],
+          "refined_markdown_path": "001-Laws/refined_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md",
+          "severity": "high",
+          "source_id": "handout-resolution-on-effectivity-dates-of-prboa-resolutions"
+        }
+      ],
+      "representation_guardrail_counts": {
+        "high": 0,
+        "low": 5,
+        "medium": 1
+      },
+      "severity_counts": {
+        "high": 1,
+        "low": 5,
+        "medium": 0
+      },
+      "shallow_representation_paths": [
+        "001-Laws/refined_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md"
+      ],
+      "shallow_representation_sources": [
+        {
+          "benchmark_source_hints": [],
+          "difficulty_signals": {
+            "image_line_count": 6,
+            "noise_line_count": 0,
+            "structural_heading_count": 27,
+            "table_line_count": 8,
+            "useful_text_ratio": 0.97417
+          },
+          "manual_review_recommended": false,
+          "recommendations": [
+            "spot-review OCR-sensitive title/heading lines before trusting automated summaries"
+          ],
+          "refined_markdown_path": "001-Laws/refined_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md",
+          "representation_guardrail": {
+            "admitted_concept_count": 0,
+            "admitted_relationship_count": 0,
+            "folder_name": "PRC",
+            "law_id": "prc",
+            "reasons": [
+              "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+              "relationship coverage is also thin relative to detected structure"
+            ],
+            "recommendations": [
+              "add law-native canonical concepts before widening this tranche",
+              "treat current graph coverage as concept-shallow rather than section-complete"
+            ],
+            "section_to_concept_ratio": 27.0,
+            "section_to_relationship_ratio": 27.0,
+            "severity": "medium",
+            "status": "shallow_representation",
+            "structural_heading_count": 27
+          },
+          "severity": "low",
+          "source_id": "handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice"
+        }
+      ],
+      "source_acceptance_counts": {
+        "accepted": 2,
+        "accepted_with_spot_review": 3,
+        "manual_review_required": 1
+      },
+      "spot_review_required_paths": [
+        "001-Laws/refined_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md",
+        "001-Laws/refined_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md",
+        "001-Laws/refined_markdown/PRC/RES_Illegal Practice of AR.md",
+        "001-Laws/refined_markdown/PRC/RES_Clarification of PD-9266 Rule II Registration.md"
+      ],
+      "summary_auto_withheld_paths": [
+        "001-Laws/refined_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md",
+        "001-Laws/refined_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md",
+        "001-Laws/refined_markdown/PRC/RES_Illegal Practice of AR.md",
+        "001-Laws/refined_markdown/PRC/RES_Clarification of PD-9266 Rule II Registration.md"
+      ]
+    },
+    "spot_review_required_count": 4,
+    "summary_auto_withheld_count": 4
+  },
+  "law_folder_variant_visibility": [
+    {
+      "authoritative_variant_count": 6,
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/PRC/RES_Architecture and AR Interiors are Exclusive.pdf",
+        "001_Raw-Source-Layer/001-Laws/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.pdf",
+        "001_Raw-Source-Layer/001-Laws/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.pdf",
+        "001_Raw-Source-Layer/001-Laws/PRC/RES_Illegal Practice of AR.pdf",
+        "001_Raw-Source-Layer/001-Laws/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.pdf",
+        "001_Raw-Source-Layer/001-Laws/PRC/RES_Clarification of PD-9266 Rule II Registration.pdf"
+      ],
+      "blocked_raw_anchor_count": 0,
+      "blocked_raw_anchor_paths": [],
+      "duplicate_guardrails": [],
+      "excluded_variant_count": 0,
+      "excluded_variant_paths": [],
+      "folder_name": "PRC",
+      "source_admission_guardrails": [],
+      "source_admission_state": "admitted",
+      "staged_for_source_to_graph": true
+    }
+  ],
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "raw_alias_law_folders": [],
+  "review_preset": "m2-8gb-safe",
+  "run_id": "20260417T173739Z",
+  "source_to_graph_execute_blockers": [
+    "tranche source-to-graph execute remains gated until OCR-blocked and wider tranche risks are resolved"
+  ],
+  "source_to_graph_execute_ready": false,
+  "staged_law_folders": [
+    "PRC"
+  ],
+  "tranche_id": "laws-tranche-prc",
+  "tranche_manifest_path": "config/datasets/laws-tranche-prc.yaml"
+}

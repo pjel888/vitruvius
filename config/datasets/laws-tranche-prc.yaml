@@ -1,0 +1,69 @@
+tranche_id: laws-tranche-prc
+purpose: readiness-only
+phase_11_gate: gated
+description: Bounded PRC/PRBoA professional-practice resolution lane after the LGU
+  sharding wave. This tranche stages explicit board-resolution surfaces only.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: PRC
+  reason: architecture/professional-practice resolution pack.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/PRC/RES_Architecture and AR Interiors are Exclusive.pdf
+  - 001_Raw-Source-Layer/001-Laws/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.pdf
+  - 001_Raw-Source-Layer/001-Laws/PRC/PRBoAres03,s08_temporary Permits for Foreign
+    Architects.pdf
+  - 001_Raw-Source-Layer/001-Laws/PRC/RES_Illegal Practice of AR.pdf
+  - 001_Raw-Source-Layer/001-Laws/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.pdf
+  - 001_Raw-Source-Layer/001-Laws/PRC/RES_Clarification of PD-9266 Rule II Registration.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-prc/20260417T173725Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T173725Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PRC/RES_Architecture and AR
+    Interiors are Exclusive.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PRC/PRBoaRes,s08 Effectivity
+    Dates of PRBOA Resolutions.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PRC/PRBoAres03,s08_temporary
+    Permits for Foreign Architects.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PRC/RES_Illegal Practice of
+    AR.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PRC/PRBoAreso1,s08_Prohibition
+    of NonRLA's.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PRC/RES_Clarification of PD-9266
+    Rule II Registration.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/resolution-on-effectivity-dates-of-prboa-resolutions.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/guidelines-on-temporary-or-special-permits-for-foreign-architects.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/prboa-comments-on-the-illegal-practice-of-architecture.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/resolution-restricting-practice-of-architecture-by-non-registered-and-licensed-architects.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/clarification-on-prboa-resolution-05-2007-rule-ii-registration.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - PRC concept-fit slice admits only directly evidenced board-resolution concepts and dataset-scoped governs relationships
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - PRC concept-fit slice admits only directly evidenced board-resolution concepts and dataset-scoped governs relationships.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/temporary-special-permit.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/architectural-interiors.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/architectural-firm-registration.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/illegal-practice-of-architecture.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/standards-of-professional-practice.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-foreign-architects-governs-concept-temporary-special-permit.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-architectural-interiors.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-governs-concept-architectural-firm-registration.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-architecture-governs-concept-illegal-practice-of-architecture.md
+source_admission:
+  last_run_id: 20260417T173725Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-prc/20260417T173725Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - PRC
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []

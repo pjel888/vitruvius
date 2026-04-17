@@ -1,0 +1,64 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "withhold_auto_summary",
+  "extraction_trust_level": "review_required",
+  "extraction_trust_reasons": [
+    "high extraction difficulty: require manual review before trusting unattended summaries",
+    "front matter is table-heavy and may reflect layout extraction noise",
+    "source quality severity is high enough to require manual review before trusting automated summaries",
+    "spot-review the flagged OCR-sensitive regions before trusting summary prose",
+    "benchmark authoritative references before promoting summary claims"
+  ],
+  "front_matter_suspicious_ocr_line_count": 4,
+  "image_line_count": 0,
+  "manual_review_recommended": true,
+  "markdown_heading_count": 0,
+  "noise_line_count": 0,
+  "non_empty_line_count": 28,
+  "recommendations": [
+    "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+    "low structural-heading count: verify section detection and source structure fidelity",
+    "manual review required: OCR/layout instability is too high for unattended source-summary use"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 0,
+    "admitted_relationship_count": 0,
+    "folder_name": "PRC",
+    "law_id": "prc",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 0.0,
+    "section_to_relationship_ratio": 0.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 0
+  },
+  "severity": "high",
+  "source_acceptance_reasons": [
+    "source quality severity is high enough to require manual review before trusting automated summaries"
+  ],
+  "source_acceptance_status": "manual_review_required",
+  "spot_review_focus": [
+    "title/header lines and the first operative section",
+    "section numbering and other numeric provisions"
+  ],
+  "spot_review_required": true,
+  "structural_heading_count": 0,
+  "summary_auto_withheld": true,
+  "summary_hygiene_flags": [
+    "table_heavy_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "|A. Resolution|B. Resolution Title|C. Date of Official|D. Official Date of|E. Initially Mandated|",
+    "|Number| |Gazette|Effectivity|Compliance|",
+    "|03, Series of 2008|GUIDELINES IMPLEMENTING SECTION 38, ART. IV OF R.A. NO. 9266, KNOWN AS “THE ARCHITECTURE ACT OF 2004”, AND SECTION 38, RULE IV OF BOARD RES. NO. 07, SERIES OF 2004, CITED AS THE “IRR OF THE ARCHITECTURE ACT OF|24 March 2008|09 April 2008|09 April 2008 through 08 May 2008<br><br>(SECTION 3. Period of Application for the Temporary/ Special|",
+    "| |2004”, THE COVERAGE OF TEMPORARY/ SPECIAL PERMITS FOR ISSUANCE TO FOREIGN ARCHITECTS AND FOR OTHER PURPOSES| | |Permit. – Within one (1) month from the effective date of this Guidelines x x x)|"
+  ],
+  "suspicious_ocr_line_count": 4,
+  "suspicious_ocr_line_ratio": 0.142857,
+  "table_line_count": 22,
+  "total_line_count": 36,
+  "useful_text_line_count": 6,
+  "useful_text_ratio": 0.214286
+}

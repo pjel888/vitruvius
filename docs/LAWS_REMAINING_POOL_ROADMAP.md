@@ -5,6 +5,10 @@
 - covered through pilot/core bundle + completed lanes: **41**
 - remaining uncovered folders: **6**
 
+## Newly completed after the original roadmap draft
+- `PRC` — professional-practice / PRBoA resolution lane now completed
+- `RA-9279` — remediation lane now resolved truthfully as the Section 18 RA 7279 IRR source surface
+
 ## Proposed future tranche sequence
 ### Tranche 9 — Environmental / implementation guidance
 - `DENR`
@@ -20,7 +24,7 @@
 
 ### Tranche 12 — Planning / settlements governance pack
 - `EO`
-- `HLURB-DHSUD`
+- `DHSUD` (from the legacy combined `HLURB-DHSUD` raw folder)
 
 ### Tranche 15 — Local ordinance / zoning sharding lane
 - `LGU`

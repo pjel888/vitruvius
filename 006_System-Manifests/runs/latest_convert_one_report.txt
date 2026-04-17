@@ -1,9 +1,9 @@
 Vitruvius Convert One Report
 
-Source: 001-Laws/RA-9279/IRR RA 7279 Sec 18.pdf
+Source: 001-Laws/PRC/RES_Illegal Practice of AR.pdf
 Detection result: TEXT_PDF
 Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-9279/IRR RA 7279 Sec 18.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-9279/IRR RA 7279 Sec 18.json
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PRC/RES_Illegal Practice of AR.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PRC/RES_Illegal Practice of AR.json
 
 STATUS: converted

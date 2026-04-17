@@ -2,8 +2,8 @@ tranche_id: laws-tranche-12
 purpose: readiness-only
 phase_11_gate: gated
 description: Twelfth explicit widening tranche after tranche-11. This tranche uses
-  scoped EO and HLURB-DHSUD planning-governance documents only, avoiding bundle sweeps
-  by declaring authoritative files explicitly.
+  scoped EO and DHSUD planning-governance documents only, while preserving the legacy
+  combined HLURB-DHSUD raw folder as a storage/container reality.
 review_model_preset: m2-8gb-safe
 candidate_law_folders:
 - folder_name: EO
@@ -50,8 +50,10 @@ candidate_law_folders:
   - 006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md
   - 006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md
   - 006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan.md
-- folder_name: HLURB-DHSUD
-  reason: planning and settlements implementation guidance.
+- folder_name: DHSUD
+  raw_folder_name: HLURB-DHSUD
+  reason: DHSUD planning and settlements implementation guidance sourced from the
+    legacy combined HLURB-DHSUD raw folder.
   raw_anchor_paths: &id002
   - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf
   - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Resilient Urban Design and Development
@@ -89,14 +91,18 @@ candidate_law_folders:
   - source admission executed for the selected authoritative prepared variants
   - duplicate or study-aid raw variants remain explicit and excluded from canonical
     admission
+  - logical agency identity is DHSUD even though the raw storage folder remains combined
+    as HLURB-DHSUD
   scope_notes:
   - Source admission is intentionally conservative and admits only selected authoritative
     prepared variants.
+  - The staged files are DHSUD-branded 2025 publications; older HLURB materials remain
+    explicit but excluded inside the combined raw folder.
 source_admission:
   last_run_id: 20260417T151027Z
   last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-12/20260417T151027Z/laws_tranche_source_admission_report.json
   admitted_ready_law_folders:
   - EO
-  - HLURB-DHSUD
+  - DHSUD
   mixed_readiness_law_folders: []
   blocked_law_folders: []

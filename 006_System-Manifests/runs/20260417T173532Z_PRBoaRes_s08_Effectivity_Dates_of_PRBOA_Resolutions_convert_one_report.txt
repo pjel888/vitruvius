@@ -1,0 +1,9 @@
+Vitruvius Convert One Report
+
+Source: 001-Laws/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.pdf
+Detection result: TEXT_PDF
+Recommended route: OPENDATALOADER_DIRECT
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.json
+
+STATUS: converted

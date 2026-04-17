@@ -1,0 +1,50 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "trusted",
+  "extraction_trust_reasons": [],
+  "front_matter_suspicious_ocr_line_count": 15,
+  "image_line_count": 0,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 7,
+  "noise_line_count": 0,
+  "non_empty_line_count": 257,
+  "recommendations": [
+    "low structural-heading count: verify section detection and source structure fidelity"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 4,
+    "admitted_relationship_count": 4,
+    "folder_name": "PRC",
+    "law_id": "prc",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 0.0,
+    "section_to_relationship_ratio": 0.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 0
+  },
+  "severity": "low",
+  "source_acceptance_reasons": [],
+  "source_acceptance_status": "accepted",
+  "spot_review_focus": [],
+  "spot_review_required": false,
+  "structural_heading_count": 0,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [],
+  "suspicious_ocr_examples": [
+    "WHEREAS, Sec.38, Art. IV of R. A. No. 9266, known as “The Architecture Act of 2004”, and SECTION 38, Rule IV of Board Res. No. 07, series of 2004, cited as the “IRR of the Architecture Act of 2004”, provide that a foreign national, who intends to perform architectural services in the Philippines shall secure a temporary/special permit from the Professional Regulatory Board of Architecture (the “Board”), subject to approval by the Professional Regulation Commission (the ”Commission”) upon compliance with all legal and procedural guidelines;",
+    "- 1) \"Architect\" means a person professionally and academically qualified, registered and licensed under R.A. No. 9266 with a Certificate of Registration and Professional Identification (ID) Card issued by the Professional Regulatory Board of Architecture (the “Board”) and the Professional Regulation Commission (the “Commission”), and who is responsible for advocating the fair and sustainable development, welfare and cultural expression of society’s habitat in terms of space, forms, and historical context;",
+    "- 11)“Architectural Interiors” means the detailed planning and design of the indoor/enclosed areas of any proposed building/structure, including retrofit or renovation work and which shall cover all architectural and utility aspects, including the architectural lay-outing of all building engineering systems found therein;",
+    "- 12)“Architectural Plans” means two (2)-dimensional representations reflecting a proposed development/redevelopment of an enclosed/ semi-enclosed or open area",
+    "- 15) “Code of Ethical Conduct” means a document which forms part of the Architects’ National Code which contains the norms and principles governing the practice of the profession of architecture in the highest standards of ethical conduct; this document is applicable to foreign architects who are holders of temporary/ special permits to practice architecture in the Philippines;"
+  ],
+  "suspicious_ocr_line_count": 22,
+  "suspicious_ocr_line_ratio": 0.085603,
+  "table_line_count": 0,
+  "total_line_count": 420,
+  "useful_text_line_count": 257,
+  "useful_text_ratio": 1.0
+}

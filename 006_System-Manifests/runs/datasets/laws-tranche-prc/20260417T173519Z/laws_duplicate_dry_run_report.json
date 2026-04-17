@@ -1,0 +1,16 @@
+{
+  "action": "run-laws-duplicate-dry-run",
+  "candidate_law_folder_count": 1,
+  "candidate_law_folders": [
+    "PRC"
+  ],
+  "dry_run": true,
+  "duplicate_cluster_count": 0,
+  "duplicate_clusters": [],
+  "duplicate_law_folders": [],
+  "generated_at_utc": "20260417T173519Z",
+  "phase_11_gate": "gated",
+  "run_id": "20260417T173519Z",
+  "scope_id": "laws-tranche-prc",
+  "tranche_manifest_path": "config/datasets/laws-tranche-prc.yaml"
+}

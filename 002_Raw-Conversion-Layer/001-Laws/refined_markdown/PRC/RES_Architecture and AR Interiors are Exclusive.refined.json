@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T173541Z",
+  "source_relative_path": "001-Laws/raw_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md",
+  "refined_relative_path": "001-Laws/refined_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md",
+  "source_hash": "b1c4591b40b74c815f6226d27ae0fe9e52ffda404ac8704292996f32bfd8a59a",
+  "output_hash": "88bb6865b45fd744f5d0995759050d24ff79adc53c9b973ea43308b094e6b7c2",
+  "chars_before": 76075,
+  "chars_after": 76007,
+  "chars_delta": -68,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "collapse-consecutive-blank-lines",
+    "normalize-section-abbreviation"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 76075,
+      "chars_after": 76075,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 76075,
+      "chars_after": 76075,
+      "changed": false
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 76075,
+      "chars_after": 76075,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 76075,
+      "chars_after": 76075,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 76075,
+      "chars_after": 75986,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 75986,
+      "chars_after": 75986,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 75986,
+      "chars_after": 76007,
+      "changed": true
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 76007,
+      "chars_after": 76007,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}

@@ -358,11 +358,12 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - see `/.ai/05_logs/2026-04-17_laws-tranche-11-execution-validation.md`
   - tranche-12 is now defined and executed through the same bounded workflow:
     - manifest: `config/datasets/laws-tranche-12.yaml`
-    - staged folders: `EO`, `HLURB-DHSUD`
+    - staged folders: `EO`, `DHSUD`
     - current execute evidence:
       - `generated_relationship_count = 3`
       - `shallow_representation_count = 0`
       - graph snapshot: `7 nodes / 6 edges`
+    - the raw storage folder remains `HLURB-DHSUD`, but the staged guidance files are explicitly DHSUD-branded 2025 publications
     - see `/.ai/05_logs/2026-04-17_laws-tranche-12-execution-validation.md`
   - tranche-13 is now defined and executed through the same bounded workflow:
     - manifest: `config/datasets/laws-tranche-13.yaml`
@@ -492,6 +493,21 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - graph snapshot: `4 nodes / 4 edges`
     - the admitted source identity is now explicitly the Section 18 RA 7279 IRR rather than a fictional RA 9279 statute surface
     - see `/.ai/05_logs/2026-04-18_laws-ra-9279-remediation-validation.md`
+  - the PRC lane now executes cleanly on six board-resolution / professional-practice surfaces:
+    - manifest: `config/datasets/laws-tranche-prc.yaml`
+    - current execute evidence:
+      - `staged_law_folders = [PRC]`
+      - `duplicate_law_folders = []`
+      - `generated_relationship_count = 2`
+      - `manual_review_required_count = 1`
+      - `shallow_representation_count = 0`
+      - graph snapshot: `12 nodes / 10 edges`
+    - four PRC sources still keep spot-review / summary-withheld signals, which is truthful for this board-resolution bundle
+    - see `/.ai/05_logs/2026-04-18_laws-tranche-prc-validation.md`
+  - the HLURB/DHSUD agency split is now modeled more truthfully:
+    - tranche-12 now stages `DHSUD` guidance surfaces while preserving the legacy combined `HLURB-DHSUD` raw folder as a storage/container reality
+    - the currently staged guidance files are explicitly DHSUD-branded 2025 publications
+    - see `/.ai/05_logs/2026-04-18_hlurb-dhsud-agency-split-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

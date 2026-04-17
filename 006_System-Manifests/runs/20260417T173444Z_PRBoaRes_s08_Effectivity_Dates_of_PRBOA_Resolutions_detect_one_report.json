@@ -1,0 +1,19 @@
+{
+  "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.pdf",
+  "total_pages": 2,
+  "pages_sampled": 2,
+  "pages_with_usable_text": 2,
+  "total_extracted_characters": 2599,
+  "page_details": [
+    {
+      "page_number": 1,
+      "extracted_characters": 1192
+    },
+    {
+      "page_number": 2,
+      "extracted_characters": 1407
+    }
+  ],
+  "result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT"
+}
