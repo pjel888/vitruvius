@@ -113,6 +113,25 @@ This creates starter artifacts for:
 
 The scaffolded family is intentionally empty until completed lanes and manifest entries are admitted.
 
+## Scaffolding a starter lane manifest from raw inventory
+To bootstrap the first manifest for a scaffolded family from a raw-root inventory:
+
+```bash
+python3 scripts/pipeline_cli.py scaffold-completed-aggregate-lane-manifest \
+  --family <family-name> \
+  --lane-id <lane-id> \
+  --raw-root <repo-relative-raw-root> \
+  --max-files 5 \
+  --extension .pdf
+```
+
+This writes a starter manifest that contains:
+- raw slice anchors
+- starter classified raw entries
+- starter law-unit placeholders
+
+It does **not** claim canonical sources or relationships yet. Those still need truthful admission before the family can become runnable.
+
 ## Profile contract
 A profile YAML must define:
 - `dataset_id`

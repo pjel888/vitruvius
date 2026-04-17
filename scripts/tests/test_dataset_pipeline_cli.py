@@ -2244,6 +2244,39 @@ def test_check_completed_aggregate_family_readiness_reports_ready_family(tmp_pat
     assert readiness['resolved_manifest_count'] == 1
 
 
+def test_scaffold_completed_aggregate_lane_manifest_writes_starter_manifest(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import (
+        scaffold_completed_aggregate_family,
+        scaffold_completed_aggregate_lane_manifest,
+    )
+
+    scaffold_completed_aggregate_family(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        dataset_kind='history-aggregate',
+    )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '002-History' / 'a.pdf')
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '002-History' / 'b.pdf')
+
+    result = scaffold_completed_aggregate_lane_manifest(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        lane_id='history-lane-starter',
+        raw_root=Path('001_Raw-Source-Layer/002-History'),
+        max_files=1,
+        extensions=['.pdf'],
+    )
+    payload = yaml.safe_load(result['out_manifest_path'].read_text(encoding='utf-8'))
+    assert payload['dataset_id'] == 'history-lane-starter'
+    assert payload['dataset_kind'] == 'history-aggregate'
+    assert len(payload['raw_slice_anchors'][0]['classified_raw_entries']) == 1
+    assert len(payload['law_units']) == 1
+    assert payload['canonical_input_manifest']['sources'] == []
+    assert payload['relationship_input_manifest']['relationships'] == []
+
+
 def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
     tmp_path: Path,
     monkeypatch,
@@ -2642,6 +2675,56 @@ def test_pipeline_cli_check_completed_aggregate_family_reports_blockers(
     assert stdout_payload['action'] == 'check-completed-aggregate-family'
     assert stdout_payload['ready_to_run'] is False
     assert 'no completed lanes admitted' in stdout_payload['blockers']
+
+
+def test_pipeline_cli_scaffold_completed_aggregate_lane_manifest_writes_manifest(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '002-History' / 'a.pdf')
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '002-History' / 'b.pdf')
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-family',
+            '--family', 'history-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--dataset-kind', 'history-aggregate',
+        ],
+    )
+    assert pipeline_cli.main() == 0
+    capsys.readouterr()
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-lane-manifest',
+            '--family', 'history-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--lane-id', 'history-lane-starter',
+            '--raw-root', '001_Raw-Source-Layer/002-History',
+            '--max-files', '1',
+            '--extension', '.pdf',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'history-lane-starter.yaml').read_text(encoding='utf-8'))
+    assert payload['dataset_id'] == 'history-lane-starter'
+    assert len(payload['law_units']) == 1
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'scaffold-completed-aggregate-lane-manifest'
+    assert stdout_payload['selected_file_count'] == 1
 
 
 def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline(

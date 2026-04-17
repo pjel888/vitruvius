@@ -792,3 +792,129 @@ def check_completed_aggregate_family_readiness(
         'dataset_manifest_valid': dataset_manifest_valid,
         'dataset_manifest_error': dataset_manifest_error,
     }
+
+
+def scaffold_completed_aggregate_lane_manifest(
+    *,
+    repo_root: Path,
+    family: str,
+    catalog_path: Path,
+    lane_id: str,
+    raw_root: Path,
+    out_manifest_path: Path | None = None,
+    max_files: int = 5,
+    extensions: list[str] | None = None,
+) -> dict[str, Any]:
+    if max_files <= 0:
+        raise ValueError('max_files must be positive')
+    normalized_lane_id = lane_id.strip()
+    if not normalized_lane_id:
+        raise ValueError('lane_id must not be empty')
+
+    resolved_profile_path = resolve_completed_aggregate_profile_path(
+        repo_root=repo_root,
+        family=family,
+        catalog_path=catalog_path,
+    )
+    profile = load_completed_aggregate_profile(repo_root=repo_root, profile_path=resolved_profile_path)
+    resolved_raw_root = raw_root if raw_root.is_absolute() else repo_root / raw_root
+    if not resolved_raw_root.exists() or not resolved_raw_root.is_dir():
+        raise ValueError(f'raw_root is not a directory: {resolved_raw_root}')
+
+    from .conversion import SUPPORTED_DIRECT_INPUT_EXTENSIONS
+
+    allowed_extensions = {
+        ext.lower() if ext.startswith('.') else f'.{ext.lower()}'
+        for ext in (extensions or list(SUPPORTED_DIRECT_INPUT_EXTENSIONS))
+    }
+    selected_files = [
+        path for path in sorted(resolved_raw_root.iterdir())
+        if path.is_file() and not path.name.startswith('.') and path.suffix.lower() in allowed_extensions
+    ][:max_files]
+    if not selected_files:
+        raise ValueError('no raw files matched the requested root/extensions')
+
+    resolved_out_manifest_path = (
+        out_manifest_path
+        if out_manifest_path is not None and out_manifest_path.is_absolute()
+        else repo_root / (out_manifest_path or Path(f'config/datasets/{normalized_lane_id}.yaml'))
+    )
+    raw_root_rel = str(resolved_raw_root.relative_to(repo_root))
+    classified_entries = []
+    law_units = []
+    for index, file_path in enumerate(selected_files, start=1):
+        file_rel = str(file_path.relative_to(repo_root))
+        classified_entries.append({
+            'path': file_rel,
+            'folder_name': family,
+            'entry_role': 'authoritative',
+            'authority_tier': 'primary',
+            'variant_family': f'{normalized_lane_id}-starter',
+            'edition_or_source_note': f'Starter lane scaffold from {file_path.name}.',
+            'include_in_m1': True,
+            'reason': f'Starter lane scaffold for {normalized_lane_id}',
+        })
+        law_units.append({
+            'law_id': f'{normalized_lane_id}-{index}',
+            'folder_name': family,
+            'raw_anchor_paths': [file_rel],
+            'refined_markdown_paths': [],
+            'authoritative_variant_paths': [file_rel],
+            'excluded_variant_paths': [],
+            'admitted_source_paths': [],
+            'admitted_concept_paths': [],
+            'admitted_relationship_paths': [],
+            'verification_checks': [],
+            'scope_notes': [f'Starter lane scaffold from {file_path.name}'],
+        })
+
+    payload = {
+        'dataset_id': normalized_lane_id,
+        'dataset_kind': str(profile['dataset_kind']),
+        'scope_notes': [
+            f'Starter lane scaffold for family {family}.',
+            f'Raw root: {raw_root_rel}.',
+            'Canonical sources and relationship inputs still need truthful admission before execution.',
+        ],
+        'raw_slice_anchors': [
+            {
+                'folder_name': family,
+                'raw_root': raw_root_rel,
+                'entry_role': 'authoritative',
+                'authority_tier': 'primary',
+                'variant_family': f'{normalized_lane_id}-starter',
+                'edition_or_source_note': f'Starter lane scaffold for {normalized_lane_id}.',
+                'include_in_m1': True,
+                'reason': f'Starter lane scaffold for {normalized_lane_id}',
+                'classified_raw_entries': classified_entries,
+            }
+        ],
+        'canonical_input_manifest': {
+            'sources': [],
+            'concepts': [],
+        },
+        'relationship_input_manifest': {
+            'relationships': [],
+        },
+        'graph_output_root': f'005_Operational-Intelligence-Layer/graph/datasets/{normalized_lane_id}',
+        'run_output_root': f'006_System-Manifests/runs/datasets/{normalized_lane_id}',
+        'query_snapshot_path_template': f'005_Operational-Intelligence-Layer/graph/datasets/{normalized_lane_id}' + '/{run_id}_graph_snapshot.json',
+        'freshness_policy': {'mode': 'exact'},
+        'pilot_gate': {
+            'require_manifest_validation': True,
+            'source_to_graph_execute_ready': False,
+            'derived_from_tranche_id': normalized_lane_id,
+            'derived_run_id': utc_now_stamp().split('T')[0],
+        },
+        'law_units': law_units,
+    }
+    write_yaml_payload(resolved_out_manifest_path, payload)
+    return {
+        'family': family,
+        'lane_id': normalized_lane_id,
+        'profile_path': resolved_profile_path,
+        'raw_root': resolved_raw_root,
+        'out_manifest_path': resolved_out_manifest_path,
+        'selected_files': selected_files,
+        'payload': payload,
+    }

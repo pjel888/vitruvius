@@ -43,5 +43,7 @@ status: in_progress
   - completed manifest -> ledger/index registration
 - family readiness check is now in place:
   - structured blocker reporting before run attempts
+- starter lane-manifest scaffolding is now in place:
+  - raw-root inventory -> starter manifest
 - the next real proof is still:
   - onboard the first true non-laws trusted dataset family once its completed lanes are admitted

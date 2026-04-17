@@ -401,6 +401,17 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_check_parser.add_argument("--family", required=True)
     generic_aggregate_check_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml",
                                                help="Profile catalog YAML path")
+    generic_aggregate_lane_scaffold_parser = add_command_parser(subparsers, "scaffold-completed-aggregate-lane-manifest")
+    generic_aggregate_lane_scaffold_parser.add_argument("--family", required=True)
+    generic_aggregate_lane_scaffold_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml",
+                                                       help="Profile catalog YAML path")
+    generic_aggregate_lane_scaffold_parser.add_argument("--lane-id", required=True)
+    generic_aggregate_lane_scaffold_parser.add_argument("--raw-root", required=True,
+                                                       help="Repo-relative raw root directory to inventory")
+    generic_aggregate_lane_scaffold_parser.add_argument("--out-manifest", default=None)
+    generic_aggregate_lane_scaffold_parser.add_argument("--max-files", type=int, default=5)
+    generic_aggregate_lane_scaffold_parser.add_argument("--extension", action="append", default=[],
+                                                       help="Allowed file extension (repeatable). Defaults to supported direct-input extensions")
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1174,6 +1185,32 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("check-completed-aggregate-family", _run_check_generic_family)
+
+    if args.command == "scaffold-completed-aggregate-lane-manifest":
+        from vitruvius.aggregate_manifest import scaffold_completed_aggregate_lane_manifest
+        def _run_scaffold_generic_lane():
+            repo_root = Path.cwd().resolve()
+            result = scaffold_completed_aggregate_lane_manifest(
+                repo_root=repo_root,
+                family=args.family,
+                catalog_path=Path(args.catalog),
+                lane_id=args.lane_id,
+                raw_root=Path(args.raw_root),
+                out_manifest_path=Path(args.out_manifest) if args.out_manifest else None,
+                max_files=args.max_files,
+                extensions=list(args.extension or []),
+            )
+            print(json.dumps({
+                "action": "scaffold-completed-aggregate-lane-manifest",
+                "family": args.family,
+                "lane_id": result["lane_id"],
+                "raw_root": str(result["raw_root"].relative_to(repo_root)),
+                "out_manifest_path": str(result["out_manifest_path"].relative_to(repo_root)),
+                "selected_file_count": len(result["selected_files"]),
+                "selected_files": [str(path.relative_to(repo_root)) for path in result["selected_files"]],
+            }, indent=2))
+            return 0
+        return _run("scaffold-completed-aggregate-lane-manifest", _run_scaffold_generic_lane)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary
