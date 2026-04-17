@@ -1,0 +1,49 @@
+tranche_id: laws-tranche-11
+purpose: readiness-only
+phase_11_gate: gated
+description: Eleventh explicit widening tranche after tranche-10. This tranche is
+  a singleton overlap-closure lane for the PD-9514 fire-code file, mapped onto the
+  existing Fire Code IRR canonical source and reusing established fire-code concepts.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: PD-9514
+  reason: Fire-code overlap-closure singleton lane.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/PD-9514/PD 9514 - Fire Code of the Philippines.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths: []
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/means-of-egress.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/certificate-of-occupancy.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/building-height.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/exit-width.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/light-and-ventilation.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/stairs.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/yards.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md
+  - 006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md
+  - 006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-11/20260417T150204Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T150204Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-9514/PD 9514 - Fire Code
+    of the Philippines.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-fire-code-of-the-philippines.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+source_admission:
+  last_run_id: 20260417T150204Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-11/20260417T150204Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - PD-9514
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []

@@ -344,6 +344,18 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `shallow_representation_count = 0`
       - graph snapshot: `1 nodes / 0 edges`
     - see `/.ai/05_logs/2026-04-17_laws-tranche-10-execution-validation.md`
+  - tranche-11 is now defined and executed through the same bounded workflow:
+    - manifest: `config/datasets/laws-tranche-11.yaml`
+    - tranche-11 law:
+      - `PD-9514`
+    - current execute evidence:
+      - `staged_law_folders = [PD-9514]`
+      - `generated_relationship_count = 7`
+      - `filtered_relationship_count = 1`
+      - `shallow_representation_count = 0`
+      - `source_to_graph_execute_completed = true`
+      - graph snapshot: `10 nodes / 10 edges`
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-11-execution-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

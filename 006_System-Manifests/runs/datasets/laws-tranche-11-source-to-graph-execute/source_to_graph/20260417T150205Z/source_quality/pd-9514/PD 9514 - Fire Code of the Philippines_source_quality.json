@@ -1,0 +1,55 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "moderate extraction difficulty: treat automated summaries as guarded",
+    "front matter includes a table of contents before operative text"
+  ],
+  "front_matter_suspicious_ocr_line_count": 2,
+  "image_line_count": 2,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 546,
+  "noise_line_count": 1,
+  "non_empty_line_count": 6465,
+  "recommendations": [
+    "high table-line count: verify layout-sensitive extraction and summary hygiene"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/PD-9514/PD 9514 - Fire Code of the Philippines.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 3,
+    "admitted_relationship_count": 3,
+    "folder_name": "PD-9514",
+    "law_id": "pd-9514",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 122.333333,
+    "section_to_relationship_ratio": 122.333333,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 367
+  },
+  "severity": "medium",
+  "source_acceptance_reasons": [],
+  "source_acceptance_status": "accepted",
+  "spot_review_focus": [],
+  "spot_review_required": false,
+  "structural_heading_count": 367,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [
+    "table_of_contents_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "- RULE 5. BFP REORGANIZATION AND PROFESSIONALIZATION ...... 23",
+    "- DIVISION 2. OTHER AGENCIES’ SUPPORT........................................................ 30 SECTION 7.0.2.1 COORDINATION WITH OTHER AGENCIES .................... 30",
+    "- SECTION 10.3.4.4.13 HAZARDOUS INSULATOR/CUSHIONING MATERIALS ...................................................................... 336",
+    "- SECTION 10.5.6.5 ELECTRICAL APPLIANCES/DEVICES............................. 425",
+    "“It is the policy of the State to ensure public safety, promote economic development through the prevention and suppression of all kinds, of destructive fires, and promote the professionalization of the fire service as a profession. Towards this end, the State shall enforce all laws, rules and regulations to ensure adherence to standard fire prevention and safety measures, and promote accountability in the fire protection and prevention service.”"
+  ],
+  "suspicious_ocr_line_count": 239,
+  "suspicious_ocr_line_ratio": 0.036968,
+  "table_line_count": 294,
+  "total_line_count": 11121,
+  "useful_text_line_count": 6168,
+  "useful_text_ratio": 0.95406
+}

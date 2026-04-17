@@ -325,3 +325,13 @@ def test_build_plan_matches_ra_9266_irr_rule() -> None:
     assert plan['prefix'] == 'irr'
     assert plan['source_type'] == 'irr'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_pd_9514_file_to_ra_9514_irr_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/PD-9514/PD 9514 - Fire Code of the Philippines.md'
+    )
+    assert plan['title'] == 'Implementing Rules and Regulations of the Fire Code of the Philippines'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'

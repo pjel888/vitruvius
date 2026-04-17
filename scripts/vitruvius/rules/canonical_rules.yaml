@@ -100,6 +100,9 @@ rules:
       any_contains:
         - "ra9514-rirr"
         - "ra-9514"
+        - "pd 9514 - fire code of the philippines"
+        - "pd-9514"
+        - "ra9514 irr as of june 26, 2009"
 
     classification:
       source_type: irr
