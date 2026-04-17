@@ -278,6 +278,17 @@ def build_parser() -> argparse.ArgumentParser:
                                          help="Optional review parallelism override for readiness planning")
     all_laws_dry_run_parser.add_argument("--review-preset", default=None,
                                          help="Optional review preset (for example: m2-8gb-safe)")
+    tranche_dry_run_parser = add_command_parser(subparsers, "run-laws-tranche-dry-run")
+    tranche_dry_run_parser.add_argument("--tranche-manifest", default="config/datasets/laws-tranche-1.yaml",
+                                        help="Scoped tranche manifest to inspect without widening into execute mode")
+    tranche_dry_run_parser.add_argument("--review-model", default=None,
+                                        help="Optional review model override for tranche planning")
+    tranche_dry_run_parser.add_argument("--review-timeout-seconds", type=int, default=None,
+                                        help="Optional review timeout override for tranche planning")
+    tranche_dry_run_parser.add_argument("--review-parallel", type=int, default=None,
+                                        help="Optional review parallelism override for tranche planning")
+    tranche_dry_run_parser.add_argument("--review-preset", default=None,
+                                        help="Optional review preset (for example: m2-8gb-safe)")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -770,6 +781,21 @@ def main() -> int:
                 pilot_manifest="config/datasets/laws-core-bundle-m1.yaml",
                 review_model=args.review_model,
                 review_model_preset=args.review_preset,
+            ),
+        )
+
+    if args.command == "run-laws-tranche-dry-run":
+        from vitruvius.dataset_pipeline import run_dataset_source_to_graph_pipeline
+        return _run(
+            "run-laws-tranche-dry-run",
+            lambda: run_dataset_source_to_graph_pipeline(
+                dataset_manifest=args.tranche_manifest,
+                export_owl=False,
+                dry_run=True,
+                review_model=args.review_model,
+                review_timeout_seconds=args.review_timeout_seconds,
+                review_parallelism=args.review_parallel,
+                review_preset=args.review_preset,
             ),
         )
 

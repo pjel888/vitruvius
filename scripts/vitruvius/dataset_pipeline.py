@@ -21,7 +21,13 @@ from .config import (
     resolve_review_preset,
 )
 from .graph.cli import run_build_graph
-from .graph.dataset_manifest import DatasetManifest, DatasetManifestError, load_dataset_manifest, write_json_report
+from .graph.dataset_manifest import (
+    DatasetLawUnit,
+    DatasetManifest,
+    DatasetManifestError,
+    load_dataset_manifest,
+    write_json_report,
+)
 from .ollama_review import run_review_relationships_ollama
 from .ontology.cli import run_export_graph_owl
 from .promotion import run_promote_inner
@@ -366,6 +372,62 @@ def _source_quality_recommendations(metrics: dict[str, object]) -> list[str]:
     return recommendations
 
 
+def _representation_guardrail(
+    law_unit: DatasetLawUnit,
+    metrics: dict[str, object],
+) -> dict[str, object]:
+    structural_heading_count = int(metrics.get("structural_heading_count", 0) or 0)
+    admitted_concept_count = len(law_unit.admitted_concept_paths)
+    admitted_relationship_count = len(law_unit.admitted_relationship_paths)
+    section_to_concept_ratio = (
+        round(structural_heading_count / max(admitted_concept_count, 1), 6)
+        if structural_heading_count > 0
+        else 0.0
+    )
+    section_to_relationship_ratio = (
+        round(structural_heading_count / max(admitted_relationship_count, 1), 6)
+        if structural_heading_count > 0
+        else 0.0
+    )
+
+    severity = "low"
+    if structural_heading_count >= 50 and admitted_concept_count <= 1:
+        severity = "high"
+    elif structural_heading_count >= 25 and admitted_concept_count <= 2:
+        severity = "medium"
+
+    reasons: list[str] = []
+    recommendations: list[str] = []
+    if severity != "low":
+        reasons.append(
+            "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage"
+        )
+        if admitted_relationship_count <= 1:
+            reasons.append(
+                "relationship coverage is also thin relative to detected structure"
+            )
+        recommendations.extend(
+            [
+                "add law-native canonical concepts before widening this tranche",
+                "treat current graph coverage as concept-shallow rather than section-complete",
+            ]
+        )
+
+    return {
+        "severity": severity,
+        "status": "shallow_representation" if severity != "low" else "balanced",
+        "law_id": law_unit.law_id,
+        "folder_name": law_unit.folder_name,
+        "structural_heading_count": structural_heading_count,
+        "admitted_concept_count": admitted_concept_count,
+        "admitted_relationship_count": admitted_relationship_count,
+        "section_to_concept_ratio": section_to_concept_ratio,
+        "section_to_relationship_ratio": section_to_relationship_ratio,
+        "reasons": reasons,
+        "recommendations": recommendations,
+    }
+
+
 def _source_summary_hygiene_flags(text: str) -> list[str]:
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     first_window = lines[:160]
@@ -508,11 +570,14 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
 def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str, object]:
     counts = {"low": 0, "medium": 0, "high": 0}
     extraction_trust_counts = {"trusted": 0, "guarded": 0, "review_required": 0}
+    representation_guardrail_counts = {"low": 0, "medium": 0, "high": 0}
     high_paths: list[str] = []
     manual_review_required_paths: list[str] = []
     summary_auto_withheld_paths: list[str] = []
     high_severity_sources: list[dict[str, object]] = []
     manual_review_required_sources: list[dict[str, object]] = []
+    shallow_representation_paths: list[str] = []
+    shallow_representation_sources: list[dict[str, object]] = []
     benchmark_hints: dict[str, dict[str, str]] = {}
     for stage in stage_results:
         quality = stage.get("source_quality")
@@ -520,6 +585,7 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
             continue
         severity = quality.get("severity")
         extraction_trust_level = quality.get("extraction_trust_level")
+        representation_guardrail = quality.get("representation_guardrail")
         path = stage.get("normalized_refined_markdown_path") or quality.get("refined_markdown_path")
         raw_recommendations = quality.get("recommendations")
         raw_benchmark_hints = quality.get("benchmark_source_hints")
@@ -545,6 +611,18 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
                 high_severity_sources.append(stage_summary)
         if extraction_trust_level in extraction_trust_counts:
             extraction_trust_counts[extraction_trust_level] += 1
+        if isinstance(representation_guardrail, dict):
+            guardrail_severity = representation_guardrail.get("severity")
+            if guardrail_severity in representation_guardrail_counts:
+                representation_guardrail_counts[guardrail_severity] += 1
+                if guardrail_severity in {"medium", "high"} and isinstance(path, str):
+                    shallow_representation_paths.append(path)
+                    shallow_representation_sources.append(
+                        {
+                            **stage_summary,
+                            "representation_guardrail": representation_guardrail,
+                        }
+                    )
         if quality.get("manual_review_recommended") and isinstance(path, str):
             manual_review_required_paths.append(path)
             manual_review_required_sources.append(stage_summary)
@@ -558,11 +636,14 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
     return {
         "severity_counts": counts,
         "extraction_trust_counts": extraction_trust_counts,
+        "representation_guardrail_counts": representation_guardrail_counts,
         "high_severity_paths": list(dict.fromkeys(high_paths)),
         "high_severity_sources": high_severity_sources,
         "manual_review_required_paths": list(dict.fromkeys(manual_review_required_paths)),
         "manual_review_required_sources": manual_review_required_sources,
         "summary_auto_withheld_paths": list(dict.fromkeys(summary_auto_withheld_paths)),
+        "shallow_representation_paths": list(dict.fromkeys(shallow_representation_paths)),
+        "shallow_representation_sources": shallow_representation_sources,
         "benchmark_source_hints": [benchmark_hints[url] for url in sorted(benchmark_hints)],
     }
 
@@ -771,6 +852,8 @@ def run_dataset_source_to_graph_pipeline(
                 f"[{stage_index}/{total_stage_count}] Inspecting source quality for {law_unit.law_id} :: {Path(normalized_refined_path).name}"
             )
             source_quality = _compute_refined_markdown_quality(repo_root, normalized_refined_path)
+            representation_guardrail = _representation_guardrail(law_unit, source_quality)
+            source_quality["representation_guardrail"] = representation_guardrail
             try:
                 admitted_source_anchor = _resolve_admitted_source_anchor(
                     repo_root=repo_root,
@@ -796,6 +879,7 @@ def run_dataset_source_to_graph_pipeline(
                         "source_id": source_id,
                         "admitted_canonical_source_anchor": admitted_source_anchor,
                         "source_quality": source_quality,
+                        "representation_guardrail": representation_guardrail,
                         "source_quality_path": str(source_quality_path.relative_to(repo_root)),
                         "planned_extract_json": str((law_base / f"{Path(refined_path).stem}_extract.json").relative_to(repo_root)),
                         "planned_review_json": str((law_base / f"{Path(refined_path).stem}_review.json").relative_to(repo_root)),
@@ -902,6 +986,7 @@ def run_dataset_source_to_graph_pipeline(
                     "source_id": source_id,
                     "admitted_canonical_source_anchor": admitted_source_anchor,
                     "source_quality": source_quality,
+                    "representation_guardrail": representation_guardrail,
                     "source_quality_path": str(source_quality_path.relative_to(repo_root)),
                     "extract_json": str(extract_json.relative_to(repo_root)),
                     "review_json": str(review_json.relative_to(repo_root)),
@@ -941,6 +1026,7 @@ def run_dataset_source_to_graph_pipeline(
             "planned_stage_count": len(stage_results),
             "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
             "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
+            "shallow_representation_count": len(quality_summary["shallow_representation_paths"]),
             "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),
             "source_quality_summary": quality_summary,
         }, indent=2))
@@ -1025,6 +1111,7 @@ def run_dataset_source_to_graph_pipeline(
         "review_runtime": review_settings,
         "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
         "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
+        "shallow_representation_count": len(quality_summary["shallow_representation_paths"]),
         "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),
         "source_quality_summary": quality_summary,
         "pipeline_report_path": str(paths["report"].relative_to(repo_root)),
