@@ -2831,6 +2831,7 @@ def test_bootstrap_completed_aggregate_family_lane_orchestrates_steps(tmp_path: 
     monkeypatch.setattr(am, 'promote_completed_aggregate_lane_relationships', lambda **kwargs: calls.append('promote_relationships') or {'promoted_count': 1})
     monkeypatch.setattr(am, 'admit_completed_manifest_to_family', lambda **kwargs: calls.append('admit_manifest') or {'completed_ledger_path': tmp_path / 'completed.yaml', 'manifest_index_path': tmp_path / 'index.yaml'})
     monkeypatch.setattr(am, 'check_completed_aggregate_family_readiness', lambda **kwargs: calls.append('check_ready') or {'ready_to_run': True})
+    monkeypatch.setattr(am, 'update_completed_aggregate_family_catalog_entry', lambda **kwargs: calls.append('update_catalog') or {'family': 'history-demo', 'status': 'ready'})
 
     summary = am.bootstrap_completed_aggregate_family_lane(
         repo_root=tmp_path,
@@ -2855,9 +2856,38 @@ def test_bootstrap_completed_aggregate_family_lane_orchestrates_steps(tmp_path: 
         'promote_relationships',
         'admit_manifest',
         'check_ready',
+        'update_catalog',
     ]
     assert summary['family_action'] == 'scaffolded'
     assert summary['readiness_summary']['ready_to_run'] is True
+    assert summary['catalog_update']['status'] == 'ready'
+
+
+def test_update_completed_aggregate_family_catalog_entry_updates_status(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import update_completed_aggregate_family_catalog_entry
+
+    catalog_path = tmp_path / 'config' / 'datasets' / 'catalog.yaml'
+    catalog_path.parent.mkdir(parents=True, exist_ok=True)
+    catalog_path.write_text(
+        yaml.safe_dump(
+            {
+                'profiles': [
+                    {'family': 'history-demo', 'profile': 'config/datasets/history-demo-mvp-profile.yaml', 'status': 'scaffolded'},
+                ]
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    updated = update_completed_aggregate_family_catalog_entry(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        status='ready',
+    )
+    payload = yaml.safe_load(catalog_path.read_text(encoding='utf-8'))
+    assert updated['status'] == 'ready'
+    assert payload['profiles'][0]['status'] == 'ready'
 
 
 def test_suggest_completed_aggregate_family_candidates_ranks_text_pdfs_first(tmp_path: Path, monkeypatch) -> None:
@@ -4015,6 +4045,7 @@ def test_pipeline_cli_bootstrap_completed_aggregate_family_lane_reports_summary(
             'family_action': 'scaffolded',
             'lane_id': 'history-lane',
             'manifest_path': 'config/datasets/history-lane.yaml',
+            'catalog_update': {'family': 'history-demo', 'status': 'ready'},
             'readiness_summary': {'ready_to_run': True},
         },
     )

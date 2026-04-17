@@ -491,6 +491,47 @@ def register_completed_aggregate_family(
     return resolved_profile_path, resolved_catalog_path, profile_payload, new_entry
 
 
+def update_completed_aggregate_family_catalog_entry(
+    *,
+    repo_root: Path,
+    family: str,
+    catalog_path: Path,
+    status: str | None = None,
+    note: str | None = None,
+) -> dict[str, Any]:
+    resolved_catalog_path = catalog_path if catalog_path.is_absolute() else repo_root / catalog_path
+    catalog_payload = load_yaml_payload(resolved_catalog_path)
+    profiles = catalog_payload.get('profiles')
+    if not isinstance(profiles, list):
+        raise ValueError("aggregate profile catalog must define a 'profiles' list")
+
+    updated_entry: dict[str, Any] | None = None
+    new_profiles: list[dict[str, Any]] = []
+    for item in profiles:
+        if not isinstance(item, dict):
+            continue
+        if str(item.get('family') or '') != family:
+            new_profiles.append(item)
+            continue
+        entry = dict(item)
+        if status is not None:
+            entry['status'] = status
+        if note is not None:
+            entry['note'] = note
+        updated_entry = entry
+        new_profiles.append(entry)
+
+    if updated_entry is None:
+        raise ValueError(f"no aggregate profile registered for family '{family}'")
+
+    catalog_payload['profiles'] = sorted(
+        new_profiles,
+        key=lambda item: str(item.get('family') or ''),
+    )
+    write_yaml_payload(resolved_catalog_path, catalog_payload)
+    return updated_entry
+
+
 def scaffold_completed_aggregate_family(
     *,
     repo_root: Path,
@@ -1716,6 +1757,14 @@ def bootstrap_completed_aggregate_family_lane(
         family=family,
         catalog_path=catalog_path,
     )
+    catalog_update: dict[str, Any] | None = None
+    if readiness_summary.get('ready_to_run') is True:
+        catalog_update = update_completed_aggregate_family_catalog_entry(
+            repo_root=repo_root,
+            family=family,
+            catalog_path=catalog_path,
+            status='ready',
+        )
 
     return {
         'family': family,
@@ -1733,6 +1782,7 @@ def bootstrap_completed_aggregate_family_lane(
             'completed_ledger_path': _relative(Path(admit_summary['completed_ledger_path']), repo_root),
             'manifest_index_path': _relative(Path(admit_summary['manifest_index_path']), repo_root),
         },
+        'catalog_update': catalog_update,
         'readiness_summary': readiness_summary,
     }
 
