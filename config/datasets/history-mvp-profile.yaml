@@ -1,0 +1,8 @@
+dataset_id: history-aggregate
+dataset_kind: history-aggregate
+completed_ledger: config/datasets/history-completed-lanes.yaml
+manifest_index: config/datasets/history-manifest-index.yaml
+out_manifest: 006_System-Manifests/runs/datasets/history-aggregate/latest_dataset_manifest.yaml
+graph_output_root: 005_Operational-Intelligence-Layer/graph/datasets/history-aggregate
+run_output_root: 006_System-Manifests/runs/datasets/history-aggregate
+query_snapshot_template: 005_Operational-Intelligence-Layer/graph/datasets/history-aggregate/{run_id}_graph_snapshot.json

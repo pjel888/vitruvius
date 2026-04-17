@@ -439,6 +439,8 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_lane_relationship_scaffold_parser.add_argument("--manifest", required=True)
     generic_aggregate_lane_relationship_scaffold_parser.add_argument("--predicate", default="covers")
     generic_aggregate_lane_relationship_scaffold_parser.add_argument("--output-dir", default=None)
+    generic_aggregate_lane_relationship_promote_parser = add_command_parser(subparsers, "promote-completed-aggregate-lane-relationships")
+    generic_aggregate_lane_relationship_promote_parser.add_argument("--manifest", required=True)
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1347,6 +1349,21 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("scaffold-completed-aggregate-lane-relationships", _run_scaffold_generic_lane_relationships)
+
+    if args.command == "promote-completed-aggregate-lane-relationships":
+        from vitruvius.aggregate_manifest import promote_completed_aggregate_lane_relationships
+        def _run_promote_generic_lane_relationships():
+            repo_root = Path.cwd().resolve()
+            summary = promote_completed_aggregate_lane_relationships(
+                repo_root=repo_root,
+                manifest_path=Path(args.manifest),
+            )
+            print(json.dumps({
+                "action": "promote-completed-aggregate-lane-relationships",
+                **summary,
+            }, indent=2))
+            return 0
+        return _run("promote-completed-aggregate-lane-relationships", _run_promote_generic_lane_relationships)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary

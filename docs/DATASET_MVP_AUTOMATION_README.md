@@ -299,6 +299,16 @@ Or explicitly by profile:
   --review-preset m2-8gb-safe
 ```
 
+## Current registered families
+- `laws`
+  - completed authoritative laws-wave MVP graph
+- `history`
+  - first non-laws MVP proof family
+  - current proof lane:
+    - `history-20th-century-architects-2`
+  - current graph evidence:
+    - `2 nodes / 1 edge`
+
 ## Integrity boundary
 This operator path is for the completed trusted subset of a dataset family.
 It should not silently mix in:

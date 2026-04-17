@@ -1,0 +1,95 @@
+{
+  "artifact_metadata": {
+    "contributing_law_ids": [
+      "history-20th-century-architects-2-1"
+    ],
+    "dataset_id": "history-aggregate",
+    "dataset_kind": "history-aggregate",
+    "freshness_policy": {
+      "mode": "exact"
+    },
+    "input_fingerprint": {
+      "combined_sha256": "42c970f5d2b96011eaa1b756305f19766efc4ae29dae237d871673b078285bf2",
+      "file_count": 3,
+      "files": [
+        {
+          "mtime_ns": 1776457836779709395,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/architectural-history.md",
+          "sha256": "9b4a4b41790a7a904e3d6d2cabe99d7f2f74d7a588d6df117e04e5ff3cffe672",
+          "size_bytes": 305
+        },
+        {
+          "mtime_ns": 1776458037822431318,
+          "path": "003_Canonical-Knowledge-Layer/shared/relationships/rel-handout-20th-century-architects-2-covers-concept-architectural-history.md",
+          "sha256": "a56efc266400d0f0405d81a9202bf0236578b8c64c8eff55ee616736f7bcf2f1",
+          "size_bytes": 547
+        },
+        {
+          "mtime_ns": 1776457836646942401,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/20th-century-architects-2.md",
+          "sha256": "0f3b2989ba47801e8c3e989e669578a47000cfb210a7fb7ef6ad46bb27775979",
+          "size_bytes": 1346
+        }
+      ]
+    },
+    "law_units": [
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/architectural-history.md"
+        ],
+        "admitted_relationship_paths": [
+          "003_Canonical-Knowledge-Layer/shared/relationships/rel-handout-20th-century-architects-2-covers-concept-architectural-history.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/20th-century-architects-2.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/002-History/20th Century Architects 2.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "history",
+        "law_id": "history-20th-century-architects-2-1",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/002-History/20th Century Architects 2.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/002-History/refined_markdown/20th Century Architects 2.md"
+        ],
+        "scope_notes": [
+          "Starter lane scaffold from 20th Century Architects 2.pdf",
+          "Aggregate lane: history-20th-century-architects-2"
+        ],
+        "verification_checks": []
+      }
+    ],
+    "manifest_hash": "7b05e6cf9a35b6a489be416acf89e815a37a9c9ccc01874912d139bd7fc9ad4b",
+    "manifest_path": "006_System-Manifests/runs/datasets/history-aggregate/source_to_graph/20260417T203358Z/derived_dataset_manifest.yaml",
+    "pilot_gate": {
+      "derived_from_tranche_id": "history-aggregate-aggregate",
+      "derived_run_id": "20260417",
+      "require_manifest_validation": true,
+      "source_to_graph_execute_ready": false
+    },
+    "run_id": "20260417T203358Z",
+    "scope_notes": [],
+    "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/history-aggregate/20260417T203358Z_graph_integrity_report.json",
+    "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/history-aggregate/20260417T203358Z_graph_snapshot.json",
+    "upstream_artifact_refs": {
+      "canonical_concepts": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/architectural-history.md"
+      ],
+      "canonical_sources": [
+        "003_Canonical-Knowledge-Layer/shared/sources/20th-century-architects-2.md"
+      ],
+      "relationship_inputs": [
+        "003_Canonical-Knowledge-Layer/shared/relationships/rel-handout-20th-century-architects-2-covers-concept-architectural-history.md"
+      ]
+    }
+  },
+  "integrity": {
+    "error_count": 0,
+    "findings": [],
+    "passed": true,
+    "warning_count": 0
+  }
+}

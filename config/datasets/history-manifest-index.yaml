@@ -1,0 +1,3 @@
+manifests:
+- lane_id: history-20th-century-architects-2
+  manifest: config/datasets/history-20th-century-architects-2.yaml

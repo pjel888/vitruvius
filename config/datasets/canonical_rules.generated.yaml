@@ -1,0 +1,18 @@
+version: 1
+rules:
+- name: Scaffolded handout rule for 20Th Century Architects 2
+  match:
+    all_contains:
+    - 20th
+    - century
+    - architects
+  classification:
+    source_type: handout
+    trust_level: secondary
+  canonical:
+    title: 20Th Century Architects 2
+    aliases:
+    - 20th Century Architects 2
+    relationships: {}
+    core_concepts:
+    - architectural history

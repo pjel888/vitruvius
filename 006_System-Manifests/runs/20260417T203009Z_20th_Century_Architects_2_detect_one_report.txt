@@ -1,0 +1,18 @@
+Vitruvius PDF Detection Report
+
+PDF: 002-History/20th Century Architects 2.pdf
+Total pages: 21
+Pages sampled: 5
+
+PAGE DETAILS:
+  Page 1: 197 extracted characters
+  Page 2: 383 extracted characters
+  Page 3: 125 extracted characters
+  Page 4: 54 extracted characters
+  Page 5: 351 extracted characters
+
+Pages with usable text: 5/5
+Total extracted characters: 1110
+
+RESULT: TEXT_PDF
+RECOMMENDED ROUTE: OPENDATALOADER_DIRECT

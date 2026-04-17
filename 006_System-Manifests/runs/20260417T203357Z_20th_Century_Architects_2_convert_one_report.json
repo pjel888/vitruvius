@@ -1,0 +1,13 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-17T20:33:57.139532+00:00",
+  "source_relative_path": "002-History/20th Century Architects 2.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/002-History/20th Century Architects 2.pdf",
+  "detection_result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/002-History/raw_markdown/20th Century Architects 2.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/002-History/sidecar_json/20th Century Architects 2.json",
+  "markdown_output_relative": "002-History/raw_markdown/20th Century Architects 2.md",
+  "json_output_relative": "002-History/sidecar_json/20th Century Architects 2.json",
+  "status": "converted"
+}

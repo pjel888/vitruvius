@@ -2628,6 +2628,7 @@ def test_scaffold_completed_aggregate_lane_concepts_writes_concept_files(tmp_pat
     assert summary['concept_count'] == 1
     concept_payload = (tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'concepts' / 'architectural-history.md').read_text(encoding='utf-8')
     assert 'id: concept-architectural-history' in concept_payload
+    assert 'trust_level: derived' in concept_payload
     updated_manifest = yaml.safe_load(lane_result['out_manifest_path'].read_text(encoding='utf-8'))
     assert updated_manifest['canonical_input_manifest']['concepts'][0]['path'] == '003_Canonical-Knowledge-Layer/shared/concepts/architectural-history.md'
 
@@ -2701,6 +2702,51 @@ def test_scaffold_completed_aggregate_lane_relationships_writes_relationship_fil
     assert 'relationship_type: covers' in rel_payload
     updated_manifest = yaml.safe_load(lane_result['out_manifest_path'].read_text(encoding='utf-8'))
     assert updated_manifest['relationship_input_manifest']['relationships'][0]['path'].endswith('rel-handout-chinese-architecture-covers-concept-architectural-history.md')
+
+
+def test_promote_completed_aggregate_lane_relationships_updates_status(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import promote_completed_aggregate_lane_relationships
+
+    manifest_path = tmp_path / 'config' / 'datasets' / 'lane.yaml'
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    relationship_path = tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-demo.md'
+    _write(
+        relationship_path,
+        '---\nid: rel-demo\ntitle: demo covers concept-demo\npage_type: relationship\nrelationship_type: covers\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: draft\n---\n',
+    )
+    manifest_path.write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'lane',
+                'dataset_kind': 'history-aggregate',
+                'raw_slice_anchors': [],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {
+                    'relationships': [
+                        {
+                            'path': '003_Canonical-Knowledge-Layer/shared/relationships/rel-demo.md',
+                            'folder_name': 'history-demo',
+                            'entry_role': 'authoritative',
+                            'authority_tier': 'approved',
+                            'variant_family': 'demo',
+                            'edition_or_source_note': 'demo',
+                            'include_in_m1': True,
+                            'reason': 'demo',
+                        }
+                    ]
+                },
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    summary = promote_completed_aggregate_lane_relationships(
+        repo_root=tmp_path,
+        manifest_path=manifest_path,
+    )
+    assert summary['promoted_count'] == 1
+    rel_payload = relationship_path.read_text(encoding='utf-8')
+    assert 'canonical_status: promoted' in rel_payload
 
 
 def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
@@ -3642,6 +3688,62 @@ def test_pipeline_cli_scaffold_completed_aggregate_lane_relationships_reports_su
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'scaffold-completed-aggregate-lane-relationships'
     assert stdout_payload['relationship_count'] == 1
+
+
+def test_pipeline_cli_promote_completed_aggregate_lane_relationships_reports_summary(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    _write(
+        tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-demo.md',
+        '---\nid: rel-demo\ntitle: demo covers concept-demo\npage_type: relationship\nrelationship_type: covers\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: draft\n---\n',
+    )
+    manifest_path = tmp_path / 'config' / 'datasets' / 'lane.yaml'
+    manifest_path.write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'lane',
+                'dataset_kind': 'history-aggregate',
+                'raw_slice_anchors': [{'folder_name': 'history-demo', 'raw_root': '001_Raw-Source-Layer/002-History', 'classified_raw_entries': []}],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {
+                    'relationships': [
+                        {
+                            'path': '003_Canonical-Knowledge-Layer/shared/relationships/rel-demo.md',
+                            'folder_name': 'history-demo',
+                            'entry_role': 'authoritative',
+                            'authority_tier': 'approved',
+                            'variant_family': 'demo',
+                            'edition_or_source_note': 'demo',
+                            'include_in_m1': True,
+                            'reason': 'demo',
+                        }
+                    ]
+                },
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'promote-completed-aggregate-lane-relationships',
+            '--manifest', 'config/datasets/lane.yaml',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'promote-completed-aggregate-lane-relationships'
+    assert stdout_payload['promoted_count'] == 1
 
 
 def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline(

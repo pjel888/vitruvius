@@ -1411,7 +1411,7 @@ def scaffold_completed_aggregate_lane_concepts(
         if not target_path.exists():
             target_path.parent.mkdir(parents=True, exist_ok=True)
             target_path.write_text(
-                f"---\nid: {concept_id}\ntitle: {concept}\npage_type: concept\ntrust_level: bootstrap\ncanonical_status: draft\naliases:\n  - {concept}\n---\n\n# {concept}\n\n## Draft Concept Summary\n\nBootstrap concept scaffold generated from completed aggregate lane rule overlay.\n",
+                f"---\nid: {concept_id}\ntitle: {concept}\npage_type: concept\ntrust_level: derived\ncanonical_status: draft\naliases:\n  - {concept}\n---\n\n# {concept}\n\n## Draft Concept Summary\n\nBootstrap concept scaffold generated from completed aggregate lane rule overlay.\n",
                 encoding='utf-8',
             )
         written_paths.append(_relative(target_path, repo_root))
@@ -1567,6 +1567,57 @@ def scaffold_completed_aggregate_lane_relationships(
         'relationship_count': len(written_paths),
         'written_paths': written_paths,
         'predicate': predicate,
+    }
+
+
+def promote_completed_aggregate_lane_relationships(
+    *,
+    repo_root: Path,
+    manifest_path: Path,
+) -> dict[str, Any]:
+    resolved_manifest_path = manifest_path if manifest_path.is_absolute() else repo_root / manifest_path
+    payload = load_yaml_payload(resolved_manifest_path)
+    relationship_section = payload.get('relationship_input_manifest') or {}
+    relationship_entries = relationship_section.get('relationships') or []
+    if not isinstance(relationship_entries, list):
+        relationship_entries = []
+
+    promoted_paths: list[str] = []
+    skipped_paths: list[str] = []
+    for item in relationship_entries:
+        if not isinstance(item, dict):
+            continue
+        rel_path = item.get('path')
+        if not isinstance(rel_path, str) or not rel_path.strip():
+            continue
+        abs_path = repo_root / rel_path
+        if not abs_path.exists():
+            skipped_paths.append(rel_path)
+            continue
+        text = abs_path.read_text(encoding='utf-8')
+        if not text.startswith('---'):
+            skipped_paths.append(rel_path)
+            continue
+        end = text.find('\n---', 3)
+        if end == -1:
+            skipped_paths.append(rel_path)
+            continue
+        fm = yaml.safe_load(text[3:end].strip())
+        if not isinstance(fm, dict):
+            skipped_paths.append(rel_path)
+            continue
+        fm['canonical_status'] = 'promoted'
+        if 'trust_level' not in fm:
+            fm['trust_level'] = 'unverified'
+        body = text[end + 4:]
+        abs_path.write_text(f"---\n{yaml.safe_dump(fm, sort_keys=False).strip()}\n---{body}", encoding='utf-8')
+        promoted_paths.append(rel_path)
+
+    return {
+        'manifest_path': _relative(resolved_manifest_path, repo_root),
+        'promoted_count': len(promoted_paths),
+        'promoted_paths': promoted_paths,
+        'skipped_paths': skipped_paths,
     }
 
 

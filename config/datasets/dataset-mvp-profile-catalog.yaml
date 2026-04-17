@@ -1,4 +1,8 @@
 profiles:
+- family: history
+  profile: config/datasets/history-mvp-profile.yaml
+  status: scaffolded
+  note: History family MVP graph profile.
 - family: laws
   profile: config/datasets/laws-mvp-profile.yaml
   status: ready

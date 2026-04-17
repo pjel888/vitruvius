@@ -59,5 +59,14 @@ status: in_progress
   - generated lane rules -> draft concept pages
 - starter relationship scaffolding is now in place:
   - admitted starter sources + draft concepts -> draft relationship inputs
-- the next real proof is still:
-  - onboard the first true non-laws trusted dataset family once its completed lanes are admitted
+- first true non-laws family proof is now in place:
+  - `history`
+  - one admitted lane
+  - `ready_to_run = true`
+  - aggregate graph execute reached `2 nodes / 1 edge`
+
+## Current next step
+- harden the non-laws family path beyond the first history proof
+- either:
+  - onboard a second true non-laws family, or
+  - reduce bootstrap artifacts by adding reviewed promotion paths for generated rules/concepts/relationships
