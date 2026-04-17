@@ -178,6 +178,14 @@
     - `duplicate_law_folders = []`
     - `generated_relationship_count = 0`
     - `source_to_graph_execute_completed = true`
+- Tranche-2 graph-richness follow-on:
+  - bounded `RA-7899` concept-fit slice admitted:
+    - `concept-floor-area`
+    - `law-amendments-to-the-condominium-act governs concept-floor-area`
+  - fresh tranche-2 execute evidence improves graph output from:
+    - `3 nodes / 0 edges`
+    - to `4 nodes / 1 edge`
+  - tranche-2 is still graph-thin, but no longer pure source-only
 
 ## Residual Graph Caveat
 
@@ -207,6 +215,7 @@
 - Latest tranche source-to-graph execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-execute-validation.md`
 - Latest risk-hardening validation: `/.ai/05_logs/2026-04-17_laws-risk-hardening-execution-validation.md`
 - Latest tranche-2 validation: `/.ai/05_logs/2026-04-17_laws-tranche-2-execution-validation.md`
+- Latest RA-7899 tranche-2 richness validation: `/.ai/05_logs/2026-04-17_ra7899-concept-fit-admission-validation.md`
 
 ## Handoff Note
 

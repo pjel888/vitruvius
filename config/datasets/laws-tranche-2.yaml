@@ -66,9 +66,16 @@ candidate_law_folders:
   source_admission_guardrails: []
   verification_checks:
   - source admission executed for the selected authoritative prepared variants
+  - concept-fit admission keeps RA-7899 graph-richness moving without widening tranche-2
   scope_notes:
   - Source admission is intentionally conservative and admits only selected authoritative
     prepared variants.
+  - RA-7899 concept-fit slice admits an existing shared concept and one dataset-scoped
+    governs relationship only.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-2/concept-slice-ra7899/relationships/rel-law-amendments-to-the-condominium-act-governs-concept-floor-area.md
 source_admission:
   last_run_id: 20260417T092029Z
   last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-2/20260417T092029Z/laws_tranche_source_admission_report.json

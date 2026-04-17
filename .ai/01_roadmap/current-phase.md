@@ -166,6 +166,15 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `generated_relationship_count = 0`
       - `source_to_graph_execute_completed = true`
     - see `/.ai/05_logs/2026-04-17_laws-tranche-2-execution-validation.md`
+  - tranche-2 graph-richness follow-on is now started with a bounded `RA-7899` concept-fit slice:
+    - admitted concept:
+      - `floor-area`
+    - admitted dataset-scoped relationship:
+      - `law-amendments-to-the-condominium-act governs concept-floor-area`
+    - fresh tranche-2 execute graph moves from:
+      - `3 nodes / 0 edges`
+      - to `4 nodes / 1 edge`
+    - see `/.ai/05_logs/2026-04-17_ra7899-concept-fit-admission-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
