@@ -1,0 +1,46 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "trusted",
+  "extraction_trust_reasons": [],
+  "front_matter_suspicious_ocr_line_count": 1,
+  "image_line_count": 0,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 0,
+  "noise_line_count": 0,
+  "non_empty_line_count": 82,
+  "recommendations": [
+    "low structural-heading count: verify section detection and source structure fidelity"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 0,
+    "admitted_relationship_count": 0,
+    "folder_name": "RA-6969",
+    "law_id": "4-2",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 0.0,
+    "section_to_relationship_ratio": 0.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 0
+  },
+  "severity": "low",
+  "source_acceptance_reasons": [],
+  "source_acceptance_status": "accepted",
+  "spot_review_focus": [],
+  "spot_review_required": false,
+  "structural_heading_count": 0,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [],
+  "suspicious_ocr_examples": [
+    "- e) Manufacture means the mechanical or chemical transformation of substances into new products whether work is performed by power-driven machines or by hand, whether it is done in a factory or in the worker’s home, and whether the products are sold at wholesale or retail."
+  ],
+  "suspicious_ocr_line_count": 1,
+  "suspicious_ocr_line_ratio": 0.012195,
+  "table_line_count": 0,
+  "total_line_count": 164,
+  "useful_text_line_count": 82,
+  "useful_text_ratio": 1.0
+}

@@ -1,0 +1,122 @@
+{
+  "generated_at": "20260417T213838Z",
+  "source": "001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md",
+  "source_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+  "total_sections": 123,
+  "total_relationships": 7,
+  "relationships": [
+    {
+      "from": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "type": "governs",
+      "to": "concept-comprehensive-land-use-plan",
+      "occurrences": 25,
+      "sections": [
+        "section-7",
+        "section-1",
+        "section-40",
+        "section-42",
+        "section-47",
+        "section-48",
+        "section-50",
+        "section-72",
+        "section-76"
+      ],
+      "examples": [
+        "The Comprehensive Land Use Plan shall be referred to whenever this Ordinance mentions maps, classifications, zoning, clusters, and the like.",
+        "The identified protected croplands (rice lands and croplands) in the Comprehensive Land Use Plan shall be non-negotiable for conversion to urban uses except for low-impact improvements that will not substantially alter the nature of the land.",
+        "The identified protected croplands (rice lands and croplands) in the Comprehensive Land Use Plan shall be non-negotiable for conversion to urban uses except for low-impact improvements that will not substantially alter the nature of the land. Croplands along Bonuan Binloc are subject to protection b"
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "type": "governs",
+      "to": "concept-building-height",
+      "occurrences": 3,
+      "sections": [
+        "section-1",
+        "section-4"
+      ],
+      "examples": [
+        "In areas where permanent buildings are already established, any horizontal or vertical expansion whether connected or separate from the existing structures, to be undertaken by their owners, lessors, or occupants shall be regulated through the enforcement of performance standards (building height an",
+        "In areas where permanent buildings are already established, any horizontal or vertical expansion whether connected or separate from the existing structures, to be undertaken by their owners, lessors, or occupants shall be regulated through the enforcement of performance standards (building height an",
+        "There are no prescribed building height limits in these zones. The height limits of buildings that may be built-in hazardous locations shall be regulated by national laws, regulations, and other provisions in this Ordinance in order to reduce risk or potential hazard."
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "type": "governs",
+      "to": "concept-adaptive-reuse",
+      "occurrences": 2,
+      "sections": [
+        "section-1"
+      ],
+      "examples": [
+        "Preservation/rehabilitation of the same shall be undertaken through the formulation of guidelines that shall focus on architectural adaptive reuse concepts and design controls.",
+        "Heritage and historic preservation sites/structures shall be protected from any form of desecration and vandalism through proper markers and public informational materials. Preservation/rehabilitation of the same shall be undertaken through the formulation of guidelines that shall focus on architect"
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "type": "governs",
+      "to": "concept-floor-area",
+      "occurrences": 2,
+      "sections": [
+        "section-1",
+        "section-23"
+      ],
+      "examples": [
+        "- 15. Such home industry shall not occupy more than thirty percent (30%) of the floor area of the dwelling unit. There shall be no change or alteration in the outside appearance of the dwelling unit and shall not be a hazard or nuisance;",
+        "1. LOADING AND UNLOADING AREA REQUIREMENTS FOR INSTITUTIONAL/COMMERCIAL ACTIVITIES The loading and unloading of goods in commercial establishments with a gross floor area of 200 sq. meters and above must be done within the confines of the property wherein such establishment is located so as not to o"
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "type": "governs",
+      "to": "concept-zoning-ordinance",
+      "occurrences": 7,
+      "sections": [
+        "section-17",
+        "section-1",
+        "section-73"
+      ],
+      "examples": [
+        "17682003 or the Dagupan City Fisheries Code subject to the provisions of this zoning ordinance.",
+        "To ensure the sustainability of the fishing industry and to prevent the indiscriminate installation and construction of fishing corrals and the utilization of other illegal fishing methods, the conservation and preservation of marine and inland waters must be given priority as embodied in City Ordin",
+        "This subzone, extending from Poblacion Oeste up to the boundary of Calasiao and considered the most polluted river area in Dagupan, shall be closed to culture and capture fisheries for a period of at least two (2) years from the effectivity of this Zoning Ordinance or until such time that water qual"
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "type": "governs",
+      "to": "concept-light-and-ventilation",
+      "occurrences": 2,
+      "sections": [
+        "section-33"
+      ],
+      "examples": [
+        "The height and bulk of buildings and structures shall be so designed that it does not impair the entry of light and ventilation, cause the loss of privacy, and/or create nuisances, hazards, or inconveniences to adjacent developments;",
+        "- 1. The height and bulk of buildings and structures shall be so designed that it does not impair the entry of light and ventilation, cause the loss of privacy, and/or create nuisances, hazards, or inconveniences to adjacent developments;"
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "concept-zoning-ordinance",
+      "type": "affects",
+      "to": "concept-comprehensive-land-use-plan",
+      "occurrences": 2,
+      "sections": [
+        "section-72"
+      ],
+      "examples": [
+        "Determine amendments or revisions necessary in the Zoning Ordinance because of changes that might have been introduced in the Comprehensive Land Use Plan;",
+        "- 2. Determine amendments or revisions necessary in the Zoning Ordinance because of changes that might have been introduced in the Comprehensive Land Use Plan;"
+      ],
+      "alternate_predicates": []
+    }
+  ]
+}

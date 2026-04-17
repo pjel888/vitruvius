@@ -1,0 +1,8 @@
+Section-Aware Relationship Extraction
+
+Sections: 78
+Unique relationships: 3
+
+law-government-procurement-reform-act -> governs -> concept-bids-and-awards-committee (x24) sections=['section-11', 'section-12', 'section-15', 'section-20', 'section-25', 'section-32', 'section-34', 'section-35', 'section-40', 'section-55', 'section-56', 'section-72']
+law-government-procurement-reform-act -> governs -> concept-competitive-bidding (x8) sections=['section-24', 'section-44', 'section-46', 'section-53']
+concept-bids-and-awards-committee -> depends_on -> concept-competitive-bidding (x1) sections=['section-69']

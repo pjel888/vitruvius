@@ -1,0 +1,24 @@
+{
+  "generated_at": "20260417T213632Z",
+  "source": "001-Laws/refined_markdown/RA-10066/ra 10066.md",
+  "source_id": "law-national-cultural-heritage-act-of-2009",
+  "total_sections": 52,
+  "total_relationships": 1,
+  "relationships": [
+    {
+      "from": "law-national-cultural-heritage-act-of-2009",
+      "type": "governs",
+      "to": "concept-built-heritage",
+      "occurrences": 5,
+      "sections": [
+        "section-32"
+      ],
+      "examples": [
+        "- (d) The Department of Education which shall be responsible in instituting the governance of basic education act, and the conservation and restoration of its built heritage such as the significant Gabaldon school buildings as determined by the National Historical Institute;",
+        "- (d) The Department of Education which shall be responsible in instituting the governance of basic education act, and the conservation and restoration of its built heritage such as the significant Gabaldon school buildings as determined by the National Historical Institute;",
+        "- (a) The Department of Tourism and its attached agencies which shall be responsible for cultural education among tourism services, and protection of cultural properties supplemental to the jurisdiction of the cultural agencies as defined in this Act. The implementation and creation of a tourism mas"
+      ],
+      "alternate_predicates": []
+    }
+  ]
+}

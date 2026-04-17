@@ -1,0 +1,7 @@
+Section-Aware Relationship Extraction
+
+Sections: 12
+Unique relationships: 2
+
+handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279 -> governs -> concept-floor-area (x2) sections=['section-3']
+handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279 -> governs -> concept-project-area (x2) sections=['section-3']

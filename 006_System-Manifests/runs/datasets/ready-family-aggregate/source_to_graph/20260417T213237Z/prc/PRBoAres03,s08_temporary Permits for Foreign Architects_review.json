@@ -1,0 +1,46 @@
+{
+  "generated_at": "20260417T213800Z",
+  "model": "qwen2.5:7b",
+  "source": "001-Laws/refined_markdown/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.md",
+  "total_candidates": 1,
+  "llm_reviewed": 0,
+  "pre_review_auto_accepted": 0,
+  "pre_review_auto_rejected": 1,
+  "completed_reviews": 1,
+  "status": "completed",
+  "summary": {
+    "keep": 0,
+    "review_further": 0,
+    "reject": 1,
+    "high_confidence_keep": 0,
+    "high_confidence_reject": 1
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "handout-guidelines-on-temporary-or-special-permits-for-foreign-architects",
+        "type": "governs",
+        "to": "concept-temporary-special-permit",
+        "occurrences": 11,
+        "sections": [
+          "section-2",
+          "section-14",
+          "section-30"
+        ],
+        "examples": [
+          "perform professional services as architects or consultants in foreign-funded or assisted projects of the government or employed or engaged by Filipino or foreign contractors or private firms, shall, before assuming the duties, functions and responsibilities as architects or consultants, secure a tem",
+          "perform professional services as architects or consultants in foreign-funded or assisted projects of the government or employed or engaged by Filipino or foreign contractors or private firms, shall, before assuming the duties, functions and responsibilities as architects or consultants, secure a tem",
+          "perform professional services as architects or consultants in foreign-funded or assisted projects of the government or employed or engaged by Filipino or foreign contractors or private firms, shall, before assuming the duties, functions and responsibilities as architects or consultants, secure a tem"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['temporary special permit'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}

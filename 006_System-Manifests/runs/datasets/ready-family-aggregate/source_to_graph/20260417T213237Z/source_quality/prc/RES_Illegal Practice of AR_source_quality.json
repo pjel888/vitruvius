@@ -1,0 +1,61 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "withhold_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "front matter is image-heavy and may reflect OCR/layout instability",
+    "image-heavy front matter still contains suspicious OCR text near the document title/opening lines",
+    "spot-review the flagged OCR-sensitive regions before trusting summary prose"
+  ],
+  "front_matter_suspicious_ocr_line_count": 3,
+  "image_line_count": 3,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 6,
+  "noise_line_count": 0,
+  "non_empty_line_count": 43,
+  "recommendations": [
+    "low structural-heading count: verify section detection and source structure fidelity",
+    "spot-review OCR-sensitive title/heading lines before trusting automated summaries"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/PRC/RES_Illegal Practice of AR.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 6,
+    "admitted_relationship_count": 4,
+    "folder_name": "PRC",
+    "law_id": "prc",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 0.0,
+    "section_to_relationship_ratio": 0.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 0
+  },
+  "severity": "low",
+  "source_acceptance_reasons": [
+    "image-heavy front matter still contains suspicious OCR text near the document title/opening lines"
+  ],
+  "source_acceptance_status": "accepted_with_spot_review",
+  "spot_review_focus": [
+    "title/header lines and the first operative section",
+    "section numbering and other numeric provisions",
+    "image-backed front matter, page breaks, and signature/footer spillover"
+  ],
+  "spot_review_required": true,
+  "structural_heading_count": 0,
+  "summary_auto_withheld": true,
+  "summary_hygiene_flags": [
+    "image_heavy_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "SUBJECT : REQUESTED PRBOA COMMENTS ON A JOINT PLEADING FILED AT A PROSECUTOR’S OFFICE BY AN UNREGISTERED PERSON CRIMINALLY CHARGED WITH THE ILLEGAL PRACTICE OF ARCHITECTURE AND BY THE REGISTERED AND LICENSED ARCHITECT (RLA) LIKEWISE CRIMINALLY CHARGED WITH AIDING AND ABETTING THE SAME",
+    "- with the PRBoA after satisfying the conditions under SECTION 37 of R.A. No. 9266; as of this writing, the respondents’ collaborative partnership is not yet registered with the PRBoA;",
+    "- f) the terms Planning + Interior Design as appearing in the respondents’ description of their collaborative partnership may be misleading to the general public, particularly if none of the respondents or the listed owners of their collaborative partnership are registered and licensed environmental planners (RLEnPs, whose regulated professional practice is governed by the special law P.D. No. 1308, the Environmental Planning Law) or are registered and licensed interior designers (RLIDs, whose regulated professional practice is governed by the special law R.A. No. 8534, the Interior Design Act of 1998)."
+  ],
+  "suspicious_ocr_line_count": 3,
+  "suspicious_ocr_line_ratio": 0.069767,
+  "table_line_count": 0,
+  "total_line_count": 79,
+  "useful_text_line_count": 40,
+  "useful_text_ratio": 0.930233
+}

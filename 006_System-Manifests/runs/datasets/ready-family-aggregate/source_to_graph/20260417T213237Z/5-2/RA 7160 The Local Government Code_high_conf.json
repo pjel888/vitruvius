@@ -1,0 +1,108 @@
+{
+  "generated_at": "20260417T213640Z",
+  "source_report_generated_at": "20260417T213640Z",
+  "source_model": "qwen2.5:7b",
+  "source": "001-Laws/refined_markdown/RA-7160/RA 7160 The Local Government Code.md",
+  "threshold": 0.9,
+  "count": 4,
+  "candidates": [
+    {
+      "candidate": {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-local-autonomy",
+        "occurrences": 6,
+        "sections": [
+          "section-3"
+        ],
+        "examples": [
+          "- (h) There shall be a continuing mechanism to enhance local autonomy not only by legislative enabling acts but also by administrative and organizational reforms;",
+          "- (k) The realization of local autonomy shall be facilitated through improved coordination of national government policies and",
+          "- (c) Subject to civil service law, rules and regulations, local officials and employees paid wholly or mainly from local funds shall be appointed or removed, according to merit and fitness, by the appropriate appointing authority; - (d) The vesting of duty, responsibility, and accountability in loc"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-human-settlements",
+        "occurrences": 3,
+        "sections": [
+          "section-20",
+          "section-383"
+        ],
+        "examples": [
+          "Provided, That the requirements for food production, human settlements, and industrial expansion shall be taken into consideration in the preparation of such plans.",
+          "- dominant bases for the future use of land resources: Provided, That the requirements for food production, human settlements, and industrial expansion shall be taken into consideration in the preparation of such plans. - (d) Where approval by a national agency is required for reclassification, such",
+          "- (i) Adopt measures and safeguards against pollution and for the preservation of the natural ecosystem in the province, in consonance with approved standards on human settlements and environmental sanitation; - (ii) Subject to applicable laws, facilitate or provide for the establishment and mainten"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-bids-and-awards-committee",
+        "occurrences": 3,
+        "sections": [
+          "section-37",
+          "section-38"
+        ],
+        "examples": [
+          "- (a) There is hereby created a local prequalification, bids and awards committee in every province, city, and municipality, which shall be primarily responsible for the conduct of prequalification of contractors, bidding, evaluation of bids, and the recommendation of awards concerning local infrast",
+          "- (a) There is hereby created a local prequalification, bids and awards committee in every province, city, and municipality, which shall be primarily responsible for the conduct of prequalification of contractors, bidding, evaluation of bids, and the recommendation of awards concerning local infrast",
+          "(b) The chairman of the local technical committee shall be designated by the local prequalification, bids and awards committee and shall attend its meeting in order to present the reports and recommendations of the local technical committee."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-comprehensive-land-use-plan",
+        "occurrences": 7,
+        "sections": [
+          "section-383"
+        ],
+        "examples": [
+          "Provided, That the formulation, adoption, or modification of said plan shall be in coordination with the approved provincial comprehensive land use plan;",
+          "- (ix) Enact integrated zoning ordinances in consonance with the approved comprehensive land use plan, subject to existing laws, rules and regulations;",
+          "- the municipality, or for other purposes not contrary to law, in order to promote the general welfare of the municipality and its inhabitants; - (ii) Subject to the provisions of Book II of this Code and applicable laws and upon the majority vote of all the members of the Sangguniang Bayan, enact o"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}

@@ -25,6 +25,10 @@ Run all families currently marked `ready` with:
 
 This delegates to the catalog-driven aggregate path for every ready family.
 
+Current execute evidence for the ready-family aggregate:
+- aggregate manifest: `53 law units / 70 sources / 97 concepts / 132 relationships / 46 raw anchors`
+- latest graph snapshot: **136 nodes / 265 edges**
+
 You can also run by registered family alias:
 
 ```bash

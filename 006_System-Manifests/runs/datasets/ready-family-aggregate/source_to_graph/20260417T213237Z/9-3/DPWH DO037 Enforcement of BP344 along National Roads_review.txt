@@ -1,0 +1,8 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.md
+Candidates reviewed: 0
+Keep: 0
+Review Further: 0
+Reject: 0

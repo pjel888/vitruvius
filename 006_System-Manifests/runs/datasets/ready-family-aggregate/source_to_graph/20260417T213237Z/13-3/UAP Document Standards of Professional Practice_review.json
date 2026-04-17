@@ -1,0 +1,73 @@
+{
+  "generated_at": "20260417T213759Z",
+  "model": "qwen2.5:7b",
+  "source": "001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md",
+  "total_candidates": 2,
+  "llm_reviewed": 0,
+  "pre_review_auto_accepted": 0,
+  "pre_review_auto_rejected": 2,
+  "completed_reviews": 2,
+  "status": "completed",
+  "summary": {
+    "keep": 0,
+    "review_further": 0,
+    "reject": 2,
+    "high_confidence_keep": 0,
+    "high_confidence_reject": 2
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "handout-uap-document-standards-of-professional-practice",
+        "type": "governs",
+        "to": "concept-standards-of-professional-practice",
+        "occurrences": 21,
+        "sections": [
+          "section-4",
+          "section-2",
+          "section-5",
+          "section-7",
+          "section-9",
+          "section-18",
+          "section-24",
+          "section-28"
+        ],
+        "examples": [
+          "The SPP provides for more than one method of compensation on a project. Each project should be examined to determine the most appropriate and equitable method of compensation.",
+          "- 2.6.5 Should more extensive inspection or full-time (8-hour) construction supervision be required by the Client, a separate full-time supervisor shall be hired and agreed upon by the Owner and the Architect subject to the conditions provided in the SPP Document on Full -Time Supervision.",
+          "- 2.6.5 Should more extensive inspection or full-time (8-hour) construction supervision be required by the Client, a separate full-time supervisor shall be hired and agreed upon by the Owner and the Architect subject to the conditions provided in the SPP Document on Full -Time Supervision."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['standards of professional practice'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "concept-temporary-special-permit",
+        "type": "depends_on",
+        "to": "concept-standards-of-professional-practice",
+        "occurrences": 1,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "- 1.1.1 While these implementing rules and regulations specifically refer to the “individual” professional practice of the Architect as a natural person, the same may also apply to the Architect’s “group practice” as part of a juridical entity i.e. as a DTI-registered sole proprietorship or as a SEC"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['temporary special permit', 'standards of professional practice'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}

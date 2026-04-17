@@ -1,0 +1,9 @@
+Section-Aware Relationship Extraction
+
+Sections: 121
+Unique relationships: 4
+
+irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines -> governs -> concept-food-establishment (x46) sections=['section-2', 'section-3', 'section-4', 'section-5', 'section-1', 'section-6', 'section-7']
+irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines -> governs -> concept-local-health-authority (x18) sections=['section-2', 'section-5', 'section-7']
+irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines -> governs -> concept-floor-area (x8) sections=['section-1', 'section-6']
+irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines -> governs -> concept-floor-area-ratio (x8) sections=['section-7']

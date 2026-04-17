@@ -1,0 +1,36 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md
+Candidates reviewed: 7
+Keep: 3
+Review Further: 4
+Reject: 0
+
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-comprehensive-land-use-plan
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-building-height
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-zoning-ordinance
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-adaptive-reuse
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-floor-area
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-light-and-ventilation
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+concept-zoning-ordinance -> affects -> concept-comprehensive-land-use-plan
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.

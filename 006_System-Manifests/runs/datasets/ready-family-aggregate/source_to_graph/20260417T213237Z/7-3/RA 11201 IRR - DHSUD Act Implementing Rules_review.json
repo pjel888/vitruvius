@@ -1,0 +1,137 @@
+{
+  "generated_at": "20260417T213700Z",
+  "model": "qwen2.5:7b",
+  "source": "001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md",
+  "total_candidates": 5,
+  "llm_reviewed": 1,
+  "pre_review_auto_accepted": 0,
+  "pre_review_auto_rejected": 4,
+  "completed_reviews": 5,
+  "status": "completed",
+  "summary": {
+    "keep": 0,
+    "review_further": 1,
+    "reject": 4,
+    "high_confidence_keep": 0,
+    "high_confidence_reject": 4
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act",
+        "type": "governs",
+        "to": "concept-comprehensive-land-use-plan",
+        "occurrences": 1,
+        "sections": [
+          "section-3"
+        ],
+        "examples": [
+          "- 3.1 \"Affordable Cost\" refers to the most reasonable price of land and shelter based on the needs and financial capability of program beneficiaries and appropriat financing schemes; - 3.2 \"Agricultural Lands\" refers to lands devoted to or suitable for the cultiva .on soil, planting of crops, growin"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['comprehensive land use plan'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act",
+        "type": "governs",
+        "to": "concept-balanced-housing-development",
+        "occurrences": 2,
+        "sections": [
+          "section-3"
+        ],
+        "examples": [
+          "- 3.30 \"Real Estate Projects\" or \"Real Estate Development Projects\" refers to subdivisions, condominiums, townhouses, memorial parks, columbaria and other similar projects which by law are subject to the regulatory jurisdiction of the Department; - 3.31 \"Rental Housing\" refers to housing where the o",
+          "- 3.30 \"Real Estate Projects\" or \"Real Estate Development Projects\" refers to subdivisions, condominiums, townhouses, memorial parks, columbaria and other similar projects which by law are subject to the regulatory jurisdiction of the Department; - 3.31 \"Rental Housing\" refers to housing where the o"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['balanced housing development'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act",
+        "type": "governs",
+        "to": "concept-urban-development-planning",
+        "occurrences": 1,
+        "sections": [
+          "section-12"
+        ],
+        "examples": [
+          "No person shall be appointed Secretary, Undersecretary and Assistant Secretary of the Department unless he or she is a citizen and resident of the Philippines, of good moral character, and of proven integrity, competence and expertise in housing, urban planning and development."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['urban development planning'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act",
+        "type": "governs",
+        "to": "concept-common-areas",
+        "occurrences": 1,
+        "sections": [
+          "section-34"
+        ],
+        "examples": [
+          "- (a) Actions concerning unsound real estate business practices filed by buyers or homeowners against the project owner or developer, which cause prejudice to the buyers or committed with bad faith and disregard of the buyers' rights; - (b) Claims for refund, and other claims filed by subdivision lo"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['common areas'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act",
+        "type": "governs",
+        "to": "concept-human-settlements",
+        "occurrences": 1,
+        "sections": [
+          "section-26"
+        ],
+        "examples": [
+          "The attached corporations shall continue to function according to existing laws and their respective Charters, subject to the policy directions of the National Human Settlements Board, herein referred to as the \"Board\", created under Section 21 of the Act."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      "review": {
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.",
+        "suggested_type": null
+      }
+    }
+  ]
+}
