@@ -94,6 +94,19 @@
   - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml --review-preset m2-8gb-safe` now surfaces:
     - `duplicate_cluster_count = 1`
     - `duplicate_law_folders = [PD-957]`
+- Tranche source-to-graph dry-run slice:
+  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/pipeline_cli.py scripts/vitruvius/cli_experience.py scripts/tests/test_dataset_pipeline_cli.py`
+  - **PASS**
+  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py -k 'source_admission or source_to_graph_dry_run or run_laws_all_dry_run or run_laws_tranche_dry_run or run_laws_duplicate_dry_run or pd_957 or pd_1185' -q`
+  - **9 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-graph-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml --review-preset m2-8gb-safe` passes
+  - current dry-run evidence:
+    - staged: `PD-957`, `PD-1185`
+    - blocked: `PD-1216`
+    - `planned_stage_count = 2`
+    - `duplicate_law_folders = [PD-957]`
+    - `shallow_representation_count = 1`
+    - `source_to_graph_execute_ready = false`
 
 ## Residual Graph Caveat
 
@@ -117,6 +130,7 @@
 - Latest tranche source-admission validation: `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-implementation-validation.md`
 - Latest tranche source-admission execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-execution-validation.md`
 - Latest duplicate-readiness validation: `/.ai/05_logs/2026-04-17_laws-duplicate-readiness-validation.md`
+- Latest tranche source-to-graph dry-run validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-dry-run-validation.md`
 
 ## Handoff Note
 

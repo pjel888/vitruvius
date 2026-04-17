@@ -1367,6 +1367,24 @@ This command:
 - writes an operator-readable duplicate report without mutating the raw layer
 - also feeds duplicate-cluster visibility into all-laws and tranche readiness reports
 
+### Tranche source-to-graph dry-run
+
+After tranche source admission, you can stage only the admitted tranche members
+through the bounded source-to-graph pipeline without unlocking execute:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-graph-dry-run \
+  --tranche-manifest config/datasets/laws-tranche-1.yaml \
+  --review-preset m2-8gb-safe
+```
+
+This command:
+- derives a tranche-local dataset manifest from the executed source-admission state
+- stages only admitted tranche members
+- keeps blocked tranche members explicit
+- reuses the bounded source-to-graph dry-run pipeline
+- keeps `source_to_graph_execute_ready = false`
+
 ### Progress / developer experience
 
 When you run the command in an interactive terminal, it emits phase/progress

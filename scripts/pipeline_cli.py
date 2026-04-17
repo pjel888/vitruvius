@@ -312,6 +312,11 @@ def build_parser() -> argparse.ArgumentParser:
                                                       help="Tranche manifest whose selected prepared outputs should be admitted into canonical source pages")
     tranche_source_admission_exec_parser.add_argument("--source-prep-report", default=None,
                                                       help="Optional explicit tranche source-prep execute report to use during source admission")
+    tranche_source_to_graph_dry_run_parser = add_command_parser(subparsers, "run-laws-tranche-source-to-graph-dry-run")
+    tranche_source_to_graph_dry_run_parser.add_argument("--tranche-manifest", default="config/datasets/laws-tranche-1.yaml",
+                                                        help="Tranche manifest whose admitted source state should be staged through the bounded source-to-graph dry-run")
+    tranche_source_to_graph_dry_run_parser.add_argument("--review-preset", default=None,
+                                                        help="Optional review preset override for the staged source-to-graph dry-run")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -865,6 +870,16 @@ def main() -> int:
             lambda: run_laws_tranche_source_admission(
                 tranche_manifest=args.tranche_manifest,
                 source_prep_report=args.source_prep_report,
+            ),
+        )
+
+    if args.command == "run-laws-tranche-source-to-graph-dry-run":
+        from vitruvius.laws_readiness import run_laws_tranche_source_to_graph_dry_run
+        return _run(
+            "run-laws-tranche-source-to-graph-dry-run",
+            lambda: run_laws_tranche_source_to_graph_dry_run(
+                tranche_manifest=args.tranche_manifest,
+                review_preset=args.review_preset,
             ),
         )
 

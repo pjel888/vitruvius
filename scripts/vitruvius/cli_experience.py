@@ -379,6 +379,16 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         failure="Canonical source admission could not be completed cleanly, so the tranche manifest and source-admission report will show partial or blocked state and source-to-graph remains gated.",
         next_step="Rerun tranche dry-run and source-admission dry-run against the updated tranche state, then revisit tranche source-to-graph only if the manifest and canonical outputs are truthful.",
     ),
+    "run-laws-tranche-source-to-graph-dry-run": _doc(
+        "run-laws-tranche-source-to-graph-dry-run",
+        "Stage admitted tranche members through the bounded source-to-graph pipeline in dry-run mode.",
+        human="This is the next truthful checkpoint after tranche source admission. It stages only admitted tranche members through the existing bounded source-to-graph dry-run, keeps blocked laws explicit, and still refuses to imply execute readiness.",
+        technical="Builds a derived dataset manifest from the tranche source-admission state, stages only admitted tranche law units, delegates to `run-dataset-source-to-graph` with `dry_run=True`, and writes a tranche-local wrapper report that preserves blocked and duplicate guardrails.",
+        success="A healthy result writes a derived tranche manifest plus a tranche-local source-to-graph dry-run report showing staged law units, blocked law units, and planned bounded stages.",
+        failure="The tranche manifest could not be staged truthfully or the bounded source-to-graph dry-run failed, so tranche execute remains blocked.",
+        next_step="Review the staged dry-run report, fix remaining OCR or representation risks, and only then consider a future tranche execute slice.",
+        operator_safe=False,
+    ),
     "canonicalize": _doc(
         "canonicalize",
         "Batch-write refined sources into canonical source pages.",

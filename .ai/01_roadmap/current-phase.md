@@ -108,6 +108,15 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `run-laws-tranche-dry-run`
     - current whole-laws evidence reports 9 duplicate clusters; tranche-1 reports 1 duplicate cluster affecting `PD-957`
     - see `/.ai/05_logs/2026-04-17_laws-duplicate-readiness-validation.md`
+  - tranche-local source-to-graph dry-run now exists:
+    - `run-laws-tranche-source-to-graph-dry-run`
+    - stages only admitted tranche members:
+      - `PD-957`
+      - `PD-1185`
+    - keeps blocked member explicit:
+      - `PD-1216`
+    - current live dry-run shows `planned_stage_count = 2`, `shallow_representation_count = 1`, and `source_to_graph_execute_ready = false`
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-dry-run-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
