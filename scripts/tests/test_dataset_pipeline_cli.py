@@ -530,6 +530,105 @@ def test_run_laws_duplicate_dry_run_reports_exact_clusters(tmp_path: Path) -> No
     assert len(cluster['raw_paths']) == 2
 
 
+def test_run_laws_duplicate_dry_run_respects_manifest_scoped_variants(tmp_path: Path) -> None:
+    _seed_repo(tmp_path)
+    lgu = tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'LGU'
+    lgu.mkdir(parents=True, exist_ok=True)
+    _write_pdf_bytes(lgu / 'target-zoning.pdf', b'%PDF-1.4\nzoning\n')
+    _write_pdf_bytes(lgu / 'target-clup.pdf', b'%PDF-1.4\nclup\n')
+    duplicate_bytes = b'%PDF-1.4\nsame duplicate elsewhere in folder\n'
+    _write_pdf_bytes(lgu / 'unrelated-duplicate-a.pdf', duplicate_bytes)
+    _write_pdf_bytes(lgu / 'unrelated-duplicate-b.pdf', duplicate_bytes)
+
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-lgu.yaml'
+    tranche_manifest.parent.mkdir(parents=True, exist_ok=True)
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-lgu',
+                'candidate_law_folders': [
+                    {
+                        'folder_name': 'LGU',
+                        'reason': 'scoped shard',
+                        'raw_anchor_paths': [
+                            '001_Raw-Source-Layer/001-Laws/LGU/target-zoning.pdf',
+                            '001_Raw-Source-Layer/001-Laws/LGU/target-clup.pdf',
+                        ],
+                        'authoritative_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/LGU/target-zoning.pdf',
+                            '001_Raw-Source-Layer/001-Laws/LGU/target-clup.pdf',
+                        ],
+                    }
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+
+    result = _run_cli(
+        [
+            'run-laws-duplicate-dry-run',
+            '--tranche-manifest', str(tranche_manifest),
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['duplicate_cluster_count'] == 0
+    assert payload['duplicate_law_folders'] == []
+
+
+def test_run_laws_tranche_dry_run_respects_manifest_scoped_variants_for_duplicates(tmp_path: Path) -> None:
+    _seed_repo(tmp_path)
+    lgu = tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'LGU'
+    lgu.mkdir(parents=True, exist_ok=True)
+    _write_pdf_bytes(lgu / 'target-zoning.pdf', b'%PDF-1.4\nzoning\n')
+    _write_pdf_bytes(lgu / 'target-clup.pdf', b'%PDF-1.4\nclup\n')
+    duplicate_bytes = b'%PDF-1.4\nsame duplicate elsewhere in folder\n'
+    _write_pdf_bytes(lgu / 'unrelated-duplicate-a.pdf', duplicate_bytes)
+    _write_pdf_bytes(lgu / 'unrelated-duplicate-b.pdf', duplicate_bytes)
+
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-lgu.yaml'
+    tranche_manifest.parent.mkdir(parents=True, exist_ok=True)
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-lgu',
+                'candidate_law_folders': [
+                    {
+                        'folder_name': 'LGU',
+                        'reason': 'scoped shard',
+                        'raw_anchor_paths': [
+                            '001_Raw-Source-Layer/001-Laws/LGU/target-zoning.pdf',
+                            '001_Raw-Source-Layer/001-Laws/LGU/target-clup.pdf',
+                        ],
+                        'authoritative_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/LGU/target-zoning.pdf',
+                            '001_Raw-Source-Layer/001-Laws/LGU/target-clup.pdf',
+                        ],
+                    }
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+
+    result = _run_cli(
+        [
+            'run-laws-tranche-dry-run',
+            '--tranche-manifest', str(tranche_manifest),
+            '--review-preset', 'm2-8gb-safe',
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['duplicate_cluster_count'] == 0
+    assert payload['duplicate_law_folders'] == []
+
+
 def test_run_laws_tranche_source_prep_dry_run_reports_expected_outputs(tmp_path: Path) -> None:
     _seed_repo(tmp_path)
     tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-1.yaml'

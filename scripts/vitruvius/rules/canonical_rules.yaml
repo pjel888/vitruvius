@@ -1279,6 +1279,49 @@ rules:
         - "DepEd DRRR Manual Philippines"
 
   # --------------------------------------------------
+  # San Mateo Zoning Ordinance
+  # --------------------------------------------------
+  - name: "San Mateo Zoning Ordinance"
+
+    match:
+      any_contains:
+        - "san-mateo-zoning-ordinance"
+        - "zoning ordinance for the municipality of san mateo"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Zoning Ordinance of the Municipality of San Mateo"
+
+      aliases:
+        - "San Mateo Zoning Ordinance"
+        - "Zoning Ordinance for the Municipality of San Mateo"
+
+  # --------------------------------------------------
+  # San Mateo Comprehensive Land Use Plan
+  # --------------------------------------------------
+  - name: "San Mateo Comprehensive Land Use Plan"
+
+    match:
+      any_contains:
+        - "copy-of-san-mateo-rizal-clup"
+        - "san mateo comprehensive land use plan 2021-2031"
+        - "comprehensive land use plan 2021-2031"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "San Mateo Comprehensive Land Use Plan 2021-2031"
+
+      aliases:
+        - "San Mateo CLUP 2021-2031"
+        - "Comprehensive Land Use Plan 2021-2031"
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

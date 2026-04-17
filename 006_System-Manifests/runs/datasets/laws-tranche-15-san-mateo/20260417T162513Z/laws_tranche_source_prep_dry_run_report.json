@@ -1,0 +1,55 @@
+{
+  "action": "run-laws-tranche-source-prep-dry-run",
+  "dry_run": true,
+  "folders": [
+    {
+      "candidate_reason": "first city-coherent LGU shard centered on San Mateo zoning / CLUP materials.",
+      "file_reports": [
+        {
+          "detection_error": null,
+          "detection_result": "TEXT_PDF",
+          "expected_ocr_pdf_path": "002_Raw-Conversion-Layer/001-Laws/ocr_pdf/LGU/794216046-San-Mateo-Zoning-Ordinance.pdf",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/794216046-San-Mateo-Zoning-Ordinance.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/794216046-San-Mateo-Zoning-Ordinance.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/794216046-San-Mateo-Zoning-Ordinance.json",
+          "extension": ".pdf",
+          "ocr_pdf_exists": false,
+          "raw_markdown_exists": false,
+          "raw_path": "001_Raw-Source-Layer/001-Laws/LGU/794216046-San-Mateo-Zoning-Ordinance.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refined_markdown_exists": false,
+          "sidecar_json_exists": false,
+          "supported_direct_input": true
+        },
+        {
+          "detection_error": null,
+          "detection_result": "TEXT_PDF",
+          "expected_ocr_pdf_path": "002_Raw-Conversion-Layer/001-Laws/ocr_pdf/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.pdf",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.json",
+          "extension": ".pdf",
+          "ocr_pdf_exists": false,
+          "raw_markdown_exists": false,
+          "raw_path": "001_Raw-Source-Layer/001-Laws/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refined_markdown_exists": false,
+          "sidecar_json_exists": false,
+          "supported_direct_input": true
+        }
+      ],
+      "folder_name": "LGU",
+      "raw_file_count": 2,
+      "raw_root_present": true,
+      "refined_markdown_ready_count": 0,
+      "supported_direct_input_count": 2
+    }
+  ],
+  "generated_at_utc": "20260417T162513Z",
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "run_id": "20260417T162513Z",
+  "sample_pages": 5,
+  "tranche_id": "laws-tranche-15-san-mateo",
+  "tranche_manifest_path": "config/datasets/laws-tranche-15-san-mateo.yaml"
+}

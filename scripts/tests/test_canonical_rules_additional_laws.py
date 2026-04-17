@@ -431,3 +431,19 @@ def test_build_plan_matches_deped_drrr_manual_rule() -> None:
     assert plan['prefix'] == 'handout'
     assert plan['source_type'] == 'handout'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_san_mateo_zoning_ordinance_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/LGU/794216046-San-Mateo-Zoning-Ordinance.md')
+    assert plan['title'] == 'Zoning Ordinance of the Municipality of San Mateo'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_san_mateo_clup_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.md')
+    assert plan['title'] == 'San Mateo Comprehensive Land Use Plan 2021-2031'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'

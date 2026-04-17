@@ -277,10 +277,12 @@ def _pdf_duplicate_clusters(
     *,
     repo_root: Path,
     folder_names: list[str],
+    scoped_raw_paths_by_folder: dict[str, set[str]] | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, list[str]]]:
     from .scanner import _sha256_of_file
 
     raw_root = repo_root / _RAW_SOURCE_ROOT
+    scoped_raw_paths_by_folder = scoped_raw_paths_by_folder or {}
     registry_digests: dict[str, str] = {}
     registry_path = repo_root / "006_System-Manifests" / "registries" / "latest_raw_file_registry.csv"
     if registry_path.exists():
@@ -300,6 +302,9 @@ def _pdf_duplicate_clusters(
                         continue
                     if parts[1] not in folder_names:
                         continue
+                    scoped_paths = scoped_raw_paths_by_folder.get(parts[1])
+                    if scoped_paths and relative_path not in scoped_paths:
+                        continue
                     registry_digests[relative_path] = sha256
         except OSError:
             registry_digests = {}
@@ -308,10 +313,13 @@ def _pdf_duplicate_clusters(
         folder_root = raw_root / folder_name
         if not folder_root.exists():
             continue
+        scoped_paths = scoped_raw_paths_by_folder.get(folder_name)
         for path in sorted(
             path for path in folder_root.rglob("*") if path.is_file() and path.suffix.lower() == ".pdf"
         ):
             rel_raw_path = path.relative_to(raw_root.parent).as_posix()
+            if scoped_paths and rel_raw_path not in scoped_paths:
+                continue
             digest = registry_digests.get(rel_raw_path) or _sha256_of_file(path)
             by_digest.setdefault(digest, []).append(path)
 
@@ -353,6 +361,27 @@ def _pdf_duplicate_clusters(
     return clusters, folder_flags
 
 
+def _duplicate_scope_from_tranche_payload(tranche_payload: dict[str, Any]) -> dict[str, set[str]]:
+    scoped_raw_paths_by_folder: dict[str, set[str]] = {}
+    for item in tranche_payload.get("candidate_law_folders") or []:
+        if not isinstance(item, dict):
+            continue
+        folder_name = item.get("folder_name")
+        if not isinstance(folder_name, str) or not folder_name:
+            continue
+        scoped_paths = {
+            str(path)
+            for path in [
+                *(item.get("authoritative_variant_paths") or []),
+                *(item.get("raw_anchor_paths") or []),
+            ]
+            if isinstance(path, str) and path
+        }
+        if scoped_paths:
+            scoped_raw_paths_by_folder[folder_name] = scoped_paths
+    return scoped_raw_paths_by_folder
+
+
 def run_laws_duplicate_dry_run(
     *,
     tranche_manifest: str | None = None,
@@ -368,6 +397,7 @@ def run_laws_duplicate_dry_run(
     scope_id = "laws-duplicate-readiness"
     scope_folders = [path.name for path in _iter_law_dirs(raw_root)]
     tranche_manifest_path: Path | None = None
+    duplicate_scope: dict[str, set[str]] | None = None
     if tranche_manifest:
         tranche_payload, tranche_manifest_path, tranche_error = _load_tranche_manifest(repo_root, tranche_manifest)
         if tranche_payload is None:
@@ -375,10 +405,12 @@ def run_laws_duplicate_dry_run(
             return 2
         scope_id = str(tranche_payload.get("tranche_id") or scope_id)
         scope_folders = [item["folder_name"] for item in tranche_payload["candidate_law_folders"]]
+        duplicate_scope = _duplicate_scope_from_tranche_payload(tranche_payload)
 
     duplicate_clusters, duplicate_flags_by_folder = _pdf_duplicate_clusters(
         repo_root=repo_root,
         folder_names=scope_folders,
+        scoped_raw_paths_by_folder=duplicate_scope,
     )
     report_path = (
         Path(report_out).resolve()
@@ -1759,9 +1791,11 @@ def run_laws_tranche_dry_run(
 
     requested = tranche_payload["candidate_law_folders"]
     requested_names = [item["folder_name"] for item in requested]
+    duplicate_scope = _duplicate_scope_from_tranche_payload(tranche_payload)
     duplicate_clusters, duplicate_flags_by_folder = _pdf_duplicate_clusters(
         repo_root=repo_root,
         folder_names=requested_names,
+        scoped_raw_paths_by_folder=duplicate_scope,
     )
     laws: list[dict[str, Any]] = []
     pilot_covered_count = 0
@@ -2285,9 +2319,11 @@ def run_laws_tranche_source_to_graph_dry_run(
         encoding="utf-8",
     )
     effective_review_preset = review_preset or str(tranche_payload.get("review_model_preset") or "") or None
+    duplicate_scope = _duplicate_scope_from_tranche_payload(tranche_payload)
     duplicate_clusters, duplicate_flags_by_folder = _pdf_duplicate_clusters(
         repo_root=repo_root,
         folder_names=[str(item["folder_name"]) for item in tranche_payload["candidate_law_folders"]],
+        scoped_raw_paths_by_folder=duplicate_scope,
     )
     variant_visibility, raw_alias_law_folders, guardrail_law_folders = _tranche_variant_visibility(
         tranche_payload=tranche_payload,
@@ -2405,9 +2441,11 @@ def run_laws_tranche_source_to_graph(
         encoding="utf-8",
     )
     effective_review_preset = review_preset or str(tranche_payload.get("review_model_preset") or "") or None
+    duplicate_scope = _duplicate_scope_from_tranche_payload(tranche_payload)
     duplicate_clusters, duplicate_flags_by_folder = _pdf_duplicate_clusters(
         repo_root=repo_root,
         folder_names=[str(item["folder_name"]) for item in tranche_payload["candidate_law_folders"]],
+        scoped_raw_paths_by_folder=duplicate_scope,
     )
     variant_visibility, raw_alias_law_folders, guardrail_law_folders = _tranche_variant_visibility(
         tranche_payload=tranche_payload,

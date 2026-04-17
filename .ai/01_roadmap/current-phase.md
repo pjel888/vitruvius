@@ -394,6 +394,17 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - see `/.ai/03_plans/2026-04-18_tranche-15-sharding-plan.md`
   - first LGU shard scouting now identifies a San Mateo zoning/CLUP pair as the smallest current candidate, but duplicate readiness still reports `duplicate_law_folders = [LGU]` because unrelated duplicate files elsewhere in the folder are still seen during shard-only scans
     - see `/.ai/05_logs/2026-04-18_tranche-15-first-shard-scout-validation.md`
+  - the first LGU shard now executes cleanly after duplicate-scope readiness was narrowed to selected shard files and the San Mateo concept slice was admitted:
+    - manifest: `config/datasets/laws-tranche-15-san-mateo.yaml`
+    - current execute evidence:
+      - `staged_law_folders = [LGU]`
+      - `duplicate_law_folders = []`
+      - `generated_relationship_count = 2`
+      - `manual_review_required_count = 2`
+      - `shallow_representation_count = 0`
+      - graph snapshot: `7 nodes / 7 edges`
+    - the wider LGU lane remains open because only the first shard is complete
+    - see `/.ai/05_logs/2026-04-18_laws-tranche-15-san-mateo-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
