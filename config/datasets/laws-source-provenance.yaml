@@ -1,0 +1,45 @@
+as_of: 2026-04-18
+scope: laws-wave-truth-corrections
+notes:
+  - This artifact records official or primary-source URLs used to resolve materially important law/governance truth questions during the laws wave.
+  - It is not a substitute for per-lane validation logs; it is a provenance index for future auditors.
+source_sets:
+  - topic: hlurb_dhsud_agency_relationship
+    reason: Verify that HLURB and DHSUD are distinct agencies and model the tranche-12 surfaces truthfully.
+    sources:
+      - url: https://dhsud.gov.ph/about-us/who-we-are/
+        authority: official_dhsud
+        note: DHSUD official profile confirming creation under RA 11201 and consolidation of HLURB/HUDCC functions except adjudication.
+      - url: https://dhsud.gov.ph/republic-act-11201/
+        authority: official_dhsud
+        note: DHSUD legal/FAQ page describing transfer of HLURB powers and separation of adjudication to HSAC.
+      - url: https://dhsud.gov.ph/resources/manuals-guidebooks/
+        authority: official_dhsud
+        note: DHSUD guidebook catalog currently hosting both legacy HLURB and current DHSUD planning materials.
+    local_evidence:
+      - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf
+      - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.pdf
+    resulting_truth:
+      logical_identity: DHSUD
+      raw_storage_folder: HLURB-DHSUD
+      note: Staged tranche-12 files are DHSUD-branded 2025 publications even though the raw folder remains combined.
+  - topic: final_remaining_pool_dispositions
+    reason: Confirm that the residual uncovered pool lacks stronger normal executable law lanes.
+    sources:
+      - url: local-detect-evidence
+        authority: local_pipeline_detection
+        note: Detect-one evidence gathered for RA-11361, HB-3391, HB-5207, SB-2982, and BERDE during final disposition review.
+    resulting_truth:
+      note: Residual pool remains draft-only, bill-only, empty, or non-law/user-guide.
+  - topic: law_verification_policy
+    reason: Capture the standing practice used in this wave for law-related truth checks.
+    sources:
+      - url: https://lawphil.net/
+        authority: primary_legal_repository
+        note: Primary Philippine legal text source when official agency pages are insufficient or unavailable.
+      - url: https://www.officialgazette.gov.ph/
+        authority: official_government_repository
+        note: Official Gazette source for enacted laws and executive issuances.
+      - url: https://dhsud.gov.ph/
+        authority: official_agency_repository
+        note: Official DHSUD source for current agency-issued manuals, circulars, and legal FAQs.
