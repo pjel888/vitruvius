@@ -1,0 +1,94 @@
+{
+  "file name" : "RA 7899 Amendments to RA 4726.pdf",
+  "number of pages" : 1,
+  "author" : "Ninya Racho",
+  "title" : null,
+  "creation date" : "D:20220929130305+08'00'",
+  "modification date" : "D:20220929130305+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 10,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 36.024, 784.465, 345.902, 805.559 ],
+    "heading level" : 1,
+    "font" : "Roboto-Bold",
+    "font size" : 18.0,
+    "text color" : "[0.0392]",
+    "content" : "RA 7899 – “THE CONDOMINIUM ACT”"
+  }, {
+    "type" : "heading",
+    "id" : 13,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 36.024, 673.247, 548.12, 739.996 ],
+    "heading level" : 2,
+    "font" : "Helvetica,Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0392]",
+    "content" : "REPUBLIC ACT NO. 7899 AN ACT AMENDING SECTION FOUR AND SECTION SIXTEEN OF REPUBLIC ACT NUMBERED FOUR THOUSAND SEVEN HUNDRED TWENTY-SIX, OTHERWISE KNOWN AS “THE CONDOMINIUM ACT”"
+  }, {
+    "type" : "paragraph",
+    "id" : 18,
+    "page number" : 1,
+    "bounding box" : [ 36.024, 617.81, 545.374, 656.686 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0392]",
+    "content" : "Be it enacted by the Senate and the House of Representatives of the Philippines in Congress assembled: SECTION 1. Section 4, last paragraph of Republic Act No. 4726 is hereby amended as follows;"
+  }, {
+    "type" : "paragraph",
+    "id" : 22,
+    "page number" : 1,
+    "bounding box" : [ 36.024, 479.517, 555.204, 603.353 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0392]",
+    "content" : "“SEC 4. xxx “The enabling or master deed may be amended or revoked upon registration of an instrument executed by a simple majority of the registered owners of the property: Provided, That in a condominium project exclusively for either residential or commercial use, simple majority shall be on per unit of ownership basis and that in the case of mixed use, simple majority shall be on floor area of ownership basis: Provided further, That prior notifications to all registered owners are done, and Provided, finally, That any amendment or revocation already decided by a simple majority of all registered owners shall be submitted to the Housing and Land Use Regulatory Board and the city/municipal engineer for approval before it can be registered. Until registration of a revocation, the provision of this Act shall continue to apply to such property.”"
+  }, {
+    "type" : "list",
+    "id" : 32,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 36.024, 216.19, 552.624, 463.176 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 36.024, 341.237, 552.624, 463.176 ],
+      "font" : "Helvetica,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0392]",
+      "content" : "SECTION 2. Section 16 of the same Act is hereby amended to read as follows: “Sec. 16. A condominium corporation shall not, during its existence, sell, exchange,lease or otherwise dispose of the common areas owned or held by it in the condominium project unless authorized by the affirmative vote of a simple majority of the registered owners: Provided, That prior notifications to all registered owners are done: and, Provided, further, That the condominium corporation may expand or integrate the project with another upon the affirmative vote of a simple majority of the registered owners, subject only to the final approval of the Housing and Land Use Regulatory Board.”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 36.024, 216.19, 548.53, 326.803 ],
+      "font" : "Helvetica,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0392]",
+      "content" : "SECTION 3. Effectivity. – This Act shall take effect fifteen (15) days after its complete publication in at least two (2) national newspapers of general circulation. Approved: (SGD.) EDGARDO J. ANGARA President of the Senate (SGD.) JOSE DE VENECIA, JR. Speaker of the House of Representatives",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 1,
+    "bounding box" : [ 36.024, 174.65, 532.44, 199.586 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0392]",
+    "content" : "This Act which is a consolidation of House Bill No. 12384 and Senate Bill No. 2042 was finally passed by the House of Representatives and the Senate on February 15, 1995."
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "page number" : 1,
+    "bounding box" : [ 36.024, 63.264, 421.51, 158.066 ],
+    "font" : "Helvetica,Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0392]",
+    "content" : "(SGD.) EDGARDO E. TUMANGAN Secretary of the Senate (SGD.) CAMILO L. SABIO Secretary General House of Representatives Approved: February 23, 1995 (SGD.) FIDEL V. RAMOS President of the Philippines"
+  } ]
+}

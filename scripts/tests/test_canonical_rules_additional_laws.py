@@ -55,3 +55,33 @@ def test_build_plan_matches_pd_1216_law_rule() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_7279_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-7279/RA 7279 Urban Development and Housing Act 2009.md'
+    )
+    assert plan['title'] == 'Urban Development and Housing Act'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_4726_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-4726/RA 4726 Condominium Act.md'
+    )
+    assert plan['title'] == 'Condominium Act'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_7899_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-7899/RA 7899 Amendments to RA 4726.md'
+    )
+    assert plan['title'] == 'Amendments to the Condominium Act'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'

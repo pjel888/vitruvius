@@ -163,6 +163,21 @@
     - `spot_review_required_count = 1`
     - `summary_auto_withheld_count = 1`
   - OCR-quality acceptance for `PD-1216` is now a spot-review path rather than a blind accept path
+- Tranche-2 bounded execution:
+  - `python3 -m pytest scripts/tests/test_canonical_rules_additional_laws.py -q`
+  - **9 passed**
+  - `run-laws-tranche-dry-run --tranche-manifest config/datasets/laws-tranche-2.yaml --review-preset m2-8gb-safe`
+  - `run-laws-tranche-source-prep-dry-run --tranche-manifest config/datasets/laws-tranche-2.yaml`
+  - `run-laws-tranche-source-prep --tranche-manifest config/datasets/laws-tranche-2.yaml`
+  - `run-laws-tranche-source-admission-dry-run --tranche-manifest config/datasets/laws-tranche-2.yaml`
+  - `run-laws-tranche-source-admission --tranche-manifest config/datasets/laws-tranche-2.yaml`
+  - `run-laws-tranche-source-to-graph-dry-run --tranche-manifest config/datasets/laws-tranche-2.yaml --review-preset m2-8gb-safe`
+  - `run-laws-tranche-source-to-graph --tranche-manifest config/datasets/laws-tranche-2.yaml --review-preset m2-8gb-safe`
+  - current tranche-2 execute evidence:
+    - `staged_law_folders = [RA-7279, RA-4726, RA-7899]`
+    - `duplicate_law_folders = []`
+    - `generated_relationship_count = 0`
+    - `source_to_graph_execute_completed = true`
 
 ## Residual Graph Caveat
 
@@ -191,6 +206,7 @@
 - Latest PD-1216 OCR-first validation: `/.ai/05_logs/2026-04-17_pd1216-ocr-first-preparation-validation.md`
 - Latest tranche source-to-graph execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-execute-validation.md`
 - Latest risk-hardening validation: `/.ai/05_logs/2026-04-17_laws-risk-hardening-execution-validation.md`
+- Latest tranche-2 validation: `/.ai/05_logs/2026-04-17_laws-tranche-2-execution-validation.md`
 
 ## Handoff Note
 

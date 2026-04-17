@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T092021Z",
+  "source_relative_path": "001-Laws/raw_markdown/RA-7899/RA 7899 Amendments to RA 4726.md",
+  "refined_relative_path": "001-Laws/refined_markdown/RA-7899/RA 7899 Amendments to RA 4726.md",
+  "source_hash": "69f6396e87c32449cad2ad6bc95e498323a2b912475f434f8babd27af5d20f1e",
+  "output_hash": "3c169c44fb440c735135a4c62b183f383ed730a20afeaece1f7ca0b4c4b49a6a",
+  "chars_before": 2613,
+  "chars_after": 2615,
+  "chars_delta": 2,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "collapse-consecutive-blank-lines",
+    "normalize-section-abbreviation"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 2613,
+      "chars_after": 2613,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 2613,
+      "chars_after": 2613,
+      "changed": false
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 2613,
+      "chars_after": 2613,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 2613,
+      "chars_after": 2613,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 2613,
+      "chars_after": 2612,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 2612,
+      "chars_after": 2612,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 2612,
+      "chars_after": 2615,
+      "changed": true
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 2615,
+      "chars_after": 2615,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}

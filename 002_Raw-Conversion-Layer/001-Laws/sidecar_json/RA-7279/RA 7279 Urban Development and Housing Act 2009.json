@@ -1,0 +1,2179 @@
+{
+  "file name" : "RA 7279 Urban Development and Housing Act 2009.pdf",
+  "number of pages" : 14,
+  "author" : "Ninya Racho",
+  "title" : null,
+  "creation date" : "D:20220929124510+08'00'",
+  "modification date" : "D:20220929124510+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 489,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 235.54, 792.645, 359.652, 805.582 ],
+    "heading level" : 1,
+    "font" : "Roboto-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "REPUBLIC ACT NO. 7279"
+  }, {
+    "type" : "paragraph",
+    "id" : 491,
+    "page number" : 1,
+    "bounding box" : [ 36.024, 752.325, 559.165, 778.462 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "AN ACT TO PROVIDE FOR A COMPREHENSIVE AND CONTINUING URBAN DEVELOPMENT AND HOUSING PROGRAM, ESTABLISH THE MECHANISM FOR ITS IMPLEMENTATION, AND FOR OTHER PURPOSES"
+  }, {
+    "type" : "paragraph",
+    "id" : 494,
+    "page number" : 1,
+    "bounding box" : [ 36.024, 724.965, 515.71, 737.902 ],
+    "font" : "Roboto-Italic",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "Be it enacted by the Senate and House of Representatives of the Philippines in Congress assembled:"
+  }, {
+    "type" : "paragraph",
+    "id" : 496,
+    "page number" : 1,
+    "bounding box" : [ 273.48, 697.815, 322.067, 710.752 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "ARTICLE I"
+  }, {
+    "type" : "paragraph",
+    "id" : 498,
+    "page number" : 1,
+    "bounding box" : [ 182.71, 657.495, 413.075, 683.632 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "TITLE, POLICY, PROGRAM AND DEFINITION OF TERMS"
+  }, {
+    "type" : "heading",
+    "id" : 501,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 36.024, 630.135, 518.001, 643.072 ],
+    "heading level" : 1,
+    "font" : "Roboto-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "SECTION 1. Title. – This Act shall be known as the “Urban Development and Housing Act of 1992.”"
+  }, {
+    "type" : "list",
+    "id" : 503,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 36.024, 118.045, 559.361, 615.932 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "next list id" : 521,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 36.024, 576.595, 559.361, 615.932 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 2. Declaration of State Policy and Program Objectives. – It shall be the policy of the State to undertake, in cooperation with the private sector, a comprehensive and continuing Urban Development and Housing Program, hereinafter referred to as the Program, which shall:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 205,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 72.024, 145.195, 559.173, 562.412 ],
+        "numbering style" : "english letters",
+        "number of list items" : 6,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 72.024, 523.045, 559.173, 562.412 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(a) Uplift the conditions of the underprivileged and homeless citizens in urban areas and in resettlement areas by making available to them decent housing at affordable cost, basic services, and employment opportunities;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 72.024, 495.685, 553.423, 508.622 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(b) Provide for the rational use and development of urban land in order to bring about the following:",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 194,
+            "level" : "3",
+            "page number" : 1,
+            "bounding box" : [ 108.05, 306.765, 559.166, 481.502 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 5,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 108.05, 442.145, 559.1, 481.502 ],
+              "font" : "Roboto-Regular",
+              "font size" : 11.04,
+              "text color" : "[0.0]",
+              "content" : "(1) Equitable utilization of residential lands in urban and urbanizable areas with particular attention to the needs and requirements of the underprivileged and homeless citizens and not merely on the basis of market forces;",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 108.05, 415.025, 460.741, 427.962 ],
+              "font" : "Roboto-Regular",
+              "font size" : 11.04,
+              "text color" : "[0.0]",
+              "content" : "(2) Optimization of the use and productivity of land and urban resources;",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 108.05, 374.445, 558.824, 400.602 ],
+              "font" : "Roboto-Regular",
+              "font size" : 11.04,
+              "text color" : "[0.0]",
+              "content" : "(3) Development of urban areas conducive to commercial and industrial activities which can generate more economic opportunities for the people;",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 108.05, 334.125, 559.166, 360.262 ],
+              "font" : "Roboto-Regular",
+              "font size" : 11.04,
+              "text color" : "[0.0]",
+              "content" : "(4) Reduction in urban dysfunctions, particularly those that adversely affect public health, safety and ecology; and",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 108.05, 306.765, 483.09, 319.702 ],
+              "font" : "Roboto-Regular",
+              "font size" : 11.04,
+              "text color" : "[0.0]",
+              "content" : "(5) Access to land and housing by the underprivileged and homeless citizens;",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 72.024, 266.415, 558.744, 292.552 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(c) Adopt workable policies to regulate and direct urban growth and expansion towards a dispersed urban net and more balanced urban-rural interdependence;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 72.024, 212.895, 558.921, 252.232 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(d) Provide for an equitable land tenure system that shall guarantee security of tenure to Program beneficiaries but shall respect the rights of small property owners and ensure the payment of just compensation;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 72.024, 185.515, 512.741, 198.452 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(e) Encourage more effective people’s participation in the urban development process; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 72.024, 145.195, 558.524, 171.332 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(f) Improve the capability of local government units in undertaking urban development and housing programs and projects.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 36.024, 118.045, 301.711, 130.982 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 3. Definition of Terms. – For purposes of this Act:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 505,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 72.024, 37.169, 559.59, 103.626 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "next list id" : 508,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 72.024, 77.489, 558.962, 103.626 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(a) “Affordable cost” refers to the most reasonable price of land and shelter based on the needs and financial capability of Program beneficiaries and appropriate financing schemes;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 72.024, 37.169, 559.59, 63.306 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(b) “Areas for priority development” refers to those areas declared as such under existing statutes and pertinent executive issuances;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 508,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 72.024, 57.569, 559.412, 805.582 ],
+    "numbering style" : "english letters",
+    "number of list items" : 12,
+    "previous list id" : 505,
+    "next list id" : 512,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 779.445, 558.965, 805.582 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(c) “Blighted lands” refers to the areas where the structures are dilapidated, obsolete and unsanitary, tending to depreciate the value of the land and prevent normal development and use of the area.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 712.695, 559.387, 765.262 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(d) “Consultation” refers to the constitutionally mandated process whereby the public, on their own or through people’s organizations, is provided an opportunity to be heard and to participate in the decision-making process on matters involving the protection and promotion of its legitimate collective interests, which shall include appropriate documentation and feedback mechanisms;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 658.935, 559.107, 698.272 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(e) “Idle lands” refers to nonagricultural lands urban and urbanized areas on which no improvements, as herein defined, have been made by the owner, as certified by the city, municipal or provincial assessor;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 578.995, 559.403, 644.752 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(f) “Improvements” refers to all types of buildings and residential units, walls, fences, structures or constructions of all kinds of a fixed character or which are adhered to the soil but shall not include trees, plants and growing fruits, and other fixtures that are mere superimpositions on the land, and the value of improvements shall not be less than fifty percent (50%) of the assessed value of the property;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 525.445, 558.756, 564.812 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(g) “Joint venture” refers to the commitment or agreement by two (2) or more persons to carry out a specific or single business enterprise for their mutual benefit, for which purpose they combine their funds, land resources, facilities and services;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 471.685, 558.811, 511.022 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(h) “Land assembly or consolidation” refers to the acquisition of lots of varying ownership through purchase or expropriation for the purpose of planned and rational development and socialized housing programs without individual property boundary restrictions;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 431.345, 558.855, 457.482 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(i) “Land banking” refers to the acquisition of land at values based on existing use in advance of actual need to promote planned development and socialized housing programs;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 324.765, 559.412, 416.922 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(j) “Land swapping” refers to the process of land acquisition by exchanging land for another piece of land of equal value, or for shares of stock in a government or quasi-government corporation whose book value is of equal value to the land being exchanged, for the purpose of planned and rational development and provision for socialized housing where land values are determined based on land classification, market value and assessed value taken from existing tax declarations: Provided, That more valuable lands owned by private persons may be exchanged with less valuable lands to carry out the objectives of this Act;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 271.215, 558.976, 310.582 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(k) “Land use plan” refers to the rational approach of allocating available land resources as equitably as possible among competing user groups and for different functions consistent with the development plan of the area and the Program under this Act;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 217.695, 558.744, 257.032 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(l) “On-site development” refers to the process of upgrading and rehabilitation of blighted and slum urban areas with a view of minimizing displacement of dwellers in said areas, and with provisions for basic services as provided for in Section 21 hereof;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 111.085, 559.383, 203.252 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(m) “Professional squatters” refers to individuals or groups who occupy lands without the express consent of the landowner and who have sufficient income for legitimate housing. The term shall also apply to persons who have previously been awarded homelots or housing units by the government but who sold, leased or transferred the same to settle illegally in the same place or in another urban area, and nonbona fide occupants and intruders of lands reserved for socialized housing. The term shall not apply to individuals or groups who simply rent land and housing from professional squatters or squatting syndicates;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 57.569, 558.786, 96.906 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(n) “Resettlement areas” refers to areas identified by the appropriate national agency or by the local government unit with respect to areas within its jurisdiction, which shall be used for the relocation of the underprivileged and homeless citizens;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 512,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 72.024, 204.475, 559.53, 805.582 ],
+    "numbering style" : "english letters",
+    "number of list items" : 10,
+    "previous list id" : 508,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 766.245, 558.899, 805.582 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(o) “Security of tenure” refers to the degree of protection afforded to qualified Program beneficiaries against infringement or unjust, reasonable and arbitrary eviction or disposition, by virtue of the right of ownership, lease agreement, usufruct and other contractual arrangements;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 712.695, 558.866, 752.062 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(p) “Slum Improvement and Resettlement Program or SIR” refers to the program of the National Housing Authority of upgrading and improving blighted squatter areas outside of Metro Manila pursuant to existing statutes and pertinent executive issuances;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 658.935, 559.413, 698.272 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(q) “Small property owners” refers to those whose only real property consists of residential lands not exceeding three hundred square meters (300 sq. m.) in highly urbanized cities and eight hundred square meters (800 sq. m.) in other urban areas;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 592.195, 559.283, 644.752 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(r) “Socialized housing” refers to housing programs and projects covering houses and lots or homelots only undertaken by the government or the private sector for the underprivileged and homeless citizens which shall include sites and services development, long-term financing, liberalized terms on interest payments, and such other benefits in accordance with the provisions of this Act;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 551.875, 558.733, 578.012 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(s) “Squatting syndicates” refers to groups of persons engaged in the business of squatter housing for profit or gain;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 471.685, 559.002, 537.422 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(t) “Underprivileged and homeless citizens” refers to the beneficiaries of this Act and to individuals or families residing in urban and urbanizable areas whose income or combined household income falls within the poverty threshold as defined by the National Economic and Development Authority and who do not own housing facilities. This shall include those who live in makeshift dwelling units and do not enjoy security of tenure;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 352.125, 559.53, 457.482 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(u) “Unregistered or abandoned lands” refers to lands in urban and urbanizable areas which are not registered with the Register of Deeds, or with the city or municipal assessor’s office concerned, or which are uninhabited by the owner and have not been developed or devoted for any useful purpose, or appears unutilized for a period of three (3) consecutive years immediately prior to the issuance and receipt or publication of notice of acquisition by the government as provided under this Act. It does not include land which has been abandoned by reason of force majeure or any other fortuitous event: Provided, That prior to such event, such land was previously used for some useful or economic purpose;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 311.565, 559.065, 337.702 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(v) “Urban areas” refers to all cities regardless of their population density and to municipalities with a population density of at least five hundred (500) persons per square kilometer;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 258.015, 559.207, 297.352 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(w) “Urbanizable areas” refers to sites and lands which, considering present characteristics and prevailing conditions, display marked and great potential of becoming urban areas within the period of five (5) years; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 204.475, 558.785, 243.832 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(x) “Zonal Improvement Program or ZIP” refers to the program of the National Housing Authority of upgrading and improving blighted squatters areas within the cities and municipalities of Metro Manila pursuant to existing statutes and pertinent executive issuances.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 517,
+    "page number" : 3,
+    "bounding box" : [ 271.8, 149.995, 323.5, 162.932 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "ARTICLE II"
+  }, {
+    "type" : "paragraph",
+    "id" : 519,
+    "page number" : 3,
+    "bounding box" : [ 222.34, 122.875, 373.301, 135.812 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "COVERAGE AND EXEMPTIONS"
+  }, {
+    "type" : "list",
+    "id" : 521,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 36.024, 69.089, 559.079, 108.426 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 503,
+    "next list id" : 525,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 36.024, 69.089, 559.079, 108.426 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 4. Coverage. – The Program shall cover all lands in urban and urbanizable areas, including existing areas for priority development, zonal improvement sites, slum improvement and resettlement sites, and in other areas that may be identified by the local government units as suitable for socialized housing.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 525,
+    "level" : "1",
+    "page number" : 4,
+    "bounding box" : [ 36.024, 174.715, 559.502, 805.582 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "previous list id" : 521,
+    "next list id" : 539,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 36.024, 792.645, 468.432, 805.582 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 5. Exemptions. – The following lands shall be exempt from the coverage of this Act:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 209,
+        "level" : "2",
+        "page number" : 4,
+        "bounding box" : [ 72.024, 537.685, 559.664, 778.462 ],
+        "numbering style" : "english letters",
+        "number of list items" : 5,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 72.024, 752.325, 558.756, 778.462 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(a) Those included in the coverage of Republic Act No. 6657, otherwise known as the Comprehensive Agrarian Reform Law;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 72.024, 724.965, 410.167, 737.902 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(b) Those actually used for national defense and security of the State;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 72.024, 631.815, 559.664, 710.752 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(c) Those used, reserved or otherwise set aside for government offices, facilities and other installations, whether owned by the national government, its agencies and instrumentalities, including government-owned or -controlled corporations, or by the local government units: Provided, however, That the lands herein mentioned, or portions thereof, which have not been used for the purpose for which they have been reserved or set aside for the past ten (10) years from the effectivity of this Act, shall be covered by this Act;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 72.024, 578.275, 558.998, 617.612 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(d) Those used or set aside for parks, reserves for flora and fauna, forests and watersheds, and other areas necessary to maintain ecological balance or environmental protection, as determined and certified to by the proper government agency; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 72.024, 537.685, 558.789, 563.852 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(e) Those actually and primarily used for religious, charitable, or educational purposes, cultural and historical sites, hospitals and health centers, and cemeteries or memorial parks.",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "paragraph",
+        "id" : 212,
+        "page number" : 4,
+        "bounding box" : [ 36.024, 497.365, 558.602, 523.502 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "The exemptions herein provided shall not apply when the use or purpose of the abovementioned lands has ceased to exist."
+      }, {
+        "type" : "paragraph",
+        "id" : 215,
+        "page number" : 4,
+        "bounding box" : [ 270.36, 470.245, 324.942, 483.182 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "ARTICLE III"
+      }, {
+        "type" : "paragraph",
+        "id" : 217,
+        "page number" : 4,
+        "bounding box" : [ 139.49, 442.865, 455.883, 455.802 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "NATIONAL URBAN DEVELOPMENT AND HOUSING FRAMEWORK"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 36.024, 282.735, 559.502, 428.682 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 6. Framework for Rational Development. – There shall be a National Urban Development and Housing Framework to be formulated by the Housing and Land Use Regulatory Board under the direction of the Housing and Urban Development Coordinating Council in coordination with all local government units and other concerned public and private sectors within one (1) year from the effectivity of this Act. The Framework shall refer to the comprehensive plan for urban and urbanizable areas aimed at achieving the objectives of the Program. In the formulation of the Framework, a review and rationalization of existing town and land use plans, housing programs, and all other projects and activities of government agencies and the private sectors which may substantially affect urban land use patterns, transportation and public utilities, infrastructure, environment and population movements shall be undertaken with the concurrence of the local government units concerned.",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 229,
+        "page number" : 4,
+        "bounding box" : [ 269.88, 255.615, 325.599, 268.552 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "ARTICLE IV"
+      }, {
+        "type" : "paragraph",
+        "id" : 231,
+        "page number" : 4,
+        "bounding box" : [ 157.75, 228.495, 437.828, 241.432 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "LAND USE, INVENTORY, ACQUISITION AND DISPOSITION"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 36.024, 174.715, 559.273, 214.052 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 7. Inventory of Lands. – Within one (1) year from the effectivity of this Act, all city and municipal governments shall conduct an inventory of all lands and improvements thereon within their respective localities. The inventory shall include the following:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 529,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 72.024, 39.569, 559.376, 160.532 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 147.595, 173.68, 160.532 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(a) Residential lands;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 94.049, 559.376, 133.382 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(b) Government-owned lands, whether owned by the national government or any of its subdivisions, instrumentalities, or agencies, including government-owned or -controlled corporations and their subsidiaries;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 66.689, 314.043, 79.626 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(c) Unregistered or abandoned and idle lands; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 39.569, 147.615, 52.506 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(d) Other lands.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 531,
+    "page number" : 5,
+    "bounding box" : [ 36.024, 753.045, 559.212, 805.582 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "In conducting the inventory, the local government units concerned, in coordination with the Housing and Land Use Regulatory Board and with the assistance of the appropriate government agencies, shall indicate the type of land use and the degree of land utilization, and other data or information necessary to carry out the purposes of this Act."
+  }, {
+    "type" : "paragraph",
+    "id" : 536,
+    "page number" : 5,
+    "bounding box" : [ 36.024, 712.695, 558.945, 738.862 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "For planning purposes, the Housing and Urban Development Coordinating Council shall be furnished by each local government unit a copy of its inventory which shall be updated every three (3) years."
+  }, {
+    "type" : "list",
+    "id" : 539,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 36.024, 109.645, 559.492, 698.272 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "previous list id" : 525,
+    "next list id" : 553,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 36.024, 526.165, 559.492, 698.272 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 8. Identification of Sites for Socialized Housing. – After the inventory, the local government units, in coordination with the National Housing Authority, the Housing and Land Use Regulatory Board, the National Mapping Resource Information Authority, and the Land Management Bureau, shall identify lands for socialized housing and resettlement areas for the immediate and future needs of the underprivileged and homeless in the urban areas, taking into consideration the degree of availability of basic services and facilities, their accessibility and proximity of job sites and other economic opportunities, and the actual number of registered beneficiaries. Government-owned lands under paragraph (b) of the preceding section which have not been used for the purpose for which they have been reserved or set aside for the past ten (10) years from the effectivity of this Act and identified as suitable for socialized housing, shall immediately be transferred to the National Housing Authority subject to the approval of the President of the Philippines or by the local government unit concerned, as the case may be, for proper disposition in accordance with this Act.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 36.024, 485.605, 559.311, 511.982 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 9. Priorities in the Acquisition of Land. – Lands for socialized housing shall be acquired in the following order:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 247,
+        "level" : "2",
+        "page number" : 5,
+        "bounding box" : [ 72.024, 282.735, 559.168, 471.402 ],
+        "numbering style" : "english letters",
+        "number of list items" : 6,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 72.024, 445.265, 558.59, 471.402 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(a) Those owned by the government or any of its subdivisions, instrumentalities, or agencies, including government-owned or -controlled corporations and their subsidiaries;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 72.024, 418.145, 267.686, 431.082 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(b) Alienable lands of the public domain;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 72.024, 390.785, 293.23, 403.722 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(c) Unregistered or abandoned and idle lands;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 72.024, 350.445, 558.822, 376.582 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(d) Those within the declared Areas for Priority Development, Zonal Improvement Program sites, and Slum Improvement and Resettlement Program sites which have not yet been acquired;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 72.024, 310.125, 559.168, 336.262 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(e) Bagong Lipunan Improvement of Sites and Services or BLISS sites which have not yet been acquired; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 72.024, 282.735, 196.124, 295.672 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(f) Privately-owned lands.",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "paragraph",
+        "id" : 249,
+        "page number" : 5,
+        "bounding box" : [ 36.024, 229.215, 559.512, 268.552 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "Where on-site development is found more practicable and advantageous to the beneficiaries, the priorities mentioned in this section shall not apply. The local government units shall give budgetary priority to on-site development of government lands."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 36.024, 109.645, 559.431, 215.012 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 10. Modes of Land Acquisition. – The modes of acquiring lands for purposes of this Act shall include, among others, community mortgage, land swapping, land assembly or consolidation, land banking, donation to the government, joint-venture agreement, negotiated purchase, and expropriation: Provided, however, That expropriation shall be resorted to only when other modes of acquisition have been exhausted: Provided, further, That where expropriation is resorted to, parcels of land owned by small property owners shall be exempted for purposes of this Act: Provided, finally, That abandoned property, as herein defined, shall be reverted and escheated to the State in a proceeding analogous to the procedure laid down in Rule 91 of the Rules of Court.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 548,
+    "page number" : 5,
+    "bounding box" : [ 36.024, 42.689, 559.388, 95.226 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "For the purpose of socialized housing, government-owned and foreclosed properties shall be acquired by the local government units, or by the National Housing Authority primary through negotiated purchase: Provided, That qualified beneficiaries who are actual occupants of the land shall be given the right of first refusal."
+  }, {
+    "type" : "list",
+    "id" : 553,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 36.024, 110.365, 559.4, 805.582 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 6,
+    "previous list id" : 539,
+    "next list id" : 560,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 36.024, 713.415, 559.01, 805.582 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 11. Expropriation of Idle Lands. – All idle lands in urban and urbanizable areas, as defined and identified in accordance with this Act, shall be expropriated and shall form part of the public domain. These lands shall be disposed of or utilized by the government for such purposes that conform with their land use plans. Expropriation proceedings shall be instituted if, after the lapse of one (1) year following receipt of notice of acquisition, the owner fails to introduce improvements as defined in Section 3(f) hereof, except in the case of force majeure and other fortuitous events. Exempted from this provision, however, are residential lands owned by small property owners or those the ownership of which is subject of a pending litigation.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 36.024, 579.715, 559.4, 699.232 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 12. Disposition of Lands for Socialized Housing. – The National Housing Authority, with respect to lands belonging to the national government, and the local government units with respect to other lands within their respective localities, shall coordinate with each other to formulate and make available various alternative schemes for the disposition of lands to the beneficiaries of the Program. These schemes shall not be limited to those involving transfer of ownership in fee simple but shall include lease, with option to purchase, usufruct or such other variations as the local government units or the National Housing Authority may deem most expedient in carrying out the purposes of this Act. Consistent with this provision, a scheme for public rental housing may be adopted.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 36.024, 472.405, 559.14, 565.532 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 13. Valuation of Lands for Socialized Housing. – Equitable land valuation guidelines for socialized housing shall be set by the Department of Finance on the basis of the market value reflected in the zonal valuation, or in its absence, on the latest real property tax declaration. For sites already occupied by qualified Program beneficiaries, the Department of Finance shall factor into the valuation the blighted status of the lands as certified by the local government unit or the National Housing Authority.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 36.024, 285.135, 559.315, 458.202 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 14. Limitations on the Disposition of Lands for Socialized Housing. – No land for socialized housing, including improvements or rights thereon, shall be sold, alienated, conveyed, encumbered or leased by any beneficiary of this Program except to qualified Program beneficiaries as determined by the government agency concerned. Should the beneficiary unlawfully sell, transfer, or otherwise dispose of his lot or any right thereon, the transaction shall be null and void. He shall also lose his right to the land, forfeit the total amortization paid thereon, and shall be barred from the benefits under this Act for a period of ten (10) years from the date of violation. In the event the beneficiary dies before full ownership of the land is vested on him, transfer to his heirs shall take place only upon their assumption of his outstanding obligations. In case of failure by the heirs to assume such obligations, the land shall revert to the government for disposition in accordance with this Act.",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 285,
+        "page number" : 6,
+        "bounding box" : [ 271.32, 258.015, 323.926, 270.952 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "ARTICLE V"
+      }, {
+        "type" : "paragraph",
+        "id" : 287,
+        "page number" : 6,
+        "bounding box" : [ 242.5, 230.895, 353.132, 243.832 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "SOCIALIZED HOUSING"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 36.024, 150.715, 559.002, 216.452 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 15. Policy. – Socialized housing, as defined in Section 3 hereof, shall be the primary strategy in providing shelter for the underprivileged and homeless. However, if the tenurial arrangement in a particular socialized housing program is in the nature of leasehold or usufruct, the same shall be transitory and the beneficiaries must be encouraged to become independent from the Program within a given period of time, to be determined by the implementing agency concerned.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 36.024, 110.365, 559.271, 136.532 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 16. Eligibility Criteria for Socialized Housing Program Beneficiaries. – To qualify for the socialized housing program, a beneficiary:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 556,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 72.024, 55.889, 497.23, 96.186 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "next list id" : 558,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 72.024, 83.249, 211.305, 96.186 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(a) Must be a Filipino citizen;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 72.024, 55.889, 497.23, 68.826 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(b) Must be an underprivileged and homeless citizen, as defined in Section 3 of this Act;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 558,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 72.024, 765.525, 447.185, 805.582 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "previous list id" : 556,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 792.645, 432.683, 805.582 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(c) Must not own any real property whether in the urban or rural areas; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 765.525, 447.185, 778.462 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(d) Must not be a professional squatter or a member of squatting syndicates.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 560,
+    "level" : "1",
+    "page number" : 7,
+    "bounding box" : [ 36.024, 310.125, 559.608, 751.102 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "previous list id" : 553,
+    "next list id" : 584,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 36.024, 685.335, 559.223, 751.102 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 17. Registration of Socialized Housing Beneficiaries. – The Housing and Urban Development Coordinating Council, in coordination with the local government units, shall design a system for the registration of qualified Program beneficiaries in accordance with the Framework. The local government units, within one (1) year from the effectivity of this Act, shall identify and register all beneficiaries within their respective localities.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 36.024, 578.995, 558.942, 671.152 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 18. Balanced Housing Development. – The Program shall include a system to be specified in the Framework plan whereby developers of proposed subdivision projects shall be required to develop an area for socialized housing equivalent to at least twenty percent (20%) of the total subdivision area or total subdivision project cost, at the option of the developer, within the same city or municipality, whenever feasible, and in accordance with the standards set by the Housing and Land Use Regulatory Board and other existing laws. The balanced housing development as herein required may also be complied with by the developers concerned in any of the following manner:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 306,
+        "level" : "2",
+        "page number" : 7,
+        "bounding box" : [ 72.024, 457.025, 558.846, 564.812 ],
+        "numbering style" : "english letters",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 72.024, 551.875, 245.418, 564.812 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(a) Development of new settlement;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 72.024, 511.285, 558.846, 537.422 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(b) Slum upgrading or renewal of areas for priority development either through zonal improvement programs or slum improvement and resettlement programs;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 72.024, 484.165, 547.096, 497.102 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(c) Joint-venture projects with either the local government units or any of the housing agencies; or",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 72.024, 457.025, 335.267, 469.962 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(d) Participation in the community mortgage program.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 36.024, 363.645, 559.443, 442.602 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 19. Incentives for the National Housing Authority. – The National Housing Authority, being the primary government agency in charge of providing housing for the underprivileged and homeless, shall be exempted from the payment of all fees and charges of any kind, whether local or national, such as income and real estate taxes. All documents or contracts executed by and in favor of the National Housing Authority shall also be exempt from the payment of documentary stamp tax and registration fees, including fees required for the issuance of transfer certificates of titles.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 36.024, 310.125, 559.608, 349.462 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 20. Incentives for Private Sector Participating in Socialized Housing. – To encourage greater private sector participation in socialized housing and further reduce the cost of housing units for the benefit of the underprivileged and homeless, the following incentives shall be extended to the private sector:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 564,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 72.024, 148.315, 559.178, 295.672 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 269.535, 558.855, 295.672 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(a) Reduction and simplification of qualification and accreditation requirements for participating private developers;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 202.795, 559.178, 255.352 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(b) Creation of one-stop offices in the different regions of the country for the processing, approval and issuance of clearances, permits and licenses: Provided, That clearances, permits and licenses shall be issued within ninety (90) days from the date of submission of all requirements by the participating private developers;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 175.675, 297.251, 188.612 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(c) Simplification of financing procedures; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 148.315, 310.985, 161.252 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(d) Exemption from the payment of the following:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 566,
+    "level" : "3",
+    "page number" : 7,
+    "bounding box" : [ 108.05, 55.169, 558.835, 134.102 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 108.05, 121.165, 266.613, 134.102 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(1) Project-related income taxes;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 108.05, 107.965, 370.901, 120.902 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(2) Capital gains tax on raw lands used for the project;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 108.05, 94.769, 384.632, 107.706 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(3) Value-added tax for the project contractor concerned;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 108.05, 81.569, 365.889, 94.506 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(4) Transfer tax for both raw completed projects; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 108.05, 55.169, 558.835, 81.306 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(5) Donor’s tax for lands certified by the local government units to have been donated for socialized housing purposes.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 569,
+    "page number" : 8,
+    "bounding box" : [ 36.024, 739.845, 559.095, 805.582 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "Provided, That upon application for exemption, a lien on the title of the land shall be annotated by the Register of Deeds: Provided, further, That the socialized housing development plan has already been approved by the appropriate government agencies concerned: Provided, finally, That all the savings acquired by virtue of this provision shall accrue in favor of the beneficiaries subject to the implementing guidelines to be issued by the Housing and Urban Development Coordinating Council."
+  }, {
+    "type" : "paragraph",
+    "id" : 575,
+    "page number" : 8,
+    "bounding box" : [ 36.024, 686.295, 558.856, 725.632 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "Appropriate implementing guidelines shall be prepared by the Department of Finance, in consultation with the Housing and Urban Development Coordinating Council, for the proper implementation of the tax exemption mentioned in this section within one (1) year after the approval of this Act."
+  }, {
+    "type" : "paragraph",
+    "id" : 579,
+    "page number" : 8,
+    "bounding box" : [ 36.024, 619.315, 558.706, 671.872 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "Property owners who voluntarily provide resettlement sites to illegal occupants of their lands shall be entitled to a tax credit equivalent to the actual nonrecoverable expenses incurred in the resettlement, subject to the implementing guidelines jointly issued by the Housing and Urban Development Coordinating Council and the Department of Finance."
+  }, {
+    "type" : "list",
+    "id" : 584,
+    "level" : "1",
+    "page number" : 8,
+    "bounding box" : [ 36.024, 136.795, 559.441, 605.132 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "previous list id" : 560,
+    "next list id" : 598,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 36.024, 565.795, 558.987, 605.132 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 21. Basic Services. – Socialized housing or resettlement areas shall be provided by the local government unit or the National Housing Authority in cooperation with the private developers and concerned agencies with the following basic services and facilities:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 317,
+        "level" : "2",
+        "page number" : 8,
+        "bounding box" : [ 72.024, 457.025, 492.351, 551.582 ],
+        "numbering style" : "english letters",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 72.024, 538.645, 158.324, 551.582 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(a) Potable water;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 72.024, 511.285, 406.326, 524.222 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(b) Power and electricity and an adequate power distribution system;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 72.024, 484.165, 492.351, 497.102 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(c) Sewerage facilities and an efficient and adequate solid waste disposal system; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 72.024, 457.025, 347.141, 469.962 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(d) Access to primary roads and transportation facilities.",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "paragraph",
+        "id" : 319,
+        "page number" : 8,
+        "bounding box" : [ 36.024, 390.065, 559.034, 442.602 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "The provisions of other basic services and facilities such as health, education, communications, security, recreation, relief and welfare shall be planned and shall be given priority for implementation by the local government unit and concerned agencies in cooperation with the private sector and the beneficiaries themselves."
+      }, {
+        "type" : "paragraph",
+        "id" : 324,
+        "page number" : 8,
+        "bounding box" : [ 36.024, 323.325, 559.318, 375.862 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "The local government unit, in coordination with the concerned national agencies, shall ensure that these basic services are provided at the most cost-efficient rates, and shall set a mechanism to coordinate operationally the thrusts, objectives and activities of other government agencies concerned with providing basic services to housing projects."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 36.024, 256.335, 559.086, 308.902 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 22. Livelihood Component. – To the extent feasible, socialized housing and resettlement projects shall be located near areas where employment opportunities are accessible. The government agencies dealing with the development of livelihood programs and grant of livelihood loans shall give priority to the beneficiaries of the Program.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 36.024, 136.795, 559.441, 242.152 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 23. Participation of Beneficiaries. – The local government units, in coordination with the Presidential Commission for the Urban Poor and concerned government agencies, shall afford Program beneficiaries or their duly designated representatives an opportunity to be heard and to participate in the decision-making process over matters involving the protection and promotion of their legitimate collective interests which shall include appropriate documentation and feedback mechanisms. They shall also be encouraged to organize themselves and undertake self-help cooperative housing and other livelihood activities. They shall assist the government in preventing the incursions of professional squatters and members of squatting syndicates into their communities.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 593,
+    "page number" : 8,
+    "bounding box" : [ 36.024, 70.049, 559.437, 122.582 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "In instances when the affected beneficiaries have failed to organize themselves or form an alliance within a reasonable period prior to the implementation of the program or projects affecting them, consultation between the implementing agency and the affected beneficiaries shall be conducted with the assistance of the Presidential Commission for the Urban Poor and the concerned nongovernment organization."
+  }, {
+    "type" : "list",
+    "id" : 598,
+    "level" : "1",
+    "page number" : 9,
+    "bounding box" : [ 36.024, 215.295, 559.348, 805.582 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "previous list id" : 584,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 36.024, 779.445, 559.227, 805.582 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 24. Consultation with Private Sector. – Opportunities for adequate consultation shall be accorded to the private sector involved in socialized housing project pursuant to this Act.",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 335,
+        "page number" : 9,
+        "bounding box" : [ 269.88, 752.325, 325.422, 765.262 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "ARTICLE VI"
+      }, {
+        "type" : "paragraph",
+        "id" : 337,
+        "page number" : 9,
+        "bounding box" : [ 176.95, 685.335, 418.288, 737.902 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "AREAS FOR PRIORITY DEVELOPMENT, ZONAL IMPROVEMENT PROGRAM SITES AND SLUM IMPROVEMENT AND RESETTLEMENT PROGRAM SITES"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 36.024, 618.595, 558.849, 671.152 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 25. Benefits. – In addition to the benefits provided under existing laws and other related issuance to occupants of areas for priority development, zonal improvement program sites and slum improvement and resettlement program sites, such occupants shall be entitled to priority in all government projects initiated pursuant to this Act. They shall also be entitled to the following support services:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 346,
+        "level" : "2",
+        "page number" : 9,
+        "bounding box" : [ 72.024, 415.745, 559.232, 604.412 ],
+        "numbering style" : "english letters",
+        "number of list items" : 5,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 72.024, 591.475, 284.246, 604.412 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(a) Land surveys and titling at minimal cost;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 72.024, 537.685, 559.232, 577.052 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(b) Liberalized terms on credit facilities and housing loans and one hundred percent (100%) deduction from every homebuyer’s gross income tax of all interest payments made on documented loans incurred for the construction or purchase of the homebuyer’s house;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 72.024, 497.365, 558.916, 523.502 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(c) Exemption from the payment of documentary stamp tax, registration fees, and other fees for the issuance of transfer certificate of titles;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 72.024, 470.245, 376.364, 483.182 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(d) Basic services as provided for in Section 21 of this Act; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 72.024, 415.745, 434.302, 455.802 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(e) Such other benefits that may arise from the implementation of this Act. ARTICLE VII",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "paragraph",
+        "id" : 349,
+        "page number" : 9,
+        "bounding box" : [ 198.79, 388.385, 396.075, 401.322 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "URBAN RENEWAL AND RESETTLEMENT"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 36.024, 295.245, 559.158, 374.182 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 26. Urban Renewal and Resettlement. – This shall include the rehabilitation and development of blighted and slum areas and the resettlement of Program beneficiaries in accordance with the provisions of this Act. On-site development shall be implemented whenever possible in order to ensure minimum movement of occupants of blighted lands and slum areas. The resettlement of the beneficiaries of the Program from their existing places of occupancy shall be undertaken only when on-site development is not feasible and after compliance with the procedures laid down in Section 28 of this Act.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 36.024, 215.295, 559.348, 281.032 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 27. Action Against Professional Squatters and Squatting Syndicates. – The local government units, in cooperation with the Philippine National Police, the Presidential Commission for the Urban Poor (PCUP), and the PCUP-accredited urban poor organization in the area, shall adopt measures to identify and effectively curtail the nefarious and illegal activities of professional squatters and squatting syndicates, as herein defined.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 604,
+    "page number" : 9,
+    "bounding box" : [ 36.024, 161.515, 558.882, 200.852 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "Any person or group identified as such shall be summarily evicted and their dwellings or structures demolished, and shall be disqualified to avail of the benefits of the Program. A public official who tolerates or abets the commission of the abovementioned acts shall be dealt with in accordance with existing laws."
+  }, {
+    "type" : "paragraph",
+    "id" : 608,
+    "page number" : 9,
+    "bounding box" : [ 36.024, 107.965, 559.017, 147.332 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "For purposes of this Act, professional squatters or members of squatting syndicates shall be imposed the penalty of six (6) years imprisonment or a fine of not less than Sixty thousand pesos (P60,000.00) but not more than One hundred thousand pesos (P100,000), or both, at the discretion of the court."
+  }, {
+    "type" : "heading",
+    "id" : 612,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 36.024, 779.445, 558.901, 805.582 ],
+    "heading level" : 2,
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "SEC. 28. Eviction and Demolition. – Eviction or demolition as a practice shall be discouraged. Eviction ordemolition, however, may be allowed under the following situations:"
+  }, {
+    "type" : "list",
+    "id" : 615,
+    "level" : "2",
+    "page number" : 10,
+    "bounding box" : [ 72.024, 671.415, 559.032, 765.262 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 72.024, 725.925, 559.032, 765.262 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(a) When persons or entities occupy danger areas such as esteros, railroad tracks, garbage dumps, riverbanks, shorelines, waterways, and other public places such as sidewalks, roads, parks, and playgrounds;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 72.024, 698.535, 555.686, 711.472 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(b) When government infrastructure projects with available funding are about to be implemented; or",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 72.024, 671.415, 355.592, 684.352 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(c) When there is a court order for eviction and demolition.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 617,
+    "page number" : 10,
+    "bounding box" : [ 72.024, 631.095, 559.054, 657.232 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "In the execution of eviction or demolition orders involving underprivileged and homeless citizens, the following shall be mandatory:"
+  }, {
+    "type" : "list",
+    "id" : 620,
+    "level" : "3",
+    "page number" : 10,
+    "bounding box" : [ 108.05, 281.295, 559.509, 616.652 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 8,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.05, 590.515, 558.471, 616.652 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(1) Notice upon the affected persons or entities at least thirty (30) days prior to the date of eviction or demolition;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.05, 536.965, 559.001, 576.332 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(2) Adequate consultations on the matter of resettlement with the duly designated representatives of the families to be resettled and the affected communities in the areas where they are to be relocated;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.05, 496.645, 559.114, 522.782 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(3) Presence of local government officials or their representatives during eviction or demolition;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.05, 469.285, 433.929, 482.222 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(4) Proper identification of all persons taking part in the demolition;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.05, 428.945, 558.935, 455.082 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(5) Execution of eviction or demolition only during regular office hours from Mondays to Fridays and during good weather, unless the affected families consent otherwise;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.05, 388.385, 558.692, 414.522 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(6) No use of heavy equipment for demolition except for structures that are permanent and of concrete materials;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.05, 348.045, 558.824, 374.182 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(7) Proper uniforms for members of the Philippine National Police who shall occupy the first line of law enforcement and observe proper disturbance control procedures; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.05, 281.295, 559.509, 333.862 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(8) Adequate relocation, whether temporary or permanent: Provided, however, That in cases of eviction and demolition pursuant to a court order involving underprivileged and homeless citizens, relocation shall be undertaken by the local government unit concerned and the National Housing Authority with the assistance of other government agencies within forty-five",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 625,
+    "level" : "4",
+    "page number" : 10,
+    "bounding box" : [ 108.05, 215.295, 559.365, 281.032 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "(45) days from service of notice of final judgment by the court, after which period the said order shall be executed: Provided, further, That should relocation not be possible within the said period, financial assistance in the amount equivalent to the prevailing minimum daily wage multiplied by sixty (60) days shall be extended to the affected families by the local government unit concerned."
+  }, {
+    "type" : "paragraph",
+    "id" : 631,
+    "page number" : 10,
+    "bounding box" : [ 36.024, 174.715, 558.967, 200.852 ],
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "This Department of the Interior and Local Government and the Housing and Urban Development Coordinating Council shall jointly promulgate the necessary rules and regulations to carry out the above provision."
+  }, {
+    "type" : "heading",
+    "id" : 634,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 36.024, 68.369, 559.217, 160.532 ],
+    "heading level" : 2,
+    "font" : "Roboto-Regular",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "SEC. 29. Resettlement. – Within two (2) years from the effectivity of this Act, the local government units, incoordination with the National Housing Authority, shall implement the relocation and resettlement of personsliving in danger areas such as esteros, railroad tracks, garbage dumps, riverbanks, shorelines, waterways,and in other public places such as sidewalks, roads, parks, and playgrounds. The local government unit, incoordination with the National Housing Authority, shall provide relocation or resettlement sites with basicservices and facilities and access to employment and livelihood opportunities sufficient to meet the basicneeds of the affected families."
+  }, {
+    "type" : "list",
+    "id" : 642,
+    "level" : "1",
+    "page number" : 11,
+    "bounding box" : [ 36.024, 42.689, 559.662, 805.582 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 6,
+    "next list id" : 651,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 36.024, 699.495, 559.208, 805.582 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 30. Prohibition Against New Illegal Structures. – It shall be unlawful for any person to construct any structure in areas mentioned in the preceding section. After the effectivity of this Act, the barangay, municipal or city government units shall prevent the construction of any kind of illegal dwelling units or structures within their respective localities. The head of any local government unit concerned who allows, abets or otherwise tolerates the construction of any structure in violation of this section shall be liable to administrative sanctions under existing laws and to penal sanctions provided for in this Act.",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 385,
+        "page number" : 11,
+        "bounding box" : [ 267.0, 672.135, 328.537, 685.072 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "ARTICLE VIII"
+      }, {
+        "type" : "paragraph",
+        "id" : 387,
+        "page number" : 11,
+        "bounding box" : [ 206.74, 645.015, 388.425, 657.952 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "COMMUNITY MORTGAGE PROGRAM"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 36.024, 551.875, 559.307, 630.812 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 31. Definition. – The Community Mortgage Program (CMP) is a mortgage financing program of the National Home Mortgage Finance Corporation which assists legally organized associations of underprivileged and homeless citizens to purchase and develop a tract of land under the concept of community ownership. The primary objective of the program is to assist residents of blighted or depressed areas to own the lots they occupy, or where they choose to relocate to, and eventually improve their neighborhood and homes to the extent of their affordability.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 36.024, 511.285, 559.087, 537.422 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 32. Incentives. – To encourage its wider implementation, participants in the CMP shall be granted with the following privileges or incentives:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 397,
+        "level" : "2",
+        "page number" : 11,
+        "bounding box" : [ 72.024, 390.065, 559.218, 497.102 ],
+        "numbering style" : "english letters",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 11,
+          "bounding box" : [ 72.024, 457.745, 559.218, 497.102 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(a) Government-owned or -controlled corporations and local government units, may dispose of their idle lands suitable for socialized housing under the CMP through negotiated sale at prices based on acquisition cost plus financial carrying costs;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 11,
+          "bounding box" : [ 72.024, 430.385, 479.323, 443.322 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(b) Properties sold under the CMP shall be exempted from the capital gains tax; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 11,
+          "bounding box" : [ 72.024, 390.065, 558.731, 416.202 ],
+          "font" : "Roboto-Regular",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "(c) Beneficiaries under the CMP shall not be evicted nor dispossessed of their lands or improvements unless they have incurred arrearages in payments of amortizations for three (3) months.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 36.024, 257.295, 559.116, 375.862 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 33. Organization of Beneficiaries. – Beneficiaries of the Program shall be responsible for their organization into associations to manage their subdivisions or places of residence, to secure housing loans under existing Community Mortgage Program and such other projects beneficial to them. Subject to such rules and regulations to be promulgated by the National Home Mortgage Finance Corporation, associations organized pursuant to this Act may collectively acquire and own lands covered by this Program. Where the beneficiaries fail to form an association by and among themselves, the National Home Mortgage Finance Corporation shall initiate the organization of the same in coordination with the Presidential Commission for the Urban Poor and the local government units concerned. No person who is not a bona fide resident of the area shall be a member or officer of such association.",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 409,
+        "page number" : 11,
+        "bounding box" : [ 269.88, 229.935, 325.5, 242.872 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "ARTICLE IX"
+      }, {
+        "type" : "paragraph",
+        "id" : 411,
+        "page number" : 11,
+        "bounding box" : [ 241.54, 202.795, 353.464, 215.732 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "RELATED STRATEGIES"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 36.024, 136.075, 559.662, 188.612 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 34. Promotion of Indigenous Housing Materials and Technologies. – The local government units, in cooperation with the National Housing Authority, Technology and Livelihood Resource Center, and other concerned agencies, shall promote the production and use of indigenous, alternative, and low-cost construction materials and technologies for socialized housing.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 36.024, 42.689, 559.35, 121.622 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 35. Transport System. – The local government units, in coordination with the Departments of Transportation and Communications, Budget and Management, Trade and Industry, Finance, and Public Works and Highways, the Home Insurance Guaranty Corporation, and other concerned government agencies, shall devise a set of mechanisms including incentives to the private sector so that a viable transport system shall evolve and develop in the urban areas. It shall also formulate standards designed to attain these objectives:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 649,
+    "level" : "2",
+    "page number" : 12,
+    "bounding box" : [ 72.024, 683.895, 492.582, 805.582 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 72.024, 792.645, 197.438, 805.582 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(a) Smooth flow of traffic;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 72.024, 765.525, 249.382, 778.462 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(b) Safety and convenience of travel;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 72.024, 738.165, 225.48, 751.102 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(c) Minimum use of land space;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 72.024, 711.015, 338.022, 723.952 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(d) Minimum damage to the physical environment; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 72.024, 683.895, 492.582, 696.832 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(e) Adequate and efficient transport service to the people and goods at minimum cost.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 651,
+    "level" : "1",
+    "page number" : 12,
+    "bounding box" : [ 36.024, 81.569, 559.395, 669.472 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "previous list id" : 642,
+    "next list id" : 664,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 36.024, 550.195, 559.134, 669.472 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 36. Ecological Balance. – The local government units shall coordinate with the Department of Environment and Natural Resources in taking measures that will plan and regulate urban activities for the conservation and protection of vital, unique and sensitive ecosystems, scenic landscapes, cultural sites and other similar resource areas. To make the implementation of this function more effective, the active participation of the citizenry in environmental rehabilitation and in decision-making process shall be promoted and encouraged. The local government units shall recommend to the Environmental and Management Bureau the immediate closure of factories, mines and transport companies which are found to be causing massive pollution.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 36.024, 363.645, 559.395, 535.982 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 37. Population Movements. – The local government units shall set up an effective mechanism, together with the appropriate agencies like the Population Commission, the National Economic and Development Authority and the National Statistics Office, to monitor trends in the movements of population from rural to urban, urban to urban, and urban to rural areas. They shall identify measures by which such movements can be influenced to achieve balance between urban capabilities and population, to direct appropriate segments of the population into areas where they can have access to opportunities to improve their lives and to contribute to national growth and recommend proposed legislation to Congress, if necessary. The Population Commission, the National Economic and Development Authority, and the National Statistics Office shall likewise provide advanced planning information to national and local government planners on population projections and the consequent level of services needed in particular urban and urbanizable areas. This service will include early-warning systems on expected dysfunctions in a particular urban area due to population increases, decreases, or age structure changes.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 36.024, 296.925, 559.158, 349.462 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 38. Urban-rural Interdependence. – To minimize rural to urban migration and pursue urban decentralization, the local government units shall coordinate with the National Economic and Development Authority and other government agencies in the formulation of national development programs that will stimulate economic growth and promote socioeconomic development in the countryside.",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 441,
+        "page number" : 12,
+        "bounding box" : [ 271.32, 269.535, 323.826, 282.472 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "ARTICLE X"
+      }, {
+        "type" : "paragraph",
+        "id" : 443,
+        "page number" : 12,
+        "bounding box" : [ 223.06, 242.415, 372.277, 255.352 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "PROGRAM IMPLEMENTATION"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 36.024, 135.115, 559.366, 228.232 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 39. Role of Local Government Units. – The local government units shall be charged with the implementation of this Act in their respective localities, in coordination with the Housing and Urban Development Coordinating Council, the national housing agencies, the Presidential Commission for the Urban Poor, the private sector and other nongovernment organizations. They shall prepare a comprehensive land use plan for their respective localities in accordance with the provisions of this Act.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 36.024, 81.569, 559.298, 120.902 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 40. Role of Government Housing Agencies. – In addition to their respective existing powers and functions, and those provided for in this Act, the hereunder mentioned housing agencies shall perform the following:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 655,
+    "level" : "2",
+    "page number" : 12,
+    "bounding box" : [ 72.024, 41.249, 558.59, 67.386 ],
+    "numbering style" : "english letters",
+    "number of list items" : 1,
+    "next list id" : 661,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 72.024, 41.249, 558.59, 67.386 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(a) The Housing and Urban Development Coordinating Council shall, through the key housing agencies, provide local government units with necessary support such as:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 658,
+    "level" : "3",
+    "page number" : 13,
+    "bounding box" : [ 108.05, 658.935, 559.266, 805.582 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 108.05, 779.445, 558.681, 805.582 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(1) Formulation of standards and guidelines as well as providing technical support in the preparation of town and land use plans;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 108.05, 699.495, 559.266, 765.262 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(2) In coordination with the National Economic and Development Authority and the National Statistics Office, provide data and information for forward-planning by the local government units in their areas, particularly on projections as to the population and development trends in their localities and the corresponding investment programs needed to provide appropriate types and levels of infrastructure, utilities, services and land use patterns; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 108.05, 658.935, 558.745, 685.072 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(3) Assistance in obtaining funds and other resources needed in the urban development and housing programs in their areas of responsibility.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 661,
+    "level" : "2",
+    "page number" : 13,
+    "bounding box" : [ 72.024, 498.085, 559.267, 644.752 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "previous list id" : 655,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 72.024, 592.195, 558.976, 644.752 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(b) The National Housing Authority, upon request of local government units, shall provide technical and other forms of assistance in the implementation of their respective urban development and housing programs with the objective of augmenting and enhancing local government capabilities in the provision of housing benefits to their constituents;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 72.024, 538.645, 559.267, 578.012 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(c) The National Home Mortgage Finance Corporation shall administer the Community Mortgage Program under this Act and promulgate rules and regulations necessary to carry out the provisions of this Act; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 72.024, 498.085, 558.557, 524.222 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(d) The Home Insurance Guaranty Corporation shall design an appropriate guarantee scheme to encourage financial institutions to go into direct lending for housing.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 664,
+    "level" : "1",
+    "page number" : 13,
+    "bounding box" : [ 36.024, 349.725, 559.187, 483.902 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "previous list id" : 651,
+    "next list id" : 670,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 36.024, 444.545, 559.187, 483.902 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 41. Annual Report. – The Housing and Urban Development Coordinating Council and the local government units shall submit a detailed annual report with respect to the implementation of this Act to the President and the Congress of the Republic of the Philippines.",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 454,
+        "page number" : 13,
+        "bounding box" : [ 269.88, 417.185, 325.411, 430.122 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "ARTICLE XI"
+      }, {
+        "type" : "paragraph",
+        "id" : 456,
+        "page number" : 13,
+        "bounding box" : [ 274.44, 390.065, 321.261, 403.002 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "FUNDING"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 36.024, 349.725, 558.841, 375.862 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 42. Funding. – Funds for the urban development and housing program shall come from the following sources:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 667,
+    "level" : "2",
+    "page number" : 13,
+    "bounding box" : [ 72.024, 66.689, 559.428, 335.302 ],
+    "numbering style" : "english letters",
+    "number of list items" : 7,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 72.024, 295.965, 559.084, 335.302 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(a) A minimum of fifty percent (50%) from the annual net income of the Public Estate Authority, to be used by the National Housing Authority to carry out its programs of land acquisition for resettlement purposes under this Act;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 72.024, 242.415, 559.428, 281.752 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(b) Proceeds from the disposition of ill-gotten wealth, not otherwise previously set aside for any other purpose, shall be applied to the implementation of this Act and shall be administered by the National Home Mortgage Finance Corporation;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 72.024, 215.295, 466.759, 228.232 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(c) Loans, grants, bequests and donations, whether from local or foreign sources;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 72.024, 187.915, 461.943, 200.852 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(d) Flotation of bonds, subject to the guidelines to be set by the Monetary Board;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 72.024, 134.395, 559.309, 173.732 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(e) Proceeds from the social housing tax and, subject to the concurrence of the local government units concerned, idle lands tax as provided in Section 236 of the Local Government Code of 1991 and other existing laws;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 72.024, 107.245, 485.008, 120.182 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(f) Proceeds from the sale or disposition of alienable public lands in urban areas; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 72.024, 66.689, 559.347, 92.826 ],
+      "font" : "Roboto-Regular",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "(g) Domestic and foreign investment or financing through appropriate arrangements like the buildoperate-and-transfer scheme.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 670,
+    "level" : "1",
+    "page number" : 14,
+    "bounding box" : [ 36.024, 241.695, 559.69, 805.582 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 7,
+    "previous list id" : 664,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 36.024, 753.045, 559.116, 805.582 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 43. Socialized Housing Tax. – Consistent with the constitutional principle that the ownership and enjoyment of property bear a social function and to raise funds for the Program, all local government units are hereby authorized to impose an additional one-half percent (0.5%) tax on the assessed value of all lands in urban areas in excess of Fifty thousand pesos (P50,000).",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 462,
+        "page number" : 14,
+        "bounding box" : [ 268.44, 725.925, 326.853, 738.862 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "ARTICLE XII"
+      }, {
+        "type" : "paragraph",
+        "id" : 464,
+        "page number" : 14,
+        "bounding box" : [ 232.18, 698.535, 363.225, 711.472 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "TRANSITORY PROVISIONS"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 36.024, 631.815, 559.69, 684.352 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 44. Moratorium on Eviction and Demolition. – There shall be a moratorium on the eviction of all Program beneficiaries and on the demolition of their houses or dwelling units for a period of three (3) years from the effectivity of this Act: Provided, That the moratorium shall not apply to those persons who have constructed their structures after the effectivity of this Act and for cases enumerated in Section 28 hereof.",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 470,
+        "page number" : 14,
+        "bounding box" : [ 267.0, 604.675, 328.526, 617.612 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "ARTICLE XIII"
+      }, {
+        "type" : "paragraph",
+        "id" : 472,
+        "page number" : 14,
+        "bounding box" : [ 240.34, 577.315, 355.311, 590.252 ],
+        "font" : "Roboto-Regular",
+        "font size" : 11.04,
+        "text color" : "[0.0]",
+        "content" : "COMMON PROVISIONS"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 36.024, 484.165, 559.368, 563.132 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 45. Penalty Clause. – Any person who violates any provision of this Act shall be imposed the penalty of not more than six (6) years of imprisonment or a fine of not less than Five thousand pesos (P5,000) but not more than One hundred thousand pesos (P100,000), or both, at the discretion of the court: Provided, That, if the offender is a corporation, partnership, association or other juridical entity, the penalty shall be imposed on the officer or officers of said corporation, partnership, association or juridical entity who caused the violation.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 36.024, 430.385, 558.825, 469.962 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 46. Appropriations. – The amount necessary to carry out the purposes of this Act shall be included in the annual budget of implementing agencies in the General Appropriations Act of the year following its enactment into law and every year thereafter.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 36.024, 390.065, 558.84, 416.202 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 47. Separability Clause. – If for any reason, any provision of this Act is declared invalid or unconstitutional, the remaining provisions not affected thereby shall continue to be in full force and effect.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 36.024, 336.525, 559.239, 375.862 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 48. Repealing Clause. – All laws, decrees, executive orders, proclamations, rules and regulations, and other issuances, or parts thereof which are inconsistent with the provisions of this Act, are hereby repealed or modified accordingly.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 36.024, 241.695, 559.346, 322.102 ],
+      "font" : "Roboto-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "SEC. 49. Effectivity Clause. – This Act shall take effect upon its publication in at least two (2) national newspapers of general circulation. Approved, March 24, 1992 Source: Presidential Museum and Library",
+      "kids" : [ ]
+    } ]
+  } ]
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T092010Z",
+  "source_relative_path": "001-Laws/raw_markdown/RA-7279/RA 7279 Urban Development and Housing Act 2009.md",
+  "refined_relative_path": "001-Laws/refined_markdown/RA-7279/RA 7279 Urban Development and Housing Act 2009.md",
+  "source_hash": "f5ec44b8596ca23ce2ed32f85cacc1e24a1ea4fa121ad0698cd8c01bfd6a10b0",
+  "output_hash": "f63109ddbde02343275b7ffc33f0a5acd070c6cf6479529d9a29cab4d7f6a9b7",
+  "chars_before": 47030,
+  "chars_after": 47139,
+  "chars_delta": 109,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "collapse-consecutive-blank-lines",
+    "normalize-section-abbreviation"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 47030,
+      "chars_after": 47030,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 47030,
+      "chars_after": 47030,
+      "changed": false
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 47030,
+      "chars_after": 47030,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 47030,
+      "chars_after": 47030,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 47030,
+      "chars_after": 46995,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 46995,
+      "chars_after": 46995,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 46995,
+      "chars_after": 47139,
+      "changed": true
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 47139,
+      "chars_after": 47139,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}

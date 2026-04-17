@@ -1,0 +1,9 @@
+Vitruvius Convert One Report
+
+Source: 001-Laws/RA-7279/RA 7279 Urban Development and Housing Act 2009.pdf
+Detection result: TEXT_PDF
+Recommended route: OPENDATALOADER_DIRECT
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-7279/RA 7279 Urban Development and Housing Act 2009.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-7279/RA 7279 Urban Development and Housing Act 2009.json
+
+STATUS: converted

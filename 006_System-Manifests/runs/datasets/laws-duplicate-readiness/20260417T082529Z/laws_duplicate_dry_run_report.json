@@ -1,0 +1,199 @@
+{
+  "action": "run-laws-duplicate-dry-run",
+  "candidate_law_folder_count": 47,
+  "candidate_law_folders": [
+    "BERDE",
+    "BP-220",
+    "BP-344",
+    "CHED",
+    "CIAP",
+    "DENR",
+    "DEPED",
+    "DOE",
+    "DOH",
+    "DPWH",
+    "EO",
+    "HB-3391",
+    "HB-5207",
+    "HLURB-DHSUD",
+    "LGU",
+    "PD-1067",
+    "PD-1096",
+    "PD-1151",
+    "PD-1185",
+    "PD-1216",
+    "PD-1517",
+    "PD-856",
+    "PD-9514",
+    "PD-957",
+    "PRC",
+    "RA-10066",
+    "RA-11201",
+    "RA-11285",
+    "RA-11361",
+    "RA-1378",
+    "RA-386",
+    "RA-4566",
+    "RA-4726",
+    "RA-6969",
+    "RA-7160",
+    "RA-7279",
+    "RA-7899",
+    "RA-7920",
+    "RA-9003",
+    "RA-9184",
+    "RA-9257",
+    "RA-9266",
+    "RA-9279",
+    "RA-9285",
+    "RA-9514",
+    "SB-2982",
+    "UAP"
+  ],
+  "dry_run": true,
+  "duplicate_cluster_count": 9,
+  "duplicate_clusters": [
+    {
+      "file_count": 3,
+      "law_folder_count": 1,
+      "law_folders": [
+        "PD-1096"
+      ],
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code Full Text (Malacanang Edition).pdf",
+        "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code of the Philippines (Compact).pdf",
+        "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 - National Building Code.pdf"
+      ],
+      "semantic_flags": [],
+      "sha256": "0bd869faac8d949359aa9e3c5bea7026e85e348f61ce1e87a09d48991c5ba796"
+    },
+    {
+      "file_count": 3,
+      "law_folder_count": 1,
+      "law_folders": [
+        "PD-957"
+      ],
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf",
+        "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf",
+        "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf"
+      ],
+      "semantic_flags": [
+        "conflicting_law_irr_filename_semantics"
+      ],
+      "sha256": "1f9ab17a816885cfdbafafc03e3e9b64470a737447129a32a459836d6773f9ea"
+    },
+    {
+      "file_count": 2,
+      "law_folder_count": 1,
+      "law_folders": [
+        "LGU"
+      ],
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/LGU/459742704-Zoning-Ordinance-2016-2025 (1).pdf",
+        "001_Raw-Source-Layer/001-Laws/LGU/459742704-Zoning-Ordinance-2016-2025.pdf"
+      ],
+      "semantic_flags": [],
+      "sha256": "37df272b5ce9c964ca53c5fe741dde8d2063779e727d251025bc92314cb40455"
+    },
+    {
+      "file_count": 2,
+      "law_folder_count": 1,
+      "law_folders": [
+        "PD-1096"
+      ],
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 IRR - Rules 7 and 8 Light Ventilation and Development Controls.pdf",
+        "001_Raw-Source-Layer/001-Laws/PD-1096/Rule 7 _ 8.pdf"
+      ],
+      "semantic_flags": [
+        "conflicting_law_irr_filename_semantics"
+      ],
+      "sha256": "3fd01acd4ec7f37dbff97dba72c107502b46a05f59803df9973dfea62907a55d"
+    },
+    {
+      "file_count": 2,
+      "law_folder_count": 1,
+      "law_folders": [
+        "EO"
+      ],
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/EO/E.O. 1008_0 1.pdf",
+        "001_Raw-Source-Layer/001-Laws/EO/E.O. 1008_0.pdf"
+      ],
+      "semantic_flags": [],
+      "sha256": "8aa9c5d44841481026545dcddfa032b17eb5278988c2fba8aa49d0d95703cee5"
+    },
+    {
+      "file_count": 2,
+      "law_folder_count": 1,
+      "law_folders": [
+        "PD-1096"
+      ],
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.pdf",
+        "001_Raw-Source-Layer/001-Laws/PD-1096/Philippines_02_IRR_of_NBC_of_the_Philippines.pdf"
+      ],
+      "semantic_flags": [
+        "conflicting_law_irr_filename_semantics"
+      ],
+      "sha256": "8e98d8afd4b5972ba5a82d33a65e59e800cd41661b764a0dfc4112d29697b341"
+    },
+    {
+      "file_count": 2,
+      "law_folder_count": 1,
+      "law_folders": [
+        "RA-9266"
+      ],
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-9266/IRR of RA 9266.pdf",
+        "001_Raw-Source-Layer/001-Laws/RA-9266/RA-9266 IRR Architecture Act of 2004.pdf"
+      ],
+      "semantic_flags": [
+        "conflicting_law_irr_filename_semantics"
+      ],
+      "sha256": "d0ce03b572f40560647359abf8e3a38c14bbf9b1b1436389a6d9148eb6fd0574"
+    },
+    {
+      "file_count": 2,
+      "law_folder_count": 2,
+      "law_folders": [
+        "HLURB-DHSUD",
+        "RA-7160"
+      ],
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/LCG of 1991.pdf",
+        "001_Raw-Source-Layer/001-Laws/RA-7160/RA 7160 The Local Government Code.pdf"
+      ],
+      "semantic_flags": [],
+      "sha256": "e270e8bc7bd84ba8ad7b6fe6780c12a3e5a6103e2b9395db13084266a5ff1fff"
+    },
+    {
+      "file_count": 2,
+      "law_folder_count": 1,
+      "law_folders": [
+        "LGU"
+      ],
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/LGU/866816954-Calamba-Clup (1).pdf",
+        "001_Raw-Source-Layer/001-Laws/LGU/866816954-Calamba-Clup.pdf"
+      ],
+      "semantic_flags": [],
+      "sha256": "f6429e8fc3def2a165e18edecc66e246edce220bd6fd038886b9c3acd3ef0988"
+    }
+  ],
+  "duplicate_law_folders": [
+    "EO",
+    "HLURB-DHSUD",
+    "LGU",
+    "PD-1096",
+    "PD-957",
+    "RA-7160",
+    "RA-9266"
+  ],
+  "generated_at_utc": "20260417T082529Z",
+  "phase_11_gate": "gated",
+  "run_id": "20260417T082529Z",
+  "scope_id": "laws-duplicate-readiness",
+  "tranche_manifest_path": null
+}

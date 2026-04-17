@@ -154,6 +154,18 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `spot_review_required_count = 1`
       - `summary_auto_withheld_count = 1`
     - see `/.ai/05_logs/2026-04-17_laws-risk-hardening-execution-validation.md`
+  - tranche-2 is now defined and executed through the same bounded workflow:
+    - manifest: `config/datasets/laws-tranche-2.yaml`
+    - tranche-2 laws:
+      - `RA-7279`
+      - `RA-4726`
+      - `RA-7899`
+    - current execute evidence:
+      - `staged_law_folders = [RA-7279, RA-4726, RA-7899]`
+      - `duplicate_law_folders = []`
+      - `generated_relationship_count = 0`
+      - `source_to_graph_execute_completed = true`
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-2-execution-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
