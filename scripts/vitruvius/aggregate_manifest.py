@@ -1107,6 +1107,160 @@ def source_admit_completed_aggregate_lane_dry_run(
     }
 
 
+def source_admit_completed_aggregate_lane_execute(
+    *,
+    repo_root: Path,
+    manifest_path: Path,
+    source_prep_report_path: Path | None = None,
+) -> dict[str, Any]:
+    from .canonical_diff import should_overwrite
+    from .canonicalize import build_structured_source_file
+
+    resolved_manifest_path = manifest_path if manifest_path.is_absolute() else repo_root / manifest_path
+    payload = load_yaml_payload(resolved_manifest_path)
+    dataset_id = str(payload.get('dataset_id') or resolved_manifest_path.stem)
+    run_id = utc_now_stamp().replace("-", "").replace(":", "").replace("+0000", "Z")
+    run_output_root_rel = str(payload.get('run_output_root') or f'006_System-Manifests/runs/datasets/{dataset_id}')
+    run_output_root = repo_root / run_output_root_rel
+    report_path = run_output_root / 'source_admission' / run_id / 'completed_aggregate_lane_source_admission_report.json'
+
+    dry_run_summary = source_admit_completed_aggregate_lane_dry_run(
+        repo_root=repo_root,
+        manifest_path=resolved_manifest_path,
+        source_prep_report_path=source_prep_report_path,
+    )
+    candidate_source_pages = [
+        item for item in dry_run_summary.get('candidate_source_pages') or []
+        if isinstance(item, dict)
+    ]
+    canonicalize_results: list[dict[str, Any]] = []
+    admitted_source_paths: list[str] = []
+    admitted_pairs: list[tuple[str, str, str]] = []
+    canonicalize_failure_count = 0
+
+    for candidate in candidate_source_pages:
+        normalized_refined_markdown_path = str(candidate.get('normalized_refined_markdown_path') or '')
+        canonical_source_path = str(candidate.get('canonical_source_path') or '')
+        raw_path = str(candidate.get('raw_path') or '')
+        refined_markdown_path = str(candidate.get('refined_markdown_path') or '')
+        try:
+            target_file, content = build_structured_source_file(
+                repo_root=repo_root,
+                relative_markdown_path=normalized_refined_markdown_path,
+            )
+        except FileNotFoundError as exc:
+            rc = 1
+            output = str(exc)
+            wrote = False
+            target_file = repo_root / canonical_source_path if canonical_source_path else repo_root
+        else:
+            decision = should_overwrite(target_file, content)
+            if decision.allowed:
+                target_file.write_text(content, encoding='utf-8')
+                output = f"canonicalize-one complete. Wrote: {target_file}"
+            else:
+                output = f"SKIP ({decision.reason}): {target_file}"
+            rc = 0
+            wrote = target_file.exists()
+        result = {
+            'raw_path': raw_path,
+            'refined_markdown_path': refined_markdown_path,
+            'canonical_source_path': _relative(target_file, repo_root),
+            'rc': rc,
+            'wrote_or_kept': wrote,
+            'output': output.strip(),
+        }
+        canonicalize_results.append(result)
+        if wrote:
+            admitted_rel = _relative(target_file, repo_root)
+            admitted_source_paths.append(admitted_rel)
+            admitted_pairs.append((raw_path, refined_markdown_path, admitted_rel))
+        else:
+            canonicalize_failure_count += 1
+
+    sources_section = payload.setdefault('canonical_input_manifest', {})
+    source_entries = sources_section.setdefault('sources', [])
+    if not isinstance(source_entries, list):
+        source_entries = []
+        sources_section['sources'] = source_entries
+
+    anchor_folder_name = ''
+    raw_slice = payload.get('raw_slice_anchors') or []
+    if raw_slice and isinstance(raw_slice[0], dict):
+        anchor_folder_name = str(raw_slice[0].get('folder_name') or '')
+
+    existing_source_paths = {
+        str(item.get('path') or '')
+        for item in source_entries
+        if isinstance(item, dict)
+    }
+    for admitted_source_path in admitted_source_paths:
+        if admitted_source_path in existing_source_paths:
+            continue
+        source_entries.append({
+            'path': admitted_source_path,
+            'folder_name': anchor_folder_name,
+            'entry_role': 'authoritative',
+            'authority_tier': 'primary',
+            'variant_family': f'{dataset_id}-canonical-source',
+            'edition_or_source_note': f'{dataset_id} canonical source admitted from starter lane.',
+            'include_in_m1': True,
+            'reason': f'Starter lane source admission for {dataset_id}',
+        })
+        existing_source_paths.add(admitted_source_path)
+
+    law_units = payload.get('law_units')
+    if not isinstance(law_units, list):
+        law_units = []
+        payload['law_units'] = law_units
+
+    for raw_path, refined_markdown_path, admitted_source_path in admitted_pairs:
+        for law_unit in law_units:
+            if not isinstance(law_unit, dict):
+                continue
+            raw_anchor_paths = [str(path) for path in law_unit.get('raw_anchor_paths') or [] if isinstance(path, str)]
+            authoritative_variant_paths = [str(path) for path in law_unit.get('authoritative_variant_paths') or [] if isinstance(path, str)]
+            if raw_path and raw_path not in raw_anchor_paths and raw_path not in authoritative_variant_paths:
+                continue
+            refined_paths = [str(path) for path in law_unit.get('refined_markdown_paths') or [] if isinstance(path, str)]
+            if refined_markdown_path and refined_markdown_path not in refined_paths:
+                refined_paths.append(refined_markdown_path)
+            law_unit['refined_markdown_paths'] = refined_paths
+            admitted_paths = [str(path) for path in law_unit.get('admitted_source_paths') or [] if isinstance(path, str)]
+            if admitted_source_path not in admitted_paths:
+                admitted_paths.append(admitted_source_path)
+            law_unit['admitted_source_paths'] = admitted_paths
+
+    payload['source_admission'] = {
+        'last_run_id': run_id,
+        'last_report_path': _relative(report_path, repo_root),
+        'candidate_source_page_count': len(candidate_source_pages),
+        'admitted_source_page_count': len(admitted_source_paths),
+        'canonicalize_failure_count': canonicalize_failure_count,
+        'status': 'admitted' if admitted_source_paths else dry_run_summary.get('status'),
+    }
+
+    write_yaml_payload(resolved_manifest_path, payload)
+
+    summary = {
+        'action': 'source-admit-completed-aggregate-lane',
+        'dataset_id': dataset_id,
+        'manifest_path': _relative(resolved_manifest_path, repo_root),
+        'run_id': run_id,
+        'source_prep_report_path': dry_run_summary.get('source_prep_report_path'),
+        'status': 'admitted' if admitted_source_paths else dry_run_summary.get('status'),
+        'candidate_source_page_count': len(candidate_source_pages),
+        'admitted_source_page_count': len(admitted_source_paths),
+        'canonicalize_failure_count': canonicalize_failure_count,
+        'admitted_source_paths': admitted_source_paths,
+        'canonicalize_results': canonicalize_results,
+        'report_path': _relative(report_path, repo_root),
+    }
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(summary, indent=2), encoding='utf-8')
+    return summary
+
+
 def scaffold_completed_aggregate_lane_manifest(
     *,
     repo_root: Path,

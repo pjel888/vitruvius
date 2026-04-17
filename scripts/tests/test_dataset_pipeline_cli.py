@@ -2423,6 +2423,113 @@ def test_source_admit_completed_aggregate_lane_dry_run_reports_candidates_or_blo
     assert 'candidate_source_page_count' in summary
 
 
+def test_source_admit_completed_aggregate_lane_execute_updates_manifest(tmp_path: Path, monkeypatch) -> None:
+    from vitruvius import aggregate_manifest as am
+    from vitruvius import canonical_diff
+    from vitruvius import canonicalize
+
+    manifest_path = tmp_path / 'config' / 'datasets' / 'history-lane-starter.yaml'
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'history-lane-starter',
+                'dataset_kind': 'history-aggregate',
+                'raw_slice_anchors': [
+                    {
+                        'folder_name': 'history-demo',
+                        'raw_root': '001_Raw-Source-Layer/002-History',
+                        'entry_role': 'authoritative',
+                        'authority_tier': 'primary',
+                        'variant_family': 'history-demo',
+                        'edition_or_source_note': 'history demo root',
+                        'include_in_m1': True,
+                        'reason': 'history demo lane',
+                        'classified_raw_entries': [
+                            {
+                                'path': '001_Raw-Source-Layer/002-History/a.pdf',
+                                'folder_name': 'history-demo',
+                                'entry_role': 'authoritative',
+                                'authority_tier': 'primary',
+                                'variant_family': 'history-demo',
+                                'edition_or_source_note': 'history demo entry',
+                                'include_in_m1': True,
+                                'reason': 'history demo lane',
+                            }
+                        ],
+                    }
+                ],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {'relationships': []},
+                'graph_output_root': '005_Operational-Intelligence-Layer/graph/datasets/history-lane-starter',
+                'run_output_root': '006_System-Manifests/runs/datasets/history-lane-starter',
+                'query_snapshot_path_template': '005_Operational-Intelligence-Layer/graph/datasets/history-lane-starter/{run_id}_graph_snapshot.json',
+                'freshness_policy': {'mode': 'exact'},
+                'pilot_gate': {'require_manifest_validation': True, 'source_to_graph_execute_ready': False},
+                'law_units': [
+                    {
+                        'law_id': 'history-lane-starter-1',
+                        'folder_name': 'history-demo',
+                        'raw_anchor_paths': ['001_Raw-Source-Layer/002-History/a.pdf'],
+                        'refined_markdown_paths': [],
+                        'authoritative_variant_paths': ['001_Raw-Source-Layer/002-History/a.pdf'],
+                        'excluded_variant_paths': [],
+                        'admitted_source_paths': [],
+                        'admitted_concept_paths': [],
+                        'admitted_relationship_paths': [],
+                        'verification_checks': [],
+                        'scope_notes': [],
+                    }
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    (tmp_path / '002_Raw-Conversion-Layer' / '002-History' / 'refined_markdown').mkdir(parents=True, exist_ok=True)
+    refined_rel = '002-History/refined_markdown/history-demo-source.md'
+    _write(tmp_path / '002_Raw-Conversion-Layer' / refined_rel, '# refined\n')
+
+    monkeypatch.setattr(
+        am,
+        'source_admit_completed_aggregate_lane_dry_run',
+        lambda **kwargs: {
+            'source_prep_report_path': 'fake/report.json',
+            'status': 'ready_for_admission_review',
+            'candidate_source_pages': [
+                {
+                    'raw_path': '001_Raw-Source-Layer/002-History/a.pdf',
+                    'refined_markdown_path': f'002_Raw-Conversion-Layer/{refined_rel}',
+                    'normalized_refined_markdown_path': refined_rel,
+                    'canonical_source_path': '003_Canonical-Knowledge-Layer/shared/sources/history-demo-source.md',
+                }
+            ],
+        },
+    )
+
+    def fake_build_structured_source_file(*, repo_root, relative_markdown_path):
+        target_file = repo_root / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'history-demo-source.md'
+        target_file.parent.mkdir(parents=True, exist_ok=True)
+        return target_file, '---\\nid: source-history-demo\\n---\\n'
+
+    class Decision:
+        allowed = True
+        reason = 'allowed'
+
+    monkeypatch.setattr(canonicalize, 'build_structured_source_file', fake_build_structured_source_file)
+    monkeypatch.setattr(canonical_diff, 'should_overwrite', lambda target, content: Decision())
+
+    summary = am.source_admit_completed_aggregate_lane_execute(
+        repo_root=tmp_path,
+        manifest_path=manifest_path,
+    )
+    updated_payload = yaml.safe_load(manifest_path.read_text(encoding='utf-8'))
+    assert summary['action'] == 'source-admit-completed-aggregate-lane'
+    assert summary['admitted_source_page_count'] == 1
+    assert updated_payload['canonical_input_manifest']['sources'][0]['path'] == '003_Canonical-Knowledge-Layer/shared/sources/history-demo-source.md'
+    assert updated_payload['law_units'][0]['admitted_source_paths'] == ['003_Canonical-Knowledge-Layer/shared/sources/history-demo-source.md']
+
+
 def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
     tmp_path: Path,
     monkeypatch,
@@ -3061,6 +3168,67 @@ def test_pipeline_cli_source_admit_completed_aggregate_lane_dry_run_reports_stat
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'source-admit-completed-aggregate-lane-dry-run'
     assert 'status' in stdout_payload
+
+
+def test_pipeline_cli_source_admit_completed_aggregate_lane_execute_reports_summary(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+    from vitruvius import aggregate_manifest as am
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    manifest_path = tmp_path / 'config' / 'datasets' / 'history-lane-starter.yaml'
+    manifest_path.write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'history-lane-starter',
+                'dataset_kind': 'history-aggregate',
+                'raw_slice_anchors': [{'folder_name': 'history-demo', 'raw_root': '001_Raw-Source-Layer/002-History', 'classified_raw_entries': []}],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {'relationships': []},
+                'graph_output_root': '005_Operational-Intelligence-Layer/graph/datasets/history-lane-starter',
+                'run_output_root': '006_System-Manifests/runs/datasets/history-lane-starter',
+                'query_snapshot_path_template': '005_Operational-Intelligence-Layer/graph/datasets/history-lane-starter/{run_id}_graph_snapshot.json',
+                'freshness_policy': {'mode': 'exact'},
+                'pilot_gate': {'require_manifest_validation': True, 'source_to_graph_execute_ready': False},
+                'law_units': [],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        am,
+        'source_admit_completed_aggregate_lane_execute',
+        lambda **kwargs: {
+            'action': 'source-admit-completed-aggregate-lane',
+            'dataset_id': 'history-lane-starter',
+            'manifest_path': 'config/datasets/history-lane-starter.yaml',
+            'admitted_source_page_count': 0,
+            'canonicalize_failure_count': 0,
+            'admitted_source_paths': [],
+            'report_path': 'fake/report.json',
+        },
+    )
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'source-admit-completed-aggregate-lane',
+            '--manifest', 'config/datasets/history-lane-starter.yaml',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'source-admit-completed-aggregate-lane'
+    assert stdout_payload['manifest_path'] == 'config/datasets/history-lane-starter.yaml'
 
 
 def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline(

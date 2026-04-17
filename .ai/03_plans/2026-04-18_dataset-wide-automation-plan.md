@@ -51,5 +51,7 @@ status: in_progress
   - manifest -> preparation dry-run/execute
 - starter lane source-admission dry-run is now in place:
   - prepared outputs -> admission readiness / blocker summary
+- starter lane source-admission execute is now in place:
+  - candidate canonical sources -> admitted canonical source pages + manifest update
 - the next real proof is still:
   - onboard the first true non-laws trusted dataset family once its completed lanes are admitted

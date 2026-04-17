@@ -188,6 +188,23 @@ This reports:
 
 This is the final pre-admission diagnostic surface before truthful canonical source admission work.
 
+## Executing canonical source admission for a starter lane
+When a starter lane is ready to attempt canonical source admission:
+
+```bash
+python3 scripts/pipeline_cli.py source-admit-completed-aggregate-lane \
+  --manifest <lane-manifest-yaml>
+```
+
+This writes:
+- canonical source pages for admitted candidates
+- a source-admission report under the lane run root
+- manifest updates for:
+  - `canonical_input_manifest.sources`
+  - admitted source paths on matching law units
+
+If admission still reports `status = not_ready`, that is truthful: the lane still needs canonical rules or further source curation before real admission can happen.
+
 ## Profile contract
 A profile YAML must define:
 - `dataset_id`

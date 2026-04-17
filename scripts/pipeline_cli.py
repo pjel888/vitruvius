@@ -423,6 +423,9 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_lane_admission_parser = add_command_parser(subparsers, "source-admit-completed-aggregate-lane-dry-run")
     generic_aggregate_lane_admission_parser.add_argument("--manifest", required=True)
     generic_aggregate_lane_admission_parser.add_argument("--source-prep-report", default=None)
+    generic_aggregate_lane_admission_exec_parser = add_command_parser(subparsers, "source-admit-completed-aggregate-lane")
+    generic_aggregate_lane_admission_exec_parser.add_argument("--manifest", required=True)
+    generic_aggregate_lane_admission_exec_parser.add_argument("--source-prep-report", default=None)
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1266,6 +1269,19 @@ def main() -> int:
             print(json.dumps(summary, indent=2))
             return 0
         return _run("source-admit-completed-aggregate-lane-dry-run", _run_source_admit_generic_lane)
+
+    if args.command == "source-admit-completed-aggregate-lane":
+        from vitruvius.aggregate_manifest import source_admit_completed_aggregate_lane_execute
+        def _run_source_admit_generic_lane_execute():
+            repo_root = Path.cwd().resolve()
+            summary = source_admit_completed_aggregate_lane_execute(
+                repo_root=repo_root,
+                manifest_path=Path(args.manifest),
+                source_prep_report_path=Path(args.source_prep_report) if args.source_prep_report else None,
+            )
+            print(json.dumps(summary, indent=2))
+            return 0
+        return _run("source-admit-completed-aggregate-lane", _run_source_admit_generic_lane_execute)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary
