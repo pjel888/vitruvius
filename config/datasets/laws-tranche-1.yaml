@@ -20,6 +20,14 @@ candidate_law_folders:
     and Condominium IRR.md
   admitted_source_paths:
   - 003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-for-pd-957.md
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/setbacks.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/yards.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd957/relationships/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-floor-area.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd957/relationships/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-setbacks.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd957/relationships/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-yards.md
   excluded_variant_paths:
   - 001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision Law Illustrated Slides
     (Pedro Santos Jr).pdf
@@ -36,6 +44,7 @@ candidate_law_folders:
   - source admission executed for the selected authoritative prepared variants
   - duplicate or study-aid raw variants remain explicit and excluded from canonical
     admission
+  - concept-fit admission keeps PD-957 represented without widening tranche execute
   scope_notes:
   - Source admission is intentionally conservative and admits only selected authoritative
     prepared variants.
@@ -43,6 +52,7 @@ candidate_law_folders:
     PD 957 IRR - Subdivision and Condominium IRR.pdf'
   - same-content raw variants carry conflicting law/IRR filename semantics for sha256
     1f9ab17a8168; review aliases before widening execution
+  - PD-957 concept-fit slice admits existing shared concepts and dataset-scoped governs relationships only.
 - folder_name: PD-1216
   reason: Open-space / subdivision-standards baseline cited by BP-220.
   source_admission_state: blocked_pending_ocr

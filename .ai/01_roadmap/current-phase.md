@@ -115,8 +115,16 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `PD-1185`
     - keeps blocked member explicit:
       - `PD-1216`
-    - current live dry-run shows `planned_stage_count = 2`, `shallow_representation_count = 1`, and `source_to_graph_execute_ready = false`
+    - current live dry-run now shows `planned_stage_count = 2`, `shallow_representation_count = 0`, and `source_to_graph_execute_ready = false`
     - see `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-dry-run-validation.md`
+  - PD-957 concept-fit follow-on slice is now admitted:
+    - shared concepts admitted:
+      - `floor-area`
+      - `setbacks`
+      - `yards`
+    - dataset-scoped `governs` relationships admitted for the same three concepts
+    - this removes the tranche shallow-representation finding without widening execute
+    - see `/.ai/05_logs/2026-04-17_pd957-concept-fit-admission-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

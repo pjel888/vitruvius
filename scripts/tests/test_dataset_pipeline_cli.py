@@ -1043,15 +1043,85 @@ def test_run_laws_tranche_source_to_graph_dry_run_stages_only_admitted_members(t
             'reason': 'Explicit truth-bearing canonical concept input carried through from tranche admission state.',
         }
     ]
-    assert derived_manifest['relationship_input_manifest']['relationships'] == [
-        {
-            'path': '003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-pd-957-governs-concept-subdivision-project.md',
-            'folder_name': 'PD-957',
-            'entry_role': 'authoritative',
-            'authority_tier': 'approved',
-            'variant_family': 'pd-957-promoted-relationship',
-            'edition_or_source_note': 'Existing approved relationship record selected explicitly for tranche source-to-graph dry-run staging.',
-            'include_in_m1': True,
-            'reason': 'Explicit approved relationship input carried through from tranche admission state.',
-        }
-    ]
+
+
+def test_run_laws_tranche_source_to_graph_dry_run_reduces_shallow_representation_when_pd957_has_three_concepts(tmp_path: Path) -> None:
+    _seed_repo(tmp_path)
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-1.yaml'
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-1',
+                'review_model_preset': 'm2-8gb-safe',
+                'candidate_law_folders': [
+                    {
+                        'folder_name': 'PD-957',
+                        'reason': 'housing adjacency',
+                        'source_admission_state': 'admitted',
+                        'raw_anchor_paths': [
+                            '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf',
+                        ],
+                        'authoritative_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf',
+                        ],
+                        'excluded_variant_paths': [],
+                        'refined_markdown_paths': [
+                            '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md',
+                        ],
+                        'admitted_source_paths': [
+                            '003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-for-pd-957.md',
+                        ],
+                        'admitted_concept_paths': [
+                            '003_Canonical-Knowledge-Layer/shared/concepts/a.md',
+                            '003_Canonical-Knowledge-Layer/shared/concepts/b.md',
+                            '003_Canonical-Knowledge-Layer/shared/concepts/c.md',
+                        ],
+                        'admitted_relationship_paths': [
+                            '003_Canonical-Knowledge-Layer/shared/relationships/rel-a.md',
+                            '003_Canonical-Knowledge-Layer/shared/relationships/rel-b.md',
+                            '003_Canonical-Knowledge-Layer/shared/relationships/rel-c.md',
+                        ],
+                        'verification_checks': [],
+                        'scope_notes': [],
+                    },
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    _write_valid_pdf(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'PD 957 IRR - Subdivision and Condominium IRR.pdf'
+    )
+    _seed_conversion_inventory_path(
+        tmp_path,
+        'PD-957',
+        'PD 957 IRR - Subdivision and Condominium IRR',
+        refined_payload='\n'.join([f'### Section {i}' for i in range(1, 80)]) + '\n',
+    )
+    _write(
+        tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'revised-implementing-rules-and-regulations-for-pd-957.md',
+        '---\nid: irr-revised-implementing-rules-and-regulations-for-pd-957\ntitle: Revised Implementing Rules and Regulations for PD 957\ntrust_level: primary\n---\n\n# body\n',
+    )
+    for concept_name in ('a', 'b', 'c'):
+        _write(
+            tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'concepts' / f'{concept_name}.md',
+            f'---\nid: concept-{concept_name}\ncanonical_status: enriched\nconcept_status: enriched\n---\n\n# body\n',
+        )
+        _write(
+            tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / f'rel-{concept_name}.md',
+            f'---\nid: rel-{concept_name}\npage_type: relationship\nrelationship_type: governs\nfrom_entity: irr-revised-implementing-rules-and-regulations-for-pd-957\nto_entity: concept-{concept_name}\ncanonical_status: promoted\n---\n\n# body\n',
+        )
+
+    result = _run_cli(
+        [
+            'run-laws-tranche-source-to-graph-dry-run',
+            '--tranche-manifest', str(tranche_manifest),
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['shallow_representation_count'] == 0
+    derived_manifest = yaml.safe_load((tmp_path / payload['derived_manifest_path']).read_text(encoding='utf-8'))
+    assert len(derived_manifest['relationship_input_manifest']['relationships']) == 3

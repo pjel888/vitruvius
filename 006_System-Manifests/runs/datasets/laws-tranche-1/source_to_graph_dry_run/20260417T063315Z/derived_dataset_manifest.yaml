@@ -1,0 +1,174 @@
+dataset_id: laws-tranche-1-source-to-graph-dry-run
+dataset_kind: laws-tranche
+scope_notes:
+- Derived from laws-tranche-1 after tranche source admission.
+- 'Dry-run only: stage admitted tranche members without unlocking execute.'
+- Blocked tranche members remain explicit outside the staged law-unit list.
+raw_slice_anchors:
+- folder_name: PD-957
+  raw_root: 001_Raw-Source-Layer/001-Laws/PD-957
+  entry_role: authoritative
+  authority_tier: primary
+  variant_family: tranche-source-to-graph
+  edition_or_source_note: Admitted tranche source-to-graph dry-run anchor.
+  include_in_m1: true
+  reason: Housing and subdivision development baseline cited by BP-220.
+  classified_raw_entries:
+  - path: 001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium
+      IRR.pdf
+    folder_name: PD-957
+    entry_role: authoritative
+    authority_tier: primary
+    variant_family: tranche-source-to-graph
+    edition_or_source_note: Tranche admitted authoritative source variant for source-to-graph
+      dry-run.
+    include_in_m1: true
+    reason: Housing and subdivision development baseline cited by BP-220.
+  - path: 001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision Law Illustrated
+      Slides (Pedro Santos Jr).pdf
+    folder_name: PD-957
+    entry_role: reference
+    authority_tier: adjacent
+    variant_family: tranche-source-to-graph
+    edition_or_source_note: Excluded tranche variant retained outside admitted source-to-graph
+      scope.
+    include_in_m1: true
+    reason: 'Excluded variant retained for tranche duplicate/source-admission visibility:
+      Housing and subdivision development baseline cited by BP-220.'
+  - path: 001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium
+      Buyer_s Act.pdf
+    folder_name: PD-957
+    entry_role: reference
+    authority_tier: adjacent
+    variant_family: tranche-source-to-graph
+    edition_or_source_note: Excluded tranche variant retained outside admitted source-to-graph
+      scope.
+    include_in_m1: true
+    reason: 'Excluded variant retained for tranche duplicate/source-admission visibility:
+      Housing and subdivision development baseline cited by BP-220.'
+  - path: 001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium
+      Buyers Protective Decree.pdf
+    folder_name: PD-957
+    entry_role: reference
+    authority_tier: adjacent
+    variant_family: tranche-source-to-graph
+    edition_or_source_note: Excluded tranche variant retained outside admitted source-to-graph
+      scope.
+    include_in_m1: true
+    reason: 'Excluded variant retained for tranche duplicate/source-admission visibility:
+      Housing and subdivision development baseline cited by BP-220.'
+- folder_name: PD-1185
+  raw_root: 001_Raw-Source-Layer/001-Laws/PD-1185
+  entry_role: authoritative
+  authority_tier: primary
+  variant_family: tranche-source-to-graph
+  edition_or_source_note: Admitted tranche source-to-graph dry-run anchor.
+  include_in_m1: true
+  reason: Fire-code adjacency cited by BP-220 and relevant to safety overlap.
+  classified_raw_entries:
+  - path: 001_Raw-Source-Layer/001-Laws/PD-1185/PD 1185 - Fire Code of the Philippines
+      1977.pdf
+    folder_name: PD-1185
+    entry_role: authoritative
+    authority_tier: primary
+    variant_family: tranche-source-to-graph
+    edition_or_source_note: Tranche admitted authoritative source variant for source-to-graph
+      dry-run.
+    include_in_m1: true
+    reason: Fire-code adjacency cited by BP-220 and relevant to safety overlap.
+canonical_input_manifest:
+  sources:
+  - path: 003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-for-pd-957.md
+    folder_name: PD-957
+    entry_role: authoritative
+    authority_tier: primary
+    variant_family: tranche-source-to-graph
+    edition_or_source_note: Admitted tranche canonical source anchor for source-to-graph
+      dry-run.
+    include_in_m1: true
+    reason: Housing and subdivision development baseline cited by BP-220.
+  - path: 003_Canonical-Knowledge-Layer/shared/sources/fire-code-of-the-philippines.md
+    folder_name: PD-1185
+    entry_role: authoritative
+    authority_tier: primary
+    variant_family: tranche-source-to-graph
+    edition_or_source_note: Admitted tranche canonical source anchor for source-to-graph
+      dry-run.
+    include_in_m1: true
+    reason: Fire-code adjacency cited by BP-220 and relevant to safety overlap.
+  concepts: []
+relationship_input_manifest:
+  relationships:
+  - path: 003_Canonical-Knowledge-Layer/shared/relationships/occupancy-governs-fire-requirements.md
+    folder_name: PD-957
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: tranche-source-to-graph
+    edition_or_source_note: Shared fallback relationship input required by dataset
+      manifest validation during dry-run staging.
+    include_in_m1: true
+    reason: Validation-only placeholder relationship input for admitted tranche dry-run
+      staging.
+graph_output_root: 005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-1-source-to-graph-dry-run
+run_output_root: 006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-dry-run
+query_snapshot_path_template: 005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-1-source-to-graph-dry-run/{run_id}_graph_snapshot.json
+freshness_policy:
+  mode: exact
+pilot_gate:
+  require_manifest_validation: true
+  source_to_graph_execute_ready: false
+  derived_from_tranche_id: laws-tranche-1
+  derived_run_id: 20260417T063315Z
+law_units:
+- law_id: pd-957
+  folder_name: PD-957
+  raw_anchor_paths:
+  - 001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium
+    IRR.pdf
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision
+    and Condominium IRR.md
+  authoritative_variant_paths:
+  - 001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium
+    IRR.pdf
+  excluded_variant_paths:
+  - 001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision Law Illustrated Slides
+    (Pedro Santos Jr).pdf
+  - 001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s
+    Act.pdf
+  - 001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers
+    Protective Decree.pdf
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-for-pd-957.md
+  admitted_concept_paths: []
+  admitted_relationship_paths: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - duplicate or study-aid raw variants remain explicit and excluded from canonical
+    admission
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - 'duplicate raw variants collapsed to one representative for sha256 1f9ab17a8168:
+    PD 957 IRR - Subdivision and Condominium IRR.pdf'
+  - same-content raw variants carry conflicting law/IRR filename semantics for sha256
+    1f9ab17a8168; review aliases before widening execution
+- law_id: pd-1185
+  folder_name: PD-1185
+  raw_anchor_paths:
+  - 001_Raw-Source-Layer/001-Laws/PD-1185/PD 1185 - Fire Code of the Philippines 1977.pdf
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1185/PD 1185 - Fire Code
+    of the Philippines 1977.md
+  authoritative_variant_paths:
+  - 001_Raw-Source-Layer/001-Laws/PD-1185/PD 1185 - Fire Code of the Philippines 1977.pdf
+  excluded_variant_paths: []
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/fire-code-of-the-philippines.md
+  admitted_concept_paths: []
+  admitted_relationship_paths: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.

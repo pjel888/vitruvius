@@ -1,0 +1,46 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "front matter includes a table of contents before operative text",
+    "front matter is table-heavy and may reflect layout extraction noise"
+  ],
+  "image_line_count": 12,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 77,
+  "noise_line_count": 1,
+  "non_empty_line_count": 849,
+  "recommendations": [],
+  "refined_markdown_path": "001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 0,
+    "admitted_relationship_count": 0,
+    "folder_name": "PD-957",
+    "law_id": "pd-957",
+    "reasons": [
+      "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+      "relationship coverage is also thin relative to detected structure"
+    ],
+    "recommendations": [
+      "add law-native canonical concepts before widening this tranche",
+      "treat current graph coverage as concept-shallow rather than section-complete"
+    ],
+    "section_to_concept_ratio": 73.0,
+    "section_to_relationship_ratio": 73.0,
+    "severity": "high",
+    "status": "shallow_representation",
+    "structural_heading_count": 73
+  },
+  "severity": "low",
+  "structural_heading_count": 73,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [
+    "table_of_contents_front_matter",
+    "table_heavy_front_matter"
+  ],
+  "table_line_count": 32,
+  "total_line_count": 1437,
+  "useful_text_line_count": 804,
+  "useful_text_ratio": 0.946996
+}

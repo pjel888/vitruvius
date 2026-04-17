@@ -105,7 +105,18 @@
     - blocked: `PD-1216`
     - `planned_stage_count = 2`
     - `duplicate_law_folders = [PD-957]`
-    - `shallow_representation_count = 1`
+    - `shallow_representation_count = 0`
+    - `source_to_graph_execute_ready = false`
+- PD-957 concept-fit slice:
+  - admitted concepts:
+    - `floor-area`
+    - `setbacks`
+    - `yards`
+  - admitted dataset-scoped `governs` relationships for the same three concepts
+  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py -k 'tranche_source_to_graph_dry_run or source_admission or pd_957 or pd_1185' -q`
+  - **6 passed**
+  - live tranche dry-run still keeps:
+    - `PD-1216` blocked
     - `source_to_graph_execute_ready = false`
 
 ## Residual Graph Caveat
@@ -131,6 +142,7 @@
 - Latest tranche source-admission execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-execution-validation.md`
 - Latest duplicate-readiness validation: `/.ai/05_logs/2026-04-17_laws-duplicate-readiness-validation.md`
 - Latest tranche source-to-graph dry-run validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-dry-run-validation.md`
+- Latest PD-957 concept-fit validation: `/.ai/05_logs/2026-04-17_pd957-concept-fit-admission-validation.md`
 
 ## Handoff Note
 
