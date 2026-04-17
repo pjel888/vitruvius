@@ -1,9 +1,9 @@
 Vitruvius Convert One Report
 
-Source: 001-Laws/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.pdf
+Source: 001-Laws/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.pdf
 Detection result: TEXT_PDF
 Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.json
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.json
 
 STATUS: converted

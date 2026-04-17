@@ -447,3 +447,11 @@ def test_build_plan_matches_san_mateo_clup_rule() -> None:
     assert plan['prefix'] == 'handout'
     assert plan['source_type'] == 'handout'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_dagupan_zoning_ordinance_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md')
+    assert plan['title'] == 'Comprehensive Zoning Ordinance of Dagupan City'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'

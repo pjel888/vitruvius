@@ -1,0 +1,182 @@
+dataset_id: laws-tranche-15-dagupan-source-to-graph-execute
+dataset_kind: laws-tranche
+scope_notes:
+- Derived from laws-tranche-15-dagupan after tranche source admission.
+- 'Dry-run only: stage admitted tranche members without unlocking execute.'
+- Blocked tranche members remain explicit outside the staged law-unit list.
+raw_slice_anchors:
+- folder_name: LGU
+  raw_root: 001_Raw-Source-Layer/001-Laws/LGU
+  entry_role: authoritative
+  authority_tier: primary
+  variant_family: tranche-source-to-graph
+  edition_or_source_note: Admitted tranche source-to-graph dry-run anchor.
+  include_in_m1: true
+  reason: singleton Dagupan ordinance shard after San Mateo.
+  classified_raw_entries:
+  - path: 001_Raw-Source-Layer/001-Laws/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.pdf
+    folder_name: LGU
+    entry_role: authoritative
+    authority_tier: primary
+    variant_family: tranche-source-to-graph
+    edition_or_source_note: Tranche admitted authoritative source variant for source-to-graph
+      dry-run.
+    include_in_m1: true
+    reason: singleton Dagupan ordinance shard after San Mateo.
+canonical_input_manifest:
+  sources:
+  - path: 003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-dagupan-city.md
+    folder_name: LGU
+    entry_role: authoritative
+    authority_tier: primary
+    variant_family: tranche-source-to-graph
+    edition_or_source_note: Admitted tranche canonical source anchor for source-to-graph
+      dry-run.
+    include_in_m1: true
+    reason: singleton Dagupan ordinance shard after San Mateo.
+  concepts:
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/zoning-ordinance.md
+    folder_name: LGU
+    entry_role: derived
+    authority_tier: derived
+    variant_family: lgu-canonical-concept
+    edition_or_source_note: Existing shared canonical concept selected explicitly
+      for tranche source-to-graph dry-run staging.
+    include_in_m1: true
+    reason: Explicit truth-bearing canonical concept input carried through from tranche
+      admission state.
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/floor-area-ratio.md
+    folder_name: LGU
+    entry_role: derived
+    authority_tier: derived
+    variant_family: lgu-canonical-concept
+    edition_or_source_note: Existing shared canonical concept selected explicitly
+      for tranche source-to-graph dry-run staging.
+    include_in_m1: true
+    reason: Explicit truth-bearing canonical concept input carried through from tranche
+      admission state.
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md
+    folder_name: LGU
+    entry_role: derived
+    authority_tier: derived
+    variant_family: lgu-canonical-concept
+    edition_or_source_note: Existing shared canonical concept selected explicitly
+      for tranche source-to-graph dry-run staging.
+    include_in_m1: true
+    reason: Explicit truth-bearing canonical concept input carried through from tranche
+      admission state.
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md
+    folder_name: LGU
+    entry_role: derived
+    authority_tier: derived
+    variant_family: lgu-canonical-concept
+    edition_or_source_note: Existing shared canonical concept selected explicitly
+      for tranche source-to-graph dry-run staging.
+    include_in_m1: true
+    reason: Explicit truth-bearing canonical concept input carried through from tranche
+      admission state.
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md
+    folder_name: LGU
+    entry_role: derived
+    authority_tier: derived
+    variant_family: lgu-canonical-concept
+    edition_or_source_note: Existing shared canonical concept selected explicitly
+      for tranche source-to-graph dry-run staging.
+    include_in_m1: true
+    reason: Explicit truth-bearing canonical concept input carried through from tranche
+      admission state.
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md
+    folder_name: LGU
+    entry_role: derived
+    authority_tier: derived
+    variant_family: lgu-canonical-concept
+    edition_or_source_note: Existing shared canonical concept selected explicitly
+      for tranche source-to-graph dry-run staging.
+    include_in_m1: true
+    reason: Explicit truth-bearing canonical concept input carried through from tranche
+      admission state.
+relationship_input_manifest:
+  relationships:
+  - path: 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md
+    folder_name: LGU
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: lgu-promoted-relationship
+    edition_or_source_note: Existing approved relationship record selected explicitly
+      for tranche source-to-graph dry-run staging.
+    include_in_m1: true
+    reason: Explicit approved relationship input carried through from tranche admission
+      state.
+  - path: 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio.md
+    folder_name: LGU
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: lgu-promoted-relationship
+    edition_or_source_note: Existing approved relationship record selected explicitly
+      for tranche source-to-graph dry-run staging.
+    include_in_m1: true
+    reason: Explicit approved relationship input carried through from tranche admission
+      state.
+  - path: 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md
+    folder_name: LGU
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: lgu-promoted-relationship
+    edition_or_source_note: Existing approved relationship record selected explicitly
+      for tranche source-to-graph dry-run staging.
+    include_in_m1: true
+    reason: Explicit approved relationship input carried through from tranche admission
+      state.
+  - path: 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md
+    folder_name: LGU
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: lgu-promoted-relationship
+    edition_or_source_note: Existing approved relationship record selected explicitly
+      for tranche source-to-graph dry-run staging.
+    include_in_m1: true
+    reason: Explicit approved relationship input carried through from tranche admission
+      state.
+graph_output_root: 005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-15-dagupan-source-to-graph-execute
+run_output_root: 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute
+query_snapshot_path_template: 005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-15-dagupan-source-to-graph-execute/{run_id}_graph_snapshot.json
+freshness_policy:
+  mode: exact
+pilot_gate:
+  require_manifest_validation: true
+  source_to_graph_execute_ready: false
+  derived_from_tranche_id: laws-tranche-15-dagupan
+  derived_run_id: 20260417T163721Z
+law_units:
+- law_id: lgu
+  folder_name: LGU
+  raw_anchor_paths:
+  - 001_Raw-Source-Layer/001-Laws/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.pdf
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md
+  authoritative_variant_paths:
+  - 001_Raw-Source-Layer/001-Laws/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.pdf
+  excluded_variant_paths: []
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-dagupan-city.md
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/zoning-ordinance.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/floor-area-ratio.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - Dagupan concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped
+    governs relationships
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - Dagupan concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped
+    governs relationships.

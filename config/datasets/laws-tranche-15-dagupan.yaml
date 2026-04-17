@@ -1,0 +1,49 @@
+tranche_id: laws-tranche-15-dagupan
+purpose: readiness-only
+phase_11_gate: gated
+description: Second shard-specific tranche-15 lane for the LGU bundle. This shard
+  isolates the Dagupan city ordinance as the next smallest city-coherent local-ordinance
+  candidate after the completed San Mateo shard.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: LGU
+  reason: singleton Dagupan ordinance shard after San Mateo.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/20260417T163600Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T163600Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-dagupan-city.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - Dagupan concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped governs relationships
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - Dagupan concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped governs relationships.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/zoning-ordinance.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/floor-area-ratio.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/building-height.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md
+source_admission:
+  last_run_id: 20260417T163600Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/20260417T163600Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - LGU
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []

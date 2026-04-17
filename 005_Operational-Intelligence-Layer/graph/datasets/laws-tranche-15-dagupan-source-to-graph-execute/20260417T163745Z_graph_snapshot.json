@@ -1,0 +1,329 @@
+{
+  "edge_count": 7,
+  "edges": [
+    {
+      "evidence_id": "rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-building-height",
+      "evidence_snippet": "In areas where permanent buildings are already established, any horizontal or vertical expansion whether connected or separate from the existing structures, to be undertaken by their owners, lessors, or occupants shall be regulated through the enforcement of performance standards (building height an",
+      "evidence_source_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "evidence_source_section_id": "section-1",
+      "from_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "is_governing_standard": null,
+      "reviewer_confidence": 0.95,
+      "status": "unverified",
+      "to_id": "concept-building-height",
+      "type": "governs"
+    },
+    {
+      "evidence_id": "rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan",
+      "evidence_snippet": "Guide, control and regulate the future growth and development of Dagupan City in accordance with its Comprehensive Land Use Plan (CLUP);",
+      "evidence_source_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "evidence_source_section_id": "section-purposes",
+      "from_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "is_governing_standard": null,
+      "reviewer_confidence": 0.93,
+      "status": "unverified",
+      "to_id": "concept-comprehensive-land-use-plan",
+      "type": "governs"
+    },
+    {
+      "evidence_id": "rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan",
+      "evidence_snippet": "The Comprehensive Land Use Plan shall be referred to whenever this Ordinance mentions maps, classifications, zoning, clusters, and the like.",
+      "evidence_source_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "evidence_source_section_id": "section-7",
+      "from_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "is_governing_standard": null,
+      "reviewer_confidence": 0.95,
+      "status": "unverified",
+      "to_id": "concept-comprehensive-land-use-plan",
+      "type": "governs"
+    },
+    {
+      "evidence_id": "rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction",
+      "evidence_snippet": "Mainstream disaster risk reduction, climate change adaptation, and integrated coastal management in development processes such as policy formulation, land use planning, infrastructure, and housing, among others.",
+      "evidence_source_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "evidence_source_section_id": "section-purposes",
+      "from_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "is_governing_standard": null,
+      "reviewer_confidence": 0.93,
+      "status": "unverified",
+      "to_id": "concept-disaster-risk-reduction",
+      "type": "governs"
+    },
+    {
+      "evidence_id": "rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio",
+      "evidence_snippet": "The role of zoning cannot be overemphasized in the protection and management of public resources, private property, and the environment.",
+      "evidence_source_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "evidence_source_section_id": "section-definition-of-terms",
+      "from_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "is_governing_standard": null,
+      "reviewer_confidence": 0.85,
+      "status": "unverified",
+      "to_id": "concept-floor-area-ratio",
+      "type": "governs"
+    },
+    {
+      "evidence_id": "rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance",
+      "evidence_snippet": "This Ordinance shall be known as the Comprehensive Zoning Ordinance of Dagupan City (2015-2025).",
+      "evidence_source_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "evidence_source_section_id": "section-title-of-the-ordinance",
+      "from_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "is_governing_standard": null,
+      "reviewer_confidence": 0.93,
+      "status": "unverified",
+      "to_id": "concept-zoning-ordinance",
+      "type": "governs"
+    },
+    {
+      "evidence_id": "rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance",
+      "evidence_snippet": "17682003 or the Dagupan City Fisheries Code subject to the provisions of this zoning ordinance.",
+      "evidence_source_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "evidence_source_section_id": "section-17",
+      "from_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "is_governing_standard": null,
+      "reviewer_confidence": 0.95,
+      "status": "unverified",
+      "to_id": "concept-zoning-ordinance",
+      "type": "governs"
+    }
+  ],
+  "generated_at_utc": "2026-04-17T16:37:45Z",
+  "metadata": {
+    "contributing_law_ids": [
+      "lgu"
+    ],
+    "dataset_id": "laws-tranche-15-dagupan-source-to-graph-execute",
+    "dataset_kind": "laws-tranche",
+    "freshness_policy": {
+      "mode": "exact"
+    },
+    "input_fingerprint": {
+      "combined_sha256": "a67865063a013c21bfc1ea6f72899523836264588dd658a9591760999e35143d",
+      "file_count": 14,
+      "files": [
+        {
+          "mtime_ns": 1776432092022845288,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md",
+          "sha256": "bbf4c45e321cfd73a162c717f50df1ccc9de19182b69d39f68e03cecaf9416ab",
+          "size_bytes": 1191
+        },
+        {
+          "mtime_ns": 1776442329766275169,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md",
+          "sha256": "daf2fc3ffda79b95812a212c66c60e4e55dd9fd078de25de6b2da3c69e19d1e2",
+          "size_bytes": 887
+        },
+        {
+          "mtime_ns": 1776443291678578304,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/floor-area-ratio.md",
+          "sha256": "f60860dad0f30161c6166498db5fdd541bc243bce25563f4bb396440faf65a44",
+          "size_bytes": 1178
+        },
+        {
+          "mtime_ns": 1776189198399081708,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md",
+          "sha256": "06aae8e5c121bbfc9451e793c632a62c57893973e4d3dedf32a079654a0963c3",
+          "size_bytes": 1614
+        },
+        {
+          "mtime_ns": 1776442329781971439,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md",
+          "sha256": "7dca6f56c9c938ec6902f6eb4578ec58b46e057bd78c173f7e3b708a38e0d2d6",
+          "size_bytes": 1272
+        },
+        {
+          "mtime_ns": 1776443291676565921,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/zoning-ordinance.md",
+          "sha256": "d27e22d6a136ad60b861f6c3d1cdaffcf731fc6e462044f2d64dd545588d471f",
+          "size_bytes": 1090
+        },
+        {
+          "mtime_ns": 1776443761192710154,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-dagupan-city.md",
+          "sha256": "ad4774fff78dff739fa47ed069df42c982e8d93b015f071a7f1c054c5699866f",
+          "size_bytes": 1893
+        },
+        {
+          "mtime_ns": 1776443810724954565,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
+          "sha256": "ecaf852cb1eecef430576b149696deeb95df5866ca0dc8991341e6b4ed4086b7",
+          "size_bytes": 1190
+        },
+        {
+          "mtime_ns": 1776443810726730701,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md",
+          "sha256": "38c40904988d46c746b3924255d0f178da17f883cde08c88b41b5cde8b5f0450",
+          "size_bytes": 1274
+        },
+        {
+          "mtime_ns": 1776443810722961844,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio.md",
+          "sha256": "14cb40bff3effc81aabcf4524af33b83d6ea814f9064cc58ac24c56084e83be3",
+          "size_bytes": 1194
+        },
+        {
+          "mtime_ns": 1776443810721047915,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
+          "sha256": "0e5c974d824583075c140ca96cfa99a2893b406e03b79bc5127b1fa2f7a84393",
+          "size_bytes": 1132
+        },
+        {
+          "mtime_ns": 1776443865636093921,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-building-height.md",
+          "sha256": "20785aecb4ecf42502fef42c4e8b7c36db60762639f89b1b93b2e188b84f2bfa",
+          "size_bytes": 2125
+        },
+        {
+          "mtime_ns": 1776443865635148207,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
+          "sha256": "66d61217b2ffb6375ff8bfdffffe37ac6f8b1527dd87cdf0d75f9ce775b8f81f",
+          "size_bytes": 1865
+        },
+        {
+          "mtime_ns": 1776443865636865467,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
+          "sha256": "194ec7cc49d7b1fb3c1381187d691ee44c46953b512a489b66c4316aeaf559ef",
+          "size_bytes": 1722
+        }
+      ]
+    },
+    "law_units": [
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/zoning-ordinance.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/floor-area-ratio.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md"
+        ],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-dagupan-city.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "LGU",
+        "law_id": "lgu",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+          "Dagupan concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped governs relationships."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "Dagupan concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped governs relationships"
+        ]
+      }
+    ],
+    "manifest_hash": "dbe7d3f73d220dca5d7bb7f725e3e810c55881b6c84713481bd533cac9f191d2",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/derived_dataset_manifest.yaml",
+    "pilot_gate": {
+      "derived_from_tranche_id": "laws-tranche-15-dagupan",
+      "derived_run_id": "20260417T163721Z",
+      "require_manifest_validation": true,
+      "source_to_graph_execute_ready": false
+    },
+    "run_id": "20260417T163745Z",
+    "scope_notes": [
+      "Derived from laws-tranche-15-dagupan after tranche source admission.",
+      "Dry-run only: stage admitted tranche members without unlocking execute.",
+      "Blocked tranche members remain explicit outside the staged law-unit list."
+    ],
+    "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-15-dagupan-source-to-graph-execute/20260417T163745Z_graph_integrity_report.json",
+    "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-15-dagupan-source-to-graph-execute/20260417T163745Z_graph_snapshot.json",
+    "upstream_artifact_refs": {
+      "canonical_concepts": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/zoning-ordinance.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/floor-area-ratio.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md"
+      ],
+      "canonical_sources": [
+        "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-dagupan-city.md"
+      ],
+      "relationship_inputs": [
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-building-height.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md"
+      ]
+    }
+  },
+  "node_count": 7,
+  "nodes": [
+    {
+      "id": "concept-comprehensive-land-use-plan",
+      "last_updated_utc": "2026-04-17T13:20:00Z",
+      "slug": "comprehensive-land-use-plan",
+      "title": "Comprehensive Land Use Plan",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-disaster-risk-reduction",
+      "last_updated_utc": "2026-04-18T00:15:00Z",
+      "slug": "disaster-risk-reduction",
+      "title": "Disaster Risk Reduction",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-floor-area",
+      "last_updated_utc": "2026-04-14T05:59:57.423702+00:00",
+      "slug": "floor-area",
+      "title": "Floor Area",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-floor-area-ratio",
+      "last_updated_utc": "2026-04-18T00:25:00Z",
+      "slug": "floor-area-ratio",
+      "title": "Floor Area Ratio",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-waste-disposal",
+      "last_updated_utc": "2026-04-18T00:15:00Z",
+      "slug": "waste-disposal",
+      "title": "Waste Disposal",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "concept-zoning-ordinance",
+      "last_updated_utc": "2026-04-18T00:25:00Z",
+      "slug": "zoning-ordinance",
+      "title": "Zoning Ordinance",
+      "trust_level": "derived",
+      "type": "concept"
+    },
+    {
+      "id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "last_updated_utc": "2026-04-17T16:36:01Z",
+      "slug": "comprehensive-zoning-ordinance-of-dagupan-city",
+      "title": "Comprehensive Zoning Ordinance of Dagupan City",
+      "trust_level": "primary",
+      "type": "source"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

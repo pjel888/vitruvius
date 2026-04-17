@@ -1,0 +1,151 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "dataset_id": "laws-tranche-15-dagupan-source-to-graph-dry-run",
+  "dry_run": true,
+  "generated_at_utc": "20260417T163712Z",
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/source_to_graph_dry_run/20260417T163712Z/derived_dataset_manifest.yaml",
+  "review_runtime": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "review_settings": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "run_id": "20260417T163712Z",
+  "source_quality_summary": {
+    "benchmark_source_hints": [],
+    "extraction_trust_counts": {
+      "guarded": 0,
+      "review_required": 0,
+      "trusted": 1
+    },
+    "high_severity_paths": [],
+    "high_severity_sources": [],
+    "manual_review_required_paths": [],
+    "manual_review_required_sources": [],
+    "representation_guardrail_counts": {
+      "high": 0,
+      "low": 1,
+      "medium": 0
+    },
+    "severity_counts": {
+      "high": 0,
+      "low": 1,
+      "medium": 0
+    },
+    "shallow_representation_paths": [],
+    "shallow_representation_sources": [],
+    "source_acceptance_counts": {
+      "accepted": 1,
+      "accepted_with_spot_review": 0,
+      "manual_review_required": 0
+    },
+    "spot_review_required_paths": [],
+    "summary_auto_withheld_paths": []
+  },
+  "stage_results": [
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-dagupan-city.md",
+        "title": "Comprehensive Zoning Ordinance of Dagupan City",
+        "trust_level": "primary"
+      },
+      "law_id": "lgu",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-dry-run/source_to_graph/20260417T163712Z/lgu/756628009-Dagupan-City-Ordinance-no-2061-2016_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-dry-run/source_to_graph/20260417T163712Z/lgu/756628009-Dagupan-City-Ordinance-no-2061-2016_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-dry-run/source_to_graph/20260417T163712Z/promoted_relationships/lgu",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-dry-run/source_to_graph/20260417T163712Z/lgu/756628009-Dagupan-City-Ordinance-no-2061-2016_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 6,
+        "admitted_relationship_count": 4,
+        "folder_name": "LGU",
+        "law_id": "lgu",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 9.833333,
+        "section_to_relationship_ratio": 14.75,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 59
+      },
+      "source_id": "law-comprehensive-zoning-ordinance-of-dagupan-city",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 8,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 0,
+        "noise_line_count": 0,
+        "non_empty_line_count": 1145,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 6,
+          "admitted_relationship_count": 4,
+          "folder_name": "LGU",
+          "law_id": "lgu",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 9.833333,
+          "section_to_relationship_ratio": 14.75,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 59
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 59,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [
+          "Due to some major changes in the character of the City’s resources and surroundings brought about by internal and external factors since the last time the Comprehensive Land Use Plan was revisited and a Zoning Ordinance was enacted, it is best that the same be revised in order to bring about affirmative, progressive and responsive actions to these modifications. The City should take every opportunity to maximize the potentials that these transformations bring.",
+          "- 1. Generic terms, such as ‘others’, ‘and the like, ‘etc.’, shall be construed to mean as including all specific terms similar to or compatible with those enumerated;",
+          "- a.2. Recreational/Swimming Zone",
+          "- 2. Where the lot of one owner on record (Register of Deeds or City Assessor’s Office) at the effective date of this Ordinance is divided by a zone boundary line, the lot shall be construed to be within the zone where the major portion of the lot is located. In case the lot is bisected by the boundary line, it shall fall within the zone where the principal structure falls.",
+          "- 3. Where the zone boundary is indicated as one-lot deep, said depth shall be construed to be the average lot depth of the lots in the zone’s immediate vicinity. Where, however, any lot has a depth greater than said average, the remaining portions of the said lot shall be construed as covered by the one-lot deep zoning district if the remaining portion has an area of less than fifty percent (50%) of the total area of the entire lot. If the remaining portion has an area equivalent to fifty percent (50%) or more of the total area of the lot, then the average lot depth shall apply to the lot which shall become a lot divided and covered by two or more different zoning districts, as the case may be."
+        ],
+        "suspicious_ocr_line_count": 74,
+        "suspicious_ocr_line_ratio": 0.064629,
+        "table_line_count": 0,
+        "total_line_count": 2283,
+        "useful_text_line_count": 1145,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-dry-run/source_to_graph/20260417T163712Z/source_quality/lgu/756628009-Dagupan-City-Ordinance-no-2061-2016_source_quality.json"
+    }
+  ]
+}

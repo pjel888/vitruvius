@@ -1,0 +1,31 @@
+{
+  "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.pdf",
+  "total_pages": 62,
+  "pages_sampled": 5,
+  "pages_with_usable_text": 5,
+  "total_extracted_characters": 10060,
+  "page_details": [
+    {
+      "page_number": 1,
+      "extracted_characters": 1876
+    },
+    {
+      "page_number": 2,
+      "extracted_characters": 2551
+    },
+    {
+      "page_number": 3,
+      "extracted_characters": 1635
+    },
+    {
+      "page_number": 4,
+      "extracted_characters": 1267
+    },
+    {
+      "page_number": 5,
+      "extracted_characters": 2731
+    }
+  ],
+  "result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT"
+}

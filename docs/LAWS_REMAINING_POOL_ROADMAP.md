@@ -24,8 +24,9 @@
 
 ### Tranche 15 — Local ordinance / zoning sharding lane
 - `LGU`
-  - first candidate shard: San Mateo zoning ordinance + San Mateo/Rizal CLUP
-  - first shard is now execute-capable
+  - completed shards:
+    - San Mateo zoning ordinance + San Mateo/Rizal CLUP
+    - Dagupan ordinance no. 2061-2016
   - remaining blocker: the wider LGU lane still needs additional city/family shards beyond San Mateo
 
 ## Remediation / defer lanes

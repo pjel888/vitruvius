@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T163410Z",
+  "source_relative_path": "001-Laws/raw_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md",
+  "refined_relative_path": "001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md",
+  "source_hash": "961062986aee5cfdf06f34cbd033588a155dd76ef8907794894311b48b1f0216",
+  "output_hash": "079c3a0676248ec3e89387192d59dac0ee025c330f51dcf3f3e07918f229db8b",
+  "chars_before": 160048,
+  "chars_after": 159866,
+  "chars_delta": -182,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "collapse-consecutive-blank-lines",
+    "normalize-section-abbreviation"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 160048,
+      "chars_after": 160048,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 160048,
+      "chars_after": 160048,
+      "changed": false
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 160048,
+      "chars_after": 160048,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 160048,
+      "chars_after": 160048,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 160048,
+      "chars_after": 159860,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 159860,
+      "chars_after": 159860,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 159860,
+      "chars_after": 159866,
+      "changed": true
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 159866,
+      "chars_after": 159866,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}
