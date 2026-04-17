@@ -45,9 +45,16 @@ candidate_law_folders:
   source_admission_guardrails: []
   verification_checks:
   - source admission executed for the selected authoritative prepared variants
+  - concept-fit admission keeps RA-4726 graph-richness moving without widening tranche-2
   scope_notes:
   - Source admission is intentionally conservative and admits only selected authoritative
     prepared variants.
+  - RA-4726 concept-fit slice admits a new shared condominium concept and one dataset-scoped
+    governs relationship only.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/common-areas.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-2/concept-slice-ra4726/relationships/rel-law-condominium-act-governs-concept-common-areas.md
 - folder_name: RA-7899
   reason: Narrow amendment companion to RA-4726 that can stay bounded with condominium
     scope.

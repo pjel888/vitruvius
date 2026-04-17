@@ -4,7 +4,7 @@ title: Amendments to the Condominium Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T09:20:29.499406+00:00
+last_canonicalized_utc: 2026-04-17T10:15:02.449743+00:00
 aliases:
   - RA 7899
   - Republic Act No. 7899
@@ -28,3 +28,4 @@ Be it enacted by the Senate and the House of Representatives of the Philippines 
 ## Referenced Concepts
 
 - concept-floor-area
+- concept-common-areas

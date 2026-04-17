@@ -4,7 +4,7 @@ title: Condominium Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T09:20:29.478579+00:00
+last_canonicalized_utc: 2026-04-17T10:14:43.146243+00:00
 aliases:
   - RA 4726
   - Republic Act No. 4726
@@ -27,4 +27,4 @@ AN ACT TO DEFINE CONDOMINIUM, ESTABLISH REQUIREMENTS FOR ITS CREATION, AND GOVER
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-common-areas

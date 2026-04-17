@@ -186,6 +186,15 @@
     - `3 nodes / 0 edges`
     - to `4 nodes / 1 edge`
   - tranche-2 is still graph-thin, but no longer pure source-only
+- Tranche-2 condominium-law follow-on:
+  - new shared concept admitted:
+    - `concept-common-areas`
+  - bounded `RA-4726` relationship admitted:
+    - `law-condominium-act governs concept-common-areas`
+  - fresh tranche-2 execute evidence improves graph output from:
+    - `4 nodes / 1 edge`
+    - to `5 nodes / 4 edges`
+  - tranche-2 is still bounded, but graph richness is now materially better than its first execute pass
 
 ## Residual Graph Caveat
 
@@ -216,6 +225,7 @@
 - Latest risk-hardening validation: `/.ai/05_logs/2026-04-17_laws-risk-hardening-execution-validation.md`
 - Latest tranche-2 validation: `/.ai/05_logs/2026-04-17_laws-tranche-2-execution-validation.md`
 - Latest RA-7899 tranche-2 richness validation: `/.ai/05_logs/2026-04-17_ra7899-concept-fit-admission-validation.md`
+- Latest RA-4726 common-areas validation: `/.ai/05_logs/2026-04-17_ra4726-common-areas-concept-fit-validation.md`
 
 ## Handoff Note
 

@@ -1,0 +1,6 @@
+Section-Aware Relationship Extraction
+
+Sections: 26
+Unique relationships: 1
+
+law-condominium-act -> governs -> concept-common-areas (x5) sections=['section-4', 'section-6', 'section-21']
