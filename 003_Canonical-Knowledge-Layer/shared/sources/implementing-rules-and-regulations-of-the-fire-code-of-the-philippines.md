@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the Fire Code of the Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T15:02:04.660270+00:00
+last_canonicalized_utc: 2026-04-17T18:38:02.651256+00:00
 aliases:
   - RA 9514
   - Republic Act No. 9514
@@ -335,11 +335,13 @@ Pursuant to the provision of Section 14 in relation to Section 5 of Republic Act
 - concept-building-permit
 - concept-occupancy-classification
 - concept-common-areas
+- concept-floor-area-ratio
 - concept-exit-width
 - concept-fire-resistive-construction
 - concept-light-and-ventilation
 - concept-mixed-occupancy
 - concept-building-height
 - concept-occupancy-load
+- concept-waste-disposal
 - concept-setbacks
 - concept-approved-budget-for-the-contract

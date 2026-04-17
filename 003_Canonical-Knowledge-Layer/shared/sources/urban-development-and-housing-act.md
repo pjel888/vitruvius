@@ -4,7 +4,7 @@ title: Urban Development and Housing Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T09:20:29.456133+00:00
+last_canonicalized_utc: 2026-04-17T18:37:25.344104+00:00
 aliases:
   - RA 7279
   - Republic Act No. 7279
@@ -29,4 +29,6 @@ Be it enacted by the Senate and House of Representatives of the Philippines in C
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-balanced-housing-development
+- concept-waste-disposal
+- concept-comprehensive-land-use-plan

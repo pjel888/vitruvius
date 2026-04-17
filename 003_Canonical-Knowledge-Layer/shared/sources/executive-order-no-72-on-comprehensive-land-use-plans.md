@@ -4,7 +4,7 @@ title: Executive Order No. 72 on Comprehensive Land Use Plans
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T15:10:27.402165+00:00
+last_canonicalized_utc: 2026-04-17T18:38:44.531233+00:00
 aliases:
   - EO 72
   - Executive Order No. 72
@@ -28,3 +28,4 @@ PROVIDING FOR THE PREPARATION AND IMPLEMENTATION OF THE COMPREHENSIVE LAND USE P
 
 - concept-human-settlements
 - concept-comprehensive-land-use-plan
+- concept-zoning-ordinance

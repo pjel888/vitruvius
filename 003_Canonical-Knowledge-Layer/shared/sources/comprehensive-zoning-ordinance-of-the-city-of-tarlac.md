@@ -4,7 +4,7 @@ title: Comprehensive Zoning Ordinance of the City of Tarlac
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T17:00:40.409698+00:00
+last_canonicalized_utc: 2026-04-17T18:41:25.919998+00:00
 aliases:
   - Tarlac City Zoning Ordinance
   - Zoning Regulations for the City of Tarlac
@@ -41,6 +41,7 @@ AN ORDINANCE REVISING THE ZONING REGULATIONS FOR THE CITY OF TARLAC AND PROVIDIN
 - concept-zoning-ordinance
 - concept-comprehensive-land-use-plan
 - concept-yards
+- concept-central-business-district
 - concept-floor-area-ratio
 - concept-floor-area
 - concept-stairs

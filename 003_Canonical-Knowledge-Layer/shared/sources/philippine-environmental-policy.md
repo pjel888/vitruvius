@@ -4,7 +4,7 @@ title: Philippine Environmental Policy
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T10:42:00.730454+00:00
+last_canonicalized_utc: 2026-04-17T18:37:32.407237+00:00
 aliases:
   - PD 1151
   - Presidential Decree No. 1151
@@ -40,4 +40,6 @@ WHEREAS, the individual and, at times, conflicting, demands of population growth
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-human-settlements
+- concept-floor-area-ratio
+- concept-waste-disposal

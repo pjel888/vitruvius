@@ -4,7 +4,7 @@ title: Department of Human Settlements and Urban Development Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T13:51:00.469016+00:00
+last_canonicalized_utc: 2026-04-17T18:37:54.728151+00:00
 aliases:
   - RA 11201
   - Republic Act No. 11201
@@ -67,4 +67,5 @@ Begun and held in Metro Manila, on Monday, the twenty-third
 - concept-human-settlements
 - concept-comprehensive-land-use-plan
 - concept-urban-development-planning
+- concept-disaster-risk-reduction
 - concept-common-areas

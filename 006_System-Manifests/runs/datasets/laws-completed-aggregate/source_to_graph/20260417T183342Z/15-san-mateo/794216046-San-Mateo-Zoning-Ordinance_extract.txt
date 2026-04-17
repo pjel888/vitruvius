@@ -1,0 +1,16 @@
+Section-Aware Relationship Extraction
+
+Sections: 76
+Unique relationships: 11
+
+law-zoning-ordinance-of-the-municipality-of-san-mateo -> governs -> concept-zoning-ordinance (x13) sections=['section-1', 'section-8', 'section-4', 'section-9', 'section-16']
+law-zoning-ordinance-of-the-municipality-of-san-mateo -> governs -> concept-floor-area (x8) sections=['section-1', 'section-2', 'section-16']
+concept-yards -> affects -> concept-zoning-ordinance (x1) sections=['section-1']
+law-zoning-ordinance-of-the-municipality-of-san-mateo -> governs -> concept-floor-area-ratio (x3) sections=['section-2']
+law-zoning-ordinance-of-the-municipality-of-san-mateo -> governs -> concept-local-shelter-plan (x4) sections=['section-3', 'section-21']
+law-zoning-ordinance-of-the-municipality-of-san-mateo -> governs -> concept-central-business-district (x4) sections=['section-5', 'section-7']
+law-zoning-ordinance-of-the-municipality-of-san-mateo -> governs -> concept-waste-disposal (x3) sections=['section-8']
+concept-food-establishment -> affects -> concept-waste-disposal (x1) sections=['section-9']
+law-zoning-ordinance-of-the-municipality-of-san-mateo -> governs -> concept-socialized-housing-projects (x1) sections=['section-3']
+concept-zoning-ordinance -> affects -> concept-comprehensive-land-use-plan (x2) sections=['section-15']
+law-zoning-ordinance-of-the-municipality-of-san-mateo -> governs -> concept-comprehensive-land-use-plan (x2) sections=['section-15', 'section-18']

@@ -4,7 +4,7 @@ title: National Building Code of the Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-16T15:22:28.395497+00:00
+last_canonicalized_utc: 2026-04-17T18:33:44.694523+00:00
 aliases:
   - PD 1096
   - Presidential Decree No. 1096
@@ -164,6 +164,7 @@ WHEREAS, the country’s accelerating economic and physical development, coupled
 - concept-building-permit
 - concept-certificate-of-occupancy
 - concept-occupancy-classification
+- concept-floor-area-ratio
 - concept-fire-resistive-construction
 - concept-stairs
 - concept-floor-area

@@ -1,6 +1,8 @@
 # Laws Wave Artifact Index
 
 ## Machine-readable state artifacts
+- `config/datasets/laws-completed-aggregate.yaml`
+  - aggregate manifest for the one-command completed-laws graph
 - `config/datasets/laws-completed-lanes.yaml`
   - completed tranches, LGU shards, remediation lanes, and truth-model fixes
 - `config/datasets/laws-remaining-dispositions.yaml`

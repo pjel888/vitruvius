@@ -4,7 +4,7 @@ title: DepEd Disaster Risk Reduction Resource Manual
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T16:13:54.083941+00:00
+last_canonicalized_utc: 2026-04-17T18:39:13.333312+00:00
 aliases:
   - Disaster Risk Reduction Resource Manual
   - Safer Schools Resource Manual
@@ -48,6 +48,7 @@ Published by the Department of Education (DepED) Philippines in partnership and 
 - concept-school-safety
 - concept-continuity-of-instruction
 - concept-human-settlements
+- concept-floor-area-ratio
 - concept-stairs
 - concept-setbacks
 - concept-approved-budget-for-the-contract

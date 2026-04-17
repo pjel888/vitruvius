@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations for the Philippine Environmental Impac
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T14:51:15.688820+00:00
+last_canonicalized_utc: 2026-04-17T18:38:01.465231+00:00
 aliases:
   - DENR DAO 2003-30
   - EIS System IRR
@@ -40,4 +40,5 @@ SUBJECT: Implementing Rules and Regulations (IRR) for the Philippine Environment
 
 ## Referenced Concepts
 
+- concept-project-area
 - concept-human-settlements

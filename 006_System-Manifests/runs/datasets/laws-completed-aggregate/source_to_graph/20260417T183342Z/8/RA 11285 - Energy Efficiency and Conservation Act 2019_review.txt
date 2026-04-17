@@ -1,0 +1,12 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.md
+Candidates reviewed: 1
+Keep: 0
+Review Further: 0
+Reject: 1
+
+law-energy-efficiency-and-conservation-act -> governs -> concept-minimum-energy-performance
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['minimum energy performance'] appear in the evidence text

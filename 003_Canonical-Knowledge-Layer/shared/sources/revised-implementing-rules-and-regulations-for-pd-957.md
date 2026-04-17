@@ -4,7 +4,7 @@ title: Revised Implementing Rules and Regulations for PD 957
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T05:00:32.136135+00:00
+last_canonicalized_utc: 2026-04-17T18:37:12.653962+00:00
 aliases:
   - PD 957 IRR
   - Presidential Decree No. 957 IRR
@@ -99,9 +99,14 @@ aliases:
 
 ## Referenced Concepts
 
+- concept-zoning-ordinance
+- concept-comprehensive-land-use-plan
 - concept-yards
+- concept-floor-area-ratio
+- concept-project-area
 - concept-floor-area
 - concept-lot-occupancy
 - concept-setbacks
+- concept-common-areas
 - concept-building-permit
 - concept-socialized-housing-projects

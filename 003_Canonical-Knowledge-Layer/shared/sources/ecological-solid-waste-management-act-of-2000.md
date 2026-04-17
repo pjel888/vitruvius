@@ -4,7 +4,7 @@ title: Ecological Solid Waste Management Act of 2000
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T10:38:53.404105+00:00
+last_canonicalized_utc: 2026-04-17T18:37:32.626743+00:00
 aliases:
   - RA 9003
   - Republic Act No. 9003
@@ -33,4 +33,4 @@ Congress of the Philippines Metro Manila REPUBLIC ACT NO. 9003
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-waste-disposal

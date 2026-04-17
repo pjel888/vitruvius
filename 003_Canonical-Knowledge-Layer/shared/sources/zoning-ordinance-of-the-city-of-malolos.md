@@ -4,7 +4,7 @@ title: Zoning Ordinance of the City of Malolos
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T16:42:54.365406+00:00
+last_canonicalized_utc: 2026-04-17T18:40:30.988402+00:00
 aliases:
   - Malolos City Zoning Ordinance
   - Zoning Regulations of the City of Malolos
@@ -33,6 +33,7 @@ TITLE OF THE ORDINANCE SECTION 1 . Title of the Ordinance
 - concept-yards
 - concept-floor-area-ratio
 - concept-floor-area
+- concept-central-business-district
 - concept-stairs
 - concept-building-height
 - concept-socialized-housing-projects

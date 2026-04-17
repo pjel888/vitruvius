@@ -4,7 +4,7 @@ title: Resilient Urban Design and Development Guidelines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T15:10:27.591273+00:00
+last_canonicalized_utc: 2026-04-17T18:38:53.906676+00:00
 aliases:
   - DHSUD Resilient Urban Design and Development Guidelines
 ---
@@ -44,8 +44,13 @@ Any part of this document may be used and reproduced, provided that proper ackno
 - concept-human-settlements
 - concept-urban-development-planning
 - concept-comprehensive-land-use-plan
+- concept-zoning-ordinance
+- concept-disaster-risk-reduction
 - concept-floor-area
 - concept-setbacks
+- concept-central-business-district
+- concept-standards-of-professional-practice
 - concept-light-and-ventilation
 - concept-adaptive-reuse
+- concept-project-area
 - concept-building-permit

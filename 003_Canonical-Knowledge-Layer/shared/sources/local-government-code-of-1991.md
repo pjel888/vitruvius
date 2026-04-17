@@ -4,7 +4,7 @@ title: Local Government Code of 1991
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T13:23:16.655413+00:00
+last_canonicalized_utc: 2026-04-17T18:37:40.266664+00:00
 aliases:
   - RA 7160
   - Republic Act No. 7160
@@ -98,6 +98,12 @@ aliases:
 ## Referenced Concepts
 
 - concept-local-autonomy
+- concept-floor-area-ratio
+- concept-waste-disposal
+- concept-human-settlements
 - concept-prior-consultations
+- concept-bids-and-awards-committee
+- concept-competitive-bidding
 - concept-building-permit
 - concept-comprehensive-land-use-plan
+- concept-urban-development-planning

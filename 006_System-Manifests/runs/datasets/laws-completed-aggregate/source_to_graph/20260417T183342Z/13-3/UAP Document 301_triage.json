@@ -1,0 +1,78 @@
+{
+  "generated_at": "20260417T183912Z",
+  "source": "001-Laws/refined_markdown/UAP/UAP Document 301.md",
+  "total_candidates": 3,
+  "auto_accept_count": 0,
+  "auto_reject_count": 3,
+  "needs_review_count": 0,
+  "buckets": {
+    "auto_accept": [],
+    "auto_reject": [
+      {
+        "from": "handout-uap-document-301-general-conditions",
+        "type": "governs",
+        "to": "concept-general-conditions-of-contract",
+        "occurrences": 8,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "- and estimated cost or information that would give the contractor a general idea of the magnitude and extent of the project. - 1.16 BID BULLETIN: is additional information on contract documents issued to bidders before date of bidding. - 1.17 INSTRUCTIONS TO BIDDERS: The list of instructions stipul",
+          "- and estimated cost or information that would give the contractor a general idea of the magnitude and extent of the project. - 1.16 BID BULLETIN: is additional information on contract documents issued to bidders before date of bidding. - 1.17 INSTRUCTIONS TO BIDDERS: The list of instructions stipul",
+          "- a. If there be variance between drawings and the Specifications, the provisions of the specifications shall control. In case of conflict between the General Conditions of the contract or any modification thereof and the detailed specifications requirements shall control - b. Any discrepancies foun"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['general conditions of contract'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "handout-uap-document-301-general-conditions",
+        "type": "governs",
+        "to": "concept-floor-area-ratio",
+        "occurrences": 5,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "In general the contractor shall comply with all the laws, city and municipal ordinances , and all building Codes, rules and regulations, In so far as they are binding upon or affect the parties hereto, the work, or those engaged thereon.",
+          "- 6.01 LAWS AND REGULATIONS: In general the contractor shall comply with all the laws, city and municipal ordinances , and all building Codes, rules and regulations, In so far as they are binding upon or affect the parties hereto, the work, or those engaged thereon. He shall also comply with regulat",
+          "- 6.01 LAWS AND REGULATIONS: In general the contractor shall comply with all the laws, city and municipal ordinances , and all building Codes, rules and regulations, In so far as they are binding upon or affect the parties hereto, the work, or those engaged thereon. He shall also comply with regulat"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['floor area ratio'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "handout-uap-document-301-general-conditions",
+        "type": "governs",
+        "to": "concept-stairs",
+        "occurrences": 1,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "- 15.07 TEMPORARY ROADWAYS: The Contractor shall construct and properly maintain temporary roadways within and adjacent to site in order to provide proper access to the building. Temporary roadways shall adequately sustain loads to be carried on them and be so constructed as not to endanger existing"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['stairs'] appear in the evidence text"
+          ]
+        }
+      }
+    ],
+    "needs_review": []
+  }
+}

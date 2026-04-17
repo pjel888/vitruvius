@@ -4,7 +4,7 @@ title: Comprehensive Zoning Ordinance of the Municipality of Meycauayan
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T16:49:03.588185+00:00
+last_canonicalized_utc: 2026-04-17T18:41:13.423821+00:00
 aliases:
   - Meycauayan Zoning Ordinance
   - Municipal Ordinance No. 16 Series of 1999
@@ -50,6 +50,7 @@ Republic of the Philippines Province of Bulacan Municipal Government of Meycauay
 - concept-zoning-ordinance
 - concept-comprehensive-land-use-plan
 - concept-yards
+- concept-central-business-district
 - concept-floor-area-ratio
 - concept-floor-area
 - concept-stairs

@@ -4,7 +4,7 @@ title: Pasay City Zoning Ordinance of 2003
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T17:20:46.636913+00:00
+last_canonicalized_utc: 2026-04-17T18:41:50.580748+00:00
 aliases:
   - Pasay City Zoning Ordinance
   - Zoning Ordinance for the City of Pasay
@@ -97,4 +97,5 @@ AMENDMENTTHEREOF AND FOR THE REPEAL OF ALLORDINANCES IN CONFLICT THEREWITH.
 - concept-yards
 - concept-human-settlements
 - concept-certificate-of-occupancy
+- concept-project-area
 - concept-central-business-district

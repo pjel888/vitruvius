@@ -4,7 +4,7 @@ title: Code on Sanitation of the Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T13:23:16.073227+00:00
+last_canonicalized_utc: 2026-04-17T18:37:33.489698+00:00
 aliases:
   - PD 856
   - Presidential Decree No. 856
@@ -104,3 +104,5 @@ Published by THE DEPARTMENT OF HEALTH Manila, Philippines 1976 Reprinted in 1998
 
 - concept-food-establishment
 - concept-local-health-authority
+- concept-floor-area-ratio
+- concept-waste-disposal

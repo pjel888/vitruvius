@@ -1,0 +1,858 @@
+@prefix ifc: <https://standards.buildingsmart.org/IFC/RELEASE/IFC4/FINAL/OWL#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:handout-ciap-document-102-uniform-general-conditions-of-contract-for-private-construction a vitruvius:source ;
+    rdfs:label "ciap-document-102-uniform-general-conditions-of-contract-for-private-construction (handout-ciap-document-102-uniform-general-conditions-of-contract-for-private-construction)" ;
+    vitruvius:last_updated_utc "2026-04-17T18:39:08Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration a vitruvius:source ;
+    rdfs:label "clarification-on-prboa-resolution-05-2007-rule-ii-registration (handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration)" ;
+    vitruvius:defines vitruvius:concept-architectural-firm-registration ;
+    vitruvius:governs vitruvius:concept-architectural-firm-registration ;
+    vitruvius:last_updated_utc "2026-04-17T17:37:26Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-cmo-61-series-2017-bs-architecture-curriculum-standards a vitruvius:source ;
+    rdfs:label "cmo-61-series-2017-bs-architecture-curriculum-standards (handout-cmo-61-series-2017-bs-architecture-curriculum-standards)" ;
+    vitruvius:last_updated_utc "2026-04-17T18:38:54Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-davao-city-comprehensive-land-use-plan a vitruvius:source ;
+    rdfs:label "davao-city-comprehensive-land-use-plan (handout-davao-city-comprehensive-land-use-plan)" ;
+    vitruvius:governs vitruvius:concept-comprehensive-land-use-plan,
+        vitruvius:concept-disaster-risk-reduction ;
+    vitruvius:last_updated_utc "2026-04-17T16:55:16Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads a vitruvius:source ;
+    rdfs:label "department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads (handout-department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads)" ;
+    vitruvius:last_updated_utc "2026-04-17T14:51:15Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-deped-disaster-risk-reduction-resource-manual a vitruvius:source ;
+    rdfs:label "deped-disaster-risk-reduction-resource-manual (handout-deped-disaster-risk-reduction-resource-manual)" ;
+    vitruvius:defines vitruvius:concept-continuity-of-instruction,
+        vitruvius:concept-disaster-risk-reduction,
+        vitruvius:concept-school-safety ;
+    vitruvius:governs vitruvius:concept-continuity-of-instruction,
+        vitruvius:concept-disaster-risk-reduction,
+        vitruvius:concept-school-safety ;
+    vitruvius:last_updated_utc "2026-04-17T18:39:13Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-doh-guidelines-for-health-facilities a vitruvius:source ;
+    rdfs:label "doh-guidelines-for-health-facilities (handout-doh-guidelines-for-health-facilities)" ;
+    vitruvius:defines vitruvius:concept-health-facility-zoning,
+        vitruvius:concept-patient-movement,
+        vitruvius:concept-waste-disposal ;
+    vitruvius:governs vitruvius:concept-health-facility-zoning,
+        vitruvius:concept-patient-movement,
+        vitruvius:concept-waste-disposal ;
+    vitruvius:last_updated_utc "2026-04-17T16:13:53Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-guidelines-on-energy-conserving-design-of-buildings a vitruvius:source ;
+    rdfs:label "guidelines-on-energy-conserving-design-of-buildings (handout-guidelines-on-energy-conserving-design-of-buildings)" ;
+    vitruvius:last_updated_utc "2026-04-17T14:51:15Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-guidelines-on-temporary-or-special-permits-for-foreign-architects a vitruvius:source ;
+    rdfs:label "guidelines-on-temporary-or-special-permits-for-foreign-architects (handout-guidelines-on-temporary-or-special-permits-for-foreign-architects)" ;
+    vitruvius:defines vitruvius:concept-temporary-special-permit ;
+    vitruvius:governs vitruvius:concept-temporary-special-permit ;
+    vitruvius:last_updated_utc "2026-04-17T17:40:24Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279 a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279 (handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279)" ;
+    vitruvius:defines vitruvius:concept-balanced-housing-development,
+        vitruvius:concept-project-area ;
+    vitruvius:governs vitruvius:concept-balanced-housing-development,
+        vitruvius:concept-project-area ;
+    vitruvius:last_updated_utc "2026-04-17T17:29:55Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-open-space-development-guidelines a vitruvius:source ;
+    rdfs:label "open-space-development-guidelines (handout-open-space-development-guidelines)" ;
+    vitruvius:last_updated_utc "2026-04-17T18:38:52Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-prboa-comments-on-the-illegal-practice-of-architecture a vitruvius:source ;
+    rdfs:label "prboa-comments-on-the-illegal-practice-of-architecture (handout-prboa-comments-on-the-illegal-practice-of-architecture)" ;
+    vitruvius:defines vitruvius:concept-illegal-practice-of-architecture ;
+    vitruvius:governs vitruvius:concept-illegal-practice-of-architecture ;
+    vitruvius:last_updated_utc "2026-04-17T17:40:25Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-resilient-urban-design-and-development-guidelines a vitruvius:source ;
+    rdfs:label "resilient-urban-design-and-development-guidelines (handout-resilient-urban-design-and-development-guidelines)" ;
+    vitruvius:last_updated_utc "2026-04-17T18:38:53Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-resolution-on-effectivity-dates-of-prboa-resolutions a vitruvius:source ;
+    rdfs:label "resolution-on-effectivity-dates-of-prboa-resolutions (handout-resolution-on-effectivity-dates-of-prboa-resolutions)" ;
+    vitruvius:last_updated_utc "2026-04-17T17:37:25Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-resolution-restricting-practice-of-architecture-by-non-registered-and-licensed-architects a vitruvius:source ;
+    rdfs:label "resolution-restricting-practice-of-architecture-by-non-registered-and-licensed-architects (handout-resolution-restricting-practice-of-architecture-by-non-registered-and-licensed-architects)" ;
+    vitruvius:last_updated_utc "2026-04-17T17:40:26Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-san-mateo-comprehensive-land-use-plan-2021-2031 a vitruvius:source ;
+    rdfs:label "san-mateo-comprehensive-land-use-plan-2021-2031 (handout-san-mateo-comprehensive-land-use-plan-2021-2031)" ;
+    vitruvius:governs vitruvius:concept-comprehensive-land-use-plan ;
+    vitruvius:last_updated_utc "2026-04-17T16:28:28Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice a vitruvius:source ;
+    rdfs:label "statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice (handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice)" ;
+    vitruvius:defines vitruvius:concept-architectural-interiors ;
+    vitruvius:governs vitruvius:concept-architectural-interiors,
+        vitruvius:concept-building-permit,
+        vitruvius:concept-standards-of-professional-practice ;
+    vitruvius:last_updated_utc "2026-04-17T17:40:22Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-uap-document-301-general-conditions a vitruvius:source ;
+    rdfs:label "uap-document-301-general-conditions (handout-uap-document-301-general-conditions)" ;
+    vitruvius:defines vitruvius:concept-general-conditions-of-contract ;
+    vitruvius:governs vitruvius:concept-general-conditions-of-contract ;
+    vitruvius:last_updated_utc "2026-04-17T18:39:12Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-uap-document-code-of-ethics a vitruvius:source ;
+    rdfs:label "uap-document-code-of-ethics (handout-uap-document-code-of-ethics)" ;
+    vitruvius:defines vitruvius:concept-code-of-ethics ;
+    vitruvius:governs vitruvius:concept-code-of-ethics ;
+    vitruvius:last_updated_utc "2026-04-17T16:01:10Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-uap-document-standards-of-professional-practice a vitruvius:source ;
+    rdfs:label "uap-document-standards-of-professional-practice (handout-uap-document-standards-of-professional-practice)" ;
+    vitruvius:defines vitruvius:concept-standards-of-professional-practice ;
+    vitruvius:governs vitruvius:concept-standards-of-professional-practice ;
+    vitruvius:last_updated_utc "2026-04-17T18:39:11Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines a vitruvius:source ;
+    rdfs:label "amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines (irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines)" ;
+    vitruvius:defines vitruvius:concept-groundwater-drilling,
+        vitruvius:concept-water-permit ;
+    vitruvius:governs vitruvius:concept-groundwater-drilling,
+        vitruvius:concept-water-permit ;
+    vitruvius:last_updated_utc "2026-04-17T11:02:37Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system (irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system)" ;
+    vitruvius:last_updated_utc "2026-04-17T18:38:01Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines (irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines)" ;
+    vitruvius:defines vitruvius:concept-food-establishment,
+        vitruvius:concept-local-health-authority ;
+    vitruvius:governs vitruvius:concept-floor-area,
+        vitruvius:concept-food-establishment,
+        vitruvius:concept-local-health-authority ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:39Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004 a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-of-the-architecture-act-of-2004 (irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004)" ;
+    vitruvius:governs vitruvius:concept-standards-of-professional-practice ;
+    vitruvius:last_updated_utc "2026-04-17T18:38:02Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act (irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act)" ;
+    vitruvius:defines vitruvius:concept-local-shelter-plan ;
+    vitruvius:governs vitruvius:concept-local-shelter-plan ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:54Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-of-the-fire-code-of-the-philippines (irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines)" ;
+    vitruvius:governs vitruvius:concept-building-height,
+        vitruvius:concept-building-permit,
+        vitruvius:concept-certificate-of-occupancy,
+        vitruvius:concept-exit-width,
+        vitruvius:concept-fire-resistive-construction,
+        vitruvius:concept-floor-area,
+        vitruvius:concept-light-and-ventilation,
+        vitruvius:concept-means-of-egress,
+        vitruvius:concept-occupancy-classification,
+        vitruvius:concept-stairs,
+        vitruvius:concept-waste-disposal,
+        vitruvius:concept-yards ;
+    vitruvius:last_updated_utc "2026-04-17T18:38:02Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-implementing-rules-and-regulations-of-the-national-building-code a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-of-the-national-building-code (irr-implementing-rules-and-regulations-of-the-national-building-code)" ;
+    vitruvius:governs vitruvius:concept-building-height,
+        vitruvius:concept-building-permit,
+        vitruvius:concept-certificate-of-occupancy,
+        vitruvius:concept-exit-width,
+        vitruvius:concept-floor-area,
+        vitruvius:concept-light-and-ventilation,
+        vitruvius:concept-lot-occupancy,
+        vitruvius:concept-means-of-egress,
+        vitruvius:concept-mixed-occupancy,
+        vitruvius:concept-occupancy-classification,
+        vitruvius:concept-occupancy-separation,
+        vitruvius:concept-setbacks,
+        vitruvius:concept-stairs,
+        vitruvius:concept-yards ;
+    vitruvius:last_updated_utc "2026-04-17T18:34:27Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-implementing-rules-and-regulations-of-the-urban-land-reform-act a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-of-the-urban-land-reform-act (irr-implementing-rules-and-regulations-of-the-urban-land-reform-act)" ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:32Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-revised-implementing-rules-and-regulations-for-pd-957 a vitruvius:source ;
+    rdfs:label "revised-implementing-rules-and-regulations-for-pd-957 (irr-revised-implementing-rules-and-regulations-for-pd-957)" ;
+    vitruvius:governs vitruvius:concept-floor-area,
+        vitruvius:concept-setbacks,
+        vitruvius:concept-yards ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:12Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 a vitruvius:source ;
+    rdfs:label "revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 (irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220)" ;
+    vitruvius:defines vitruvius:concept-socialized-housing-projects ;
+    vitruvius:governs vitruvius:concept-floor-area,
+        vitruvius:concept-light-and-ventilation,
+        vitruvius:concept-means-of-egress,
+        vitruvius:concept-setbacks,
+        vitruvius:concept-socialized-housing-projects,
+        vitruvius:concept-stairs,
+        vitruvius:concept-yards,
+        vitruvius:concept-zoning-ordinance ;
+    vitruvius:last_updated_utc "2026-04-17T18:36:36Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344 a vitruvius:source ;
+    rdfs:label "revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344 (irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344)" ;
+    vitruvius:defines vitruvius:concept-accessible-ramps ;
+    vitruvius:governs vitruvius:concept-accessible-ramps,
+        vitruvius:concept-stairs ;
+    vitruvius:last_updated_utc "2026-04-16T15:25:00Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act a vitruvius:source ;
+    rdfs:label "updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act (irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act)" ;
+    vitruvius:governs vitruvius:concept-approved-budget-for-the-contract,
+        vitruvius:concept-competitive-bidding ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:47Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-alternative-dispute-resolution-act-of-2004 a vitruvius:source ;
+    rdfs:label "alternative-dispute-resolution-act-of-2004 (law-alternative-dispute-resolution-act-of-2004)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:43:22Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-amendments-to-the-condominium-act a vitruvius:source ;
+    rdfs:label "amendments-to-the-condominium-act (law-amendments-to-the-condominium-act)" ;
+    vitruvius:governs vitruvius:concept-floor-area ;
+    vitruvius:last_updated_utc "2026-04-17T10:15:02Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-civil-code-of-the-philippines a vitruvius:source ;
+    rdfs:label "civil-code-of-the-philippines (law-civil-code-of-the-philippines)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:29:34Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-code-on-sanitation-of-the-philippines a vitruvius:source ;
+    rdfs:label "code-on-sanitation-of-the-philippines (law-code-on-sanitation-of-the-philippines)" ;
+    vitruvius:governs vitruvius:concept-food-establishment,
+        vitruvius:concept-local-health-authority ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:33Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-comprehensive-zoning-ordinance-of-dagupan-city a vitruvius:source ;
+    rdfs:label "comprehensive-zoning-ordinance-of-dagupan-city (law-comprehensive-zoning-ordinance-of-dagupan-city)" ;
+    vitruvius:governs vitruvius:concept-building-height,
+        vitruvius:concept-comprehensive-land-use-plan,
+        vitruvius:concept-disaster-risk-reduction,
+        vitruvius:concept-floor-area-ratio,
+        vitruvius:concept-zoning-ordinance ;
+    vitruvius:last_updated_utc "2026-04-17T18:40:06Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-comprehensive-zoning-ordinance-of-the-city-of-tarlac a vitruvius:source ;
+    rdfs:label "comprehensive-zoning-ordinance-of-the-city-of-tarlac (law-comprehensive-zoning-ordinance-of-the-city-of-tarlac)" ;
+    vitruvius:governs vitruvius:concept-comprehensive-land-use-plan,
+        vitruvius:concept-floor-area,
+        vitruvius:concept-floor-area-ratio,
+        vitruvius:concept-zoning-ordinance ;
+    vitruvius:last_updated_utc "2026-04-17T18:41:25Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan a vitruvius:source ;
+    rdfs:label "comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan (law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan)" ;
+    vitruvius:governs vitruvius:concept-comprehensive-land-use-plan,
+        vitruvius:concept-floor-area,
+        vitruvius:concept-floor-area-ratio,
+        vitruvius:concept-zoning-ordinance ;
+    vitruvius:last_updated_utc "2026-04-17T18:41:13Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-condominium-act a vitruvius:source ;
+    rdfs:label "condominium-act (law-condominium-act)" ;
+    vitruvius:defines vitruvius:concept-common-areas ;
+    vitruvius:governs vitruvius:concept-common-areas ;
+    vitruvius:last_updated_utc "2026-04-17T10:14:43Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-contractors-license-law a vitruvius:source ;
+    rdfs:label "contractors-license-law (law-contractors-license-law)" ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:46Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-department-of-human-settlements-and-urban-development-act a vitruvius:source ;
+    rdfs:label "department-of-human-settlements-and-urban-development-act (law-department-of-human-settlements-and-urban-development-act)" ;
+    vitruvius:defines vitruvius:concept-human-settlements,
+        vitruvius:concept-urban-development-planning ;
+    vitruvius:governs vitruvius:concept-human-settlements,
+        vitruvius:concept-urban-development-planning ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:54Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-ecological-solid-waste-management-act-of-2000 a vitruvius:source ;
+    rdfs:label "ecological-solid-waste-management-act-of-2000 (law-ecological-solid-waste-management-act-of-2000)" ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:32Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-energy-efficiency-and-conservation-act a vitruvius:source ;
+    rdfs:label "energy-efficiency-and-conservation-act (law-energy-efficiency-and-conservation-act)" ;
+    vitruvius:defines vitruvius:concept-designated-establishment,
+        vitruvius:concept-energy-audit,
+        vitruvius:concept-minimum-energy-performance ;
+    vitruvius:governs vitruvius:concept-designated-establishment,
+        vitruvius:concept-energy-audit,
+        vitruvius:concept-minimum-energy-performance ;
+    vitruvius:last_updated_utc "2026-04-17T14:21:08Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission a vitruvius:source ;
+    rdfs:label "executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission (law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission)" ;
+    vitruvius:governs vitruvius:concept-human-settlements,
+        vitruvius:concept-zoning-ordinance ;
+    vitruvius:last_updated_utc "2026-04-17T18:38:42Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-executive-order-no-72-on-comprehensive-land-use-plans a vitruvius:source ;
+    rdfs:label "executive-order-no-72-on-comprehensive-land-use-plans (law-executive-order-no-72-on-comprehensive-land-use-plans)" ;
+    vitruvius:governs vitruvius:concept-comprehensive-land-use-plan ;
+    vitruvius:last_updated_utc "2026-04-17T18:38:44Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-executive-order-no-90-on-the-national-shelter-program a vitruvius:source ;
+    rdfs:label "executive-order-no-90-on-the-national-shelter-program (law-executive-order-no-90-on-the-national-shelter-program)" ;
+    vitruvius:governs vitruvius:concept-human-settlements ;
+    vitruvius:last_updated_utc "2026-04-17T15:10:27Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-fire-code-of-the-philippines a vitruvius:source ;
+    rdfs:label "fire-code-of-the-philippines (law-fire-code-of-the-philippines)" ;
+    vitruvius:governs vitruvius:concept-building-permit,
+        vitruvius:concept-means-of-egress,
+        vitruvius:concept-yards ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:25Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-government-procurement-reform-act a vitruvius:source ;
+    rdfs:label "government-procurement-reform-act (law-government-procurement-reform-act)" ;
+    vitruvius:defines vitruvius:concept-approved-budget-for-the-contract,
+        vitruvius:concept-bids-and-awards-committee,
+        vitruvius:concept-competitive-bidding ;
+    vitruvius:governs vitruvius:concept-approved-budget-for-the-contract,
+        vitruvius:concept-bids-and-awards-committee,
+        vitruvius:concept-competitive-bidding ;
+    vitruvius:last_updated_utc "2026-04-17T13:31:24Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-local-government-code-of-1991 a vitruvius:source ;
+    rdfs:label "local-government-code-of-1991 (law-local-government-code-of-1991)" ;
+    vitruvius:defines vitruvius:concept-comprehensive-land-use-plan,
+        vitruvius:concept-local-autonomy,
+        vitruvius:concept-prior-consultations ;
+    vitruvius:governs vitruvius:concept-bids-and-awards-committee,
+        vitruvius:concept-comprehensive-land-use-plan,
+        vitruvius:concept-human-settlements,
+        vitruvius:concept-local-autonomy,
+        vitruvius:concept-prior-consultations ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:40Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-national-building-code-of-the-philippines a vitruvius:source ;
+    rdfs:label "national-building-code-of-the-philippines (law-national-building-code-of-the-philippines)" ;
+    vitruvius:defines vitruvius:concept-building-height,
+        vitruvius:concept-building-permit,
+        vitruvius:concept-certificate-of-occupancy,
+        vitruvius:concept-doors-and-exits,
+        vitruvius:concept-fire-resistive-construction,
+        vitruvius:concept-floor-area,
+        vitruvius:concept-light-and-ventilation,
+        vitruvius:concept-lot-occupancy,
+        vitruvius:concept-means-of-egress,
+        vitruvius:concept-mixed-occupancy,
+        vitruvius:concept-occupancy-classification,
+        vitruvius:concept-occupancy-load,
+        vitruvius:concept-occupancy-separation,
+        vitruvius:concept-open-courts,
+        vitruvius:concept-projections-over-public-ways,
+        vitruvius:concept-stairs ;
+    vitruvius:governs vitruvius:concept-building-permit,
+        vitruvius:concept-exit-width,
+        vitruvius:concept-floor-area,
+        vitruvius:concept-occupancy-separation,
+        vitruvius:concept-stairs,
+        vitruvius:concept-yards ;
+    vitruvius:last_updated_utc "2026-04-17T18:33:44Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-national-cultural-heritage-act-of-2009 a vitruvius:source ;
+    rdfs:label "national-cultural-heritage-act-of-2009 (law-national-cultural-heritage-act-of-2009)" ;
+    vitruvius:defines vitruvius:concept-adaptive-reuse,
+        vitruvius:concept-built-heritage,
+        vitruvius:concept-heritage-zone ;
+    vitruvius:governs vitruvius:concept-adaptive-reuse,
+        vitruvius:concept-built-heritage,
+        vitruvius:concept-heritage-zone ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:33Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-open-space-requirements-in-residential-subdivisions a vitruvius:source ;
+    rdfs:label "open-space-requirements-in-residential-subdivisions (law-open-space-requirements-in-residential-subdivisions)" ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:24Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-pasay-city-zoning-ordinance-of-2003 a vitruvius:source ;
+    rdfs:label "pasay-city-zoning-ordinance-of-2003 (law-pasay-city-zoning-ordinance-of-2003)" ;
+    vitruvius:governs vitruvius:concept-central-business-district,
+        vitruvius:concept-comprehensive-land-use-plan,
+        vitruvius:concept-floor-area,
+        vitruvius:concept-floor-area-ratio,
+        vitruvius:concept-zoning-ordinance ;
+    vitruvius:last_updated_utc "2026-04-17T18:41:50Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-philippine-clean-water-act-of-2004 a vitruvius:source ;
+    rdfs:label "philippine-clean-water-act-of-2004 (law-philippine-clean-water-act-of-2004)" ;
+    vitruvius:defines vitruvius:concept-discharge-permit,
+        vitruvius:concept-wastewater-charge-system,
+        vitruvius:concept-water-quality-management-area ;
+    vitruvius:governs vitruvius:concept-discharge-permit,
+        vitruvius:concept-wastewater-charge-system,
+        vitruvius:concept-water-quality-management-area ;
+    vitruvius:last_updated_utc "2026-04-17T13:23:16Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-philippine-environmental-policy a vitruvius:source ;
+    rdfs:label "philippine-environmental-policy (law-philippine-environmental-policy)" ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:32Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-plumbing-law a vitruvius:source ;
+    rdfs:label "plumbing-law (law-plumbing-law)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:43:22Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-quezon-city-central-business-district-zoning-ordinance a vitruvius:source ;
+    rdfs:label "quezon-city-central-business-district-zoning-ordinance (law-quezon-city-central-business-district-zoning-ordinance)" ;
+    vitruvius:defines vitruvius:concept-central-business-district ;
+    vitruvius:governs vitruvius:concept-central-business-district,
+        vitruvius:concept-zoning-ordinance ;
+    vitruvius:last_updated_utc "2026-04-17T17:07:56Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990 a vitruvius:source ;
+    rdfs:label "toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990 (law-toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990)" ;
+    vitruvius:last_updated_utc "2026-04-17T11:07:04Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-urban-development-and-housing-act a vitruvius:source ;
+    rdfs:label "urban-development-and-housing-act (law-urban-development-and-housing-act)" ;
+    vitruvius:governs vitruvius:concept-socialized-housing-projects ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:25Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-water-code-of-the-philippines a vitruvius:source ;
+    rdfs:label "water-code-of-the-philippines (law-water-code-of-the-philippines)" ;
+    vitruvius:defines vitruvius:concept-groundwater-drilling,
+        vitruvius:concept-water-permit,
+        vitruvius:concept-water-right ;
+    vitruvius:governs vitruvius:concept-groundwater-drilling,
+        vitruvius:concept-water-permit,
+        vitruvius:concept-water-right ;
+    vitruvius:last_updated_utc "2026-04-17T18:37:32Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-zoning-ordinance-of-the-city-of-malolos a vitruvius:source ;
+    rdfs:label "zoning-ordinance-of-the-city-of-malolos (law-zoning-ordinance-of-the-city-of-malolos)" ;
+    vitruvius:governs vitruvius:concept-building-height,
+        vitruvius:concept-comprehensive-land-use-plan,
+        vitruvius:concept-zoning-ordinance ;
+    vitruvius:last_updated_utc "2026-04-17T18:40:30Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-zoning-ordinance-of-the-municipality-of-san-mateo a vitruvius:source ;
+    rdfs:label "zoning-ordinance-of-the-municipality-of-san-mateo (law-zoning-ordinance-of-the-municipality-of-san-mateo)" ;
+    vitruvius:defines vitruvius:concept-floor-area-ratio,
+        vitruvius:concept-zoning-ordinance ;
+    vitruvius:governs vitruvius:concept-central-business-district,
+        vitruvius:concept-floor-area,
+        vitruvius:concept-floor-area-ratio,
+        vitruvius:concept-waste-disposal,
+        vitruvius:concept-zoning-ordinance ;
+    vitruvius:last_updated_utc "2026-04-17T18:39:41Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:concept-doors-and-exits a vitruvius:concept ;
+    rdfs:label "doors-and-exits (concept-doors-and-exits)" ;
+    owl:sameAs ifc:IfcDoor ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:53.633633+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-occupancy-load a vitruvius:concept ;
+    rdfs:label "occupancy-load (concept-occupancy-load)" ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:05.121205+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-open-courts a vitruvius:concept ;
+    rdfs:label "open-courts (concept-open-courts)" ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:07.619696+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-projections-over-public-ways a vitruvius:concept ;
+    rdfs:label "projections-over-public-ways (concept-projections-over-public-ways)" ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:10.164757+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-accessible-ramps a vitruvius:concept ;
+    rdfs:label "accessible-ramps (concept-accessible-ramps)" ;
+    vitruvius:last_updated_utc "2026-04-16T06:40:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-adaptive-reuse a vitruvius:concept ;
+    rdfs:label "adaptive-reuse (concept-adaptive-reuse)" ;
+    vitruvius:last_updated_utc "2026-04-17T11:16:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-architectural-firm-registration a vitruvius:concept ;
+    rdfs:label "architectural-firm-registration (concept-architectural-firm-registration)" ;
+    vitruvius:last_updated_utc "2026-04-18T01:55:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-architectural-interiors a vitruvius:concept ;
+    rdfs:label "architectural-interiors (concept-architectural-interiors)" ;
+    vitruvius:last_updated_utc "2026-04-18T01:55:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-balanced-housing-development a vitruvius:concept ;
+    rdfs:label "balanced-housing-development (concept-balanced-housing-development)" ;
+    vitruvius:last_updated_utc "2026-04-18T01:45:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-built-heritage a vitruvius:concept ;
+    rdfs:label "built-heritage (concept-built-heritage)" ;
+    vitruvius:last_updated_utc "2026-04-17T11:16:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-code-of-ethics a vitruvius:concept ;
+    rdfs:label "code-of-ethics (concept-code-of-ethics)" ;
+    vitruvius:last_updated_utc "2026-04-17T15:16:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-common-areas a vitruvius:concept ;
+    rdfs:label "common-areas (concept-common-areas)" ;
+    vitruvius:last_updated_utc "2026-04-17T09:35:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-continuity-of-instruction a vitruvius:concept ;
+    rdfs:label "continuity-of-instruction (concept-continuity-of-instruction)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-designated-establishment a vitruvius:concept ;
+    rdfs:label "designated-establishment (concept-designated-establishment)" ;
+    vitruvius:last_updated_utc "2026-04-17T14:25:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-discharge-permit a vitruvius:concept ;
+    rdfs:label "discharge-permit (concept-discharge-permit)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-energy-audit a vitruvius:concept ;
+    rdfs:label "energy-audit (concept-energy-audit)" ;
+    vitruvius:last_updated_utc "2026-04-17T14:25:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-general-conditions-of-contract a vitruvius:concept ;
+    rdfs:label "general-conditions-of-contract (concept-general-conditions-of-contract)" ;
+    vitruvius:last_updated_utc "2026-04-17T15:16:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-health-facility-zoning a vitruvius:concept ;
+    rdfs:label "health-facility-zoning (concept-health-facility-zoning)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-heritage-zone a vitruvius:concept ;
+    rdfs:label "heritage-zone (concept-heritage-zone)" ;
+    vitruvius:last_updated_utc "2026-04-17T11:16:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-illegal-practice-of-architecture a vitruvius:concept ;
+    rdfs:label "illegal-practice-of-architecture (concept-illegal-practice-of-architecture)" ;
+    vitruvius:last_updated_utc "2026-04-18T01:55:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-local-autonomy a vitruvius:concept ;
+    rdfs:label "local-autonomy (concept-local-autonomy)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-local-shelter-plan a vitruvius:concept ;
+    rdfs:label "local-shelter-plan (concept-local-shelter-plan)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:50:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-lot-occupancy a vitruvius:concept ;
+    rdfs:label "lot-occupancy (concept-lot-occupancy)" ;
+    owl:sameAs ifc:IfcSite ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:00.087139+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-minimum-energy-performance a vitruvius:concept ;
+    rdfs:label "minimum-energy-performance (concept-minimum-energy-performance)" ;
+    vitruvius:last_updated_utc "2026-04-17T14:25:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-patient-movement a vitruvius:concept ;
+    rdfs:label "patient-movement (concept-patient-movement)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-prior-consultations a vitruvius:concept ;
+    rdfs:label "prior-consultations (concept-prior-consultations)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-project-area a vitruvius:concept ;
+    rdfs:label "project-area (concept-project-area)" ;
+    vitruvius:last_updated_utc "2026-04-18T01:45:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-school-safety a vitruvius:concept ;
+    rdfs:label "school-safety (concept-school-safety)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-temporary-special-permit a vitruvius:concept ;
+    rdfs:label "temporary-special-permit (concept-temporary-special-permit)" ;
+    vitruvius:last_updated_utc "2026-04-18T01:55:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-urban-development-planning a vitruvius:concept ;
+    rdfs:label "urban-development-planning (concept-urban-development-planning)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:50:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-wastewater-charge-system a vitruvius:concept ;
+    rdfs:label "wastewater-charge-system (concept-wastewater-charge-system)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-water-quality-management-area a vitruvius:concept ;
+    rdfs:label "water-quality-management-area (concept-water-quality-management-area)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-water-right a vitruvius:concept ;
+    rdfs:label "water-right (concept-water-right)" ;
+    vitruvius:last_updated_utc "2026-04-17T10:52:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-approved-budget-for-the-contract a vitruvius:concept ;
+    rdfs:label "approved-budget-for-the-contract (concept-approved-budget-for-the-contract)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:31:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-bids-and-awards-committee a vitruvius:concept ;
+    rdfs:label "bids-and-awards-committee (concept-bids-and-awards-committee)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:31:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-certificate-of-occupancy a vitruvius:concept ;
+    rdfs:label "certificate-of-occupancy (concept-certificate-of-occupancy)" ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:52.318797+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-competitive-bidding a vitruvius:concept ;
+    rdfs:label "competitive-bidding (concept-competitive-bidding)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:31:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-exit-width a vitruvius:concept ;
+    rdfs:label "exit-width (concept-exit-width)" ;
+    owl:sameAs ifc:IfcDoor ;
+    vitruvius:last_updated_utc "2026-04-13T08:45:49Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-fire-resistive-construction a vitruvius:concept ;
+    rdfs:label "fire-resistive-construction (concept-fire-resistive-construction)" ;
+    owl:sameAs ifc:IfcWall ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:56.166509+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-food-establishment a vitruvius:concept ;
+    rdfs:label "food-establishment (concept-food-establishment)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-local-health-authority a vitruvius:concept ;
+    rdfs:label "local-health-authority (concept-local-health-authority)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-setbacks a vitruvius:concept ;
+    rdfs:label "setbacks (concept-setbacks)" ;
+    vitruvius:affects vitruvius:concept-yards ;
+    vitruvius:depends_on vitruvius:concept-yards ;
+    vitruvius:last_updated_utc "2026-04-13T08:45:54Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-socialized-housing-projects a vitruvius:concept ;
+    rdfs:label "socialized-housing-projects (concept-socialized-housing-projects)" ;
+    vitruvius:last_updated_utc "2026-04-16T06:40:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-central-business-district a vitruvius:concept ;
+    rdfs:label "central-business-district (concept-central-business-district)" ;
+    vitruvius:last_updated_utc "2026-04-18T01:10:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-disaster-risk-reduction a vitruvius:concept ;
+    rdfs:label "disaster-risk-reduction (concept-disaster-risk-reduction)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-groundwater-drilling a vitruvius:concept ;
+    rdfs:label "groundwater-drilling (concept-groundwater-drilling)" ;
+    vitruvius:last_updated_utc "2026-04-17T10:52:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-mixed-occupancy a vitruvius:concept ;
+    rdfs:label "mixed-occupancy (concept-mixed-occupancy)" ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:02.585156+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-occupancy-separation a vitruvius:concept ;
+    rdfs:label "occupancy-separation (concept-occupancy-separation)" ;
+    vitruvius:affects vitruvius:concept-occupancy-classification ;
+    vitruvius:depends_on vitruvius:concept-occupancy-classification ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:06.370992+00:00"^^xsd:string ;
+    vitruvius:requires vitruvius:concept-occupancy-classification ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-standards-of-professional-practice a vitruvius:concept ;
+    rdfs:label "standards-of-professional-practice (concept-standards-of-professional-practice)" ;
+    vitruvius:last_updated_utc "2026-04-17T15:16:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-waste-disposal a vitruvius:concept ;
+    rdfs:label "waste-disposal (concept-waste-disposal)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-water-permit a vitruvius:concept ;
+    rdfs:label "water-permit (concept-water-permit)" ;
+    vitruvius:last_updated_utc "2026-04-17T10:52:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-human-settlements a vitruvius:concept ;
+    rdfs:label "human-settlements (concept-human-settlements)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:50:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-means-of-egress a vitruvius:concept ;
+    rdfs:label "means-of-egress (concept-means-of-egress)" ;
+    owl:sameAs ifc:IfcSpace ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:01.341113+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-building-permit a vitruvius:concept ;
+    rdfs:label "building-permit (concept-building-permit)" ;
+    owl:sameAs ifc:IfcBuildingElementProxy ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:50.892417+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-floor-area-ratio a vitruvius:concept ;
+    rdfs:label "floor-area-ratio (concept-floor-area-ratio)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:25:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-light-and-ventilation a vitruvius:concept ;
+    rdfs:label "light-and-ventilation (concept-light-and-ventilation)" ;
+    owl:sameAs ifc:IfcWindow ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:58.776077+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-occupancy-classification a vitruvius:concept ;
+    rdfs:label "occupancy-classification (concept-occupancy-classification)" ;
+    vitruvius:affects vitruvius:concept-mixed-occupancy,
+        vitruvius:concept-occupancy-separation ;
+    vitruvius:depends_on vitruvius:concept-mixed-occupancy ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:03.823244+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-building-height a vitruvius:concept ;
+    rdfs:label "building-height (concept-building-height)" ;
+    owl:sameAs ifc:IfcBuilding ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:49.640810+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-stairs a vitruvius:concept ;
+    rdfs:label "stairs (concept-stairs)" ;
+    vitruvius:last_updated_utc "2026-04-14T06:00:12.692248+00:00"^^xsd:string ;
+    vitruvius:requires vitruvius:concept-fire-resistive-construction ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-yards a vitruvius:concept ;
+    rdfs:label "yards (concept-yards)" ;
+    vitruvius:affects vitruvius:concept-light-and-ventilation ;
+    vitruvius:last_updated_utc "2026-04-13T08:45:59Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-comprehensive-land-use-plan a vitruvius:concept ;
+    rdfs:label "comprehensive-land-use-plan (concept-comprehensive-land-use-plan)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-zoning-ordinance a vitruvius:concept ;
+    rdfs:label "zoning-ordinance (concept-zoning-ordinance)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:25:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-floor-area a vitruvius:concept ;
+    rdfs:label "floor-area (concept-floor-area)" ;
+    owl:sameAs ifc:IfcSpace ;
+    vitruvius:affects vitruvius:concept-building-height,
+        vitruvius:concept-stairs ;
+    vitruvius:depends_on vitruvius:concept-building-height,
+        vitruvius:concept-light-and-ventilation,
+        vitruvius:concept-yards ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:57.423702+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+

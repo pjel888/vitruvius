@@ -4,7 +4,7 @@ title: Comprehensive Zoning Ordinance of Dagupan City
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T16:36:01.190698+00:00
+last_canonicalized_utc: 2026-04-17T18:40:06.358438+00:00
 aliases:
   - Dagupan City Ordinance No. 2061-2016
   - Comprehensive Zoning Ordinance of Dagupan City (2015-2025)
@@ -67,5 +67,6 @@ EXCERPT FROM THE MINUTES OF THE REGULAR SESSION OF THE SANGGUNIANG PANLUNGSOD, D
 - concept-water-permit
 - concept-light-and-ventilation
 - concept-waste-disposal
+- concept-central-business-district
 - concept-certificate-of-occupancy
 - concept-building-permit

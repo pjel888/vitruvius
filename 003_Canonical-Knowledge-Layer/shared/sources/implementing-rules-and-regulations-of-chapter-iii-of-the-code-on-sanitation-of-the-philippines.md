@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of Chapter III of the Code on Sanitati
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T13:23:16.322311+00:00
+last_canonicalized_utc: 2026-04-17T18:37:39.826732+00:00
 aliases:
   - PD 856 IRR
   - Food Establishments IRR
@@ -85,3 +85,5 @@ To carry out the provisions of Chapter III - "Food Establishments", these rules 
 - concept-food-establishment
 - concept-local-health-authority
 - concept-floor-area
+- concept-waste-disposal
+- concept-floor-area-ratio

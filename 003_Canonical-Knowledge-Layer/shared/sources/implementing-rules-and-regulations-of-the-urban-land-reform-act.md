@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the Urban Land Reform Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T11:07:04.396703+00:00
+last_canonicalized_utc: 2026-04-17T18:37:32.853718+00:00
 aliases:
   - PD 1517
   - Presidential Decree No. 1517
@@ -33,4 +33,5 @@ WHEREAS, it is the policy of the State a) to liberate our human communities from
 
 ## Referenced Concepts
 
+- concept-human-settlements
 - concept-floor-area

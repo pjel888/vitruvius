@@ -4,7 +4,7 @@ title: Contractors' License Law
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T13:29:34.194975+00:00
+last_canonicalized_utc: 2026-04-17T18:37:46.913198+00:00
 aliases:
   - RA 4566
   - Republic Act No. 4566
@@ -27,4 +27,4 @@ AN ACT CREATING THE PHILIPPINE LICENSING BOARD FOR CONTRACTORS, PRESCRIBING ITS 
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-code-of-ethics

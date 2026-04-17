@@ -4,7 +4,7 @@ title: Open Space Development Guidelines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T15:10:27.489125+00:00
+last_canonicalized_utc: 2026-04-17T18:38:52.523915+00:00
 aliases:
   - DHSUD Open Space Development Guidelines
 ---
@@ -35,6 +35,11 @@ Any part of this document may be used and reproduced, provided that proper ackno
 - concept-human-settlements
 - concept-urban-development-planning
 - concept-comprehensive-land-use-plan
+- concept-zoning-ordinance
+- concept-central-business-district
+- concept-floor-area-ratio
+- concept-disaster-risk-reduction
+- concept-project-area
 - concept-setbacks
 - concept-building-height
 - concept-yards

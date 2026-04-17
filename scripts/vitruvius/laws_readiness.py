@@ -297,6 +297,351 @@ def _raw_folder_name_for_item(item: dict[str, Any]) -> str:
     return str(item.get("folder_name") or "")
 
 
+def _dedupe_manifest_entries(entries: list[dict[str, Any]], *, keys: tuple[str, ...]) -> list[dict[str, Any]]:
+    deduped: list[dict[str, Any]] = []
+    seen: set[tuple[str, ...]] = set()
+    for entry in entries:
+        try:
+            value = tuple(str(entry.get(key) or "") for key in keys)
+        except Exception:
+            continue
+        if any(not part for part in value) or value in seen:
+            continue
+        seen.add(value)
+        deduped.append(entry)
+    return deduped
+
+
+def _load_yaml_payload(path: Path) -> dict[str, Any]:
+    payload = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError(f"expected YAML mapping in {path}")
+    return payload
+
+
+def _completed_manifest_paths(repo_root: Path) -> list[Path]:
+    completed_payload = _load_yaml_payload(repo_root / "config" / "datasets" / "laws-completed-lanes.yaml")
+    completed_lane_ids = [
+        str(item.get("lane_id"))
+        for item in completed_payload.get("completed_lanes") or []
+        if isinstance(item, dict) and isinstance(item.get("lane_id"), str)
+    ]
+    manifest_index = _load_yaml_payload(repo_root / "config" / "datasets" / "laws-manifest-index.yaml")
+    lane_to_manifest = {
+        str(item.get("lane_id")): repo_root / str(item.get("manifest"))
+        for item in manifest_index.get("manifests") or []
+        if isinstance(item, dict)
+        and isinstance(item.get("lane_id"), str)
+        and isinstance(item.get("manifest"), str)
+    }
+    manifest_paths: list[Path] = []
+    for lane_id in completed_lane_ids:
+        manifest_path = lane_to_manifest.get(lane_id)
+        if manifest_path is not None and manifest_path.exists():
+            manifest_paths.append(manifest_path)
+    return manifest_paths
+
+
+def build_laws_completed_aggregate_manifest(
+    *,
+    out_path: str = "config/datasets/laws-completed-aggregate.yaml",
+) -> int:
+    repo_root = Path.cwd().resolve()
+    out_manifest_path = Path(out_path)
+    if not out_manifest_path.is_absolute():
+        out_manifest_path = repo_root / out_manifest_path
+
+    manifest_paths = _completed_manifest_paths(repo_root)
+    if not manifest_paths:
+        print(json.dumps({"error": "no completed laws manifests found to aggregate"}, indent=2))
+        return 2
+
+    source_entries: list[dict[str, Any]] = []
+    concept_entries: list[dict[str, Any]] = []
+    relationship_entries: list[dict[str, Any]] = []
+    raw_anchor_by_folder: dict[str, dict[str, Any]] = {}
+    law_units: list[dict[str, Any]] = []
+    seen_law_ids: set[str] = set()
+
+    for manifest_path in manifest_paths:
+        payload = _load_yaml_payload(manifest_path)
+        lane_id = manifest_path.stem
+        if isinstance(payload.get("law_units"), list):
+            raw_slice_anchors = payload.get("raw_slice_anchors") or []
+            if isinstance(raw_slice_anchors, list):
+                for anchor in raw_slice_anchors:
+                    if not isinstance(anchor, dict):
+                        continue
+                    folder_name = str(anchor.get("folder_name") or "")
+                    raw_root = str(anchor.get("raw_root") or "")
+                    if not folder_name or not raw_root:
+                        continue
+                    aggregate_anchor = raw_anchor_by_folder.setdefault(
+                        folder_name,
+                        {
+                            "folder_name": folder_name,
+                            "raw_root": raw_root,
+                            "entry_role": anchor.get("entry_role", "authoritative"),
+                            "authority_tier": anchor.get("authority_tier", "primary"),
+                            "variant_family": "completed-laws-aggregate",
+                            "edition_or_source_note": "Completed-laws aggregate raw anchor grouping.",
+                            "include_in_m1": True,
+                            "reason": f"Completed laws-wave lane {lane_id}",
+                            "classified_raw_entries": [],
+                        },
+                    )
+                    existing_paths = {
+                        str(item.get("path"))
+                        for item in aggregate_anchor.get("classified_raw_entries", [])
+                        if isinstance(item, dict) and isinstance(item.get("path"), str)
+                    }
+                    for classified in anchor.get("classified_raw_entries") or []:
+                        if not isinstance(classified, dict):
+                            continue
+                        rel_path = classified.get("path")
+                        if not isinstance(rel_path, str) or rel_path in existing_paths:
+                            continue
+                        aggregate_anchor["classified_raw_entries"].append(classified)
+                        existing_paths.add(rel_path)
+
+            canonical_input = payload.get("canonical_input_manifest") or {}
+            if isinstance(canonical_input, dict):
+                source_entries.extend(
+                    [
+                        entry
+                        for entry in canonical_input.get("sources") or []
+                        if isinstance(entry, dict) and isinstance(entry.get("path"), str)
+                    ]
+                )
+                concept_entries.extend(
+                    [
+                        entry
+                        for entry in canonical_input.get("concepts") or []
+                        if isinstance(entry, dict) and isinstance(entry.get("path"), str)
+                    ]
+                )
+
+            relationship_input = payload.get("relationship_input_manifest") or {}
+            if isinstance(relationship_input, dict):
+                relationship_entries.extend(
+                    [
+                        entry
+                        for entry in relationship_input.get("relationships") or []
+                        if isinstance(entry, dict) and isinstance(entry.get("path"), str)
+                    ]
+                )
+
+            for index, law_unit in enumerate(payload.get("law_units") or [], start=1):
+                if not isinstance(law_unit, dict):
+                    continue
+                unit = dict(law_unit)
+                law_id = str(unit.get("law_id") or f"{lane_id}-{index}")
+                while law_id in seen_law_ids:
+                    law_id = f"{law_id}-{index}"
+                seen_law_ids.add(law_id)
+                unit["law_id"] = law_id
+                scope_notes = [str(note) for note in unit.get("scope_notes") or [] if isinstance(note, str)]
+                if f"Aggregate completed-laws graph lane: {lane_id}" not in scope_notes:
+                    scope_notes.append(f"Aggregate completed-laws graph lane: {lane_id}")
+                unit["scope_notes"] = scope_notes
+                law_units.append(unit)
+            continue
+
+        for index, item in enumerate(payload.get("candidate_law_folders") or [], start=1):
+            if not isinstance(item, dict):
+                continue
+            folder_name = str(item.get("folder_name") or "")
+            raw_folder_name = _raw_folder_name_for_item(item)
+            raw_anchor_paths = [str(path) for path in item.get("raw_anchor_paths") or [] if isinstance(path, str)]
+            authoritative_variant_paths = [str(path) for path in item.get("authoritative_variant_paths") or [] if isinstance(path, str)]
+            excluded_variant_paths = [str(path) for path in item.get("excluded_variant_paths") or [] if isinstance(path, str)]
+            refined_markdown_paths = [str(path) for path in item.get("refined_markdown_paths") or [] if isinstance(path, str)]
+            admitted_source_paths = [str(path) for path in item.get("admitted_source_paths") or [] if isinstance(path, str)]
+            admitted_concept_paths = [str(path) for path in item.get("admitted_concept_paths") or [] if isinstance(path, str)]
+            admitted_relationship_paths = [str(path) for path in item.get("admitted_relationship_paths") or [] if isinstance(path, str)]
+            verification_checks = [str(v) for v in item.get("verification_checks") or [] if isinstance(v, str)]
+            scope_notes = [str(v) for v in item.get("scope_notes") or [] if isinstance(v, str)]
+            aggregate_anchor = raw_anchor_by_folder.setdefault(
+                raw_folder_name,
+                {
+                    "folder_name": raw_folder_name,
+                    "raw_root": f"001_Raw-Source-Layer/001-Laws/{raw_folder_name}",
+                    "entry_role": "authoritative",
+                    "authority_tier": "primary",
+                    "variant_family": "completed-laws-aggregate",
+                    "edition_or_source_note": "Completed-laws aggregate raw anchor grouping.",
+                    "include_in_m1": True,
+                    "reason": f"Completed laws-wave lane {lane_id}",
+                    "classified_raw_entries": [],
+                },
+            )
+            existing_paths = {
+                str(entry.get("path"))
+                for entry in aggregate_anchor.get("classified_raw_entries", [])
+                if isinstance(entry, dict) and isinstance(entry.get("path"), str)
+            }
+            for rel_path in authoritative_variant_paths or raw_anchor_paths:
+                if rel_path in existing_paths:
+                    continue
+                aggregate_anchor["classified_raw_entries"].append(
+                    {
+                        "path": rel_path,
+                        "folder_name": raw_folder_name,
+                        "entry_role": "authoritative",
+                        "authority_tier": "primary",
+                        "variant_family": "completed-laws-aggregate",
+                        "edition_or_source_note": f"Completed-laws aggregate member from {lane_id}.",
+                        "include_in_m1": True,
+                        "reason": f"Completed laws-wave lane {lane_id}",
+                    }
+                )
+                existing_paths.add(rel_path)
+            for rel_path in excluded_variant_paths:
+                if rel_path in existing_paths:
+                    continue
+                aggregate_anchor["classified_raw_entries"].append(
+                    {
+                        "path": rel_path,
+                        "folder_name": raw_folder_name,
+                        "entry_role": "reference",
+                        "authority_tier": "adjacent",
+                        "variant_family": "completed-laws-aggregate-excluded",
+                        "edition_or_source_note": f"Excluded variant retained from {lane_id}.",
+                        "include_in_m1": True,
+                        "reason": f"Excluded completed-laws variant from lane {lane_id}",
+                    }
+                )
+                existing_paths.add(rel_path)
+
+            for rel_path in admitted_source_paths:
+                source_entries.append(
+                    {
+                        "path": rel_path,
+                        "folder_name": raw_folder_name,
+                        "entry_role": "authoritative",
+                        "authority_tier": "primary",
+                        "variant_family": f"{lane_id}-source",
+                        "edition_or_source_note": f"Completed-laws aggregate source from {lane_id}.",
+                        "include_in_m1": True,
+                        "reason": f"Completed laws-wave lane {lane_id}",
+                    }
+                )
+            for rel_path in admitted_concept_paths:
+                concept_entries.append(
+                    {
+                        "path": rel_path,
+                        "folder_name": raw_folder_name,
+                        "entry_role": "derived",
+                        "authority_tier": "derived",
+                        "variant_family": f"{lane_id}-concept",
+                        "edition_or_source_note": f"Completed-laws aggregate concept from {lane_id}.",
+                        "include_in_m1": True,
+                        "reason": f"Completed laws-wave lane {lane_id}",
+                    }
+                )
+            for rel_path in admitted_relationship_paths:
+                relationship_entries.append(
+                    {
+                        "path": rel_path,
+                        "folder_name": raw_folder_name,
+                        "entry_role": "authoritative",
+                        "authority_tier": "approved",
+                        "variant_family": f"{lane_id}-relationship",
+                        "edition_or_source_note": f"Completed-laws aggregate relationship from {lane_id}.",
+                        "include_in_m1": True,
+                        "reason": f"Completed laws-wave lane {lane_id}",
+                    }
+                )
+            law_id = lane_id.replace("laws-tranche-", "").replace("laws-", "").replace("-remediation", "")
+            if len(payload.get("candidate_law_folders") or []) > 1:
+                law_id = f"{law_id}-{index}"
+            while law_id in seen_law_ids:
+                law_id = f"{law_id}-{index}"
+            seen_law_ids.add(law_id)
+            law_units.append(
+                {
+                    "law_id": law_id,
+                    "folder_name": raw_folder_name,
+                    "raw_anchor_paths": raw_anchor_paths or authoritative_variant_paths,
+                    "refined_markdown_paths": refined_markdown_paths,
+                    "authoritative_variant_paths": authoritative_variant_paths or raw_anchor_paths,
+                    "excluded_variant_paths": excluded_variant_paths,
+                    "admitted_source_paths": admitted_source_paths,
+                    "admitted_concept_paths": admitted_concept_paths,
+                    "admitted_relationship_paths": admitted_relationship_paths,
+                    "verification_checks": verification_checks,
+                    "scope_notes": [*scope_notes, f"Aggregate completed-laws graph lane: {lane_id}"],
+                }
+            )
+
+    aggregate_payload = {
+        "dataset_id": "laws-completed-aggregate",
+        "dataset_kind": "laws-aggregate",
+        "scope_notes": [
+            "Aggregate graph input for all completed executable/remediation laws-wave lanes.",
+            "Explicitly excludes deferred residual folders from laws-remaining-dispositions.yaml.",
+            "Preserves raw storage folder truth while keeping completed lane law-units distinct.",
+        ],
+        "raw_slice_anchors": list(raw_anchor_by_folder.values()),
+        "canonical_input_manifest": {
+            "sources": _dedupe_manifest_entries(source_entries, keys=("path", "folder_name")),
+            "concepts": _dedupe_manifest_entries(concept_entries, keys=("path", "folder_name")),
+        },
+        "relationship_input_manifest": {
+            "relationships": _dedupe_manifest_entries(relationship_entries, keys=("path", "folder_name")),
+        },
+        "graph_output_root": "005_Operational-Intelligence-Layer/graph/datasets/laws-completed-aggregate",
+        "run_output_root": "006_System-Manifests/runs/datasets/laws-completed-aggregate",
+        "query_snapshot_path_template": "005_Operational-Intelligence-Layer/graph/datasets/laws-completed-aggregate/{run_id}_graph_snapshot.json",
+        "freshness_policy": {"mode": "exact"},
+        "pilot_gate": {
+            "require_manifest_validation": True,
+            "source_to_graph_execute_ready": False,
+            "derived_from_tranche_id": "laws-wave-completed-aggregate",
+            "derived_run_id": utc_now_stamp().split("T")[0],
+        },
+        "law_units": law_units,
+    }
+    out_manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    out_manifest_path.write_text(yaml.safe_dump(aggregate_payload, sort_keys=False), encoding="utf-8")
+    print(json.dumps({
+        "action": "build-laws-completed-aggregate-manifest",
+        "dataset_manifest_path": _relative(out_manifest_path, repo_root),
+        "law_unit_count": len(law_units),
+        "source_count": len(aggregate_payload["canonical_input_manifest"]["sources"]),
+        "concept_count": len(aggregate_payload["canonical_input_manifest"]["concepts"]),
+        "relationship_count": len(aggregate_payload["relationship_input_manifest"]["relationships"]),
+        "raw_slice_anchor_count": len(aggregate_payload["raw_slice_anchors"]),
+    }, indent=2))
+    return 0
+
+
+def run_laws_completed_aggregate(
+    *,
+    dry_run: bool = False,
+    review_preset: str | None = None,
+    review_model: str | None = None,
+    review_timeout_seconds: int | None = None,
+    review_parallelism: int | None = None,
+    export_owl: bool = True,
+) -> int:
+    from .dataset_pipeline import run_dataset_source_to_graph_pipeline
+
+    manifest_path = "config/datasets/laws-completed-aggregate.yaml"
+    build_rc = build_laws_completed_aggregate_manifest(out_path=manifest_path)
+    if build_rc != 0:
+        return build_rc
+    return run_dataset_source_to_graph_pipeline(
+        dataset_manifest=manifest_path,
+        dry_run=dry_run,
+        review_preset=review_preset,
+        review_model=review_model,
+        review_timeout_seconds=review_timeout_seconds,
+        review_parallelism=review_parallelism,
+        export_owl=export_owl,
+    )
+
+
 def _pdf_duplicate_clusters(
     *,
     repo_root: Path,

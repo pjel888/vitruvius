@@ -4,7 +4,7 @@ title: Zoning Ordinance of the Municipality of San Mateo
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T16:28:28.280384+00:00
+last_canonicalized_utc: 2026-04-17T18:39:41.777644+00:00
 aliases:
   - San Mateo Zoning Ordinance
   - Zoning Ordinance for the Municipality of San Mateo
@@ -41,6 +41,7 @@ Automated summary withheld for Zoning Ordinance of the Municipality of San Mateo
 ## Referenced Concepts
 
 - concept-zoning-ordinance
+- concept-central-business-district
 - concept-floor-area-ratio
 - concept-floor-area
 - concept-comprehensive-land-use-plan

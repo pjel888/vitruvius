@@ -1,0 +1,52 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md
+Candidates reviewed: 11
+Keep: 2
+Review Further: 7
+Reject: 2
+
+law-zoning-ordinance-of-the-city-of-malolos -> governs -> concept-building-height
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+law-zoning-ordinance-of-the-city-of-malolos -> governs -> concept-zoning-ordinance
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+law-zoning-ordinance-of-the-city-of-malolos -> governs -> concept-comprehensive-land-use-plan
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['comprehensive land use plan'] appear in the evidence text
+
+concept-floor-area -> limits -> concept-zoning-ordinance
+  decision=reject confidence=1.00
+  reason=pre_review_filter: registry_incompatible: (concept, concept) not valid for 'limits'
+
+concept-floor-area-ratio -> affects -> concept-floor-area
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+concept-zoning-ordinance -> affects -> concept-floor-area-ratio
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+concept-zoning-ordinance -> affects -> concept-comprehensive-land-use-plan
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+law-zoning-ordinance-of-the-city-of-malolos -> governs -> concept-floor-area
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+law-zoning-ordinance-of-the-city-of-malolos -> governs -> concept-water-permit
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+law-zoning-ordinance-of-the-city-of-malolos -> governs -> concept-light-and-ventilation
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+law-zoning-ordinance-of-the-city-of-malolos -> governs -> concept-building-permit
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.

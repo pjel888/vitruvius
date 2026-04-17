@@ -1,0 +1,7 @@
+Section-Aware Relationship Extraction
+
+Sections: 10
+Unique relationships: 2
+
+law-quezon-city-central-business-district-zoning-ordinance -> governs -> concept-central-business-district (x2) sections=['section-2', 'section-6']
+law-quezon-city-central-business-district-zoning-ordinance -> governs -> concept-floor-area (x1) sections=['section-3']

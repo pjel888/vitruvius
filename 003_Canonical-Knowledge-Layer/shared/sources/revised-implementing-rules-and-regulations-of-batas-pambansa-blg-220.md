@@ -4,7 +4,7 @@ title: Revised Implementing Rules and Regulations of Batas Pambansa Blg. 220
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-16T15:25:06.154394+00:00
+last_canonicalized_utc: 2026-04-17T18:36:36.286348+00:00
 aliases:
   - BP 220
   - Batas Pambansa Blg. 220
@@ -85,9 +85,15 @@ Pursuant to Section 3 of BP 220, the Housing and Land Use Regulatory Board is au
 ## Referenced Concepts
 
 - concept-socialized-housing-projects
+- concept-human-settlements
+- concept-waste-disposal
+- concept-zoning-ordinance
 - concept-yards
+- concept-project-area
 - concept-setbacks
 - concept-floor-area
 - concept-light-and-ventilation
 - concept-stairs
+- concept-common-areas
+- concept-comprehensive-land-use-plan
 - concept-means-of-egress

@@ -4,7 +4,7 @@ title: UAP Document Standards of Professional Practice
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T16:01:10.625297+00:00
+last_canonicalized_utc: 2026-04-17T18:39:11.196523+00:00
 aliases:
   - UAP Standards of Professional Practice
   - 2010 Standards of Professional Practice
@@ -77,8 +77,10 @@ Republic of the Philippines Department of Labor & Employment
 ## Referenced Concepts
 
 - concept-standards-of-professional-practice
+- concept-temporary-special-permit
 - concept-general-conditions-of-contract
 - concept-building-permit
+- concept-architectural-interiors
 - concept-competitive-bidding
 - concept-common-areas
 - concept-stairs

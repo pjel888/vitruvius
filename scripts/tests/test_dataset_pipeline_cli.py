@@ -826,6 +826,212 @@ def test_run_laws_tranche_source_prep_uses_raw_folder_name_override(tmp_path: Pa
     assert folder['file_reports'][0]['raw_path'] == '001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf'
 
 
+def test_build_laws_completed_aggregate_manifest_merges_completed_manifests(tmp_path: Path, monkeypatch) -> None:
+    from vitruvius import laws_readiness as lr
+
+    _seed_repo(tmp_path)
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+
+    core_manifest = {
+        'dataset_id': 'laws-core-bundle-m1',
+        'dataset_kind': 'laws-core-bundle',
+        'scope_notes': ['core'],
+        'raw_slice_anchors': [
+            {
+                'folder_name': 'PD-1096',
+                'raw_root': '001_Raw-Source-Layer/001-Laws/PD-1096',
+                'entry_role': 'authoritative',
+                'authority_tier': 'primary',
+                'variant_family': 'core',
+                'edition_or_source_note': 'core',
+                'include_in_m1': True,
+                'reason': 'core lane',
+                'classified_raw_entries': [
+                    {
+                        'path': '001_Raw-Source-Layer/001-Laws/PD-1096/stub.pdf',
+                        'folder_name': 'PD-1096',
+                        'entry_role': 'authoritative',
+                        'authority_tier': 'primary',
+                        'variant_family': 'core',
+                        'edition_or_source_note': 'core',
+                        'include_in_m1': True,
+                        'reason': 'core lane',
+                    }
+                ],
+            }
+        ],
+        'canonical_input_manifest': {
+            'sources': [
+                {
+                    'path': '003_Canonical-Knowledge-Layer/shared/sources/law.md',
+                    'folder_name': 'PD-1096',
+                    'entry_role': 'authoritative',
+                    'authority_tier': 'primary',
+                    'variant_family': 'core',
+                    'edition_or_source_note': 'core',
+                    'include_in_m1': True,
+                    'reason': 'core lane',
+                }
+            ],
+            'concepts': [
+                {
+                    'path': '003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md',
+                    'folder_name': 'PD-1096',
+                    'entry_role': 'derived',
+                    'authority_tier': 'derived',
+                    'variant_family': 'core',
+                    'edition_or_source_note': 'core',
+                    'include_in_m1': True,
+                    'reason': 'core lane',
+                }
+            ],
+        },
+        'relationship_input_manifest': {
+            'relationships': [
+                {
+                    'path': '003_Canonical-Knowledge-Layer/shared/relationships/rel-law-governs-concept-building-permit.md',
+                    'folder_name': 'PD-1096',
+                    'entry_role': 'authoritative',
+                    'authority_tier': 'approved',
+                    'variant_family': 'core',
+                    'edition_or_source_note': 'core',
+                    'include_in_m1': True,
+                    'reason': 'core lane',
+                }
+            ]
+        },
+        'graph_output_root': '005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1',
+        'run_output_root': '006_System-Manifests/runs/datasets/laws-core-bundle-m1',
+        'query_snapshot_path_template': '005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1/{run_id}_graph_snapshot.json',
+        'freshness_policy': {'mode': 'exact'},
+        'pilot_gate': {'require_manifest_validation': True, 'source_to_graph_execute_ready': False},
+        'law_units': [
+            {
+                'law_id': 'pd-1096',
+                'folder_name': 'PD-1096',
+                'raw_anchor_paths': ['001_Raw-Source-Layer/001-Laws/PD-1096/stub.pdf'],
+                'refined_markdown_paths': [],
+                'authoritative_variant_paths': ['001_Raw-Source-Layer/001-Laws/PD-1096/stub.pdf'],
+                'excluded_variant_paths': [],
+                'admitted_source_paths': ['003_Canonical-Knowledge-Layer/shared/sources/law.md'],
+                'admitted_concept_paths': ['003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md'],
+                'admitted_relationship_paths': ['003_Canonical-Knowledge-Layer/shared/relationships/rel-law-governs-concept-building-permit.md'],
+                'verification_checks': [],
+                'scope_notes': [],
+            }
+        ],
+    }
+    (tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml').write_text(
+        yaml.safe_dump(core_manifest, sort_keys=False),
+        encoding='utf-8',
+    )
+
+    tranche_manifest = {
+        'tranche_id': 'laws-tranche-12',
+        'candidate_law_folders': [
+            {
+                'folder_name': 'DHSUD',
+                'raw_folder_name': 'HLURB-DHSUD',
+                'reason': 'dhsud guidance',
+                'raw_anchor_paths': ['001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf'],
+                'authoritative_variant_paths': ['001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf'],
+                'excluded_variant_paths': [],
+                'refined_markdown_paths': ['002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md'],
+                'admitted_source_paths': ['003_Canonical-Knowledge-Layer/shared/sources/law.md'],
+                'admitted_concept_paths': ['003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md'],
+                'admitted_relationship_paths': ['003_Canonical-Knowledge-Layer/shared/relationships/rel-law-governs-concept-building-permit.md'],
+                'verification_checks': ['ok'],
+                'scope_notes': ['dhsud'],
+            }
+        ],
+    }
+    (tmp_path / 'config' / 'datasets' / 'laws-tranche-12.yaml').write_text(
+        yaml.safe_dump(tranche_manifest, sort_keys=False),
+        encoding='utf-8',
+    )
+
+    (tmp_path / 'config' / 'datasets' / 'laws-completed-lanes.yaml').write_text(
+        yaml.safe_dump(
+            {
+                'completed_lanes': [
+                    {'lane_id': 'laws-core-bundle-pilot'},
+                    {'lane_id': 'laws-tranche-12'},
+                ]
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'laws-manifest-index.yaml').write_text(
+        yaml.safe_dump(
+            {
+                'manifests': [
+                    {'lane_id': 'laws-core-bundle-pilot', 'manifest': 'config/datasets/laws-core-bundle-m1.yaml'},
+                    {'lane_id': 'laws-tranche-12', 'manifest': 'config/datasets/laws-tranche-12.yaml'},
+                ]
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+
+    monkeypatch.chdir(tmp_path)
+    rc = lr.build_laws_completed_aggregate_manifest()
+    assert rc == 0
+    payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'laws-completed-aggregate.yaml').read_text(encoding='utf-8'))
+    assert payload['dataset_id'] == 'laws-completed-aggregate'
+    assert len(payload['law_units']) == 2
+    assert any(unit['folder_name'] == 'HLURB-DHSUD' for unit in payload['law_units'])
+
+
+def test_run_laws_completed_aggregate_invokes_dataset_pipeline(tmp_path: Path, monkeypatch) -> None:
+    from vitruvius import laws_readiness as lr
+
+    _seed_repo(tmp_path)
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    (tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml').write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'laws-core-bundle-m1',
+                'dataset_kind': 'laws-core-bundle',
+                'raw_slice_anchors': [],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {'relationships': []},
+                'graph_output_root': '005_Operational-Intelligence-Layer/graph/datasets/laws-core-bundle-m1',
+                'run_output_root': '006_System-Manifests/runs/datasets/laws-core-bundle-m1',
+                'query_snapshot_path_template': 'x/{run_id}.json',
+                'freshness_policy': {'mode': 'exact'},
+                'pilot_gate': {'require_manifest_validation': True, 'source_to_graph_execute_ready': False},
+                'law_units': [],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'laws-completed-lanes.yaml').write_text(
+        yaml.safe_dump({'completed_lanes': [{'lane_id': 'laws-core-bundle-pilot'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'laws-manifest-index.yaml').write_text(
+        yaml.safe_dump({'manifests': [{'lane_id': 'laws-core-bundle-pilot', 'manifest': 'config/datasets/laws-core-bundle-m1.yaml'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+
+    seen: dict[str, object] = {}
+
+    def fake_run_dataset_source_to_graph_pipeline(**kwargs):
+        seen.update(kwargs)
+        return 0
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr('vitruvius.dataset_pipeline.run_dataset_source_to_graph_pipeline', fake_run_dataset_source_to_graph_pipeline)
+    rc = lr.run_laws_completed_aggregate(dry_run=True, review_preset='m2-8gb-safe')
+    assert rc == 0
+    assert seen['dataset_manifest'] == 'config/datasets/laws-completed-aggregate.yaml'
+    assert seen['dry_run'] is True
+    assert seen['review_preset'] == 'm2-8gb-safe'
+
+
 def test_run_laws_tranche_source_prep_handles_ocr_required_pdf(tmp_path: Path) -> None:
     _seed_repo(tmp_path)
     tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-1.yaml'

@@ -1,0 +1,54 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "front matter includes a table of contents before operative text",
+    "front matter is table-heavy and may reflect layout extraction noise"
+  ],
+  "front_matter_suspicious_ocr_line_count": 4,
+  "image_line_count": 12,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 77,
+  "noise_line_count": 1,
+  "non_empty_line_count": 849,
+  "recommendations": [],
+  "refined_markdown_path": "001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 3,
+    "admitted_relationship_count": 3,
+    "folder_name": "PD-957",
+    "law_id": "1-1",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 24.333333,
+    "section_to_relationship_ratio": 24.333333,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 73
+  },
+  "severity": "low",
+  "source_acceptance_reasons": [],
+  "source_acceptance_status": "accepted",
+  "spot_review_focus": [],
+  "spot_review_required": false,
+  "structural_heading_count": 73,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [
+    "table_of_contents_front_matter",
+    "table_heavy_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "- 1. Location Conformity with Zoning Ordinance/Comprehensive Land Use Plan",
+    "When a developer or planner submits a Planned Unit Development (PUD) type of project, the layout shall likewise conform to the standards for residential/condominium projects.",
+    "Where a proposed project adjoins a developed property, roads within the said project shall be connected/integrated/aligned with existing ones.",
+    "|No. of Saleable Lots and/or Dwelling Unit|Neighborhood Multi-Purpose Center*|Convenience Stores & Other Commercial Centers*|Elementary School**|High School**|Tricycle Terminals**|",
+    "|2500 & Over|x|x|x|x|x|"
+  ],
+  "suspicious_ocr_line_count": 33,
+  "suspicious_ocr_line_ratio": 0.038869,
+  "table_line_count": 32,
+  "total_line_count": 1437,
+  "useful_text_line_count": 804,
+  "useful_text_ratio": 0.946996
+}

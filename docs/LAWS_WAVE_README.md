@@ -11,6 +11,19 @@ That means:
 - the residual uncovered pool was explicitly dispositioned
 - no stronger normal executable law lane remains in the current source pool under the present standards
 
+## One-command aggregate graph
+Run the completed authoritative laws wave as one aggregate graph:
+
+```bash
+python3 scripts/pipeline_cli.py run-laws-completed-aggregate --review-preset m2-8gb-safe
+```
+
+For a planning-only pass:
+
+```bash
+python3 scripts/pipeline_cli.py run-laws-completed-aggregate --dry-run --review-preset m2-8gb-safe
+```
+
 ## Core artifact stack
 ### Quick start
 - `docs/LAWS_WAVE_RELOAD_PROTOCOL.md`

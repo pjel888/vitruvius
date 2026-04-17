@@ -324,6 +324,22 @@ def build_parser() -> argparse.ArgumentParser:
                                                      help="Tranche manifest whose admitted source state should be staged through the bounded source-to-graph execute wrapper")
     tranche_source_to_graph_exec_parser.add_argument("--review-preset", default=None,
                                                      help="Optional review preset override for the staged source-to-graph execute wrapper")
+    aggregate_manifest_parser = add_command_parser(subparsers, "build-laws-completed-aggregate-manifest")
+    aggregate_manifest_parser.add_argument("--out", default="config/datasets/laws-completed-aggregate.yaml",
+                                          help="Output path for the generated completed-laws aggregate manifest")
+    aggregate_run_parser = add_command_parser(subparsers, "run-laws-completed-aggregate")
+    aggregate_run_parser.add_argument("--dry-run", action="store_true",
+                                     help="Validate/plans stages without executing graph writes")
+    aggregate_run_parser.add_argument("--review-model", default=None,
+                                     help="Tier-1 review model for aggregate review")
+    aggregate_run_parser.add_argument("--review-timeout-seconds", type=int, default=None,
+                                     help="Tier-1 review timeout seconds")
+    aggregate_run_parser.add_argument("--review-parallel", type=int, default=None,
+                                     help="Tier-1 review parallelism override")
+    aggregate_run_parser.add_argument("--review-preset", default=None,
+                                     help="Optional review preset (for example: m2-8gb-safe)")
+    aggregate_run_parser.add_argument("--skip-export-owl", action="store_true",
+                                     help="Skip dataset-local OWL/Turtle export")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -898,6 +914,29 @@ def main() -> int:
             lambda: run_laws_tranche_source_to_graph(
                 tranche_manifest=args.tranche_manifest,
                 review_preset=args.review_preset,
+            ),
+        )
+
+    if args.command == "build-laws-completed-aggregate-manifest":
+        from vitruvius.laws_readiness import build_laws_completed_aggregate_manifest
+        return _run(
+            "build-laws-completed-aggregate-manifest",
+            lambda: build_laws_completed_aggregate_manifest(
+                out_path=args.out,
+            ),
+        )
+
+    if args.command == "run-laws-completed-aggregate":
+        from vitruvius.laws_readiness import run_laws_completed_aggregate
+        return _run(
+            "run-laws-completed-aggregate",
+            lambda: run_laws_completed_aggregate(
+                dry_run=args.dry_run,
+                review_preset=args.review_preset,
+                review_model=args.review_model,
+                review_timeout_seconds=args.review_timeout_seconds,
+                review_parallelism=args.review_parallel,
+                export_owl=not args.skip_export_owl,
             ),
         )
 

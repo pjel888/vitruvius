@@ -4,7 +4,7 @@ title: UAP Document 301 General Conditions
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T16:01:10.707083+00:00
+last_canonicalized_utc: 2026-04-17T18:39:12.284300+00:00
 aliases:
   - UAP Document 301
   - General Conditions
@@ -44,3 +44,4 @@ The Architect, in performance of his services to his Client, prepares the “Gen
 - concept-general-conditions-of-contract
 - concept-human-settlements
 - concept-stairs
+- concept-floor-area-ratio

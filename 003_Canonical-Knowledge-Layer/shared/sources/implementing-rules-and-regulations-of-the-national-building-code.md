@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the National Building Code
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-16T18:49:02.080424+00:00
+last_canonicalized_utc: 2026-04-17T18:34:27.762887+00:00
 aliases:
   - PD 1096 IRR
   - National Building Code IRR
@@ -224,8 +224,16 @@ Automated summary withheld for Implementing Rules and Regulations of the Nationa
 - concept-fire-resistive-construction
 - concept-yards
 - concept-accessible-ramps
+- concept-architectural-interiors
+- concept-zoning-ordinance
 - concept-setbacks
 - concept-occupancy-separation
 - concept-lot-occupancy
+- concept-comprehensive-land-use-plan
+- concept-floor-area-ratio
 - concept-exit-width
 - concept-means-of-egress
+- concept-code-of-ethics
+- concept-general-conditions-of-contract
+- concept-standards-of-professional-practice
+- concept-temporary-special-permit

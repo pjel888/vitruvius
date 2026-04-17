@@ -1,0 +1,73 @@
+{
+  "generated_at": "20260417T184113Z",
+  "source_report_generated_at": "20260417T184113Z",
+  "source_model": "qwen2.5:7b",
+  "source": "001-Laws/refined_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md",
+  "threshold": 0.9,
+  "count": 2,
+  "candidates": [
+    {
+      "candidate": {
+        "from": "law-zoning-ordinance-of-the-city-of-malolos",
+        "type": "governs",
+        "to": "concept-building-height",
+        "occurrences": 13,
+        "sections": [
+          "section-5",
+          "section-13.1.1",
+          "section-13.8",
+          "section-13.9",
+          "section-13.10",
+          "section-13.11",
+          "section-13.12",
+          "section-13.13",
+          "section-13.14",
+          "section-13.15",
+          "section-13.16",
+          "section-14.1"
+        ],
+        "examples": [
+          "- eee. Locational Clearance (Exception) (LC-E) - a clearance issued by the LZBA to a project that is allowed under the Mitigating Device/Exception provision of this Ordinance. - fff. Lot - a parcel of land on which a principal building and its accessories are or may be placed. - ggg. Mangrove Sub-Zo",
+          "- ▪ When allowed, buildings and structures shall be designed, constructed and operated in accordance with the requirements of the NBC and with the provisions of this Ordinance. - ▪ The Building Height Limit is 15.00 meters above established grade as provided in the NBC.",
+          "- ▪ Per the relevant provisions of the NBC and this Ordinance. - ▪ The number of allowable storeys/floors above established grade is three (3) as provided in the NBC. - ▪ The Building Height Limit is 10.00 meters above highest grade as provided in the NBC. - ▪ Subject to national locational guidelin"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "law-zoning-ordinance-of-the-city-of-malolos",
+        "type": "governs",
+        "to": "concept-zoning-ordinance",
+        "occurrences": 7,
+        "sections": [
+          "section-5",
+          "section-13.2",
+          "section-13.3",
+          "section-23",
+          "section-38"
+        ],
+        "examples": [
+          "Non-Conforming Use - existing uses/establishments in an area allowed to operate despite non-conformity to the provisions of the Ordinance subject to the conditions stipulated in this Zoning Ordinance.",
+          "- o It shall be classified as non-pollutive/non-hazardous as provided in this Zoning Ordinance;",
+          "- o It shall be classified as non-pollutive/non-hazardous as provided in this Zoning Ordinance;"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}

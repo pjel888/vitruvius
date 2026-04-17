@@ -4,7 +4,7 @@ title: Open Space Requirements in Residential Subdivisions
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T06:59:58.210644+00:00
+last_canonicalized_utc: 2026-04-17T18:37:24.925005+00:00
 aliases:
   - PD 1216
   - Presidential Decree No. 1216
@@ -40,4 +40,4 @@ WHEREAS, there is a compelling need to create and maintain a healthy environment
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-human-settlements
