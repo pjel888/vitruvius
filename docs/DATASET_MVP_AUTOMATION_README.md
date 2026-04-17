@@ -132,6 +132,26 @@ This writes a starter manifest that contains:
 
 It does **not** claim canonical sources or relationships yet. Those still need truthful admission before the family can become runnable.
 
+## Inspecting starter lane source readiness
+To inspect the raw-file readiness of a scaffolded starter lane:
+
+```bash
+python3 scripts/pipeline_cli.py inspect-completed-aggregate-lane-sources \
+  --manifest <lane-manifest-yaml>
+```
+
+This reports:
+- raw file count
+- supported direct-input count
+- PDF detection results
+- OCR-required count
+- refined-markdown ready count
+
+Use this to understand whether the next step is:
+- direct source preparation
+- OCR-first handling
+- or further manifest narrowing
+
 ## Profile contract
 A profile YAML must define:
 - `dataset_id`

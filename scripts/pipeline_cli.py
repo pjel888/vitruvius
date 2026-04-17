@@ -412,6 +412,9 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_lane_scaffold_parser.add_argument("--max-files", type=int, default=5)
     generic_aggregate_lane_scaffold_parser.add_argument("--extension", action="append", default=[],
                                                        help="Allowed file extension (repeatable). Defaults to supported direct-input extensions")
+    generic_aggregate_lane_inspect_parser = add_command_parser(subparsers, "inspect-completed-aggregate-lane-sources")
+    generic_aggregate_lane_inspect_parser.add_argument("--manifest", required=True)
+    generic_aggregate_lane_inspect_parser.add_argument("--sample-pages", type=int, default=5)
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1211,6 +1214,22 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("scaffold-completed-aggregate-lane-manifest", _run_scaffold_generic_lane)
+
+    if args.command == "inspect-completed-aggregate-lane-sources":
+        from vitruvius.aggregate_manifest import inspect_completed_aggregate_lane_sources
+        def _run_inspect_generic_lane():
+            repo_root = Path.cwd().resolve()
+            inspection = inspect_completed_aggregate_lane_sources(
+                repo_root=repo_root,
+                manifest_path=Path(args.manifest),
+                sample_pages=args.sample_pages,
+            )
+            print(json.dumps({
+                "action": "inspect-completed-aggregate-lane-sources",
+                **inspection,
+            }, indent=2))
+            return 0
+        return _run("inspect-completed-aggregate-lane-sources", _run_inspect_generic_lane)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary

@@ -21,6 +21,13 @@ def write_yaml_payload(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding='utf-8')
 
 
+def _relative(path: Path, repo_root: Path) -> str:
+    try:
+        return str(path.relative_to(repo_root))
+    except ValueError:
+        return str(path)
+
+
 def dedupe_manifest_entries(entries: list[dict[str, Any]], *, keys: tuple[str, ...]) -> list[dict[str, Any]]:
     deduped: list[dict[str, Any]] = []
     seen: set[tuple[str, ...]] = set()
@@ -791,6 +798,118 @@ def check_completed_aggregate_family_readiness(
         'aggregate_build_error': aggregate_error,
         'dataset_manifest_valid': dataset_manifest_valid,
         'dataset_manifest_error': dataset_manifest_error,
+    }
+
+
+def inspect_completed_aggregate_lane_sources(
+    *,
+    repo_root: Path,
+    manifest_path: Path,
+    sample_pages: int = 5,
+) -> dict[str, Any]:
+    from .constants import CONVERSION_LAYER_NAME, RAW_LAYER_NAME
+    from .conversion import SUPPORTED_DIRECT_INPUT_EXTENSIONS
+    from .detection import detect_pdf_type
+    from .paths import build_conversion_relative_paths, build_ocr_pdf_relative_path
+
+    resolved_manifest_path = manifest_path if manifest_path.is_absolute() else repo_root / manifest_path
+    payload = load_yaml_payload(resolved_manifest_path)
+    raw_slice = payload.get('raw_slice_anchors')
+    if not isinstance(raw_slice, list) or not raw_slice:
+        raise ValueError('lane manifest requires non-empty raw_slice_anchors for source inspection')
+
+    selected_files: list[Path] = []
+    seen: set[Path] = set()
+    for anchor in raw_slice:
+        if not isinstance(anchor, dict):
+            continue
+        for item in anchor.get('classified_raw_entries') or []:
+            if not isinstance(item, dict):
+                continue
+            rel_path = item.get('path')
+            if not isinstance(rel_path, str) or not rel_path.strip():
+                continue
+            abs_path = (repo_root / rel_path).resolve()
+            if abs_path.is_file() and abs_path not in seen:
+                seen.add(abs_path)
+                selected_files.append(abs_path)
+
+    if not selected_files:
+        raise ValueError('lane manifest raw_slice_anchors/classified_raw_entries resolved no existing files')
+
+    file_reports: list[dict[str, Any]] = []
+    supported_direct_input_count = 0
+    text_pdf_count = 0
+    likely_scanned_count = 0
+    ocr_required_count = 0
+    refined_markdown_ready_count = 0
+
+    for file_path in selected_files:
+        rel_repo = _relative(file_path, repo_root)
+        rel_raw = file_path.relative_to(repo_root / RAW_LAYER_NAME).as_posix()
+        ext = file_path.suffix.lower()
+        supported = ext in SUPPORTED_DIRECT_INPUT_EXTENSIONS
+        detection: dict[str, Any] | None = None
+        detection_error: str | None = None
+        expected_raw_markdown_path: str | None = None
+        expected_sidecar_json_path: str | None = None
+        expected_refined_markdown_path: str | None = None
+        expected_ocr_pdf_path: str | None = None
+        refined_markdown_exists = False
+
+        if supported:
+            supported_direct_input_count += 1
+            markdown_path_rel, json_path_rel = build_conversion_relative_paths(rel_raw)
+            refined_path_rel = Path(*[
+                'refined_markdown' if part == 'raw_markdown' else part
+                for part in markdown_path_rel.parts
+            ])
+            ocr_pdf_path_rel = build_ocr_pdf_relative_path(rel_raw)
+            expected_raw_markdown_path = (Path(CONVERSION_LAYER_NAME) / markdown_path_rel).as_posix()
+            expected_sidecar_json_path = (Path(CONVERSION_LAYER_NAME) / json_path_rel).as_posix()
+            expected_refined_markdown_path = (Path(CONVERSION_LAYER_NAME) / refined_path_rel).as_posix()
+            expected_ocr_pdf_path = (Path(CONVERSION_LAYER_NAME) / ocr_pdf_path_rel).as_posix()
+            refined_markdown_exists = (repo_root / expected_refined_markdown_path).exists()
+            if refined_markdown_exists:
+                refined_markdown_ready_count += 1
+
+        if ext == '.pdf':
+            try:
+                detection = detect_pdf_type(file_path, sample_pages=sample_pages)
+                if detection.get('result') == 'TEXT_PDF':
+                    text_pdf_count += 1
+                if detection.get('result') == 'LIKELY_SCANNED_PDF':
+                    likely_scanned_count += 1
+                if detection.get('recommended_route') != 'OPENDATALOADER_DIRECT':
+                    ocr_required_count += 1
+            except Exception as exc:  # noqa: BLE001
+                detection_error = str(exc)
+
+        file_reports.append({
+            'raw_path': rel_repo,
+            'extension': ext,
+            'supported_direct_input': supported,
+            'detection_result': detection.get('result') if detection else None,
+            'recommended_route': detection.get('recommended_route') if detection else None,
+            'detection_error': detection_error,
+            'expected_raw_markdown_path': expected_raw_markdown_path,
+            'expected_sidecar_json_path': expected_sidecar_json_path,
+            'expected_refined_markdown_path': expected_refined_markdown_path,
+            'expected_ocr_pdf_path': expected_ocr_pdf_path,
+            'refined_markdown_exists': refined_markdown_exists,
+        })
+
+    return {
+        'manifest_path': _relative(resolved_manifest_path, repo_root),
+        'dataset_id': str(payload.get('dataset_id') or ''),
+        'dataset_kind': str(payload.get('dataset_kind') or ''),
+        'raw_file_count': len(selected_files),
+        'supported_direct_input_count': supported_direct_input_count,
+        'text_pdf_count': text_pdf_count,
+        'likely_scanned_count': likely_scanned_count,
+        'ocr_required_count': ocr_required_count,
+        'refined_markdown_ready_count': refined_markdown_ready_count,
+        'file_reports': file_reports,
     }
 
 

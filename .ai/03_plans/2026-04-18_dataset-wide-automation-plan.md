@@ -45,5 +45,7 @@ status: in_progress
   - structured blocker reporting before run attempts
 - starter lane-manifest scaffolding is now in place:
   - raw-root inventory -> starter manifest
+- starter lane source inspection is now in place:
+  - manifest -> source readiness summary
 - the next real proof is still:
   - onboard the first true non-laws trusted dataset family once its completed lanes are admitted
