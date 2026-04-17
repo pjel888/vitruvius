@@ -1,0 +1,451 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "dataset_id": "laws-core-bundle-m1",
+  "dry_run": true,
+  "generated_at_utc": "20260417T004633Z",
+  "manifest_path": "config/datasets/laws-core-bundle-m1.yaml",
+  "review_runtime": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "review_settings": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "run_id": "20260417T004632Z",
+  "source_quality_summary": {
+    "benchmark_source_hints": [
+      {
+        "label": "BFP RA 9514 revised IRR page",
+        "note": "Official BFP page for the revised IRR; useful when scanned/local extraction is noisy.",
+        "url": "https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/"
+      },
+      {
+        "label": "Lawphil BP 344 law text",
+        "note": "Lawphil law text for the underlying statute (not the revised IRR). Useful as a semantic benchmark.",
+        "url": "https://lawphil.net/statutes/bataspam/bp1983/bp_344_1983.html"
+      },
+      {
+        "label": "Lawphil BP 220 revised IRR PDF",
+        "note": "Lawphil-hosted IRR PDF for cross-checking structure and section layout.",
+        "url": "https://lawphil.net/statutes/repacts/ra2008/pdf/irr_bp220_2008.pdf"
+      },
+      {
+        "label": "NCDA revised BP 344 IRR page",
+        "note": "NCDA-hosted revised IRR page useful for checking structure when the PDF is hard to extract.",
+        "url": "https://ncda.gov.ph/revised-2024-rules-and-regulations-implementing-batas-pambansa-344/"
+      },
+      {
+        "label": "DPWH PD 1096 IRR reference page",
+        "note": "Official DPWH-hosted IRR reference page useful for cross-checking difficult OCR/layout cases.",
+        "url": "https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096"
+      }
+    ],
+    "extraction_trust_counts": {
+      "guarded": 2,
+      "review_required": 2,
+      "trusted": 1
+    },
+    "high_severity_paths": [
+      "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+      "001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md"
+    ],
+    "high_severity_sources": [
+      {
+        "benchmark_source_hints": [
+          {
+            "label": "DPWH PD 1096 IRR reference page",
+            "note": "Official DPWH-hosted IRR reference page useful for cross-checking difficult OCR/layout cases.",
+            "url": "https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096"
+          }
+        ],
+        "difficulty_signals": {
+          "image_line_count": 627,
+          "noise_line_count": 1,
+          "structural_heading_count": 267,
+          "table_line_count": 620,
+          "useful_text_ratio": 0.79845
+        },
+        "manual_review_recommended": true,
+        "recommendations": [
+          "high image-line count: verify OCR quality or alternate source availability",
+          "high table-line count: verify layout-sensitive extraction and summary hygiene",
+          "low useful-text ratio: review source-summary trust before relying on canonical summaries"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+        "severity": "high",
+        "source_id": "irr-implementing-rules-and-regulations-of-the-national-building-code"
+      },
+      {
+        "benchmark_source_hints": [
+          {
+            "label": "BFP RA 9514 revised IRR page",
+            "note": "Official BFP page for the revised IRR; useful when scanned/local extraction is noisy.",
+            "url": "https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/"
+          }
+        ],
+        "difficulty_signals": {
+          "image_line_count": 53,
+          "noise_line_count": 3,
+          "structural_heading_count": 513,
+          "table_line_count": 1197,
+          "useful_text_ratio": 0.878326
+        },
+        "manual_review_recommended": true,
+        "recommendations": [
+          "high table-line count: verify layout-sensitive extraction and summary hygiene"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md",
+        "severity": "high",
+        "source_id": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines"
+      }
+    ],
+    "manual_review_required_paths": [
+      "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+      "001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md"
+    ],
+    "manual_review_required_sources": [
+      {
+        "benchmark_source_hints": [
+          {
+            "label": "DPWH PD 1096 IRR reference page",
+            "note": "Official DPWH-hosted IRR reference page useful for cross-checking difficult OCR/layout cases.",
+            "url": "https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096"
+          }
+        ],
+        "difficulty_signals": {
+          "image_line_count": 627,
+          "noise_line_count": 1,
+          "structural_heading_count": 267,
+          "table_line_count": 620,
+          "useful_text_ratio": 0.79845
+        },
+        "manual_review_recommended": true,
+        "recommendations": [
+          "high image-line count: verify OCR quality or alternate source availability",
+          "high table-line count: verify layout-sensitive extraction and summary hygiene",
+          "low useful-text ratio: review source-summary trust before relying on canonical summaries"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+        "severity": "high",
+        "source_id": "irr-implementing-rules-and-regulations-of-the-national-building-code"
+      },
+      {
+        "benchmark_source_hints": [
+          {
+            "label": "BFP RA 9514 revised IRR page",
+            "note": "Official BFP page for the revised IRR; useful when scanned/local extraction is noisy.",
+            "url": "https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/"
+          }
+        ],
+        "difficulty_signals": {
+          "image_line_count": 53,
+          "noise_line_count": 3,
+          "structural_heading_count": 513,
+          "table_line_count": 1197,
+          "useful_text_ratio": 0.878326
+        },
+        "manual_review_recommended": true,
+        "recommendations": [
+          "high table-line count: verify layout-sensitive extraction and summary hygiene"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md",
+        "severity": "high",
+        "source_id": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines"
+      }
+    ],
+    "severity_counts": {
+      "high": 2,
+      "low": 1,
+      "medium": 2
+    },
+    "summary_auto_withheld_paths": [
+      "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+      "001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md"
+    ]
+  },
+  "stage_results": [
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-national-building-code-of-the-philippines",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/national-building-code-of-the-philippines.md",
+        "title": "National Building Code of the Philippines",
+        "trust_level": "primary"
+      },
+      "law_id": "pd-1096",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/pd-1096/PD 1096 - National Building Code_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/pd-1096/PD 1096 - National Building Code_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/promoted_relationships/pd-1096",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/pd-1096/PD 1096 - National Building Code_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md",
+      "source_id": "law-national-building-code-of-the-philippines",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 81,
+        "noise_line_count": 0,
+        "non_empty_line_count": 1132,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md",
+        "severity": "low",
+        "structural_heading_count": 151,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "table_line_count": 0,
+        "total_line_count": 2229,
+        "useful_text_line_count": 1132,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/source_quality/pd-1096/PD 1096 - National Building Code_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-national-building-code.md",
+        "title": "Implementing Rules and Regulations of the National Building Code",
+        "trust_level": "primary"
+      },
+      "law_id": "pd-1096",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/pd-1096/PD 1096 IRR - Full Implementing Rules and Regulations_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/pd-1096/PD 1096 IRR - Full Implementing Rules and Regulations_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/promoted_relationships/pd-1096",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/pd-1096/PD 1096 IRR - Full Implementing Rules and Regulations_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+      "source_id": "irr-implementing-rules-and-regulations-of-the-national-building-code",
+      "source_quality": {
+        "benchmark_source_hints": [
+          {
+            "label": "DPWH PD 1096 IRR reference page",
+            "note": "Official DPWH-hosted IRR reference page useful for cross-checking difficult OCR/layout cases.",
+            "url": "https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096"
+          }
+        ],
+        "canonical_summary_action": "withhold_auto_summary",
+        "extraction_trust_level": "review_required",
+        "extraction_trust_reasons": [
+          "high extraction difficulty: require manual review before trusting unattended summaries",
+          "front matter includes a table of contents before operative text",
+          "front matter includes preface/message prose that can pollute source summaries",
+          "front matter includes circular or title-page material ahead of operative rules",
+          "benchmark authoritative references before promoting summary claims"
+        ],
+        "image_line_count": 627,
+        "manual_review_recommended": true,
+        "markdown_heading_count": 273,
+        "noise_line_count": 1,
+        "non_empty_line_count": 6192,
+        "recommendations": [
+          "high image-line count: verify OCR quality or alternate source availability",
+          "high table-line count: verify layout-sensitive extraction and summary hygiene",
+          "low useful-text ratio: review source-summary trust before relying on canonical summaries"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+        "severity": "high",
+        "structural_heading_count": 267,
+        "summary_auto_withheld": true,
+        "summary_hygiene_flags": [
+          "table_of_contents_front_matter",
+          "preface_or_message_front_matter",
+          "administrative_front_matter"
+        ],
+        "table_line_count": 620,
+        "total_line_count": 10099,
+        "useful_text_line_count": 4944,
+        "useful_text_ratio": 0.79845
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/source_quality/pd-1096/PD 1096 IRR - Full Implementing Rules and Regulations_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-fire-code-of-the-philippines.md",
+        "title": "Implementing Rules and Regulations of the Fire Code of the Philippines",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-9514",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/ra-9514/RA9514-RIRR-rev-2019_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/ra-9514/RA9514-RIRR-rev-2019_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/promoted_relationships/ra-9514",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/ra-9514/RA9514-RIRR-rev-2019_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md",
+      "source_id": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines",
+      "source_quality": {
+        "benchmark_source_hints": [
+          {
+            "label": "BFP RA 9514 revised IRR page",
+            "note": "Official BFP page for the revised IRR; useful when scanned/local extraction is noisy.",
+            "url": "https://bfp.gov.ph/revised-irr-of-ra-9514-the-fire-code-of-the-philippines/"
+          }
+        ],
+        "canonical_summary_action": "withhold_auto_summary",
+        "extraction_trust_level": "review_required",
+        "extraction_trust_reasons": [
+          "high extraction difficulty: require manual review before trusting unattended summaries",
+          "front matter includes preface/message prose that can pollute source summaries",
+          "front matter is image-heavy and may reflect OCR/layout instability",
+          "front matter is table-heavy and may reflect layout extraction noise",
+          "benchmark authoritative references before promoting summary claims"
+        ],
+        "image_line_count": 53,
+        "manual_review_recommended": true,
+        "markdown_heading_count": 1073,
+        "noise_line_count": 3,
+        "non_empty_line_count": 10298,
+        "recommendations": [
+          "high table-line count: verify layout-sensitive extraction and summary hygiene"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md",
+        "severity": "high",
+        "structural_heading_count": 513,
+        "summary_auto_withheld": true,
+        "summary_hygiene_flags": [
+          "preface_or_message_front_matter",
+          "image_heavy_front_matter",
+          "table_heavy_front_matter"
+        ],
+        "table_line_count": 1197,
+        "total_line_count": 15311,
+        "useful_text_line_count": 9045,
+        "useful_text_ratio": 0.878326
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/source_quality/ra-9514/RA9514-RIRR-rev-2019_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344.md",
+        "title": "Revised Implementing Rules and Regulations of Batas Pambansa Blg. 344",
+        "trust_level": "primary"
+      },
+      "law_id": "bp-344",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/promoted_relationships/bp-344",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
+      "source_id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
+      "source_quality": {
+        "benchmark_source_hints": [
+          {
+            "label": "NCDA revised BP 344 IRR page",
+            "note": "NCDA-hosted revised IRR page useful for checking structure when the PDF is hard to extract.",
+            "url": "https://ncda.gov.ph/revised-2024-rules-and-regulations-implementing-batas-pambansa-344/"
+          },
+          {
+            "label": "Lawphil BP 344 law text",
+            "note": "Lawphil law text for the underlying statute (not the revised IRR). Useful as a semantic benchmark.",
+            "url": "https://lawphil.net/statutes/bataspam/bp1983/bp_344_1983.html"
+          }
+        ],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "guarded",
+        "extraction_trust_reasons": [
+          "moderate extraction difficulty: treat automated summaries as guarded"
+        ],
+        "image_line_count": 3,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 85,
+        "noise_line_count": 63,
+        "non_empty_line_count": 991,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
+        "severity": "medium",
+        "structural_heading_count": 75,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "table_line_count": 6,
+        "total_line_count": 1832,
+        "useful_text_line_count": 919,
+        "useful_text_ratio": 0.927346
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/source_quality/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220.md",
+        "title": "Revised Implementing Rules and Regulations of Batas Pambansa Blg. 220",
+        "trust_level": "primary"
+      },
+      "law_id": "bp-220",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/bp-220/Revised_IRR_BP220_2008_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/bp-220/Revised_IRR_BP220_2008_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/promoted_relationships/bp-220",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/bp-220/Revised_IRR_BP220_2008_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md",
+      "source_id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220",
+      "source_quality": {
+        "benchmark_source_hints": [
+          {
+            "label": "Lawphil BP 220 revised IRR PDF",
+            "note": "Lawphil-hosted IRR PDF for cross-checking structure and section layout.",
+            "url": "https://lawphil.net/statutes/repacts/ra2008/pdf/irr_bp220_2008.pdf"
+          }
+        ],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "guarded",
+        "extraction_trust_reasons": [
+          "moderate extraction difficulty: treat automated summaries as guarded",
+          "front matter includes a table of contents before operative text",
+          "front matter is image-heavy and may reflect OCR/layout instability",
+          "front matter is table-heavy and may reflect layout extraction noise"
+        ],
+        "image_line_count": 22,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 90,
+        "noise_line_count": 1,
+        "non_empty_line_count": 950,
+        "recommendations": [
+          "high table-line count: verify layout-sensitive extraction and summary hygiene"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md",
+        "severity": "medium",
+        "structural_heading_count": 63,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [
+          "table_of_contents_front_matter",
+          "image_heavy_front_matter",
+          "table_heavy_front_matter"
+        ],
+        "table_line_count": 119,
+        "total_line_count": 1565,
+        "useful_text_line_count": 808,
+        "useful_text_ratio": 0.850526
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260417T004632Z/source_quality/bp-220/Revised_IRR_BP220_2008_source_quality.json"
+    }
+  ]
+}

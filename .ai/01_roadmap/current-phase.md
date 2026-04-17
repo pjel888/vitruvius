@@ -73,6 +73,9 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - `run-laws-all-dry-run` added as the next safe step
     - `m2-8gb-safe` review preset added for bounded planning / dry-run work
     - see `/.ai/05_logs/2026-04-17_all-laws-readiness-8gb-implementation-validation.md`
+  - next truthful execution boundary is now documented as **tranche expansion**, not generic all-laws execution:
+    - research / audit / rollout-plan artifacts created for tranche-based widening
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-expansion-planning-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
