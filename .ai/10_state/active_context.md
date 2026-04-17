@@ -376,3 +376,5 @@
 ## Handoff Note
 
 If you continue from here, do **not** restart with a new repo-wide audit. Consult the **archived** 2026-04-16 stabilization/remediation plans together with the PASS 2 validation log and the duplicate-ID remediation validation log.
+
+- tranche-10 selection now favors duplicate-remediation-first `RA-9266`, with overlap-closure `PD-9514` deferred to the following lane.

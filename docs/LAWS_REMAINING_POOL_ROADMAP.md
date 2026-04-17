@@ -11,12 +11,12 @@
 - `DOE`
 - `DPWH`
 
-### Tranche 10 — Fire-code overlap closure singleton
-- `PD-9514`
-
-### Tranche 11 — Architecture regulation after duplicate remediation
+### Tranche 10 — Architecture duplicate-remediation lane
 - `RA-9266`
 - optional bounded supporting context later from `PRC`
+
+### Tranche 11 — Fire-code overlap closure singleton
+- `PD-9514`
 
 ### Tranche 12 — Planning / settlements governance pack
 - `EO`

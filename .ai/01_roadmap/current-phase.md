@@ -371,3 +371,5 @@ Do not use it for:
 - Decisions → `/.ai/10_state/decisions.md`
 - Known issues → `/.ai/10_state/known_issues.md`
 - Archived plans → `/.ai/09_archive/plans/`
+
+- tranche-10 selection now favors duplicate-remediation-first `RA-9266`, with overlap-closure `PD-9514` deferred to the following lane.
