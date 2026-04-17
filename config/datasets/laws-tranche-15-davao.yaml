@@ -1,0 +1,42 @@
+tranche_id: laws-tranche-15-davao
+purpose: readiness-only
+phase_11_gate: gated
+description: Fifth shard-specific tranche-15 lane for the LGU bundle. This shard isolates
+  the Davao zoning file as the next city-coherent local-ordinance candidate after
+  the completed San Mateo, Dagupan, Malolos, and Meycauayan shards.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: LGU
+  reason: singleton Davao zoning shard after San Mateo, Dagupan, Malolos, and Meycauayan.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/LGU/253090760-Zoning-Davao-City.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-15-davao/20260417T165516Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T165516Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/davao-city-comprehensive-land-use-plan.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - Davao concept-fit slice admits only directly evidenced planning concepts and dataset-scoped governs relationships
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - Davao concept-fit slice admits only directly evidenced planning concepts and dataset-scoped governs relationships.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-davao/concept-slice-davao/relationships/rel-handout-davao-city-comprehensive-land-use-plan-governs-concept-comprehensive-land-use-plan.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-davao/concept-slice-davao/relationships/rel-handout-davao-city-comprehensive-land-use-plan-governs-concept-disaster-risk-reduction.md
+source_admission:
+  last_run_id: 20260417T165516Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-15-davao/20260417T165516Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - LGU
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []

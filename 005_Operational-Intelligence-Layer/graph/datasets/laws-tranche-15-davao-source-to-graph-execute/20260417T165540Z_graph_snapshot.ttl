@@ -1,0 +1,21 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:handout-davao-city-comprehensive-land-use-plan a vitruvius:source ;
+    rdfs:label "davao-city-comprehensive-land-use-plan (handout-davao-city-comprehensive-land-use-plan)" ;
+    vitruvius:governs vitruvius:concept-comprehensive-land-use-plan,
+        vitruvius:concept-disaster-risk-reduction ;
+    vitruvius:last_updated_utc "2026-04-17T16:55:16Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:concept-comprehensive-land-use-plan a vitruvius:concept ;
+    rdfs:label "comprehensive-land-use-plan (concept-comprehensive-land-use-plan)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-disaster-risk-reduction a vitruvius:concept ;
+    rdfs:label "disaster-risk-reduction (concept-disaster-risk-reduction)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+

@@ -1,0 +1,249 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "browser_opened": null,
+  "dataset_id": "laws-tranche-15-davao-source-to-graph-execute",
+  "derived_manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-15-davao-source-to-graph-execute/source_to_graph/20260417T165540Z/derived_dataset_manifest.yaml",
+  "filtered_relationship_count": 0,
+  "filtered_relationship_paths": [],
+  "generated_at_utc": "20260417T165540Z",
+  "generated_relationship_count": 0,
+  "graph": {
+    "action": "run-dataset-graph",
+    "build_report_path": "006_System-Manifests/runs/datasets/laws-tranche-15-davao-source-to-graph-execute/20260417T165540Z_build_graph_dataset_report.json",
+    "contributing_law_ids": [
+      "lgu"
+    ],
+    "dataset_id": "laws-tranche-15-davao-source-to-graph-execute",
+    "law_unit_count": 1,
+    "owl_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-15-davao-source-to-graph-execute/20260417T165540Z_graph_snapshot.ttl",
+    "pipeline_report_path": "006_System-Manifests/runs/datasets/laws-tranche-15-davao-source-to-graph-execute/20260417T165540Z_dataset_pipeline_run_report.json",
+    "run_id": "20260417T165540Z",
+    "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-15-davao-source-to-graph-execute/20260417T165540Z_graph_snapshot.json",
+    "structured_check_count": 0
+  },
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-15-davao/source_to_graph_execute/20260417T165540Z/derived_dataset_manifest.yaml",
+  "review_model": "qwen2.5:7b",
+  "review_preset": "m2-8gb-safe",
+  "review_runtime": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "review_settings": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "run_id": "20260417T165540Z",
+  "source_quality_summary": {
+    "benchmark_source_hints": [],
+    "extraction_trust_counts": {
+      "guarded": 0,
+      "review_required": 1,
+      "trusted": 0
+    },
+    "high_severity_paths": [
+      "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md"
+    ],
+    "high_severity_sources": [
+      {
+        "benchmark_source_hints": [],
+        "difficulty_signals": {
+          "image_line_count": 44,
+          "noise_line_count": 0,
+          "structural_heading_count": 0,
+          "table_line_count": 0,
+          "useful_text_ratio": 0.536842
+        },
+        "manual_review_recommended": true,
+        "recommendations": [
+          "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+          "low structural-heading count: verify section detection and source structure fidelity",
+          "manual review required: OCR/layout instability is too high for unattended source-summary use"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md",
+        "severity": "high",
+        "source_id": "handout-davao-city-comprehensive-land-use-plan"
+      }
+    ],
+    "manual_review_required_paths": [
+      "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md"
+    ],
+    "manual_review_required_sources": [
+      {
+        "benchmark_source_hints": [],
+        "difficulty_signals": {
+          "image_line_count": 44,
+          "noise_line_count": 0,
+          "structural_heading_count": 0,
+          "table_line_count": 0,
+          "useful_text_ratio": 0.536842
+        },
+        "manual_review_recommended": true,
+        "recommendations": [
+          "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+          "low structural-heading count: verify section detection and source structure fidelity",
+          "manual review required: OCR/layout instability is too high for unattended source-summary use"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md",
+        "severity": "high",
+        "source_id": "handout-davao-city-comprehensive-land-use-plan"
+      }
+    ],
+    "representation_guardrail_counts": {
+      "high": 0,
+      "low": 1,
+      "medium": 0
+    },
+    "severity_counts": {
+      "high": 1,
+      "low": 0,
+      "medium": 0
+    },
+    "shallow_representation_paths": [],
+    "shallow_representation_sources": [],
+    "source_acceptance_counts": {
+      "accepted": 0,
+      "accepted_with_spot_review": 0,
+      "manual_review_required": 1
+    },
+    "spot_review_required_paths": [
+      "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md"
+    ],
+    "summary_auto_withheld_paths": [
+      "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md"
+    ]
+  },
+  "stage_results": [
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "handout-davao-city-comprehensive-land-use-plan",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/davao-city-comprehensive-land-use-plan.md",
+        "title": "Davao City Comprehensive Land Use Plan",
+        "trust_level": "primary"
+      },
+      "extract_json": "006_System-Manifests/runs/datasets/laws-tranche-15-davao-source-to-graph-execute/source_to_graph/20260417T165540Z/lgu/253090760-Zoning-Davao-City_extract.json",
+      "graph_admitted_relationships": 0,
+      "graph_filtered_relationships": 0,
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-15-davao-source-to-graph-execute/source_to_graph/20260417T165540Z/lgu/253090760-Zoning-Davao-City_high_conf.json",
+      "law_id": "lgu",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md",
+      "promote_result": {
+        "batch_id": "20260417T165540Z_678501c0",
+        "created": 0,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 0,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-15-davao-source-to-graph-execute/source_to_graph/20260417T165540Z/promoted_relationships/lgu",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 2,
+        "admitted_relationship_count": 2,
+        "folder_name": "LGU",
+        "law_id": "lgu",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 0.0,
+        "section_to_relationship_ratio": 0.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 0
+      },
+      "review_json": "006_System-Manifests/runs/datasets/laws-tranche-15-davao-source-to-graph-execute/source_to_graph/20260417T165540Z/lgu/253090760-Zoning-Davao-City_review.json",
+      "source_id": "handout-davao-city-comprehensive-land-use-plan",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "withhold_auto_summary",
+        "extraction_trust_level": "review_required",
+        "extraction_trust_reasons": [
+          "high extraction difficulty: require manual review before trusting unattended summaries",
+          "front matter is image-heavy and may reflect OCR/layout instability",
+          "source quality severity is high enough to require manual review before trusting automated summaries",
+          "spot-review the flagged OCR-sensitive regions before trusting summary prose",
+          "benchmark authoritative references before promoting summary claims"
+        ],
+        "front_matter_suspicious_ocr_line_count": 1,
+        "image_line_count": 44,
+        "manual_review_recommended": true,
+        "markdown_heading_count": 12,
+        "noise_line_count": 0,
+        "non_empty_line_count": 95,
+        "recommendations": [
+          "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+          "low structural-heading count: verify section detection and source structure fidelity",
+          "manual review required: OCR/layout instability is too high for unattended source-summary use"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 2,
+          "admitted_relationship_count": 2,
+          "folder_name": "LGU",
+          "law_id": "lgu",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 0.0,
+          "section_to_relationship_ratio": 0.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 0
+        },
+        "severity": "high",
+        "source_acceptance_reasons": [
+          "source quality severity is high enough to require manual review before trusting automated summaries"
+        ],
+        "source_acceptance_status": "manual_review_required",
+        "spot_review_focus": [
+          "title/header lines and the first operative section",
+          "section numbering and other numeric provisions",
+          "image-backed front matter, page breaks, and signature/footer spillover"
+        ],
+        "spot_review_required": true,
+        "structural_heading_count": 0,
+        "summary_auto_withheld": true,
+        "summary_hygiene_flags": [
+          "image_heavy_front_matter"
+        ],
+        "suspicious_ocr_examples": [
+          "Existing C-2 in Milan upto St. Mary’s Church: Proposed Major Commercial Zone (C2)"
+        ],
+        "suspicious_ocr_line_count": 1,
+        "suspicious_ocr_line_ratio": 0.010526,
+        "table_line_count": 0,
+        "total_line_count": 187,
+        "useful_text_line_count": 51,
+        "useful_text_ratio": 0.536842
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-15-davao-source-to-graph-execute/source_to_graph/20260417T165540Z/source_quality/lgu/253090760-Zoning-Davao-City_source_quality.json"
+    }
+  ],
+  "visualization": null
+}

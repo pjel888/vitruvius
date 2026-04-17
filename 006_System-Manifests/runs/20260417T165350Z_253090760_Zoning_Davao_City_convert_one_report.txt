@@ -1,0 +1,9 @@
+Vitruvius Convert One Report
+
+Source: 001-Laws/LGU/253090760-Zoning-Davao-City.pdf
+Detection result: TEXT_PDF
+Recommended route: OPENDATALOADER_DIRECT
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/253090760-Zoning-Davao-City.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/253090760-Zoning-Davao-City.json
+
+STATUS: converted

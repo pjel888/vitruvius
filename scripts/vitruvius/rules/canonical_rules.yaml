@@ -1388,6 +1388,28 @@ rules:
         - "Municipal Ordinance No. 16 Series of 1999"
 
   # --------------------------------------------------
+  # Davao City Comprehensive Land Use Plan
+  # --------------------------------------------------
+  - name: "Davao City Comprehensive Land Use Plan"
+
+    match:
+      any_contains:
+        - "zoning-davao-city"
+        - "comprehensive land use plan"
+        - "davao city"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "Davao City Comprehensive Land Use Plan"
+
+      aliases:
+        - "Davao City CLUP"
+        - "Davao City Comprehensive Land Use Plan"
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

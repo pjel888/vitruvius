@@ -1,0 +1,170 @@
+{
+  "action": "run-laws-tranche-source-to-graph",
+  "blocked_law_folders": [],
+  "derived_manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-15-davao/source_to_graph_execute/20260417T165540Z/derived_dataset_manifest.yaml",
+  "duplicate_cluster_count": 0,
+  "duplicate_clusters": [],
+  "duplicate_law_folders": [],
+  "execute": true,
+  "generated_at_utc": "20260417T165540Z",
+  "guardrail_law_folders": [],
+  "inner_source_to_graph_summary": {
+    "action": "run-dataset-source-to-graph",
+    "benchmark_hint_count": 0,
+    "browser_opened": null,
+    "dataset_id": "laws-tranche-15-davao-source-to-graph-execute",
+    "derived_manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-15-davao-source-to-graph-execute/source_to_graph/20260417T165540Z/derived_dataset_manifest.yaml",
+    "filtered_relationship_count": 0,
+    "generated_relationship_count": 0,
+    "graph_build_report_path": "006_System-Manifests/runs/datasets/laws-tranche-15-davao-source-to-graph-execute/20260417T165540Z_build_graph_dataset_report.json",
+    "graph_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-15-davao-source-to-graph-execute/20260417T165540Z_graph_snapshot.json",
+    "manual_review_required_count": 1,
+    "pipeline_report_path": "006_System-Manifests/runs/datasets/laws-tranche-15-davao-source-to-graph-execute/source_to_graph/20260417T165540Z/source_to_graph_run_report.json",
+    "review_model": "qwen2.5:7b",
+    "review_preset": "m2-8gb-safe",
+    "review_runtime": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "preset": {
+        "keeps_phase_11_gated": true,
+        "model": "qwen2.5:7b",
+        "name": "m2-8gb-safe",
+        "num_ctx_cap": 4096,
+        "parallelism": 1,
+        "timeout_seconds": 900
+      },
+      "timeout_seconds": 900
+    },
+    "review_settings": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "preset": {
+        "keeps_phase_11_gated": true,
+        "model": "qwen2.5:7b",
+        "name": "m2-8gb-safe",
+        "num_ctx_cap": 4096,
+        "parallelism": 1,
+        "timeout_seconds": 900
+      },
+      "timeout_seconds": 900
+    },
+    "run_id": "20260417T165540Z",
+    "shallow_representation_count": 0,
+    "source_quality_summary": {
+      "benchmark_source_hints": [],
+      "extraction_trust_counts": {
+        "guarded": 0,
+        "review_required": 1,
+        "trusted": 0
+      },
+      "high_severity_paths": [
+        "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md"
+      ],
+      "high_severity_sources": [
+        {
+          "benchmark_source_hints": [],
+          "difficulty_signals": {
+            "image_line_count": 44,
+            "noise_line_count": 0,
+            "structural_heading_count": 0,
+            "table_line_count": 0,
+            "useful_text_ratio": 0.536842
+          },
+          "manual_review_recommended": true,
+          "recommendations": [
+            "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+            "low structural-heading count: verify section detection and source structure fidelity",
+            "manual review required: OCR/layout instability is too high for unattended source-summary use"
+          ],
+          "refined_markdown_path": "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md",
+          "severity": "high",
+          "source_id": "handout-davao-city-comprehensive-land-use-plan"
+        }
+      ],
+      "manual_review_required_paths": [
+        "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md"
+      ],
+      "manual_review_required_sources": [
+        {
+          "benchmark_source_hints": [],
+          "difficulty_signals": {
+            "image_line_count": 44,
+            "noise_line_count": 0,
+            "structural_heading_count": 0,
+            "table_line_count": 0,
+            "useful_text_ratio": 0.536842
+          },
+          "manual_review_recommended": true,
+          "recommendations": [
+            "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+            "low structural-heading count: verify section detection and source structure fidelity",
+            "manual review required: OCR/layout instability is too high for unattended source-summary use"
+          ],
+          "refined_markdown_path": "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md",
+          "severity": "high",
+          "source_id": "handout-davao-city-comprehensive-land-use-plan"
+        }
+      ],
+      "representation_guardrail_counts": {
+        "high": 0,
+        "low": 1,
+        "medium": 0
+      },
+      "severity_counts": {
+        "high": 1,
+        "low": 0,
+        "medium": 0
+      },
+      "shallow_representation_paths": [],
+      "shallow_representation_sources": [],
+      "source_acceptance_counts": {
+        "accepted": 0,
+        "accepted_with_spot_review": 0,
+        "manual_review_required": 1
+      },
+      "spot_review_required_paths": [
+        "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md"
+      ],
+      "summary_auto_withheld_paths": [
+        "001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md"
+      ]
+    },
+    "spot_review_required_count": 1,
+    "summary_auto_withheld_count": 1,
+    "visualization_html_path": null
+  },
+  "law_folder_variant_visibility": [
+    {
+      "authoritative_variant_count": 1,
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/LGU/253090760-Zoning-Davao-City.pdf"
+      ],
+      "blocked_raw_anchor_count": 0,
+      "blocked_raw_anchor_paths": [],
+      "duplicate_guardrails": [],
+      "excluded_variant_count": 0,
+      "excluded_variant_paths": [],
+      "folder_name": "LGU",
+      "source_admission_guardrails": [],
+      "source_admission_state": "admitted",
+      "staged_for_source_to_graph": true
+    }
+  ],
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "raw_alias_law_folders": [],
+  "review_preset": "m2-8gb-safe",
+  "run_id": "20260417T165540Z",
+  "source_to_graph_execute_completed": true,
+  "staged_law_folders": [
+    "LGU"
+  ],
+  "tranche_id": "laws-tranche-15-davao",
+  "tranche_manifest_path": "config/datasets/laws-tranche-15-davao.yaml"
+}

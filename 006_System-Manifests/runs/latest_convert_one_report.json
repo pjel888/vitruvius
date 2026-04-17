@@ -1,13 +1,13 @@
 {
   "project": "Vitruvius",
-  "generated_at_utc": "2026-04-17T16:47:32.786874+00:00",
-  "source_relative_path": "001-Laws/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.pdf",
-  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.pdf",
+  "generated_at_utc": "2026-04-17T16:53:50.713906+00:00",
+  "source_relative_path": "001-Laws/LGU/253090760-Zoning-Davao-City.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/253090760-Zoning-Davao-City.pdf",
   "detection_result": "TEXT_PDF",
   "recommended_route": "OPENDATALOADER_DIRECT",
-  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.md",
-  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.json",
-  "markdown_output_relative": "001-Laws/raw_markdown/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.md",
-  "json_output_relative": "001-Laws/sidecar_json/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.json",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/253090760-Zoning-Davao-City.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/253090760-Zoning-Davao-City.json",
+  "markdown_output_relative": "001-Laws/raw_markdown/LGU/253090760-Zoning-Davao-City.md",
+  "json_output_relative": "001-Laws/sidecar_json/LGU/253090760-Zoning-Davao-City.json",
   "status": "converted"
 }

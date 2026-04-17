@@ -29,6 +29,7 @@
     - Dagupan ordinance no. 2061-2016
     - Malolos city zoning ordinance
     - Meycauayan zoning ordinance
+    - Davao city CLUP / zoning deck
   - remaining blocker: the wider LGU lane still needs additional city/family shards beyond San Mateo
 
 ## Remediation / defer lanes

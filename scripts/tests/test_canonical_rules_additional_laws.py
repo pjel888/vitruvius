@@ -471,3 +471,11 @@ def test_build_plan_matches_meycauayan_zoning_ordinance_rule() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_davao_clup_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md')
+    assert plan['title'] == 'Davao City Comprehensive Land Use Plan'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
