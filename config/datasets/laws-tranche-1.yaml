@@ -88,13 +88,24 @@ candidate_law_folders:
     of the Philippines 1977.md
   admitted_source_paths:
   - 003_Canonical-Knowledge-Layer/shared/sources/fire-code-of-the-philippines.md
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/means-of-egress.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/building-permit.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/yards.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd1185/relationships/rel-law-fire-code-of-the-philippines-governs-concept-means-of-egress.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd1185/relationships/rel-law-fire-code-of-the-philippines-governs-concept-building-permit.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd1185/relationships/rel-law-fire-code-of-the-philippines-governs-concept-yards.md
   excluded_variant_paths: []
   source_admission_guardrails: []
   verification_checks:
   - source admission executed for the selected authoritative prepared variants
+  - concept-fit admission keeps PD-1185 graph-richness moving without widening tranche execute
   scope_notes:
   - Source admission is intentionally conservative and admits only selected authoritative
     prepared variants.
+  - PD-1185 concept-fit slice admits existing shared concepts and dataset-scoped governs
+    relationships only.
 source_admission:
   last_run_id: 20260417T065958Z
   last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-1/20260417T065958Z/laws_tranche_source_admission_report.json
