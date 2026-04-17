@@ -350,8 +350,10 @@ def test_run_dataset_source_to_graph_pipeline_dry_run_flags_high_severity_ra_951
     report = json.loads(reports[0].read_text(encoding='utf-8'))
     summary = report['source_quality_summary']
     assert summary['severity_counts']['high'] == 1
+    assert summary['source_acceptance_counts']['manual_review_required'] == 1
     assert summary['high_severity_paths'] == ['001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md']
     assert summary['manual_review_required_paths'] == ['001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md']
+    assert summary['spot_review_required_paths'] == ['001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md']
     assert summary['benchmark_source_hints'] == [
         {
             'label': 'BFP RA 9514 revised IRR page',
@@ -360,6 +362,63 @@ def test_run_dataset_source_to_graph_pipeline_dry_run_flags_high_severity_ra_951
         }
     ]
     assert report['stage_results'][0]['source_quality']['manual_review_recommended'] is True
+
+
+def test_run_dataset_source_to_graph_pipeline_flags_ocr_like_spot_review(tmp_path, monkeypatch) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    monkeypatch.chdir(tmp_path)
+
+    refined_path = (
+        tmp_path
+        / '002_Raw-Conversion-Layer'
+        / '001-Laws'
+        / 'refined_markdown'
+        / 'RA-9514'
+        / 'RA9514-RIRR-rev-2019.md'
+    )
+    refined_path.write_text(
+        '\n'.join([
+            'HOUSINGAND |LANDUSEnecutpel BsREGa)Boat',
+            '![image 1](scan/page-1.png)',
+            'PRESIDENTIAL DECREE NO. 1216',
+            '“SECTION 31. Roads, Alleys, Sidewalks and Open Spaces.',
+            '![image 2](scan/page-2.png)',
+            'registeredand/orlicensed bythe HumanSettlements RegulatoryCommission.',
+            'SECTION 1. Open space shall mean an area reserved for parks and roads.',
+            'SECTION 2. Section 31 is hereby amended.',
+            'SECTION 3. Other laws are repealed or amended accordingly.',
+            'RULE V',
+            'Section 12. Effectivity.',
+            '![image 3](scan/page-3.png)',
+        ]),
+        encoding='utf-8',
+    )
+
+    rc = run_dataset_source_to_graph_pipeline(dataset_manifest=str(manifest_path), dry_run=True, export_owl=False)
+    assert rc == 0
+
+    reports = sorted((tmp_path / '006_System-Manifests' / 'runs' / 'datasets' / 'demo-dataset' / 'source_to_graph').glob('*/source_to_graph_run_report.json'))
+    report = json.loads(reports[0].read_text(encoding='utf-8'))
+    summary = report['source_quality_summary']
+    normalized_path = '001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md'
+    assert summary['severity_counts']['medium'] == 1
+    assert summary['source_acceptance_counts']['accepted_with_spot_review'] == 1
+    assert summary['spot_review_required_paths'] == [normalized_path]
+    assert summary['manual_review_required_paths'] == []
+    assert summary['summary_auto_withheld_paths'] == [normalized_path]
+
+    quality = report['stage_results'][0]['source_quality']
+    assert quality['source_acceptance_status'] == 'accepted_with_spot_review'
+    assert quality['spot_review_required'] is True
+    assert quality['manual_review_recommended'] is False
+    assert quality['summary_auto_withheld'] is True
+    assert quality['canonical_summary_action'] == 'withhold_auto_summary'
+    assert quality['extraction_trust_level'] == 'guarded'
+    assert quality['suspicious_ocr_line_count'] >= 2
+    assert quality['front_matter_suspicious_ocr_line_count'] >= 2
+    assert quality['summary_hygiene_flags'] == ['image_heavy_front_matter']
+    assert 'spot-review OCR-sensitive title/heading lines before trusting automated summaries' in quality['recommendations']
+    assert 'title/header lines and the first operative section' in quality['spot_review_focus']
 
 
 def test_run_dataset_source_to_graph_pipeline_normalizes_prefixed_refined_paths(tmp_path, monkeypatch) -> None:
@@ -504,6 +563,7 @@ def test_source_quality_summary_aggregates_benchmark_hints() -> None:
     ])
     assert summary['severity_counts']['high'] == 1
     assert summary['severity_counts']['medium'] == 1
+    assert summary['source_acceptance_counts']['manual_review_required'] == 1
     assert summary['manual_review_required_paths'] == ['a.md']
     assert len(summary['benchmark_source_hints']) == 2
 
@@ -531,6 +591,7 @@ def test_source_quality_summary_dedupes_repeated_high_severity_paths() -> None:
     ])
 
     assert summary['severity_counts']['high'] == 2
+    assert summary['source_acceptance_counts']['accepted'] == 0
     assert summary['high_severity_paths'] == ['a.md']
     assert summary['manual_review_required_paths'] == ['a.md']
 

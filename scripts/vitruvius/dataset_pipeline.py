@@ -662,9 +662,11 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
 def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str, object]:
     counts = {"low": 0, "medium": 0, "high": 0}
     extraction_trust_counts = {"trusted": 0, "guarded": 0, "review_required": 0}
+    source_acceptance_counts = {"accepted": 0, "accepted_with_spot_review": 0, "manual_review_required": 0}
     representation_guardrail_counts = {"low": 0, "medium": 0, "high": 0}
     high_paths: list[str] = []
     manual_review_required_paths: list[str] = []
+    spot_review_required_paths: list[str] = []
     summary_auto_withheld_paths: list[str] = []
     high_severity_sources: list[dict[str, object]] = []
     manual_review_required_sources: list[dict[str, object]] = []
@@ -677,6 +679,14 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
             continue
         severity = quality.get("severity")
         extraction_trust_level = quality.get("extraction_trust_level")
+        source_acceptance_status = quality.get("source_acceptance_status")
+        if source_acceptance_status not in {"accepted", "accepted_with_spot_review", "manual_review_required"}:
+            if quality.get("manual_review_recommended"):
+                source_acceptance_status = "manual_review_required"
+            elif quality.get("spot_review_required"):
+                source_acceptance_status = "accepted_with_spot_review"
+            else:
+                source_acceptance_status = "accepted"
         representation_guardrail = quality.get("representation_guardrail")
         path = stage.get("normalized_refined_markdown_path") or quality.get("refined_markdown_path")
         raw_recommendations = quality.get("recommendations")
@@ -703,6 +713,8 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
                 high_severity_sources.append(stage_summary)
         if extraction_trust_level in extraction_trust_counts:
             extraction_trust_counts[extraction_trust_level] += 1
+        if source_acceptance_status in source_acceptance_counts:
+            source_acceptance_counts[source_acceptance_status] += 1
         if isinstance(representation_guardrail, dict):
             guardrail_severity = representation_guardrail.get("severity")
             if guardrail_severity in representation_guardrail_counts:
@@ -718,6 +730,8 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
         if quality.get("manual_review_recommended") and isinstance(path, str):
             manual_review_required_paths.append(path)
             manual_review_required_sources.append(stage_summary)
+        if quality.get("spot_review_required") and isinstance(path, str):
+            spot_review_required_paths.append(path)
         if quality.get("summary_auto_withheld") and isinstance(path, str):
             summary_auto_withheld_paths.append(path)
         for hint in quality.get("benchmark_source_hints", []):
@@ -728,11 +742,13 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
     return {
         "severity_counts": counts,
         "extraction_trust_counts": extraction_trust_counts,
+        "source_acceptance_counts": source_acceptance_counts,
         "representation_guardrail_counts": representation_guardrail_counts,
         "high_severity_paths": list(dict.fromkeys(high_paths)),
         "high_severity_sources": high_severity_sources,
         "manual_review_required_paths": list(dict.fromkeys(manual_review_required_paths)),
         "manual_review_required_sources": manual_review_required_sources,
+        "spot_review_required_paths": list(dict.fromkeys(spot_review_required_paths)),
         "summary_auto_withheld_paths": list(dict.fromkeys(summary_auto_withheld_paths)),
         "shallow_representation_paths": list(dict.fromkeys(shallow_representation_paths)),
         "shallow_representation_sources": shallow_representation_sources,
@@ -1117,6 +1133,7 @@ def run_dataset_source_to_graph_pipeline(
             "review_runtime": review_settings,
             "planned_stage_count": len(stage_results),
             "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
+            "spot_review_required_count": len(quality_summary["spot_review_required_paths"]),
             "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
             "shallow_representation_count": len(quality_summary["shallow_representation_paths"]),
             "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),
@@ -1202,6 +1219,7 @@ def run_dataset_source_to_graph_pipeline(
         "review_settings": review_settings,
         "review_runtime": review_settings,
         "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
+        "spot_review_required_count": len(quality_summary["spot_review_required_paths"]),
         "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
         "shallow_representation_count": len(quality_summary["shallow_representation_paths"]),
         "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),

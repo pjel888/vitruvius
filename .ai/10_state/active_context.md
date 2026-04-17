@@ -151,6 +151,18 @@
     - `filtered_relationship_count = 0`
     - `shallow_representation_count = 0`
     - `source_to_graph_execute_completed = true`
+- Risk-hardening follow-on:
+  - `python3 -m py_compile scripts/vitruvius/dataset_pipeline.py scripts/vitruvius/laws_readiness.py scripts/tests/test_dataset_source_to_graph_pipeline.py`
+  - **PASS**
+  - `python3 -m pytest scripts/tests/test_dataset_source_to_graph_pipeline.py scripts/tests/test_dataset_pipeline_cli.py -k 'source_to_graph or duplicate' -q`
+  - **16 passed**
+  - fresh tranche dry-run and execute now explicitly show:
+    - `duplicate_law_folders = [PD-957]`
+    - `raw_alias_law_folders = [PD-957]`
+    - `guardrail_law_folders = [PD-957]`
+    - `spot_review_required_count = 1`
+    - `summary_auto_withheld_count = 1`
+  - OCR-quality acceptance for `PD-1216` is now a spot-review path rather than a blind accept path
 
 ## Residual Graph Caveat
 
@@ -178,6 +190,7 @@
 - Latest PD-957 concept-fit validation: `/.ai/05_logs/2026-04-17_pd957-concept-fit-admission-validation.md`
 - Latest PD-1216 OCR-first validation: `/.ai/05_logs/2026-04-17_pd1216-ocr-first-preparation-validation.md`
 - Latest tranche source-to-graph execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-execute-validation.md`
+- Latest risk-hardening validation: `/.ai/05_logs/2026-04-17_laws-risk-hardening-execution-validation.md`
 
 ## Handoff Note
 
