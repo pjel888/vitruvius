@@ -205,6 +205,7 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - the bounded pilot now has a single-command operator lane (`run-laws-pilot` / `./run-laws-pilot`) plus self-contained browser HTML output; see `/.ai/05_logs/2026-04-17_laws-pilot-operator-experience-validation.md`
   - a post-pilot readiness-only expansion lane now exists: `run-laws-all-dry-run` plus `m2-8gb-safe` review preset; see `/.ai/05_logs/2026-04-17_all-laws-readiness-8gb-implementation-validation.md`
   - tranche-expansion implementation now exists as the next safe execution boundary: `laws-tranche-1.yaml`, `run-laws-tranche-dry-run`, and automated structure guardrails; see `/.ai/05_logs/2026-04-17_laws-tranche-expansion-implementation-validation.md`
+  - tranche source-preparation dry-run now exists for pre-conversion readiness: `run-laws-tranche-source-prep-dry-run`; see `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-dry-run-validation.md`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)

@@ -8,7 +8,10 @@ import yaml
 
 from .canonicalize import extract_section_headers
 from .config import get_ollama_default_model, get_ollama_default_parallelism, resolve_review_preset
+from .conversion import SUPPORTED_DIRECT_INPUT_EXTENSIONS
+from .detection import detect_pdf_type
 from .graph.dataset_manifest import DatasetManifestError, load_dataset_manifest, write_json_report
+from .paths import build_conversion_relative_paths
 from .utils import utc_now_stamp
 
 
@@ -76,6 +79,18 @@ def _default_tranche_report_path(repo_root: Path, tranche_id: str, run_id: str) 
         / tranche_id
         / run_id
         / "laws_tranche_dry_run_report.json"
+    )
+
+
+def _default_source_prep_report_path(repo_root: Path, tranche_id: str, run_id: str) -> Path:
+    return (
+        repo_root
+        / "006_System-Manifests"
+        / "runs"
+        / "datasets"
+        / tranche_id
+        / run_id
+        / "laws_tranche_source_prep_dry_run_report.json"
     )
 
 
@@ -195,6 +210,64 @@ def _build_folder_summary(
         "structural_header_count": structural_header_count,
         "structure_guardrails": guardrails,
         "next_step": next_step,
+    }
+
+
+def _refined_markdown_relative_path(markdown_relative_path: Path) -> Path:
+    parts = list(markdown_relative_path.parts)
+    if "raw_markdown" not in parts:
+        return markdown_relative_path
+    parts[parts.index("raw_markdown")] = "refined_markdown"
+    return Path(*parts)
+
+
+def _raw_file_preparation_summary(
+    *,
+    repo_root: Path,
+    file_path: Path,
+    sample_pages: int,
+) -> dict[str, Any]:
+    rel_repo = file_path.relative_to(repo_root).as_posix()
+    rel_raw = file_path.relative_to(repo_root / "001_Raw-Source-Layer").as_posix()
+    ext = file_path.suffix.lower()
+    supported = ext in SUPPORTED_DIRECT_INPUT_EXTENSIONS
+    detection: dict[str, Any] | None = None
+    detection_error: str | None = None
+    if ext == ".pdf":
+        try:
+            detection = detect_pdf_type(file_path, sample_pages=sample_pages)
+        except Exception as exc:  # noqa: BLE001
+            detection_error = str(exc)
+
+    markdown_rel: str | None = None
+    sidecar_rel: str | None = None
+    refined_rel: str | None = None
+    markdown_exists = False
+    sidecar_exists = False
+    refined_exists = False
+    if supported:
+        markdown_path_rel, json_path_rel = build_conversion_relative_paths(rel_raw)
+        refined_path_rel = _refined_markdown_relative_path(markdown_path_rel)
+        markdown_rel = (Path("002_Raw-Conversion-Layer") / markdown_path_rel).as_posix()
+        sidecar_rel = (Path("002_Raw-Conversion-Layer") / json_path_rel).as_posix()
+        refined_rel = (Path("002_Raw-Conversion-Layer") / refined_path_rel).as_posix()
+        markdown_exists = (repo_root / markdown_rel).exists()
+        sidecar_exists = (repo_root / sidecar_rel).exists()
+        refined_exists = (repo_root / refined_rel).exists()
+
+    return {
+        "raw_path": rel_repo,
+        "extension": ext,
+        "supported_direct_input": supported,
+        "detection_result": detection.get("result") if detection else None,
+        "recommended_route": detection.get("recommended_route") if detection else None,
+        "detection_error": detection_error,
+        "expected_raw_markdown_path": markdown_rel,
+        "expected_sidecar_json_path": sidecar_rel,
+        "expected_refined_markdown_path": refined_rel,
+        "raw_markdown_exists": markdown_exists,
+        "sidecar_json_exists": sidecar_exists,
+        "refined_markdown_exists": refined_exists,
     }
 
 
@@ -461,6 +534,80 @@ def run_laws_tranche_dry_run(
         "inventory_only_law_count": inventory_only_count,
         "missing_raw_source_count": missing_raw_source_count,
         "structure_guardrail_law_folders": guardrail_law_folders,
+        "report_path": _relative(report_path, repo_root),
+    }
+    print(json.dumps(summary, indent=2))
+    return 0
+
+
+def run_laws_tranche_source_prep_dry_run(
+    *,
+    tranche_manifest: str,
+    sample_pages: int = 5,
+    report_out: str | None = None,
+) -> int:
+    repo_root = Path.cwd().resolve()
+    tranche_payload, tranche_manifest_path, tranche_error = _load_tranche_manifest(repo_root, tranche_manifest)
+    if tranche_payload is None:
+        print(json.dumps({"error": tranche_error or "failed to load tranche manifest"}, indent=2))
+        return 2
+
+    run_id = utc_now_stamp().replace("-", "").replace(":", "").replace("+0000", "Z")
+    tranche_id = str(tranche_payload.get("tranche_id") or "laws-tranche")
+    raw_root = repo_root / _RAW_SOURCE_ROOT
+    if not raw_root.exists():
+        print(json.dumps({"error": f"missing laws raw root: {raw_root.relative_to(repo_root)}"}, indent=2))
+        return 2
+
+    folders_report: list[dict[str, Any]] = []
+    for item in tranche_payload["candidate_law_folders"]:
+        folder_name = item["folder_name"]
+        folder_root = raw_root / folder_name
+        files = sorted(path for path in folder_root.rglob("*") if path.is_file()) if folder_root.exists() else []
+        file_reports = [
+            _raw_file_preparation_summary(
+                repo_root=repo_root,
+                file_path=file_path,
+                sample_pages=sample_pages,
+            )
+            for file_path in files
+        ]
+        folders_report.append(
+            {
+                "folder_name": folder_name,
+                "candidate_reason": item.get("reason"),
+                "raw_root_present": folder_root.exists(),
+                "raw_file_count": len(files),
+                "supported_direct_input_count": sum(1 for report in file_reports if report["supported_direct_input"]),
+                "refined_markdown_ready_count": sum(1 for report in file_reports if report["refined_markdown_exists"]),
+                "file_reports": file_reports,
+            }
+        )
+
+    report_path = Path(report_out).resolve() if report_out else _default_source_prep_report_path(repo_root, tranche_id, run_id)
+    report = {
+        "action": "run-laws-tranche-source-prep-dry-run",
+        "generated_at_utc": utc_now_stamp(),
+        "run_id": run_id,
+        "dry_run": True,
+        "phase_11_gate": "gated",
+        "phase_11_generic_expansion_gated": True,
+        "tranche_id": tranche_id,
+        "tranche_manifest_path": _relative(tranche_manifest_path, repo_root),
+        "sample_pages": sample_pages,
+        "folders": folders_report,
+    }
+    write_json_report(report_path, report)
+    summary = {
+        "action": "run-laws-tranche-source-prep-dry-run",
+        "run_id": run_id,
+        "dry_run": True,
+        "phase_11_gate": "gated",
+        "tranche_id": tranche_id,
+        "candidate_law_folder_count": len(folders_report),
+        "raw_file_count": sum(folder["raw_file_count"] for folder in folders_report),
+        "supported_direct_input_count": sum(folder["supported_direct_input_count"] for folder in folders_report),
+        "refined_markdown_ready_count": sum(folder["refined_markdown_ready_count"] for folder in folders_report),
         "report_path": _relative(report_path, repo_root),
     }
     print(json.dumps(summary, indent=2))

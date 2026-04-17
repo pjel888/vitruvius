@@ -204,6 +204,16 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         next_step="Use the tranche dry-run report to tighten tranche manifests, source admission, and section-hierarchy guardrails while keeping generic Phase 11 expansion gated.",
         operator_safe=False,
     ),
+    "run-laws-tranche-source-prep-dry-run": _doc(
+        "run-laws-tranche-source-prep-dry-run",
+        "Inventory tranche raw inputs and planned convert/refine work before tranche execution.",
+        human="This is the next safe step after tranche readiness. It inspects the raw files inside a tranche, reports what direct-input files exist, runs lightweight PDF route detection, and shows whether raw-markdown/sidecar/refined outputs already exist.",
+        technical="Loads a tranche manifest, walks raw files under each candidate law folder, samples PDFs with the existing detection heuristic, and writes a source-preparation report without mutating the raw or conversion layers.",
+        success="A healthy result writes a tranche source-preparation report that makes it obvious what still needs conversion/refinement before source admission or source-to-graph work.",
+        failure="The tranche manifest was invalid or the raw tranche files could not be inventoried safely, so tranche source preparation is still unclear.",
+        next_step="Use the source-preparation report to run tranche-only conversion/refinement and then rerun tranche dry-run with real produced-data inventory.",
+        operator_safe=False,
+    ),
     "detect-one": _doc(
         "detect-one",
         "Classify one PDF as text-usable or scan-like before conversion.",

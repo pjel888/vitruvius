@@ -47,6 +47,14 @@
   - **10 passed**
   - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml --review-preset m2-8gb-safe` passes
   - all-laws readiness now reports `structure_guardrail_law_folders = [BP-220, BP-344, RA-9514]`
+- Tranche source-preparation slice:
+  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -q`
+  - **11 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-prep-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml` passes
+  - current tranche-1 evidence:
+    - `raw_file_count = 6`
+    - `supported_direct_input_count = 6`
+    - `refined_markdown_ready_count = 0`
 
 ## Residual Graph Caveat
 
@@ -65,6 +73,7 @@
 - Latest bounded-laws operator validation: `/.ai/05_logs/2026-04-17_laws-pilot-operator-experience-validation.md`
 - Latest all-laws readiness validation: `/.ai/05_logs/2026-04-17_all-laws-readiness-8gb-implementation-validation.md`
 - Latest tranche-expansion validation: `/.ai/05_logs/2026-04-17_laws-tranche-expansion-implementation-validation.md`
+- Latest tranche source-preparation validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-dry-run-validation.md`
 
 ## Handoff Note
 

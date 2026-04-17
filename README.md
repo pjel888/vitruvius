@@ -1279,6 +1279,23 @@ This command:
   section structure but weak concept / relationship admission)
 - stays dry-run only; no review, promotion, graph build, or browser output
 
+### Tranche source-preparation dry-run
+
+Before running a tranche through source→graph, inspect whether the tranche even
+has produced-data readiness yet:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-prep-dry-run \
+  --tranche-manifest config/datasets/laws-tranche-1.yaml
+```
+
+This command:
+- inventories raw files for the tranche only
+- applies lightweight PDF route detection to the tranche PDFs
+- reports expected raw-markdown / sidecar / refined paths
+- shows which tranche files already have produced-data outputs vs which still need conversion/refinement
+- stays dry-run only and does not mutate the raw layer
+
 ### Progress / developer experience
 
 When you run the command in an interactive terminal, it emits phase/progress

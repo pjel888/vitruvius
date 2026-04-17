@@ -289,6 +289,11 @@ def build_parser() -> argparse.ArgumentParser:
                                         help="Optional review parallelism override for tranche planning")
     tranche_dry_run_parser.add_argument("--review-preset", default=None,
                                         help="Optional review preset (for example: m2-8gb-safe)")
+    tranche_source_prep_parser = add_command_parser(subparsers, "run-laws-tranche-source-prep-dry-run")
+    tranche_source_prep_parser.add_argument("--tranche-manifest", default="config/datasets/laws-tranche-1.yaml",
+                                            help="Tranche manifest whose raw inputs should be inventoried for source preparation")
+    tranche_source_prep_parser.add_argument("--sample-pages", type=int, default=5,
+                                            help="Sample pages for per-PDF detection planning (default: 5)")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -793,6 +798,16 @@ def main() -> int:
                 pilot_manifest="config/datasets/laws-core-bundle-m1.yaml",
                 review_model=args.review_model,
                 review_model_preset=args.review_preset,
+            ),
+        )
+
+    if args.command == "run-laws-tranche-source-prep-dry-run":
+        from vitruvius.laws_readiness import run_laws_tranche_source_prep_dry_run
+        return _run(
+            "run-laws-tranche-source-prep-dry-run",
+            lambda: run_laws_tranche_source_prep_dry_run(
+                tranche_manifest=args.tranche_manifest,
+                sample_pages=args.sample_pages,
             ),
         )
 

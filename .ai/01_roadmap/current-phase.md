@@ -81,6 +81,10 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - `run-laws-tranche-dry-run`
     - structure-vs-concept guardrails now surface BP220-style shallowness automatically in readiness reporting
     - see `/.ai/05_logs/2026-04-17_laws-tranche-expansion-implementation-validation.md`
+  - tranche source-preparation follow-on is now in place:
+    - `run-laws-tranche-source-prep-dry-run`
+    - tranche raw-file inventory and expected convert/refine output reporting
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-dry-run-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

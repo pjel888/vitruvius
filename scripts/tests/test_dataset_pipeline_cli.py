@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 
 import yaml
+from pypdf import PdfWriter
 
 CLI = Path(__file__).resolve().parent.parent / 'pipeline_cli.py'
 
@@ -51,6 +52,14 @@ def _seed_refined_with_headers(root: Path, folder_name: str, stem: str, header_c
         root / '002_Raw-Conversion-Layer' / '001-Laws' / 'refined_markdown' / folder_name / f'{stem}.md',
         "\n".join(lines) + "\n",
     )
+
+
+def _write_valid_pdf(path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    writer = PdfWriter()
+    writer.add_blank_page(width=72, height=72)
+    with path.open('wb') as fp:
+        writer.write(fp)
 
 
 def _seed_repo(root: Path) -> Path:
@@ -429,3 +438,47 @@ def test_run_laws_tranche_dry_run_reports_candidate_inventory_and_guardrails(tmp
     assert 'PD-1096' in payload['structure_guardrail_law_folders']
     report_path = tmp_path / payload['report_path']
     assert report_path.exists()
+
+
+def test_run_laws_tranche_source_prep_dry_run_reports_expected_outputs(tmp_path: Path) -> None:
+    _seed_repo(tmp_path)
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-1.yaml'
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-1',
+                'candidate_law_folders': [
+                    {'folder_name': 'PD-957', 'reason': 'housing adjacency'},
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    pdf_path = tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'pd957.pdf'
+    _write_valid_pdf(pdf_path)
+
+    result = _run_cli(
+        [
+            'run-laws-tranche-source-prep-dry-run',
+            '--tranche-manifest', str(tranche_manifest),
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['action'] == 'run-laws-tranche-source-prep-dry-run'
+    assert payload['candidate_law_folder_count'] == 1
+    assert payload['raw_file_count'] == 1
+    assert payload['supported_direct_input_count'] == 1
+    report_path = tmp_path / payload['report_path']
+    report = json.loads(report_path.read_text(encoding='utf-8'))
+    folder = report['folders'][0]
+    assert folder['folder_name'] == 'PD-957'
+    assert folder['raw_file_count'] == 1
+    file_report = folder['file_reports'][0]
+    assert file_report['raw_path'].endswith('PD-957/pd957.pdf')
+    assert file_report['supported_direct_input'] is True
+    assert file_report['expected_raw_markdown_path'].endswith('002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/pd957.md')
+    assert file_report['expected_sidecar_json_path'].endswith('002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/pd957.json')
+    assert file_report['expected_refined_markdown_path'].endswith('002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/pd957.md')
