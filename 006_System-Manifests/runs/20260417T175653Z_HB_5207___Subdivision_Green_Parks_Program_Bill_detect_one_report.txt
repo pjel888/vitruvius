@@ -1,0 +1,18 @@
+Vitruvius PDF Detection Report
+
+PDF: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/HB-5207/HB 5207 - Subdivision Green Parks Program Bill.pdf
+Total pages: 6
+Pages sampled: 5
+
+PAGE DETAILS:
+  Page 1: 1334 extracted characters
+  Page 2: 1937 extracted characters
+  Page 3: 1961 extracted characters
+  Page 4: 1840 extracted characters
+  Page 5: 1973 extracted characters
+
+Pages with usable text: 5/5
+Total extracted characters: 9045
+
+RESULT: TEXT_PDF
+RECOMMENDED ROUTE: OPENDATALOADER_DIRECT

@@ -53,6 +53,14 @@
 - `SB-2982` — bill only
 - `BERDE` — rating/user-guide surface rather than primary law
 
+## Final disposition status
+- `RA-11361` — defer: draft IRR for comments, not final authoritative issuance
+- `RA-7920` — defer: empty folder
+- `HB-3391` — defer: bill only
+- `HB-5207` — defer: bill only
+- `SB-2982` — defer: bill only
+- `BERDE` — defer: user-guide / standards-support surface, not primary law or government regulation
+
 ## Realistic remaining workload
 - normal future tranches likely needed: **2–4**
 - remediation/defer lanes likely needed: **2–4**

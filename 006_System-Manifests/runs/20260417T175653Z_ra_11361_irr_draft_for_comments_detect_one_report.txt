@@ -1,0 +1,18 @@
+Vitruvius PDF Detection Report
+
+PDF: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/RA-11361/ra_11361_irr_draft_for_comments.pdf
+Total pages: 39
+Pages sampled: 5
+
+PAGE DETAILS:
+  Page 1: 2988 extracted characters
+  Page 2: 2373 extracted characters
+  Page 3: 2854 extracted characters
+  Page 4: 2996 extracted characters
+  Page 5: 2800 extracted characters
+
+Pages with usable text: 5/5
+Total extracted characters: 14011
+
+RESULT: TEXT_PDF
+RECOMMENDED ROUTE: OPENDATALOADER_DIRECT

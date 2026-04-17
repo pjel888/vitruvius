@@ -1,0 +1,23 @@
+{
+  "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/SB-2982/SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago).pdf",
+  "total_pages": 3,
+  "pages_sampled": 3,
+  "pages_with_usable_text": 3,
+  "total_extracted_characters": 4205,
+  "page_details": [
+    {
+      "page_number": 1,
+      "extracted_characters": 1478
+    },
+    {
+      "page_number": 2,
+      "extracted_characters": 1779
+    },
+    {
+      "page_number": 3,
+      "extracted_characters": 948
+    }
+  ],
+  "result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT"
+}

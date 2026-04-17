@@ -508,6 +508,10 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - tranche-12 now stages `DHSUD` guidance surfaces while preserving the legacy combined `HLURB-DHSUD` raw folder as a storage/container reality
     - the currently staged guidance files are explicitly DHSUD-branded 2025 publications
     - see `/.ai/05_logs/2026-04-18_hlurb-dhsud-agency-split-validation.md`
+  - final remaining-pool disposition is now explicit:
+    - no stronger normal tranche remains in the uncovered pool
+    - remaining uncovered folders are now classified as defer/final-disposition because they are draft bills, a draft IRR, an empty folder, or a user-guide / standards-support surface
+    - see `/.ai/05_logs/2026-04-18_remaining-pool-final-disposition-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
