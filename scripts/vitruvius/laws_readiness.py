@@ -8,7 +8,8 @@ from contextlib import redirect_stdout
 
 import yaml
 
-from .canonicalize import extract_section_headers
+from .canonicalize import build_plan, extract_section_headers, slugify
+from .canonicalize import build_plan, slugify
 from .config import get_ollama_default_model, get_ollama_default_parallelism, resolve_review_preset
 from .constants import RAW_LAYER_NAME
 from .conversion import SUPPORTED_DIRECT_INPUT_EXTENSIONS, run_convert_one
@@ -107,6 +108,30 @@ def _default_source_prep_execute_report_path(repo_root: Path, tranche_id: str, r
         / tranche_id
         / run_id
         / "laws_tranche_source_prep_report.json"
+    )
+
+
+def _default_source_admission_report_path(repo_root: Path, tranche_id: str, run_id: str) -> Path:
+    return (
+        repo_root
+        / "006_System-Manifests"
+        / "runs"
+        / "datasets"
+        / tranche_id
+        / run_id
+        / "laws_tranche_source_admission_dry_run_report.json"
+    )
+
+
+def _default_source_admission_report_path(repo_root: Path, tranche_id: str, run_id: str) -> Path:
+    return (
+        repo_root
+        / "006_System-Manifests"
+        / "runs"
+        / "datasets"
+        / tranche_id
+        / run_id
+        / "laws_tranche_source_admission_dry_run_report.json"
     )
 
 
@@ -367,6 +392,206 @@ def _prepare_raw_file(
         "convert_output": convert_output.strip(),
         "refine_output": refine_output.strip(),
     }
+
+
+def _resolve_source_prep_report_path(
+    *,
+    repo_root: Path,
+    tranche_id: str,
+    source_prep_report: str | None,
+) -> tuple[Path | None, str | None]:
+    if source_prep_report:
+        report_path = Path(source_prep_report)
+        if not report_path.is_absolute():
+            report_path = repo_root / report_path
+        if not report_path.exists():
+            return None, f"source prep report not found: {_relative(report_path, repo_root)}"
+        return report_path, None
+
+    base = repo_root / "006_System-Manifests" / "runs" / "datasets" / tranche_id
+    candidates = sorted(base.glob("*/laws_tranche_source_prep_report.json"))
+    if not candidates:
+        return None, (
+            f"no source prep execute reports found under {_relative(base, repo_root)}; "
+            "run run-laws-tranche-source-prep first or pass --source-prep-report"
+        )
+    return candidates[-1], None
+
+
+def _load_source_prep_report(
+    *,
+    repo_root: Path,
+    tranche_id: str,
+    source_prep_report: str | None,
+) -> tuple[dict[str, Any] | None, Path | None, str | None]:
+    report_path, path_error = _resolve_source_prep_report_path(
+        repo_root=repo_root,
+        tranche_id=tranche_id,
+        source_prep_report=source_prep_report,
+    )
+    if report_path is None:
+        return None, None, path_error
+    try:
+        payload = json.loads(report_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return None, report_path, str(exc)
+    if not isinstance(payload, dict):
+        return None, report_path, "source prep report must be a JSON object"
+    if payload.get("action") != "run-laws-tranche-source-prep":
+        return None, report_path, "source prep report must come from run-laws-tranche-source-prep"
+    if str(payload.get("tranche_id") or "") != tranche_id:
+        return None, report_path, (
+            f"source prep report tranche_id mismatch: expected {tranche_id!r}, "
+            f"got {payload.get('tranche_id')!r}"
+        )
+    folders = payload.get("folders")
+    if not isinstance(folders, list):
+        return None, report_path, "source prep report requires a folders list"
+    return payload, report_path, None
+
+
+def _candidate_source_page_plan(*, repo_root: Path, refined_markdown_path: str) -> dict[str, Any]:
+    rel = refined_markdown_path
+    prefix = "002_Raw-Conversion-Layer/"
+    if rel.startswith(prefix):
+        rel = rel[len(prefix):]
+    plan = build_plan(rel)
+    canonical_source_path = (
+        Path("003_Canonical-Knowledge-Layer")
+        / "shared"
+        / "sources"
+        / f"{slugify(plan['title'])}.md"
+    )
+    return {
+        "refined_markdown_path": refined_markdown_path,
+        "canonical_title": plan["title"],
+        "canonical_id": plan["canonical_id"],
+        "canonical_source_path": canonical_source_path.as_posix(),
+        "canonical_source_exists": (repo_root / canonical_source_path).exists(),
+        "trust_level": plan["trust"],
+        "aliases": list(plan["aliases"]),
+    }
+
+
+def _admission_status_for_folder(
+    *,
+    candidate_source_pages: list[dict[str, Any]],
+    blocked_file_reports: list[dict[str, Any]],
+    failed_file_reports: list[dict[str, Any]],
+) -> str:
+    if candidate_source_pages and blocked_file_reports:
+        return "partial_ready_blocked"
+    if candidate_source_pages and failed_file_reports:
+        return "partial_ready_failed"
+    if candidate_source_pages:
+        return "ready_for_admission_review"
+    if blocked_file_reports:
+        return "blocked_pending_ocr"
+    if failed_file_reports:
+        return "blocked_preparation_failed"
+    return "not_ready"
+
+
+def _resolve_source_prep_report_path(
+    *,
+    repo_root: Path,
+    tranche_id: str,
+    source_prep_report: str | None,
+) -> tuple[Path | None, str | None]:
+    if source_prep_report:
+        report_path = Path(source_prep_report)
+        if not report_path.is_absolute():
+            report_path = repo_root / report_path
+        if not report_path.exists():
+            return None, f"source prep report not found: {_relative(report_path, repo_root)}"
+        return report_path, None
+
+    base = repo_root / "006_System-Manifests" / "runs" / "datasets" / tranche_id
+    candidates = sorted(base.glob("*/laws_tranche_source_prep_report.json"))
+    if not candidates:
+        return None, (
+            f"no source prep execute reports found under {_relative(base, repo_root)}; "
+            "run run-laws-tranche-source-prep first or pass --source-prep-report"
+        )
+    return candidates[-1], None
+
+
+def _load_source_prep_report(
+    *,
+    repo_root: Path,
+    tranche_id: str,
+    source_prep_report: str | None,
+) -> tuple[dict[str, Any] | None, Path | None, str | None]:
+    report_path, path_error = _resolve_source_prep_report_path(
+        repo_root=repo_root,
+        tranche_id=tranche_id,
+        source_prep_report=source_prep_report,
+    )
+    if report_path is None:
+        return None, None, path_error
+    try:
+        payload = json.loads(report_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return None, report_path, str(exc)
+    if not isinstance(payload, dict):
+        return None, report_path, "source prep report must be a JSON object"
+    if payload.get("action") != "run-laws-tranche-source-prep":
+        return None, report_path, "source prep report must come from run-laws-tranche-source-prep"
+    if str(payload.get("tranche_id") or "") != tranche_id:
+        return None, report_path, (
+            f"source prep report tranche_id mismatch: expected {tranche_id!r}, "
+            f"got {payload.get('tranche_id')!r}"
+        )
+    folders = payload.get("folders")
+    if not isinstance(folders, list):
+        return None, report_path, "source prep report requires a folders list"
+    return payload, report_path, None
+
+
+def _candidate_source_page_plan(
+    *,
+    repo_root: Path,
+    refined_markdown_path: str,
+) -> dict[str, Any]:
+    plan = build_plan(refined_markdown_path)
+    canonical_relative_path = (
+        Path("003_Canonical-Knowledge-Layer")
+        / "shared"
+        / "sources"
+        / f"{slugify(plan['title'])}.md"
+    ).as_posix()
+    return {
+        "refined_markdown_path": refined_markdown_path,
+        "canonical_title": plan["title"],
+        "canonical_id": plan["canonical_id"],
+        "canonical_prefix": plan["prefix"],
+        "canonical_source_type": plan["source_type"],
+        "trust_level": plan["trust"],
+        "canonical_source_path": canonical_relative_path,
+        "canonical_source_exists": (repo_root / canonical_relative_path).exists(),
+        "aliases": list(plan["aliases"]),
+        "concepts": list(plan["concepts"]),
+        "relationships": list(plan["relationships"]),
+    }
+
+
+def _admission_status_for_folder(
+    *,
+    candidate_source_pages: list[dict[str, Any]],
+    blocked_file_reports: list[dict[str, Any]],
+    failed_file_reports: list[dict[str, Any]],
+) -> str:
+    if candidate_source_pages and blocked_file_reports:
+        return "partial_ready_blocked"
+    if candidate_source_pages and failed_file_reports:
+        return "partial_ready_failed"
+    if candidate_source_pages:
+        return "ready_for_admission_review"
+    if blocked_file_reports:
+        return "blocked_pending_ocr"
+    if failed_file_reports:
+        return "blocked_preparation_failed"
+    return "not_ready"
 
 
 def run_all_laws_dry_run(
@@ -797,3 +1022,303 @@ def run_laws_tranche_source_prep(
     }
     print(json.dumps(summary, indent=2))
     return 0 if failed_count == 0 else 1
+
+
+def run_laws_tranche_source_admission_dry_run(
+    *,
+    tranche_manifest: str,
+    source_prep_report: str | None = None,
+) -> int:
+    repo_root = Path.cwd().resolve()
+    tranche_payload, tranche_manifest_path, tranche_error = _load_tranche_manifest(repo_root, tranche_manifest)
+    if tranche_payload is None:
+        print(json.dumps({"error": tranche_error or "failed to load tranche manifest"}, indent=2))
+        return 2
+
+    run_id = utc_now_stamp().replace("-", "").replace(":", "").replace("+0000", "Z")
+    tranche_id = str(tranche_payload.get("tranche_id") or "laws-tranche")
+    source_prep_payload, source_prep_report_path, source_prep_error = _load_source_prep_report(
+        repo_root=repo_root,
+        tranche_id=tranche_id,
+        source_prep_report=source_prep_report,
+    )
+    if source_prep_payload is None or source_prep_report_path is None:
+        print(json.dumps({"error": source_prep_error or "failed to load source prep report"}, indent=2))
+        return 2
+
+    folders_by_name: dict[str, dict[str, Any]] = {}
+    for folder in source_prep_payload.get("folders", []):
+        if isinstance(folder, dict):
+            folders_by_name[str(folder.get("folder_name") or "")] = folder
+
+    folder_reports: list[dict[str, Any]] = []
+    ready_law_folders: list[str] = []
+    mixed_law_folders: list[str] = []
+    blocked_law_folders: list[str] = []
+    blocked_source_to_graph_reasons = [
+        "tranche source-to-graph execute remains gated until source admission is explicitly completed for ready tranche members"
+    ]
+
+    for item in tranche_payload["candidate_law_folders"]:
+        folder_name = item["folder_name"]
+        source_prep_folder = folders_by_name.get(folder_name) or {}
+        file_reports = source_prep_folder.get("file_reports")
+        if not isinstance(file_reports, list):
+            file_reports = []
+        prepared_files = [r for r in file_reports if isinstance(r, dict) and r.get("status") == "prepared"]
+        blocked_files = [r for r in file_reports if isinstance(r, dict) and r.get("status") == "ocr_required"]
+        failed_files = [r for r in file_reports if isinstance(r, dict) and r.get("status") in {"convert_failed", "refine_failed", "detection_failed"}]
+
+        candidate_source_pages = []
+        for report in prepared_files:
+            refined_path = report.get("expected_refined_markdown_path")
+            if not isinstance(refined_path, str) or not refined_path.strip():
+                continue
+            candidate_source_pages.append(
+                _candidate_source_page_plan(
+                    repo_root=repo_root,
+                    refined_markdown_path=refined_path,
+                )
+            )
+
+        status = _admission_status_for_folder(
+            candidate_source_pages=candidate_source_pages,
+            blocked_file_reports=blocked_files,
+            failed_file_reports=failed_files,
+        )
+        if status == "ready_for_admission_review":
+            ready_law_folders.append(folder_name)
+        elif status in {"partial_ready_blocked", "partial_ready_failed"}:
+            mixed_law_folders.append(folder_name)
+            blocked_source_to_graph_reasons.append(
+                f"{folder_name} has a mixed readiness state; blocked and ready files must stay explicit before execution"
+            )
+        else:
+            blocked_law_folders.append(folder_name)
+            if blocked_files:
+                blocked_source_to_graph_reasons.append(
+                    f"{folder_name} remains blocked pending OCR-first processing"
+                )
+            if failed_files:
+                blocked_source_to_graph_reasons.append(
+                    f"{folder_name} has failed source-preparation files"
+                )
+
+        folder_reports.append(
+            {
+                "folder_name": folder_name,
+                "candidate_reason": item.get("reason"),
+                "source_admission_state": status,
+                "candidate_source_page_count": len(candidate_source_pages),
+                "candidate_source_pages": candidate_source_pages,
+                "blocked_file_reports": blocked_files,
+                "failed_file_reports": failed_files,
+                "source_prep_report_summary": {
+                    "prepared_count": source_prep_folder.get("prepared_count", 0),
+                    "ocr_required_count": source_prep_folder.get("ocr_required_count", 0),
+                    "failed_count": source_prep_folder.get("failed_count", 0),
+                },
+            }
+        )
+
+    report_path = _default_source_admission_report_path(repo_root, tranche_id, run_id)
+    report = {
+        "action": "run-laws-tranche-source-admission-dry-run",
+        "generated_at_utc": utc_now_stamp(),
+        "run_id": run_id,
+        "dry_run": True,
+        "phase_11_gate": "gated",
+        "phase_11_generic_expansion_gated": True,
+        "tranche_id": tranche_id,
+        "tranche_manifest_path": _relative(tranche_manifest_path, repo_root),
+        "source_prep_report_path": _relative(source_prep_report_path, repo_root),
+        "source_prep_run_id": source_prep_payload.get("run_id"),
+        "admission_review_ready_law_folders": ready_law_folders,
+        "mixed_readiness_law_folders": mixed_law_folders,
+        "blocked_law_folders": blocked_law_folders,
+        "candidate_source_page_count": sum(folder["candidate_source_page_count"] for folder in folder_reports),
+        "source_to_graph_execute_ready": False,
+        "source_to_graph_execute_blockers": blocked_source_to_graph_reasons,
+        "laws": folder_reports,
+    }
+    write_json_report(report_path, report)
+    summary = {
+        "action": "run-laws-tranche-source-admission-dry-run",
+        "run_id": run_id,
+        "dry_run": True,
+        "phase_11_gate": "gated",
+        "phase_11_generic_expansion_gated": True,
+        "tranche_id": tranche_id,
+        "admission_review_ready_law_folders": ready_law_folders,
+        "mixed_readiness_law_folders": mixed_law_folders,
+        "blocked_law_folders": blocked_law_folders,
+        "candidate_source_page_count": sum(folder["candidate_source_page_count"] for folder in folder_reports),
+        "source_to_graph_execute_ready": False,
+        "source_prep_report_path": _relative(source_prep_report_path, repo_root),
+        "report_path": _relative(report_path, repo_root),
+    }
+    print(json.dumps(summary, indent=2))
+    return 0
+
+
+def run_laws_tranche_source_admission_dry_run(
+    *,
+    tranche_manifest: str,
+    source_prep_report: str | None = None,
+    report_out: str | None = None,
+) -> int:
+    repo_root = Path.cwd().resolve()
+    tranche_payload, tranche_manifest_path, tranche_error = _load_tranche_manifest(repo_root, tranche_manifest)
+    if tranche_payload is None:
+        print(json.dumps({"error": tranche_error or "failed to load tranche manifest"}, indent=2))
+        return 2
+
+    run_id = utc_now_stamp().replace("-", "").replace(":", "").replace("+0000", "Z")
+    tranche_id = str(tranche_payload.get("tranche_id") or "laws-tranche")
+    source_prep_payload, source_prep_report_path, source_prep_error = _load_source_prep_report(
+        repo_root=repo_root,
+        tranche_id=tranche_id,
+        source_prep_report=source_prep_report,
+    )
+    if source_prep_payload is None or source_prep_report_path is None:
+        print(json.dumps({"error": source_prep_error or "failed to load source prep report"}, indent=2))
+        return 2
+
+    folders_by_name: dict[str, dict[str, Any]] = {}
+    for folder in source_prep_payload.get("folders", []):
+        if isinstance(folder, dict):
+            folders_by_name[str(folder.get("folder_name") or "")] = folder
+
+    folder_reports: list[dict[str, Any]] = []
+    ready_law_folders: list[str] = []
+    blocked_law_folders: list[str] = []
+    mixed_law_folders: list[str] = []
+    blocked_source_to_graph_reasons: list[str] = [
+        "tranche source-to-graph execute remains gated until source admission is explicitly executed for ready tranche members",
+    ]
+    if int(source_prep_payload.get("ocr_required_count") or 0) > 0:
+        blocked_source_to_graph_reasons.append(
+            "one or more tranche members remain OCR-blocked and must stay explicit in the tranche state"
+        )
+
+    for item in tranche_payload["candidate_law_folders"]:
+        folder_name = item["folder_name"]
+        source_prep_folder = folders_by_name.get(folder_name) or {}
+        file_reports = source_prep_folder.get("file_reports")
+        if not isinstance(file_reports, list):
+            file_reports = []
+        prepared_files = [
+            report for report in file_reports
+            if isinstance(report, dict) and report.get("status") == "prepared"
+        ]
+        blocked_files = [
+            report for report in file_reports
+            if isinstance(report, dict) and report.get("status") == "ocr_required"
+        ]
+        failed_files = [
+            report for report in file_reports
+            if isinstance(report, dict) and report.get("status") in {"convert_failed", "refine_failed", "detection_failed"}
+        ]
+
+        candidate_source_pages: list[dict[str, Any]] = []
+        for report in prepared_files:
+            refined_path = report.get("expected_refined_markdown_path")
+            if not isinstance(refined_path, str) or not refined_path.strip():
+                continue
+            candidate_source_pages.append(
+                _candidate_source_page_plan(
+                    repo_root=repo_root,
+                    refined_markdown_path=refined_path,
+                )
+            )
+
+        status = _admission_status_for_folder(
+            candidate_source_pages=candidate_source_pages,
+            blocked_file_reports=blocked_files,
+            failed_file_reports=failed_files,
+        )
+        if status == "ready_for_admission_review":
+            ready_law_folders.append(folder_name)
+        elif status in {"partial_ready_blocked", "partial_ready_failed"}:
+            mixed_law_folders.append(folder_name)
+        else:
+            blocked_law_folders.append(folder_name)
+
+        next_step: str
+        if status == "ready_for_admission_review":
+            next_step = (
+                "Review these refined outputs and explicitly admit the candidate canonical source pages before any "
+                "tranche source-to-graph execution."
+            )
+        elif status == "partial_ready_blocked":
+            next_step = (
+                "Admit only the prepared source pages now, keep the OCR-blocked files explicit, and do not treat "
+                "this law family as uniformly ready yet."
+            )
+        elif status == "partial_ready_failed":
+            next_step = (
+                "Review the prepared source pages separately, but fix failed preparation outputs before claiming "
+                "truthful admission coverage for this law family."
+            )
+        elif status == "blocked_pending_ocr":
+            next_step = "Keep this law family blocked until OCR-first preparation produces refined outputs for admission review."
+        elif status == "blocked_preparation_failed":
+            next_step = "Fix preparation failures before building or admitting canonical source pages for this law family."
+        else:
+            next_step = "No candidate source pages are ready yet; re-run bounded tranche preparation only after the inputs are fixed."
+
+        folder_reports.append(
+            {
+                "folder_name": folder_name,
+                "candidate_reason": item.get("reason"),
+                "status": status,
+                "raw_file_count": int(source_prep_folder.get("raw_file_count") or 0),
+                "prepared_count": len(prepared_files),
+                "ocr_required_count": len(blocked_files),
+                "failed_count": len(failed_files),
+                "candidate_source_page_count": len(candidate_source_pages),
+                "candidate_source_pages": candidate_source_pages,
+                "blocked_file_reports": blocked_files,
+                "failed_file_reports": failed_files,
+                "next_step": next_step,
+            }
+        )
+
+    report_path = Path(report_out).resolve() if report_out else _default_source_admission_report_path(repo_root, tranche_id, run_id)
+    report = {
+        "action": "run-laws-tranche-source-admission-dry-run",
+        "generated_at_utc": utc_now_stamp(),
+        "run_id": run_id,
+        "dry_run": True,
+        "phase_11_gate": "gated",
+        "phase_11_generic_expansion_gated": True,
+        "tranche_id": tranche_id,
+        "tranche_manifest_path": _relative(tranche_manifest_path, repo_root),
+        "source_prep_report_path": _relative(source_prep_report_path, repo_root),
+        "source_prep_run_id": source_prep_payload.get("run_id"),
+        "admission_review_ready_law_folders": ready_law_folders,
+        "mixed_readiness_law_folders": mixed_law_folders,
+        "blocked_law_folders": blocked_law_folders,
+        "candidate_source_page_count": sum(folder["candidate_source_page_count"] for folder in folder_reports),
+        "source_to_graph_execute_ready": False,
+        "source_to_graph_execute_blockers": blocked_source_to_graph_reasons,
+        "laws": folder_reports,
+    }
+    write_json_report(report_path, report)
+    summary = {
+        "action": "run-laws-tranche-source-admission-dry-run",
+        "run_id": run_id,
+        "dry_run": True,
+        "phase_11_gate": "gated",
+        "phase_11_generic_expansion_gated": True,
+        "tranche_id": tranche_id,
+        "admission_review_ready_law_folders": ready_law_folders,
+        "mixed_readiness_law_folders": mixed_law_folders,
+        "blocked_law_folders": blocked_law_folders,
+        "candidate_source_page_count": sum(folder["candidate_source_page_count"] for folder in folder_reports),
+        "source_to_graph_execute_ready": False,
+        "source_prep_report_path": _relative(source_prep_report_path, repo_root),
+        "report_path": _relative(report_path, repo_root),
+    }
+    print(json.dumps(summary, indent=2))
+    return 0

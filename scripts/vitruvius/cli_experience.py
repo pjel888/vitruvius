@@ -224,6 +224,16 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         next_step="Inspect the tranche source-preparation report, resolve OCR-required or failed files, and then rerun tranche dry-run/source-to-graph once produced-data readiness is acceptable.",
         operator_safe=False,
     ),
+    "run-laws-tranche-source-admission-dry-run": _doc(
+        "run-laws-tranche-source-admission-dry-run",
+        "Classify tranche prepared outputs into ready-vs-blocked source admission state without writing canonical pages.",
+        human="This is the truthful checkpoint after tranche source preparation. It inspects the latest tranche preparation report, shows which laws are ready for canonical source admission review now, keeps OCR-blocked laws explicit, and refuses to imply that source-to-graph execution is ready yet.",
+        technical="Loads a tranche manifest plus a tranche source-prep execute report, builds canonicalization plans for prepared refined markdown outputs, groups each law family into ready/mixed/blocked admission status, and writes a tranche-local admission dry-run report.",
+        success="A healthy result writes a bounded source-admission report with candidate canonical source pages for ready laws and explicit blocked-state retention for OCR-required tranche members.",
+        failure="The tranche manifest or source-prep report could not be resolved truthfully, so tranche source admission state remains unknown and source-to-graph must stay gated.",
+        next_step="Use the admission report to review/admit the ready canonical source pages, keep blocked members explicit, and only then revisit tranche source-to-graph execution.",
+        operator_safe=False,
+    ),
     "detect-one": _doc(
         "detect-one",
         "Classify one PDF as text-usable or scan-like before conversion.",

@@ -54,6 +54,38 @@ def _seed_refined_with_headers(root: Path, folder_name: str, stem: str, header_c
     )
 
 
+def _write_source_prep_report(root: Path, tranche_id: str, run_id: str, folders: list[dict]) -> Path:
+    report_path = (
+        root
+        / '006_System-Manifests'
+        / 'runs'
+        / 'datasets'
+        / tranche_id
+        / run_id
+        / 'laws_tranche_source_prep_report.json'
+    )
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(
+        json.dumps(
+            {
+                'action': 'run-laws-tranche-source-prep',
+                'run_id': run_id,
+                'execute': True,
+                'phase_11_gate': 'gated',
+                'phase_11_generic_expansion_gated': True,
+                'tranche_id': tranche_id,
+                'prepared_count': sum(folder.get('prepared_count', 0) for folder in folders),
+                'ocr_required_count': sum(folder.get('ocr_required_count', 0) for folder in folders),
+                'failed_count': sum(folder.get('failed_count', 0) for folder in folders),
+                'folders': folders,
+            },
+            indent=2,
+        ),
+        encoding='utf-8',
+    )
+    return report_path
+
+
 def _write_valid_pdf(path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     writer = PdfWriter()
@@ -516,3 +548,95 @@ def test_run_laws_tranche_source_prep_handles_ocr_required_pdf(tmp_path: Path) -
     assert payload['supported_direct_input_count'] == 1
     assert payload['ocr_required_count'] == 1
     assert payload['prepared_count'] == 0
+
+
+def test_run_laws_tranche_source_admission_dry_run_reports_ready_vs_blocked_split(tmp_path: Path) -> None:
+    _seed_repo(tmp_path)
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-1.yaml'
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-1',
+                'candidate_law_folders': [
+                    {'folder_name': 'PD-957', 'reason': 'housing adjacency'},
+                    {'folder_name': 'PD-1216', 'reason': 'open-space adjacency'},
+                    {'folder_name': 'PD-1185', 'reason': 'fire adjacency'},
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    _seed_conversion_inventory(tmp_path, 'PD-957', 'pd957-law')
+    _seed_conversion_inventory(tmp_path, 'PD-1185', 'pd1185-law')
+    source_prep_report = _write_source_prep_report(
+        tmp_path,
+        'laws-tranche-1',
+        '20260417T022819Z',
+        [
+            {
+                'folder_name': 'PD-957',
+                'prepared_count': 1,
+                'ocr_required_count': 0,
+                'failed_count': 0,
+                'file_reports': [
+                    {
+                        'status': 'prepared',
+                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/pd957-law.md',
+                    }
+                ],
+            },
+            {
+                'folder_name': 'PD-1216',
+                'prepared_count': 0,
+                'ocr_required_count': 1,
+                'failed_count': 0,
+                'file_reports': [
+                    {
+                        'status': 'ocr_required',
+                        'raw_path': '001_Raw-Source-Layer/001-Laws/PD-1216/pd1216.pdf',
+                        'recommended_route': 'OCR_FIRST_THEN_OPENDATALOADER',
+                    }
+                ],
+            },
+            {
+                'folder_name': 'PD-1185',
+                'prepared_count': 1,
+                'ocr_required_count': 0,
+                'failed_count': 0,
+                'file_reports': [
+                    {
+                        'status': 'prepared',
+                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1185/pd1185-law.md',
+                    }
+                ],
+            },
+        ],
+    )
+
+    result = _run_cli(
+        [
+            'run-laws-tranche-source-admission-dry-run',
+            '--tranche-manifest', str(tranche_manifest),
+            '--source-prep-report', str(source_prep_report),
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['action'] == 'run-laws-tranche-source-admission-dry-run'
+    assert payload['admission_review_ready_law_folders'] == ['PD-957', 'PD-1185']
+    assert payload['blocked_law_folders'] == ['PD-1216']
+    assert payload['source_to_graph_execute_ready'] is False
+    assert payload['candidate_source_page_count'] == 2
+    report_path = tmp_path / payload['report_path']
+    report = json.loads(report_path.read_text(encoding='utf-8'))
+    ready_law = next(item for item in report['laws'] if item['folder_name'] == 'PD-957')
+    assert ready_law['status'] == 'ready_for_admission_review'
+    assert ready_law['candidate_source_page_count'] == 1
+    assert ready_law['candidate_source_pages'][0]['canonical_source_path'].endswith(
+        '003_Canonical-Knowledge-Layer/shared/sources/pd957-law.md'
+    )
+    blocked_law = next(item for item in report['laws'] if item['folder_name'] == 'PD-1216')
+    assert blocked_law['status'] == 'blocked_pending_ocr'
+    assert blocked_law['blocked_file_reports'][0]['recommended_route'] == 'OCR_FIRST_THEN_OPENDATALOADER'

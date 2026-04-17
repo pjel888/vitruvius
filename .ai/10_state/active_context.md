@@ -63,6 +63,13 @@
     - `prepared_count = 5`
     - `ocr_required_count = 1`
     - `failed_count = 0`
+- Tranche source-admission slice:
+  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -q`
+  - **13 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-admission-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml` passes
+  - current tranche-1 split:
+    - ready: `PD-957`, `PD-1185`
+    - blocked: `PD-1216`
 
 ## Residual Graph Caveat
 
@@ -83,6 +90,7 @@
 - Latest tranche-expansion validation: `/.ai/05_logs/2026-04-17_laws-tranche-expansion-implementation-validation.md`
 - Latest tranche source-preparation validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-dry-run-validation.md`
 - Latest tranche source-preparation execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-implementation-validation.md`
+- Latest tranche source-admission validation: `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-implementation-validation.md`
 
 ## Handoff Note
 

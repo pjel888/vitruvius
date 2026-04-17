@@ -89,6 +89,10 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - `run-laws-tranche-source-prep`
     - current tranche-1 result: `prepared_count = 5`, `ocr_required_count = 1`
     - see `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-implementation-validation.md`
+  - tranche-1 source-admission checkpoint is now implemented:
+    - `run-laws-tranche-source-admission-dry-run`
+    - current tranche split: ready = `PD-957`, `PD-1185`; blocked = `PD-1216`
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-implementation-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

@@ -1312,6 +1312,22 @@ This command:
 - refines the newly produced raw-markdown outputs
 - reports which tranche files were prepared and which still require OCR/manual follow-up
 
+### Tranche source-admission dry-run
+
+After tranche source preparation, the next truthful checkpoint is source
+admission state:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-admission-dry-run \
+  --tranche-manifest config/datasets/laws-tranche-1.yaml
+```
+
+This command:
+- separates tranche members into **ready**, **mixed**, and **blocked** states
+- proposes candidate canonical source page paths for ready refined inputs
+- keeps OCR-blocked members explicit instead of silently dropping them
+- keeps tranche source→graph execution gated until admission state is explicit
+
 ### Progress / developer experience
 
 When you run the command in an interactive terminal, it emits phase/progress

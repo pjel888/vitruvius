@@ -207,6 +207,7 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - tranche-expansion implementation now exists as the next safe execution boundary: `laws-tranche-1.yaml`, `run-laws-tranche-dry-run`, and automated structure guardrails; see `/.ai/05_logs/2026-04-17_laws-tranche-expansion-implementation-validation.md`
   - tranche source-preparation dry-run now exists for pre-conversion readiness: `run-laws-tranche-source-prep-dry-run`; see `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-dry-run-validation.md`
   - tranche source-preparation execute step now exists: `run-laws-tranche-source-prep`; see `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-implementation-validation.md`
+  - tranche-1 source-admission dry-run now exists: `run-laws-tranche-source-admission-dry-run`; see `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-implementation-validation.md`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)

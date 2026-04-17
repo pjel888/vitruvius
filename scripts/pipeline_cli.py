@@ -299,6 +299,11 @@ def build_parser() -> argparse.ArgumentParser:
                                                  help="Tranche manifest whose raw inputs should be prepared into conversion/refinement outputs")
     tranche_source_prep_exec_parser.add_argument("--sample-pages", type=int, default=5,
                                                  help="Sample pages for per-PDF route detection (default: 5)")
+    tranche_source_admission_parser = add_command_parser(subparsers, "run-laws-tranche-source-admission-dry-run")
+    tranche_source_admission_parser.add_argument("--tranche-manifest", default="config/datasets/laws-tranche-1.yaml",
+                                                 help="Tranche manifest whose prepared outputs should be classified into ready-vs-blocked source admission state")
+    tranche_source_admission_parser.add_argument("--source-prep-report", default=None,
+                                                 help="Optional explicit tranche source-prep execute report to classify for source admission")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -823,6 +828,16 @@ def main() -> int:
             lambda: run_laws_tranche_source_prep(
                 tranche_manifest=args.tranche_manifest,
                 sample_pages=args.sample_pages,
+            ),
+        )
+
+    if args.command == "run-laws-tranche-source-admission-dry-run":
+        from vitruvius.laws_readiness import run_laws_tranche_source_admission_dry_run
+        return _run(
+            "run-laws-tranche-source-admission-dry-run",
+            lambda: run_laws_tranche_source_admission_dry_run(
+                tranche_manifest=args.tranche_manifest,
+                source_prep_report=args.source_prep_report,
             ),
         )
 
