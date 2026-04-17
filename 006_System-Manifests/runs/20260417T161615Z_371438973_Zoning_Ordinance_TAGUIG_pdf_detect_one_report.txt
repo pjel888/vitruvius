@@ -1,0 +1,18 @@
+Vitruvius PDF Detection Report
+
+PDF: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/371438973-Zoning-Ordinance-TAGUIG-pdf.pdf
+Total pages: 153
+Pages sampled: 5
+
+PAGE DETAILS:
+  Page 1: 1590 extracted characters
+  Page 2: 829 extracted characters
+  Page 3: 2415 extracted characters
+  Page 4: 1162 extracted characters
+  Page 5: 704 extracted characters
+
+Pages with usable text: 5/5
+Total extracted characters: 6700
+
+RESULT: TEXT_PDF
+RECOMMENDED ROUTE: OPENDATALOADER_DIRECT

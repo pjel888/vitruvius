@@ -432,3 +432,5 @@ If you continue from here, do **not** restart with a new repo-wide audit. Consul
 
 - Latest tranche-13 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-13-execution-validation.md`
 - Latest tranche-14 execution validation: `/.ai/05_logs/2026-04-18_laws-tranche-14-execution-validation.md`
+
+- Next remaining-lane prep now points to `LGU` sharding rather than a naive single-manifest tranche; see `/.ai/03_plans/2026-04-18_tranche-15-sharding-plan.md`

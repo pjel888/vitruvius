@@ -387,6 +387,11 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - graph snapshot: `8 nodes / 12 edges`
     - tranche-14 clears the DEPED shallow-representation finding through a bounded guidance concept-fit slice while keeping DOH table-heavy manual-review risk explicit
     - see `/.ai/05_logs/2026-04-18_laws-tranche-14-execution-validation.md`
+  - next remaining-lane prep now points to `LGU` sharding rather than a naive one-manifest tranche:
+    - LGU raw file count: `56`
+    - exact duplicate clusters already visible: `2`
+    - sampled zoning / CLUP PDFs detect as direct text-PDFs
+    - see `/.ai/03_plans/2026-04-18_tranche-15-sharding-plan.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

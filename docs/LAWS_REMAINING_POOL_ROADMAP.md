@@ -22,14 +22,14 @@
 - `EO`
 - `HLURB-DHSUD`
 
-### Tranche 15 — Local ordinance / zoning pack
+### Tranche 15 — Local ordinance / zoning sharding lane
 - `LGU`
 
 ## Remediation / defer lanes
 ### Remediation-first
 - `RA-9266` — exact duplicate cluster inside folder
 - `RA-9279` — filename/folder mismatch
-- `LGU` — needs internal sharding before truthful tranche execution
+- `LGU` — multi-city bundle with internal sharding and exact duplicate cleanup required before truthful tranche execution
 
 ### Draft / empty / weak-authority defer
 - `RA-11361` — draft-only
