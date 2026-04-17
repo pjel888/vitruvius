@@ -16,6 +16,11 @@ def load_yaml_payload(path: Path) -> dict[str, Any]:
     return payload
 
 
+def write_yaml_payload(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding='utf-8')
+
+
 def dedupe_manifest_entries(entries: list[dict[str, Any]], *, keys: tuple[str, ...]) -> list[dict[str, Any]]:
     deduped: list[dict[str, Any]] = []
     seen: set[tuple[str, ...]] = set()
@@ -400,6 +405,82 @@ def resolve_completed_aggregate_profile_path(
             raise ValueError(f"aggregate profile path for family '{family}' does not exist: {profile_path}")
         return resolved_profile_path
     raise ValueError(f"no aggregate profile registered for family '{family}'")
+
+
+def register_completed_aggregate_family(
+    *,
+    repo_root: Path,
+    family: str,
+    profile_path: Path,
+    catalog_path: Path,
+    dataset_id: str,
+    dataset_kind: str,
+    completed_ledger: str,
+    manifest_index: str,
+    out_manifest: str,
+    graph_output_root: str,
+    run_output_root: str,
+    query_snapshot_template: str,
+    scope_notes: list[str] | None = None,
+    lane_note_template: str | None = None,
+    status: str = 'ready',
+    note: str | None = None,
+) -> tuple[Path, Path, dict[str, Any], dict[str, Any]]:
+    if not family.strip():
+        raise ValueError('family must not be empty')
+    resolved_profile_path = profile_path if profile_path.is_absolute() else repo_root / profile_path
+    resolved_catalog_path = catalog_path if catalog_path.is_absolute() else repo_root / catalog_path
+    profile_payload: dict[str, Any] = {
+        'dataset_id': dataset_id,
+        'dataset_kind': dataset_kind,
+        'completed_ledger': completed_ledger,
+        'manifest_index': manifest_index,
+        'out_manifest': out_manifest,
+        'graph_output_root': graph_output_root,
+        'run_output_root': run_output_root,
+        'query_snapshot_template': query_snapshot_template,
+    }
+    if scope_notes:
+        profile_payload['scope_notes'] = [str(note_item) for note_item in scope_notes if str(note_item).strip()]
+    if lane_note_template:
+        profile_payload['lane_note_template'] = lane_note_template
+    write_yaml_payload(resolved_profile_path, profile_payload)
+
+    if resolved_catalog_path.exists():
+        catalog_payload = load_yaml_payload(resolved_catalog_path)
+    else:
+        catalog_payload = {'profiles': []}
+    profiles = catalog_payload.get('profiles')
+    if not isinstance(profiles, list):
+        profiles = []
+
+    normalized_profile_path = str(resolved_profile_path.relative_to(repo_root))
+    new_entry: dict[str, Any] = {
+        'family': family,
+        'profile': normalized_profile_path,
+        'status': status,
+    }
+    if note:
+        new_entry['note'] = note
+
+    updated_profiles: list[dict[str, Any]] = []
+    replaced = False
+    for item in profiles:
+        if not isinstance(item, dict):
+            continue
+        if str(item.get('family') or '') == family:
+            updated_profiles.append(new_entry)
+            replaced = True
+        else:
+            updated_profiles.append(item)
+    if not replaced:
+        updated_profiles.append(new_entry)
+    catalog_payload['profiles'] = sorted(
+        updated_profiles,
+        key=lambda item: (str(item.get('family') or '')),
+    )
+    write_yaml_payload(resolved_catalog_path, catalog_payload)
+    return resolved_profile_path, resolved_catalog_path, profile_payload, new_entry
 
 
 def build_generic_completed_aggregate_manifest_from_profile(

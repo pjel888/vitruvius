@@ -1,5 +1,9 @@
 profiles:
-  - family: laws
-    profile: config/datasets/laws-mvp-profile.yaml
-    status: ready
-    note: Completed authoritative laws-wave MVP graph profile.
+- family: laws
+  profile: config/datasets/laws-mvp-profile.yaml
+  status: ready
+  note: Completed authoritative laws-wave MVP graph profile.
+- family: laws-demo
+  profile: config/datasets/laws-demo-profile.yaml
+  status: demo
+  note: Reusable demo onboarding family derived from the laws MVP ledgers.

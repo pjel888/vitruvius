@@ -1997,6 +1997,38 @@ def test_resolve_completed_aggregate_profile_path_returns_registered_profile(tmp
     assert resolved == tmp_path / 'config' / 'datasets' / 'profile.yaml'
 
 
+def test_register_completed_aggregate_family_writes_profile_and_catalog(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import register_completed_aggregate_family
+
+    repo_root = tmp_path
+    resolved_profile_path, resolved_catalog_path, profile_payload, catalog_entry = register_completed_aggregate_family(
+        repo_root=repo_root,
+        family='demo',
+        profile_path=Path('config/datasets/demo-profile.yaml'),
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        dataset_id='demo-dataset',
+        dataset_kind='demo-aggregate',
+        completed_ledger='config/datasets/demo-completed.yaml',
+        manifest_index='config/datasets/demo-index.yaml',
+        out_manifest='006_System-Manifests/runs/datasets/demo/latest_dataset_manifest.yaml',
+        graph_output_root='005_Operational-Intelligence-Layer/graph/datasets/demo',
+        run_output_root='006_System-Manifests/runs/datasets/demo',
+        query_snapshot_template='005_Operational-Intelligence-Layer/graph/datasets/demo/{run_id}_graph_snapshot.json',
+        scope_notes=['demo scope'],
+        lane_note_template='Demo lane: {lane_id}',
+        status='demo',
+        note='Demo onboarding family.',
+    )
+    assert resolved_profile_path == tmp_path / 'config' / 'datasets' / 'demo-profile.yaml'
+    assert resolved_catalog_path == tmp_path / 'config' / 'datasets' / 'catalog.yaml'
+    assert profile_payload['dataset_id'] == 'demo-dataset'
+    profile_disk = yaml.safe_load(resolved_profile_path.read_text(encoding='utf-8'))
+    assert profile_disk['dataset_id'] == 'demo-dataset'
+    catalog_disk = yaml.safe_load(resolved_catalog_path.read_text(encoding='utf-8'))
+    assert catalog_disk['profiles'][0]['family'] == 'demo'
+    assert catalog_entry['status'] == 'demo'
+
+
 def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
     tmp_path: Path,
     monkeypatch,
@@ -2209,6 +2241,50 @@ def test_pipeline_cli_build_completed_aggregate_from_profile_writes_manifest(
     assert payload['scope_notes'] == ['profile based aggregate']
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['dataset_manifest_path'] == 'config/datasets/profile-out.yaml'
+
+
+def test_pipeline_cli_register_completed_aggregate_family_writes_profile_and_catalog(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'register-completed-aggregate-family',
+            '--family', 'demo',
+            '--profile', 'config/datasets/demo-profile.yaml',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--dataset-id', 'demo-dataset',
+            '--dataset-kind', 'demo-aggregate',
+            '--completed-ledger', 'config/datasets/demo-completed.yaml',
+            '--manifest-index', 'config/datasets/demo-index.yaml',
+            '--out-manifest', '006_System-Manifests/runs/datasets/demo/latest_dataset_manifest.yaml',
+            '--graph-output-root', '005_Operational-Intelligence-Layer/graph/datasets/demo',
+            '--run-output-root', '006_System-Manifests/runs/datasets/demo',
+            '--query-snapshot-template', '005_Operational-Intelligence-Layer/graph/datasets/demo/{run_id}_graph_snapshot.json',
+            '--scope-note', 'demo scope',
+            '--lane-note-template', 'Demo lane: {lane_id}',
+            '--status', 'demo',
+            '--note', 'Demo onboarding family.',
+        ],
+    )
+
+    rc = pipeline_cli.main()
+    assert rc == 0
+    profile_payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'demo-profile.yaml').read_text(encoding='utf-8'))
+    assert profile_payload['dataset_id'] == 'demo-dataset'
+    catalog_payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'catalog.yaml').read_text(encoding='utf-8'))
+    assert catalog_payload['profiles'][0]['family'] == 'demo'
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'register-completed-aggregate-family'
+    assert stdout_payload['family'] == 'demo'
 
 
 def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline(

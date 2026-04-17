@@ -26,5 +26,12 @@ status: in_progress
     - `./run-dataset-mvp-graph`
 
 ## Next live step
-- validate the first non-laws dataset family or reusable demo family against the profile-driven path
-- reduce operator friction further by letting dataset families run through a registry alias, not only explicit profile paths
+- reusable demo-family validation is now complete:
+  - `laws-demo`
+- dataset-family aliasing is now complete:
+  - catalog + family run path
+- dataset-family registration is now complete:
+  - one command can write the profile and catalog entry
+
+## Current next step
+- onboard the first true non-laws trusted dataset family when a completed-ledger/manifest-index pair exists

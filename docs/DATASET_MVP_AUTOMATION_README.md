@@ -32,6 +32,33 @@ The family registry currently lives at:
 
 - `config/datasets/dataset-mvp-profile-catalog.yaml`
 
+## Registering a new dataset family
+Use:
+
+```bash
+python3 scripts/pipeline_cli.py register-completed-aggregate-family \
+  --family <family-name> \
+  --profile <profile-yaml> \
+  --dataset-id <dataset-id> \
+  --dataset-kind <dataset-kind> \
+  --completed-ledger <completed-ledger.yaml> \
+  --manifest-index <manifest-index.yaml> \
+  --out-manifest <runtime-or-config-manifest.yaml> \
+  --graph-output-root <graph-root> \
+  --run-output-root <run-root> \
+  --query-snapshot-template <template>
+```
+
+This writes:
+- the family profile YAML
+- the family catalog entry
+
+After registration, the family can run through:
+
+```bash
+./run-dataset-mvp-graph --family <family-name> [review args]
+```
+
 ## Profile contract
 A profile YAML must define:
 - `dataset_id`

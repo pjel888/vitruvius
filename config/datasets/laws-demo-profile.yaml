@@ -1,0 +1,13 @@
+dataset_id: laws-demo-aggregate
+dataset_kind: laws-aggregate
+completed_ledger: config/datasets/laws-completed-lanes.yaml
+manifest_index: config/datasets/laws-manifest-index.yaml
+out_manifest: 006_System-Manifests/runs/datasets/laws-demo-aggregate/latest_dataset_manifest.yaml
+graph_output_root: 005_Operational-Intelligence-Layer/graph/datasets/laws-demo-aggregate
+run_output_root: 006_System-Manifests/runs/datasets/laws-demo-aggregate
+query_snapshot_template: 005_Operational-Intelligence-Layer/graph/datasets/laws-demo-aggregate/{run_id}_graph_snapshot.json
+scope_notes:
+- Reusable demo family derived from the completed authoritative laws wave.
+- Used to prove generic family onboarding without requiring a second trusted dataset
+  family.
+lane_note_template: 'Aggregate demo lane: {lane_id}'

@@ -355,6 +355,24 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_profile_build_parser = add_command_parser(subparsers, "build-completed-aggregate-from-profile")
     generic_aggregate_profile_build_parser.add_argument("--profile", required=True,
                                                        help="Aggregate profile YAML path")
+    generic_aggregate_register_parser = add_command_parser(subparsers, "register-completed-aggregate-family")
+    generic_aggregate_register_parser.add_argument("--family", required=True)
+    generic_aggregate_register_parser.add_argument("--profile", required=True,
+                                                  help="Profile YAML path to create or update")
+    generic_aggregate_register_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml",
+                                                  help="Profile catalog YAML path")
+    generic_aggregate_register_parser.add_argument("--dataset-id", required=True)
+    generic_aggregate_register_parser.add_argument("--dataset-kind", default="aggregate")
+    generic_aggregate_register_parser.add_argument("--completed-ledger", required=True)
+    generic_aggregate_register_parser.add_argument("--manifest-index", required=True)
+    generic_aggregate_register_parser.add_argument("--out-manifest", required=True)
+    generic_aggregate_register_parser.add_argument("--graph-output-root", required=True)
+    generic_aggregate_register_parser.add_argument("--run-output-root", required=True)
+    generic_aggregate_register_parser.add_argument("--query-snapshot-template", required=True)
+    generic_aggregate_register_parser.add_argument("--scope-note", action="append", default=[])
+    generic_aggregate_register_parser.add_argument("--lane-note-template", default=None)
+    generic_aggregate_register_parser.add_argument("--status", default="ready")
+    generic_aggregate_register_parser.add_argument("--note", default=None)
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1020,6 +1038,40 @@ def main() -> int:
             )
             return 0
         return _run("build-completed-aggregate-from-profile", _run_generic_from_profile)
+
+    if args.command == "register-completed-aggregate-family":
+        from vitruvius.aggregate_manifest import register_completed_aggregate_family
+        def _run_register_generic_family():
+            repo_root = Path.cwd().resolve()
+            resolved_profile_path, resolved_catalog_path, profile_payload, catalog_entry = register_completed_aggregate_family(
+                repo_root=repo_root,
+                family=args.family,
+                profile_path=Path(args.profile),
+                catalog_path=Path(args.catalog),
+                dataset_id=args.dataset_id,
+                dataset_kind=args.dataset_kind,
+                completed_ledger=args.completed_ledger,
+                manifest_index=args.manifest_index,
+                out_manifest=args.out_manifest,
+                graph_output_root=args.graph_output_root,
+                run_output_root=args.run_output_root,
+                query_snapshot_template=args.query_snapshot_template,
+                scope_notes=list(args.scope_note or []),
+                lane_note_template=args.lane_note_template,
+                status=args.status,
+                note=args.note,
+            )
+            print(json.dumps({
+                "action": "register-completed-aggregate-family",
+                "family": args.family,
+                "profile_path": str(resolved_profile_path.relative_to(repo_root)),
+                "catalog_path": str(resolved_catalog_path.relative_to(repo_root)),
+                "dataset_id": profile_payload["dataset_id"],
+                "dataset_kind": profile_payload["dataset_kind"],
+                "catalog_entry": catalog_entry,
+            }, indent=2))
+            return 0
+        return _run("register-completed-aggregate-family", _run_register_generic_family)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary
