@@ -1,0 +1,33 @@
+as_of: 2026-04-18
+scope: laws-wave
+artifacts:
+  - path: .ai/10_state/laws-wave-status.json
+    kind: status_snapshot
+    purpose: Compact machine-readable reload/status object for the entire laws wave.
+  - path: config/datasets/laws-completed-lanes.yaml
+    kind: completed_lanes_ledger
+    purpose: Machine-readable list of completed executable and remediation lanes.
+  - path: config/datasets/laws-remaining-dispositions.yaml
+    kind: remaining_dispositions_ledger
+    purpose: Machine-readable final disposition of residual uncovered folders.
+  - path: config/datasets/laws-source-provenance.yaml
+    kind: source_provenance_ledger
+    purpose: Official/primary-source provenance for major law/governance truth decisions.
+  - path: config/datasets/laws-manifest-index.yaml
+    kind: manifest_index
+    purpose: Machine-readable mapping from completed lanes to their manifest files.
+  - path: docs/LAWS_WAVE_ARTIFACT_INDEX.md
+    kind: human_index
+    purpose: Human-facing artifact map for the laws wave.
+  - path: docs/LAWS_WAVE_RELOAD_PROTOCOL.md
+    kind: reload_protocol
+    purpose: Read order and reopening criteria for fresh sessions.
+  - path: docs/LAWS_WAVE_README.md
+    kind: top_level_readme
+    purpose: Top-level human summary of the laws wave end-state.
+  - path: .ai/05_logs/2026-04-18_laws-wave-completion-summary.md
+    kind: completion_rollup
+    purpose: Human-readable roll-up of the completed laws wave.
+  - path: .ai/05_logs/2026-04-18_remaining-pool-final-disposition-validation.md
+    kind: validation_log
+    purpose: Validation evidence for final residual-pool dispositions.
