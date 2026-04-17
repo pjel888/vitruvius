@@ -27,6 +27,7 @@
   - completed shards:
     - San Mateo zoning ordinance + San Mateo/Rizal CLUP
     - Dagupan ordinance no. 2061-2016
+    - Malolos city zoning ordinance
   - remaining blocker: the wider LGU lane still needs additional city/family shards beyond San Mateo
 
 ## Remediation / defer lanes

@@ -1,13 +1,13 @@
 {
   "project": "Vitruvius",
-  "generated_at_utc": "2026-04-17T16:34:10.342385+00:00",
-  "source_relative_path": "001-Laws/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.pdf",
-  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.pdf",
+  "generated_at_utc": "2026-04-17T16:41:41.418555+00:00",
+  "source_relative_path": "001-Laws/LGU/700996086-Malolos-City-Zoning-Ordinance.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/700996086-Malolos-City-Zoning-Ordinance.pdf",
   "detection_result": "TEXT_PDF",
   "recommended_route": "OPENDATALOADER_DIRECT",
-  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md",
-  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.json",
-  "markdown_output_relative": "001-Laws/raw_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md",
-  "json_output_relative": "001-Laws/sidecar_json/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.json",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/700996086-Malolos-City-Zoning-Ordinance.json",
+  "markdown_output_relative": "001-Laws/raw_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md",
+  "json_output_relative": "001-Laws/sidecar_json/LGU/700996086-Malolos-City-Zoning-Ordinance.json",
   "status": "converted"
 }

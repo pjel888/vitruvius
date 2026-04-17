@@ -1,0 +1,44 @@
+tranche_id: laws-tranche-15-malolos
+purpose: readiness-only
+phase_11_gate: gated
+description: Third shard-specific tranche-15 lane for the LGU bundle. This shard isolates
+  the Malolos city zoning ordinance as the next smallest city-coherent local-ordinance
+  candidate after the completed San Mateo and Dagupan shards.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: LGU
+  reason: singleton Malolos ordinance shard after San Mateo and Dagupan.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/LGU/700996086-Malolos-City-Zoning-Ordinance.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-15-malolos/20260417T164254Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T164254Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/zoning-ordinance-of-the-city-of-malolos.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - Malolos concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped governs relationships
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - Malolos concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped governs relationships.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/zoning-ordinance.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/building-height.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-malolos/concept-slice-malolos/relationships/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-concept-zoning-ordinance.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-malolos/concept-slice-malolos/relationships/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-concept-comprehensive-land-use-plan.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-15-malolos/concept-slice-malolos/relationships/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-concept-building-height.md
+source_admission:
+  last_run_id: 20260417T164254Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-15-malolos/20260417T164254Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - LGU
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []

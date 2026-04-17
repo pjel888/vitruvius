@@ -1,0 +1,55 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "moderate extraction difficulty: treat automated summaries as guarded",
+    "front matter includes a table of contents before operative text"
+  ],
+  "front_matter_suspicious_ocr_line_count": 7,
+  "image_line_count": 4,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 55,
+  "noise_line_count": 1,
+  "non_empty_line_count": 1656,
+  "recommendations": [
+    "high table-line count: verify layout-sensitive extraction and summary hygiene"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 3,
+    "admitted_relationship_count": 3,
+    "folder_name": "LGU",
+    "law_id": "lgu",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 2.0,
+    "section_to_relationship_ratio": 2.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 6
+  },
+  "severity": "medium",
+  "source_acceptance_reasons": [],
+  "source_acceptance_status": "accepted",
+  "spot_review_focus": [],
+  "spot_review_required": false,
+  "structural_heading_count": 6,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [
+    "table_of_contents_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "- f. Enhance the participation of the city’s constituency in the development of their communities.",
+    "- a. The Ordinance reflects the city’s vision as stated in the CLUP;",
+    "- c. The Ordinance gives the free market the maximum opportunity to spur the city’s development within a framework of environmental integrity and social responsibility;",
+    "- h. The regulations in the Zoning Ordinance are considered as land use management tools that are necessary to provide a clear guidance to land development in order to ensure the community’s common good.",
+    "- i. Buffer/Greenbelt Zone (B/G-Z) - an area within a city that are yards, parks or open spaces intended to separate incompatible elements or uses to control pollution/nuisance and for identifying and defining development areas or zones where no permanent structures are allowed."
+  ],
+  "suspicious_ocr_line_count": 122,
+  "suspicious_ocr_line_ratio": 0.073671,
+  "table_line_count": 101,
+  "total_line_count": 2169,
+  "useful_text_line_count": 1550,
+  "useful_text_ratio": 0.93599
+}

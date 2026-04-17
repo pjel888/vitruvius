@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T164141Z",
+  "source_relative_path": "001-Laws/raw_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md",
+  "refined_relative_path": "001-Laws/refined_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md",
+  "source_hash": "2467f358bf308127471e892d0201f548ccc584488955a6777a49933fe43c08fc",
+  "output_hash": "fc7c9a16944563c0d80a12d59db79d7f15cc09bb426749fb3f318daa70db6287",
+  "chars_before": 160344,
+  "chars_after": 160094,
+  "chars_delta": -250,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "collapse-consecutive-blank-lines",
+    "normalize-section-abbreviation"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 160344,
+      "chars_after": 160344,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 160344,
+      "chars_after": 160344,
+      "changed": false
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 160344,
+      "chars_after": 160344,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 160344,
+      "chars_after": 160344,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 160344,
+      "chars_after": 160085,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 160085,
+      "chars_after": 160085,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 160085,
+      "chars_after": 160094,
+      "changed": true
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 160094,
+      "chars_after": 160094,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}

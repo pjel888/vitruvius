@@ -455,3 +455,11 @@ def test_build_plan_matches_dagupan_zoning_ordinance_rule() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_malolos_zoning_ordinance_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md')
+    assert plan['title'] == 'Zoning Ordinance of the City of Malolos'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
