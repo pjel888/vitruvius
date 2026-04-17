@@ -503,3 +503,11 @@ def test_build_plan_matches_pasay_zoning_ordinance_rule() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_7279_section_18_irr_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/RA-9279/IRR RA 7279 Sec 18.md')
+    assert plan['title'] == 'Implementing Rules and Regulations to Govern Section 18 of Republic Act No. 7279'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'

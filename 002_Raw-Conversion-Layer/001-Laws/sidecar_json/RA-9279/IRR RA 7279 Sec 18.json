@@ -1,0 +1,790 @@
+{
+  "file name" : "IRR RA 7279 Sec 18.pdf",
+  "number of pages" : 4,
+  "author" : "g-bet",
+  "title" : "Microsoft Word - IRR to Govern Section 18 of RA 7279.doc",
+  "creation date" : "D:20020211151839+08'00'",
+  "modification date" : "D:20020211151839+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 7,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 119.039, 662.137, 421.87, 698.231 ],
+    "heading level" : 1,
+    "font" : "Arial,Bold",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "IMPLEMENTING RULES AND REGULATIONS TO GOVERN SECTION 18 OF REPUBLIC ACT NO. 7279 OTHERWISE KNOWN AS THE URBAN DEVELOPMENT AND HOUSING ACT OF 1992"
+  }, {
+    "type" : "paragraph",
+    "id" : 8,
+    "page number" : 1,
+    "bounding box" : [ 73.019, 596.437, 302.601, 639.311 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Pursuant to Article III Section 6 and Article V, Section 18. Balanced Housing Development of RA 7279. the following Rules and Regulations are hereby promulgated by the Board."
+  }, {
+    "type" : "paragraph",
+    "id" : 9,
+    "page number" : 1,
+    "bounding box" : [ 73.02, 531.816, 302.548, 585.37 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SECTION 1. Definition of Terms. For the purpose of these Rules and Regulations, the terms or words used herein shall, unless the context indicates otherwise, mean or be understood as follows:"
+  }, {
+    "type" : "list",
+    "id" : 10,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 73.019, 233.494, 301.185, 523.45 ],
+    "numbering style" : "english letters",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 73.02, 501.696, 300.783, 523.45 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) \"Board\" shall refer to the Housing and Land Use Regulatory Board",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 73.02, 483.156, 301.185, 494.35 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(b) \"Condominium Project\" as defined under PD957",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 73.02, 460.895, 275.257, 472.089 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(c) \"Condominium\" as defined under PD 4726",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 73.02, 438.395, 254.041, 449.589 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(d) \"Developer\" as defined under PD 957",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 73.019, 414.875, 204.058, 426.069 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(e) \"Project Area\" shall mean:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 6,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 80.549, 266.674, 302.562, 405.309 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 86.039, 383.615, 302.562, 405.309 ],
+          "font" : "Arial",
+          "font size" : 10.02,
+          "text color" : "[0.0, 0.49799343943595886, 0.0]",
+          "content" : "e.1 for subdivision projects without housing component, the gross developed land area",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 86.069, 354.455, 262.908, 376.209 ],
+          "font" : "Arial,Bold",
+          "font size" : 10.02,
+          "text color" : "[0.0, 0.49799343943595886, 0.0]",
+          "content" : "e.2 for subdivision projects with housing component:",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 5,
+            "level" : "3",
+            "page number" : 1,
+            "bounding box" : [ 111.106, 300.574, 261.886, 344.348 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 2,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 113.521, 322.414, 261.886, 344.348 ],
+              "font" : "Arial",
+              "font size" : 10.02,
+              "text color" : "[0.0, 0.49799343943595886, 0.0]",
+              "content" : "e.2.1 gross developed land area and",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 111.106, 300.574, 255.724, 323.108 ],
+              "font" : "Arial",
+              "font size" : 10.02,
+              "text color" : "[0.0, 0.0, 0.0]",
+              "content" : "e.2.2 aggregate floor area of all housing units",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 80.549, 266.674, 302.477, 291.248 ],
+          "font" : "Arial",
+          "font size" : 10.02,
+          "text color" : "[0.0, 0.49799343943595886, 0.0]",
+          "content" : "e.3 for condominium projects, the gross floor area of residential units.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 73.022, 233.494, 297.849, 255.188 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(f) \"Project Cost\" refers to cost of the project based on the following;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 11,
+    "level" : "4",
+    "page number" : 1,
+    "bounding box" : [ 88.022, 162.754, 302.589, 225.128 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 88.022, 192.874, 302.589, 225.128 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "f.1 current market value of the raw land plus estimated land development cost plus estimated housing project cost or",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 88.024, 162.754, 302.478, 184.508 ],
+      "font" : "Arial,Bold",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "f.2 HIGC preliminary appraisal for projects requiring HIGC guarantee or HIGC appraisal",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 12,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 317.465, 361.593, 540.095, 639.308 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 317.465, 533.193, 540.071, 639.308 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(g) \"Socialized Housing\". In addition to the definition in the Housing Act (RA 7279), it shall refer to projects intended for the underprivileged and homeless wherein the housing package selling price is within the lowest interest rate under the Unified Home Lending Program (UHLP) or any equivalent housing program of the Government, the private sector or non-government organizations.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 318.486, 509.913, 521.244, 521.107 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(h) \"Subdivision Project\" as defined in PD 957",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 318.486, 447.992, 540.027, 501.367 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(i) \"Main Subdivision Project\" shall refer to the proposed residential subdivision or residential condominium project which shall be the basis for computing the 20% requirement for socialized housing.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 318.486, 361.593, 540.095, 439.926 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(j) \"New Settlement\" shall mean any new, largescale development, consisting of one or several subdivision projects planned to provide housing, work places and related facilities within a more or less self-contained environment.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 13,
+    "page number" : 1,
+    "bounding box" : [ 318.486, 276.753, 540.111, 351.187 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SECTION 2. Scope of Application. These Rules and Regulations shall apply to residential subdivision and residential condominium projects and/or proposed expansion of existing residential subdivisions and residential condominiums filed after the date of effectivity of these implementing rules and regulations."
+  }, {
+    "type" : "paragraph",
+    "id" : 14,
+    "page number" : 1,
+    "bounding box" : [ 318.49, 176.914, 540.106, 268.627 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Proposed main residential subdivision/ condominium projects with a density of one hundred (100) units per hectare are deemed to have optimized the use and productivity of land and urban resources and shall be considered as having fully complied with the 20% requirement for socialized housing."
+  }, {
+    "type" : "paragraph",
+    "id" : 15,
+    "page number" : 1,
+    "bounding box" : [ 318.491, 114.154, 540.07, 167.468 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Proposed main subdivision projects falling under the category of socialized housing as herein defined shall be considered as having fully complied with the requirements of Sec. 18 and are thus exempted for socialized housing."
+  }, {
+    "type" : "paragraph",
+    "id" : 16,
+    "page number" : 2,
+    "bounding box" : [ 72.0, 662.617, 274.531, 719.831 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Residential Subdivision and Residential Condominium Projects with four (4) units or less shall be exempted form the twenty percent (20%) requirement for socialized housing."
+  }, {
+    "type" : "heading",
+    "id" : 17,
+    "level" : "Doctitle",
+    "page number" : 2,
+    "bounding box" : [ 72.0, 642.157, 230.924, 653.351 ],
+    "heading level" : 1,
+    "font" : "Arial,Bold",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SECTION 3. Mode of Compliance."
+  }, {
+    "type" : "list",
+    "id" : 18,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 72.0, 129.159, 274.578, 632.831 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.0, 610.117, 262.094, 632.831 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) For main subdivision projects which are limited to the sale of lots only;",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 2,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 90.0, 511.657, 274.553, 600.851 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 90.0, 555.157, 274.537, 600.851 ],
+          "font" : "Arial",
+          "font size" : 10.02,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "(1) Land equivalent to twenty percent (20%) of the total area of the main subdivision project shall be developed for socialized housing; or",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 90.0, 511.657, 274.553, 545.832 ],
+          "font" : "Arial",
+          "font size" : 10.02,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "(2) a socialized housing project equivalent to twenty percent (20%) of the main subdivision total project cost",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.0, 470.138, 274.516, 504.312 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(b) For main subdivision projects which consist of the sale of house and lot packages:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 3,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 90.0, 327.638, 274.568, 461.892 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 90.0, 370.178, 274.553, 461.892 ],
+          "font" : "Arial",
+          "font size" : 10.02,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "(1) Land equivalent to twenty percent (20%) of the total area of the main subdivision project shall be developed and housing units equivalent to twenty percent (20%) of the aggregate floor area of all housing units of the main subdivision project shall be constructed; or",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 90.0, 327.638, 274.568, 361.872 ],
+          "font" : "Arial",
+          "font size" : 10.02,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "(2) A socialized housing project equivalent to twenty percent (20%) of the main subdivision total project cost",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "paragraph",
+        "id" : 4,
+        "page number" : 2,
+        "bounding box" : [ 103.981, 238.179, 274.562, 318.373 ],
+        "font" : "Arial",
+        "font size" : 10.02,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "The Board shall formulate a conversion ratio to translate housing area to land area or vice versa using as basis the cost of producing one square meter of floor area against the cost of developing one square meter of raw land."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.001, 195.699, 274.578, 229.873 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(c) For residential condominium project equivalent to 20% of the total condominium project cost.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.001, 129.159, 274.548, 186.373 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(d) The socialized housing project equivalent to twenty percent (20%) of total subdivision project cost may also be complied with in any of the following manner feasible in the municipality or city:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 19,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 308.521, 405.64, 508.599, 719.833 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 308.521, 662.619, 508.587, 719.833 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(1) New Settlement. Development of an entire new settlement or a portion thereof as certified by the appropriate national agency or by the local government unit concerned.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 308.521, 584.619, 508.599, 653.353 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(2) Slum Upgrading (APDs, ZIPs, SIRs). Development, upgrading and improvement of a slum or blighted area to be certified by the National Housing Authority or the local government unit concerned.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 308.522, 518.139, 508.584, 575.353 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(3) Community Mortgage Program (CMP). The developer shall finance the acquisition, development and subdivision of an identified CMP project duly accredited by NHMFC.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 308.524, 405.64, 508.547, 508.874 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(4) Joint-Venture Projects. The Developer may enter into a joint project or agreement with the concerned local government unit or any of the housing agencies to develop a socialized housing project. His participation shall be equivalent to 20% of project area or 20% of the cost of the main subdivision project.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 20,
+    "page number" : 2,
+    "bounding box" : [ 322.504, 326.68, 508.542, 395.354 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The developer shall abide by the implementing guidelines on joint-venture programs of the local government units concerned or any of the housing agencies who shall in turn certify the developer's compliance to the 20% requirement."
+  }, {
+    "type" : "paragraph",
+    "id" : 21,
+    "page number" : 2,
+    "bounding box" : [ 292.504, 248.681, 508.495, 317.354 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(e) Developers in metropolitan areas may undertake a large socialized housing project in advance in order to build up a credit balance against which future main subdivision projects can draw their 20% requirements."
+  }, {
+    "type" : "paragraph",
+    "id" : 22,
+    "page number" : 2,
+    "bounding box" : [ 292.505, 192.701, 508.577, 238.335 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SECTION 4. Project Location and Zoning Compliance. Location of projects for socialized housing shall be within the zones designated in the land use plan or In the zoning map."
+  }, {
+    "type" : "paragraph",
+    "id" : 23,
+    "page number" : 2,
+    "bounding box" : [ 292.504, 114.701, 508.597, 183.375 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In the absence of a land use plan/zoning ordinance, the concerned local government unit in coordination with the Board shall grant locational clearance for socialized housing projects in accordance with existing rules and regulations."
+  }, {
+    "type" : "paragraph",
+    "id" : 24,
+    "page number" : 3,
+    "bounding box" : [ 72.0, 628.117, 276.053, 719.831 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Where a contiguous area equivalent to the required twenty percent (20%) is not available, development of separate sites within the same city or municipality, whenever feasible, may be allowed provided that the aggregate total sums up to at least twenty percent (20%) of the main subdivision project's total area."
+  }, {
+    "type" : "paragraph",
+    "id" : 25,
+    "page number" : 3,
+    "bounding box" : [ 72.001, 573.157, 276.024, 618.851 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The socialized housing project may be allowed in any adjacent city or municipality provided the developer shall comply with BP 220 requirements."
+  }, {
+    "type" : "paragraph",
+    "id" : 26,
+    "page number" : 3,
+    "bounding box" : [ 72.001, 518.137, 276.1, 563.831 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In metropolitan areas, location of socialized housing projects may be allowed within the provinces contiguous to the physical configuration of the metropolitan area."
+  }, {
+    "type" : "list",
+    "id" : 27,
+    "level" : "3",
+    "page number" : 3,
+    "bounding box" : [ 72.001, 432.158, 276.042, 509.892 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.001, 452.678, 276.042, 509.892 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SECTION 5. Development Standards. Design and development standards for socialized housing projects shall be in accordance with BP 220 rules and regulations.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.001, 432.158, 235.955, 443.352 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SECTION 6. Permits and Licenses.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 28,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 73.981, 49.719, 276.063, 422.832 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 73.981, 319.658, 276.063, 422.832 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) Development Permit. The developer shall secure simultaneously development permits for the main project and the socialized housing project except when the socialized housing project is developed in advance. Provided that during the first year of implementation of these rules, application for the socialized housing project may be filled within one",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 1,
+        "level" : "3",
+        "page number" : 3,
+        "bounding box" : [ 90.002, 204.699, 276.074, 319.393 ],
+        "font" : "Arial",
+        "font size" : 10.02,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "(1) year from the date of effectivity of these rules. Thereafter, applications for both projects shall be filed simutaneously. Procedures for the issuance of development permits shall be in accordance with the rules and regulations implementing the Subdivision and Condominium Buyers Protective Decree (PD 957) and Batas Pambansa Big. 220 (BP 220)."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 73.983, 103.659, 276.037, 195.373 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(b) Registration and License to Sell. The developer shall likewise register and secure simultaneously from the Board License to Sell for each project in accordance with the rules and regulations implementing PD 957 and BP 220 except when the socialized housing project has been developed in advance.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 73.985, 49.719, 276.031, 95.413 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.49799343943595886, 0.0]",
+      "content" : "(c) In the foregoing application, the Board shall require that the main subdivision project and socialized housing project shall bear the name of the same project",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 29,
+    "page number" : 3,
+    "bounding box" : [ 303.005, 628.12, 522.084, 719.834 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "developer in case the developer directly undertakes the same. The socialized housing project may bear the name of the subsidiary or another developer to whom the main subdivision project developer passes on the development of the socialized housing project provided that the liability remains with the main subdivision project developer."
+  }, {
+    "type" : "paragraph",
+    "id" : 30,
+    "page number" : 3,
+    "bounding box" : [ 304.985, 504.16, 522.076, 618.854 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Provided further, that at the time of the application for development of the socialized housing project a joint venture agreement with a subsidiary or another developer shall be submitted stating that the said socialized housing project shall be credited to a future housing project. The Board shall issue a certificate of credit for the main subdivision project upon completion of the equivalent socialized housing project."
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "page number" : 3,
+    "bounding box" : [ 291.006, 427.181, 522.051, 495.855 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(d) Performance Bond. On top of the regular bond for the main project, the Board shall require a bond sufficient to guarantee completion of the socialized housing project. Such bond may be required at the time of application for the license to sell of the main project."
+  }, {
+    "type" : "list",
+    "id" : 32,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 291.007, 163.182, 522.08, 417.855 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "next list id" : 33,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 291.007, 337.661, 522.08, 417.855 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SECTION 7. Time of Completion. Socialized housing projects shall be completed within one (1) year from the date of issuance of the license to sell for the subdivision or condominium project or as approved by the Board and in accordance with the rules and regulations implementing PD 957 and BP 220.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 291.007, 295.181, 522.044, 329.416 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SECTION 8. Incentives. Developers of socialized housing shall immediately qualify for the incentives cited in Sec. 20 of RA 7279.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 291.007, 217.182, 522.05, 285.796 ],
+      "font" : "Arial,Bold",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SECTION 9. Authority for the issuance of Supplemental Directive Memoranda. The Chief Executive Officer of the Board shall Issue supplemental directive or memoranda implementing or interpreting these rules and regulations without prejudice of the provision of Section 24 of RA 7279.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 291.008, 163.182, 522.069, 208.876 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SECTION 10. Penalty Clause. Any violation of the provisions of these rules shall be penalized in accordance with Sec. 45 of RA 7279 and the charter of this Board.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 33,
+    "level" : "4",
+    "page number" : 4,
+    "bounding box" : [ 72.0, 636.937, 467.066, 720.611 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "previous list id" : 32,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.0, 688.357, 467.066, 720.611 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SECTION 11. Separability Clause. The provisions of these rules are hereby declared separable, and in the event of any such provisions are declared null and void, the validity of all other provisions shall not be affected thereby.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.0, 636.937, 466.619, 680.951 ],
+      "font" : "Arial",
+      "font size" : 10.02,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SECTION 12. Effectivity. These rules shall take effect immediately after its publication in at least two (2) national newspapers of general circulation. APPROVED this 08th day of June 1992, Quezon City.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 34,
+    "page number" : 4,
+    "bounding box" : [ 200.7, 585.037, 346.28, 609.611 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.49799343943595886, 0.0]",
+    "content" : "(Sgd.) TEODORO K. KATIGBAK Chairman, HUDCC"
+  }, {
+    "type" : "paragraph",
+    "id" : 37,
+    "page number" : 4,
+    "bounding box" : [ 70.98, 507.816, 216.968, 540.131 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(Sgd.) LEONORA V. DE JESUS Undersecretary, DILG ExOfflcio Commissioner"
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 4,
+    "bounding box" : [ 72.0, 464.255, 250.461, 496.75 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.49799343943595886, 0.0]",
+    "content" : "(Sgd.) BIENVENIDO E.MERELOS Asst. Secretary for Legal Service, DPWH Ex-Officio Commissioner"
+  }, {
+    "type" : "paragraph",
+    "id" : 39,
+    "page number" : 4,
+    "bounding box" : [ 72.0, 420.695, 234.298, 453.13 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(Sgd.) HARRY S. PASIMIO Asst. Director-General. NEDA Ex-Officio Commissioner"
+  }, {
+    "type" : "paragraph",
+    "id" : 40,
+    "page number" : 4,
+    "bounding box" : [ 70.98, 379.055, 237.145, 411.309 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(Sgd.) VICTORIA A. PAREDES State Prosecutor III, DOJ Government Representative"
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "page number" : 4,
+    "bounding box" : [ 292.98, 507.815, 439.144, 540.13 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(Sgd.) ERNESTO C. MENDIOLA Commissioner and Chief Executive Officer"
+  }, {
+    "type" : "paragraph",
+    "id" : 42,
+    "page number" : 4,
+    "bounding box" : [ 298.679, 478.775, 424.252, 500.469 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(Sgd.) AMADO B. DELORIA Commissioner"
+  }, {
+    "type" : "paragraph",
+    "id" : 43,
+    "page number" : 4,
+    "bounding box" : [ 300.358, 447.215, 422.568, 458.409 ],
+    "font" : "Arial",
+    "font size" : 10.02,
+    "text color" : "[0.0, 0.49799343943595886, 0.0]",
+    "content" : "(Sgd.) ROMULO Q. FABUL"
+  }, {
+    "type" : "paragraph",
+    "id" : 44,
+    "page number" : 4,
+    "bounding box" : [ 332.7, 437.652, 390.154, 447.707 ],
+    "font" : "Arial",
+    "font size" : 9.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Commissioner"
+  }, {
+    "type" : "paragraph",
+    "id" : 45,
+    "page number" : 4,
+    "bounding box" : [ 303.96, 397.693, 418.987, 417.227 ],
+    "font" : "Arial",
+    "font size" : 9.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(Sgd.) LUIS T. TUNGPALAN Commissioner"
+  }, {
+    "type" : "paragraph",
+    "id" : 35,
+    "page number" : 4,
+    "bounding box" : [ 246.72, 341.533, 295.182, 351.587 ],
+    "font" : "Arial",
+    "font size" : 9.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Attested By:"
+  }, {
+    "type" : "paragraph",
+    "id" : 36,
+    "page number" : 4,
+    "bounding box" : [ 199.98, 302.353, 341.946, 321.887 ],
+    "font" : "Arial",
+    "font size" : 9.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(Sgd.) FRANCISCO L. DAGNALAN Board Secretary"
+  }, {
+    "type" : "paragraph",
+    "id" : 46,
+    "page number" : 4,
+    "bounding box" : [ 448.98, 8.473, 463.942, 18.527 ],
+    "font" : "Arial",
+    "font size" : 9.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "199"
+  } ]
+}

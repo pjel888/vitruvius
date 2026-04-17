@@ -1475,6 +1475,27 @@ rules:
         - "Pasay City Zoning Ordinance"
         - "Zoning Ordinance for the City of Pasay"
 
+  # --------------------------------------------------
+  # RA 7279 Section 18 IRR
+  # --------------------------------------------------
+  - name: "RA 7279 Section 18 IRR"
+
+    match:
+      any_contains:
+        - "irr ra 7279 sec 18"
+        - "implementing rules and regulations to govern section 18 of republic act no. 7279"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "Implementing Rules and Regulations to Govern Section 18 of Republic Act No. 7279"
+
+      aliases:
+        - "RA 7279 Section 18 IRR"
+        - "Balanced Housing Development IRR"
+
 
   # --------------------------------------------------
   # GENERIC LAW SECTION

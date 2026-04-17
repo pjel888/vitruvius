@@ -1,0 +1,43 @@
+tranche_id: laws-tranche-ra-9279-remediation
+purpose: readiness-only
+phase_11_gate: gated
+description: Remediation-first singleton lane for the mislabeled `RA-9279` folder.
+  This lane stages the only current raw file and resolves its truthful source identity
+  before any broader widening.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: RA-9279
+  reason: remediation-first filename/folder mismatch resolution.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/RA-9279/IRR RA 7279 Sec 18.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/20260417T172955Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T172955Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9279/IRR RA 7279 Sec 18.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - RA 7279 section-18 remediation slice admits only directly evidenced balanced-housing concepts and dataset-scoped governs relationships
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - RA 7279 section-18 remediation slice admits only directly evidenced balanced-housing concepts and dataset-scoped governs relationships.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/balanced-housing-development.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/project-area.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/socialized-housing-projects.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-balanced-housing-development.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-project-area.md
+source_admission:
+  last_run_id: 20260417T172955Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/20260417T172955Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - RA-9279
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []

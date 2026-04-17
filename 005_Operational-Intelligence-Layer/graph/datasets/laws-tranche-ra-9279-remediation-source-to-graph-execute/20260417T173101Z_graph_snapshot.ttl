@@ -1,0 +1,28 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:concept-socialized-housing-projects a vitruvius:concept ;
+    rdfs:label "socialized-housing-projects (concept-socialized-housing-projects)" ;
+    vitruvius:last_updated_utc "2026-04-16T06:40:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279 a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279 (handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279)" ;
+    vitruvius:defines vitruvius:concept-balanced-housing-development,
+        vitruvius:concept-project-area ;
+    vitruvius:governs vitruvius:concept-balanced-housing-development,
+        vitruvius:concept-project-area ;
+    vitruvius:last_updated_utc "2026-04-17T17:29:55Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:concept-balanced-housing-development a vitruvius:concept ;
+    rdfs:label "balanced-housing-development (concept-balanced-housing-development)" ;
+    vitruvius:last_updated_utc "2026-04-18T01:45:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-project-area a vitruvius:concept ;
+    rdfs:label "project-area (concept-project-area)" ;
+    vitruvius:last_updated_utc "2026-04-18T01:45:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+

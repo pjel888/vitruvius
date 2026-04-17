@@ -2,8 +2,8 @@
 
 ## Current count
 - total law folders: **47**
-- covered through pilot/core bundle + tranches 1–14: **38**
-- remaining uncovered folders: **9**
+- covered through pilot/core bundle + completed lanes: **41**
+- remaining uncovered folders: **6**
 
 ## Proposed future tranche sequence
 ### Tranche 9 — Environmental / implementation guidance
@@ -37,8 +37,8 @@
 
 ## Remediation / defer lanes
 ### Remediation-first
-- `RA-9266` — exact duplicate cluster inside folder
-- `RA-9279` — filename/folder mismatch
+- `RA-9266` — exact duplicate cluster inside folder (completed remediation lane)
+- `RA-9279` — filename/folder mismatch (completed remediation lane)
 - `LGU` — multi-city bundle with internal sharding and exact duplicate cleanup required before truthful tranche execution
 
 ### Draft / empty / weak-authority defer
@@ -50,9 +50,9 @@
 - `BERDE` — rating/user-guide surface rather than primary law
 
 ## Realistic remaining workload
-- normal future tranches likely needed: **4–6**
-- remediation/defer lanes likely needed: **3–5**
-- realistic remaining total work units: **7–9**
+- normal future tranches likely needed: **2–4**
+- remediation/defer lanes likely needed: **2–4**
+- realistic remaining total work units: **4–7**
 
 ## Tracking rule
 Track progress by **lane completed**, not just tranche number. Some future lanes are remediation-only and should not be counted as normal law tranches.

@@ -482,6 +482,16 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - graph snapshot: `6 nodes / 5 edges`
     - Pasay remains explicitly review-sensitive because the shard required OCR-first prep and still carries a summary-withheld path
     - see `/.ai/05_logs/2026-04-18_laws-tranche-15-pasay-validation.md`
+  - the RA-9279 remediation-first lane now executes cleanly and resolves the folder/file mismatch truthfully:
+    - manifest: `config/datasets/laws-tranche-ra-9279-remediation.yaml`
+    - current execute evidence:
+      - `staged_law_folders = [RA-9279]`
+      - `duplicate_law_folders = []`
+      - `generated_relationship_count = 0`
+      - `shallow_representation_count = 0`
+      - graph snapshot: `4 nodes / 4 edges`
+    - the admitted source identity is now explicitly the Section 18 RA 7279 IRR rather than a fictional RA 9279 statute surface
+    - see `/.ai/05_logs/2026-04-18_laws-ra-9279-remediation-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
