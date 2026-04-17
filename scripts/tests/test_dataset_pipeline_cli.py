@@ -1179,3 +1179,90 @@ def test_run_laws_tranche_source_to_graph_dry_run_reduces_shallow_representation
     assert payload['shallow_representation_count'] == 0
     derived_manifest = yaml.safe_load((tmp_path / payload['derived_manifest_path']).read_text(encoding='utf-8'))
     assert len(derived_manifest['relationship_input_manifest']['relationships']) == 3
+
+
+def test_run_laws_tranche_source_to_graph_execute_wrapper_reports_success(tmp_path: Path, monkeypatch) -> None:
+    from vitruvius import laws_readiness as lr
+    from vitruvius import dataset_pipeline as dp
+
+    _seed_repo(tmp_path)
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-1.yaml'
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-1',
+                'review_model_preset': 'm2-8gb-safe',
+                'candidate_law_folders': [
+                    {
+                        'folder_name': 'PD-957',
+                        'reason': 'housing adjacency',
+                        'source_admission_state': 'admitted',
+                        'raw_anchor_paths': [
+                            '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf',
+                        ],
+                        'authoritative_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf',
+                        ],
+                        'excluded_variant_paths': [],
+                        'refined_markdown_paths': [
+                            '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md',
+                        ],
+                        'admitted_source_paths': [
+                            '003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-for-pd-957.md',
+                        ],
+                        'admitted_concept_paths': [],
+                        'admitted_relationship_paths': [],
+                        'verification_checks': [],
+                        'scope_notes': [],
+                    },
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    _write_valid_pdf(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'PD 957 IRR - Subdivision and Condominium IRR.pdf'
+    )
+    _seed_conversion_inventory_path(
+        tmp_path,
+        'PD-957',
+        'PD 957 IRR - Subdivision and Condominium IRR',
+        refined_payload='# REVISED IMPLEMENTING RULES AND REGULATIONS FOR PD 957\n',
+    )
+    _write(
+        tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'revised-implementing-rules-and-regulations-for-pd-957.md',
+        '---\nid: irr-revised-implementing-rules-and-regulations-for-pd-957\ntitle: Revised Implementing Rules and Regulations for PD 957\ntrust_level: primary\n---\n\n# body\n',
+    )
+
+    def fake_execute(*, dataset_manifest: str, dry_run: bool, review_preset: str | None = None, **kwargs) -> int:
+        payload = {
+            'action': 'run-dataset-source-to-graph',
+            'dataset_id': 'laws-tranche-1-source-to-graph-execute',
+            'run_id': 'fake-run',
+            'generated_relationship_count': 2,
+            'filtered_relationship_count': 0,
+            'manual_review_required_count': 0,
+            'summary_auto_withheld_count': 0,
+            'shallow_representation_count': 0,
+            'pipeline_report_path': 'fake/source_to_graph_run_report.json',
+            'graph_snapshot_path': 'fake/graph_snapshot.json',
+            'graph_build_report_path': 'fake/build_graph_dataset_report.json',
+        }
+        print(json.dumps(payload))
+        return 0
+
+    monkeypatch.setattr(dp, 'run_dataset_source_to_graph_pipeline', fake_execute)
+
+    rc, output = lr._capture_text_handler(
+        lambda: lr.run_laws_tranche_source_to_graph(
+            tranche_manifest=str(tranche_manifest),
+            review_preset='m2-8gb-safe',
+        )
+    )
+    assert rc == 0
+    payload = json.loads(output)
+    assert payload['action'] == 'run-laws-tranche-source-to-graph'
+    assert payload['execute'] is True
+    assert payload['staged_law_folders'] == ['PD-957']
+    assert payload['generated_relationship_count'] == 2

@@ -1,0 +1,38 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "front matter is image-heavy and may reflect OCR/layout instability"
+  ],
+  "image_line_count": 5,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 15,
+  "noise_line_count": 0,
+  "non_empty_line_count": 144,
+  "recommendations": [],
+  "refined_markdown_path": "001-Laws/refined_markdown/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 0,
+    "admitted_relationship_count": 0,
+    "folder_name": "PD-1216",
+    "law_id": "pd-1216",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 15.0,
+    "section_to_relationship_ratio": 15.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 15
+  },
+  "severity": "low",
+  "structural_heading_count": 15,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [
+    "image_heavy_front_matter"
+  ],
+  "table_line_count": 0,
+  "total_line_count": 283,
+  "useful_text_line_count": 139,
+  "useful_text_ratio": 0.965278
+}

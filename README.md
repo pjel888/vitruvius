@@ -1394,6 +1394,22 @@ This command:
 - reuses the bounded source-to-graph dry-run pipeline
 - keeps `source_to_graph_execute_ready = false`
 
+### Tranche source-to-graph execute
+
+After the tranche dry-run gate is cleared, you can run the bounded execute wrapper:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-graph \
+  --tranche-manifest config/datasets/laws-tranche-1.yaml \
+  --review-preset m2-8gb-safe
+```
+
+This command:
+- derives the tranche execute manifest from the admitted tranche state
+- runs the bounded source-to-graph pipeline in execute mode
+- preserves duplicate/raw-alias visibility in the wrapper report
+- still keeps the broader Phase 11 expansion gate explicit
+
 ### Progress / developer experience
 
 When you run the command in an interactive terminal, it emits phase/progress

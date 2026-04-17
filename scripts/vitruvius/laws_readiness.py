@@ -447,6 +447,38 @@ def _tranche_source_to_graph_paths(repo_root: Path, tranche_id: str, run_id: str
     }
 
 
+def _tranche_source_to_graph_execute_paths(repo_root: Path, tranche_id: str, run_id: str) -> dict[str, Path]:
+    base = (
+        repo_root
+        / "006_System-Manifests"
+        / "runs"
+        / "datasets"
+        / tranche_id
+        / "source_to_graph_execute"
+        / run_id
+    )
+    dataset_id = f"{tranche_id}-source-to-graph-execute"
+    return {
+        "base": base,
+        "derived_manifest": base / "derived_dataset_manifest.yaml",
+        "report": base / "laws_tranche_source_to_graph_execute_report.json",
+        "dataset_graph_output_root": (
+            repo_root
+            / "005_Operational-Intelligence-Layer"
+            / "graph"
+            / "datasets"
+            / dataset_id
+        ),
+        "dataset_run_output_root": (
+            repo_root
+            / "006_System-Manifests"
+            / "runs"
+            / "datasets"
+            / dataset_id
+        ),
+    }
+
+
 def _classified_raw_entry(
     *,
     path: str,
@@ -473,9 +505,11 @@ def _build_tranche_source_to_graph_manifest_payload(
     repo_root: Path,
     tranche_payload: dict[str, Any],
     run_id: str,
+    dataset_id: str,
+    graph_output_root_rel: str,
+    run_output_root_rel: str,
 ) -> tuple[dict[str, Any], list[str], list[str]]:
     tranche_id = str(tranche_payload.get("tranche_id") or "laws-tranche")
-    dataset_id = f"{tranche_id}-source-to-graph-dry-run"
     staged_entries = [
         item
         for item in tranche_payload["candidate_law_folders"]
@@ -633,9 +667,9 @@ def _build_tranche_source_to_graph_manifest_payload(
         "relationship_input_manifest": {
             "relationships": relationship_entries,
         },
-        "graph_output_root": f"005_Operational-Intelligence-Layer/graph/datasets/{dataset_id}",
-        "run_output_root": f"006_System-Manifests/runs/datasets/{dataset_id}",
-        "query_snapshot_path_template": f"005_Operational-Intelligence-Layer/graph/datasets/{dataset_id}/{{run_id}}_graph_snapshot.json",
+        "graph_output_root": graph_output_root_rel,
+        "run_output_root": run_output_root_rel,
+        "query_snapshot_path_template": f"{graph_output_root_rel}/{{run_id}}_graph_snapshot.json",
         "freshness_policy": {"mode": "exact"},
         "pilot_gate": {
             "require_manifest_validation": True,
@@ -2118,6 +2152,9 @@ def run_laws_tranche_source_to_graph_dry_run(
         repo_root=repo_root,
         tranche_payload=tranche_payload,
         run_id=run_id,
+        dataset_id=f"{tranche_id}-source-to-graph-dry-run",
+        graph_output_root_rel=f"005_Operational-Intelligence-Layer/graph/datasets/{tranche_id}-source-to-graph-dry-run",
+        run_output_root_rel=f"006_System-Manifests/runs/datasets/{tranche_id}-source-to-graph-dry-run",
     )
     if not staged_law_folders:
         print(json.dumps({
@@ -2197,6 +2234,114 @@ def run_laws_tranche_source_to_graph_dry_run(
         "derived_manifest_path": _relative(paths["derived_manifest"], repo_root),
         "report_path": _relative(paths["report"], repo_root),
         "source_to_graph_execute_ready": False,
+    }
+    print(json.dumps(summary, indent=2))
+    return 0
+
+
+def run_laws_tranche_source_to_graph(
+    *,
+    tranche_manifest: str,
+    review_preset: str | None = None,
+) -> int:
+    from .dataset_pipeline import run_dataset_source_to_graph_pipeline
+
+    repo_root = Path.cwd().resolve()
+    tranche_payload, tranche_manifest_path, tranche_error = _load_tranche_manifest(repo_root, tranche_manifest)
+    if tranche_payload is None:
+        print(json.dumps({"error": tranche_error or "failed to load tranche manifest"}, indent=2))
+        return 2
+
+    run_id = utc_now_stamp().replace("-", "").replace(":", "").replace("+0000", "Z")
+    tranche_id = str(tranche_payload.get("tranche_id") or "laws-tranche")
+    paths = _tranche_source_to_graph_execute_paths(repo_root, tranche_id, run_id)
+    paths["base"].mkdir(parents=True, exist_ok=True)
+
+    derived_manifest_payload, staged_law_folders, blocked_law_folders = _build_tranche_source_to_graph_manifest_payload(
+        repo_root=repo_root,
+        tranche_payload=tranche_payload,
+        run_id=run_id,
+        dataset_id=f"{tranche_id}-source-to-graph-execute",
+        graph_output_root_rel=f"005_Operational-Intelligence-Layer/graph/datasets/{tranche_id}-source-to-graph-execute",
+        run_output_root_rel=f"006_System-Manifests/runs/datasets/{tranche_id}-source-to-graph-execute",
+    )
+    if not staged_law_folders:
+        print(json.dumps({
+            "error": "no admitted tranche members are available for source-to-graph execute staging",
+            "blocked_law_folders": blocked_law_folders,
+        }, indent=2))
+        return 2
+
+    paths["derived_manifest"].write_text(
+        yaml.safe_dump(derived_manifest_payload, sort_keys=False),
+        encoding="utf-8",
+    )
+    effective_review_preset = review_preset or str(tranche_payload.get("review_model_preset") or "") or None
+    duplicate_clusters, duplicate_flags_by_folder = _pdf_duplicate_clusters(
+        repo_root=repo_root,
+        folder_names=[str(item["folder_name"]) for item in tranche_payload["candidate_law_folders"]],
+    )
+    inner_rc, inner_output = _capture_text_handler(
+        lambda: run_dataset_source_to_graph_pipeline(
+            dataset_manifest=str(paths["derived_manifest"]),
+            dry_run=False,
+            review_preset=effective_review_preset,
+        )
+    )
+    if inner_rc != 0:
+        if inner_output.strip():
+            print(inner_output.strip())
+        return inner_rc
+    try:
+        inner_summary = json.loads(inner_output)
+    except json.JSONDecodeError:
+        print(json.dumps({"error": "dataset source-to-graph execute returned non-JSON output"}, indent=2))
+        return 1
+
+    report = {
+        "action": "run-laws-tranche-source-to-graph",
+        "generated_at_utc": utc_now_stamp(),
+        "run_id": run_id,
+        "execute": True,
+        "phase_11_gate": "gated",
+        "phase_11_generic_expansion_gated": True,
+        "tranche_id": tranche_id,
+        "tranche_manifest_path": _relative(tranche_manifest_path, repo_root),
+        "derived_manifest_path": _relative(paths["derived_manifest"], repo_root),
+        "review_preset": effective_review_preset,
+        "staged_law_folders": staged_law_folders,
+        "blocked_law_folders": blocked_law_folders,
+        "duplicate_cluster_count": len(duplicate_clusters),
+        "duplicate_law_folders": sorted(duplicate_flags_by_folder),
+        "duplicate_clusters": duplicate_clusters,
+        "source_to_graph_execute_completed": True,
+        "inner_source_to_graph_summary": inner_summary,
+    }
+    write_json_report(paths["report"], report)
+
+    summary = {
+        "action": "run-laws-tranche-source-to-graph",
+        "run_id": run_id,
+        "execute": True,
+        "phase_11_gate": "gated",
+        "phase_11_generic_expansion_gated": True,
+        "tranche_id": tranche_id,
+        "review_preset": effective_review_preset,
+        "staged_law_folders": staged_law_folders,
+        "blocked_law_folders": blocked_law_folders,
+        "duplicate_cluster_count": len(duplicate_clusters),
+        "duplicate_law_folders": sorted(duplicate_flags_by_folder),
+        "generated_relationship_count": inner_summary.get("generated_relationship_count"),
+        "filtered_relationship_count": inner_summary.get("filtered_relationship_count"),
+        "manual_review_required_count": inner_summary.get("manual_review_required_count"),
+        "summary_auto_withheld_count": inner_summary.get("summary_auto_withheld_count"),
+        "shallow_representation_count": inner_summary.get("shallow_representation_count"),
+        "dataset_pipeline_report_path": inner_summary.get("pipeline_report_path"),
+        "graph_snapshot_path": inner_summary.get("graph_snapshot_path"),
+        "graph_build_report_path": inner_summary.get("graph_build_report_path"),
+        "derived_manifest_path": _relative(paths["derived_manifest"], repo_root),
+        "report_path": _relative(paths["report"], repo_root),
+        "source_to_graph_execute_completed": True,
     }
     print(json.dumps(summary, indent=2))
     return 0

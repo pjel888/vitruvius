@@ -138,6 +138,19 @@
     - `planned_stage_count = 3`
     - `shallow_representation_count = 0`
     - `source_to_graph_execute_ready = false`
+- Tranche source-to-graph execute slice:
+  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/pipeline_cli.py scripts/vitruvius/cli_experience.py scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py`
+  - **PASS**
+  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py -k 'tranche_source_to_graph_dry_run or tranche_source_to_graph_execute or prepare_raw_file_allow_ocr or pd_1216 or pd_957 or pd_1185' -q`
+  - **7 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-graph --tranche-manifest config/datasets/laws-tranche-1.yaml --review-preset m2-8gb-safe`
+  - current execute evidence:
+    - `staged_law_folders = [PD-957, PD-1216, PD-1185]`
+    - `duplicate_law_folders = [PD-957]`
+    - `generated_relationship_count = 2`
+    - `filtered_relationship_count = 0`
+    - `shallow_representation_count = 0`
+    - `source_to_graph_execute_completed = true`
 
 ## Residual Graph Caveat
 
@@ -164,6 +177,7 @@
 - Latest tranche source-to-graph dry-run validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-dry-run-validation.md`
 - Latest PD-957 concept-fit validation: `/.ai/05_logs/2026-04-17_pd957-concept-fit-admission-validation.md`
 - Latest PD-1216 OCR-first validation: `/.ai/05_logs/2026-04-17_pd1216-ocr-first-preparation-validation.md`
+- Latest tranche source-to-graph execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-execute-validation.md`
 
 ## Handoff Note
 

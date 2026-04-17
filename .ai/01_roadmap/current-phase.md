@@ -134,6 +134,18 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `PD-1185`
     - current live dry-run shows `planned_stage_count = 3`, `blocked_law_folders = []`, `shallow_representation_count = 0`, and `source_to_graph_execute_ready = false`
     - see `/.ai/05_logs/2026-04-17_pd1216-ocr-first-preparation-validation.md`
+  - tranche-local source-to-graph execute wrapper is now complete:
+    - `run-laws-tranche-source-to-graph`
+    - current live execute stages:
+      - `PD-957`
+      - `PD-1216`
+      - `PD-1185`
+    - current live execute shows:
+      - `generated_relationship_count = 2`
+      - `filtered_relationship_count = 0`
+      - `shallow_representation_count = 0`
+      - `source_to_graph_execute_completed = true`
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-execute-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

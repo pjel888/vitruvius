@@ -389,6 +389,16 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         next_step="Review the staged dry-run report, fix remaining OCR or representation risks, and only then consider a future tranche execute slice.",
         operator_safe=False,
     ),
+    "run-laws-tranche-source-to-graph": _doc(
+        "run-laws-tranche-source-to-graph",
+        "Execute the bounded tranche source-to-graph wrapper from admitted tranche state.",
+        human="This runs the tranche-local source-to-graph execution after the dry-run gate has cleared. It stages the admitted tranche members through the existing bounded source-to-graph pipeline, preserves duplicate visibility, and still keeps the broader Phase 11 expansion gate explicit.",
+        technical="Builds a derived dataset manifest from the tranche source-admission state, runs `run-dataset-source-to-graph` with `dry_run=False`, and writes a tranche-local execute report with graph/run output paths.",
+        success="A healthy result writes the tranche-local source-to-graph execution outputs, graph snapshot/report paths, and wrapper report for the staged tranche.",
+        failure="The admitted tranche could not be executed safely through the bounded source-to-graph pipeline, so the tranche execute slice remains incomplete.",
+        next_step="Inspect the execute report, graph build outputs, and generated relationship evidence before deciding whether the tranche is strong enough for wider use.",
+        operator_safe=False,
+    ),
     "canonicalize": _doc(
         "canonicalize",
         "Batch-write refined sources into canonical source pages.",
