@@ -1,0 +1,18 @@
+Vitruvius PDF Detection Report
+
+PDF: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/DOH/DOH Guidelines for Health Facilities 20004.pdf
+Total pages: 6
+Pages sampled: 5
+
+PAGE DETAILS:
+  Page 1: 2718 extracted characters
+  Page 2: 2286 extracted characters
+  Page 3: 2466 extracted characters
+  Page 4: 2428 extracted characters
+  Page 5: 1403 extracted characters
+
+Pages with usable text: 5/5
+Total extracted characters: 11301
+
+RESULT: TEXT_PDF
+RECOMMENDED ROUTE: OPENDATALOADER_DIRECT

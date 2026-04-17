@@ -1,0 +1,28 @@
+tranche_id: laws-tranche-14
+purpose: readiness-only
+phase_11_gate: gated
+description: Fourteenth explicit widening tranche after tranche-13. This tranche stays on a narrow health / public-facility guidance lane using one scoped DOH facility-guideline surface and one scoped DEPED DRRR manual surface.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: DOH
+  reason: health-facility planning and compliance guidance adjacency.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/DOH/DOH Guidelines for Health Facilities 20004.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths:
+  - 001_Raw-Source-Layer/001-Laws/DOH/DOH Adolescent-Friendly Health Services 2010.pdf
+  - 001_Raw-Source-Layer/001-Laws/DOH/DOH Adolescent-Friendly Health Services 2010_Module.md
+  - 001_Raw-Source-Layer/001-Laws/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003.pdf
+  - 001_Raw-Source-Layer/001-Laws/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003_Module.md
+- folder_name: DEPED
+  reason: school disaster-risk-reduction and resilience guidance adjacency.
+  raw_anchor_paths: &id002
+  - 001_Raw-Source-Layer/001-Laws/DEPED/DepEd DRRR Manual Philippines.pdf
+  authoritative_variant_paths: *id002
+  excluded_variant_paths: []
+source_admission:
+  last_run_id: null
+  last_report_path: null
+  admitted_ready_law_folders: []
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []
