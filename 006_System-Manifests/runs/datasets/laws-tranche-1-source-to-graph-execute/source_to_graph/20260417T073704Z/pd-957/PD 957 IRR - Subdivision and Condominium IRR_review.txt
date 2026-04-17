@@ -1,0 +1,16 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md
+Candidates reviewed: 2
+Keep: 2
+Review Further: 0
+Reject: 0
+
+irr-revised-implementing-rules-and-regulations-for-pd-957 -> governs -> concept-yards
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-revised-implementing-rules-and-regulations-for-pd-957 -> governs -> concept-floor-area
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language

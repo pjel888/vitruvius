@@ -1,0 +1,42 @@
+{
+  "generated_at": "20260417T073704Z",
+  "model": "qwen2.5:7b",
+  "source": "001-Laws/refined_markdown/PD-1185/PD 1185 - Fire Code of the Philippines 1977.md",
+  "total_candidates": 1,
+  "llm_reviewed": 0,
+  "pre_review_auto_accepted": 0,
+  "pre_review_auto_rejected": 1,
+  "completed_reviews": 1,
+  "status": "completed",
+  "summary": {
+    "keep": 0,
+    "review_further": 0,
+    "reject": 1,
+    "high_confidence_keep": 0,
+    "high_confidence_reject": 1
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "law-fire-code-of-the-philippines",
+        "type": "governs",
+        "to": "concept-yards",
+        "occurrences": 1,
+        "sections": [
+          "section-9"
+        ],
+        "examples": [
+          "- (a) Obstructing or blocking the exit ways or across to buildings clearly marked for fire safety purposes, such as but not limited to aisles in interior rooms, any part of stairways, hallways, corridors, vestibules, balconies or bridges leading to a stairway or exit of any kind, or tolerating or al"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['yards'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}
