@@ -983,6 +983,35 @@ rules:
         - "DPWH DO037"
         - "Enforcement of BP344 along National Roads"
 
+
+  # --------------------------------------------------
+  # RA 9266 IRR
+  # --------------------------------------------------
+  - name: "RA 9266 IRR"
+
+    match:
+      all_contains:
+        - "9266"
+      any_contains:
+        - "architecture act"
+        - "irr of ra 9266"
+        - "registration, licensing and practice of architecture"
+
+    classification:
+      source_type: irr
+      trust_level: primary
+
+    canonical:
+      title: "Implementing Rules and Regulations of the Architecture Act of 2004"
+
+      aliases:
+        - "RA 9266"
+        - "RA 9266 IRR"
+        - "IRR of RA 9266"
+        - "Architecture Act of 2004 IRR"
+
+      core_concepts: []
+
   # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------

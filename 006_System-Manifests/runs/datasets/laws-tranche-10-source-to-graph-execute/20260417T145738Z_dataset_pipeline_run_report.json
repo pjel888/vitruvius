@@ -1,0 +1,195 @@
+{
+  "action": "run-dataset-graph",
+  "build": {
+    "action": "build-graph",
+    "artifact_metadata": {
+      "contributing_law_ids": [
+        "ra-9266"
+      ],
+      "dataset_id": "laws-tranche-10-source-to-graph-execute",
+      "dataset_kind": "laws-tranche",
+      "freshness_policy": {
+        "mode": "exact"
+      },
+      "input_fingerprint": {
+        "combined_sha256": "39e7dd85241fac91de889306b5d4a131fae4aac54135b02a75afefba983463e2",
+        "file_count": 2,
+        "files": [
+          {
+            "mtime_ns": 1776132650185597810,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/occupancy-governs-fire-requirements.md",
+            "sha256": "02efc10b58b6d6263d679dd85e8acac9f5f53bebaddb29779df590b9e12abf8c",
+            "size_bytes": 2111
+          },
+          {
+            "mtime_ns": 1776437857340196046,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-architecture-act-of-2004.md",
+            "sha256": "5b87317f290ba004af4e745ed853846e121b8e8fc5f1b0304cddfe0334c3fe44",
+            "size_bytes": 1413
+          }
+        ]
+      },
+      "law_units": [
+        {
+          "admitted_concept_paths": [],
+          "admitted_relationship_paths": [],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-architecture-act-of-2004.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-9266/RA-9266 IRR Architecture Act of 2004.pdf"
+          ],
+          "excluded_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-9266/IRR of RA 9266.pdf"
+          ],
+          "folder_name": "RA-9266",
+          "law_id": "ra-9266",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-9266/RA-9266 IRR Architecture Act of 2004.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9266/RA-9266 IRR Architecture Act of 2004.md"
+          ],
+          "scope_notes": [
+            "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+          ],
+          "verification_checks": [
+            "source admission executed for the selected authoritative prepared variants",
+            "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+          ]
+        }
+      ],
+      "manifest_hash": "f0d7fef3706f02c5a5d412011e424f82b12be80a21c50ca4bce28c7f4af42223",
+      "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-10-source-to-graph-execute/source_to_graph/20260417T145737Z/derived_dataset_manifest.yaml",
+      "pilot_gate": {
+        "derived_from_tranche_id": "laws-tranche-10",
+        "derived_run_id": "20260417T145737Z",
+        "require_manifest_validation": true,
+        "source_to_graph_execute_ready": false
+      },
+      "run_id": "20260417T145738Z",
+      "scope_notes": [
+        "Derived from laws-tranche-10 after tranche source admission.",
+        "Dry-run only: stage admitted tranche members without unlocking execute.",
+        "Blocked tranche members remain explicit outside the staged law-unit list."
+      ],
+      "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-10-source-to-graph-execute/20260417T145738Z_graph_integrity_report.json",
+      "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-10-source-to-graph-execute/20260417T145738Z_graph_snapshot.json",
+      "upstream_artifact_refs": {
+        "canonical_concepts": [],
+        "canonical_sources": [
+          "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-architecture-act-of-2004.md"
+        ],
+        "relationship_inputs": [
+          "003_Canonical-Knowledge-Layer/shared/relationships/occupancy-governs-fire-requirements.md"
+        ]
+      }
+    },
+    "build_report_path": "006_System-Manifests/runs/datasets/laws-tranche-10-source-to-graph-execute/20260417T145738Z_build_graph_dataset_report.json",
+    "contributing_law_ids": [
+      "ra-9266"
+    ],
+    "coverage": [
+      {
+        "approved_relationship_input_count": 1,
+        "canonical_count": 1,
+        "converted_count": null,
+        "edge_count_contributed": 0,
+        "folder_name": "RA-9266",
+        "node_count_contributed": 1,
+        "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+        "raw_file_count": 2,
+        "refined_count": null,
+        "status": "partial"
+      }
+    ],
+    "dataset_id": "laws-tranche-10-source-to-graph-execute",
+    "dataset_kind": "laws-tranche",
+    "dry_run": false,
+    "edge_count": 0,
+    "incomplete": true,
+    "integrity": {
+      "error_count": 0,
+      "findings": [
+        {
+          "code": "orphan_node",
+          "edge_from": null,
+          "edge_to": null,
+          "message": "node 'irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004' has zero incident edges",
+          "node_id": "irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004",
+          "severity": "warning"
+        }
+      ],
+      "passed": true,
+      "warning_count": 1
+    },
+    "integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-10-source-to-graph-execute/20260417T145738Z_graph_integrity_report.json",
+    "law_unit_count": 1,
+    "law_units": [
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-architecture-act-of-2004.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9266/RA-9266 IRR Architecture Act of 2004.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9266/IRR of RA 9266.pdf"
+        ],
+        "folder_name": "RA-9266",
+        "law_id": "ra-9266",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9266/RA-9266 IRR Architecture Act of 2004.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9266/RA-9266 IRR Architecture Act of 2004.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+        ]
+      }
+    ],
+    "manifest_hash": "f0d7fef3706f02c5a5d412011e424f82b12be80a21c50ca4bce28c7f4af42223",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-10-source-to-graph-execute/source_to_graph/20260417T145737Z/derived_dataset_manifest.yaml",
+    "mode": "dataset",
+    "node_count": 1,
+    "run_id": "20260417T145738Z",
+    "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-10-source-to-graph-execute/20260417T145738Z_graph_snapshot.json",
+    "thin_graph_metrics": {
+      "connected_component_count": 1,
+      "edge_type_diversity": {
+        "count": 0,
+        "types": []
+      },
+      "isolated_node_count": 1,
+      "isolated_node_rate": 1.0,
+      "per_folder_node_edge_balance": {
+        "RA-9266": {
+          "edge_count_contributed": 0,
+          "node_count_contributed": 1,
+          "status": "partial"
+        }
+      }
+    }
+  },
+  "contributing_law_ids": [
+    "ra-9266"
+  ],
+  "dataset_id": "laws-tranche-10-source-to-graph-execute",
+  "dataset_kind": "laws-tranche",
+  "generated_at_utc": "20260417T145738Z",
+  "law_unit_count": 1,
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-10-source-to-graph-execute/source_to_graph/20260417T145737Z/derived_dataset_manifest.yaml",
+  "owl": {
+    "path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-10-source-to-graph-execute/20260417T145738Z_graph_snapshot.ttl",
+    "rc": 0
+  },
+  "run_id": "20260417T145738Z",
+  "structured_checks": []
+}

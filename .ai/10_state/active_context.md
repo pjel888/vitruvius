@@ -324,6 +324,15 @@
   - concrete proposed future tranches now documented in `docs/LAWS_REMAINING_POOL_ROADMAP.md`
   - realistic remaining workload estimate: `6–8` future tranches plus `3–5` remediation/defer lanes
 
+- Tranche-10 bounded execution:
+  - current tranche-10 execute evidence:
+    - `staged_law_folders = [RA-9266]`
+    - `raw_alias_law_folders = [RA-9266]`
+    - `generated_relationship_count = 0`
+    - `shallow_representation_count = 0`
+    - graph snapshot: `1 nodes / 0 edges`
+  - tranche-10 remains a duplicate-remediation-first lane rather than a richness lane
+
 ## Residual Graph Caveat
 
 - `build-graph` is now green on errors, but still reports six orphan-node warnings that remain informational rather than blocking.

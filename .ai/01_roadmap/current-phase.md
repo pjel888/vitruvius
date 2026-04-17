@@ -332,6 +332,18 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
   - remaining uncovered-pool roadmap is now explicit for planning/tracking:
     - see `docs/LAWS_REMAINING_POOL_ROADMAP.md`
     - see `/.ai/13_research/2026-04-17_remaining-pool-tranche-roadmap-research.md`
+  - tranche-10 is now defined and executed through the same bounded workflow:
+    - manifest: `config/datasets/laws-tranche-10.yaml`
+    - tranche-10 law:
+      - `RA-9266`
+    - current execute evidence:
+      - `staged_law_folders = [RA-9266]`
+      - `duplicate_law_folders = [RA-9266]`
+      - `raw_alias_law_folders = [RA-9266]`
+      - `generated_relationship_count = 0`
+      - `shallow_representation_count = 0`
+      - graph snapshot: `1 nodes / 0 edges`
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-10-execution-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

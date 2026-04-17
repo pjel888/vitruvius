@@ -1,0 +1,9 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004 a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-of-the-architecture-act-of-2004 (irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004)" ;
+    vitruvius:last_updated_utc "2026-04-17T14:57:37Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+

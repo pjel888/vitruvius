@@ -315,3 +315,13 @@ def test_build_plan_matches_dpwh_do037_accessibility_order_rule() -> None:
     assert plan['prefix'] == 'handout'
     assert plan['source_type'] == 'handout'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_9266_irr_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-9266/RA-9266 IRR Architecture Act of 2004.md'
+    )
+    assert plan['title'] == 'Implementing Rules and Regulations of the Architecture Act of 2004'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'
