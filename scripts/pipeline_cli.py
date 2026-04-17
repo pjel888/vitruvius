@@ -459,6 +459,11 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_lane_bootstrap_parser.add_argument("--raw-path", action="append", default=[])
     generic_aggregate_lane_bootstrap_parser.add_argument("--sample-pages", type=int, default=5)
     generic_aggregate_lane_bootstrap_parser.add_argument("--allow-ocr", action="store_true")
+    generic_aggregate_candidate_parser = add_command_parser(subparsers, "suggest-completed-aggregate-family-candidates")
+    generic_aggregate_candidate_parser.add_argument("--raw-root", required=True)
+    generic_aggregate_candidate_parser.add_argument("--max-candidates", type=int, default=5)
+    generic_aggregate_candidate_parser.add_argument("--sample-pages", type=int, default=5)
+    generic_aggregate_candidate_parser.add_argument("--extension", action="append", default=[])
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1412,6 +1417,24 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("bootstrap-completed-aggregate-family-lane", _run_bootstrap_generic_family_lane)
+
+    if args.command == "suggest-completed-aggregate-family-candidates":
+        from vitruvius.aggregate_manifest import suggest_completed_aggregate_family_candidates
+        def _run_suggest_generic_family_candidates():
+            repo_root = Path.cwd().resolve()
+            summary = suggest_completed_aggregate_family_candidates(
+                repo_root=repo_root,
+                raw_root=Path(args.raw_root),
+                max_candidates=args.max_candidates,
+                sample_pages=args.sample_pages,
+                extensions=list(args.extension or []),
+            )
+            print(json.dumps({
+                "action": "suggest-completed-aggregate-family-candidates",
+                **summary,
+            }, indent=2))
+            return 0
+        return _run("suggest-completed-aggregate-family-candidates", _run_suggest_generic_family_candidates)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary

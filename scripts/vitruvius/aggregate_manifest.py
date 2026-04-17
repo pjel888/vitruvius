@@ -1737,6 +1737,72 @@ def bootstrap_completed_aggregate_family_lane(
     }
 
 
+def suggest_completed_aggregate_family_candidates(
+    *,
+    repo_root: Path,
+    raw_root: Path,
+    max_candidates: int = 5,
+    sample_pages: int = 5,
+    extensions: list[str] | None = None,
+) -> dict[str, Any]:
+    from .conversion import SUPPORTED_DIRECT_INPUT_EXTENSIONS
+    from .detection import detect_pdf_type
+
+    resolved_raw_root = raw_root if raw_root.is_absolute() else repo_root / raw_root
+    if not resolved_raw_root.exists() or not resolved_raw_root.is_dir():
+        raise ValueError(f'raw_root is not a directory: {resolved_raw_root}')
+    if max_candidates <= 0:
+        raise ValueError('max_candidates must be positive')
+
+    allowed_extensions = {
+        ext.lower() if ext.startswith('.') else f'.{ext.lower()}'
+        for ext in (extensions or list(SUPPORTED_DIRECT_INPUT_EXTENSIONS))
+    }
+    candidates: list[dict[str, Any]] = []
+    for file_path in sorted(resolved_raw_root.iterdir()):
+        if not file_path.is_file() or file_path.name.startswith('.'):
+            continue
+        if file_path.suffix.lower() not in allowed_extensions:
+            continue
+        detection: dict[str, Any] | None = None
+        detection_error: str | None = None
+        if file_path.suffix.lower() == '.pdf':
+            try:
+                detection = detect_pdf_type(file_path, sample_pages=sample_pages)
+            except Exception as exc:  # noqa: BLE001
+                detection_error = str(exc)
+        score = 0.0
+        if detection is not None:
+            if detection.get('result') == 'TEXT_PDF':
+                score += 100.0
+            score += float(detection.get('pages_with_usable_text') or 0) * 10.0
+            score += float(detection.get('total_extracted_characters') or 0) / 100.0
+        candidates.append({
+            'raw_path': _relative(file_path, repo_root),
+            'extension': file_path.suffix.lower(),
+            'detection_result': detection.get('result') if detection else None,
+            'recommended_route': detection.get('recommended_route') if detection else None,
+            'pages_with_usable_text': detection.get('pages_with_usable_text') if detection else None,
+            'pages_sampled': detection.get('pages_sampled') if detection else None,
+            'total_extracted_characters': detection.get('total_extracted_characters') if detection else None,
+            'score': round(score, 3),
+            'detection_error': detection_error,
+        })
+
+    ranked = sorted(
+        candidates,
+        key=lambda item: (
+            -(item['score'] or 0.0),
+            str(item.get('raw_path') or ''),
+        ),
+    )
+    return {
+        'raw_root': _relative(resolved_raw_root, repo_root),
+        'candidate_count': len(ranked),
+        'top_candidates': ranked[:max_candidates],
+    }
+
+
 def scaffold_completed_aggregate_lane_manifest(
     *,
     repo_root: Path,

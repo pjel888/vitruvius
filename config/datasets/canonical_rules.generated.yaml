@@ -33,6 +33,23 @@ rules:
     relationships: {}
     core_concepts:
     - building utilities
+- name: Scaffolded handout rule for Architectural Cost Estimates By Max Fajardo
+  match:
+    all_contains:
+    - architectural
+    - cost
+    - estimates
+    - max
+  classification:
+    source_type: handout
+    trust_level: secondary
+  canonical:
+    title: Architectural Cost Estimates By Max Fajardo
+    aliases:
+    - Architectural Cost Estimates By Max Fajardo
+    relationships: {}
+    core_concepts:
+    - construction estimating
 - name: Scaffolded handout rule for Quotes (1)
   match:
     all_contains:

@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T210238Z",
+  "source_relative_path": "004-Technology/raw_markdown/Architectural Cost Estimates By Max Fajardo.md",
+  "refined_relative_path": "004-Technology/refined_markdown/Architectural Cost Estimates By Max Fajardo.md",
+  "source_hash": "434bb6ff7cc7c4cdd0e4a7aace2247e9c6f4ac015528c00a5d62c4f3494adb87",
+  "output_hash": "174391a67fd19efd99eb0c0e6c171c7086728811f0f38dc91b13598368619529",
+  "chars_before": 753866,
+  "chars_after": 751383,
+  "chars_delta": -2483,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "strip-control-chars",
+    "collapse-consecutive-blank-lines",
+    "normalize-section-abbreviation"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 753866,
+      "chars_after": 753866,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 753866,
+      "chars_after": 753865,
+      "changed": true
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 753865,
+      "chars_after": 753865,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 753865,
+      "chars_after": 753865,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 753865,
+      "chars_after": 751371,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 751371,
+      "chars_after": 751371,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 751371,
+      "chars_after": 751383,
+      "changed": true
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 751383,
+      "chars_after": 751383,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}

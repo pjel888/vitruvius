@@ -1,0 +1,9 @@
+Vitruvius Convert One Report
+
+Source: 004-Technology/Architectural Cost Estimates By Max Fajardo.pdf
+Detection result: TEXT_PDF
+Recommended route: OPENDATALOADER_DIRECT
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/004-Technology/raw_markdown/Architectural Cost Estimates By Max Fajardo.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/004-Technology/sidecar_json/Architectural Cost Estimates By Max Fajardo.json
+
+STATUS: converted

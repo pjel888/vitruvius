@@ -164,6 +164,15 @@ If you need to force a specific file instead of taking the first matching invent
   --raw-path <repo-relative-raw-file>
 ```
 
+To rank candidates inside a mixed-quality family root before picking one, use:
+
+```bash
+python3 scripts/pipeline_cli.py suggest-completed-aggregate-family-candidates \
+  --raw-root <repo-relative-raw-root> \
+  --max-candidates 5 \
+  --extension .pdf
+```
+
 This writes a starter manifest that contains:
 - raw slice anchors
 - starter classified raw entries
@@ -359,6 +368,14 @@ Or explicitly by profile:
     - `utilities-arc-building-terms`
   - current graph evidence:
     - `2 nodes / 1 edge`
+- `technology`
+  - fourth non-laws MVP proof family
+  - current proof lane:
+    - `technology-architectural-cost-estimates`
+  - current graph evidence:
+    - `2 nodes / 1 edge`
+  - current caveat:
+    - review-heavy / shallow source quality remains explicit
 
 ## Integrity boundary
 This operator path is for the completed trusted subset of a dataset family.

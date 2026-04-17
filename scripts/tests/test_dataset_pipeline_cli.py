@@ -2824,6 +2824,42 @@ def test_bootstrap_completed_aggregate_family_lane_orchestrates_steps(tmp_path: 
     assert summary['readiness_summary']['ready_to_run'] is True
 
 
+def test_suggest_completed_aggregate_family_candidates_ranks_text_pdfs_first(tmp_path: Path, monkeypatch) -> None:
+    from vitruvius import aggregate_manifest as am
+
+    raw_root = tmp_path / '001_Raw-Source-Layer' / '004-Technology'
+    _write_valid_pdf(raw_root / 'a.pdf')
+    _write_valid_pdf(raw_root / 'b.pdf')
+
+    def fake_detect(path: Path, sample_pages: int = 5):
+        if path.name == 'a.pdf':
+            return {
+                'result': 'LIKELY_SCANNED_PDF',
+                'recommended_route': 'OCR_FIRST_THEN_OPENDATALOADER',
+                'pages_with_usable_text': 0,
+                'pages_sampled': 5,
+                'total_extracted_characters': 0,
+            }
+        return {
+            'result': 'TEXT_PDF',
+            'recommended_route': 'OPENDATALOADER_DIRECT',
+            'pages_with_usable_text': 5,
+            'pages_sampled': 5,
+            'total_extracted_characters': 1200,
+        }
+
+    monkeypatch.setattr('vitruvius.detection.detect_pdf_type', fake_detect)
+    summary = am.suggest_completed_aggregate_family_candidates(
+        repo_root=tmp_path,
+        raw_root=Path('001_Raw-Source-Layer/004-Technology'),
+        max_candidates=2,
+        extensions=['.pdf'],
+    )
+    assert summary['candidate_count'] == 2
+    assert summary['top_candidates'][0]['raw_path'].endswith('b.pdf')
+    assert summary['top_candidates'][0]['recommended_route'] == 'OPENDATALOADER_DIRECT'
+
+
 def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
     tmp_path: Path,
     monkeypatch,
@@ -3909,6 +3945,53 @@ def test_pipeline_cli_bootstrap_completed_aggregate_family_lane_reports_summary(
     assert stdout_payload['action'] == 'bootstrap-completed-aggregate-family-lane'
     assert stdout_payload['family_action'] == 'scaffolded'
     assert stdout_payload['readiness_summary']['ready_to_run'] is True
+
+
+def test_pipeline_cli_suggest_completed_aggregate_family_candidates_reports_summary(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '004-Technology' / 'a.pdf')
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '004-Technology' / 'b.pdf')
+
+    def fake_detect(path: Path, sample_pages: int = 5):
+        if path.name == 'a.pdf':
+            return {
+                'result': 'LIKELY_SCANNED_PDF',
+                'recommended_route': 'OCR_FIRST_THEN_OPENDATALOADER',
+                'pages_with_usable_text': 0,
+                'pages_sampled': 5,
+                'total_extracted_characters': 0,
+            }
+        return {
+            'result': 'TEXT_PDF',
+            'recommended_route': 'OPENDATALOADER_DIRECT',
+            'pages_with_usable_text': 5,
+            'pages_sampled': 5,
+            'total_extracted_characters': 1200,
+        }
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr('vitruvius.detection.detect_pdf_type', fake_detect)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'suggest-completed-aggregate-family-candidates',
+            '--raw-root', '001_Raw-Source-Layer/004-Technology',
+            '--max-candidates', '2',
+            '--extension', '.pdf',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'suggest-completed-aggregate-family-candidates'
+    assert stdout_payload['top_candidates'][0]['raw_path'].endswith('b.pdf')
 
 
 def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline(
