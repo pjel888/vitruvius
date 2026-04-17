@@ -6,4 +6,8 @@ cd "$SCRIPT_DIR"
 
 export PYTHONPATH="scripts${PYTHONPATH:+:$PYTHONPATH}"
 
-exec python3 scripts/pipeline_cli.py run-completed-aggregate-from-profile "$@"
+if [[ $# -ge 2 && "$1" == "--profile" ]]; then
+  exec python3 scripts/pipeline_cli.py run-completed-aggregate-from-profile "$@"
+fi
+
+exec python3 scripts/pipeline_cli.py run-completed-aggregate-family "$@"

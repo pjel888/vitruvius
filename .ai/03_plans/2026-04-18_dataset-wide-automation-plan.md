@@ -27,3 +27,4 @@ status: in_progress
 
 ## Next live step
 - validate the first non-laws dataset family or reusable demo family against the profile-driven path
+- reduce operator friction further by letting dataset families run through a registry alias, not only explicit profile paths

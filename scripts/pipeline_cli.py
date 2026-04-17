@@ -355,6 +355,17 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_profile_build_parser = add_command_parser(subparsers, "build-completed-aggregate-from-profile")
     generic_aggregate_profile_build_parser.add_argument("--profile", required=True,
                                                        help="Aggregate profile YAML path")
+    generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
+    generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
+                                                     help="Registered dataset family name from the profile catalog")
+    generic_aggregate_catalog_run_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml",
+                                                     help="Profile catalog YAML path")
+    generic_aggregate_catalog_run_parser.add_argument("--dry-run", action="store_true")
+    generic_aggregate_catalog_run_parser.add_argument("--review-model", default=None)
+    generic_aggregate_catalog_run_parser.add_argument("--review-timeout-seconds", type=int, default=None)
+    generic_aggregate_catalog_run_parser.add_argument("--review-parallel", type=int, default=None)
+    generic_aggregate_catalog_run_parser.add_argument("--review-preset", default=None)
+    generic_aggregate_catalog_run_parser.add_argument("--skip-export-owl", action="store_true")
     generic_aggregate_run_parser = add_command_parser(subparsers, "run-completed-aggregate")
     generic_aggregate_run_parser.add_argument("--completed-ledger", required=True)
     generic_aggregate_run_parser.add_argument("--manifest-index", required=True)
@@ -1069,6 +1080,30 @@ def main() -> int:
                 export_owl=not args.skip_export_owl,
             ),
         )
+
+    if args.command == "run-completed-aggregate-family":
+        from vitruvius.aggregate_manifest import (
+            resolve_completed_aggregate_profile_path,
+            run_generic_completed_aggregate_from_profile,
+        )
+        def _run_generic_family():
+            repo_root = Path.cwd().resolve()
+            resolved_profile_path = resolve_completed_aggregate_profile_path(
+                repo_root=repo_root,
+                family=args.family,
+                catalog_path=Path(args.catalog),
+            )
+            return run_generic_completed_aggregate_from_profile(
+                repo_root=repo_root,
+                profile_path=resolved_profile_path,
+                dry_run=args.dry_run,
+                review_preset=args.review_preset,
+                review_model=args.review_model,
+                review_timeout_seconds=args.review_timeout_seconds,
+                review_parallelism=args.review_parallel,
+                export_owl=not args.skip_export_owl,
+            )
+        return _run("run-completed-aggregate-family", _run_generic_family)
 
     if args.command == "build-laws-completed-aggregate-manifest":
         from vitruvius.laws_readiness import build_laws_completed_aggregate_manifest

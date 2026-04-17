@@ -16,6 +16,22 @@ This wrapper delegates to:
 python3 scripts/pipeline_cli.py run-completed-aggregate-from-profile --profile <profile-yaml>
 ```
 
+You can also run by registered family alias:
+
+```bash
+./run-dataset-mvp-graph --family <family-name> [review args]
+```
+
+Which delegates to:
+
+```bash
+python3 scripts/pipeline_cli.py run-completed-aggregate-family --family <family-name>
+```
+
+The family registry currently lives at:
+
+- `config/datasets/dataset-mvp-profile-catalog.yaml`
+
 ## Profile contract
 A profile YAML must define:
 - `dataset_id`
@@ -42,6 +58,14 @@ Which delegates to the generic path with:
 - `config/datasets/laws-mvp-profile.yaml`
 
 Equivalent direct command:
+
+```bash
+./run-dataset-mvp-graph \
+  --family laws \
+  --review-preset m2-8gb-safe
+```
+
+Or explicitly by profile:
 
 ```bash
 ./run-dataset-mvp-graph \

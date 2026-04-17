@@ -366,6 +366,42 @@ def load_completed_aggregate_profile(*, repo_root: Path, profile_path: Path) -> 
     return payload
 
 
+def load_completed_aggregate_profile_catalog(
+    *,
+    repo_root: Path,
+    catalog_path: Path,
+) -> dict[str, Any]:
+    resolved_catalog_path = catalog_path if catalog_path.is_absolute() else repo_root / catalog_path
+    payload = load_yaml_payload(resolved_catalog_path)
+    profiles = payload.get('profiles')
+    if not isinstance(profiles, list):
+        raise ValueError("aggregate profile catalog must define a 'profiles' list")
+    return {
+        'catalog_path': str(resolved_catalog_path),
+        'profiles': [item for item in profiles if isinstance(item, dict)],
+    }
+
+
+def resolve_completed_aggregate_profile_path(
+    *,
+    repo_root: Path,
+    family: str,
+    catalog_path: Path,
+) -> Path:
+    catalog = load_completed_aggregate_profile_catalog(repo_root=repo_root, catalog_path=catalog_path)
+    for item in catalog['profiles']:
+        if str(item.get('family') or '') != family:
+            continue
+        profile_path = item.get('profile')
+        if not isinstance(profile_path, str) or not profile_path.strip():
+            raise ValueError(f"aggregate profile catalog entry for family '{family}' is missing a profile path")
+        resolved_profile_path = repo_root / profile_path
+        if not resolved_profile_path.exists():
+            raise ValueError(f"aggregate profile path for family '{family}' does not exist: {profile_path}")
+        return resolved_profile_path
+    raise ValueError(f"no aggregate profile registered for family '{family}'")
+
+
 def build_generic_completed_aggregate_manifest_from_profile(
     *,
     repo_root: Path,
