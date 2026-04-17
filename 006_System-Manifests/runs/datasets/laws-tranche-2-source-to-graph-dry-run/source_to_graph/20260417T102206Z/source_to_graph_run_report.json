@@ -1,0 +1,303 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "dataset_id": "laws-tranche-2-source-to-graph-dry-run",
+  "dry_run": true,
+  "generated_at_utc": "20260417T102206Z",
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-2/source_to_graph_dry_run/20260417T102206Z/derived_dataset_manifest.yaml",
+  "review_runtime": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "review_settings": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "run_id": "20260417T102206Z",
+  "source_quality_summary": {
+    "benchmark_source_hints": [],
+    "extraction_trust_counts": {
+      "guarded": 0,
+      "review_required": 0,
+      "trusted": 3
+    },
+    "high_severity_paths": [],
+    "high_severity_sources": [],
+    "manual_review_required_paths": [],
+    "manual_review_required_sources": [],
+    "representation_guardrail_counts": {
+      "high": 0,
+      "low": 3,
+      "medium": 0
+    },
+    "severity_counts": {
+      "high": 0,
+      "low": 3,
+      "medium": 0
+    },
+    "shallow_representation_paths": [],
+    "shallow_representation_sources": [],
+    "source_acceptance_counts": {
+      "accepted": 3,
+      "accepted_with_spot_review": 0,
+      "manual_review_required": 0
+    },
+    "spot_review_required_paths": [],
+    "summary_auto_withheld_paths": []
+  },
+  "stage_results": [
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-urban-development-and-housing-act",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/urban-development-and-housing-act.md",
+        "title": "Urban Development and Housing Act",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-7279",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-7279/RA 7279 Urban Development and Housing Act 2009.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/ra-7279/RA 7279 Urban Development and Housing Act 2009_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/ra-7279/RA 7279 Urban Development and Housing Act 2009_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/promoted_relationships/ra-7279",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/ra-7279/RA 7279 Urban Development and Housing Act 2009_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-7279/RA 7279 Urban Development and Housing Act 2009.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 1,
+        "admitted_relationship_count": 1,
+        "folder_name": "RA-7279",
+        "law_id": "ra-7279",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 2.0,
+        "section_to_relationship_ratio": 2.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 2
+      },
+      "source_id": "law-urban-development-and-housing-act",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 5,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 2,
+        "noise_line_count": 0,
+        "non_empty_line_count": 202,
+        "recommendations": [
+          "low structural-heading count: verify section detection and source structure fidelity"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-7279/RA 7279 Urban Development and Housing Act 2009.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 1,
+          "admitted_relationship_count": 1,
+          "folder_name": "RA-7279",
+          "law_id": "ra-7279",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 2.0,
+          "section_to_relationship_ratio": 2.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 2
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 2,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [
+          "- (e) Encourage more effective people’s participation in the urban development process; and",
+          "- (d) “Consultation” refers to the constitutionally mandated process whereby the public, on their own or through people’s organizations, is provided an opportunity to be heard and to participate in the decision-making process on matters involving the protection and promotion of its legitimate collective interests, which shall include appropriate documentation and feedback mechanisms;",
+          "- (u) “Unregistered or abandoned lands” refers to lands in urban and urbanizable areas which are not registered with the Register of Deeds, or with the city or municipal assessor’s office concerned, or which are uninhabited by the owner and have not been developed or devoted for any useful purpose, or appears unutilized for a period of three (3) consecutive years immediately prior to the issuance and receipt or publication of notice of acquisition by the government as provided under this Act. It does not include land which has been abandoned by reason of force majeure or any other fortuitous event: Provided, That prior to such event, such land was previously used for some useful or economic purpose;",
+          "- (5) Donor’s tax for lands certified by the local government units to have been donated for socialized housing purposes.",
+          "- (b) Liberalized terms on credit facilities and housing loans and one hundred percent (100%) deduction from every homebuyer’s gross income tax of all interest payments made on documented loans incurred for the construction or purchase of the homebuyer’s house;"
+        ],
+        "suspicious_ocr_line_count": 5,
+        "suspicious_ocr_line_ratio": 0.024752,
+        "table_line_count": 0,
+        "total_line_count": 404,
+        "useful_text_line_count": 202,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/source_quality/ra-7279/RA 7279 Urban Development and Housing Act 2009_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-condominium-act",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/condominium-act.md",
+        "title": "Condominium Act",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-4726",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-4726/RA 4726 Condominium Act.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/ra-4726/RA 4726 Condominium Act_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/ra-4726/RA 4726 Condominium Act_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/promoted_relationships/ra-4726",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/ra-4726/RA 4726 Condominium Act_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-4726/RA 4726 Condominium Act.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 1,
+        "admitted_relationship_count": 1,
+        "folder_name": "RA-4726",
+        "law_id": "ra-4726",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 0.0,
+        "section_to_relationship_ratio": 0.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 0
+      },
+      "source_id": "law-condominium-act",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 0,
+        "image_line_count": 1,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 0,
+        "noise_line_count": 0,
+        "non_empty_line_count": 83,
+        "recommendations": [
+          "low structural-heading count: verify section detection and source structure fidelity"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-4726/RA 4726 Condominium Act.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 1,
+          "admitted_relationship_count": 1,
+          "folder_name": "RA-4726",
+          "law_id": "ra-4726",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 0.0,
+          "section_to_relationship_ratio": 0.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 0
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 0,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [],
+        "suspicious_ocr_line_count": 0,
+        "suspicious_ocr_line_ratio": 0.0,
+        "table_line_count": 0,
+        "total_line_count": 163,
+        "useful_text_line_count": 82,
+        "useful_text_ratio": 0.987952
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/source_quality/ra-4726/RA 4726 Condominium Act_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-amendments-to-the-condominium-act",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/amendments-to-the-condominium-act.md",
+        "title": "Amendments to the Condominium Act",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-7899",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-7899/RA 7899 Amendments to RA 4726.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/ra-7899/RA 7899 Amendments to RA 4726_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/ra-7899/RA 7899 Amendments to RA 4726_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/promoted_relationships/ra-7899",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/ra-7899/RA 7899 Amendments to RA 4726_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-7899/RA 7899 Amendments to RA 4726.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 1,
+        "admitted_relationship_count": 1,
+        "folder_name": "RA-7899",
+        "law_id": "ra-7899",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 0.0,
+        "section_to_relationship_ratio": 0.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 0
+      },
+      "source_id": "law-amendments-to-the-condominium-act",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 1,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 1,
+        "noise_line_count": 0,
+        "non_empty_line_count": 8,
+        "recommendations": [
+          "low structural-heading count: verify section detection and source structure fidelity"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-7899/RA 7899 Amendments to RA 4726.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 1,
+          "admitted_relationship_count": 1,
+          "folder_name": "RA-7899",
+          "law_id": "ra-7899",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 0.0,
+          "section_to_relationship_ratio": 0.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 0
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 0,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [
+          "“SEC 4. xxx “The enabling or master deed may be amended or revoked upon registration of an instrument executed by a simple majority of the registered owners of the property: Provided, That in a condominium project exclusively for either residential or commercial use, simple majority shall be on per unit of ownership basis and that in the case of mixed use, simple majority shall be on floor area of ownership basis: Provided further, That prior notifications to all registered owners are done, and Provided, finally, That any amendment or revocation already decided by a simple majority of all registered owners shall be submitted to the Housing and Land Use Regulatory Board and the city/municipal engineer for approval before it can be registered. Until registration of a revocation, the provision of this Act shall continue to apply to such property.”"
+        ],
+        "suspicious_ocr_line_count": 1,
+        "suspicious_ocr_line_ratio": 0.125,
+        "table_line_count": 0,
+        "total_line_count": 16,
+        "useful_text_line_count": 8,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-2-source-to-graph-dry-run/source_to_graph/20260417T102206Z/source_quality/ra-7899/RA 7899 Amendments to RA 4726_source_quality.json"
+    }
+  ]
+}

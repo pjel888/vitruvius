@@ -25,9 +25,16 @@ candidate_law_folders:
   source_admission_guardrails: []
   verification_checks:
   - source admission executed for the selected authoritative prepared variants
+  - concept-fit admission keeps RA-7279 graph-richness moving without widening tranche-2
   scope_notes:
   - Source admission is intentionally conservative and admits only selected authoritative
     prepared variants.
+  - RA-7279 concept-fit slice admits an existing shared concept and one dataset-scoped
+    governs relationship only.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/socialized-housing-projects.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-2/concept-slice-ra7279/relationships/rel-law-urban-development-and-housing-act-governs-concept-socialized-housing-projects.md
 - folder_name: RA-4726
   reason: Condominium adjacency to PD-957 without current duplicate-cluster evidence.
   source_admission_state: admitted

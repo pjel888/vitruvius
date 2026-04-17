@@ -184,6 +184,15 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `4 nodes / 1 edge`
       - to `5 nodes / 4 edges`
     - see `/.ai/05_logs/2026-04-17_ra4726-common-areas-concept-fit-validation.md`
+  - tranche-2 socialized-housing follow-on is now started with a bounded `RA-7279` concept-fit slice:
+    - admitted concept:
+      - `socialized-housing-projects`
+    - admitted dataset-scoped relationship:
+      - `law-urban-development-and-housing-act governs concept-socialized-housing-projects`
+    - fresh tranche-2 execute graph moves from:
+      - `5 nodes / 4 edges`
+      - to `6 nodes / 5 edges`
+    - see `/.ai/05_logs/2026-04-17_ra7279-socialized-housing-concept-fit-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

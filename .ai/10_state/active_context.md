@@ -195,6 +195,14 @@
     - `4 nodes / 1 edge`
     - to `5 nodes / 4 edges`
   - tranche-2 is still bounded, but graph richness is now materially better than its first execute pass
+- Tranche-2 housing-policy follow-on:
+  - admitted concept:
+    - `concept-socialized-housing-projects`
+  - bounded `RA-7279` relationship admitted:
+    - `law-urban-development-and-housing-act governs concept-socialized-housing-projects`
+  - fresh tranche-2 execute evidence improves graph output from:
+    - `5 nodes / 4 edges`
+    - to `6 nodes / 5 edges`
 
 ## Residual Graph Caveat
 
@@ -226,6 +234,7 @@
 - Latest tranche-2 validation: `/.ai/05_logs/2026-04-17_laws-tranche-2-execution-validation.md`
 - Latest RA-7899 tranche-2 richness validation: `/.ai/05_logs/2026-04-17_ra7899-concept-fit-admission-validation.md`
 - Latest RA-4726 common-areas validation: `/.ai/05_logs/2026-04-17_ra4726-common-areas-concept-fit-validation.md`
+- Latest RA-7279 socialized-housing validation: `/.ai/05_logs/2026-04-17_ra7279-socialized-housing-concept-fit-validation.md`
 
 ## Handoff Note
 
