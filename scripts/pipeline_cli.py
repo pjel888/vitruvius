@@ -397,6 +397,10 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_admit_parser.add_argument("--lane-id", required=True)
     generic_aggregate_admit_parser.add_argument("--manifest", required=True,
                                                help="Completed manifest YAML path to admit into the family ledgers")
+    generic_aggregate_check_parser = add_command_parser(subparsers, "check-completed-aggregate-family")
+    generic_aggregate_check_parser.add_argument("--family", required=True)
+    generic_aggregate_check_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml",
+                                               help="Profile catalog YAML path")
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1154,6 +1158,22 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("admit-completed-aggregate-manifest", _run_admit_generic_manifest)
+
+    if args.command == "check-completed-aggregate-family":
+        from vitruvius.aggregate_manifest import check_completed_aggregate_family_readiness
+        def _run_check_generic_family():
+            repo_root = Path.cwd().resolve()
+            readiness = check_completed_aggregate_family_readiness(
+                repo_root=repo_root,
+                family=args.family,
+                catalog_path=Path(args.catalog),
+            )
+            print(json.dumps({
+                "action": "check-completed-aggregate-family",
+                **readiness,
+            }, indent=2))
+            return 0
+        return _run("check-completed-aggregate-family", _run_check_generic_family)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary

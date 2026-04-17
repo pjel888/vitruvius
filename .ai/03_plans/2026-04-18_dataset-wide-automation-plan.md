@@ -41,5 +41,7 @@ status: in_progress
   - catalog entry
 - family lane admission is now in place:
   - completed manifest -> ledger/index registration
+- family readiness check is now in place:
+  - structured blocker reporting before run attempts
 - the next real proof is still:
   - onboard the first true non-laws trusted dataset family once its completed lanes are admitted

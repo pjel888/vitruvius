@@ -75,6 +75,21 @@ This updates the family’s:
 
 so the family aggregate build/run path can discover the newly admitted lane.
 
+## Checking family readiness
+Before trying to run a newly scaffolded or partially onboarded family, check blockers with:
+
+```bash
+python3 scripts/pipeline_cli.py check-completed-aggregate-family \
+  --family <family-name>
+```
+
+This reports:
+- completed lane count
+- resolved manifest count
+- aggregate manifest counts
+- `ready_to_run`
+- structured blockers if the family is not yet runnable
+
 ## Scaffolding a brand-new dataset family
 If a family does not yet have:
 - completed-lanes ledger

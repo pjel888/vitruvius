@@ -2057,6 +2057,15 @@ def test_admit_completed_manifest_to_family_updates_ledger_and_index(tmp_path: P
         catalog_path=Path('config/datasets/catalog.yaml'),
         dataset_kind='history-aggregate',
     )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '002-History' / 'example.pdf')
+    _write(
+        tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'history-demo-source.md',
+        '---\nid: source-history-demo\n---\n',
+    )
+    _write(
+        tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'history-demo-rel.md',
+        '---\nid: rel-history-demo\nfrom: source-history-demo\nto: source-history-demo\npredicate: cites\n---\n',
+    )
     manifest_path = tmp_path / 'config' / 'datasets' / 'history-lane-1.yaml'
     manifest_path.write_text(
         yaml.safe_dump(
@@ -2090,6 +2099,149 @@ def test_admit_completed_manifest_to_family_updates_ledger_and_index(tmp_path: P
     assert completed_payload['completed_lanes'] == [{'lane_id': 'history-lane-1'}]
     assert manifest_index_payload['manifests'] == [{'lane_id': 'history-lane-1', 'manifest': 'config/datasets/history-lane-1.yaml'}]
     assert result['lane_id'] == 'history-lane-1'
+
+
+def test_check_completed_aggregate_family_readiness_reports_blockers(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import check_completed_aggregate_family_readiness, scaffold_completed_aggregate_family
+
+    scaffold_completed_aggregate_family(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        dataset_kind='history-aggregate',
+    )
+    readiness = check_completed_aggregate_family_readiness(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+    )
+    assert readiness['ready_to_run'] is False
+    assert 'no completed lanes admitted' in readiness['blockers']
+    assert 'no completed manifests resolved from ledger/index' in readiness['blockers']
+
+
+def test_check_completed_aggregate_family_readiness_reports_ready_family(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import (
+        admit_completed_manifest_to_family,
+        check_completed_aggregate_family_readiness,
+        scaffold_completed_aggregate_family,
+    )
+
+    scaffold_completed_aggregate_family(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        dataset_kind='history-aggregate',
+    )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '002-History' / 'example.pdf')
+    _write(
+        tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'history-demo-source.md',
+        '---\nid: source-history-demo\n---\n',
+    )
+    _write(
+        tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'history-demo-rel.md',
+        '---\nid: rel-history-demo\nfrom: source-history-demo\nto: source-history-demo\npredicate: cites\n---\n',
+    )
+    manifest_path = tmp_path / 'config' / 'datasets' / 'history-lane-1.yaml'
+    manifest_path.write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'history-lane-1',
+                'dataset_kind': 'history-aggregate',
+                'raw_slice_anchors': [
+                    {
+                        'folder_name': 'history-demo',
+                        'raw_root': '001_Raw-Source-Layer/002-History',
+                        'entry_role': 'authoritative',
+                        'authority_tier': 'primary',
+                        'variant_family': 'history-demo',
+                        'edition_or_source_note': 'history demo root',
+                        'include_in_m1': True,
+                        'reason': 'history demo lane',
+                        'classified_raw_entries': [
+                            {
+                                'path': '001_Raw-Source-Layer/002-History/example.pdf',
+                                'folder_name': 'history-demo',
+                                'entry_role': 'authoritative',
+                                'authority_tier': 'primary',
+                                'variant_family': 'history-demo',
+                                'edition_or_source_note': 'history demo entry',
+                                'include_in_m1': True,
+                                'reason': 'history demo lane',
+                            }
+                        ],
+                    }
+                ],
+                'canonical_input_manifest': {
+                    'sources': [
+                        {
+                            'path': '003_Canonical-Knowledge-Layer/shared/sources/history-demo-source.md',
+                            'folder_name': 'history-demo',
+                            'entry_role': 'authoritative',
+                            'authority_tier': 'primary',
+                            'variant_family': 'history-demo-source',
+                            'edition_or_source_note': 'history demo source',
+                            'include_in_m1': True,
+                            'reason': 'history demo lane',
+                        }
+                    ],
+                    'concepts': [],
+                },
+                'relationship_input_manifest': {
+                    'relationships': [
+                        {
+                            'path': '003_Canonical-Knowledge-Layer/shared/relationships/history-demo-rel.md',
+                            'folder_name': 'history-demo',
+                            'entry_role': 'authoritative',
+                            'authority_tier': 'approved',
+                            'variant_family': 'history-demo-rel',
+                            'edition_or_source_note': 'history demo relationship',
+                            'include_in_m1': True,
+                            'reason': 'history demo lane',
+                        }
+                    ]
+                },
+                'graph_output_root': '005_Operational-Intelligence-Layer/graph/datasets/history-lane-1',
+                'run_output_root': '006_System-Manifests/runs/datasets/history-lane-1',
+                'query_snapshot_path_template': '005_Operational-Intelligence-Layer/graph/datasets/history-lane-1/{run_id}_graph_snapshot.json',
+                'freshness_policy': {'mode': 'exact'},
+                'pilot_gate': {'require_manifest_validation': True, 'source_to_graph_execute_ready': False},
+                'law_units': [
+                    {
+                        'law_id': 'history-lane-1',
+                        'folder_name': 'history-demo',
+                        'raw_anchor_paths': ['001_Raw-Source-Layer/002-History/example.pdf'],
+                        'refined_markdown_paths': [],
+                        'authoritative_variant_paths': ['001_Raw-Source-Layer/002-History/example.pdf'],
+                        'excluded_variant_paths': [],
+                        'admitted_source_paths': ['003_Canonical-Knowledge-Layer/shared/sources/history-demo-source.md'],
+                        'admitted_concept_paths': [],
+                        'admitted_relationship_paths': ['003_Canonical-Knowledge-Layer/shared/relationships/history-demo-rel.md'],
+                        'verification_checks': [],
+                        'scope_notes': [],
+                    }
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    admit_completed_manifest_to_family(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        lane_id='history-lane-1',
+        manifest_path=Path('config/datasets/history-lane-1.yaml'),
+    )
+    readiness = check_completed_aggregate_family_readiness(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+    )
+    assert readiness['ready_to_run'] is True
+    assert readiness['blockers'] == []
+    assert readiness['completed_lane_count'] == 1
+    assert readiness['resolved_manifest_count'] == 1
 
 
 def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
@@ -2449,6 +2601,47 @@ def test_pipeline_cli_admit_completed_aggregate_manifest_updates_family_ledgers(
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'admit-completed-aggregate-manifest'
     assert stdout_payload['family'] == 'history-demo'
+
+
+def test_pipeline_cli_check_completed_aggregate_family_reports_blockers(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-family',
+            '--family', 'history-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--dataset-kind', 'history-aggregate',
+        ],
+    )
+    assert pipeline_cli.main() == 0
+    capsys.readouterr()
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'check-completed-aggregate-family',
+            '--family', 'history-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'check-completed-aggregate-family'
+    assert stdout_payload['ready_to_run'] is False
+    assert 'no completed lanes admitted' in stdout_payload['blockers']
 
 
 def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline(

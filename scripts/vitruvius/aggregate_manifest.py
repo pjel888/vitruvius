@@ -695,3 +695,100 @@ def run_generic_completed_aggregate_from_profile(
         review_parallelism=review_parallelism,
         export_owl=export_owl,
     )
+
+
+def check_completed_aggregate_family_readiness(
+    *,
+    repo_root: Path,
+    family: str,
+    catalog_path: Path,
+) -> dict[str, Any]:
+    from .graph.dataset_manifest import DatasetManifestError, load_dataset_manifest
+
+    resolved_profile_path = resolve_completed_aggregate_profile_path(
+        repo_root=repo_root,
+        family=family,
+        catalog_path=catalog_path,
+    )
+    profile = load_completed_aggregate_profile(repo_root=repo_root, profile_path=resolved_profile_path)
+    completed_ledger_path = repo_root / str(profile['completed_ledger'])
+    manifest_index_path = repo_root / str(profile['manifest_index'])
+    completed_payload = load_yaml_payload(completed_ledger_path)
+    completed_lane_count = len([
+        item for item in completed_payload.get('completed_lanes') or []
+        if isinstance(item, dict) and str(item.get('lane_id') or '').strip()
+    ])
+    manifest_paths = completed_manifest_paths(
+        repo_root=repo_root,
+        completed_ledger_path=completed_ledger_path,
+        manifest_index_path=manifest_index_path,
+    )
+
+    blockers: list[str] = []
+    if completed_lane_count == 0:
+        blockers.append('no completed lanes admitted')
+    if not manifest_paths:
+        blockers.append('no completed manifests resolved from ledger/index')
+
+    aggregate_payload: dict[str, Any] | None = None
+    out_manifest_path = repo_root / str(profile['out_manifest'])
+    aggregate_error: str | None = None
+    dataset_manifest_valid = False
+    dataset_manifest_error: str | None = None
+    if not blockers:
+        try:
+            out_manifest_path, aggregate_payload, _profile = build_generic_completed_aggregate_manifest_from_profile(
+                repo_root=repo_root,
+                profile_path=resolved_profile_path,
+            )
+            try:
+                load_dataset_manifest(out_manifest_path, repo_root)
+                dataset_manifest_valid = True
+            except DatasetManifestError as exc:
+                dataset_manifest_error = str(exc)
+                blockers.append(f'dataset manifest invalid: {dataset_manifest_error}')
+        except Exception as exc:  # noqa: BLE001
+            aggregate_error = str(exc)
+            blockers.append(f'aggregate build failed: {aggregate_error}')
+
+    source_count = 0
+    concept_count = 0
+    relationship_count = 0
+    raw_slice_anchor_count = 0
+    law_unit_count = 0
+    if aggregate_payload is not None:
+        source_count = len(aggregate_payload['canonical_input_manifest']['sources'])
+        concept_count = len(aggregate_payload['canonical_input_manifest']['concepts'])
+        relationship_count = len(aggregate_payload['relationship_input_manifest']['relationships'])
+        raw_slice_anchor_count = len(aggregate_payload['raw_slice_anchors'])
+        law_unit_count = len(aggregate_payload['law_units'])
+        if raw_slice_anchor_count == 0:
+            blockers.append('aggregate manifest has no raw slice anchors')
+        if source_count == 0:
+            blockers.append('aggregate manifest has no canonical sources')
+        if relationship_count == 0:
+            blockers.append('aggregate manifest has no relationship inputs')
+
+    return {
+        'family': family,
+        'profile_path': str(resolved_profile_path.relative_to(repo_root)),
+        'completed_ledger_path': str(completed_ledger_path.relative_to(repo_root)),
+        'manifest_index_path': str(manifest_index_path.relative_to(repo_root)),
+        'completed_lane_count': completed_lane_count,
+        'resolved_manifest_count': len(manifest_paths),
+        'law_unit_count': law_unit_count,
+        'source_count': source_count,
+        'concept_count': concept_count,
+        'relationship_count': relationship_count,
+        'raw_slice_anchor_count': raw_slice_anchor_count,
+        'ready_to_run': not blockers and dataset_manifest_valid,
+        'blockers': blockers,
+        'aggregate_manifest_path': (
+            str(out_manifest_path.relative_to(repo_root))
+            if aggregate_payload is not None and out_manifest_path.exists()
+            else None
+        ),
+        'aggregate_build_error': aggregate_error,
+        'dataset_manifest_valid': dataset_manifest_valid,
+        'dataset_manifest_error': dataset_manifest_error,
+    }
