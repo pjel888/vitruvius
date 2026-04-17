@@ -1,0 +1,403 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "dataset_id": "laws-tranche-6-source-to-graph-dry-run",
+  "dry_run": true,
+  "generated_at_utc": "20260417T133123Z",
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-6/source_to_graph_dry_run/20260417T133123Z/derived_dataset_manifest.yaml",
+  "review_runtime": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "review_settings": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "run_id": "20260417T133123Z",
+  "source_quality_summary": {
+    "benchmark_source_hints": [],
+    "extraction_trust_counts": {
+      "guarded": 1,
+      "review_required": 0,
+      "trusted": 3
+    },
+    "high_severity_paths": [],
+    "high_severity_sources": [],
+    "manual_review_required_paths": [],
+    "manual_review_required_sources": [],
+    "representation_guardrail_counts": {
+      "high": 0,
+      "low": 4,
+      "medium": 0
+    },
+    "severity_counts": {
+      "high": 0,
+      "low": 3,
+      "medium": 1
+    },
+    "shallow_representation_paths": [],
+    "shallow_representation_sources": [],
+    "source_acceptance_counts": {
+      "accepted": 3,
+      "accepted_with_spot_review": 1,
+      "manual_review_required": 0
+    },
+    "spot_review_required_paths": [
+      "001-Laws/refined_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md"
+    ],
+    "summary_auto_withheld_paths": [
+      "001-Laws/refined_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md"
+    ]
+  },
+  "stage_results": [
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-contractors-license-law",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/contractors-license-law.md",
+        "title": "Contractors' License Law",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-4566",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-4566/RA_4566.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-4566/RA_4566_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-4566/RA_4566_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/promoted_relationships/ra-4566",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-4566/RA_4566_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-4566/RA_4566.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 0,
+        "admitted_relationship_count": 0,
+        "folder_name": "RA-4566",
+        "law_id": "ra-4566",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 0.0,
+        "section_to_relationship_ratio": 0.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 0
+      },
+      "source_id": "law-contractors-license-law",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 0,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 0,
+        "noise_line_count": 0,
+        "non_empty_line_count": 89,
+        "recommendations": [
+          "low structural-heading count: verify section detection and source structure fidelity"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-4566/RA_4566.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "RA-4566",
+          "law_id": "ra-4566",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 0.0,
+          "section_to_relationship_ratio": 0.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 0
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 0,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [],
+        "suspicious_ocr_line_count": 0,
+        "suspicious_ocr_line_ratio": 0.0,
+        "table_line_count": 0,
+        "total_line_count": 144,
+        "useful_text_line_count": 89,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/source_quality/ra-4566/RA_4566_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-civil-code-of-the-philippines",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/civil-code-of-the-philippines.md",
+        "title": "Civil Code of the Philippines",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-386",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-386/RA-386 Civil Code.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-386/RA-386 Civil Code_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-386/RA-386 Civil Code_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/promoted_relationships/ra-386",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-386/RA-386 Civil Code_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-386/RA-386 Civil Code.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 0,
+        "admitted_relationship_count": 0,
+        "folder_name": "RA-386",
+        "law_id": "ra-386",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 0.0,
+        "section_to_relationship_ratio": 0.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 0
+      },
+      "source_id": "law-civil-code-of-the-philippines",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 7,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 0,
+        "noise_line_count": 0,
+        "non_empty_line_count": 250,
+        "recommendations": [
+          "low structural-heading count: verify section detection and source structure fidelity"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-386/RA-386 Civil Code.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "RA-386",
+          "law_id": "ra-386",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 0.0,
+          "section_to_relationship_ratio": 0.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 0
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 0,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [
+          "- ART. 1238. Payment made by a third person who does not intend to be reimbursed by the debtor is deemed to be a donation, which required the debtor’s consent. But the payment is in any case valid as to the creditor who has accepted it.",
+          "- 1) If after the payment, the third person acquires the creditor’s right;",
+          "- 3) If the creditor’s conduct, the debtor has been led to believe that the third person had authority to receive the payment.",
+          "In obligations to do or not to do, an act or forbearance cannot be substituted by another act or forbearance against the obligee’s will.",
+          "- ART. 1329. The incapacity declared in article 1327 is subject to the modifications determined by law, and is understood to be without prejudice to special disqualification’s established in the laws."
+        ],
+        "suspicious_ocr_line_count": 16,
+        "suspicious_ocr_line_ratio": 0.064,
+        "table_line_count": 0,
+        "total_line_count": 366,
+        "useful_text_line_count": 250,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/source_quality/ra-386/RA-386 Civil Code_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-government-procurement-reform-act",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/government-procurement-reform-act.md",
+        "title": "Government Procurement Reform Act",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-9184",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-9184/RA 9184 IRR - Government Procurement IRR.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-9184/RA 9184 IRR - Government Procurement IRR_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-9184/RA 9184 IRR - Government Procurement IRR_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/promoted_relationships/ra-9184",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-9184/RA 9184 IRR - Government Procurement IRR_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9184/RA 9184 IRR - Government Procurement IRR.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 3,
+        "admitted_relationship_count": 3,
+        "folder_name": "RA-9184",
+        "law_id": "ra-9184",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 14.666667,
+        "section_to_relationship_ratio": 14.666667,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 44
+      },
+      "source_id": "law-government-procurement-reform-act",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 7,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 30,
+        "noise_line_count": 0,
+        "non_empty_line_count": 373,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-9184/RA 9184 IRR - Government Procurement IRR.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 3,
+          "admitted_relationship_count": 3,
+          "folder_name": "RA-9184",
+          "law_id": "ra-9184",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 14.666667,
+          "section_to_relationship_ratio": 14.666667,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 44
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 44,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [
+          "procurement contracts.",
+          "contracting for Infrastructure Projects by the Procuring Entity. Procurement shall also include the lease of goods and real estate. With respect to real property, its procurement shall be governed by the provisions of Republic Act No. 8974, entitled “An Act to Facilitate",
+          "the Acquisition of Right-of-Way Site or Location for National Government Infrastructure Projects and for Other Purposes”, and other applicable laws, rules and regulations.",
+          "- SECTION 16. Professionalization of BAC, BAC Secretariat and Technical",
+          "SECTION 21. Advertising and Contents of the Invitation to Bid. – In line with the principle of transparency and competitiveness, all Invitations to Bid for contracts under competitive bidding shall be advertised by the Procuring Entity in such manner and for such length of time as may be necessary under the circumstances, in order to ensure the widest possible dissemination thereof, such as, but not limited to, posting in the Procuring Entity’s premises, in newspapers of general circulation, the G-EPS and the website of the Procuring Entity, if available. The details and mechanics of implementation shall be provided in the IRR to be promulgated under this Act."
+        ],
+        "suspicious_ocr_line_count": 11,
+        "suspicious_ocr_line_ratio": 0.029491,
+        "table_line_count": 2,
+        "total_line_count": 730,
+        "useful_text_line_count": 371,
+        "useful_text_ratio": 0.994638
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/source_quality/ra-9184/RA 9184 IRR - Government Procurement IRR_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act.md",
+        "title": "Updated 2016 Revised Implementing Rules and Regulations of the Government Procurement Reform Act",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-9184",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-9184/Updated 2016 IRR_31 March 2021_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-9184/Updated 2016 IRR_31 March 2021_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/promoted_relationships/ra-9184",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/ra-9184/Updated 2016 IRR_31 March 2021_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 3,
+        "admitted_relationship_count": 3,
+        "folder_name": "RA-9184",
+        "law_id": "ra-9184",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 80.666667,
+        "section_to_relationship_ratio": 80.666667,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 242
+      },
+      "source_id": "irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "withhold_auto_summary",
+        "extraction_trust_level": "guarded",
+        "extraction_trust_reasons": [
+          "moderate extraction difficulty: treat automated summaries as guarded",
+          "front matter is image-heavy and may reflect OCR/layout instability",
+          "image-heavy front matter still contains suspicious OCR text near the document title/opening lines",
+          "spot-review the flagged OCR-sensitive regions before trusting summary prose"
+        ],
+        "front_matter_suspicious_ocr_line_count": 8,
+        "image_line_count": 26,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 353,
+        "noise_line_count": 5,
+        "non_empty_line_count": 5098,
+        "recommendations": [
+          "high table-line count: verify layout-sensitive extraction and summary hygiene",
+          "spot-review OCR-sensitive title/heading lines before trusting automated summaries"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 3,
+          "admitted_relationship_count": 3,
+          "folder_name": "RA-9184",
+          "law_id": "ra-9184",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 80.666667,
+          "section_to_relationship_ratio": 80.666667,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 242
+        },
+        "severity": "medium",
+        "source_acceptance_reasons": [
+          "image-heavy front matter still contains suspicious OCR text near the document title/opening lines"
+        ],
+        "source_acceptance_status": "accepted_with_spot_review",
+        "spot_review_focus": [
+          "title/header lines and the first operative section",
+          "section numbering and other numeric provisions",
+          "image-backed front matter, page breaks, and signature/footer spillover"
+        ],
+        "spot_review_required": true,
+        "structural_heading_count": 242,
+        "summary_auto_withheld": true,
+        "summary_hygiene_flags": [
+          "image_heavy_front_matter"
+        ],
+        "suspicious_ocr_examples": [
+          "For Foreign-funded Procurement, the ABC refers to the cost estimate prepared by the Procuring Entity and approved by the foreign government/foreign or international financing institution as specified in the Treaty or International or Executive Agreement.(a)",
+          "- 7.3.4. The PPMPs shall then be submitted to the Procuring Entity’s Budget Office for evaluation in order to ensure consistency with the Procuring Entity's budget proposal and compliance with existing budgeting rules. The PPMPs included in the budget proposal shall be forwarded to the BAC Secretariat for",
+          "Procuring Entities are encouraged to undertake EPA to ensure the timely delivery of goods, implementation of infrastructure projects and rendition of consultancy services. The conduct of EPA for nationally-funded procurement projects may commence as early as the submission of the NEP to Congress, usually in July. No EPA may be conducted without an indicative APP duly approved by the HoPE and the MYCA issued by the DBM, in the case of multi-year projects. This will facilitate the awarding of procurement contracts upon approval and effectivity of their respective funding sources or the reenactment of the previous year’s budget which constitutes the current year’s authorized budget, when authorized by the Constitution, law or rules.11 (a)",
+          "- d) Ensure that the BAC shall have complete control of the bidding process, and that the BAC’s sole authority to open bids is strictly observed;",
+          "- h) Must have provisions for linkage to the Procuring Entity’s Financial Management Information System (FMIS), Logistics Management Systems, and other internal information systems that may interact with the procurement process; and"
+        ],
+        "suspicious_ocr_line_count": 433,
+        "suspicious_ocr_line_ratio": 0.084935,
+        "table_line_count": 453,
+        "total_line_count": 7886,
+        "useful_text_line_count": 4614,
+        "useful_text_ratio": 0.905061
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-dry-run/source_to_graph/20260417T133123Z/source_quality/ra-9184/Updated 2016 IRR_31 March 2021_source_quality.json"
+    }
+  ]
+}

@@ -1,0 +1,448 @@
+{
+  "action": "build-graph",
+  "artifact_metadata": {
+    "contributing_law_ids": [
+      "ra-4566",
+      "ra-386",
+      "ra-9184"
+    ],
+    "dataset_id": "laws-tranche-6-source-to-graph-execute",
+    "dataset_kind": "laws-tranche",
+    "freshness_policy": {
+      "mode": "exact"
+    },
+    "input_fingerprint": {
+      "combined_sha256": "6e62c49803ae6f08627dfad233477c0dd9de8e825f1c3fc9b539ed5e72247523",
+      "file_count": 13,
+      "files": [
+        {
+          "mtime_ns": 1776432663849843520,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/approved-budget-for-the-contract.md",
+          "sha256": "fd59f1ae49068571395fddfd8af6ad343429d9d2418f771efb60d503b314b67b",
+          "size_bytes": 1010
+        },
+        {
+          "mtime_ns": 1776432663856444554,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/bids-and-awards-committee.md",
+          "sha256": "e08b1608557083e58a7f575fba730aafa39e7203a992680f6f27242f589dae2b",
+          "size_bytes": 915
+        },
+        {
+          "mtime_ns": 1776432663862008957,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/competitive-bidding.md",
+          "sha256": "8a2a1ae5d6198306b2b2577cd0497afd629fdee16314e2472f75294d201aad3b",
+          "size_bytes": 951
+        },
+        {
+          "mtime_ns": 1776432574235445854,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/civil-code-of-the-philippines.md",
+          "sha256": "880f3106dbf6edf23cfda4f365f14135eaf6c79a858cf8393537a3543aedc879",
+          "size_bytes": 543
+        },
+        {
+          "mtime_ns": 1776432574195168276,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/contractors-license-law.md",
+          "sha256": "2cd94800d4f307a8c8c1cd4eb3c52c5954a875495e564449ce4f822f06211a30",
+          "size_bytes": 637
+        },
+        {
+          "mtime_ns": 1776432684018269668,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/government-procurement-reform-act.md",
+          "sha256": "d6e7d85f6f034aad97785c09a13a17c733ea8b79bb75f9b23348de34911266c8",
+          "size_bytes": 13033
+        },
+        {
+          "mtime_ns": 1776432684422709834,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act.md",
+          "sha256": "6f703e6aba81fd0609fb1e95b8223aa07dc750ce244d5e25f901448e86d1ea7d",
+          "size_bytes": 13219
+        },
+        {
+          "mtime_ns": 1776432663870940002,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-approved-budget-for-the-contract.md",
+          "sha256": "46e0261e5afa778f4dea678fff220e914e6fcd30871f27968d54f386d52158e4",
+          "size_bytes": 1144
+        },
+        {
+          "mtime_ns": 1776432663875347607,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-bids-and-awards-committee.md",
+          "sha256": "a0245ee575e518a7f81dbd0e883bc3a398e5d4ac77ebc6d182ce34910d0024f2",
+          "size_bytes": 1084
+        },
+        {
+          "mtime_ns": 1776432663880871885,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-competitive-bidding.md",
+          "sha256": "0d3679453484aae38399b080983497b333abdf42c5037d7b3756373272459850",
+          "size_bytes": 1069
+        },
+        {
+          "mtime_ns": 1776432690777857111,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-execute/source_to_graph/20260417T133123Z/promoted_relationships/ra-9184/rel-irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act-governs-concept-approved-budget-for-the-contract.md",
+          "sha256": "db08b2f4a0368c56aafe5a9abeeb809f31d20f5535e4608c6f395fbad13e8e1f",
+          "size_bytes": 2387
+        },
+        {
+          "mtime_ns": 1776432690776713647,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-execute/source_to_graph/20260417T133123Z/promoted_relationships/ra-9184/rel-irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act-governs-concept-competitive-bidding.md",
+          "sha256": "74b54ed480c1748b6cc3f49eb06ef9a2ed2d09d7d23201cf46c31c948f90751b",
+          "size_bytes": 2358
+        },
+        {
+          "mtime_ns": 1776432684165974372,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-execute/source_to_graph/20260417T133123Z/promoted_relationships/ra-9184/rel-law-government-procurement-reform-act-governs-concept-competitive-bidding.md",
+          "sha256": "c1e6b1d6d214022efa9afdcdcc146aa91f554416f5358749f6c5fa49b9099692",
+          "size_bytes": 2047
+        }
+      ]
+    },
+    "law_units": [
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/contractors-license-law.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-4566/RA_4566.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "RA-4566",
+        "law_id": "ra-4566",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-4566/RA_4566.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-4566/RA_4566.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants"
+        ]
+      },
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/civil-code-of-the-philippines.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-386/RA-386 Civil Code.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-386/RA-386 Civil Code of the Phils.pdf"
+        ],
+        "folder_name": "RA-386",
+        "law_id": "ra-386",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-386/RA-386 Civil Code.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-386/RA-386 Civil Code.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+        ]
+      },
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/approved-budget-for-the-contract.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/bids-and-awards-committee.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/competitive-bidding.md"
+        ],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-approved-budget-for-the-contract.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-bids-and-awards-committee.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-competitive-bidding.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/government-procurement-reform-act.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9184/RA 9184 IRR - Government Procurement IRR.pdf",
+          "001_Raw-Source-Layer/001-Laws/RA-9184/Updated 2016 IRR_31 March 2021.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9184/RA 9184 - Government Procurement Reform Act.pdf",
+          "001_Raw-Source-Layer/001-Laws/RA-9184/RA_9184.pdf"
+        ],
+        "folder_name": "RA-9184",
+        "law_id": "ra-9184",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9184/RA 9184 IRR - Government Procurement IRR.pdf",
+          "001_Raw-Source-Layer/001-Laws/RA-9184/Updated 2016 IRR_31 March 2021.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9184/RA 9184 IRR - Government Procurement IRR.md",
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+          "RA-9184 concept-fit slice admits procurement-governance concepts and dataset-scoped governs relationships only."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "duplicate or study-aid raw variants remain explicit and excluded from canonical admission",
+          "RA-9184 concept-fit slice admits procurement-governance concepts and dataset-scoped governs relationships only."
+        ]
+      }
+    ],
+    "manifest_hash": "2c18dc0101f11d1aa371618c7cba5ee3f6b23d75a3963f91a08f507b51157c46",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-execute/source_to_graph/20260417T133123Z/derived_dataset_manifest.yaml",
+    "pilot_gate": {
+      "derived_from_tranche_id": "laws-tranche-6",
+      "derived_run_id": "20260417T133123Z",
+      "require_manifest_validation": true,
+      "source_to_graph_execute_ready": false
+    },
+    "run_id": "20260417T133130Z",
+    "scope_notes": [
+      "Derived from laws-tranche-6 after tranche source admission.",
+      "Dry-run only: stage admitted tranche members without unlocking execute.",
+      "Blocked tranche members remain explicit outside the staged law-unit list."
+    ],
+    "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-6-source-to-graph-execute/20260417T133130Z_graph_integrity_report.json",
+    "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-6-source-to-graph-execute/20260417T133130Z_graph_snapshot.json",
+    "upstream_artifact_refs": {
+      "canonical_concepts": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/approved-budget-for-the-contract.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/bids-and-awards-committee.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/competitive-bidding.md"
+      ],
+      "canonical_sources": [
+        "003_Canonical-Knowledge-Layer/shared/sources/contractors-license-law.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/civil-code-of-the-philippines.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/government-procurement-reform-act.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act.md"
+      ],
+      "relationship_inputs": [
+        "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-approved-budget-for-the-contract.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-bids-and-awards-committee.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-competitive-bidding.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-execute/source_to_graph/20260417T133123Z/promoted_relationships/ra-9184/rel-law-government-procurement-reform-act-governs-concept-competitive-bidding.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-execute/source_to_graph/20260417T133123Z/promoted_relationships/ra-9184/rel-irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act-governs-concept-approved-budget-for-the-contract.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-execute/source_to_graph/20260417T133123Z/promoted_relationships/ra-9184/rel-irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act-governs-concept-competitive-bidding.md"
+      ]
+    }
+  },
+  "contributing_law_ids": [
+    "ra-4566",
+    "ra-386",
+    "ra-9184"
+  ],
+  "coverage": [
+    {
+      "approved_relationship_input_count": 0,
+      "canonical_count": 1,
+      "converted_count": null,
+      "edge_count_contributed": 0,
+      "folder_name": "RA-4566",
+      "node_count_contributed": 1,
+      "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+      "raw_file_count": 1,
+      "refined_count": null,
+      "status": "partial"
+    },
+    {
+      "approved_relationship_input_count": 0,
+      "canonical_count": 1,
+      "converted_count": null,
+      "edge_count_contributed": 0,
+      "folder_name": "RA-386",
+      "node_count_contributed": 1,
+      "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+      "raw_file_count": 2,
+      "refined_count": null,
+      "status": "partial"
+    },
+    {
+      "approved_relationship_input_count": 6,
+      "canonical_count": 5,
+      "converted_count": null,
+      "edge_count_contributed": 9,
+      "folder_name": "RA-9184",
+      "node_count_contributed": 5,
+      "notes": "selected truth-bearing inputs contributed nodes/edges",
+      "raw_file_count": 4,
+      "refined_count": null,
+      "status": "covered"
+    }
+  ],
+  "dataset_id": "laws-tranche-6-source-to-graph-execute",
+  "dataset_kind": "laws-tranche",
+  "dry_run": false,
+  "edge_count": 9,
+  "incomplete": true,
+  "integrity": {
+    "error_count": 0,
+    "findings": [
+      {
+        "code": "orphan_node",
+        "edge_from": null,
+        "edge_to": null,
+        "message": "node 'law-civil-code-of-the-philippines' has zero incident edges",
+        "node_id": "law-civil-code-of-the-philippines",
+        "severity": "warning"
+      },
+      {
+        "code": "orphan_node",
+        "edge_from": null,
+        "edge_to": null,
+        "message": "node 'law-contractors-license-law' has zero incident edges",
+        "node_id": "law-contractors-license-law",
+        "severity": "warning"
+      },
+      {
+        "code": "duplicate_edge",
+        "edge_from": "law-government-procurement-reform-act",
+        "edge_to": "concept-competitive-bidding",
+        "message": "duplicate edge: law-government-procurement-reform-act -[governs]-> concept-competitive-bidding (evidence rel-law-government-procurement-reform-act-governs-concept-competitive-bidding)",
+        "node_id": null,
+        "severity": "warning"
+      }
+    ],
+    "passed": true,
+    "warning_count": 3
+  },
+  "integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-6-source-to-graph-execute/20260417T133130Z_graph_integrity_report.json",
+  "law_unit_count": 3,
+  "law_units": [
+    {
+      "admitted_concept_paths": [],
+      "admitted_relationship_paths": [],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/contractors-license-law.md"
+      ],
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-4566/RA_4566.pdf"
+      ],
+      "excluded_variant_paths": [],
+      "folder_name": "RA-4566",
+      "law_id": "ra-4566",
+      "raw_anchor_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-4566/RA_4566.pdf"
+      ],
+      "refined_markdown_paths": [
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-4566/RA_4566.md"
+      ],
+      "scope_notes": [
+        "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+      ],
+      "verification_checks": [
+        "source admission executed for the selected authoritative prepared variants"
+      ]
+    },
+    {
+      "admitted_concept_paths": [],
+      "admitted_relationship_paths": [],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/civil-code-of-the-philippines.md"
+      ],
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-386/RA-386 Civil Code.pdf"
+      ],
+      "excluded_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-386/RA-386 Civil Code of the Phils.pdf"
+      ],
+      "folder_name": "RA-386",
+      "law_id": "ra-386",
+      "raw_anchor_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-386/RA-386 Civil Code.pdf"
+      ],
+      "refined_markdown_paths": [
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-386/RA-386 Civil Code.md"
+      ],
+      "scope_notes": [
+        "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+      ],
+      "verification_checks": [
+        "source admission executed for the selected authoritative prepared variants",
+        "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+      ]
+    },
+    {
+      "admitted_concept_paths": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/approved-budget-for-the-contract.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/bids-and-awards-committee.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/competitive-bidding.md"
+      ],
+      "admitted_relationship_paths": [
+        "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-approved-budget-for-the-contract.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-bids-and-awards-committee.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-competitive-bidding.md"
+      ],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/government-procurement-reform-act.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act.md"
+      ],
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-9184/RA 9184 IRR - Government Procurement IRR.pdf",
+        "001_Raw-Source-Layer/001-Laws/RA-9184/Updated 2016 IRR_31 March 2021.pdf"
+      ],
+      "excluded_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-9184/RA 9184 - Government Procurement Reform Act.pdf",
+        "001_Raw-Source-Layer/001-Laws/RA-9184/RA_9184.pdf"
+      ],
+      "folder_name": "RA-9184",
+      "law_id": "ra-9184",
+      "raw_anchor_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-9184/RA 9184 IRR - Government Procurement IRR.pdf",
+        "001_Raw-Source-Layer/001-Laws/RA-9184/Updated 2016 IRR_31 March 2021.pdf"
+      ],
+      "refined_markdown_paths": [
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9184/RA 9184 IRR - Government Procurement IRR.md",
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md"
+      ],
+      "scope_notes": [
+        "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+        "RA-9184 concept-fit slice admits procurement-governance concepts and dataset-scoped governs relationships only."
+      ],
+      "verification_checks": [
+        "source admission executed for the selected authoritative prepared variants",
+        "duplicate or study-aid raw variants remain explicit and excluded from canonical admission",
+        "RA-9184 concept-fit slice admits procurement-governance concepts and dataset-scoped governs relationships only."
+      ]
+    }
+  ],
+  "manifest_hash": "2c18dc0101f11d1aa371618c7cba5ee3f6b23d75a3963f91a08f507b51157c46",
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-6-source-to-graph-execute/source_to_graph/20260417T133123Z/derived_dataset_manifest.yaml",
+  "mode": "dataset",
+  "node_count": 7,
+  "run_id": "20260417T133130Z",
+  "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-6-source-to-graph-execute/20260417T133130Z_graph_snapshot.json",
+  "thin_graph_metrics": {
+    "connected_component_count": 3,
+    "edge_type_diversity": {
+      "count": 2,
+      "types": [
+        "defines",
+        "governs"
+      ]
+    },
+    "isolated_node_count": 2,
+    "isolated_node_rate": 0.285714,
+    "per_folder_node_edge_balance": {
+      "RA-386": {
+        "edge_count_contributed": 0,
+        "node_count_contributed": 1,
+        "status": "partial"
+      },
+      "RA-4566": {
+        "edge_count_contributed": 0,
+        "node_count_contributed": 1,
+        "status": "partial"
+      },
+      "RA-9184": {
+        "edge_count_contributed": 9,
+        "node_count_contributed": 5,
+        "status": "covered"
+      }
+    }
+  }
+}

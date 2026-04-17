@@ -647,6 +647,122 @@ rules:
       core_concepts: []
 
   # --------------------------------------------------
+  # RA 4566 Law
+  # --------------------------------------------------
+  - name: "RA 4566 Law"
+
+    match:
+      any_contains:
+        - "ra_4566"
+        - "ra 4566"
+        - "contractors' license law"
+        - "licensing board for contractors"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Contractors' License Law"
+
+      aliases:
+        - "RA 4566"
+        - "Republic Act No. 4566"
+        - "Contractors' License Law"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # RA 386 Law
+  # --------------------------------------------------
+  - name: "RA 386 Law"
+
+    match:
+      any_contains:
+        - "ra-386"
+        - "ra 386"
+        - "civil code"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Civil Code of the Philippines"
+
+      aliases:
+        - "RA 386"
+        - "Republic Act No. 386"
+        - "Civil Code of the Philippines"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # RA 9184 Law
+  # --------------------------------------------------
+  - name: "RA 9184 Law"
+
+    match:
+      all_contains:
+        - "9184"
+      any_contains:
+        - "government procurement reform act"
+        - "government procurement irr"
+      not_contains:
+        - "updated 2016"
+        - "revised implementing rules"
+        - "2016 revised"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Government Procurement Reform Act"
+
+      aliases:
+        - "RA 9184"
+        - "Republic Act No. 9184"
+        - "Government Procurement Reform Act"
+
+      relationships:
+        implemented_by:
+          - "irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # RA 9184 Updated 2016 IRR
+  # --------------------------------------------------
+  - name: "RA 9184 Updated 2016 IRR"
+
+    match:
+      all_contains:
+        - "9184"
+      any_contains:
+        - "updated 2016"
+        - "revised implementing rules"
+        - "2016 revised"
+
+    classification:
+      source_type: irr
+      trust_level: primary
+
+    canonical:
+      title: "Updated 2016 Revised Implementing Rules and Regulations of the Government Procurement Reform Act"
+
+      aliases:
+        - "RA 9184 IRR"
+        - "Government Procurement Reform Act IRR"
+        - "Updated 2016 Revised IRR of RA 9184"
+
+      relationships:
+        implements:
+          - "law-government-procurement-reform-act"
+
+      core_concepts: []
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

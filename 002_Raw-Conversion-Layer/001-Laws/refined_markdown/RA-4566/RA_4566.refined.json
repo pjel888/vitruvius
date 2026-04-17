@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T132843Z",
+  "source_relative_path": "001-Laws/raw_markdown/RA-4566/RA_4566.md",
+  "refined_relative_path": "001-Laws/refined_markdown/RA-4566/RA_4566.md",
+  "source_hash": "c38e8d18cc6288c0bf17f4aade97a0de10af64d6f395c7e0e9e1d7a395132104",
+  "output_hash": "3e8f5088fd44fa049557160b202e830ada011c2a393ab623f3672e1fec4129e3",
+  "chars_before": 21447,
+  "chars_after": 21435,
+  "chars_delta": -12,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "collapse-consecutive-blank-lines"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 21447,
+      "chars_after": 21447,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 21447,
+      "chars_after": 21447,
+      "changed": false
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 21447,
+      "chars_after": 21447,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 21447,
+      "chars_after": 21447,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 21447,
+      "chars_after": 21435,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 21435,
+      "chars_after": 21435,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 21435,
+      "chars_after": 21435,
+      "changed": false
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 21435,
+      "chars_after": 21435,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}

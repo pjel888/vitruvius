@@ -1,0 +1,93 @@
+{
+  "action": "run-laws-tranche-dry-run",
+  "candidate_law_folder_count": 3,
+  "candidate_law_folders": [
+    "RA-4566",
+    "RA-386",
+    "RA-9184"
+  ],
+  "dry_run": true,
+  "duplicate_cluster_count": 0,
+  "duplicate_clusters": [],
+  "duplicate_law_folders": [],
+  "generated_at_utc": "20260417T132838Z",
+  "inventory_only_law_count": 3,
+  "laws": [
+    {
+      "admitted_concept_count": 0,
+      "admitted_relationship_count": 0,
+      "admitted_source_count": 0,
+      "candidate_reason": "Construction industry governance adjacency with a compact single-law surface.",
+      "folder_name": "RA-4566",
+      "law_id": "ra-4566",
+      "next_step": "No repo-local refined markdown inventory detected here; do not widen until source/conversion readiness is established.",
+      "pilot_covered": false,
+      "raw_markdown_count": 0,
+      "raw_source_present": true,
+      "refined_markdown_count": 0,
+      "sidecar_json_count": 0,
+      "status": "not-ready",
+      "structural_header_count": 0,
+      "structure_guardrails": []
+    },
+    {
+      "admitted_concept_count": 0,
+      "admitted_relationship_count": 0,
+      "admitted_source_count": 0,
+      "candidate_reason": "Civil-law property and obligations adjacency with a compact law surface.",
+      "folder_name": "RA-386",
+      "law_id": "ra-386",
+      "next_step": "No repo-local refined markdown inventory detected here; do not widen until source/conversion readiness is established.",
+      "pilot_covered": false,
+      "raw_markdown_count": 0,
+      "raw_source_present": true,
+      "refined_markdown_count": 0,
+      "sidecar_json_count": 0,
+      "status": "not-ready",
+      "structural_header_count": 0,
+      "structure_guardrails": []
+    },
+    {
+      "admitted_concept_count": 0,
+      "admitted_relationship_count": 0,
+      "admitted_source_count": 0,
+      "candidate_reason": "Public-procurement governance adjacency with law-plus-IRR structure.",
+      "folder_name": "RA-9184",
+      "law_id": "ra-9184",
+      "next_step": "No repo-local refined markdown inventory detected here; do not widen until source/conversion readiness is established.",
+      "pilot_covered": false,
+      "raw_markdown_count": 0,
+      "raw_source_present": true,
+      "refined_markdown_count": 0,
+      "sidecar_json_count": 0,
+      "status": "not-ready",
+      "structural_header_count": 0,
+      "structure_guardrails": []
+    }
+  ],
+  "limitations": [],
+  "missing_raw_source_count": 0,
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "pilot_covered_law_count": 0,
+  "pilot_manifest_law_count": 4,
+  "pilot_manifest_path": "config/datasets/laws-core-bundle-m1.yaml",
+  "review_model": "qwen2.5:7b",
+  "review_model_preset": "m2-8gb-safe",
+  "review_runtime": {
+    "model": "qwen2.5:7b",
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    }
+  },
+  "run_id": "20260417T132837Z",
+  "structure_guardrail_law_folders": [],
+  "tranche_id": "laws-tranche-6",
+  "tranche_manifest_path": "config/datasets/laws-tranche-6.yaml"
+}

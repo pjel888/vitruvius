@@ -1,0 +1,93 @@
+{
+  "generated_at": "20260417T133124Z",
+  "source": "001-Laws/refined_markdown/RA-9184/RA 9184 IRR - Government Procurement IRR.md",
+  "total_candidates": 3,
+  "auto_accept_count": 1,
+  "auto_reject_count": 2,
+  "needs_review_count": 0,
+  "buckets": {
+    "auto_accept": [
+      {
+        "from": "law-government-procurement-reform-act",
+        "type": "governs",
+        "to": "concept-competitive-bidding",
+        "occurrences": 8,
+        "sections": [
+          "section-24",
+          "section-44",
+          "section-46",
+          "section-53"
+        ],
+        "examples": [
+          "The eligible prospective bidders shall then be evaluated using numerical ratings on the basis of the short listing requirements prescribed for the Competitive Bidding concerned, within the period stated in the Invitation to Bid to determine the short list of bidders who shall be allowed to submit th",
+          "The eligible prospective bidders shall then be evaluated using numerical ratings on the basis of the short listing requirements prescribed for the Competitive Bidding concerned, within the period stated in the Invitation to Bid to determine the short list of bidders who shall be allowed to submit th",
+          "projects funded out of the annual General Appropriations Act which are intended for implementation within the province shall be subject to the same public bidding and to the procurement processes prescribed under this Act."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      }
+    ],
+    "auto_reject": [
+      {
+        "from": "law-government-procurement-reform-act",
+        "type": "governs",
+        "to": "concept-bids-and-awards-committee",
+        "occurrences": 24,
+        "sections": [
+          "section-11",
+          "section-12",
+          "section-15",
+          "section-20",
+          "section-25",
+          "section-32",
+          "section-34",
+          "section-35",
+          "section-40",
+          "section-55",
+          "section-56",
+          "section-72"
+        ],
+        "examples": [
+          "The members of the BAC shall be designated by the Head of Procuring Entity.",
+          "single BAC for its procurement. The BAC shall have at least five (5) members, but not more than seven (7) members. It shall be chaired by at least a third ranking permanent official of the procuring entity other than its head, and its composition shall be specified in the IRR. Alternatively, as may ",
+          "Unless sooner removed for a cause, the members of the BAC shall have a fixed term of one (1) year reckoned from the date of appointment, renewable at the discretion of the Head of the Procuring Entity. In case of resignation, retirement, separation, transfer, reassignment, removal, the replacement s"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['bids and awards committee'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "concept-bids-and-awards-committee",
+        "type": "depends_on",
+        "to": "concept-competitive-bidding",
+        "occurrences": 1,
+        "sections": [
+          "section-69"
+        ],
+        "examples": [
+          "provisions of Articles XXI and XXII of this Act, the Head of the Procuring Entity, subject to the authority delegated to the BAC, if any, shall impose on bidders or prospective bidders, the administrative penalty of suspension for one (1) year for the first offense, and suspension of two (2) years f"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['bids and awards committee', 'competitive bidding'] appear in the evidence text"
+          ]
+        }
+      }
+    ],
+    "needs_review": []
+  }
+}

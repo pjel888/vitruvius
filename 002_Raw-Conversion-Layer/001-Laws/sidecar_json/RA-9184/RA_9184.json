@@ -1,0 +1,4568 @@
+{
+  "file name" : "RA_9184.pdf",
+  "number of pages" : 24,
+  "author" : "Dennis Nacario",
+  "title" : "Handbook on  Philippine Government Procurement",
+  "creation date" : "D:20140911152536+08'00'",
+  "modification date" : "D:20140911155354+08'00'",
+  "kids" : [ {
+    "type" : "text block",
+    "id" : 182,
+    "page number" : 1,
+    "bounding box" : [ 24.0, 24.0, 571.44, 817.68 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 1,
+      "bounding box" : [ 96.12, 474.0, 527.28, 561.6 ],
+      "source" : "RA_9184_images/imageFile1.png"
+    }, {
+      "type" : "heading",
+      "id" : 2,
+      "level" : "Doctitle",
+      "page number" : 1,
+      "bounding box" : [ 120.96, 501.722, 472.981, 548.57 ],
+      "heading level" : 1,
+      "font" : "Cambria-Bold",
+      "font size" : 32.04,
+      "text color" : "[0.0, 0.0, 0.5020065903663635]",
+      "content" : "REPUBLIC ACT 9184"
+    }, {
+      "type" : "image",
+      "id" : 3,
+      "page number" : 1,
+      "bounding box" : [ 275.88, 430.92, 344.4, 507.96 ],
+      "source" : "RA_9184_images/imageFile2.png"
+    }, {
+      "type" : "image",
+      "id" : 4,
+      "page number" : 1,
+      "bounding box" : [ 59.04, 391.68, 103.2, 452.16 ],
+      "source" : "RA_9184_images/imageFile3.png"
+    }, {
+      "type" : "image",
+      "id" : 5,
+      "page number" : 1,
+      "bounding box" : [ 61.68, 385.08, 547.2, 462.12 ],
+      "source" : "RA_9184_images/imageFile4.png"
+    }, {
+      "type" : "heading",
+      "id" : 6,
+      "level" : "Subtitle",
+      "page number" : 1,
+      "bounding box" : [ 83.52, 363.615, 517.665, 450.655 ],
+      "heading level" : 2,
+      "font" : "Cambria-Bold",
+      "font size" : 27.96,
+      "text color" : "[0.0, 0.0, 0.5020065903663635]",
+      "content" : "GOVERNMENT PROCUREMENT REFORM ACT"
+    }, {
+      "type" : "image",
+      "id" : 7,
+      "page number" : 1,
+      "bounding box" : [ 178.68, 339.12, 415.32, 416.16 ],
+      "source" : "RA_9184_images/imageFile5.png"
+    }, {
+      "type" : "image",
+      "id" : 8,
+      "page number" : 1,
+      "bounding box" : [ 373.08, 339.12, 440.04, 416.16 ],
+      "source" : "RA_9184_images/imageFile6.png"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 183,
+    "page number" : 2,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 70,
+      "page number" : 2,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 186,
+    "page number" : 2,
+    "bounding box" : [ 72.0, 757.696, 114.411, 777.273 ],
+    "font" : "Tahoma",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "H. No. 4809 S. No. 2248"
+  }, {
+    "type" : "heading",
+    "id" : 187,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 208.915, 590.59, 386.351, 732.722 ],
+    "heading level" : 3,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.96,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Republic of the Philippines Congress of the Philippines Metro Manila Twelfth Congress Second Regular Session"
+  }, {
+    "type" : "paragraph",
+    "id" : 188,
+    "page number" : 2,
+    "bounding box" : [ 72.0, 550.789, 522.3, 577.815 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Begun and held in Metro Manila, on Monday, the twenty-second day of July, two thousand two."
+  }, {
+    "type" : "heading",
+    "id" : 189,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 215.52, 508.517, 379.772, 526.01 ],
+    "heading level" : 3,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.96,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "[REPUBLIC ACT NO. 9184 ]1"
+  }, {
+    "type" : "heading",
+    "id" : 190,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 72.0, 432.552, 523.449, 480.362 ],
+    "heading level" : 3,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.96,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "AN ACT PROVIDING FOR THE MODERNIZATION, STANDARDIZATION AND REGULATION OF THE PROCUREMENT ACTIVITIES OF THE GOVERNMENT AND FOR OTHER PURPOSES"
+  }, {
+    "type" : "paragraph",
+    "id" : 191,
+    "page number" : 2,
+    "bounding box" : [ 71.238, 377.029, 526.303, 404.055 ],
+    "font" : "Tahoma",
+    "font size" : 11.637,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Be it enacted by the Senate and the House of Representatives of the Philippines in Congress assembled:"
+  }, {
+    "type" : "heading",
+    "id" : 192,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 228.0, 321.516, 367.476, 351.3 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE I GENERAL PROVISIONS"
+  }, {
+    "type" : "paragraph",
+    "id" : 193,
+    "page number" : 2,
+    "bounding box" : [ 72.0, 281.629, 523.348, 308.998 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SECTION 1. Short Title. – This Act shall be known as the “Government Procurement Reform Act.”"
+  }, {
+    "type" : "list",
+    "id" : 194,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 107.999, 188.731, 523.611, 269.158 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.001, 255.1, 523.611, 269.158 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 2. Declaration of Policy. – It is the declared policy of the State to promote",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 181,
+        "page number" : 2,
+        "bounding box" : [ 71.998, 215.26, 523.423, 255.49 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "the ideals of good governance in all its branches, departments, agencies, subdivisions, and instrumentalities, including government-owned and/or -controlled corporations, and local government units."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 107.999, 188.731, 523.445, 202.798 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 3. Governing Principles on Government Procurement. – All",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 195,
+    "page number" : 2,
+    "bounding box" : [ 71.998, 135.575, 523.545, 189.13 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "procurement of the national government, its departments, bureaus, offices and agencies, including state universities and colleges, government-owned and/or -controlled corporations, government financial institutions and local government units, shall, in all cases, be governed by these principles:"
+  }, {
+    "type" : "paragraph",
+    "id" : 197,
+    "page number" : 2,
+    "bounding box" : [ 72.0, 64.74, 523.548, 98.484 ],
+    "font" : "Tahoma",
+    "font size" : 9.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "1 R.A. 9184 was signed by Her Excellency President Gloria Macapagal-Arroyo on 10 January 2003, and was published on 11 January 2003, in two (2) newspapers of general nationwide circulation, namely, Manila Times and Malaya. It took effect fifteen (15) days after its publication or on 26 January 2003."
+  }, {
+    "type" : "footer",
+    "id" : 198,
+    "page number" : 2,
+    "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 47,
+      "page number" : 2,
+      "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "1"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 199,
+    "page number" : 3,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 71,
+      "page number" : 3,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 202,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 107.967, 564.403, 523.535, 777.375 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 763.675, 523.535, 777.375 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) Transparency in the procurement process and in the implementation of",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 177,
+        "page number" : 3,
+        "bounding box" : [ 71.999, 750.349, 184.894, 764.05 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "procurement contracts."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 723.82, 523.369, 737.521 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) Competitiveness by extending equal opportunity to enable private contracting",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 178,
+        "page number" : 3,
+        "bounding box" : [ 71.988, 710.495, 403.927, 724.196 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "parties who are eligible and qualified to participate in public bidding."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 107.989, 683.966, 523.325, 697.667 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) Streamlined procurement process that will uniformly apply to all government",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 179,
+        "page number" : 3,
+        "bounding box" : [ 71.976, 657.437, 523.446, 684.341 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "procurement. The procurement process shall be simple and made adaptable to advances in modern technology in order to ensure an effective and efficient method."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 107.978, 630.908, 523.292, 644.608 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(d) System of accountability where both the public officials directly or indirectly",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 180,
+        "page number" : 3,
+        "bounding box" : [ 71.965, 591.053, 523.501, 631.283 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "involved in the procurement process as well as in the implementation of procurement contracts and the private parties that deal with government are, when warranted by circumstances, investigated and held liable for their actions relative thereto."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 107.967, 564.403, 523.347, 578.103 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(e) Public monitoring of the procurement process and the implementation of",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 203,
+    "page number" : 3,
+    "bounding box" : [ 71.965, 524.548, 523.424, 564.9 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "awarded contracts with the end in view of guaranteeing that these contracts are awarded pursuant to the provisions of this Act and its implementing rules and regulations, and that all these contracts are performed strictly according to specifications."
+  }, {
+    "type" : "list",
+    "id" : 204,
+    "level" : "3",
+    "page number" : 3,
+    "bounding box" : [ 71.998, 378.589, 523.556, 512.158 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 71.998, 418.406, 523.556, 512.158 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 4. Scope and Application. – This Act shall apply to the Procurement of Infrastructure Projects, Goods, and Consulting Services, regardless of source of funds, whether local or foreign, by all branches and instrumentalities of government, its departments, offices and agencies, including government-owned and/or -controlled corporations and local government units, subject to the provisions of Commonwealth Act No. 138. Any treaty or international or executive agreement affecting the subject matter of this Act to which the Philippine government is a signatory shall be observed.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 71.998, 378.589, 523.412, 405.958 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 5. Definition of Terms. – For purposes of this Act, the following terms or words and phrases shall mean or be understood as follows:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 205,
+    "page number" : 3,
+    "bounding box" : [ 71.999, 259.162, 523.612, 365.775 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(a) Approved Budget for the Contract (ABC)– refers to the budget for the contract duly approved by the Head of the Procuring Entity, as provided for in the General Appropriations Act and/or continuing appropriations, in the case of National Government Agencies; the Corporate Budget for the contract approved by the governing Boards, pursuant to E.O. No. 518, series of 1979, in the case of Government-Owned and/or Controlled Corporations, Government Financial Institutions and State Universities and Colleges; and the Budget for the contract approved by the respective Sanggunian, in the case of Local Government Units."
+  }, {
+    "type" : "list",
+    "id" : 206,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 108.0, 99.835, 523.604, 246.255 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 232.512, 523.604, 246.255 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) BAC– refers to the Bids and Awards Committee established in accordance with",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 174,
+        "page number" : 3,
+        "bounding box" : [ 72.001, 219.351, 167.972, 233.052 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Article V of this Act."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.003, 192.7, 523.44, 206.415 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) Bidding Documents– refers to documents issued by the Procuring Entity as the",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 175,
+        "page number" : 3,
+        "bounding box" : [ 71.992, 166.186, 523.406, 193.212 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "basis for Bids, furnishing all information necessary for a prospective bidder to prepare a bid for the Goods, Infrastructure Projects, and Consulting Services to be provided."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 139.675, 523.537, 153.375 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(d) Bid – refers to a signed offer or proposal submitted by a supplier,",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 176,
+        "page number" : 3,
+        "bounding box" : [ 72.001, 126.349, 507.948, 140.05 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "manufacturer, distributor, contractor or consultant in response to the Bidding Documents."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 99.835, 523.535, 113.535 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(e) Competitive Bidding – refers to a method of procurement which is open to",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 207,
+    "page number" : 3,
+    "bounding box" : [ 71.999, 73.184, 523.436, 100.21 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "participation by any interested party and which consists of the following processes: advertisement, pre-bid conference, eligibility screening of prospective bidders, receipt and"
+  }, {
+    "type" : "footer",
+    "id" : 208,
+    "page number" : 3,
+    "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 48,
+      "page number" : 3,
+      "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "2"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 209,
+    "page number" : 4,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 72,
+      "page number" : 4,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 212,
+    "page number" : 4,
+    "bounding box" : [ 72.0, 737.146, 523.448, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "opening of bids, evaluation of bids, post-qualification, and award of contract, the specific requirements and mechanics of which shall be defined in the IRR to be promulgated under this Act."
+  }, {
+    "type" : "list",
+    "id" : 213,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 108.0, 418.435, 523.612, 724.215 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 710.515, 523.612, 724.215 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(f) Consulting Services – refer to services for Infrastructure Projects and other",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 170,
+        "page number" : 4,
+        "bounding box" : [ 71.999, 644.131, 523.568, 711.012 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "types of projects or activities of the Government requiring adequate external technical and professional expertise that are beyond the capability and/or capacity of the government to undertake such as, but not limited to: (i) advisory and review services; (ii) pre-investment or feasibility studies; (iii) design; (iv) construction supervision; (v) management and related services; and (vi) other technical services or special studies."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 617.635, 523.505, 631.335 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(g) G-EPS– refers to the Government Electronic Procurement System as provided",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 171,
+        "page number" : 4,
+        "bounding box" : [ 71.991, 604.309, 184.632, 618.01 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "in Section 8 of this Act."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 577.795, 523.531, 591.495 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(h) Goods – refer to all items, supplies, materials and general support services,",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 172,
+        "page number" : 4,
+        "bounding box" : [ 71.995, 484.761, 523.586, 578.17 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "except consulting services and infrastructure projects, which may be needed in the transaction of public businesses or in the pursuit of any government undertaking, project or activity, whether in the nature of equipment, furniture, stationery, materials for construction, or personal property of any kind, including non-personal or contractual services such as the repair and maintenance of equipment and furniture, as well as trucking, hauling, janitorial, security, and related or analogous services, as well as procurement of materials and supplies provided by the procuring entity for such services."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 458.275, 523.472, 471.975 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(i) GPPB – refers to the Government Procurement Policy Board established in",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 173,
+        "page number" : 4,
+        "bounding box" : [ 71.991, 445.071, 256.161, 458.772 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "accordance with Article XX of this Act."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 418.435, 523.421, 432.135 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(j) Head of the Procuring Entity– refers to: (i) the head of the agency or his duly",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 214,
+    "page number" : 4,
+    "bounding box" : [ 71.996, 338.74, 523.52, 418.932 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "authorized official, for national government agencies; (ii) the governing board or its duly authorized official, for government-owned and/or -controlled corporations; or (iii) the local chief executive, for local government units. Provided, That in a department, office or agency where the procurement is decentralized, the Head of each decentralized unit shall be considered as the Head of the Procuring Entity subject to the limitations and authority delegated by the head of the department, office or agency."
+  }, {
+    "type" : "list",
+    "id" : 215,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 107.993, 126.355, 523.613, 325.935 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 312.235, 523.461, 325.935 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(k) Infrastructure Projects– include the construction, improvement, rehabilitation,",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 167,
+        "page number" : 4,
+        "bounding box" : [ 71.991, 232.526, 523.549, 312.61 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "demolition, repair, restoration or maintenance of roads and bridges, railways, airports, seaports, communication facilities, civil works components of information technology projects, irrigation, flood control and drainage, water supply, sanitation, sewerage and solid waste management systems, shore protection, energy/power and electrification facilities, national buildings, school buildings, hospital buildings and other related construction projects of the government."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 206.035, 523.527, 219.735 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(l) IRR – refer to the implementing rules and regulations to be promulgated in",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 168,
+        "page number" : 4,
+        "bounding box" : [ 71.991, 192.709, 247.715, 206.41 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "accordance with Section 75 this Act."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 107.993, 166.18, 523.613, 179.895 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(m) Portal– refers to a website that aggregates a wide variety of content for the",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 169,
+        "page number" : 4,
+        "bounding box" : [ 72.0, 152.869, 296.587, 166.57 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "purpose of attracting a large number of users."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 126.355, 523.489, 140.055 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(n) Procurement– refers to the acquisition of Goods, Consulting Services, and the",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 216,
+    "page number" : 4,
+    "bounding box" : [ 71.987, 86.5, 523.445, 126.73 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "contracting for Infrastructure Projects by the Procuring Entity. Procurement shall also include the lease of goods and real estate. With respect to real property, its procurement shall be governed by the provisions of Republic Act No. 8974, entitled “An Act to Facilitate"
+  }, {
+    "type" : "footer",
+    "id" : 217,
+    "page number" : 4,
+    "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 49,
+      "page number" : 4,
+      "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "3"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 218,
+    "page number" : 5,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 73,
+      "page number" : 5,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 221,
+    "page number" : 5,
+    "bounding box" : [ 72.0, 750.349, 523.448, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "the Acquisition of Right-of-Way Site or Location for National Government Infrastructure Projects and for Other Purposes”, and other applicable laws, rules and regulations."
+  }, {
+    "type" : "paragraph",
+    "id" : 222,
+    "page number" : 5,
+    "bounding box" : [ 72.005, 683.98, 523.552, 737.535 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(o) Procuring Entity - refers to any branch, department, office, agency, or instrumentality of the government, including state universities and colleges, governmentowned and/or -controlled corporations, government financial institutions, and local government units procuring Goods, Consulting Services and Infrastructure Projects."
+  }, {
+    "type" : "paragraph",
+    "id" : 223,
+    "page number" : 5,
+    "bounding box" : [ 71.998, 617.62, 523.445, 671.518 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 6. Standardization of Procurement Process and Forms. – To systematize the procurement process, avoid confusion and ensure transparency, the procurement process, including the forms to be used, shall be standardized insofar as practicable."
+  }, {
+    "type" : "paragraph",
+    "id" : 224,
+    "page number" : 5,
+    "bounding box" : [ 71.987, 564.441, 523.512, 604.792 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "For this purpose, the GPPB shall pursue the development of generic procurement manuals and standard bidding forms, the use of which once issued shall be mandatory upon all Procuring Entities."
+  }, {
+    "type" : "heading",
+    "id" : 225,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 216.48, 522.276, 378.9, 552.06 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE II PROCUREMENT PLANNING"
+  }, {
+    "type" : "paragraph",
+    "id" : 226,
+    "page number" : 5,
+    "bounding box" : [ 71.998, 429.331, 523.445, 509.758 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 7. Procurement Planning and Budgeting Linkage. – All procurement should be within the approved budget of the Procuring Entity and should be meticulously and judiciously planned by the Procuring Entity concerned. Consistent with government fiscal discipline measures, only those considered crucial to the efficient discharge of governmental functions shall be included in the Annual Procurement Plan to be specified in the IRR."
+  }, {
+    "type" : "paragraph",
+    "id" : 227,
+    "page number" : 5,
+    "bounding box" : [ 71.987, 336.297, 523.478, 416.381 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "No government Procurement shall be undertaken unless it is in accordance with the approved Annual Procurement Plan of the Procuring Entity. The Annual Procurement Plan shall be approved by the Head of the Procuring Entity and must be consistent with its duly approved yearly budget. The Annual Procurement Plan shall be formulated and revised only in accordance with the guidelines set forth in the IRR. In the case of Infrastructure Projects, the Plan shall include engineering design and acquisition of right-of-way."
+  }, {
+    "type" : "heading",
+    "id" : 228,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 176.88, 294.156, 418.476, 323.94 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE III PROCUREMENT BY ELECTRONIC MEANS"
+  }, {
+    "type" : "paragraph",
+    "id" : 229,
+    "page number" : 5,
+    "bounding box" : [ 71.987, 174.561, 523.5, 281.638 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 8. Procurement By Electronic Means. – To promote transparency and efficiency, information and communications technology shall be utilized in the conduct of procurement procedures. Accordingly, there shall be a single portal that shall serve as the primary source of information on all government procurement. The G-EPS shall serve as the primary and definitive source of information on government procurement. Further, the GPPB is authorized to approve changes in the procurement process to adapt to improvements in modern technology, provided that such modifications are consistent with the provisions of Section 3 of this Act."
+  }, {
+    "type" : "paragraph",
+    "id" : 230,
+    "page number" : 5,
+    "bounding box" : [ 71.998, 68.323, 523.556, 161.732 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "To take advantage of the significant built-in efficiencies of the G-EPS and the volume discounts inherent in bulk purchasing, all Procuring Entities shall utilize the G-EPS for the procurement of common supplies in accordance with the rules and procedures to be established by the GPPB. With regard to the procurement of non-common use items, infrastructure projects and consulting services, agencies may hire service providers to undertake their electronic procurement provided these service providers meet the minimum requirements set by the GPPB."
+  }, {
+    "type" : "footer",
+    "id" : 231,
+    "page number" : 5,
+    "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 50,
+      "page number" : 5,
+      "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "4"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 232,
+    "page number" : 6,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 74,
+      "page number" : 6,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 235,
+    "page number" : 6,
+    "bounding box" : [ 71.987, 710.5, 523.556, 764.398 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 9. Security, Integrity and Confidentiality. – The G-EPS shall ensure the security, integrity and confidentiality of documents submitted through the system. It shall include a feature that provides for an audit trail for on-line transactions and allow the Commission on Audit to verify the security and integrity of the systems at any time."
+  }, {
+    "type" : "heading",
+    "id" : 236,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 225.36, 668.316, 370.02, 698.1 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE IV COMPETITIVE BIDDING"
+  }, {
+    "type" : "list",
+    "id" : 237,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 107.998, 559.669, 523.456, 655.798 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.998, 641.749, 523.456, 655.798 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 10. Competitive Bidding. – All Procurement shall be done through",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 165,
+        "page number" : 6,
+        "bounding box" : [ 71.998, 628.429, 405.494, 642.13 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Competitive Bidding, except as provided for in Article XVI of this Act."
+      }, {
+        "type" : "paragraph",
+        "id" : 166,
+        "page number" : 6,
+        "bounding box" : [ 199.68, 586.236, 395.58, 616.02 ],
+        "font" : "Tahoma-Bold",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "ARTICLE V BIDS AND AWARDS COMMITTEE"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 108.001, 559.669, 523.434, 573.718 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 11. The BAC and its Composition. – Each procuring entity shall establish a",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 238,
+    "page number" : 6,
+    "bounding box" : [ 71.998, 440.112, 523.622, 560.05 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "single BAC for its procurement. The BAC shall have at least five (5) members, but not more than seven (7) members. It shall be chaired by at least a third ranking permanent official of the procuring entity other than its head, and its composition shall be specified in the IRR. Alternatively, as may be deemed fit by the head of the procuring entity, there may be separate BACs where the number and complexity of the items to be procured shall so warrant. Similar BACs for decentralized and lower level offices may be formed when deemed necessary by the head of the procuring entity. The members of the BAC shall be designated by the Head of Procuring Entity. However, in no case shall the approving authority be a member of the BAC."
+  }, {
+    "type" : "paragraph",
+    "id" : 239,
+    "page number" : 6,
+    "bounding box" : [ 71.987, 333.94, 523.979, 427.283 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Unless sooner removed for a cause, the members of the BAC shall have a fixed term of one (1) year reckoned from the date of appointment, renewable at the discretion of the Head of the Procuring Entity. In case of resignation, retirement, separation, transfer, reassignment, removal, the replacement shall serve only for the unexpired term: Provided, That in case of leave or suspension, the replacement shall serve only for the duration of the leave or suspension. For justifiable causes, a member shall be suspended or removed by the Head of the Procuring Entity."
+  }, {
+    "type" : "paragraph",
+    "id" : 240,
+    "page number" : 6,
+    "bounding box" : [ 71.995, 174.566, 523.597, 321.478 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 12. Functions of the BAC. – The BAC shall have the following functions: advertise and/or post the invitation to bid, conduct pre-procurement and pre-bid conferences, determine the eligibility of prospective bidders, receive bids, conduct the evaluation of bids, undertake post-qualification proceedings, recommend award of contracts to the Head of the Procuring Entity or his duly authorized representative: Provided, That in the event the Head of the Procuring Entity shall disapprove such recommendation, such disapproval shall be based only on valid, reasonable and justifiable grounds to be expressed in writing, copy furnished the BAC; recommend the imposition of sanctions in accordance with Article XXIII, and perform such other related functions as may be necessary, including the creation of a Technical Working Group from a pool of technical, financial and/or legal experts to assist in the procurement process."
+  }, {
+    "type" : "paragraph",
+    "id" : 241,
+    "page number" : 6,
+    "bounding box" : [ 71.995, 134.712, 523.443, 161.737 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In proper cases, the BAC shall also recommend to the Head of the Procuring Entity the use of Alternative Methods of Procurement as provided for in Article XVI hereof."
+  }, {
+    "type" : "paragraph",
+    "id" : 242,
+    "page number" : 6,
+    "bounding box" : [ 71.995, 68.328, 523.487, 121.883 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The BAC shall be responsible for ensuring that the Procuring Entity abides by the standards set forth by this Act and the IRR, and it shall prepare a procurement monitoring report that shall be approved and submitted by the Head of the Procuring Entity to the GPPB on a semestral basis. The contents and coverage of this report shall be provided in the IRR."
+  }, {
+    "type" : "footer",
+    "id" : 243,
+    "page number" : 6,
+    "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 51,
+      "page number" : 6,
+      "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "5"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 244,
+    "page number" : 7,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 75,
+      "page number" : 7,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 247,
+    "page number" : 7,
+    "bounding box" : [ 71.996, 657.46, 523.554, 764.398 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 13. Observers. – To enhance the transparency of the process, the BAC shall, in all stages of the procurement process, invite, in addition to the representative of the Commission on Audit, at least two (2) observers to sit in its proceedings, one (1) from a duly recognized private group in a sector or discipline relevant to the procurement at hand, and the other from a non-government organization: Provided, however, That they do not have any direct or indirect interest in the contract to be bid out. The observers should be duly registered with the Securities and Exchange Commission and should meet the criteria for observers as set forth in the IRR."
+  }, {
+    "type" : "list",
+    "id" : 248,
+    "level" : "1",
+    "page number" : 7,
+    "bounding box" : [ 107.988, 389.511, 523.578, 644.998 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.998, 630.931, 523.556, 644.998 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 14. BAC Secretariat. – To assist the BAC in the conduct of its functions, the",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 161,
+        "page number" : 7,
+        "bounding box" : [ 71.998, 591.1, 523.523, 631.33 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Head of the Procuring Entity shall create a Secretariat that will serve as the main support unit of the BAC. The Head of the Procuring Entity may also designate an existing organic office within the agency to serve as the Secretariat."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.999, 564.45, 523.467, 578.518 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 15. Honoraria of BAC Members. – The Procuring Entity may grant payment",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 162,
+        "page number" : 7,
+        "bounding box" : [ 71.987, 524.62, 523.434, 564.972 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "of honoraria to the BAC members in an amount not to exceed twenty five percent (25%) of their respective basic monthly salary subject to availability of funds. For this purpose, the Department of Budget and Management (DBM) shall promulgate the necessary guidelines."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.988, 498.091, 523.578, 512.158 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 16. Professionalization of BAC, BAC Secretariat and Technical",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 163,
+        "page number" : 7,
+        "bounding box" : [ 71.998, 458.26, 523.534, 498.832 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Working Group Members. – The GPPB shall establish a sustained training program for developing the capacity of the BACs, BAC Secretariats and Technical Working Groups of Procuring Entities, and professionalize the same."
+      }, {
+        "type" : "paragraph",
+        "id" : 164,
+        "page number" : 7,
+        "bounding box" : [ 173.16, 416.076, 422.316, 445.86 ],
+        "font" : "Tahoma-Bold",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "ARTICLE VI PREPARATION OF BIDDING DOCUMENTS"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.998, 389.511, 523.401, 403.558 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 17. Form and Contents of Bidding Documents. – The Bidding Documents",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 249,
+    "page number" : 7,
+    "bounding box" : [ 71.987, 362.986, 523.445, 389.89 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "shall be prepared by the Procuring Entity following the standard forms and manuals prescribed by the GPPB. The Bidding Documents shall include the following:"
+  }, {
+    "type" : "list",
+    "id" : 250,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 107.955, 70.746, 523.467, 350.036 ],
+    "numbering style" : "english letters",
+    "number of list items" : 10,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.988, 336.335, 302.899, 350.036 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) Approved Budget for the Contract;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.988, 309.806, 523.467, 323.507 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) Instructions to Bidders, including criteria for eligibility, bid evaluation and post-",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 160,
+        "page number" : 7,
+        "bounding box" : [ 71.976, 283.277, 523.324, 310.181 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "qualification, as well as the date, time and place of the pre-bid Conference (where applicable), submission of bids and opening of bids;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.977, 256.626, 234.164, 270.327 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) Terms of Reference;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.966, 230.097, 251.762, 243.798 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(d) Eligibility Requirements;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.955, 203.568, 302.44, 217.335 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(e) Plans and Technical Specifications;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.993, 177.106, 441.324, 190.806 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(f) Form of Bid, Price Form, and List of Goods or Bill of Quantities;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.993, 150.455, 323.648, 164.156 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(g) Delivery Time or Completion Schedule;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.982, 123.926, 300.0, 137.627 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(h) Form and Amount of Bid Security;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.993, 97.397, 440.584, 111.097 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(i) Form and Amount of Performance Security and Warranty; and,",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.993, 70.746, 455.929, 84.447 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(j) Form of Contract, and General and Special Conditions of Contract.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 251,
+    "page number" : 7,
+    "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 52,
+      "page number" : 7,
+      "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "6"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 252,
+    "page number" : 8,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 76,
+      "page number" : 8,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 255,
+    "page number" : 8,
+    "bounding box" : [ 72.0, 723.82, 519.043, 764.05 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The Procuring Entity may require additional document requirements or specifications necessary to complete the information required for the bidders to prepare and submit their respective bids."
+  }, {
+    "type" : "heading",
+    "id" : 256,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 108.001, 697.291, 523.445, 711.358 ],
+    "heading level" : 5,
+    "font" : "Tahoma-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 18. Reference to Brand Names. – Specifications for the Procurement of"
+  }, {
+    "type" : "paragraph",
+    "id" : 257,
+    "page number" : 8,
+    "bounding box" : [ 71.998, 670.664, 523.567, 697.69 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Goods shall be based on relevant characteristics and/or performance requirements. Reference to brand names shall not be allowed."
+  }, {
+    "type" : "heading",
+    "id" : 258,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 107.999, 644.135, 523.524, 658.198 ],
+    "heading level" : 6,
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 19. Access to Information. – In all stages of the preparation of the Bidding"
+  }, {
+    "type" : "paragraph",
+    "id" : 259,
+    "page number" : 8,
+    "bounding box" : [ 71.999, 604.3, 523.469, 644.652 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Documents, the Procuring Entity shall ensure equal access to information. Prior to their official release, no aspect of the Bidding Documents shall be divulged or released to any prospective bidder or person having direct or indirect interest in the project to be procured."
+  }, {
+    "type" : "paragraph",
+    "id" : 260,
+    "page number" : 8,
+    "bounding box" : [ 236.28, 562.116, 359.124, 591.9 ],
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE VII INVITATION TO BID"
+  }, {
+    "type" : "heading",
+    "id" : 261,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 107.998, 535.549, 523.589, 549.598 ],
+    "heading level" : 5,
+    "font" : "Tahoma-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 20. Pre-Procurement Conference. – Prior to the issuance of the Invitation"
+  }, {
+    "type" : "paragraph",
+    "id" : 262,
+    "page number" : 8,
+    "bounding box" : [ 71.987, 495.7, 523.556, 535.93 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "to Bid, the BAC is mandated to hold a pre-procurement conference on each and every procurement, except those contracts below a certain level or amount specified in the IRR, in which case, the holding of the same is optional."
+  }, {
+    "type" : "paragraph",
+    "id" : 263,
+    "page number" : 8,
+    "bounding box" : [ 71.998, 415.992, 523.512, 482.872 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The pre-procurement conference shall assess the readiness of the procurement in terms of confirming the certification of availability of funds, as well as reviewing all relevant documents in relation to their adherence to law. This shall be attended by the BAC, the unit or officials who prepared the bidding documents and the draft Invitation to Bid, as well as consultants hired by the agency concerned and the representative of the end-user."
+  }, {
+    "type" : "paragraph",
+    "id" : 264,
+    "page number" : 8,
+    "bounding box" : [ 71.998, 296.481, 523.589, 403.558 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 21. Advertising and Contents of the Invitation to Bid. – In line with the principle of transparency and competitiveness, all Invitations to Bid for contracts under competitive bidding shall be advertised by the Procuring Entity in such manner and for such length of time as may be necessary under the circumstances, in order to ensure the widest possible dissemination thereof, such as, but not limited to, posting in the Procuring Entity’s premises, in newspapers of general circulation, the G-EPS and the website of the Procuring Entity, if available. The details and mechanics of implementation shall be provided in the IRR to be promulgated under this Act."
+  }, {
+    "type" : "paragraph",
+    "id" : 265,
+    "page number" : 8,
+    "bounding box" : [ 107.999, 269.952, 349.19, 283.652 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The Invitation to Bid shall contain, among others:"
+  }, {
+    "type" : "list",
+    "id" : 266,
+    "level" : "2",
+    "page number" : 8,
+    "bounding box" : [ 107.989, 162.811, 523.546, 257.208 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 108.0, 242.316, 429.735, 257.208 ],
+      "font" : "Tahoma",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) A brief description of the subject matter of the Procurement;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 108.0, 215.869, 523.424, 229.57 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) A general statement on the criteria to be used by the Procuring Entity for the",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 156,
+        "page number" : 8,
+        "bounding box" : [ 71.988, 189.34, 523.38, 216.245 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "eligibility check, the short listing of prospective bidders, in the case of the Procurement of Consulting Services, the examination and evaluation of Bids, and post-qualification;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 107.989, 162.811, 523.546, 176.512 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) The date, time and place of the deadline for the submission and receipt of the",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 267,
+    "page number" : 8,
+    "bounding box" : [ 71.988, 136.161, 523.535, 163.187 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "eligibility requirements, the pre-bid conference if any, the submission and receipt of bids, and the opening of bids;"
+  }, {
+    "type" : "list",
+    "id" : 268,
+    "level" : "2",
+    "page number" : 8,
+    "bounding box" : [ 107.989, 83.102, 371.16, 123.332 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "next list id" : 273,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 108.0, 109.632, 371.16, 123.332 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(d) The Approved Budget for the Contract to be bid;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 107.989, 83.102, 235.711, 96.803 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(e) The source of funds;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 269,
+    "page number" : 8,
+    "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 53,
+      "page number" : 8,
+      "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "7"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 270,
+    "page number" : 9,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 77,
+      "page number" : 9,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 273,
+    "level" : "2",
+    "page number" : 9,
+    "bounding box" : [ 108.0, 697.291, 523.446, 777.375 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "previous list id" : 268,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 108.0, 763.675, 523.446, 777.375 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(f) The period of availability of the Bidding Documents, and the place where these",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 155,
+        "page number" : 9,
+        "bounding box" : [ 72.01, 750.349, 152.955, 764.05 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "may be secured;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 108.011, 723.82, 268.511, 737.521 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(g) The contract duration; and,",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 108.011, 697.291, 500.075, 710.992 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(h) Such other necessary information deemed relevant by the Procuring Entity.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 274,
+    "page number" : 9,
+    "bounding box" : [ 72.009, 630.942, 523.6, 684.718 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 22. Pre-bid Conference. – At least one pre-bid conference shall be conducted for each procurement, unless otherwise provided in the IRR. Subject to the approval of the BAC, a pre-bid conference may also be conducted upon the written request of any prospective bidder."
+  }, {
+    "type" : "paragraph",
+    "id" : 275,
+    "page number" : 9,
+    "bounding box" : [ 72.009, 577.762, 523.456, 617.992 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The pre-bid conference(s) shall be held within a reasonable period before the deadline for receipt of bids to allow prospective bidders to adequately prepare their bids, which shall be specified in the IRR."
+  }, {
+    "type" : "heading",
+    "id" : 276,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 198.72, 535.596, 396.516, 565.38 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE VIII RECEIPT AND OPENING OF BIDS"
+  }, {
+    "type" : "paragraph",
+    "id" : 277,
+    "page number" : 9,
+    "bounding box" : [ 71.998, 389.472, 523.556, 523.078 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 23. Eligibility Requirements for the Procurement of Goods and Infrastructure Projects. – The BAC or, under special circumstances specified in the IRR, its duly designated organic office shall determine the eligibility of prospective bidders for the procurement of Goods and Infrastructure Projects, based on the bidders’ compliance with the eligibility requirements within the period set forth in the Invitation to Bid. The eligibility requirements shall provide for fair and equal access to all prospective bidders. The documents submitted in satisfaction of the eligibility requirements shall be made under oath by the prospective bidder or by his duly authorized representative certifying to the correctness of the statements made and the completeness and authenticity of the documents submitted."
+  }, {
+    "type" : "paragraph",
+    "id" : 278,
+    "page number" : 9,
+    "bounding box" : [ 71.998, 336.292, 523.423, 376.643 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "A prospective bidder may be allowed to submit his eligibility requirements electronically. However, said bidder shall later on certify under oath as to correctness of the statements made and the completeness and authenticity of the documents submitted."
+  }, {
+    "type" : "paragraph",
+    "id" : 279,
+    "page number" : 9,
+    "bounding box" : [ 72.009, 230.126, 523.567, 323.878 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 24. Eligibility Requirements and Short Listing for Consulting Services. – The eligibility of prospective bidders for the Procurement of Consulting Services shall be determined by their compliance with the eligibility requirements prescribed for the Competitive Bidding concerned, within the period stated in the Invitation to Bid. The eligibility requirements shall provide for fair and equal access to all prospective bidders. The prospective bidder shall certify under oath as to the correctness of the statements made, and the completeness and authenticity of the documents submitted."
+  }, {
+    "type" : "paragraph",
+    "id" : 280,
+    "page number" : 9,
+    "bounding box" : [ 72.009, 177.068, 523.423, 217.297 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "A prospective bidder may be allowed to submit his eligibility requirements electronically. However, said bidder shall later on certify under oath as to correctness of the statements made and the completeness and authenticity of the documents submitted."
+  }, {
+    "type" : "paragraph",
+    "id" : 281,
+    "page number" : 9,
+    "bounding box" : [ 72.009, 110.563, 523.567, 164.118 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The eligible prospective bidders shall then be evaluated using numerical ratings on the basis of the short listing requirements prescribed for the Competitive Bidding concerned, within the period stated in the Invitation to Bid to determine the short list of bidders who shall be allowed to submit their respective bids."
+  }, {
+    "type" : "paragraph",
+    "id" : 282,
+    "page number" : 9,
+    "bounding box" : [ 71.998, 70.789, 523.556, 98.158 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 25. Submission and Receipt of Bids. – A bid shall have two (2) components, namely the technical and financial components which should be in separate"
+  }, {
+    "type" : "footer",
+    "id" : 283,
+    "page number" : 9,
+    "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 54,
+      "page number" : 9,
+      "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "8"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 284,
+    "page number" : 10,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 78,
+      "page number" : 10,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 287,
+    "page number" : 10,
+    "bounding box" : [ 72.0, 710.495, 523.514, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "sealed envelopes, and which shall be submitted simultaneously. The bids shall be received by the BAC on such date, time and place specified in the invitation to bid. The deadline for the receipt of bids shall be fixed by the BAC, giving it sufficient time to complete the bidding process and giving the prospective bidders sufficient time to study and prepare their bids. The deadline shall also consider the urgency of the procurement involved."
+  }, {
+    "type" : "paragraph",
+    "id" : 288,
+    "page number" : 10,
+    "bounding box" : [ 108.001, 657.437, 523.514, 697.667 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Bids submitted after the deadline shall not be accepted. Notwithstanding the provisions of this Section and Section 26 of this Act, the GPPB"
+  }, {
+    "type" : "paragraph",
+    "id" : 289,
+    "page number" : 10,
+    "bounding box" : [ 72.0, 630.908, 523.47, 657.812 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "may prescribe innovative procedures for the submission, receipt and opening of bids through the G-EPS."
+  }, {
+    "type" : "paragraph",
+    "id" : 290,
+    "page number" : 10,
+    "bounding box" : [ 71.998, 564.46, 523.523, 618.358 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 26. Modification and Withdrawal of Bids. – A bidder may modify his bid, provided that this is done before the deadline for the receipt of bids. The modification shall be submitted in a sealed envelope duly identified as a modification of the original bid and stamped received by the BAC."
+  }, {
+    "type" : "paragraph",
+    "id" : 291,
+    "page number" : 10,
+    "bounding box" : [ 71.998, 498.077, 523.534, 551.632 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "A bidder may, through a letter, withdraw his bid or express his intention not to participate in the bidding before the deadline for the receipt of bids. In such case, he shall no longer be allowed to submit another Bid for the same contract either directly or indirectly."
+  }, {
+    "type" : "list",
+    "id" : 292,
+    "level" : "1",
+    "page number" : 10,
+    "bounding box" : [ 107.988, 110.615, 523.589, 485.638 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 107.999, 471.548, 523.556, 485.638 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 27. Bid Security. – All Bids shall be accompanied by a Bid security, which",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 149,
+        "page number" : 10,
+        "bounding box" : [ 71.998, 418.415, 523.489, 471.97 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "shall serve as a guarantee that, after receipt of the Notice of Award, the winning bidder shall enter into contract with the Procuring Entity within the stipulated time and furnish the required performance security. The specific amounts and allowable forms of the Bid security shall be prescribed in the IRR."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 107.999, 391.886, 523.478, 405.958 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 28. Bid Validity. – Bids and Bid securities shall be valid for such reasonable",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 150,
+        "page number" : 10,
+        "bounding box" : [ 71.998, 365.386, 523.445, 392.29 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "period of time indicated in the Bidding Documents. The duration for each undertaking shall take into account the time involved in the process of Bid evaluation and award of contract."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 107.999, 338.735, 523.5, 352.798 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 29. Bid Opening. – The BAC shall publicly open all bids at the time, date,",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 151,
+        "page number" : 10,
+        "bounding box" : [ 71.998, 312.226, 523.578, 339.252 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "and place specified in the bidding documents. The minutes of the bid opening shall be made available to the public upon written request and payment of a specified fee."
+      }, {
+        "type" : "paragraph",
+        "id" : 152,
+        "page number" : 10,
+        "bounding box" : [ 244.68, 270.036, 350.532, 299.82 ],
+        "font" : "Tahoma-Bold",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "ARTICLE IX BID EVALUATION"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.001, 243.471, 523.567, 257.518 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 30. Preliminary Examination of Bids. – Prior to Bid evaluation, the BAC",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 153,
+        "page number" : 10,
+        "bounding box" : [ 71.987, 190.295, 523.478, 243.85 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "shall examine first the technical components of the bids using \"pass/fail\" criteria to determine whether all required documents are present. Only bids that are determined to contain all the bid requirements of the technical component shall be considered for opening and evaluation of their financial component."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 107.988, 163.766, 523.545, 177.838 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 31. Ceiling for Bid Prices. – The ABC shall be the upper limit or ceiling for",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 154,
+        "page number" : 10,
+        "bounding box" : [ 71.998, 137.266, 523.523, 164.17 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "the Bid prices. Bid prices that exceed this ceiling shall be disqualified outright from further participating in the bidding. There shall be no lower limit to the amount of the award."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 107.999, 110.615, 523.589, 124.678 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 32. Bid for the Procurement of Goods and Infrastructure Projects. –",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 293,
+    "page number" : 10,
+    "bounding box" : [ 72.009, 84.106, 523.567, 111.132 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "For the procurement of Goods and Infrastructure Projects, the BAC shall evaluate the financial component of the bids. The bids that passed the preliminary examination shall be"
+  }, {
+    "type" : "footer",
+    "id" : 294,
+    "page number" : 10,
+    "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 55,
+      "page number" : 10,
+      "bounding box" : [ 295.2, 38.457, 300.114, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "9"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 295,
+    "page number" : 11,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 79,
+      "page number" : 11,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 298,
+    "page number" : 11,
+    "bounding box" : [ 72.0, 750.349, 523.448, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ranked from lowest to highest in terms of their corresponding calculated prices. The bid with the lowest calculated price shall be referred to as the \"Lowest Calculated Bid.\""
+  }, {
+    "type" : "paragraph",
+    "id" : 299,
+    "page number" : 11,
+    "bounding box" : [ 71.986, 511.42, 523.567, 737.878 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 33. Bid Evaluation of Short Listed Bidders for Consulting Services. – For the Procurement of Consulting Services, the Bids of the short listed bidders shall be evaluated and ranked using numerical ratings in accordance with the evaluation criteria stated in the Bidding Documents, which shall include factors such as, but not limited to, experience, performance, quality of personnel, price and methodology. The Bids shall be ranked from highest to lowest in terms of their corresponding calculated ratings. The Bid with the highest calculated rating shall be the “Highest Rated Bid.” After approval by the Head of the Procuring Entity of the Highest Rated Bid, the BAC shall invite the bidder concerned for negotiation and/or clarification on the following items: financial proposal submitted by the bidder, terms of reference, scope of services, methodology and work program, personnel to be assigned to the job, services/facilities/data to be provided by the Procuring Entity concerned, and provisions of the contract. When negotiations with the first-in-rank bidder fails, the financial proposal of the second rank bidder shall be opened for negotiations: Provided,That the amount indicated in the financial envelope shall be made as the basis for negotiations and the total contract amount shall not exceed the amount indicated in the envelope and the ABC. Whenever necessary, the same process shall be repeated until the bid is awarded to the winning bidder."
+  }, {
+    "type" : "heading",
+    "id" : 300,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 229.2, 469.236, 366.132, 498.9 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE X POST-QUALIFICATION"
+  }, {
+    "type" : "paragraph",
+    "id" : 301,
+    "page number" : 11,
+    "bounding box" : [ 71.998, 389.496, 523.512, 456.598 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 34. Objective and Process of Post-qualification. – Post-qualification is the stage where the bidder with the Lowest Calculated Bid, in the case of Goods and Infrastructure Projects, or the Highest Rated Bid, in the case of Consulting Services, undergoes verification and validation whether he has passed all the requirements and conditions as specified in the Bidding Documents."
+  }, {
+    "type" : "paragraph",
+    "id" : 302,
+    "page number" : 11,
+    "bounding box" : [ 71.998, 256.608, 523.611, 376.668 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "If the bidder with the Lowest Calculated Bid or Highest Rated Bid passes all the criteria for post-qualification, his Bid shall be considered the “Lowest Calculated Responsive Bid,” in the case of Goods and Infrastructure or the “Highest Rated Responsive Bid,” in the case of Consulting Services. However, if a bidder fails to meet any of the requirements or conditions, he shall be “post-disqualified” and the BAC shall conduct the post-qualification on the bidder with the second Lowest Calculated Bid or Highest Rated Bid. If the bidder with the second Lowest Calculated Bid or Highest Rated Bid is post-disqualified, the same procedure shall be repeated until the Lowest Calculated Responsive Bid or Highest Rated Responsive Bid is finally determined."
+  }, {
+    "type" : "paragraph",
+    "id" : 303,
+    "page number" : 11,
+    "bounding box" : [ 72.02, 216.754, 523.489, 243.78 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In all cases, the contract shall be awarded only to the bidder with the Lowest Calculated Responsive Bid or Highest Rated Responsive Bid."
+  }, {
+    "type" : "paragraph",
+    "id" : 304,
+    "page number" : 11,
+    "bounding box" : [ 108.021, 190.224, 450.846, 204.358 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 35. Failure of Bidding. – There shall be a failure of bidding if:"
+  }, {
+    "type" : "list",
+    "id" : 305,
+    "level" : "2",
+    "page number" : 11,
+    "bounding box" : [ 107.977, 97.402, 523.512, 177.486 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.999, 163.786, 238.139, 177.486 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) No bids are received;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.999, 137.256, 523.512, 150.957 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) No bid qualifies as the Lowest Calculated Responsive Bid or Highest Rated",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 148,
+        "page number" : 11,
+        "bounding box" : [ 71.987, 123.931, 165.562, 137.632 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Responsive Bid; or,"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.977, 97.402, 523.324, 111.103 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) Whenever the bidder with the highest rated/lowest calculated responsive bid",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 306,
+    "page number" : 11,
+    "bounding box" : [ 71.964, 84.077, 491.076, 97.777 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "refuses, without justifiable cause to accept the award of contract, as the case may be."
+  }, {
+    "type" : "footer",
+    "id" : 307,
+    "page number" : 11,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 56,
+      "page number" : 11,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "10"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 308,
+    "page number" : 12,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 80,
+      "page number" : 12,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 311,
+    "page number" : 12,
+    "bounding box" : [ 72.01, 723.82, 523.546, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Under any of the above instances, the contract shall be re-advertised and re-bid. The BAC shall observe the same process and set the new periods according to the same rules followed during the first bidding. After the second failed bidding, however, the BAC may resort to negotiated procurement as provided for in Section 53 of this Act."
+  }, {
+    "type" : "paragraph",
+    "id" : 312,
+    "page number" : 12,
+    "bounding box" : [ 71.998, 670.664, 523.578, 711.358 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 36. Single Calculated/Rated and Responsive Bid Submission. – A single calculated/rated and responsive bid shall be considered for award if it falls under any of the following circumstances:"
+  }, {
+    "type" : "list",
+    "id" : 313,
+    "level" : "2",
+    "page number" : 12,
+    "bounding box" : [ 107.988, 537.897, 523.534, 657.836 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 644.135, 523.534, 657.836 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) If after advertisement, only one prospective bidder submits a Letter of Intent",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 146,
+        "page number" : 12,
+        "bounding box" : [ 71.998, 617.606, 523.269, 644.632 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "and/or applies for eligibility check, and meets the eligibility requirements or criteria, after which it submits a bid, which is found to be responsive to the bidding requirements;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 591.077, 523.534, 604.777 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) If after the advertisement, more than one prospective bidder applies for",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 147,
+        "page number" : 12,
+        "bounding box" : [ 71.987, 564.426, 523.357, 591.452 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "eligibility check, but only one bidder meets the eligibility requirements or criteria, after which it submits a bid which is found to be responsive to the bidding requirements; or"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.988, 537.897, 523.423, 551.598 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) If after the eligibility check, more than one bidder meets the eligibility",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 314,
+    "page number" : 12,
+    "bounding box" : [ 71.976, 511.368, 523.478, 538.272 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "requirements, but only one bidder submits a bid, and its bid is found to be responsive to the bidding requirements."
+  }, {
+    "type" : "paragraph",
+    "id" : 315,
+    "page number" : 12,
+    "bounding box" : [ 71.976, 471.514, 494.94, 498.418 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In all instances, the Procuring Entity shall ensure that the ABC reflects the most advantageous prevailing price for the Government."
+  }, {
+    "type" : "heading",
+    "id" : 316,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 94.44, 429.396, 500.904, 459.18 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE XI AWARD, IMPLEMENTATION AND TERMINATION OF THE CONTRACT"
+  }, {
+    "type" : "paragraph",
+    "id" : 317,
+    "page number" : 12,
+    "bounding box" : [ 71.987, 323.127, 523.512, 416.758 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 37. Notice and Execution of Award. – Within a period not exceeding fifteen (15) calendar days from the determination and declaration by the BAC of the Lowest Calculated Responsive Bid or Highest Rated Responsive Bid, and the recommendation of the award, the Head of the Procuring Entity or his duly authorized representative shall approve or disapprove the said recommendation. In case of approval, the Head of the Procuring Entity or his duly authorized representative shall immediately issue the Notice of Award to the bidder with the Lowest Calculated Responsive Bid or Highest Rated Responsive Bid."
+  }, {
+    "type" : "paragraph",
+    "id" : 318,
+    "page number" : 12,
+    "bounding box" : [ 71.987, 256.622, 523.578, 310.177 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Within ten (10) calendar days from receipt of the Notice of Award, the winning bidder shall formally enter into contract with the Procuring Entity. When further approval of higher authority is required, the approving authority for the contract shall be given a maximum of twenty (20) calendar days to approve or disapprove it."
+  }, {
+    "type" : "paragraph",
+    "id" : 319,
+    "page number" : 12,
+    "bounding box" : [ 71.987, 203.564, 523.401, 243.794 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In the case of government-owned and/or -controlled corporations, the concerned board shall take action on the said recommendation within thirty (30) calendar days from receipt thereof."
+  }, {
+    "type" : "paragraph",
+    "id" : 320,
+    "page number" : 12,
+    "bounding box" : [ 71.976, 137.181, 523.578, 190.736 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The Procuring Entity shall issue the Notice to Proceed to the winning bidder not later than seven (7) calendar days from the date of approval of the contract by the appropriate authority. All notices called for by the terms of the contract shall be effective only at the time of receipt thereof by the contractor."
+  }, {
+    "type" : "paragraph",
+    "id" : 321,
+    "page number" : 12,
+    "bounding box" : [ 71.987, 84.106, 523.423, 124.678 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 38. Period of Action on Procurement Activities. – The procurement process from the opening of bids up to the award of contract shall not exceed three (3) months, or a shorter period to be determined by the procuring entity concerned. Without"
+  }, {
+    "type" : "footer",
+    "id" : 322,
+    "page number" : 12,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 57,
+      "page number" : 12,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "11"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 323,
+    "page number" : 13,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 81,
+      "page number" : 13,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 326,
+    "page number" : 13,
+    "bounding box" : [ 72.0, 750.349, 523.569, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "prejudice to the provisions of the preceding section, the different procurement activities shall be completed within reasonable periods to be specified in the IRR."
+  }, {
+    "type" : "paragraph",
+    "id" : 327,
+    "page number" : 13,
+    "bounding box" : [ 72.0, 683.966, 523.492, 737.521 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "If no action on the contract is taken by the head of the procuring entity, or by his duly authorized representative, or by the concerned board, in the case of governmentowned and/or -controlled corporations, within the periods specified in the preceding paragraph, the contract concerned shall be deemed approved."
+  }, {
+    "type" : "list",
+    "id" : 328,
+    "level" : "1",
+    "page number" : 13,
+    "bounding box" : [ 107.988, 577.766, 523.534, 671.518 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 108.001, 657.437, 523.512, 671.518 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 39. Performance Security. – Prior to the signing of the contract, the",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 145,
+        "page number" : 13,
+        "bounding box" : [ 71.987, 604.295, 523.445, 657.85 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "winning bidder shall, as a measure of guarantee for the faithful performance of and compliance with his obligations under the contract prepared in accordance with the Bidding Documents, be required to post a performance security in such form and amount as specified in the Bidding Documents."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 107.988, 577.766, 523.534, 591.838 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 40. Failure to Enter into Contract and Post Performance Security. – If,",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 329,
+    "page number" : 13,
+    "bounding box" : [ 71.987, 484.761, 523.534, 578.17 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "for justifiable causes, the bidder with the Lowest Calculated Responsive Bid or Highest Rated Responsive Bid fails, refuses or is otherwise unable to enter into contract with the Procuring Entity, or if the bidder fails to post the required performance security within the period stipulated in the Bidding Documents, the BAC shall disqualify the said bidder and shall undertake post-qualification for the next-ranked Lowest Calculated Bid or Highest Rated Bid. This procedure shall be repeated until an award is made. However, if no award is possible, the contract shall be subjected to a new bidding."
+  }, {
+    "type" : "paragraph",
+    "id" : 330,
+    "page number" : 13,
+    "bounding box" : [ 71.987, 431.702, 523.512, 471.932 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In the case of a failure to post the required performance security, the bid security shall be forfeited without prejudice to the imposition of sanctions prescribed under Article XXIII."
+  }, {
+    "type" : "paragraph",
+    "id" : 331,
+    "page number" : 13,
+    "bounding box" : [ 71.998, 378.584, 523.578, 419.278 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 41. Reservation Clause. – The Head of the Agency reserves the right to reject any and all Bids, declare a failure of bidding, or not award the contract in the following situations:"
+  }, {
+    "type" : "list",
+    "id" : 332,
+    "level" : "2",
+    "page number" : 13,
+    "bounding box" : [ 107.99, 232.512, 523.536, 365.775 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 107.999, 352.055, 523.282, 365.775 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) If there is prima facieevidence of collusion between appropriate public officers",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 143,
+        "page number" : 13,
+        "bounding box" : [ 72.0, 298.895, 523.569, 352.45 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "or employees of the Procuring Entity, or between the BAC and any of the bidders, or if the collusion is between or among the bidders themselves, or between a bidder and a third party, including any act which restricts, suppresses or nullifies or tends to restrict, suppress or nullify competition;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 108.001, 272.366, 523.447, 286.067 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) If the BAC is found to have failed in following the prescribed bidding",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 144,
+        "page number" : 13,
+        "bounding box" : [ 71.988, 259.162, 143.163, 272.863 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "procedures; or"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 107.99, 232.512, 523.536, 246.212 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) For any justifiable and reasonable ground where the award of the contract will",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 333,
+    "page number" : 13,
+    "bounding box" : [ 71.977, 219.308, 403.188, 233.008 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "not redound to the benefit of the government as defined in the IRR."
+  }, {
+    "type" : "heading",
+    "id" : 334,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 107.979, 192.657, 523.313, 206.758 ],
+    "heading level" : 5,
+    "font" : "Tahoma-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 42. Contract Implementation and Termination. – The rules and"
+  }, {
+    "type" : "paragraph",
+    "id" : 335,
+    "page number" : 13,
+    "bounding box" : [ 71.998, 152.86, 523.556, 193.212 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "guidelines for the implementation and termination of contracts awarded pursuant to the provisions of this Act shall be prescribed in the IRR. The rules and guidelines shall include standard general and special conditions for contracts."
+  }, {
+    "type" : "paragraph",
+    "id" : 336,
+    "page number" : 13,
+    "bounding box" : [ 171.72, 110.676, 423.744, 140.46 ],
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE XII DOMESTIC AND FOREIGN PROCUREMENT"
+  }, {
+    "type" : "heading",
+    "id" : 337,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 107.998, 84.109, 523.6, 98.158 ],
+    "heading level" : 5,
+    "font" : "Tahoma-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 43. Procurement of Domestic and Foreign Goods. – Consistent with the"
+  }, {
+    "type" : "paragraph",
+    "id" : 338,
+    "page number" : 13,
+    "bounding box" : [ 71.998, 70.789, 523.478, 84.49 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "country’s obligations under international treaties or agreements, Goods may be obtained"
+  }, {
+    "type" : "footer",
+    "id" : 339,
+    "page number" : 13,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 58,
+      "page number" : 13,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "12"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 340,
+    "page number" : 14,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 82,
+      "page number" : 14,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 343,
+    "page number" : 14,
+    "bounding box" : [ 72.0, 710.495, 523.613, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "from domestic or foreign sources and the procurement thereof shall be open to all eligible suppliers, manufacturers and distributors. However, in the interest of availability, efficiency and timely delivery of Goods, the Procuring Entity may give preference to the purchase of domestically-produced and manufactured goods, supplies and materials that meet the specified or desired quality."
+  }, {
+    "type" : "heading",
+    "id" : 344,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 186.24, 668.316, 409.236, 698.1 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE XIII BIDDING OF PROVINCIAL PROJECTS"
+  }, {
+    "type" : "heading",
+    "id" : 345,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 108.001, 641.749, 523.456, 655.798 ],
+    "heading level" : 5,
+    "font" : "Tahoma-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 44. Bidding of Provincial Projects. – Priority programs and infrastructure"
+  }, {
+    "type" : "paragraph",
+    "id" : 346,
+    "page number" : 14,
+    "bounding box" : [ 71.987, 562.046, 523.556, 642.13 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "projects funded out of the annual General Appropriations Act which are intended for implementation within the province shall be subject to the same public bidding and to the procurement processes prescribed under this Act. For purposes of this Article, Engineering District civil works projects, subject to consultation with the concerned Members of Congress, are included and subsumed in the term “provincial projects” and shall be governed by this Section and Section 45 hereof."
+  }, {
+    "type" : "heading",
+    "id" : 347,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 107.988, 535.517, 523.523, 549.598 ],
+    "heading level" : 6,
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 45. Provincial Bidders. – Within five (5) years from the effectivity of this"
+  }, {
+    "type" : "paragraph",
+    "id" : 348,
+    "page number" : 14,
+    "bounding box" : [ 71.987, 442.544, 523.558, 535.93 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Act, a contractor who participates in the bidding of provincial priority programs and infrastructure projects, whose principal office is within the same province, and who submits the lowest bid among the provincial bidders which is higher than the lowest bid made by a contractor with principal office outside the said province shall be granted the privilege to match the bid made by the latter: Provided, however,That the release of funds for said projects shall be published in a local newspaper with the widest circulation and the website of the DBM, the mechanisms of which shall be spelled-out in the IRR."
+  }, {
+    "type" : "heading",
+    "id" : 349,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 80.16, 385.956, 515.112, 430.14 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE XIV LEASE OF COMPUTERS, COMMUNICATIONS, INFORMATION AND OTHER EQUIPMENT"
+  }, {
+    "type" : "list",
+    "id" : 350,
+    "level" : "1",
+    "page number" : 14,
+    "bounding box" : [ 107.998, 115.551, 523.512, 373.318 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 108.001, 359.269, 523.512, 373.318 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 46. Lease Contracts. – Lease of construction and office equipment,",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 136,
+        "page number" : 14,
+        "bounding box" : [ 72.009, 332.746, 523.578, 359.772 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "including computers, communication and information technology equipment are subject to the same public bidding and to the processes prescribed under this Act."
+      }, {
+        "type" : "paragraph",
+        "id" : 137,
+        "page number" : 14,
+        "bounding box" : [ 211.2, 290.556, 384.036, 320.34 ],
+        "font" : "Tahoma-Bold",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "ARTICLE XV DISCLOSURE OF RELATIONS"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 107.998, 263.991, 523.512, 278.038 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 47. Disclosure of Relations. – In addition to the proposed contents of the",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 138,
+        "page number" : 14,
+        "bounding box" : [ 71.998, 184.286, 523.346, 264.37 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Invitation to Bid as mentioned under Section 21 of this Act, all bidding documents shall be accompanied by a sworn affidavit of the bidder that he or she or any officer of their corporation is not related to the Head of the Procuring Entity by consanguinity or affinity up to the third civil degree. Failure to comply with the aforementioned provision shall be a ground for the automatic disqualification of the bid in consonance with Section 30 of this Act."
+      }, {
+        "type" : "paragraph",
+        "id" : 139,
+        "page number" : 14,
+        "bounding box" : [ 165.0, 142.116, 430.464, 171.9 ],
+        "font" : "Tahoma-Bold",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "ARTICLE XVI ALTERNATIVE METHODS OF PROCUREMENT"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 107.998, 115.551, 523.313, 129.598 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 48. Alternative Methods. – Subject to the prior approval of the Head of the",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 351,
+    "page number" : 14,
+    "bounding box" : [ 71.998, 75.7, 523.567, 115.93 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Procuring Entity or his duly authorized representative, and whenever justified by the conditions provided in this Act, the Procuring Entity may, in order to promote economy and efficiency, resort to any of the following alternative methods of Procurement:"
+  }, {
+    "type" : "footer",
+    "id" : 352,
+    "page number" : 14,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 59,
+      "page number" : 14,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "13"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 353,
+    "page number" : 15,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 83,
+      "page number" : 15,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 356,
+    "level" : "2",
+    "page number" : 15,
+    "bounding box" : [ 108.0, 617.611, 523.595, 764.055 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 108.0, 750.349, 523.595, 764.055 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) Limited SourceBidding, otherwise known as Selective Bidding – a method of",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 134,
+        "page number" : 15,
+        "bounding box" : [ 72.004, 710.5, 523.606, 750.852 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Procurement that involves direct invitation to bid by the Procuring Entity from a set of preselected suppliers or consultants with known experience and proven capability relative to the requirements of a particular contract;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 108.005, 683.971, 523.425, 697.695 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) Direct Contracting, otherwise known as Single Source Procurement – a method",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 135,
+        "page number" : 15,
+        "bounding box" : [ 71.999, 644.14, 523.513, 684.37 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "of Procurement that does not require elaborate Bidding Documents because the supplier is simply asked to submit a price quotation or a pro-forma invoice together with the conditions of sale, which offer may be accepted immediately or after some negotiations;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 108.0, 617.611, 523.553, 631.335 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) Repeat Order– a method of Procurement that involves a direct Procurement of",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 357,
+    "page number" : 15,
+    "bounding box" : [ 71.995, 591.106, 523.432, 618.01 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Goods from the previous winning bidder, whenever there is a need to replenish Goods procured under a contract previously awarded through Competitive Bidding;"
+  }, {
+    "type" : "list",
+    "id" : 358,
+    "level" : "2",
+    "page number" : 15,
+    "bounding box" : [ 107.994, 511.416, 523.506, 578.175 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 108.008, 564.455, 523.44, 578.175 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(d) Shopping – a method of Procurement whereby the Procuring Entity simply",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 133,
+        "page number" : 15,
+        "bounding box" : [ 71.993, 537.946, 523.551, 564.972 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "requests for the submission of price quotations for readily available off-the-shelf Goods or ordinary/regular equipment to be procured directly from suppliers of known qualification; or"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 107.994, 511.416, 523.506, 525.135 ],
+      "font" : "Tahoma",
+      "font size" : 11.637,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(e) Negotiated Procurement – a method of Procurement that may be resorted",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 359,
+    "page number" : 15,
+    "bounding box" : [ 71.992, 458.255, 523.506, 511.81 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "under the extraordinary circumstances provided for in Section 53 of this Act and other instances that shall be specified in the IRR, whereby the Procuring Entity directly negotiates a contract with a technically, legally and financially capable supplier, contractor or consultant."
+  }, {
+    "type" : "paragraph",
+    "id" : 360,
+    "page number" : 15,
+    "bounding box" : [ 71.992, 418.401, 523.462, 445.427 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In all instances, the Procuring Entity shall ensure that the most advantageous price for the Government is obtained."
+  }, {
+    "type" : "paragraph",
+    "id" : 361,
+    "page number" : 15,
+    "bounding box" : [ 71.987, 378.589, 523.489, 405.958 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 49. Limited Source Bidding. – Limited Source Bidding may be resorted to only in any of the following conditions:"
+  }, {
+    "type" : "list",
+    "id" : 362,
+    "level" : "2",
+    "page number" : 15,
+    "bounding box" : [ 107.988, 312.206, 523.523, 365.761 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 107.988, 352.06, 523.335, 365.761 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) Procurement of highly specialized types of Goods and Consulting Services",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 132,
+        "page number" : 15,
+        "bounding box" : [ 71.987, 338.735, 442.246, 352.436 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "which are known to be obtainable only from a limited number of sources; or"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 107.988, 312.206, 523.523, 325.907 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) Procurement of major plant components where it is deemed advantageous to",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 363,
+    "page number" : 15,
+    "bounding box" : [ 71.976, 285.677, 523.434, 312.581 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "limit the bidding to known eligible bidders in order to maintain an optimum and uniform level of quality and performance of the plant as a whole."
+  }, {
+    "type" : "paragraph",
+    "id" : 364,
+    "page number" : 15,
+    "bounding box" : [ 72.009, 245.869, 523.545, 273.238 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 50. Direct Contracting. – Direct Contracting may be resorted to only in any of the following conditions:"
+  }, {
+    "type" : "list",
+    "id" : 365,
+    "level" : "2",
+    "page number" : 15,
+    "bounding box" : [ 107.999, 112.981, 523.147, 233.041 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 108.01, 219.34, 523.147, 233.041 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) Procurement of Goods of proprietary nature, which can be obtained only from",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 130,
+        "page number" : 15,
+        "bounding box" : [ 72.009, 192.69, 523.236, 219.716 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "the proprietary source, i.e. when patents, trade secrets and copyrights prohibit others from manufacturing the same item;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 108.01, 166.161, 523.004, 179.861 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) When the Procurement of critical components from a specific manufacturer,",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 131,
+        "page number" : 15,
+        "bounding box" : [ 71.998, 139.632, 523.158, 166.536 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "supplier or distributor is a condition precedent to hold a contractor to guarantee its project performance, in accordance with the provisions of his contract; or,"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 107.999, 112.981, 523.114, 126.682 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) Those sold by an exclusive dealer or manufacturer, which does not have sub-",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 366,
+    "page number" : 15,
+    "bounding box" : [ 71.987, 86.452, 523.224, 113.478 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "dealers selling at lower prices and for which no suitable substitute can be obtained at more advantageous terms to the Government."
+  }, {
+    "type" : "footer",
+    "id" : 367,
+    "page number" : 15,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 60,
+      "page number" : 15,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "14"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 368,
+    "page number" : 16,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 84,
+      "page number" : 16,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 371,
+    "page number" : 16,
+    "bounding box" : [ 72.009, 697.291, 523.589, 777.718 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 51. Repeat Order. – When provided for in the Annual Procurement Plan, Repeat Order may be allowed wherein the Procuring Entity directly procures Goods from the previous winning bidder whenever there arises a need to replenish goods procured under a contract previously awarded through Competitive Bidding, subject to post-qualification process prescribed in the Bidding Documents and provided all the following conditions are present:"
+  }, {
+    "type" : "list",
+    "id" : 372,
+    "level" : "2",
+    "page number" : 16,
+    "bounding box" : [ 107.999, 551.199, 522.087, 684.341 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 108.021, 670.641, 522.065, 684.341 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) The unit price must be equal to or lower than that provided in the original",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 128,
+        "page number" : 16,
+        "bounding box" : [ 72.02, 657.437, 115.274, 671.137 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "contract;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 108.021, 630.908, 516.6, 644.608 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) The repeat order does not result in splitting of requisitions or purchase orders;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 108.01, 604.257, 522.065, 617.958 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) Except in special circumstances defined in the IRR, the repeat order shall be",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 129,
+        "page number" : 16,
+        "bounding box" : [ 71.998, 577.728, 522.032, 604.754 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "availed of only within six (6) months from the date of the Notice to Proceed arising from the original contract; and,"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 107.999, 551.199, 522.087, 564.9 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(d) The repeat order shall not exceed twenty-five percent (25%) of the quantity of",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 373,
+    "page number" : 16,
+    "bounding box" : [ 71.987, 537.874, 236.317, 551.574 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "each item of the original contract."
+  }, {
+    "type" : "paragraph",
+    "id" : 374,
+    "page number" : 16,
+    "bounding box" : [ 71.987, 498.109, 500.891, 525.478 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 52. Shopping. – Shopping may be resorted to under any of the following instances:"
+  }, {
+    "type" : "list",
+    "id" : 375,
+    "level" : "2",
+    "page number" : 16,
+    "bounding box" : [ 107.988, 431.746, 523.084, 485.281 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 107.988, 471.58, 523.004, 485.281 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) When there is an unforeseen contingency requiring immediate purchase:",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 127,
+        "page number" : 16,
+        "bounding box" : [ 71.238, 458.275, 507.164, 471.975 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Provided, however, That the amount shall not exceed Fifty Thousand Pesos (P50,000); or"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 107.991, 431.746, 523.084, 445.446 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) Procurement of ordinary or regular office supplies and equipment not available",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 376,
+    "page number" : 16,
+    "bounding box" : [ 71.978, 378.589, 523.237, 432.121 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "in the Procurement Service involving an amount not exceeding Two Hundred Fifty Thousand Pesos (P250,000): Provided, however, That the Procurement does not result in Splitting of Contracts: Provided, further, That at least three (3) price quotations from bona fide suppliers shall be obtained."
+  }, {
+    "type" : "paragraph",
+    "id" : 377,
+    "page number" : 16,
+    "bounding box" : [ 71.999, 325.531, 523.513, 365.761 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The above amounts shall be subject to a periodic review by the GPPB. For this purpose, the GPPB shall be authorized to increase or decrease the said amount in order to reflect changes in economic conditions and for other justifiable reasons."
+  }, {
+    "type" : "paragraph",
+    "id" : 378,
+    "page number" : 16,
+    "bounding box" : [ 71.998, 285.711, 523.512, 312.958 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 53. Negotiated Procurement. – Negotiated Procurement shall be allowed only in the following instances:"
+  }, {
+    "type" : "list",
+    "id" : 379,
+    "level" : "2",
+    "page number" : 16,
+    "bounding box" : [ 107.977, 99.764, 523.512, 272.882 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 107.999, 259.182, 450.327, 272.882 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(a) In cases of two failed biddings, as provided in Section 35 hereof;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 107.999, 232.531, 523.512, 246.232 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) In case of imminent danger to life or property during a state of calamity, or",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 125,
+        "page number" : 16,
+        "bounding box" : [ 71.987, 192.677, 523.567, 233.028 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "when time is of the essence arising from natural or man-made calamities or other causes where immediate action is necessary to prevent damage to or loss of life or property, or to restore vital public services, infrastructure facilities and other public utilities;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 107.988, 166.148, 523.368, 179.848 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) Take-over of contracts, which have been rescinded or terminated for causes",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 126,
+        "page number" : 16,
+        "bounding box" : [ 71.976, 126.293, 523.478, 166.523 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "provided for in the contract and existing laws, where immediate action is necessary to prevent damage to or loss of life or property, or to restore vital public services, infrastructure facilities and other public utilities;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 107.977, 99.764, 523.5, 113.465 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(d) Where the subject contract is adjacent or contiguous to an on-going",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 380,
+    "page number" : 16,
+    "bounding box" : [ 71.976, 73.189, 523.516, 100.215 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "infrastructure project, as defined in the IRR: Provided, however, That the original contract is the result of a Competitive Bidding; the subject contract to be negotiated has similar or"
+  }, {
+    "type" : "footer",
+    "id" : 381,
+    "page number" : 16,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 61,
+      "page number" : 16,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "15"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 382,
+    "page number" : 17,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 85,
+      "page number" : 17,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 385,
+    "page number" : 17,
+    "bounding box" : [ 71.998, 683.98, 523.536, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "related scopes of work; it is within the contracting capacity of the contractor; the contractor uses the same prices or lower unit prices as in the original contract less mobilization cost; the amount involved does not exceed the amount of the ongoing project; and, the contractor has no negative slippage: Provided, further, That negotiations for the procurement are commenced before the expiry of the original contract. Whenever applicable, this principle shall also govern consultancy contracts, where the consultants have unique experience and expertise to deliver the required service; or,"
+  }, {
+    "type" : "paragraph",
+    "id" : 386,
+    "page number" : 17,
+    "bounding box" : [ 72.009, 617.597, 523.39, 671.152 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(e) Subject to the guidelines specified in the IRR, purchases of Goods from another agency of the Government, such as the Procurement Service of the DBM, which is tasked with a centralized procurement of commonly used Goods for the government in accordance with Letters of Instruction No. 755 and Executive Order No. 359, series of 1989."
+  }, {
+    "type" : "heading",
+    "id" : 387,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 108.01, 591.068, 523.357, 605.158 ],
+    "heading level" : 5,
+    "font" : "Tahoma-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 54. Terms and Conditions for the use of Alternative Methods. – The"
+  }, {
+    "type" : "paragraph",
+    "id" : 388,
+    "page number" : 17,
+    "bounding box" : [ 71.998, 564.464, 523.545, 591.49 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "specific terms and conditions, including the limitations and restrictions, for the application of each of the alternative methods mentioned in this Article shall be specified in the IRR."
+  }, {
+    "type" : "paragraph",
+    "id" : 389,
+    "page number" : 17,
+    "bounding box" : [ 229.68, 522.276, 365.556, 552.06 ],
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE XVII PROTEST MECHANISM"
+  }, {
+    "type" : "heading",
+    "id" : 390,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 107.998, 495.709, 523.445, 509.758 ],
+    "heading level" : 5,
+    "font" : "Tahoma-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 55. Protests on Decisions of the BAC. – Decisions of the BAC in all stages"
+  }, {
+    "type" : "paragraph",
+    "id" : 391,
+    "page number" : 17,
+    "bounding box" : [ 71.998, 442.535, 523.6, 496.09 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "of procurement may be protested to the head of the procuring entity and shall be in writing. Decisions of the BAC may be protested by filing a verified position paper and paying a nonrefundable protest fee. The amount of the protest fee and the periods during which the protests may be filed and resolved shall be specified in the IRR."
+  }, {
+    "type" : "heading",
+    "id" : 392,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 107.988, 416.006, 523.611, 430.078 ],
+    "heading level" : 6,
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 56. Resolution of Protests. – The protests shall be resolved strictly on the"
+  }, {
+    "type" : "paragraph",
+    "id" : 393,
+    "page number" : 17,
+    "bounding box" : [ 71.998, 389.506, 523.324, 416.41 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "basis of records of the BAC. Up to a certain amount to be specified in the IRR, the decisions of the Head of the Procuring Entity shall be final."
+  }, {
+    "type" : "heading",
+    "id" : 394,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 107.999, 362.976, 523.28, 377.038 ],
+    "heading level" : 5,
+    "font" : "Tahoma-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 57. Non-interruption of the Bidding Process. – In no case shall any"
+  }, {
+    "type" : "paragraph",
+    "id" : 395,
+    "page number" : 17,
+    "bounding box" : [ 71.998, 336.344, 523.456, 363.37 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "protest taken from any decision treated in this Article stay or delay the bidding process. Protests must first be resolved before any award is made."
+  }, {
+    "type" : "heading",
+    "id" : 396,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 107.999, 309.815, 523.556, 323.878 ],
+    "heading level" : 5,
+    "font" : "Tahoma-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 58. Report to Regular Courts; Certiorari. – Court action may be resorted"
+  }, {
+    "type" : "paragraph",
+    "id" : 397,
+    "page number" : 17,
+    "bounding box" : [ 72.009, 243.451, 523.5, 310.21 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "to only after the protests contemplated in this Article shall have been completed. Cases that are filed in violation of the process specified in this Article shall be dismissed for lack of jurisdiction. The regional trial court shall have jurisdiction over final decisions of the head of the procuring entity. Court actions shall be governed by Rule 65 of the 1997 Rules of Civil Procedure."
+  }, {
+    "type" : "paragraph",
+    "id" : 398,
+    "page number" : 17,
+    "bounding box" : [ 72.009, 190.272, 523.478, 230.501 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "This provision is without prejudice to any law conferring on the Supreme Court the sole jurisdiction to issue temporary restraining orders and injunctions relating to Infrastructure Projects of Government."
+  }, {
+    "type" : "heading",
+    "id" : 399,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 216.0, 148.116, 379.476, 177.9 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE XVIII SETTLEMENT OF DISPUTES"
+  }, {
+    "type" : "paragraph",
+    "id" : 400,
+    "page number" : 17,
+    "bounding box" : [ 71.998, 95.026, 527.022, 135.598 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 59. Arbitration. – Any and all disputes arising from the implementation of a contract covered by this Act shall be submitted to arbitration in the Philippines according to the provisions of Republic Act No. 876, otherwise known as the \"Arbitration Law\": Provided,"
+  }, {
+    "type" : "paragraph",
+    "id" : 401,
+    "page number" : 17,
+    "bounding box" : [ 71.24, 68.389, 523.582, 95.415 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "however, That, disputes that are within the competence of the Construction Industry Arbitration Commission to resolve shall be referred thereto. The process of arbitration shall"
+  }, {
+    "type" : "footer",
+    "id" : 402,
+    "page number" : 17,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 62,
+      "page number" : 17,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "16"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 403,
+    "page number" : 18,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 86,
+      "page number" : 18,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 406,
+    "page number" : 18,
+    "bounding box" : [ 71.994, 737.151, 523.441, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "be incorporated as a provision in the contract that will be executed pursuant to the provisions of this Act: Provided, That by mutual agreement, the parties may agree in writing to resort to alternative modes of dispute resolution."
+  }, {
+    "type" : "list",
+    "id" : 407,
+    "level" : "1",
+    "page number" : 18,
+    "bounding box" : [ 107.995, 601.909, 523.434, 724.558 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 107.995, 710.5, 523.434, 724.558 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 60. Appeals. – The arbitral award and any decision rendered in accordance",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 118,
+        "page number" : 18,
+        "bounding box" : [ 71.998, 670.66, 523.512, 711.012 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "with the foregoing Section shall be appealable by way of a petition for review to the Court of Appeals. The petition shall raise pure questions of law and shall be governed by the Rules of Court."
+      }, {
+        "type" : "paragraph",
+        "id" : 119,
+        "page number" : 18,
+        "bounding box" : [ 181.56, 628.476, 413.676, 658.26 ],
+        "font" : "Tahoma-Bold",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "ARTICLE XIX CONTRACT PRICES AND WARRANTIES"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 108.001, 601.909, 523.434, 615.958 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 61. Contract Prices. – For the given scope of work in the contract as",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 408,
+    "page number" : 18,
+    "bounding box" : [ 71.998, 562.06, 523.412, 602.412 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "awarded, all bid prices shall be considered as fixed prices, and therefore not subject to price escalation during contract implementation, except under extraordinary circumstances and upon prior approval of the GPPB."
+  }, {
+    "type" : "paragraph",
+    "id" : 409,
+    "page number" : 18,
+    "bounding box" : [ 71.998, 495.677, 523.6, 549.232 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "For purposes of this Section, “extraordinary circumstances” shall refer to events that may be determined by the National Economic and Development Authority in accordance with the Civil Code of the Philippines, and upon the recommendation of the procuring entity concerned."
+  }, {
+    "type" : "paragraph",
+    "id" : 410,
+    "page number" : 18,
+    "bounding box" : [ 71.998, 362.957, 523.611, 483.238 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 62. Warranty. – (a) For the procurement of Goods, in order to assure that manufacturing defects shall be corrected by the supplier, manufacturer, or distributor, as the case may be, for a specific time after performance of the contract, a warranty shall be required from the contract awardee for such period of time as may be provided in the IRR, the obligation for which shall be covered by either retention money in the amount equivalent to a percentage of every progress payment, or a special bank guarantee equivalent to a percentage of the total contract price, to be provided in the IRR. The said amounts shall only be released after the lapse of the warranty period, provided that the Goods supplied are free from defects and all the conditions imposed under the contract have been fully met."
+  }, {
+    "type" : "paragraph",
+    "id" : 411,
+    "page number" : 18,
+    "bounding box" : [ 71.987, 216.81, 523.604, 350.007 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(b) For the procurement of infrastructure projects, the contractor shall assume full responsibility for the contract work from the time project construction commenced up to a reasonable period as defined in the IRR taking into consideration the scale and coverage of the project from its final acceptance by the government and shall be held responsible for any damage or construction of works except those occasioned by force majeure. The contractor shall be fully responsible for the safety, protection, security, and convenience of his personnel, third parties, and the public at large, as well as the works, equipment, installation and the like to be affected by his construction work and shall be required to put up a warranty security in the form of cash, bank guarantee, letter of credit, Government Service Insurance System bond, or callable surety bond."
+  }, {
+    "type" : "paragraph",
+    "id" : 412,
+    "page number" : 18,
+    "bounding box" : [ 71.99, 123.897, 523.504, 203.981 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The contractor shall undertake the repair works, at his own expense, of any defect or damage to the infrastructure projects on account of the use of materials of inferior quality within ninety (90) days from the time the Head of the Procuring Entity has issued an order to undertake repair. In case of failure or refusal to comply with this mandate, the government shall undertake such repair works and shall be entitled to full reimbursement of expenses incurred therein upon demand."
+  }, {
+    "type" : "paragraph",
+    "id" : 413,
+    "page number" : 18,
+    "bounding box" : [ 71.99, 84.043, 523.427, 111.069 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Any contractor who fails to comply with the preceding paragraph shall suffer perpetual disqualification from participating in any public bidding and his property or"
+  }, {
+    "type" : "footer",
+    "id" : 414,
+    "page number" : 18,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 63,
+      "page number" : 18,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "17"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 415,
+    "page number" : 19,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 87,
+      "page number" : 19,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 418,
+    "page number" : 19,
+    "bounding box" : [ 72.0, 750.349, 523.47, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "properties shall be subject to attachment or garnishment proceedings to recover the costs. All payables of government in his favor shall be offset to recover the costs."
+  }, {
+    "type" : "heading",
+    "id" : 419,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 144.12, 708.156, 451.284, 737.94 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE XX THE GOVERNMENT PROCUREMENT POLICY BOARD"
+  }, {
+    "type" : "paragraph",
+    "id" : 420,
+    "page number" : 19,
+    "bounding box" : [ 71.987, 588.682, 523.489, 695.638 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 63. Organization and Functions. – A Government Procurement Policy Board (GPPB) is hereby established to: (a) protect national interest in all matters affecting public Procurement, having due regard to the country’s regional and international obligations; (b) formulate and amend, whenever necessary, the IRR and the corresponding standard forms for Procurement; (c) ensure that Procuring Entities regularly conduct Procurement training programs and prepare a Procurement operations manual for all offices and agencies of government; and (d) conduct an annual review of the effectiveness of this Act and recommend any amendments thereto, as may be necessary."
+  }, {
+    "type" : "paragraph",
+    "id" : 421,
+    "page number" : 19,
+    "bounding box" : [ 71.987, 535.502, 523.567, 575.732 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The GPPB shall convene within fifteen (15) days from the effectivity of this Act to formulate the IRR and for other related purposes. The GPPB shall be supported by a technical support office."
+  }, {
+    "type" : "paragraph",
+    "id" : 422,
+    "page number" : 19,
+    "bounding box" : [ 71.987, 455.794, 523.6, 522.674 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In addition to the powers granted under this Act, the GPPB shall absorb all the powers, functions and responsibilities of the Procurement Policy Board created under Executive Order No. 359, series of 1989. All affected functions of the Infrastructure Committee of the National Economic and Development Authority Board are hereby transferred to the GPPB."
+  }, {
+    "type" : "list",
+    "id" : 423,
+    "level" : "1",
+    "page number" : 19,
+    "bounding box" : [ 107.988, 254.269, 523.423, 443.398 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 107.988, 429.264, 523.401, 443.398 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 64. Membership. – The GPPB shall be composed of the Secretary of the",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 116,
+        "page number" : 19,
+        "bounding box" : [ 72.009, 323.117, 523.6, 429.73 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Department of Budget and Management, as Chairman, the Director-General of the National Economic and Development Authority, as Alternate Chairman, with the following as Members; the Secretaries of the Departments of Public Works and Highways, Finance, Trade and Industry, Health, National Defense, Education, Interior and Local Government, Science and Technology, Transportation and Communications, and Energy, or their duly authorized representatives and a representative from the private sector to be appointed by the President upon the recommendation of the GPPB. The GPPB may invite a representative from the Commission on Audit to serve as a resource person."
+      }, {
+        "type" : "paragraph",
+        "id" : 117,
+        "page number" : 19,
+        "bounding box" : [ 252.72, 280.956, 342.66, 310.62 ],
+        "font" : "Tahoma-Bold",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "ARTICLE XXI PENAL CLAUSE"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 108.001, 254.269, 523.423, 268.318 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 65. Offenses and Penalties. – (a) Without prejudice to the provisions of",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 424,
+    "page number" : 19,
+    "bounding box" : [ 71.987, 201.216, 523.512, 254.772 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Republic Act No. 3019, otherwise known as the “Anti-Graft and Corrupt Practices Act” and other penal laws, public officers who commit any of the following acts shall suffer the penalty of imprisonment of not less than six (6) years and one (1) day, but not more than fifteen (15) years:"
+  }, {
+    "type" : "list",
+    "id" : 425,
+    "level" : "2",
+    "page number" : 19,
+    "bounding box" : [ 107.977, 108.182, 523.434, 188.267 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "next list id" : 431,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 107.988, 174.566, 523.434, 188.267 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(1) Open any sealed Bid including but not limited to Bids that may have been",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 113,
+        "page number" : 19,
+        "bounding box" : [ 71.976, 134.712, 523.423, 175.063 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "submitted through the electronic system and any and all documents required to be sealed or divulging their contents, prior to the appointed time for the public opening of Bids or other documents."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 107.977, 108.182, 523.423, 121.883 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(2) Delaying, without justifiable cause, the screening for eligibility, opening of bids,",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 426,
+    "page number" : 19,
+    "bounding box" : [ 71.964, 81.653, 523.478, 108.679 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "evaluation and post evaluation of bids, and awarding of contracts beyond the prescribed periods of action provided for in the IRR."
+  }, {
+    "type" : "footer",
+    "id" : 427,
+    "page number" : 19,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 64,
+      "page number" : 19,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "18"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 428,
+    "page number" : 20,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 88,
+      "page number" : 20,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 431,
+    "level" : "2",
+    "page number" : 20,
+    "bounding box" : [ 107.978, 670.641, 523.535, 777.375 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "previous list id" : 425,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 108.0, 763.675, 523.535, 777.375 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(3) Unduly influencing or exerting undue pressure on any member of the BAC or",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 114,
+        "page number" : 20,
+        "bounding box" : [ 71.988, 737.146, 523.468, 764.05 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "any officer or employee of the procuring entity to take a particular action which favors, or tends to favor a particular bidder."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 107.989, 710.495, 523.501, 724.196 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(4) Splitting of contracts which exceed procedural purchase limits and competitive",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 115,
+        "page number" : 20,
+        "bounding box" : [ 71.976, 697.291, 110.815, 710.992 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "bidding."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 107.978, 670.641, 523.512, 684.341 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(5) When the head of the agency abuses the exercise of his power to reject any",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 432,
+    "page number" : 20,
+    "bounding box" : [ 71.965, 644.112, 523.391, 671.137 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "and all bids as mentioned under Section 41 of this Act with manifest preference to any bidder who is closely related to him in accordance with Section 47 of this Act."
+  }, {
+    "type" : "paragraph",
+    "id" : 433,
+    "page number" : 20,
+    "bounding box" : [ 71.965, 604.257, 523.501, 631.283 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "When any of the foregoing acts is done in collusion with private individuals, the private individuals shall likewise be liable for the offense."
+  }, {
+    "type" : "paragraph",
+    "id" : 434,
+    "page number" : 20,
+    "bounding box" : [ 71.965, 551.199, 523.457, 591.429 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In addition, the public officer involved shall also suffer the penalty of temporary disqualification from public office, while the private individual shall be permanently disqualified from transacting business with the Government."
+  }, {
+    "type" : "paragraph",
+    "id" : 435,
+    "page number" : 20,
+    "bounding box" : [ 71.965, 498.019, 523.457, 538.249 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(b) Private individuals who commit any of the following acts, including any public officer, who conspires with them, shall suffer the penalty of imprisonment of not less than six (6) years and one (1) day but not more than fifteen (15) years:"
+  }, {
+    "type" : "list",
+    "id" : 436,
+    "level" : "2",
+    "page number" : 20,
+    "bounding box" : [ 107.934, 272.218, 523.402, 485.191 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 107.967, 471.49, 523.314, 485.191 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(1) When two or more bidders agree and submit different Bids as if they were",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 110,
+        "page number" : 20,
+        "bounding box" : [ 71.954, 431.636, 523.49, 471.865 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "bona fide, when they knew that one or more of them was so much higher than the other that it could not be honestly accepted and that the contract will surely be awarded to the pre-arranged lowest Bid."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 107.956, 405.107, 523.314, 418.807 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(2) When a bidder maliciously submits different Bids through two or more persons,",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 111,
+        "page number" : 20,
+        "bounding box" : [ 71.943, 365.252, 523.402, 405.482 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "corporations, partnerships or any other business entity in which he has interest to create the appearance of competition that does not in fact exist so as to be adjudged as the winning bidder."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 107.945, 338.602, 523.402, 352.302 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(3) When two or more bidders enter into an agreement which call upon one to",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 112,
+        "page number" : 20,
+        "bounding box" : [ 71.932, 298.747, 523.512, 339.098 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "refrain from bidding for Procurement contracts, or which call for withdrawal of Bids already submitted, or which are otherwise intended to secure an undue advantage to any one of them."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 107.934, 272.218, 523.314, 285.919 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(4) When a bidder, by himself or in connivance with others, employ schemes which",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 437,
+    "page number" : 20,
+    "bounding box" : [ 71.921, 245.689, 523.479, 272.715 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "tend to restrain the natural rivalry of the parties or operates to stifle or suppress competition and thus produce a result disadvantageous to the public."
+  }, {
+    "type" : "paragraph",
+    "id" : 438,
+    "page number" : 20,
+    "bounding box" : [ 71.921, 192.509, 523.49, 232.86 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In addition, the persons involved shall also suffer the penalty of temporary or perpetual disqualification from public office and be permanently disqualified from transacting business with the Government."
+  }, {
+    "type" : "paragraph",
+    "id" : 439,
+    "page number" : 20,
+    "bounding box" : [ 71.921, 139.451, 516.171, 179.681 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(c) Private individuals who commit any of the following acts, and any public officer conspiring with them, shall suffer the penalty of imprisonment of not less than six (6) years and one (1) day but not more than fifteen (15) years:"
+  }, {
+    "type" : "list",
+    "id" : 440,
+    "level" : "2",
+    "page number" : 20,
+    "bounding box" : [ 107.923, 112.8, 523.358, 126.501 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "next list id" : 446,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 107.923, 112.8, 523.358, 126.501 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(1) Submit eligibility requirements of whatever kind and nature that contain false",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 441,
+    "page number" : 20,
+    "bounding box" : [ 71.91, 72.946, 523.468, 113.297 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "information or falsified documents calculated to influence the outcome of the eligibility screening process or conceal such information in the eligibility requirements when the information will lead to a declaration of ineligibility from participating in public bidding."
+  }, {
+    "type" : "footer",
+    "id" : 442,
+    "page number" : 20,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 65,
+      "page number" : 20,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "19"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 443,
+    "page number" : 21,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 89,
+      "page number" : 21,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 446,
+    "level" : "2",
+    "page number" : 21,
+    "bounding box" : [ 107.989, 656.316, 523.524, 764.05 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "previous list id" : 440,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 108.0, 750.349, 523.391, 764.05 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(2) Submit Bidding Documents of whatever kind and nature that contain false",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 108,
+        "page number" : 21,
+        "bounding box" : [ 71.988, 723.82, 523.49, 750.846 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "information or falsified documents or conceal such information in the Bidding Documents, in order to influence the outcome of the public bidding."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 107.989, 697.291, 523.524, 710.992 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(3) Participate in a public bidding using the name of another or allow another to",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 109,
+        "page number" : 21,
+        "bounding box" : [ 71.988, 683.966, 397.668, 697.667 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "use one’s name for the purpose of participating in a public bidding."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 108.0, 656.316, 523.42, 671.208 ],
+      "font" : "Tahoma",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(4) Withdraw a Bid, after it shall have qualified as the Lowest Calculated",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 447,
+    "page number" : 21,
+    "bounding box" : [ 71.995, 590.01, 523.564, 656.89 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Bid/Highest Rated Bid, or refuse to accept an award, without just cause or for the purpose of forcing the Procuring Entity to award the contract to another bidder. This shall include the non-submission within the prescribed time, or delaying the submission of requirements such as, but not limited to, performance security, preparatory to the final award of the contract."
+  }, {
+    "type" : "paragraph",
+    "id" : 448,
+    "page number" : 21,
+    "bounding box" : [ 72.0, 536.98, 523.525, 577.21 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "(d) When the bidder is a juridical entity, criminal liability and the accessory penalties shall be imposed on its directors, officers or employees who actually commit any of the foregoing acts."
+  }, {
+    "type" : "list",
+    "id" : 449,
+    "level" : "1",
+    "page number" : 21,
+    "bounding box" : [ 107.988, 239.989, 523.6, 524.398 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 108.001, 510.33, 523.567, 524.398 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 66. Jurisdiction. – Jurisdiction over the offenses defined under this Article",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 103,
+        "page number" : 21,
+        "bounding box" : [ 71.987, 483.826, 523.456, 510.852 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "shall belong to the appropriate courts, according to laws existing at the time of the commission of the offenses."
+      }, {
+        "type" : "paragraph",
+        "id" : 104,
+        "page number" : 21,
+        "bounding box" : [ 247.2, 441.636, 348.12, 471.42 ],
+        "font" : "Tahoma-Bold",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "ARTICLE XXII CIVIL LIABILITY"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 107.998, 415.071, 523.401, 429.118 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 67. Civil Liability in Case of Conviction. – Without prejudice to",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 105,
+        "page number" : 21,
+        "bounding box" : [ 71.987, 361.895, 523.567, 415.45 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "administrative sanctions that may be imposed in proper cases, a conviction under this Act or Republic Act No. 3019 shall carry with it civil liability, which may either consist of restitution for the damage done or the forfeiture in favor of the government of any unwarranted benefit derived from the act or acts in question or both, at the discretion of the courts."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 107.988, 335.366, 523.489, 349.438 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 68. Liquidated Damages. – All contracts executed in accordance with this",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 106,
+        "page number" : 21,
+        "bounding box" : [ 71.998, 308.866, 523.412, 335.77 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Act shall contain a provision on liquidated damages which shall be payable in case of breach thereof. The amount thereof shall be specified in the IRR."
+      }, {
+        "type" : "paragraph",
+        "id" : 107,
+        "page number" : 21,
+        "bounding box" : [ 205.08, 266.676, 390.156, 296.34 ],
+        "font" : "Tahoma-Bold",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "ARTICLE XXIII ADMINISTRATIVE SANCTIONS"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 107.998, 239.989, 523.6, 254.038 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 69. Imposition of Administrative Penalties. – (a) In addition to the",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 450,
+    "page number" : 21,
+    "bounding box" : [ 71.987, 173.611, 523.523, 240.492 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "provisions of Articles XXI and XXII of this Act, the Head of the Procuring Entity, subject to the authority delegated to the BAC, if any, shall impose on bidders or prospective bidders, the administrative penalty of suspension for one (1) year for the first offense, and suspension of two (2) years for the second offense from participating in the public bidding process, for the following violations:"
+  }, {
+    "type" : "list",
+    "id" : 451,
+    "level" : "2",
+    "page number" : 21,
+    "bounding box" : [ 107.977, 105.925, 523.39, 160.783 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "next list id" : 457,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 107.988, 145.779, 523.313, 160.783 ],
+      "font" : "ArialMT",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(1) Submission of eligibility requirements containing false information or falsified",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 101,
+        "page number" : 21,
+        "bounding box" : [ 71.976, 133.757, 128.357, 147.457 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "documents."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 107.977, 105.925, 523.39, 120.928 ],
+      "font" : "ArialMT",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(2) Submission of Bids that contain false information or falsified documents, or the",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 452,
+    "page number" : 21,
+    "bounding box" : [ 71.964, 80.699, 523.346, 107.603 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "concealment of such information in the Bids in order to influence the outcome of eligibility screening or any other stage of the public bidding."
+  }, {
+    "type" : "footer",
+    "id" : 453,
+    "page number" : 21,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 66,
+      "page number" : 21,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "20"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 454,
+    "page number" : 22,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 90,
+      "page number" : 22,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 457,
+    "level" : "2",
+    "page number" : 22,
+    "bounding box" : [ 107.989, 722.518, 523.479, 777.375 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "previous list id" : 451,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 22,
+      "bounding box" : [ 108.0, 762.372, 523.347, 777.375 ],
+      "font" : "ArialMT",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(3) Allowing the use of one’s name, or using the name of another for purposes of",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 102,
+        "page number" : 22,
+        "bounding box" : [ 71.988, 750.349, 142.721, 764.05 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "public bidding."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 22,
+      "bounding box" : [ 107.989, 722.518, 523.479, 737.521 ],
+      "font" : "ArialMT",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(4) Withdrawal of a Bid, or refusal to accept an award, or enter into contract with",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 458,
+    "page number" : 22,
+    "bounding box" : [ 71.965, 697.291, 523.424, 724.196 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "the government without justifiable cause, after he had been adjudged as having submitted the Lowest Calculated Responsive Bid or Highest Rated Responsive Bid."
+  }, {
+    "type" : "list",
+    "id" : 459,
+    "level" : "2",
+    "page number" : 22,
+    "bounding box" : [ 107.967, 629.605, 523.413, 684.341 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 22,
+      "bounding box" : [ 107.967, 669.338, 523.413, 684.341 ],
+      "font" : "ArialMT",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(5) Refusal or failure to post the required performance security within the",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 100,
+        "page number" : 22,
+        "bounding box" : [ 71.965, 657.437, 150.305, 671.137 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "prescribed time."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 22,
+      "bounding box" : [ 107.967, 629.605, 427.531, 644.608 ],
+      "font" : "ArialMT",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(6) Termination of the contract due to the default of the bidder.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 460,
+    "page number" : 22,
+    "bounding box" : [ 71.965, 591.053, 523.336, 617.958 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Refusal to clarify or validate in writing its Bid during post-qualification within a period of seven (7) calendar days from receipt of the request for clarification."
+  }, {
+    "type" : "paragraph",
+    "id" : 461,
+    "page number" : 22,
+    "bounding box" : [ 71.976, 551.199, 523.402, 578.103 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Any documented unsolicited attempt by a bidder to unduly influence the outcome of the bidding in his favor."
+  }, {
+    "type" : "paragraph",
+    "id" : 462,
+    "page number" : 22,
+    "bounding box" : [ 107.978, 524.548, 463.19, 538.249 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "All other acts that tend to defeat the purpose of the Competitive Bidding."
+  }, {
+    "type" : "list",
+    "id" : 463,
+    "level" : "3",
+    "page number" : 22,
+    "bounding box" : [ 107.978, 458.165, 523.402, 511.72 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 22,
+      "bounding box" : [ 107.978, 498.019, 523.303, 511.72 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(b) In addition to the penalty of suspension, the Bid security or the performance",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 99,
+        "page number" : 22,
+        "bounding box" : [ 71.976, 484.694, 483.713, 498.395 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "security posted by the concerned bidder or prospective bidder shall also be forfeited."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 22,
+      "bounding box" : [ 107.978, 458.165, 523.402, 471.865 ],
+      "font" : "Tahoma",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "(c) The Head of the Procuring Entity may delegate to the BAC the authority to",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 464,
+    "page number" : 22,
+    "bounding box" : [ 71.976, 444.961, 326.713, 458.662 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "impose the aforementioned administrative penalties."
+  }, {
+    "type" : "paragraph",
+    "id" : 465,
+    "page number" : 22,
+    "bounding box" : [ 72.004, 338.735, 523.512, 432.478 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 70. Preventive Suspension. – The head of the procuring entity may preventively suspend any member of the Technical Working Group or the Secretariat, or the BAC if there are strong reasons or prima facie evidence showing that the officials or employees concerned are guilty of the charges filed against them under Articles XXI and XXII of this Act or for dishonesty as defined by the Civil Service Laws. In all cases, procedural and substantive due process as mandated by the Constitution and Civil Service Laws, rules and regulations, shall be strictly observed."
+  }, {
+    "type" : "heading",
+    "id" : 466,
+    "level" : "Subtitle",
+    "page number" : 22,
+    "bounding box" : [ 108.006, 312.206, 523.412, 326.278 ],
+    "heading level" : 5,
+    "font" : "Tahoma-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 71. Lifting of Suspension and Removal of Administrative Disabilities."
+  }, {
+    "type" : "paragraph",
+    "id" : 467,
+    "level" : "4",
+    "page number" : 22,
+    "bounding box" : [ 72.009, 259.176, 523.5, 312.61 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "– Lifting of preventive suspension pending administrative investigation, as well as removal of administrative penalties and disabilities shall be in accordance with the provisions of Sections 52 and 53, Chapter 6 (Civil Service Commission), Book V of Executive Order No. 292, the Administrative Code of 1987."
+  }, {
+    "type" : "paragraph",
+    "id" : 468,
+    "page number" : 22,
+    "bounding box" : [ 106.56, 216.996, 488.916, 246.66 ],
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE XXIV LEGAL ASSISTANCE AND INDEMNIFICATION OF BAC MEMBERS"
+  }, {
+    "type" : "heading",
+    "id" : 469,
+    "level" : "Subtitle",
+    "page number" : 22,
+    "bounding box" : [ 107.998, 190.309, 523.467, 204.358 ],
+    "heading level" : 6,
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 72. Private Legal Assistance. – All the members of the BAC are hereby"
+  }, {
+    "type" : "paragraph",
+    "id" : 470,
+    "page number" : 22,
+    "bounding box" : [ 71.998, 137.256, 523.622, 190.812 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "authorized to engage the services of private lawyers or extend counsel immediately upon receipt of Court Notice that a civil or criminal action, suit or proceeding is filed against them. The lawyer's fee shall be part of the indemnification package for the BAC members, subject to the provisions of Section 73 hereof."
+  }, {
+    "type" : "heading",
+    "id" : 471,
+    "level" : "Subtitle",
+    "page number" : 22,
+    "bounding box" : [ 107.999, 110.606, 523.611, 124.678 ],
+    "heading level" : 5,
+    "font" : "Tahoma-Bold",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SEC. 73. Indemnification of BAC Members. – The GPPB shall establish an"
+  }, {
+    "type" : "paragraph",
+    "id" : 472,
+    "page number" : 22,
+    "bounding box" : [ 71.998, 70.78, 523.545, 111.132 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "equitable indemnification package for public officials providing services in the BAC, which may be in the form of free legal assistance, liability insurance, and other forms of protection and indemnification for all costs and expenses reasonably incurred by such persons in"
+  }, {
+    "type" : "footer",
+    "id" : 473,
+    "page number" : 22,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 67,
+      "page number" : 22,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "21"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 474,
+    "page number" : 23,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 91,
+      "page number" : 23,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 477,
+    "page number" : 23,
+    "bounding box" : [ 72.0, 723.82, 523.503, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "connection with any civil or criminal action, suit or proceeding to which they may be, or have been made, a party by reason of the performance of their functions or duties, unless they are finally adjudged in such action or proceeding to be liable for gross negligence or misconduct or grave abuse of discretion."
+  }, {
+    "type" : "paragraph",
+    "id" : 478,
+    "page number" : 23,
+    "bounding box" : [ 72.0, 657.437, 523.492, 710.992 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In the event of a settlement or compromise, indemnification shall be confined only on matters covered by the settlement, as to which the Procuring Entity had been advised by counsel that the public officials to be indemnified have not committed gross negligence or misconduct in the performance of their functions and duties."
+  }, {
+    "type" : "paragraph",
+    "id" : 479,
+    "page number" : 23,
+    "bounding box" : [ 72.011, 617.582, 523.47, 644.608 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The members of the BAC and the BAC Secretariat shall also be entitled to medical assistance for injuries incurred in the performance of their functions."
+  }, {
+    "type" : "heading",
+    "id" : 480,
+    "level" : "Subtitle",
+    "page number" : 23,
+    "bounding box" : [ 237.72, 575.436, 357.516, 605.22 ],
+    "heading level" : 4,
+    "font" : "Tahoma-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE XXV FINAL PROVISIONS"
+  }, {
+    "type" : "list",
+    "id" : 481,
+    "level" : "1",
+    "page number" : 23,
+    "bounding box" : [ 107.998, 336.317, 523.589, 562.918 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 23,
+      "bounding box" : [ 107.998, 548.871, 523.478, 562.918 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 74. Oversight Committee. – There is hereby created a Joint Congressional",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 94,
+        "page number" : 23,
+        "bounding box" : [ 72.009, 469.166, 523.589, 549.25 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Oversight Committee to oversee the implementation of this Act for a period not exceeding five (5) years from the effectivity of this Act. The Committee shall be composed of the Chairman of the Senate Committee on Constitutional Amendments and Revision of Laws and two members thereof appointed by the Senate President, and the Chairman of the House Committee on Appropriations, and two members thereof to be appointed by the Speaker of the House of Representatives."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 23,
+      "bounding box" : [ 108.001, 442.555, 523.589, 456.598 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 75. Implementing Rules and Regulations and Standard Forms. –",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 95,
+        "page number" : 23,
+        "bounding box" : [ 72.009, 362.967, 523.567, 443.052 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Within sixty (60) days from the promulgation of this Act, the necessary rules and regulations for the proper implementation of its provisions shall be formulated by the GPPB, jointly with the members of the Oversight Committee created under Section 74 hereof. The said rules and regulations shall be approved by the President of the Philippines. For a period not later than thirty (30) days upon the approval of the implementing rules and regulations, the standard forms for Procurement shall be formulated and approved."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 23,
+      "bounding box" : [ 108.01, 336.317, 523.478, 350.398 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 76. Repealing Clause. – This law repeals Executive Order No. 40, series of",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 482,
+    "page number" : 23,
+    "bounding box" : [ 71.998, 84.024, 523.556, 336.852 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "2001, entitled “Consolidating Procurement Rules and Procedures for All National Government Agencies, Government-Owned-or-Controlled Corporations and/or Government Financial Institutions, and Requiring the Use of the Government Electronic Procurement System”; Executive Order No. 262, Series of 2000, entitled \"Amending Executive Order No. 302, series of 1996, entitled \"Providing Polices, Guidelines, Rules and Regulations for the Procurement of Goods/Supplies by the National Government\" and Section 3 of Executive Order No. 201, series of 2000, entitled \"Providing Additional Policies and Guidelines in the Procurement of Goods/Supplies by the National Government\"; Executive Order No. 302, series of 1996, entitled \"Providing Policies, Guidelines, Rules and Regulations for the Procurement of Goods/Supplies by the National Government\" and Presidential Decree No. 1594 dated June 11, 1978, entitled 'Prescribing Policies, Guidelines, Rules and Regulations for Government Infrastructure Contracts.\" This law amends Title Six, Book Two of Republic Act No. 7160, otherwise known as the \"Local Government Code of 1991\"; the relevant provisions of Executive Order No. 164, Series of 1987, entitled \"Providing Additional Guidelines in the Processing and Approval of Contracts of the National Government\"; and the relevant provisions of Republic Act No. 7898 dated February 23, 1995, entitled “An Act Providing for the Modernization of the Armed Forces of the Philippines and for Other Purposes.” Any other law, presidential decree or issuance, executive order, letter of instruction, administrative order, proclamation, charter, rule or regulation and/or parts thereof contrary"
+  }, {
+    "type" : "footer",
+    "id" : 483,
+    "page number" : 23,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 68,
+      "page number" : 23,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "22"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 484,
+    "page number" : 24,
+    "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 92,
+      "page number" : 24,
+      "bounding box" : [ 242.16, 793.658, 353.134, 806.327 ],
+      "heading level" : 7,
+      "font" : "Tahoma-Bold",
+      "font size" : 9.96,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Republic Act No. 9184"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 487,
+    "page number" : 24,
+    "bounding box" : [ 72.0, 750.349, 523.492, 777.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "to or inconsistent with the provisions of this Act is hereby repealed, modified or amended accordingly."
+  }, {
+    "type" : "list",
+    "id" : 488,
+    "level" : "1",
+    "page number" : 24,
+    "bounding box" : [ 107.999, 683.98, 523.567, 737.878 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 24,
+      "bounding box" : [ 108.001, 723.82, 523.567, 737.878 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 77. Separability Clause. – If any provision of this Act is declared invalid or",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 93,
+        "page number" : 24,
+        "bounding box" : [ 71.998, 710.509, 518.499, 724.21 ],
+        "font" : "Tahoma",
+        "font size" : 11.04,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "unconstitutional, the other provisions not affected thereby shall remain valid and subsisting."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 24,
+      "bounding box" : [ 107.999, 683.98, 523.456, 698.038 ],
+      "font" : "Tahoma-Bold",
+      "font size" : 11.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "SEC. 78. Effectivity Clause. – This Act shall take effect fifteen (15) days following",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 489,
+    "page number" : 24,
+    "bounding box" : [ 71.987, 670.669, 481.303, 684.375 ],
+    "font" : "Tahoma",
+    "font size" : 11.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "its publication in the Official Gazetteor in two (2) newspapers of general circulation."
+  }, {
+    "type" : "footer",
+    "id" : 490,
+    "page number" : 24,
+    "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 69,
+      "page number" : 24,
+      "bounding box" : [ 292.8, 38.457, 302.637, 49.626 ],
+      "heading level" : 8,
+      "font" : "Tahoma",
+      "font size" : 9.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "23"
+    } ]
+  } ]
+}

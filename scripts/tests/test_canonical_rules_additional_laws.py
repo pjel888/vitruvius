@@ -195,3 +195,43 @@ def test_build_plan_matches_ra_9275_law_rule_from_ra_9257_folder_file() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_4566_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-4566/RA_4566.md'
+    )
+    assert plan['title'] == "Contractors' License Law"
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_386_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-386/RA-386 Civil Code.md'
+    )
+    assert plan['title'] == 'Civil Code of the Philippines'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_9184_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-9184/RA 9184 IRR - Government Procurement IRR.md'
+    )
+    assert plan['title'] == 'Government Procurement Reform Act'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_9184_updated_2016_irr_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md'
+    )
+    assert plan['title'] == 'Updated 2016 Revised Implementing Rules and Regulations of the Government Procurement Reform Act'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'

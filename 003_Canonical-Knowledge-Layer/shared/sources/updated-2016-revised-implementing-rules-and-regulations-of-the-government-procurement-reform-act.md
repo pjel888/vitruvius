@@ -1,0 +1,256 @@
+---
+id: irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act
+title: Updated 2016 Revised Implementing Rules and Regulations of the Government Procurement Reform Act
+page_type: source
+trust_level: primary
+canonical_status: draft
+last_canonicalized_utc: 2026-04-17T13:31:24.421271+00:00
+aliases:
+  - RA 9184 IRR
+  - Government Procurement Reform Act IRR
+  - Updated 2016 Revised IRR of RA 9184
+---
+
+# Updated 2016 Revised Implementing Rules and Regulations of the Government Procurement Reform Act
+
+## Overview
+
+THE 2016 REVISED IMPLEMENTING RULES AND REGULATIONS OF REPUBLIC ACT NO. 9184, OTHERWISE KNOWN AS THE GOVERNMENT PROCUREMENT REFORM ACT (Updated as of 31 March 2021)
+
+## Coverage
+
+- RULE I – GENERAL PROVISIONS
+- Section 4. Scope and Application of the IRR
+- Section 5. Definition of Terms
+- Section 6. Standardization of Procurement Process and Forms
+- RULE II – PROCUREMENT PLANNING
+- RULE III – PROCUREMENT BY ELECTRONIC MEANS
+- Section 9. Security, Integrity and Confidentiality
+- RULE IV – COMPETITIVE BIDDING
+- RULE V – BIDS AND AWARDS COMMITTEE
+- Section 12. Functions of the BAC
+- Section 13. Observers27
+- Section 14. BAC Secretariat/ Procurement Unit
+- Section 15. Honoraria of BAC, BAC Secretariat, and TWG Members
+- Section 16. Professionalization of BAC, TWG Members and Procurement Units
+- RULE VI - PREPARATION OF BIDDING DOCUMENTS
+- Section 18. Reference to Brand Names
+- Section 19. Access to Information
+- RULE VII – INVITATION TO BID
+- Section 20. Pre-procurement Conference
+- Section 22. Pre-bid Conference
+- RULE VIII – RECEIPT AND OPENING OF BIDS
+- Section 24. Eligibility Requirements and Short Listing for Consulting Services
+- Section 25. Submission and Receipt of Bids
+- Section 26. Modification and Withdrawal of Bids
+- Section 27. Bid Security
+- Section 28. Bid Validity
+- Section 29. Bid Opening
+- RULE IX – BID EVALUATION
+- Section 30. Preliminary Examination of Bids
+- Section 33. Bid Evaluation of Short Listed Bidders for Consulting Services
+- RULE X – POST-QUALIFICATION
+- Section 35. Failure of Bidding
+- RULE XI – AWARD, IMPLEMENTATION AND TERMINATION OF THE CONTRACT
+- Section 38. Period of Action on Procurement Activities
+- Section 39. Performance Security
+- Section 40. Failure to Enter into Contract and Post Performance Security
+- RULE XII – DOMESTIC AND FOREIGN PROCUREMENT
+- RULE XIII – BIDDING OF PROVINCIAL PROJECTS
+- RULE XIV – LEASE OF COMPUTERS, COMMUNICATIONS, INFORMATION AND OTHER EQUIPMENT
+- RULE XV – DISCLOSURE OF RELATIONS
+- RULE XVI – ALTERNATIVE METHODS OF PROCUREMENT
+- Section 49. Limited Source Bidding
+- Section 50. Direct Contracting
+- Section 53. Negotiated Procurement
+- Section 54. Terms and Conditions for the use of Alternative Methods
+- RULE XVII – PROTEST MECHANISM
+- Section 56. Resolution of Protests
+- Section 57. Non-interruption of the Bidding Process
+- Section 58. Resort to Regular Courts; Certiorari
+- RULE XVIII – SETTLEMENT OF DISPUTES
+- Section 59. Arbitration59.1 If any dispute or difference of any kind whatsoever shall arise between the parties in
+- Section 60. Appeals
+- RULE XIX – CONTRACT PRICES AND WARRANTIES
+- Section 61. Contract Prices
+- Section 62. Warranty
+- RULE XX – THE GOVERNMENT PROCUREMENT POLICY BOARD
+- Section 63. Organization and Functions
+- Section 64. Membership104
+- RULE XXI – PENAL CLAUSE
+- Section 65. Offenses and Penalties65.1 Without prejudice to the provisions of R.A. 3019 and other penal laws, public officers
+- Section 66. Jurisdiction
+- RULE XXII – CIVIL LIABILITY
+- Section 67. Civil Liability in Case of Conviction
+- Section 68. Liquidated Damages
+- RULE XXIII – ADMINISTRATIVE SANCTIONS
+- Section 70. Preventive Suspension
+- Section 71. Lifting of Suspension and Removal of Administrative Disabilities
+- RULE XXIV – LEGAL ASSISTANCE AND INDEMNIFICATION OF BAC MEMBERS
+- Section 72. Private Legal Assistance
+- Section 73. Indemnification of BAC Members
+- RULE XXV – FINAL PROVISIONS
+- Section 77. Transitory Clause
+- Section 78. Effectivity Clause
+- ANNEX “A” DETAILED ENGINEERING FOR THE PROCUREMENT OF INFRASTRUCTURE PROJECTS
+- ANNEX “B” GENERAL PRINCIPLES ON CONSULTING SERVICES
+- ANNEX “C”
+- ANNEX “D” CONTRACT IMPLEMENTATION GUIDELINES FOR THE PROCUREMENT OF GOODS, SUPPLIES AND MATERIALS
+- 2. Suspension of Work
+- 5. Other Rules and Guidelines
+- ANNEX “E” CONTRACT IMPLEMENTATION GUIDELINES FOR THE PROCUREMENT OF INFRASTRUCTURE PROJECTS
+- 2. ADDITIONAL/EXTRA WORK COSTING
+- 3. CONDITIONS UNDER WHICH CONTRACTOR IS TO START WORK UNDERVARIATION ORDERS AND RECEIVE PAYMENTS
+- 4. ADVANCE PAYMENT
+- 5. PROGRESS PAYMENT
+- 6. RETENTION MONEY
+- 7. CONTRACT COMPLETION
+- 8. NEGATIVE SLIPPAGE117
+- 9. LIQUIDATED DAMAGES
+- 10. SUSPENSION OF WORK
+- 11. EXTENSION OF CONTRACT TIME
+- 12. ACCREDITATION OF TESTING LABORATORIES
+- 13. EVALUATION OF CONTRACTORS PERFORMANCE
+- 14. OTHER RULES AND GUIDELINES
+- 4. DEFINITION OF TERMS
+- 5. CONDITIONS FOR THE USE OF THE DESIGN AND BUILD SCHEME
+- 6. CREATION OF DESIGN and BUILD COMMITTEE
+- 7. PRELIMINARY DESIGN AND CONSTRUCTION STUDIES
+- 8. DETAILED ENGINEERING REQUIREMENTS
+- 9. ELIGIBILITY REQUIREMENTS
+- 10. SUBMISSION AND RECEIPT OF BIDS
+- 11. BID EVALUATION
+- 12. POST-QUALIFICATION and AWARD OF THE CONTRACT
+- 13. CONTRACT IMPLEMENTATION
+- 14. AMENDMENTS AND FORMS
+- ANNEX “H” CONSOLIDATED GUIDELINES FOR THE ALTERNATIVE METHODS OF PROCUREMENT
+- 2. Procedure
+- 2. Procedure
+- 1. TWO FAILED BIDDINGS141
+- 2. EMERGENCY CASES.142
+- 3. TAKE-OVER OF CONTRACTS151
+- 4. ADJACENT OR CONTIGUOUS152
+- 5. AGENCY-TO-AGENCY153
+- 6. SCIENTIFIC, SCHOLARLY OR ARTISTIC WORK, EXCLUSIVE
+- 7. HIGHLY TECHNICAL CONSULTANTS156
+- 8. SMALL VALUE PROCUREMENT (SVP)157
+- 9. LEASE OF REAL PROPERTY AND VENUE158
+- 10. DIRECT RETAIL PURCHASE OF PETROLEUM FUEL, OIL AND LUBRICANT
+- APPENDIX A DOCUMENTARY REQUIREMENT ALTERNATIVE METHODS OF PROCUREMENT
+- APPENDIX B DOCUMENTARY REQUIREMENT ALTERNATIVE METHODS OF PROCUREMENT
+- ANNEX “I” GUIDELINES ON TERMINATION OF CONTRACTS
+- Appendix of the Handbook on Government Procurement
+- APPENDIX 1 REVISED GUIDELINES FOR THE IMPLEMENTATION OF INFRASTRUCTURE PROJECTS BY ADMINISTRATION
+- APPENDIX 2 GPPB CIRCULAR 08-2015 PREPARATION OF THE ANNUAL PROCUREMENT PLAN (APP)
+- Annex A
+- APPENDIX 3 GUIDELINES FOR ELECTRONIC BIDDING (E-BIDDING)
+- APPENDIX 4 GUIDELINES FOR THE USE OF THE GOVERNMENT OF THE PHILIPPINES OFFICIAL MERCHANTS REGISTRY (GoP-OMR)
+- APPENDIX 5 GPPB CIRCULAR 03-2015 PROCUREMENT MONITORING REPORT (PMR) FORMAT
+- APPENDIX 6 CONFIDENTIALITY AGREEMENT FORMAT
+- APPENDIX 7 GUIDELINES ON THE GRANT OF HONORARIA TO GOVERNMENT PERSONNEL INVOLVED IN GOVERNMENT PROCUREMENT DBM BUDGET CIRCULAR 2004-5A195
+- APPENDIX 8 GUIDELINES ON THE SALE OF BIDDING DOCUMENTS
+- APPENDIX 9 GUIDELINES IN THE DETERMINATION OF ELIGIBLITY OF FOREIGN SUPPLIERS, CONTRACTORS, AND CONSULTANTS TO PARTICIPATE IN GOVERNMENT PROCUREMENT PROJECTS
+- APPENDIX 10 GUIDELINES ON THE USE OF BID SECURING DECLARATION
+- APPENDIX 11 GPPB CIRCULAR 06-2005 TIE-BREAKING METHOD
+- APPENDIX 12 GUIDELINES AMENDING THE PRE-SELECTION PROCEDURE IN THE CONDUCT OF LIMITED SOURCE BIDDING UNDER GPPB RESOLUTION 05-2011
+- APPENDIX 13 GUIDELINES ON IMPLEMENTATION OF INFRASTRUCTURE PROJECTS UNDERTAKEN BY THE AFP CORPS OF ENGINEERS
+- APPENDIX 14 GUIDELINES ON NON-GOVERNMENTAL ORGANIZATION PARTICIPATION IN PUBLIC PROCUREMENT
+- Section 23, Article II of the Philippine Constitution prescribes that the State shall encourage the participation of Non-Governmental Organizations (NG Os), communitybased, or sectoral organizations in the promotion of the welfare of the nation.
+- APPENDIX 15 REVISED GUIDELINES FOR CONTRACT PRICE ESCALATION
+- ANNEX A. PRICE INDICES FOR COMMODITY GROUPS
+- ANNEX B. PARAMETRIC FORMULA FOR INFRASTRUCTURE PROJECTS
+- 2. Rock excavation fluctuation factor
+- 3. Structural excavation fluctuation factor
+- 4. Structural backfill fluctuation factor
+- 5. Daywork fluctuation factor for equipment
+- 6. Daywork fluctuation factor for labor
+- 11. Concrete fluctuation factor for curb, gutter and sidewalk
+- 12. Reinforced concrete structures fluctuation factor for bridge, culvert, retaining wall,bulkhead, piles, precast, parapet wall, railing, footing, columns, supporting slaband beam
+- 13. Reinforced concrete structures fluctuation factor for headwall, catch basin,manhole, drop inlet concrete post.
+- 14. Reinforced concrete pipe (RCP) or culvert pipe (RCCP) fluctuation factor
+- 15. Non-reinforced concrete pipes fluctuation factor
+- 17. Grouted rip-rap or stone masonry fluctuation factor
+- 18. Concrete masonry (CHB) fluctuation factor
+- 19. Reinforcing steel bars fluctuation factor
+- 20. Structural steel works fluctuation factor
+- 21. Demolition of concrete structure fluctuation factor
+- 22. Demolition of PCCP strip fluctuation factor
+- 23. Demolition AC pavement strip fluctuation factor
+- 24. Painting fluctuation factor with use of equipment
+- 25. Painting fluctuation factor using labor only
+- 26. Wood structure fluctuation factor for falsework, temporary wood bridge, woodguardrail
+- 27. Carpentry works fluctuation factor
+- 29. Steel pipes fluctuation factor
+- 30. Asbestos cement pipes fluctuation factor
+- 31. PVC pipes fluctuation factor
+- 32. Gate valves and fire hydrants fluctuation factor
+- 33. Check valves fluctuation factor
+- 34. Water service connection fluctuation factor
+- 36. Plain and corrugated G.1 sheets fluctuation factor
+- 37. Cement plaster fluctuation factor
+- 38. Marble floor finish fluctuation factor
+- ANNEX C. SAMPLE COMPUTATION FOR CONTRACT PRICE ESCALATION
+- APPENDIX 16 GUIDELINES ON PROCUREMENTS INVOLVING FOREIGN-DENOMINATED BIDS, CONTRACT PRICES AND PAYMENT USING LETTERS OF CREDIT
+- APPENDIX 17 UNIFORM GUIDELINES FOR BLACKLISTING OF MANUFACTURERS, SUPPLIERS, DISTRIBUTORS, CONTRACTORS AND CONSULTANTS
+- APPENDIX 18 GUIDELINES FOR LEGAL ASSISTANCE AND INDEMNIFICATION OF BIDS AND AWARDS COMMITTEE (BAC) MEMBERS AND ITS SUPPORT STAFF
+- APPENDIX 19 REVISED GUIDELINES ON RECOGNITION OF UMBRELLA ORGANIZATION OF CONSULTANTS
+- ANNEX A List of Major Sectors of the Philippine Consulting Industry
+- APPENDIX 20 GUIDELINES ON THE PROCUREMENT OF PRINTING SERVICES
+- ANNEX A
+- APPENDIX 21 GUIDELINES ON PROCUREMENT OF WATER, ELECTRICITY, TELECOMMUNICATIONS AND INTERNET SERVICE PROVIDERS
+- Section 5 (h) of Republic Act No. (R.A.) 9184 defines goods as referring to all items, supplies, materials, and general support services which may be needed in the transaction of public business or in the pursuit of any government undertaking. Such definition necessarily includes the procurement of internet service providers and public utility services, such as water, electricity, and telecommunication services.
+- APPENDIX 22 REVISED GUIDELINES ON THE PROCUREMENT OF PETROLEUM, OIL, AND LUBRICANT PRODUCTS
+- APPENDIX 23 GUIDELINES ON THE PROCUREMENT OF SECURITY AND JANITORIAL SERVICES
+- APPENDIX A ADDITIONAL SET OF TECHNICAL PARAMETERS A. Security Services
+- APPENDIX 24 REVISED GUIDELINES ON THE EXTENSION OF CONTRACTS FOR GENERAL SUPPORT SERVICES
+- APPENDIX 25 GPPB CIRCULAR 02-2010 GUIDELINES ON COMPARISON OF BIDS SUBMITTED BY COOPERATIVES
+- APPENDIX 26 GPPB CIRCULAR 10-2015 HONORARIA OF GPPB-TSO RECOGNIZED TRAINERS
+- APPENDIX 27 GUIDELINES FOR THE ESTABLISHMENT OF NEGATIVE LIST OF SURETY AND/OR INSURANCE COMPANIES
+- 5. GROUNDS FOR INCLUSION IN THE NEGATIVE LIST
+- 6. PROCEDURAL GUIDELINES FOR INCLUSION IN THE NEGATIVE LIST
+- 7. EFFECT OF INCLUSION IN THE NEGATIVE LIST
+- 8. DELISTING
+- 9. AMENDMENTS
+- 10. EFFECTIVITY
+- APPENDIX 28 GUIDELINES FOR THE PROCUREMENT OF GOODS AND SERVICES, INFRASTRUCTURE PROJECTS AND CONSULTING SERVICES TO BE PROCURED AND PERFORMED OVERSEAS386
+- 4. SPECIFIC GUIDELINES
+- 5. EFFECTIVITY CLAUSE
+- 4. Mandatory Use of the Virtual Store
+- 5. Requirements before Using the Virtual Store
+- 6. Procurement through Virtual Store
+- 7. Payment
+- 8. Delivery and Acceptance
+- 9. Issues for Resolution
+- 10. Separability Clause
+- 11. Repealing Clause
+- 12. Effectivity
+- 3. IMPLEMENTING GUIDELINES
+- 4. BID VALIDITY
+- 5. PROCUREMENT TIMELINES
+- 6. REVISION OF THE INDICATIVE APP BEFORE AWARD OF CONTRACT
+- 7. AWARD OF CONTRACT
+- 8. TOLLING OR SUSPENSION OF THE PERIOD
+- 9. MONITORING
+- 10. EFFECTIVITY This Circular shall take effect immediately.
+- 4. GENERAL CONDITIONS
+- 5. FRAMEWORK AGREEMENT BY ELECTRONIC MEANS
+- 6. PROCUREMENT PLANNING
+- 7. COMPETITIVE BIDDING
+- 8. FRAMEWORK AGREEMENT
+- 9. CALL OFF
+- 10. IMPLEMENTATION AND TERMINATION OF FRAMEWORK AGREEMENTS
+- 11. REPEAT ORDER
+- 12. REPEALING CLAUSE
+- 13. EFFECTIVITY This Guidelines shall take effect immediately.
+- APPENDIX 33 TRANSPARENCY, ACCOUNTABILITY, AND GOOD GOVERNANCE IN THE PROCUREMENT PROCESS393
+
+## Key Points
+
+- APPENDIX 1 REVISED GUIDELINES FOR THE IMPLEMENTATION OF INFRASTRUCTURE PROJECTS BY ADMINISTRATION - 1.0 Purpose and Coverage These guidelines shall provide rules for the implementation of projects “by administration” by all Departments, Bureaus, Offices and Agencies of the National Government (NGA),.
+
+## Referenced Concepts
+
+- concept-competitive-bidding
+- concept-approved-budget-for-the-contract
+- concept-bids-and-awards-committee
+- concept-light-and-ventilation

@@ -1,0 +1,36 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md
+Candidates reviewed: 7
+Keep: 2
+Review Further: 1
+Reject: 4
+
+irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act -> governs -> concept-competitive-bidding
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act -> governs -> concept-approved-budget-for-the-contract
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act -> governs -> concept-bids-and-awards-committee
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['bids and awards committee'] appear in the evidence text
+
+concept-approved-budget-for-the-contract -> depends_on -> concept-bids-and-awards-committee
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['approved budget for the contract', 'bids and awards committee'] appear in the evidence text
+
+concept-bids-and-awards-committee -> depends_on -> concept-approved-budget-for-the-contract
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['bids and awards committee', 'approved budget for the contract'] appear in the evidence text
+
+concept-bids-and-awards-committee -> depends_on -> concept-competitive-bidding
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['bids and awards committee', 'competitive bidding'] appear in the evidence text
+
+concept-competitive-bidding -> depends_on -> concept-bids-and-awards-committee
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.

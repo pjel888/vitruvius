@@ -268,6 +268,22 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `RA-386`
       - `RA-9184`
     - see `/.ai/13_research/2026-04-17_tranche-6-expansion-research.md`
+  - tranche-6 is now defined and executed through the same bounded workflow:
+    - manifest: `config/datasets/laws-tranche-6.yaml`
+    - tranche-6 laws:
+      - `RA-4566`
+      - `RA-386`
+      - `RA-9184`
+    - current execute evidence:
+      - `staged_law_folders = [RA-4566, RA-386, RA-9184]`
+      - `duplicate_law_folders = []`
+      - `generated_relationship_count = 3`
+      - `shallow_representation_count = 0`
+      - `source_to_graph_execute_completed = true`
+      - graph snapshot: `7 nodes / 9 edges`
+    - bounded `RA-9184` procurement concept-fit follow-on is now admitted
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-6-execution-validation.md`
+    - see `/.ai/05_logs/2026-04-17_ra9184-procurement-concept-fit-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

@@ -1,0 +1,47 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act a vitruvius:source ;
+    rdfs:label "updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act (irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act)" ;
+    vitruvius:governs vitruvius:concept-approved-budget-for-the-contract,
+        vitruvius:concept-competitive-bidding ;
+    vitruvius:last_updated_utc "2026-04-17T13:31:24Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-civil-code-of-the-philippines a vitruvius:source ;
+    rdfs:label "civil-code-of-the-philippines (law-civil-code-of-the-philippines)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:29:34Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-contractors-license-law a vitruvius:source ;
+    rdfs:label "contractors-license-law (law-contractors-license-law)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:29:34Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-government-procurement-reform-act a vitruvius:source ;
+    rdfs:label "government-procurement-reform-act (law-government-procurement-reform-act)" ;
+    vitruvius:defines vitruvius:concept-approved-budget-for-the-contract,
+        vitruvius:concept-bids-and-awards-committee,
+        vitruvius:concept-competitive-bidding ;
+    vitruvius:governs vitruvius:concept-approved-budget-for-the-contract,
+        vitruvius:concept-bids-and-awards-committee,
+        vitruvius:concept-competitive-bidding ;
+    vitruvius:last_updated_utc "2026-04-17T13:31:24Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:concept-bids-and-awards-committee a vitruvius:concept ;
+    rdfs:label "bids-and-awards-committee (concept-bids-and-awards-committee)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:31:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-approved-budget-for-the-contract a vitruvius:concept ;
+    rdfs:label "approved-budget-for-the-contract (concept-approved-budget-for-the-contract)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:31:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-competitive-bidding a vitruvius:concept ;
+    rdfs:label "competitive-bidding (concept-competitive-bidding)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:31:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+

@@ -279,6 +279,17 @@
     - `RA-4566`
     - `RA-386`
     - `RA-9184`
+- Tranche-6 bounded execution and richness:
+  - current tranche-6 execute evidence:
+    - `staged_law_folders = [RA-4566, RA-386, RA-9184]`
+    - `generated_relationship_count = 3`
+    - `shallow_representation_count = 0`
+    - graph snapshot: `7 nodes / 9 edges`
+  - admitted tranche-6 concepts include:
+    - `approved-budget-for-the-contract`
+    - `bids-and-awards-committee`
+    - `competitive-bidding`
+  - tranche-6 still keeps raw-alias visibility for `RA-386` and `RA-9184`
 
 ## Residual Graph Caveat
 
@@ -319,6 +330,8 @@
 - Latest RA-10066 tranche-4 richness validation: `/.ai/05_logs/2026-04-17_ra10066-cultural-heritage-concept-fit-validation.md`
 - Latest tranche-5 richness validation: `/.ai/05_logs/2026-04-17_tranche-5-richness-validation.md`
 - Latest tranche-6 expansion research: `/.ai/13_research/2026-04-17_tranche-6-expansion-research.md`
+- Latest tranche-6 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-6-execution-validation.md`
+- Latest RA-9184 tranche-6 richness validation: `/.ai/05_logs/2026-04-17_ra9184-procurement-concept-fit-validation.md`
 
 ## Handoff Note
 
