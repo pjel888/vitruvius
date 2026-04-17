@@ -1,0 +1,97 @@
+as_of: 2026-04-18
+scope: laws-wave
+status: saturated_truth_complete
+notes:
+  - This artifact lists the executable and remediation lanes that were actually completed.
+  - It complements `config/datasets/laws-remaining-dispositions.yaml`, which tracks residual defer/final-disposition folders.
+completed_lanes:
+  - lane_id: laws-core-bundle-pilot
+    lane_type: pilot_core_bundle
+    status: completed
+    note: Bounded pilot/core bundle completed and validated before tranche widening.
+  - lane_id: laws-tranche-1
+    lane_type: tranche
+    status: completed
+  - lane_id: laws-tranche-2
+    lane_type: tranche
+    status: completed
+  - lane_id: laws-tranche-3
+    lane_type: tranche
+    status: completed
+  - lane_id: laws-tranche-4
+    lane_type: tranche
+    status: completed
+  - lane_id: laws-tranche-5
+    lane_type: tranche
+    status: completed
+  - lane_id: laws-tranche-6
+    lane_type: tranche
+    status: completed
+  - lane_id: laws-tranche-7
+    lane_type: tranche
+    status: completed
+  - lane_id: laws-tranche-8
+    lane_type: tranche
+    status: completed
+  - lane_id: laws-tranche-9
+    lane_type: tranche
+    status: completed
+  - lane_id: laws-tranche-10
+    lane_type: tranche
+    status: completed
+    note: Duplicate-remediation-first singleton lane.
+  - lane_id: laws-tranche-11
+    lane_type: tranche
+    status: completed
+    note: Fire-code overlap-closure singleton lane.
+  - lane_id: laws-tranche-12
+    lane_type: tranche
+    status: completed
+    note: Logical agency identity corrected to DHSUD while preserving combined raw folder reality.
+  - lane_id: laws-tranche-13
+    lane_type: tranche
+    status: completed
+  - lane_id: laws-tranche-14
+    lane_type: tranche
+    status: completed
+  - lane_id: laws-tranche-prc
+    lane_type: resolution_bundle
+    status: completed
+  - lane_id: laws-tranche-ra-9279-remediation
+    lane_type: remediation
+    status: completed
+    note: Folder/file mismatch resolved as the Section 18 RA 7279 IRR source surface.
+  - lane_id: laws-tranche-15-san-mateo
+    lane_type: lgu_shard
+    status: completed
+  - lane_id: laws-tranche-15-dagupan
+    lane_type: lgu_shard
+    status: completed
+  - lane_id: laws-tranche-15-malolos
+    lane_type: lgu_shard
+    status: completed
+  - lane_id: laws-tranche-15-meycauayan
+    lane_type: lgu_shard
+    status: completed
+  - lane_id: laws-tranche-15-davao
+    lane_type: lgu_shard
+    status: completed
+    note: Planning-deck surface; review-heavy but truthfully completed.
+  - lane_id: laws-tranche-15-tarlac
+    lane_type: lgu_shard
+    status: completed
+  - lane_id: laws-tranche-15-ordinance-2117
+    lane_type: lgu_shard
+    status: completed
+    note: QC-CBD zoning ordinance slice.
+  - lane_id: laws-tranche-15-pasay
+    lane_type: lgu_shard
+    status: completed
+    note: OCR-first ordinance shard.
+resolved_truth_model_fixes:
+  - fix_id: hlurb-dhsud-agency-split
+    status: completed
+    note: Legacy raw folder retained; staged guidance files now modeled as DHSUD publications.
+  - fix_id: remaining-pool-final-disposition
+    status: completed
+    note: Residual uncovered folders now explicitly dispositioned.
