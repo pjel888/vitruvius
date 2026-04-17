@@ -1344,6 +1344,59 @@ def _merge_unique_strings(existing: Any, additions: list[str]) -> list[str]:
     return merged
 
 
+def _tranche_variant_visibility(
+    *,
+    tranche_payload: dict[str, Any],
+    staged_law_folders: list[str],
+    duplicate_flags_by_folder: dict[str, list[str]],
+) -> tuple[list[dict[str, Any]], list[str], list[str]]:
+    staged = set(staged_law_folders)
+    visibility_rows: list[dict[str, Any]] = []
+    raw_alias_law_folders: list[str] = []
+    guardrail_law_folders: list[str] = []
+
+    for item in tranche_payload.get("candidate_law_folders") or []:
+        if not isinstance(item, dict):
+            continue
+        folder_name = str(item.get("folder_name") or "")
+        authoritative_variant_paths = [
+            str(path) for path in item.get("authoritative_variant_paths") or [] if isinstance(path, str)
+        ]
+        excluded_variant_paths = [
+            str(path) for path in item.get("excluded_variant_paths") or [] if isinstance(path, str)
+        ]
+        blocked_raw_anchor_paths = [
+            str(path) for path in item.get("blocked_raw_anchor_paths") or [] if isinstance(path, str)
+        ]
+        source_admission_guardrails = [
+            str(flag) for flag in item.get("source_admission_guardrails") or [] if isinstance(flag, str)
+        ]
+        duplicate_guardrails = [
+            str(flag) for flag in duplicate_flags_by_folder.get(folder_name) or [] if isinstance(flag, str)
+        ]
+        if excluded_variant_paths:
+            raw_alias_law_folders.append(folder_name)
+        if source_admission_guardrails or duplicate_guardrails:
+            guardrail_law_folders.append(folder_name)
+        visibility_rows.append(
+            {
+                "folder_name": folder_name,
+                "source_admission_state": str(item.get("source_admission_state") or ""),
+                "staged_for_source_to_graph": folder_name in staged,
+                "authoritative_variant_count": len(authoritative_variant_paths),
+                "authoritative_variant_paths": authoritative_variant_paths,
+                "excluded_variant_count": len(excluded_variant_paths),
+                "excluded_variant_paths": excluded_variant_paths,
+                "blocked_raw_anchor_count": len(blocked_raw_anchor_paths),
+                "blocked_raw_anchor_paths": blocked_raw_anchor_paths,
+                "source_admission_guardrails": source_admission_guardrails,
+                "duplicate_guardrails": duplicate_guardrails,
+            }
+        )
+
+    return visibility_rows, raw_alias_law_folders, guardrail_law_folders
+
+
 def _write_source_admission_back_to_manifest(
     *,
     manifest_path: Path,
@@ -2172,6 +2225,11 @@ def run_laws_tranche_source_to_graph_dry_run(
         repo_root=repo_root,
         folder_names=[str(item["folder_name"]) for item in tranche_payload["candidate_law_folders"]],
     )
+    variant_visibility, raw_alias_law_folders, guardrail_law_folders = _tranche_variant_visibility(
+        tranche_payload=tranche_payload,
+        staged_law_folders=staged_law_folders,
+        duplicate_flags_by_folder=duplicate_flags_by_folder,
+    )
     inner_rc, inner_output = _capture_text_handler(
         lambda: run_dataset_source_to_graph_pipeline(
             dataset_manifest=str(paths["derived_manifest"]),
@@ -2205,6 +2263,9 @@ def run_laws_tranche_source_to_graph_dry_run(
         "duplicate_cluster_count": len(duplicate_clusters),
         "duplicate_law_folders": sorted(duplicate_flags_by_folder),
         "duplicate_clusters": duplicate_clusters,
+        "raw_alias_law_folders": raw_alias_law_folders,
+        "guardrail_law_folders": guardrail_law_folders,
+        "law_folder_variant_visibility": variant_visibility,
         "source_to_graph_execute_ready": False,
         "source_to_graph_execute_blockers": [
             "tranche source-to-graph execute remains gated until OCR-blocked and wider tranche risks are resolved",
@@ -2226,8 +2287,11 @@ def run_laws_tranche_source_to_graph_dry_run(
         "blocked_law_folders": blocked_law_folders,
         "duplicate_cluster_count": len(duplicate_clusters),
         "duplicate_law_folders": sorted(duplicate_flags_by_folder),
+        "raw_alias_law_folders": raw_alias_law_folders,
+        "guardrail_law_folders": guardrail_law_folders,
         "planned_stage_count": inner_summary.get("planned_stage_count"),
         "manual_review_required_count": inner_summary.get("manual_review_required_count"),
+        "spot_review_required_count": inner_summary.get("spot_review_required_count"),
         "summary_auto_withheld_count": inner_summary.get("summary_auto_withheld_count"),
         "shallow_representation_count": inner_summary.get("shallow_representation_count"),
         "dataset_pipeline_report_path": inner_summary.get("pipeline_report_path"),
@@ -2281,6 +2345,11 @@ def run_laws_tranche_source_to_graph(
         repo_root=repo_root,
         folder_names=[str(item["folder_name"]) for item in tranche_payload["candidate_law_folders"]],
     )
+    variant_visibility, raw_alias_law_folders, guardrail_law_folders = _tranche_variant_visibility(
+        tranche_payload=tranche_payload,
+        staged_law_folders=staged_law_folders,
+        duplicate_flags_by_folder=duplicate_flags_by_folder,
+    )
     inner_rc, inner_output = _capture_text_handler(
         lambda: run_dataset_source_to_graph_pipeline(
             dataset_manifest=str(paths["derived_manifest"]),
@@ -2314,6 +2383,9 @@ def run_laws_tranche_source_to_graph(
         "duplicate_cluster_count": len(duplicate_clusters),
         "duplicate_law_folders": sorted(duplicate_flags_by_folder),
         "duplicate_clusters": duplicate_clusters,
+        "raw_alias_law_folders": raw_alias_law_folders,
+        "guardrail_law_folders": guardrail_law_folders,
+        "law_folder_variant_visibility": variant_visibility,
         "source_to_graph_execute_completed": True,
         "inner_source_to_graph_summary": inner_summary,
     }
@@ -2331,9 +2403,12 @@ def run_laws_tranche_source_to_graph(
         "blocked_law_folders": blocked_law_folders,
         "duplicate_cluster_count": len(duplicate_clusters),
         "duplicate_law_folders": sorted(duplicate_flags_by_folder),
+        "raw_alias_law_folders": raw_alias_law_folders,
+        "guardrail_law_folders": guardrail_law_folders,
         "generated_relationship_count": inner_summary.get("generated_relationship_count"),
         "filtered_relationship_count": inner_summary.get("filtered_relationship_count"),
         "manual_review_required_count": inner_summary.get("manual_review_required_count"),
+        "spot_review_required_count": inner_summary.get("spot_review_required_count"),
         "summary_auto_withheld_count": inner_summary.get("summary_auto_withheld_count"),
         "shallow_representation_count": inner_summary.get("shallow_representation_count"),
         "dataset_pipeline_report_path": inner_summary.get("pipeline_report_path"),

@@ -1,0 +1,117 @@
+{
+  "action": "run-laws-tranche-source-to-graph",
+  "blocked_law_folders": [],
+  "derived_manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-1/source_to_graph_execute/20260417T073704Z/derived_dataset_manifest.yaml",
+  "duplicate_cluster_count": 1,
+  "duplicate_clusters": [
+    {
+      "file_count": 3,
+      "law_folder_count": 1,
+      "law_folders": [
+        "PD-957"
+      ],
+      "raw_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf",
+        "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf",
+        "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf"
+      ],
+      "semantic_flags": [
+        "conflicting_law_irr_filename_semantics"
+      ],
+      "sha256": "1f9ab17a816885cfdbafafc03e3e9b64470a737447129a32a459836d6773f9ea"
+    }
+  ],
+  "duplicate_law_folders": [
+    "PD-957"
+  ],
+  "execute": true,
+  "generated_at_utc": "20260417T073705Z",
+  "inner_source_to_graph_summary": {
+    "action": "run-dataset-source-to-graph",
+    "benchmark_hint_count": 0,
+    "browser_opened": null,
+    "dataset_id": "laws-tranche-1-source-to-graph-execute",
+    "derived_manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T073704Z/derived_dataset_manifest.yaml",
+    "filtered_relationship_count": 0,
+    "generated_relationship_count": 2,
+    "graph_build_report_path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/20260417T073704Z_build_graph_dataset_report.json",
+    "graph_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-1-source-to-graph-execute/20260417T073704Z_graph_snapshot.json",
+    "manual_review_required_count": 0,
+    "pipeline_report_path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T073704Z/source_to_graph_run_report.json",
+    "review_model": "qwen2.5:7b",
+    "review_preset": "m2-8gb-safe",
+    "review_runtime": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "preset": {
+        "keeps_phase_11_gated": true,
+        "model": "qwen2.5:7b",
+        "name": "m2-8gb-safe",
+        "num_ctx_cap": 4096,
+        "parallelism": 1,
+        "timeout_seconds": 900
+      },
+      "timeout_seconds": 900
+    },
+    "review_settings": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "preset": {
+        "keeps_phase_11_gated": true,
+        "model": "qwen2.5:7b",
+        "name": "m2-8gb-safe",
+        "num_ctx_cap": 4096,
+        "parallelism": 1,
+        "timeout_seconds": 900
+      },
+      "timeout_seconds": 900
+    },
+    "run_id": "20260417T073704Z",
+    "shallow_representation_count": 0,
+    "source_quality_summary": {
+      "benchmark_source_hints": [],
+      "extraction_trust_counts": {
+        "guarded": 2,
+        "review_required": 0,
+        "trusted": 1
+      },
+      "high_severity_paths": [],
+      "high_severity_sources": [],
+      "manual_review_required_paths": [],
+      "manual_review_required_sources": [],
+      "representation_guardrail_counts": {
+        "high": 0,
+        "low": 3,
+        "medium": 0
+      },
+      "severity_counts": {
+        "high": 0,
+        "low": 3,
+        "medium": 0
+      },
+      "shallow_representation_paths": [],
+      "shallow_representation_sources": [],
+      "summary_auto_withheld_paths": []
+    },
+    "summary_auto_withheld_count": 0,
+    "visualization_html_path": null
+  },
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "review_preset": "m2-8gb-safe",
+  "run_id": "20260417T073704Z",
+  "source_to_graph_execute_completed": true,
+  "staged_law_folders": [
+    "PD-957",
+    "PD-1216",
+    "PD-1185"
+  ],
+  "tranche_id": "laws-tranche-1",
+  "tranche_manifest_path": "config/datasets/laws-tranche-1.yaml"
+}

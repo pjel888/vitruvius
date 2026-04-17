@@ -355,6 +355,84 @@ def _source_quality_severity(metrics: dict[str, object]) -> str:
 
 
 
+def _is_suspicious_ocr_line(line: str) -> bool:
+    cleaned = line.strip()
+    if not cleaned or cleaned.startswith("![") or len(cleaned) < 8:
+        return False
+    alpha_count = sum(1 for char in cleaned if char.isalpha())
+    if alpha_count < 8:
+        return False
+    tokens = re.findall(r"[A-Za-z]+(?:/[A-Za-z]+)?", cleaned)
+    if any(len(token) >= 18 for token in tokens):
+        return True
+    if re.search(r"[A-Za-z]\|[A-Za-z]", cleaned):
+        return True
+    if cleaned.count("“") != cleaned.count("”") or cleaned.count("‘") != cleaned.count("’"):
+        return True
+    if alpha_count >= 20 and cleaned.count(" ") <= 1 and not cleaned.isupper():
+        return True
+    return False
+
+
+
+def _ocr_instability_metrics(text: str) -> dict[str, object]:
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    first_window = lines[:160]
+    suspicious_lines = [line for line in lines if _is_suspicious_ocr_line(line)]
+    front_matter_suspicious_lines = [line for line in first_window if _is_suspicious_ocr_line(line)]
+    return {
+        "suspicious_ocr_line_count": len(suspicious_lines),
+        "suspicious_ocr_line_ratio": round(len(suspicious_lines) / len(lines), 6) if lines else 0.0,
+        "front_matter_suspicious_ocr_line_count": len(front_matter_suspicious_lines),
+        "suspicious_ocr_examples": suspicious_lines[:5],
+    }
+
+
+
+def _source_acceptance_status(metrics: dict[str, object]) -> str:
+    if metrics.get("severity") == "high":
+        return "manual_review_required"
+    suspicious_ratio = float(metrics.get("suspicious_ocr_line_ratio", 0.0) or 0.0)
+    front_matter_suspicious_count = int(metrics.get("front_matter_suspicious_ocr_line_count", 0) or 0)
+    summary_flags = set(metrics.get("summary_hygiene_flags") or [])
+    if suspicious_ratio >= 0.2:
+        return "accepted_with_spot_review"
+    if "image_heavy_front_matter" in summary_flags and front_matter_suspicious_count >= 2:
+        return "accepted_with_spot_review"
+    return "accepted"
+
+
+
+def _source_acceptance_reasons(metrics: dict[str, object]) -> list[str]:
+    status = metrics.get("source_acceptance_status")
+    if status == "accepted":
+        return []
+    suspicious_ratio = float(metrics.get("suspicious_ocr_line_ratio", 0.0) or 0.0)
+    front_matter_suspicious_count = int(metrics.get("front_matter_suspicious_ocr_line_count", 0) or 0)
+    reasons: list[str] = []
+    if status == "manual_review_required":
+        reasons.append("source quality severity is high enough to require manual review before trusting automated summaries")
+    if suspicious_ratio >= 0.2:
+        reasons.append("OCR-like line-merge artifacts exceed the bounded spot-review threshold")
+    if "image_heavy_front_matter" in set(metrics.get("summary_hygiene_flags") or []) and front_matter_suspicious_count >= 2:
+        reasons.append("image-heavy front matter still contains suspicious OCR text near the document title/opening lines")
+    return reasons
+
+
+
+def _spot_review_focus(metrics: dict[str, object]) -> list[str]:
+    if metrics.get("source_acceptance_status") == "accepted":
+        return []
+    focus = [
+        "title/header lines and the first operative section",
+        "section numbering and other numeric provisions",
+    ]
+    if "image_heavy_front_matter" in set(metrics.get("summary_hygiene_flags") or []):
+        focus.append("image-backed front matter, page breaks, and signature/footer spillover")
+    return focus
+
+
+
 def _source_quality_recommendations(metrics: dict[str, object]) -> list[str]:
     recommendations: list[str] = []
     image_count = int(metrics.get("image_line_count", 0) or 0)
@@ -369,6 +447,10 @@ def _source_quality_recommendations(metrics: dict[str, object]) -> list[str]:
         recommendations.append("low useful-text ratio: review source-summary trust before relying on canonical summaries")
     if structural_heading_count < 5:
         recommendations.append("low structural-heading count: verify section detection and source structure fidelity")
+    if metrics.get("source_acceptance_status") == "accepted_with_spot_review":
+        recommendations.append("spot-review OCR-sensitive title/heading lines before trusting automated summaries")
+    if metrics.get("source_acceptance_status") == "manual_review_required":
+        recommendations.append("manual review required: OCR/layout instability is too high for unattended source-summary use")
     return recommendations
 
 
@@ -453,9 +535,10 @@ def _source_summary_hygiene_flags(text: str) -> list[str]:
 def _extraction_trust_level(metrics: dict[str, object]) -> str:
     severity = metrics.get("severity")
     summary_flags = metrics.get("summary_hygiene_flags") or []
-    if severity == "high":
+    acceptance_status = metrics.get("source_acceptance_status")
+    if severity == "high" or acceptance_status == "manual_review_required":
         return "review_required"
-    if severity == "medium" or summary_flags:
+    if severity == "medium" or summary_flags or acceptance_status == "accepted_with_spot_review":
         return "guarded"
     return "trusted"
 
@@ -478,9 +561,13 @@ def _extraction_trust_reasons(metrics: dict[str, object]) -> list[str]:
         message = flag_messages.get(flag)
         if message:
             reasons.append(message)
+    for acceptance_reason in metrics.get("source_acceptance_reasons", []) or []:
+        reasons.append(str(acceptance_reason))
+    if metrics.get("spot_review_required"):
+        reasons.append("spot-review the flagged OCR-sensitive regions before trusting summary prose")
     if metrics.get("manual_review_recommended"):
         reasons.append("benchmark authoritative references before promoting summary claims")
-    return reasons
+    return list(dict.fromkeys(reasons))
 
 
 
@@ -552,14 +639,19 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
         "useful_text_ratio": round(len(useful_lines) / len(non_empty), 6) if non_empty else 0.0,
     }
     metrics["severity"] = _source_quality_severity(metrics)
-    metrics["recommendations"] = _source_quality_recommendations(metrics)
+    metrics.update(_ocr_instability_metrics(text))
     metrics["benchmark_source_hints"] = _benchmark_source_hints(normalized_refined_path, "")
     metrics["summary_hygiene_flags"] = _source_summary_hygiene_flags(text)
-    metrics["manual_review_recommended"] = metrics["severity"] == "high"
-    metrics["summary_auto_withheld"] = metrics["severity"] == "high"
+    metrics["source_acceptance_status"] = _source_acceptance_status(metrics)
+    metrics["source_acceptance_reasons"] = _source_acceptance_reasons(metrics)
+    metrics["spot_review_focus"] = _spot_review_focus(metrics)
+    metrics["spot_review_required"] = metrics["source_acceptance_status"] in {"accepted_with_spot_review", "manual_review_required"}
+    metrics["manual_review_recommended"] = metrics["source_acceptance_status"] == "manual_review_required"
+    metrics["summary_auto_withheld"] = metrics["source_acceptance_status"] != "accepted"
     metrics["canonical_summary_action"] = (
         "withhold_auto_summary" if metrics["summary_auto_withheld"] else "allow_auto_summary"
     )
+    metrics["recommendations"] = _source_quality_recommendations(metrics)
     metrics["extraction_trust_level"] = _extraction_trust_level(metrics)
     metrics["extraction_trust_reasons"] = _extraction_trust_reasons(metrics)
     return metrics
@@ -570,9 +662,11 @@ def _compute_refined_markdown_quality(repo_root: Path, normalized_refined_path: 
 def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str, object]:
     counts = {"low": 0, "medium": 0, "high": 0}
     extraction_trust_counts = {"trusted": 0, "guarded": 0, "review_required": 0}
+    source_acceptance_counts = {"accepted": 0, "accepted_with_spot_review": 0, "manual_review_required": 0}
     representation_guardrail_counts = {"low": 0, "medium": 0, "high": 0}
     high_paths: list[str] = []
     manual_review_required_paths: list[str] = []
+    spot_review_required_paths: list[str] = []
     summary_auto_withheld_paths: list[str] = []
     high_severity_sources: list[dict[str, object]] = []
     manual_review_required_sources: list[dict[str, object]] = []
@@ -585,6 +679,14 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
             continue
         severity = quality.get("severity")
         extraction_trust_level = quality.get("extraction_trust_level")
+        source_acceptance_status = quality.get("source_acceptance_status")
+        if source_acceptance_status not in {"accepted", "accepted_with_spot_review", "manual_review_required"}:
+            if quality.get("manual_review_recommended"):
+                source_acceptance_status = "manual_review_required"
+            elif quality.get("spot_review_required"):
+                source_acceptance_status = "accepted_with_spot_review"
+            else:
+                source_acceptance_status = "accepted"
         representation_guardrail = quality.get("representation_guardrail")
         path = stage.get("normalized_refined_markdown_path") or quality.get("refined_markdown_path")
         raw_recommendations = quality.get("recommendations")
@@ -611,6 +713,8 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
                 high_severity_sources.append(stage_summary)
         if extraction_trust_level in extraction_trust_counts:
             extraction_trust_counts[extraction_trust_level] += 1
+        if source_acceptance_status in source_acceptance_counts:
+            source_acceptance_counts[source_acceptance_status] += 1
         if isinstance(representation_guardrail, dict):
             guardrail_severity = representation_guardrail.get("severity")
             if guardrail_severity in representation_guardrail_counts:
@@ -626,6 +730,8 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
         if quality.get("manual_review_recommended") and isinstance(path, str):
             manual_review_required_paths.append(path)
             manual_review_required_sources.append(stage_summary)
+        if quality.get("spot_review_required") and isinstance(path, str):
+            spot_review_required_paths.append(path)
         if quality.get("summary_auto_withheld") and isinstance(path, str):
             summary_auto_withheld_paths.append(path)
         for hint in quality.get("benchmark_source_hints", []):
@@ -636,11 +742,13 @@ def _source_quality_summary(stage_results: list[dict[str, object]]) -> dict[str,
     return {
         "severity_counts": counts,
         "extraction_trust_counts": extraction_trust_counts,
+        "source_acceptance_counts": source_acceptance_counts,
         "representation_guardrail_counts": representation_guardrail_counts,
         "high_severity_paths": list(dict.fromkeys(high_paths)),
         "high_severity_sources": high_severity_sources,
         "manual_review_required_paths": list(dict.fromkeys(manual_review_required_paths)),
         "manual_review_required_sources": manual_review_required_sources,
+        "spot_review_required_paths": list(dict.fromkeys(spot_review_required_paths)),
         "summary_auto_withheld_paths": list(dict.fromkeys(summary_auto_withheld_paths)),
         "shallow_representation_paths": list(dict.fromkeys(shallow_representation_paths)),
         "shallow_representation_sources": shallow_representation_sources,
@@ -1025,6 +1133,7 @@ def run_dataset_source_to_graph_pipeline(
             "review_runtime": review_settings,
             "planned_stage_count": len(stage_results),
             "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
+            "spot_review_required_count": len(quality_summary["spot_review_required_paths"]),
             "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
             "shallow_representation_count": len(quality_summary["shallow_representation_paths"]),
             "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),
@@ -1110,6 +1219,7 @@ def run_dataset_source_to_graph_pipeline(
         "review_settings": review_settings,
         "review_runtime": review_settings,
         "manual_review_required_count": len(quality_summary["manual_review_required_paths"]),
+        "spot_review_required_count": len(quality_summary["spot_review_required_paths"]),
         "summary_auto_withheld_count": len(quality_summary["summary_auto_withheld_paths"]),
         "shallow_representation_count": len(quality_summary["shallow_representation_paths"]),
         "benchmark_hint_count": len(quality_summary["benchmark_source_hints"]),
