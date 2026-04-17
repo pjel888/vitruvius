@@ -1010,6 +1010,103 @@ def prepare_completed_aggregate_lane_sources(
     return summary
 
 
+def source_admit_completed_aggregate_lane_dry_run(
+    *,
+    repo_root: Path,
+    manifest_path: Path,
+    source_prep_report_path: Path | None = None,
+) -> dict[str, Any]:
+    from .laws_readiness import (
+        _admission_status_for_folder,
+        _candidate_source_page_plan,
+        _next_step_for_admission_status,
+        _select_prepared_source_candidates,
+    )
+
+    resolved_manifest_path = manifest_path if manifest_path.is_absolute() else repo_root / manifest_path
+    payload = load_yaml_payload(resolved_manifest_path)
+    dataset_id = str(payload.get('dataset_id') or resolved_manifest_path.stem)
+    run_output_root_rel = str(payload.get('run_output_root') or f'006_System-Manifests/runs/datasets/{dataset_id}')
+    run_output_root = repo_root / run_output_root_rel
+
+    if source_prep_report_path is None:
+        candidates = sorted((run_output_root / 'source_prep').glob('*/completed_aggregate_lane_source_prep_report.json'))
+        if not candidates:
+            raise ValueError('no completed aggregate lane source-prep reports found; run prepare-completed-aggregate-lane-sources first')
+        resolved_source_prep_report_path = candidates[-1]
+    else:
+        resolved_source_prep_report_path = (
+            source_prep_report_path if source_prep_report_path.is_absolute() else repo_root / source_prep_report_path
+        )
+    source_prep_payload = json.loads(resolved_source_prep_report_path.read_text(encoding='utf-8'))
+    files = source_prep_payload.get('files')
+    if not isinstance(files, list):
+        raise ValueError('source prep report requires a files list')
+
+    prepared_files = [
+        report for report in files
+        if isinstance(report, dict) and (
+            report.get('status') == 'prepared'
+            or (
+                source_prep_payload.get('dry_run') is True
+                and report.get('supported_direct_input') is True
+                and isinstance(report.get('expected_refined_markdown_path'), str)
+            )
+        )
+    ]
+    blocked_files = [
+        report for report in files
+        if isinstance(report, dict) and (
+            report.get('status') == 'ocr_required'
+            or (
+                source_prep_payload.get('dry_run') is True
+                and report.get('recommended_route')
+                and report.get('recommended_route') != 'OPENDATALOADER_DIRECT'
+            )
+        )
+    ]
+    failed_files = [
+        report for report in files
+        if isinstance(report, dict) and str(report.get('status') or '').endswith('_failed')
+    ]
+
+    normalized_prepared_files: list[dict[str, Any]] = []
+    for report in prepared_files:
+        normalized = dict(report)
+        if source_prep_payload.get('dry_run') is True:
+            normalized.setdefault('status', 'prepared')
+            normalized.setdefault('raw_path', report.get('raw_path'))
+            if isinstance(report.get('expected_refined_markdown_path'), str):
+                normalized['expected_refined_markdown_path'] = report.get('expected_refined_markdown_path')
+        normalized_prepared_files.append(normalized)
+
+    candidate_source_pages, excluded_prepared_file_reports, admission_guardrails = _select_prepared_source_candidates(
+        repo_root=repo_root,
+        prepared_files=normalized_prepared_files,
+    )
+    status = _admission_status_for_folder(
+        candidate_source_pages=candidate_source_pages,
+        blocked_file_reports=blocked_files,
+        failed_file_reports=failed_files,
+    )
+
+    return {
+        'action': 'source-admit-completed-aggregate-lane-dry-run',
+        'dataset_id': dataset_id,
+        'manifest_path': _relative(resolved_manifest_path, repo_root),
+        'source_prep_report_path': _relative(resolved_source_prep_report_path, repo_root),
+        'status': status,
+        'candidate_source_page_count': len(candidate_source_pages),
+        'candidate_source_pages': candidate_source_pages,
+        'excluded_prepared_count': len(excluded_prepared_file_reports),
+        'excluded_prepared_file_reports': excluded_prepared_file_reports,
+        'blocked_file_reports': blocked_files,
+        'failed_file_reports': failed_files,
+        'admission_guardrails': admission_guardrails,
+        'next_step': _next_step_for_admission_status(status),
+    }
+
+
 def scaffold_completed_aggregate_lane_manifest(
     *,
     repo_root: Path,

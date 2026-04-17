@@ -171,6 +171,23 @@ python3 scripts/pipeline_cli.py prepare-completed-aggregate-lane-sources \
 
 This writes a source-prep report under the lane run root and makes the next canonical-admission step much more mechanical.
 
+## Dry-running source admission for a starter lane
+To see whether prepared starter-lane outputs are actually ready for canonical source admission:
+
+```bash
+python3 scripts/pipeline_cli.py source-admit-completed-aggregate-lane-dry-run \
+  --manifest <lane-manifest-yaml>
+```
+
+This reports:
+- admission `status`
+- candidate source page count
+- excluded prepared files
+- blocked/failed file reports
+- guardrails and next-step guidance
+
+This is the final pre-admission diagnostic surface before truthful canonical source admission work.
+
 ## Profile contract
 A profile YAML must define:
 - `dataset_id`
