@@ -146,6 +146,14 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `shallow_representation_count = 0`
       - `source_to_graph_execute_completed = true`
     - see `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-execute-validation.md`
+  - bounded risk-hardening pass is now in progress/completed for the current tranche:
+    - duplicate/raw-alias visibility for `PD-957` is now surfaced more explicitly in tranche dry-run/execute reports
+    - OCR-quality acceptance for `PD-1216` now rolls up as spot-review-required rather than a silent accept path
+    - fresh tranche dry-run/execute now show:
+      - `duplicate_law_folders = [PD-957]`
+      - `spot_review_required_count = 1`
+      - `summary_auto_withheld_count = 1`
+    - see `/.ai/05_logs/2026-04-17_laws-risk-hardening-execution-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
