@@ -1,0 +1,47 @@
+as_of: 2026-04-18
+scope: residual_laws_pool
+purpose: explicit_reopen_rules
+notes:
+  - This artifact states what kind of evidence would be sufficient to reopen currently deferred residual law folders.
+  - It complements `config/datasets/laws-remaining-dispositions.yaml`.
+reopen_criteria:
+  - folder_name: RA-11361
+    current_disposition: defer_draft_only
+    reopen_when:
+      - a final enacted law or final promulgated IRR replaces the current draft-for-comments PDF
+      - the final source is attributable to an official government or primary legal repository
+  - folder_name: RA-7920
+    current_disposition: defer_empty_folder
+    reopen_when:
+      - at least one attributable raw source file is added
+      - the new source is a final law, final IRR, or equivalent primary issuance
+  - folder_name: HB-3391
+    current_disposition: defer_bill_only
+    reopen_when:
+      - the bill is enacted into law or replaced by a final regulatory issuance
+      - or an official final government issuance directly supersedes the bill text
+  - folder_name: HB-5207
+    current_disposition: defer_bill_only
+    reopen_when:
+      - the bill is enacted into law or replaced by a final regulatory issuance
+      - or an official final government issuance directly supersedes the bill text
+  - folder_name: SB-2982
+    current_disposition: defer_bill_only
+    reopen_when:
+      - the bill is enacted into law or replaced by a final regulatory issuance
+      - or an official final government issuance directly supersedes the bill text
+  - folder_name: BERDE
+    current_disposition: defer_non_law_user_guide
+    reopen_when:
+      - an official government regulatory adoption or equivalent primary public-law hook is added
+      - or the folder acquires a stronger primary regulatory issuance beyond the user guide
+policy:
+  primary_reopen_sources:
+    - official agency publication
+    - Official Gazette publication
+    - Lawphil publication
+    - final board or commission resolution
+  insufficient_reopen_reasons:
+    - text readability alone
+    - popularity or relevance alone
+    - secondary commentary alone
