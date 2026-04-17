@@ -219,6 +219,8 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - tranche-2 graph-richness follow-on now exists: a bounded `RA-7899` concept-fit slice raises tranche-2 graph output from `3 nodes / 0 edges` to `4 nodes / 1 edge`; see `/.ai/05_logs/2026-04-17_ra7899-concept-fit-admission-validation.md`
   - tranche-2 condominium-law vocabulary is now expanding: a bounded `RA-4726` common-areas slice raises tranche-2 graph output from `4 nodes / 1 edge` to `5 nodes / 4 edges`; see `/.ai/05_logs/2026-04-17_ra4726-common-areas-concept-fit-validation.md`
   - tranche-2 housing-policy richness is now expanding: a bounded `RA-7279` socialized-housing slice raises tranche-2 graph output from `5 nodes / 4 edges` to `6 nodes / 5 edges`; see `/.ai/05_logs/2026-04-17_ra7279-socialized-housing-concept-fit-validation.md`
+  - tranche-3 now exists and executes through the same bounded workflow: `config/datasets/laws-tranche-3.yaml` stages `PD-1067`, `PD-1151`, and `RA-9003`; current execute evidence shows `raw_alias_law_folders = [PD-1067]`, `generated_relationship_count = 0`, and `shallow_representation_count = 1`; see `/.ai/05_logs/2026-04-17_laws-tranche-3-execution-validation.md`
+  - tranche source admission now respects manifest-level authoritative/excluded variant intent and preserves blocked-law raw-anchor intent on manifest writeback; see `/.ai/05_logs/2026-04-17_tranche-source-admission-variant-selection-validation.md`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)

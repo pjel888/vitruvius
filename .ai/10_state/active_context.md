@@ -203,6 +203,20 @@
   - fresh tranche-2 execute evidence improves graph output from:
     - `5 nodes / 4 edges`
     - to `6 nodes / 5 edges`
+- Tranche-3 bounded execution:
+  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/tests/test_dataset_pipeline_cli.py`
+  - **PASS**
+  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -k 'source_admission or source_to_graph' -q`
+  - **8 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-admission --tranche-manifest config/datasets/laws-tranche-3.yaml --source-prep-report 006_System-Manifests/runs/datasets/laws-tranche-3/20260417T103824Z/laws_tranche_source_prep_report.json`
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-graph --tranche-manifest config/datasets/laws-tranche-3.yaml --review-preset m2-8gb-safe`
+  - current tranche-3 execute evidence:
+    - `staged_law_folders = [PD-1067, PD-1151, RA-9003]`
+    - `duplicate_law_folders = []`
+    - `raw_alias_law_folders = [PD-1067]`
+    - `generated_relationship_count = 0`
+    - `shallow_representation_count = 1`
+    - `source_to_graph_execute_completed = true`
 
 ## Residual Graph Caveat
 
@@ -235,6 +249,8 @@
 - Latest RA-7899 tranche-2 richness validation: `/.ai/05_logs/2026-04-17_ra7899-concept-fit-admission-validation.md`
 - Latest RA-4726 common-areas validation: `/.ai/05_logs/2026-04-17_ra4726-common-areas-concept-fit-validation.md`
 - Latest RA-7279 socialized-housing validation: `/.ai/05_logs/2026-04-17_ra7279-socialized-housing-concept-fit-validation.md`
+- Latest tranche-3 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-3-execution-validation.md`
+- Latest tranche source-admission variant-selection validation: `/.ai/05_logs/2026-04-17_tranche-source-admission-variant-selection-validation.md`
 
 ## Handoff Note
 

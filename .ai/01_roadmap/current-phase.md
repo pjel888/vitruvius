@@ -193,6 +193,22 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `5 nodes / 4 edges`
       - to `6 nodes / 5 edges`
     - see `/.ai/05_logs/2026-04-17_ra7279-socialized-housing-concept-fit-validation.md`
+  - tranche-3 is now defined and executed through the same bounded workflow:
+    - manifest: `config/datasets/laws-tranche-3.yaml`
+    - tranche-3 laws:
+      - `PD-1067`
+      - `PD-1151`
+      - `RA-9003`
+    - current execute evidence:
+      - `staged_law_folders = [PD-1067, PD-1151, RA-9003]`
+      - `duplicate_law_folders = []`
+      - `raw_alias_law_folders = [PD-1067]`
+      - `generated_relationship_count = 0`
+      - `shallow_representation_count = 1`
+      - `source_to_graph_execute_completed = true`
+    - tranche source admission now respects manifest-level authoritative/excluded variant intent, preserving explicit raw-alias visibility for `PD-1067`
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-3-execution-validation.md`
+    - see `/.ai/05_logs/2026-04-17_tranche-source-admission-variant-selection-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

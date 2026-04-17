@@ -1,0 +1,91 @@
+tranche_id: laws-tranche-3
+purpose: readiness-only
+phase_11_gate: gated
+description: Third explicit widening tranche after tranche-2 richness work. This tranche
+  stays bounded around utilities and environmental-law surfaces with direct text-PDF
+  readiness and no current exact-duplicate cluster evidence.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: PD-1067
+  reason: Utilities and water-governance adjacency to site-development and environmental
+    controls.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/PD-1067/Water Code of PH IRR 2005.pdf
+  - 001_Raw-Source-Layer/001-Laws/PD-1067/PD 1067 - Water Code of the Philippines.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths:
+  - 001_Raw-Source-Layer/001-Laws/PD-1067/PD 1067 IRR - Water Code Implementing Rules.pdf
+  verification_checks:
+  - initial tranche-3 selection keeps PD-1067 bounded to the base law plus the amended
+    IRR.
+  - source admission executed for the selected authoritative prepared variants
+  - duplicate or study-aid raw variants remain explicit and excluded from canonical
+    admission
+  scope_notes:
+  - Older non-amended IRR text is kept explicit and excluded pending any later supersession
+    review.
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-3/20260417T104200Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T104200Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1067/Water Code of PH IRR
+    2005.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1067/PD 1067 - Water Code
+    of the Philippines.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/water-code-of-the-philippines.md
+  source_admission_guardrails: []
+- folder_name: PD-1151
+  reason: Environmental policy adjacency with a compact single-law surface.
+  raw_anchor_paths: &id002
+  - 001_Raw-Source-Layer/001-Laws/PD-1151/PD 1151 - PD 1152 Environmental Code.pdf
+  authoritative_variant_paths: *id002
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-3/20260417T104200Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T104200Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1151/PD 1151 - PD 1152 Environmental
+    Code.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/philippine-environmental-policy.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+- folder_name: RA-9003
+  reason: Waste-management and operational-environment adjacency with a compact single-law
+    surface.
+  raw_anchor_paths: &id003
+  - 001_Raw-Source-Layer/001-Laws/RA-9003/RA 9003 Ecological Solid Waste Management
+    Act 2000.pdf
+  authoritative_variant_paths: *id003
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-3/20260417T104200Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T104200Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9003/RA 9003 Ecological
+    Solid Waste Management Act 2000.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/ecological-solid-waste-management-act-of-2000.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+source_admission:
+  last_run_id: 20260417T104200Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-3/20260417T104200Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - PD-1067
+  - PD-1151
+  - RA-9003
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []

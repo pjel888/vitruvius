@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T103838Z",
+  "source_relative_path": "001-Laws/raw_markdown/PD-1067/PD 1067 IRR - Water Code Implementing Rules.md",
+  "refined_relative_path": "001-Laws/refined_markdown/PD-1067/PD 1067 IRR - Water Code Implementing Rules.md",
+  "source_hash": "623e2b2fb9465c3e9e33a7306bd1d64f790cb533e2b8fd7f894fc90511696375",
+  "output_hash": "4321f6e44888572cba51eef9608de9254e6cf512d65bfb53803a8b150e5899c7",
+  "chars_before": 69709,
+  "chars_after": 69629,
+  "chars_delta": -80,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "collapse-consecutive-blank-lines"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 69709,
+      "chars_after": 69709,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 69709,
+      "chars_after": 69709,
+      "changed": false
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 69709,
+      "chars_after": 69709,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 69709,
+      "chars_after": 69709,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 69709,
+      "chars_after": 69629,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 69629,
+      "chars_after": 69629,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 69629,
+      "chars_after": 69629,
+      "changed": false
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 69629,
+      "chars_after": 69629,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}

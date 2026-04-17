@@ -1,0 +1,557 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "browser_opened": null,
+  "dataset_id": "laws-tranche-3-source-to-graph-execute",
+  "derived_manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/derived_dataset_manifest.yaml",
+  "filtered_relationship_count": 0,
+  "filtered_relationship_paths": [],
+  "generated_at_utc": "20260417T103854Z",
+  "generated_relationship_count": 0,
+  "graph": {
+    "action": "run-dataset-graph",
+    "build_report_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/20260417T103854Z_build_graph_dataset_report.json",
+    "contributing_law_ids": [
+      "pd-1067",
+      "ra-9003"
+    ],
+    "dataset_id": "laws-tranche-3-source-to-graph-execute",
+    "law_unit_count": 2,
+    "owl_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-3-source-to-graph-execute/20260417T103854Z_graph_snapshot.ttl",
+    "pipeline_report_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/20260417T103854Z_dataset_pipeline_run_report.json",
+    "run_id": "20260417T103854Z",
+    "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-3-source-to-graph-execute/20260417T103854Z_graph_snapshot.json",
+    "structured_check_count": 0
+  },
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-3/source_to_graph_execute/20260417T103853Z/derived_dataset_manifest.yaml",
+  "review_model": "qwen2.5:7b",
+  "review_preset": "m2-8gb-safe",
+  "review_runtime": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "review_settings": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "run_id": "20260417T103853Z",
+  "source_quality_summary": {
+    "benchmark_source_hints": [],
+    "extraction_trust_counts": {
+      "guarded": 0,
+      "review_required": 0,
+      "trusted": 4
+    },
+    "high_severity_paths": [],
+    "high_severity_sources": [],
+    "manual_review_required_paths": [],
+    "manual_review_required_sources": [],
+    "representation_guardrail_counts": {
+      "high": 0,
+      "low": 2,
+      "medium": 2
+    },
+    "severity_counts": {
+      "high": 0,
+      "low": 4,
+      "medium": 0
+    },
+    "shallow_representation_paths": [
+      "001-Laws/refined_markdown/PD-1067/PD 1067 IRR - Water Code Implementing Rules.md",
+      "001-Laws/refined_markdown/PD-1067/Water Code of PH IRR 2005.md"
+    ],
+    "shallow_representation_sources": [
+      {
+        "benchmark_source_hints": [],
+        "difficulty_signals": {
+          "image_line_count": 0,
+          "noise_line_count": 0,
+          "structural_heading_count": 31,
+          "table_line_count": 0,
+          "useful_text_ratio": 1.0
+        },
+        "manual_review_recommended": false,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/PD-1067/PD 1067 IRR - Water Code Implementing Rules.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "PD-1067",
+          "law_id": "pd-1067",
+          "reasons": [
+            "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+            "relationship coverage is also thin relative to detected structure"
+          ],
+          "recommendations": [
+            "add law-native canonical concepts before widening this tranche",
+            "treat current graph coverage as concept-shallow rather than section-complete"
+          ],
+          "section_to_concept_ratio": 31.0,
+          "section_to_relationship_ratio": 31.0,
+          "severity": "medium",
+          "status": "shallow_representation",
+          "structural_heading_count": 31
+        },
+        "severity": "low",
+        "source_id": "law-section-pd-1067-irr-water-code-implementing-rules"
+      },
+      {
+        "benchmark_source_hints": [],
+        "difficulty_signals": {
+          "image_line_count": 1,
+          "noise_line_count": 0,
+          "structural_heading_count": 38,
+          "table_line_count": 0,
+          "useful_text_ratio": 0.998158
+        },
+        "manual_review_recommended": false,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/PD-1067/Water Code of PH IRR 2005.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "PD-1067",
+          "law_id": "pd-1067",
+          "reasons": [
+            "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+            "relationship coverage is also thin relative to detected structure"
+          ],
+          "recommendations": [
+            "add law-native canonical concepts before widening this tranche",
+            "treat current graph coverage as concept-shallow rather than section-complete"
+          ],
+          "section_to_concept_ratio": 38.0,
+          "section_to_relationship_ratio": 38.0,
+          "severity": "medium",
+          "status": "shallow_representation",
+          "structural_heading_count": 38
+        },
+        "severity": "low",
+        "source_id": "irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines"
+      }
+    ],
+    "source_acceptance_counts": {
+      "accepted": 4,
+      "accepted_with_spot_review": 0,
+      "manual_review_required": 0
+    },
+    "spot_review_required_paths": [],
+    "summary_auto_withheld_paths": []
+  },
+  "stage_results": [
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-section-pd-1067-irr-water-code-implementing-rules",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/pd-1067-irr-water-code-implementing-rules.md",
+        "title": "PD 1067 IRR - Water Code Implementing Rules",
+        "trust_level": "primary"
+      },
+      "extract_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/pd-1067/PD 1067 IRR - Water Code Implementing Rules_extract.json",
+      "graph_admitted_relationships": 0,
+      "graph_filtered_relationships": 0,
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/pd-1067/PD 1067 IRR - Water Code Implementing Rules_high_conf.json",
+      "law_id": "pd-1067",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/PD-1067/PD 1067 IRR - Water Code Implementing Rules.md",
+      "promote_result": {
+        "batch_id": "20260417T103853Z_e9f52406",
+        "created": 0,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 0,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/promoted_relationships/pd-1067",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1067/PD 1067 IRR - Water Code Implementing Rules.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 0,
+        "admitted_relationship_count": 0,
+        "folder_name": "PD-1067",
+        "law_id": "pd-1067",
+        "reasons": [
+          "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+          "relationship coverage is also thin relative to detected structure"
+        ],
+        "recommendations": [
+          "add law-native canonical concepts before widening this tranche",
+          "treat current graph coverage as concept-shallow rather than section-complete"
+        ],
+        "section_to_concept_ratio": 31.0,
+        "section_to_relationship_ratio": 31.0,
+        "severity": "medium",
+        "status": "shallow_representation",
+        "structural_heading_count": 31
+      },
+      "review_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/pd-1067/PD 1067 IRR - Water Code Implementing Rules_review.json",
+      "source_id": "law-section-pd-1067-irr-water-code-implementing-rules",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 5,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 0,
+        "noise_line_count": 0,
+        "non_empty_line_count": 450,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/PD-1067/PD 1067 IRR - Water Code Implementing Rules.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "PD-1067",
+          "law_id": "pd-1067",
+          "reasons": [
+            "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+            "relationship coverage is also thin relative to detected structure"
+          ],
+          "recommendations": [
+            "add law-native canonical concepts before widening this tranche",
+            "treat current graph coverage as concept-shallow rather than section-complete"
+          ],
+          "section_to_concept_ratio": 31.0,
+          "section_to_relationship_ratio": 31.0,
+          "severity": "medium",
+          "status": "shallow_representation",
+          "structural_heading_count": 31
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 31,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [
+          "- 1. Any document of ownership/possession of the land to be developed such as:",
+          "- A. For the use of water when diverted/extracted from the natural source:",
+          "- 4) Possible adverse effects on existing grantees/permittees or public/ private interest;",
+          "Section 15. Notice and Completed Structures/Diversion Works. – The permittee shall inform the Council or its deputy concerned, that the necessary structures and diversion works required have been completed in accordance with approved plans and specifications.",
+          "- Section 21. Construction/Repair of"
+        ],
+        "suspicious_ocr_line_count": 21,
+        "suspicious_ocr_line_ratio": 0.046667,
+        "table_line_count": 0,
+        "total_line_count": 744,
+        "useful_text_line_count": 450,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/source_quality/pd-1067/PD 1067 IRR - Water Code Implementing Rules_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines.md",
+        "title": "Amended Implementing Rules and Regulations of the Water Code of the Philippines",
+        "trust_level": "primary"
+      },
+      "extract_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/pd-1067/Water Code of PH IRR 2005_extract.json",
+      "graph_admitted_relationships": 0,
+      "graph_filtered_relationships": 0,
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/pd-1067/Water Code of PH IRR 2005_high_conf.json",
+      "law_id": "pd-1067",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/PD-1067/Water Code of PH IRR 2005.md",
+      "promote_result": {
+        "batch_id": "20260417T103854Z_1ac3a8de",
+        "created": 0,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 0,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/promoted_relationships/pd-1067",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1067/Water Code of PH IRR 2005.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 0,
+        "admitted_relationship_count": 0,
+        "folder_name": "PD-1067",
+        "law_id": "pd-1067",
+        "reasons": [
+          "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+          "relationship coverage is also thin relative to detected structure"
+        ],
+        "recommendations": [
+          "add law-native canonical concepts before widening this tranche",
+          "treat current graph coverage as concept-shallow rather than section-complete"
+        ],
+        "section_to_concept_ratio": 38.0,
+        "section_to_relationship_ratio": 38.0,
+        "severity": "medium",
+        "status": "shallow_representation",
+        "structural_heading_count": 38
+      },
+      "review_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/pd-1067/Water Code of PH IRR 2005_review.json",
+      "source_id": "irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 11,
+        "image_line_count": 1,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 13,
+        "noise_line_count": 0,
+        "non_empty_line_count": 543,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/PD-1067/Water Code of PH IRR 2005.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "PD-1067",
+          "law_id": "pd-1067",
+          "reasons": [
+            "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+            "relationship coverage is also thin relative to detected structure"
+          ],
+          "recommendations": [
+            "add law-native canonical concepts before widening this tranche",
+            "treat current graph coverage as concept-shallow rather than section-complete"
+          ],
+          "section_to_concept_ratio": 38.0,
+          "section_to_relationship_ratio": 38.0,
+          "severity": "medium",
+          "status": "shallow_representation",
+          "structural_heading_count": 38
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 38,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [
+          "a) Appropriation of water for any purpose stated under Section 1, except for “purely domestic",
+          "purpose”, provided that such use shall be registered with the Board. “Purely domestic purpose” as used in these rules is defined as the use of not more than 250 liters/capita/day of water by a single household;",
+          "- 2. Certificate of Registration from relevant agencies i.e Department of Trade and Industry (DTI), Cooperative Development Authority (CDA), Securities and Exchange Commission (SEC) with Articles of Incorporation (for Corporation or Association) including Corporate Secretary’s Certification on present capital structure stating the citizenship and the number of shares of each stockholder;",
+          "- 2. Certificate of Registration from relevant agencies i.e Department of Trade and Industry (DTI), Cooperative Development Authority (CDA), Securities and Exchange Commission (SEC) with Articles of Incorporation (for Corporation or Association) including Corporate Secretary’s Certification on present capital structure stating the citizenship and the number of shares of each stockholder;",
+          "- 2. Certificate of Registration from relevant agencies i.e Department of Trade and Industry (DTI), Cooperative Development Authority (CDA), Securities and Exchange Commission (SEC) with Articles of Incorporation (for Corporation or Association) including Corporate Secretary’s Certification on present capital structure stating the citizenship and the number of shares of each stockholder;"
+        ],
+        "suspicious_ocr_line_count": 47,
+        "suspicious_ocr_line_ratio": 0.086556,
+        "table_line_count": 0,
+        "total_line_count": 873,
+        "useful_text_line_count": 542,
+        "useful_text_ratio": 0.998158
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/source_quality/pd-1067/Water Code of PH IRR 2005_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-water-code-of-the-philippines",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/water-code-of-the-philippines.md",
+        "title": "Water Code of the Philippines",
+        "trust_level": "primary"
+      },
+      "extract_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/pd-1067/PD 1067 - Water Code of the Philippines_extract.json",
+      "graph_admitted_relationships": 0,
+      "graph_filtered_relationships": 0,
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/pd-1067/PD 1067 - Water Code of the Philippines_high_conf.json",
+      "law_id": "pd-1067",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/PD-1067/PD 1067 - Water Code of the Philippines.md",
+      "promote_result": {
+        "batch_id": "20260417T103854Z_1ac3a8de",
+        "created": 0,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 0,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/promoted_relationships/pd-1067",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1067/PD 1067 - Water Code of the Philippines.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 0,
+        "admitted_relationship_count": 0,
+        "folder_name": "PD-1067",
+        "law_id": "pd-1067",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 6.0,
+        "section_to_relationship_ratio": 6.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 6
+      },
+      "review_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/pd-1067/PD 1067 - Water Code of the Philippines_review.json",
+      "source_id": "law-water-code-of-the-philippines",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 0,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 5,
+        "noise_line_count": 0,
+        "non_empty_line_count": 247,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/PD-1067/PD 1067 - Water Code of the Philippines.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "PD-1067",
+          "law_id": "pd-1067",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 6.0,
+          "section_to_relationship_ratio": 6.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 6
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 6,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [],
+        "suspicious_ocr_line_count": 0,
+        "suspicious_ocr_line_ratio": 0.0,
+        "table_line_count": 0,
+        "total_line_count": 376,
+        "useful_text_line_count": 247,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/source_quality/pd-1067/PD 1067 - Water Code of the Philippines_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-ecological-solid-waste-management-act-of-2000",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/ecological-solid-waste-management-act-of-2000.md",
+        "title": "Ecological Solid Waste Management Act of 2000",
+        "trust_level": "primary"
+      },
+      "extract_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/ra-9003/RA 9003 Ecological Solid Waste Management Act 2000_extract.json",
+      "graph_admitted_relationships": 0,
+      "graph_filtered_relationships": 0,
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/ra-9003/RA 9003 Ecological Solid Waste Management Act 2000_high_conf.json",
+      "law_id": "ra-9003",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md",
+      "promote_result": {
+        "batch_id": "20260417T103854Z_1ac3a8de",
+        "created": 0,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 0,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/promoted_relationships/ra-9003",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 0,
+        "admitted_relationship_count": 0,
+        "folder_name": "RA-9003",
+        "law_id": "ra-9003",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 7.0,
+        "section_to_relationship_ratio": 7.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 7
+      },
+      "review_json": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/ra-9003/RA 9003 Ecological Solid Waste Management Act 2000_review.json",
+      "source_id": "law-ecological-solid-waste-management-act-of-2000",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 1,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 0,
+        "noise_line_count": 0,
+        "non_empty_line_count": 511,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "RA-9003",
+          "law_id": "ra-9003",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 7.0,
+          "section_to_relationship_ratio": 7.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 7
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 7,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [
+          "- (2) of processors/recyclers, the list of materials being recycled or bought by them and their respective prices;",
+          "- (3) Estimated solid waste generation and projection by source, such as residential, market, commercial, industrial, construction/demolition, street waste, agricultural, agro-industrial, institutional, other wastes; and",
+          "- SECTION 29. Non-Environmentally Acceptable Products. — Within one (1) year from the effectivity of this Act, the Commission shall, after public notice and hearing, prepare a list of nonenvironmentally acceptable products as defined in this Act that shall be prohibited according to a schedule that shall be prepared by the Commission: Provided, however, That non-environmentally acceptable products shall not be prohibited unless the Commission first finds that there are alternatives available which are available to consumers at no more than ten percent (10%) greater cost than the disposable product. Notwithstanding any other provision to the contrary, this section shall not apply to:",
+          "- (d) The site must be chosen with regard for the sensitivities of the community’s residents;",
+          "- (e) The site must be located in an area where the landfill’s operation will not detrimentally affect environmentally sensitive resources such as aquifer, groundwater reservoir or watershed area;"
+        ],
+        "suspicious_ocr_line_count": 12,
+        "suspicious_ocr_line_ratio": 0.023483,
+        "table_line_count": 0,
+        "total_line_count": 1015,
+        "useful_text_line_count": 511,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T103853Z/source_quality/ra-9003/RA 9003 Ecological Solid Waste Management Act 2000_source_quality.json"
+    }
+  ],
+  "visualization": null
+}

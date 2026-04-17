@@ -939,6 +939,107 @@ def test_run_laws_tranche_source_admission_exec_collapses_duplicate_pd957_varian
     ]
 
 
+def test_source_admission_summary_respects_manifest_authoritative_and_excluded_variants(tmp_path: Path) -> None:
+    from vitruvius import laws_readiness as lr
+
+    selected_raw = '001_Raw-Source-Layer/001-Laws/PD-1067/Water Code of PH IRR 2005.pdf'
+    excluded_raw = '001_Raw-Source-Layer/001-Laws/PD-1067/PD 1067 IRR - Water Code Implementing Rules.pdf'
+
+    summary = lr._summarize_source_admission_folder(
+        repo_root=tmp_path,
+        item={
+            'folder_name': 'PD-1067',
+            'reason': 'water adjacency',
+            'authoritative_variant_paths': [selected_raw],
+            'excluded_variant_paths': [excluded_raw],
+        },
+        source_prep_folder={
+            'raw_file_count': 2,
+            'prepared_count': 2,
+            'ocr_required_count': 0,
+            'failed_count': 0,
+            'file_reports': [
+                {
+                    'status': 'prepared',
+                    'raw_path': selected_raw,
+                    'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1067/Water Code of PH IRR 2005.md',
+                },
+                {
+                    'status': 'prepared',
+                    'raw_path': excluded_raw,
+                    'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1067/PD 1067 IRR - Water Code Implementing Rules.md',
+                },
+            ],
+        },
+    )
+
+    assert summary['candidate_source_page_count'] == 1
+    assert summary['candidate_source_pages'][0]['raw_path'] == selected_raw
+    assert summary['excluded_prepared_count'] == 1
+    assert summary['excluded_prepared_file_reports'][0]['raw_path'] == excluded_raw
+    assert summary['excluded_prepared_file_reports'][0]['excluded_reason'] == 'manifest_excluded_variant'
+
+
+def test_source_admission_manifest_writeback_preserves_raw_anchor_intent_for_blocked_laws(tmp_path: Path) -> None:
+    from vitruvius import laws_readiness as lr
+
+    manifest_path = tmp_path / 'config' / 'datasets' / 'laws-tranche-3.yaml'
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-3',
+                'candidate_law_folders': [
+                    {
+                        'folder_name': 'PD-1151',
+                        'reason': 'environmental policy adjacency',
+                        'raw_anchor_paths': [
+                            '001_Raw-Source-Layer/001-Laws/PD-1151/PD 1151 - PD 1152 Environmental Code.pdf',
+                        ],
+                        'authoritative_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/PD-1151/PD 1151 - PD 1152 Environmental Code.pdf',
+                        ],
+                        'excluded_variant_paths': [],
+                    }
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    report_path = tmp_path / '006_System-Manifests' / 'runs' / 'datasets' / 'laws-tranche-3' / 'demo' / 'laws_tranche_source_admission_report.json'
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text('{}', encoding='utf-8')
+
+    lr._write_source_admission_back_to_manifest(
+        manifest_path=manifest_path,
+        report_path=report_path,
+        run_id='demo-run',
+        folder_reports=[
+            {
+                'folder_name': 'PD-1151',
+                'executed_source_admission_state': 'not_admitted',
+                'admitted_source_paths': [],
+                'admitted_source_pages': [],
+                'excluded_prepared_file_reports': [],
+                'blocked_file_reports': [],
+                'admission_guardrails': [
+                    'canonical rule missing for prepared variant PD 1151 - PD 1152 Environmental Code.md; source admission stays blocked until the rule exists'
+                ],
+            }
+        ],
+    )
+
+    updated = yaml.safe_load(manifest_path.read_text(encoding='utf-8'))
+    entry = updated['candidate_law_folders'][0]
+    assert entry['raw_anchor_paths'] == [
+        '001_Raw-Source-Layer/001-Laws/PD-1151/PD 1151 - PD 1152 Environmental Code.pdf',
+    ]
+    assert entry['authoritative_variant_paths'] == [
+        '001_Raw-Source-Layer/001-Laws/PD-1151/PD 1151 - PD 1152 Environmental Code.pdf',
+    ]
+
+
 def test_run_laws_tranche_source_to_graph_dry_run_stages_only_admitted_members(tmp_path: Path) -> None:
     _seed_repo(tmp_path)
     tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-1.yaml'

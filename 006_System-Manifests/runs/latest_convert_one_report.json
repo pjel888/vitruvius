@@ -1,13 +1,13 @@
 {
   "project": "Vitruvius",
-  "generated_at_utc": "2026-04-17T09:20:21.823826+00:00",
-  "source_relative_path": "001-Laws/RA-7899/RA 7899 Amendments to RA 4726.pdf",
-  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/RA-7899/RA 7899 Amendments to RA 4726.pdf",
+  "generated_at_utc": "2026-04-17T10:38:52.807845+00:00",
+  "source_relative_path": "001-Laws/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.pdf",
   "detection_result": "TEXT_PDF",
   "recommended_route": "OPENDATALOADER_DIRECT",
-  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-7899/RA 7899 Amendments to RA 4726.md",
-  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-7899/RA 7899 Amendments to RA 4726.json",
-  "markdown_output_relative": "001-Laws/raw_markdown/RA-7899/RA 7899 Amendments to RA 4726.md",
-  "json_output_relative": "001-Laws/sidecar_json/RA-7899/RA 7899 Amendments to RA 4726.json",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.json",
+  "markdown_output_relative": "001-Laws/raw_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md",
+  "json_output_relative": "001-Laws/sidecar_json/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.json",
   "status": "converted"
 }

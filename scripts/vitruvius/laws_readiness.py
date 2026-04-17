@@ -1248,10 +1248,33 @@ def _summarize_source_admission_folder(
         report for report in file_reports
         if isinstance(report, dict) and report.get("status") in {"ocr_failed", "convert_failed", "refine_failed", "detection_failed"}
     ]
+    explicit_authoritative_paths = {
+        str(path) for path in item.get("authoritative_variant_paths") or [] if isinstance(path, str)
+    }
+    explicit_raw_anchor_paths = {
+        str(path) for path in item.get("raw_anchor_paths") or [] if isinstance(path, str)
+    }
+    explicit_excluded_paths = {
+        str(path) for path in item.get("excluded_variant_paths") or [] if isinstance(path, str)
+    }
+
+    requested_paths = explicit_authoritative_paths or explicit_raw_anchor_paths
+    selected_prepared_files: list[dict[str, Any]] = []
+    pre_excluded_files: list[dict[str, Any]] = []
+    for report in prepared_files:
+        raw_path = str(report.get("raw_path") or "")
+        if raw_path in explicit_excluded_paths:
+            pre_excluded_files.append({**report, "excluded_reason": "manifest_excluded_variant"})
+            continue
+        if requested_paths and raw_path not in requested_paths:
+            pre_excluded_files.append({**report, "excluded_reason": "not_in_authoritative_variant_set"})
+            continue
+        selected_prepared_files.append(report)
     candidate_source_pages, excluded_prepared_file_reports, admission_guardrails = _select_prepared_source_candidates(
         repo_root=repo_root,
-        prepared_files=prepared_files,
+        prepared_files=selected_prepared_files,
     )
+    excluded_prepared_file_reports = [*pre_excluded_files, *excluded_prepared_file_reports]
     status = _admission_status_for_folder(
         candidate_source_pages=candidate_source_pages,
         blocked_file_reports=blocked_files,
@@ -1424,7 +1447,7 @@ def _write_source_admission_back_to_manifest(
 
         admitted_source_paths = list(report.get("admitted_source_paths") or [])
         admitted_pages = list(report.get("admitted_source_pages") or [])
-        authoritative_variant_paths = [
+        admitted_authoritative_variant_paths = [
             str(page["raw_path"])
             for page in admitted_pages
             if isinstance(page, dict) and isinstance(page.get("raw_path"), str)
@@ -1439,6 +1462,20 @@ def _write_source_admission_back_to_manifest(
             for item in report.get("excluded_prepared_file_reports") or []
             if isinstance(item, dict) and isinstance(item.get("raw_path"), str)
         ]
+        authoritative_variant_paths = (
+            admitted_authoritative_variant_paths
+            if admitted_authoritative_variant_paths
+            else [str(path) for path in entry.get("authoritative_variant_paths") or [] if isinstance(path, str)]
+        )
+        raw_anchor_paths = (
+            admitted_authoritative_variant_paths
+            if admitted_authoritative_variant_paths
+            else [str(path) for path in entry.get("raw_anchor_paths") or [] if isinstance(path, str)]
+        )
+        if excluded_variant_paths:
+            excluded_variant_paths = _merge_unique_strings(entry.get("excluded_variant_paths"), excluded_variant_paths)
+        else:
+            excluded_variant_paths = [str(path) for path in entry.get("excluded_variant_paths") or [] if isinstance(path, str)]
         blocked_raw_anchor_paths = [
             str(item["raw_path"])
             for item in report.get("blocked_file_reports") or []
@@ -1449,7 +1486,7 @@ def _write_source_admission_back_to_manifest(
         entry["source_admission_report_path"] = report_relative
         entry["source_admission_run_id"] = run_id
         entry["authoritative_variant_paths"] = authoritative_variant_paths
-        entry["raw_anchor_paths"] = authoritative_variant_paths
+        entry["raw_anchor_paths"] = raw_anchor_paths
         entry["refined_markdown_paths"] = refined_markdown_paths
         entry["admitted_source_paths"] = admitted_source_paths
         entry["excluded_variant_paths"] = excluded_variant_paths

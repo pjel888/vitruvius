@@ -1404,6 +1404,13 @@ PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-gr
   --review-preset m2-8gb-safe
 ```
 
+The same bounded source-to-graph lane now also applies to:
+
+- `config/datasets/laws-tranche-2.yaml`
+- `config/datasets/laws-tranche-3.yaml`
+
+Generic Phase 11 all-laws execute remains gated.
+
 This command:
 - derives the tranche execute manifest from the admitted tranche state
 - runs the bounded source-to-graph pipeline in execute mode

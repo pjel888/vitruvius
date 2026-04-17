@@ -334,6 +334,128 @@ rules:
       core_concepts: []
 
   # --------------------------------------------------
+  # PD 1067 Law
+  # --------------------------------------------------
+  - name: "PD 1067 Law"
+
+    match:
+      all_contains:
+        - "pd"
+        - "1067"
+      any_contains:
+        - "water code"
+      not_contains:
+        - "irr"
+        - "implementing rules"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Water Code of the Philippines"
+
+      aliases:
+        - "PD 1067"
+        - "Presidential Decree No. 1067"
+        - "Water Code"
+        - "Water Code of the Philippines"
+
+      relationships:
+        implemented_by:
+          - "irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # PD 1067 Amended IRR
+  # --------------------------------------------------
+  - name: "PD 1067 Amended IRR"
+
+    match:
+      all_contains:
+        - "1067"
+        - "water code"
+        - "irr"
+      any_contains:
+        - "amended"
+        - "2005"
+        - "nwrb"
+
+    classification:
+      source_type: irr
+      trust_level: primary
+
+    canonical:
+      title: "Amended Implementing Rules and Regulations of the Water Code of the Philippines"
+
+      aliases:
+        - "PD 1067 IRR"
+        - "Water Code IRR"
+        - "Water Code of PH IRR 2005"
+        - "Amended Water Code IRR"
+
+      relationships:
+        implements:
+          - "law-water-code-of-the-philippines"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # PD 1151 Law
+  # --------------------------------------------------
+  - name: "PD 1151 Law"
+
+    match:
+      all_contains:
+        - "pd"
+        - "1151"
+      any_contains:
+        - "environmental policy"
+        - "environmental code"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Philippine Environmental Policy"
+
+      aliases:
+        - "PD 1151"
+        - "Presidential Decree No. 1151"
+        - "Philippine Environmental Policy"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # RA 9003 Law
+  # --------------------------------------------------
+  - name: "RA 9003 Law"
+
+    match:
+      all_contains:
+        - "ra"
+        - "9003"
+      any_contains:
+        - "solid waste"
+        - "ecological solid waste"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Ecological Solid Waste Management Act of 2000"
+
+      aliases:
+        - "RA 9003"
+        - "Republic Act No. 9003"
+        - "Ecological Solid Waste Management Act of 2000"
+
+      core_concepts: []
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

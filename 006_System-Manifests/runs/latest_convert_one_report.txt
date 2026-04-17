@@ -1,9 +1,9 @@
 Vitruvius Convert One Report
 
-Source: 001-Laws/RA-7899/RA 7899 Amendments to RA 4726.pdf
+Source: 001-Laws/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.pdf
 Detection result: TEXT_PDF
 Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-7899/RA 7899 Amendments to RA 4726.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-7899/RA 7899 Amendments to RA 4726.json
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.json
 
 STATUS: converted

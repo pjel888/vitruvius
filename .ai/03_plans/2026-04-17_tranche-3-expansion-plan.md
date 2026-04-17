@@ -3,7 +3,7 @@ task: laws-tranche-3-expansion
 phase: 11
 created: 2026-04-17
 author: CODEX
-status: DRAFT
+status: complete
 supersedes: null
 ---
 
