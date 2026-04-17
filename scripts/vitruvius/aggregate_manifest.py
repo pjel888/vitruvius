@@ -1851,10 +1851,17 @@ def scaffold_completed_aggregate_lane_manifest(
             seen_raw.add(resolved_raw_path)
             selected_files.append(resolved_raw_path)
     else:
+        suggestion = suggest_completed_aggregate_family_candidates(
+            repo_root=repo_root,
+            raw_root=resolved_raw_root,
+            max_candidates=max_files,
+            extensions=list(allowed_extensions),
+        )
         selected_files = [
-            path for path in sorted(resolved_raw_root.iterdir())
-            if path.is_file() and not path.name.startswith('.') and path.suffix.lower() in allowed_extensions
-        ][:max_files]
+            repo_root / str(item['raw_path'])
+            for item in suggestion.get('top_candidates') or []
+            if isinstance(item, dict) and isinstance(item.get('raw_path'), str)
+        ]
     if not selected_files:
         raise ValueError('no raw files matched the requested root/extensions')
 
