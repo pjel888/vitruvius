@@ -1,0 +1,26 @@
+{
+  "generated_at": "20260417T151046Z",
+  "source": "001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md",
+  "source_id": "law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission",
+  "total_sections": 5,
+  "total_relationships": 1,
+  "relationships": [
+    {
+      "from": "law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission",
+      "type": "governs",
+      "to": "concept-human-settlements",
+      "occurrences": 4,
+      "sections": [
+        "section-4",
+        "section-5",
+        "section-6"
+      ],
+      "examples": [
+        "There is hereby established a Human Settlements Regulatory Commission, hereinafter referred to as the Commission, with powers and attributes of a quasijudicial body which shall be attached to the Ministry of Human Settlements.",
+        "a. There is hereby established a Human Settlements Regulatory Commission, hereinafter referred to as the Commission, with powers and attributes of a quasijudicial body which shall be attached to the Ministry of Human Settlements.",
+        "- disposable lands in accordance with its own classification scheme subject to the condition that the classification of these lands may be subsequently change by the local governments in accordance with their particular zoning ordinances which may be promulgated later. - c. Issue rules and regulatio"
+      ],
+      "alternate_predicates": []
+    }
+  ]
+}

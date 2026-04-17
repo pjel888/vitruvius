@@ -1,0 +1,9 @@
+Vitruvius Convert One Report
+
+Source: 001-Laws/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf
+Detection result: TEXT_PDF
+Recommended route: OPENDATALOADER_DIRECT
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.json
+
+STATUS: converted

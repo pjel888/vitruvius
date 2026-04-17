@@ -233,6 +233,7 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - tranche-10 selection now favors duplicate-remediation-first `RA-9266`, with overlap-closure `PD-9514` deferred to the following lane; see `docs/LAWS_REMAINING_POOL_ROADMAP.md`
   - tranche-10 now exists and executes through the same bounded workflow: `config/datasets/laws-tranche-10.yaml` stages `RA-9266` as a duplicate-remediation-first singleton with explicit raw-alias visibility; current execute evidence shows `generated_relationship_count = 0`, `shallow_representation_count = 0`, and graph snapshot `1 nodes / 0 edges`; see `/.ai/05_logs/2026-04-17_laws-tranche-10-execution-validation.md`
   - tranche-11 now exists and executes through the same bounded workflow: `config/datasets/laws-tranche-11.yaml` stages `PD-9514` as a singleton overlap-closure lane; current execute evidence shows `generated_relationship_count = 7`, `shallow_representation_count = 0`, and graph snapshot `10 nodes / 10 edges`; see `/.ai/05_logs/2026-04-17_laws-tranche-11-execution-validation.md`
+  - tranche-12 now exists and executes through the same bounded workflow: `config/datasets/laws-tranche-12.yaml` stages scoped EO and HLURB-DHSUD guidance surfaces; current execute evidence shows `generated_relationship_count = 3`, `shallow_representation_count = 0`, and graph snapshot `7 nodes / 6 edges`; see `/.ai/05_logs/2026-04-17_laws-tranche-12-execution-validation.md`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)

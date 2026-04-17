@@ -1015,6 +1015,117 @@ rules:
 
       core_concepts: []
 
+
+  # --------------------------------------------------
+  # EO 72 Law
+  # --------------------------------------------------
+  - name: "EO 72 Law"
+
+    match:
+      any_contains:
+        - "eo 72 comprehensive land use"
+        - "executive order no. 72"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Executive Order No. 72 on Comprehensive Land Use Plans"
+
+      aliases:
+        - "EO 72"
+        - "Executive Order No. 72"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # EO 90 Law
+  # --------------------------------------------------
+  - name: "EO 90 Law"
+
+    match:
+      any_contains:
+        - "eo 90 ngo for shelter program"
+        - "executive order no. 90"
+        - "national shelter program"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Executive Order No. 90 on the National Shelter Program"
+
+      aliases:
+        - "EO 90"
+        - "Executive Order No. 90"
+        - "National Shelter Program EO"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # EO 648 Law
+  # --------------------------------------------------
+  - name: "EO 648 Law"
+
+    match:
+      any_contains:
+        - "eo 648"
+        - "human settlements regulatory commission"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Executive Order No. 648 Reorganizing the Human Settlements Regulatory Commission"
+
+      aliases:
+        - "EO 648"
+        - "Executive Order No. 648"
+        - "Human Settlements Regulatory Commission EO"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # DHSUD Open Space Development Guidelines
+  # --------------------------------------------------
+  - name: "DHSUD Open Space Development Guidelines"
+
+    match:
+      any_contains:
+        - "open space development guidelines"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "Open Space Development Guidelines"
+
+      aliases:
+        - "DHSUD Open Space Development Guidelines"
+
+  # --------------------------------------------------
+  # DHSUD Resilient Urban Design and Development Guidelines
+  # --------------------------------------------------
+  - name: "DHSUD Resilient Urban Design and Development Guidelines"
+
+    match:
+      any_contains:
+        - "resilient urban design and development guidelines"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "Resilient Urban Design and Development Guidelines"
+
+      aliases:
+        - "DHSUD Resilient Urban Design and Development Guidelines"
+
   # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------

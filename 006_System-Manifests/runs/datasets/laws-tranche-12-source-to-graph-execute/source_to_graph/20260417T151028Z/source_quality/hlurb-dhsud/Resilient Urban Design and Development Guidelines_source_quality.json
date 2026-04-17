@@ -1,0 +1,68 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "withhold_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "moderate extraction difficulty: treat automated summaries as guarded",
+    "front matter includes preface/message prose that can pollute source summaries",
+    "front matter is image-heavy and may reflect OCR/layout instability",
+    "image-heavy front matter still contains suspicious OCR text near the document title/opening lines",
+    "spot-review the flagged OCR-sensitive regions before trusting summary prose"
+  ],
+  "front_matter_suspicious_ocr_line_count": 5,
+  "image_line_count": 146,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 114,
+  "noise_line_count": 141,
+  "non_empty_line_count": 2026,
+  "recommendations": [
+    "high image-line count: verify OCR quality or alternate source availability",
+    "high table-line count: verify layout-sensitive extraction and summary hygiene",
+    "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+    "spot-review OCR-sensitive title/heading lines before trusting automated summaries"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 0,
+    "admitted_relationship_count": 0,
+    "folder_name": "HLURB-DHSUD",
+    "law_id": "hlurb-dhsud",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 16.0,
+    "section_to_relationship_ratio": 16.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 16
+  },
+  "severity": "medium",
+  "source_acceptance_reasons": [
+    "image-heavy front matter still contains suspicious OCR text near the document title/opening lines"
+  ],
+  "source_acceptance_status": "accepted_with_spot_review",
+  "spot_review_focus": [
+    "title/header lines and the first operative section",
+    "section numbering and other numeric provisions",
+    "image-backed front matter, page breaks, and signature/footer spillover"
+  ],
+  "spot_review_required": true,
+  "structural_heading_count": 16,
+  "summary_auto_withheld": true,
+  "summary_hygiene_flags": [
+    "preface_or_message_front_matter",
+    "image_heavy_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "As the primary national government entity responsible for the management of housing, human settlement, and urban development in the country, I am pleased to present the Department of Human Settlement and Urban Development’s (DHSUD) Resilient Urban Design and Development Guidelines. This Guidelines aims to strengthen the capacities of state actors to undertake resilient urban planning and design, improve access to housing, and enhance infrastructure to withstand natural disasters and climate change impacts. This Guidelines will equip urban planners with design-anchored tools and strategies to make the urban design process more participatory and easier to adopt within existing planning frameworks.",
+    "This policy is part of the DHSUD’s PLANADO (Plan & Do) Program, which builds the capacity of local government units (LGUs) and other urban actors to formulate and implement land use, physical, and urban development plans and programs. By leveraging the Comprehensive Land Use Plan (CLUP) and Zoning Ordinance (ZO) as a strategic tool for local development, this Guidelines will help transform the Philippine urban landscape through innovative, green, and resilient urban renewal and development projects and strategies.",
+    "The 2024 World Risk Report ranked the Philippines first among countries with the highest disaster risk due to diverse exposures, high intensities, and higher vulnerabilities, highlighting the limited coping and adaptive capacities that amplify the negative effects of natural climate-risk factors on the country’s development.",
+    "- Figure 24. Olmstead’s Emerald Necklace (emeraldnecklace.org, 2024) 27",
+    "- Figure 47. Ayala Land Inc.’s Nuvali in Laguna 47"
+  ],
+  "suspicious_ocr_line_count": 275,
+  "suspicious_ocr_line_ratio": 0.135735,
+  "table_line_count": 520,
+  "total_line_count": 3373,
+  "useful_text_line_count": 1219,
+  "useful_text_ratio": 0.601678
+}

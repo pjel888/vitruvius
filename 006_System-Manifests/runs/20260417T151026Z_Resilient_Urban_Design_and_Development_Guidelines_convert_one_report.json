@@ -1,0 +1,13 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-17T15:10:26.318372+00:00",
+  "source_relative_path": "001-Laws/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.pdf",
+  "detection_result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.json",
+  "markdown_output_relative": "001-Laws/raw_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md",
+  "json_output_relative": "001-Laws/sidecar_json/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.json",
+  "status": "converted"
+}

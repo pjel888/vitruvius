@@ -335,3 +335,43 @@ def test_build_plan_matches_pd_9514_file_to_ra_9514_irr_rule() -> None:
     assert plan['prefix'] == 'irr'
     assert plan['source_type'] == 'irr'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_eo_72_law_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md')
+    assert plan['title'] == 'Executive Order No. 72 on Comprehensive Land Use Plans'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_eo_90_law_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/EO/EO 90 NGO for Shelter Program.md')
+    assert plan['title'] == 'Executive Order No. 90 on the National Shelter Program'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_eo_648_law_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md')
+    assert plan['title'] == 'Executive Order No. 648 Reorganizing the Human Settlements Regulatory Commission'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_dhsud_open_space_guidelines_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md')
+    assert plan['title'] == 'Open Space Development Guidelines'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_dhsud_resilient_urban_guidelines_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md')
+    assert plan['title'] == 'Resilient Urban Design and Development Guidelines'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'

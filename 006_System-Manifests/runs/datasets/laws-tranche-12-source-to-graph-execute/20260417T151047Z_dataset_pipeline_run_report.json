@@ -1,0 +1,455 @@
+{
+  "action": "run-dataset-graph",
+  "build": {
+    "action": "build-graph",
+    "artifact_metadata": {
+      "contributing_law_ids": [
+        "eo",
+        "hlurb-dhsud"
+      ],
+      "dataset_id": "laws-tranche-12-source-to-graph-execute",
+      "dataset_kind": "laws-tranche",
+      "freshness_policy": {
+        "mode": "exact"
+      },
+      "input_fingerprint": {
+        "combined_sha256": "0d87de8932d6c35ee79e37d2331c4dc0fa60b4661ee9079c81177e09677f5961",
+        "file_count": 13,
+        "files": [
+          {
+            "mtime_ns": 1776432092022845288,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md",
+            "sha256": "bbf4c45e321cfd73a162c717f50df1ccc9de19182b69d39f68e03cecaf9416ab",
+            "size_bytes": 1191
+          },
+          {
+            "mtime_ns": 1776433827742978174,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/human-settlements.md",
+            "sha256": "4ba258d4d7ef65ec3492d88030ac467b9892b0d35926e1e5bb879d90ea8ae8f6",
+            "size_bytes": 992
+          },
+          {
+            "mtime_ns": 1776438627353256492,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission.md",
+            "sha256": "c6668d41e1197cf0a4813a0f6b2a24054c439ed3f16bb13b483d4c8fdc53e4df",
+            "size_bytes": 2413
+          },
+          {
+            "mtime_ns": 1776438627402372779,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-72-on-comprehensive-land-use-plans.md",
+            "sha256": "450798026e87ab1befb0a008eead588cae4b7842426d91f3c04749f48ec05e02",
+            "size_bytes": 744
+          },
+          {
+            "mtime_ns": 1776438627305493671,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-90-on-the-national-shelter-program.md",
+            "sha256": "4e9cb71702f5a0d1a4824f4a3d633ded512ba64af8599af26725276532d268b3",
+            "size_bytes": 1236
+          },
+          {
+            "mtime_ns": 1776438627489350578,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/open-space-development-guidelines.md",
+            "sha256": "55fa82d5439891f98c4b0cc688c6a79869e73367f3302664f7042e86f6d5cb81",
+            "size_bytes": 3084
+          },
+          {
+            "mtime_ns": 1776438627591523716,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/resilient-urban-design-and-development-guidelines.md",
+            "sha256": "2b1bf0ecd5bd5a21be6bd5e19bc27ff724e38d226af19e6b416c39d3441da4ce",
+            "size_bytes": 2627
+          },
+          {
+            "mtime_ns": 1776438628633208130,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md",
+            "sha256": "fc6ec63bc0f3f2206380092c42f93efe0c5a1e0acd7a5d34c2c80ccdb8578f72",
+            "size_bytes": 2210
+          },
+          {
+            "mtime_ns": 1776438628785159475,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan.md",
+            "sha256": "0654f6aaa2166d2d97127667f90ca4185790c794dd68ad68c5521c7f7c823c70",
+            "size_bytes": 1996
+          },
+          {
+            "mtime_ns": 1776438628480558114,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md",
+            "sha256": "560a7dd2b48fbaaaa1825ca12fe524bb85de4343d6cd3923469050c077b30c58",
+            "size_bytes": 1996
+          },
+          {
+            "mtime_ns": 1776438646582561185,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151046Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md",
+            "sha256": "24f93064c4795974f90f16094a359291ff9b7b6a5043c8d381470a6e42aa13e1",
+            "size_bytes": 2210
+          },
+          {
+            "mtime_ns": 1776438646727744363,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151046Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan.md",
+            "sha256": "d3da7ea6e2af71a0b929f76236ccd0c20bb2b32091bdbc20bf4d40b4a2f7575d",
+            "size_bytes": 1996
+          },
+          {
+            "mtime_ns": 1776438646430667509,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151046Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md",
+            "sha256": "27a140a56a6ee54470537565d0bad583840cb74ee63cf64db65cb01ab464e334",
+            "size_bytes": 1996
+          }
+        ]
+      },
+      "law_units": [
+        {
+          "admitted_concept_paths": [
+            "003_Canonical-Knowledge-Layer/shared/concepts/human-settlements.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md"
+          ],
+          "admitted_relationship_paths": [
+            "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan.md"
+          ],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-90-on-the-national-shelter-program.md",
+            "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission.md",
+            "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-72-on-comprehensive-land-use-plans.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/EO/EO 90 NGO for Shelter Program.pdf",
+            "001_Raw-Source-Layer/001-Laws/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf",
+            "001_Raw-Source-Layer/001-Laws/EO/EO 72 Comprehensive Land use.pdf"
+          ],
+          "excluded_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/EO/E.O. 1008_0 1.pdf",
+            "001_Raw-Source-Layer/001-Laws/EO/E.O. 1008_0.pdf",
+            "001_Raw-Source-Layer/001-Laws/EO/EO 1008 Construction Arbitration Law.pdf"
+          ],
+          "folder_name": "EO",
+          "law_id": "eo",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/EO/EO 90 NGO for Shelter Program.pdf",
+            "001_Raw-Source-Layer/001-Laws/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf",
+            "001_Raw-Source-Layer/001-Laws/EO/EO 72 Comprehensive Land use.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 90 NGO for Shelter Program.md",
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md",
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md"
+          ],
+          "scope_notes": [
+            "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+            "EO tranche-12 slice admits existing planning concepts and dataset-scoped governs relationships only."
+          ],
+          "verification_checks": [
+            "source admission executed for the selected authoritative prepared variants",
+            "duplicate or study-aid raw variants remain explicit and excluded from canonical admission",
+            "EO tranche-12 slice admits existing planning concepts and dataset-scoped governs relationships only."
+          ]
+        },
+        {
+          "admitted_concept_paths": [],
+          "admitted_relationship_paths": [],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/open-space-development-guidelines.md",
+            "003_Canonical-Knowledge-Layer/shared/sources/resilient-urban-design-and-development-guidelines.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.pdf"
+          ],
+          "excluded_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/CLUP GIS GUIDEBOOK HLURB.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Guidelines on New Towns and Planned Unit Development.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Guidebook_Vol_1_11042015.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Vol_1.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Vol_2.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Vol_3.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_Supplemental_Guidelines.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_Supplemental_Guidelines_SLM.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/LCG of 1991.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Local-Shelter-Planning-Manual-2016-Web-Edition.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/R-973 s. 2018.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/RPS (2008).pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Reference-Tool-on-Urban-Planning-and-Design-for-Climate-Resilience-for-LGUs-Planning-Actors-in-the-Philippines_readable.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Volume 4 - Planning Strategically.pdf"
+          ],
+          "folder_name": "HLURB-DHSUD",
+          "law_id": "hlurb-dhsud",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf",
+            "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md",
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md"
+          ],
+          "scope_notes": [
+            "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+          ],
+          "verification_checks": [
+            "source admission executed for the selected authoritative prepared variants",
+            "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+          ]
+        }
+      ],
+      "manifest_hash": "1350de80f0dc86c2d44d90a53380e75769ff9760c2dff4492236b1da33d62262",
+      "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151046Z/derived_dataset_manifest.yaml",
+      "pilot_gate": {
+        "derived_from_tranche_id": "laws-tranche-12",
+        "derived_run_id": "20260417T151046Z",
+        "require_manifest_validation": true,
+        "source_to_graph_execute_ready": false
+      },
+      "run_id": "20260417T151047Z",
+      "scope_notes": [
+        "Derived from laws-tranche-12 after tranche source admission.",
+        "Dry-run only: stage admitted tranche members without unlocking execute.",
+        "Blocked tranche members remain explicit outside the staged law-unit list."
+      ],
+      "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-12-source-to-graph-execute/20260417T151047Z_graph_integrity_report.json",
+      "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-12-source-to-graph-execute/20260417T151047Z_graph_snapshot.json",
+      "upstream_artifact_refs": {
+        "canonical_concepts": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/human-settlements.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md"
+        ],
+        "canonical_sources": [
+          "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-90-on-the-national-shelter-program.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-72-on-comprehensive-land-use-plans.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/open-space-development-guidelines.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/resilient-urban-design-and-development-guidelines.md"
+        ],
+        "relationship_inputs": [
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151046Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151046Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151046Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan.md"
+        ]
+      }
+    },
+    "build_report_path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/20260417T151047Z_build_graph_dataset_report.json",
+    "contributing_law_ids": [
+      "eo",
+      "hlurb-dhsud"
+    ],
+    "coverage": [
+      {
+        "approved_relationship_input_count": 6,
+        "canonical_count": 5,
+        "converted_count": null,
+        "edge_count_contributed": 6,
+        "folder_name": "EO",
+        "node_count_contributed": 5,
+        "notes": "selected truth-bearing inputs contributed nodes/edges",
+        "raw_file_count": 7,
+        "refined_count": null,
+        "status": "covered"
+      },
+      {
+        "approved_relationship_input_count": 0,
+        "canonical_count": 2,
+        "converted_count": null,
+        "edge_count_contributed": 0,
+        "folder_name": "HLURB-DHSUD",
+        "node_count_contributed": 2,
+        "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+        "raw_file_count": 16,
+        "refined_count": null,
+        "status": "partial"
+      }
+    ],
+    "dataset_id": "laws-tranche-12-source-to-graph-execute",
+    "dataset_kind": "laws-tranche",
+    "dry_run": false,
+    "edge_count": 6,
+    "incomplete": true,
+    "integrity": {
+      "error_count": 0,
+      "findings": [
+        {
+          "code": "orphan_node",
+          "edge_from": null,
+          "edge_to": null,
+          "message": "node 'handout-open-space-development-guidelines' has zero incident edges",
+          "node_id": "handout-open-space-development-guidelines",
+          "severity": "warning"
+        },
+        {
+          "code": "orphan_node",
+          "edge_from": null,
+          "edge_to": null,
+          "message": "node 'handout-resilient-urban-design-and-development-guidelines' has zero incident edges",
+          "node_id": "handout-resilient-urban-design-and-development-guidelines",
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission",
+          "edge_to": "concept-human-settlements",
+          "message": "duplicate edge: law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission -[governs]-> concept-human-settlements (evidence rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "law-executive-order-no-72-on-comprehensive-land-use-plans",
+          "edge_to": "concept-comprehensive-land-use-plan",
+          "message": "duplicate edge: law-executive-order-no-72-on-comprehensive-land-use-plans -[governs]-> concept-comprehensive-land-use-plan (evidence rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan)",
+          "node_id": null,
+          "severity": "warning"
+        },
+        {
+          "code": "duplicate_edge",
+          "edge_from": "law-executive-order-no-90-on-the-national-shelter-program",
+          "edge_to": "concept-human-settlements",
+          "message": "duplicate edge: law-executive-order-no-90-on-the-national-shelter-program -[governs]-> concept-human-settlements (evidence rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements)",
+          "node_id": null,
+          "severity": "warning"
+        }
+      ],
+      "passed": true,
+      "warning_count": 5
+    },
+    "integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-12-source-to-graph-execute/20260417T151047Z_graph_integrity_report.json",
+    "law_unit_count": 2,
+    "law_units": [
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/human-settlements.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md"
+        ],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-90-on-the-national-shelter-program.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-72-on-comprehensive-land-use-plans.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/EO/EO 90 NGO for Shelter Program.pdf",
+          "001_Raw-Source-Layer/001-Laws/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf",
+          "001_Raw-Source-Layer/001-Laws/EO/EO 72 Comprehensive Land use.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/EO/E.O. 1008_0 1.pdf",
+          "001_Raw-Source-Layer/001-Laws/EO/E.O. 1008_0.pdf",
+          "001_Raw-Source-Layer/001-Laws/EO/EO 1008 Construction Arbitration Law.pdf"
+        ],
+        "folder_name": "EO",
+        "law_id": "eo",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/EO/EO 90 NGO for Shelter Program.pdf",
+          "001_Raw-Source-Layer/001-Laws/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf",
+          "001_Raw-Source-Layer/001-Laws/EO/EO 72 Comprehensive Land use.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 90 NGO for Shelter Program.md",
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md",
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+          "EO tranche-12 slice admits existing planning concepts and dataset-scoped governs relationships only."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "duplicate or study-aid raw variants remain explicit and excluded from canonical admission",
+          "EO tranche-12 slice admits existing planning concepts and dataset-scoped governs relationships only."
+        ]
+      },
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/open-space-development-guidelines.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/resilient-urban-design-and-development-guidelines.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/CLUP GIS GUIDEBOOK HLURB.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Guidelines on New Towns and Planned Unit Development.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Guidebook_Vol_1_11042015.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Vol_1.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Vol_2.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Vol_3.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_Supplemental_Guidelines.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_Supplemental_Guidelines_SLM.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/LCG of 1991.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Local-Shelter-Planning-Manual-2016-Web-Edition.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/R-973 s. 2018.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/RPS (2008).pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Reference-Tool-on-Urban-Planning-and-Design-for-Climate-Resilience-for-LGUs-Planning-Actors-in-the-Philippines_readable.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Volume 4 - Planning Strategically.pdf"
+        ],
+        "folder_name": "HLURB-DHSUD",
+        "law_id": "hlurb-dhsud",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf",
+          "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md",
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+        ]
+      }
+    ],
+    "manifest_hash": "1350de80f0dc86c2d44d90a53380e75769ff9760c2dff4492236b1da33d62262",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151046Z/derived_dataset_manifest.yaml",
+    "mode": "dataset",
+    "node_count": 7,
+    "run_id": "20260417T151047Z",
+    "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-12-source-to-graph-execute/20260417T151047Z_graph_snapshot.json",
+    "thin_graph_metrics": {
+      "connected_component_count": 4,
+      "edge_type_diversity": {
+        "count": 1,
+        "types": [
+          "governs"
+        ]
+      },
+      "isolated_node_count": 2,
+      "isolated_node_rate": 0.285714,
+      "per_folder_node_edge_balance": {
+        "EO": {
+          "edge_count_contributed": 6,
+          "node_count_contributed": 5,
+          "status": "covered"
+        },
+        "HLURB-DHSUD": {
+          "edge_count_contributed": 0,
+          "node_count_contributed": 2,
+          "status": "partial"
+        }
+      }
+    }
+  },
+  "contributing_law_ids": [
+    "eo",
+    "hlurb-dhsud"
+  ],
+  "dataset_id": "laws-tranche-12-source-to-graph-execute",
+  "dataset_kind": "laws-tranche",
+  "generated_at_utc": "20260417T151047Z",
+  "law_unit_count": 2,
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151046Z/derived_dataset_manifest.yaml",
+  "owl": {
+    "path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-12-source-to-graph-execute/20260417T151047Z_graph_snapshot.ttl",
+    "rc": 0
+  },
+  "run_id": "20260417T151047Z",
+  "structured_checks": []
+}

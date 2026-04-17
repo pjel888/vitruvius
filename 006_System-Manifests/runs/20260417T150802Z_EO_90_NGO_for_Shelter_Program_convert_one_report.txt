@@ -1,0 +1,9 @@
+Vitruvius Convert One Report
+
+Source: 001-Laws/EO/EO 90 NGO for Shelter Program.pdf
+Detection result: TEXT_PDF
+Recommended route: OPENDATALOADER_DIRECT
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/EO/EO 90 NGO for Shelter Program.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/EO/EO 90 NGO for Shelter Program.json
+
+STATUS: converted

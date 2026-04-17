@@ -1,0 +1,354 @@
+{
+  "action": "run-laws-tranche-source-admission",
+  "admission_review_ready_law_folders": [
+    "EO",
+    "HLURB-DHSUD"
+  ],
+  "admitted_source_page_count": 5,
+  "blocked_law_folders": [],
+  "canonicalize_failure_count": 0,
+  "execute": true,
+  "generated_at_utc": "20260417T151027Z",
+  "laws": [
+    {
+      "admission_guardrails": [],
+      "admitted_source_count": 3,
+      "admitted_source_pages": [
+        {
+          "aliases": [
+            "EO 90",
+            "Executive Order No. 90",
+            "National Shelter Program EO"
+          ],
+          "canonical_id": "law-executive-order-no-90-on-the-national-shelter-program",
+          "canonical_prefix": "law",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-90-on-the-national-shelter-program.md",
+          "canonical_source_type": "law",
+          "canonical_title": "Executive Order No. 90 on the National Shelter Program",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/EO/EO 90 NGO for Shelter Program.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/EO/EO 90 NGO for Shelter Program.pdf",
+          "raw_sha256": "22b0d40bfdd91f9636f7e57df542496b19fcca84fc7d48df4911a9e65d7cd501",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 90 NGO for Shelter Program.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        },
+        {
+          "aliases": [
+            "EO 648",
+            "Executive Order No. 648",
+            "Human Settlements Regulatory Commission EO"
+          ],
+          "canonical_id": "law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission",
+          "canonical_prefix": "law",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission.md",
+          "canonical_source_type": "law",
+          "canonical_title": "Executive Order No. 648 Reorganizing the Human Settlements Regulatory Commission",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf",
+          "raw_sha256": "5510daa43a30fa95d33eb1276b31e4b24a8a47d56b4ad205da379cb80b75bd54",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        },
+        {
+          "aliases": [
+            "EO 72",
+            "Executive Order No. 72"
+          ],
+          "canonical_id": "law-executive-order-no-72-on-comprehensive-land-use-plans",
+          "canonical_prefix": "law",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-72-on-comprehensive-land-use-plans.md",
+          "canonical_source_type": "law",
+          "canonical_title": "Executive Order No. 72 on Comprehensive Land Use Plans",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/EO/EO 72 Comprehensive Land use.pdf",
+          "raw_sha256": "57de2c585b2f2f0e5687bbf95754f9cd4f2bae68c51c6ae0d8d60e81d24c8cbd",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        }
+      ],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-90-on-the-national-shelter-program.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-72-on-comprehensive-land-use-plans.md"
+      ],
+      "blocked_file_reports": [],
+      "candidate_reason": "planning and settlements governance executive issuances.",
+      "candidate_source_page_count": 3,
+      "candidate_source_pages": [
+        {
+          "aliases": [
+            "EO 90",
+            "Executive Order No. 90",
+            "National Shelter Program EO"
+          ],
+          "canonical_id": "law-executive-order-no-90-on-the-national-shelter-program",
+          "canonical_prefix": "law",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-90-on-the-national-shelter-program.md",
+          "canonical_source_type": "law",
+          "canonical_title": "Executive Order No. 90 on the National Shelter Program",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/EO/EO 90 NGO for Shelter Program.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/EO/EO 90 NGO for Shelter Program.pdf",
+          "raw_sha256": "22b0d40bfdd91f9636f7e57df542496b19fcca84fc7d48df4911a9e65d7cd501",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 90 NGO for Shelter Program.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        },
+        {
+          "aliases": [
+            "EO 648",
+            "Executive Order No. 648",
+            "Human Settlements Regulatory Commission EO"
+          ],
+          "canonical_id": "law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission",
+          "canonical_prefix": "law",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission.md",
+          "canonical_source_type": "law",
+          "canonical_title": "Executive Order No. 648 Reorganizing the Human Settlements Regulatory Commission",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf",
+          "raw_sha256": "5510daa43a30fa95d33eb1276b31e4b24a8a47d56b4ad205da379cb80b75bd54",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        },
+        {
+          "aliases": [
+            "EO 72",
+            "Executive Order No. 72"
+          ],
+          "canonical_id": "law-executive-order-no-72-on-comprehensive-land-use-plans",
+          "canonical_prefix": "law",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-72-on-comprehensive-land-use-plans.md",
+          "canonical_source_type": "law",
+          "canonical_title": "Executive Order No. 72 on Comprehensive Land Use Plans",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/EO/EO 72 Comprehensive Land use.pdf",
+          "raw_sha256": "57de2c585b2f2f0e5687bbf95754f9cd4f2bae68c51c6ae0d8d60e81d24c8cbd",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        }
+      ],
+      "canonicalize_results": [
+        {
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-90-on-the-national-shelter-program.md",
+          "output": "canonicalize-one complete. Wrote: /Users/philiplewis/vitruvius/003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-90-on-the-national-shelter-program.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/EO/EO 90 NGO for Shelter Program.pdf",
+          "rc": 0,
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 90 NGO for Shelter Program.md",
+          "wrote_or_kept": true
+        },
+        {
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission.md",
+          "output": "canonicalize-one complete. Wrote: /Users/philiplewis/vitruvius/003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.pdf",
+          "rc": 0,
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md",
+          "wrote_or_kept": true
+        },
+        {
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-72-on-comprehensive-land-use-plans.md",
+          "output": "canonicalize-one complete. Wrote: /Users/philiplewis/vitruvius/003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-72-on-comprehensive-land-use-plans.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/EO/EO 72 Comprehensive Land use.pdf",
+          "rc": 0,
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md",
+          "wrote_or_kept": true
+        }
+      ],
+      "excluded_prepared_count": 0,
+      "excluded_prepared_file_reports": [],
+      "executed_source_admission_state": "admitted",
+      "failed_count": 0,
+      "failed_file_reports": [],
+      "folder_name": "EO",
+      "next_step": "Admit the selected canonical source pages now, keep excluded variants explicit, and only then revisit tranche source-to-graph execution.",
+      "ocr_required_count": 0,
+      "prepared_count": 3,
+      "raw_file_count": 3,
+      "source_prep_report_summary": {
+        "failed_count": 0,
+        "ocr_required_count": 0,
+        "prepared_count": 3
+      },
+      "status": "ready_for_admission_review"
+    },
+    {
+      "admission_guardrails": [],
+      "admitted_source_count": 2,
+      "admitted_source_pages": [
+        {
+          "aliases": [
+            "DHSUD Open Space Development Guidelines"
+          ],
+          "canonical_id": "handout-open-space-development-guidelines",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/open-space-development-guidelines.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "Open Space Development Guidelines",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf",
+          "raw_sha256": "2ca6d61605d370035cdd8679a43cdd57d5f40deada47601ea56e5161733e0add",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        },
+        {
+          "aliases": [
+            "DHSUD Resilient Urban Design and Development Guidelines"
+          ],
+          "canonical_id": "handout-resilient-urban-design-and-development-guidelines",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/resilient-urban-design-and-development-guidelines.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "Resilient Urban Design and Development Guidelines",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.pdf",
+          "raw_sha256": "3c85b4f85c6e82e34e7251049b34eba43b5cf19ff4e6c84548f5761ad1ed6d98",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        }
+      ],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/open-space-development-guidelines.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/resilient-urban-design-and-development-guidelines.md"
+      ],
+      "blocked_file_reports": [],
+      "candidate_reason": "planning and settlements implementation guidance.",
+      "candidate_source_page_count": 2,
+      "candidate_source_pages": [
+        {
+          "aliases": [
+            "DHSUD Open Space Development Guidelines"
+          ],
+          "canonical_id": "handout-open-space-development-guidelines",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/open-space-development-guidelines.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "Open Space Development Guidelines",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf",
+          "raw_sha256": "2ca6d61605d370035cdd8679a43cdd57d5f40deada47601ea56e5161733e0add",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        },
+        {
+          "aliases": [
+            "DHSUD Resilient Urban Design and Development Guidelines"
+          ],
+          "canonical_id": "handout-resilient-urban-design-and-development-guidelines",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/resilient-urban-design-and-development-guidelines.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "Resilient Urban Design and Development Guidelines",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.pdf",
+          "raw_sha256": "3c85b4f85c6e82e34e7251049b34eba43b5cf19ff4e6c84548f5761ad1ed6d98",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        }
+      ],
+      "canonicalize_results": [
+        {
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/open-space-development-guidelines.md",
+          "output": "canonicalize-one complete. Wrote: /Users/philiplewis/vitruvius/003_Canonical-Knowledge-Layer/shared/sources/open-space-development-guidelines.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf",
+          "rc": 0,
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md",
+          "wrote_or_kept": true
+        },
+        {
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/resilient-urban-design-and-development-guidelines.md",
+          "output": "canonicalize-one complete. Wrote: /Users/philiplewis/vitruvius/003_Canonical-Knowledge-Layer/shared/sources/resilient-urban-design-and-development-guidelines.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.pdf",
+          "rc": 0,
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md",
+          "wrote_or_kept": true
+        }
+      ],
+      "excluded_prepared_count": 0,
+      "excluded_prepared_file_reports": [],
+      "executed_source_admission_state": "admitted",
+      "failed_count": 0,
+      "failed_file_reports": [],
+      "folder_name": "HLURB-DHSUD",
+      "next_step": "Admit the selected canonical source pages now, keep excluded variants explicit, and only then revisit tranche source-to-graph execution.",
+      "ocr_required_count": 0,
+      "prepared_count": 2,
+      "raw_file_count": 2,
+      "source_prep_report_summary": {
+        "failed_count": 0,
+        "ocr_required_count": 0,
+        "prepared_count": 2
+      },
+      "status": "ready_for_admission_review"
+    }
+  ],
+  "manifest_updated": true,
+  "mixed_readiness_law_folders": [],
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "run_id": "20260417T151027Z",
+  "source_prep_report_path": "006_System-Manifests/runs/datasets/laws-tranche-12/20260417T150755Z/laws_tranche_source_prep_report.json",
+  "source_prep_run_id": "20260417T150755Z",
+  "source_to_graph_execute_blockers": [
+    "tranche source-to-graph execute remains gated until source admission is explicitly executed for ready tranche members"
+  ],
+  "source_to_graph_execute_ready": false,
+  "tranche_id": "laws-tranche-12",
+  "tranche_manifest_path": "config/datasets/laws-tranche-12.yaml"
+}

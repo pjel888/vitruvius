@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T150805Z",
+  "source_relative_path": "001-Laws/raw_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md",
+  "refined_relative_path": "001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md",
+  "source_hash": "7a9d49fb762b79397efcb8925a7e0daca7d3097636c7ac68e7cf04ca684246cd",
+  "output_hash": "335800f7da157f07f85e12af033511d46d23ce7e5e2d693a75ca32a4310ed589",
+  "chars_before": 18826,
+  "chars_after": 18811,
+  "chars_delta": -15,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "collapse-consecutive-blank-lines"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 18826,
+      "chars_after": 18826,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 18826,
+      "chars_after": 18826,
+      "changed": false
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 18826,
+      "chars_after": 18826,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 18826,
+      "chars_after": 18826,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 18826,
+      "chars_after": 18811,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 18811,
+      "chars_after": 18811,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 18811,
+      "chars_after": 18811,
+      "changed": false
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 18811,
+      "chars_after": 18811,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}

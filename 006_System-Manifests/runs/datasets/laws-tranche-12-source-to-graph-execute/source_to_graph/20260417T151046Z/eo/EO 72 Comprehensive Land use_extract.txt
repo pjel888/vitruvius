@@ -1,0 +1,6 @@
+Section-Aware Relationship Extraction
+
+Sections: 6
+Unique relationships: 1
+
+law-executive-order-no-72-on-comprehensive-land-use-plans -> governs -> concept-comprehensive-land-use-plan (x4) sections=['section-1']

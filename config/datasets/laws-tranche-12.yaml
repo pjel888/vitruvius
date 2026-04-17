@@ -1,0 +1,102 @@
+tranche_id: laws-tranche-12
+purpose: readiness-only
+phase_11_gate: gated
+description: Twelfth explicit widening tranche after tranche-11. This tranche uses
+  scoped EO and HLURB-DHSUD planning-governance documents only, avoiding bundle sweeps
+  by declaring authoritative files explicitly.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: EO
+  reason: planning and settlements governance executive issuances.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/EO/EO 90 NGO for Shelter Program.pdf
+  - 001_Raw-Source-Layer/001-Laws/EO/EO 648 Chapter of the Human Settlements Regulatory
+    Commissio.pdf
+  - 001_Raw-Source-Layer/001-Laws/EO/EO 72 Comprehensive Land use.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths:
+  - 001_Raw-Source-Layer/001-Laws/EO/E.O. 1008_0 1.pdf
+  - 001_Raw-Source-Layer/001-Laws/EO/E.O. 1008_0.pdf
+  - 001_Raw-Source-Layer/001-Laws/EO/EO 1008 Construction Arbitration Law.pdf
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-12/20260417T151027Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T151027Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 90 NGO for Shelter Program.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 648 Chapter of the Human
+    Settlements Regulatory Commissio.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/EO/EO 72 Comprehensive Land
+    use.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-90-on-the-national-shelter-program.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-72-on-comprehensive-land-use-plans.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - duplicate or study-aid raw variants remain explicit and excluded from canonical
+    admission
+  - EO tranche-12 slice admits existing planning concepts and dataset-scoped governs
+    relationships only.
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - EO tranche-12 slice admits existing planning concepts and dataset-scoped governs
+    relationships only.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/human-settlements.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan.md
+- folder_name: HLURB-DHSUD
+  reason: planning and settlements implementation guidance.
+  raw_anchor_paths: &id002
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Open Space Development Guidelines.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Resilient Urban Design and Development
+    Guidelines.pdf
+  authoritative_variant_paths: *id002
+  excluded_variant_paths:
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/CLUP GIS GUIDEBOOK HLURB.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Guidelines on New Towns and Planned
+    Unit Development.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Guidebook_Vol_1_11042015.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Vol_1.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Vol_2.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_CLUP_Vol_3.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_Supplemental_Guidelines.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/HLURB_Supplemental_Guidelines_SLM.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/LCG of 1991.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Local-Shelter-Planning-Manual-2016-Web-Edition.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/R-973 s. 2018.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/RPS (2008).pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Reference-Tool-on-Urban-Planning-and-Design-for-Climate-Resilience-for-LGUs-Planning-Actors-in-the-Philippines_readable.pdf
+  - 001_Raw-Source-Layer/001-Laws/HLURB-DHSUD/Volume 4 - Planning Strategically.pdf
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-12/20260417T151027Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T151027Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development
+    Guidelines.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban
+    Design and Development Guidelines.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/open-space-development-guidelines.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/resilient-urban-design-and-development-guidelines.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - duplicate or study-aid raw variants remain explicit and excluded from canonical
+    admission
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+source_admission:
+  last_run_id: 20260417T151027Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-12/20260417T151027Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - EO
+  - HLURB-DHSUD
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []
