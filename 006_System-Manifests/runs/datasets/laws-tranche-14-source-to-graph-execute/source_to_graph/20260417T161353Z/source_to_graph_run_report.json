@@ -1,0 +1,364 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "browser_opened": null,
+  "dataset_id": "laws-tranche-14-source-to-graph-execute",
+  "derived_manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/derived_dataset_manifest.yaml",
+  "filtered_relationship_count": 0,
+  "filtered_relationship_paths": [],
+  "generated_at_utc": "20260417T161354Z",
+  "generated_relationship_count": 0,
+  "graph": {
+    "action": "run-dataset-graph",
+    "build_report_path": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/20260417T161354Z_build_graph_dataset_report.json",
+    "contributing_law_ids": [
+      "doh",
+      "deped"
+    ],
+    "dataset_id": "laws-tranche-14-source-to-graph-execute",
+    "law_unit_count": 2,
+    "owl_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-14-source-to-graph-execute/20260417T161354Z_graph_snapshot.ttl",
+    "pipeline_report_path": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/20260417T161354Z_dataset_pipeline_run_report.json",
+    "run_id": "20260417T161354Z",
+    "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-14-source-to-graph-execute/20260417T161354Z_graph_snapshot.json",
+    "structured_check_count": 0
+  },
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-14/source_to_graph_execute/20260417T161353Z/derived_dataset_manifest.yaml",
+  "review_model": "qwen2.5:7b",
+  "review_preset": "m2-8gb-safe",
+  "review_runtime": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "review_settings": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "run_id": "20260417T161353Z",
+  "source_quality_summary": {
+    "benchmark_source_hints": [],
+    "extraction_trust_counts": {
+      "guarded": 1,
+      "review_required": 1,
+      "trusted": 0
+    },
+    "high_severity_paths": [
+      "001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md"
+    ],
+    "high_severity_sources": [
+      {
+        "benchmark_source_hints": [],
+        "difficulty_signals": {
+          "image_line_count": 0,
+          "noise_line_count": 0,
+          "structural_heading_count": 0,
+          "table_line_count": 83,
+          "useful_text_ratio": 0.415493
+        },
+        "manual_review_recommended": true,
+        "recommendations": [
+          "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+          "low structural-heading count: verify section detection and source structure fidelity",
+          "manual review required: OCR/layout instability is too high for unattended source-summary use"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md",
+        "severity": "high",
+        "source_id": "handout-doh-guidelines-for-health-facilities"
+      }
+    ],
+    "manual_review_required_paths": [
+      "001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md"
+    ],
+    "manual_review_required_sources": [
+      {
+        "benchmark_source_hints": [],
+        "difficulty_signals": {
+          "image_line_count": 0,
+          "noise_line_count": 0,
+          "structural_heading_count": 0,
+          "table_line_count": 83,
+          "useful_text_ratio": 0.415493
+        },
+        "manual_review_recommended": true,
+        "recommendations": [
+          "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+          "low structural-heading count: verify section detection and source structure fidelity",
+          "manual review required: OCR/layout instability is too high for unattended source-summary use"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md",
+        "severity": "high",
+        "source_id": "handout-doh-guidelines-for-health-facilities"
+      }
+    ],
+    "representation_guardrail_counts": {
+      "high": 0,
+      "low": 2,
+      "medium": 0
+    },
+    "severity_counts": {
+      "high": 1,
+      "low": 0,
+      "medium": 1
+    },
+    "shallow_representation_paths": [],
+    "shallow_representation_sources": [],
+    "source_acceptance_counts": {
+      "accepted": 0,
+      "accepted_with_spot_review": 1,
+      "manual_review_required": 1
+    },
+    "spot_review_required_paths": [
+      "001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md",
+      "001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md"
+    ],
+    "summary_auto_withheld_paths": [
+      "001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md",
+      "001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md"
+    ]
+  },
+  "stage_results": [
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "handout-doh-guidelines-for-health-facilities",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/doh-guidelines-for-health-facilities.md",
+        "title": "DOH Guidelines for Health Facilities",
+        "trust_level": "primary"
+      },
+      "extract_json": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/doh/DOH Guidelines for Health Facilities 20004_extract.json",
+      "graph_admitted_relationships": 0,
+      "graph_filtered_relationships": 0,
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/doh/DOH Guidelines for Health Facilities 20004_high_conf.json",
+      "law_id": "doh",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md",
+      "promote_result": {
+        "batch_id": "20260417T161353Z_85297572",
+        "created": 0,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 0,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/promoted_relationships/doh",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 3,
+        "admitted_relationship_count": 3,
+        "folder_name": "DOH",
+        "law_id": "doh",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 0.0,
+        "section_to_relationship_ratio": 0.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 0
+      },
+      "review_json": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/doh/DOH Guidelines for Health Facilities 20004_review.json",
+      "source_id": "handout-doh-guidelines-for-health-facilities",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "withhold_auto_summary",
+        "extraction_trust_level": "review_required",
+        "extraction_trust_reasons": [
+          "high extraction difficulty: require manual review before trusting unattended summaries",
+          "front matter is table-heavy and may reflect layout extraction noise",
+          "source quality severity is high enough to require manual review before trusting automated summaries",
+          "spot-review the flagged OCR-sensitive regions before trusting summary prose",
+          "benchmark authoritative references before promoting summary claims"
+        ],
+        "front_matter_suspicious_ocr_line_count": 7,
+        "image_line_count": 0,
+        "manual_review_recommended": true,
+        "markdown_heading_count": 0,
+        "noise_line_count": 0,
+        "non_empty_line_count": 142,
+        "recommendations": [
+          "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+          "low structural-heading count: verify section detection and source structure fidelity",
+          "manual review required: OCR/layout instability is too high for unattended source-summary use"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 3,
+          "admitted_relationship_count": 3,
+          "folder_name": "DOH",
+          "law_id": "doh",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 0.0,
+          "section_to_relationship_ratio": 0.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 0
+        },
+        "severity": "high",
+        "source_acceptance_reasons": [
+          "source quality severity is high enough to require manual review before trusting automated summaries"
+        ],
+        "source_acceptance_status": "manual_review_required",
+        "spot_review_focus": [
+          "title/header lines and the first operative section",
+          "section numbering and other numeric provisions"
+        ],
+        "spot_review_required": true,
+        "structural_heading_count": 0,
+        "summary_auto_withheld": true,
+        "summary_hygiene_flags": [
+          "table_heavy_front_matter"
+        ],
+        "suspicious_ocr_examples": [
+          "|Space|Area in Square Meters|",
+          "|Space|Area in Square Meters|",
+          "|Consultation Area|5.02/staff|",
+          "|Janitor’s Closet|3.90|",
+          "|Space|Area in Square Meters|"
+        ],
+        "suspicious_ocr_line_count": 7,
+        "suspicious_ocr_line_ratio": 0.049296,
+        "table_line_count": 83,
+        "total_line_count": 161,
+        "useful_text_line_count": 59,
+        "useful_text_ratio": 0.415493
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/source_quality/doh/DOH Guidelines for Health Facilities 20004_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "handout-deped-disaster-risk-reduction-resource-manual",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/deped-disaster-risk-reduction-resource-manual.md",
+        "title": "DepEd Disaster Risk Reduction Resource Manual",
+        "trust_level": "primary"
+      },
+      "extract_json": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/deped/DepEd DRRR Manual Philippines_extract.json",
+      "graph_admitted_relationships": 0,
+      "graph_filtered_relationships": 0,
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/deped/DepEd DRRR Manual Philippines_high_conf.json",
+      "law_id": "deped",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md",
+      "promote_result": {
+        "batch_id": "20260417T161354Z_db327c67",
+        "created": 0,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 0,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/promoted_relationships/deped",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 3,
+        "admitted_relationship_count": 3,
+        "folder_name": "DEPED",
+        "law_id": "deped",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 15.666667,
+        "section_to_relationship_ratio": 15.666667,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 47
+      },
+      "review_json": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/deped/DepEd DRRR Manual Philippines_review.json",
+      "source_id": "handout-deped-disaster-risk-reduction-resource-manual",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "withhold_auto_summary",
+        "extraction_trust_level": "guarded",
+        "extraction_trust_reasons": [
+          "moderate extraction difficulty: treat automated summaries as guarded",
+          "front matter is image-heavy and may reflect OCR/layout instability",
+          "image-heavy front matter still contains suspicious OCR text near the document title/opening lines",
+          "spot-review the flagged OCR-sensitive regions before trusting summary prose"
+        ],
+        "front_matter_suspicious_ocr_line_count": 12,
+        "image_line_count": 209,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 307,
+        "noise_line_count": 8,
+        "non_empty_line_count": 2775,
+        "recommendations": [
+          "high image-line count: verify OCR quality or alternate source availability",
+          "spot-review OCR-sensitive title/heading lines before trusting automated summaries"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 3,
+          "admitted_relationship_count": 3,
+          "folder_name": "DEPED",
+          "law_id": "deped",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 15.666667,
+          "section_to_relationship_ratio": 15.666667,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 47
+        },
+        "severity": "medium",
+        "source_acceptance_reasons": [
+          "image-heavy front matter still contains suspicious OCR text near the document title/opening lines"
+        ],
+        "source_acceptance_status": "accepted_with_spot_review",
+        "spot_review_focus": [
+          "title/header lines and the first operative section",
+          "section numbering and other numeric provisions",
+          "image-backed front matter, page breaks, and signature/footer spillover"
+        ],
+        "spot_review_required": true,
+        "structural_heading_count": 47,
+        "summary_auto_withheld": true,
+        "summary_hygiene_flags": [
+          "image_heavy_front_matter"
+        ],
+        "suspicious_ocr_examples": [
+          "Published by the Department of Education (DepED) Philippines in partnership and with the support of the United Nations Children’s Fund (UNICEF) Philippines",
+          "Special thanks to the Ofﬁce of the Civil Defense (OCD) in Central Visayas, especially to Mr. and Mrs. Angel Gaviola for their inputs, and constructive comments during the plenary sessions, and regional directors, division superintendents and some school heads, that provided information and recommendations that helped validate the veracity and authenticity of this endeavor.We also thank the United Nations Children’s Fund (UNICEF) for all their efforts in making this manual a reality through the provision of funds for theﬁnal printing of the manuscript, and its support through the services of Mr. Robin Willison (Consultant), Ms. Vicky Eleen Catadman (Layout Artist), and Mr. Jason Villena (Illustrator). We also thank Plan Philippines through Mr. Baltazar Tribunalo Jr., Countr y Program Advisor on Disaster Risk Reduction, for providing inputs as well as funds for the printing of the ﬁnal draft of this manual.",
+          "I wish to congratulate the Department’s Technical Working Group (TWG) on the preparation of the Disaster Risk Reduction Resource Manual led by Undersecretary Teodosio C. Sangil, Jr.,Writers from the Bureau of Elementary Education (BEE), Bureau of Secondary Education (BSE), and the AudioVisual Division, Ofﬁce of the Technical Service; all the Consultants from the Land Bank of the Philippines; Ofﬁce of the Civil Defense (OCD), Department of National Defense; Department of Science and Technology (DOST) through the Philippine Atmospheric, Geophysical and Astronomical Services Administration (PAGASA), Philippine Institute of Volcanology and Seismology (PHIVOLCS); Philippine National Red Cross (PNRC); United Nations Children’s Fund (UNICEF); and the central secretariat from the Ofﬁce of the Director, Administrative Service, for putting together their hearts, minds and efforts in order to come up with a ready reference and resource manual on disaster risk reduction.",
+          "This Manual signiﬁcantly provides valuable information for the school community’s safety amidst the impending threats of natural and manmade hazards and disasters. It specially provides the schoolchildren with key messages so that they can cope with the threats of disasters especially in school.",
+          "The United Nations Children’s Fund (UNICEF) is pleased to support the development of this Disaster Risk Reduction Resource Manual. We, at UNICEF, hope that the Department of Education and the whole Philippine school system will use this resource manual to preserve life and health, and make our communities safer for our children."
+        ],
+        "suspicious_ocr_line_count": 95,
+        "suspicious_ocr_line_ratio": 0.034234,
+        "table_line_count": 38,
+        "total_line_count": 4670,
+        "useful_text_line_count": 2520,
+        "useful_text_ratio": 0.908108
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/source_quality/deped/DepEd DRRR Manual Philippines_source_quality.json"
+    }
+  ],
+  "visualization": null
+}

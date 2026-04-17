@@ -1,0 +1,64 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "withhold_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "moderate extraction difficulty: treat automated summaries as guarded",
+    "front matter is image-heavy and may reflect OCR/layout instability",
+    "image-heavy front matter still contains suspicious OCR text near the document title/opening lines",
+    "spot-review the flagged OCR-sensitive regions before trusting summary prose"
+  ],
+  "front_matter_suspicious_ocr_line_count": 12,
+  "image_line_count": 209,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 307,
+  "noise_line_count": 8,
+  "non_empty_line_count": 2775,
+  "recommendations": [
+    "high image-line count: verify OCR quality or alternate source availability",
+    "spot-review OCR-sensitive title/heading lines before trusting automated summaries"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 3,
+    "admitted_relationship_count": 3,
+    "folder_name": "DEPED",
+    "law_id": "deped",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 15.666667,
+    "section_to_relationship_ratio": 15.666667,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 47
+  },
+  "severity": "medium",
+  "source_acceptance_reasons": [
+    "image-heavy front matter still contains suspicious OCR text near the document title/opening lines"
+  ],
+  "source_acceptance_status": "accepted_with_spot_review",
+  "spot_review_focus": [
+    "title/header lines and the first operative section",
+    "section numbering and other numeric provisions",
+    "image-backed front matter, page breaks, and signature/footer spillover"
+  ],
+  "spot_review_required": true,
+  "structural_heading_count": 47,
+  "summary_auto_withheld": true,
+  "summary_hygiene_flags": [
+    "image_heavy_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "Published by the Department of Education (DepED) Philippines in partnership and with the support of the United Nations Children’s Fund (UNICEF) Philippines",
+    "Special thanks to the Ofﬁce of the Civil Defense (OCD) in Central Visayas, especially to Mr. and Mrs. Angel Gaviola for their inputs, and constructive comments during the plenary sessions, and regional directors, division superintendents and some school heads, that provided information and recommendations that helped validate the veracity and authenticity of this endeavor.We also thank the United Nations Children’s Fund (UNICEF) for all their efforts in making this manual a reality through the provision of funds for theﬁnal printing of the manuscript, and its support through the services of Mr. Robin Willison (Consultant), Ms. Vicky Eleen Catadman (Layout Artist), and Mr. Jason Villena (Illustrator). We also thank Plan Philippines through Mr. Baltazar Tribunalo Jr., Countr y Program Advisor on Disaster Risk Reduction, for providing inputs as well as funds for the printing of the ﬁnal draft of this manual.",
+    "I wish to congratulate the Department’s Technical Working Group (TWG) on the preparation of the Disaster Risk Reduction Resource Manual led by Undersecretary Teodosio C. Sangil, Jr.,Writers from the Bureau of Elementary Education (BEE), Bureau of Secondary Education (BSE), and the AudioVisual Division, Ofﬁce of the Technical Service; all the Consultants from the Land Bank of the Philippines; Ofﬁce of the Civil Defense (OCD), Department of National Defense; Department of Science and Technology (DOST) through the Philippine Atmospheric, Geophysical and Astronomical Services Administration (PAGASA), Philippine Institute of Volcanology and Seismology (PHIVOLCS); Philippine National Red Cross (PNRC); United Nations Children’s Fund (UNICEF); and the central secretariat from the Ofﬁce of the Director, Administrative Service, for putting together their hearts, minds and efforts in order to come up with a ready reference and resource manual on disaster risk reduction.",
+    "This Manual signiﬁcantly provides valuable information for the school community’s safety amidst the impending threats of natural and manmade hazards and disasters. It specially provides the schoolchildren with key messages so that they can cope with the threats of disasters especially in school.",
+    "The United Nations Children’s Fund (UNICEF) is pleased to support the development of this Disaster Risk Reduction Resource Manual. We, at UNICEF, hope that the Department of Education and the whole Philippine school system will use this resource manual to preserve life and health, and make our communities safer for our children."
+  ],
+  "suspicious_ocr_line_count": 95,
+  "suspicious_ocr_line_ratio": 0.034234,
+  "table_line_count": 38,
+  "total_line_count": 4670,
+  "useful_text_line_count": 2520,
+  "useful_text_ratio": 0.908108
+}

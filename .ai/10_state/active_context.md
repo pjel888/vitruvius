@@ -360,6 +360,17 @@
     - graph snapshot: `8 nodes / 6 edges`
   - tranche-13 is operationally clean on the scoped professional/standards lane; CHED OCR-first prep is complete and UAP now carries explicit raw-alias visibility without remaining shallow-representation risk
 
+- Tranche-14 bounded execution:
+  - current tranche-14 execute evidence:
+    - `staged_law_folders = [DOH, DEPED]`
+    - `generated_relationship_count = 0`
+    - `manual_review_required_count = 1`
+    - `spot_review_required_count = 2`
+    - `summary_auto_withheld_count = 2`
+    - `shallow_representation_count = 0`
+    - graph snapshot: `8 nodes / 12 edges`
+  - tranche-14 is operationally clean on the scoped guidance lane; the DEPED shallow finding is cleared via bounded guidance concepts while DOH remains explicitly manual-review-heavy because the source is table-heavy and low-structure
+
 ## Residual Graph Caveat
 
 - `build-graph` is now green on errors, but still reports six orphan-node warnings that remain informational rather than blocking.
@@ -420,3 +431,4 @@ If you continue from here, do **not** restart with a new repo-wide audit. Consul
 - Latest tranche-12 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-12-execution-validation.md`
 
 - Latest tranche-13 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-13-execution-validation.md`
+- Latest tranche-14 execution validation: `/.ai/05_logs/2026-04-18_laws-tranche-14-execution-validation.md`

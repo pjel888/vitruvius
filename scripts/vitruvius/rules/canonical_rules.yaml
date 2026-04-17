@@ -1235,6 +1235,50 @@ rules:
         - "General Conditions"
 
   # --------------------------------------------------
+  # DOH Guidelines for Health Facilities
+  # --------------------------------------------------
+  - name: "DOH Guidelines for Health Facilities"
+
+    match:
+      any_contains:
+        - "doh guidelines for health facilities"
+        - "guidelines for health facilities 20004"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "DOH Guidelines for Health Facilities"
+
+      aliases:
+        - "Guidelines for Health Facilities"
+        - "DOH Health Facilities Guidelines"
+
+  # --------------------------------------------------
+  # DepEd Disaster Risk Reduction Resource Manual
+  # --------------------------------------------------
+  - name: "DepEd Disaster Risk Reduction Resource Manual"
+
+    match:
+      any_contains:
+        - "deped drrr manual philippines"
+        - "disaster risk reduction resource manual"
+        - "safer schools resource manual"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "DepEd Disaster Risk Reduction Resource Manual"
+
+      aliases:
+        - "Disaster Risk Reduction Resource Manual"
+        - "Safer Schools Resource Manual"
+        - "DepEd DRRR Manual Philippines"
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

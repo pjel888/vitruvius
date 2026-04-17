@@ -2,8 +2,8 @@
 
 ## Current count
 - total law folders: **47**
-- covered through pilot/core bundle + tranches 1–13: **36**
-- remaining uncovered folders: **11**
+- covered through pilot/core bundle + tranches 1–14: **38**
+- remaining uncovered folders: **9**
 
 ## Proposed future tranche sequence
 ### Tranche 9 — Environmental / implementation guidance
@@ -21,10 +21,6 @@
 ### Tranche 12 — Planning / settlements governance pack
 - `EO`
 - `HLURB-DHSUD`
-
-### Tranche 14 — Health / public facility guidance pack
-- `DOH`
-- `DEPED`
 
 ### Tranche 15 — Local ordinance / zoning pack
 - `LGU`
@@ -44,9 +40,9 @@
 - `BERDE` — rating/user-guide surface rather than primary law
 
 ## Realistic remaining workload
-- normal future tranches likely needed: **5–7**
+- normal future tranches likely needed: **4–6**
 - remediation/defer lanes likely needed: **3–5**
-- realistic remaining total work units: **8–10**
+- realistic remaining total work units: **7–9**
 
 ## Tracking rule
 Track progress by **lane completed**, not just tranche number. Some future lanes are remediation-only and should not be counted as normal law tranches.

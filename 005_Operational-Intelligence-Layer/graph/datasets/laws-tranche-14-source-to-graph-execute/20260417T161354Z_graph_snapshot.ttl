@@ -1,0 +1,56 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:handout-deped-disaster-risk-reduction-resource-manual a vitruvius:source ;
+    rdfs:label "deped-disaster-risk-reduction-resource-manual (handout-deped-disaster-risk-reduction-resource-manual)" ;
+    vitruvius:defines vitruvius:concept-continuity-of-instruction,
+        vitruvius:concept-disaster-risk-reduction,
+        vitruvius:concept-school-safety ;
+    vitruvius:governs vitruvius:concept-continuity-of-instruction,
+        vitruvius:concept-disaster-risk-reduction,
+        vitruvius:concept-school-safety ;
+    vitruvius:last_updated_utc "2026-04-17T16:13:54Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-doh-guidelines-for-health-facilities a vitruvius:source ;
+    rdfs:label "doh-guidelines-for-health-facilities (handout-doh-guidelines-for-health-facilities)" ;
+    vitruvius:defines vitruvius:concept-health-facility-zoning,
+        vitruvius:concept-patient-movement,
+        vitruvius:concept-waste-disposal ;
+    vitruvius:governs vitruvius:concept-health-facility-zoning,
+        vitruvius:concept-patient-movement,
+        vitruvius:concept-waste-disposal ;
+    vitruvius:last_updated_utc "2026-04-17T16:13:53Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:concept-continuity-of-instruction a vitruvius:concept ;
+    rdfs:label "continuity-of-instruction (concept-continuity-of-instruction)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-disaster-risk-reduction a vitruvius:concept ;
+    rdfs:label "disaster-risk-reduction (concept-disaster-risk-reduction)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-health-facility-zoning a vitruvius:concept ;
+    rdfs:label "health-facility-zoning (concept-health-facility-zoning)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-patient-movement a vitruvius:concept ;
+    rdfs:label "patient-movement (concept-patient-movement)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-school-safety a vitruvius:concept ;
+    rdfs:label "school-safety (concept-school-safety)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-waste-disposal a vitruvius:concept ;
+    rdfs:label "waste-disposal (concept-waste-disposal)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:15:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+

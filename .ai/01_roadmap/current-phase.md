@@ -375,6 +375,18 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - graph snapshot: `8 nodes / 6 edges`
     - CHED OCR-first preparation is now complete and the bounded UAP concept-fit slice clears the tranche shallow-representation guardrail
     - see `/.ai/05_logs/2026-04-17_laws-tranche-13-execution-validation.md`
+  - tranche-14 is now defined and executed through the same bounded workflow:
+    - manifest: `config/datasets/laws-tranche-14.yaml`
+    - staged folders: `DOH`, `DEPED`
+    - current execute evidence:
+      - `generated_relationship_count = 0`
+      - `manual_review_required_count = 1`
+      - `spot_review_required_count = 2`
+      - `summary_auto_withheld_count = 2`
+      - `shallow_representation_count = 0`
+      - graph snapshot: `8 nodes / 12 edges`
+    - tranche-14 clears the DEPED shallow-representation finding through a bounded guidance concept-fit slice while keeping DOH table-heavy manual-review risk explicit
+    - see `/.ai/05_logs/2026-04-18_laws-tranche-14-execution-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

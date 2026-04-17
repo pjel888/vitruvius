@@ -415,3 +415,19 @@ def test_build_plan_matches_uap_document_301_rule() -> None:
     assert plan['prefix'] == 'handout'
     assert plan['source_type'] == 'handout'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_doh_guidelines_for_health_facilities_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md')
+    assert plan['title'] == 'DOH Guidelines for Health Facilities'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_deped_drrr_manual_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md')
+    assert plan['title'] == 'DepEd Disaster Risk Reduction Resource Manual'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'

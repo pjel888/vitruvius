@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T160853Z",
+  "source_relative_path": "001-Laws/raw_markdown/DOH/DOH Guidelines for Health Facilities 20004.md",
+  "refined_relative_path": "001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md",
+  "source_hash": "6eecdf646a2802d9108d9622baa0f67173577267cd32c8d6953233bdb3e86be7",
+  "output_hash": "5e03975bfc2da418ae12ad3b5fa9e6c24a9242703d302a8aed15afee1bf2880d",
+  "chars_before": 12300,
+  "chars_after": 12285,
+  "chars_delta": -15,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "collapse-consecutive-blank-lines"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 12300,
+      "chars_after": 12300,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 12300,
+      "chars_after": 12300,
+      "changed": false
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 12300,
+      "chars_after": 12300,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 12300,
+      "chars_after": 12300,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 12300,
+      "chars_after": 12285,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 12285,
+      "chars_after": 12285,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 12285,
+      "chars_after": 12285,
+      "changed": false
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 12285,
+      "chars_after": 12285,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}

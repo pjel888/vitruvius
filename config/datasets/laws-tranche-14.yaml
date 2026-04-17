@@ -1,7 +1,9 @@
 tranche_id: laws-tranche-14
 purpose: readiness-only
 phase_11_gate: gated
-description: Fourteenth explicit widening tranche after tranche-13. This tranche stays on a narrow health / public-facility guidance lane using one scoped DOH facility-guideline surface and one scoped DEPED DRRR manual surface.
+description: Fourteenth explicit widening tranche after tranche-13. This tranche stays
+  on a narrow health / public-facility guidance lane using one scoped DOH facility-guideline
+  surface and one scoped DEPED DRRR manual surface.
 review_model_preset: m2-8gb-safe
 candidate_law_folders:
 - folder_name: DOH
@@ -14,15 +16,70 @@ candidate_law_folders:
   - 001_Raw-Source-Layer/001-Laws/DOH/DOH Adolescent-Friendly Health Services 2010_Module.md
   - 001_Raw-Source-Layer/001-Laws/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003.pdf
   - 001_Raw-Source-Layer/001-Laws/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003_Module.md
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-14/20260417T161006Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T161006Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/DOH/DOH Guidelines for Health
+    Facilities 20004.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/doh-guidelines-for-health-facilities.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - duplicate or study-aid raw variants remain explicit and excluded from canonical
+    admission
+  - DOH concept-fit slice admits only directly evidenced facility-guidance concepts
+    and dataset-scoped governs relationships
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - DOH concept-fit slice admits only directly evidenced facility-guidance concepts
+    and dataset-scoped governs relationships.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/patient-movement.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/health-facility-zoning.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-patient-movement.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-waste-disposal.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-health-facility-zoning.md
 - folder_name: DEPED
   reason: school disaster-risk-reduction and resilience guidance adjacency.
   raw_anchor_paths: &id002
   - 001_Raw-Source-Layer/001-Laws/DEPED/DepEd DRRR Manual Philippines.pdf
   authoritative_variant_paths: *id002
   excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-14/20260417T161006Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T161006Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/deped-disaster-risk-reduction-resource-manual.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - DEPED concept-fit slice admits only directly evidenced disaster-readiness concepts
+    and dataset-scoped governs relationships
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - DEPED concept-fit slice admits only directly evidenced disaster-readiness concepts
+    and dataset-scoped governs relationships.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/continuity-of-instruction.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/school-safety.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-disaster-risk-reduction.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-continuity-of-instruction.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-school-safety.md
 source_admission:
-  last_run_id: null
-  last_report_path: null
-  admitted_ready_law_folders: []
+  last_run_id: 20260417T161006Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-14/20260417T161006Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - DOH
+  - DEPED
   mixed_readiness_law_folders: []
   blocked_law_folders: []

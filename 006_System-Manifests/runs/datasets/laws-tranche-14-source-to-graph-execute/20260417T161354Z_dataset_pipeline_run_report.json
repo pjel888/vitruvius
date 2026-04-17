@@ -1,0 +1,390 @@
+{
+  "action": "run-dataset-graph",
+  "build": {
+    "action": "build-graph",
+    "artifact_metadata": {
+      "contributing_law_ids": [
+        "doh",
+        "deped"
+      ],
+      "dataset_id": "laws-tranche-14-source-to-graph-execute",
+      "dataset_kind": "laws-tranche",
+      "freshness_policy": {
+        "mode": "exact"
+      },
+      "input_fingerprint": {
+        "combined_sha256": "0925c6e241c1961438f264772bff607685a62c67d05ec66e545b1fd0752f1587",
+        "file_count": 14,
+        "files": [
+          {
+            "mtime_ns": 1776442329768357219,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/continuity-of-instruction.md",
+            "sha256": "73708382265e2db01d3e0a4d8dbf7b3a3df59f5174e8ef939b0ca9777f6220a7",
+            "size_bytes": 890
+          },
+          {
+            "mtime_ns": 1776442329766275169,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md",
+            "sha256": "daf2fc3ffda79b95812a212c66c60e4e55dd9fd078de25de6b2da3c69e19d1e2",
+            "size_bytes": 887
+          },
+          {
+            "mtime_ns": 1776442329784029364,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/health-facility-zoning.md",
+            "sha256": "27926c317019d7e2c44f63027af5edd05fdc1d09c1ffd97d1c150fa992365101",
+            "size_bytes": 951
+          },
+          {
+            "mtime_ns": 1776442329779746139,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/patient-movement.md",
+            "sha256": "e1dbe213724b2bf92647f02861dbeb68c4a2acd11aafc11cfbc365ea63470016",
+            "size_bytes": 1062
+          },
+          {
+            "mtime_ns": 1776442329777503838,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/school-safety.md",
+            "sha256": "665242e3f74a30968fd9c92a8aa00c88f4244b1fb14e6286f1dda3218ea81717",
+            "size_bytes": 1100
+          },
+          {
+            "mtime_ns": 1776442329781971439,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md",
+            "sha256": "7dca6f56c9c938ec6902f6eb4578ec58b46e057bd78c173f7e3b708a38e0d2d6",
+            "size_bytes": 1272
+          },
+          {
+            "mtime_ns": 1776442434084677240,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/deped-disaster-risk-reduction-resource-manual.md",
+            "sha256": "ff113e2554dde639016ea42e6a257f5ebf304a4a6cd81e7065824bc45edbf4b3",
+            "size_bytes": 2210
+          },
+          {
+            "mtime_ns": 1776442433815987967,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/doh-guidelines-for-health-facilities.md",
+            "sha256": "50071e2adc954cf2ad786f13b9bf98c577969823683e410fce296665d8bea991",
+            "size_bytes": 886
+          },
+          {
+            "mtime_ns": 1776442373508221649,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-continuity-of-instruction.md",
+            "sha256": "b8553e1898b1d48737c1f1b684326a4e8b22c7ef877d543dba7f17b3f7b937ef",
+            "size_bytes": 1112
+          },
+          {
+            "mtime_ns": 1776442373506078307,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-disaster-risk-reduction.md",
+            "sha256": "7f46e0f7c3557c675bc0095c95fd9856fe4e8aa58b685a3dac0f6a5a3c8ca9d7",
+            "size_bytes": 1110
+          },
+          {
+            "mtime_ns": 1776442373510389991,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-school-safety.md",
+            "sha256": "56226c6521474df80da2f602a131c11f4e81608650a993543047aba502a91deb",
+            "size_bytes": 1188
+          },
+          {
+            "mtime_ns": 1776442373516528683,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-health-facility-zoning.md",
+            "sha256": "03e9abc0d48fda944b0ee028d8f3dcdd4171f3386bea1d9ef730a6771e620695",
+            "size_bytes": 1113
+          },
+          {
+            "mtime_ns": 1776442373512709875,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-patient-movement.md",
+            "sha256": "63755b3018e6b0890235c929fb775404541066edda3ab926573cac76bc95cf0d",
+            "size_bytes": 1137
+          },
+          {
+            "mtime_ns": 1776442373514692425,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-waste-disposal.md",
+            "sha256": "78ed20f805367960b4bac8a7d529a1424e50c5a6f1bc44260106946b7772a626",
+            "size_bytes": 1221
+          }
+        ]
+      },
+      "law_units": [
+        {
+          "admitted_concept_paths": [
+            "003_Canonical-Knowledge-Layer/shared/concepts/patient-movement.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/health-facility-zoning.md"
+          ],
+          "admitted_relationship_paths": [
+            "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-patient-movement.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-waste-disposal.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-health-facility-zoning.md"
+          ],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/doh-guidelines-for-health-facilities.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/DOH/DOH Guidelines for Health Facilities 20004.pdf"
+          ],
+          "excluded_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/DOH/DOH Adolescent-Friendly Health Services 2010.pdf",
+            "001_Raw-Source-Layer/001-Laws/DOH/DOH Adolescent-Friendly Health Services 2010_Module.md",
+            "001_Raw-Source-Layer/001-Laws/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003.pdf",
+            "001_Raw-Source-Layer/001-Laws/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003_Module.md"
+          ],
+          "folder_name": "DOH",
+          "law_id": "doh",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/DOH/DOH Guidelines for Health Facilities 20004.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md"
+          ],
+          "scope_notes": [
+            "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+            "DOH concept-fit slice admits only directly evidenced facility-guidance concepts and dataset-scoped governs relationships."
+          ],
+          "verification_checks": [
+            "source admission executed for the selected authoritative prepared variants",
+            "duplicate or study-aid raw variants remain explicit and excluded from canonical admission",
+            "DOH concept-fit slice admits only directly evidenced facility-guidance concepts and dataset-scoped governs relationships"
+          ]
+        },
+        {
+          "admitted_concept_paths": [
+            "003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/continuity-of-instruction.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/school-safety.md"
+          ],
+          "admitted_relationship_paths": [
+            "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-disaster-risk-reduction.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-continuity-of-instruction.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-school-safety.md"
+          ],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/deped-disaster-risk-reduction-resource-manual.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/DEPED/DepEd DRRR Manual Philippines.pdf"
+          ],
+          "excluded_variant_paths": [],
+          "folder_name": "DEPED",
+          "law_id": "deped",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/DEPED/DepEd DRRR Manual Philippines.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md"
+          ],
+          "scope_notes": [
+            "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+            "DEPED concept-fit slice admits only directly evidenced disaster-readiness concepts and dataset-scoped governs relationships."
+          ],
+          "verification_checks": [
+            "source admission executed for the selected authoritative prepared variants",
+            "DEPED concept-fit slice admits only directly evidenced disaster-readiness concepts and dataset-scoped governs relationships"
+          ]
+        }
+      ],
+      "manifest_hash": "ec2f7f7aff3b058abc76256e7d20eab491efef9bf052ad9ff21ad85ecf4fedea",
+      "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/derived_dataset_manifest.yaml",
+      "pilot_gate": {
+        "derived_from_tranche_id": "laws-tranche-14",
+        "derived_run_id": "20260417T161353Z",
+        "require_manifest_validation": true,
+        "source_to_graph_execute_ready": false
+      },
+      "run_id": "20260417T161354Z",
+      "scope_notes": [
+        "Derived from laws-tranche-14 after tranche source admission.",
+        "Dry-run only: stage admitted tranche members without unlocking execute.",
+        "Blocked tranche members remain explicit outside the staged law-unit list."
+      ],
+      "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-14-source-to-graph-execute/20260417T161354Z_graph_integrity_report.json",
+      "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-14-source-to-graph-execute/20260417T161354Z_graph_snapshot.json",
+      "upstream_artifact_refs": {
+        "canonical_concepts": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/patient-movement.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/health-facility-zoning.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/continuity-of-instruction.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/school-safety.md"
+        ],
+        "canonical_sources": [
+          "003_Canonical-Knowledge-Layer/shared/sources/doh-guidelines-for-health-facilities.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/deped-disaster-risk-reduction-resource-manual.md"
+        ],
+        "relationship_inputs": [
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-patient-movement.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-waste-disposal.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-health-facility-zoning.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-disaster-risk-reduction.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-continuity-of-instruction.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-school-safety.md"
+        ]
+      }
+    },
+    "build_report_path": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/20260417T161354Z_build_graph_dataset_report.json",
+    "contributing_law_ids": [
+      "doh",
+      "deped"
+    ],
+    "coverage": [
+      {
+        "approved_relationship_input_count": 3,
+        "canonical_count": 4,
+        "converted_count": null,
+        "edge_count_contributed": 6,
+        "folder_name": "DOH",
+        "node_count_contributed": 4,
+        "notes": "selected truth-bearing inputs contributed nodes/edges",
+        "raw_file_count": 5,
+        "refined_count": null,
+        "status": "covered"
+      },
+      {
+        "approved_relationship_input_count": 3,
+        "canonical_count": 4,
+        "converted_count": null,
+        "edge_count_contributed": 6,
+        "folder_name": "DEPED",
+        "node_count_contributed": 4,
+        "notes": "selected truth-bearing inputs contributed nodes/edges",
+        "raw_file_count": 1,
+        "refined_count": null,
+        "status": "covered"
+      }
+    ],
+    "dataset_id": "laws-tranche-14-source-to-graph-execute",
+    "dataset_kind": "laws-tranche",
+    "dry_run": false,
+    "edge_count": 12,
+    "incomplete": false,
+    "integrity": {
+      "error_count": 0,
+      "findings": [],
+      "passed": true,
+      "warning_count": 0
+    },
+    "integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-14-source-to-graph-execute/20260417T161354Z_graph_integrity_report.json",
+    "law_unit_count": 2,
+    "law_units": [
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/patient-movement.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/health-facility-zoning.md"
+        ],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-patient-movement.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-waste-disposal.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-health-facility-zoning.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/doh-guidelines-for-health-facilities.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/DOH/DOH Guidelines for Health Facilities 20004.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/DOH/DOH Adolescent-Friendly Health Services 2010.pdf",
+          "001_Raw-Source-Layer/001-Laws/DOH/DOH Adolescent-Friendly Health Services 2010_Module.md",
+          "001_Raw-Source-Layer/001-Laws/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003.pdf",
+          "001_Raw-Source-Layer/001-Laws/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003_Module.md"
+        ],
+        "folder_name": "DOH",
+        "law_id": "doh",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/DOH/DOH Guidelines for Health Facilities 20004.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+          "DOH concept-fit slice admits only directly evidenced facility-guidance concepts and dataset-scoped governs relationships."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "duplicate or study-aid raw variants remain explicit and excluded from canonical admission",
+          "DOH concept-fit slice admits only directly evidenced facility-guidance concepts and dataset-scoped governs relationships"
+        ]
+      },
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/disaster-risk-reduction.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/continuity-of-instruction.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/school-safety.md"
+        ],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-disaster-risk-reduction.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-continuity-of-instruction.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-school-safety.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/deped-disaster-risk-reduction-resource-manual.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/DEPED/DepEd DRRR Manual Philippines.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "DEPED",
+        "law_id": "deped",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/DEPED/DepEd DRRR Manual Philippines.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+          "DEPED concept-fit slice admits only directly evidenced disaster-readiness concepts and dataset-scoped governs relationships."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "DEPED concept-fit slice admits only directly evidenced disaster-readiness concepts and dataset-scoped governs relationships"
+        ]
+      }
+    ],
+    "manifest_hash": "ec2f7f7aff3b058abc76256e7d20eab491efef9bf052ad9ff21ad85ecf4fedea",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/derived_dataset_manifest.yaml",
+    "mode": "dataset",
+    "node_count": 8,
+    "run_id": "20260417T161354Z",
+    "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-14-source-to-graph-execute/20260417T161354Z_graph_snapshot.json",
+    "thin_graph_metrics": {
+      "connected_component_count": 2,
+      "edge_type_diversity": {
+        "count": 2,
+        "types": [
+          "defines",
+          "governs"
+        ]
+      },
+      "isolated_node_count": 0,
+      "isolated_node_rate": 0.0,
+      "per_folder_node_edge_balance": {
+        "DEPED": {
+          "edge_count_contributed": 6,
+          "node_count_contributed": 4,
+          "status": "covered"
+        },
+        "DOH": {
+          "edge_count_contributed": 6,
+          "node_count_contributed": 4,
+          "status": "covered"
+        }
+      }
+    }
+  },
+  "contributing_law_ids": [
+    "doh",
+    "deped"
+  ],
+  "dataset_id": "laws-tranche-14-source-to-graph-execute",
+  "dataset_kind": "laws-tranche",
+  "generated_at_utc": "20260417T161354Z",
+  "law_unit_count": 2,
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-14-source-to-graph-execute/source_to_graph/20260417T161353Z/derived_dataset_manifest.yaml",
+  "owl": {
+    "path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-14-source-to-graph-execute/20260417T161354Z_graph_snapshot.ttl",
+    "rc": 0
+  },
+  "run_id": "20260417T161354Z",
+  "structured_checks": []
+}

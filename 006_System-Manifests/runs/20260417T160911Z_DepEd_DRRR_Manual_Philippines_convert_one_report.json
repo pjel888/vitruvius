@@ -1,0 +1,13 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-17T16:09:11.098919+00:00",
+  "source_relative_path": "001-Laws/DEPED/DepEd DRRR Manual Philippines.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/DEPED/DepEd DRRR Manual Philippines.pdf",
+  "detection_result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/DEPED/DepEd DRRR Manual Philippines.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/DEPED/DepEd DRRR Manual Philippines.json",
+  "markdown_output_relative": "001-Laws/raw_markdown/DEPED/DepEd DRRR Manual Philippines.md",
+  "json_output_relative": "001-Laws/sidecar_json/DEPED/DepEd DRRR Manual Philippines.json",
+  "status": "converted"
+}
