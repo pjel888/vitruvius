@@ -152,6 +152,25 @@ Use this to understand whether the next step is:
 - OCR-first handling
 - or further manifest narrowing
 
+## Preparing starter lane sources
+To generate conversion/refinement outputs for a scaffolded lane:
+
+```bash
+python3 scripts/pipeline_cli.py prepare-completed-aggregate-lane-sources \
+  --manifest <lane-manifest-yaml> \
+  --dry-run
+```
+
+And, when ready to actually prepare files:
+
+```bash
+python3 scripts/pipeline_cli.py prepare-completed-aggregate-lane-sources \
+  --manifest <lane-manifest-yaml> \
+  --allow-ocr
+```
+
+This writes a source-prep report under the lane run root and makes the next canonical-admission step much more mechanical.
+
 ## Profile contract
 A profile YAML must define:
 - `dataset_id`

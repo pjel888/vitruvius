@@ -47,5 +47,7 @@ status: in_progress
   - raw-root inventory -> starter manifest
 - starter lane source inspection is now in place:
   - manifest -> source readiness summary
+- starter lane source preparation is now in place:
+  - manifest -> preparation dry-run/execute
 - the next real proof is still:
   - onboard the first true non-laws trusted dataset family once its completed lanes are admitted

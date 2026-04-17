@@ -913,6 +913,103 @@ def inspect_completed_aggregate_lane_sources(
     }
 
 
+def prepare_completed_aggregate_lane_sources(
+    *,
+    repo_root: Path,
+    manifest_path: Path,
+    sample_pages: int = 5,
+    allow_ocr: bool = False,
+    dry_run: bool = False,
+) -> dict[str, Any]:
+    from .laws_readiness import _prepare_raw_file, _raw_file_preparation_summary
+
+    resolved_manifest_path = manifest_path if manifest_path.is_absolute() else repo_root / manifest_path
+    payload = load_yaml_payload(resolved_manifest_path)
+    run_id = utc_now_stamp().replace("-", "").replace(":", "").replace("+0000", "Z")
+    dataset_id = str(payload.get('dataset_id') or resolved_manifest_path.stem)
+    run_output_root_rel = str(payload.get('run_output_root') or f'006_System-Manifests/runs/datasets/{dataset_id}')
+    run_output_root = repo_root / run_output_root_rel
+    report_path = run_output_root / 'source_prep' / run_id / 'completed_aggregate_lane_source_prep_report.json'
+
+    raw_slice = payload.get('raw_slice_anchors')
+    if not isinstance(raw_slice, list) or not raw_slice:
+        raise ValueError('lane manifest requires non-empty raw_slice_anchors for source preparation')
+
+    selected_files: list[Path] = []
+    seen: set[Path] = set()
+    for anchor in raw_slice:
+        if not isinstance(anchor, dict):
+            continue
+        for item in anchor.get('classified_raw_entries') or []:
+            if not isinstance(item, dict):
+                continue
+            rel_path = item.get('path')
+            if not isinstance(rel_path, str) or not rel_path.strip():
+                continue
+            abs_path = (repo_root / rel_path).resolve()
+            if abs_path.is_file() and abs_path not in seen:
+                seen.add(abs_path)
+                selected_files.append(abs_path)
+
+    if not selected_files:
+        raise ValueError('lane manifest raw_slice_anchors/classified_raw_entries resolved no existing files')
+
+    file_reports: list[dict[str, Any]] = []
+    raw_file_count = len(selected_files)
+    supported_direct_input_count = 0
+    prepared_count = 0
+    ocr_required_count = 0
+    failed_count = 0
+
+    for file_path in selected_files:
+        if dry_run:
+            file_report = _raw_file_preparation_summary(
+                repo_root=repo_root,
+                file_path=file_path,
+                sample_pages=sample_pages,
+            )
+        else:
+            file_report = _prepare_raw_file(
+                repo_root=repo_root,
+                file_path=file_path,
+                sample_pages=sample_pages,
+                allow_ocr=allow_ocr,
+            )
+        file_reports.append(file_report)
+        if file_report.get('supported_direct_input'):
+            supported_direct_input_count += 1
+        status = str(file_report.get('status') or '')
+        if dry_run:
+            if file_report.get('recommended_route') and file_report.get('recommended_route') != 'OPENDATALOADER_DIRECT':
+                ocr_required_count += 1
+        else:
+            if status == 'prepared':
+                prepared_count += 1
+            elif status == 'ocr_required':
+                ocr_required_count += 1
+            elif status.endswith('_failed') or status == 'detection_failed':
+                failed_count += 1
+
+    summary = {
+        'action': 'prepare-completed-aggregate-lane-sources' if not dry_run else 'prepare-completed-aggregate-lane-sources-dry-run',
+        'dataset_id': dataset_id,
+        'manifest_path': _relative(resolved_manifest_path, repo_root),
+        'run_id': run_id,
+        'dry_run': dry_run,
+        'allow_ocr': allow_ocr,
+        'raw_file_count': raw_file_count,
+        'supported_direct_input_count': supported_direct_input_count,
+        'prepared_count': prepared_count if not dry_run else 0,
+        'ocr_required_count': ocr_required_count,
+        'failed_count': failed_count if not dry_run else 0,
+        'report_path': _relative(report_path, repo_root),
+        'files': file_reports,
+    }
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(summary, indent=2), encoding='utf-8')
+    return summary
+
+
 def scaffold_completed_aggregate_lane_manifest(
     *,
     repo_root: Path,
