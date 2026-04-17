@@ -27,3 +27,13 @@
   - excluded plumbing-code / board files stayed explicit
   - the law family still remains outside staged source-to-graph because the excluded `Board of Master Plumber.doc` prep failure leaves `source_admission_state = admitted_subset_failed`
 - tranche-7 still carries `spot_review_required_count = 2` and `summary_auto_withheld_count = 2`
+
+## Updated tranche-7 clean rerun
+- manifest-scoped prep rerun now stages all three tranche-7 laws cleanly
+- refreshed execute evidence:
+  - `staged_law_folders = [RA-1378, RA-9285, RA-11201]`
+  - `blocked_law_folders = []`
+  - `generated_relationship_count = 0`
+  - `shallow_representation_count = 0`
+  - graph snapshot: `7 nodes / 6 edges`
+- see `/.ai/05_logs/2026-04-17_laws-tranche-7-clean-rerun-validation.md`

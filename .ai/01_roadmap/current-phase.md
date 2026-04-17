@@ -291,20 +291,17 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `RA-9285`
       - `RA-11201`
     - current execute evidence:
-      - `staged_law_folders = [RA-9285, RA-11201]`
-      - `blocked_law_folders = [RA-1378]`
+      - `staged_law_folders = [RA-1378, RA-9285, RA-11201]`
+      - `blocked_law_folders = []`
       - `generated_relationship_count = 0`
       - `shallow_representation_count = 0`
       - `source_to_graph_execute_completed = true`
-      - graph snapshot: `6 nodes / 6 edges`
+      - graph snapshot: `7 nodes / 6 edges`
     - bounded `RA-11201` housing-governance concept-fit follow-on is now admitted
-    - `RA-1378` is now truthfully a mixed-readiness tranche member, not a clean-prep TODO:
-      - authoritative statute admission succeeded for `MASTER PLUMBING LAW.pdf`
-      - excluded auxiliary plumbing-code / board files remain explicit
-      - the family still stays out of staged source-to-graph because the excluded `Board of Master Plumber.doc` prep failure leaves `source_admission_state = admitted_subset_failed`
+    - `RA-1378` now stages cleanly on the authoritative `MASTER PLUMBING LAW.pdf` path while excluded auxiliary plumbing-code / board files remain explicit raw aliases
     - see `/.ai/05_logs/2026-04-17_laws-tranche-7-execution-validation.md`
     - see `/.ai/05_logs/2026-04-17_ra11201-housing-governance-concept-fit-validation.md`
-    - see `/.ai/13_research/2026-04-17_tranche-8-scout-research.md`
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-7-clean-rerun-validation.md`
   - tranche-8 is now defined and executed through the same bounded workflow:
     - manifest: `config/datasets/laws-tranche-8.yaml`
     - tranche-8 law:
