@@ -30,6 +30,7 @@
     - Malolos city zoning ordinance
     - Meycauayan zoning ordinance
     - Davao city CLUP / zoning deck
+    - Tarlac city zoning ordinance
   - remaining blocker: the wider LGU lane still needs additional city/family shards beyond San Mateo
 
 ## Remediation / defer lanes

@@ -1,0 +1,11 @@
+Section-Aware Relationship Extraction
+
+Sections: 65
+Unique relationships: 6
+
+law-comprehensive-zoning-ordinance-of-the-city-of-tarlac -> governs -> concept-zoning-ordinance (x5) sections=['section-4']
+law-comprehensive-zoning-ordinance-of-the-city-of-tarlac -> governs -> concept-comprehensive-land-use-plan (x2) sections=['section-4', 'section-50']
+concept-floor-area-ratio -> affects -> concept-floor-area (x2) sections=['section-4']
+law-comprehensive-zoning-ordinance-of-the-city-of-tarlac -> governs -> concept-floor-area (x6) sections=['section-10', 'section-18']
+law-comprehensive-zoning-ordinance-of-the-city-of-tarlac -> governs -> concept-floor-area-ratio (x1) sections=['section-24']
+concept-zoning-ordinance -> affects -> concept-comprehensive-land-use-plan (x2) sections=['section-50']

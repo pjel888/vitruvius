@@ -1,29 +1,29 @@
 {
-  "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/253090760-Zoning-Davao-City.pdf",
-  "total_pages": 19,
+  "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/289088479-Tarlac-Zoning-Ordinances.pdf",
+  "total_pages": 56,
   "pages_sampled": 5,
-  "pages_with_usable_text": 3,
-  "total_extracted_characters": 552,
+  "pages_with_usable_text": 5,
+  "total_extracted_characters": 7139,
   "page_details": [
     {
       "page_number": 1,
-      "extracted_characters": 38
+      "extracted_characters": 1096
     },
     {
       "page_number": 2,
-      "extracted_characters": 27
+      "extracted_characters": 1347
     },
     {
       "page_number": 3,
-      "extracted_characters": 80
+      "extracted_characters": 1578
     },
     {
       "page_number": 4,
-      "extracted_characters": 319
+      "extracted_characters": 1424
     },
     {
       "page_number": 5,
-      "extracted_characters": 88
+      "extracted_characters": 1694
     }
   ],
   "result": "TEXT_PDF",

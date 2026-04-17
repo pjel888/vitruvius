@@ -1,0 +1,252 @@
+{
+  "action": "build-graph",
+  "artifact_metadata": {
+    "contributing_law_ids": [
+      "lgu"
+    ],
+    "dataset_id": "laws-tranche-15-tarlac-source-to-graph-execute",
+    "dataset_kind": "laws-tranche",
+    "freshness_policy": {
+      "mode": "exact"
+    },
+    "input_fingerprint": {
+      "combined_sha256": "9ca66cc8fe069525eebab87797122685dd099e8511d7c73d8a2234d1964c2bec",
+      "file_count": 10,
+      "files": [
+        {
+          "mtime_ns": 1776432092022845288,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md",
+          "sha256": "bbf4c45e321cfd73a162c717f50df1ccc9de19182b69d39f68e03cecaf9416ab",
+          "size_bytes": 1191
+        },
+        {
+          "mtime_ns": 1776443291678578304,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/floor-area-ratio.md",
+          "sha256": "f60860dad0f30161c6166498db5fdd541bc243bce25563f4bb396440faf65a44",
+          "size_bytes": 1178
+        },
+        {
+          "mtime_ns": 1776189198399081708,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md",
+          "sha256": "06aae8e5c121bbfc9451e793c632a62c57893973e4d3dedf32a079654a0963c3",
+          "size_bytes": 1614
+        },
+        {
+          "mtime_ns": 1776443291676565921,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/zoning-ordinance.md",
+          "sha256": "d27e22d6a136ad60b861f6c3d1cdaffcf731fc6e462044f2d64dd545588d471f",
+          "size_bytes": 1090
+        },
+        {
+          "mtime_ns": 1776445240409912295,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-the-city-of-tarlac.md",
+          "sha256": "69a935cc173f521a10bfb7e99574dc69925e871e39b61fe765a41de6b523bd29",
+          "size_bytes": 2404
+        },
+        {
+          "mtime_ns": 1776445211488122515,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-comprehensive-land-use-plan.md",
+          "sha256": "90ae525e16f4f7923158399da4adb96ce90460a06d368c35139d988dd241f01f",
+          "size_bytes": 1199
+        },
+        {
+          "mtime_ns": 1776445211492957082,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-floor-area-ratio.md",
+          "sha256": "e81c4cbdb0c8302f875de58c8f98e6d981d1cdc23c4596a0158a486ef7b49bee",
+          "size_bytes": 1153
+        },
+        {
+          "mtime_ns": 1776445211483852909,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-zoning-ordinance.md",
+          "sha256": "4e27fe73e801c0355893ec3efabcdf7d91416e74bb3983770eaccb3c26b6ecb4",
+          "size_bytes": 1185
+        },
+        {
+          "mtime_ns": 1776445347564336744,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac-source-to-graph-execute/source_to_graph/20260417T170209Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-floor-area.md",
+          "sha256": "c1eabee93c4acf46ad51953f5639edbd95e495afe8b9a20902c4aa29e7e86dfe",
+          "size_bytes": 2145
+        },
+        {
+          "mtime_ns": 1776445347563411656,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac-source-to-graph-execute/source_to_graph/20260417T170209Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-zoning-ordinance.md",
+          "sha256": "1f741401f9901344f10a7ca8d28c12ebad3e8b1454127e036e55f9796d7fa80c",
+          "size_bytes": 2171
+        }
+      ]
+    },
+    "law_units": [
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/zoning-ordinance.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/floor-area-ratio.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md"
+        ],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-zoning-ordinance.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-comprehensive-land-use-plan.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-floor-area-ratio.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-the-city-of-tarlac.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/LGU/289088479-Tarlac-Zoning-Ordinances.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "LGU",
+        "law_id": "lgu",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/LGU/289088479-Tarlac-Zoning-Ordinances.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+          "Tarlac concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped governs relationships."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "Tarlac concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped governs relationships"
+        ]
+      }
+    ],
+    "manifest_hash": "ad751d6c67cf9c9acf491447a106d00895c3b21ca463da6edbe65b683e1a1ab9",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac-source-to-graph-execute/source_to_graph/20260417T170209Z/derived_dataset_manifest.yaml",
+    "pilot_gate": {
+      "derived_from_tranche_id": "laws-tranche-15-tarlac",
+      "derived_run_id": "20260417T170209Z",
+      "require_manifest_validation": true,
+      "source_to_graph_execute_ready": false
+    },
+    "run_id": "20260417T170227Z",
+    "scope_notes": [
+      "Derived from laws-tranche-15-tarlac after tranche source admission.",
+      "Dry-run only: stage admitted tranche members without unlocking execute.",
+      "Blocked tranche members remain explicit outside the staged law-unit list."
+    ],
+    "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-15-tarlac-source-to-graph-execute/20260417T170227Z_graph_integrity_report.json",
+    "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-15-tarlac-source-to-graph-execute/20260417T170227Z_graph_snapshot.json",
+    "upstream_artifact_refs": {
+      "canonical_concepts": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/zoning-ordinance.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/floor-area-ratio.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md"
+      ],
+      "canonical_sources": [
+        "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-the-city-of-tarlac.md"
+      ],
+      "relationship_inputs": [
+        "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-zoning-ordinance.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-comprehensive-land-use-plan.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-floor-area-ratio.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac-source-to-graph-execute/source_to_graph/20260417T170209Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac-source-to-graph-execute/source_to_graph/20260417T170209Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-zoning-ordinance.md"
+      ]
+    }
+  },
+  "contributing_law_ids": [
+    "lgu"
+  ],
+  "coverage": [
+    {
+      "approved_relationship_input_count": 5,
+      "canonical_count": 5,
+      "converted_count": null,
+      "edge_count_contributed": 5,
+      "folder_name": "LGU",
+      "node_count_contributed": 5,
+      "notes": "selected truth-bearing inputs contributed nodes/edges",
+      "raw_file_count": 56,
+      "refined_count": null,
+      "status": "covered"
+    }
+  ],
+  "dataset_id": "laws-tranche-15-tarlac-source-to-graph-execute",
+  "dataset_kind": "laws-tranche",
+  "dry_run": false,
+  "edge_count": 5,
+  "incomplete": false,
+  "integrity": {
+    "error_count": 0,
+    "findings": [
+      {
+        "code": "duplicate_edge",
+        "edge_from": "law-comprehensive-zoning-ordinance-of-the-city-of-tarlac",
+        "edge_to": "concept-zoning-ordinance",
+        "message": "duplicate edge: law-comprehensive-zoning-ordinance-of-the-city-of-tarlac -[governs]-> concept-zoning-ordinance (evidence rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-zoning-ordinance)",
+        "node_id": null,
+        "severity": "warning"
+      }
+    ],
+    "passed": true,
+    "warning_count": 1
+  },
+  "integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-15-tarlac-source-to-graph-execute/20260417T170227Z_graph_integrity_report.json",
+  "law_unit_count": 1,
+  "law_units": [
+    {
+      "admitted_concept_paths": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/zoning-ordinance.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/floor-area-ratio.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md"
+      ],
+      "admitted_relationship_paths": [
+        "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-zoning-ordinance.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-comprehensive-land-use-plan.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-floor-area-ratio.md"
+      ],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-the-city-of-tarlac.md"
+      ],
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/LGU/289088479-Tarlac-Zoning-Ordinances.pdf"
+      ],
+      "excluded_variant_paths": [],
+      "folder_name": "LGU",
+      "law_id": "lgu",
+      "raw_anchor_paths": [
+        "001_Raw-Source-Layer/001-Laws/LGU/289088479-Tarlac-Zoning-Ordinances.pdf"
+      ],
+      "refined_markdown_paths": [
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md"
+      ],
+      "scope_notes": [
+        "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+        "Tarlac concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped governs relationships."
+      ],
+      "verification_checks": [
+        "source admission executed for the selected authoritative prepared variants",
+        "Tarlac concept-fit slice admits only directly evidenced zoning concepts and dataset-scoped governs relationships"
+      ]
+    }
+  ],
+  "manifest_hash": "ad751d6c67cf9c9acf491447a106d00895c3b21ca463da6edbe65b683e1a1ab9",
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac-source-to-graph-execute/source_to_graph/20260417T170209Z/derived_dataset_manifest.yaml",
+  "mode": "dataset",
+  "node_count": 5,
+  "run_id": "20260417T170227Z",
+  "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-15-tarlac-source-to-graph-execute/20260417T170227Z_graph_snapshot.json",
+  "thin_graph_metrics": {
+    "connected_component_count": 1,
+    "edge_type_diversity": {
+      "count": 1,
+      "types": [
+        "governs"
+      ]
+    },
+    "isolated_node_count": 0,
+    "isolated_node_rate": 0.0,
+    "per_folder_node_edge_balance": {
+      "LGU": {
+        "edge_count_contributed": 5,
+        "node_count_contributed": 5,
+        "status": "covered"
+      }
+    }
+  }
+}

@@ -479,3 +479,11 @@ def test_build_plan_matches_davao_clup_rule() -> None:
     assert plan['prefix'] == 'handout'
     assert plan['source_type'] == 'handout'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_tarlac_zoning_ordinance_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md')
+    assert plan['title'] == 'Comprehensive Zoning Ordinance of the City of Tarlac'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'

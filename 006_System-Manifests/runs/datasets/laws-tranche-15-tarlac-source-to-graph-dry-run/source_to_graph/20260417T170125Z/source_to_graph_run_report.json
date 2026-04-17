@@ -1,0 +1,151 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "dataset_id": "laws-tranche-15-tarlac-source-to-graph-dry-run",
+  "dry_run": true,
+  "generated_at_utc": "20260417T170125Z",
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/source_to_graph_dry_run/20260417T170125Z/derived_dataset_manifest.yaml",
+  "review_runtime": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "review_settings": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "run_id": "20260417T170125Z",
+  "source_quality_summary": {
+    "benchmark_source_hints": [],
+    "extraction_trust_counts": {
+      "guarded": 0,
+      "review_required": 0,
+      "trusted": 1
+    },
+    "high_severity_paths": [],
+    "high_severity_sources": [],
+    "manual_review_required_paths": [],
+    "manual_review_required_sources": [],
+    "representation_guardrail_counts": {
+      "high": 0,
+      "low": 1,
+      "medium": 0
+    },
+    "severity_counts": {
+      "high": 0,
+      "low": 1,
+      "medium": 0
+    },
+    "shallow_representation_paths": [],
+    "shallow_representation_sources": [],
+    "source_acceptance_counts": {
+      "accepted": 1,
+      "accepted_with_spot_review": 0,
+      "manual_review_required": 0
+    },
+    "spot_review_required_paths": [],
+    "summary_auto_withheld_paths": []
+  },
+  "stage_results": [
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-comprehensive-zoning-ordinance-of-the-city-of-tarlac",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-the-city-of-tarlac.md",
+        "title": "Comprehensive Zoning Ordinance of the City of Tarlac",
+        "trust_level": "primary"
+      },
+      "law_id": "lgu",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac-source-to-graph-dry-run/source_to_graph/20260417T170125Z/lgu/289088479-Tarlac-Zoning-Ordinances_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac-source-to-graph-dry-run/source_to_graph/20260417T170125Z/lgu/289088479-Tarlac-Zoning-Ordinances_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac-source-to-graph-dry-run/source_to_graph/20260417T170125Z/promoted_relationships/lgu",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac-source-to-graph-dry-run/source_to_graph/20260417T170125Z/lgu/289088479-Tarlac-Zoning-Ordinances_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 3,
+        "admitted_relationship_count": 3,
+        "folder_name": "LGU",
+        "law_id": "lgu",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 3.666667,
+        "section_to_relationship_ratio": 3.666667,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 11
+      },
+      "source_id": "law-comprehensive-zoning-ordinance-of-the-city-of-tarlac",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 11,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 30,
+        "noise_line_count": 0,
+        "non_empty_line_count": 969,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 3,
+          "admitted_relationship_count": 3,
+          "folder_name": "LGU",
+          "law_id": "lgu",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 3.666667,
+          "section_to_relationship_ratio": 3.666667,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 11
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 11,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [
+          "- 1. Agricultural Zone (AGZ) – an area WITHIN A CITY INTENDED for cultivation/fishing and pastoral activities e.g. fish, farming, cultivation of crops, goat/cattle raising, etc.",
+          "- 4. Buffer Area – these are YARDS, PARKS or OPEN SPACE INTENDED to separate incompatible elements or uses to control pollution/nuisance and for identifying and defining development areas or zones where NO PERMANENT STRUCTURES ARE ALLOWED.",
+          "- 13. Easement – open space imposed on any land use/activities sited along waterways, road-right-of-ways, cemeteries/memorial parks and utilities.",
+          "- c. highly pollutive/extremely hazardous",
+          "- d. pollutive/extremely hazardous"
+        ],
+        "suspicious_ocr_line_count": 52,
+        "suspicious_ocr_line_ratio": 0.053664,
+        "table_line_count": 11,
+        "total_line_count": 1282,
+        "useful_text_line_count": 958,
+        "useful_text_ratio": 0.988648
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac-source-to-graph-dry-run/source_to_graph/20260417T170125Z/source_quality/lgu/289088479-Tarlac-Zoning-Ordinances_source_quality.json"
+    }
+  ]
+}

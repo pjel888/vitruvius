@@ -1,0 +1,9 @@
+Vitruvius Convert One Report
+
+Source: 001-Laws/LGU/289088479-Tarlac-Zoning-Ordinances.pdf
+Detection result: TEXT_PDF
+Recommended route: OPENDATALOADER_DIRECT
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/289088479-Tarlac-Zoning-Ordinances.json
+
+STATUS: converted
