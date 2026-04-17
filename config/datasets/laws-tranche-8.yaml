@@ -1,0 +1,17 @@
+tranche_id: laws-tranche-8
+purpose: readiness-only
+phase_11_gate: gated
+description: Eighth explicit widening tranche after tranche-7 clean completion.
+  This tranche stays intentionally singleton on the fire-code baseline lane because
+  PD-9514 is the highest-confidence remaining cohort member with direct source-prep
+  viability, no duplicate flags in scout runs, and no OCR-first requirement; OCR-heavy
+  RA-11285 stays deferred and already-admitted tranche-6/7 members stay out of the
+  next widening wave.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: PD-9514
+  reason: Fire-code legal baseline adjacency with direct PDF preparation and duplicate-free scout evidence.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/PD-9514/PD 9514 - Fire Code of the Philippines.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths: []

@@ -3,7 +3,7 @@
 > **Authoritative roadmap:** `/.ai/01_roadmap/master-roadmap.md` (v2.3.0)
 > **Authoritative execution order:** `/.ai/03_plans/00-governing-implementation-plan.md` (v4.0.0)
 > **This document:** live snapshot of active execution state and the next valid gates
-> **Updated:** 2026-04-16
+> **Updated:** 2026-04-17
 
 ---
 
@@ -298,9 +298,17 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `source_to_graph_execute_completed = true`
       - graph snapshot: `6 nodes / 6 edges`
     - bounded `RA-11201` housing-governance concept-fit follow-on is now admitted
-    - tranche-7 still needs a clean manifest-scoped source-prep rerun to bring `RA-1378` into staged execution without auxiliary-file prep noise
+    - `RA-1378` is now truthfully a mixed-readiness tranche member, not a clean-prep TODO:
+      - authoritative statute admission succeeded for `MASTER PLUMBING LAW.pdf`
+      - excluded auxiliary plumbing-code / board files remain explicit
+      - the family still stays out of staged source-to-graph because the excluded `Board of Master Plumber.doc` prep failure leaves `source_admission_state = admitted_subset_failed`
+    - tranche-8 scouting truth on 2026-04-17:
+      - no clean three-law tranche-8 cohort is currently evidenced in-repo
+      - `RA-11285` is the cleanest next singleton scout because the raw registry shows one non-duplicate statute PDF and no overlap/alias warning in current tranche records
+      - defer `RA-9266` (duplicate cluster), `PD-9514` (already-covered fire-code overlap), `RA-11361` (draft-only IRR file), and `RA-9279` (mismatched `IRR RA 7279 Sec 18` filename) from tranche-8 until prep/admission evidence improves
     - see `/.ai/05_logs/2026-04-17_laws-tranche-7-execution-validation.md`
     - see `/.ai/05_logs/2026-04-17_ra11201-housing-governance-concept-fit-validation.md`
+    - see `/.ai/13_research/2026-04-17_tranche-8-scout-research.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

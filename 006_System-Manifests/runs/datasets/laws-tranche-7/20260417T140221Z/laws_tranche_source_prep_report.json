@@ -1,0 +1,97 @@
+{
+  "action": "run-laws-tranche-source-prep",
+  "allow_ocr": false,
+  "execute": true,
+  "failed_count": 3,
+  "folders": [
+    {
+      "candidate_reason": "Plumbing-law governance adjacency.",
+      "failed_count": 1,
+      "file_reports": [
+        {
+          "convert_output": "ERROR: File not found: /Users/philiplewis/vitruvius/.omx/team/finish-tranche-7-cleanly-on-th/worktrees/worker-2/001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-1378/MASTER PLUMBING LAW.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-1378/MASTER PLUMBING LAW.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-1378/MASTER PLUMBING LAW.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "status": "convert_failed",
+          "supported_direct_input": true
+        }
+      ],
+      "folder_name": "RA-1378",
+      "ocr_required_count": 0,
+      "prepared_count": 0,
+      "raw_file_count": 1,
+      "raw_root_present": true,
+      "supported_direct_input_count": 1
+    },
+    {
+      "candidate_reason": "ADR and dispute-resolution adjacency.",
+      "failed_count": 1,
+      "file_reports": [
+        {
+          "convert_output": "ERROR: File not found: /Users/philiplewis/vitruvius/.omx/team/finish-tranche-7-cleanly-on-th/worktrees/worker-2/001_Raw-Source-Layer/001-Laws/RA-9285/RA_9285.pdf",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-9285/RA_9285.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9285/RA_9285.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-9285/RA_9285.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/RA-9285/RA_9285.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "status": "convert_failed",
+          "supported_direct_input": true
+        }
+      ],
+      "folder_name": "RA-9285",
+      "ocr_required_count": 0,
+      "prepared_count": 0,
+      "raw_file_count": 1,
+      "raw_root_present": true,
+      "supported_direct_input_count": 1
+    },
+    {
+      "candidate_reason": "DHSUD governance adjacency with law-plus-IRR structure.",
+      "failed_count": 1,
+      "file_reports": [
+        {
+          "convert_output": "ERROR: File not found: /Users/philiplewis/vitruvius/.omx/team/finish-tranche-7-cleanly-on-th/worktrees/worker-2/001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.pdf",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "status": "convert_failed",
+          "supported_direct_input": true
+        },
+        {
+          "detection_result": "LIKELY_SCANNED_PDF",
+          "expected_ocr_pdf_path": "002_Raw-Conversion-Layer/001-Laws/ocr_pdf/RA-11201/RA 11201 - DHSUD Act of 2019.pdf",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-11201/RA 11201 - DHSUD Act of 2019.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11201/RA 11201 - DHSUD Act of 2019.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-11201/RA 11201 - DHSUD Act of 2019.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 - DHSUD Act of 2019.pdf",
+          "recommended_route": "OCR_FIRST_THEN_OPENDATALOADER",
+          "status": "ocr_required",
+          "supported_direct_input": true
+        }
+      ],
+      "folder_name": "RA-11201",
+      "ocr_required_count": 1,
+      "prepared_count": 0,
+      "raw_file_count": 2,
+      "raw_root_present": true,
+      "supported_direct_input_count": 2
+    }
+  ],
+  "generated_at_utc": "20260417T140223Z",
+  "ocr_required_count": 1,
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "prepared_count": 0,
+  "run_id": "20260417T140221Z",
+  "sample_pages": 5,
+  "tranche_id": "laws-tranche-7",
+  "tranche_manifest_path": ".omx/team/finish-tranche-7-cleanly-on-th/worktrees/worker-2/config/datasets/laws-tranche-7.yaml"
+}

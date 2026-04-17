@@ -1,0 +1,435 @@
+{
+  "action": "run-dataset-graph",
+  "build": {
+    "action": "build-graph",
+    "artifact_metadata": {
+      "contributing_law_ids": [
+        "ra-1378",
+        "ra-9285",
+        "ra-11201"
+      ],
+      "dataset_id": "laws-tranche-7-source-to-graph-execute",
+      "dataset_kind": "laws-tranche",
+      "freshness_policy": {
+        "mode": "exact"
+      },
+      "input_fingerprint": {
+        "combined_sha256": "4b82bece00b5de7c37c7e22c2fce09a73794942d49e0fd4cacf7812e0d8df1e0",
+        "file_count": 10,
+        "files": [
+          {
+            "mtime_ns": 1776434103682792516,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/human-settlements.md",
+            "sha256": "4ba258d4d7ef65ec3492d88030ac467b9892b0d35926e1e5bb879d90ea8ae8f6",
+            "size_bytes": 992
+          },
+          {
+            "mtime_ns": 1776434103683152893,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/local-shelter-plan.md",
+            "sha256": "9c9b6b22e343584a373da28c79fb45b242607a46533861b9321af2aeec3c6978",
+            "size_bytes": 1358
+          },
+          {
+            "mtime_ns": 1776434103684896944,
+            "path": "003_Canonical-Knowledge-Layer/shared/concepts/urban-development-planning.md",
+            "sha256": "d022d1eb8519d926c2354a96eec2ccf3f7629733a6b1c4b21e16bf6950c2f371",
+            "size_bytes": 1422
+          },
+          {
+            "mtime_ns": 1776434103689972886,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/alternative-dispute-resolution-act-of-2004.md",
+            "sha256": "b60abfa9f891b15d58f2172066fe44836dca9b83565703e0311794a4dc8215a4",
+            "size_bytes": 1271
+          },
+          {
+            "mtime_ns": 1776434103690820598,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/department-of-human-settlements-and-urban-development-act.md",
+            "sha256": "2adae14c6e63eeb24b24badc4f7d6be9933d483d192e320ba7f2d2af6e3988dc",
+            "size_bytes": 4348
+          },
+          {
+            "mtime_ns": 1776434103691503435,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act.md",
+            "sha256": "0d882b3bcbf5361517dc2f1d587acce9c4f49bac8115ab723236604873d8870d",
+            "size_bytes": 1514
+          },
+          {
+            "mtime_ns": 1776434103693784947,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/plumbing-law.md",
+            "sha256": "aa3d1cb6926ae71307e0780536bc4e074a1881e8ea6113baf1acd0f643600f00",
+            "size_bytes": 622
+          },
+          {
+            "mtime_ns": 1776434104039995944,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act-governs-concept-local-shelter-plan.md",
+            "sha256": "597921a5c345bd17aa3c1815ccab959f34aae2748ffc3afb4499039d66a5cecd",
+            "size_bytes": 1458
+          },
+          {
+            "mtime_ns": 1776434104040089069,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-human-settlements.md",
+            "sha256": "8d585a60ea558a3512ee7b6a6e3d88f2dbe09774c720663a6804a5f5a8bf018b",
+            "size_bytes": 1161
+          },
+          {
+            "mtime_ns": 1776434104040235153,
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-urban-development-planning.md",
+            "sha256": "c3f1ba4c1995fd48e4363b57ca09df46a7aa76a3190d1f77a8582a1f50e8b637",
+            "size_bytes": 1348
+          }
+        ]
+      },
+      "law_units": [
+        {
+          "admitted_concept_paths": [],
+          "admitted_relationship_paths": [],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/plumbing-law.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf"
+          ],
+          "excluded_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-1378/188541488-Revised-National-Plumbing-Code-of-the-Philippines.pdf",
+            "001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.pdf",
+            "001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.doc"
+          ],
+          "folder_name": "RA-1378",
+          "law_id": "ra-1378",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-1378/MASTER PLUMBING LAW.md"
+          ],
+          "scope_notes": [
+            "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+          ],
+          "verification_checks": [
+            "source admission executed for the selected authoritative prepared variants",
+            "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+          ]
+        },
+        {
+          "admitted_concept_paths": [],
+          "admitted_relationship_paths": [],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/alternative-dispute-resolution-act-of-2004.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-9285/RA_9285.pdf"
+          ],
+          "excluded_variant_paths": [],
+          "folder_name": "RA-9285",
+          "law_id": "ra-9285",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-9285/RA_9285.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9285/RA_9285.md"
+          ],
+          "scope_notes": [
+            "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+          ],
+          "verification_checks": [
+            "source admission executed for the selected authoritative prepared variants"
+          ]
+        },
+        {
+          "admitted_concept_paths": [
+            "003_Canonical-Knowledge-Layer/shared/concepts/human-settlements.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/urban-development-planning.md",
+            "003_Canonical-Knowledge-Layer/shared/concepts/local-shelter-plan.md"
+          ],
+          "admitted_relationship_paths": [
+            "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-human-settlements.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-urban-development-planning.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act-governs-concept-local-shelter-plan.md"
+          ],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/department-of-human-settlements-and-urban-development-act.md",
+            "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 - DHSUD Act of 2019.pdf",
+            "001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.pdf"
+          ],
+          "excluded_variant_paths": [],
+          "folder_name": "RA-11201",
+          "law_id": "ra-11201",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 - DHSUD Act of 2019.pdf",
+            "001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11201/RA 11201 - DHSUD Act of 2019.md",
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md"
+          ],
+          "scope_notes": [
+            "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+            "RA-11201 concept-fit slice admits housing-governance concepts and dataset-scoped governs relationships only."
+          ],
+          "verification_checks": [
+            "source admission executed for the selected authoritative prepared variants",
+            "RA-11201 concept-fit slice admits housing-governance concepts and dataset-scoped governs relationships only."
+          ]
+        }
+      ],
+      "manifest_hash": "4cabb8d1a9bd662a83a21cef76ef3213a9931c439516158ca19769cdcc0065d6",
+      "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-execute/source_to_graph/20260417T140142Z/derived_dataset_manifest.yaml",
+      "pilot_gate": {
+        "derived_from_tranche_id": "laws-tranche-7",
+        "derived_run_id": "20260417T140142Z",
+        "require_manifest_validation": true,
+        "source_to_graph_execute_ready": false
+      },
+      "run_id": "20260417T140157Z",
+      "scope_notes": [
+        "Derived from laws-tranche-7 after tranche source admission.",
+        "Dry-run only: stage admitted tranche members without unlocking execute.",
+        "Blocked tranche members remain explicit outside the staged law-unit list."
+      ],
+      "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-7-source-to-graph-execute/20260417T140157Z_graph_integrity_report.json",
+      "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-7-source-to-graph-execute/20260417T140157Z_graph_snapshot.json",
+      "upstream_artifact_refs": {
+        "canonical_concepts": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/human-settlements.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/urban-development-planning.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/local-shelter-plan.md"
+        ],
+        "canonical_sources": [
+          "003_Canonical-Knowledge-Layer/shared/sources/plumbing-law.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/alternative-dispute-resolution-act-of-2004.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/department-of-human-settlements-and-urban-development-act.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act.md"
+        ],
+        "relationship_inputs": [
+          "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-human-settlements.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-urban-development-planning.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act-governs-concept-local-shelter-plan.md"
+        ]
+      }
+    },
+    "build_report_path": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-execute/20260417T140157Z_build_graph_dataset_report.json",
+    "contributing_law_ids": [
+      "ra-1378",
+      "ra-9285",
+      "ra-11201"
+    ],
+    "coverage": [
+      {
+        "approved_relationship_input_count": 0,
+        "canonical_count": 1,
+        "converted_count": null,
+        "edge_count_contributed": 0,
+        "folder_name": "RA-1378",
+        "node_count_contributed": 1,
+        "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+        "raw_file_count": 4,
+        "refined_count": null,
+        "status": "partial"
+      },
+      {
+        "approved_relationship_input_count": 0,
+        "canonical_count": 1,
+        "converted_count": null,
+        "edge_count_contributed": 0,
+        "folder_name": "RA-9285",
+        "node_count_contributed": 1,
+        "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+        "raw_file_count": 1,
+        "refined_count": null,
+        "status": "partial"
+      },
+      {
+        "approved_relationship_input_count": 3,
+        "canonical_count": 5,
+        "converted_count": null,
+        "edge_count_contributed": 6,
+        "folder_name": "RA-11201",
+        "node_count_contributed": 5,
+        "notes": "selected truth-bearing inputs contributed nodes/edges",
+        "raw_file_count": 2,
+        "refined_count": null,
+        "status": "covered"
+      }
+    ],
+    "dataset_id": "laws-tranche-7-source-to-graph-execute",
+    "dataset_kind": "laws-tranche",
+    "dry_run": false,
+    "edge_count": 6,
+    "incomplete": true,
+    "integrity": {
+      "error_count": 0,
+      "findings": [
+        {
+          "code": "orphan_node",
+          "edge_from": null,
+          "edge_to": null,
+          "message": "node 'law-alternative-dispute-resolution-act-of-2004' has zero incident edges",
+          "node_id": "law-alternative-dispute-resolution-act-of-2004",
+          "severity": "warning"
+        },
+        {
+          "code": "orphan_node",
+          "edge_from": null,
+          "edge_to": null,
+          "message": "node 'law-plumbing-law' has zero incident edges",
+          "node_id": "law-plumbing-law",
+          "severity": "warning"
+        }
+      ],
+      "passed": true,
+      "warning_count": 2
+    },
+    "integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-7-source-to-graph-execute/20260417T140157Z_graph_integrity_report.json",
+    "law_unit_count": 3,
+    "law_units": [
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/plumbing-law.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-1378/188541488-Revised-National-Plumbing-Code-of-the-Philippines.pdf",
+          "001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.pdf",
+          "001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.doc"
+        ],
+        "folder_name": "RA-1378",
+        "law_id": "ra-1378",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-1378/MASTER PLUMBING LAW.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+        ]
+      },
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/alternative-dispute-resolution-act-of-2004.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9285/RA_9285.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "RA-9285",
+        "law_id": "ra-9285",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9285/RA_9285.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9285/RA_9285.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants"
+        ]
+      },
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/human-settlements.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/urban-development-planning.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/local-shelter-plan.md"
+        ],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-human-settlements.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-urban-development-planning.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act-governs-concept-local-shelter-plan.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/department-of-human-settlements-and-urban-development-act.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 - DHSUD Act of 2019.pdf",
+          "001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "RA-11201",
+        "law_id": "ra-11201",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 - DHSUD Act of 2019.pdf",
+          "001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11201/RA 11201 - DHSUD Act of 2019.md",
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+          "RA-11201 concept-fit slice admits housing-governance concepts and dataset-scoped governs relationships only."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "RA-11201 concept-fit slice admits housing-governance concepts and dataset-scoped governs relationships only."
+        ]
+      }
+    ],
+    "manifest_hash": "4cabb8d1a9bd662a83a21cef76ef3213a9931c439516158ca19769cdcc0065d6",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-execute/source_to_graph/20260417T140142Z/derived_dataset_manifest.yaml",
+    "mode": "dataset",
+    "node_count": 7,
+    "run_id": "20260417T140157Z",
+    "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-7-source-to-graph-execute/20260417T140157Z_graph_snapshot.json",
+    "thin_graph_metrics": {
+      "connected_component_count": 4,
+      "edge_type_diversity": {
+        "count": 2,
+        "types": [
+          "defines",
+          "governs"
+        ]
+      },
+      "isolated_node_count": 2,
+      "isolated_node_rate": 0.285714,
+      "per_folder_node_edge_balance": {
+        "RA-11201": {
+          "edge_count_contributed": 6,
+          "node_count_contributed": 5,
+          "status": "covered"
+        },
+        "RA-1378": {
+          "edge_count_contributed": 0,
+          "node_count_contributed": 1,
+          "status": "partial"
+        },
+        "RA-9285": {
+          "edge_count_contributed": 0,
+          "node_count_contributed": 1,
+          "status": "partial"
+        }
+      }
+    }
+  },
+  "contributing_law_ids": [
+    "ra-1378",
+    "ra-9285",
+    "ra-11201"
+  ],
+  "dataset_id": "laws-tranche-7-source-to-graph-execute",
+  "dataset_kind": "laws-tranche",
+  "generated_at_utc": "20260417T140158Z",
+  "law_unit_count": 3,
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-7-source-to-graph-execute/source_to_graph/20260417T140142Z/derived_dataset_manifest.yaml",
+  "owl": {
+    "path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-7-source-to-graph-execute/20260417T140157Z_graph_snapshot.ttl",
+    "rc": 0
+  },
+  "run_id": "20260417T140157Z",
+  "structured_checks": []
+}

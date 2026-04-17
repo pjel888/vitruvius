@@ -1,0 +1,16 @@
+{
+  "action": "run-laws-duplicate-dry-run",
+  "candidate_law_folder_count": 1,
+  "candidate_law_folders": [
+    "PD-9514"
+  ],
+  "dry_run": true,
+  "duplicate_cluster_count": 0,
+  "duplicate_clusters": [],
+  "duplicate_law_folders": [],
+  "generated_at_utc": "20260417T140258Z",
+  "phase_11_gate": "gated",
+  "run_id": "20260417T140258Z",
+  "scope_id": "laws-tranche-8",
+  "tranche_manifest_path": "config/datasets/laws-tranche-8.yaml"
+}

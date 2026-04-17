@@ -15,9 +15,9 @@ candidate_law_folders:
   - 001_Raw-Source-Layer/001-Laws/RA-1378/188541488-Revised-National-Plumbing-Code-of-the-Philippines.pdf
   - 001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.pdf
   - 001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.doc
-  source_admission_state: admitted_subset_failed
-  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-7/20260417T134703Z/laws_tranche_source_admission_report.json
-  source_admission_run_id: 20260417T134703Z
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-7/20260417T135940Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T135940Z
   refined_markdown_paths:
   - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-1378/MASTER PLUMBING LAW.md
   admitted_source_paths:
@@ -37,8 +37,8 @@ candidate_law_folders:
   authoritative_variant_paths: *id002
   excluded_variant_paths: []
   source_admission_state: admitted
-  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-7/20260417T134703Z/laws_tranche_source_admission_report.json
-  source_admission_run_id: 20260417T134703Z
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-7/20260417T135940Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T135940Z
   refined_markdown_paths:
   - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9285/RA_9285.md
   admitted_source_paths:
@@ -52,21 +52,21 @@ candidate_law_folders:
 - folder_name: RA-11201
   reason: DHSUD governance adjacency with law-plus-IRR structure.
   raw_anchor_paths: &id003
-  - 001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.pdf
   - 001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 - DHSUD Act of 2019.pdf
+  - 001_Raw-Source-Layer/001-Laws/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.pdf
   authoritative_variant_paths: *id003
   excluded_variant_paths: []
   source_admission_state: admitted
-  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-7/20260417T134703Z/laws_tranche_source_admission_report.json
-  source_admission_run_id: 20260417T134703Z
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-7/20260417T135940Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T135940Z
   refined_markdown_paths:
-  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD
-    Act Implementing Rules.md
   - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11201/RA 11201 - DHSUD Act
     of 2019.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD
+    Act Implementing Rules.md
   admitted_source_paths:
-  - 003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act.md
   - 003_Canonical-Knowledge-Layer/shared/sources/department-of-human-settlements-and-urban-development-act.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act.md
   source_admission_guardrails: []
   verification_checks:
   - source admission executed for the selected authoritative prepared variants
@@ -86,11 +86,11 @@ candidate_law_folders:
   - 006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-urban-development-planning.md
   - 006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act-governs-concept-local-shelter-plan.md
 source_admission:
-  last_run_id: 20260417T134703Z
-  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-7/20260417T134703Z/laws_tranche_source_admission_report.json
+  last_run_id: 20260417T135940Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-7/20260417T135940Z/laws_tranche_source_admission_report.json
   admitted_ready_law_folders:
+  - RA-1378
   - RA-9285
   - RA-11201
-  mixed_readiness_law_folders:
-  - RA-1378
+  mixed_readiness_law_folders: []
   blocked_law_folders: []

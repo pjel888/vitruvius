@@ -620,6 +620,79 @@ def test_run_laws_tranche_source_prep_respects_manifest_variant_scope(tmp_path: 
     ]
 
 
+def test_run_laws_tranche_source_prep_exec_respects_manifest_variant_scope(tmp_path: Path, monkeypatch, capsys) -> None:
+    from vitruvius import laws_readiness as lr
+
+    _seed_repo(tmp_path)
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-7.yaml'
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-7',
+                'candidate_law_folders': [
+                    {
+                        'folder_name': 'RA-1378',
+                        'reason': 'plumbing law adjacency',
+                        'authoritative_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf',
+                        ],
+                        'excluded_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/RA-1378/188541488-Revised-National-Plumbing-Code-of-the-Philippines.pdf',
+                            '001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.pdf',
+                            '001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.doc',
+                        ],
+                    },
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'RA-1378' / 'MASTER PLUMBING LAW.pdf')
+    _write_valid_pdf(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'RA-1378' / '188541488-Revised-National-Plumbing-Code-of-the-Philippines.pdf'
+    )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'RA-1378' / 'Board of Master Plumber.pdf')
+    _write(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'RA-1378' / 'Board of Master Plumber.doc', 'legacy doc')
+
+    seen_paths: list[str] = []
+
+    def fake_prepare_raw_file(*, repo_root: Path, file_path: Path, sample_pages: int, allow_ocr: bool) -> dict[str, object]:
+        del sample_pages, allow_ocr
+        raw_path = lr._relative(file_path, repo_root)
+        seen_paths.append(raw_path)
+        return {
+            'raw_path': raw_path,
+            'status': 'prepared',
+            'supported_direct_input': True,
+            'detection_result': 'TEXT_PDF',
+            'recommended_route': 'OPENDATALOADER_DIRECT',
+            'expected_raw_markdown_path': 'dummy/raw.md',
+            'expected_sidecar_json_path': 'dummy/sidecar.json',
+            'expected_refined_markdown_path': 'dummy/refined.md',
+            'convert_output': '',
+            'refine_output': '',
+        }
+
+    monkeypatch.setattr(lr, '_prepare_raw_file', fake_prepare_raw_file)
+    monkeypatch.chdir(tmp_path)
+
+    assert lr.run_laws_tranche_source_prep(tranche_manifest=str(tranche_manifest)) == 0
+
+    payload = json.loads(capsys.readouterr().out)
+    assert payload['raw_file_count'] == 1
+    assert payload['prepared_count'] == 1
+    assert payload['failed_count'] == 0
+    assert seen_paths == ['001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf']
+
+    report = json.loads((tmp_path / payload['report_path']).read_text(encoding='utf-8'))
+    folder = report['folders'][0]
+    assert folder['raw_file_count'] == 1
+    assert [item['raw_path'] for item in folder['file_reports']] == [
+        '001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf'
+    ]
+
+
 def test_run_laws_tranche_source_prep_handles_ocr_required_pdf(tmp_path: Path) -> None:
     _seed_repo(tmp_path)
     tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-1.yaml'
@@ -1024,6 +1097,88 @@ def test_source_admission_summary_respects_manifest_authoritative_and_excluded_v
     assert summary['excluded_prepared_count'] == 1
     assert summary['excluded_prepared_file_reports'][0]['raw_path'] == excluded_raw
     assert summary['excluded_prepared_file_reports'][0]['excluded_reason'] == 'manifest_excluded_variant'
+
+
+def test_run_laws_tranche_source_admission_dry_run_marks_ra1378_ready_when_source_prep_is_manifest_scoped(tmp_path: Path) -> None:
+    _seed_repo(tmp_path)
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-7.yaml'
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-7',
+                'candidate_law_folders': [
+                    {
+                        'folder_name': 'RA-1378',
+                        'reason': 'plumbing law adjacency',
+                        'authoritative_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf',
+                        ],
+                        'excluded_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/RA-1378/188541488-Revised-National-Plumbing-Code-of-the-Philippines.pdf',
+                            '001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.pdf',
+                            '001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.doc',
+                        ],
+                    },
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'RA-1378' / 'MASTER PLUMBING LAW.pdf')
+    _write_valid_pdf(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'RA-1378' / '188541488-Revised-National-Plumbing-Code-of-the-Philippines.pdf'
+    )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'RA-1378' / 'Board of Master Plumber.pdf')
+    _write(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'RA-1378' / 'Board of Master Plumber.doc', 'legacy doc')
+    _seed_conversion_inventory_path(
+        tmp_path,
+        'RA-1378',
+        'MASTER PLUMBING LAW',
+        refined_payload='# PLUMBING LAW\n',
+    )
+    source_prep_report = _write_source_prep_report(
+        tmp_path,
+        'laws-tranche-7',
+        'demo-run',
+        [
+            {
+                'folder_name': 'RA-1378',
+                'prepared_count': 1,
+                'ocr_required_count': 0,
+                'failed_count': 0,
+                'file_reports': [
+                    {
+                        'status': 'prepared',
+                        'raw_path': '001_Raw-Source-Layer/001-Laws/RA-1378/MASTER PLUMBING LAW.pdf',
+                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-1378/MASTER PLUMBING LAW.md',
+                    }
+                ],
+            }
+        ],
+    )
+
+    result = _run_cli(
+        [
+            'run-laws-tranche-source-admission-dry-run',
+            '--tranche-manifest', str(tranche_manifest),
+            '--source-prep-report', str(source_prep_report),
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['admission_review_ready_law_folders'] == ['RA-1378']
+    assert payload['mixed_readiness_law_folders'] == []
+    assert payload['blocked_law_folders'] == []
+
+    report = json.loads((tmp_path / payload['report_path']).read_text(encoding='utf-8'))
+    ra1378 = report['laws'][0]
+    assert ra1378['folder_name'] == 'RA-1378'
+    assert ra1378['status'] == 'ready_for_admission_review'
+    assert ra1378['candidate_source_page_count'] == 1
+    assert ra1378['excluded_prepared_count'] == 0
+    assert ra1378['failed_count'] == 0
 
 
 def test_source_admission_manifest_writeback_preserves_raw_anchor_intent_for_blocked_laws(tmp_path: Path) -> None:

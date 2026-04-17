@@ -22,5 +22,8 @@
 
 ## Truthful residuals
 - tranche-7 is representationally sound for the currently staged laws
-- `RA-1378` remains outside staged execution because the tranche still needs a clean source-prep execute report that reflects manifest-scoped exclusion of auxiliary plumbing files
+- `RA-1378` is now best described as **mixed readiness**, not a pure prep rerun TODO:
+  - the authoritative `MASTER PLUMBING LAW.pdf` variant was prepared and admitted
+  - excluded plumbing-code / board files stayed explicit
+  - the law family still remains outside staged source-to-graph because the excluded `Board of Master Plumber.doc` prep failure leaves `source_admission_state = admitted_subset_failed`
 - tranche-7 still carries `spot_review_required_count = 2` and `summary_auto_withheld_count = 2`
