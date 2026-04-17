@@ -73,6 +73,12 @@ python3 scripts/pipeline_cli.py bootstrap-completed-aggregate-family-lane \
   --predicate covers
 ```
 
+If the raw root contains multiple mixed-quality candidates, you can force a specific file with:
+
+```bash
+  --raw-path <repo-relative-raw-file>
+```
+
 This orchestrates:
 - family scaffold if missing
 - lane scaffold
@@ -150,6 +156,12 @@ python3 scripts/pipeline_cli.py scaffold-completed-aggregate-lane-manifest \
   --raw-root <repo-relative-raw-root> \
   --max-files 5 \
   --extension .pdf
+```
+
+If you need to force a specific file instead of taking the first matching inventory entry, add:
+
+```bash
+  --raw-path <repo-relative-raw-file>
 ```
 
 This writes a starter manifest that contains:

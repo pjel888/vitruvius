@@ -412,6 +412,8 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_lane_scaffold_parser.add_argument("--max-files", type=int, default=5)
     generic_aggregate_lane_scaffold_parser.add_argument("--extension", action="append", default=[],
                                                        help="Allowed file extension (repeatable). Defaults to supported direct-input extensions")
+    generic_aggregate_lane_scaffold_parser.add_argument("--raw-path", action="append", default=[],
+                                                       help="Explicit repo-relative raw file path to include (repeatable)")
     generic_aggregate_lane_inspect_parser = add_command_parser(subparsers, "inspect-completed-aggregate-lane-sources")
     generic_aggregate_lane_inspect_parser.add_argument("--manifest", required=True)
     generic_aggregate_lane_inspect_parser.add_argument("--sample-pages", type=int, default=5)
@@ -454,6 +456,7 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_lane_bootstrap_parser.add_argument("--family-note", default=None)
     generic_aggregate_lane_bootstrap_parser.add_argument("--max-files", type=int, default=5)
     generic_aggregate_lane_bootstrap_parser.add_argument("--extension", action="append", default=[])
+    generic_aggregate_lane_bootstrap_parser.add_argument("--raw-path", action="append", default=[])
     generic_aggregate_lane_bootstrap_parser.add_argument("--sample-pages", type=int, default=5)
     generic_aggregate_lane_bootstrap_parser.add_argument("--allow-ocr", action="store_true")
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
@@ -1243,6 +1246,7 @@ def main() -> int:
                 out_manifest_path=Path(args.out_manifest) if args.out_manifest else None,
                 max_files=args.max_files,
                 extensions=list(args.extension or []),
+                raw_paths=[Path(path) for path in (args.raw_path or [])],
             )
             print(json.dumps({
                 "action": "scaffold-completed-aggregate-lane-manifest",
@@ -1398,6 +1402,7 @@ def main() -> int:
                 family_note=args.family_note,
                 max_files=args.max_files,
                 extensions=list(args.extension or []),
+                raw_paths=[Path(path) for path in (args.raw_path or [])],
                 sample_pages=args.sample_pages,
                 allow_ocr=args.allow_ocr,
             )

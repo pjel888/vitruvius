@@ -1636,6 +1636,7 @@ def bootstrap_completed_aggregate_family_lane(
     family_note: str | None = None,
     max_files: int = 5,
     extensions: list[str] | None = None,
+    raw_paths: list[Path] | None = None,
     sample_pages: int = 5,
     allow_ocr: bool = False,
 ) -> dict[str, Any]:
@@ -1664,6 +1665,7 @@ def bootstrap_completed_aggregate_family_lane(
         raw_root=raw_root,
         max_files=max_files,
         extensions=extensions,
+        raw_paths=raw_paths,
     )
     manifest_path = lane_summary['out_manifest_path']
     inspect_summary = inspect_completed_aggregate_lane_sources(
@@ -1745,6 +1747,7 @@ def scaffold_completed_aggregate_lane_manifest(
     out_manifest_path: Path | None = None,
     max_files: int = 5,
     extensions: list[str] | None = None,
+    raw_paths: list[Path] | None = None,
 ) -> dict[str, Any]:
     if max_files <= 0:
         raise ValueError('max_files must be positive')
@@ -1768,10 +1771,24 @@ def scaffold_completed_aggregate_lane_manifest(
         ext.lower() if ext.startswith('.') else f'.{ext.lower()}'
         for ext in (extensions or list(SUPPORTED_DIRECT_INPUT_EXTENSIONS))
     }
-    selected_files = [
-        path for path in sorted(resolved_raw_root.iterdir())
-        if path.is_file() and not path.name.startswith('.') and path.suffix.lower() in allowed_extensions
-    ][:max_files]
+    if raw_paths:
+        selected_files = []
+        seen_raw: set[Path] = set()
+        for raw_path in raw_paths:
+            resolved_raw_path = raw_path if raw_path.is_absolute() else repo_root / raw_path
+            if not resolved_raw_path.is_file():
+                continue
+            if resolved_raw_path.suffix.lower() not in allowed_extensions:
+                continue
+            if resolved_raw_path in seen_raw:
+                continue
+            seen_raw.add(resolved_raw_path)
+            selected_files.append(resolved_raw_path)
+    else:
+        selected_files = [
+            path for path in sorted(resolved_raw_root.iterdir())
+            if path.is_file() and not path.name.startswith('.') and path.suffix.lower() in allowed_extensions
+        ][:max_files]
     if not selected_files:
         raise ValueError('no raw files matched the requested root/extensions')
 

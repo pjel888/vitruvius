@@ -2277,6 +2277,35 @@ def test_scaffold_completed_aggregate_lane_manifest_writes_starter_manifest(tmp_
     assert payload['relationship_input_manifest']['relationships'] == []
 
 
+def test_scaffold_completed_aggregate_lane_manifest_honors_explicit_raw_paths(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import (
+        scaffold_completed_aggregate_family,
+        scaffold_completed_aggregate_lane_manifest,
+    )
+
+    scaffold_completed_aggregate_family(
+        repo_root=tmp_path,
+        family='technology-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        dataset_kind='technology-aggregate',
+    )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '004-Technology' / 'a.pdf')
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '004-Technology' / 'b.pdf')
+    result = scaffold_completed_aggregate_lane_manifest(
+        repo_root=tmp_path,
+        family='technology-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        lane_id='technology-lane',
+        raw_root=Path('001_Raw-Source-Layer/004-Technology'),
+        max_files=1,
+        extensions=['.pdf'],
+        raw_paths=[Path('001_Raw-Source-Layer/004-Technology/b.pdf')],
+    )
+    payload = yaml.safe_load(result['out_manifest_path'].read_text(encoding='utf-8'))
+    selected_paths = [entry['path'] for entry in payload['raw_slice_anchors'][0]['classified_raw_entries']]
+    assert selected_paths == ['001_Raw-Source-Layer/004-Technology/b.pdf']
+
+
 def test_inspect_completed_aggregate_lane_sources_reports_inventory(tmp_path: Path) -> None:
     from vitruvius.aggregate_manifest import (
         inspect_completed_aggregate_lane_sources,
@@ -3243,6 +3272,54 @@ def test_pipeline_cli_scaffold_completed_aggregate_lane_manifest_writes_manifest
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'scaffold-completed-aggregate-lane-manifest'
     assert stdout_payload['selected_file_count'] == 1
+
+
+def test_pipeline_cli_scaffold_completed_aggregate_lane_manifest_honors_raw_path(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '004-Technology' / 'a.pdf')
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '004-Technology' / 'b.pdf')
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-family',
+            '--family', 'technology-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--dataset-kind', 'technology-aggregate',
+        ],
+    )
+    assert pipeline_cli.main() == 0
+    capsys.readouterr()
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-lane-manifest',
+            '--family', 'technology-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--lane-id', 'technology-lane',
+            '--raw-root', '001_Raw-Source-Layer/004-Technology',
+            '--max-files', '1',
+            '--extension', '.pdf',
+            '--raw-path', '001_Raw-Source-Layer/004-Technology/b.pdf',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'technology-lane.yaml').read_text(encoding='utf-8'))
+    selected_paths = [entry['path'] for entry in payload['raw_slice_anchors'][0]['classified_raw_entries']]
+    assert selected_paths == ['001_Raw-Source-Layer/004-Technology/b.pdf']
 
 
 def test_pipeline_cli_inspect_completed_aggregate_lane_sources_reports_inventory(
