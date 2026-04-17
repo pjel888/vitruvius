@@ -45,6 +45,14 @@ def _seed_conversion_inventory(root: Path, folder_name: str, stem: str) -> None:
         _write(rel_path, payload)
 
 
+def _seed_refined_with_headers(root: Path, folder_name: str, stem: str, header_count: int) -> None:
+    lines = [f"## Section {idx}. Example Heading" for idx in range(1, header_count + 1)]
+    _write(
+        root / '002_Raw-Conversion-Layer' / '001-Laws' / 'refined_markdown' / folder_name / f'{stem}.md',
+        "\n".join(lines) + "\n",
+    )
+
+
 def _seed_repo(root: Path) -> Path:
     raw = root / '001_Raw-Source-Layer' / '001-Laws' / 'PD-1096'
     raw.mkdir(parents=True, exist_ok=True)
@@ -352,5 +360,72 @@ def test_run_laws_all_dry_run_reports_inventory_and_gate(tmp_path: Path) -> None
     assert payload['raw_pdf_count'] == 2
     assert payload['bounded_manifest_law_unit_count'] == 1
     assert payload['review_runtime']['preset']['name'] == 'm2-8gb-safe'
+    report_path = tmp_path / payload['report_path']
+    assert report_path.exists()
+
+
+def test_run_laws_all_dry_run_flags_structure_concept_guardrail(tmp_path: Path) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    laws_manifest = tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml'
+    laws_manifest.write_text(manifest_path.read_text(encoding='utf-8'), encoding='utf-8')
+    _seed_refined_with_headers(tmp_path, 'PD-1096', 'deep-structure', 25)
+
+    result = _run_cli(
+        [
+            'run-laws-all-dry-run',
+            '--review-preset', 'm2-8gb-safe',
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert 'PD-1096' in payload['structure_guardrail_law_folders']
+    report_path = tmp_path / payload['report_path']
+    report = json.loads(report_path.read_text(encoding='utf-8'))
+    law = next(item for item in report['laws'] if item['folder_name'] == 'PD-1096')
+    assert law['structural_header_count'] >= 25
+    assert 'rich_structure_low_concept_admission' in law['structure_guardrails']
+
+
+def test_run_laws_tranche_dry_run_reports_candidate_inventory_and_guardrails(tmp_path: Path) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    laws_manifest = tmp_path / 'config' / 'datasets' / 'laws-core-bundle-m1.yaml'
+    laws_manifest.write_text(manifest_path.read_text(encoding='utf-8'), encoding='utf-8')
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-1.yaml'
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-1',
+                'candidate_law_folders': [
+                    {'folder_name': 'PD-957', 'reason': 'housing adjacency'},
+                    {'folder_name': 'PD-1096', 'reason': 'pilot overlap for control'},
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    pd957 = tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957'
+    pd957.mkdir(parents=True, exist_ok=True)
+    (pd957 / 'pd957.pdf').write_bytes(b'%PDF-1.4\n')
+    _seed_refined_with_headers(tmp_path, 'PD-1096', 'deep-structure', 25)
+
+    result = _run_cli(
+        [
+            'run-laws-tranche-dry-run',
+            '--tranche-manifest', str(tranche_manifest),
+            '--review-preset', 'm2-8gb-safe',
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['action'] == 'run-laws-tranche-dry-run'
+    assert payload['tranche_id'] == 'laws-tranche-1'
+    assert payload['candidate_law_folder_count'] == 2
+    assert payload['pilot_covered_law_count'] == 1
+    assert payload['inventory_only_law_count'] == 1
+    assert payload['review_runtime']['preset']['name'] == 'm2-8gb-safe'
+    assert 'PD-1096' in payload['structure_guardrail_law_folders']
     report_path = tmp_path / payload['report_path']
     assert report_path.exists()

@@ -76,6 +76,11 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
   - next truthful execution boundary is now documented as **tranche expansion**, not generic all-laws execution:
     - research / audit / rollout-plan artifacts created for tranche-based widening
     - see `/.ai/05_logs/2026-04-17_laws-tranche-expansion-planning-validation.md`
+  - tranche implementation follow-on is now in place:
+    - `config/datasets/laws-tranche-1.yaml`
+    - `run-laws-tranche-dry-run`
+    - structure-vs-concept guardrails now surface BP220-style shallowness automatically in readiness reporting
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-expansion-implementation-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

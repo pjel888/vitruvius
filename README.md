@@ -1262,23 +1262,22 @@ This command:
 It is intentionally a planning/readiness lane. Generic Phase 11 all-laws
 execution remains gated.
 
-### Whole-dataset readiness dry-run first
+### Tranche dry-run after readiness
 
-If you want the next safe step beyond the accepted 4-law pilot, inventory the
-repo-local laws readiness without widening into full execution:
+Once you have a tranche manifest, the next safe step is a tranche-local dry-run:
 
 ```bash
-python3 scripts/pipeline_cli.py run-all-laws-dry-run --review-model-preset 8gb-safe
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-dry-run \
+  --tranche-manifest config/datasets/laws-tranche-1.yaml \
+  --review-preset m2-8gb-safe
 ```
 
 This command:
-- scans the repo-local laws conversion inventory
-- compares it against the currently admitted bounded pilot manifest
-- resolves the requested review-model preset up front
-- writes a readiness report without running review, promotion, graph builds, or browser output
-
-Use this before proposing any broader laws slice. It does **not** open generic
-Phase 11 expansion on its own.
+- inspects only the tranche candidate folders
+- reports which tranche laws are already covered vs still inventory-only
+- surfaces **structure guardrails** for BP220-style misses (documents with rich
+  section structure but weak concept / relationship admission)
+- stays dry-run only; no review, promotion, graph build, or browser output
 
 ### Progress / developer experience
 

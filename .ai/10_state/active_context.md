@@ -16,9 +16,11 @@
   - `run-dataset-source-to-graph` supports one-command visualization/browser flow
   - `run-laws-pilot` and repo-root `./run-laws-pilot` exist for the 4-law pilot
   - generated graph HTML is self-contained and no longer depends on external/relative browser assets
-  - a readiness-only next-step lane now exists for broader all-laws planning:
-    - `run-laws-all-dry-run`
-    - `m2-8gb-safe` review preset
+- a readiness-only next-step lane now exists for broader all-laws planning:
+  - `run-laws-all-dry-run`
+  - `m2-8gb-safe` review preset
+  - `run-laws-tranche-dry-run`
+  - automated structure guardrails for BP220-style shallowness
 - The 2026-04-15 sprint-wave summary remains historical context in `decisions.md` and `master-roadmap.md`; it is **not** the live dispatcher anymore.
 
 ## Current Validation Snapshot
@@ -40,6 +42,11 @@
   - **65 passed**
   - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-all-dry-run --review-preset m2-8gb-safe` passes
   - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-pilot --dry-run --review-preset m2-8gb-safe` passes
+- Tranche-expansion slice:
+  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -q`
+  - **10 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml --review-preset m2-8gb-safe` passes
+  - all-laws readiness now reports `structure_guardrail_law_folders = [BP-220, BP-344, RA-9514]`
 
 ## Residual Graph Caveat
 
@@ -57,6 +64,7 @@
 - Decisions: `/.ai/10_state/decisions.md`
 - Latest bounded-laws operator validation: `/.ai/05_logs/2026-04-17_laws-pilot-operator-experience-validation.md`
 - Latest all-laws readiness validation: `/.ai/05_logs/2026-04-17_all-laws-readiness-8gb-implementation-validation.md`
+- Latest tranche-expansion validation: `/.ai/05_logs/2026-04-17_laws-tranche-expansion-implementation-validation.md`
 
 ## Handoff Note
 

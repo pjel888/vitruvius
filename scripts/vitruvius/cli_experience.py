@@ -197,11 +197,11 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
     "run-laws-tranche-dry-run": _doc(
         "run-laws-tranche-dry-run",
         "Inspect a bounded tranche manifest with dry-run-only source-quality and shallowness guardrails.",
-        human="This is the safe tranche rehearsal lane after readiness. It runs the bounded source-to-graph pipeline in dry-run mode against a tranche manifest, resolves the requested 8GB-safe preset, and reports extraction difficulty plus structure-vs-concept shallowness without executing review, promotion, graph, or browser steps.",
-        technical="Delegates to `run-dataset-source-to-graph` with `--dry-run`, disables OWL export, and emits per-source quality plus representation guardrail summaries for the selected tranche manifest.",
-        success="A healthy result writes a tranche-local dry-run report that shows planned stages, benchmark hints, manual-review pressure, and any shallow concept coverage that must be fixed before widening or executing.",
-        failure="The tranche manifest is invalid or the dry-run inspection could not resolve admitted anchors and source-quality inputs, so the tranche is not ready for safe execution.",
-        next_step="Use the tranche dry-run report to tighten concept coverage and tranche manifests while keeping generic Phase 11 expansion gated.",
+        human="This is the safe tranche rehearsal lane after readiness. It inspects only the law folders named in a tranche manifest, resolves the requested 8GB-safe preset, and reports coverage gaps plus structure-vs-concept shallowness without running review, promotion, graph, or browser steps.",
+        technical="Loads a simple tranche manifest, compares its candidate law folders against the bounded pilot manifest and repo-local produced-data inventory, and writes a tranche-local JSON readiness report with guardrail summaries.",
+        success="A healthy result writes a tranche-local dry-run report that shows candidate coverage, inventory readiness, and any shallow concept coverage that must be fixed before widening or executing.",
+        failure="The tranche manifest is invalid or the readiness inspection could not resolve the requested tranche inputs safely, so the tranche is not ready for execution planning yet.",
+        next_step="Use the tranche dry-run report to tighten tranche manifests, source admission, and section-hierarchy guardrails while keeping generic Phase 11 expansion gated.",
         operator_safe=False,
     ),
     "detect-one": _doc(

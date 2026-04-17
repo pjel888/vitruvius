@@ -4,6 +4,9 @@ import json
 from pathlib import Path
 from typing import Any
 
+import yaml
+
+from .canonicalize import extract_section_headers
 from .config import get_ollama_default_model, get_ollama_default_parallelism, resolve_review_preset
 from .graph.dataset_manifest import DatasetManifestError, load_dataset_manifest, write_json_report
 from .utils import utc_now_stamp
@@ -64,6 +67,137 @@ def _default_report_path(repo_root: Path, run_id: str) -> Path:
     )
 
 
+def _default_tranche_report_path(repo_root: Path, tranche_id: str, run_id: str) -> Path:
+    return (
+        repo_root
+        / "006_System-Manifests"
+        / "runs"
+        / "datasets"
+        / tranche_id
+        / run_id
+        / "laws_tranche_dry_run_report.json"
+    )
+
+
+def _load_tranche_manifest(repo_root: Path, tranche_manifest: str) -> tuple[dict[str, Any] | None, Path, str | None]:
+    manifest_path = Path(tranche_manifest)
+    if not manifest_path.is_absolute():
+        manifest_path = repo_root / manifest_path
+    try:
+        payload = yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
+    except OSError as exc:
+        return None, manifest_path, str(exc)
+    if not isinstance(payload, dict):
+        return None, manifest_path, "tranche manifest must be a mapping"
+    folders_raw = payload.get("candidate_law_folders") or payload.get("candidate_folders")
+    if not isinstance(folders_raw, list) or not folders_raw:
+        return None, manifest_path, "tranche manifest requires a non-empty candidate_law_folders list"
+    folders: list[dict[str, str]] = []
+    for item in folders_raw:
+        if not isinstance(item, dict):
+            return None, manifest_path, "each candidate_law_folders entry must be a mapping"
+        folder_name = item.get("folder_name")
+        if not isinstance(folder_name, str) or not folder_name.strip():
+            return None, manifest_path, "candidate_law_folders entries must include a non-empty folder_name"
+        reason = item.get("reason")
+        folders.append({
+            "folder_name": folder_name.strip(),
+            "reason": reason.strip() if isinstance(reason, str) else "",
+        })
+    payload["candidate_law_folders"] = folders
+    return payload, manifest_path, None
+
+
+def _count_structural_headers(refined_root: Path, folder_name: str) -> int:
+    folder = refined_root / folder_name
+    if not folder.exists():
+        return 0
+    count = 0
+    for path in sorted(folder.glob("*.md")):
+        try:
+            text = path.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        count += len(extract_section_headers(text))
+    return count
+
+
+def _structure_guardrails(
+    *,
+    structural_header_count: int,
+    admitted_concept_count: int,
+    admitted_relationship_count: int,
+) -> list[str]:
+    flags: list[str] = []
+    if structural_header_count >= 20 and admitted_concept_count <= 1:
+        flags.append("rich_structure_low_concept_admission")
+    if structural_header_count >= 20 and admitted_relationship_count <= 1:
+        flags.append("rich_structure_low_relationship_admission")
+    if structural_header_count >= 20 and admitted_concept_count <= 1 and admitted_relationship_count <= 1:
+        flags.append("rich_structure_needs_hierarchy_review")
+    return flags
+
+
+def _build_folder_summary(
+    *,
+    repo_root: Path,
+    folder_name: str,
+    raw_source_dirs: set[str],
+    refined_counts: dict[str, int],
+    raw_markdown_counts: dict[str, int],
+    sidecar_counts: dict[str, int],
+    pilot_unit: Any | None,
+    candidate_reason: str | None = None,
+) -> dict[str, Any]:
+    pilot_covered = pilot_unit is not None
+    admitted_source_count = len(pilot_unit.admitted_source_paths) if pilot_unit else 0
+    admitted_concept_count = len(pilot_unit.admitted_concept_paths) if pilot_unit else 0
+    admitted_relationship_count = len(pilot_unit.admitted_relationship_paths) if pilot_unit else 0
+    structural_header_count = _count_structural_headers(repo_root / _REFINED_ROOT, folder_name)
+    guardrails = _structure_guardrails(
+        structural_header_count=structural_header_count,
+        admitted_concept_count=admitted_concept_count,
+        admitted_relationship_count=admitted_relationship_count,
+    )
+    if pilot_covered:
+        next_step = (
+            "Already admitted inside the bounded pilot; keep generic Phase 11 expansion gated and extend only through a fresh accepted slice."
+        )
+        status = "pilot-covered"
+    elif refined_counts.get(folder_name, 0) > 0:
+        next_step = (
+            "Inventory exists, but this law is not admitted in the bounded pilot. Require fresh research/audit/plan plus bounded source admission before any review run."
+        )
+        status = "inventory-only"
+    else:
+        next_step = (
+            "No repo-local refined markdown inventory detected here; do not widen until source/conversion readiness is established."
+        )
+        status = "not-ready"
+    if guardrails:
+        next_step = (
+            next_step
+            + " Automated guardrail triggered: the document has rich section structure relative to current concept/relationship admission and should be reviewed before claiming graph coverage is sufficient."
+        )
+    return {
+        "folder_name": folder_name,
+        "law_id": folder_name.lower(),
+        "candidate_reason": candidate_reason,
+        "pilot_covered": pilot_covered,
+        "status": status,
+        "raw_source_present": folder_name in raw_source_dirs,
+        "refined_markdown_count": refined_counts.get(folder_name, 0),
+        "raw_markdown_count": raw_markdown_counts.get(folder_name, 0),
+        "sidecar_json_count": sidecar_counts.get(folder_name, 0),
+        "admitted_source_count": admitted_source_count,
+        "admitted_concept_count": admitted_concept_count,
+        "admitted_relationship_count": admitted_relationship_count,
+        "structural_header_count": structural_header_count,
+        "structure_guardrails": guardrails,
+        "next_step": next_step,
+    }
+
+
 def run_all_laws_dry_run(
     *,
     pilot_manifest: str = "config/datasets/laws-core-bundle-m1.yaml",
@@ -117,47 +251,24 @@ def run_all_laws_dry_run(
     inventory_only_count = 0
     for folder_name in all_law_names:
         pilot_unit = pilot_units_by_folder.get(folder_name)
-        pilot_covered = pilot_unit is not None
-        if pilot_covered:
+        if pilot_unit is not None:
             pilot_covered_count += 1
         else:
             inventory_only_count += 1
-        admitted_source_count = len(pilot_unit.admitted_source_paths) if pilot_unit else 0
-        admitted_concept_count = len(pilot_unit.admitted_concept_paths) if pilot_unit else 0
-        admitted_relationship_count = len(pilot_unit.admitted_relationship_paths) if pilot_unit else 0
-        if pilot_covered:
-            next_step = (
-                "Already admitted inside the bounded pilot; keep generic Phase 11 expansion gated and extend only through a fresh accepted slice."
-            )
-            status = "pilot-covered"
-        elif refined_counts.get(folder_name, 0) > 0:
-            next_step = (
-                "Inventory exists, but this law is not admitted in the bounded pilot. Require fresh research/audit/plan plus bounded source admission before any review run."
-            )
-            status = "inventory-only"
-        else:
-            next_step = (
-                "No repo-local refined markdown inventory detected here; do not widen until source/conversion readiness is established."
-            )
-            status = "not-ready"
         laws.append(
-            {
-                "folder_name": folder_name,
-                "law_id": folder_name.lower(),
-                "pilot_covered": pilot_covered,
-                "status": status,
-                "raw_source_present": folder_name in raw_source_dirs,
-                "refined_markdown_count": refined_counts.get(folder_name, 0),
-                "raw_markdown_count": raw_markdown_counts.get(folder_name, 0),
-                "sidecar_json_count": sidecar_counts.get(folder_name, 0),
-                "admitted_source_count": admitted_source_count,
-                "admitted_concept_count": admitted_concept_count,
-                "admitted_relationship_count": admitted_relationship_count,
-                "next_step": next_step,
-            }
+            _build_folder_summary(
+                repo_root=repo_root,
+                folder_name=folder_name,
+                raw_source_dirs=raw_source_dirs,
+                refined_counts=refined_counts,
+                raw_markdown_counts=raw_markdown_counts,
+                sidecar_counts=sidecar_counts,
+                pilot_unit=pilot_unit,
+            )
         )
 
     report_path = Path(report_out).resolve() if report_out else _default_report_path(repo_root, run_id)
+    guardrail_law_folders = [item["folder_name"] for item in laws if item["structure_guardrails"]]
     report = {
         "action": "run-laws-all-dry-run",
         "generated_at_utc": utc_now_stamp(),
@@ -191,6 +302,7 @@ def run_all_laws_dry_run(
             "sidecar_json_total": sum(sidecar_counts.values()),
             "raw_source_folder_count": len(raw_source_dirs),
         },
+        "structure_guardrail_law_folders": guardrail_law_folders,
         "limitations": limitations,
         "laws": laws,
     }
@@ -221,7 +333,134 @@ def run_all_laws_dry_run(
         ) if (repo_root / _RAW_SOURCE_ROOT).exists() else 0,
         "refined_markdown_count": sum(refined_counts.values()),
         "coverage_gap_law_units": inventory_only_count,
+        "structure_guardrail_law_folders": guardrail_law_folders,
         "limitations": limitations,
+        "report_path": _relative(report_path, repo_root),
+    }
+    print(json.dumps(summary, indent=2))
+    return 0
+
+
+def run_laws_tranche_dry_run(
+    *,
+    tranche_manifest: str,
+    pilot_manifest: str = "config/datasets/laws-core-bundle-m1.yaml",
+    review_model: str | None = None,
+    review_model_preset: str | None = None,
+    report_out: str | None = None,
+) -> int:
+    repo_root = Path.cwd().resolve()
+    tranche_payload, tranche_manifest_path, tranche_error = _load_tranche_manifest(repo_root, tranche_manifest)
+    if tranche_payload is None:
+        print(json.dumps({"error": tranche_error or "failed to load tranche manifest"}, indent=2))
+        return 2
+
+    run_id = utc_now_stamp().replace("-", "").replace(":", "").replace("+0000", "Z")
+    tranche_id = str(tranche_payload.get("tranche_id") or "laws-tranche")
+    preset = resolve_review_preset(review_model_preset)
+    effective_model = review_model or (
+        preset.get("model") if isinstance(preset, dict) else None
+    ) or get_ollama_default_model()
+    effective_parallelism = (
+        int(preset.get("parallelism"))
+        if isinstance(preset, dict) and preset.get("parallelism") is not None
+        else get_ollama_default_parallelism()
+    )
+
+    refined_counts = _count_child_files(repo_root / _REFINED_ROOT, ".md")
+    raw_markdown_counts = _count_child_files(repo_root / _RAW_MARKDOWN_ROOT, ".md")
+    sidecar_counts = _count_child_files(repo_root / _SIDECAR_ROOT, ".json")
+    raw_source_dirs = {path.name for path in _iter_law_dirs(repo_root / _RAW_SOURCE_ROOT)}
+
+    manifest, manifest_path, manifest_error = _load_pilot_manifest(repo_root, pilot_manifest)
+    pilot_units_by_folder: dict[str, Any] = {}
+    if manifest is not None:
+        pilot_units_by_folder = {unit.folder_name: unit for unit in manifest.law_units}
+
+    requested = tranche_payload["candidate_law_folders"]
+    requested_names = [item["folder_name"] for item in requested]
+    laws: list[dict[str, Any]] = []
+    pilot_covered_count = 0
+    inventory_only_count = 0
+    missing_raw_source_count = 0
+    for item in requested:
+        folder_name = item["folder_name"]
+        pilot_unit = pilot_units_by_folder.get(folder_name)
+        if pilot_unit is not None:
+            pilot_covered_count += 1
+        else:
+            inventory_only_count += 1
+        if folder_name not in raw_source_dirs:
+            missing_raw_source_count += 1
+        laws.append(
+            _build_folder_summary(
+                repo_root=repo_root,
+                folder_name=folder_name,
+                raw_source_dirs=raw_source_dirs,
+                refined_counts=refined_counts,
+                raw_markdown_counts=raw_markdown_counts,
+                sidecar_counts=sidecar_counts,
+                pilot_unit=pilot_unit,
+                candidate_reason=item.get("reason"),
+            )
+        )
+
+    limitations: list[str] = []
+    if manifest_error:
+        limitations.append(
+            f"Pilot manifest { _relative(manifest_path, repo_root) } could not be parsed for tranche comparison: {manifest_error}"
+        )
+    guardrail_law_folders = [item["folder_name"] for item in laws if item["structure_guardrails"]]
+    report_path = Path(report_out).resolve() if report_out else _default_tranche_report_path(repo_root, tranche_id, run_id)
+    report = {
+        "action": "run-laws-tranche-dry-run",
+        "generated_at_utc": utc_now_stamp(),
+        "run_id": run_id,
+        "dry_run": True,
+        "phase_11_gate": "gated",
+        "phase_11_generic_expansion_gated": True,
+        "tranche_id": tranche_id,
+        "tranche_manifest_path": _relative(tranche_manifest_path, repo_root),
+        "review_model": effective_model,
+        "review_model_preset": review_model_preset,
+        "review_runtime": {
+            "model": effective_model,
+            "parallelism": effective_parallelism,
+            "preset": preset,
+        },
+        "pilot_manifest_path": _relative(manifest_path, repo_root),
+        "pilot_manifest_law_count": len(pilot_units_by_folder),
+        "candidate_law_folder_count": len(requested_names),
+        "candidate_law_folders": requested_names,
+        "pilot_covered_law_count": pilot_covered_count,
+        "inventory_only_law_count": inventory_only_count,
+        "missing_raw_source_count": missing_raw_source_count,
+        "structure_guardrail_law_folders": guardrail_law_folders,
+        "laws": laws,
+        "limitations": limitations,
+    }
+    write_json_report(report_path, report)
+
+    summary = {
+        "action": "run-laws-tranche-dry-run",
+        "run_id": run_id,
+        "dry_run": True,
+        "phase_11_gate": "gated",
+        "phase_11_generic_expansion_gated": True,
+        "tranche_id": tranche_id,
+        "review_model": effective_model,
+        "review_model_preset": review_model_preset,
+        "review_runtime": {
+            "model": effective_model,
+            "parallelism": effective_parallelism,
+            "preset": preset,
+        },
+        "candidate_law_folder_count": len(requested_names),
+        "candidate_law_folders": requested_names,
+        "pilot_covered_law_count": pilot_covered_count,
+        "inventory_only_law_count": inventory_only_count,
+        "missing_raw_source_count": missing_raw_source_count,
+        "structure_guardrail_law_folders": guardrail_law_folders,
         "report_path": _relative(report_path, repo_root),
     }
     print(json.dumps(summary, indent=2))

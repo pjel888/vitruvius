@@ -785,17 +785,14 @@ def main() -> int:
         )
 
     if args.command == "run-laws-tranche-dry-run":
-        from vitruvius.dataset_pipeline import run_dataset_source_to_graph_pipeline
+        from vitruvius.laws_readiness import run_laws_tranche_dry_run
         return _run(
             "run-laws-tranche-dry-run",
-            lambda: run_dataset_source_to_graph_pipeline(
-                dataset_manifest=args.tranche_manifest,
-                export_owl=False,
-                dry_run=True,
+            lambda: run_laws_tranche_dry_run(
+                tranche_manifest=args.tranche_manifest,
+                pilot_manifest="config/datasets/laws-core-bundle-m1.yaml",
                 review_model=args.review_model,
-                review_timeout_seconds=args.review_timeout_seconds,
-                review_parallelism=args.review_parallel,
-                review_preset=args.review_preset,
+                review_model_preset=args.review_preset,
             ),
         )
 
