@@ -5,8 +5,8 @@ page_type: relationship
 relationship_type: covers
 from_entity: handout-quotes-1
 to_entity: concept-architectural-theory
-trust_level: bootstrap
-canonical_status: promoted
+trust_level: derived
+canonical_status: verified
 ---
 
 # handout-quotes-1 covers concept-architectural-theory

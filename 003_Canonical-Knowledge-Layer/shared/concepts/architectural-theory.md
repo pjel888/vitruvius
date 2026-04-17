@@ -3,9 +3,9 @@ id: concept-architectural-theory
 title: architectural theory
 page_type: concept
 trust_level: derived
-canonical_status: draft
+canonical_status: enriched
 aliases:
-  - architectural theory
+- architectural theory
 ---
 
 # architectural theory

@@ -3,9 +3,9 @@ id: concept-reinforced-concrete-detailing
 title: reinforced concrete detailing
 page_type: concept
 trust_level: derived
-canonical_status: draft
+canonical_status: enriched
 aliases:
-  - reinforced concrete detailing
+- reinforced concrete detailing
 ---
 
 # reinforced concrete detailing

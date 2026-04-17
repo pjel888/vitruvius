@@ -5,8 +5,8 @@ page_type: relationship
 relationship_type: covers
 from_entity: handout-arc-building-utilities-terms
 to_entity: concept-building-utilities
-trust_level: bootstrap
-canonical_status: promoted
+trust_level: derived
+canonical_status: verified
 ---
 
 # handout-arc-building-utilities-terms covers concept-building-utilities

@@ -5,8 +5,8 @@ page_type: relationship
 relationship_type: covers
 from_entity: handout-detailing-of-reinforcment-in-concrete-structures
 to_entity: concept-reinforced-concrete-detailing
-trust_level: bootstrap
-canonical_status: promoted
+trust_level: derived
+canonical_status: verified
 ---
 
 # handout-detailing-of-reinforcment-in-concrete-structures covers concept-reinforced-concrete-detailing

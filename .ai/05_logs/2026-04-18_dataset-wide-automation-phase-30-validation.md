@@ -1,0 +1,39 @@
+# 2026-04-18 Validation — Dataset-wide automation phase 30
+
+## Change
+- promoted the bootstrap-generated non-laws canonical rules for the current proof families into the durable base rules file
+- promoted the corresponding scaffolded concepts from `draft` to `enriched`
+- promoted the corresponding scaffolded relationships from `promoted` to `verified`
+- the generated canonical rules overlay is now empty after promotion
+
+## Fresh verification
+- promotion commands executed successfully:
+  - `promote-generated-canonical-rules` for the five scaffolded handout rules
+  - `promote-scaffolded-concepts` for:
+    - `architectural-history`
+    - `architectural-theory`
+    - `building-utilities`
+    - `construction-estimating`
+    - `reinforced-concrete-detailing`
+  - `promote-scaffolded-relationships` for the five matching `covers` relationships
+- focused regression:
+  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -k 'promote_scaffolded_concepts_updates_status or promote_scaffolded_relationships_updates_status or pipeline_cli_promote_scaffolded_concepts_reports_summary or pipeline_cli_promote_scaffolded_relationships_reports_summary or promote_generated_canonical_rules_moves_rules_to_base or pipeline_cli_promote_generated_canonical_rules_reports_summary or completed_manifest_paths_from_catalog_filters_ready_profiles or pipeline_cli_build_completed_aggregate_from_catalog_writes_manifest or pipeline_cli_run_completed_aggregate_from_catalog_invokes_dataset_pipeline or update_completed_aggregate_family_catalog_entry_updates_status or suggest_completed_aggregate_family_candidates_ranks_text_pdfs_first or pipeline_cli_suggest_completed_aggregate_family_candidates_reports_summary or scaffold_completed_aggregate_lane_manifest_honors_explicit_raw_paths or pipeline_cli_scaffold_completed_aggregate_lane_manifest_honors_raw_path or scaffold_completed_aggregate_lane_manifest_uses_ranked_default_candidates or pipeline_cli_scaffold_completed_aggregate_lane_manifest_uses_ranked_default_candidates or bootstrap_completed_aggregate_family_lane_orchestrates_steps or pipeline_cli_bootstrap_completed_aggregate_family_lane_reports_summary or promote_completed_aggregate_lane_relationships_updates_status or pipeline_cli_promote_completed_aggregate_lane_relationships_reports_summary or scaffold_completed_aggregate_lane_canonical_rules_writes_generated_rules or load_rules_merges_generated_overlay or scaffold_completed_aggregate_lane_concepts_writes_concept_files or scaffold_completed_aggregate_lane_relationships_writes_relationship_files or pipeline_cli_scaffold_completed_aggregate_lane_canonical_rules_reports_summary or pipeline_cli_scaffold_completed_aggregate_lane_concepts_reports_summary or pipeline_cli_scaffold_completed_aggregate_lane_relationships_reports_summary or source_admit_completed_aggregate_lane_execute_updates_manifest or pipeline_cli_source_admit_completed_aggregate_lane_execute_reports_summary or source_admit_completed_aggregate_lane_dry_run_reports_candidates_or_blockers or pipeline_cli_source_admit_completed_aggregate_lane_dry_run_reports_status or prepare_completed_aggregate_lane_sources_dry_run_reports_inventory or prepare_completed_aggregate_lane_sources_execute_uses_prepare_helper or pipeline_cli_prepare_completed_aggregate_lane_sources_dry_run_reports_inventory or inspect_completed_aggregate_lane_sources_reports_inventory or pipeline_cli_inspect_completed_aggregate_lane_sources_reports_inventory or scaffold_completed_aggregate_lane_manifest_writes_starter_manifest or pipeline_cli_scaffold_completed_aggregate_lane_manifest_writes_manifest or check_completed_aggregate_family_readiness_reports_blockers or check_completed_aggregate_family_readiness_reports_ready_family or pipeline_cli_check_completed_aggregate_family_reports_blockers or admit_completed_manifest_to_family_updates_ledger_and_index or pipeline_cli_admit_completed_aggregate_manifest_updates_family_ledgers or scaffold_completed_aggregate_family_writes_starter_files or pipeline_cli_scaffold_completed_aggregate_family_writes_starter_files or register_completed_aggregate_family_writes_profile_and_catalog or pipeline_cli_register_completed_aggregate_family_writes_profile_and_catalog or resolve_completed_aggregate_profile_path_returns_registered_profile or pipeline_cli_build_completed_aggregate_manifest_writes_manifest or pipeline_cli_run_completed_aggregate_invokes_dataset_pipeline or pipeline_cli_build_completed_aggregate_from_profile_writes_manifest or pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline or pipeline_cli_run_completed_aggregate_family_invokes_dataset_pipeline or generic_completed_manifest_paths_returns_existing_manifests or build_laws_completed_aggregate_manifest or run_laws_completed_aggregate or raw_folder_name_override or manifest_scoped_variants or scoped_variants_for_duplicates' -q`
+  - **59 passed**
+- registry suite:
+  - `python3 -m pytest scripts/tests/test_registry_load.py -q`
+  - **3 passed**
+- combined ready-family aggregate dry-run still works after promotion hardening:
+  - `law_unit_count = 53`
+  - `source_count = 70`
+  - `concept_count = 97`
+  - `relationship_count = 132`
+  - `raw_slice_anchor_count = 46`
+  - `planned_stage_count = 69`
+
+## Truthful result
+- bootstrap artifacts now have durable promotion coverage across all three classes:
+  - rules
+  - concepts
+  - relationships
+- the current proof families no longer depend on lingering generated-rule overlay entries for their starter rules
+- the next hardening question is whether to promote additional family artifacts beyond the current proof set, not whether a promotion path exists

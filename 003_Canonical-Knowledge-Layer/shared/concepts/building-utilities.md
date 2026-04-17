@@ -3,9 +3,9 @@ id: concept-building-utilities
 title: building utilities
 page_type: concept
 trust_level: derived
-canonical_status: draft
+canonical_status: enriched
 aliases:
-  - building utilities
+- building utilities
 ---
 
 # building utilities

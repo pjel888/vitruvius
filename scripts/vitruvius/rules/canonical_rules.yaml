@@ -1,1679 +1,1186 @@
 version: 1
-
-# --------------------------------------------------
-# GLOBAL DEFAULTS
-# --------------------------------------------------
-
 defaults:
   unknown:
     source_type: unknown
     trust_level: unknown
-    canonical_title_strategy: "filename"
+    canonical_title_strategy: filename
     aliases: []
     relationships: []
     core_concepts: []
-
-# --------------------------------------------------
-# RULES
-# --------------------------------------------------
-
 rules:
-
-  # --------------------------------------------------
-  # PD 1096 - NATIONAL BUILDING CODE (LAW)
-  # --------------------------------------------------
-  - name: "PD 1096 Law"
-
-    match:
-      all_contains:
-        - "pd"
-        - "1096"
-      any_contains:
-        - "building code"
-        - "national building code"
-      not_contains:
-        - "irr"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "National Building Code of the Philippines"
-
-      aliases:
-        - "PD 1096"
-        - "Presidential Decree No. 1096"
-        - "National Building Code"
-
-      relationships:
-        implemented_by:
-          - "irr-implementing-rules-and-regulations-of-the-national-building-code"
-
-      core_concepts:
-        - "occupancy classification"
-        - "building permits"
-        - "fire-resistive construction"
-        - "light and ventilation"
-        - "setbacks"
-
-  # --------------------------------------------------
-  # PD 1096 IRR
-  # --------------------------------------------------
-  - name: "PD 1096 IRR"
-
-    match:
-      all_contains:
-        - "pd"
-        - "1096"
-        - "irr"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Implementing Rules and Regulations of the National Building Code"
-
-      aliases:
-        - "PD 1096 IRR"
-        - "National Building Code IRR"
-        - "Revised IRR 2004"
-
-      relationships:
-        implements:
-          - "law-national-building-code-of-the-philippines"
-
-      core_concepts:
-        - "occupancy classification"
-        - "building permits"
-        - "fire-resistive construction"
-        - "light and ventilation"
-        - "setbacks"
-
-  # --------------------------------------------------
-  # RA 9514 RIRR
-  # --------------------------------------------------
-  - name: "RA 9514 RIRR"
-
-    match:
-      any_contains:
-        - "ra9514-rirr"
-        - "ra-9514"
-        - "pd 9514 - fire code of the philippines"
-        - "pd-9514"
-        - "ra9514 irr as of june 26, 2009"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Implementing Rules and Regulations of the Fire Code of the Philippines"
-
-      aliases:
-        - "RA 9514"
-        - "Republic Act No. 9514"
-        - "The Fire Code of the Philippines"
-        - "RA 9514 IRR"
-        - "Fire Code RIRR 2019"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # BP 220 RIRR
-  # --------------------------------------------------
-  - name: "BP 220 RIRR"
-
-    match:
-      any_contains:
-        - "revised_irr_bp220"
-        - "bp-220"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Revised Implementing Rules and Regulations of Batas Pambansa Blg. 220"
-
-      aliases:
-        - "BP 220"
-        - "Batas Pambansa Blg. 220"
-        - "BP 220 RIRR"
-        - "Revised IRR BP 220 2008"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # BP 344 RIRR (authoritative admission default)
-  # --------------------------------------------------
-  - name: "BP 344 RIRR"
-
-    match:
-      all_contains:
-        - "bp-344"
-        - "national council on disability affairs"
-      not_contains:
-        - "do037"
-        - "enforcement of bp344"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Revised Implementing Rules and Regulations of Batas Pambansa Blg. 344"
-
-      aliases:
-        - "BP 344"
-        - "Batas Pambansa Blg. 344"
-        - "BP 344 RIRR"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # PD 957 IRR
-  # --------------------------------------------------
-  - name: "PD 957 IRR"
-
-    match:
-      all_contains:
-        - "pd"
-        - "957"
-        - "irr"
-      not_contains:
-        - "illustrated"
-        - "slides"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Revised Implementing Rules and Regulations for PD 957"
-
-      aliases:
-        - "PD 957 IRR"
-        - "Presidential Decree No. 957 IRR"
-        - "Subdivision and Condominium IRR"
-        - "Revised Implementing Rules and Regulations for PD 957"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # PD 1185 Law
-  # --------------------------------------------------
-  - name: "PD 1185 Law"
-
-    match:
-      all_contains:
-        - "pd"
-        - "1185"
-      any_contains:
-        - "fire code"
-      not_contains:
-        - "irr"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Fire Code of the Philippines"
-
-      aliases:
-        - "PD 1185"
-        - "Presidential Decree No. 1185"
-        - "Fire Code of the Philippines 1977"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # PD 1216 Law
-  # --------------------------------------------------
-  - name: "PD 1216 Law"
-
-    match:
-      all_contains:
-        - "pd"
-        - "1216"
-      any_contains:
-        - "open space"
-        - "subdivisions"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Open Space Requirements in Residential Subdivisions"
-
-      aliases:
-        - "PD 1216"
-        - "Presidential Decree No. 1216"
-        - "Open Space Requirements in Subdivisions"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 7279 Law
-  # --------------------------------------------------
-  - name: "RA 7279 Law"
-
-    match:
-      all_contains:
-        - "ra"
-        - "7279"
-      any_contains:
-        - "urban development"
-        - "housing act"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Urban Development and Housing Act"
-
-      aliases:
-        - "RA 7279"
-        - "Republic Act No. 7279"
-        - "Urban Development and Housing Act of 1992"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 4726 Law
-  # --------------------------------------------------
-  - name: "RA 4726 Law"
-
-    match:
-      all_contains:
-        - "ra"
-        - "4726"
-      any_contains:
-        - "condominium act"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Condominium Act"
-
-      aliases:
-        - "RA 4726"
-        - "Republic Act No. 4726"
-        - "Condominium Act of the Philippines"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 7899 Law
-  # --------------------------------------------------
-  - name: "RA 7899 Law"
-
-    match:
-      all_contains:
-        - "ra"
-        - "7899"
-      any_contains:
-        - "4726"
-        - "condominium"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Amendments to the Condominium Act"
-
-      aliases:
-        - "RA 7899"
-        - "Republic Act No. 7899"
-        - "Amendments to RA 4726"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # PD 1067 Law
-  # --------------------------------------------------
-  - name: "PD 1067 Law"
-
-    match:
-      all_contains:
-        - "pd"
-        - "1067"
-      any_contains:
-        - "water code"
-      not_contains:
-        - "irr"
-        - "implementing rules"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Water Code of the Philippines"
-
-      aliases:
-        - "PD 1067"
-        - "Presidential Decree No. 1067"
-        - "Water Code"
-        - "Water Code of the Philippines"
-
-      relationships:
-        implemented_by:
-          - "irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # PD 1067 Amended IRR
-  # --------------------------------------------------
-  - name: "PD 1067 Amended IRR"
-
-    match:
-      all_contains:
-        - "1067"
-        - "water code"
-        - "irr"
-      any_contains:
-        - "amended"
-        - "2005"
-        - "nwrb"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Amended Implementing Rules and Regulations of the Water Code of the Philippines"
-
-      aliases:
-        - "PD 1067 IRR"
-        - "Water Code IRR"
-        - "Water Code of PH IRR 2005"
-        - "Amended Water Code IRR"
-
-      relationships:
-        implements:
-          - "law-water-code-of-the-philippines"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # PD 1151 Law
-  # --------------------------------------------------
-  - name: "PD 1151 Law"
-
-    match:
-      all_contains:
-        - "pd"
-        - "1151"
-      any_contains:
-        - "environmental policy"
-        - "environmental code"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Philippine Environmental Policy"
-
-      aliases:
-        - "PD 1151"
-        - "Presidential Decree No. 1151"
-        - "Philippine Environmental Policy"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 9003 Law
-  # --------------------------------------------------
-  - name: "RA 9003 Law"
-
-    match:
-      all_contains:
-        - "ra"
-        - "9003"
-      any_contains:
-        - "solid waste"
-        - "ecological solid waste"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Ecological Solid Waste Management Act of 2000"
-
-      aliases:
-        - "RA 9003"
-        - "Republic Act No. 9003"
-        - "Ecological Solid Waste Management Act of 2000"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # PD 1517 IRR
-  # --------------------------------------------------
-  - name: "PD 1517 IRR"
-
-    match:
-      all_contains:
-        - "pd"
-        - "1517"
-      any_contains:
-        - "urban land reform"
-        - "implement"
-        - "rules and regulations"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Implementing Rules and Regulations of the Urban Land Reform Act"
-
-      aliases:
-        - "PD 1517"
-        - "Presidential Decree No. 1517"
-        - "Urban Land Reform Act IRR"
-        - "Urban Land Reform Rules and Regulations"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 6969 Law
-  # --------------------------------------------------
-  - name: "RA 6969 Law"
-
-    match:
-      all_contains:
-        - "ra"
-        - "6969"
-      any_contains:
-        - "toxic substances"
-        - "hazardous"
-        - "nuclear wastes"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990"
-
-      aliases:
-        - "RA 6969"
-        - "Republic Act No. 6969"
-        - "Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 10066 Law
-  # --------------------------------------------------
-  - name: "RA 10066 Law"
-
-    match:
-      all_contains:
-        - "10066"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "National Cultural Heritage Act of 2009"
-
-      aliases:
-        - "RA 10066"
-        - "Republic Act No. 10066"
-        - "National Cultural Heritage Act of 2009"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # PD 856 Law
-  # --------------------------------------------------
-  - name: "PD 856 Law"
-
-    match:
-      any_contains:
-        - "phi201040"
-        - "code on sanitation"
-        - "sanitation of the philippines"
-      not_contains:
-        - "implementing"
-        - "food establishment"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Code on Sanitation of the Philippines"
-
-      aliases:
-        - "PD 856"
-        - "Presidential Decree No. 856"
-        - "Code on Sanitation of the Philippines"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # PD 856 Food Establishments IRR
-  # --------------------------------------------------
-  - name: "PD 856 Food Establishments IRR"
-
-    match:
-      all_contains:
-        - "856"
-      any_contains:
-        - "food establishment"
-        - "implementing"
-        - "chapter ill"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Implementing Rules and Regulations of Chapter III of the Code on Sanitation of the Philippines"
-
-      aliases:
-        - "PD 856 IRR"
-        - "Food Establishments IRR"
-        - "Implementing Rules and Regulations of Chapter III of the Code on Sanitation of the Philippines"
-
-      relationships:
-        implements:
-          - "law-code-on-sanitation-of-the-philippines"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 7160 Law
-  # --------------------------------------------------
-  - name: "RA 7160 Law"
-
-    match:
-      all_contains:
-        - "ra"
-        - "7160"
-      any_contains:
-        - "local government code"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Local Government Code of 1991"
-
-      aliases:
-        - "RA 7160"
-        - "Republic Act No. 7160"
-        - "Local Government Code of 1991"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 9275 Law
-  # --------------------------------------------------
-  - name: "RA 9275 Law"
-
-    match:
-      any_contains:
-        - "ra 9275"
-        - "ra-9275"
-        - "clean water act"
-        - "water quality management"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Philippine Clean Water Act of 2004"
-
-      aliases:
-        - "RA 9275"
-        - "Republic Act No. 9275"
-        - "Philippine Clean Water Act of 2004"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 4566 Law
-  # --------------------------------------------------
-  - name: "RA 4566 Law"
-
-    match:
-      any_contains:
-        - "ra_4566"
-        - "ra 4566"
-        - "contractors' license law"
-        - "licensing board for contractors"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Contractors' License Law"
-
-      aliases:
-        - "RA 4566"
-        - "Republic Act No. 4566"
-        - "Contractors' License Law"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 386 Law
-  # --------------------------------------------------
-  - name: "RA 386 Law"
-
-    match:
-      any_contains:
-        - "ra-386"
-        - "ra 386"
-        - "civil code"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Civil Code of the Philippines"
-
-      aliases:
-        - "RA 386"
-        - "Republic Act No. 386"
-        - "Civil Code of the Philippines"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 9184 Law
-  # --------------------------------------------------
-  - name: "RA 9184 Law"
-
-    match:
-      all_contains:
-        - "9184"
-      any_contains:
-        - "government procurement reform act"
-        - "government procurement irr"
-      not_contains:
-        - "updated 2016"
-        - "revised implementing rules"
-        - "2016 revised"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Government Procurement Reform Act"
-
-      aliases:
-        - "RA 9184"
-        - "Republic Act No. 9184"
-        - "Government Procurement Reform Act"
-
-      relationships:
-        implemented_by:
-          - "irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 9184 Updated 2016 IRR
-  # --------------------------------------------------
-  - name: "RA 9184 Updated 2016 IRR"
-
-    match:
-      all_contains:
-        - "9184"
-      any_contains:
-        - "updated 2016"
-        - "revised implementing rules"
-        - "2016 revised"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Updated 2016 Revised Implementing Rules and Regulations of the Government Procurement Reform Act"
-
-      aliases:
-        - "RA 9184 IRR"
-        - "Government Procurement Reform Act IRR"
-        - "Updated 2016 Revised IRR of RA 9184"
-
-      relationships:
-        implements:
-          - "law-government-procurement-reform-act"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 1378 Law
-  # --------------------------------------------------
-  - name: "RA 1378 Law"
-
-    match:
-      all_contains:
-        - "1378"
-      any_contains:
-        - "plumbing law"
-        - "master plumber"
-      not_contains:
-        - "board of master plumber"
-        - "plumbing code"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Plumbing Law"
-
-      aliases:
-        - "RA 1378"
-        - "Republic Act No. 1378"
-        - "Plumbing Law"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 9285 Law
-  # --------------------------------------------------
-  - name: "RA 9285 Law"
-
-    match:
-      any_contains:
-        - "ra_9285"
-        - "ra 9285"
-        - "alternative dispute resolution"
-        - "adr"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Alternative Dispute Resolution Act of 2004"
-
-      aliases:
-        - "RA 9285"
-        - "Republic Act No. 9285"
-        - "Alternative Dispute Resolution Act of 2004"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 11201 Law
-  # --------------------------------------------------
-  - name: "RA 11201 Law"
-
-    match:
-      all_contains:
-        - "11201"
-      any_contains:
-        - "dhsud act"
-        - "human settlements"
-        - "urban development act"
-      not_contains:
-        - "irr"
-        - "implementing rules"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Department of Human Settlements and Urban Development Act"
-
-      aliases:
-        - "RA 11201"
-        - "Republic Act No. 11201"
-        - "DHSUD Act of 2019"
-
-      relationships:
-        implemented_by:
-          - "irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # RA 11201 IRR
-  # --------------------------------------------------
-  - name: "RA 11201 IRR"
-
-    match:
-      all_contains:
-        - "11201"
-      any_contains:
-        - "implementing rules"
-        - "dhsud act"
-        - "human settlements"
-      not_contains:
-        - "draft"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Implementing Rules and Regulations of the Department of Human Settlements and Urban Development Act"
-
-      aliases:
-        - "RA 11201 IRR"
-        - "DHSUD Act IRR"
-        - "Implementing Rules and Regulations of the Department of Human Settlements and Urban Development Act"
-
-      relationships:
-        implements:
-          - "law-department-of-human-settlements-and-urban-development-act"
-
-      core_concepts: []
-
-
-  # --------------------------------------------------
-  # RA 11285 Law
-  # --------------------------------------------------
-  - name: "RA 11285 Law"
-
-    match:
-      all_contains:
-        - "11285"
-      any_contains:
-        - "energy efficiency"
-        - "conservation act"
-        - "energy efficiency and conservation"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Energy Efficiency and Conservation Act"
-
-      aliases:
-        - "RA 11285"
-        - "Republic Act No. 11285"
-        - "Energy Efficiency and Conservation Act"
-
-      core_concepts: []
-
-
-  # --------------------------------------------------
-  # DENR DAO 2003-30 IRR
-  # --------------------------------------------------
-  - name: "DENR DAO 2003-30 IRR"
-
-    match:
-      any_contains:
-        - "dao 2003-30"
-        - "eis system implementing rules"
-        - "environmental impact statement"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Implementing Rules and Regulations for the Philippine Environmental Impact Statement System"
-
-      aliases:
-        - "DENR DAO 2003-30"
-        - "EIS System IRR"
-        - "Philippine Environmental Impact Statement System IRR"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # DOE Energy Conserving Design Guidelines
-  # --------------------------------------------------
-  - name: "DOE Energy Conserving Design Guidelines"
-
-    match:
-      any_contains:
-        - "energy conserving design on buildings"
-        - "department of energy"
-        - "guidelines on energy conserving design"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "Guidelines on Energy Conserving Design of Buildings"
-
-      aliases:
-        - "DOE Guidelines on Energy Conserving Design on Buildings"
-        - "Energy Conserving Design of Buildings Guidelines"
-
-  # --------------------------------------------------
-  # DPWH DO037 Accessibility Enforcement Order
-  # --------------------------------------------------
-  - name: "DPWH DO037 Accessibility Enforcement Order"
-
-    match:
-      any_contains:
-        - "do037"
-        - "enforcement of bp344"
-        - "accessibility law"
-        - "national roads"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "Department Order No. 37 on Enforcement of the Accessibility Law Along National Roads"
-
-      aliases:
-        - "DPWH DO037"
-        - "Enforcement of BP344 along National Roads"
-
-
-  # --------------------------------------------------
-  # RA 9266 IRR
-  # --------------------------------------------------
-  - name: "RA 9266 IRR"
-
-    match:
-      all_contains:
-        - "9266"
-      any_contains:
-        - "architecture act"
-        - "irr of ra 9266"
-        - "registration, licensing and practice of architecture"
-
-    classification:
-      source_type: irr
-      trust_level: primary
-
-    canonical:
-      title: "Implementing Rules and Regulations of the Architecture Act of 2004"
-
-      aliases:
-        - "RA 9266"
-        - "RA 9266 IRR"
-        - "IRR of RA 9266"
-        - "Architecture Act of 2004 IRR"
-
-      core_concepts: []
-
-
-  # --------------------------------------------------
-  # EO 72 Law
-  # --------------------------------------------------
-  - name: "EO 72 Law"
-
-    match:
-      any_contains:
-        - "eo 72 comprehensive land use"
-        - "executive order no. 72"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Executive Order No. 72 on Comprehensive Land Use Plans"
-
-      aliases:
-        - "EO 72"
-        - "Executive Order No. 72"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # EO 90 Law
-  # --------------------------------------------------
-  - name: "EO 90 Law"
-
-    match:
-      any_contains:
-        - "eo 90 ngo for shelter program"
-        - "executive order no. 90"
-        - "national shelter program"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Executive Order No. 90 on the National Shelter Program"
-
-      aliases:
-        - "EO 90"
-        - "Executive Order No. 90"
-        - "National Shelter Program EO"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # EO 648 Law
-  # --------------------------------------------------
-  - name: "EO 648 Law"
-
-    match:
-      any_contains:
-        - "eo 648"
-        - "human settlements regulatory commission"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Executive Order No. 648 Reorganizing the Human Settlements Regulatory Commission"
-
-      aliases:
-        - "EO 648"
-        - "Executive Order No. 648"
-        - "Human Settlements Regulatory Commission EO"
-
-      core_concepts: []
-
-  # --------------------------------------------------
-  # DHSUD Open Space Development Guidelines
-  # --------------------------------------------------
-  - name: "DHSUD Open Space Development Guidelines"
-
-    match:
-      any_contains:
-        - "open space development guidelines"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "Open Space Development Guidelines"
-
-      aliases:
-        - "DHSUD Open Space Development Guidelines"
-
-  # --------------------------------------------------
-  # DHSUD Resilient Urban Design and Development Guidelines
-  # --------------------------------------------------
-  - name: "DHSUD Resilient Urban Design and Development Guidelines"
-
-    match:
-      any_contains:
-        - "resilient urban design and development guidelines"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "Resilient Urban Design and Development Guidelines"
-
-      aliases:
-        - "DHSUD Resilient Urban Design and Development Guidelines"
-
-
-  # --------------------------------------------------
-  # CHED Architecture Curriculum Standards
-  # --------------------------------------------------
-  - name: "CHED Architecture Curriculum Standards"
-
-    match:
-      any_contains:
-        - "ched cmo 61"
-        - "bs architecture curriculum standards"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "CMO 61 Series 2017 BS Architecture Curriculum Standards"
-
-      aliases:
-        - "CHED CMO 61 Series 2017"
-        - "BS Architecture Curriculum Standards"
-
-  # --------------------------------------------------
-  # CIAP Document 102
-  # --------------------------------------------------
-  - name: "CIAP Document 102"
-
-    match:
-      any_contains:
-        - "ciap-document-102"
-        - "uniform general conditions of contract"
-        - "private constn contract"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "CIAP Document 102 Uniform General Conditions of Contract for Private Construction"
-
-      aliases:
-        - "CIAP Document 102"
-        - "Uniform General Conditions of Contract for Private Construction"
-
-  # --------------------------------------------------
-  # UAP Code of Ethics
-  # --------------------------------------------------
-  - name: "UAP Code of Ethics"
-
-    match:
-      any_contains:
-        - "uap document code of ethics"
-        - "architect's code of ethics"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "UAP Document Code of Ethics"
-
-      aliases:
-        - "UAP Code of Ethics"
-        - "Architect's Code of Ethics"
-
-  # --------------------------------------------------
-  # UAP Standards of Professional Practice
-  # --------------------------------------------------
-  - name: "UAP Standards of Professional Practice"
-
-    match:
-      any_contains:
-        - "uap document standards of professional practice"
-        - "standards of professional practice2"
-        - "2010 standards of professional practice"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "UAP Document Standards of Professional Practice"
-
-      aliases:
-        - "UAP Standards of Professional Practice"
-        - "2010 Standards of Professional Practice"
-
-  # --------------------------------------------------
-  # UAP Document 301 General Conditions
-  # --------------------------------------------------
-  - name: "UAP Document 301 General Conditions"
-
-    match:
-      any_contains:
-        - "uap document 301"
-        - "general conditions"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "UAP Document 301 General Conditions"
-
-      aliases:
-        - "UAP Document 301"
-        - "General Conditions"
-
-  # --------------------------------------------------
-  # DOH Guidelines for Health Facilities
-  # --------------------------------------------------
-  - name: "DOH Guidelines for Health Facilities"
-
-    match:
-      any_contains:
-        - "doh guidelines for health facilities"
-        - "guidelines for health facilities 20004"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "DOH Guidelines for Health Facilities"
-
-      aliases:
-        - "Guidelines for Health Facilities"
-        - "DOH Health Facilities Guidelines"
-
-  # --------------------------------------------------
-  # DepEd Disaster Risk Reduction Resource Manual
-  # --------------------------------------------------
-  - name: "DepEd Disaster Risk Reduction Resource Manual"
-
-    match:
-      any_contains:
-        - "deped drrr manual philippines"
-        - "disaster risk reduction resource manual"
-        - "safer schools resource manual"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "DepEd Disaster Risk Reduction Resource Manual"
-
-      aliases:
-        - "Disaster Risk Reduction Resource Manual"
-        - "Safer Schools Resource Manual"
-        - "DepEd DRRR Manual Philippines"
-
-  # --------------------------------------------------
-  # San Mateo Zoning Ordinance
-  # --------------------------------------------------
-  - name: "San Mateo Zoning Ordinance"
-
-    match:
-      any_contains:
-        - "san-mateo-zoning-ordinance"
-        - "zoning ordinance for the municipality of san mateo"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Zoning Ordinance of the Municipality of San Mateo"
-
-      aliases:
-        - "San Mateo Zoning Ordinance"
-        - "Zoning Ordinance for the Municipality of San Mateo"
-
-  # --------------------------------------------------
-  # San Mateo Comprehensive Land Use Plan
-  # --------------------------------------------------
-  - name: "San Mateo Comprehensive Land Use Plan"
-
-    match:
-      any_contains:
-        - "copy-of-san-mateo-rizal-clup"
-        - "san mateo comprehensive land use plan 2021-2031"
-        - "comprehensive land use plan 2021-2031"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "San Mateo Comprehensive Land Use Plan 2021-2031"
-
-      aliases:
-        - "San Mateo CLUP 2021-2031"
-        - "Comprehensive Land Use Plan 2021-2031"
-
-  # --------------------------------------------------
-  # Dagupan Comprehensive Zoning Ordinance
-  # --------------------------------------------------
-  - name: "Dagupan Comprehensive Zoning Ordinance"
-
-    match:
-      any_contains:
-        - "dagupan-city-ordinance-no-2061-2016"
-        - "comprehensive zoning ordinance of dagupan city"
-        - "dagupan city ordinance no. 2061-2016"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Comprehensive Zoning Ordinance of Dagupan City"
-
-      aliases:
-        - "Dagupan City Ordinance No. 2061-2016"
-        - "Comprehensive Zoning Ordinance of Dagupan City (2015-2025)"
-
-  # --------------------------------------------------
-  # Malolos Zoning Ordinance
-  # --------------------------------------------------
-  - name: "Malolos Zoning Ordinance"
-
-    match:
-      any_contains:
-        - "malolos-city-zoning-ordinance"
-        - "zoning ordinance of the city of malolos"
-        - "zoning regulations of the city of malolos"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Zoning Ordinance of the City of Malolos"
-
-      aliases:
-        - "Malolos City Zoning Ordinance"
-        - "Zoning Regulations of the City of Malolos"
-
-  # --------------------------------------------------
-  # Meycauayan Zoning Ordinance
-  # --------------------------------------------------
-  - name: "Meycauayan Zoning Ordinance"
-
-    match:
-      any_contains:
-        - "zoning-ordinances-meycauayan-bulacan"
-        - "comprehensive zoning ordinance of the municipality of meycauayan"
-        - "municipal ordinance no. 16 series of 1999"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Comprehensive Zoning Ordinance of the Municipality of Meycauayan"
-
-      aliases:
-        - "Meycauayan Zoning Ordinance"
-        - "Municipal Ordinance No. 16 Series of 1999"
-
-  # --------------------------------------------------
-  # Davao City Comprehensive Land Use Plan
-  # --------------------------------------------------
-  - name: "Davao City Comprehensive Land Use Plan"
-
-    match:
-      any_contains:
-        - "zoning-davao-city"
-        - "comprehensive land use plan"
-        - "davao city"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "Davao City Comprehensive Land Use Plan"
-
-      aliases:
-        - "Davao City CLUP"
-        - "Davao City Comprehensive Land Use Plan"
-
-  # --------------------------------------------------
-  # Tarlac Zoning Ordinance
-  # --------------------------------------------------
-  - name: "Tarlac Zoning Ordinance"
-
-    match:
-      any_contains:
-        - "tarlac-zoning-ordinances"
-        - "comprehensive zoning ordinance of the city of tarlac"
-        - "zoning regulations for the city of tarlac"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Comprehensive Zoning Ordinance of the City of Tarlac"
-
-      aliases:
-        - "Tarlac City Zoning Ordinance"
-        - "Zoning Regulations for the City of Tarlac"
-
-  # --------------------------------------------------
-  # Quezon City Central Business District Zoning Ordinance
-  # --------------------------------------------------
-  - name: "Quezon City Central Business District Zoning Ordinance"
-
-    match:
-      any_contains:
-        - "ordinance-no-2117"
-        - "qc-cbd zoning ordinance"
-        - "quezon city central business district"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Quezon City Central Business District Zoning Ordinance"
-
-      aliases:
-        - "QC-CBD Zoning Ordinance"
-        - "Ordinance No. SP-2117, S-2011"
-
-  # --------------------------------------------------
-  # Pasay City Zoning Ordinance of 2003
-  # --------------------------------------------------
-  - name: "Pasay City Zoning Ordinance of 2003"
-
-    match:
-      any_contains:
-        - "zoning-ordinance-pasay"
-        - "pasay city zoning ordinance of 2003"
-        - "a zoning ordinance (zo) for the city of pasay"
-
-    classification:
-      source_type: law
-      trust_level: primary
-
-    canonical:
-      title: "Pasay City Zoning Ordinance of 2003"
-
-      aliases:
-        - "Pasay City Zoning Ordinance"
-        - "Zoning Ordinance for the City of Pasay"
-
-  # --------------------------------------------------
-  # RA 7279 Section 18 IRR
-  # --------------------------------------------------
-  - name: "RA 7279 Section 18 IRR"
-
-    match:
-      any_contains:
-        - "irr ra 7279 sec 18"
-        - "implementing rules and regulations to govern section 18 of republic act no. 7279"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "Implementing Rules and Regulations to Govern Section 18 of Republic Act No. 7279"
-
-      aliases:
-        - "RA 7279 Section 18 IRR"
-        - "Balanced Housing Development IRR"
-
-  # --------------------------------------------------
-  # PRBoA Temporary Permits for Foreign Architects
-  # --------------------------------------------------
-  - name: "PRBoA Temporary Permits for Foreign Architects"
-
-    match:
-      any_contains:
-        - "temporary permits for foreign architects"
-        - "prboares03,s08_temporary permits for foreign architects"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "Guidelines on Temporary or Special Permits for Foreign Architects"
-
-      aliases:
-        - "Temporary Permits for Foreign Architects"
-        - "PRBoA Resolution No. 03 Series of 2008"
-
-  # --------------------------------------------------
-  # PRBoA Prohibition of NonRLAs
-  # --------------------------------------------------
-  - name: "PRBoA Prohibition of NonRLAs"
-
-    match:
-      any_contains:
-        - "prohibition of nonrla"
-        - "restricting the practice of the regulated profession of architecture by non-registered and licensed architects"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "Resolution Restricting Practice of Architecture by Non-Registered and Licensed Architects"
-
-      aliases:
-        - "Prohibition of NonRLAs"
-        - "PRBoA Resolution No. 01 Series of 2008"
-
-  # --------------------------------------------------
-  # PRBoA Effectivity Dates of Resolutions
-  # --------------------------------------------------
-  - name: "PRBoA Effectivity Dates of Resolutions"
-
-    match:
-      any_contains:
-        - "effectivity dates of prboa resolutions"
-        - "prboares,s08 effectivity dates of prboa resolutions"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "Resolution on Effectivity Dates of PRBoA Resolutions"
-
-      aliases:
-        - "Effectivity Dates of PRBoA Resolutions"
-
-  # --------------------------------------------------
-  # PRBoA Architecture and Architectural Interiors Exclusive
-  # --------------------------------------------------
-  - name: "PRBoA Architecture and Architectural Interiors Exclusive"
-
-    match:
-      any_contains:
-        - "architecture and ar interiors are exclusive"
-        - "architectural and architectural interior design are exclusive parts of the scope of the practice of architecture"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "Statement that Architectural and Architectural Interior Design are Exclusive to Architecture Practice"
-
-      aliases:
-        - "Architecture and AR Interiors are Exclusive"
-        - "Architectural Interior Design Exclusive"
-
-  # --------------------------------------------------
-  # PRBoA Clarification of Rule II Registration
-  # --------------------------------------------------
-  - name: "PRBoA Clarification of Rule II Registration"
-
-    match:
-      any_contains:
-        - "clarification of pd-9266 rule ii registration"
-        - "clarification re prboa resolution 05-2007"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "Clarification on PRBoA Resolution 05-2007 Rule II Registration"
-
-      aliases:
-        - "Clarification of PD-9266 Rule II Registration"
-        - "PRBoA Resolution 05-2007 Clarification"
-
-  # --------------------------------------------------
-  # PRBoA Illegal Practice of Architecture
-  # --------------------------------------------------
-  - name: "PRBoA Illegal Practice of Architecture"
-
-    match:
-      any_contains:
-        - "illegal practice of ar"
-        - "illegal practice of architecture"
-        - "requested prboa comments on a joint pleading"
-
-    classification:
-      source_type: handout
-      trust_level: primary
-
-    canonical:
-      title: "PRBoA Comments on the Illegal Practice of Architecture"
-
-      aliases:
-        - "Illegal Practice of AR"
-        - "Illegal Practice of Architecture Comments"
-
-
-  # --------------------------------------------------
-  # GENERIC LAW SECTION
-  # --------------------------------------------------
-  - name: "Generic Law Section"
-
-    match:
-      any_contains:
-        - "section"
-        - "rule"
-        - "article"
-
-    classification:
-      source_type: law_section
-      trust_level: primary
-
-    canonical:
-      title_strategy: "filename"
-
-      core_concepts:
-        - "to-be-derived"
-
-  # --------------------------------------------------
-  # HANDOUT / LECTURE MATERIAL
-  # --------------------------------------------------
-  - name: "Handout / Lecture"
-
-    match:
-      any_contains:
-        - "handout"
-        - "lecture"
-
-    classification:
-      source_type: handout
-      trust_level: study_aid
-
-    canonical:
-      title_strategy: "filename"
-
-  # --------------------------------------------------
-  # REVIEWERS / SUMMARIES
-  # --------------------------------------------------
-  - name: "Reviewer / Summary"
-
-    match:
-      any_contains:
-        - "reviewer"
-        - "summary"
-
-    classification:
-      source_type: reviewer
-      trust_level: educational
-
-    canonical:
-      title_strategy: "filename"
+- name: PD 1096 Law
+  match:
+    all_contains:
+    - pd
+    - '1096'
+    any_contains:
+    - building code
+    - national building code
+    not_contains:
+    - irr
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: National Building Code of the Philippines
+    aliases:
+    - PD 1096
+    - Presidential Decree No. 1096
+    - National Building Code
+    relationships:
+      implemented_by:
+      - irr-implementing-rules-and-regulations-of-the-national-building-code
+    core_concepts:
+    - occupancy classification
+    - building permits
+    - fire-resistive construction
+    - light and ventilation
+    - setbacks
+- name: PD 1096 IRR
+  match:
+    all_contains:
+    - pd
+    - '1096'
+    - irr
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Implementing Rules and Regulations of the National Building Code
+    aliases:
+    - PD 1096 IRR
+    - National Building Code IRR
+    - Revised IRR 2004
+    relationships:
+      implements:
+      - law-national-building-code-of-the-philippines
+    core_concepts:
+    - occupancy classification
+    - building permits
+    - fire-resistive construction
+    - light and ventilation
+    - setbacks
+- name: RA 9514 RIRR
+  match:
+    any_contains:
+    - ra9514-rirr
+    - ra-9514
+    - pd 9514 - fire code of the philippines
+    - pd-9514
+    - ra9514 irr as of june 26, 2009
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Implementing Rules and Regulations of the Fire Code of the Philippines
+    aliases:
+    - RA 9514
+    - Republic Act No. 9514
+    - The Fire Code of the Philippines
+    - RA 9514 IRR
+    - Fire Code RIRR 2019
+    core_concepts: []
+- name: BP 220 RIRR
+  match:
+    any_contains:
+    - revised_irr_bp220
+    - bp-220
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Revised Implementing Rules and Regulations of Batas Pambansa Blg. 220
+    aliases:
+    - BP 220
+    - Batas Pambansa Blg. 220
+    - BP 220 RIRR
+    - Revised IRR BP 220 2008
+    core_concepts: []
+- name: BP 344 RIRR
+  match:
+    all_contains:
+    - bp-344
+    - national council on disability affairs
+    not_contains:
+    - do037
+    - enforcement of bp344
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Revised Implementing Rules and Regulations of Batas Pambansa Blg. 344
+    aliases:
+    - BP 344
+    - Batas Pambansa Blg. 344
+    - BP 344 RIRR
+    core_concepts: []
+- name: PD 957 IRR
+  match:
+    all_contains:
+    - pd
+    - '957'
+    - irr
+    not_contains:
+    - illustrated
+    - slides
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Revised Implementing Rules and Regulations for PD 957
+    aliases:
+    - PD 957 IRR
+    - Presidential Decree No. 957 IRR
+    - Subdivision and Condominium IRR
+    - Revised Implementing Rules and Regulations for PD 957
+    core_concepts: []
+- name: PD 1185 Law
+  match:
+    all_contains:
+    - pd
+    - '1185'
+    any_contains:
+    - fire code
+    not_contains:
+    - irr
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Fire Code of the Philippines
+    aliases:
+    - PD 1185
+    - Presidential Decree No. 1185
+    - Fire Code of the Philippines 1977
+    core_concepts: []
+- name: PD 1216 Law
+  match:
+    all_contains:
+    - pd
+    - '1216'
+    any_contains:
+    - open space
+    - subdivisions
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Open Space Requirements in Residential Subdivisions
+    aliases:
+    - PD 1216
+    - Presidential Decree No. 1216
+    - Open Space Requirements in Subdivisions
+    core_concepts: []
+- name: RA 7279 Law
+  match:
+    all_contains:
+    - ra
+    - '7279'
+    any_contains:
+    - urban development
+    - housing act
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Urban Development and Housing Act
+    aliases:
+    - RA 7279
+    - Republic Act No. 7279
+    - Urban Development and Housing Act of 1992
+    core_concepts: []
+- name: RA 4726 Law
+  match:
+    all_contains:
+    - ra
+    - '4726'
+    any_contains:
+    - condominium act
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Condominium Act
+    aliases:
+    - RA 4726
+    - Republic Act No. 4726
+    - Condominium Act of the Philippines
+    core_concepts: []
+- name: RA 7899 Law
+  match:
+    all_contains:
+    - ra
+    - '7899'
+    any_contains:
+    - '4726'
+    - condominium
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Amendments to the Condominium Act
+    aliases:
+    - RA 7899
+    - Republic Act No. 7899
+    - Amendments to RA 4726
+    core_concepts: []
+- name: PD 1067 Law
+  match:
+    all_contains:
+    - pd
+    - '1067'
+    any_contains:
+    - water code
+    not_contains:
+    - irr
+    - implementing rules
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Water Code of the Philippines
+    aliases:
+    - PD 1067
+    - Presidential Decree No. 1067
+    - Water Code
+    - Water Code of the Philippines
+    relationships:
+      implemented_by:
+      - irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines
+    core_concepts: []
+- name: PD 1067 Amended IRR
+  match:
+    all_contains:
+    - '1067'
+    - water code
+    - irr
+    any_contains:
+    - amended
+    - '2005'
+    - nwrb
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Amended Implementing Rules and Regulations of the Water Code of the Philippines
+    aliases:
+    - PD 1067 IRR
+    - Water Code IRR
+    - Water Code of PH IRR 2005
+    - Amended Water Code IRR
+    relationships:
+      implements:
+      - law-water-code-of-the-philippines
+    core_concepts: []
+- name: PD 1151 Law
+  match:
+    all_contains:
+    - pd
+    - '1151'
+    any_contains:
+    - environmental policy
+    - environmental code
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Philippine Environmental Policy
+    aliases:
+    - PD 1151
+    - Presidential Decree No. 1151
+    - Philippine Environmental Policy
+    core_concepts: []
+- name: RA 9003 Law
+  match:
+    all_contains:
+    - ra
+    - '9003'
+    any_contains:
+    - solid waste
+    - ecological solid waste
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Ecological Solid Waste Management Act of 2000
+    aliases:
+    - RA 9003
+    - Republic Act No. 9003
+    - Ecological Solid Waste Management Act of 2000
+    core_concepts: []
+- name: PD 1517 IRR
+  match:
+    all_contains:
+    - pd
+    - '1517'
+    any_contains:
+    - urban land reform
+    - implement
+    - rules and regulations
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Implementing Rules and Regulations of the Urban Land Reform Act
+    aliases:
+    - PD 1517
+    - Presidential Decree No. 1517
+    - Urban Land Reform Act IRR
+    - Urban Land Reform Rules and Regulations
+    core_concepts: []
+- name: RA 6969 Law
+  match:
+    all_contains:
+    - ra
+    - '6969'
+    any_contains:
+    - toxic substances
+    - hazardous
+    - nuclear wastes
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990
+    aliases:
+    - RA 6969
+    - Republic Act No. 6969
+    - Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990
+    core_concepts: []
+- name: RA 10066 Law
+  match:
+    all_contains:
+    - '10066'
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: National Cultural Heritage Act of 2009
+    aliases:
+    - RA 10066
+    - Republic Act No. 10066
+    - National Cultural Heritage Act of 2009
+    core_concepts: []
+- name: PD 856 Law
+  match:
+    any_contains:
+    - phi201040
+    - code on sanitation
+    - sanitation of the philippines
+    not_contains:
+    - implementing
+    - food establishment
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Code on Sanitation of the Philippines
+    aliases:
+    - PD 856
+    - Presidential Decree No. 856
+    - Code on Sanitation of the Philippines
+    core_concepts: []
+- name: PD 856 Food Establishments IRR
+  match:
+    all_contains:
+    - '856'
+    any_contains:
+    - food establishment
+    - implementing
+    - chapter ill
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Implementing Rules and Regulations of Chapter III of the Code on Sanitation
+      of the Philippines
+    aliases:
+    - PD 856 IRR
+    - Food Establishments IRR
+    - Implementing Rules and Regulations of Chapter III of the Code on Sanitation
+      of the Philippines
+    relationships:
+      implements:
+      - law-code-on-sanitation-of-the-philippines
+    core_concepts: []
+- name: RA 7160 Law
+  match:
+    all_contains:
+    - ra
+    - '7160'
+    any_contains:
+    - local government code
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Local Government Code of 1991
+    aliases:
+    - RA 7160
+    - Republic Act No. 7160
+    - Local Government Code of 1991
+    core_concepts: []
+- name: RA 9275 Law
+  match:
+    any_contains:
+    - ra 9275
+    - ra-9275
+    - clean water act
+    - water quality management
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Philippine Clean Water Act of 2004
+    aliases:
+    - RA 9275
+    - Republic Act No. 9275
+    - Philippine Clean Water Act of 2004
+    core_concepts: []
+- name: RA 4566 Law
+  match:
+    any_contains:
+    - ra_4566
+    - ra 4566
+    - contractors' license law
+    - licensing board for contractors
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Contractors' License Law
+    aliases:
+    - RA 4566
+    - Republic Act No. 4566
+    - Contractors' License Law
+    core_concepts: []
+- name: RA 386 Law
+  match:
+    any_contains:
+    - ra-386
+    - ra 386
+    - civil code
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Civil Code of the Philippines
+    aliases:
+    - RA 386
+    - Republic Act No. 386
+    - Civil Code of the Philippines
+    core_concepts: []
+- name: RA 9184 Law
+  match:
+    all_contains:
+    - '9184'
+    any_contains:
+    - government procurement reform act
+    - government procurement irr
+    not_contains:
+    - updated 2016
+    - revised implementing rules
+    - 2016 revised
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Government Procurement Reform Act
+    aliases:
+    - RA 9184
+    - Republic Act No. 9184
+    - Government Procurement Reform Act
+    relationships:
+      implemented_by:
+      - irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act
+    core_concepts: []
+- name: RA 9184 Updated 2016 IRR
+  match:
+    all_contains:
+    - '9184'
+    any_contains:
+    - updated 2016
+    - revised implementing rules
+    - 2016 revised
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Updated 2016 Revised Implementing Rules and Regulations of the Government
+      Procurement Reform Act
+    aliases:
+    - RA 9184 IRR
+    - Government Procurement Reform Act IRR
+    - Updated 2016 Revised IRR of RA 9184
+    relationships:
+      implements:
+      - law-government-procurement-reform-act
+    core_concepts: []
+- name: RA 1378 Law
+  match:
+    all_contains:
+    - '1378'
+    any_contains:
+    - plumbing law
+    - master plumber
+    not_contains:
+    - board of master plumber
+    - plumbing code
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Plumbing Law
+    aliases:
+    - RA 1378
+    - Republic Act No. 1378
+    - Plumbing Law
+    core_concepts: []
+- name: RA 9285 Law
+  match:
+    any_contains:
+    - ra_9285
+    - ra 9285
+    - alternative dispute resolution
+    - adr
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Alternative Dispute Resolution Act of 2004
+    aliases:
+    - RA 9285
+    - Republic Act No. 9285
+    - Alternative Dispute Resolution Act of 2004
+    core_concepts: []
+- name: RA 11201 Law
+  match:
+    all_contains:
+    - '11201'
+    any_contains:
+    - dhsud act
+    - human settlements
+    - urban development act
+    not_contains:
+    - irr
+    - implementing rules
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Department of Human Settlements and Urban Development Act
+    aliases:
+    - RA 11201
+    - Republic Act No. 11201
+    - DHSUD Act of 2019
+    relationships:
+      implemented_by:
+      - irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act
+    core_concepts: []
+- name: RA 11201 IRR
+  match:
+    all_contains:
+    - '11201'
+    any_contains:
+    - implementing rules
+    - dhsud act
+    - human settlements
+    not_contains:
+    - draft
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Implementing Rules and Regulations of the Department of Human Settlements
+      and Urban Development Act
+    aliases:
+    - RA 11201 IRR
+    - DHSUD Act IRR
+    - Implementing Rules and Regulations of the Department of Human Settlements and
+      Urban Development Act
+    relationships:
+      implements:
+      - law-department-of-human-settlements-and-urban-development-act
+    core_concepts: []
+- name: RA 11285 Law
+  match:
+    all_contains:
+    - '11285'
+    any_contains:
+    - energy efficiency
+    - conservation act
+    - energy efficiency and conservation
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Energy Efficiency and Conservation Act
+    aliases:
+    - RA 11285
+    - Republic Act No. 11285
+    - Energy Efficiency and Conservation Act
+    core_concepts: []
+- name: DENR DAO 2003-30 IRR
+  match:
+    any_contains:
+    - dao 2003-30
+    - eis system implementing rules
+    - environmental impact statement
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Implementing Rules and Regulations for the Philippine Environmental Impact
+      Statement System
+    aliases:
+    - DENR DAO 2003-30
+    - EIS System IRR
+    - Philippine Environmental Impact Statement System IRR
+    core_concepts: []
+- name: DOE Energy Conserving Design Guidelines
+  match:
+    any_contains:
+    - energy conserving design on buildings
+    - department of energy
+    - guidelines on energy conserving design
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: Guidelines on Energy Conserving Design of Buildings
+    aliases:
+    - DOE Guidelines on Energy Conserving Design on Buildings
+    - Energy Conserving Design of Buildings Guidelines
+- name: DPWH DO037 Accessibility Enforcement Order
+  match:
+    any_contains:
+    - do037
+    - enforcement of bp344
+    - accessibility law
+    - national roads
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: Department Order No. 37 on Enforcement of the Accessibility Law Along National
+      Roads
+    aliases:
+    - DPWH DO037
+    - Enforcement of BP344 along National Roads
+- name: RA 9266 IRR
+  match:
+    all_contains:
+    - '9266'
+    any_contains:
+    - architecture act
+    - irr of ra 9266
+    - registration, licensing and practice of architecture
+  classification:
+    source_type: irr
+    trust_level: primary
+  canonical:
+    title: Implementing Rules and Regulations of the Architecture Act of 2004
+    aliases:
+    - RA 9266
+    - RA 9266 IRR
+    - IRR of RA 9266
+    - Architecture Act of 2004 IRR
+    core_concepts: []
+- name: EO 72 Law
+  match:
+    any_contains:
+    - eo 72 comprehensive land use
+    - executive order no. 72
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Executive Order No. 72 on Comprehensive Land Use Plans
+    aliases:
+    - EO 72
+    - Executive Order No. 72
+    core_concepts: []
+- name: EO 90 Law
+  match:
+    any_contains:
+    - eo 90 ngo for shelter program
+    - executive order no. 90
+    - national shelter program
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Executive Order No. 90 on the National Shelter Program
+    aliases:
+    - EO 90
+    - Executive Order No. 90
+    - National Shelter Program EO
+    core_concepts: []
+- name: EO 648 Law
+  match:
+    any_contains:
+    - eo 648
+    - human settlements regulatory commission
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Executive Order No. 648 Reorganizing the Human Settlements Regulatory Commission
+    aliases:
+    - EO 648
+    - Executive Order No. 648
+    - Human Settlements Regulatory Commission EO
+    core_concepts: []
+- name: DHSUD Open Space Development Guidelines
+  match:
+    any_contains:
+    - open space development guidelines
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: Open Space Development Guidelines
+    aliases:
+    - DHSUD Open Space Development Guidelines
+- name: DHSUD Resilient Urban Design and Development Guidelines
+  match:
+    any_contains:
+    - resilient urban design and development guidelines
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: Resilient Urban Design and Development Guidelines
+    aliases:
+    - DHSUD Resilient Urban Design and Development Guidelines
+- name: CHED Architecture Curriculum Standards
+  match:
+    any_contains:
+    - ched cmo 61
+    - bs architecture curriculum standards
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: CMO 61 Series 2017 BS Architecture Curriculum Standards
+    aliases:
+    - CHED CMO 61 Series 2017
+    - BS Architecture Curriculum Standards
+- name: CIAP Document 102
+  match:
+    any_contains:
+    - ciap-document-102
+    - uniform general conditions of contract
+    - private constn contract
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: CIAP Document 102 Uniform General Conditions of Contract for Private Construction
+    aliases:
+    - CIAP Document 102
+    - Uniform General Conditions of Contract for Private Construction
+- name: UAP Code of Ethics
+  match:
+    any_contains:
+    - uap document code of ethics
+    - architect's code of ethics
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: UAP Document Code of Ethics
+    aliases:
+    - UAP Code of Ethics
+    - Architect's Code of Ethics
+- name: UAP Standards of Professional Practice
+  match:
+    any_contains:
+    - uap document standards of professional practice
+    - standards of professional practice2
+    - 2010 standards of professional practice
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: UAP Document Standards of Professional Practice
+    aliases:
+    - UAP Standards of Professional Practice
+    - 2010 Standards of Professional Practice
+- name: UAP Document 301 General Conditions
+  match:
+    any_contains:
+    - uap document 301
+    - general conditions
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: UAP Document 301 General Conditions
+    aliases:
+    - UAP Document 301
+    - General Conditions
+- name: DOH Guidelines for Health Facilities
+  match:
+    any_contains:
+    - doh guidelines for health facilities
+    - guidelines for health facilities 20004
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: DOH Guidelines for Health Facilities
+    aliases:
+    - Guidelines for Health Facilities
+    - DOH Health Facilities Guidelines
+- name: DepEd Disaster Risk Reduction Resource Manual
+  match:
+    any_contains:
+    - deped drrr manual philippines
+    - disaster risk reduction resource manual
+    - safer schools resource manual
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: DepEd Disaster Risk Reduction Resource Manual
+    aliases:
+    - Disaster Risk Reduction Resource Manual
+    - Safer Schools Resource Manual
+    - DepEd DRRR Manual Philippines
+- name: San Mateo Zoning Ordinance
+  match:
+    any_contains:
+    - san-mateo-zoning-ordinance
+    - zoning ordinance for the municipality of san mateo
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Zoning Ordinance of the Municipality of San Mateo
+    aliases:
+    - San Mateo Zoning Ordinance
+    - Zoning Ordinance for the Municipality of San Mateo
+- name: San Mateo Comprehensive Land Use Plan
+  match:
+    any_contains:
+    - copy-of-san-mateo-rizal-clup
+    - san mateo comprehensive land use plan 2021-2031
+    - comprehensive land use plan 2021-2031
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: San Mateo Comprehensive Land Use Plan 2021-2031
+    aliases:
+    - San Mateo CLUP 2021-2031
+    - Comprehensive Land Use Plan 2021-2031
+- name: Dagupan Comprehensive Zoning Ordinance
+  match:
+    any_contains:
+    - dagupan-city-ordinance-no-2061-2016
+    - comprehensive zoning ordinance of dagupan city
+    - dagupan city ordinance no. 2061-2016
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Comprehensive Zoning Ordinance of Dagupan City
+    aliases:
+    - Dagupan City Ordinance No. 2061-2016
+    - Comprehensive Zoning Ordinance of Dagupan City (2015-2025)
+- name: Malolos Zoning Ordinance
+  match:
+    any_contains:
+    - malolos-city-zoning-ordinance
+    - zoning ordinance of the city of malolos
+    - zoning regulations of the city of malolos
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Zoning Ordinance of the City of Malolos
+    aliases:
+    - Malolos City Zoning Ordinance
+    - Zoning Regulations of the City of Malolos
+- name: Meycauayan Zoning Ordinance
+  match:
+    any_contains:
+    - zoning-ordinances-meycauayan-bulacan
+    - comprehensive zoning ordinance of the municipality of meycauayan
+    - municipal ordinance no. 16 series of 1999
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Comprehensive Zoning Ordinance of the Municipality of Meycauayan
+    aliases:
+    - Meycauayan Zoning Ordinance
+    - Municipal Ordinance No. 16 Series of 1999
+- name: Davao City Comprehensive Land Use Plan
+  match:
+    any_contains:
+    - zoning-davao-city
+    - comprehensive land use plan
+    - davao city
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: Davao City Comprehensive Land Use Plan
+    aliases:
+    - Davao City CLUP
+    - Davao City Comprehensive Land Use Plan
+- name: Tarlac Zoning Ordinance
+  match:
+    any_contains:
+    - tarlac-zoning-ordinances
+    - comprehensive zoning ordinance of the city of tarlac
+    - zoning regulations for the city of tarlac
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Comprehensive Zoning Ordinance of the City of Tarlac
+    aliases:
+    - Tarlac City Zoning Ordinance
+    - Zoning Regulations for the City of Tarlac
+- name: Quezon City Central Business District Zoning Ordinance
+  match:
+    any_contains:
+    - ordinance-no-2117
+    - qc-cbd zoning ordinance
+    - quezon city central business district
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Quezon City Central Business District Zoning Ordinance
+    aliases:
+    - QC-CBD Zoning Ordinance
+    - Ordinance No. SP-2117, S-2011
+- name: Pasay City Zoning Ordinance of 2003
+  match:
+    any_contains:
+    - zoning-ordinance-pasay
+    - pasay city zoning ordinance of 2003
+    - a zoning ordinance (zo) for the city of pasay
+  classification:
+    source_type: law
+    trust_level: primary
+  canonical:
+    title: Pasay City Zoning Ordinance of 2003
+    aliases:
+    - Pasay City Zoning Ordinance
+    - Zoning Ordinance for the City of Pasay
+- name: RA 7279 Section 18 IRR
+  match:
+    any_contains:
+    - irr ra 7279 sec 18
+    - implementing rules and regulations to govern section 18 of republic act no.
+      7279
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: Implementing Rules and Regulations to Govern Section 18 of Republic Act
+      No. 7279
+    aliases:
+    - RA 7279 Section 18 IRR
+    - Balanced Housing Development IRR
+- name: PRBoA Temporary Permits for Foreign Architects
+  match:
+    any_contains:
+    - temporary permits for foreign architects
+    - prboares03,s08_temporary permits for foreign architects
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: Guidelines on Temporary or Special Permits for Foreign Architects
+    aliases:
+    - Temporary Permits for Foreign Architects
+    - PRBoA Resolution No. 03 Series of 2008
+- name: PRBoA Prohibition of NonRLAs
+  match:
+    any_contains:
+    - prohibition of nonrla
+    - restricting the practice of the regulated profession of architecture by non-registered
+      and licensed architects
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: Resolution Restricting Practice of Architecture by Non-Registered and Licensed
+      Architects
+    aliases:
+    - Prohibition of NonRLAs
+    - PRBoA Resolution No. 01 Series of 2008
+- name: PRBoA Effectivity Dates of Resolutions
+  match:
+    any_contains:
+    - effectivity dates of prboa resolutions
+    - prboares,s08 effectivity dates of prboa resolutions
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: Resolution on Effectivity Dates of PRBoA Resolutions
+    aliases:
+    - Effectivity Dates of PRBoA Resolutions
+- name: PRBoA Architecture and Architectural Interiors Exclusive
+  match:
+    any_contains:
+    - architecture and ar interiors are exclusive
+    - architectural and architectural interior design are exclusive parts of the scope
+      of the practice of architecture
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: Statement that Architectural and Architectural Interior Design are Exclusive
+      to Architecture Practice
+    aliases:
+    - Architecture and AR Interiors are Exclusive
+    - Architectural Interior Design Exclusive
+- name: PRBoA Clarification of Rule II Registration
+  match:
+    any_contains:
+    - clarification of pd-9266 rule ii registration
+    - clarification re prboa resolution 05-2007
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: Clarification on PRBoA Resolution 05-2007 Rule II Registration
+    aliases:
+    - Clarification of PD-9266 Rule II Registration
+    - PRBoA Resolution 05-2007 Clarification
+- name: PRBoA Illegal Practice of Architecture
+  match:
+    any_contains:
+    - illegal practice of ar
+    - illegal practice of architecture
+    - requested prboa comments on a joint pleading
+  classification:
+    source_type: handout
+    trust_level: primary
+  canonical:
+    title: PRBoA Comments on the Illegal Practice of Architecture
+    aliases:
+    - Illegal Practice of AR
+    - Illegal Practice of Architecture Comments
+- name: Generic Law Section
+  match:
+    any_contains:
+    - section
+    - rule
+    - article
+  classification:
+    source_type: law_section
+    trust_level: primary
+  canonical:
+    title_strategy: filename
+    core_concepts:
+    - to-be-derived
+- name: Handout / Lecture
+  match:
+    any_contains:
+    - handout
+    - lecture
+  classification:
+    source_type: handout
+    trust_level: study_aid
+  canonical:
+    title_strategy: filename
+- name: Reviewer / Summary
+  match:
+    any_contains:
+    - reviewer
+    - summary
+  classification:
+    source_type: reviewer
+    trust_level: educational
+  canonical:
+    title_strategy: filename
+- name: Scaffolded handout rule for 20Th Century Architects 2
+  match:
+    all_contains:
+    - 20th
+    - century
+    - architects
+  classification:
+    source_type: handout
+    trust_level: secondary
+  canonical:
+    title: 20Th Century Architects 2
+    aliases:
+    - 20th Century Architects 2
+    relationships: {}
+    core_concepts:
+    - architectural history
+- name: Scaffolded handout rule for Arc Building Utilities Terms
+  match:
+    all_contains:
+    - arc
+    - building
+    - utilities
+    - terms
+  classification:
+    source_type: handout
+    trust_level: secondary
+  canonical:
+    title: Arc Building Utilities Terms
+    aliases:
+    - ARC Building Utilities Terms
+    relationships: {}
+    core_concepts:
+    - building utilities
+- name: Scaffolded handout rule for Architectural Cost Estimates By Max Fajardo
+  match:
+    all_contains:
+    - architectural
+    - cost
+    - estimates
+    - max
+  classification:
+    source_type: handout
+    trust_level: secondary
+  canonical:
+    title: Architectural Cost Estimates By Max Fajardo
+    aliases:
+    - Architectural Cost Estimates By Max Fajardo
+    relationships: {}
+    core_concepts:
+    - construction estimating
+- name: Scaffolded handout rule for Detailing Of Reinforcment In Concrete Structures
+  match:
+    all_contains:
+    - detailing
+    - reinforcment
+    - concrete
+    - structures
+  classification:
+    source_type: handout
+    trust_level: secondary
+  canonical:
+    title: Detailing Of Reinforcment In Concrete Structures
+    aliases:
+    - Detailing of Reinforcment in Concrete Structures
+    relationships: {}
+    core_concepts:
+    - reinforced concrete detailing
+- name: Scaffolded handout rule for Quotes (1)
+  match:
+    all_contains:
+    - quotes
+  classification:
+    source_type: handout
+    trust_level: secondary
+  canonical:
+    title: Quotes (1)
+    aliases:
+    - Quotes (1)
+    relationships: {}
+    core_concepts:
+    - architectural theory

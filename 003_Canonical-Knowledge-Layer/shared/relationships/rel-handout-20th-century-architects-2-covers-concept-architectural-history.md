@@ -5,8 +5,8 @@ page_type: relationship
 relationship_type: covers
 from_entity: handout-20th-century-architects-2
 to_entity: concept-architectural-history
-trust_level: bootstrap
-canonical_status: promoted
+trust_level: derived
+canonical_status: verified
 ---
 
 # handout-20th-century-architects-2 covers concept-architectural-history

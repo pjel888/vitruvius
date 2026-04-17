@@ -3,9 +3,9 @@ id: concept-architectural-history
 title: architectural history
 page_type: concept
 trust_level: derived
-canonical_status: draft
+canonical_status: enriched
 aliases:
-  - architectural history
+- architectural history
 ---
 
 # architectural history
