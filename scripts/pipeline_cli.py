@@ -441,6 +441,21 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_lane_relationship_scaffold_parser.add_argument("--output-dir", default=None)
     generic_aggregate_lane_relationship_promote_parser = add_command_parser(subparsers, "promote-completed-aggregate-lane-relationships")
     generic_aggregate_lane_relationship_promote_parser.add_argument("--manifest", required=True)
+    generic_aggregate_lane_bootstrap_parser = add_command_parser(subparsers, "bootstrap-completed-aggregate-family-lane")
+    generic_aggregate_lane_bootstrap_parser.add_argument("--family", required=True)
+    generic_aggregate_lane_bootstrap_parser.add_argument("--lane-id", required=True)
+    generic_aggregate_lane_bootstrap_parser.add_argument("--raw-root", required=True)
+    generic_aggregate_lane_bootstrap_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml")
+    generic_aggregate_lane_bootstrap_parser.add_argument("--dataset-kind", default="aggregate")
+    generic_aggregate_lane_bootstrap_parser.add_argument("--source-type", required=True)
+    generic_aggregate_lane_bootstrap_parser.add_argument("--trust-level", required=True)
+    generic_aggregate_lane_bootstrap_parser.add_argument("--core-concept", action="append", default=[])
+    generic_aggregate_lane_bootstrap_parser.add_argument("--predicate", default="covers")
+    generic_aggregate_lane_bootstrap_parser.add_argument("--family-note", default=None)
+    generic_aggregate_lane_bootstrap_parser.add_argument("--max-files", type=int, default=5)
+    generic_aggregate_lane_bootstrap_parser.add_argument("--extension", action="append", default=[])
+    generic_aggregate_lane_bootstrap_parser.add_argument("--sample-pages", type=int, default=5)
+    generic_aggregate_lane_bootstrap_parser.add_argument("--allow-ocr", action="store_true")
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1364,6 +1379,34 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("promote-completed-aggregate-lane-relationships", _run_promote_generic_lane_relationships)
+
+    if args.command == "bootstrap-completed-aggregate-family-lane":
+        from vitruvius.aggregate_manifest import bootstrap_completed_aggregate_family_lane
+        def _run_bootstrap_generic_family_lane():
+            repo_root = Path.cwd().resolve()
+            summary = bootstrap_completed_aggregate_family_lane(
+                repo_root=repo_root,
+                family=args.family,
+                lane_id=args.lane_id,
+                raw_root=Path(args.raw_root),
+                dataset_kind=args.dataset_kind,
+                catalog_path=Path(args.catalog),
+                source_type=args.source_type,
+                trust_level=args.trust_level,
+                core_concepts=list(args.core_concept or []),
+                predicate=args.predicate,
+                family_note=args.family_note,
+                max_files=args.max_files,
+                extensions=list(args.extension or []),
+                sample_pages=args.sample_pages,
+                allow_ocr=args.allow_ocr,
+            )
+            print(json.dumps({
+                "action": "bootstrap-completed-aggregate-family-lane",
+                **summary,
+            }, indent=2))
+            return 0
+        return _run("bootstrap-completed-aggregate-family-lane", _run_bootstrap_generic_family_lane)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary

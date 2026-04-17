@@ -59,6 +59,33 @@ After registration, the family can run through:
 ./run-dataset-mvp-graph --family <family-name> [review args]
 ```
 
+## One-command starter lane bootstrap
+To drive the starter-lane bootstrap in one command, use:
+
+```bash
+python3 scripts/pipeline_cli.py bootstrap-completed-aggregate-family-lane \
+  --family <family-name> \
+  --lane-id <lane-id> \
+  --raw-root <repo-relative-raw-root> \
+  --source-type <source-type> \
+  --trust-level <trust-level> \
+  --core-concept <concept> \
+  --predicate covers
+```
+
+This orchestrates:
+- family scaffold if missing
+- lane scaffold
+- source inspection
+- source prep
+- canonical rule scaffold
+- source admission execute
+- concept scaffold
+- relationship scaffold
+- relationship promotion
+- family manifest admission
+- family readiness check
+
 ## Admitting completed manifests into a family
 Once a family has real completed manifests, add them to the family ledger/index with:
 

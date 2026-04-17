@@ -2749,6 +2749,52 @@ def test_promote_completed_aggregate_lane_relationships_updates_status(tmp_path:
     assert 'canonical_status: promoted' in rel_payload
 
 
+def test_bootstrap_completed_aggregate_family_lane_orchestrates_steps(tmp_path: Path, monkeypatch) -> None:
+    from vitruvius import aggregate_manifest as am
+
+    calls: list[str] = []
+
+    monkeypatch.setattr(am, 'resolve_completed_aggregate_profile_path', lambda **kwargs: (_ for _ in ()).throw(ValueError('missing')))
+    monkeypatch.setattr(am, 'scaffold_completed_aggregate_family', lambda **kwargs: calls.append('scaffold_family') or {})
+    monkeypatch.setattr(am, 'scaffold_completed_aggregate_lane_manifest', lambda **kwargs: calls.append('scaffold_lane') or {'out_manifest_path': tmp_path / 'lane.yaml'})
+    monkeypatch.setattr(am, 'inspect_completed_aggregate_lane_sources', lambda **kwargs: calls.append('inspect') or {'raw_file_count': 1})
+    monkeypatch.setattr(am, 'prepare_completed_aggregate_lane_sources', lambda **kwargs: calls.append('prepare') or {'prepared_count': 1})
+    monkeypatch.setattr(am, 'scaffold_completed_aggregate_lane_canonical_rules', lambda **kwargs: calls.append('rules') or {'scaffolded_rule_count': 1})
+    monkeypatch.setattr(am, 'source_admit_completed_aggregate_lane_execute', lambda **kwargs: calls.append('admit_sources') or {'admitted_source_page_count': 1})
+    monkeypatch.setattr(am, 'scaffold_completed_aggregate_lane_concepts', lambda **kwargs: calls.append('concepts') or {'concept_count': 1})
+    monkeypatch.setattr(am, 'scaffold_completed_aggregate_lane_relationships', lambda **kwargs: calls.append('relationships') or {'relationship_count': 1})
+    monkeypatch.setattr(am, 'promote_completed_aggregate_lane_relationships', lambda **kwargs: calls.append('promote_relationships') or {'promoted_count': 1})
+    monkeypatch.setattr(am, 'admit_completed_manifest_to_family', lambda **kwargs: calls.append('admit_manifest') or {'completed_ledger_path': tmp_path / 'completed.yaml', 'manifest_index_path': tmp_path / 'index.yaml'})
+    monkeypatch.setattr(am, 'check_completed_aggregate_family_readiness', lambda **kwargs: calls.append('check_ready') or {'ready_to_run': True})
+
+    summary = am.bootstrap_completed_aggregate_family_lane(
+        repo_root=tmp_path,
+        family='history-demo',
+        lane_id='history-lane',
+        raw_root=Path('001_Raw-Source-Layer/002-History'),
+        dataset_kind='history-aggregate',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        source_type='handout',
+        trust_level='secondary',
+        core_concepts=['architectural history'],
+    )
+    assert calls == [
+        'scaffold_family',
+        'scaffold_lane',
+        'inspect',
+        'prepare',
+        'rules',
+        'admit_sources',
+        'concepts',
+        'relationships',
+        'promote_relationships',
+        'admit_manifest',
+        'check_ready',
+    ]
+    assert summary['family_action'] == 'scaffolded'
+    assert summary['readiness_summary']['ready_to_run'] is True
+
+
 def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
     tmp_path: Path,
     monkeypatch,
@@ -3744,6 +3790,48 @@ def test_pipeline_cli_promote_completed_aggregate_lane_relationships_reports_sum
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'promote-completed-aggregate-lane-relationships'
     assert stdout_payload['promoted_count'] == 1
+
+
+def test_pipeline_cli_bootstrap_completed_aggregate_family_lane_reports_summary(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+    from vitruvius import aggregate_manifest as am
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        am,
+        'bootstrap_completed_aggregate_family_lane',
+        lambda **kwargs: {
+            'family': 'history-demo',
+            'family_action': 'scaffolded',
+            'lane_id': 'history-lane',
+            'manifest_path': 'config/datasets/history-lane.yaml',
+            'readiness_summary': {'ready_to_run': True},
+        },
+    )
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'bootstrap-completed-aggregate-family-lane',
+            '--family', 'history-demo',
+            '--lane-id', 'history-lane',
+            '--raw-root', '001_Raw-Source-Layer/002-History',
+            '--source-type', 'handout',
+            '--trust-level', 'secondary',
+            '--core-concept', 'architectural history',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'bootstrap-completed-aggregate-family-lane'
+    assert stdout_payload['family_action'] == 'scaffolded'
+    assert stdout_payload['readiness_summary']['ready_to_run'] is True
 
 
 def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline(

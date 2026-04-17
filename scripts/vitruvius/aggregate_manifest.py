@@ -1621,6 +1621,120 @@ def promote_completed_aggregate_lane_relationships(
     }
 
 
+def bootstrap_completed_aggregate_family_lane(
+    *,
+    repo_root: Path,
+    family: str,
+    lane_id: str,
+    raw_root: Path,
+    dataset_kind: str = 'aggregate',
+    catalog_path: Path,
+    source_type: str,
+    trust_level: str,
+    core_concepts: list[str] | None = None,
+    predicate: str = 'covers',
+    family_note: str | None = None,
+    max_files: int = 5,
+    extensions: list[str] | None = None,
+    sample_pages: int = 5,
+    allow_ocr: bool = False,
+) -> dict[str, Any]:
+    try:
+        resolve_completed_aggregate_profile_path(
+            repo_root=repo_root,
+            family=family,
+            catalog_path=catalog_path,
+        )
+        family_action = 'reused'
+    except ValueError:
+        scaffold_completed_aggregate_family(
+            repo_root=repo_root,
+            family=family,
+            catalog_path=catalog_path,
+            dataset_kind=dataset_kind,
+            note=family_note,
+        )
+        family_action = 'scaffolded'
+
+    lane_summary = scaffold_completed_aggregate_lane_manifest(
+        repo_root=repo_root,
+        family=family,
+        catalog_path=catalog_path,
+        lane_id=lane_id,
+        raw_root=raw_root,
+        max_files=max_files,
+        extensions=extensions,
+    )
+    manifest_path = lane_summary['out_manifest_path']
+    inspect_summary = inspect_completed_aggregate_lane_sources(
+        repo_root=repo_root,
+        manifest_path=manifest_path,
+        sample_pages=sample_pages,
+    )
+    prep_summary = prepare_completed_aggregate_lane_sources(
+        repo_root=repo_root,
+        manifest_path=manifest_path,
+        sample_pages=sample_pages,
+        allow_ocr=allow_ocr,
+        dry_run=False,
+    )
+    rule_summary = scaffold_completed_aggregate_lane_canonical_rules(
+        repo_root=repo_root,
+        manifest_path=manifest_path,
+        source_type=source_type,
+        trust_level=trust_level,
+        core_concepts=core_concepts,
+    )
+    source_admission_summary = source_admit_completed_aggregate_lane_execute(
+        repo_root=repo_root,
+        manifest_path=manifest_path,
+    )
+    concept_summary = scaffold_completed_aggregate_lane_concepts(
+        repo_root=repo_root,
+        manifest_path=manifest_path,
+    )
+    relationship_summary = scaffold_completed_aggregate_lane_relationships(
+        repo_root=repo_root,
+        manifest_path=manifest_path,
+        predicate=predicate,
+    )
+    promoted_summary = promote_completed_aggregate_lane_relationships(
+        repo_root=repo_root,
+        manifest_path=manifest_path,
+    )
+    admit_summary = admit_completed_manifest_to_family(
+        repo_root=repo_root,
+        family=family,
+        catalog_path=catalog_path,
+        lane_id=lane_id,
+        manifest_path=manifest_path,
+    )
+    readiness_summary = check_completed_aggregate_family_readiness(
+        repo_root=repo_root,
+        family=family,
+        catalog_path=catalog_path,
+    )
+
+    return {
+        'family': family,
+        'family_action': family_action,
+        'lane_id': lane_id,
+        'manifest_path': _relative(Path(manifest_path), repo_root),
+        'inspect_summary': inspect_summary,
+        'prep_summary': prep_summary,
+        'rule_summary': rule_summary,
+        'source_admission_summary': source_admission_summary,
+        'concept_summary': concept_summary,
+        'relationship_summary': relationship_summary,
+        'promoted_summary': promoted_summary,
+        'admit_summary': {
+            'completed_ledger_path': _relative(Path(admit_summary['completed_ledger_path']), repo_root),
+            'manifest_index_path': _relative(Path(admit_summary['manifest_index_path']), repo_root),
+        },
+        'readiness_summary': readiness_summary,
+    }
+
+
 def scaffold_completed_aggregate_lane_manifest(
     *,
     repo_root: Path,
