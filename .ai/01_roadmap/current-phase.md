@@ -316,6 +316,9 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - bounded `RA-11285` energy-governance concept-fit follow-on is now admitted
     - see `/.ai/05_logs/2026-04-17_laws-tranche-8-execution-validation.md`
     - see `/.ai/05_logs/2026-04-17_ra11285-energy-governance-concept-fit-validation.md`
+  - remaining uncovered-pool roadmap is now explicit for planning/tracking:
+    - see `docs/LAWS_REMAINING_POOL_ROADMAP.md`
+    - see `/.ai/13_research/2026-04-17_remaining-pool-tranche-roadmap-research.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

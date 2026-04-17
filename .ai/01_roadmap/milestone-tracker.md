@@ -228,6 +228,7 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - tranche-6 now exists and executes through the same bounded workflow: `config/datasets/laws-tranche-6.yaml` stages `RA-4566`, `RA-386`, and `RA-9184`; current execute evidence shows `generated_relationship_count = 3`, `shallow_representation_count = 0`, and graph snapshot `7 nodes / 9 edges`; see `/.ai/05_logs/2026-04-17_laws-tranche-6-execution-validation.md`
   - tranche-7 now exists and executes through the same bounded workflow: `config/datasets/laws-tranche-7.yaml` stages `RA-1378`, `RA-9285`, and `RA-11201`; current execute evidence shows `generated_relationship_count = 0`, `shallow_representation_count = 0`, and graph snapshot `7 nodes / 6 edges`; excluded plumbing-code / board files remain explicit raw aliases for `RA-1378`; see `/.ai/05_logs/2026-04-17_laws-tranche-7-execution-validation.md`
   - tranche-8 now exists and executes through the same bounded workflow: `config/datasets/laws-tranche-8.yaml` stages `RA-11285`; current execute evidence shows `generated_relationship_count = 0`, `shallow_representation_count = 0`, and graph snapshot `4 nodes / 6 edges`; see `/.ai/05_logs/2026-04-17_laws-tranche-8-execution-validation.md`
+  - remaining uncovered-pool roadmap now exists with concrete future tranche proposals, remediation lanes, and a realistic remaining-lane estimate; see `docs/LAWS_REMAINING_POOL_ROADMAP.md`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)

@@ -313,6 +313,9 @@
     - `designated-establishment`
     - `minimum-energy-performance`
   - tranche-8 still carries one spot-review / summary-withheld signal from the OCR-first RA-11285 surface
+- Remaining uncovered-pool roadmap:
+  - concrete proposed future tranches now documented in `docs/LAWS_REMAINING_POOL_ROADMAP.md`
+  - realistic remaining workload estimate: `6–8` future tranches plus `3–5` remediation/defer lanes
 
 ## Residual Graph Caveat
 
