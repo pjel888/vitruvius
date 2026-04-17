@@ -913,6 +913,12 @@ def test_run_laws_tranche_source_to_graph_dry_run_stages_only_admitted_members(t
                         'admitted_source_paths': [
                             '003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-for-pd-957.md',
                         ],
+                        'admitted_concept_paths': [
+                            '003_Canonical-Knowledge-Layer/shared/concepts/subdivision-project.md',
+                        ],
+                        'admitted_relationship_paths': [
+                            '003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-pd-957-governs-concept-subdivision-project.md',
+                        ],
                         'verification_checks': ['pd-957 admitted'],
                         'scope_notes': ['pd-957 admitted note'],
                     },
@@ -988,6 +994,14 @@ def test_run_laws_tranche_source_to_graph_dry_run_stages_only_admitted_members(t
         '---\nid: irr-revised-implementing-rules-and-regulations-for-pd-957\ntitle: Revised Implementing Rules and Regulations for PD 957\ntrust_level: primary\n---\n\n# body\n',
     )
     _write(
+        tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'concepts' / 'subdivision-project.md',
+        '---\nid: concept-subdivision-project\ncanonical_status: enriched\nconcept_status: enriched\n---\n\n# body\n',
+    )
+    _write(
+        tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-irr-pd-957-governs-concept-subdivision-project.md',
+        '---\nid: rel-irr-pd-957-governs-concept-subdivision-project\npage_type: relationship\nrelationship_type: governs\nfrom_entity: irr-revised-implementing-rules-and-regulations-for-pd-957\nto_entity: concept-subdivision-project\ncanonical_status: promoted\n---\n\n# body\n',
+    )
+    _write(
         tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'fire-code-of-the-philippines.md',
         '---\nid: law-fire-code-of-the-philippines\ntitle: Fire Code of the Philippines\ntrust_level: primary\n---\n\n# body\n',
     )
@@ -1010,3 +1024,34 @@ def test_run_laws_tranche_source_to_graph_dry_run_stages_only_admitted_members(t
     assert report['inner_source_to_graph_summary']['planned_stage_count'] == 2
     derived_manifest = yaml.safe_load((tmp_path / payload['derived_manifest_path']).read_text(encoding='utf-8'))
     assert [unit['folder_name'] for unit in derived_manifest['law_units']] == ['PD-957', 'PD-1185']
+    pd_957_unit = next(unit for unit in derived_manifest['law_units'] if unit['folder_name'] == 'PD-957')
+    assert pd_957_unit['admitted_concept_paths'] == [
+        '003_Canonical-Knowledge-Layer/shared/concepts/subdivision-project.md'
+    ]
+    assert pd_957_unit['admitted_relationship_paths'] == [
+        '003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-pd-957-governs-concept-subdivision-project.md'
+    ]
+    assert derived_manifest['canonical_input_manifest']['concepts'] == [
+        {
+            'path': '003_Canonical-Knowledge-Layer/shared/concepts/subdivision-project.md',
+            'folder_name': 'PD-957',
+            'entry_role': 'derived',
+            'authority_tier': 'derived',
+            'variant_family': 'pd-957-canonical-concept',
+            'edition_or_source_note': 'Existing shared canonical concept selected explicitly for tranche source-to-graph dry-run staging.',
+            'include_in_m1': True,
+            'reason': 'Explicit truth-bearing canonical concept input carried through from tranche admission state.',
+        }
+    ]
+    assert derived_manifest['relationship_input_manifest']['relationships'] == [
+        {
+            'path': '003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-pd-957-governs-concept-subdivision-project.md',
+            'folder_name': 'PD-957',
+            'entry_role': 'authoritative',
+            'authority_tier': 'approved',
+            'variant_family': 'pd-957-promoted-relationship',
+            'edition_or_source_note': 'Existing approved relationship record selected explicitly for tranche source-to-graph dry-run staging.',
+            'include_in_m1': True,
+            'reason': 'Explicit approved relationship input carried through from tranche admission state.',
+        }
+    ]

@@ -490,6 +490,7 @@ def _build_tranche_source_to_graph_manifest_payload(
 
     raw_slice_anchors: list[dict[str, Any]] = []
     canonical_sources: list[dict[str, Any]] = []
+    canonical_concepts: list[dict[str, Any]] = []
     relationship_entries: list[dict[str, Any]] = []
     law_units: list[dict[str, Any]] = []
     for item in staged_entries:
@@ -500,6 +501,8 @@ def _build_tranche_source_to_graph_manifest_payload(
         excluded_variant_paths = [str(path) for path in item.get("excluded_variant_paths") or [] if isinstance(path, str)]
         refined_markdown_paths = [str(path) for path in item.get("refined_markdown_paths") or [] if isinstance(path, str)]
         admitted_source_paths = [str(path) for path in item.get("admitted_source_paths") or [] if isinstance(path, str)]
+        admitted_concept_paths = [str(path) for path in item.get("admitted_concept_paths") or [] if isinstance(path, str)]
+        admitted_relationship_paths = [str(path) for path in item.get("admitted_relationship_paths") or [] if isinstance(path, str)]
         verification_checks = [str(v) for v in item.get("verification_checks") or [] if isinstance(v, str)]
         scope_notes = [str(v) for v in item.get("scope_notes") or [] if isinstance(v, str)]
 
@@ -553,6 +556,32 @@ def _build_tranche_source_to_graph_manifest_payload(
                     "reason": reason,
                 }
             )
+        for concept_path in admitted_concept_paths:
+            canonical_concepts.append(
+                {
+                    "path": concept_path,
+                    "folder_name": folder_name,
+                    "entry_role": "derived",
+                    "authority_tier": "derived",
+                    "variant_family": f"{folder_name.lower()}-canonical-concept",
+                    "edition_or_source_note": "Existing shared canonical concept selected explicitly for tranche source-to-graph dry-run staging.",
+                    "include_in_m1": True,
+                    "reason": "Explicit truth-bearing canonical concept input carried through from tranche admission state.",
+                }
+            )
+        for relationship_path in admitted_relationship_paths:
+            relationship_entries.append(
+                {
+                    "path": relationship_path,
+                    "folder_name": folder_name,
+                    "entry_role": "authoritative",
+                    "authority_tier": "approved",
+                    "variant_family": f"{folder_name.lower()}-promoted-relationship",
+                    "edition_or_source_note": "Existing approved relationship record selected explicitly for tranche source-to-graph dry-run staging.",
+                    "include_in_m1": True,
+                    "reason": "Explicit approved relationship input carried through from tranche admission state.",
+                }
+            )
         law_units.append(
             {
                 "law_id": folder_name.lower(),
@@ -562,8 +591,8 @@ def _build_tranche_source_to_graph_manifest_payload(
                 "authoritative_variant_paths": authoritative_variant_paths or raw_anchor_paths,
                 "excluded_variant_paths": excluded_variant_paths,
                 "admitted_source_paths": admitted_source_paths,
-                "admitted_concept_paths": [],
-                "admitted_relationship_paths": [],
+                "admitted_concept_paths": admitted_concept_paths,
+                "admitted_relationship_paths": admitted_relationship_paths,
                 "verification_checks": verification_checks,
                 "scope_notes": scope_notes,
             }
@@ -574,7 +603,7 @@ def _build_tranche_source_to_graph_manifest_payload(
         (path for path in sorted(relationship_dir.glob("*.md")) if path.is_file()),
         None,
     )
-    if fallback_relationship is not None and staged_folders:
+    if fallback_relationship is not None and staged_folders and not relationship_entries:
         relationship_entries.append(
             {
                 "path": _relative(fallback_relationship, repo_root),
@@ -599,7 +628,7 @@ def _build_tranche_source_to_graph_manifest_payload(
         "raw_slice_anchors": raw_slice_anchors,
         "canonical_input_manifest": {
             "sources": canonical_sources,
-            "concepts": [],
+            "concepts": canonical_concepts,
         },
         "relationship_input_manifest": {
             "relationships": relationship_entries,
