@@ -46,6 +46,19 @@ Alternative:
 4. bounded pilot proof for one law (likely BP220 or PD1096 IRR)
 5. only then wider tranche adoption
 
+## Rust candidacy note
+Do not move this planning slice to Rust by default.
+
+The immediate work is:
+- graph contract design
+- hierarchy identity rules
+- extraction/admission policy
+- compatibility with the current concept graph
+
+Those are architecture and governance surfaces, not automatic Rust candidates.
+
+If later profiling shows a narrow, repeated, compute-bound hierarchy extraction kernel that materially benefits from Rust, isolate only that kernel. Keep the policy/orchestration layer in Python.
+
 ## Acceptance criteria
 - graph contract extension is explicit
 - section-node identity rules are explicit

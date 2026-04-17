@@ -40,6 +40,7 @@ Out of scope:
 - define tranche acceptance criteria
 - define tranche naming and report roots
 - define tranche readiness checklist
+- keep orchestration/reporting logic in Python unless profiling later proves a compute-bound hotspot worth moving into Rust
 
 ### Step 2 — tranche-1 manifest
 - create first tranche manifest after explicit selection
@@ -57,3 +58,12 @@ Out of scope:
 - no generic all-laws execute path is introduced
 - tranche-1 can be planned without ambiguity
 - 8GB-safe preset remains the recommended broad-readiness baseline
+
+## Rust candidacy note
+Rust remains available for future narrow compute kernels if profiling justifies it, but the current tranche-expansion slice is still dominated by:
+- manifest design
+- readiness reporting
+- source admission governance
+- staged orchestration
+
+Those remain Python-owned unless measured evidence later shows a specific compute-bound kernel is worth isolating.
