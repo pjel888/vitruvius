@@ -1,0 +1,8 @@
+dataset_id: structural-aggregate
+dataset_kind: structural-aggregate
+completed_ledger: config/datasets/structural-completed-lanes.yaml
+manifest_index: config/datasets/structural-manifest-index.yaml
+out_manifest: 006_System-Manifests/runs/datasets/structural-aggregate/latest_dataset_manifest.yaml
+graph_output_root: 005_Operational-Intelligence-Layer/graph/datasets/structural-aggregate
+run_output_root: 006_System-Manifests/runs/datasets/structural-aggregate
+query_snapshot_template: 005_Operational-Intelligence-Layer/graph/datasets/structural-aggregate/{run_id}_graph_snapshot.json

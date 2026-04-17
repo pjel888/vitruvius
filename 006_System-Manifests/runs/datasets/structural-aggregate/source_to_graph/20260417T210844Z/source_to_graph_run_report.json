@@ -1,0 +1,193 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "browser_opened": null,
+  "dataset_id": "structural-aggregate",
+  "derived_manifest_path": "006_System-Manifests/runs/datasets/structural-aggregate/source_to_graph/20260417T210844Z/derived_dataset_manifest.yaml",
+  "filtered_relationship_count": 0,
+  "filtered_relationship_paths": [],
+  "generated_at_utc": "20260417T210844Z",
+  "generated_relationship_count": 0,
+  "graph": {
+    "action": "run-dataset-graph",
+    "build_report_path": "006_System-Manifests/runs/datasets/structural-aggregate/20260417T210844Z_build_graph_dataset_report.json",
+    "contributing_law_ids": [
+      "structural-detailing-reinforcement-1"
+    ],
+    "dataset_id": "structural-aggregate",
+    "law_unit_count": 1,
+    "owl_path": null,
+    "pipeline_report_path": "006_System-Manifests/runs/datasets/structural-aggregate/20260417T210844Z_dataset_pipeline_run_report.json",
+    "run_id": "20260417T210844Z",
+    "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/structural-aggregate/20260417T210844Z_graph_snapshot.json",
+    "structured_check_count": 0
+  },
+  "manifest_path": "006_System-Manifests/runs/datasets/structural-aggregate/latest_dataset_manifest.yaml",
+  "review_model": "qwen2.5:7b",
+  "review_preset": "m2-8gb-safe",
+  "review_runtime": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "review_settings": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "run_id": "20260417T210844Z",
+  "source_quality_summary": {
+    "benchmark_source_hints": [],
+    "extraction_trust_counts": {
+      "guarded": 1,
+      "review_required": 0,
+      "trusted": 0
+    },
+    "high_severity_paths": [],
+    "high_severity_sources": [],
+    "manual_review_required_paths": [],
+    "manual_review_required_sources": [],
+    "representation_guardrail_counts": {
+      "high": 0,
+      "low": 1,
+      "medium": 0
+    },
+    "severity_counts": {
+      "high": 0,
+      "low": 1,
+      "medium": 0
+    },
+    "shallow_representation_paths": [],
+    "shallow_representation_sources": [],
+    "source_acceptance_counts": {
+      "accepted": 1,
+      "accepted_with_spot_review": 0,
+      "manual_review_required": 0
+    },
+    "spot_review_required_paths": [],
+    "summary_auto_withheld_paths": []
+  },
+  "stage_results": [
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "handout-detailing-of-reinforcment-in-concrete-structures",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/detailing-of-reinforcment-in-concrete-structures.md",
+        "title": "Detailing Of Reinforcment In Concrete Structures",
+        "trust_level": "secondary"
+      },
+      "extract_json": "006_System-Manifests/runs/datasets/structural-aggregate/source_to_graph/20260417T210844Z/structural-detailing-reinforcement-1/Detailing of Reinforcment in Concrete Structures_extract.json",
+      "graph_admitted_relationships": 0,
+      "graph_filtered_relationships": 0,
+      "high_conf_json": "006_System-Manifests/runs/datasets/structural-aggregate/source_to_graph/20260417T210844Z/structural-detailing-reinforcement-1/Detailing of Reinforcment in Concrete Structures_high_conf.json",
+      "law_id": "structural-detailing-reinforcement-1",
+      "normalized_refined_markdown_path": "006 -Structural/refined_markdown/Detailing of Reinforcment in Concrete Structures.md",
+      "promote_result": {
+        "batch_id": "20260417T210844Z_8345e337",
+        "created": 0,
+        "errors": [],
+        "merged": 0,
+        "rejected": 0,
+        "skipped": 0,
+        "total_candidates": 0,
+        "would_create": 0,
+        "would_merge": 0,
+        "would_reject": 0,
+        "would_skip": 0
+      },
+      "promoted_relationship_dir": "006_System-Manifests/runs/datasets/structural-aggregate/source_to_graph/20260417T210844Z/promoted_relationships/structural-detailing-reinforcement-1",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/006 -Structural/refined_markdown/Detailing of Reinforcment in Concrete Structures.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 1,
+        "admitted_relationship_count": 1,
+        "folder_name": "structural",
+        "law_id": "structural-detailing-reinforcement-1",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 2.0,
+        "section_to_relationship_ratio": 2.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 2
+      },
+      "review_json": "006_System-Manifests/runs/datasets/structural-aggregate/source_to_graph/20260417T210844Z/structural-detailing-reinforcement-1/Detailing of Reinforcment in Concrete Structures_review.json",
+      "source_id": "handout-detailing-of-reinforcment-in-concrete-structures",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "guarded",
+        "extraction_trust_reasons": [
+          "front matter is table-heavy and may reflect layout extraction noise"
+        ],
+        "front_matter_suspicious_ocr_line_count": 16,
+        "image_line_count": 17,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 44,
+        "noise_line_count": 0,
+        "non_empty_line_count": 564,
+        "recommendations": [
+          "low structural-heading count: verify section detection and source structure fidelity"
+        ],
+        "refined_markdown_path": "006 -Structural/refined_markdown/Detailing of Reinforcment in Concrete Structures.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 1,
+          "admitted_relationship_count": 1,
+          "folder_name": "structural",
+          "law_id": "structural-detailing-reinforcement-1",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 2.0,
+          "section_to_relationship_ratio": 2.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 2
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 2,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [
+          "table_heavy_front_matter"
+        ],
+        "suspicious_ocr_examples": [
+          "# Detailing of Reinforcment in Concrete Structures",
+          "Table 8.1.1 Minimum Diameters of Bend",
+          "Bar Size Minimum Diameter of Bend",
+          "Table 8.1.2 Tolerances for Placing Reinforcement",
+          "- (a) Minimum concrete cover for concrete cast against and permanently exposed to earth shall be 75 mm."
+        ],
+        "suspicious_ocr_line_count": 66,
+        "suspicious_ocr_line_ratio": 0.117021,
+        "table_line_count": 7,
+        "total_line_count": 953,
+        "useful_text_line_count": 540,
+        "useful_text_ratio": 0.957447
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/structural-aggregate/source_to_graph/20260417T210844Z/source_quality/structural-detailing-reinforcement-1/Detailing of Reinforcment in Concrete Structures_source_quality.json"
+    }
+  ],
+  "visualization": null
+}

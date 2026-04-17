@@ -50,6 +50,23 @@ rules:
     relationships: {}
     core_concepts:
     - construction estimating
+- name: Scaffolded handout rule for Detailing Of Reinforcment In Concrete Structures
+  match:
+    all_contains:
+    - detailing
+    - reinforcment
+    - concrete
+    - structures
+  classification:
+    source_type: handout
+    trust_level: secondary
+  canonical:
+    title: Detailing Of Reinforcment In Concrete Structures
+    aliases:
+    - Detailing of Reinforcment in Concrete Structures
+    relationships: {}
+    core_concepts:
+    - reinforced concrete detailing
 - name: Scaffolded handout rule for Quotes (1)
   match:
     all_contains:

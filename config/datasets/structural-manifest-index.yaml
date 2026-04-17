@@ -1,0 +1,3 @@
+manifests:
+- lane_id: structural-detailing-reinforcement
+  manifest: config/datasets/structural-detailing-reinforcement.yaml

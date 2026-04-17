@@ -11,6 +11,10 @@ profiles:
   profile: config/datasets/laws-demo-profile.yaml
   status: demo
   note: Reusable demo onboarding family derived from the laws MVP ledgers.
+- family: structural
+  profile: config/datasets/structural-mvp-profile.yaml
+  status: ready
+  note: Structural family MVP graph profile.
 - family: technology
   profile: config/datasets/technology-mvp-profile.yaml
   status: ready

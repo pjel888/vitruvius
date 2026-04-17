@@ -80,13 +80,18 @@ status: in_progress
   - `ready_to_run = true`
   - aggregate graph execute reached `2 nodes / 1 edge`
   - caveat: source quality remains review-heavy / shallow
+- fifth true non-laws family proof is now in place:
+  - `structural`
+  - one admitted lane
+  - `ready_to_run = true`
+  - aggregate graph execute reached `2 nodes / 1 edge`
 
 ## Additional automation hardening now in place
 - explicit raw-path steering for mixed roots
 - ranked candidate suggestion for mixed roots
 
 ## Current next step
-- harden the non-laws family path beyond the first four non-laws proofs
+- harden the non-laws family path beyond the first five non-laws proofs
 - either:
-  - onboard a fifth true non-laws family, or
+  - onboard a sixth true non-laws family, or
   - reduce bootstrap artifacts by adding reviewed promotion paths for generated rules/concepts/relationships

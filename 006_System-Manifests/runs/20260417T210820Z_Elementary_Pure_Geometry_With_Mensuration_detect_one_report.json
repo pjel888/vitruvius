@@ -1,0 +1,31 @@
+{
+  "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/006 -Structural/Elementary Pure Geometry With Mensuration.pdf",
+  "total_pages": 299,
+  "pages_sampled": 5,
+  "pages_with_usable_text": 0,
+  "total_extracted_characters": 0,
+  "page_details": [
+    {
+      "page_number": 1,
+      "extracted_characters": 0
+    },
+    {
+      "page_number": 2,
+      "extracted_characters": 0
+    },
+    {
+      "page_number": 3,
+      "extracted_characters": 0
+    },
+    {
+      "page_number": 4,
+      "extracted_characters": 0
+    },
+    {
+      "page_number": 5,
+      "extracted_characters": 0
+    }
+  ],
+  "result": "LIKELY_SCANNED_PDF",
+  "recommended_route": "OCR_FIRST_THEN_OPENDATALOADER"
+}

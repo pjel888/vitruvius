@@ -368,8 +368,14 @@ Or explicitly by profile:
     - `utilities-arc-building-terms`
   - current graph evidence:
     - `2 nodes / 1 edge`
-- `technology`
+- `structural`
   - fourth non-laws MVP proof family
+  - current proof lane:
+    - `structural-detailing-reinforcement`
+  - current graph evidence:
+    - `2 nodes / 1 edge`
+- `technology`
+  - fifth non-laws MVP proof family
   - current proof lane:
     - `technology-architectural-cost-estimates`
   - current graph evidence:

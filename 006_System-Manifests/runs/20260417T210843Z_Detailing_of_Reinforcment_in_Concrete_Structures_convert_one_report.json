@@ -1,0 +1,13 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-17T21:08:43.224684+00:00",
+  "source_relative_path": "006 -Structural/Detailing of Reinforcment in Concrete Structures.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/006 -Structural/Detailing of Reinforcment in Concrete Structures.pdf",
+  "detection_result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/006 -Structural/raw_markdown/Detailing of Reinforcment in Concrete Structures.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/006 -Structural/sidecar_json/Detailing of Reinforcment in Concrete Structures.json",
+  "markdown_output_relative": "006 -Structural/raw_markdown/Detailing of Reinforcment in Concrete Structures.md",
+  "json_output_relative": "006 -Structural/sidecar_json/Detailing of Reinforcment in Concrete Structures.json",
+  "status": "converted"
+}

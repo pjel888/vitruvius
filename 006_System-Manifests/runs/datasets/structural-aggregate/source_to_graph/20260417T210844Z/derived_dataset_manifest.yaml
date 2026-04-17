@@ -1,0 +1,85 @@
+dataset_id: structural-aggregate
+dataset_kind: structural-aggregate
+scope_notes: []
+raw_slice_anchors:
+- folder_name: structural
+  raw_root: 001_Raw-Source-Layer/006 -Structural
+  entry_role: authoritative
+  authority_tier: primary
+  variant_family: structural-aggregate-aggregate
+  edition_or_source_note: structural-aggregate aggregate raw anchor grouping.
+  include_in_m1: true
+  reason: 'Aggregate lane: structural-detailing-reinforcement'
+  classified_raw_entries:
+  - path: 001_Raw-Source-Layer/006 -Structural/Detailing of Reinforcment in Concrete
+      Structures.pdf
+    folder_name: structural
+    entry_role: authoritative
+    authority_tier: primary
+    variant_family: structural-detailing-reinforcement-starter
+    edition_or_source_note: Starter lane scaffold from Detailing of Reinforcment in
+      Concrete Structures.pdf.
+    include_in_m1: true
+    reason: Starter lane scaffold for structural-detailing-reinforcement
+canonical_input_manifest:
+  sources:
+  - path: 003_Canonical-Knowledge-Layer/shared/sources/detailing-of-reinforcment-in-concrete-structures.md
+    folder_name: structural
+    entry_role: authoritative
+    authority_tier: primary
+    variant_family: structural-detailing-reinforcement-canonical-source
+    edition_or_source_note: structural-detailing-reinforcement canonical source admitted
+      from starter lane.
+    include_in_m1: true
+    reason: Starter lane source admission for structural-detailing-reinforcement
+  concepts:
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/reinforced-concrete-detailing.md
+    folder_name: structural
+    entry_role: derived
+    authority_tier: derived
+    variant_family: structural-detailing-reinforcement-bootstrap-concept
+    edition_or_source_note: Bootstrap concept scaffold from generated lane rules.
+    include_in_m1: true
+    reason: Starter lane concept scaffold
+relationship_input_manifest:
+  relationships:
+  - path: 003_Canonical-Knowledge-Layer/shared/relationships/rel-handout-detailing-of-reinforcment-in-concrete-structures-covers-concept-reinforced-concrete-detailing.md
+    folder_name: structural
+    entry_role: authoritative
+    authority_tier: approved
+    variant_family: structural-detailing-reinforcement-bootstrap-relationship
+    edition_or_source_note: Bootstrap relationship scaffold from starter lane source/concept
+      state.
+    include_in_m1: true
+    reason: Starter lane relationship scaffold
+graph_output_root: 005_Operational-Intelligence-Layer/graph/datasets/structural-aggregate
+run_output_root: 006_System-Manifests/runs/datasets/structural-aggregate
+query_snapshot_path_template: 005_Operational-Intelligence-Layer/graph/datasets/structural-aggregate/{run_id}_graph_snapshot.json
+freshness_policy:
+  mode: exact
+pilot_gate:
+  require_manifest_validation: true
+  source_to_graph_execute_ready: false
+  derived_from_tranche_id: structural-aggregate-aggregate
+  derived_run_id: '20260417'
+law_units:
+- law_id: structural-detailing-reinforcement-1
+  folder_name: structural
+  raw_anchor_paths:
+  - 001_Raw-Source-Layer/006 -Structural/Detailing of Reinforcment in Concrete Structures.pdf
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/006 -Structural/refined_markdown/Detailing of Reinforcment
+    in Concrete Structures.md
+  authoritative_variant_paths:
+  - 001_Raw-Source-Layer/006 -Structural/Detailing of Reinforcment in Concrete Structures.pdf
+  excluded_variant_paths: []
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/detailing-of-reinforcment-in-concrete-structures.md
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/reinforced-concrete-detailing.md
+  admitted_relationship_paths:
+  - 003_Canonical-Knowledge-Layer/shared/relationships/rel-handout-detailing-of-reinforcment-in-concrete-structures-covers-concept-reinforced-concrete-detailing.md
+  verification_checks: []
+  scope_notes:
+  - Starter lane scaffold from Detailing of Reinforcment in Concrete Structures.pdf
+  - 'Aggregate lane: structural-detailing-reinforcement'
