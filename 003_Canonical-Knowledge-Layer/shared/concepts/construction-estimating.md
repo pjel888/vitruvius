@@ -3,9 +3,9 @@ id: concept-construction-estimating
 title: construction estimating
 page_type: concept
 trust_level: derived
-canonical_status: draft
+canonical_status: enriched
 aliases:
-  - construction estimating
+- construction estimating
 ---
 
 # construction estimating
