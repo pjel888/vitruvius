@@ -1296,6 +1296,22 @@ This command:
 - shows which tranche files already have produced-data outputs vs which still need conversion/refinement
 - stays dry-run only and does not mutate the raw layer
 
+### Tranche source-preparation execute step
+
+Once you have inspected the tranche source-prep dry-run, you can prepare only
+the tranche raw files that are direct-input-ready:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-prep \
+  --tranche-manifest config/datasets/laws-tranche-1.yaml
+```
+
+This command:
+- runs tranche-only route detection
+- converts direct-input tranche files
+- refines the newly produced raw-markdown outputs
+- reports which tranche files were prepared and which still require OCR/manual follow-up
+
 ### Progress / developer experience
 
 When you run the command in an interactive terminal, it emits phase/progress

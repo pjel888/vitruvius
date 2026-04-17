@@ -1,0 +1,1981 @@
+{
+  "file name" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).pdf",
+  "number of pages" : 34,
+  "author" : "pedrosantosjr",
+  "title" : "BP 220",
+  "creation date" : "D:20150517214152+08'00'",
+  "modification date" : "D:20150517214152+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 24,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 67.944, 204.357, 712.815, 260.421 ],
+    "heading level" : 1,
+    "font" : "Archer Bold",
+    "font size" : 50.064,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "PRESIDENTIAL DECREE 957"
+  }, {
+    "type" : "image",
+    "id" : 25,
+    "page number" : 1,
+    "bounding box" : [ 165.14, 172.44, 720.34, 210.864 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile1.png"
+  }, {
+    "type" : "caption",
+    "id" : 26,
+    "page number" : 1,
+    "bounding box" : [ 483.46, 135.292, 702.357, 167.332 ],
+    "font" : "Archer Medium",
+    "font size" : 32.04,
+    "text color" : "[0.149]",
+    "content" : "Protective Decree"
+  }, {
+    "type" : "paragraph",
+    "id" : 28,
+    "page number" : 2,
+    "bounding box" : [ 280.3, 240.543, 441.18, 268.527 ],
+    "font" : "Archer Medium",
+    "font size" : 27.984,
+    "text color" : "[0.149]",
+    "content" : "DISCLAIMER:"
+  }, {
+    "type" : "paragraph",
+    "id" : 29,
+    "page number" : 2,
+    "bounding box" : [ 43.008, 200.208, 678.331, 228.168 ],
+    "font" : "Archer Medium",
+    "font size" : 27.96,
+    "text color" : "[0.149]",
+    "content" : "Always double-check the values given in this document with"
+  }, {
+    "type" : "paragraph",
+    "id" : 30,
+    "page number" : 2,
+    "bounding box" : [ 81.072, 166.603, 640.388, 194.587 ],
+    "font" : "Archer Medium",
+    "font size" : 27.984,
+    "text color" : "[0.149]",
+    "content" : "the actual laws. For corrections or clarifications, email"
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "page number" : 2,
+    "bounding box" : [ 193.06, 132.988, 528.58, 160.948 ],
+    "font" : "Archer Medium",
+    "font size" : 27.96,
+    "text color" : "[0.149]",
+    "content" : "arch.pedrosantosjr@gmail.com."
+  }, {
+    "type" : "header",
+    "id" : 32,
+    "page number" : 3,
+    "bounding box" : [ 43.2, 329.382, 448.412, 373.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 11,
+      "page number" : 3,
+      "bounding box" : [ 43.2, 329.382, 448.412, 373.422 ],
+      "heading level" : 5,
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "What PD 957 covers"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 34,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 43.2, 222.41, 290.948, 304.305 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "next list id" : 37,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 43.2, 268.51, 252.628, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Subdivisions",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 43.2, 222.41, 290.948, 258.205 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Condominiums",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 35,
+    "page number" : 4,
+    "bounding box" : [ 43.2, 329.382, 448.412, 373.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 12,
+      "page number" : 4,
+      "bounding box" : [ 43.2, 329.382, 448.412, 373.422 ],
+      "heading level" : 5,
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "What PD 957 covers"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 37,
+    "level" : "1",
+    "page number" : 4,
+    "bounding box" : [ 43.2, 222.41, 381.204, 304.305 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 34,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 43.2, 268.51, 378.289, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Medium cost housing",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 43.2, 222.41, 381.204, 258.205 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Open market housing",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 39,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 184.18, 180.165, 537.551, 234.189 ],
+    "heading level" : 3,
+    "font" : "Aleo",
+    "font size" : 54.024,
+    "text color" : "[1.0]",
+    "content" : "SUBDIVISIONS"
+  }, {
+    "type" : "heading",
+    "id" : 41,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 43.2, 329.382, 537.748, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Saleable vs. non-saleable"
+  }, {
+    "type" : "list",
+    "id" : 42,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 43.2, 222.41, 318.76, 304.305 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "next list id" : 45,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 43.2, 268.51, 251.25, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• 70% saleable",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 43.2, 222.41, 318.76, 258.205 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• 30% non-saleable",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 45,
+    "level" : "1",
+    "page number" : 7,
+    "bounding box" : [ 43.2, 176.33, 633.482, 373.422 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "previous list id" : 42,
+    "next list id" : 48,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 44,
+      "page number" : 7,
+      "bounding box" : [ 43.2, 329.382, 633.482, 373.422 ],
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "What are non-saleable areas?",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 43.2, 268.51, 396.872, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Parks and playgrounds",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 43.2, 222.41, 369.798, 258.205 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Community facilities",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 43.2, 176.33, 337.822, 212.125 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Circulation system",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 46,
+    "page number" : 8,
+    "bounding box" : [ 43.2, 329.382, 504.079, 373.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 13,
+      "page number" : 8,
+      "bounding box" : [ 43.2, 329.382, 504.079, 373.422 ],
+      "heading level" : 5,
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "Parks and playgrounds"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 48,
+    "level" : "1",
+    "page number" : 8,
+    "bounding box" : [ 43.2, 130.23, 559.309, 304.305 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "previous list id" : 45,
+    "next list id" : 54,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 43.2, 268.51, 559.309, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Required for projects 1 ha. or more",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 43.2, 222.41, 470.051, 258.205 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• 3.5% minimum (20 lots / ha.)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 43.2, 176.33, 475.466, 212.125 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• 9.0% maximum (65 lots / ha.)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 43.2, 130.23, 456.35, 166.025 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• BUT not less than 100 sqm.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 49,
+    "page number" : 9,
+    "bounding box" : [ 43.2, 329.382, 504.079, 373.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 14,
+      "page number" : 9,
+      "bounding box" : [ 43.2, 329.382, 504.079, 373.422 ],
+      "heading level" : 5,
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "Parks and playgrounds"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 51,
+    "page number" : 9,
+    "bounding box" : [ 33.0, 22.56, 673.92, 296.28 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile2.png"
+  }, {
+    "type" : "heading",
+    "id" : 53,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 43.2, 329.382, 468.23, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Community facilities"
+  }, {
+    "type" : "list",
+    "id" : 54,
+    "level" : "1",
+    "page number" : 10,
+    "bounding box" : [ 43.2, 184.01, 674.225, 304.305 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 48,
+    "next list id" : 65,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 43.2, 230.648, 674.225, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.0]",
+      "content" : "• Multi-purpose center required for projects 1 hectare or bigger",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 43.2, 184.01, 478.02, 219.805 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• These areas are non-saleable",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 56,
+    "page number" : 11,
+    "bounding box" : [ 126.0, 0.0, 532.32, 405.0 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile3.png"
+  }, {
+    "type" : "heading",
+    "id" : 59,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 43.2, 335.108, 418.229, 379.172 ],
+    "heading level" : 4,
+    "font" : "Aleo,Bold",
+    "font size" : 44.064,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Hierarchy of roads"
+  }, {
+    "type" : "image",
+    "id" : 58,
+    "page number" : 12,
+    "bounding box" : [ 93.6, 0.0, 543.0, 334.44 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile4.png"
+  }, {
+    "type" : "header",
+    "id" : 60,
+    "page number" : 13,
+    "bounding box" : [ 43.2, 329.382, 335.053, 373.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 15,
+      "page number" : 13,
+      "bounding box" : [ 43.2, 329.382, 335.053, 373.422 ],
+      "heading level" : 5,
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "RROW widths"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 62,
+    "page number" : 13,
+    "bounding box" : [ 156.0, -1.56, 606.0, 331.56 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile5.png"
+  }, {
+    "type" : "header",
+    "id" : 63,
+    "page number" : 14,
+    "bounding box" : [ 43.2, 329.382, 335.053, 373.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 16,
+      "page number" : 14,
+      "bounding box" : [ 43.2, 329.382, 335.053, 373.422 ],
+      "heading level" : 5,
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "RROW widths"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 65,
+    "level" : "1",
+    "page number" : 14,
+    "bounding box" : [ 43.2, 138.452, 618.108, 304.305 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "previous list id" : 54,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 43.2, 268.51, 478.221, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Major road: 10.0m minimum",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 43.2, 222.41, 466.335, 258.205 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Minor road: 8.0m minimum",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 43.2, 138.452, 618.108, 212.125 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Applies to both medium cost and open market",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 67,
+    "level" : "Subtitle",
+    "page number" : 15,
+    "bounding box" : [ 43.2, 329.382, 629.813, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Planting strips and sidewalks"
+  }, {
+    "type" : "image",
+    "id" : 68,
+    "page number" : 15,
+    "bounding box" : [ -0.72, 61.44, 715.44, 292.44 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile6.png"
+  }, {
+    "type" : "heading",
+    "id" : 70,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 43.2, 329.382, 429.167, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Minimum lot areas"
+  }, {
+    "type" : "table",
+    "id" : 71,
+    "level" : "2",
+    "page number" : 16,
+    "bounding box" : [ 35.5, 70.0, 684.5, 311.0 ],
+    "number of rows" : 4,
+    "number of columns" : 3,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 36.0, 250.5, 252.0, 310.5 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 252.0, 250.5, 468.0, 310.5 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 16,
+          "bounding box" : [ 277.06, 264.208, 442.961, 292.168 ],
+          "font" : "Aleo,Bold",
+          "font size" : 27.96,
+          "text color" : "[0.0]",
+          "content" : "Medium cost"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 468.0, 250.5, 684.0, 310.5 ],
+        "row number" : 1,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 2,
+          "page number" : 16,
+          "bounding box" : [ 491.66, 264.208, 660.455, 292.168 ],
+          "font" : "Aleo,Bold",
+          "font size" : 27.96,
+          "text color" : "[0.0]",
+          "content" : "Open market"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 36.0, 190.5, 252.0, 250.5 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "page number" : 16,
+          "bounding box" : [ 43.2, 204.188, 239.759, 232.148 ],
+          "font" : "Aleo",
+          "font size" : 27.96,
+          "text color" : "[0.0]",
+          "content" : "Single detached"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 252.0, 190.5, 468.0, 250.5 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 16,
+          "bounding box" : [ 304.78, 204.188, 415.22, 232.148 ],
+          "font" : "Aleo",
+          "font size" : 27.96,
+          "text color" : "[0.0]",
+          "content" : "100 sqm."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 468.0, 190.5, 684.0, 250.5 ],
+        "row number" : 2,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 5,
+          "page number" : 16,
+          "bounding box" : [ 521.66, 204.188, 630.55, 232.148 ],
+          "font" : "Aleo",
+          "font size" : 27.96,
+          "text color" : "[0.0]",
+          "content" : "120 sqm."
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 36.0, 130.5, 252.0, 190.5 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 16,
+          "bounding box" : [ 43.2, 144.168, 134.378, 172.128 ],
+          "font" : "Aleo",
+          "font size" : 27.96,
+          "text color" : "[0.0]",
+          "content" : "Duplex"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 252.0, 130.5, 468.0, 190.5 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 16,
+          "bounding box" : [ 312.1, 144.168, 408.02, 172.128 ],
+          "font" : "Aleo",
+          "font size" : 27.96,
+          "text color" : "[0.0]",
+          "content" : "80 sqm."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 468.0, 130.5, 684.0, 190.5 ],
+        "row number" : 3,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 8,
+          "page number" : 16,
+          "bounding box" : [ 528.98, 144.168, 623.11, 172.128 ],
+          "font" : "Aleo",
+          "font size" : 27.96,
+          "text color" : "[0.0]",
+          "content" : "96 sqm."
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 36.0, 70.5, 252.0, 130.5 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 9,
+          "page number" : 16,
+          "bounding box" : [ 43.2, 84.159, 175.312, 112.143 ],
+          "font" : "Aleo",
+          "font size" : 27.984,
+          "text color" : "[0.0]",
+          "content" : "Rowhouse"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 252.0, 70.5, 468.0, 130.5 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 16,
+          "bounding box" : [ 312.46, 84.159, 407.665, 112.143 ],
+          "font" : "Aleo",
+          "font size" : 27.984,
+          "text color" : "[0.0]",
+          "content" : "50 sqm."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 16,
+        "bounding box" : [ 468.0, 70.5, 684.0, 130.5 ],
+        "row number" : 4,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 11,
+          "page number" : 16,
+          "bounding box" : [ 528.14, 84.159, 624.075, 112.143 ],
+          "font" : "Aleo",
+          "font size" : 27.984,
+          "text color" : "[0.0]",
+          "content" : "60 sqm."
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 73,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 43.2, 329.382, 510.949, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Minimum lot frontages"
+  }, {
+    "type" : "table",
+    "id" : 74,
+    "level" : "3",
+    "page number" : 17,
+    "bounding box" : [ 35.5, 58.0, 684.5, 311.0 ],
+    "number of rows" : 7,
+    "number of columns" : 3,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 36.0, 274.5, 252.0, 310.5 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 252.0, 274.5, 468.0, 310.5 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 17,
+          "bounding box" : [ 288.82, 278.54, 431.116, 302.54 ],
+          "font" : "Aleo,Bold",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "Medium cost"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 468.0, 274.5, 684.0, 310.5 ],
+        "row number" : 1,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 2,
+          "page number" : 17,
+          "bounding box" : [ 503.78, 278.54, 648.356, 302.54 ],
+          "font" : "Aleo,Bold",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "Open market"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 36.0, 238.5, 252.0, 274.5 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "page number" : 17,
+          "bounding box" : [ 43.2, 242.535, 211.897, 266.559 ],
+          "font" : "Aleo",
+          "font size" : 24.024,
+          "text color" : "[0.0]",
+          "content" : "Single detached"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 252.0, 238.5, 468.0, 274.5 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 468.0, 238.5, 684.0, 274.5 ],
+        "row number" : 2,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 36.0, 202.5, 252.0, 238.5 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 17,
+          "bounding box" : [ 153.98, 211.132, 244.661, 231.172 ],
+          "font" : "Aleo",
+          "font size" : 20.04,
+          "text color" : "[0.0]",
+          "content" : "Corner lot"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 252.0, 202.5, 468.0, 238.5 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 5,
+          "page number" : 17,
+          "bounding box" : [ 325.2, 206.52, 394.824, 230.52 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "12.0 m"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 468.0, 202.5, 684.0, 238.5 ],
+        "row number" : 3,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 17,
+          "bounding box" : [ 541.22, 206.52, 610.874, 230.52 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "12.0 m"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 36.0, 166.5, 252.0, 202.5 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 17,
+          "bounding box" : [ 147.26, 175.132, 244.654, 195.172 ],
+          "font" : "Aleo",
+          "font size" : 20.04,
+          "text color" : "[0.0]",
+          "content" : "Regular lot"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 252.0, 166.5, 468.0, 202.5 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 8,
+          "page number" : 17,
+          "bounding box" : [ 324.46, 170.52, 395.544, 194.52 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "10.0 m"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 468.0, 166.5, 684.0, 202.5 ],
+        "row number" : 4,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 9,
+          "page number" : 17,
+          "bounding box" : [ 540.5, 170.52, 611.564, 194.52 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "10.0 m"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 5,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 36.0, 130.5, 252.0, 166.5 ],
+        "row number" : 5,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 17,
+          "bounding box" : [ 147.62, 139.112, 244.654, 159.152 ],
+          "font" : "Aleo",
+          "font size" : 20.04,
+          "text color" : "[0.0]",
+          "content" : "Interior lot"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 252.0, 130.5, 468.0, 166.5 ],
+        "row number" : 5,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 11,
+          "page number" : 17,
+          "bounding box" : [ 330.84, 134.5, 389.328, 158.5 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "3.0 m"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 468.0, 130.5, 684.0, 166.5 ],
+        "row number" : 5,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 12,
+          "page number" : 17,
+          "bounding box" : [ 546.86, 134.5, 605.348, 158.5 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "3.0 m"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 6,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 36.0, 94.5, 252.0, 130.5 ],
+        "row number" : 6,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 13,
+          "page number" : 17,
+          "bounding box" : [ 43.2, 98.5, 121.464, 122.5 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "Duplex"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 252.0, 94.5, 468.0, 130.5 ],
+        "row number" : 6,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 14,
+          "page number" : 17,
+          "bounding box" : [ 330.72, 98.5, 389.304, 122.5 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "8.0 m"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 468.0, 94.5, 684.0, 130.5 ],
+        "row number" : 6,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 15,
+          "page number" : 17,
+          "bounding box" : [ 546.74, 98.5, 605.324, 122.5 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "8.0 m"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 7,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 36.0, 58.5, 252.0, 94.5 ],
+        "row number" : 7,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 16,
+          "page number" : 17,
+          "bounding box" : [ 43.2, 62.491, 156.641, 86.515 ],
+          "font" : "Aleo",
+          "font size" : 24.024,
+          "text color" : "[0.0]",
+          "content" : "Rowhouse"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 252.0, 58.5, 468.0, 94.5 ],
+        "row number" : 7,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 17,
+          "page number" : 17,
+          "bounding box" : [ 330.12, 62.491, 389.988, 86.515 ],
+          "font" : "Aleo",
+          "font size" : 24.024,
+          "text color" : "[0.0]",
+          "content" : "4.0 m"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 17,
+        "bounding box" : [ 468.0, 58.5, 684.0, 94.5 ],
+        "row number" : 7,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 18,
+          "page number" : 17,
+          "bounding box" : [ 546.14, 62.491, 606.008, 86.515 ],
+          "font" : "Aleo",
+          "font size" : 24.024,
+          "text color" : "[0.0]",
+          "content" : "4.0 m"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 77,
+    "level" : "Subtitle",
+    "page number" : 18,
+    "bounding box" : [ 43.2, 329.382, 642.849, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Minimum lot: single detached"
+  }, {
+    "type" : "image",
+    "id" : 76,
+    "page number" : 18,
+    "bounding box" : [ 84.0, 0.0, 610.2, 346.44 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile7.png"
+  }, {
+    "type" : "heading",
+    "id" : 80,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 43.2, 329.382, 469.419, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Minimum lot: duplex"
+  }, {
+    "type" : "image",
+    "id" : 79,
+    "page number" : 19,
+    "bounding box" : [ 30.0, 0.84, 672.0, 339.48 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile8.png"
+  }, {
+    "type" : "heading",
+    "id" : 83,
+    "level" : "Subtitle",
+    "page number" : 20,
+    "bounding box" : [ 43.2, 329.382, 532.805, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Minimum lot: rowhouse"
+  }, {
+    "type" : "image",
+    "id" : 82,
+    "page number" : 20,
+    "bounding box" : [ 6.0, 2.04, 720.0, 345.36 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile9.png"
+  }, {
+    "type" : "header",
+    "id" : 84,
+    "page number" : 21,
+    "bounding box" : [ 43.2, 329.382, 297.883, 373.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 17,
+      "page number" : 21,
+      "bounding box" : [ 43.2, 329.382, 297.883, 373.422 ],
+      "heading level" : 5,
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "Block length"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 86,
+    "page number" : 21,
+    "bounding box" : [ 0.0, 35.04, 720.0, 359.64 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile10.png"
+  }, {
+    "type" : "header",
+    "id" : 87,
+    "page number" : 22,
+    "bounding box" : [ 43.2, 329.382, 297.883, 373.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 18,
+      "page number" : 22,
+      "bounding box" : [ 43.2, 329.382, 297.883, 373.422 ],
+      "heading level" : 5,
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "Block length"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 89,
+    "page number" : 22,
+    "bounding box" : [ 54.0, -7.92, 702.0, 370.44 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile11.png"
+  }, {
+    "type" : "heading",
+    "id" : 91,
+    "level" : "Subtitle",
+    "page number" : 23,
+    "bounding box" : [ 43.2, 329.382, 420.395, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Rowhouse clusters"
+  }, {
+    "type" : "image",
+    "id" : 92,
+    "page number" : 23,
+    "bounding box" : [ 0.0, 115.68, 708.0, 265.56 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile12.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 93,
+    "page number" : 23,
+    "bounding box" : [ 301.9, 194.818, 418.324, 226.882 ],
+    "font" : "Aleo",
+    "font size" : 32.064,
+    "text color" : "[0.0]",
+    "content" : "20 units"
+  }, {
+    "type" : "heading",
+    "id" : 95,
+    "level" : "Subtitle",
+    "page number" : 24,
+    "bounding box" : [ 43.2, 329.382, 472.722, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Minimum floor areas"
+  }, {
+    "type" : "list",
+    "id" : 96,
+    "level" : "1",
+    "page number" : 24,
+    "bounding box" : [ 43.2, 222.41, 399.59, 304.305 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "next list id" : 99,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 24,
+      "bounding box" : [ 43.2, 268.51, 396.83, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Medium cost = 30 sqm.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 24,
+      "bounding box" : [ 43.2, 222.41, 399.59, 258.205 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Open market = 42 sqm.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 99,
+    "level" : "1",
+    "page number" : 25,
+    "bounding box" : [ 43.2, 268.51, 248.43, 373.422 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 96,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 98,
+      "page number" : 25,
+      "bounding box" : [ 43.2, 329.382, 217.907, 373.422 ],
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "Setbacks",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 25,
+      "bounding box" : [ 43.2, 268.51, 248.43, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Follow NBC.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 100,
+    "page number" : 25,
+    "bounding box" : [ 11.52, 16.44, 722.16, 256.44 ],
+    "source" : "PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)_images/imageFile13.png"
+  }, {
+    "type" : "heading",
+    "id" : 102,
+    "level" : "Subtitle",
+    "page number" : 26,
+    "bounding box" : [ 142.27, 180.165, 579.486, 234.189 ],
+    "heading level" : 2,
+    "font" : "Aleo,Bold",
+    "font size" : 54.024,
+    "text color" : "[1.0]",
+    "content" : "CONDOMINIUMS"
+  }, {
+    "type" : "heading",
+    "id" : 104,
+    "level" : "Subtitle",
+    "page number" : 27,
+    "bounding box" : [ 43.2, 329.382, 535.303, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Minimum sizes of rooms"
+  }, {
+    "type" : "list",
+    "id" : 105,
+    "level" : "1",
+    "page number" : 27,
+    "bounding box" : [ 43.2, 268.51, 248.43, 304.305 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 27,
+      "bounding box" : [ 43.2, 268.51, 248.43, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Follow NBC.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "table",
+    "id" : 106,
+    "level" : "2",
+    "page number" : 27,
+    "bounding box" : [ 23.5, 59.2, 702.5, 233.0 ],
+    "number of rows" : 4,
+    "number of columns" : 3,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 24.0, 196.5, 234.0, 232.5 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 234.0, 196.5, 474.0, 232.5 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 27,
+          "bounding box" : [ 301.78, 200.52, 406.324, 224.52 ],
+          "font" : "Aleo,Bold",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "Min. area"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 474.0, 196.5, 702.0, 232.5 ],
+        "row number" : 1,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 2,
+          "page number" : 27,
+          "bounding box" : [ 501.98, 200.52, 674.156, 224.52 ],
+          "font" : "Aleo,Bold",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "Min. dimension"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 24.0, 131.7, 234.0, 196.5 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "page number" : 27,
+          "bounding box" : [ 31.2, 164.515, 213.595, 188.539 ],
+          "font" : "Aleo",
+          "font size" : 24.024,
+          "text color" : "[0.0]",
+          "content" : "Room for human"
+        }, {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 27,
+          "bounding box" : [ 31.2, 135.7, 142.32, 159.7 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "habitation"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 234.0, 131.7, 474.0, 196.5 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 5,
+          "page number" : 27,
+          "bounding box" : [ 308.26, 164.515, 399.839, 188.539 ],
+          "font" : "Aleo",
+          "font size" : 24.024,
+          "text color" : "[0.0]",
+          "content" : "6.00sqm"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 474.0, 131.7, 702.0, 196.5 ],
+        "row number" : 2,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 27,
+          "bounding box" : [ 554.3, 164.515, 621.807, 188.539 ],
+          "font" : "Aleo",
+          "font size" : 24.024,
+          "text color" : "[0.0]",
+          "content" : "2.00m"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 24.0, 95.7, 234.0, 131.7 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 27,
+          "bounding box" : [ 31.2, 99.7, 116.76, 123.7 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "Kitchen"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 234.0, 95.7, 474.0, 131.7 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 8,
+          "page number" : 27,
+          "bounding box" : [ 308.38, 99.7, 399.58, 123.7 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "3.00sqm"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 474.0, 95.7, 702.0, 131.7 ],
+        "row number" : 3,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 9,
+          "page number" : 27,
+          "bounding box" : [ 556.1, 99.7, 620.084, 123.7 ],
+          "font" : "Aleo",
+          "font size" : 24.0,
+          "text color" : "[0.0]",
+          "content" : "1.50m"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 24.0, 59.7, 234.0, 95.7 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 27,
+          "bounding box" : [ 31.2, 63.691, 191.128, 87.715 ],
+          "font" : "Aleo",
+          "font size" : 24.024,
+          "text color" : "[0.0]",
+          "content" : "Toilet and bath"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 234.0, 59.7, 474.0, 95.7 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 11,
+          "page number" : 27,
+          "bounding box" : [ 309.94, 63.691, 398.204, 87.715 ],
+          "font" : "Aleo",
+          "font size" : 24.024,
+          "text color" : "[0.0]",
+          "content" : "1.20sqm"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 27,
+        "bounding box" : [ 474.0, 59.7, 702.0, 95.7 ],
+        "row number" : 4,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 12,
+          "page number" : 27,
+          "bounding box" : [ 554.42, 63.691, 621.807, 87.715 ],
+          "font" : "Aleo",
+          "font size" : 24.024,
+          "text color" : "[0.0]",
+          "content" : "0.90m"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 107,
+    "page number" : 28,
+    "bounding box" : [ 43.2, 329.382, 504.079, 373.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 19,
+      "page number" : 28,
+      "bounding box" : [ 43.2, 329.382, 504.079, 373.422 ],
+      "heading level" : 5,
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "Parks and playgrounds"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 109,
+    "level" : "Subtitle",
+    "page number" : 28,
+    "bounding box" : [ 43.2, 268.51, 235.518, 304.305 ],
+    "heading level" : 6,
+    "font" : "Aleo",
+    "font size" : 32.04,
+    "text color" : "[0.0]",
+    "content" : "• Required if:"
+  }, {
+    "type" : "list",
+    "id" : 110,
+    "level" : "3",
+    "page number" : 28,
+    "bounding box" : [ 79.224, 187.875, 467.121, 259.431 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 28,
+      "bounding box" : [ 79.224, 228.195, 387.419, 259.431 ],
+      "font" : "Arial",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "– 10 condo units or more",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 28,
+      "bounding box" : [ 79.224, 187.875, 467.121, 219.111 ],
+      "font" : "Arial",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "– Project is 1,000 sqm. or larger",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 111,
+    "level" : "Subtitle",
+    "page number" : 28,
+    "bounding box" : [ 43.2, 103.892, 643.548, 177.545 ],
+    "heading level" : 6,
+    "font" : "Aleo",
+    "font size" : 32.04,
+    "text color" : "[0.0]",
+    "content" : "• May be waived if a public park is within800m"
+  }, {
+    "type" : "header",
+    "id" : 112,
+    "page number" : 29,
+    "bounding box" : [ 43.2, 329.382, 504.079, 373.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 20,
+      "page number" : 29,
+      "bounding box" : [ 43.2, 329.382, 504.079, 373.422 ],
+      "heading level" : 5,
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "Parks and playgrounds"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 114,
+    "level" : "1",
+    "page number" : 29,
+    "bounding box" : [ 43.2, 222.41, 535.819, 304.305 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "next list id" : 117,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 29,
+      "bounding box" : [ 43.2, 268.51, 442.966, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• 50 sqm. for 10 condo units",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 29,
+      "bounding box" : [ 43.2, 222.41, 535.819, 258.205 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• +3 sqm. for every additional unit",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 117,
+    "level" : "1",
+    "page number" : 30,
+    "bounding box" : [ 43.2, 268.51, 248.302, 373.422 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 114,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 116,
+      "page number" : 30,
+      "bounding box" : [ 43.2, 329.382, 202.625, 373.422 ],
+      "font" : "Aleo,Bold",
+      "font size" : 44.04,
+      "text color" : "[0.753, 0.0, 0.0]",
+      "content" : "Parking",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 30,
+      "bounding box" : [ 43.2, 268.51, 248.302, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Follow NBC:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 118,
+    "level" : "2",
+    "page number" : 30,
+    "bounding box" : [ 79.224, 195.068, 645.019, 259.431 ],
+    "font" : "Aleo",
+    "font size" : 27.96,
+    "text color" : "[0.0]",
+    "content" : "– Units with a floor area of 18 sqm. 22 sqm. : One slot for every 8 units"
+  }, {
+    "type" : "heading",
+    "id" : 120,
+    "level" : "Subtitle",
+    "page number" : 31,
+    "bounding box" : [ 43.2, 329.382, 362.674, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Off-site parking"
+  }, {
+    "type" : "list",
+    "id" : 121,
+    "level" : "1",
+    "page number" : 31,
+    "bounding box" : [ 43.2, 146.148, 587.951, 304.305 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 31,
+      "bounding box" : [ 43.2, 230.648, 587.951, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.0]",
+      "content" : "• OK if located 200m way or less from commercial condo.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 31,
+      "bounding box" : [ 43.2, 146.148, 585.901, 219.805 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.0]",
+      "content" : "• OK if located 100m way or less from residential condo.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 123,
+    "level" : "Subtitle",
+    "page number" : 32,
+    "bounding box" : [ 43.2, 329.382, 163.253, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Roads"
+  }, {
+    "type" : "list",
+    "id" : 124,
+    "level" : "1",
+    "page number" : 32,
+    "bounding box" : [ 43.2, 103.892, 498.759, 304.305 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 32,
+      "bounding box" : [ 43.2, 268.51, 425.484, 304.305 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Minimum RROW: 8.00m",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 21,
+        "level" : "2",
+        "page number" : 32,
+        "bounding box" : [ 79.224, 187.875, 520.789, 259.431 ],
+        "numbering style" : "unknown style",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 32,
+          "bounding box" : [ 79.224, 228.195, 385.63, 259.431 ],
+          "font" : "Arial",
+          "font size" : 27.96,
+          "text color" : "[0.0]",
+          "content" : "– 6.00m for carriageway",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 32,
+          "bounding box" : [ 79.224, 187.875, 520.789, 219.111 ],
+          "font" : "Arial",
+          "font size" : 27.96,
+          "text color" : "[0.0]",
+          "content" : "– 2.00m for sidewalk/planting strip",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 32,
+      "bounding box" : [ 43.2, 103.892, 498.759, 177.545 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• For hierarchy or roads, follow requirements for subdivisions",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 126,
+    "level" : "Subtitle",
+    "page number" : 33,
+    "bounding box" : [ 43.2, 329.382, 648.001, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Floor areas for condominiums"
+  }, {
+    "type" : "paragraph",
+    "id" : 127,
+    "level" : "3",
+    "page number" : 33,
+    "bounding box" : [ 43.2, 268.51, 318.694, 304.305 ],
+    "font" : "Aleo",
+    "font size" : 32.04,
+    "text color" : "[0.0]",
+    "content" : "• Single occupancy"
+  }, {
+    "type" : "list",
+    "id" : 128,
+    "level" : "2",
+    "page number" : 33,
+    "bounding box" : [ 79.224, 187.875, 350.18, 259.431 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 33,
+      "bounding box" : [ 79.224, 228.195, 194.2, 259.431 ],
+      "font" : "Arial",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "– 18 sqm.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 33,
+      "bounding box" : [ 79.224, 187.875, 350.18, 219.111 ],
+      "font" : "Arial",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "– 12 sqm. for students",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 129,
+    "level" : "3",
+    "page number" : 33,
+    "bounding box" : [ 43.2, 141.75, 333.208, 177.545 ],
+    "font" : "Aleo",
+    "font size" : 32.04,
+    "text color" : "[0.0]",
+    "content" : "• Family occupancy"
+  }, {
+    "type" : "list",
+    "id" : 130,
+    "level" : "4",
+    "page number" : 33,
+    "bounding box" : [ 79.224, 61.126, 405.56, 132.691 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 33,
+      "bounding box" : [ 79.224, 101.455, 405.56, 132.691 ],
+      "font" : "Arial",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "– 22 sqm. for medium cost",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 33,
+      "bounding box" : [ 79.224, 61.126, 403.671, 92.389 ],
+      "font" : "Arial",
+      "font size" : 27.984,
+      "text color" : "[0.0]",
+      "content" : "– 36 sqm. for open market",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 132,
+    "level" : "Subtitle",
+    "page number" : 34,
+    "bounding box" : [ 43.2, 329.382, 531.119, 373.422 ],
+    "heading level" : 5,
+    "font" : "Aleo,Bold",
+    "font size" : 44.04,
+    "text color" : "[0.753, 0.0, 0.0]",
+    "content" : "Min. level of completion"
+  }, {
+    "type" : "paragraph",
+    "id" : 133,
+    "level" : "3",
+    "page number" : 34,
+    "bounding box" : [ 43.2, 268.51, 668.603, 304.305 ],
+    "font" : "Aleo",
+    "font size" : 32.04,
+    "text color" : "[0.0]",
+    "content" : "• Complete house based on submitted plans"
+  }, {
+    "type" : "paragraph",
+    "id" : 134,
+    "page number" : 34,
+    "bounding box" : [ 70.224, 230.648, 325.87, 262.712 ],
+    "font" : "Aleo",
+    "font size" : 32.064,
+    "text color" : "[0.0]",
+    "content" : "and specifications"
+  } ]
+}

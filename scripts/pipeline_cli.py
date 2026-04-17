@@ -294,6 +294,11 @@ def build_parser() -> argparse.ArgumentParser:
                                             help="Tranche manifest whose raw inputs should be inventoried for source preparation")
     tranche_source_prep_parser.add_argument("--sample-pages", type=int, default=5,
                                             help="Sample pages for per-PDF detection planning (default: 5)")
+    tranche_source_prep_exec_parser = add_command_parser(subparsers, "run-laws-tranche-source-prep")
+    tranche_source_prep_exec_parser.add_argument("--tranche-manifest", default="config/datasets/laws-tranche-1.yaml",
+                                                 help="Tranche manifest whose raw inputs should be prepared into conversion/refinement outputs")
+    tranche_source_prep_exec_parser.add_argument("--sample-pages", type=int, default=5,
+                                                 help="Sample pages for per-PDF route detection (default: 5)")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -806,6 +811,16 @@ def main() -> int:
         return _run(
             "run-laws-tranche-source-prep-dry-run",
             lambda: run_laws_tranche_source_prep_dry_run(
+                tranche_manifest=args.tranche_manifest,
+                sample_pages=args.sample_pages,
+            ),
+        )
+
+    if args.command == "run-laws-tranche-source-prep":
+        from vitruvius.laws_readiness import run_laws_tranche_source_prep
+        return _run(
+            "run-laws-tranche-source-prep",
+            lambda: run_laws_tranche_source_prep(
                 tranche_manifest=args.tranche_manifest,
                 sample_pages=args.sample_pages,
             ),

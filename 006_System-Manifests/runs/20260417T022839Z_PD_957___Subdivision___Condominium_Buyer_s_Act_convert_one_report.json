@@ -1,0 +1,13 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-17T02:28:39.371242+00:00",
+  "source_relative_path": "001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf",
+  "detection_result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.json",
+  "markdown_output_relative": "001-Laws/raw_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md",
+  "json_output_relative": "001-Laws/sidecar_json/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.json",
+  "status": "converted"
+}

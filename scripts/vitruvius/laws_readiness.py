@@ -1,16 +1,20 @@
 from __future__ import annotations
 
+import io
 import json
 from pathlib import Path
 from typing import Any
+from contextlib import redirect_stdout
 
 import yaml
 
 from .canonicalize import extract_section_headers
 from .config import get_ollama_default_model, get_ollama_default_parallelism, resolve_review_preset
-from .conversion import SUPPORTED_DIRECT_INPUT_EXTENSIONS
+from .constants import RAW_LAYER_NAME
+from .conversion import SUPPORTED_DIRECT_INPUT_EXTENSIONS, run_convert_one
 from .detection import detect_pdf_type
 from .graph.dataset_manifest import DatasetManifestError, load_dataset_manifest, write_json_report
+from .normalization.refine import run_refine_one
 from .paths import build_conversion_relative_paths
 from .utils import utc_now_stamp
 
@@ -92,6 +96,25 @@ def _default_source_prep_report_path(repo_root: Path, tranche_id: str, run_id: s
         / run_id
         / "laws_tranche_source_prep_dry_run_report.json"
     )
+
+
+def _default_source_prep_execute_report_path(repo_root: Path, tranche_id: str, run_id: str) -> Path:
+    return (
+        repo_root
+        / "006_System-Manifests"
+        / "runs"
+        / "datasets"
+        / tranche_id
+        / run_id
+        / "laws_tranche_source_prep_report.json"
+    )
+
+
+def _capture_text_handler(fn) -> tuple[int, str]:
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        rc = fn()
+    return rc, buf.getvalue()
 
 
 def _load_tranche_manifest(repo_root: Path, tranche_manifest: str) -> tuple[dict[str, Any] | None, Path, str | None]:
@@ -268,6 +291,81 @@ def _raw_file_preparation_summary(
         "raw_markdown_exists": markdown_exists,
         "sidecar_json_exists": sidecar_exists,
         "refined_markdown_exists": refined_exists,
+    }
+
+
+def _prepare_raw_file(
+    *,
+    repo_root: Path,
+    file_path: Path,
+    sample_pages: int,
+) -> dict[str, Any]:
+    rel_repo = file_path.relative_to(repo_root).as_posix()
+    rel_raw = file_path.relative_to(repo_root / RAW_LAYER_NAME).as_posix()
+    ext = file_path.suffix.lower()
+    if ext not in SUPPORTED_DIRECT_INPUT_EXTENSIONS:
+        return {
+            "raw_path": rel_repo,
+            "status": "unsupported",
+            "supported_direct_input": False,
+        }
+
+    detection: dict[str, Any] | None = None
+    if ext == ".pdf":
+        try:
+            detection = detect_pdf_type(file_path, sample_pages=sample_pages)
+        except Exception as exc:  # noqa: BLE001
+            return {
+                "raw_path": rel_repo,
+                "status": "detection_failed",
+                "error": str(exc),
+                "supported_direct_input": True,
+            }
+        if detection["recommended_route"] != "OPENDATALOADER_DIRECT":
+            return {
+                "raw_path": rel_repo,
+                "status": "ocr_required",
+                "supported_direct_input": True,
+                "detection_result": detection["result"],
+                "recommended_route": detection["recommended_route"],
+            }
+
+    markdown_path_rel, json_path_rel = build_conversion_relative_paths(rel_raw)
+    refined_path_rel = _refined_markdown_relative_path(markdown_path_rel)
+    markdown_rel = (Path("002_Raw-Conversion-Layer") / markdown_path_rel).as_posix()
+    sidecar_rel = (Path("002_Raw-Conversion-Layer") / json_path_rel).as_posix()
+    refined_rel = (Path("002_Raw-Conversion-Layer") / refined_path_rel).as_posix()
+
+    convert_rc, convert_output = _capture_text_handler(
+        lambda: run_convert_one(relative_pdf_path=rel_raw)
+    )
+    if convert_rc != 0:
+        return {
+            "raw_path": rel_repo,
+            "status": "convert_failed",
+            "supported_direct_input": True,
+            "detection_result": detection["result"] if detection else None,
+            "recommended_route": detection["recommended_route"] if detection else None,
+            "expected_raw_markdown_path": markdown_rel,
+            "expected_sidecar_json_path": sidecar_rel,
+            "expected_refined_markdown_path": refined_rel,
+            "convert_output": convert_output.strip(),
+        }
+
+    refine_rc, refine_output = _capture_text_handler(
+        lambda: run_refine_one(relative_markdown_path=markdown_path_rel.as_posix())
+    )
+    return {
+        "raw_path": rel_repo,
+        "status": "prepared" if refine_rc == 0 else "refine_failed",
+        "supported_direct_input": True,
+        "detection_result": detection["result"] if detection else None,
+        "recommended_route": detection["recommended_route"] if detection else None,
+        "expected_raw_markdown_path": markdown_rel,
+        "expected_sidecar_json_path": sidecar_rel,
+        "expected_refined_markdown_path": refined_rel,
+        "convert_output": convert_output.strip(),
+        "refine_output": refine_output.strip(),
     }
 
 
@@ -612,3 +710,90 @@ def run_laws_tranche_source_prep_dry_run(
     }
     print(json.dumps(summary, indent=2))
     return 0
+
+
+def run_laws_tranche_source_prep(
+    *,
+    tranche_manifest: str,
+    sample_pages: int = 5,
+    report_out: str | None = None,
+) -> int:
+    repo_root = Path.cwd().resolve()
+    tranche_payload, tranche_manifest_path, tranche_error = _load_tranche_manifest(repo_root, tranche_manifest)
+    if tranche_payload is None:
+        print(json.dumps({"error": tranche_error or "failed to load tranche manifest"}, indent=2))
+        return 2
+
+    run_id = utc_now_stamp().replace("-", "").replace(":", "").replace("+0000", "Z")
+    tranche_id = str(tranche_payload.get("tranche_id") or "laws-tranche")
+    raw_root = repo_root / _RAW_SOURCE_ROOT
+    if not raw_root.exists():
+        print(json.dumps({"error": f"missing laws raw root: {raw_root.relative_to(repo_root)}"}, indent=2))
+        return 2
+
+    folders_report: list[dict[str, Any]] = []
+    prepared_count = 0
+    ocr_required_count = 0
+    failed_count = 0
+    for item in tranche_payload["candidate_law_folders"]:
+        folder_name = item["folder_name"]
+        folder_root = raw_root / folder_name
+        files = sorted(path for path in folder_root.rglob("*") if path.is_file()) if folder_root.exists() else []
+        file_reports = [
+            _prepare_raw_file(
+                repo_root=repo_root,
+                file_path=file_path,
+                sample_pages=sample_pages,
+            )
+            for file_path in files
+        ]
+        prepared_count += sum(1 for report in file_reports if report["status"] == "prepared")
+        ocr_required_count += sum(1 for report in file_reports if report["status"] == "ocr_required")
+        failed_count += sum(1 for report in file_reports if report["status"] in {"convert_failed", "refine_failed", "detection_failed"})
+        folders_report.append(
+            {
+                "folder_name": folder_name,
+                "candidate_reason": item.get("reason"),
+                "raw_root_present": folder_root.exists(),
+                "raw_file_count": len(files),
+                "supported_direct_input_count": sum(1 for report in file_reports if report["supported_direct_input"]),
+                "prepared_count": sum(1 for report in file_reports if report["status"] == "prepared"),
+                "ocr_required_count": sum(1 for report in file_reports if report["status"] == "ocr_required"),
+                "failed_count": sum(1 for report in file_reports if report["status"] in {"convert_failed", "refine_failed", "detection_failed"}),
+                "file_reports": file_reports,
+            }
+        )
+
+    report_path = Path(report_out).resolve() if report_out else _default_source_prep_execute_report_path(repo_root, tranche_id, run_id)
+    report = {
+        "action": "run-laws-tranche-source-prep",
+        "generated_at_utc": utc_now_stamp(),
+        "run_id": run_id,
+        "execute": True,
+        "phase_11_gate": "gated",
+        "phase_11_generic_expansion_gated": True,
+        "tranche_id": tranche_id,
+        "tranche_manifest_path": _relative(tranche_manifest_path, repo_root),
+        "sample_pages": sample_pages,
+        "prepared_count": prepared_count,
+        "ocr_required_count": ocr_required_count,
+        "failed_count": failed_count,
+        "folders": folders_report,
+    }
+    write_json_report(report_path, report)
+    summary = {
+        "action": "run-laws-tranche-source-prep",
+        "run_id": run_id,
+        "execute": True,
+        "phase_11_gate": "gated",
+        "tranche_id": tranche_id,
+        "candidate_law_folder_count": len(folders_report),
+        "raw_file_count": sum(folder["raw_file_count"] for folder in folders_report),
+        "supported_direct_input_count": sum(folder["supported_direct_input_count"] for folder in folders_report),
+        "prepared_count": prepared_count,
+        "ocr_required_count": ocr_required_count,
+        "failed_count": failed_count,
+        "report_path": _relative(report_path, repo_root),
+    }
+    print(json.dumps(summary, indent=2))
+    return 0 if failed_count == 0 else 1

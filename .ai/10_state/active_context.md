@@ -55,6 +55,14 @@
     - `raw_file_count = 6`
     - `supported_direct_input_count = 6`
     - `refined_markdown_ready_count = 0`
+- Tranche source-preparation execute slice:
+  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -q`
+  - **12 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-prep --tranche-manifest config/datasets/laws-tranche-1.yaml` passes
+  - current tranche-1 execute evidence:
+    - `prepared_count = 5`
+    - `ocr_required_count = 1`
+    - `failed_count = 0`
 
 ## Residual Graph Caveat
 
@@ -74,6 +82,7 @@
 - Latest all-laws readiness validation: `/.ai/05_logs/2026-04-17_all-laws-readiness-8gb-implementation-validation.md`
 - Latest tranche-expansion validation: `/.ai/05_logs/2026-04-17_laws-tranche-expansion-implementation-validation.md`
 - Latest tranche source-preparation validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-dry-run-validation.md`
+- Latest tranche source-preparation execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-implementation-validation.md`
 
 ## Handoff Note
 

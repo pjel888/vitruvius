@@ -1,0 +1,119 @@
+{
+  "action": "run-laws-tranche-source-prep",
+  "execute": true,
+  "failed_count": 0,
+  "folders": [
+    {
+      "candidate_reason": "Housing and subdivision development baseline cited by BP-220.",
+      "failed_count": 0,
+      "file_reports": [
+        {
+          "convert_output": "Apr 17, 2026 10:28:20 AM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).pdf\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 34\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: pedrosantosjr\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: BP 220\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:20150517214152+08'00'\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:20150517214152+08'00'\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 34 pages with 8 threads\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:25 AM org.apache.pdfbox.pdmodel.font.PDType1Font <init>\nWARNING: Using fallback font Helvetica-Bold for Archer Bold\nApr 17, 2026 10:28:25 AM org.apache.pdfbox.pdmodel.font.PDType1Font <init>\nWARNING: Using fallback font Helvetica for Archer Medium\nApr 17, 2026 10:28:25 AM org.apache.pdfbox.pdmodel.font.PDType1Font <init>\nWARNING: Using fallback font Helvetica-Bold for Aleo,Bold\nApr 17, 2026 10:28:26 AM org.apache.pdfbox.pdmodel.font.PDType1Font <init>\nWARNING: Using fallback font Helvetica for Aleo\nApr 17, 2026 10:28:27 AM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpt7os46u8/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).json\nApr 17, 2026 10:28:27 AM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpt7os46u8/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "status": "prepared",
+          "supported_direct_input": true
+        },
+        {
+          "convert_output": "Apr 17, 2026 10:28:29 AM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 68\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: Valued Acer Customer\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: null\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:20130306143207+08'00'\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:20130306143207+08'00'\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 68 pages with 8 threads\nApr 17, 2026 10:28:33 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:33 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:33 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:33 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:34 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:34 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:34 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:34 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:34 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:38 AM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmp4jpnsz8v/PD 957 - Subdivision _ Condominium Buyer_s Act.json\nApr 17, 2026 10:28:38 AM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmp4jpnsz8v/PD 957 - Subdivision _ Condominium Buyer_s Act.md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "status": "prepared",
+          "supported_direct_input": true
+        },
+        {
+          "convert_output": "Apr 17, 2026 10:28:40 AM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 68\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: Valued Acer Customer\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: null\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:20130306143207+08'00'\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:20130306143207+08'00'\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 68 pages with 8 threads\nApr 17, 2026 10:28:44 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:44 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:44 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:44 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:45 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:45 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:45 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:45 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:45 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:50 AM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpwp7tfztk/PD 957 - Subdivision and Condominium Buyers Protective Decree.json\nApr 17, 2026 10:28:50 AM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpwp7tfztk/PD 957 - Subdivision and Condominium Buyers Protective Decree.md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "status": "prepared",
+          "supported_direct_input": true
+        },
+        {
+          "convert_output": "Apr 17, 2026 10:28:52 AM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf\nApr 17, 2026 10:28:54 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 68\nApr 17, 2026 10:28:54 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: Valued Acer Customer\nApr 17, 2026 10:28:54 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: null\nApr 17, 2026 10:28:54 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:20130306143207+08'00'\nApr 17, 2026 10:28:54 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:20130306143207+08'00'\nApr 17, 2026 10:28:54 AM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 68 pages with 8 threads\nApr 17, 2026 10:28:56 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:56 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:56 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:56 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:57 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:57 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:57 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:57 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:57 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:29:02 AM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpszz8hmoo/PD 957 IRR - Subdivision and Condominium IRR.json\nApr 17, 2026 10:29:02 AM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpszz8hmoo/PD 957 IRR - Subdivision and Condominium IRR.md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 IRR - Subdivision and Condominium IRR.json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 IRR - Subdivision and Condominium IRR.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "status": "prepared",
+          "supported_direct_input": true
+        }
+      ],
+      "folder_name": "PD-957",
+      "ocr_required_count": 0,
+      "prepared_count": 4,
+      "raw_file_count": 4,
+      "raw_root_present": true,
+      "supported_direct_input_count": 4
+    },
+    {
+      "candidate_reason": "Open-space / subdivision-standards baseline cited by BP-220.",
+      "failed_count": 0,
+      "file_reports": [
+        {
+          "detection_result": "LIKELY_SCANNED_PDF",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.pdf",
+          "recommended_route": "OCR_FIRST_THEN_OPENDATALOADER",
+          "status": "ocr_required",
+          "supported_direct_input": true
+        }
+      ],
+      "folder_name": "PD-1216",
+      "ocr_required_count": 1,
+      "prepared_count": 0,
+      "raw_file_count": 1,
+      "raw_root_present": true,
+      "supported_direct_input_count": 1
+    },
+    {
+      "candidate_reason": "Fire-code adjacency cited by BP-220 and relevant to safety overlap.",
+      "failed_count": 0,
+      "file_reports": [
+        {
+          "convert_output": "Apr 17, 2026 10:29:04 AM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-1185/PD 1185 - Fire Code of the Philippines 1977.pdf\nApr 17, 2026 10:29:06 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 13\nApr 17, 2026 10:29:06 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: admin\nApr 17, 2026 10:29:06 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: Microsoft Word - PD 1185 _1977_.doc\nApr 17, 2026 10:29:06 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:20080609074844\nApr 17, 2026 10:29:06 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:20080609074844\nApr 17, 2026 10:29:06 AM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 13 pages with 8 threads\nApr 17, 2026 10:29:07 AM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmprbv3cbbz/PD 1185 - Fire Code of the Philippines 1977.json\nApr 17, 2026 10:29:07 AM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmprbv3cbbz/PD 1185 - Fire Code of the Philippines 1977.md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-1185/PD 1185 - Fire Code of the Philippines 1977.pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-1185/PD 1185 - Fire Code of the Philippines 1977.md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-1185/PD 1185 - Fire Code of the Philippines 1977.json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-1185/PD 1185 - Fire Code of the Philippines 1977.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1185/PD 1185 - Fire Code of the Philippines 1977.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-1185/PD 1185 - Fire Code of the Philippines 1977.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-1185/PD 1185 - Fire Code of the Philippines 1977.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "status": "prepared",
+          "supported_direct_input": true
+        }
+      ],
+      "folder_name": "PD-1185",
+      "ocr_required_count": 0,
+      "prepared_count": 1,
+      "raw_file_count": 1,
+      "raw_root_present": true,
+      "supported_direct_input_count": 1
+    }
+  ],
+  "generated_at_utc": "20260417T022907Z",
+  "ocr_required_count": 1,
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "prepared_count": 5,
+  "run_id": "20260417T022819Z",
+  "sample_pages": 5,
+  "tranche_id": "laws-tranche-1",
+  "tranche_manifest_path": "config/datasets/laws-tranche-1.yaml"
+}
