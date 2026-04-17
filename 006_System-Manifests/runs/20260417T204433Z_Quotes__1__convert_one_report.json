@@ -1,0 +1,13 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-17T20:44:33.136607+00:00",
+  "source_relative_path": "003-Theory/Quotes (1).pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/003-Theory/Quotes (1).pdf",
+  "detection_result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/003-Theory/raw_markdown/Quotes (1).md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/003-Theory/sidecar_json/Quotes (1).json",
+  "markdown_output_relative": "003-Theory/raw_markdown/Quotes (1).md",
+  "json_output_relative": "003-Theory/sidecar_json/Quotes (1).json",
+  "status": "converted"
+}

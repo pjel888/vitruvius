@@ -1,7 +1,7 @@
 profiles:
 - family: history
   profile: config/datasets/history-mvp-profile.yaml
-  status: scaffolded
+  status: ready
   note: History family MVP graph profile.
 - family: laws
   profile: config/datasets/laws-mvp-profile.yaml
@@ -11,3 +11,7 @@ profiles:
   profile: config/datasets/laws-demo-profile.yaml
   status: demo
   note: Reusable demo onboarding family derived from the laws MVP ledgers.
+- family: theory
+  profile: config/datasets/theory-mvp-profile.yaml
+  status: ready
+  note: Theory family MVP graph profile.

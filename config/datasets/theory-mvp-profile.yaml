@@ -1,0 +1,8 @@
+dataset_id: theory-aggregate
+dataset_kind: theory-aggregate
+completed_ledger: config/datasets/theory-completed-lanes.yaml
+manifest_index: config/datasets/theory-manifest-index.yaml
+out_manifest: 006_System-Manifests/runs/datasets/theory-aggregate/latest_dataset_manifest.yaml
+graph_output_root: 005_Operational-Intelligence-Layer/graph/datasets/theory-aggregate
+run_output_root: 006_System-Manifests/runs/datasets/theory-aggregate
+query_snapshot_template: 005_Operational-Intelligence-Layer/graph/datasets/theory-aggregate/{run_id}_graph_snapshot.json

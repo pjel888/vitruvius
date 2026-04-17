@@ -1,0 +1,9 @@
+Vitruvius Convert One Report
+
+Source: 003-Theory/Quotes (1).pdf
+Detection result: TEXT_PDF
+Recommended route: OPENDATALOADER_DIRECT
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/003-Theory/raw_markdown/Quotes (1).md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/003-Theory/sidecar_json/Quotes (1).json
+
+STATUS: converted

@@ -16,3 +16,17 @@ rules:
     relationships: {}
     core_concepts:
     - architectural history
+- name: Scaffolded handout rule for Quotes (1)
+  match:
+    all_contains:
+    - quotes
+  classification:
+    source_type: handout
+    trust_level: secondary
+  canonical:
+    title: Quotes (1)
+    aliases:
+    - Quotes (1)
+    relationships: {}
+    core_concepts:
+    - architectural theory

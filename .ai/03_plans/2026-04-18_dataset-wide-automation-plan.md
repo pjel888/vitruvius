@@ -64,9 +64,14 @@ status: in_progress
   - one admitted lane
   - `ready_to_run = true`
   - aggregate graph execute reached `2 nodes / 1 edge`
+- second true non-laws family proof is now in place:
+  - `theory`
+  - one admitted lane
+  - `ready_to_run = true`
+  - aggregate graph execute reached `2 nodes / 1 edge`
 
 ## Current next step
-- harden the non-laws family path beyond the first history proof
+- harden the non-laws family path beyond the first two non-laws proofs
 - either:
-  - onboard a second true non-laws family, or
+  - onboard a third true non-laws family, or
   - reduce bootstrap artifacts by adding reviewed promotion paths for generated rules/concepts/relationships

@@ -335,6 +335,12 @@ Or explicitly by profile:
     - `history-20th-century-architects-2`
   - current graph evidence:
     - `2 nodes / 1 edge`
+- `theory`
+  - second non-laws MVP proof family
+  - current proof lane:
+    - `theory-toa-1-intro`
+  - current graph evidence:
+    - `2 nodes / 1 edge`
 
 ## Integrity boundary
 This operator path is for the completed trusted subset of a dataset family.
