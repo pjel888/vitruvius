@@ -471,6 +471,17 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - graph snapshot: `3 nodes / 3 edges`
     - the wider LGU lane remains open because more city/family shards still remain after San Mateo, Dagupan, Malolos, Meycauayan, Davao, Tarlac, and ordinance-2117
     - see `/.ai/05_logs/2026-04-18_laws-tranche-15-ordinance-2117-validation.md`
+  - the eighth LGU shard now executes cleanly on the OCR-first Pasay ordinance slice:
+    - manifest: `config/datasets/laws-tranche-15-pasay.yaml`
+    - current execute evidence:
+      - `staged_law_folders = [LGU]`
+      - `duplicate_law_folders = []`
+      - `generated_relationship_count = 1`
+      - `spot_review_required_count = 1`
+      - `shallow_representation_count = 0`
+      - graph snapshot: `6 nodes / 5 edges`
+    - Pasay remains explicitly review-sensitive because the shard required OCR-first prep and still carries a summary-withheld path
+    - see `/.ai/05_logs/2026-04-18_laws-tranche-15-pasay-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

@@ -495,3 +495,11 @@ def test_build_plan_matches_qc_cbd_zoning_ordinance_rule() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_pasay_zoning_ordinance_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/LGU/579259927-ZONING-ORDINANCE-PASAY.md')
+    assert plan['title'] == 'Pasay City Zoning Ordinance of 2003'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'

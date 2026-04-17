@@ -32,6 +32,7 @@
     - Davao city CLUP / zoning deck
     - Tarlac city zoning ordinance
     - Quezon City ordinance no. 2117 / QC-CBD zoning ordinance
+    - Pasay City zoning ordinance of 2003
   - remaining blocker: the wider LGU lane still needs additional city/family shards beyond San Mateo
 
 ## Remediation / defer lanes

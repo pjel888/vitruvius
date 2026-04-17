@@ -1454,6 +1454,29 @@ rules:
         - "Ordinance No. SP-2117, S-2011"
 
   # --------------------------------------------------
+  # Pasay City Zoning Ordinance of 2003
+  # --------------------------------------------------
+  - name: "Pasay City Zoning Ordinance of 2003"
+
+    match:
+      any_contains:
+        - "zoning-ordinance-pasay"
+        - "pasay city zoning ordinance of 2003"
+        - "a zoning ordinance (zo) for the city of pasay"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Pasay City Zoning Ordinance of 2003"
+
+      aliases:
+        - "Pasay City Zoning Ordinance"
+        - "Zoning Ordinance for the City of Pasay"
+
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

@@ -1,0 +1,12 @@
+Section-Aware Relationship Extraction
+
+Sections: 48
+Unique relationships: 7
+
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-setbacks (x1) sections=['section-20']
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-yards (x1) sections=['section-26']
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-floor-area (x5) sections=['section-42', 'section-64']
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-certificate-of-occupancy (x2) sections=['section-64']
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-building-permit (x1) sections=['section-68']
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-comprehensive-land-use-plan (x2) sections=['section-74']
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-floor-area-ratio (x4) sections=['section-90']

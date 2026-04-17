@@ -1,13 +1,13 @@
 {
   "project": "Vitruvius",
-  "generated_at_utc": "2026-04-17T17:06:28.439318+00:00",
-  "source_relative_path": "001-Laws/LGU/437459910-Ordinance-No-2117.pdf",
-  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/437459910-Ordinance-No-2117.pdf",
+  "generated_at_utc": "2026-04-17T17:14:39.437016+00:00",
+  "source_relative_path": "001-Laws/LGU/592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa.pdf",
   "detection_result": "TEXT_PDF",
   "recommended_route": "OPENDATALOADER_DIRECT",
-  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/437459910-Ordinance-No-2117.md",
-  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/437459910-Ordinance-No-2117.json",
-  "markdown_output_relative": "001-Laws/raw_markdown/LGU/437459910-Ordinance-No-2117.md",
-  "json_output_relative": "001-Laws/sidecar_json/LGU/437459910-Ordinance-No-2117.json",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/LGU/592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/LGU/592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa.json",
+  "markdown_output_relative": "001-Laws/raw_markdown/LGU/592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa.md",
+  "json_output_relative": "001-Laws/sidecar_json/LGU/592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa.json",
   "status": "converted"
 }
