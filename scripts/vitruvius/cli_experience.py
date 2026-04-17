@@ -194,6 +194,16 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         next_step="Use the readiness report to create research/audit/plan artifacts and keep generic Phase 11 expansion gated until a new accepted slice exists.",
         operator_safe=False,
     ),
+    "run-laws-tranche-dry-run": _doc(
+        "run-laws-tranche-dry-run",
+        "Inspect a bounded tranche manifest with dry-run-only source-quality and shallowness guardrails.",
+        human="This is the safe tranche rehearsal lane after readiness. It runs the bounded source-to-graph pipeline in dry-run mode against a tranche manifest, resolves the requested 8GB-safe preset, and reports extraction difficulty plus structure-vs-concept shallowness without executing review, promotion, graph, or browser steps.",
+        technical="Delegates to `run-dataset-source-to-graph` with `--dry-run`, disables OWL export, and emits per-source quality plus representation guardrail summaries for the selected tranche manifest.",
+        success="A healthy result writes a tranche-local dry-run report that shows planned stages, benchmark hints, manual-review pressure, and any shallow concept coverage that must be fixed before widening or executing.",
+        failure="The tranche manifest is invalid or the dry-run inspection could not resolve admitted anchors and source-quality inputs, so the tranche is not ready for safe execution.",
+        next_step="Use the tranche dry-run report to tighten concept coverage and tranche manifests while keeping generic Phase 11 expansion gated.",
+        operator_safe=False,
+    ),
     "detect-one": _doc(
         "detect-one",
         "Classify one PDF as text-usable or scan-like before conversion.",
