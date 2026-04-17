@@ -4,7 +4,7 @@ title: National Cultural Heritage Act of 2009
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T11:07:04.453815+00:00
+last_canonicalized_utc: 2026-04-17T13:10:17.371231+00:00
 aliases:
   - RA 10066
   - Republic Act No. 10066
@@ -53,4 +53,6 @@ Begun and held in Metro Manila, on Monday, the twenty-seventh day of July, two t
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-adaptive-reuse
+- concept-built-heritage
+- concept-heritage-zone

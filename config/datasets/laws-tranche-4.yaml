@@ -66,9 +66,21 @@ candidate_law_folders:
   source_admission_guardrails: []
   verification_checks:
   - source admission executed for the selected authoritative prepared variants
+  - RA-10066 concept-fit slice admits cultural-heritage concepts and dataset-scoped
+    governs relationships only.
   scope_notes:
   - Source admission is intentionally conservative and admits only selected authoritative
     prepared variants.
+  - RA-10066 concept-fit slice admits cultural-heritage concepts and dataset-scoped
+    governs relationships only.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/adaptive-reuse.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/built-heritage.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/heritage-zone.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-4/concept-slice-ra10066/relationships/rel-law-national-cultural-heritage-act-of-2009-governs-concept-adaptive-reuse.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-4/concept-slice-ra10066/relationships/rel-law-national-cultural-heritage-act-of-2009-governs-concept-built-heritage.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-4/concept-slice-ra10066/relationships/rel-law-national-cultural-heritage-act-of-2009-governs-concept-heritage-zone.md
 source_admission:
   last_run_id: 20260417T110704Z
   last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-4/20260417T110704Z/laws_tranche_source_admission_report.json

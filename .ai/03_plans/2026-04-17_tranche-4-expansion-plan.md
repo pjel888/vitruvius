@@ -1,7 +1,7 @@
 ---
 task: laws-tranche-4-expansion
 created: 2026-04-17
-status: in_progress
+status: complete
 ---
 
 # Plan — Tranche-4 expansion

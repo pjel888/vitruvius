@@ -227,13 +227,21 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - current execute evidence:
       - `staged_law_folders = [PD-1517, RA-6969, RA-10066]`
       - `duplicate_law_folders = []`
-      - `generated_relationship_count = 0`
+      - `generated_relationship_count = 1`
       - `spot_review_required_count = 1`
-      - `shallow_representation_count = 1`
+      - `shallow_representation_count = 0`
       - `source_to_graph_execute_completed = true`
-    - current truthful next richness target inside tranche-4 is `RA-10066`
+    - bounded `RA-10066` cultural-heritage concept-fit follow-on is now admitted:
+      - concepts:
+        - `adaptive-reuse`
+        - `built-heritage`
+        - `heritage-zone`
+      - fresh tranche-4 execute graph moves from:
+        - `3 nodes / 0 edges`
+        - to `6 nodes / 7 edges`
     - see `/.ai/05_logs/2026-04-17_laws-tranche-4-execution-validation.md`
     - see `/.ai/05_logs/2026-04-17_tranche-4-scouting-validation.md`
+    - see `/.ai/05_logs/2026-04-17_ra10066-cultural-heritage-concept-fit-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

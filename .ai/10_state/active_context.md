@@ -240,13 +240,23 @@
   - current tranche-4 execute evidence:
     - `staged_law_folders = [PD-1517, RA-6969, RA-10066]`
     - `duplicate_law_folders = []`
-    - `generated_relationship_count = 0`
+    - `generated_relationship_count = 1`
     - `spot_review_required_count = 1`
     - `summary_auto_withheld_count = 1`
-    - `shallow_representation_count = 1`
+    - `shallow_representation_count = 0`
     - `source_to_graph_execute_completed = true`
-  - next bounded richness target:
-    - `RA-10066`
+- RA-10066 tranche-4 richness follow-on:
+  - admitted concepts:
+    - `concept-adaptive-reuse`
+    - `concept-built-heritage`
+    - `concept-heritage-zone`
+  - admitted dataset-scoped relationships:
+    - `law-national-cultural-heritage-act-of-2009 governs concept-adaptive-reuse`
+    - `law-national-cultural-heritage-act-of-2009 governs concept-built-heritage`
+    - `law-national-cultural-heritage-act-of-2009 governs concept-heritage-zone`
+  - fresh tranche-4 execute graph improves from:
+    - `3 nodes / 0 edges`
+    - to `6 nodes / 7 edges`
 
 ## Residual Graph Caveat
 
@@ -284,6 +294,7 @@
 - Latest PD-1067 tranche-3 richness validation: `/.ai/05_logs/2026-04-17_pd1067-water-governance-concept-fit-validation.md`
 - Latest tranche-4 scouting validation: `/.ai/05_logs/2026-04-17_tranche-4-scouting-validation.md`
 - Latest tranche-4 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-4-execution-validation.md`
+- Latest RA-10066 tranche-4 richness validation: `/.ai/05_logs/2026-04-17_ra10066-cultural-heritage-concept-fit-validation.md`
 
 ## Handoff Note
 

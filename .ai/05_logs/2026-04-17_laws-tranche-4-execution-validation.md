@@ -39,3 +39,13 @@
 - `RA-10066` is the current richest next follow-on target because it is both:
   - `accepted_with_spot_review`
   - `shallow_representation`
+
+## Updated tranche-4 richness follow-on
+- bounded `RA-10066` cultural-heritage concept-fit slice admitted three new shared concepts and three dataset-scoped relationships
+- refreshed execute evidence:
+  - `staged_law_folders = [PD-1517, RA-6969, RA-10066]`
+  - `generated_relationship_count = 1`
+  - `spot_review_required_count = 1`
+  - `shallow_representation_count = 0`
+  - graph snapshot: `6 nodes / 7 edges`
+- see `/.ai/05_logs/2026-04-17_ra10066-cultural-heritage-concept-fit-validation.md`
