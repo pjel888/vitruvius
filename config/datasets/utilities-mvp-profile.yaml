@@ -1,0 +1,8 @@
+dataset_id: utilities-aggregate
+dataset_kind: utilities-aggregate
+completed_ledger: config/datasets/utilities-completed-lanes.yaml
+manifest_index: config/datasets/utilities-manifest-index.yaml
+out_manifest: 006_System-Manifests/runs/datasets/utilities-aggregate/latest_dataset_manifest.yaml
+graph_output_root: 005_Operational-Intelligence-Layer/graph/datasets/utilities-aggregate
+run_output_root: 006_System-Manifests/runs/datasets/utilities-aggregate
+query_snapshot_template: 005_Operational-Intelligence-Layer/graph/datasets/utilities-aggregate/{run_id}_graph_snapshot.json

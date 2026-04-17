@@ -1,0 +1,2099 @@
+{
+  "file name" : "ARC Building Utilities Terms.pdf",
+  "number of pages" : 11,
+  "author" : "DD.COM. RENTAL",
+  "title" : "ELECTRICAL TERMS",
+  "creation date" : "D:20260413092545+08'00'",
+  "modification date" : "D:20260413092546+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 3,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 243.48, 692.444, 368.472, 705.733 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "ELECTRICAL TERMS"
+  }, {
+    "type" : "paragraph",
+    "id" : 4,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 669.362, 492.724, 680.392 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "ELECTRICITY - IS THE FLOW OF ELECTRONS; IS A NAME GIVEN TO THE CAUSE OF"
+  }, {
+    "type" : "paragraph",
+    "id" : 5,
+    "page number" : 1,
+    "bounding box" : [ 89.99, 600.339, 448.514, 668.988 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "ELECTRIC PHENOMENA OR MANIFESTATION. WILLIAM GILBERT - FATHER OF ELECTRICITY. PROTON - POSSITIVELY CHARGED PARTICLES. ELECTRON - NEGATIVE CHARGE NEUTRON - NOT ELECTRICALLY CHARGED IONS - TERM APPLIED TO AN ATOM OR MOLECULES W/C IS NOT"
+  }, {
+    "type" : "paragraph",
+    "id" : 6,
+    "page number" : 1,
+    "bounding box" : [ 177.548, 577.411, 520.129, 599.965 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "ELECTRICALLY BALANCE (THERE IS A LOSS OR GAIN OF ONE OR MORE ELECTRONS)."
+  }, {
+    "type" : "paragraph",
+    "id" : 7,
+    "page number" : 1,
+    "bounding box" : [ 89.98, 554.364, 492.08, 576.917 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "VOLTAGE - IS THE ELECTRICAL PRESSURE THAT CAUSES THE ELECTRONS TO MOVE THRU A CONDUCTOR ."
+  }, {
+    "type" : "paragraph",
+    "id" : 8,
+    "page number" : 1,
+    "bounding box" : [ 89.97, 519.912, 510.777, 553.87 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "VOLTS - UNIT OF ELECT’L POTENTIAL; SMALL UNIT OF POWER IN ELECTRIC CURRENT; ELECTROMAGNETIC FORCE FLOOWING THE POSITIVE AND NEGATIVE TEMINAL; UNIT OF EMF."
+  }, {
+    "type" : "paragraph",
+    "id" : 9,
+    "page number" : 1,
+    "bounding box" : [ 89.95, 485.341, 501.266, 519.418 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "EMF - THE FORCE THAT MAKES ELECTRONS MOVE IN A CIRCUIT. AMPERAGE - THEFLOW OF ELECTRIC CURRENT IN A CIRCUIT, EXPRESSED IN AMP. AMPERE - A UNIT OF THE RATE OF FLOW OF ELECTRIC CURRENT (AN EMT OF 1"
+  }, {
+    "type" : "paragraph",
+    "id" : 10,
+    "page number" : 1,
+    "bounding box" : [ 172.588, 462.413, 510.575, 484.847 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "VOLT ACROSS A RESISTANCE OF 1 OHM RESULTS IN A CURRENT FLOW OF 1 AMP) UNIT OF MEASURING ELECTRIC CURRENT."
+  }, {
+    "type" : "paragraph",
+    "id" : 11,
+    "page number" : 1,
+    "bounding box" : [ 89.93, 427.842, 517.56, 461.919 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CURRRENT - THE FLOW OF ELECTRICITY IN AIRCUIT; RATE OF W/C ELECTRICITY FLOWS THRU A CODUCTOR . RESISTANCE - THE OPPOSITION OR FRICTION TO THE FLOW OF CURRENT (RECIPROCAL"
+  }, {
+    "type" : "paragraph",
+    "id" : 12,
+    "page number" : 1,
+    "bounding box" : [ 89.92, 370.343, 438.244, 427.348 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "OF ELECTRICCAL CONDUCTANCE.) OHM - UNIT OF ELECTRICAL RESISTANCE. RESISTOR - CONTROL THE FLOW OF CURRENT IN ELECT’L CIRCUIT. CAPACITOR - STORE ELECTRIC BATTERY . REOSTAT - CONTROL INTENSITY OF CURRENT FLOW ."
+  }, {
+    "type" : "paragraph",
+    "id" : 13,
+    "page number" : 1,
+    "bounding box" : [ 89.91, 347.295, 497.27, 358.325 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "OHM’S LAW (GEORGE SIMON OHM’S) - RELATION BETWEEN PRESSURE CURRRENT"
+  }, {
+    "type" : "paragraph",
+    "id" : 14,
+    "page number" : 1,
+    "bounding box" : [ 282.473, 335.772, 355.67, 346.801 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "& RESISTANCE."
+  }, {
+    "type" : "paragraph",
+    "id" : 15,
+    "page number" : 1,
+    "bounding box" : [ 89.91, 301.32, 256.656, 335.397 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "I = CURRENT (AMP) V = EMP (VOLT) RESISTANCE = RESISTANCE (OHM)"
+  }, {
+    "type" : "paragraph",
+    "id" : 16,
+    "page number" : 1,
+    "bounding box" : [ 89.9, 243.821, 511.947, 289.302 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "BATTERY – A DEVICE CONSISTING OF SEVERAL CELLS CONNECTED TOGETHER & GENERATE EMF BY CHEMICAL ACTION. REGULATOR – A DEVICE USED TO REGULATE THE FLOW OF ELECTRICITY; CONTROLS THE FLOW OF CURRENT TO THE DISTRIBUTION ELEMENTS."
+  }, {
+    "type" : "paragraph",
+    "id" : 17,
+    "page number" : 1,
+    "bounding box" : [ 89.89, 209.25, 505.898, 243.327 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "ANNUNCIATOR – A SIGNALING DEVICE, USSUALLY ELECTRICALLY OPERATED, GIVING AN AUDIBLE SIGNAL & A VISUAL INDICATION WHEN ENERGIZED BY PRESSING A BUTTON."
+  }, {
+    "type" : "paragraph",
+    "id" : 18,
+    "page number" : 1,
+    "bounding box" : [ 89.89, 186.322, 506.478, 197.352 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CIRCUIT – THE ELECTRICAL PATH ; REFERS TO THE WIRE INSTALLATION IN THE"
+  }, {
+    "type" : "paragraph",
+    "id" : 19,
+    "page number" : 1,
+    "bounding box" : [ 89.89, 163.274, 417.213, 185.828 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "HOUSES THAT SUPPLIES CURRENT TO LIGHT & C.O. TYPES:"
+  }, {
+    "type" : "list",
+    "id" : 20,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 107.878, 128.823, 484.139, 162.781 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 107.888, 140.227, 484.139, 162.781 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. SERIES CKT – A CIRCUIT W/C SUPPLIES ELECTRIC POWER TO A NUMBER OF DEVICES CONNECTED; METHOD OF CONNECTING LAMP.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 107.878, 128.823, 380.638, 139.853 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. PARALLEL CKT – ELECTRICAL WIRING CONNECTION;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 21,
+    "page number" : 1,
+    "bounding box" : [ 89.88, 82.728, 500.257, 116.805 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SHORT CIRCUIT – HIGH CURRENT FLOW CAUSED BY AN ABNORMAL CONNECTION IN AN ELEC’L CKT; WILL OCCUR WHEN FAULTY APPLIANCES OR EXPOSED WIRES TOUCH A CONDUCTOR.(CONTACT OF 2 LIVE WIRES.)"
+  }, {
+    "type" : "paragraph",
+    "id" : 22,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 696.962, 507.516, 719.515 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CONDUCTOR – ARE SUBSTANCES THAT CARRIES OR ALLOWS THE FLOW OF ELECTRIC CURRENT; OFFERS LOW RESISTANCE TO THE FLOW OF ELEC’L CIRCUIT;"
+  }, {
+    "type" : "paragraph",
+    "id" : 23,
+    "page number" : 2,
+    "bounding box" : [ 89.99, 674.034, 499.216, 685.064 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "INSULATOR – SUBSTANCES THAT RESIST THE FLOW OF AN ELECTRIC CURRENT;"
+  }, {
+    "type" : "paragraph",
+    "id" : 24,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 650.986, 502.66, 673.54 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "MAT’L USED TO STOP THE TRANSFER OF ELECTRICITY OR HEAT. AMPACITY – THE ABILITY OF A CONDUCTOR TO CARRY ELECTRIC CURRENT W/O"
+  }, {
+    "type" : "paragraph",
+    "id" : 25,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 593.487, 507.932, 650.493 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "OVERHEATING; IS A CURRENT CARRYING CAPACITY. FEEDER – IS A CIRCUIT CONDUCTOR BET. THE SERVICE EQUIP’T & THE BRANCH CIRCUIT OVER CURRENT DEVICE. JUMPER – A PIECE OF METAL OR AN ELEC’L CONDUCTOR USSED TO BYPASS AN"
+  }, {
+    "type" : "paragraph",
+    "id" : 26,
+    "page number" : 2,
+    "bounding box" : [ 89.98, 512.941, 489.814, 592.994 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "ELECTRICAL DEVICE IN AN ELEC’L SYSTEM. COPPER – ELECTRIC WIRE SILVER – BEST CONDUCTOR OF ELECTRICITY LEAD – POOREST CONDUCTOR OF ELECTRICITY CORD – TERM GIVEN TO AN INSULATED WIRE WIRES – AKA - CONDUCTOR WIRE – A FILAMEBNT OR SLENDER ROD OF DRAWN METAL (AWG#8 OR A"
+  }, {
+    "type" : "paragraph",
+    "id" : 27,
+    "page number" : 2,
+    "bounding box" : [ 177.538, 501.417, 227.445, 512.447 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SMALLER)"
+  }, {
+    "type" : "paragraph",
+    "id" : 28,
+    "page number" : 2,
+    "bounding box" : [ 89.97, 466.966, 511.887, 500.923 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CABLE – LARGER THAN WIRE; AN ELECTRIC CONDUCTOR CONSISTING OF A GROUP OF A SMALLER –DIAMETER CONDUCTOR STRANDS TWISTED TOGETHER."
+  }, {
+    "type" : "paragraph",
+    "id" : 29,
+    "page number" : 2,
+    "bounding box" : [ 89.97, 420.99, 510.676, 466.472 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CONDUIT – A TUBE OR PIPE USSED TO PROTECT ELECTRIC WIRING; IS A PIPE CONTAINING THE WIRES; A STEEL OR NON- METALIC PIPE INTO W/C CABLES ARE DRAWNS ; PROTECT ELEC’L WIRING; PIPE COMMONLY USED AS ELECTRICAL RACEWAY FOR HODING WIRES."
+  }, {
+    "type" : "paragraph",
+    "id" : 30,
+    "page number" : 2,
+    "bounding box" : [ 89.96, 386.419, 473.889, 420.496 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "RACEWAY – ARE CHANNELS DESIGNED FOR HOLDINGS WIRES, CABLES OR BUSBARS, W/C ARE EITHER MADE OF METAL OR INSULATING MATERIAL"
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "page number" : 2,
+    "bounding box" : [ 89.96, 374.895, 491.66, 385.925 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "BUSBAR – A RIGID ELEC’L CONDUCTOR, USUALLY A METAL BAR, HOLLOW"
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 2,
+    "bounding box" : [ 89.96, 340.444, 512.975, 374.401 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "TUBE, OR ROD, W/C FORMS A CONNECTION BET. ELEC’L CIRCUITS. RIGID CONDUIT – ELECTRICAAL ROUGH – IN. CABLE TRAY – ASSEMBLY OF METAL WORKS W/C IS USED TO SUPPORT INSULATED"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 2,
+    "bounding box" : [ 175.008, 305.872, 509.245, 339.95 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "ELEC’L CONDUCTORS, SIMILAR IN FUNCTION TO AMETAL CABLE DUCTS BUT CONSISTING AF A LADDER LIKE METAL FRAME WORK ON THE BOTTOM & SIDE W/ THE TOP OPEN."
+  }, {
+    "type" : "paragraph",
+    "id" : 34,
+    "page number" : 2,
+    "bounding box" : [ 89.96, 271.421, 520.116, 305.379 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "OUTLETS – POINTS IN THE WIRING SYSTEM AT W/C CURRENT IS TAKEN TO SUPPLY UTILIZATION EQUIPMENT; AN OUTLET IS ANY POINT THAT SUPPLIES AN ELECTRIC ROD."
+  }, {
+    "type" : "heading",
+    "id" : 35,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 89.95, 248.373, 124.829, 259.403 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "KINDS:"
+  }, {
+    "type" : "list",
+    "id" : 36,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 107.938, 213.922, 500.902, 247.88 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 107.948, 236.85, 147.279, 247.88 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. C. O.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 107.948, 225.445, 455.33, 236.475 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. L.O. – INTENDED FOR DIRECT CONNECTION OF A LIGHTING FIXTURE.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 107.938, 213.922, 500.902, 224.952 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. RECEPTACLE OUTLET – WHERE ONE OR MORE RECEPTACLES ARE INSTALLED.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 37,
+    "page number" : 2,
+    "bounding box" : [ 89.94, 202.398, 518.196, 213.428 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "RECEPTACLE – CONTACT DEVICES INSTALLED AT THE OUTLET FOR THE CONNECTION"
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 2,
+    "bounding box" : [ 89.93, 167.827, 504.269, 201.904 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "OF A SINGLE ATTACHMENT PLUG. SWITCH – DEVICE W/ SERVES TO OPEN OR CLOSE THE ELECTRIC CIRCUIT. JUNCTION BOX – MASTER & SLAVE STATION; A BOX W/ BANK COVER W/C SERVES THE"
+  }, {
+    "type" : "paragraph",
+    "id" : 39,
+    "page number" : 2,
+    "bounding box" : [ 137.539, 133.375, 504.063, 167.453 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "PURPOSE OF JOINING DIFF RUNS OF RACEWAY OR CABLE, & PROVIDED W/ SUFFICIENT SPACE FOR CONNECTION & BRANCHING OF THE ENCLOSED CIRCUIT."
+  }, {
+    "type" : "paragraph",
+    "id" : 40,
+    "page number" : 2,
+    "bounding box" : [ 89.93, 121.852, 508.787, 132.881 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "PULL BOX – A BOX W/ BLANK COVER W/C IS INSERTED IN ONE OR MORE RUNS OR"
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "page number" : 2,
+    "bounding box" : [ 89.93, 87.606, 509.593, 121.358 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "RACEWAYS TO FACILITATE PULLING IN THE CONDUCTORS. (SAFETY) UTILITY BOX – BOX USED FOR MOUNTING LIGHT CONTROL. BRANCH CIRCUIT – THE CIRCUIT CONDUCTORS BET. THE FINAL OVERCURRENT DEVICE"
+  }, {
+    "type" : "paragraph",
+    "id" : 42,
+    "page number" : 2,
+    "bounding box" : [ 137.609, 76.082, 345.799, 87.112 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "PROTECTING THE CIRCUIT & THE OUTLETS."
+  }, {
+    "type" : "paragraph",
+    "id" : 43,
+    "page number" : 3,
+    "bounding box" : [ 90.0, 696.962, 509.384, 719.515 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "OVERCURRENT – ANY CURRENT IN EXCESS OF THE RATED CURRENT CAPACITY OF THE EQUIP’T OR THE RATED AMPACITY OF THE CONDUCTOR."
+  }, {
+    "type" : "paragraph",
+    "id" : 44,
+    "page number" : 3,
+    "bounding box" : [ 90.01, 616.535, 521.869, 650.493 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "PROTECTION FOR OVERCURRENT: SAFETY SWITCH – PROTECTS EQUIP’T & APPLIANCES IN CASE OF CURREBT FUNCTUATION CIRCUIT BREAKER – IS AN OVERCURRENT PROTECTIVE DEVICE (FUNCTION AS A SWITCH)"
+  }, {
+    "type" : "paragraph",
+    "id" : 45,
+    "page number" : 3,
+    "bounding box" : [ 90.01, 593.487, 504.87, 616.041 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "EQUIPPED W/ AN AUTOMATIC TRIPPING DEVICE TO PROTECT THE BRANCH CIRCUIT FROM OVERLOAD & GROUND FAULT; SAFETY MEASURE AGAINST TOO MUCH"
+  }, {
+    "type" : "paragraph",
+    "id" : 46,
+    "page number" : 3,
+    "bounding box" : [ 90.01, 443.918, 508.788, 592.994 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "PRESSURE. FUSE – OVERCURRENT DEVICE W/ A CIRCUIT OPENING FUSIBLE ELEMENT W/C OPENS WHEN THERE IS AN OVERCURRENT IN THE CKT. (RENEWABLE OR ONE TIME) FUSE – CONSIDERED AS THE SIMPLEST & MOST COMMON CKT PROTECTIVE DEVICE; CHEAPEST TYPE OF TIME AUTOMATIC CIRCUIT OPENING DEVICE. DISTRIBUTION PANEL – AN EQUIP’T AT THE SERVICE ENTRANCE THAT SEND THE ELECTRICITY THRU THE HOUSE W/ BRANCH CIRUIT. PANEL BOARD – A LARGE SINGLE PANEL, FRAME OR ASSEMBLY OF PANELS IN THE FORM OF SINGLE PANEL. SERVICE ENTRANCE – THE WIRE FROM THE MERALCO POLE TO THE POINT OF ATTACHMENT OF THE BLDG. ; UNDERGROUND. SERVICE DROP – WIRE FROM ENTRANCE CAP W/O MAIN SWITCH. ; OVERHEAD SERVICE"
+  }, {
+    "type" : "paragraph",
+    "id" : 47,
+    "page number" : 3,
+    "bounding box" : [ 90.03, 386.419, 505.811, 443.424 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CONDUCTOR BET. THE LAST POLE OR OTHER AERIAL SUPPORT. LOCKNUT & BUSHING – METAL CONDUIT INSTALLATION. ADAPTOR – PVC CONDUIT INSTALLATION. SOLENOID – COIL OF ELECTRIC WIRE SWITCH BOARD – A LARGE SINGLE ELECTRIC CONTROL PANEL, FRAME, OR ASSEMBLY"
+  }, {
+    "type" : "paragraph",
+    "id" : 48,
+    "page number" : 3,
+    "bounding box" : [ 90.0, 349.724, 515.152, 385.925 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "OF PANELS W/C ARE MOUNTED SWITCHES, PROTECTIVE DEVICES, BUSES,ETC. ELETRICAL SYSTEM OF A BUILDING (SYSTEM COMPONENTS)"
+  }, {
+    "type" : "list",
+    "id" : 49,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 107.968, 211.761, 323.33, 349.313 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 107.997, 303.712, 323.33, 349.313 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. WIRINGS – WIRES & CABLES FEE DER (BIGGER CABLE) ELECTRICAL RACEWAY (BIG) CONDUIT (SMALL)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 107.988, 280.665, 288.108, 291.695 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. POWER HANDLING EQUIPMEMR",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 2,
+        "level" : "2",
+        "page number" : 3,
+        "bounding box" : [ 143.973, 223.166, 238.296, 280.29 ],
+        "numbering style" : "english letters",
+        "number of list items" : 5,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 143.983, 269.26, 228.632, 280.29 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "a. TRNSFORMER",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 143.983, 257.737, 231.026, 268.767 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "b. CKT BREAKER",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 143.983, 246.213, 238.296, 257.243 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "c. SWITVH BOARD",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 143.983, 234.689, 209.968, 245.719 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "d. FUSE BOX",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 143.973, 223.166, 231.564, 234.196 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "e. PANEL BOARD",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 107.968, 211.761, 257.896, 222.791 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. UTILIZATION EQUIPMENT",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 50,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 143.963, 154.143, 478.828, 211.268 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 143.963, 200.238, 390.427, 211.268 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "a. APPLIANCE – CONSUMES ELECTRICAL ENERGY",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 143.963, 188.714, 388.99, 199.744 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "b. DEVICE – DOES NOT CONSUME ELEC’L ENERGY",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 143.963, 165.667, 478.828, 188.22 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "c. EQUIPMENT – MAT’LS, FITTING, DEVICES, APPLIANCES, FIXTURES, APPARATUS",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 143.963, 154.143, 294.655, 165.173 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "d. FITTINGS – AN ACCESSORY.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 51,
+    "page number" : 3,
+    "bounding box" : [ 89.96, 119.691, 509.031, 153.769 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CONDENSER – A DECVICE FOR STORING ELECTRICITY IN THE FORM OFELECTRIC CAHRGE. SHUNT – WHEN A CIRCUIT IS DIVIDED INTO TWO OR MORE BRANCHES; CONDUCTOR OF"
+  }, {
+    "type" : "paragraph",
+    "id" : 52,
+    "page number" : 3,
+    "bounding box" : [ 89.95, 73.716, 352.493, 119.197 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "EACH BRANCH TAKEN SEPARATELY. MICA – MAT’L W/C CAN STAND HIGH TEMPERATURE. MEGER – LIMIT SURGE VOLTAGE ON EQUIPMENT. VETO – BRAND NAME FOR LIGHTING SWITCHES & C.O."
+  }, {
+    "type" : "paragraph",
+    "id" : 53,
+    "page number" : 4,
+    "bounding box" : [ 89.98, 662.51, 479.993, 719.515 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "FITTINGS – AN ACCESSORY EQUIPMENT – MAT’LS / FITTING; DEVICES, APPLIANCES, FIXTURES,APPARATUSES APPLIANCES – CURRENT- CONSUMING INSTRUMENT / EQUIPMENT. ONE (1) HORSEPOWER = 746 WATTS. WATT – RATE OF POWER USED (ENERGY CONSUMED); UNIT OF POWER ; VOLTS X"
+  }, {
+    "type" : "paragraph",
+    "id" : 54,
+    "page number" : 4,
+    "bounding box" : [ 162.549, 650.986, 205.508, 662.016 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "AMPERE."
+  }, {
+    "type" : "heading",
+    "id" : 55,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 89.98, 639.463, 299.073, 650.493 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CLASSIFICATION OF ELECTRIC CURRENT"
+  }, {
+    "type" : "list",
+    "id" : 56,
+    "level" : "1",
+    "page number" : 4,
+    "bounding box" : [ 107.978, 593.487, 484.863, 638.969 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 107.978, 616.535, 484.863, 638.969 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. DIRECT CURRENT (DC) – CURRENT W/C FLOWS IN ONLY ONE DIRECTION; FLOW OF CURRENT THAT TAKE PLACE AT CONSTANT TIME RATE.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 107.988, 593.487, 458.122, 616.041 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. ALTERNATING CURRENT (AC) – FLOW OF CURRENT IS PERIODICALLY VARYING IN TIME RATE & DIRECTION.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 57,
+    "page number" : 4,
+    "bounding box" : [ 89.98, 570.44, 274.752, 592.994 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "POWER – EQUALS AMPERE x VOLTAGE ENERGY – POWER x TIME"
+  }, {
+    "type" : "paragraph",
+    "id" : 58,
+    "page number" : 4,
+    "bounding box" : [ 89.98, 547.512, 317.102, 558.542 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "KILOWATT – EQUAL TO 1.34 HORSE POWER (HP)"
+  }, {
+    "type" : "paragraph",
+    "id" : 59,
+    "page number" : 4,
+    "bounding box" : [ 89.96, 466.966, 513.485, 523.971 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "KILOWATT-HOUR METER – AN INSTRUUMENT USED TO MEASURES THE ENERGY CONSUMED OVER A PERIOD OF TIME. WATTMETER – AN INST. THAT MEASURES THE AMT OF INSTANTANEOUS POWER OR POWER IN USE AT ANY ONE TIME; ELECTRIC PRESSURE MEASUREMENT. AMMETER – USED TO MEASURE ELECTRIC CURRENT; DEVICE USED TO MEASURE RATE"
+  }, {
+    "type" : "paragraph",
+    "id" : 60,
+    "page number" : 4,
+    "bounding box" : [ 89.96, 432.394, 476.452, 466.472 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "OF FLOW OF ELECTRICITY. (HIGH INSUL. RESISTANCE) OHMMETER – AN INST. USED TO MEASURE THE RESISTANCE OF A CONDUCTOR. VOLTMETER – AN INST. USED FOR MEASURING THE VOLTAGE DROP BET. ANY"
+  }, {
+    "type" : "paragraph",
+    "id" : 61,
+    "page number" : 4,
+    "bounding box" : [ 89.95, 398.046, 492.99, 432.02 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "TWO POINTS IN AN ELECTRIC CIRCUIT. VOLTAGE DROP – THE DIFF. FROM EMF BET. 2 PTS IN AN ELECTRIC CIRCUIT. TRANSFORMER – A DEVICE TO CONVERT ELECT’L ENERGY INTO HIGHER OR LOWER"
+  }, {
+    "type" : "paragraph",
+    "id" : 62,
+    "page number" : 4,
+    "bounding box" : [ 145.049, 363.478, 514.664, 397.555 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "VOLTAGE; A DYNAMO ELECTRIC DEVICE USED FOR CHANGING ONE CURRENT TO ANOTHER ; DEVICE USED TO TRANSFORM AC OF ONE VOLTAGE TO A.C. OF ANOTHER VOLTAGE."
+  }, {
+    "type" : "paragraph",
+    "id" : 63,
+    "page number" : 4,
+    "bounding box" : [ 90.0, 340.55, 491.138, 363.104 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "RECTIFIER – A DEVICE USED TO CONVERTS AC TO DC CURRENT. GENERATOR – A DEVICE FOR ENERGY FROM MECH’L TO ELEC’L ENERGY; MACHINE"
+  }, {
+    "type" : "paragraph",
+    "id" : 64,
+    "page number" : 4,
+    "bounding box" : [ 90.0, 294.455, 501.904, 340.056 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "THAT CONVERTS MECH’L TO ELEC’L ENERGY. MOTOR – A MACHINE W/C CONVERTS ELECTRIC POWER INTO MECH’L POWER. ALTERNATOR – A DEVICE FOR GENERATING AN ALTERNATING EMF; IS A GENERATOR OF AN AC. IT PRODUCES ELECTRICITY BY MEANS OF A ROTOR."
+  }, {
+    "type" : "heading",
+    "id" : 65,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 217.926, 260.004, 393.992, 271.034 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "AVERAGE LOAD RATING IN WATTS"
+  }, {
+    "type" : "paragraph",
+    "id" : 66,
+    "page number" : 4,
+    "bounding box" : [ 90.01, 179.457, 455.032, 247.986 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "LIGHT OUTLET 100w WASHING MACHINE 1,200w CONVENIENCE OUTLET 200w HAND IRON 1,700w RANGE 8,000w WATER PUMP 300w REFRIGERATOR 800w WATER HEATER 1,500w ACU ¾ hp. 1,200w ACU 1 ½ hp. 2,400w"
+  }, {
+    "type" : "heading",
+    "id" : 67,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 90.01, 156.529, 507.732, 167.559 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "WIRE SIZE CONDUIT DIAMETER AMPACITY APPLICATION"
+  }, {
+    "type" : "paragraph",
+    "id" : 68,
+    "page number" : 4,
+    "bounding box" : [ 90.0, 98.911, 517.329, 156.035 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "No. SIZE (mm) INCHES MILLIMETER MAX. # 14 = 2.0 mm ½” = 15 mm diameter 20 AMP 6 – L.O & C.O. #12 = 3.5 mm ¼” = 20 mm diameter 30 AMP 8 – L.O.& C.O. / REF #10 = 5.5 mm ¾” = 20 mm diameter 40 AMP ACU & MOTORS #8 = 8.0 mm 1” = 25 mm diameter 55 AMP RANGE & MOTORS"
+  }, {
+    "type" : "paragraph",
+    "id" : 69,
+    "page number" : 4,
+    "bounding box" : [ 90.0, 75.983, 520.234, 87.013 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "FLEXIBLE METAL CLAD CABLE (BX) TH - MOISTURE RESISTANT THERMOPLASTIC"
+  }, {
+    "type" : "paragraph",
+    "id" : 70,
+    "level" : "2",
+    "page number" : 5,
+    "bounding box" : [ 90.0, 685.558, 481.158, 719.515 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "- MOST COMMON TYPE OF CABLE RUN THW – MOISTURE & HEAT RESISTANT W/ O RACEWAY; NEC TYPE AC METAL THERMOPLASTIC (DRY & WET CLAD CABLE. LOCATION)"
+  }, {
+    "type" : "paragraph",
+    "id" : 71,
+    "page number" : 5,
+    "bounding box" : [ 300.083, 674.034, 519.976, 685.064 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "XHHN – MOISTURE & HEAT RESISTANT CROSS"
+  }, {
+    "type" : "paragraph",
+    "id" : 72,
+    "page number" : 5,
+    "bounding box" : [ 90.0, 650.986, 520.871, 673.54 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "LINKED THERMOSETTING POLYETHELENE CONVERSION : WIRE SIZE IN mm DIAMETER = CIRCULAR MILS x 0.0005067"
+  }, {
+    "type" : "heading",
+    "id" : 73,
+    "level" : "Doctitle",
+    "page number" : 5,
+    "bounding box" : [ 231.96, 614.204, 380.016, 627.493 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "ACOUSTICS & LIGHTING"
+  }, {
+    "type" : "paragraph",
+    "id" : 74,
+    "page number" : 5,
+    "bounding box" : [ 90.0, 565.918, 514.318, 599.995 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "ACOUSTICS - THE SCIENCE OF SOUND, INCLUDING THE GENERATION, TRANSMISSION & EFFECTS OF SOUND WAVES . SOUND - IS A SENSATION FELT BY THE BRAIN RESULTING FFROM THE DISTURBANCE OF"
+  }, {
+    "type" : "paragraph",
+    "id" : 75,
+    "page number" : 5,
+    "bounding box" : [ 89.99, 531.347, 473.301, 565.424 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "MOLECULES IN THE AIR . NOISE - UNPLEASANT & UNWANTED SOUND. ECHO - IS A DISTINCT, SEPARATE OR DELAXED SOUND HEARD, AS A RESULT OF"
+  }, {
+    "type" : "paragraph",
+    "id" : 76,
+    "page number" : 5,
+    "bounding box" : [ 130.039, 519.943, 492.505, 530.973 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "REFLECTION OF SOUND COMING FROM ANY SMOOTH WALLS OR SURFACES"
+  }, {
+    "type" : "paragraph",
+    "id" : 77,
+    "level" : "3",
+    "page number" : 5,
+    "bounding box" : [ 89.99, 439.396, 521.992, 519.449 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "- IS ASOUND WAVE THAT REFLECTED OR BOUNCED BACK W/ SUCH MAGNITUDE & DELAY. REVERBERATION - PROLONGATION OF SOUND CAUSED BY PERSISTENCE OF SOUND ENERGY W/IN A ROOM FOR A CERTAIN PERIOD OF TIME . DECIBEL - MEASURE OF LOUDNESS OF SOUND; UNIT OF LOUDNESS OR ENERGY OF SOUND BRIGHTNESS - SUBJECTIVE IMPRESSION OF LIGHT REACHING THE EYE; RATE OF FLOW OF"
+  }, {
+    "type" : "paragraph",
+    "id" : 78,
+    "page number" : 5,
+    "bounding box" : [ 89.98, 358.85, 516.325, 438.902 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "RADIANT ENERGY EVALUATED W/ RESPECT TO THE VISCIAL SENSATION. DECAY TIME - REVERBERATION TIME LUMEN - UNIT OF LUMINOUS FLUX; QUANTITY OF LIGHT MEASUREMENT; UNIT OF LIGHT ENERGY USED TO SPECIFY LIGHT OUTPUT OF SOURCES. LUMINOUS FLUX - THE TIME RATE OF FLOW OF LIGHT CANDELA - THE UNIT OF LUMINOUS INTENSIT; EQUAL TO ONE (1) CANDLEPOWER CANDLEPOWER - LUMINOUS INTENSITY OR INTENSITY OF LIGHT PRODUCED BY LIGHT"
+  }, {
+    "type" : "paragraph",
+    "id" : 79,
+    "page number" : 5,
+    "bounding box" : [ 89.98, 301.351, 502.174, 358.356 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SOURCE MEASURED IN CANDELAS FOOTCANDLE - UNIT OF ILLUMINATION; UNIT MEASUREMENT OF LIGHT FOOTLAMBER - UNIT OF LUMINANACE; UNIT OF BRIGHTNES ILLUMINANCE - THE DENSITY OF THE LUMINOUS FLUX INCIDENT ON A SURFACE LUMINANCE (BRIGHTNESS) - THE LUMINOUS INTENSITY OF THE SURFACE IN A GIVEN"
+  }, {
+    "type" : "paragraph",
+    "id" : 80,
+    "page number" : 5,
+    "bounding box" : [ 162.569, 278.303, 508.561, 300.857 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "DIRECTION PER UNIT OF PROJECTED AREA OF THE SURFACE AS VIEWED FROM THAT DIRECTION"
+  }, {
+    "type" : "paragraph",
+    "id" : 81,
+    "page number" : 5,
+    "bounding box" : [ 90.0, 243.852, 496.586, 277.809 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "LUX - UNIT OF LUMINANCE INTENSITY - AMOUNT OF ENERGY OF SOUND LUMINAIRE - COMPLETE LIGHTING UNIT COSISTING OF LAMP OR LAMPS TOGETHER"
+  }, {
+    "type" : "paragraph",
+    "id" : 82,
+    "page number" : 5,
+    "bounding box" : [ 89.99, 163.305, 488.094, 243.358 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "W/ THE PARTS DESIGNED TO DISTRIBUTE LIGHT, TO POSITION & PROTECT LIGHT, & CONNECT LAMPS TO POWER SUPPLY; A DEVICE OR FIXTURE W/C SUPPORT THE SOURCE OF ELECTRIC LIGHT & REDIRECT IT DIFFUSER - DEVICE TO REDIRECT OR SSCATTER THE LIGHT FROM A SOURCE REFLECTOR - DEVICE USED TO REDIRECT LIGHT FROM A SOURCE REFRACTOR - DEVISE USED TO REDIRECT RAY OF LIGHT BAFFLE - OPAQUE OR TRANSLUCENT ELEMENT USED TO SHEILD LIGHT SOURCE"
+  }, {
+    "type" : "paragraph",
+    "id" : 83,
+    "page number" : 5,
+    "bounding box" : [ 89.99, 128.853, 486.836, 162.811 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "FROM DIRECT VIEW AT CERTAIN ANGLES LOUVERS - SERIES OF BAFFLES USED TO SHEILD LIGHT SOURCES VALENCE - LONGITUDINAL SHEILDING MEMBER MOUNTED ACROSS THE TOP OF A"
+  }, {
+    "type" : "paragraph",
+    "id" : 84,
+    "page number" : 5,
+    "bounding box" : [ 89.99, 82.759, 517.404, 128.36 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "WINDOW OR ALONG A WALL TO CONCEAL LIGHT SOURCES W/C PROVIDE UP AND DOWN LIGHT ACCENT LIGHT - DIRECTIONAL LIGHT W/C EMPHAZISES OBJECTS OR DRAWS ATTENTION TO A PART OF VISUAL FIELD"
+  }, {
+    "type" : "paragraph",
+    "id" : 85,
+    "page number" : 6,
+    "bounding box" : [ 90.0, 662.51, 519.104, 719.515 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CORNICE LIGHTING - LIGHTING FROM SOURCES EBHIND PANEL TO WALL & ATTACHED TO CEILING . (LIGHT IS DISTRIBUTED OVER WALLS) FLOOD LAMP - INCANDESCENT LAMP W/C PRODUCES A RELATIVELY WIDE BEAM OF LIGHT SOFFIT LIGHTING - LIGHTING FROM SURFACES IN UNDERSURFACES OF BEAM, BALCONY,"
+  }, {
+    "type" : "paragraph",
+    "id" : 86,
+    "page number" : 6,
+    "bounding box" : [ 90.0, 558.916, 502.668, 662.016 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "VAULT, ETC. LAMP - MAN MADE SOURCE OF LIGHT BULB OTHER ENVELOPE OF LIGHT SOURCE, USALLY QUARTS OR GLASS CREEP - REFLECTION OF SOUND ON CURVED SURFACE HUE - OTHER TERM FOR COLOR SHADE - BLACK + P TINT - WHITE + p 50 WATTS x 1ft LEVEL - LIGHT REQ’D FOR DRAFTSMAN FLUTTER ECHO - RAPID SUCCESSION OF REFLESTED SOUNDWAVES RESULTING FROM"
+  }, {
+    "type" : "paragraph",
+    "id" : 87,
+    "page number" : 6,
+    "bounding box" : [ 89.99, 512.941, 514.585, 558.542 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "A SINGLE INITIAL SOUND PULSE FOCUSING - OCCURS WHEN SOUND WAVES ARE REFLECTED FROM CONCAVE SURFACES & BUILD UP DIFFUSION - SOUND LEVEL IS EVERYWHERE THE SAME"
+  }, {
+    "type" : "heading",
+    "id" : 88,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 89.99, 466.966, 205.991, 477.995 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "5 TYPES OF LIGHTING :"
+  }, {
+    "type" : "list",
+    "id" : 89,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 107.968, 409.466, 517.243, 466.472 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.988, 455.442, 337.038, 466.472 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. DIRECT – SHINES DIRE CTLY ON AN OBJECT.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.978, 443.918, 361.509, 454.948 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. INDIRECT – REFLECTED FROM LARGE SURFACES.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.978, 432.394, 399.312, 443.424 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. SEMI-DIRECT – SHINES MAINLY DOWN AS DIRECT LIGHT.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.968, 420.99, 517.243, 432.02 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. SEMI- INDIRECT – SMALL PORTION OF SEMI-DIRECT LIGHT IS DIRECTED UPWARD.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.968, 409.466, 363.905, 420.496 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5. DIFFUSED – SPREAD EVENLY IN ALL DIRECTIONS.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 90,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 89.96, 363.372, 296.176, 374.401 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "THREE (3) METHODS OF GOOD LIGHTING"
+  }, {
+    "type" : "list",
+    "id" : 91,
+    "level" : "3",
+    "page number" : 6,
+    "bounding box" : [ 99.671, 294.349, 494.378, 362.997 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 99.681, 340.444, 490.766, 362.997 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. GENERAL LIGHTING – SPREADS AN EVEN, LOW LEVEL LIGHT THROUGHOUT A ROOM..",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 99.681, 317.396, 460.154, 339.95 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. SPECIFIC (LOCAL) LIGHTING – DIRECTS LIGHT TO AN AREA USED FOR A SPECIFIC VISUAL TASK.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 99.671, 294.349, 494.378, 316.902 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. DECORATIVE LIGHTING – MAKES USE OF LIGHTS TO DEV’P DIFFERENT MOODS AND TO ACCENT OBJECTS FOR INTEREST.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 92,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 89.94, 271.421, 291.152, 282.451 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "THREE (3) GROUPS OF LIGHT FIXTURES:"
+  }, {
+    "type" : "list",
+    "id" : 93,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 107.928, 167.827, 507.231, 270.927 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.938, 236.85, 503.887, 270.927 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. VALANCE – IS A LONG SOURCE OF LIGHT OVER A WINDOW. ITS LIGHTS ILLUMINATES THE WALL & DRAPERIES FOR THE SPACIOUS EFFECT THAT DAYLIGHT GIVES A ROOM.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.938, 213.922, 505.619, 236.475 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. WALL BRACKET – BALANCES THE LIGHT OF A VALANCE. IT GIVES AN UPWARD DOWNWARD WASH OF LIGHT DIFFICULT TO OBTAIN ON AN INNER",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 1,
+        "page number" : 6,
+        "bounding box" : [ 185.536, 202.398, 216.857, 213.428 ],
+        "font" : "TimesNewRomanPSMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "WALL."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.928, 167.827, 507.231, 201.904 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. CORNICE – IS ATTACHED TO THE WALL & CAN BE USED W/ OR W/OUT DRAPES. ALL LGIHT FROM THIS FIXTURE IS DIRECTED DOWNWARD, TO GIVE AN IMPRESSION OF HEIGHT TO THE ROOM.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 94,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 107.928, 133.375, 490.089, 144.405 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "TYPES OF CEILING FIXTURES: TYPES OF WALL FIXTURES:]"
+  }, {
+    "type" : "list",
+    "id" : 95,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 107.181, 75.876, 487.701, 132.881 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "next list id" : 96,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.928, 121.852, 435.623, 132.881 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. RECESSED LIGHTING 1. COVE LIGHTING",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.928, 110.328, 449.56, 121.358 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. ATTACHED 2. ACCENT LIGHTING",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.928, 98.804, 457.604, 109.834 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. HANGING 3. VALANCE LIGHTING",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.928, 87.4, 487.701, 98.43 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. CORNICE 4. WALL BRACKET LIGHTING",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 107.181, 75.876, 150.49, 86.906 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5. SOFFIT",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 96,
+    "level" : "1",
+    "page number" : 7,
+    "bounding box" : [ 107.25, 708.486, 212.516, 719.515 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 95,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 107.25, 708.486, 212.516, 719.515 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "6. LUMINOUS CEILING",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 97,
+    "level" : "Doctitle",
+    "page number" : 7,
+    "bounding box" : [ 207.96, 637.244, 403.884, 650.533 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "ELECTRICAL AND MECHANICAL"
+  }, {
+    "type" : "heading",
+    "id" : 98,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 90.0, 614.162, 490.556, 625.192 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "TWO (2) TYPES OF ELEVATOR: OTHER PARTS OF ELECT’L ELEV."
+  }, {
+    "type" : "list",
+    "id" : 99,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 90.0, 591.234, 432.635, 613.788 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 90.0, 602.758, 416.014, 613.788 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. HYDRAULIC ELEVATOR 1. CONTROL PANEL",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 90.0, 591.234, 432.635, 602.264 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. ELECTRIC ELEVATORS 2. MOTOR GENERATOR",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 100,
+    "level" : "3",
+    "page number" : 7,
+    "bounding box" : [ 325.163, 579.71, 390.523, 590.74 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "3. GOVERNOR"
+  }, {
+    "type" : "heading",
+    "id" : 101,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 89.99, 568.186, 400.816, 579.216 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "TYPES OF ELEVATOR TRACTION MACHINE 4. GUIDE SHOES"
+  }, {
+    "type" : "list",
+    "id" : 102,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 89.99, 545.139, 417.946, 567.693 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 556.663, 417.946, 567.693 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. GEARLESS TRACTION MACHINE 5. LIMIT SWITCHES",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 545.139, 373.118, 556.169 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. GEARED TRACTION MACHINE 6. BUFFER",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 103,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 89.99, 510.687, 520.312, 521.717 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "MAJOR PARTS OF ELECT. ELEVATOR MAJOR PARTS OF A HYDRAULIC ELEV"
+  }, {
+    "type" : "list",
+    "id" : 104,
+    "level" : "1",
+    "page number" : 7,
+    "bounding box" : [ 89.99, 384.166, 483.936, 510.194 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 9,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 499.164, 398.086, 510.194 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. CAR 1. CAR OR CAB",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 487.64, 383.785, 498.67 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. CABLE 2. PLUNGER",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 476.236, 399.373, 487.266 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. ELEVATOR MACHINE 3. GUIDE RAILS",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 464.712, 402.49, 475.742 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. COUNTER WEIGHTS 4. GUIDE SHOES",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 453.188, 413.312, 464.218 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5. GUIDE RAILS 5. SPRING BUFFER",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 441.665, 441.342, 452.695 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "6. SHAFT HOISTWAY 6. SHAFT OR HOISTWAY",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 430.141, 447.313, 441.171 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "7. ELEVATOR PIT 7. ELEV. MACHINE ROOM",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 418.617, 383.946, 429.647 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "8. PENTHOUSE 8. ELEV. PIT",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 384.166, 483.936, 418.243 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "9. CONTROL EQUIPMENT 9. CONTROL UNIT OTHER PARTS OF HYDRAULIC ELEVATOR: OTHER PARTS OF ELEC’T ELEV:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 105,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 89.99, 292.095, 470.262, 383.672 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 372.642, 377.874, 383.672 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. FLOOR STOP & LIMIT SWITCH 1. TRACKS",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 361.118, 421.801, 372.148 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. CREEPAGE & LEVELING CAR SWITCH 2. EMERGY BRAKES",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 349.594, 404.206, 360.624 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. CAR GATE SWITCH 3. CONTROLLER",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 338.19, 470.262, 349.22 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. GATE VALVE 4. EMERGENCY STOP BUTTON",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 326.666, 467.159, 337.696 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5. CONTROLLER 5. KEY-OPERATED SWITCHES",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 292.095, 405.435, 326.173 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "6. MOTOR & PUMP W/ TANK MAJOR PARTS OF ESCALATOR: ARRAGEMENT:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 106,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 89.99, 211.668, 396.247, 291.601 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 280.572, 396.247, 291.601 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. TRUSS 1. CRISS-CROSS",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 269.167, 385.392, 280.197 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. SPROCKET ASSEMBLY 2. PARALLEL",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 257.644, 167.986, 268.674 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. DRIVING MAN",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 246.12, 221.981, 257.15 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. BALUSTRADE ASSEMBLY",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 234.596, 152.12, 245.626 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5. HANDRAIL",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.99, 211.668, 171.315, 234.102 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "6. ENDLESS BELT ROD.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 107,
+    "level" : "Doctitle",
+    "page number" : 8,
+    "bounding box" : [ 211.8, 683.204, 418.152, 696.493 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "PLUMBING AND SANITARY TERMS"
+  }, {
+    "type" : "paragraph",
+    "id" : 108,
+    "page number" : 8,
+    "bounding box" : [ 90.0, 646.442, 521.282, 668.995 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "BIBB - SYNONYMOUS WITH FAUCET, COCK, TAP. PLUG, ET. (FAUCET) FAUCET - A VALVE ON A WATER PIPE BY MEANS OF W/C WATER CAN BE DRAWN"
+  }, {
+    "type" : "paragraph",
+    "id" : 109,
+    "page number" : 8,
+    "bounding box" : [ 182.608, 634.918, 344.356, 645.948 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "FROM OF HELD WITH IN THE PIPE."
+  }, {
+    "type" : "paragraph",
+    "id" : 110,
+    "page number" : 8,
+    "bounding box" : [ 90.0, 611.871, 485.976, 634.424 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CAP - A FITTING INTO WHICH THE END OF A PIPE IS SREWED FOR THE PURPOSE OF CLOSING THE END OF THE PIPE."
+  }, {
+    "type" : "paragraph",
+    "id" : 111,
+    "page number" : 8,
+    "bounding box" : [ 90.0, 577.419, 521.876, 611.377 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "PLUG - A PIPE FITTING WITH OUTSIDE THREAD & PROTECTING HEADS THAT IS USED FOR CLOSING THE OPENING IN ANOTHER FITTING (CLEAN OUT, P. TRAP)."
+  }, {
+    "type" : "paragraph",
+    "id" : 112,
+    "page number" : 8,
+    "bounding box" : [ 90.0, 542.848, 511.169, 576.925 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "NIPPLE - PIPE FITTING WITH OUTSIDE THREAD FOR CONNECTING TWO PIPES. SLEEVE - A PIPE COUPLING. COUPLING - A PIPE FITTING WITH INSIDE THREAD FOR CONNECTING TWO PIPES;"
+  }, {
+    "type" : "paragraph",
+    "id" : 113,
+    "page number" : 8,
+    "bounding box" : [ 182.608, 519.92, 501.006, 542.354 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "METHOD OF PIPE CONNECTION; A SHORT INTERNALLY THREADED SECTION OF A PIPE USED TO JOIN TWO PIPES OR CONDUIT."
+  }, {
+    "type" : "paragraph",
+    "id" : 114,
+    "page number" : 8,
+    "bounding box" : [ 90.0, 508.396, 468.576, 519.426 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "UNION - A PIPE FITTING USED TO CONNECT THE ENDS OF TWO PIPES,"
+  }, {
+    "type" : "paragraph",
+    "id" : 115,
+    "page number" : 8,
+    "bounding box" : [ 90.0, 485.349, 358.774, 507.902 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "NEITHER OF WHICH CAN BE TURNED. SERVICE ELL,"
+  }, {
+    "type" : "paragraph",
+    "id" : 116,
+    "page number" : 8,
+    "bounding box" : [ 93.0, 450.958, 518.489, 484.915 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "STREET ELL - A MALLEABLE-IRON FITTING FOR THREADEDPIPE, HAVING 45 DEGREE OR 90 DEGREE BEND, WITH INSIDE THREAD ON ONE END & OUTSIDE THREAD ON THE OTHER."
+  }, {
+    "type" : "paragraph",
+    "id" : 117,
+    "page number" : 8,
+    "bounding box" : [ 89.992, 404.863, 503.094, 438.94 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "REDUCER - ARE FITTING USED TO CONNECT PIPES OF DIFF. SIZES IN THE SAME LINE ; A PIPE COUPLING, WITH INSIDE THREADS, HAVING ONE END WITH SMALLER DIAMETER THAN THE OTHER."
+  }, {
+    "type" : "paragraph",
+    "id" : 118,
+    "page number" : 8,
+    "bounding box" : [ 89.992, 370.411, 492.938, 404.488 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "INCREASER - A COUPLING WITH ONE END IS LARGER THAN THE OTHER. ELBOW - A FITTING JOINING TWO PIPES AT AN ANGLE. TEE - T – SHAPED FITTING WITH TWO OUTLET S, ONE AT 90 DEGREE TO"
+  }, {
+    "type" : "paragraph",
+    "id" : 119,
+    "page number" : 8,
+    "bounding box" : [ 180.089, 335.84, 500.737, 369.917 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "THE CONECTION TO THE MAIN LINE; FITTING SHOULD NEVER BE USED WITH PIPES CARRYING SEWAGE BUT MAY BE USED W/ VENT PIPES ; CHANGE IN DRAINAGE NOR DIRECTION."
+  }, {
+    "type" : "paragraph",
+    "id" : 120,
+    "page number" : 8,
+    "bounding box" : [ 90.002, 301.388, 506.851, 335.466 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "RISER - A WATER SUPPLY PIPE THAT EXTENDS VERTICALLY ONE FULL STOREY OR MORE TO CONVEY WATER TO BRANCHES OF FIXTURES . (VERTICAL PIPE IN H2O SUPPLY LINE.)"
+  }, {
+    "type" : "paragraph",
+    "id" : 121,
+    "page number" : 8,
+    "bounding box" : [ 89.982, 232.366, 521.497, 300.895 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SERVICE PIPE - THE PIPE FROM THE WATER MAIN OR SOURCE OF WATER SUPPLY TO THE BUILDING SERVED. HYDRANT - A CYLINDRICAL RESERVOIR USSUALLY OF METAL; AN APPRATUS FOR DRAWING WATER DIRECTLY FROM A MAIN. HOSE REEL - A CYLINDRICAL DEVICE WHICH TURN ON AN AXIS AROUND WHICH A FIRE HOSE IS WOUND & CONNECTED."
+  }, {
+    "type" : "paragraph",
+    "id" : 122,
+    "page number" : 8,
+    "bounding box" : [ 89.992, 197.914, 493.907, 220.348 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "TYPES OF VALVES & CONTROLS a. GATE VALVE - A VALVE IN WHICH THE FLOW OF WATER IS CUT OFF BY"
+  }, {
+    "type" : "paragraph",
+    "id" : 123,
+    "page number" : 8,
+    "bounding box" : [ 222.558, 163.343, 499.909, 197.42 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "MEANS OF A CIRCULAR DISK. THIS VALVE IS USED WHEN A NORMAL FULLY OPEN OR CLOSED POSITIONS IS DESIRED. EITHER END MAY BE USED AS AN INLET."
+  }, {
+    "type" : "paragraph",
+    "id" : 124,
+    "page number" : 8,
+    "bounding box" : [ 100.042, 151.819, 487.351, 162.849 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "GLOBE VALVE - USED WHEN IT IS DESIRED TO THROTTLE THE WATER"
+  }, {
+    "type" : "paragraph",
+    "id" : 125,
+    "page number" : 8,
+    "bounding box" : [ 100.032, 128.891, 505.397, 151.325 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SUPPLY. SAME END MUST ALWAYS BE USED AS AN INLET. CHECK VALVE - A VALVE THAT AUTOMATICALLY CLOSES TO PREVENT"
+  }, {
+    "type" : "paragraph",
+    "id" : 126,
+    "page number" : 8,
+    "bounding box" : [ 225.058, 117.367, 463.877, 128.397 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "THE FLOW OF WATER IN A REVERSE DIRECTION."
+  }, {
+    "type" : "paragraph",
+    "id" : 127,
+    "page number" : 8,
+    "bounding box" : [ 100.022, 82.796, 515.346, 116.874 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "ANGLE VALVE - CHANGES THE DIRECTION OF THE FLOW OF WATER AS WELL AS CONTROL IT. ACT SOMEWHAT LIKE GLOVE VALVE BUT ARE USUALLY USED FOR A RIGHT ANGLE TIRN."
+  }, {
+    "type" : "paragraph",
+    "id" : 128,
+    "page number" : 9,
+    "bounding box" : [ 100.05, 696.962, 509.587, 719.515 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "FLUSH VALVE - FORM A VALVE USED IN A FLUSH TUNK FOR THE PURPOSE OF CONTROLLING THE FLUSHING OF FIXTURES."
+  }, {
+    "type" : "paragraph",
+    "id" : 129,
+    "page number" : 9,
+    "bounding box" : [ 89.98, 674.034, 515.616, 696.588 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "TYPES OF CHECK VALVE: SWING CHECK VALVE - HAS PIVOTED FLAP WHICH IS READILY PUSHED OPEN"
+  }, {
+    "type" : "paragraph",
+    "id" : 130,
+    "page number" : 9,
+    "bounding box" : [ 254.835, 639.463, 511.265, 673.54 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "BY PRESSURE NOR OR LIFT CHECK VALVE – CONSIST OF A LOOSE DISK WHICH CLOSES BY GRAVITY WHEN THE PRESSURE ON BOTH SIDES ARE EQUAL."
+  }, {
+    "type" : "paragraph",
+    "id" : 131,
+    "page number" : 9,
+    "bounding box" : [ 89.99, 605.011, 515.161, 638.969 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "BALL CLOCK - A FAUCET OPENED OR CLOSED BY THE FALL OR RISE OF A BALL FLOATING ON THE SURFACE OF WATER W/ A SPHERICAL FLOAT."
+  }, {
+    "type" : "paragraph",
+    "id" : 132,
+    "page number" : 9,
+    "bounding box" : [ 89.98, 558.916, 510.654, 604.517 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CORPORATION COCK - A STOP VALVE PLACED IN A SERVICE PIPE CLOSE TO ITS CONNECTION W/ A WATER MAIN; A DEVICE INSTALLED WHEN TAPPING A CITY WATER MAIN WITH PRESSURE."
+  }, {
+    "type" : "paragraph",
+    "id" : 133,
+    "page number" : 9,
+    "bounding box" : [ 89.91, 443.918, 446.159, 558.542 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "KINDS OF FAUCET: KEY COCK COMPRESSION COCK HOSE BIBB SELF CLOSING FAUCET TWO TYPES OF SPRINKLER: UPRIGHT - USED ABOVE PIPING WHEN PIPING IS EXPOSED. PENDENT - THIS TYPE PROJECTS THRU A FINISHED CEILING"
+  }, {
+    "type" : "paragraph",
+    "id" : 134,
+    "page number" : 9,
+    "bounding box" : [ 214.905, 432.394, 356.616, 443.424 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "WHEN PIPING IS CONCEALED."
+  }, {
+    "type" : "paragraph",
+    "id" : 135,
+    "page number" : 9,
+    "bounding box" : [ 108.0, 395.762, 500.666, 418.315 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "THRREE WAYS OF WATER DISTRIBUTION: UPFEED SYSTEM – FROM NORMAL WATER PRESSURE FROM PUBLIC WATER MAIN"
+  }, {
+    "type" : "paragraph",
+    "id" : 136,
+    "page number" : 9,
+    "bounding box" : [ 108.0, 338.263, 511.064, 395.268 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "LOW RISE BLDGS. PNEUMATIC TANK – FROM AIR PRESSURE FROM SUNCTION TANK FOR TALL BLDGS. W/C CANNOT BE REACHED BY NORMALWATER PRESSURE. DOWNFEED SYSTEM – BY GRAVITY FROM OVERHEAD TANKS ARE SUPPORTED BY STRUCTURAL FRAMES."
+  }, {
+    "type" : "paragraph",
+    "id" : 137,
+    "page number" : 9,
+    "bounding box" : [ 107.99, 234.669, 513.269, 326.245 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "COLOR CODE FOR PIPES: BENDS EQUIVALENT IN DEGREES POTABLE WATER - BLUE ¼ x 360 = 90 ELECTRICAL - ORANGE OR LT GRAY 1/8 x 360=45 INDUSTRIAL - GRAY 1/5 x 360=72 SEWAGE - ORANGE BROWN 1/16 x 360= 22.5 COMMUNICATION CABLE - YELLOW STAND PIPE - RED G.I. PIPES = 6.00m LENGTH MAX. HOT WATER - WHITE PVC PIPES = 3.00m LENGTH MAX."
+  }, {
+    "type" : "paragraph",
+    "id" : 138,
+    "page number" : 9,
+    "bounding box" : [ 89.992, 223.145, 513.849, 234.175 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "BACK PRESSURE – AIR PRESSURE IN DRAINAGE PIPESN GREATER THAN ATMOSPHERIC"
+  }, {
+    "type" : "heading",
+    "id" : 139,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 145.041, 211.741, 199.647, 222.771 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "PRESSURE."
+  }, {
+    "type" : "paragraph",
+    "id" : 140,
+    "page number" : 9,
+    "bounding box" : [ 89.992, 177.17, 501.21, 211.247 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "BACK FLOW –TERM ONLY FOR WATER. REVERSAL OF FLOW OF WATER (DRAWBACK) THE FLOW OF WATER INTO A WATERSUPPLY SYSTEM FROM ANY SOURCE OTHER THAN ITS REGULAR SOURCE."
+  }, {
+    "type" : "paragraph",
+    "id" : 141,
+    "page number" : 9,
+    "bounding box" : [ 89.992, 142.718, 473.402, 176.676 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "BACK SIPHONAGE – A SUCTION CREATED BY THE FLOW OF LIQUIDS IN PIPES. VACUUM – AN AIR PRESSURE LESS THAN ATMOSPHERIC. VENT – A PIPE OR OPENING USED FOR ENSURING THE CIRCULATION OF AIR IN A"
+  }, {
+    "type" : "paragraph",
+    "id" : 142,
+    "page number" : 9,
+    "bounding box" : [ 145.041, 131.194, 521.355, 142.224 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "PLUMBING SYSTEM & FOR REDUCING THE PRESSURE EXETED ON TRAP SEALS."
+  }, {
+    "type" : "paragraph",
+    "id" : 143,
+    "level" : "3",
+    "page number" : 9,
+    "bounding box" : [ 122.273, 96.623, 504.46, 130.701 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "- IS A DEVICE INSTALLED IN A HOUSE DRAIN INTENDED TO PREVENT THE THE BACKFLOW OF SEWAGE; DEVICE THAT PREVENT THE LOSS OF SEAL BY SIPHONAGE, BACK PRESSURE, ETC."
+  }, {
+    "type" : "paragraph",
+    "id" : 144,
+    "page number" : 9,
+    "bounding box" : [ 89.982, 73.695, 522.072, 96.129 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "VENT STACK (DRY) – A VERTICAL VENT PIPE INSTALLED PRIMARILIY FOR THE PURPOSE OF PROVIDING CIRCULATION OF AIR (MAIN VENT,)"
+  }, {
+    "type" : "paragraph",
+    "id" : 145,
+    "page number" : 10,
+    "bounding box" : [ 90.0, 662.51, 501.568, 696.588 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "STACK VENT (WET) - IS THE EXTENSION OF A SOIL OR WASTE STACK ABOVE THE HIGHEST HORIZONTAL DRAIN CONNECTED TO THE STACK ."
+  }, {
+    "type" : "paragraph",
+    "id" : 146,
+    "page number" : 10,
+    "bounding box" : [ 89.99, 639.463, 517.43, 662.016 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "WET VENT (TERM FOR SECONDARY BRANCH) - WET VENT IS THAT PORTION OF A VENT PIPE THRU WHICH"
+  }, {
+    "type" : "paragraph",
+    "id" : 147,
+    "page number" : 10,
+    "bounding box" : [ 89.99, 605.011, 520.031, 638.969 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "LIQUID WASTE FLOW. DRY VENT - A VENT THAT DOES NOT CARRY WATER OR WATER-BORNE WASTES."
+  }, {
+    "type" : "paragraph",
+    "id" : 148,
+    "page number" : 10,
+    "bounding box" : [ 89.95, 581.964, 507.649, 604.517 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "BACK VENT PIPE (INDIVIDUAL VENT PIPE) - THE PART OF A VENT LINE WHICH CONNECTS DIRECTLY"
+  }, {
+    "type" : "paragraph",
+    "id" : 149,
+    "page number" : 10,
+    "bounding box" : [ 237.515, 535.988, 519.769, 581.47 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "WITH AN INDIVIDUAL TRAP UNDERNEATH OR BEHIND THE FIXTURE & EXTENDS TO THE BRANCH OR MAIN, SOIL, OR WASTE PIPE AT ANY POINT HIGHER THAN THE FIXTURE TRAP IT SERVES."
+  }, {
+    "type" : "paragraph",
+    "id" : 150,
+    "page number" : 10,
+    "bounding box" : [ 89.95, 524.465, 519.655, 535.495 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "UNIT VENT - AN ARRANGEMENT OF VENTING SO INSTALLED THAT ONE"
+  }, {
+    "type" : "paragraph",
+    "id" : 151,
+    "page number" : 10,
+    "bounding box" : [ 89.94, 489.893, 483.869, 523.971 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "VENT PIPE WILL SERVE TWO (2) TRAPS. DUAL VENT - A.K.A.UNIT VENT OR COMMON VENT. BRANCH VENT - A VENT PIPE CONNESTING FROM ABRANCH OF THE"
+  }, {
+    "type" : "paragraph",
+    "id" : 152,
+    "page number" : 10,
+    "bounding box" : [ 89.94, 455.442, 495.835, 489.519 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "DRAINAGE SYSTEM TO A VENT STACK. GROUP VENT - A BRANCH VENT THAT PERFORMS ITS FUNCTION FOR TWO (2) OR MORE TRAPS. (SEE DUAL & UNIT VENT.)"
+  }, {
+    "type" : "paragraph",
+    "id" : 153,
+    "page number" : 10,
+    "bounding box" : [ 89.94, 386.419, 521.229, 454.948 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CIRCUIT VENT - A GROUP VENT EXTENDING FROM IN FRONT OF THE LAST FIXTURE CONNECTION ON A HORIZONTAL BRACNH TO THE VENT STACK. (SEE ALSO LOOP VENT, BRANCH VENT.); PIPE CONNECTED TO A HORIZONTAL DRAINAGE PIPE RECEIVING THE DISCHARGE. ( MIN OF 5 FIXTURES OR POSSIBLE OF 20 FIXTURES)."
+  }, {
+    "type" : "paragraph",
+    "id" : 154,
+    "page number" : 10,
+    "bounding box" : [ 89.92, 374.895, 502.318, 385.925 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "RELIEF VENT - A VENT THE PRIMARY FUNCTION OF WHICH IS TO PRO-"
+  }, {
+    "type" : "paragraph",
+    "id" : 155,
+    "page number" : 10,
+    "bounding box" : [ 237.474, 340.444, 511.082, 374.401 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "VIDE CIRCULATION OF AIR BETWEEN DRAINAGE & VENT SYSTEM, ( IS USED IF THERE ARE MORE THAN 10 FIXTURES)"
+  }, {
+    "type" : "paragraph",
+    "id" : 156,
+    "page number" : 10,
+    "bounding box" : [ 89.88, 282.945, 503.087, 339.95 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "CONTINOUS VENT - I S A VERTICAL VENT THAT IS CONTINUATION OF THE DRAIN, TO WHICH THE VENT CONNECTS (OR USTR). STACK - A GENERAL TERM USED FOR ANY VERTICAL LINE OF SOILWASTE OR VENT PIPING. SOIL STACK - A VERTICAL SOIL PIPE CONVEYING FECAL MATTER &"
+  }, {
+    "type" : "paragraph",
+    "id" : 157,
+    "page number" : 10,
+    "bounding box" : [ 239.954, 259.897, 509.807, 282.451 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "LIQUID WASTE; A VERTICAL PIPE WHICH RECEIVES THE DISCHARGE FROM WATER CLOSET."
+  }, {
+    "type" : "paragraph",
+    "id" : 158,
+    "page number" : 10,
+    "bounding box" : [ 89.861, 202.398, 508.13, 259.403 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "WASTE STACK - VERTICAL PIPE WHICH RECEIVES THE DISCHARGE OF FIXTURES OTHER THAN WATER CLOSET. COMM0N VENT - USED FOR BACK TO BACK FIXTURES (SEE UNIT/ DUAL VENT). FIXTURE - A RECEPTACLE ATTACHED TO A PLUMBING SYSTEM"
+  }, {
+    "type" : "paragraph",
+    "id" : 159,
+    "page number" : 10,
+    "bounding box" : [ 239.945, 167.827, 518.93, 201.904 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "OTHER THAN A TRAP IN WHICH WATER OR WASTES MAY BE COLLECTED OR RETAILED FOR ULTIMATE DISCHARGE INTO THE PLUMBING SYSTEM."
+  }, {
+    "type" : "paragraph",
+    "id" : 160,
+    "page number" : 10,
+    "bounding box" : [ 89.861, 144.899, 474.434, 167.453 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "FIXTURE UNIT - 71/2 GAL/MIN (WATER CONSUMPTION). FIXTURE DRAIN - THE DRAIN FROM THE TRAP OF FIXTURE TO THE"
+  }, {
+    "type" : "paragraph",
+    "id" : 161,
+    "page number" : 10,
+    "bounding box" : [ 89.861, 121.852, 511.574, 144.405 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "JUCNTION OF THE DRAIN WITH ANY OTHER DRAIN PIPE. FIXTURE BRANCH - THE SUPPLY PIPE BETWEEN THE FIXTURE & THE WATER"
+  }, {
+    "type" : "paragraph",
+    "id" : 162,
+    "page number" : 10,
+    "bounding box" : [ 89.861, 98.804, 511.171, 121.358 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "DISTRUBUTING PIPE . GRADE (PITCH) - THE SLOPE OR FALL OF A LINE OF PIPE IN REFERENCE"
+  }, {
+    "type" : "paragraph",
+    "id" : 163,
+    "page number" : 10,
+    "bounding box" : [ 242.475, 75.876, 487.909, 98.43 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "TO A HORIZONTAL PLANE USUALLY EXPRESSED IN PERCENT (2% SLOPE & PROVIDE A STRAP @ EVERY"
+  }, {
+    "type" : "paragraph",
+    "id" : 164,
+    "page number" : 11,
+    "bounding box" : [ 242.28, 708.486, 286.633, 719.515 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "3.0 MTS.)"
+  }, {
+    "type" : "paragraph",
+    "id" : 165,
+    "page number" : 11,
+    "bounding box" : [ 90.002, 639.463, 511.559, 696.588 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "LATRINE - A WATER CLOSET CONSISTING OF A CONTINOUS TROUGH CONTAINING WATER . THE TROUGH EXTENDS UNDER TWO (2) OR MORE ADJACENT SEATS. (PROHIBITED BY HEALTH AUTHORITIES FOR PERMANENT INSTALLATIONS)."
+  }, {
+    "type" : "paragraph",
+    "id" : 166,
+    "page number" : 11,
+    "bounding box" : [ 90.002, 616.535, 497.952, 638.969 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SEPTIC VAULT - 1 CHAMBER SEPTIC TANK - IS A WATERTIGHT RECEPTACLE WHICH RECEIVES THE"
+  }, {
+    "type" : "paragraph",
+    "id" : 167,
+    "page number" : 11,
+    "bounding box" : [ 237.565, 593.487, 510.812, 616.041 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "DISCHARGE OF A PLUMBING SYSTEM OR PART THEREOF. (2 CHAMBER)"
+  } ]
+}

@@ -1,0 +1,13 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-17T20:48:02.515314+00:00",
+  "source_relative_path": "005-Utilities/ARC Building Utilities Terms.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/005-Utilities/ARC Building Utilities Terms.pdf",
+  "detection_result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/005-Utilities/raw_markdown/ARC Building Utilities Terms.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/005-Utilities/sidecar_json/ARC Building Utilities Terms.json",
+  "markdown_output_relative": "005-Utilities/raw_markdown/ARC Building Utilities Terms.md",
+  "json_output_relative": "005-Utilities/sidecar_json/ARC Building Utilities Terms.json",
+  "status": "converted"
+}

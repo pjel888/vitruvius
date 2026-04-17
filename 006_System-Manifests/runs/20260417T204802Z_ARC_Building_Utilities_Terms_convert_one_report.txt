@@ -1,0 +1,9 @@
+Vitruvius Convert One Report
+
+Source: 005-Utilities/ARC Building Utilities Terms.pdf
+Detection result: TEXT_PDF
+Recommended route: OPENDATALOADER_DIRECT
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/005-Utilities/raw_markdown/ARC Building Utilities Terms.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/005-Utilities/sidecar_json/ARC Building Utilities Terms.json
+
+STATUS: converted

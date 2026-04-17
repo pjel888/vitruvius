@@ -1,0 +1,50 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "trusted",
+  "extraction_trust_reasons": [],
+  "front_matter_suspicious_ocr_line_count": 27,
+  "image_line_count": 0,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 12,
+  "noise_line_count": 0,
+  "non_empty_line_count": 212,
+  "recommendations": [
+    "low structural-heading count: verify section detection and source structure fidelity"
+  ],
+  "refined_markdown_path": "005-Utilities/refined_markdown/ARC Building Utilities Terms.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 1,
+    "admitted_relationship_count": 1,
+    "folder_name": "utilities",
+    "law_id": "utilities-arc-building-terms-1",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 1.0,
+    "section_to_relationship_ratio": 1.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 1
+  },
+  "severity": "low",
+  "source_acceptance_reasons": [],
+  "source_acceptance_status": "accepted",
+  "spot_review_focus": [],
+  "spot_review_required": false,
+  "structural_heading_count": 1,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [],
+  "suspicious_ocr_examples": [
+    "VOLTS - UNIT OF ELECT’L POTENTIAL; SMALL UNIT OF POWER IN ELECTRIC CURRENT; ELECTROMAGNETIC FORCE FLOOWING THE POSITIVE AND NEGATIVE TEMINAL; UNIT OF EMF.",
+    "OF ELECTRICCAL CONDUCTANCE.) OHM - UNIT OF ELECTRICAL RESISTANCE. RESISTOR - CONTROL THE FLOW OF CURRENT IN ELECT’L CIRCUIT. CAPACITOR - STORE ELECTRIC BATTERY . REOSTAT - CONTROL INTENSITY OF CURRENT FLOW .",
+    "OHM’S LAW (GEORGE SIMON OHM’S) - RELATION BETWEEN PRESSURE CURRRENT",
+    "SHORT CIRCUIT – HIGH CURRENT FLOW CAUSED BY AN ABNORMAL CONNECTION IN AN ELEC’L CKT; WILL OCCUR WHEN FAULTY APPLIANCES OR EXPOSED WIRES TOUCH A CONDUCTOR.(CONTACT OF 2 LIVE WIRES.)",
+    "CONDUCTOR – ARE SUBSTANCES THAT CARRIES OR ALLOWS THE FLOW OF ELECTRIC CURRENT; OFFERS LOW RESISTANCE TO THE FLOW OF ELEC’L CIRCUIT;"
+  ],
+  "suspicious_ocr_line_count": 27,
+  "suspicious_ocr_line_ratio": 0.127358,
+  "table_line_count": 0,
+  "total_line_count": 381,
+  "useful_text_line_count": 212,
+  "useful_text_ratio": 1.0
+}

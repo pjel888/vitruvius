@@ -1,0 +1,3 @@
+manifests:
+- lane_id: utilities-arc-building-terms
+  manifest: config/datasets/utilities-arc-building-terms.yaml

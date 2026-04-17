@@ -15,3 +15,7 @@ profiles:
   profile: config/datasets/theory-mvp-profile.yaml
   status: ready
   note: Theory family MVP graph profile.
+- family: utilities
+  profile: config/datasets/utilities-mvp-profile.yaml
+  status: ready
+  note: Utilities family MVP graph profile.

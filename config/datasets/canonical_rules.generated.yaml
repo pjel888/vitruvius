@@ -16,6 +16,23 @@ rules:
     relationships: {}
     core_concepts:
     - architectural history
+- name: Scaffolded handout rule for Arc Building Utilities Terms
+  match:
+    all_contains:
+    - arc
+    - building
+    - utilities
+    - terms
+  classification:
+    source_type: handout
+    trust_level: secondary
+  canonical:
+    title: Arc Building Utilities Terms
+    aliases:
+    - ARC Building Utilities Terms
+    relationships: {}
+    core_concepts:
+    - building utilities
 - name: Scaffolded handout rule for Quotes (1)
   match:
     all_contains:

@@ -341,6 +341,12 @@ Or explicitly by profile:
     - `theory-toa-1-intro`
   - current graph evidence:
     - `2 nodes / 1 edge`
+- `utilities`
+  - third non-laws MVP proof family
+  - current proof lane:
+    - `utilities-arc-building-terms`
+  - current graph evidence:
+    - `2 nodes / 1 edge`
 
 ## Integrity boundary
 This operator path is for the completed trusted subset of a dataset family.
