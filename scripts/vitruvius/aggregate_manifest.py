@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -1259,6 +1260,93 @@ def source_admit_completed_aggregate_lane_execute(
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(summary, indent=2), encoding='utf-8')
     return summary
+
+
+def _title_from_stem(stem: str) -> str:
+    cleaned = re.sub(r'[_-]+', ' ', stem).strip()
+    cleaned = re.sub(r'\s+', ' ', cleaned)
+    return cleaned.title() if cleaned else stem
+
+
+def _rule_tokens_for_path(path_value: str) -> list[str]:
+    stem = Path(path_value).stem.lower()
+    tokens = [token for token in re.split(r'[^a-z0-9]+', stem) if len(token) >= 3]
+    stop = {
+        'the', 'and', 'for', 'with', 'from', 'into', 'part', 'edition',
+        'revised', 'implementing', 'rules', 'regulations', 'philippines',
+        'module', 'lecture', 'reviewer', 'handout', 'history', 'theory',
+    }
+    filtered = [token for token in tokens if token not in stop]
+    return filtered[:4] if filtered else tokens[:4]
+
+
+def scaffold_completed_aggregate_lane_canonical_rules(
+    *,
+    repo_root: Path,
+    manifest_path: Path,
+    source_type: str,
+    trust_level: str,
+    output_rules_path: Path | None = None,
+) -> dict[str, Any]:
+    resolved_manifest_path = manifest_path if manifest_path.is_absolute() else repo_root / manifest_path
+    payload = load_yaml_payload(resolved_manifest_path)
+    output_path = (
+        output_rules_path if output_rules_path is not None and output_rules_path.is_absolute()
+        else repo_root / (output_rules_path or Path('config/datasets/canonical_rules.generated.yaml'))
+    )
+    existing_payload = load_yaml_payload(output_path) if output_path.exists() else {'version': 1, 'rules': []}
+    rules = existing_payload.get('rules')
+    if not isinstance(rules, list):
+        rules = []
+
+    candidates: list[dict[str, Any]] = []
+    source_reports = inspect_completed_aggregate_lane_sources(
+        repo_root=repo_root,
+        manifest_path=resolved_manifest_path,
+    )
+    for report in source_reports.get('file_reports') or []:
+        if not isinstance(report, dict):
+            continue
+        raw_path = str(report.get('raw_path') or '')
+        if not raw_path:
+            continue
+        stem = Path(raw_path).stem
+        title = _title_from_stem(stem)
+        tokens = _rule_tokens_for_path(raw_path)
+        rule_name = f"Scaffolded {source_type} rule for {title}"
+        rule = {
+            'name': rule_name,
+            'match': {
+                'all_contains': tokens or [stem.lower()],
+            },
+            'classification': {
+                'source_type': source_type,
+                'trust_level': trust_level,
+            },
+            'canonical': {
+                'title': title,
+                'aliases': [stem],
+                'relationships': {},
+                'core_concepts': [],
+            },
+        }
+        candidates.append(rule)
+
+    existing_by_name = {
+        str(item.get('name') or ''): item
+        for item in rules
+        if isinstance(item, dict) and str(item.get('name') or '').strip()
+    }
+    for candidate in candidates:
+        existing_by_name[str(candidate['name'])] = candidate
+    merged_rules = [existing_by_name[name] for name in sorted(existing_by_name)]
+    write_yaml_payload(output_path, {'version': 1, 'rules': merged_rules})
+    return {
+        'manifest_path': _relative(resolved_manifest_path, repo_root),
+        'output_rules_path': _relative(output_path, repo_root),
+        'scaffolded_rule_count': len(candidates),
+        'rule_names': [str(item['name']) for item in candidates],
+    }
 
 
 def scaffold_completed_aggregate_lane_manifest(

@@ -426,6 +426,11 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_lane_admission_exec_parser = add_command_parser(subparsers, "source-admit-completed-aggregate-lane")
     generic_aggregate_lane_admission_exec_parser.add_argument("--manifest", required=True)
     generic_aggregate_lane_admission_exec_parser.add_argument("--source-prep-report", default=None)
+    generic_aggregate_lane_rule_scaffold_parser = add_command_parser(subparsers, "scaffold-completed-aggregate-lane-canonical-rules")
+    generic_aggregate_lane_rule_scaffold_parser.add_argument("--manifest", required=True)
+    generic_aggregate_lane_rule_scaffold_parser.add_argument("--source-type", required=True)
+    generic_aggregate_lane_rule_scaffold_parser.add_argument("--trust-level", required=True)
+    generic_aggregate_lane_rule_scaffold_parser.add_argument("--output-rules", default=None)
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1282,6 +1287,24 @@ def main() -> int:
             print(json.dumps(summary, indent=2))
             return 0
         return _run("source-admit-completed-aggregate-lane", _run_source_admit_generic_lane_execute)
+
+    if args.command == "scaffold-completed-aggregate-lane-canonical-rules":
+        from vitruvius.aggregate_manifest import scaffold_completed_aggregate_lane_canonical_rules
+        def _run_scaffold_generic_lane_rules():
+            repo_root = Path.cwd().resolve()
+            summary = scaffold_completed_aggregate_lane_canonical_rules(
+                repo_root=repo_root,
+                manifest_path=Path(args.manifest),
+                source_type=args.source_type,
+                trust_level=args.trust_level,
+                output_rules_path=Path(args.output_rules) if args.output_rules else None,
+            )
+            print(json.dumps({
+                "action": "scaffold-completed-aggregate-lane-canonical-rules",
+                **summary,
+            }, indent=2))
+            return 0
+        return _run("scaffold-completed-aggregate-lane-canonical-rules", _run_scaffold_generic_lane_rules)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary

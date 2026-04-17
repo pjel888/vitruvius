@@ -53,5 +53,7 @@ status: in_progress
   - prepared outputs -> admission readiness / blocker summary
 - starter lane source-admission execute is now in place:
   - candidate canonical sources -> admitted canonical source pages + manifest update
+- starter canonical-rule scaffolding is now in place:
+  - lane manifest -> generated canonical rule overlay entries
 - the next real proof is still:
   - onboard the first true non-laws trusted dataset family once its completed lanes are admitted

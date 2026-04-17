@@ -205,6 +205,26 @@ This writes:
 
 If admission still reports `status = not_ready`, that is truthful: the lane still needs canonical rules or further source curation before real admission can happen.
 
+## Scaffolding canonical rules for a starter lane
+If a starter lane is blocked because it lacks matching canonical rules, scaffold rule entries with:
+
+```bash
+python3 scripts/pipeline_cli.py scaffold-completed-aggregate-lane-canonical-rules \
+  --manifest <lane-manifest-yaml> \
+  --source-type handout \
+  --trust-level secondary
+```
+
+By default this writes to:
+
+- `config/datasets/canonical_rules.generated.yaml`
+
+And `build_plan()` will merge that generated overlay with the base canonical rules file automatically.
+
+This is a bootstrap surface only:
+- it gives the lane a truthful classification/type/trust starting point
+- it does **not** replace source review or relationship admission
+
 ## Profile contract
 A profile YAML must define:
 - `dataset_id`

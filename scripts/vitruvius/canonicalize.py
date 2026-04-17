@@ -54,9 +54,25 @@ def build_canonical_id(prefix: str, title: str) -> str:
 def load_rules():
     repo_root = get_repo_root()
     path = repo_root / "scripts" / "vitruvius" / "rules" / "canonical_rules.yaml"
+    overlay_path = repo_root / "config" / "datasets" / "canonical_rules.generated.yaml"
 
     with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+        base_payload = yaml.safe_load(f) or {}
+
+    if overlay_path.exists():
+        with open(overlay_path, "r", encoding="utf-8") as f:
+            overlay_payload = yaml.safe_load(f) or {}
+        if isinstance(base_payload, dict) and isinstance(overlay_payload, dict):
+            overlay_rules = overlay_payload.get("rules")
+            if isinstance(overlay_rules, list) and overlay_rules:
+                merged = dict(base_payload)
+                base_rules = merged.get("rules")
+                if not isinstance(base_rules, list):
+                    base_rules = []
+                merged["rules"] = [*base_rules, *overlay_rules]
+                return merged
+
+    return base_payload
 
 
 # --------------------------------------------------
