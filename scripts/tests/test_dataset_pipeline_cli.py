@@ -407,7 +407,9 @@ def test_run_laws_all_dry_run_reports_inventory_and_gate(tmp_path: Path) -> None
     laws_manifest.write_text(manifest_path.read_text(encoding='utf-8'), encoding='utf-8')
     extra_folder = tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'BP-220'
     extra_folder.mkdir(parents=True, exist_ok=True)
-    (extra_folder / 'bp220.pdf').write_bytes(b'%PDF-1.4\n')
+    duplicate_bytes = b'%PDF-1.4\nshared duplicate\n'
+    _write_pdf_bytes(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-1096' / 'stub.pdf', duplicate_bytes)
+    _write_pdf_bytes(extra_folder / 'bp220.pdf', duplicate_bytes)
 
     result = _run_cli(
         [
@@ -425,6 +427,8 @@ def test_run_laws_all_dry_run_reports_inventory_and_gate(tmp_path: Path) -> None
     assert payload['raw_pdf_count'] == 2
     assert payload['bounded_manifest_law_unit_count'] == 1
     assert payload['review_runtime']['preset']['name'] == 'm2-8gb-safe'
+    assert payload['duplicate_cluster_count'] == 1
+    assert payload['duplicate_law_folders'] == ['BP-220', 'PD-1096']
     report_path = tmp_path / payload['report_path']
     assert report_path.exists()
 
@@ -472,7 +476,9 @@ def test_run_laws_tranche_dry_run_reports_candidate_inventory_and_guardrails(tmp
     )
     pd957 = tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957'
     pd957.mkdir(parents=True, exist_ok=True)
-    (pd957 / 'pd957.pdf').write_bytes(b'%PDF-1.4\n')
+    duplicate_bytes = b'%PDF-1.4\nshared duplicate\n'
+    _write_pdf_bytes(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-1096' / 'stub.pdf', duplicate_bytes)
+    _write_pdf_bytes(pd957 / 'pd957.pdf', duplicate_bytes)
     _seed_refined_with_headers(tmp_path, 'PD-1096', 'deep-structure', 25)
 
     result = _run_cli(
@@ -492,8 +498,35 @@ def test_run_laws_tranche_dry_run_reports_candidate_inventory_and_guardrails(tmp
     assert payload['inventory_only_law_count'] == 1
     assert payload['review_runtime']['preset']['name'] == 'm2-8gb-safe'
     assert 'PD-1096' in payload['structure_guardrail_law_folders']
+    assert payload['duplicate_cluster_count'] == 1
+    assert payload['duplicate_law_folders'] == ['PD-1096', 'PD-957']
     report_path = tmp_path / payload['report_path']
     assert report_path.exists()
+
+
+def test_run_laws_duplicate_dry_run_reports_exact_clusters(tmp_path: Path) -> None:
+    _seed_repo(tmp_path)
+    extra_folder = tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'BP-220'
+    extra_folder.mkdir(parents=True, exist_ok=True)
+    duplicate_bytes = b'%PDF-1.4\nsame document\n'
+    _write_pdf_bytes(tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-1096' / 'stub.pdf', duplicate_bytes)
+    _write_pdf_bytes(extra_folder / 'bp220-law.pdf', duplicate_bytes)
+
+    result = _run_cli(
+        [
+            'run-laws-duplicate-dry-run',
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['action'] == 'run-laws-duplicate-dry-run'
+    assert payload['duplicate_cluster_count'] == 1
+    assert payload['duplicate_law_folders'] == ['BP-220', 'PD-1096']
+    report = json.loads((tmp_path / payload['report_path']).read_text(encoding='utf-8'))
+    cluster = report['duplicate_clusters'][0]
+    assert cluster['law_folders'] == ['BP-220', 'PD-1096']
+    assert len(cluster['raw_paths']) == 2
 
 
 def test_run_laws_tranche_source_prep_dry_run_reports_expected_outputs(tmp_path: Path) -> None:

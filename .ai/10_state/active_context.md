@@ -82,6 +82,18 @@
     - `admitted_source_page_count = 2`
     - `canonicalize_failure_count = 0`
     - `PD-957` same-content raw aliases now collapse to one authoritative IRR source while excluded aliases remain explicit in the tranche manifest/report
+- Duplicate-readiness slice:
+  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/pipeline_cli.py scripts/vitruvius/cli_experience.py scripts/tests/test_dataset_pipeline_cli.py`
+  - **PASS**
+  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -k 'run_laws_all_dry_run or run_laws_tranche_dry_run or run_laws_duplicate_dry_run' -q`
+  - **4 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-duplicate-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml` passes
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-all-dry-run --review-preset m2-8gb-safe` now surfaces:
+    - `duplicate_cluster_count = 9`
+    - duplicate-affected folders include `PD-957`, `PD-1096`, `RA-7160`, `RA-9266`
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml --review-preset m2-8gb-safe` now surfaces:
+    - `duplicate_cluster_count = 1`
+    - `duplicate_law_folders = [PD-957]`
 
 ## Residual Graph Caveat
 
@@ -104,6 +116,7 @@
 - Latest tranche source-preparation execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-implementation-validation.md`
 - Latest tranche source-admission validation: `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-implementation-validation.md`
 - Latest tranche source-admission execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-execution-validation.md`
+- Latest duplicate-readiness validation: `/.ai/05_logs/2026-04-17_laws-duplicate-readiness-validation.md`
 
 ## Handoff Note
 

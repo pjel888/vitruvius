@@ -289,6 +289,9 @@ def build_parser() -> argparse.ArgumentParser:
                                         help="Optional review parallelism override for tranche planning")
     tranche_dry_run_parser.add_argument("--review-preset", default=None,
                                         help="Optional review preset (for example: m2-8gb-safe)")
+    laws_duplicate_parser = add_command_parser(subparsers, "run-laws-duplicate-dry-run")
+    laws_duplicate_parser.add_argument("--tranche-manifest", default=None,
+                                       help="Optional tranche manifest to restrict duplicate reporting to a bounded slice")
     tranche_source_prep_parser = add_command_parser(subparsers, "run-laws-tranche-source-prep-dry-run")
     tranche_source_prep_parser.add_argument("--tranche-manifest", default="config/datasets/laws-tranche-1.yaml",
                                             help="Tranche manifest whose raw inputs should be inventoried for source preparation")
@@ -813,6 +816,15 @@ def main() -> int:
                 pilot_manifest="config/datasets/laws-core-bundle-m1.yaml",
                 review_model=args.review_model,
                 review_model_preset=args.review_preset,
+            ),
+        )
+
+    if args.command == "run-laws-duplicate-dry-run":
+        from vitruvius.laws_readiness import run_laws_duplicate_dry_run
+        return _run(
+            "run-laws-duplicate-dry-run",
+            lambda: run_laws_duplicate_dry_run(
+                tranche_manifest=args.tranche_manifest,
             ),
         )
 

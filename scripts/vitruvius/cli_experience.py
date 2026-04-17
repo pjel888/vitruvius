@@ -204,6 +204,16 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         next_step="Use the tranche dry-run report to tighten tranche manifests, source admission, and section-hierarchy guardrails while keeping generic Phase 11 expansion gated.",
         operator_safe=False,
     ),
+    "run-laws-duplicate-dry-run": _doc(
+        "run-laws-duplicate-dry-run",
+        "Report exact duplicate raw PDFs before broader tranche or all-laws widening.",
+        human="This is the whole-laws duplicate and sanitization checkpoint. It groups exact same-byte raw PDFs, flags risky filename-semantic conflicts, and gives operators an auditable report without touching the raw layer.",
+        technical="Scans the laws raw layer or an optional tranche subset, computes SHA-256 for PDFs, groups exact duplicates, annotates risky law/IRR or study-aid filename conflicts, and writes a duplicate-readiness report under the datasets run root.",
+        success="A healthy result writes explicit duplicate clusters and duplicate-affected law folders so wider execution does not silently scale duplicate evidence.",
+        failure="The laws raw root or the requested tranche manifest could not be resolved truthfully, so duplicate readiness remains unknown.",
+        next_step="Review duplicate clusters, keep aliases explicit, and tighten tranche or all-laws admission before any broader execute path.",
+        operator_safe=False,
+    ),
     "run-laws-tranche-source-prep-dry-run": _doc(
         "run-laws-tranche-source-prep-dry-run",
         "Inventory tranche raw inputs and planned convert/refine work before tranche execution.",

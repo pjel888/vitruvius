@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import io
 import json
 from pathlib import Path
@@ -258,6 +259,160 @@ def _build_folder_summary(
         "structure_guardrails": guardrails,
         "next_step": next_step,
     }
+
+
+def _default_duplicate_report_path(repo_root: Path, scope_id: str, run_id: str) -> Path:
+    return (
+        repo_root
+        / "006_System-Manifests"
+        / "runs"
+        / "datasets"
+        / scope_id
+        / run_id
+        / "laws_duplicate_dry_run_report.json"
+    )
+
+
+def _pdf_duplicate_clusters(
+    *,
+    repo_root: Path,
+    folder_names: list[str],
+) -> tuple[list[dict[str, Any]], dict[str, list[str]]]:
+    from .scanner import _sha256_of_file
+
+    raw_root = repo_root / _RAW_SOURCE_ROOT
+    registry_digests: dict[str, str] = {}
+    registry_path = repo_root / "006_System-Manifests" / "registries" / "latest_raw_file_registry.csv"
+    if registry_path.exists():
+        try:
+            with registry_path.open("r", encoding="utf-8", newline="") as handle:
+                reader = csv.DictReader(handle)
+                for row in reader:
+                    relative_path = row.get("relative_path")
+                    extension = row.get("extension")
+                    sha256 = row.get("sha256")
+                    if not isinstance(relative_path, str) or not isinstance(sha256, str):
+                        continue
+                    if extension != ".pdf":
+                        continue
+                    parts = Path(relative_path).parts
+                    if len(parts) < 2:
+                        continue
+                    if parts[1] not in folder_names:
+                        continue
+                    registry_digests[relative_path] = sha256
+        except OSError:
+            registry_digests = {}
+    by_digest: dict[str, list[Path]] = {}
+    for folder_name in folder_names:
+        folder_root = raw_root / folder_name
+        if not folder_root.exists():
+            continue
+        for path in sorted(
+            path for path in folder_root.rglob("*") if path.is_file() and path.suffix.lower() == ".pdf"
+        ):
+            rel_raw_path = path.relative_to(raw_root.parent).as_posix()
+            digest = registry_digests.get(rel_raw_path) or _sha256_of_file(path)
+            by_digest.setdefault(digest, []).append(path)
+
+    folder_flags: dict[str, list[str]] = {}
+    clusters: list[dict[str, Any]] = []
+    for digest, paths in sorted(by_digest.items()):
+        if len(paths) < 2:
+            continue
+        rel_paths = [str(path.relative_to(repo_root)) for path in paths]
+        folders = sorted({path.parent.name for path in paths})
+        tag_union: set[str] = set()
+        for rel_path in rel_paths:
+            tag_union.update(_variant_semantic_tags(rel_path))
+        semantic_flags: list[str] = []
+        if "irr" in tag_union and "lawish" in tag_union:
+            semantic_flags.append("conflicting_law_irr_filename_semantics")
+        if "study_aid" in tag_union and len(tag_union) > 1:
+            semantic_flags.append("study_aid_and_authoritative_variants_mixed")
+        cluster = {
+            "sha256": digest,
+            "file_count": len(rel_paths),
+            "law_folder_count": len(folders),
+            "law_folders": folders,
+            "raw_paths": rel_paths,
+            "semantic_flags": semantic_flags,
+        }
+        clusters.append(cluster)
+        for folder_name in folders:
+            flags = folder_flags.setdefault(folder_name, [])
+            flags.append(f"exact_duplicate_sha256:{digest[:12]}")
+            flags.extend(semantic_flags)
+
+    for folder_name, flags in list(folder_flags.items()):
+        deduped: list[str] = []
+        for flag in flags:
+            if flag not in deduped:
+                deduped.append(flag)
+        folder_flags[folder_name] = deduped
+    return clusters, folder_flags
+
+
+def run_laws_duplicate_dry_run(
+    *,
+    tranche_manifest: str | None = None,
+    report_out: str | None = None,
+) -> int:
+    repo_root = Path.cwd().resolve()
+    run_id = utc_now_stamp().replace("-", "").replace(":", "").replace("+0000", "Z")
+    raw_root = repo_root / _RAW_SOURCE_ROOT
+    if not raw_root.exists():
+        print(json.dumps({"error": f"missing laws raw root: {_relative(raw_root, repo_root)}"}, indent=2))
+        return 2
+
+    scope_id = "laws-duplicate-readiness"
+    scope_folders = [path.name for path in _iter_law_dirs(raw_root)]
+    tranche_manifest_path: Path | None = None
+    if tranche_manifest:
+        tranche_payload, tranche_manifest_path, tranche_error = _load_tranche_manifest(repo_root, tranche_manifest)
+        if tranche_payload is None:
+            print(json.dumps({"error": tranche_error or "failed to load tranche manifest"}, indent=2))
+            return 2
+        scope_id = str(tranche_payload.get("tranche_id") or scope_id)
+        scope_folders = [item["folder_name"] for item in tranche_payload["candidate_law_folders"]]
+
+    duplicate_clusters, duplicate_flags_by_folder = _pdf_duplicate_clusters(
+        repo_root=repo_root,
+        folder_names=scope_folders,
+    )
+    report_path = (
+        Path(report_out).resolve()
+        if report_out
+        else _default_duplicate_report_path(repo_root, scope_id, run_id)
+    )
+    report = {
+        "action": "run-laws-duplicate-dry-run",
+        "generated_at_utc": utc_now_stamp(),
+        "run_id": run_id,
+        "dry_run": True,
+        "phase_11_gate": "gated",
+        "scope_id": scope_id,
+        "tranche_manifest_path": _relative(tranche_manifest_path, repo_root) if tranche_manifest_path else None,
+        "candidate_law_folder_count": len(scope_folders),
+        "candidate_law_folders": scope_folders,
+        "duplicate_cluster_count": len(duplicate_clusters),
+        "duplicate_law_folders": sorted(duplicate_flags_by_folder),
+        "duplicate_clusters": duplicate_clusters,
+    }
+    write_json_report(report_path, report)
+    summary = {
+        "action": "run-laws-duplicate-dry-run",
+        "run_id": run_id,
+        "dry_run": True,
+        "phase_11_gate": "gated",
+        "scope_id": scope_id,
+        "candidate_law_folder_count": len(scope_folders),
+        "duplicate_cluster_count": len(duplicate_clusters),
+        "duplicate_law_folders": sorted(duplicate_flags_by_folder),
+        "report_path": _relative(report_path, repo_root),
+    }
+    print(json.dumps(summary, indent=2))
+    return 0
 
 
 def _refined_markdown_relative_path(markdown_relative_path: Path) -> Path:
@@ -933,6 +1088,10 @@ def run_all_laws_dry_run(
         | raw_source_dirs
         | set(pilot_units_by_folder)
     )
+    duplicate_clusters, duplicate_flags_by_folder = _pdf_duplicate_clusters(
+        repo_root=repo_root,
+        folder_names=all_law_names,
+    )
 
     limitations: list[str] = []
     raw_source_root = repo_root / _RAW_SOURCE_ROOT
@@ -965,9 +1124,12 @@ def run_all_laws_dry_run(
                 pilot_unit=pilot_unit,
             )
         )
+        if duplicate_flags_by_folder.get(folder_name):
+            laws[-1]["duplicate_guardrails"] = duplicate_flags_by_folder[folder_name]
 
     report_path = Path(report_out).resolve() if report_out else _default_report_path(repo_root, run_id)
     guardrail_law_folders = [item["folder_name"] for item in laws if item["structure_guardrails"]]
+    duplicate_law_folders = sorted(duplicate_flags_by_folder)
     report = {
         "action": "run-laws-all-dry-run",
         "generated_at_utc": utc_now_stamp(),
@@ -1002,6 +1164,9 @@ def run_all_laws_dry_run(
             "raw_source_folder_count": len(raw_source_dirs),
         },
         "structure_guardrail_law_folders": guardrail_law_folders,
+        "duplicate_cluster_count": len(duplicate_clusters),
+        "duplicate_law_folders": duplicate_law_folders,
+        "duplicate_clusters": duplicate_clusters,
         "limitations": limitations,
         "laws": laws,
     }
@@ -1033,6 +1198,8 @@ def run_all_laws_dry_run(
         "refined_markdown_count": sum(refined_counts.values()),
         "coverage_gap_law_units": inventory_only_count,
         "structure_guardrail_law_folders": guardrail_law_folders,
+        "duplicate_cluster_count": len(duplicate_clusters),
+        "duplicate_law_folders": duplicate_law_folders,
         "limitations": limitations,
         "report_path": _relative(report_path, repo_root),
     }
@@ -1078,6 +1245,10 @@ def run_laws_tranche_dry_run(
 
     requested = tranche_payload["candidate_law_folders"]
     requested_names = [item["folder_name"] for item in requested]
+    duplicate_clusters, duplicate_flags_by_folder = _pdf_duplicate_clusters(
+        repo_root=repo_root,
+        folder_names=requested_names,
+    )
     laws: list[dict[str, Any]] = []
     pilot_covered_count = 0
     inventory_only_count = 0
@@ -1103,6 +1274,8 @@ def run_laws_tranche_dry_run(
                 candidate_reason=item.get("reason"),
             )
         )
+        if duplicate_flags_by_folder.get(folder_name):
+            laws[-1]["duplicate_guardrails"] = duplicate_flags_by_folder[folder_name]
 
     limitations: list[str] = []
     if manifest_error:
@@ -1110,6 +1283,7 @@ def run_laws_tranche_dry_run(
             f"Pilot manifest { _relative(manifest_path, repo_root) } could not be parsed for tranche comparison: {manifest_error}"
         )
     guardrail_law_folders = [item["folder_name"] for item in laws if item["structure_guardrails"]]
+    duplicate_law_folders = sorted(duplicate_flags_by_folder)
     report_path = Path(report_out).resolve() if report_out else _default_tranche_report_path(repo_root, tranche_id, run_id)
     report = {
         "action": "run-laws-tranche-dry-run",
@@ -1135,6 +1309,9 @@ def run_laws_tranche_dry_run(
         "inventory_only_law_count": inventory_only_count,
         "missing_raw_source_count": missing_raw_source_count,
         "structure_guardrail_law_folders": guardrail_law_folders,
+        "duplicate_cluster_count": len(duplicate_clusters),
+        "duplicate_law_folders": duplicate_law_folders,
+        "duplicate_clusters": duplicate_clusters,
         "laws": laws,
         "limitations": limitations,
     }
@@ -1160,6 +1337,8 @@ def run_laws_tranche_dry_run(
         "inventory_only_law_count": inventory_only_count,
         "missing_raw_source_count": missing_raw_source_count,
         "structure_guardrail_law_folders": guardrail_law_folders,
+        "duplicate_cluster_count": len(duplicate_clusters),
+        "duplicate_law_folders": duplicate_law_folders,
         "report_path": _relative(report_path, repo_root),
     }
     print(json.dumps(summary, indent=2))

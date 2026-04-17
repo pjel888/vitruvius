@@ -1345,6 +1345,28 @@ This command:
 - records excluded study-aid or duplicate aliases directly in the tranche manifest/report
 - keeps tranche source→graph execution gated until the next accepted slice
 
+### Laws duplicate-readiness dry-run
+
+Before broader tranche or all-laws widening, you can surface exact duplicate raw
+PDF clusters directly:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-duplicate-dry-run
+```
+
+Or restrict the scan to one tranche:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-duplicate-dry-run \
+  --tranche-manifest config/datasets/laws-tranche-1.yaml
+```
+
+This command:
+- groups exact same-byte raw PDFs by SHA-256
+- flags risky law/IRR or study-aid filename conflicts
+- writes an operator-readable duplicate report without mutating the raw layer
+- also feeds duplicate-cluster visibility into all-laws and tranche readiness reports
+
 ### Progress / developer experience
 
 When you run the command in an interactive terminal, it emits phase/progress

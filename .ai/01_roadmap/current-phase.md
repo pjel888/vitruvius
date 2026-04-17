@@ -101,6 +101,13 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - `PD-957` duplicate/raw-alias guardrails now collapse the same-content raw cluster to one authoritative representative while keeping excluded aliases explicit
     - `PD-1216` remains explicitly blocked pending OCR
     - see `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-execution-validation.md`
+  - duplicate-readiness guardrails now exist before broader widening:
+    - `run-laws-duplicate-dry-run`
+    - exact duplicate raw-PDF clusters now surface in both:
+      - `run-laws-all-dry-run`
+      - `run-laws-tranche-dry-run`
+    - current whole-laws evidence reports 9 duplicate clusters; tranche-1 reports 1 duplicate cluster affecting `PD-957`
+    - see `/.ai/05_logs/2026-04-17_laws-duplicate-readiness-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
