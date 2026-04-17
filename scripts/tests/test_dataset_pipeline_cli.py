@@ -2559,11 +2559,13 @@ def test_scaffold_completed_aggregate_lane_canonical_rules_writes_generated_rule
         source_type='handout',
         trust_level='secondary',
         output_rules_path=Path('config/datasets/canonical_rules.generated.yaml'),
+        core_concepts=['architectural history'],
     )
     payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'canonical_rules.generated.yaml').read_text(encoding='utf-8'))
     assert summary['scaffolded_rule_count'] == 1
     assert payload['rules'][0]['classification']['source_type'] == 'handout'
     assert payload['rules'][0]['classification']['trust_level'] == 'secondary'
+    assert payload['rules'][0]['canonical']['core_concepts'] == ['architectural history']
 
 
 def test_load_rules_merges_generated_overlay(tmp_path: Path, monkeypatch) -> None:
@@ -2584,6 +2586,48 @@ def test_load_rules_merges_generated_overlay(tmp_path: Path, monkeypatch) -> Non
     monkeypatch.setattr(canonicalize, 'get_repo_root', lambda: tmp_path)
     payload = canonicalize.load_rules()
     assert [rule['name'] for rule in payload['rules']] == ['Base Rule', 'Generated Rule']
+
+
+def test_scaffold_completed_aggregate_lane_concepts_writes_concept_files(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import (
+        scaffold_completed_aggregate_family,
+        scaffold_completed_aggregate_lane_canonical_rules,
+        scaffold_completed_aggregate_lane_concepts,
+        scaffold_completed_aggregate_lane_manifest,
+    )
+
+    scaffold_completed_aggregate_family(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        dataset_kind='history-aggregate',
+    )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '002-History' / 'Chinese Architecture.pdf')
+    lane_result = scaffold_completed_aggregate_lane_manifest(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        lane_id='history-lane-starter',
+        raw_root=Path('001_Raw-Source-Layer/002-History'),
+        max_files=1,
+        extensions=['.pdf'],
+    )
+    scaffold_completed_aggregate_lane_canonical_rules(
+        repo_root=tmp_path,
+        manifest_path=lane_result['out_manifest_path'],
+        source_type='handout',
+        trust_level='secondary',
+        output_rules_path=Path('config/datasets/canonical_rules.generated.yaml'),
+        core_concepts=['architectural history'],
+    )
+    summary = scaffold_completed_aggregate_lane_concepts(
+        repo_root=tmp_path,
+        manifest_path=lane_result['out_manifest_path'],
+        output_dir=Path('003_Canonical-Knowledge-Layer/shared/concepts'),
+    )
+    assert summary['concept_count'] == 1
+    concept_payload = (tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'concepts' / 'architectural-history.md').read_text(encoding='utf-8')
+    assert 'id: concept-architectural-history' in concept_payload
 
 
 def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
@@ -3338,6 +3382,7 @@ def test_pipeline_cli_scaffold_completed_aggregate_lane_canonical_rules_reports_
             '--manifest', 'config/datasets/history-lane-starter.yaml',
             '--source-type', 'handout',
             '--trust-level', 'secondary',
+            '--core-concept', 'architectural history',
         ],
     )
     rc = pipeline_cli.main()
@@ -3345,6 +3390,79 @@ def test_pipeline_cli_scaffold_completed_aggregate_lane_canonical_rules_reports_
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'scaffold-completed-aggregate-lane-canonical-rules'
     assert stdout_payload['scaffolded_rule_count'] == 1
+
+
+def test_pipeline_cli_scaffold_completed_aggregate_lane_concepts_reports_summary(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '002-History' / 'Chinese Architecture.pdf')
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-family',
+            '--family', 'history-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--dataset-kind', 'history-aggregate',
+        ],
+    )
+    assert pipeline_cli.main() == 0
+    capsys.readouterr()
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-lane-manifest',
+            '--family', 'history-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--lane-id', 'history-lane-starter',
+            '--raw-root', '001_Raw-Source-Layer/002-History',
+            '--max-files', '1',
+            '--extension', '.pdf',
+        ],
+    )
+    assert pipeline_cli.main() == 0
+    capsys.readouterr()
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-lane-canonical-rules',
+            '--manifest', 'config/datasets/history-lane-starter.yaml',
+            '--source-type', 'handout',
+            '--trust-level', 'secondary',
+            '--core-concept', 'architectural history',
+        ],
+    )
+    assert pipeline_cli.main() == 0
+    capsys.readouterr()
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-lane-concepts',
+            '--manifest', 'config/datasets/history-lane-starter.yaml',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'scaffold-completed-aggregate-lane-concepts'
+    assert stdout_payload['concept_count'] == 1
 
 
 def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline(

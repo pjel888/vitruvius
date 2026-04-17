@@ -55,5 +55,7 @@ status: in_progress
   - candidate canonical sources -> admitted canonical source pages + manifest update
 - starter canonical-rule scaffolding is now in place:
   - lane manifest -> generated canonical rule overlay entries
+- starter concept scaffolding is now in place:
+  - generated lane rules -> draft concept pages
 - the next real proof is still:
   - onboard the first true non-laws trusted dataset family once its completed lanes are admitted

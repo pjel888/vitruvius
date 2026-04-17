@@ -1287,6 +1287,7 @@ def scaffold_completed_aggregate_lane_canonical_rules(
     source_type: str,
     trust_level: str,
     output_rules_path: Path | None = None,
+    core_concepts: list[str] | None = None,
 ) -> dict[str, Any]:
     resolved_manifest_path = manifest_path if manifest_path.is_absolute() else repo_root / manifest_path
     payload = load_yaml_payload(resolved_manifest_path)
@@ -1327,7 +1328,7 @@ def scaffold_completed_aggregate_lane_canonical_rules(
                 'title': title,
                 'aliases': [stem],
                 'relationships': {},
-                'core_concepts': [],
+                'core_concepts': [concept for concept in (core_concepts or []) if str(concept).strip()],
             },
         }
         candidates.append(rule)
@@ -1346,6 +1347,63 @@ def scaffold_completed_aggregate_lane_canonical_rules(
         'output_rules_path': _relative(output_path, repo_root),
         'scaffolded_rule_count': len(candidates),
         'rule_names': [str(item['name']) for item in candidates],
+    }
+
+
+def scaffold_completed_aggregate_lane_concepts(
+    *,
+    repo_root: Path,
+    manifest_path: Path,
+    output_dir: Path | None = None,
+) -> dict[str, Any]:
+    from .canonicalize import build_canonical_id, slugify
+
+    resolved_manifest_path = manifest_path if manifest_path.is_absolute() else repo_root / manifest_path
+    payload = load_yaml_payload(resolved_manifest_path)
+    source_reports = inspect_completed_aggregate_lane_sources(
+        repo_root=repo_root,
+        manifest_path=resolved_manifest_path,
+    )
+    source_titles = {_title_from_stem(Path(report['raw_path']).stem) for report in source_reports.get('file_reports') or [] if isinstance(report, dict) and isinstance(report.get('raw_path'), str)}
+
+    overlay_path = repo_root / 'config' / 'datasets' / 'canonical_rules.generated.yaml'
+    overlay_payload = load_yaml_payload(overlay_path) if overlay_path.exists() else {'rules': []}
+    rules = overlay_payload.get('rules')
+    if not isinstance(rules, list):
+        rules = []
+
+    selected_concepts: list[str] = []
+    for rule in rules:
+        if not isinstance(rule, dict):
+            continue
+        canonical = rule.get('canonical')
+        if not isinstance(canonical, dict):
+            continue
+        title = str(canonical.get('title') or '')
+        if source_titles and title not in source_titles:
+            continue
+        for concept in canonical.get('core_concepts') or []:
+            if isinstance(concept, str) and concept.strip() and concept not in selected_concepts:
+                selected_concepts.append(concept)
+
+    target_dir = output_dir if output_dir is not None and output_dir.is_absolute() else repo_root / (output_dir or Path('003_Canonical-Knowledge-Layer/shared/concepts'))
+    written_paths: list[str] = []
+    for concept in selected_concepts:
+        concept_id = build_canonical_id('concept', concept)
+        concept_slug = slugify(concept)
+        target_path = target_dir / f'{concept_slug}.md'
+        if not target_path.exists():
+            target_path.parent.mkdir(parents=True, exist_ok=True)
+            target_path.write_text(
+                f"---\nid: {concept_id}\ntitle: {concept}\npage_type: concept\ntrust_level: bootstrap\ncanonical_status: draft\naliases:\n  - {concept}\n---\n\n# {concept}\n\n## Draft Concept Summary\n\nBootstrap concept scaffold generated from completed aggregate lane rule overlay.\n",
+                encoding='utf-8',
+            )
+        written_paths.append(_relative(target_path, repo_root))
+
+    return {
+        'manifest_path': _relative(resolved_manifest_path, repo_root),
+        'concept_count': len(selected_concepts),
+        'written_paths': written_paths,
     }
 
 

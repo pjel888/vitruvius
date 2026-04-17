@@ -225,6 +225,20 @@ This is a bootstrap surface only:
 - it gives the lane a truthful classification/type/trust starting point
 - it does **not** replace source review or relationship admission
 
+## Scaffolding starter concepts from generated lane rules
+If your generated starter rules include `core_concepts`, scaffold concept files with:
+
+```bash
+python3 scripts/pipeline_cli.py scaffold-completed-aggregate-lane-concepts \
+  --manifest <lane-manifest-yaml>
+```
+
+This writes draft concept pages under:
+
+- `003_Canonical-Knowledge-Layer/shared/concepts/`
+
+These are bootstrap concept stubs only. They help the next relationship-input layer, but they are not a substitute for reviewed concept enrichment.
+
 ## Profile contract
 A profile YAML must define:
 - `dataset_id`
