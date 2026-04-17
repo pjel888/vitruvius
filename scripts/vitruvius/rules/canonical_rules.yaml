@@ -227,6 +227,33 @@ rules:
       core_concepts: []
 
   # --------------------------------------------------
+  # PD 1216 Law
+  # --------------------------------------------------
+  - name: "PD 1216 Law"
+
+    match:
+      all_contains:
+        - "pd"
+        - "1216"
+      any_contains:
+        - "open space"
+        - "subdivisions"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Open Space Requirements in Residential Subdivisions"
+
+      aliases:
+        - "PD 1216"
+        - "Presidential Decree No. 1216"
+        - "Open Space Requirements in Subdivisions"
+
+      core_concepts: []
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

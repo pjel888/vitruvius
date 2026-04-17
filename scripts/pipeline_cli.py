@@ -302,6 +302,8 @@ def build_parser() -> argparse.ArgumentParser:
                                                  help="Tranche manifest whose raw inputs should be prepared into conversion/refinement outputs")
     tranche_source_prep_exec_parser.add_argument("--sample-pages", type=int, default=5,
                                                  help="Sample pages for per-PDF route detection (default: 5)")
+    tranche_source_prep_exec_parser.add_argument("--allow-ocr", action="store_true",
+                                                 help="When set, run OCR-first preparation for tranche PDFs that require OCR instead of only reporting them as blocked")
     tranche_source_admission_parser = add_command_parser(subparsers, "run-laws-tranche-source-admission-dry-run")
     tranche_source_admission_parser.add_argument("--tranche-manifest", default="config/datasets/laws-tranche-1.yaml",
                                                  help="Tranche manifest whose prepared outputs should be classified into ready-vs-blocked source admission state")
@@ -850,6 +852,7 @@ def main() -> int:
             lambda: run_laws_tranche_source_prep(
                 tranche_manifest=args.tranche_manifest,
                 sample_pages=args.sample_pages,
+                allow_ocr=args.allow_ocr,
             ),
         )
 

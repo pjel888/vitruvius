@@ -45,3 +45,13 @@ def test_build_plan_matches_pd_1185_law_rule() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_pd_1216_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.md'
+    )
+    assert plan['title'] == 'Open Space Requirements in Residential Subdivisions'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'

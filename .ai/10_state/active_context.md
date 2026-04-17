@@ -116,7 +116,27 @@
   - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py -k 'tranche_source_to_graph_dry_run or source_admission or pd_957 or pd_1185' -q`
   - **6 passed**
   - live tranche dry-run still keeps:
-    - `PD-1216` blocked
+    - `source_to_graph_execute_ready = false`
+- PD-1216 OCR-first preparation slice:
+  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/pipeline_cli.py scripts/vitruvius/cli_experience.py scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py`
+  - **PASS**
+  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py -k 'prepare_raw_file_allow_ocr or tranche_source_to_graph_dry_run or pd_1216 or pd_957 or pd_1185' -q`
+  - **6 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-prep --tranche-manifest config/datasets/laws-tranche-1.yaml --allow-ocr`
+  - current OCR-first prep evidence:
+    - `prepared_count = 6`
+    - `ocr_required_count = 0`
+    - `failed_count = 0`
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-admission --tranche-manifest config/datasets/laws-tranche-1.yaml --source-prep-report 006_System-Manifests/runs/datasets/laws-tranche-1/20260417T065723Z/laws_tranche_source_prep_report.json`
+  - tranche source admission now admits:
+    - `PD-957`
+    - `PD-1216`
+    - `PD-1185`
+  - latest tranche source-to-graph dry-run:
+    - `staged_law_folders = [PD-957, PD-1216, PD-1185]`
+    - `blocked_law_folders = []`
+    - `planned_stage_count = 3`
+    - `shallow_representation_count = 0`
     - `source_to_graph_execute_ready = false`
 
 ## Residual Graph Caveat
@@ -143,6 +163,7 @@
 - Latest duplicate-readiness validation: `/.ai/05_logs/2026-04-17_laws-duplicate-readiness-validation.md`
 - Latest tranche source-to-graph dry-run validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-dry-run-validation.md`
 - Latest PD-957 concept-fit validation: `/.ai/05_logs/2026-04-17_pd957-concept-fit-admission-validation.md`
+- Latest PD-1216 OCR-first validation: `/.ai/05_logs/2026-04-17_pd1216-ocr-first-preparation-validation.md`
 
 ## Handoff Note
 

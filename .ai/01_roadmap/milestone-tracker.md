@@ -212,6 +212,7 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - duplicate-readiness checkpoint now exists: `run-laws-duplicate-dry-run`, and duplicate cluster summaries now appear inside all-laws and tranche readiness reports; see `/.ai/05_logs/2026-04-17_laws-duplicate-readiness-validation.md`
   - tranche-local source-to-graph dry-run now exists: `run-laws-tranche-source-to-graph-dry-run`, which stages only admitted tranche members while keeping `PD-1216` blocked and execute still gated; see `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-dry-run-validation.md`
   - PD-957 concept-fit admission slice now exists: three shared concepts plus three dataset-scoped `governs` relationships are admitted, and the tranche source-to-graph dry-run no longer reports shallow representation; see `/.ai/05_logs/2026-04-17_pd957-concept-fit-admission-validation.md`
+  - PD-1216 OCR-first preparation slice now exists: OCR outputs plus canonical admission now stage all three tranche laws through source-to-graph dry-run while execute remains gated; see `/.ai/05_logs/2026-04-17_pd1216-ocr-first-preparation-validation.md`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)

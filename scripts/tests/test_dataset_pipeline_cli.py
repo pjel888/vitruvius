@@ -5,6 +5,7 @@ import os
 import subprocess
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import yaml
 from pypdf import PdfWriter
@@ -605,6 +606,59 @@ def test_run_laws_tranche_source_prep_handles_ocr_required_pdf(tmp_path: Path) -
     assert payload['supported_direct_input_count'] == 1
     assert payload['ocr_required_count'] == 1
     assert payload['prepared_count'] == 0
+
+
+def test_prepare_raw_file_allow_ocr_runs_ocr_then_convert_and_refine(tmp_path: Path, monkeypatch) -> None:
+    from vitruvius import laws_readiness as lr
+
+    raw_pdf = tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-1216' / 'pd1216.pdf'
+    _write_valid_pdf(raw_pdf)
+
+    monkeypatch.setattr(
+        lr,
+        'detect_pdf_type',
+        lambda path, sample_pages=5: {
+            'result': 'LIKELY_SCANNED_PDF',
+            'recommended_route': 'OCR_FIRST_THEN_OPENDATALOADER',
+        },
+    )
+
+    def fake_ocr(input_path: str, output_path: str, **kwargs) -> None:
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+        Path(output_path).write_bytes(b'%PDF-1.4\n%ocr output\n')
+
+    monkeypatch.setitem(sys.modules, 'ocrmypdf', SimpleNamespace(ocr=fake_ocr))
+
+    def fake_convert_pdf_at_path(pdf_path: Path, logical_relative_source_path: str, **kwargs):
+        markdown_rel, json_rel = lr.build_conversion_relative_paths(logical_relative_source_path)
+        _write(tmp_path / '002_Raw-Conversion-Layer' / markdown_rel, '# raw from ocr\n')
+        _write(tmp_path / '002_Raw-Conversion-Layer' / json_rel, '{}\n')
+        return {
+            'markdown_output_relative': markdown_rel.as_posix(),
+            'json_output_relative': json_rel.as_posix(),
+        }
+
+    monkeypatch.setattr(lr, 'convert_pdf_at_path', fake_convert_pdf_at_path)
+
+    def fake_refine_one(*, relative_markdown_path: str) -> int:
+        refined_rel = lr._refined_markdown_relative_path(Path(relative_markdown_path))
+        _write(tmp_path / '002_Raw-Conversion-Layer' / refined_rel, '# refined from ocr\n')
+        return 0
+
+    monkeypatch.setattr(lr, 'run_refine_one', fake_refine_one)
+
+    result = lr._prepare_raw_file(
+        repo_root=tmp_path,
+        file_path=raw_pdf,
+        sample_pages=5,
+        allow_ocr=True,
+    )
+    assert result['status'] == 'prepared'
+    assert result['recommended_route'] == 'OCR_FIRST_THEN_OPENDATALOADER'
+    assert result['expected_ocr_pdf_path'].endswith('002_Raw-Conversion-Layer/001-Laws/ocr_pdf/PD-1216/pd1216.pdf')
+    assert (tmp_path / result['expected_ocr_pdf_path']).exists()
+    assert (tmp_path / result['expected_raw_markdown_path']).exists()
+    assert (tmp_path / result['expected_refined_markdown_path']).exists()
 
 
 def test_run_laws_tranche_source_admission_dry_run_reports_ready_vs_blocked_split(tmp_path: Path) -> None:

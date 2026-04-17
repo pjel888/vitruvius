@@ -1312,6 +1312,15 @@ This command:
 - refines the newly produced raw-markdown outputs
 - reports which tranche files were prepared and which still require OCR/manual follow-up
 
+If you want the same command to run OCR-first preparation for scanned tranche PDFs
+instead of only reporting them as blocked:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-prep \
+  --tranche-manifest config/datasets/laws-tranche-1.yaml \
+  --allow-ocr
+```
+
 ### Tranche source-admission dry-run
 
 After tranche source preparation, the next truthful checkpoint is source

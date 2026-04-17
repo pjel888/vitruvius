@@ -227,8 +227,8 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
     "run-laws-tranche-source-prep": _doc(
         "run-laws-tranche-source-prep",
         "Run tranche-only conversion/refinement preparation before tranche source-to-graph.",
-        human="This executes the next safe tranche step: it walks raw files in a tranche, uses lightweight route detection, converts direct-input files, refines newly produced raw-markdown outputs, and reports what still needs OCR or further work.",
-        technical="Loads a tranche manifest, inspects tranche raw files, runs `run_convert_one` on direct-input files that do not require OCR-first routing, runs `run_refine_one` on the resulting raw-markdown outputs, and writes a tranche-local preparation report.",
+        human="This executes the next safe tranche step: it walks raw files in a tranche, uses lightweight route detection, converts direct-input files, optionally runs OCR-first preparation for scanned PDFs when requested, refines newly produced raw-markdown outputs, and reports what still needs follow-up.",
+        technical="Loads a tranche manifest, inspects tranche raw files, runs `run_convert_one` on direct-input files, optionally routes scanned PDFs through OCR-first preparation when `--allow-ocr` is set, runs `run_refine_one` on the resulting raw-markdown outputs, and writes a tranche-local preparation report.",
         success="A healthy result writes tranche preparation outputs and a report showing how many tranche files were prepared versus still requiring OCR or manual follow-up.",
         failure="A tranche file failed detection, conversion, or refinement, so tranche preparation is incomplete and the tranche is not yet ready for source-to-graph execution.",
         next_step="Inspect the tranche source-preparation report, resolve OCR-required or failed files, and then rerun tranche dry-run/source-to-graph once produced-data readiness is acceptable.",

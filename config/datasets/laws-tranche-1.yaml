@@ -9,8 +9,8 @@ candidate_law_folders:
 - folder_name: PD-957
   reason: Housing and subdivision development baseline cited by BP-220.
   source_admission_state: admitted
-  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-1/20260417T051022Z/laws_tranche_source_admission_report.json
-  source_admission_run_id: 20260417T051022Z
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-1/20260417T065958Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T065958Z
   authoritative_variant_paths: &id001
   - 001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium
     IRR.pdf
@@ -52,28 +52,34 @@ candidate_law_folders:
     PD 957 IRR - Subdivision and Condominium IRR.pdf'
   - same-content raw variants carry conflicting law/IRR filename semantics for sha256
     1f9ab17a8168; review aliases before widening execution
-  - PD-957 concept-fit slice admits existing shared concepts and dataset-scoped governs relationships only.
+  - PD-957 concept-fit slice admits existing shared concepts and dataset-scoped governs
+    relationships only.
 - folder_name: PD-1216
   reason: Open-space / subdivision-standards baseline cited by BP-220.
-  source_admission_state: blocked_pending_ocr
-  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-1/20260417T051022Z/laws_tranche_source_admission_report.json
-  source_admission_run_id: 20260417T051022Z
-  authoritative_variant_paths: &id002 []
-  raw_anchor_paths: *id002
-  refined_markdown_paths: []
-  admitted_source_paths: []
-  excluded_variant_paths: []
-  blocked_raw_anchor_paths:
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-1/20260417T065958Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T065958Z
+  authoritative_variant_paths: &id002
   - 001_Raw-Source-Layer/001-Laws/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.pdf
+  raw_anchor_paths: *id002
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1216/PD 1216 - Open Space
+    Requirements in Subdivisions.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/open-space-requirements-in-residential-subdivisions.md
+  excluded_variant_paths: []
   source_admission_guardrails: []
   verification_checks:
   - OCR-blocked raw variants remain explicit and unadmitted
-  scope_notes: []
+  - source admission executed for the selected authoritative prepared variants
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
 - folder_name: PD-1185
   reason: Fire-code adjacency cited by BP-220 and relevant to safety overlap.
   source_admission_state: admitted
-  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-1/20260417T051022Z/laws_tranche_source_admission_report.json
-  source_admission_run_id: 20260417T051022Z
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-1/20260417T065958Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T065958Z
   authoritative_variant_paths: &id003
   - 001_Raw-Source-Layer/001-Laws/PD-1185/PD 1185 - Fire Code of the Philippines 1977.pdf
   raw_anchor_paths: *id003
@@ -90,11 +96,11 @@ candidate_law_folders:
   - Source admission is intentionally conservative and admits only selected authoritative
     prepared variants.
 source_admission:
-  last_run_id: 20260417T051022Z
-  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-1/20260417T051022Z/laws_tranche_source_admission_report.json
+  last_run_id: 20260417T065958Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-1/20260417T065958Z/laws_tranche_source_admission_report.json
   admitted_ready_law_folders:
   - PD-957
+  - PD-1216
   - PD-1185
   mixed_readiness_law_folders: []
-  blocked_law_folders:
-  - PD-1216
+  blocked_law_folders: []

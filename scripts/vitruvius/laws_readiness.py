@@ -11,12 +11,12 @@ import yaml
 
 from .canonicalize import build_plan, build_structured_source_file, extract_section_headers, slugify
 from .config import get_ollama_default_model, get_ollama_default_parallelism, resolve_review_preset
-from .constants import RAW_LAYER_NAME
-from .conversion import SUPPORTED_DIRECT_INPUT_EXTENSIONS, run_convert_one
+from .constants import CONVERSION_LAYER_NAME, RAW_LAYER_NAME
+from .conversion import SUPPORTED_DIRECT_INPUT_EXTENSIONS, convert_pdf_at_path, run_convert_one
 from .detection import detect_pdf_type
 from .graph.dataset_manifest import DatasetManifestError, load_dataset_manifest, write_json_report
 from .normalization.refine import run_refine_one
-from .paths import build_conversion_relative_paths
+from .paths import build_conversion_relative_paths, build_ocr_pdf_relative_path
 from .utils import utc_now_stamp
 
 
@@ -677,18 +677,23 @@ def _raw_file_preparation_summary(
     markdown_rel: str | None = None
     sidecar_rel: str | None = None
     refined_rel: str | None = None
+    ocr_pdf_rel: str | None = None
     markdown_exists = False
     sidecar_exists = False
     refined_exists = False
+    ocr_pdf_exists = False
     if supported:
         markdown_path_rel, json_path_rel = build_conversion_relative_paths(rel_raw)
         refined_path_rel = _refined_markdown_relative_path(markdown_path_rel)
+        ocr_pdf_path_rel = build_ocr_pdf_relative_path(rel_raw)
         markdown_rel = (Path("002_Raw-Conversion-Layer") / markdown_path_rel).as_posix()
         sidecar_rel = (Path("002_Raw-Conversion-Layer") / json_path_rel).as_posix()
         refined_rel = (Path("002_Raw-Conversion-Layer") / refined_path_rel).as_posix()
+        ocr_pdf_rel = (Path("002_Raw-Conversion-Layer") / ocr_pdf_path_rel).as_posix()
         markdown_exists = (repo_root / markdown_rel).exists()
         sidecar_exists = (repo_root / sidecar_rel).exists()
         refined_exists = (repo_root / refined_rel).exists()
+        ocr_pdf_exists = (repo_root / ocr_pdf_rel).exists()
 
     return {
         "raw_path": rel_repo,
@@ -700,9 +705,120 @@ def _raw_file_preparation_summary(
         "expected_raw_markdown_path": markdown_rel,
         "expected_sidecar_json_path": sidecar_rel,
         "expected_refined_markdown_path": refined_rel,
+        "expected_ocr_pdf_path": ocr_pdf_rel,
         "raw_markdown_exists": markdown_exists,
         "sidecar_json_exists": sidecar_exists,
         "refined_markdown_exists": refined_exists,
+        "ocr_pdf_exists": ocr_pdf_exists,
+    }
+
+
+def _prepare_raw_file_via_ocr(
+    *,
+    repo_root: Path,
+    file_path: Path,
+    rel_repo: str,
+    rel_raw: str,
+    detection: dict[str, Any] | None,
+) -> dict[str, Any]:
+    import ocrmypdf
+
+    markdown_path_rel, json_path_rel = build_conversion_relative_paths(rel_raw)
+    refined_path_rel = _refined_markdown_relative_path(markdown_path_rel)
+    ocr_pdf_path_rel = build_ocr_pdf_relative_path(rel_raw)
+    markdown_rel = (Path(CONVERSION_LAYER_NAME) / markdown_path_rel).as_posix()
+    sidecar_rel = (Path(CONVERSION_LAYER_NAME) / json_path_rel).as_posix()
+    refined_rel = (Path(CONVERSION_LAYER_NAME) / refined_path_rel).as_posix()
+    ocr_pdf_rel = (Path(CONVERSION_LAYER_NAME) / ocr_pdf_path_rel).as_posix()
+    ocr_abs = repo_root / ocr_pdf_rel
+
+    if ocr_abs.exists() and (repo_root / markdown_rel).exists() and (repo_root / sidecar_rel).exists() and (repo_root / refined_rel).exists():
+        return {
+            "raw_path": rel_repo,
+            "status": "prepared",
+            "supported_direct_input": True,
+            "detection_result": detection["result"] if detection else None,
+            "recommended_route": detection["recommended_route"] if detection else None,
+            "expected_raw_markdown_path": markdown_rel,
+            "expected_sidecar_json_path": sidecar_rel,
+            "expected_refined_markdown_path": refined_rel,
+            "expected_ocr_pdf_path": ocr_pdf_rel,
+            "ocr_output": "reused existing OCR/conversion/refinement outputs",
+            "convert_output": "",
+            "refine_output": "",
+        }
+
+    try:
+        ocr_abs.parent.mkdir(parents=True, exist_ok=True)
+        if ocr_abs.exists():
+            ocr_abs.unlink()
+        ocrmypdf.ocr(
+            str(file_path),
+            str(ocr_abs),
+            languages=["eng"],
+            deskew=True,
+            skip_text=True,
+            progress_bar=False,
+        )
+    except Exception as exc:  # noqa: BLE001
+        return {
+            "raw_path": rel_repo,
+            "status": "ocr_failed",
+            "supported_direct_input": True,
+            "detection_result": detection["result"] if detection else None,
+            "recommended_route": detection["recommended_route"] if detection else None,
+            "expected_raw_markdown_path": markdown_rel,
+            "expected_sidecar_json_path": sidecar_rel,
+            "expected_refined_markdown_path": refined_rel,
+            "expected_ocr_pdf_path": ocr_pdf_rel,
+            "error": str(exc),
+        }
+
+    try:
+        converted = convert_pdf_at_path(
+            ocr_abs,
+            rel_raw,
+            run_command="run-laws-tranche-source-prep",
+            detected_pdf_type="OCR_OUTPUT_PDF",
+            processing_route="OCR_THEN_OPENDATALOADER",
+            output_ocr_pdf_relative_path=ocr_pdf_rel,
+        )
+    except Exception as exc:  # noqa: BLE001
+        return {
+            "raw_path": rel_repo,
+            "status": "convert_failed",
+            "supported_direct_input": True,
+            "detection_result": detection["result"] if detection else None,
+            "recommended_route": detection["recommended_route"] if detection else None,
+            "expected_raw_markdown_path": markdown_rel,
+            "expected_sidecar_json_path": sidecar_rel,
+            "expected_refined_markdown_path": refined_rel,
+            "expected_ocr_pdf_path": ocr_pdf_rel,
+            "ocr_output": f"ocrmypdf completed: {ocr_pdf_rel}",
+            "error": str(exc),
+        }
+
+    refine_rc, refine_output = _capture_text_handler(
+        lambda: run_refine_one(relative_markdown_path=markdown_path_rel.as_posix())
+    )
+    return {
+        "raw_path": rel_repo,
+        "status": "prepared" if refine_rc == 0 else "refine_failed",
+        "supported_direct_input": True,
+        "detection_result": detection["result"] if detection else None,
+        "recommended_route": detection["recommended_route"] if detection else None,
+        "expected_raw_markdown_path": markdown_rel,
+        "expected_sidecar_json_path": sidecar_rel,
+        "expected_refined_markdown_path": refined_rel,
+        "expected_ocr_pdf_path": ocr_pdf_rel,
+        "ocr_output": f"ocrmypdf completed: {ocr_pdf_rel}",
+        "convert_output": json.dumps(
+            {
+                "markdown_output_relative": converted["markdown_output_relative"],
+                "json_output_relative": converted["json_output_relative"],
+            }
+        ),
+        "refine_output": refine_output.strip(),
     }
 
 
@@ -711,6 +827,7 @@ def _prepare_raw_file(
     repo_root: Path,
     file_path: Path,
     sample_pages: int,
+    allow_ocr: bool = False,
 ) -> dict[str, Any]:
     rel_repo = file_path.relative_to(repo_root).as_posix()
     rel_raw = file_path.relative_to(repo_root / RAW_LAYER_NAME).as_posix()
@@ -723,6 +840,13 @@ def _prepare_raw_file(
         }
 
     detection: dict[str, Any] | None = None
+    markdown_path_rel, json_path_rel = build_conversion_relative_paths(rel_raw)
+    refined_path_rel = _refined_markdown_relative_path(markdown_path_rel)
+    ocr_pdf_path_rel = build_ocr_pdf_relative_path(rel_raw)
+    markdown_rel = (Path(CONVERSION_LAYER_NAME) / markdown_path_rel).as_posix()
+    sidecar_rel = (Path(CONVERSION_LAYER_NAME) / json_path_rel).as_posix()
+    refined_rel = (Path(CONVERSION_LAYER_NAME) / refined_path_rel).as_posix()
+    ocr_pdf_rel = (Path(CONVERSION_LAYER_NAME) / ocr_pdf_path_rel).as_posix()
     if ext == ".pdf":
         try:
             detection = detect_pdf_type(file_path, sample_pages=sample_pages)
@@ -734,19 +858,25 @@ def _prepare_raw_file(
                 "supported_direct_input": True,
             }
         if detection["recommended_route"] != "OPENDATALOADER_DIRECT":
+            if allow_ocr:
+                return _prepare_raw_file_via_ocr(
+                    repo_root=repo_root,
+                    file_path=file_path,
+                    rel_repo=rel_repo,
+                    rel_raw=rel_raw,
+                    detection=detection,
+                )
             return {
                 "raw_path": rel_repo,
                 "status": "ocr_required",
                 "supported_direct_input": True,
                 "detection_result": detection["result"],
                 "recommended_route": detection["recommended_route"],
+                "expected_raw_markdown_path": markdown_rel,
+                "expected_sidecar_json_path": sidecar_rel,
+                "expected_refined_markdown_path": refined_rel,
+                "expected_ocr_pdf_path": ocr_pdf_rel,
             }
-
-    markdown_path_rel, json_path_rel = build_conversion_relative_paths(rel_raw)
-    refined_path_rel = _refined_markdown_relative_path(markdown_path_rel)
-    markdown_rel = (Path("002_Raw-Conversion-Layer") / markdown_path_rel).as_posix()
-    sidecar_rel = (Path("002_Raw-Conversion-Layer") / json_path_rel).as_posix()
-    refined_rel = (Path("002_Raw-Conversion-Layer") / refined_path_rel).as_posix()
 
     convert_rc, convert_output = _capture_text_handler(
         lambda: run_convert_one(relative_pdf_path=rel_raw)
@@ -1082,7 +1212,7 @@ def _summarize_source_admission_folder(
     ]
     failed_files = [
         report for report in file_reports
-        if isinstance(report, dict) and report.get("status") in {"convert_failed", "refine_failed", "detection_failed"}
+        if isinstance(report, dict) and report.get("status") in {"ocr_failed", "convert_failed", "refine_failed", "detection_failed"}
     ]
     candidate_source_pages, excluded_prepared_file_reports, admission_guardrails = _select_prepared_source_candidates(
         repo_root=repo_root,
@@ -1656,6 +1786,7 @@ def run_laws_tranche_source_prep(
     *,
     tranche_manifest: str,
     sample_pages: int = 5,
+    allow_ocr: bool = False,
     report_out: str | None = None,
 ) -> int:
     repo_root = Path.cwd().resolve()
@@ -1684,12 +1815,13 @@ def run_laws_tranche_source_prep(
                 repo_root=repo_root,
                 file_path=file_path,
                 sample_pages=sample_pages,
+                allow_ocr=allow_ocr,
             )
             for file_path in files
         ]
         prepared_count += sum(1 for report in file_reports if report["status"] == "prepared")
         ocr_required_count += sum(1 for report in file_reports if report["status"] == "ocr_required")
-        failed_count += sum(1 for report in file_reports if report["status"] in {"convert_failed", "refine_failed", "detection_failed"})
+        failed_count += sum(1 for report in file_reports if report["status"] in {"ocr_failed", "convert_failed", "refine_failed", "detection_failed"})
         folders_report.append(
             {
                 "folder_name": folder_name,
@@ -1699,7 +1831,7 @@ def run_laws_tranche_source_prep(
                 "supported_direct_input_count": sum(1 for report in file_reports if report["supported_direct_input"]),
                 "prepared_count": sum(1 for report in file_reports if report["status"] == "prepared"),
                 "ocr_required_count": sum(1 for report in file_reports if report["status"] == "ocr_required"),
-                "failed_count": sum(1 for report in file_reports if report["status"] in {"convert_failed", "refine_failed", "detection_failed"}),
+                "failed_count": sum(1 for report in file_reports if report["status"] in {"ocr_failed", "convert_failed", "refine_failed", "detection_failed"}),
                 "file_reports": file_reports,
             }
         )
@@ -1715,6 +1847,7 @@ def run_laws_tranche_source_prep(
         "tranche_id": tranche_id,
         "tranche_manifest_path": _relative(tranche_manifest_path, repo_root),
         "sample_pages": sample_pages,
+        "allow_ocr": allow_ocr,
         "prepared_count": prepared_count,
         "ocr_required_count": ocr_required_count,
         "failed_count": failed_count,
@@ -1727,6 +1860,7 @@ def run_laws_tranche_source_prep(
         "execute": True,
         "phase_11_gate": "gated",
         "tranche_id": tranche_id,
+        "allow_ocr": allow_ocr,
         "candidate_law_folder_count": len(folders_report),
         "raw_file_count": sum(folder["raw_file_count"] for folder in folders_report),
         "supported_direct_input_count": sum(folder["supported_direct_input_count"] for folder in folders_report),

@@ -125,6 +125,15 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - dataset-scoped `governs` relationships admitted for the same three concepts
     - this removes the tranche shallow-representation finding without widening execute
     - see `/.ai/05_logs/2026-04-17_pd957-concept-fit-admission-validation.md`
+  - PD-1216 OCR-first preparation is now complete:
+    - OCR PDF + raw markdown + refined markdown + sidecar JSON now exist
+    - PD-1216 source admission is now executed
+    - tranche source-to-graph dry-run now stages:
+      - `PD-957`
+      - `PD-1216`
+      - `PD-1185`
+    - current live dry-run shows `planned_stage_count = 3`, `blocked_law_folders = []`, `shallow_representation_count = 0`, and `source_to_graph_execute_ready = false`
+    - see `/.ai/05_logs/2026-04-17_pd1216-ocr-first-preparation-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`
