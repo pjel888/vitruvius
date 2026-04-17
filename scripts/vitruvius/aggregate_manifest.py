@@ -305,3 +305,40 @@ def print_aggregate_manifest_summary(*, repo_root: Path, out_manifest_path: Path
         'relationship_count': len(aggregate_payload['relationship_input_manifest']['relationships']),
         'raw_slice_anchor_count': len(aggregate_payload['raw_slice_anchors']),
     }, indent=2))
+
+
+def build_generic_completed_aggregate_manifest(
+    *,
+    repo_root: Path,
+    completed_ledger_path: Path,
+    manifest_index_path: Path,
+    out_manifest_path: Path,
+    dataset_id: str,
+    dataset_kind: str,
+    graph_output_root: str,
+    run_output_root: str,
+    query_snapshot_path_template: str,
+    scope_notes: list[str],
+    lane_note_builder,
+    folder_name_resolver,
+) -> dict[str, Any]:
+    manifest_paths = completed_manifest_paths(
+        repo_root=repo_root,
+        completed_ledger_path=completed_ledger_path,
+        manifest_index_path=manifest_index_path,
+    )
+    if not manifest_paths:
+        raise ValueError('no completed manifests found to aggregate')
+    return build_completed_aggregate_manifest(
+        repo_root=repo_root,
+        manifest_paths=manifest_paths,
+        out_manifest_path=out_manifest_path,
+        dataset_id=dataset_id,
+        dataset_kind=dataset_kind,
+        graph_output_root=graph_output_root,
+        run_output_root=run_output_root,
+        query_snapshot_path_template=query_snapshot_path_template,
+        scope_notes=scope_notes,
+        lane_note_builder=lane_note_builder,
+        folder_name_resolver=folder_name_resolver,
+    )
