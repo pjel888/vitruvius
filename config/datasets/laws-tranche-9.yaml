@@ -1,0 +1,87 @@
+tranche_id: laws-tranche-9
+purpose: readiness-only
+phase_11_gate: gated
+description: Ninth explicit widening tranche after tranche-8 maturity. This tranche
+  stays bounded around environmental review, energy-conserving building guidance,
+  and accessibility implementation guidance using scoped authoritative files only.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: DENR
+  reason: environmental review and permitting guidance adjacency.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/DENR/DENR DAO 2003-30 - EIS System Implementing
+    Rules.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths:
+  - 001_Raw-Source-Layer/001-Laws/DENR/DENR DAO 2003-30 Revised Procedural Manual
+    - EIS System.pdf
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-9/20260417T145115Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T145115Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/DENR/DENR DAO 2003-30 - EIS
+    System Implementing Rules.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - duplicate or study-aid raw variants remain explicit and excluded from canonical
+    admission
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+- folder_name: DOE
+  reason: building energy-design guidance adjacency.
+  raw_anchor_paths: &id002
+  - 001_Raw-Source-Layer/001-Laws/DOE/DOE Guidelines on Energy Conserving Design on
+    Buildings v2008.pdf
+  authoritative_variant_paths: *id002
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-9/20260417T145115Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T145115Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/DOE/DOE Guidelines on Energy
+    Conserving Design on Buildings v2008.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/guidelines-on-energy-conserving-design-of-buildings.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+- folder_name: DPWH
+  reason: public-works implementation guidance adjacency.
+  raw_anchor_paths: &id003
+  - 001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National
+    Roads.pdf
+  authoritative_variant_paths: *id003
+  excluded_variant_paths:
+  - 001_Raw-Source-Layer/001-Laws/DPWH/DPWH JICC Flood Control.pdf
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-9/20260417T145115Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T145115Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/DPWH/DPWH DO037 Enforcement
+    of BP344 along National Roads.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - duplicate or study-aid raw variants remain explicit and excluded from canonical
+    admission
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+source_admission:
+  last_run_id: 20260417T145115Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-9/20260417T145115Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - DENR
+  - DOE
+  - DPWH
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []

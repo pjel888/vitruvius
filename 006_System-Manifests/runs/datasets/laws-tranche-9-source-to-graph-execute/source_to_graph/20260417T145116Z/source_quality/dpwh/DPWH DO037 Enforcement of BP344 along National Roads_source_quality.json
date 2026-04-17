@@ -1,0 +1,61 @@
+{
+  "benchmark_source_hints": [
+    {
+      "label": "NCDA revised BP 344 IRR page",
+      "note": "NCDA-hosted revised IRR page useful for checking structure when the PDF is hard to extract.",
+      "url": "https://ncda.gov.ph/revised-2024-rules-and-regulations-implementing-batas-pambansa-344/"
+    },
+    {
+      "label": "Lawphil BP 344 law text",
+      "note": "Lawphil law text for the underlying statute (not the revised IRR). Useful as a semantic benchmark.",
+      "url": "https://lawphil.net/statutes/bataspam/bp1983/bp_344_1983.html"
+    }
+  ],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "front matter is image-heavy and may reflect OCR/layout instability"
+  ],
+  "front_matter_suspicious_ocr_line_count": 1,
+  "image_line_count": 11,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 17,
+  "noise_line_count": 0,
+  "non_empty_line_count": 263,
+  "recommendations": [
+    "low structural-heading count: verify section detection and source structure fidelity"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 0,
+    "admitted_relationship_count": 0,
+    "folder_name": "DPWH",
+    "law_id": "dpwh",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 0.0,
+    "section_to_relationship_ratio": 0.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 0
+  },
+  "severity": "low",
+  "source_acceptance_reasons": [],
+  "source_acceptance_status": "accepted",
+  "spot_review_focus": [],
+  "spot_review_required": false,
+  "structural_heading_count": 0,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [
+    "image_heavy_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "All heads of implementing offices are directed to be vigilant in the enforcement of the aforecited law by making sure that construction plans of national roads to be constructed/improved/repaired are provided with accessibility requirements in accordance with the aforesaid standard drawings. The Quality Assurance Units of the Department shall include in their inspection the compliance to said requirements."
+  ],
+  "suspicious_ocr_line_count": 1,
+  "suspicious_ocr_line_ratio": 0.003802,
+  "table_line_count": 5,
+  "total_line_count": 486,
+  "useful_text_line_count": 247,
+  "useful_text_ratio": 0.939163
+}

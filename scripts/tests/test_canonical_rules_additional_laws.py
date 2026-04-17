@@ -285,3 +285,33 @@ def test_build_plan_matches_ra_11285_law_rule() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_denr_dao_2003_30_irr_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.md'
+    )
+    assert plan['title'] == 'Implementing Rules and Regulations for the Philippine Environmental Impact Statement System'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_doe_energy_conserving_design_guidelines_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.md'
+    )
+    assert plan['title'] == 'Guidelines on Energy Conserving Design of Buildings'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_dpwh_do037_accessibility_order_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.md'
+    )
+    assert plan['title'] == 'Department Order No. 37 on Enforcement of the Accessibility Law Along National Roads'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'

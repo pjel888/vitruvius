@@ -1,0 +1,30 @@
+---
+id: handout-department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads
+title: Department Order No. 37 on Enforcement of the Accessibility Law Along National Roads
+page_type: source
+trust_level: primary
+canonical_status: draft
+last_canonicalized_utc: 2026-04-17T14:51:15.823884+00:00
+aliases:
+  - DPWH DO037
+  - Enforcement of BP344 along National Roads
+---
+
+# Department Order No. 37 on Enforcement of the Accessibility Law Along National Roads
+
+## Overview
+
+In order to ensure the proper and uniform implementation of accessibility features for use of persons with disabilities along national roads pursuant to Batas Pambansa Big. 344, otherwise known as the Accessibility Law, and its Implementing Rules and Regulations (as amended), all implementing offices of the Department shall adopt the attached standard drawings containing the following minimum requirements for accessibility:
+
+## Coverage
+
+- SUBJECT: ENFORCEMENT OF THE ACCESSIBILITY LAW (BP 344) ALONG NATIONAL ROADS
+- r---------, ~---,
+
+## Key Points
+
+- o ~ - oo w<:> ::> z<::c ~u..w CENTRAL REFUGE 1:50 M.
+
+## Referenced Concepts
+
+- concept-stairs

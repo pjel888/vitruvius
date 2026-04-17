@@ -1,0 +1,371 @@
+{
+  "action": "run-dataset-graph",
+  "build": {
+    "action": "build-graph",
+    "artifact_metadata": {
+      "contributing_law_ids": [
+        "denr",
+        "doe",
+        "dpwh"
+      ],
+      "dataset_id": "laws-tranche-9-source-to-graph-execute",
+      "dataset_kind": "laws-tranche",
+      "freshness_policy": {
+        "mode": "exact"
+      },
+      "input_fingerprint": {
+        "combined_sha256": "3ad92d14408e30a53e49deaccb0306d47802a7475a05f2610abb2e7bc813c803",
+        "file_count": 4,
+        "files": [
+          {
+            "mtime_ns": 1776132650185597810,
+            "path": "003_Canonical-Knowledge-Layer/shared/relationships/occupancy-governs-fire-requirements.md",
+            "sha256": "02efc10b58b6d6263d679dd85e8acac9f5f53bebaddb29779df590b9e12abf8c",
+            "size_bytes": 2111
+          },
+          {
+            "mtime_ns": 1776437475824096851,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads.md",
+            "sha256": "b1aea2baa9c2d8c2e40dfad5b192ac725b3f05a23605065fc919c0a7ea84535f",
+            "size_bytes": 1141
+          },
+          {
+            "mtime_ns": 1776437475775791084,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/guidelines-on-energy-conserving-design-of-buildings.md",
+            "sha256": "7636b56dc7ff5ed3eb9fd4c5a771e07be3eaef6c6acb68e56b2ff73c05f9381b",
+            "size_bytes": 2907
+          },
+          {
+            "mtime_ns": 1776437475703295600,
+            "path": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system.md",
+            "sha256": "d65f079009cc7c268bd685e34eb6a35378e28f665331bbe8d2648c46ebccd1b5",
+            "size_bytes": 1512
+          }
+        ]
+      },
+      "law_units": [
+        {
+          "admitted_concept_paths": [],
+          "admitted_relationship_paths": [],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.pdf"
+          ],
+          "excluded_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/DENR/DENR DAO 2003-30 Revised Procedural Manual - EIS System.pdf"
+          ],
+          "folder_name": "DENR",
+          "law_id": "denr",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.md"
+          ],
+          "scope_notes": [
+            "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+          ],
+          "verification_checks": [
+            "source admission executed for the selected authoritative prepared variants",
+            "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+          ]
+        },
+        {
+          "admitted_concept_paths": [],
+          "admitted_relationship_paths": [],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/guidelines-on-energy-conserving-design-of-buildings.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.pdf"
+          ],
+          "excluded_variant_paths": [],
+          "folder_name": "DOE",
+          "law_id": "doe",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.md"
+          ],
+          "scope_notes": [
+            "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+          ],
+          "verification_checks": [
+            "source admission executed for the selected authoritative prepared variants"
+          ]
+        },
+        {
+          "admitted_concept_paths": [],
+          "admitted_relationship_paths": [],
+          "admitted_source_paths": [
+            "003_Canonical-Knowledge-Layer/shared/sources/department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads.md"
+          ],
+          "authoritative_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf"
+          ],
+          "excluded_variant_paths": [
+            "001_Raw-Source-Layer/001-Laws/DPWH/DPWH JICC Flood Control.pdf"
+          ],
+          "folder_name": "DPWH",
+          "law_id": "dpwh",
+          "raw_anchor_paths": [
+            "001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf"
+          ],
+          "refined_markdown_paths": [
+            "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.md"
+          ],
+          "scope_notes": [
+            "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+          ],
+          "verification_checks": [
+            "source admission executed for the selected authoritative prepared variants",
+            "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+          ]
+        }
+      ],
+      "manifest_hash": "fef20e8cd3e89c7934323219361e744fb17ae97ab391ff1f36e86002169176f5",
+      "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-9-source-to-graph-execute/source_to_graph/20260417T145116Z/derived_dataset_manifest.yaml",
+      "pilot_gate": {
+        "derived_from_tranche_id": "laws-tranche-9",
+        "derived_run_id": "20260417T145116Z",
+        "require_manifest_validation": true,
+        "source_to_graph_execute_ready": false
+      },
+      "run_id": "20260417T145117Z",
+      "scope_notes": [
+        "Derived from laws-tranche-9 after tranche source admission.",
+        "Dry-run only: stage admitted tranche members without unlocking execute.",
+        "Blocked tranche members remain explicit outside the staged law-unit list."
+      ],
+      "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-9-source-to-graph-execute/20260417T145117Z_graph_integrity_report.json",
+      "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-9-source-to-graph-execute/20260417T145117Z_graph_snapshot.json",
+      "upstream_artifact_refs": {
+        "canonical_concepts": [],
+        "canonical_sources": [
+          "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/guidelines-on-energy-conserving-design-of-buildings.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads.md"
+        ],
+        "relationship_inputs": [
+          "003_Canonical-Knowledge-Layer/shared/relationships/occupancy-governs-fire-requirements.md"
+        ]
+      }
+    },
+    "build_report_path": "006_System-Manifests/runs/datasets/laws-tranche-9-source-to-graph-execute/20260417T145117Z_build_graph_dataset_report.json",
+    "contributing_law_ids": [
+      "denr",
+      "doe",
+      "dpwh"
+    ],
+    "coverage": [
+      {
+        "approved_relationship_input_count": 1,
+        "canonical_count": 1,
+        "converted_count": null,
+        "edge_count_contributed": 0,
+        "folder_name": "DENR",
+        "node_count_contributed": 1,
+        "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+        "raw_file_count": 2,
+        "refined_count": null,
+        "status": "partial"
+      },
+      {
+        "approved_relationship_input_count": 0,
+        "canonical_count": 1,
+        "converted_count": null,
+        "edge_count_contributed": 0,
+        "folder_name": "DOE",
+        "node_count_contributed": 1,
+        "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+        "raw_file_count": 1,
+        "refined_count": null,
+        "status": "partial"
+      },
+      {
+        "approved_relationship_input_count": 0,
+        "canonical_count": 1,
+        "converted_count": null,
+        "edge_count_contributed": 0,
+        "folder_name": "DPWH",
+        "node_count_contributed": 1,
+        "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+        "raw_file_count": 2,
+        "refined_count": null,
+        "status": "partial"
+      }
+    ],
+    "dataset_id": "laws-tranche-9-source-to-graph-execute",
+    "dataset_kind": "laws-tranche",
+    "dry_run": false,
+    "edge_count": 0,
+    "incomplete": true,
+    "integrity": {
+      "error_count": 0,
+      "findings": [
+        {
+          "code": "orphan_node",
+          "edge_from": null,
+          "edge_to": null,
+          "message": "node 'handout-department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads' has zero incident edges",
+          "node_id": "handout-department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads",
+          "severity": "warning"
+        },
+        {
+          "code": "orphan_node",
+          "edge_from": null,
+          "edge_to": null,
+          "message": "node 'handout-guidelines-on-energy-conserving-design-of-buildings' has zero incident edges",
+          "node_id": "handout-guidelines-on-energy-conserving-design-of-buildings",
+          "severity": "warning"
+        },
+        {
+          "code": "orphan_node",
+          "edge_from": null,
+          "edge_to": null,
+          "message": "node 'irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system' has zero incident edges",
+          "node_id": "irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system",
+          "severity": "warning"
+        }
+      ],
+      "passed": true,
+      "warning_count": 3
+    },
+    "integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-9-source-to-graph-execute/20260417T145117Z_graph_integrity_report.json",
+    "law_unit_count": 3,
+    "law_units": [
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/DENR/DENR DAO 2003-30 Revised Procedural Manual - EIS System.pdf"
+        ],
+        "folder_name": "DENR",
+        "law_id": "denr",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+        ]
+      },
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/guidelines-on-energy-conserving-design-of-buildings.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "DOE",
+        "law_id": "doe",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants"
+        ]
+      },
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/DPWH/DPWH JICC Flood Control.pdf"
+        ],
+        "folder_name": "DPWH",
+        "law_id": "dpwh",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "duplicate or study-aid raw variants remain explicit and excluded from canonical admission"
+        ]
+      }
+    ],
+    "manifest_hash": "fef20e8cd3e89c7934323219361e744fb17ae97ab391ff1f36e86002169176f5",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-9-source-to-graph-execute/source_to_graph/20260417T145116Z/derived_dataset_manifest.yaml",
+    "mode": "dataset",
+    "node_count": 3,
+    "run_id": "20260417T145117Z",
+    "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-9-source-to-graph-execute/20260417T145117Z_graph_snapshot.json",
+    "thin_graph_metrics": {
+      "connected_component_count": 3,
+      "edge_type_diversity": {
+        "count": 0,
+        "types": []
+      },
+      "isolated_node_count": 3,
+      "isolated_node_rate": 1.0,
+      "per_folder_node_edge_balance": {
+        "DENR": {
+          "edge_count_contributed": 0,
+          "node_count_contributed": 1,
+          "status": "partial"
+        },
+        "DOE": {
+          "edge_count_contributed": 0,
+          "node_count_contributed": 1,
+          "status": "partial"
+        },
+        "DPWH": {
+          "edge_count_contributed": 0,
+          "node_count_contributed": 1,
+          "status": "partial"
+        }
+      }
+    }
+  },
+  "contributing_law_ids": [
+    "denr",
+    "doe",
+    "dpwh"
+  ],
+  "dataset_id": "laws-tranche-9-source-to-graph-execute",
+  "dataset_kind": "laws-tranche",
+  "generated_at_utc": "20260417T145117Z",
+  "law_unit_count": 3,
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-9-source-to-graph-execute/source_to_graph/20260417T145116Z/derived_dataset_manifest.yaml",
+  "owl": {
+    "path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-9-source-to-graph-execute/20260417T145117Z_graph_snapshot.ttl",
+    "rc": 0
+  },
+  "run_id": "20260417T145117Z",
+  "structured_checks": []
+}

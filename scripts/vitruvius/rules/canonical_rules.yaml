@@ -912,6 +912,77 @@ rules:
 
       core_concepts: []
 
+
+  # --------------------------------------------------
+  # DENR DAO 2003-30 IRR
+  # --------------------------------------------------
+  - name: "DENR DAO 2003-30 IRR"
+
+    match:
+      any_contains:
+        - "dao 2003-30"
+        - "eis system implementing rules"
+        - "environmental impact statement"
+
+    classification:
+      source_type: irr
+      trust_level: primary
+
+    canonical:
+      title: "Implementing Rules and Regulations for the Philippine Environmental Impact Statement System"
+
+      aliases:
+        - "DENR DAO 2003-30"
+        - "EIS System IRR"
+        - "Philippine Environmental Impact Statement System IRR"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # DOE Energy Conserving Design Guidelines
+  # --------------------------------------------------
+  - name: "DOE Energy Conserving Design Guidelines"
+
+    match:
+      any_contains:
+        - "energy conserving design on buildings"
+        - "department of energy"
+        - "guidelines on energy conserving design"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "Guidelines on Energy Conserving Design of Buildings"
+
+      aliases:
+        - "DOE Guidelines on Energy Conserving Design on Buildings"
+        - "Energy Conserving Design of Buildings Guidelines"
+
+  # --------------------------------------------------
+  # DPWH DO037 Accessibility Enforcement Order
+  # --------------------------------------------------
+  - name: "DPWH DO037 Accessibility Enforcement Order"
+
+    match:
+      any_contains:
+        - "do037"
+        - "enforcement of bp344"
+        - "accessibility law"
+        - "national roads"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "Department Order No. 37 on Enforcement of the Accessibility Law Along National Roads"
+
+      aliases:
+        - "DPWH DO037"
+        - "Enforcement of BP344 along National Roads"
+
   # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------

@@ -1,0 +1,3142 @@
+{
+  "file name" : "DENR DAO 2003-30 - EIS System Implementing Rules.pdf",
+  "number of pages" : 20,
+  "author" : "Administrator",
+  "title" : "Microsoft Word - DAO 30.doc",
+  "creation date" : "D:20070518101745",
+  "modification date" : "D:20070518101745",
+  "kids" : [ {
+    "type" : "image",
+    "id" : 72,
+    "page number" : 1,
+    "bounding box" : [ 55.2, 661.56, 140.28, 746.64 ],
+    "source" : "DENR DAO 2003-30 - EIS System Implementing Rules_images/imageFile1.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 82,
+    "page number" : 1,
+    "bounding box" : [ 267.6, 718.413, 411.401, 732.88 ],
+    "font" : "TTE1E55EE8t00",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 1.0]",
+    "content" : "Republic of the Philippines"
+  }, {
+    "type" : "heading",
+    "id" : 83,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 159.6, 701.037, 480.557, 717.963 ],
+    "heading level" : 2,
+    "font" : "TTE1E55EE8t00",
+    "font size" : 14.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Department of Environment and Natural Resources"
+  }, {
+    "type" : "paragraph",
+    "id" : 84,
+    "page number" : 1,
+    "bounding box" : [ 180.0, 686.133, 482.038, 700.6 ],
+    "font" : "TTE1E55EE8t00",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 1.0]",
+    "content" : "Visayas Avenue, Diliman, Quezon City, Philippines 1104"
+  }, {
+    "type" : "paragraph",
+    "id" : 73,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 611.172, 246.828, 636.492 ],
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "DENR Administrative Order No. 2003-30"
+  }, {
+    "type" : "paragraph",
+    "id" : 74,
+    "page number" : 1,
+    "bounding box" : [ 126.0, 542.172, 522.156, 581.292 ],
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SUBJECT: Implementing Rules and Regulations (IRR) for the Philippine Environmental Impact Statement (EIS) System"
+  }, {
+    "type" : "paragraph",
+    "id" : 75,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 431.784, 522.192, 526.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Consistent with the continuing effort of the Department of Environment and Natural Resources (DENR) to rationalize and streamline the implementation of the Philippine Environmental Impact Statement (EIS) System established under Presidential Decree (PD) No. 1586, Presidential Proclamation No. 2146 defining the scope of the EIS System and pursuant to Administrative Order No. 42 issued by the Office of the President on November 2, 2002, the following rules and regulations are hereby promulgated;"
+  }, {
+    "type" : "heading",
+    "id" : 76,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 101.52, 355.725, 510.537, 401.483 ],
+    "heading level" : 1,
+    "font" : "Helvetica-Bold",
+    "font size" : 14.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE I BASIC POLICY, OPERATING PRINCIPLES, OBJECTIVES AND DEFINITION OF TERMS"
+  }, {
+    "type" : "heading",
+    "id" : 77,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 90.0, 328.212, 396.192, 339.732 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 1. Basic Policy and Operating Principles"
+  }, {
+    "type" : "paragraph",
+    "id" : 78,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 259.224, 522.084, 312.132 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Consistent with the principles of sustainable development, it is the policy of the DENR to implement a systems-oriented and integrated approach to the EIS system to ensure a rational balance between socio-economic development and environmental protection for the benefit of present and future generations."
+  }, {
+    "type" : "paragraph",
+    "id" : 79,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 217.824, 522.072, 243.132 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The following are the key operating principles in the implementation of the Philippine EIS System:"
+  }, {
+    "type" : "list",
+    "id" : 80,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 108.0, 107.424, 522.096, 201.732 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "next list id" : 85,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 108.0, 148.824, 522.096, 201.732 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. The EIS System is concerned primarily with assessing the direct and indirect impacts of a project on the biophysical and human environment and ensuring that these impacts are addressed by appropriate environmental protection and enhancement measures.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 108.0, 107.424, 522.072, 146.532 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. The EIS System aids proponents in incorporating environmental considerations in planning their projects as well as in determining the environment’s impact on their project.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 85,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 108.0, 470.784, 522.144, 744.492 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "previous list id" : 80,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.0, 705.384, 522.072, 744.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c. Project proponents are responsible for determining and disclosing all relevant information necessary for a methodical assessment of the environmental impacts of their projects;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.0, 691.584, 521.976, 703.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "d. The review of the EIS by EMB shall be guided by three general criteria:",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 56,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 129.0, 636.384, 522.096, 689.292 ],
+        "font" : "Helvetica",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "(1) that environmental considerations are integrated into the overall project planning, (2) that the assessment is technically sound and proposed environmental mitigation measures are effective, and (3) that social acceptability is based on informed public participation;"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.0, 594.984, 522.072, 634.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "e. Effective regulatory review of the EIS depends largely on timely, full, and accurate disclosure of relevant information by project proponents and other stakeholders in the EIA process;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.0, 539.784, 522.144, 592.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "f. The social acceptability of a project is a result of meaningful public participation, which shall be assessed as part of the Environmental Compliance Certificate (ECC) application, based on concerns related to the project’s environmental impacts;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.0, 470.784, 522.036, 537.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "g. The timelines prescribed by this Order, within which an Environmental Compliance Certificate must be issued or denied, apply only to processes and actions within the Environmental Management Bureau’s (EMB) control and do not include actions or activities that are the responsibility of the proponent.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 86,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 90.0, 443.172, 233.952, 454.692 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 2. Objective"
+  }, {
+    "type" : "paragraph",
+    "id" : 87,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 401.784, 522.084, 427.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The objective of this Administrative Order is to rationalize and streamline the EIS System to make it more effective as a project planning and management tool by:"
+  }, {
+    "type" : "list",
+    "id" : 88,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 108.0, 236.184, 522.192, 385.692 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.0, 360.384, 522.072, 385.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. Making the System more responsive to the demands and needs of the project proponents and the various stakeholders;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.0, 332.784, 522.072, 358.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. Clarifying the coverage of the System, and updating it to take into consideration industrial and technological innovations and trends;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.0, 305.184, 522.096, 330.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c. Standardizing requirements to ensure focus on critical environment parameters;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.0, 263.784, 522.192, 302.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "d. Simplifying procedures for processing ECC applications, and establishing measures to ensure adherence to ECC conditions by project proponents, and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.0, 236.184, 522.192, 261.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "e. Assuring that critical environmental concerns are addressed during project development and implementation.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 89,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 90.0, 180.984, 464.976, 220.092 ],
+    "heading level" : 4,
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 3. Definition of TermsFor the purpose of this Order, the following definitions shall be applied:"
+  }, {
+    "type" : "list",
+    "id" : 90,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 108.0, 125.904, 522.072, 164.892 ],
+    "numbering style" : "english letters",
+    "number of list items" : 1,
+    "next list id" : 92,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 108.0, 125.904, 522.072, 164.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. Certificate of Non-Coverage – a certification issued by the EMB certifying that, based on the submitted project description, the project is not covered by the EIS System and is not required to secure an ECC.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 91,
+    "page number" : 2,
+    "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 20,
+      "page number" : 2,
+      "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "2"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 92,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 108.0, 112.104, 522.192, 744.492 ],
+    "numbering style" : "english letters",
+    "number of list items" : 7,
+    "previous list id" : 90,
+    "next list id" : 94,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 705.384, 522.072, 744.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. Co-located projects / undertakings – projects, or series of similar projects or a project subdivided to several phases and/or stages by the same proponent, located in contiguous areas.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 663.984, 522.096, 689.292 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c. Environment – Surrounding air, water (both ground and surface), land, flora, fauna, humans and their interrelations.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 498.384, 522.192, 647.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "d. Environmental Compliance Certificate (ECC) - document issued by the DENR/EMB after a positive review of an ECC application, certifying that based on the representations of the proponent, the proposed project or undertaking will not cause significant negative environmental impact. The ECC also certifies that the proponent has complied with all the requirements of the EIS System and has committed to implement its approved Environmental Management Plan. The ECC contains specific measures and conditions that the project proponent has to undertake before and during the operation of a project, and in some cases, during the project’s abandonment phase to mitigate identified environmental impacts.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 429.384, 522.156, 482.292 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "e. Environmentally Critical Area (ECA) - area delineated as environmentally sensitive such that significant environmental impacts are expected if certain types of proposed projects or programs are located, developed or implemented in it.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 387.984, 522.072, 413.292 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "f. Environmentally Critical Project (ECP) - project or program that has high potential for significant negative environmental impact.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 249.984, 522.192, 371.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "g. Environmental Guarantee Fund (EGF) – fund to be set up by a project proponent which shall be readily accessible and disbursable for the immediate clean-up or rehabilitation of areas affected by damages in the environment and the resulting deterioration of environmental quality as a direct consequence of a project’s construction, operation or abandonment. It shall likewise be used to compensate parties and communities affected by the negative impacts of the project, and to fund community-based environment related projects including, but not limited to, information and education and emergency preparedness programs.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 108.0, 112.104, 522.192, 233.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "h. Environmental Impact Assessment (EIA) – process that involves evaluating and predicting the likely impacts of a project (including cumulative impacts) on the environment during construction, commissioning, operation and abandonment. It also includes designing appropriate preventive, mitigating and enhancement measures addressing these consequences to protect the environment and the community’s welfare. The process is undertaken by, among others, the project proponent and/or EIA Consultant, EMB, a Review Committee, affected communities and other stakeholders.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 93,
+    "page number" : 3,
+    "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 21,
+      "page number" : 3,
+      "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "3"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 94,
+    "level" : "1",
+    "page number" : 4,
+    "bounding box" : [ 108.0, 112.224, 522.192, 744.492 ],
+    "numbering style" : "english letters",
+    "number of list items" : 8,
+    "previous list id" : 92,
+    "next list id" : 96,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 691.584, 522.072, 744.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "i. Environmental Impact Assessment Consultant - a professional or group of professionals commissioned by the proponent to prepare the EIS/IEE and other related documents. In some cases, the person or group referred to may be the proponent’s technical staff.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 597.024, 522.12, 663.732 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "j. Environmental Impact Assessment Review Committee (EIARC) - a body of independent technical experts and professionals of known probity from various fields organized by the EMB to evaluate the EIS and other related documents and to make appropriate recommendations regarding the issuance or non-issuance of an ECC.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 500.424, 522.192, 580.932 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "k. Environmental Impact Statement (EIS) - document, prepared and submitted by the project proponent and/or EIA Consultant that serves as an application for an ECC. It is a comprehensive study of the significant impacts of a project on the environment. It includes an Environmental Management Plan/Program that the proponent will fund and implement to protect the environment.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 415.824, 522.192, 483.923 ],
+      "font" : "Helvetica",
+      "font size" : 14.04,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "l. Environmental Management Plan/Program (EMP) - section in the EIS that details the prevention, mitigation, compensation, contingency and monitoring measures to enhance positive impacts and minimize negative impacts and risks of a proposed project or undertaking. For operating projects, the EMP can also be derived from an EMS.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 305.424, 522.156, 399.732 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "m. Environmental Management Systems (EMS) - refers to the EMB PEPP EMS as provided for under DAO 2003-14, which is a part of the overall management system of a project or organization that includes environmental policy, organizational structure, planning activities, responsibilities, practices, procedures, processes and resources for developing, implementing, achieving, reviewing and maintaining an improved overall environmental performance.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 236.424, 522.12, 289.332 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "n. Environmental Monitoring Fund (EMF) –fund that a proponent shall set up after an ECC is issued for its project or undertaking, to be used to support the activities of the multi-partite monitoring team. It shall be immediately accessible and easily disbursable.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 195.024, 522.072, 220.332 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "o. Environmental Performance – capability of proponents to mitigate environmental impacts of projects or programs.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 108.0, 112.224, 522.12, 178.932 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "p. Environmental Performance Report and Management Plan (EPRMP) documentation of the actual cumulative environmental impacts and effectiveness of current measures for single projects that are already operating but without ECC's, i.e., Category A-3. For Category B-3 projects, a checklist form of the EPRMP would suffice.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 95,
+    "page number" : 4,
+    "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 22,
+      "page number" : 4,
+      "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "4"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 96,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 108.0, 98.304, 522.192, 744.492 ],
+    "numbering style" : "english letters",
+    "number of list items" : 10,
+    "previous list id" : 94,
+    "next list id" : 98,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 108.0, 677.784, 522.072, 744.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "q. Environmental Risk Assessment (ERA) – assessment, through the use of universally accepted and scientific methods, of risks associated with a project. It focuses on determining the probability of occurrence of accidents and their magnitude (e.g. failure of containment or exposure to hazardous materials or situations.)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 108.0, 622.584, 522.072, 661.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "r. EMS-based EMP - environmental management plan based on the environmental management system (EMS) standard as defined in the DAO 2003-14.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 108.0, 581.184, 522.072, 606.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "s. Initial Environmental Examination (IEE) Report - document similar to an EIS, but with reduced details and depth of assessment and discussion.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 108.0, 512.172, 522.12, 565.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "t. Initial Environmental Examination (IEE) Checklist Report - simplified checklist version of an IEE Report, prescribed by the DENR, to be filled up by a proponent to identify and assess a project’s environmental impacts and the mitigation/enhancement measures to address such impacts.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 108.0, 470.784, 522.072, 509.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "u. Multipartite Monitoring Team (MMT) - community-based multi-sectoral team organized for the purpose of monitoring the proponent’s compliance with ECC conditions, EMP and applicable laws, rules and regulations.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 108.0, 387.984, 522.192, 454.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "v. Programmatic Environmental Impact Statement (PEIS) - documentation of comprehensive studies on environmental baseline conditions of a contiguous area. It also includes an assessment of the carrying capacity of the area to absorb impacts from co-located projects such as those in industrial estates or economic zones (ecozones).",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 108.0, 305.184, 522.192, 371.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "w. Programmatic Environmental Performance Report and Management Plan (PEPRMP) - documentation of actual cumulative environmental impacts of co-located projects with proposals for expansion. The PEPRMP should also describe the effectiveness of current environmental mitigation measures and plans for performance improvement.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 108.0, 180.984, 522.192, 289.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "x. Project Description (PD) - document, which may also be a chapter in an EIS, that describes the nature, configuration, use of raw materials and natural resources, production system, waste or pollution generation and control and the activities of a proposed project. It includes a description of the use of human resources as well as activity timelines, during the preconstruction, construction, operation and abandonment phases. It is to be used for reviewing co-located and single projects under Category C, as well as for Category D projects.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 108.0, 139.704, 522.096, 164.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "y. Project or Undertaking - any activity, regardless of scale or magnitude, which may have significant impact on the environment.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 108.0, 98.304, 522.192, 123.612 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "z. Proponent – any natural or juridical person intending to implement a project or undertaking.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 97,
+    "page number" : 5,
+    "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 23,
+      "page number" : 5,
+      "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "5"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 98,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 108.0, 292.344, 522.216, 730.692 ],
+    "numbering style" : "english letters",
+    "number of list items" : 9,
+    "previous list id" : 96,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 108.0, 663.984, 522.192, 730.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "aa. Public Participation – open, transparent, gender-sensitive, and community-based process aimed at ensuring the social acceptability of a project or undertaking, involving the broadest range of stakeholders, commencing at the earliest possible stage of project design and development and continuing until post-assessment monitoring.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 108.0, 609.744, 522.156, 648.852 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "bb. Procedural Review – phase in the ECC application review process to check for the completeness the required documents, conducted by EIAM Division at the EMB Central Office or Regional Office.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 108.0, 568.344, 522.0, 593.652 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "cc. Process Industry – an industry whose project operation stage involves chemical, mechanical or other processes.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 108.0, 499.344, 522.216, 552.252 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "dd. Scoping - the stage in the EIS System where information and project impact assessment requirements are established to provide the proponent and the stakeholders the scope of work and terms of reference for the EIS.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 108.0, 471.744, 333.576, 483.252 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "ee. Secretary - the Secretary of the DENR.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 108.0, 416.544, 522.12, 455.652 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "ff. Social Acceptability – acceptability of a project by affected communities based on timely and informed participation in the EIA process particularly with regard to environmental impacts that are of concern to them.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 108.0, 375.144, 522.12, 400.452 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "gg. Stakeholders – entities who may be directly and significantly affected by the project or undertaking.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 108.0, 333.744, 522.072, 359.052 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "hh. Substantive Review – the phase in the EIA process whereby the document submitted is subjected to technical evaluation by the EIARC.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 108.0, 292.344, 522.072, 317.652 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "ii. Technology – all the knowledge, products, processes, tools, methods and systems employed in the creation of goods or providing services.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 99,
+    "level" : "Doctitle",
+    "page number" : 6,
+    "bounding box" : [ 135.36, 204.885, 476.698, 250.524 ],
+    "heading level" : 1,
+    "font" : "Helvetica-Bold",
+    "font size" : 14.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE II ECC APPLICATION PROCESSING AND APPROVAL PROCEDURES"
+  }, {
+    "type" : "list",
+    "id" : 100,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 90.0, 177.372, 320.748, 188.892 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 90.0, 177.372, 320.748, 188.892 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Section 4. Scope of the EIS System",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 101,
+    "page number" : 6,
+    "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 24,
+      "page number" : 6,
+      "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "6"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 102,
+    "level" : "3",
+    "page number" : 7,
+    "bounding box" : [ 89.999, 506.184, 522.119, 744.492 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "next list id" : 109,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.999, 677.784, 522.095, 744.492 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "4.1 In general, only projects that pose potential significant impact to the environment shall be required to secure ECC’s. In coordination with the Department of Trade and Industry (DTI) and other concerned government agencies, the EMB is authorized to update or make appropriate revisions to the technical guidelines for EIS System implementation.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.999, 616.584, 522.119, 655.692 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "4.2 The issuance of ECC or CNC for a project under the EIS System does not exempt the proponent from securing other government permits and clearances as required by other laws.",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 55,
+        "page number" : 7,
+        "bounding box" : [ 89.999, 547.584, 522.143, 600.492 ],
+        "font" : "Helvetica",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "In determining the scope of the EIS System, two factors are considered: (i) the nature of the project and its potential to cause significant negative environmental impacts, and (ii) the sensitivity or vulnerability of environmental resources in the project area."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.999, 506.184, 521.831, 531.492 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "4.3 The specific criteria for determining projects or undertakings to be covered by the EIS System are as follows:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 103,
+    "level" : "4",
+    "page number" : 7,
+    "bounding box" : [ 89.999, 251.424, 343.271, 490.092 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.999, 478.584, 343.271, 490.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. Characteristics of the project or undertaking",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 53,
+        "level" : "5",
+        "page number" : 7,
+        "bounding box" : [ 127.079, 405.504, 437.351, 475.452 ],
+        "numbering style" : "unordered",
+        "number of list items" : 5,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 127.079, 463.944, 241.295, 475.452 ],
+          "font" : "Symbol",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "• Size of the project",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 127.079, 449.424, 423.959, 460.932 ],
+          "font" : "Symbol",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "• Cumulative nature of impacts vis-à-vis other projects",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 127.079, 434.784, 275.879, 446.292 ],
+          "font" : "Symbol",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "• Use of natural resources",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 127.079, 420.144, 437.351, 431.652 ],
+          "font" : "Symbol",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "• Generation of waste and environment-related nuisance",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 127.079, 405.504, 412.079, 417.012 ],
+          "font" : "Symbol",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "• Environment-related hazards and risk of accidents",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.999, 378.024, 230.495, 389.532 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. Location of the Project",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 54,
+        "level" : "5",
+        "page number" : 7,
+        "bounding box" : [ 127.079, 278.904, 522.071, 374.892 ],
+        "numbering style" : "unordered",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 127.079, 349.584, 522.023, 374.892 ],
+          "font" : "Symbol",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "• Vulnerability of the project area to disturbances due to its ecological importance, endangered or protected status",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 127.079, 321.144, 522.071, 346.452 ],
+          "font" : "Symbol",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "• Conformity of the proposed project to existing land use, based on approved zoning or on national laws and regulations",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 127.079, 278.904, 522.071, 318.012 ],
+          "font" : "Symbol",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "• Relative abundance, quality and regenerative capacity of natural resources in the area, including the impact absorptive capacity of the environment",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 89.999, 251.424, 267.935, 262.932 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c. Nature of the potential impact",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 104,
+    "level" : "5",
+    "page number" : 7,
+    "bounding box" : [ 127.079, 207.504, 481.391, 248.292 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 127.079, 236.784, 481.391, 248.292 ],
+      "font" : "Symbol",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "• Geographic extent of the impact and size of affected population",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 127.079, 222.144, 356.615, 233.652 ],
+      "font" : "Symbol",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "• Magnitude and complexity of the impact",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 127.079, 207.504, 470.735, 219.012 ],
+      "font" : "Symbol",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "• Likelihood, duration, frequency, and reversibility of the impact",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 105,
+    "page number" : 7,
+    "bounding box" : [ 89.999, 179.904, 512.255, 191.412 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The following are the categories of projects/undertakings under the EIS system:"
+  }, {
+    "type" : "list",
+    "id" : 106,
+    "level" : "6",
+    "page number" : 7,
+    "bounding box" : [ 125.999, 138.504, 475.991, 163.932 ],
+    "numbering style" : "english letters",
+    "number of list items" : 1,
+    "next list id" : 108,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 125.999, 138.504, 475.991, 163.932 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Category A. Environmentally Critical Projects (ECPs) with significant potential to cause negative environmental impacts",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 107,
+    "page number" : 7,
+    "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 25,
+      "page number" : 7,
+      "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "7"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 108,
+    "level" : "6",
+    "page number" : 8,
+    "bounding box" : [ 126.0, 608.784, 476.232, 744.612 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "previous list id" : 106,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 126.0, 705.384, 476.232, 744.612 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Category B. Projects that are not categorized as ECPs, but which may cause negative environmental impacts because they are located in Environmentally Critical Areas (ECA's)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 126.0, 650.184, 471.744, 689.412 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Category C. Projects intended to directly enhance environmental quality or address existing environmental problems not falling under Category A or B.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 126.0, 608.784, 476.184, 634.212 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Category D. Projects unlikely to cause adverse environmental impacts.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 109,
+    "level" : "3",
+    "page number" : 8,
+    "bounding box" : [ 90.0, 356.184, 522.192, 592.692 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "previous list id" : 102,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 90.0, 525.984, 522.192, 592.692 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "4.4 Proponents of co-located or single projects that fall under Category A and B are required to secure ECC. For co-located projects, the proponent has the option to secure a Programmatic ECC. For ecozones, ECC application may be programmatic based on submission of a programmatic EIS, or locator-specific based on submission of project EIS by each locator.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 90.0, 492.372, 481.656, 503.892 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "4.5 Projects under Category C are required submit Project Description.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 90.0, 431.184, 522.144, 470.292 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "4.6 Projects classified under Category D may secure a CNC. The EMBDENR, however, may require such projects or undertakings to provide additional environmental safeguards as it may deem necessary.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 90.0, 356.184, 522.144, 409.092 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "4.7 Projects/undertakings introducing new technologies or construction technique but which may cause significant negative environmental impacts shall be required to submit a Project Description which will be used as basis by EMB for screening the project and determining its category.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 110,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 90.0, 300.972, 522.072, 326.292 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 5. Requirements for Securing Environmental ComplianceCertificate (ECC) and Certificate of Non-Coverage (CNC)"
+  }, {
+    "type" : "list",
+    "id" : 111,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 90.0, 273.372, 357.6, 284.892 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 90.0, 273.372, 357.6, 284.892 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "5.1 Documentary Requirements for Proponents",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 112,
+    "page number" : 8,
+    "bounding box" : [ 90.0, 218.184, 522.192, 257.292 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ECC processing requirements shall focus on information needed to assess critical environmental impacts of projects. Processing requirements shall be customized based on the project categories."
+  }, {
+    "type" : "paragraph",
+    "id" : 113,
+    "page number" : 8,
+    "bounding box" : [ 90.0, 162.984, 522.156, 202.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The following is a summary of the required documents, the processing, endorsing and deciding authorities for ECC/CNC applications and timeframe for each project category:"
+  }, {
+    "type" : "footer",
+    "id" : 114,
+    "page number" : 8,
+    "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 26,
+      "page number" : 8,
+      "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "8"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 115,
+    "page number" : 9,
+    "bounding box" : [ 89.999, 682.344, 522.071, 707.652 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The total maximum processing time reckons from the acceptance of the ECC/CNC application for substantive review up to the issuance of the decision"
+  }, {
+    "type" : "heading",
+    "id" : 116,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 89.999, 627.132, 522.071, 652.452 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.2 Forms and Contents of EIA Study Reports and Other DocumentsRequired Under the EIS System"
+  }, {
+    "type" : "paragraph",
+    "id" : 117,
+    "page number" : 9,
+    "bounding box" : [ 89.999, 572.064, 522.119, 611.172 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The following are the different forms of EIA study reports and documents required under the EIS System. DENR employees are prohibited from taking part in the preparation of such documents."
+  }, {
+    "type" : "paragraph",
+    "id" : 118,
+    "page number" : 9,
+    "bounding box" : [ 89.999, 516.864, 522.071, 555.972 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The DENR/EMB shall limit to a maximum of two (2) official requests (in writing) to the project proponent for additional information, which shall be made within the first 75% of the processing timeframe shown in Section 5.1.1."
+  }, {
+    "type" : "heading",
+    "id" : 119,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 100.559, 475.452, 357.335, 486.972 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.2.1. Environmental Impact Statement (EIS)."
+  }, {
+    "type" : "paragraph",
+    "id" : 120,
+    "page number" : 9,
+    "bounding box" : [ 94.799, 449.664, 334.175, 461.172 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The EIS should contain at least the following:"
+  }, {
+    "type" : "list",
+    "id" : 121,
+    "level" : "1",
+    "page number" : 9,
+    "bounding box" : [ 107.999, 143.064, 522.095, 430.572 ],
+    "numbering style" : "english letters",
+    "number of list items" : 11,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 107.999, 419.064, 261.575, 430.572 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. EIS Executive Summary;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 107.999, 405.264, 233.135, 416.772 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. Project Description;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 107.999, 377.664, 522.095, 402.972 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c. Matrix of the scoping agreement identifying critical issues and concerns, as validated by EMB;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 107.999, 350.064, 522.071, 375.372 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "d. Baseline environmental conditions focusing on the sectors (and resources) most significantly affected by the proposed action;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 107.999, 308.664, 522.071, 347.772 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "e. Impact assessment focused on significant environmental impacts (in relation to project construction/commissioning, operation and decommissioning), taking into account cumulative impacts;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 107.999, 281.064, 521.999, 306.372 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "f. Environmental Risk Assessment if determined by EMB as necessary during scoping;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 107.999, 267.264, 359.255, 278.772 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "g. Environmental Management Program/Plan;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 107.999, 225.864, 522.095, 264.972 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "h. Supporting documents, including technical/socio-economic data used/generated; certificate of zoning viability and municipal land use plan; and proof of consultation with stakeholders;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 107.999, 198.264, 522.071, 223.572 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "i. Proposals for Environmental Monitoring and Guarantee Funds including justification of amount, when required;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 107.999, 170.664, 522.095, 195.972 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "j. Accountability statement of EIA consultants and the project proponent; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 107.999, 143.064, 522.071, 168.372 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "k. Other clearances and documents that may be determined and agreed upon during scoping.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 122,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 100.559, 115.452, 401.915, 126.972 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.2.2. Initial Environmental Examination (IEE) Report"
+  }, {
+    "type" : "footer",
+    "id" : 123,
+    "page number" : 9,
+    "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 27,
+      "page number" : 9,
+      "bounding box" : [ 515.279, 39.024, 521.951, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "9"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 124,
+    "page number" : 10,
+    "bounding box" : [ 89.999, 719.184, 521.976, 744.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "IEE Report is similar to an EIS, but with reduced details of data and depth of assessment and discussion."
+  }, {
+    "type" : "paragraph",
+    "id" : 125,
+    "page number" : 10,
+    "bounding box" : [ 90.0, 650.184, 522.096, 703.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "It may be customized for different types of projects under Category B. The EMB shall coordinate with relevant government agencies and the private sector to customize and update IEE Checklists to further streamline ECC processing, especially for small and medium enterprises."
+  }, {
+    "type" : "heading",
+    "id" : 126,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 100.56, 622.572, 446.196, 634.092 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.2.3. Programmatic Environmental Impact Statement (PEIS)"
+  }, {
+    "type" : "paragraph",
+    "id" : 127,
+    "page number" : 10,
+    "bounding box" : [ 90.0, 594.984, 284.736, 606.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The PEIS shall contain the following:"
+  }, {
+    "type" : "list",
+    "id" : 128,
+    "level" : "1",
+    "page number" : 10,
+    "bounding box" : [ 108.0, 387.984, 522.144, 578.892 ],
+    "numbering style" : "english letters",
+    "number of list items" : 10,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 567.384, 239.016, 578.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. Executive Summary;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 553.584, 233.136, 565.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. Project Description;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 539.784, 457.176, 551.292 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c. Summary matrix of scoping agreements as validated by EMB;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 525.984, 451.416, 537.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "d. Eco-profiling of air, land, water, and relevant people aspects;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 512.184, 349.056, 523.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "e. Environmental carrying capacity analysis;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 498.384, 494.496, 509.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "f. Environmental Risk Assessment (if found necessary during scoping);",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 456.984, 522.144, 496.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "g. Environmental Management Plan to include allocation scheme for discharge of pollutants; criteria for acceptance of locators, environmental management guidebook for locators, and environmental liability scheme;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 443.184, 451.296, 454.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "h. Duties of the Environmental Management Unit to be created;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 415.584, 521.976, 440.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "i. Proposals for Environmental Monitoring & Guarantee Funds and terms of reference for the Multi-partite Monitoring Team, and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 387.984, 472.032, 413.292 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "j. Other supporting documents and clearances that may be agreed during the scoping.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 129,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 100.56, 346.572, 522.132, 371.892 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.2.4. Programmatic Environmental Performance Report andManagement Plan (PEPRMP)."
+  }, {
+    "type" : "paragraph",
+    "id" : 130,
+    "page number" : 10,
+    "bounding box" : [ 90.0, 318.984, 308.016, 330.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The PEPRMP shall contain the following:"
+  }, {
+    "type" : "list",
+    "id" : 131,
+    "level" : "1",
+    "page number" : 10,
+    "bounding box" : [ 108.0, 236.184, 522.192, 302.892 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 291.384, 370.536, 302.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. Project Description of the co-located projects;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 263.784, 522.192, 289.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. Documentation of the actual environmental performance based on current/past environmental management measures implemented, and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 236.184, 522.072, 261.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c. An EMP based on an environmental management system framework and standard set by EMB.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 132,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 100.56, 194.772, 522.132, 220.092 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.2.5. Environmental Performance Report and Management Plan (EPRMP) ."
+  }, {
+    "type" : "paragraph",
+    "id" : 133,
+    "page number" : 10,
+    "bounding box" : [ 90.0, 167.184, 299.976, 178.692 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The EPRMP shall contain the following:"
+  }, {
+    "type" : "list",
+    "id" : 134,
+    "level" : "1",
+    "page number" : 10,
+    "bounding box" : [ 108.0, 98.304, 522.192, 151.212 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "next list id" : 136,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 139.704, 233.136, 151.212 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. Project Description;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 125.904, 433.176, 137.412 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. Baseline conditions for critical environmental parameters;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 108.0, 98.304, 522.192, 123.612 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c. Documentation of the environmental performance based on the current/past environmental management measures implemented;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 135,
+    "page number" : 10,
+    "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 28,
+      "page number" : 10,
+      "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "10"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 136,
+    "level" : "1",
+    "page number" : 11,
+    "bounding box" : [ 107.999, 677.784, 522.191, 744.492 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "previous list id" : 134,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.999, 705.384, 522.191, 744.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "d. Detailed comparative description of the proposed project expansion and/or process modification with corresponding material and energy balances in the case of process industries, and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.999, 677.784, 522.071, 703.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "e. EMP based on an environmental management system framework and standard set by EMB.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 137,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 100.559, 650.172, 274.595, 661.692 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.2.6. Project Description (PD)"
+  }, {
+    "type" : "paragraph",
+    "id" : 138,
+    "page number" : 11,
+    "bounding box" : [ 89.999, 622.584, 515.495, 634.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The PD shall be guided by the definition of terms and shall contain the following:"
+  }, {
+    "type" : "list",
+    "id" : 139,
+    "level" : "1",
+    "page number" : 11,
+    "bounding box" : [ 107.999, 429.384, 520.871, 606.492 ],
+    "numbering style" : "english letters",
+    "number of list items" : 7,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.999, 594.984, 261.215, 606.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. Description of the project;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.999, 581.184, 270.695, 592.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. Location and area covered;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.999, 567.384, 348.695, 578.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c. Capitalization and manpower requirement;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.999, 525.984, 520.871, 565.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "d. For process industries, a listing of raw materials to be used, description of the process or manufacturing technology, type and volume of products and discharges:",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.999, 470.784, 520.703, 523.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "e. For Category C projects, a detailed description on how environmental efficiency and overall performance improvement will be attained, or how an existing environmental problem will be effectively solved or mitigated by the project, and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.999, 443.184, 520.775, 468.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "f. A detailed location map of the impacted site showing relevant features (e.g. slope, topography, human settlements).",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 107.999, 429.384, 365.471, 440.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "g. Timelines for construction and commissioning",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 140,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 100.559, 401.772, 233.975, 413.292 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.2.7. EMS-based EMP."
+  }, {
+    "type" : "paragraph",
+    "id" : 141,
+    "page number" : 11,
+    "bounding box" : [ 89.999, 360.384, 521.951, 385.692 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The EMS-based EMP is an option that proponents may undertake in lieu of the EPRMP for single projects applying for ECC under Category A-3 and B-3."
+  }, {
+    "type" : "heading",
+    "id" : 142,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 89.999, 332.772, 376.631, 344.292 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.3 Public Hearing / Consultation Requirements"
+  }, {
+    "type" : "paragraph",
+    "id" : 143,
+    "page number" : 11,
+    "bounding box" : [ 89.999, 263.784, 522.359, 316.692 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "For projects under Category A-1, the conduct of public hearing as part of the EIS review is mandatory unless otherwise determined by EMB. For all other undertakings, a public hearing is not mandatory unless specifically required by EMB."
+  }, {
+    "type" : "paragraph",
+    "id" : 144,
+    "page number" : 11,
+    "bounding box" : [ 89.999, 167.184, 522.095, 247.692 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Proponents should initiate public consultations early in order to ensure that environmentally relevant concerns of stakeholders are taken into consideration in the EIA study and the formulation of the management plan. All public consultations and public hearings conducted during the EIA process are to be documented. The public hearing/ consultation Process report shall be validated by the EMB/EMB RD and shall constitute part of the records of the EIA process."
+  }, {
+    "type" : "heading",
+    "id" : 145,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 89.999, 125.892, 494.831, 137.412 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.4 Documentation Requirements for DENR-EMB and EIA Reviewers"
+  }, {
+    "type" : "footer",
+    "id" : 146,
+    "page number" : 11,
+    "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 29,
+      "page number" : 11,
+      "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "11"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 147,
+    "page number" : 12,
+    "bounding box" : [ 89.999, 691.584, 522.071, 744.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The EMB Central Office as well as the EMB Regional Offices shall document the proceedings of the ECC application process and shall set up and maintain relevant information management systems. The documentation shall, at a minimum, include the following:"
+  }, {
+    "type" : "heading",
+    "id" : 148,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 100.559, 636.372, 269.915, 647.892 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.4.1. Review Process Report"
+  }, {
+    "type" : "paragraph",
+    "id" : 149,
+    "page number" : 12,
+    "bounding box" : [ 89.999, 567.384, 522.119, 620.292 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "This is to be prepared by the EMB Central or EMB RO. It is to be forwarded to the DENR Secretary or RD as reference for decision-making and maintained as part of the records on the ECC application. The report should contain at least the following:"
+  }, {
+    "type" : "list",
+    "id" : 150,
+    "level" : "1",
+    "page number" : 12,
+    "bounding box" : [ 107.999, 456.984, 521.975, 551.292 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 525.984, 521.951, 551.292 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. Summary of the environmental impacts of the undertaking, along with the proposed mitigation and enhancement measures;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 512.184, 447.335, 523.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. Key issues/concerns and the proponent's response to these;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 498.384, 445.655, 509.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c. Documentation of compliance with procedural requirements;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 470.784, 521.975, 496.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "d. Acceptability of proposed EMP including the corresponding cost of mitigation, EGF and EMF if required;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 456.984, 396.335, 468.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "e. Key bases for the decision on the ECC application.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 151,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 100.559, 429.372, 215.795, 440.892 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.4.2. EIARC Report"
+  }, {
+    "type" : "paragraph",
+    "id" : 152,
+    "page number" : 12,
+    "bounding box" : [ 89.999, 332.784, 522.083, 413.292 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "This report, to be prepared by the EIA Review Committee, forms part of the EIS review documentation. The EIARC Report shall be written by the designated member of the EIARC and signed by all the members within five days after the final review meeting. If an EIARC member dissents, he or she must submit a memorandum to the EMB Director through the EIARC Chairman his or her reasons for dissenting."
+  }, {
+    "type" : "paragraph",
+    "id" : 153,
+    "page number" : 12,
+    "bounding box" : [ 89.999, 277.584, 342.215, 289.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "At a minimum the EIARC report should contain:"
+  }, {
+    "type" : "list",
+    "id" : 154,
+    "level" : "1",
+    "page number" : 12,
+    "bounding box" : [ 107.999, 98.304, 522.215, 261.492 ],
+    "numbering style" : "english letters",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 236.184, 522.095, 261.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. Detailed assessment of the proposed mitigation and enhancement measures for the identified environmental impacts and risks;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 208.584, 522.071, 233.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. Description of residual or unavoidable environmental impacts despite proposed mitigation measures;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 194.784, 504.335, 206.292 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "c. Documentation of compliance with technical/substantive review criteria;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 167.184, 522.191, 192.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "d. Key issues/concerns and the proponent's response to these, including social acceptability measures;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 125.904, 522.215, 164.892 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "e. Assessment of the proposed EMP (including risk reduction/management plan) and amounts proposed for the Environmental Guarantee Fund and the Environmental Monitoring Fund, and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 107.999, 98.304, 521.879, 123.612 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "f. Recommended decision regarding the ECC application as well as proposed ECC conditions.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 155,
+    "page number" : 12,
+    "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 30,
+      "page number" : 12,
+      "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "12"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 156,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 100.559, 705.372, 248.675, 716.892 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "5.4.3. Decision Document"
+  }, {
+    "type" : "paragraph",
+    "id" : 157,
+    "page number" : 13,
+    "bounding box" : [ 89.999, 594.984, 522.155, 689.292 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "This is an official letter regarding the decision on the application. It may be in the form of an Environmental Compliance Certificate or a Denial Letter. The ECC shall contain the scope and limitations of the approved activities, as well as conditions to ensure compliance with the Environmental Management Plan. The ECC shall also specify the setting up of an EMF and EGF, if applicable. No ECC shall be released until the proponent has settled all liabilities, fines and other obligations with DENR."
+  }, {
+    "type" : "paragraph",
+    "id" : 158,
+    "page number" : 13,
+    "bounding box" : [ 89.999, 567.384, 479.015, 578.892 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "A Denial Letter on the other hand shall specify the bases for the decision."
+  }, {
+    "type" : "paragraph",
+    "id" : 159,
+    "page number" : 13,
+    "bounding box" : [ 89.999, 512.184, 522.119, 551.292 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The ECC or Denial Letter shall be issued directly to the project proponent or its duly authorized representative, and receipt of the letter shall be properly documented."
+  }, {
+    "type" : "paragraph",
+    "id" : 160,
+    "page number" : 13,
+    "bounding box" : [ 89.999, 443.184, 522.119, 496.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The ECC of a project not implemented within five years from its date of issuance is deemed expired. The Proponent shall have to apply for a new ECC if it intends to pursue the project. The reckoning date of project implementation is the date of ground breaking, based on the proponent’s work plan as submitted to the EMB."
+  }, {
+    "type" : "heading",
+    "id" : 161,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 89.999, 401.772, 219.935, 413.292 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 6. Appeal"
+  }, {
+    "type" : "paragraph",
+    "id" : 162,
+    "page number" : 13,
+    "bounding box" : [ 89.999, 346.584, 522.096, 385.692 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Any party aggrieved by the final decision on the ECC / CNC applications may, within 15 days from receipt of such decision, file an appeal on the following grounds:"
+  }, {
+    "type" : "list",
+    "id" : 164,
+    "level" : "1",
+    "page number" : 13,
+    "bounding box" : [ 108.0, 305.184, 474.636, 330.492 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 108.0, 318.984, 474.636, 330.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "a. Grave abuse of discretion on the part of the deciding authority, or",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 108.0, 305.184, 323.136, 316.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "b. Serious errors in the review findings.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 165,
+    "page number" : 13,
+    "bounding box" : [ 90.0, 249.984, 522.072, 289.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The DENR may adopt alternative conflict/dispute resolution procedures as a means to settle grievances between proponents and aggrieved parties to avert unnecessary legal action. Frivolous appeals shall not be countenanced."
+  }, {
+    "type" : "paragraph",
+    "id" : 166,
+    "page number" : 13,
+    "bounding box" : [ 90.0, 180.984, 457.536, 192.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The proponent or any stakeholder may file an appeal to the following:"
+  }, {
+    "type" : "table",
+    "id" : 167,
+    "level" : "2",
+    "page number" : 13,
+    "bounding box" : [ 130.32, 109.44, 535.8, 167.04 ],
+    "number of rows" : 4,
+    "number of columns" : 2,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 13,
+        "bounding box" : [ 130.8, 152.52, 331.2, 166.56 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 13,
+          "bounding box" : [ 135.96, 152.892, 243.432, 164.412 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Deciding Authority"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 13,
+        "bounding box" : [ 331.2, 152.52, 535.32, 166.56 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 2,
+          "page number" : 13,
+          "bounding box" : [ 336.6, 152.892, 471.336, 164.412 ],
+          "font" : "Helvetica-Bold",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Where to file the appeal"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 13,
+        "bounding box" : [ 130.8, 138.24, 331.2, 152.52 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "page number" : 13,
+          "bounding box" : [ 135.96, 138.624, 292.716, 150.132 ],
+          "font" : "Helvetica",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "EMB Regional Office Director"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 13,
+        "bounding box" : [ 331.2, 138.24, 535.32, 152.52 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 13,
+          "bounding box" : [ 336.6, 138.624, 476.076, 150.132 ],
+          "font" : "Helvetica",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Office of the EMB Director"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 13,
+        "bounding box" : [ 130.8, 123.96, 331.2, 138.24 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 5,
+          "page number" : 13,
+          "bounding box" : [ 135.96, 124.344, 284.076, 135.852 ],
+          "font" : "Helvetica",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "EMB Central Office Director"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 13,
+        "bounding box" : [ 331.2, 123.96, 535.32, 138.24 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 13,
+          "bounding box" : [ 336.6, 124.344, 493.32, 135.852 ],
+          "font" : "Helvetica",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Office of the DENR Secretary"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 13,
+        "bounding box" : [ 130.8, 109.92, 331.2, 123.96 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 13,
+          "bounding box" : [ 135.96, 110.064, 224.76, 121.572 ],
+          "font" : "Helvetica",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "DENR Secretary"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 13,
+        "bounding box" : [ 331.2, 109.92, 535.32, 123.96 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 8,
+          "page number" : 13,
+          "bounding box" : [ 336.6, 110.064, 455.376, 121.572 ],
+          "font" : "Helvetica",
+          "font size" : 12.0,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Office of the President"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 168,
+    "page number" : 13,
+    "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 31,
+      "page number" : 13,
+      "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "13"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 169,
+    "level" : "3",
+    "page number" : 14,
+    "bounding box" : [ 89.999, 545.652, 508.751, 730.692 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 89.999, 719.172, 508.751, 730.692 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Section 7. The EIA Process in Relation to the Project Planning Cycle",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 59,
+        "page number" : 14,
+        "bounding box" : [ 89.999, 628.344, 522.119, 695.052 ],
+        "font" : "Helvetica",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Proponents are directed under AO 42 to conduct simultaneously the environmental impact study and the project planning or feasibility study. EMB may validate whether or not the EIS was integrated with project planning by requiring relevant documentary proofs, such as the terms of reference for the feasibility study and copies of the feasibility study report."
+      }, {
+        "type" : "paragraph",
+        "id" : 60,
+        "page number" : 14,
+        "bounding box" : [ 89.999, 587.064, 522.119, 612.372 ],
+        "font" : "Helvetica",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "The EMB shall study the potential application of EIA to policy-based undertakings as a further step toward integrating and streamlining the EIS system."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 89.999, 545.652, 314.831, 557.172 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Section 8. EIS System Procedures",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 170,
+    "level" : "4",
+    "page number" : 14,
+    "bounding box" : [ 89.999, 518.052, 251.351, 529.572 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 89.999, 518.052, 251.351, 529.572 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "8.1 Manual of Procedures",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 171,
+    "level" : "5",
+    "page number" : 14,
+    "bounding box" : [ 100.559, 380.064, 522.239, 501.972 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 100.559, 462.864, 522.239, 501.972 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "8.1.1. The procedures to enable the processing of ECC/CNC applications within the timeframes specified in AO 42 shall be prescribed in a Procedural Manual to be issued by the EMB Central Office within ninety",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 41,
+        "level" : "6",
+        "page number" : 14,
+        "bounding box" : [ 136.559, 449.064, 333.335, 460.572 ],
+        "font" : "Helvetica",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "(90) days from the date of this Order."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 100.559, 380.064, 522.071, 432.972 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "8.1.2. The Manual of Procedures shall be updated as the need arises to continually shorten the review and approval/denial timeframes where feasible. Formulation of said procedures shall conform to the following guidelines:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 172,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 89.999, 338.652, 254.711, 350.172 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "8.2 Processing Timeframe"
+  }, {
+    "type" : "list",
+    "id" : 173,
+    "level" : "7",
+    "page number" : 14,
+    "bounding box" : [ 100.559, 214.464, 522.155, 322.572 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "next list id" : 175,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 100.559, 214.464, 522.155, 322.572 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "8.2.1. If no decision is made within the specified timeframe, the ECC/CNC application is deemed automatically approved and the approving authority shall issue the ECC or CNC within five (5) working days after the prescribed processing timeframe has lapsed. However, the EMB may deny issuance of ECC if the proponent fails to submit required additional information critical to deciding on the ECC/CNC application, despite written request from EMB and despite an adequate period for the proponent to comply with the said requirement;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 174,
+    "page number" : 14,
+    "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 32,
+      "page number" : 14,
+      "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "14"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 175,
+    "level" : "7",
+    "page number" : 15,
+    "bounding box" : [ 100.559, 484.584, 522.191, 744.492 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "previous list id" : 173,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 100.559, 636.384, 522.191, 744.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "8.2.2. In cases where ECC issuance cannot be decided due to the proponent’s inability to submit required additional information within the prescribed period, the EMB shall return the application to the proponent. The project proponent may resubmit its application, including the required additional information, within one (1) year for Category A projects and six (6) months for Category B projects without having to pay processing and other fees. Otherwise, the matter shall be treated as a new application.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 100.559, 484.584, 522.191, 620.292 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "8.2.3. In cases where EMB and the project proponent have exhausted all reasonable efforts to generate the information needed for deciding on the ECC/CNC application, the responsible authority (Secretary or EMB Director / Regional Director) shall make a decision based on the available information so as to comply with the prescribed timeframe. The decision shall nonetheless reflect a thorough assessment of impacts taking into consideration (i) the significance of environmental impacts and risks; (ii) the carrying capacity of the environment; (iii) equity issues with respect to use of natural resources, (iv) and the proponent’s commitment to institute effective environmental management measures.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 176,
+    "level" : "Subtitle",
+    "page number" : 15,
+    "bounding box" : [ 89.999, 429.372, 230.663, 440.892 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "8.3 Amending an ECC"
+  }, {
+    "type" : "paragraph",
+    "id" : 177,
+    "page number" : 15,
+    "bounding box" : [ 89.999, 360.384, 522.311, 399.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Requirements for processing ECC amendments shall depend on the nature of the request but shall be focused on the information necessary to assess the environmental impact of such changes."
+  }, {
+    "type" : "list",
+    "id" : 178,
+    "level" : "8",
+    "page number" : 15,
+    "bounding box" : [ 100.559, 139.704, 522.155, 316.692 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 100.559, 277.584, 522.155, 316.692 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "8.3.1. Requests for minor changes to ECCs such as extension of deadlines for submission of post-ECC requirements shall be decided upon by the endorsing authority.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 100.559, 236.184, 522.071, 261.492 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "8.3.2. Requests for major changes to ECCs shall be decided upon by the deciding authority.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 100.559, 139.704, 522.095, 220.092 ],
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "8.3.3. For ECC’s issued pursuant to an IEE or IEE checklist, the processing of the amendment application shall not exceed thirty (30) working days; and for ECC’s issued pursuant to an EIS, the processing shall not exceed sixty (60) working days. Provisions on automatic approval related to prescribed timeframes under AO 42 shall also apply for the processing of applications to amend ECC’s.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 179,
+    "page number" : 15,
+    "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 33,
+      "page number" : 15,
+      "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "15"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 180,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 89.999, 732.972, 370.151, 744.492 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 9. Monitoring of Projects with ECCs"
+  }, {
+    "type" : "paragraph",
+    "id" : 181,
+    "page number" : 16,
+    "bounding box" : [ 89.999, 677.784, 522.191, 716.892 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Post ECC monitoring of projects shall follow these guidelines. Other details on requirements for monitoring of projects with ECC’s shall be stipulated in a procedural manual to be formulated by EMB."
+  }, {
+    "type" : "heading",
+    "id" : 182,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 89.999, 650.172, 290.747, 661.692 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "9.1 Multipartite Monitoring Team"
+  }, {
+    "type" : "paragraph",
+    "id" : 183,
+    "page number" : 16,
+    "bounding box" : [ 89.999, 581.184, 522.155, 634.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "For projects under Category A, a multi-partite monitoring team (MMT) shall be formed immediately after the issuance of an ECC. Proponents required to establish an MMT shall put up an Environmental Monitoring Fund (EMF) not later than the initial construction phase of the project."
+  }, {
+    "type" : "paragraph",
+    "id" : 184,
+    "page number" : 16,
+    "bounding box" : [ 89.999, 470.784, 522.191, 565.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The MMT shall be composed of representatives of the proponent and of stakeholder groups, including representatives from concerned LGU's, locally accredited NGOs/POs, the community, concerned EMB Regional Office, relevant government agencies, and other sectors that may be identified during the negotiations. The team shall be tasked to undertake monitoring of compliance with ECC conditions as well as the EMP. The MMT shall submit a semi-annual monitoring report within January and July of each year."
+  }, {
+    "type" : "paragraph",
+    "id" : 185,
+    "page number" : 16,
+    "bounding box" : [ 89.999, 401.784, 522.191, 454.692 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The EMB shall formulate guidelines for operationalizing area-based or clusterbased MMT. The Bureau may also develop guidelines for delegating monitoring responsibilities to other relevant government agencies as may be deemed necessary."
+  }, {
+    "type" : "paragraph",
+    "id" : 186,
+    "page number" : 16,
+    "bounding box" : [ 89.999, 318.984, 522.155, 385.692 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "For projects whose significant environmental impacts do not persist after the construction phase or whose impacts could be addressed through other regulatory means or through the mandates of other government agencies, the operations of MMT may be terminated immediately after construction or after a reasonable period during implementation."
+  }, {
+    "type" : "heading",
+    "id" : 187,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 89.999, 263.772, 339.875, 275.292 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "9.2 Self-monitoring and Third Party Audit"
+  }, {
+    "type" : "paragraph",
+    "id" : 188,
+    "page number" : 16,
+    "bounding box" : [ 89.999, 180.984, 522.119, 233.892 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The proponent shall also conduct regular self-monitoring of specific parameters indicated in the EMP through its environmental unit. The proponent’s environmental unit shall submit a semi-annual monitoring report within January and July of each year."
+  }, {
+    "type" : "paragraph",
+    "id" : 189,
+    "page number" : 16,
+    "bounding box" : [ 89.999, 112.104, 522.083, 164.892 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "For projects with ECCs issued based on a PEPRMP, EPRMP, or an EMS-based EMP, a third party audit may be undertaken by a qualified environmental or EMS auditor upon the initiative of the proponent and in lieu of forming an MMT. The said proponent shall submit to EMB a copy of the audit findings and shall be held"
+  }, {
+    "type" : "footer",
+    "id" : 190,
+    "page number" : 16,
+    "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 34,
+      "page number" : 16,
+      "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "16"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 191,
+    "page number" : 17,
+    "bounding box" : [ 89.999, 719.184, 522.071, 744.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "accountable for the veracity of the report. The EMB may opt to validate the said report."
+  }, {
+    "type" : "heading",
+    "id" : 192,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 89.999, 691.572, 304.691, 703.092 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "9.3 Environmental Guarantee Fund"
+  }, {
+    "type" : "paragraph",
+    "id" : 193,
+    "page number" : 17,
+    "bounding box" : [ 89.999, 581.184, 522.131, 675.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "An Environmental Guarantee Fund (EGF) shall be established for all co-located or single projects that have been determined by DENR to pose a significant public risk or where the project requires rehabilitation or restoration. An EGF Committee shall be formed to manage the fund. It shall be composed of representatives from the EMB Central Office, EMB Regional Office, affected communities, concerned LGU's, and relevant government agencies identified by EMB."
+  }, {
+    "type" : "paragraph",
+    "id" : 194,
+    "page number" : 17,
+    "bounding box" : [ 89.999, 525.984, 522.083, 565.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "An integrated MOA on the MMT-EMF-EGF shall be entered into among the EMB Central Office, EMB Regional Office, the proponent, and representatives of concerned stakeholders."
+  }, {
+    "type" : "heading",
+    "id" : 195,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 89.999, 498.372, 206.555, 509.892 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "9.4 Abandonment"
+  }, {
+    "type" : "paragraph",
+    "id" : 196,
+    "page number" : 17,
+    "bounding box" : [ 89.999, 401.784, 522.071, 482.292 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "For projects that shall no longer be pursued, the proponent should inform EMB to relieve the former from the requirement for continued compliance with the ECC conditions. For projects that have already commenced implementation, an abandonment/decommissioning plan shall be submitted for approval by EMB at least six (6) months before the planned abandonment/decommissioning. The implementation of the plan shall be verified by EMB."
+  }, {
+    "type" : "heading",
+    "id" : 197,
+    "level" : "Doctitle",
+    "page number" : 17,
+    "bounding box" : [ 95.879, 312.045, 516.004, 357.683 ],
+    "heading level" : 1,
+    "font" : "Helvetica-Bold",
+    "font size" : 14.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE III STRENGTHENING THE IMPLEMENTATION OF THE PHILIPPINE EIS SYSTEM"
+  }, {
+    "type" : "list",
+    "id" : 198,
+    "level" : "3",
+    "page number" : 17,
+    "bounding box" : [ 89.999, 107.412, 522.227, 279.972 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 89.999, 254.652, 522.227, 279.972 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Section 10. Coordination with other Government Agencies and other Organizations",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 61,
+        "page number" : 17,
+        "bounding box" : [ 89.999, 185.664, 522.143, 238.572 ],
+        "font" : "Helvetica",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "The DENR-EMB shall conduct regular consultations with DTI and other pertinent government agencies, affected industry groups and other stakeholders on continually streamlining the processing of ECC applications and post ECC implementation to fulfill the policy and objectives of this administrative order."
+      }, {
+        "type" : "paragraph",
+        "id" : 62,
+        "page number" : 17,
+        "bounding box" : [ 89.999, 144.264, 522.071, 169.572 ],
+        "font" : "Helvetica",
+        "font size" : 12.0,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "The President shall be apprised of the issues raised as well as the actions taken by DENR to address these issues whenever necessary."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 89.999, 107.412, 377.315, 118.932 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Section 11. Information Systems Improvement",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 199,
+    "page number" : 17,
+    "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 35,
+      "page number" : 17,
+      "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "17"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 200,
+    "page number" : 18,
+    "bounding box" : [ 89.999, 691.584, 522.155, 744.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The information system on the EIS System implementation shall be improved for the effective dissemination of information to the public. The information system shall include regular updating of the status of ECC applications through a website and through other means."
+  }, {
+    "type" : "heading",
+    "id" : 201,
+    "level" : "Subtitle",
+    "page number" : 18,
+    "bounding box" : [ 89.999, 663.972, 302.627, 675.492 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 12. Accreditation System"
+  }, {
+    "type" : "paragraph",
+    "id" : 202,
+    "page number" : 18,
+    "bounding box" : [ 89.999, 594.984, 522.071, 647.892 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "To enhance the quality of the EIS submitted to the DENR/EMB, the EMB shall establish an accreditation system for individual professionals, academic and professional organizations that can be tapped to train professionals in conducting EIA using training modules approved by EMB."
+  }, {
+    "type" : "paragraph",
+    "id" : 203,
+    "page number" : 18,
+    "bounding box" : [ 89.999, 539.784, 522.191, 578.892 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The EMB shall also work with DTI-BPS for an accreditation system for environmental and EMS auditors, consistent with provisions of DAO 2003-14 on the Philippine Environmental Partnership Program."
+  }, {
+    "type" : "heading",
+    "id" : 204,
+    "level" : "Subtitle",
+    "page number" : 18,
+    "bounding box" : [ 89.999, 498.372, 521.855, 523.692 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 13. Creation of an EIAM Division and Strengthening of Reviewand Monitoring Capability"
+  }, {
+    "type" : "paragraph",
+    "id" : 205,
+    "page number" : 18,
+    "bounding box" : [ 89.999, 401.784, 522.191, 482.292 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "In order to effectively implement the provisions of this administrative order, the current EIA ad hoc division at the EMB Central Office and the EMB Regional Offices that are primarily in-charge of processing ECC applications and postECC monitoring shall be converted to a full-pledged Environmental Impact Assessment and Management Division (EIAMD). The Division shall have the following structure and functions:"
+  }, {
+    "type" : "list",
+    "id" : 206,
+    "level" : "6",
+    "page number" : 18,
+    "bounding box" : [ 89.999, 99.144, 522.239, 385.692 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 89.999, 263.784, 522.155, 385.692 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "13.1 The EIA Evaluation Section shall be in charge of screening projects for coverage under the EIS System, EIS Scoping, and evaluation of EIS’s and IEE's submitted for ECC issuance. It shall have three units responsible, respectively, for screening for coverage, EIS Scoping, and evaluation of ECC applications. The EMB may commission independent professionals, experts from the academe and representatives from relevant government agencies as members of the EIA Review Committee as may be deemed necessary. Further, continual improvement of the technical capability of the Staff of the EIA Division shall be undertaken.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 89.999, 180.984, 522.239, 247.692 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "13.2 The Impact Monitoring and Validation Section shall be in charge of monitoring compliance to ECC conditions and implementation of the Environmental Management Program (EMP). The unit shall also validate actual impacts as a basis for evaluating environmental performance and effectiveness of the EMP.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 89.999, 99.144, 522.155, 165.852 ],
+      "font" : "Helvetica-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "13.3 In the EMB Central Office, there shall be a Systems Planning and Management Section. It shall ensure that a continually improving systemsoriented and integrated approach is followed in implementing the Philippine EIS System vis-a-vis national development programs. The section shall have two units responsible for specific systems-level concerns: (1) Project Level Systems",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 207,
+    "page number" : 18,
+    "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 36,
+      "page number" : 18,
+      "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "18"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 208,
+    "page number" : 19,
+    "bounding box" : [ 89.999, 691.584, 522.155, 744.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Planning and Management Unit; and (2) Program and Policy Level Systems Planning and Management Unit. This section shall also be responsible for technical coordination with the EIA Division in the different EMB Regional Offices."
+  }, {
+    "type" : "paragraph",
+    "id" : 209,
+    "page number" : 19,
+    "bounding box" : [ 89.999, 663.984, 453.575, 675.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The organizational structure of the EMB Central Office is in Annex 1."
+  }, {
+    "type" : "heading",
+    "id" : 210,
+    "level" : "Doctitle",
+    "page number" : 19,
+    "bounding box" : [ 199.799, 604.125, 412.204, 633.683 ],
+    "heading level" : 1,
+    "font" : "Helvetica-Bold",
+    "font size" : 14.04,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ARTICLE IV MISCELLANEOUS PROVISIONS"
+  }, {
+    "type" : "heading",
+    "id" : 211,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 89.999, 576.612, 282.611, 588.132 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 14. Budget Allocation"
+  }, {
+    "type" : "paragraph",
+    "id" : 212,
+    "page number" : 19,
+    "bounding box" : [ 89.999, 535.224, 521.951, 560.532 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "For the effective implementation of this order, adequate funding should be provided under the annual General Appropriations Act."
+  }, {
+    "type" : "paragraph",
+    "id" : 213,
+    "page number" : 19,
+    "bounding box" : [ 89.999, 480.024, 522.071, 519.132 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Per AO 42, the new position items for the EIA Division shall be created out of the existing budget and vacant position items within the government service, which shall be reclassified accordingly."
+  }, {
+    "type" : "heading",
+    "id" : 214,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 89.999, 438.612, 207.431, 450.132 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 15. Fees"
+  }, {
+    "type" : "paragraph",
+    "id" : 215,
+    "page number" : 19,
+    "bounding box" : [ 89.999, 369.624, 522.095, 422.532 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "All proponents, upon submission of the IEE/EIS and application for amendment, shall pay filing fees and other charges in accordance with prescribed standard costs and fees set by EMB in relation to the implementation of the Philippine EIS System, as shown in Annex 2."
+  }, {
+    "type" : "paragraph",
+    "id" : 216,
+    "page number" : 19,
+    "bounding box" : [ 89.999, 342.024, 404.255, 353.532 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The proponent shall shoulder the cost of reviewing the EIS."
+  }, {
+    "type" : "heading",
+    "id" : 217,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 89.999, 300.612, 358.151, 312.132 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 16. Fines, Penalties And Sanctions"
+  }, {
+    "type" : "paragraph",
+    "id" : 218,
+    "page number" : 19,
+    "bounding box" : [ 89.999, 231.624, 522.191, 284.532 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The EMB Central Office or Regional Office Directors shall impose penalties upon persons or entities found violating provisions of P.D. 1586, and its Implementing Rules and Regulations. Details of the Fines and Penalty Structure shall be covered by a separate order."
+  }, {
+    "type" : "paragraph",
+    "id" : 219,
+    "page number" : 19,
+    "bounding box" : [ 89.999, 135.024, 522.155, 215.532 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The EMB Director or the EMB-RD may issue a Cease and Desist Order (CDO) based on violations under the Philippine EIS System to prevent grave or irreparable damage to the environment. Such CDO shall be effective immediately. An appeal or any motion seeking to lift the CDO shall not stay its effectivity. However, the DENR shall act on such appeal or motion within ten (10) working days from filing."
+  }, {
+    "type" : "footer",
+    "id" : 220,
+    "page number" : 19,
+    "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 37,
+      "page number" : 19,
+      "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "19"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 221,
+    "page number" : 20,
+    "bounding box" : [ 89.999, 705.384, 522.263, 744.492 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The EMB may publish the identities of firms that are in violation of the EIA Law and its Implementing Rules and Regulations despite repeated Notices of Violation and/or Cease and Desist Orders."
+  }, {
+    "type" : "heading",
+    "id" : 222,
+    "level" : "Subtitle",
+    "page number" : 20,
+    "bounding box" : [ 89.999, 663.972, 303.431, 675.492 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 17. Transitory Provisions"
+  }, {
+    "type" : "paragraph",
+    "id" : 223,
+    "page number" : 20,
+    "bounding box" : [ 89.999, 581.184, 522.143, 647.892 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "The DENR may extend reprieve to proponents of projects operating without ECC (Categories A-3 and B-3) from penalties specified in PD 1586 upon registration with the EMB Central Office. An Environmental Performance Report and Management Plan (EPRMP) shall be submitted as a requirement for such ECC application within six months from the signing of this Administrative order."
+  }, {
+    "type" : "paragraph",
+    "id" : 224,
+    "page number" : 20,
+    "bounding box" : [ 89.999, 498.384, 522.071, 565.092 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "During the period that that the Procedural Manual and other necessary guidelines are being prepared, existing guidelines which are consistent with the provisions of this Order shall remain in effect. Adequate resources shall be provided for the formulation of the Procedural Manual and for the effective implementation of this Order."
+  }, {
+    "type" : "heading",
+    "id" : 225,
+    "level" : "Subtitle",
+    "page number" : 20,
+    "bounding box" : [ 89.999, 470.772, 280.151, 482.292 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 18. Repealing Clause"
+  }, {
+    "type" : "paragraph",
+    "id" : 226,
+    "page number" : 20,
+    "bounding box" : [ 89.999, 415.584, 522.095, 454.692 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "This Order hereby supersedes Department Administrative Order No. 96-37, Department Administrative Order No. 2000-37, DAO 2000-05 and other related orders, which are inconsistent herewith."
+  }, {
+    "type" : "heading",
+    "id" : 227,
+    "level" : "Subtitle",
+    "page number" : 20,
+    "bounding box" : [ 89.999, 387.972, 237.431, 399.492 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Section 19. Effectivity"
+  }, {
+    "type" : "paragraph",
+    "id" : 228,
+    "page number" : 20,
+    "bounding box" : [ 89.999, 346.584, 521.975, 371.892 ],
+    "font" : "Helvetica",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "This Order shall take effect 15 days after its publication in a newspaper of general circulation."
+  }, {
+    "type" : "heading",
+    "id" : 229,
+    "level" : "Subtitle",
+    "page number" : 20,
+    "bounding box" : [ 89.999, 238.572, 195.983, 263.892 ],
+    "heading level" : 3,
+    "font" : "Helvetica-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "ELISEA G. GOZUN Secretary"
+  }, {
+    "type" : "footer",
+    "id" : 230,
+    "page number" : 20,
+    "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 38,
+      "page number" : 20,
+      "bounding box" : [ 508.679, 39.024, 522.071, 50.532 ],
+      "heading level" : 4,
+      "font" : "Helvetica",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "20"
+    } ]
+  } ]
+}

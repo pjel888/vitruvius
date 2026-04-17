@@ -316,6 +316,19 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - bounded `RA-11285` energy-governance concept-fit follow-on is now admitted
     - see `/.ai/05_logs/2026-04-17_laws-tranche-8-execution-validation.md`
     - see `/.ai/05_logs/2026-04-17_ra11285-energy-governance-concept-fit-validation.md`
+  - tranche-9 is now defined and executed through the same bounded workflow:
+    - manifest: `config/datasets/laws-tranche-9.yaml`
+    - tranche-9 scoped surfaces:
+      - `DENR DAO 2003-30 IRR`
+      - `DOE Guidelines on Energy Conserving Design of Buildings`
+      - `DPWH DO037 Accessibility Enforcement Order`
+    - current execute evidence:
+      - `staged_law_folders = [DENR, DOE, DPWH]`
+      - `generated_relationship_count = 0`
+      - `shallow_representation_count = 0`
+      - `source_to_graph_execute_completed = true`
+      - graph snapshot: `3 nodes / 0 edges`
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-9-execution-validation.md`
   - remaining uncovered-pool roadmap is now explicit for planning/tracking:
     - see `docs/LAWS_REMAINING_POOL_ROADMAP.md`
     - see `/.ai/13_research/2026-04-17_remaining-pool-tranche-roadmap-research.md`

@@ -1,0 +1,58 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "moderate extraction difficulty: treat automated summaries as guarded",
+    "front matter includes a table of contents before operative text",
+    "front matter is image-heavy and may reflect OCR/layout instability"
+  ],
+  "front_matter_suspicious_ocr_line_count": 1,
+  "image_line_count": 11,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 77,
+  "noise_line_count": 1,
+  "non_empty_line_count": 1283,
+  "recommendations": [
+    "high table-line count: verify layout-sensitive extraction and summary hygiene",
+    "low useful-text ratio: review source-summary trust before relying on canonical summaries"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 0,
+    "admitted_relationship_count": 0,
+    "folder_name": "DOE",
+    "law_id": "doe",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 20.0,
+    "section_to_relationship_ratio": 20.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 20
+  },
+  "severity": "medium",
+  "source_acceptance_reasons": [],
+  "source_acceptance_status": "accepted",
+  "spot_review_focus": [],
+  "spot_review_required": false,
+  "structural_heading_count": 20,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [
+    "table_of_contents_front_matter",
+    "image_heavy_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "Comments on the Guidelines regarding omissions and errors, as well as, conflicts with accepted international standards are most welcome and will be highly appreciated. All suggestions will be studied and considered for inclusion in the Guidelines’s next edition.",
+    "- 2.2.2 Areas with industrial/manufacturing processes.",
+    "- 3.2.7 Emergency lighting that is automatically \"off” during normal",
+    "|Task|Min. & Max. (Lux)|Applications|",
+    "|Lamp Type|Rated Power Ranges (watts)|Efficacy<br><br>Ranges (lumens per watt)|Minimum Color Rendering Index (CRI)|"
+  ],
+  "suspicious_ocr_line_count": 47,
+  "suspicious_ocr_line_ratio": 0.036633,
+  "table_line_count": 253,
+  "total_line_count": 2170,
+  "useful_text_line_count": 1018,
+  "useful_text_ratio": 0.793453
+}
