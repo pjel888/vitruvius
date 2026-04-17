@@ -1,0 +1,2727 @@
+{
+  "file name" : "437459910-Ordinance-No-2117.pdf",
+  "number of pages" : 11,
+  "author" : null,
+  "title" : null,
+  "creation date" : null,
+  "modification date" : "D:20140616133051+08'00'",
+  "kids" : [ {
+    "type" : "image",
+    "id" : 27,
+    "page number" : 1,
+    "bounding box" : [ 0.0, 0.0, 612.48, 839.04 ],
+    "source" : "437459910-Ordinance-No-2117_images/imageFile1.png"
+  }, {
+    "type" : "heading",
+    "id" : 21,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 177.12, 811.106, 400.939, 836.661 ],
+    "heading level" : 7,
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 19.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "QUEZON CITY COUNCIL"
+  }, {
+    "type" : "paragraph",
+    "id" : 22,
+    "page number" : 1,
+    "bounding box" : [ 259.2, 798.128, 323.112, 814.268 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 12.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "Quezon City"
+  }, {
+    "type" : "paragraph",
+    "id" : 23,
+    "page number" : 1,
+    "bounding box" : [ 240.96, 783.116, 339.722, 801.946 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "18th City Council"
+  }, {
+    "type" : "paragraph",
+    "id" : 19,
+    "page number" : 1,
+    "bounding box" : [ 454.32, 708.464, 543.231, 726.958 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "P02011-105"
+  }, {
+    "type" : "paragraph",
+    "id" : 20,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 445.44, 691.664, 537.589, 710.158 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : ". P02010-131"
+  }, {
+    "type" : "paragraph",
+    "id" : 18,
+    "page number" : 1,
+    "bounding box" : [ 237.36, 657.584, 377.251, 676.442 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "46th Regular Session"
+  }, {
+    "type" : "paragraph",
+    "id" : 17,
+    "page number" : 1,
+    "bounding box" : [ 155.04, 612.818, 372.075, 649.133 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "ORDINANCE NO. SP- . ·21 1 7"
+  }, {
+    "type" : "paragraph",
+    "id" : 15,
+    "page number" : 1,
+    "bounding box" : [ 401.04, 616.064, 461.388, 634.558 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : ", S-2611"
+  }, {
+    "type" : "paragraph",
+    "id" : 16,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 444.96, 601.478, 447.578, 624.343 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 17.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "•"
+  }, {
+    "type" : "paragraph",
+    "id" : 14,
+    "page number" : 1,
+    "bounding box" : [ 73.2, 491.21, 542.984, 595.865 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 15.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "AN ORDINANCE CLASSIFYING . THE 250.6 HECTARE AREA COMPRISING OF THE NORTH TRIANGLE, EAST TRIANGLE AND VETERANS MEMORIAL HOSPITAL COMPOUND AS THE QUEZON CITY CENTRAL BUSINESS DISTRICT (QC-CBD) AND ADOPTING THE QC-CBD MASTER PLAN AND RELATED IMPLEMENTING RULES AND REGULATIONS THEREOF ."
+  }, {
+    "type" : "heading",
+    "id" : 11,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 265.92, 467.576, 268.047, 489.384 ],
+    "heading level" : 10,
+    "font" : "ArialMT",
+    "font size" : 16.0,
+    "text color" : "[0.662745, 0.662745, 0.662745]",
+    "content" : "."
+  }, {
+    "type" : "paragraph",
+    "id" : 12,
+    "page number" : 1,
+    "bounding box" : [ 108.72, 418.904, 523.867, 472.835 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 15.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "Introduced by Councilors JULIAN ML. COSETENG, PRECIOUS , HIPOLITO CASTEW, ALLAN BENEDICT S. REYES and EUFEMJO C. LAGUMBAY."
+  }, {
+    "type" : "paragraph",
+    "id" : 13,
+    "page number" : 1,
+    "bounding box" : [ 109.68, 385.34, 508.872, 422.345 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "Co-Introduced by Councilors Gian Carlo G. Sotto, Anthony Peter D. Crisologo and Ricardo T. Belmonte, Jr. ·"
+  }, {
+    "type" : "paragraph",
+    "id" : 10,
+    "page number" : 1,
+    "bounding box" : [ 71.28, 311.822, 562.039, 363.722 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "WHEREAS, Ordinance No. SP-918, S-2000 provides for the adoption of ) the Quezon City Comprehensive Zoning Ordinance, as amended by Ordinance ~ o. SP-139, S-2004;"
+  }, {
+    "type" : "paragraph",
+    "id" : 8,
+    "page number" : 1,
+    "bounding box" : [ 109.68, 277.496, 540.28, 298.632 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "WHEREAS, after a decade of Implementation and Enforcement .of the"
+  }, {
+    "type" : "paragraph",
+    "id" : 9,
+    "page number" : 1,
+    "bounding box" : [ 72.96, 194.744, 540.396, 280.442 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "said Zoning Ordinance, farther amendment to some of its existing provisions ecame imperative in order to respond to the developments in the City, among hich is the need to have a well defined Central Business District (CBD) that ~ ports a range of activities and development opportunities which define the le of Quezon City in die metropolitan and national economy;"
+  }, {
+    "type" : "paragraph",
+    "id" : 24,
+    "page number" : 1,
+    "bounding box" : [ 71.04, 128.636, 540.131, 179.882 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "WHEREAS, among all areas in Quezon City, with its location, scale, and regional access, the combined area of North and East Triangle and Veterans _,·'femoria/ Hospital Compound offers the best opportunity of becoming Quezon"
+  }, {
+    "type" : "paragraph",
+    "id" : 25,
+    "page number" : 1,
+    "bounding box" : [ 82.08, 100.184, 573.46, 160.156 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "ity'spremierCBD with a strong distinctidentity;~ '6 · b"
+  }, {
+    "type" : "heading",
+    "id" : 26,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 378.48, 61.52, 421.358, 102.41 ],
+    "heading level" : 2,
+    "font" : "ArialMT",
+    "font size" : 30.0,
+    "text color" : "[0.345098, 0.329412, 0.329412]",
+    "content" : "e\":5"
+  }, {
+    "type" : "heading",
+    "id" : 6,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 169.92, 3.56, 373.003, 30.82 ],
+    "heading level" : 6,
+    "font" : "ArialMT",
+    "font size" : 20.0,
+    "text color" : "[0.654902, 0.568627, 0.737255]",
+    "content" : "~~~..S:::Sfil!'!MB!li ~.!=.~:;>·~-~.---.. -,,"
+  }, {
+    "type" : "paragraph",
+    "id" : 7,
+    "page number" : 1,
+    "bounding box" : [ 169.92, -3.04, 361.858, 10.59 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 4.0,
+    "text color" : "[0.654902, 0.568627, 0.737255]",
+    "content" : "I ffl a '*· 1-:~ !:I ,, ....e, ~- i....a,.. c;r\" ~ sr« ~ ~ lft"
+  }, {
+    "type" : "image",
+    "id" : 45,
+    "page number" : 2,
+    "bounding box" : [ -8.162, -5.9, 620.642, 847.82 ],
+    "source" : "437459910-Ordinance-No-2117_images/imageFile2.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 42,
+    "page number" : 2,
+    "bounding box" : [ 82.08, 816.824, 311.75, 835.318 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "4(ith Regular Session 1"
+  }, {
+    "type" : "paragraph",
+    "id" : 43,
+    "page number" : 2,
+    "bounding box" : [ 81.6, 794.552, 315.704, 832.212 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "Ord.No. SP- 21 1 7 ,S-2ot1"
+  }, {
+    "type" : "list",
+    "id" : 44,
+    "level" : "3",
+    "page number" : 2,
+    "bounding box" : [ 80.88, 765.704, 311.227, 801.238 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 80.88, 765.704, 311.227, 801.238 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "Page-2- · P02011-10!J P02010-131",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "page number" : 2,
+    "bounding box" : [ 80.16, 647.156, 547.682, 732.242 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.352941]",
+    "content" : "WHEREAS, Executive Orders Numbered 620 and 620-A Series of 2007 created the Urban Triangle Development (I'riDev) Commission and specified its mandate to manage the development and speed up the transformation of a mixed-use area that shall become the Quezon City Central Business District (QC-CBD);"
+  }, {
+    "type" : "paragraph",
+    "id" : 40,
+    "page number" : 2,
+    "bounding box" : [ 79.92, 542.756, 546.488, 628.562 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.352941]",
+    "content" : "WHEREAS, the Urban Triangle Development Commission adopted Commission Resolution No. 1, Series of 2010 (17 June 2010) entitled: \"Adoption by the Urban Triangle Development Commission of the Detailed Urban Design of the Comprehensive Master Plan of the Quezon City Central Business District and Endorsing its Immediate Implementation\";"
+  }, {
+    "type" : "paragraph",
+    "id" : 39,
+    "page number" : 2,
+    "bounding box" : [ 79.92, 459.236, 548.366, 529.025 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.352941]",
+    "content" : "WHEREAS, in order tofacilitate the realization of this vision, there is a need to provide for a mechanism for the establishment and orderly planning of this CBD with distinct regulations and standards not provided for under existing laws or ordinances;"
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 2,
+    "bounding box" : [ 78.48, 343.316, 547.406, 444.962 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.352941]",
+    "content" : "WHEREAS, recognizing the value of this amendment, the City Council perceives the necessity of adopting these guidelines to be incorporated or appended to the Quezon City Comprehensive Zoning Ordinance, for the declaration of the 250.6 Hectare Area Comprising of the North Triangle, East Triangle and Veterans Memorial Hospital Compound as the Quezon City Central Business District (QC-CBD) and adopting the QC-CBD Master Plan;"
+  }, {
+    "type" : "paragraph",
+    "id" : 37,
+    "page number" : 2,
+    "bounding box" : [ 79.92, 293.33, 545.242, 329.042 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.352941]",
+    "content" : "WHEREAS, the QC-CBD is expected to boost Quezon City 's reputation and growth and contribute to its overall economic development"
+  }, {
+    "type" : "paragraph",
+    "id" : 35,
+    "page number" : 2,
+    "bounding box" : [ 244.8, 259.304, 386.121, 277.798 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.352941]",
+    "content" : "NOW, THEREFORE,"
+  }, {
+    "type" : "paragraph",
+    "id" : 36,
+    "page number" : 2,
+    "bounding box" : [ 80.16, 207.944, 549.6, 243.478 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.352941]",
+    "content" : "BE IT ORDAINED BY THE CITY COUNCIL OF QUEZON CITY IN REGULAR SESSION ASSEMBLED:"
+  }, {
+    "type" : "paragraph",
+    "id" : 34,
+    "page number" : 2,
+    "bounding box" : [ 81.12, 140.024, 547.127, 193.985 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.352941]",
+    "content" : "SECTION 1. Title - This Ordinance shall be known as the Quezon City Central Business Distric: (QC-CBD) Zoning Ordinance\"."
+  }, {
+    "type" : "paragraph",
+    "id" : 28,
+    "page number" : 2,
+    "bounding box" : [ 80.16, 72.824, 546.887, 125.675 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.352941]",
+    "content" : "SECTION 2. Scope and Application - This Ordinance shall apply to the Quezon City Central Business District comprising the North Triangle, East Triangle and the Veterans Memorial spital"
+  }, {
+    "type" : "heading",
+    "id" : 29,
+    "level" : "Doctitle",
+    "page number" : 2,
+    "bounding box" : [ 81.6, 31.634, 565.515, 72.833 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 15.0,
+    "text color" : "[0.701961, 0.631373, 0.784314]",
+    "content" : "Compound. ~ ,,... \"\"\"\"' , , , \" '>··\"·· \"\" ,,.,{.sm· <3 R"
+  }, {
+    "type" : "paragraph",
+    "id" : 30,
+    "page number" : 2,
+    "bounding box" : [ 206.4, 25.556, 581.545, 67.809 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 7.0,
+    "text color" : "[0.701961, 0.631373, 0.784314]",
+    "content" : "'1il•-.ll....UI J !!.._1~1) ~ ~ (1\";;''•1!_ m'•i ~ ~r..d~t'I ·\" .u"
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 198.72, 26.996, 405.914, 41.989 ],
+    "font" : "ArialMT",
+    "font size" : 8.0,
+    "text color" : "[0.701961, 0.631373, 0.784314]",
+    "content" : ".,...~ ...... .._> · .:\\.{j' rt. ~,. 'll\\.1 l ~ f"
+  }, {
+    "type" : "heading",
+    "id" : 32,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 197.52, 11.924, 396.524, 37.023 ],
+    "heading level" : 7,
+    "font" : "Arial-ItalicMT",
+    "font size" : 19.0,
+    "text color" : "[0.701961, 0.631373, 0.784314]",
+    "content" : "I ---~---·--..._ --· -"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 2,
+    "bounding box" : [ 197.28, 2.582, 390.03, 19.859 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 11.0,
+    "text color" : "[0.701961, 0.631373, 0.784314]",
+    "content" : "; D_ li. 'ref\\l 111' r;;:.. ~ 1r: l\\ i1 a- 1d1"
+  }, {
+    "type" : "paragraph",
+    "id" : 61,
+    "page number" : 3,
+    "bounding box" : [ 95.04, 806.168, 330.655, 856.366 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 13.0,
+    "text color" : "[0.0]",
+    "content" : "Ord.No. SP-_ 21 1k ,S-2b 1"
+  }, {
+    "type" : "image",
+    "id" : 63,
+    "page number" : 3,
+    "bounding box" : [ -12.196, -8.787, 624.676, 850.707 ],
+    "source" : "437459910-Ordinance-No-2117_images/imageFile3.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 60,
+    "page number" : 3,
+    "bounding box" : [ 95.28, 833.468, 330.733, 850.641 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 13.0,
+    "text color" : "[0.0]",
+    "content" : "4f5th Regular E ession ,"
+  }, {
+    "type" : "heading",
+    "id" : 62,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 94.56, 782.744, 326.425, 817.558 ],
+    "heading level" : 11,
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "Page-3- 2011-105P02010-131"
+  }, {
+    "type" : "paragraph",
+    "id" : 59,
+    "page number" : 3,
+    "bounding box" : [ 131.28, 685.784, 527.782, 739.745 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "As QC-CBD, land use therein shall be devoted solely and particularlu to the uses/ purposes provided in this ordinance."
+  }, {
+    "type" : "paragraph",
+    "id" : 58,
+    "page number" : 3,
+    "bounding box" : [ 95.04, 600.77, 562.302, 669.958 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "SECTION 3. Organization of Land Uses - The QC-CBD shall be comprised of five (5) districts: Triangle Exchange, Emporium, Downtown Hub, The Residences and Commons with the following appropriate uses to be allowed in each district;"
+  }, {
+    "type" : "paragraph",
+    "id" : 57,
+    "page number" : 3,
+    "bounding box" : [ 131.76, 549.464, 528.5, 584.758 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "3.1 Allowable uses in mixed commercial/retail zones (Triangle Exchange and Emporium Districts):"
+  }, {
+    "type" : "paragraph",
+    "id" : 48,
+    "page number" : 3,
+    "bounding box" : [ 167.52, 498.824, 553.563, 534.118 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "3.1.1 Mixed UseResidential and Institutional Uses 3.1 .1.1 Offices like:"
+  }, {
+    "type" : "list",
+    "id" : 49,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 239.76, 464.744, 449.66, 500.518 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 239.76, 482.024, 410.202, 500.518 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.1.1 Office Building",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 240.0, 464.744, 449.66, 483.238 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.1.2 Office Condominium",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 50,
+    "level" : "5",
+    "page number" : 3,
+    "bounding box" : [ 203.52, 329.144, 526.086, 466.438 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 203.76, 447.944, 526.086, 466.438 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.2 General retail stores and shops like:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 4,
+        "level" : "6",
+        "page number" : 3,
+        "bounding box" : [ 239.76, 397.064, 549.37, 449.638 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 240.0, 431.144, 434.027, 449.638 ],
+          "font" : "Arial-ItalicMT",
+          "font size" : 14.0,
+          "text color" : "[0.0]",
+          "content" : "3.1.1.2.1 Department Store",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 239.76, 397.064, 549.37, 432.118 ],
+          "font" : "Arial-ItalicMT",
+          "font size" : 14.0,
+          "text color" : "[0.0]",
+          "content" : "3.1.1.2.2 Bookstore and Office Su,pply Shop 3.1.1.2 .3 Home Appliance Store",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "list",
+        "id" : 5,
+        "level" : "6",
+        "page number" : 3,
+        "bounding box" : [ 239.76, 346.424, 398.89, 398.758 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 239.76, 380.264, 376.81, 398.758 ],
+          "font" : "Arial-ItalicMT",
+          "font size" : 14.0,
+          "text color" : "[0.0]",
+          "content" : "3.1.1.2.4 Car Shop",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 239.76, 346.424, 398.89, 381.958 ],
+          "font" : "Arial-ItalicMT",
+          "font size" : 14.0,
+          "text color" : "[0.0]",
+          "content" : "3.1.1.2.5 Photo Shop 3.1.1.1.6 Flower Shop",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 203.52, 329.144, 472.086, 347.638 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.3 Food markets and shop like:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 51,
+    "level" : "7",
+    "page number" : 3,
+    "bounding box" : [ 239.52, 258.854, 553.483, 330.358 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 239.52, 311.864, 469.1, 330.358 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.3.1 Bakery and bake shop",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 239.76, 295.064, 384.237, 313.558 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.3.2 Wine store",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 239.52, 277.664, 365.264, 298.928 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.3.3 Grocery",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 239.52, 258.854, 553.483, 287.099 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 21.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.3.4 Supermarket <: r-:_,",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 52,
+    "page number" : 3,
+    "bounding box" : [ 203.28, 243.944, 466.806, 262.438 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "3.1.1. 4 Personal Service shops like:"
+  }, {
+    "type" : "list",
+    "id" : 53,
+    "level" : "8",
+    "page number" : 3,
+    "bounding box" : [ 239.04, 176.024, 538.34, 245.638 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 239.28, 227.144, 401.042, 245.638 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.4.1 beauty parlor",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 239.04, 210.344, 393.74, 228.838 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.4.2 barber shop",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 239.04, 192.824, 527.419, 211.318 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.4.3 sauna bath and massage clinic",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 239.04, 176.024, 538.34, 194.518 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.4.4 dressmaking and tailoring shops",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 54,
+    "page number" : 3,
+    "bounding box" : [ 203.04, 159.464, 554.166, 177.958 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "3.1.1.5 Recreational center/ establishments like:"
+  }, {
+    "type" : "list",
+    "id" : 55,
+    "level" : "9",
+    "page number" : 3,
+    "bounding box" : [ 238.8, 125.864, 525.705, 161.158 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 238.8, 142.664, 449.565, 161.158 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.5.1 Movie house/theater",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 238.8, 125.864, 525.705, 144.358 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.0]",
+      "content" : "3.1.1.5.2 Plaucourt e.g. tennis court,",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 56,
+    "page number" : 3,
+    "bounding box" : [ 311.28, 67.781, 584.818, 147.006 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "bowlinglane,billiardl5hall ·> ~u"
+  }, {
+    "type" : "paragraph",
+    "id" : 46,
+    "page number" : 3,
+    "bounding box" : [ 209.04, 11.216, 410.73, 60.284 ],
+    "font" : "ArialMT",
+    "font size" : 36.0,
+    "text color" : "[0.592157, 0.470588, 0.72549]",
+    "content" : ",--- ·-............"
+  }, {
+    "type" : "paragraph",
+    "id" : 47,
+    "page number" : 3,
+    "bounding box" : [ 209.04, 4.304, 413.938, 25.824 ],
+    "font" : "ArialMT",
+    "font size" : 14.0,
+    "text color" : "[0.658824, 0.564706, 0.760784]",
+    "content" : "! n A.V~f li-lE§f:.B~Rt~i ·"
+  }, {
+    "type" : "paragraph",
+    "id" : 78,
+    "page number" : 4,
+    "bounding box" : [ 90.24, 829.704, 327.605, 848.198 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "4f5th Regular Session . 1"
+  }, {
+    "type" : "image",
+    "id" : 81,
+    "page number" : 4,
+    "bounding box" : [ -8.94, -6.481, 621.42, 845.521 ],
+    "source" : "437459910-Ordinance-No-2117_images/imageFile4.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 79,
+    "page number" : 4,
+    "bounding box" : [ 90.72, 808.284, 321.51, 843.254 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.360784, 0.360784]",
+    "content" : "Ord.No. SP- 21 17 ,S-2oj1"
+  }, {
+    "type" : "list",
+    "id" : 80,
+    "level" : "13",
+    "page number" : 4,
+    "bounding box" : [ 89.52, 779.544, 322.25, 816.225 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "next list id" : 102,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 89.52, 779.544, 322.25, 816.225 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 15.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "Page-4- P02011-105' P02010-131",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 69,
+    "level" : "9",
+    "page number" : 4,
+    "bounding box" : [ 234.48, 677.784, 294.595, 747.158 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 234.72, 728.664, 294.595, 747.158 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.5.3",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 234.72, 711.864, 294.595, 730.358 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.5.4",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 234.72, 695.064, 294.595, 713.558 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.5.5",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 234.48, 677.784, 294.355, 696.278 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.5.6",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 70,
+    "page number" : 4,
+    "bounding box" : [ 306.72, 661.224, 521.285, 747.158 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.360784, 0.360784]",
+    "content" : "Swimming pool Day and night club Stadium, coliseum,gymnasium Other sports and recreational establishment"
+  }, {
+    "type" : "paragraph",
+    "id" : 71,
+    "page number" : 4,
+    "bounding box" : [ 198.24, 626.784, 493.389, 664.305 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.360784, 0.360784]",
+    "content" : "3.1.1.6 Restaurants and other eateries 3.1.1. 7 Short term social education like:"
+  }, {
+    "type" : "paragraph",
+    "id" : 72,
+    "page number" : 4,
+    "bounding box" : [ 234.48, 541.464, 495.728, 628.358 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.360784, 0.360784]",
+    "content" : "3.1.1. 7.1 Dancing schools 3.1.1.7.2 Schoolfor Self Defense 3.1.1. 7.3 Driving Schools 3.1.1. 7. 4 SpeechClinic 3.1.1. 7.5 Commercial condominium"
+  }, {
+    "type" : "paragraph",
+    "id" : 73,
+    "page number" : 4,
+    "bounding box" : [ 306.96, 507.144, 494.269, 542.918 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.360784, 0.360784]",
+    "content" : "(with residential units upper floors)"
+  }, {
+    "type" : "list",
+    "id" : 74,
+    "level" : "11",
+    "page number" : 4,
+    "bounding box" : [ 198.48, 184.104, 494.662, 508.838 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.72, 490.344, 444.006, 508.838 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.8 Commercial housing like:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 3,
+        "level" : "12",
+        "page number" : 4,
+        "bounding box" : [ 234.72, 355.464, 418.906, 492.278 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 6,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 234.96, 473.784, 338.127, 492.278 ],
+          "font" : "Arial-ItalicMT",
+          "font size" : 14.0,
+          "text color" : "[0.376471, 0.360784, 0.360784]",
+          "content" : "3.1.1.8.1 llotel",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 234.72, 456.93, 375.597, 476.865 ],
+          "font" : "Arial-ItalicMT",
+          "font size" : 15.0,
+          "text color" : "[0.376471, 0.360784, 0.360784]",
+          "content" : "3.1.1.8.2 Apartment",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 234.72, 439.944, 354.756, 458.438 ],
+          "font" : "Arial-ItalicMT",
+          "font size" : 14.0,
+          "text color" : "[0.376471, 0.360784, 0.360784]",
+          "content" : "3.1.1.8.3 Apartel",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 234.72, 423.384, 418.906, 441.878 ],
+          "font" : "Arial-ItalicMT",
+          "font size" : 14.0,
+          "text color" : "[0.376471, 0.360784, 0.360784]",
+          "content" : "3.1.1.8.4 Boarding House",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 234.72, 406.824, 370.532, 425.318 ],
+          "font" : "Arial-ItalicMT",
+          "font size" : 14.0,
+          "text color" : "[0.376471, 0.360784, 0.360784]",
+          "content" : "3.1.1.8.5 ·Dormitory",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 234.72, 355.464, 411.0, 408.038 ],
+          "font" : "Arial-ItalicMT",
+          "font size" : 14.0,
+          "text color" : "[0.376471, 0.360784, 0.360784]",
+          "content" : "3.1.1.8.6 Pension House 3.1.1.8. 7 Club House 3.1.1.8.8 Motel",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.72, 338.424, 317.542, 356.918 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.9 Library",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.72, 321.144, 472.538, 339.638 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.10 Filling Station/ seruicestation",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.72, 304.344, 308.598, 322.838 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.11 Clinic",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.48, 287.064, 463.8, 305.558 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.12 Vocational/technical school",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.72, 184.104, 494.662, 288.518 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.13 Convention Center and related facilities Messengerialseroice Security Agency Janitorial eeroice Bank and other financial",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 77,
+    "page number" : 4,
+    "bounding box" : [ 98.88, 485.964, 101.622, 498.231 ],
+    "font" : "ArialMT",
+    "font size" : 9.0,
+    "text color" : "[0.792157, 0.772549, 0.796078]",
+    "content" : "\\"
+  }, {
+    "type" : "list",
+    "id" : 68,
+    "level" : "11",
+    "page number" : 4,
+    "bounding box" : [ 198.48, 184.584, 254.329, 254.918 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.48, 236.424, 254.089, 254.918 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.14",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.48, 219.384, 254.089, 237.878 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.15",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.72, 201.624, 254.329, 220.118 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.16",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.48, 184.584, 254.089, 203.078 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.17",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 75,
+    "page number" : 4,
+    "bounding box" : [ 270.0, 134.184, 513.046, 191.821 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.360784, 0.360784]",
+    "content" : "institutions c~ Radio and television stations Building garage,parking lot"
+  }, {
+    "type" : "list",
+    "id" : 67,
+    "level" : "11",
+    "page number" : 4,
+    "bounding box" : [ 198.24, 117.624, 254.089, 169.958 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.48, 151.464, 254.089, 169.958 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.18",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.24, 134.664, 253.849, 153.158 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.19",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 198.24, 117.624, 253.849, 136.118 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.360784, 0.360784]",
+      "content" : "3.1.1.20",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 76,
+    "page number" : 4,
+    "bounding box" : [ 269.76, 73.692, 495.794, 137.808 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.360784, 0.360784]",
+    "content" : "Bakery and baking of bread, cake, pastries, pies and other similarperishable / 15"
+  }, {
+    "type" : "paragraph",
+    "id" : 65,
+    "level" : "10",
+    "page number" : 4,
+    "bounding box" : [ 199.44, 12.876, 397.976, 41.499 ],
+    "font" : "ArialMT",
+    "font size" : 3.0,
+    "text color" : "[0.670588, 0.584314, 0.760784]",
+    "content" : "-...., __ I ..- ..--~---·••"
+  }, {
+    "type" : "paragraph",
+    "id" : 64,
+    "page number" : 4,
+    "bounding box" : [ 196.8, 2.076, 198.72, 30.699 ],
+    "font" : "ArialMT",
+    "font size" : 21.0,
+    "text color" : "[0.6, 0.482353, 0.717647]",
+    "content" : "!"
+  }, {
+    "type" : "paragraph",
+    "id" : 66,
+    "page number" : 4,
+    "bounding box" : [ 234.0, 2.064, 388.09, 23.328 ],
+    "font" : "ArialMT",
+    "font size" : 11.0,
+    "text color" : "[0.670588, 0.584314, 0.760784]",
+    "content" : "~ o:• \\Jf-., ,JI' 11'.) !l.- ~•• , .• , l'J:.\" s: ill- (f' :,.{:"
+  }, {
+    "type" : "heading",
+    "id" : 101,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 83.28, 812.776, 167.457, 852.115 ],
+    "heading level" : 4,
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 24.0,
+    "text color" : "[0.376471, 0.364706, 0.360784]",
+    "content" : "o-a.u«4 eguSP-"
+  }, {
+    "type" : "paragraph",
+    "id" : 99,
+    "page number" : 5,
+    "bounding box" : [ 182.16, 810.1, 318.42, 844.175 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 15.0,
+    "text color" : "[0.376471, 0.364706, 0.360784]",
+    "content" : "21 17 ,S-2011"
+  }, {
+    "type" : "image",
+    "id" : 103,
+    "page number" : 5,
+    "bounding box" : [ -5.706, -4.147, 618.186, 843.187 ],
+    "source" : "437459910-Ordinance-No-2117_images/imageFile5.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 98,
+    "page number" : 5,
+    "bounding box" : [ 314.4, 833.056, 317.724, 841.234 ],
+    "font" : "ArialMT",
+    "font size" : 6.0,
+    "text color" : "[0.486275, 0.47451, 0.47451]",
+    "content" : "I"
+  }, {
+    "type" : "paragraph",
+    "id" : 100,
+    "page number" : 5,
+    "bounding box" : [ 225.84, 781.384, 314.997, 819.688 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.364706, 0.360784]",
+    "content" : "P02011-105 P02010-131"
+  }, {
+    "type" : "list",
+    "id" : 102,
+    "level" : "13",
+    "page number" : 5,
+    "bounding box" : [ 82.56, 798.544, 137.322, 817.038 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 80,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 82.56, 798.544, 137.322, 817.038 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "Page-5-",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 97,
+    "level" : "11",
+    "page number" : 5,
+    "bounding box" : [ 190.32, 679.624, 490.663, 751.288 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 190.56, 730.024, 412.022, 751.288 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.21 CustomDressmaking",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 190.32, 713.224, 414.366, 734.488 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.22 Custom tailoringshop",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 190.56, 696.424, 460.627, 717.688 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.23 Commercialand job printing",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 190.32, 679.624, 490.663, 700.888 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.24 Typing and photo engra mng",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 93,
+    "page number" : 5,
+    "bounding box" : [ 262.32, 663.064, 305.808, 698.419 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.364706, 0.360784]",
+    "content" : "sennce."
+  }, {
+    "type" : "list",
+    "id" : 94,
+    "level" : "17",
+    "page number" : 5,
+    "bounding box" : [ 190.08, 543.544, 489.03, 667.048 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 190.32, 628.744, 486.709, 667.048 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.25 Repair of optical instruments and equipment and cameras",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 190.08, 611.464, 463.917, 632.728 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.26 Repairof clocksand watches",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 190.08, 560.824, 489.03, 615.688 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.27 Manufactureof insignia, badges and similar emblems except metal",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 190.08, 543.544, 386.627, 564.808 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.28 Repairshops like:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 95,
+    "level" : "16",
+    "page number" : 5,
+    "bounding box" : [ 226.32, 408.184, 518.604, 547.288 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 226.32, 509.464, 518.604, 547.288 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.28.1 House appliances repair shops",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 226.32, 408.184, 515.397, 513.208 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.28.2 Motor vehicleand accessory repairshops Homefurnishing shops Printing/publishing Parking lots, facilities",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 92,
+    "level" : "16",
+    "page number" : 5,
+    "bounding box" : [ 226.08, 424.984, 296.72, 479.848 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 226.32, 458.584, 296.72, 479.848 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.28.3",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 226.32, 441.784, 296.72, 463.048 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.28.4",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 226.08, 424.984, 296.48, 446.248 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.1.1.28.5",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 91,
+    "level" : "15",
+    "page number" : 5,
+    "bounding box" : [ 459.36, 424.264, 515.896, 445.528 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.364706, 0.360784]",
+    "content" : ". garage"
+  }, {
+    "type" : "paragraph",
+    "id" : 96,
+    "page number" : 5,
+    "bounding box" : [ 226.08, 373.864, 516.629, 412.168 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.364706, 0.360784]",
+    "content" : "3.1.1.28.6 Other commercial activities not elsewhere classified"
+  }, {
+    "type" : "paragraph",
+    "id" : 87,
+    "page number" : 5,
+    "bounding box" : [ 116.16, 306.424, 516.479, 361.288 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.364706, 0.360784]",
+    "content" : "3.2 Allowable uses in Mixed Use Institutional Zone (Downtown Hub) 3.2.1 Mixed Use Residential and Mixed Use"
+  }, {
+    "type" : "paragraph",
+    "id" : 88,
+    "page number" : 5,
+    "bounding box" : [ 208.32, 289.384, 340.18, 310.648 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.364706, 0.360784]",
+    "content" : "Commercial/ Retail"
+  }, {
+    "type" : "list",
+    "id" : 89,
+    "level" : "14",
+    "page number" : 5,
+    "bounding box" : [ 153.6, 169.624, 516.959, 293.368 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 153.84, 255.064, 516.959, 293.368 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.2.1.1 Government center to house national, regional or local offices in the area",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 153.6, 186.424, 515.776, 259.288 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.2.1.2 Colleges, universities, professional business schools, vocational land trade schools, technical echoole, and other institutions of higher learning",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 153.6, 169.624, 516.375, 190.888 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.364706, 0.360784]",
+      "content" : "3.2.1.3 General hoepitals, medical centers, multi-",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 90,
+    "page number" : 5,
+    "bounding box" : [ 223.68, 135.544, 552.56, 210.864 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.364706, 0.360784]",
+    "content" : "purpose clinics I /5 b"
+  }, {
+    "type" : "paragraph",
+    "id" : 86,
+    "page number" : 5,
+    "bounding box" : [ 520.56, 91.234, 532.733, 106.029 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 11.0,
+    "text color" : "[0.376471, 0.364706, 0.360784]",
+    "content" : "<?"
+  }, {
+    "type" : "paragraph",
+    "id" : 85,
+    "page number" : 5,
+    "bounding box" : [ 500.64, 73.864, 544.128, 95.384 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.364706, 0.360784]",
+    "content" : "<:::: '"
+  }, {
+    "type" : "heading",
+    "id" : 82,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 204.72, 11.008, 405.476, 35.542 ],
+    "heading level" : 9,
+    "font" : "ArialMT",
+    "font size" : 18.0,
+    "text color" : "[0.678431, 0.588235, 0.764706]",
+    "content" : "r--.,--~~--i;-.. ~~~---.....--... -·.-.."
+  }, {
+    "type" : "paragraph",
+    "id" : 83,
+    "page number" : 5,
+    "bounding box" : [ 204.96, 3.85, 371.723, 23.785 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 15.0,
+    "text color" : "[0.678431, 0.588235, 0.764706]",
+    "content" : "i ~ \".\\ ~. .. ~ f \"\" ~-a ........ , ......."
+  }, {
+    "type" : "paragraph",
+    "id" : 84,
+    "page number" : 5,
+    "bounding box" : [ 204.48, -0.08, 395.931, 13.13 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 7.0,
+    "text color" : "[0.678431, 0.588235, 0.764706]",
+    "content" : "' ,) f,, ~:\"<d icJl £c~ \"\"· !i: A {4) (f' ~~"
+  }, {
+    "type" : "paragraph",
+    "id" : 115,
+    "page number" : 6,
+    "bounding box" : [ 114.0, 837.65, 347.445, 857.585 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 15.0,
+    "text color" : "[0.0]",
+    "content" : "4f5th Regular Session ,"
+  }, {
+    "type" : "paragraph",
+    "id" : 116,
+    "page number" : 6,
+    "bounding box" : [ 114.24, 815.096, 348.169, 850.534 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.368627, 0.352941, 0.34902]",
+    "content" : "o-a.n« SP- 21 ] 7 ,S-20 1"
+  }, {
+    "type" : "image",
+    "id" : 118,
+    "page number" : 6,
+    "bounding box" : [ -12.199, -8.605, 612.199, 850.525 ],
+    "source" : "437459910-Ordinance-No-2117_images/imageFile6.png"
+  }, {
+    "type" : "heading",
+    "id" : 117,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 112.8, 785.744, 350.974, 824.048 ],
+    "heading level" : 10,
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.368627, 0.352941, 0.34902]",
+    "content" : "Page -6- P02011-1OS P02010-131"
+  }, {
+    "type" : "paragraph",
+    "id" : 114,
+    "page number" : 6,
+    "bounding box" : [ 185.28, 730.784, 233.68, 752.048 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.368627, 0.352941, 0.34902]",
+    "content" : "3.2.1.4"
+  }, {
+    "type" : "paragraph",
+    "id" : 112,
+    "page number" : 6,
+    "bounding box" : [ 256.8, 628.544, 551.273, 752.048 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.368627, 0.352941, 0.34902]",
+    "content" : "Scientific, cultural and academic centers and research facilities except nuclear, radioactiue, chemical and biological warfare facilities Convention centers and relatedfacilities Religi.ousstructures e.g. church, seminary, convents"
+  }, {
+    "type" : "list",
+    "id" : 111,
+    "level" : "16",
+    "page number" : 6,
+    "bounding box" : [ 185.28, 645.824, 233.68, 683.888 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 185.28, 662.624, 233.68, 683.888 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.2.1.5",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 185.52, 645.824, 231.56, 667.088 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.2.1.6",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 110,
+    "page number" : 6,
+    "bounding box" : [ 185.28, 611.744, 233.68, 633.008 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.368627, 0.352941, 0.34902]",
+    "content" : "3.2.1.7"
+  }, {
+    "type" : "paragraph",
+    "id" : 113,
+    "page number" : 6,
+    "bounding box" : [ 256.56, 612.104, 323.304, 630.598 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.368627, 0.352941, 0.34902]",
+    "content" : "Museums"
+  }, {
+    "type" : "paragraph",
+    "id" : 109,
+    "page number" : 6,
+    "bounding box" : [ 149.28, 578.144, 556.84, 599.408 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.368627, 0.352941, 0.34902]",
+    "content" : "3.3 Allourableuses in mixed residential zone {Residences]"
+  }, {
+    "type" : "paragraph",
+    "id" : 108,
+    "page number" : 6,
+    "bounding box" : [ 182.4, 493.424, 546.463, 565.328 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.368627, 0.352941, 0.34902]",
+    "content" : "The Residemial Zone shall be used principally for dwelling/ housinq purpose to maintain peace and quiet in the area, within the zone. The following are the allowable uses:"
+  }, {
+    "type" : "list",
+    "id" : 106,
+    "level" : "14",
+    "page number" : 6,
+    "bounding box" : [ 184.56, 391.184, 425.467, 480.608 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 184.8, 459.344, 217.28, 480.608 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.3.1",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 184.56, 442.064, 219.76, 463.328 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.3.2",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 2,
+        "page number" : 6,
+        "bounding box" : [ 247.2, 425.024, 514.909, 480.368 ],
+        "font" : "TimesNewRomanPS-ItalicMT",
+        "font size" : 16.0,
+        "text color" : "[0.368627, 0.352941, 0.34902]",
+        "content" : "Detached family dwelling Multi-family dwelling e.g. rour-houses, apartments"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 184.56, 391.184, 425.467, 429.248 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.3.3 Residential Condominium 3.3. 4 Apartment",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 107,
+    "level" : "14",
+    "page number" : 6,
+    "bounding box" : [ 184.08, 136.304, 519.024, 395.408 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 8,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 184.56, 374.144, 306.501, 395.408 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.3.5 llornetel",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 184.56, 357.344, 346.22, 378.608 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.3.6 Pension House",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 184.56, 340.544, 435.29, 361.808 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.3.7 HotelApartment orApartel",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 184.56, 323.744, 317.289, 345.008 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.3.8 Donnitory",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 184.56, 306.944, 359.83, 328.208 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.3.9 Boarding House",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 184.32, 289.904, 460.024, 311.168 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.3.10 Branch libraries and museums",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 184.32, 273.104, 468.834, 294.368 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.3.11 Customary accessory uses like:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 1,
+        "level" : "15",
+        "page number" : 6,
+        "bounding box" : [ 220.32, 221.984, 413.918, 277.568 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 220.32, 256.304, 413.918, 277.568 ],
+          "font" : "TimesNewRomanPS-ItalicMT",
+          "font size" : 16.0,
+          "text color" : "[0.368627, 0.352941, 0.34902]",
+          "content" : "3.3.11.1 Servants Quarters",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 220.32, 239.504, 397.404, 260.768 ],
+          "font" : "TimesNewRomanPS-ItalicMT",
+          "font size" : 16.0,
+          "text color" : "[0.368627, 0.352941, 0.34902]",
+          "content" : "3.3.11.2 Private Garage",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 220.32, 221.984, 385.27, 243.248 ],
+          "font" : "TimesNewRomanPS-ItalicMT",
+          "font size" : 16.0,
+          "text color" : "[0.368627, 0.352941, 0.34902]",
+          "content" : "3.3.11.3 Guard House",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 184.08, 136.304, 519.024, 225.968 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.368627, 0.352941, 0.34902]",
+      "content" : "3.3.12 Horne occupation for the practice of one's profession or for engaging home business such as dressmaking, tailoring, baking, running a sari-sari store and the like provided that: ~",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 104,
+    "page number" : 6,
+    "bounding box" : [ 214.08, 29.246, 417.972, 41.351 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 5.0,
+    "text color" : "[0.682353, 0.592157, 0.764706]",
+    "content" : "4,_ .__....,._, ..,,_-l110.IO~~·J'lf\",. •. I!!;..."
+  }, {
+    "type" : "paragraph",
+    "id" : 105,
+    "page number" : 6,
+    "bounding box" : [ 214.08, 5.588, 418.763, 35.178 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 16.0,
+    "text color" : "[0.639216, 0.52549, 0.756863]",
+    "content" : "! L /4\\1't1! ol S:SdE t~!Rcrri ,"
+  }, {
+    "type" : "paragraph",
+    "id" : 127,
+    "page number" : 7,
+    "bounding box" : [ 126.96, 843.664, 364.228, 864.928 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.0]",
+    "content" : "4f5th Reaularse..ssio I"
+  }, {
+    "type" : "paragraph",
+    "id" : 128,
+    "page number" : 7,
+    "bounding box" : [ 126.96, 821.264, 365.051, 858.47 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.380392, 0.360784, 0.356863]",
+    "content" : "Ord.No~S P- 2 j 1 7 .S-201il"
+  }, {
+    "type" : "image",
+    "id" : 130,
+    "page number" : 7,
+    "bounding box" : [ -18.518, -13.32, 630.998, 852.36 ],
+    "source" : "437459910-Ordinance-No-2117_images/imageFile7.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 129,
+    "page number" : 7,
+    "bounding box" : [ 125.52, 793.024, 365.876, 831.088 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.380392, 0.360784, 0.356863]",
+    "content" : "Page-7- P02011-105 P02010-131"
+  }, {
+    "type" : "list",
+    "id" : 119,
+    "level" : "17",
+    "page number" : 7,
+    "bounding box" : [ 233.76, 588.544, 532.555, 763.168 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 234.24, 690.544, 532.555, 763.168 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.380392, 0.360784, 0.356863]",
+      "content" : "3.3.12.1 The number of persons engaged in such business/ industry shall not exceed five (5), inclusive of the owner;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 234.0, 639.424, 531.232, 694.528 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.380392, 0.360784, 0.356863]",
+      "content" : "3.3.12.2 There shall be no change in the outside appearance of the building premises;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 233.76, 588.544, 531.669, 643.408 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.380392, 0.360784, 0.356863]",
+      "content" : "3.3.12.3 No home occupation shall be conducted in any customary accessory uses cited above;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 120,
+    "page number" : 7,
+    "bounding box" : [ 233.76, 418.864, 533.587, 592.768 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.380392, 0.360784, 0.356863]",
+    "content" : "3.3.12. 4 No traffic shall be generated by such home occupation in greater volume than would normally be expected in a residential neighborhood and any need for parking generated by the conduct of such home occupation shall be met off the street and in a place other than the requiredf ront yard;"
+  }, {
+    "type" : "paragraph",
+    "id" : 121,
+    "page number" : 7,
+    "bounding box" : [ 233.76, 250.144, 535.429, 423.088 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.380392, 0.360784, 0.356863]",
+    "content" : "3.3.12.5 No equipment process shall be used in such home occupation which creates noise, vibration, glare, fumes, odors, and electrical interference detectable to the normal senses and visual or audible interference in any radio or television receiver or causes fluctuations in line voltage off the premises."
+  }, {
+    "type" : "paragraph",
+    "id" : 126,
+    "page number" : 7,
+    "bounding box" : [ 161.28, 233.104, 205.28, 254.368 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.380392, 0.360784, 0.356863]",
+    "content" : "3.3.13"
+  }, {
+    "type" : "paragraph",
+    "id" : 122,
+    "page number" : 7,
+    "bounding box" : [ 222.72, 215.824, 592.6, 254.368 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.380392, 0.360784, 0.356863]",
+    "content" : "Home Industry Classified as cottage industry provided that:"
+  }, {
+    "type" : "paragraph",
+    "id" : 123,
+    "page number" : 7,
+    "bounding box" : [ 233.52, 112.864, 595.31, 219.808 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.380392, 0.360784, 0.356863]",
+    "content" : "3.3.13.1 Such home industry shall not occupy more than thirly percent (30%) of the floor area of the dwelling unit. There shall be no change or alteration in the outside appearance of the dwelling unit and shall not be a hazard or ':uisance; 'v"
+  }, {
+    "type" : "heading",
+    "id" : 124,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 392.64, 87.544, 560.477, 117.826 ],
+    "heading level" : 8,
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 18.0,
+    "text color" : "[0.380392, 0.360784, 0.356863]",
+    "content" : "2 2--1\"' L"
+  }, {
+    "type" : "paragraph",
+    "id" : 125,
+    "page number" : 7,
+    "bounding box" : [ 425.04, 87.544, 496.936, 106.038 ],
+    "font" : "ArialMT",
+    "font size" : 9.0,
+    "text color" : "[0.380392, 0.360784, 0.356863]",
+    "content" : "__:J l../"
+  }, {
+    "type" : "paragraph",
+    "id" : 149,
+    "page number" : 8,
+    "bounding box" : [ 101.52, 829.344, 334.741, 847.838 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "4fith Regular Session ,"
+  }, {
+    "type" : "image",
+    "id" : 152,
+    "page number" : 8,
+    "bounding box" : [ -4.912, -3.56, 617.392, 845.48 ],
+    "source" : "437459910-Ordinance-No-2117_images/imageFile8.png"
+  }, {
+    "type" : "heading",
+    "id" : 150,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 100.32, 806.256, 332.883, 842.733 ],
+    "heading level" : 3,
+    "font" : "Arial-ItalicMT",
+    "font size" : 15.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "Ord.No. SP- 21 1 7 .S-201}"
+  }, {
+    "type" : "list",
+    "id" : 151,
+    "level" : "24",
+    "page number" : 8,
+    "bounding box" : [ 99.84, 776.304, 337.444, 815.208 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "next list id" : 167,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 99.84, 776.304, 337.444, 815.208 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "Page -8- P02011-1 OS P02010-131",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 145,
+    "level" : "21",
+    "page number" : 8,
+    "bounding box" : [ 206.4, 627.144, 567.355, 732.408 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 206.88, 677.544, 567.355, 732.408 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.13.2 Allotted capitalization shall not exceed the capitalization set by the Department of Trade and Industry (DTI);",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 206.4, 627.144, 564.766, 682.008 ],
+      "font" : "TimesNewRomanPS-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.13.3 Such shall consider same provisions as enumerated in 3.3.12.3, 3.3.12.4 and 3.3.12.5 of number 3.3.12, this section.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 146,
+    "page number" : 8,
+    "bounding box" : [ 143.04, 576.624, 565.26, 628.238 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "3.3 . .14 Recreational facilities for the exclusive use of the members of the family residing uiithin the premises, such as:"
+  }, {
+    "type" : "list",
+    "id" : 147,
+    "level" : "22",
+    "page number" : 8,
+    "bounding box" : [ 169.44, 525.264, 356.955, 580.488 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 169.44, 559.224, 356.955, 580.488 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.14.1 Swimming pool",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 169.44, 542.304, 334.246, 560.798 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.14.2 Tennis court",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 169.44, 525.264, 295.245, 543.758 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.14.3 Others",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 148,
+    "level" : "23",
+    "page number" : 8,
+    "bounding box" : [ 141.84, 372.144, 563.587, 527.235 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 8,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 142.32, 507.42, 399.299, 527.235 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 15.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.15 Nurseru/Elementaru School",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 142.32, 490.944, 288.179, 509.438 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.16 High School",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 142.08, 473.904, 327.779, 492.398 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.17 Vocational School",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 142.08, 456.864, 284.239, 475.358 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.18 Spotts Club",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 142.08, 440.064, 298.252, 458.558 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.19 Religious Use",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 142.08, 422.784, 434.602, 441.278 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.20 Multi-purpose hall/ barangay hall",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 142.08, 389.424, 563.587, 424.478 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.21 Clinic, nureinq and convalescing home, health center",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 141.84, 372.144, 306.878, 390.638 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.3.22 Plant nurseries",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 144,
+    "level" : "20",
+    "page number" : 8,
+    "bounding box" : [ 132.72, 338.424, 507.371, 359.688 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "3. 4 Allowable uses in Open Space Zones (Commons):"
+  }, {
+    "type" : "list",
+    "id" : 143,
+    "level" : "19",
+    "page number" : 8,
+    "bounding box" : [ 168.48, 270.624, 202.939, 323.438 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 168.72, 304.944, 199.828, 323.438 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.4.1",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 168.48, 270.624, 202.939, 306.158 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 14.0,
+      "text color" : "[0.376471, 0.356863, 0.356863]",
+      "content" : "3.4.2 3.4.4",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 138,
+    "page number" : 8,
+    "bounding box" : [ 221.04, 287.904, 325.16, 323.438 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "Parks/ gardens Resort areas"
+  }, {
+    "type" : "paragraph",
+    "id" : 139,
+    "page number" : 8,
+    "bounding box" : [ 216.48, 236.544, 565.729, 291.528 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "Open air or outdoor sports activities and support facilities, including low rise stadia, gynlS, amphitheater and swimming pools"
+  }, {
+    "type" : "paragraph",
+    "id" : 140,
+    "page number" : 8,
+    "bounding box" : [ 216.48, 219.45, 561.391, 239.385 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "Golf courses, ball courts, race tracks and similar"
+  }, {
+    "type" : "paragraph",
+    "id" : 137,
+    "page number" : 8,
+    "bounding box" : [ 168.48, 219.264, 200.76, 237.758 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "3.4.4"
+  }, {
+    "type" : "paragraph",
+    "id" : 141,
+    "page number" : 8,
+    "bounding box" : [ 222.48, 201.984, 254.118, 220.478 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "uses"
+  }, {
+    "type" : "paragraph",
+    "id" : 142,
+    "page number" : 8,
+    "bounding box" : [ 220.56, 150.744, 565.209, 205.848 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "Memorial/Shrines monuments, 'kiosk and other park structures Sports Club"
+  }, {
+    "type" : "paragraph",
+    "id" : 136,
+    "page number" : 8,
+    "bounding box" : [ 168.48, 184.89, 201.48, 204.825 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 15.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "3.4.5"
+  }, {
+    "type" : "paragraph",
+    "id" : 135,
+    "page number" : 8,
+    "bounding box" : [ 168.24, 151.104, 202.459, 169.598 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "3.4.6"
+  }, {
+    "type" : "paragraph",
+    "id" : 133,
+    "page number" : 8,
+    "bounding box" : [ 97.2, 100.344, 567.557, 138.168 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "SECTION 4. Allowed Parkinq Ratio - Structures in QC-CBD shall have a Parkinq Ratio in accordance with existinq Zoning"
+  }, {
+    "type" : "paragraph",
+    "id" : 134,
+    "level" : "18",
+    "page number" : 8,
+    "bounding box" : [ 107.52, 76.956, 589.512, 119.209 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "+dinance of 2000, as amended. )l c:::> f:j v-,"
+  }, {
+    "type" : "paragraph",
+    "id" : 131,
+    "page number" : 8,
+    "bounding box" : [ 205.44, 24.99, 401.07, 31.715 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 5.0,
+    "text color" : "[0.701961, 0.627451, 0.788235]",
+    "content" : ",...-e.1--.·.~•i'l>-.Ml'.!ol••111,.--,--,_ta..,..-_.,,.,.m.u'l>W:-.f;!T _ _._,...,_.. .....,., '"
+  }, {
+    "type" : "paragraph",
+    "id" : 132,
+    "page number" : 8,
+    "bounding box" : [ 205.2, 9.108, 206.816, 26.827 ],
+    "font" : "ArialMT",
+    "font size" : 13.0,
+    "text color" : "[0.701961, 0.627451, 0.788235]",
+    "content" : "i"
+  }, {
+    "type" : "paragraph",
+    "id" : 165,
+    "page number" : 9,
+    "bounding box" : [ 101.76, 838.664, 243.248, 859.928 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.0]",
+    "content" : "4(5th Requiar Session."
+  }, {
+    "type" : "image",
+    "id" : 168,
+    "page number" : 9,
+    "bounding box" : [ -19.308, -13.879, 631.788, 852.919 ],
+    "source" : "437459910-Ordinance-No-2117_images/imageFile9.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 166,
+    "page number" : 9,
+    "bounding box" : [ 101.76, 815.936, 336.0, 850.335 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : "Ord.No. SP- 21 1 L ,S-20i 1"
+  }, {
+    "type" : "list",
+    "id" : 167,
+    "level" : "24",
+    "page number" : 9,
+    "bounding box" : [ 101.04, 788.264, 338.037, 826.088 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 151,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 101.04, 788.264, 338.037, 826.088 ],
+      "font" : "Arial-ItalicMT",
+      "font size" : 16.0,
+      "text color" : "[0.372549, 0.352941, 0.352941]",
+      "content" : "Page -9- P02011-105 P02010-131",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 164,
+    "page number" : 9,
+    "bounding box" : [ 102.0, 720.584, 568.806, 758.888 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : "SECTION 5. Allowed Floor Area Ratio (FAR)- Structures in the QC-CBDshall be governed by the existinq Zoning Ordinance;"
+  }, {
+    "type" : "paragraph",
+    "id" : 162,
+    "page number" : 9,
+    "bounding box" : [ 137.76, 686.984, 568.669, 708.248 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : "5.1 Triangle Exchange District - Floor Area Ratio rangefrom"
+  }, {
+    "type" : "paragraph",
+    "id" : 163,
+    "level" : "2",
+    "page number" : 9,
+    "bounding box" : [ 172.8, 669.944, 435.756, 691.208 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : ".FAR 14-18, with no height restriction."
+  }, {
+    "type" : "paragraph",
+    "id" : 161,
+    "page number" : 9,
+    "bounding box" : [ 137.76, 601.304, 570.741, 657.128 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : "5.2 Emporium District- Floor Area Ratio range from FAR 1416 with minimum building height requirements of 24 storey."
+  }, {
+    "type" : "paragraph",
+    "id" : 160,
+    "page number" : 9,
+    "bounding box" : [ 137.76, 533.384, 569.907, 588.488 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : "5.3 Downtown Hub District - Floor Area Ratio range from FAR 4.5 -5; building heights range from Ten (10) to Fifteen (15) storey."
+  }, {
+    "type" : "paragraph",
+    "id" : 159,
+    "page number" : 9,
+    "bounding box" : [ 137.76, 482.504, 569.622, 520.568 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : "5.4 Residences District - Floor Area Ratio range from 5.4 to 5.8; building heights arefrom 18 meters to 24 storey."
+  }, {
+    "type" : "paragraph",
+    "id" : 158,
+    "page number" : 9,
+    "bounding box" : [ 101.28, 415.304, 573.991, 470.168 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : "This is in accordance with the Comprehensive Master Planfor QC-CBD submitted by the Urban Triangle Development Commission and made an integralpart of this Ordinance."
+  }, {
+    "type" : "paragraph",
+    "id" : 157,
+    "page number" : 9,
+    "bounding box" : [ 99.12, 296.264, 568.668, 402.728 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : "SECTION 6. Approval Process - It is a condition precedent that a Developer's permission is required before any development can commence. The standards and approval procedures required in this ordinance are general guidelines which shall be refined and supplemented by detailed guidelines and restrictions to be prepared by each Developer."
+  }, {
+    "type" : "paragraph",
+    "id" : 156,
+    "page number" : 9,
+    "bounding box" : [ 100.56, 210.584, 568.048, 283.448 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : "In any case, no project, building or use of any lot may be approved or granted permit unless the same is in accordance with the approved Master Plan and a written approval from the Developer or its design is first obtained by the proponent."
+  }, {
+    "type" : "heading",
+    "id" : 154,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 98.88, 143.624, 569.044, 198.488 ],
+    "heading level" : 10,
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : "Such approval shall form part, of the submittale of the proponent when applyi,ngfor other development permits required by the Quezon City Government and other appropriate qouerninq"
+  }, {
+    "type" : "paragraph",
+    "id" : 155,
+    "page number" : 9,
+    "bounding box" : [ 101.28, 111.872, 591.06, 169.118 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 15.0,
+    "text color" : "[0.372549, 0.352941, 0.352941]",
+    "content" : "bodies. ~ ..._ZS c:: Iii 5 > t)"
+  }, {
+    "type" : "paragraph",
+    "id" : 153,
+    "page number" : 9,
+    "bounding box" : [ 209.28, 17.528, 367.617, 38.111 ],
+    "font" : "ArialMT",
+    "font size" : 8.0,
+    "text color" : "[0.694118, 0.603922, 0.792157]",
+    "content" : "!-.~~..,.----'\"\"\"\"\"' ..\"'\"'~--'t!Ol~\"'1:\"\"\"·~·~-~ ...---;Ri-· I"
+  }, {
+    "type" : "paragraph",
+    "id" : 182,
+    "page number" : 10,
+    "bounding box" : [ 128.4, 853.268, 260.702, 870.441 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 10.0,
+    "text color" : "[0.0]",
+    "content" : "4(5th Re r-~SSI.c~"
+  }, {
+    "type" : "paragraph",
+    "id" : 183,
+    "page number" : 10,
+    "bounding box" : [ 128.4, 829.856, 362.024, 865.294 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "o-a.s« SP- 2 1 J 7 .S-20~ 1"
+  }, {
+    "type" : "image",
+    "id" : 185,
+    "page number" : 10,
+    "bounding box" : [ -21.743, -15.543, 634.223, 857.463 ],
+    "source" : "437459910-Ordinance-No-2117_images/imageFile10.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 184,
+    "page number" : 10,
+    "bounding box" : [ 127.2, 801.584, 357.244, 836.638 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "Page-10- P02011-105 P02010-131"
+  }, {
+    "type" : "paragraph",
+    "id" : 181,
+    "page number" : 10,
+    "bounding box" : [ 127.2, 647.384, 595.915, 771.608 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "SECTION7. Special Account - In addition to the provisions of Ordinance No. SP-91, S-1993, otherwise known as the Quezon City Revenue Code, as amended, all taxes, fees and charges collected uiithin the QC-CBD shall accrue to the Social Development and Physical Infrastructure of the City. Only Fi,fty Percent (50%) of the total collection shall be utilized for that current year and the remaining balance shall accrue everu year thereafter."
+  }, {
+    "type" : "paragraph",
+    "id" : 180,
+    "page number" : 10,
+    "bounding box" : [ 127.92, 578.984, 595.667, 634.568 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "For this purpose, the City Accountant is hereby directed to establish the Social Development and Physical Infrastructure Special Account."
+  }, {
+    "type" : "paragraph",
+    "id" : 179,
+    "page number" : 10,
+    "bounding box" : [ 125.28, 410.024, 595.258, 566.888 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "SECTION 8. Suppletory Effect of other Laws, Decrees and Restrictions - The standards set forth in this ordinance are intended to provide general direction and guidance. These guidelines shall be considered along with all applicable laws, ordinances, policies and guidelines. The provisions of this Ordinance shall not, in any way or manner relieve any project proponent from obtaining all approvals and permits required by the City Government and other relevant government agencies, except as otherwise expressly provided therein."
+  }, {
+    "type" : "paragraph",
+    "id" : 176,
+    "page number" : 10,
+    "bounding box" : [ 162.48, 375.704, 593.616, 396.968 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "All conditions contained herein shall be binding upon the"
+  }, {
+    "type" : "paragraph",
+    "id" : 177,
+    "page number" : 10,
+    "bounding box" : [ 125.28, 324.584, 594.255, 379.928 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "projectproponent, as well as its successors, tenants and assigns. The conditions may be modified or amended only pursuant to a formal amendment of the Master Plan. Any failure to comply with"
+  }, {
+    "type" : "paragraph",
+    "id" : 178,
+    "page number" : 10,
+    "bounding box" : [ 128.16, 290.744, 594.688, 328.808 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "he Master Plan or any condition of approval herein shall be deemed a violation of the Ordinance."
+  }, {
+    "type" : "paragraph",
+    "id" : 172,
+    "page number" : 10,
+    "bounding box" : [ 126.24, 223.064, 595.735, 278.648 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "SECTION 9. Separability Clause - Should any section or provision of this ordinance be declared by the Courts to be unconstitutional or invalid, such decision shall not affect the"
+  }, {
+    "type" : "paragraph",
+    "id" : 173,
+    "page number" : 10,
+    "bounding box" : [ 143.76, 205.784, 593.835, 227.048 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "Iidity of the Ordinance as a whole or any part thereof other than"
+  }, {
+    "type" : "paragraph",
+    "id" : 174,
+    "page number" : 10,
+    "bounding box" : [ 137.52, 171.944, 594.749, 210.008 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "part so declared to be unconstitutional or invalid. Any portion iereof not affected by such declaration shall remain in full force"
+  }, {
+    "type" : "paragraph",
+    "id" : 175,
+    "page number" : 10,
+    "bounding box" : [ 137.76, 140.798, 469.384, 189.971 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.384314, 0.364706, 0.360784]",
+    "content" : "rui effect.'t < , '.) /5"
+  }, {
+    "type" : "heading",
+    "id" : 169,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 231.6, 27.476, 432.755, 56.099 ],
+    "heading level" : 5,
+    "font" : "ArialMT",
+    "font size" : 21.0,
+    "text color" : "[0.698039, 0.623529, 0.776471]",
+    "content" : "1-··· ----~-·-~·-·-.,·~=--- - -· -"
+  }, {
+    "type" : "paragraph",
+    "id" : 170,
+    "page number" : 10,
+    "bounding box" : [ 231.6, 17.564, 423.75, 38.195 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 8.0,
+    "text color" : "[0.698039, 0.623529, 0.776471]",
+    "content" : "I ~11 ,-t.,b \"t/..1?,d ,1\"\"!• kT;:, ~k:_ :r· 1:\"'- fO ~· 1~ ~"
+  }, {
+    "type" : "paragraph",
+    "id" : 171,
+    "page number" : 10,
+    "bounding box" : [ 301.68, 16.034, 423.612, 30.829 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 5.0,
+    "text color" : "[0.698039, 0.623529, 0.776471]",
+    "content" : "\"rw ~f ...t~.:.,. ~- ~&~ rt.. /...;:...., t.l'1 ~? ::,_y~"
+  }, {
+    "type" : "image",
+    "id" : 205,
+    "page number" : 11,
+    "bounding box" : [ -2.453, -1.787, 614.933, 840.827 ],
+    "source" : "437459910-Ordinance-No-2117_images/imageFile11.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 202,
+    "page number" : 11,
+    "bounding box" : [ 85.44, 820.184, 201.063, 838.678 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "4(5th Regular ~on"
+  }, {
+    "type" : "paragraph",
+    "id" : 203,
+    "page number" : 11,
+    "bounding box" : [ 85.44, 801.104, 308.92, 833.816 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 14.0,
+    "text color" : "[0.0]",
+    "content" : "Ord.No. SP- ~ 1 7 ,S-2011"
+  }, {
+    "type" : "paragraph",
+    "id" : 204,
+    "page number" : 11,
+    "bounding box" : [ 84.48, 770.144, 316.917, 808.688 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.0]",
+    "content" : "Page-11- P02011-105 !'02010-131"
+  }, {
+    "type" : "paragraph",
+    "id" : 201,
+    "page number" : 11,
+    "bounding box" : [ 82.56, 651.104, 553.21, 740.288 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.0]",
+    "content" : "SECTION 10. Repealing Clause - All ordinances, executive orders, issuances, rules and regulations inconsistent with the provisions of this Ordinance are hereby repealed, rescinded and amended accordingly. Provided, that the rights are vested before the ejfectivity of this Ordinance shall not be impaired."
+  }, {
+    "type" : "paragraph",
+    "id" : 200,
+    "page number" : 11,
+    "bounding box" : [ 84.0, 567.584, 553.404, 639.008 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.0]",
+    "content" : "SECTION 11. Effectiinty - This Ordinance shall take effect immediately upon its approval. The herein declared QC-CBD shall correspondingly be incorporated in the Comprehensive Land Use Plan and Zoning Ordinance of the City."
+  }, {
+    "type" : "paragraph",
+    "id" : 199,
+    "page number" : 11,
+    "bounding box" : [ 119.76, 535.424, 340.92, 556.688 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.0]",
+    "content" : "ENACTED: December 12, 2011."
+  }, {
+    "type" : "paragraph",
+    "id" : 198,
+    "page number" : 11,
+    "bounding box" : [ 340.32, 447.344, 506.944, 485.904 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 16.0,
+    "text color" : "[0.0]",
+    "content" : "City Councilor Acting Presiding Officer"
+  }, {
+    "type" : "paragraph",
+    "id" : 197,
+    "page number" : 11,
+    "bounding box" : [ 83.28, 412.544, 169.787, 433.808 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.0]",
+    "content" : "ATTESTED:"
+  }, {
+    "type" : "heading",
+    "id" : 194,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 185.28, 379.04, 212.716, 405.46 ],
+    "heading level" : 6,
+    "font" : "Arial-ItalicMT",
+    "font size" : 20.0,
+    "text color" : "[0.0]",
+    "content" : "-=·1"
+  }, {
+    "type" : "paragraph",
+    "id" : 195,
+    "page number" : 11,
+    "bounding box" : [ 119.52, 368.66, 381.632, 389.105 ],
+    "font" : "ArialMT",
+    "font size" : 15.0,
+    "text color" : "[0.0]",
+    "content" : "Atty. JOHN THOMAS . ALFEROS III"
+  }, {
+    "type" : "paragraph",
+    "id" : 196,
+    "page number" : 11,
+    "bounding box" : [ 143.04, 351.824, 358.787, 373.344 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 16.0,
+    "text color" : "[0.0]",
+    "content" : "City Gov't. Asst. Dept. Head III"
+  }, {
+    "type" : "paragraph",
+    "id" : 193,
+    "page number" : 11,
+    "bounding box" : [ 428.16, 323.198, 500.005, 351.343 ],
+    "font" : "ArialMT",
+    "font size" : 13.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "2 1. ~I'AA.-~f\\ 2012"
+  }, {
+    "type" : "paragraph",
+    "id" : 191,
+    "page number" : 11,
+    "bounding box" : [ 377.04, 266.45, 507.795, 286.625 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 15.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "ERT M. BAUTISTA"
+  }, {
+    "type" : "paragraph",
+    "id" : 192,
+    "page number" : 11,
+    "bounding box" : [ 375.36, 249.584, 470.79, 271.104 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "City MayorS-"
+  }, {
+    "type" : "paragraph",
+    "id" : 190,
+    "page number" : 11,
+    "bounding box" : [ 85.2, 160.304, 552.006, 216.128 ],
+    "font" : "TimesNewRomanPS-ItalicMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "This is to certify that this Ordinance was APPROVEDby the City Council on Second Reading on December 12, 2011 and was PASSED on Third/ Final Reading on January 30, 2012."
+  }, {
+    "type" : "paragraph",
+    "id" : 189,
+    "page number" : 11,
+    "bounding box" : [ 294.24, 69.776, 560.098, 117.332 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : ")I City Gov't. Asst. Dept. Head III6"
+  }, {
+    "type" : "paragraph",
+    "id" : 188,
+    "page number" : 11,
+    "bounding box" : [ 288.96, 93.584, 554.064, 115.104 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 16.0,
+    "text color" : "[0.376471, 0.356863, 0.356863]",
+    "content" : "Atty. JOHN{tJ~ROS II!"
+  }, {
+    "type" : "paragraph",
+    "id" : 186,
+    "page number" : 11,
+    "bounding box" : [ 204.96, 5.888, 406.585, 16.792 ],
+    "font" : "ArialMT",
+    "font size" : 8.0,
+    "text color" : "[0.717647, 0.639216, 0.796078]",
+    "content" : ",..,.,,.,..~.~....,_---!B.--'•\"\"\"\"\"·>oi;W..\"I'~~-----.---........"
+  }, {
+    "type" : "paragraph",
+    "id" : 187,
+    "page number" : 11,
+    "bounding box" : [ 202.8, -3.64, 394.444, 9.57 ],
+    "font" : "Arial-ItalicMT",
+    "font size" : 10.0,
+    "text color" : "[0.717647, 0.639216, 0.796078]",
+    "content" : "t - - - - - ...- ., - .. ·- - . -"
+  } ]
+}

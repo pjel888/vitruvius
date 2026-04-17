@@ -487,3 +487,11 @@ def test_build_plan_matches_tarlac_zoning_ordinance_rule() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_qc_cbd_zoning_ordinance_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/LGU/437459910-Ordinance-No-2117.md')
+    assert plan['title'] == 'Quezon City Central Business District Zoning Ordinance'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'

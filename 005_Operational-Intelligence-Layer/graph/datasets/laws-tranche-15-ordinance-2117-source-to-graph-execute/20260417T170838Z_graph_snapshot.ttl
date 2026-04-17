@@ -1,0 +1,22 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:law-quezon-city-central-business-district-zoning-ordinance a vitruvius:source ;
+    rdfs:label "quezon-city-central-business-district-zoning-ordinance (law-quezon-city-central-business-district-zoning-ordinance)" ;
+    vitruvius:defines vitruvius:concept-central-business-district ;
+    vitruvius:governs vitruvius:concept-central-business-district,
+        vitruvius:concept-zoning-ordinance ;
+    vitruvius:last_updated_utc "2026-04-17T17:07:56Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:concept-zoning-ordinance a vitruvius:concept ;
+    rdfs:label "zoning-ordinance (concept-zoning-ordinance)" ;
+    vitruvius:last_updated_utc "2026-04-18T00:25:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-central-business-district a vitruvius:concept ;
+    rdfs:label "central-business-district (concept-central-business-district)" ;
+    vitruvius:last_updated_utc "2026-04-18T01:10:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+

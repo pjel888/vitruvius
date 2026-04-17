@@ -1,0 +1,31 @@
+{
+  "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/437459910-Ordinance-No-2117.pdf",
+  "total_pages": 11,
+  "pages_sampled": 5,
+  "pages_with_usable_text": 5,
+  "total_extracted_characters": 7743,
+  "page_details": [
+    {
+      "page_number": 1,
+      "extracted_characters": 1656
+    },
+    {
+      "page_number": 2,
+      "extracted_characters": 2185
+    },
+    {
+      "page_number": 3,
+      "extracted_characters": 1378
+    },
+    {
+      "page_number": 4,
+      "extracted_characters": 1265
+    },
+    {
+      "page_number": 5,
+      "extracted_characters": 1259
+    }
+  ],
+  "result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT"
+}
