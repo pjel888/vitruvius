@@ -1074,8 +1074,26 @@ def test_run_laws_tranche_source_to_graph_dry_run_stages_only_admitted_members(t
     assert payload['blocked_law_folders'] == ['PD-1216']
     assert payload['planned_stage_count'] == 2
     assert payload['source_to_graph_execute_ready'] is False
+    assert payload['raw_alias_law_folders'] == ['PD-957']
+    assert 'PD-957' in payload['guardrail_law_folders']
     report = json.loads((tmp_path / payload['report_path']).read_text(encoding='utf-8'))
     assert report['inner_source_to_graph_summary']['planned_stage_count'] == 2
+    assert report['raw_alias_law_folders'] == ['PD-957']
+    pd957_visibility = next(item for item in report['law_folder_variant_visibility'] if item['folder_name'] == 'PD-957')
+    assert pd957_visibility['staged_for_source_to_graph'] is True
+    assert pd957_visibility['authoritative_variant_paths'] == [
+        '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf',
+    ]
+    assert pd957_visibility['excluded_variant_paths'] == [
+        '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf',
+    ]
+    assert any(flag.startswith('exact_duplicate_sha256:') for flag in pd957_visibility['duplicate_guardrails'])
+    assert 'conflicting_law_irr_filename_semantics' in pd957_visibility['duplicate_guardrails']
+    pd1216_visibility = next(item for item in report['law_folder_variant_visibility'] if item['folder_name'] == 'PD-1216')
+    assert pd1216_visibility['staged_for_source_to_graph'] is False
+    assert pd1216_visibility['blocked_raw_anchor_paths'] == [
+        '001_Raw-Source-Layer/001-Laws/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.pdf',
+    ]
     derived_manifest = yaml.safe_load((tmp_path / payload['derived_manifest_path']).read_text(encoding='utf-8'))
     assert [unit['folder_name'] for unit in derived_manifest['law_units']] == ['PD-957', 'PD-1185']
     pd_957_unit = next(unit for unit in derived_manifest['law_units'] if unit['folder_name'] == 'PD-957')
@@ -1118,7 +1136,9 @@ def test_run_laws_tranche_source_to_graph_dry_run_reduces_shallow_representation
                         'authoritative_variant_paths': [
                             '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf',
                         ],
-                        'excluded_variant_paths': [],
+                        'excluded_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf',
+                        ],
                         'refined_markdown_paths': [
                             '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md',
                         ],
@@ -1146,6 +1166,9 @@ def test_run_laws_tranche_source_to_graph_dry_run_reduces_shallow_representation
     )
     _write_valid_pdf(
         tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'PD 957 IRR - Subdivision and Condominium IRR.pdf'
+    )
+    _write_valid_pdf(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf'
     )
     _seed_conversion_inventory_path(
         tmp_path,
@@ -1203,7 +1226,9 @@ def test_run_laws_tranche_source_to_graph_execute_wrapper_reports_success(tmp_pa
                         'authoritative_variant_paths': [
                             '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf',
                         ],
-                        'excluded_variant_paths': [],
+                        'excluded_variant_paths': [
+                            '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf',
+                        ],
                         'refined_markdown_paths': [
                             '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md',
                         ],
@@ -1224,6 +1249,9 @@ def test_run_laws_tranche_source_to_graph_execute_wrapper_reports_success(tmp_pa
     _write_valid_pdf(
         tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'PD 957 IRR - Subdivision and Condominium IRR.pdf'
     )
+    _write_valid_pdf(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf'
+    )
     _seed_conversion_inventory_path(
         tmp_path,
         'PD-957',
@@ -1234,6 +1262,7 @@ def test_run_laws_tranche_source_to_graph_execute_wrapper_reports_success(tmp_pa
         tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'revised-implementing-rules-and-regulations-for-pd-957.md',
         '---\nid: irr-revised-implementing-rules-and-regulations-for-pd-957\ntitle: Revised Implementing Rules and Regulations for PD 957\ntrust_level: primary\n---\n\n# body\n',
     )
+    monkeypatch.chdir(tmp_path)
 
     def fake_execute(*, dataset_manifest: str, dry_run: bool, review_preset: str | None = None, **kwargs) -> int:
         payload = {
@@ -1266,3 +1295,11 @@ def test_run_laws_tranche_source_to_graph_execute_wrapper_reports_success(tmp_pa
     assert payload['execute'] is True
     assert payload['staged_law_folders'] == ['PD-957']
     assert payload['generated_relationship_count'] == 2
+    assert payload['raw_alias_law_folders'] == ['PD-957']
+    report = json.loads((tmp_path / payload['report_path']).read_text(encoding='utf-8'))
+    assert report['raw_alias_law_folders'] == ['PD-957']
+    visibility = report['law_folder_variant_visibility'][0]
+    assert visibility['folder_name'] == 'PD-957'
+    assert visibility['excluded_variant_paths'] == [
+        '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf',
+    ]
