@@ -512,6 +512,7 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - no stronger normal tranche remains in the uncovered pool
     - remaining uncovered folders are now classified as defer/final-disposition because they are draft bills, a draft IRR, an empty folder, or a user-guide / standards-support surface
     - see `/.ai/05_logs/2026-04-18_remaining-pool-final-disposition-validation.md`
+    - machine-readable artifact: `config/datasets/laws-remaining-dispositions.yaml`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

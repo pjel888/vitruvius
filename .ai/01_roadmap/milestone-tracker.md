@@ -250,6 +250,7 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - the PRC lane now executes cleanly via `config/datasets/laws-tranche-prc.yaml`; current execute evidence shows `generated_relationship_count = 2`, `shallow_representation_count = 0`, and graph snapshot `12 nodes / 10 edges`; manual-review and summary-withheld signals remain explicit for the weaker PRBoA effectivity-dates source and other guarded resolution surfaces; see `/.ai/05_logs/2026-04-18_laws-tranche-prc-validation.md`
   - the HLURB/DHSUD agency split is now modeled truthfully in tranche metadata: `config/datasets/laws-tranche-12.yaml` stages `DHSUD` guidance surfaces from the legacy combined `HLURB-DHSUD` raw folder, and focused raw-folder-override regression coverage is now in place; see `/.ai/05_logs/2026-04-18_hlurb-dhsud-agency-split-validation.md`
   - final remaining-pool disposition is now explicit: `RA-11361`, `RA-7920`, `HB-3391`, `HB-5207`, `SB-2982`, and `BERDE` are all tracked as defer/final-disposition lanes rather than normal tranche candidates; see `/.ai/05_logs/2026-04-18_remaining-pool-final-disposition-validation.md`
+  - machine-readable remaining-pool disposition artifact now exists at `config/datasets/laws-remaining-dispositions.yaml`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)

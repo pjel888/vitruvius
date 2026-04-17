@@ -61,6 +61,9 @@
 - `SB-2982` — defer: bill only
 - `BERDE` — defer: user-guide / standards-support surface, not primary law or government regulation
 
+## Machine-readable disposition artifact
+- `config/datasets/laws-remaining-dispositions.yaml`
+
 ## Realistic remaining workload
 - normal future tranches likely needed: **2–4**
 - remediation/defer lanes likely needed: **2–4**

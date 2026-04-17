@@ -1,0 +1,53 @@
+as_of: 2026-04-18
+scope: 001_Raw-Source-Layer/001-Laws
+status: explicit_final_dispositions
+notes:
+  - Executable primary-law and primary-regulation lanes have been completed or resolved.
+  - Remaining uncovered raw folders are intentionally not promoted to normal tranche execution.
+  - Reasons below are evidence-based dispositions, not temporary placeholders.
+remaining_uncovered_folders:
+  - folder_name: RA-11361
+    disposition: defer
+    reason: draft_only
+    raw_evidence:
+      - 001_Raw-Source-Layer/001-Laws/RA-11361/ra_11361_irr_draft_for_comments.pdf
+    note: Draft IRR for comments; not a final authoritative issuance.
+  - folder_name: RA-7920
+    disposition: defer
+    reason: empty_folder
+    raw_evidence: []
+    note: No raw source file present.
+  - folder_name: HB-3391
+    disposition: defer
+    reason: bill_only
+    raw_evidence:
+      - 001_Raw-Source-Layer/001-Laws/HB-3391/HB 3391 - Out-of-Home Media Billboard Regulation Bill.pdf
+    note: House bill only; not enacted law.
+  - folder_name: HB-5207
+    disposition: defer
+    reason: bill_only
+    raw_evidence:
+      - 001_Raw-Source-Layer/001-Laws/HB-5207/HB 5207 - Subdivision Green Parks Program Bill.pdf
+    note: House bill only; not enacted law.
+  - folder_name: SB-2982
+    disposition: defer
+    reason: bill_only
+    raw_evidence:
+      - 001_Raw-Source-Layer/001-Laws/SB-2982/SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago).pdf
+    note: Senate bill only; not enacted law.
+  - folder_name: BERDE
+    disposition: defer
+    reason: non_law_user_guide
+    raw_evidence:
+      - 001_Raw-Source-Layer/001-Laws/BERDE/BERDE – Buildings – Version 5.0.0 – User Guide.pdf
+    note: Standards/user-guide support document, not a primary law or government regulatory issuance.
+resolved_non_normal_lanes:
+  - folder_name: RA-9266
+    disposition: completed_remediation
+    note: Duplicate-remediation-first lane completed truthfully.
+  - folder_name: RA-9279
+    disposition: completed_remediation
+    note: Folder/file mismatch resolved truthfully as the Section 18 RA 7279 IRR surface.
+  - folder_name: LGU
+    disposition: partially_completed_sharded_lane
+    note: Multiple city/family shards completed; wider bundle remains intentionally uncollapsed.
