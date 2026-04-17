@@ -39,5 +39,7 @@ status: in_progress
   - starter manifest index
   - profile
   - catalog entry
+- family lane admission is now in place:
+  - completed manifest -> ledger/index registration
 - the next real proof is still:
   - onboard the first true non-laws trusted dataset family once its completed lanes are admitted

@@ -390,6 +390,13 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_scaffold_parser.add_argument("--lane-note-template", default=None)
     generic_aggregate_scaffold_parser.add_argument("--status", default="scaffolded")
     generic_aggregate_scaffold_parser.add_argument("--note", default=None)
+    generic_aggregate_admit_parser = add_command_parser(subparsers, "admit-completed-aggregate-manifest")
+    generic_aggregate_admit_parser.add_argument("--family", required=True)
+    generic_aggregate_admit_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml",
+                                               help="Profile catalog YAML path")
+    generic_aggregate_admit_parser.add_argument("--lane-id", required=True)
+    generic_aggregate_admit_parser.add_argument("--manifest", required=True,
+                                               help="Completed manifest YAML path to admit into the family ledgers")
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1125,6 +1132,28 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("scaffold-completed-aggregate-family", _run_scaffold_generic_family)
+
+    if args.command == "admit-completed-aggregate-manifest":
+        from vitruvius.aggregate_manifest import admit_completed_manifest_to_family
+        def _run_admit_generic_manifest():
+            repo_root = Path.cwd().resolve()
+            result = admit_completed_manifest_to_family(
+                repo_root=repo_root,
+                family=args.family,
+                catalog_path=Path(args.catalog),
+                lane_id=args.lane_id,
+                manifest_path=Path(args.manifest),
+            )
+            print(json.dumps({
+                "action": "admit-completed-aggregate-manifest",
+                "family": args.family,
+                "lane_id": result["lane_id"],
+                "manifest_path": str(result["manifest_path"].relative_to(repo_root)),
+                "completed_ledger_path": str(result["completed_ledger_path"].relative_to(repo_root)),
+                "manifest_index_path": str(result["manifest_index_path"].relative_to(repo_root)),
+            }, indent=2))
+            return 0
+        return _run("admit-completed-aggregate-manifest", _run_admit_generic_manifest)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary

@@ -561,6 +561,82 @@ def scaffold_completed_aggregate_family(
     }
 
 
+def admit_completed_manifest_to_family(
+    *,
+    repo_root: Path,
+    family: str,
+    catalog_path: Path,
+    lane_id: str,
+    manifest_path: Path,
+) -> dict[str, Any]:
+    normalized_lane_id = lane_id.strip()
+    if not normalized_lane_id:
+        raise ValueError('lane_id must not be empty')
+    resolved_profile_path = resolve_completed_aggregate_profile_path(
+        repo_root=repo_root,
+        family=family,
+        catalog_path=catalog_path,
+    )
+    profile = load_completed_aggregate_profile(repo_root=repo_root, profile_path=resolved_profile_path)
+    completed_ledger_path = repo_root / str(profile['completed_ledger'])
+    manifest_index_path = repo_root / str(profile['manifest_index'])
+    resolved_manifest_path = manifest_path if manifest_path.is_absolute() else repo_root / manifest_path
+    if not resolved_manifest_path.exists():
+        raise ValueError(f'manifest path does not exist: {resolved_manifest_path}')
+
+    completed_payload = load_yaml_payload(completed_ledger_path)
+    completed_lanes = completed_payload.get('completed_lanes')
+    if not isinstance(completed_lanes, list):
+        completed_lanes = []
+    if normalized_lane_id not in {
+        str(item.get('lane_id') or '')
+        for item in completed_lanes
+        if isinstance(item, dict)
+    }:
+        completed_lanes.append({'lane_id': normalized_lane_id})
+    completed_payload['completed_lanes'] = sorted(
+        [item for item in completed_lanes if isinstance(item, dict) and str(item.get('lane_id') or '').strip()],
+        key=lambda item: str(item.get('lane_id') or ''),
+    )
+    write_yaml_payload(completed_ledger_path, completed_payload)
+
+    manifest_index_payload = load_yaml_payload(manifest_index_path)
+    manifests = manifest_index_payload.get('manifests')
+    if not isinstance(manifests, list):
+        manifests = []
+    normalized_manifest_rel = str(resolved_manifest_path.relative_to(repo_root))
+    updated_manifests: list[dict[str, Any]] = []
+    replaced = False
+    for item in manifests:
+        if not isinstance(item, dict):
+            continue
+        if str(item.get('lane_id') or '') == normalized_lane_id:
+            updated_manifests.append({'lane_id': normalized_lane_id, 'manifest': normalized_manifest_rel})
+            replaced = True
+        else:
+            updated_manifests.append(item)
+    if not replaced:
+        updated_manifests.append({'lane_id': normalized_lane_id, 'manifest': normalized_manifest_rel})
+    manifest_index_payload['manifests'] = sorted(
+        [
+            item for item in updated_manifests
+            if isinstance(item, dict)
+            and str(item.get('lane_id') or '').strip()
+            and str(item.get('manifest') or '').strip()
+        ],
+        key=lambda item: str(item.get('lane_id') or ''),
+    )
+    write_yaml_payload(manifest_index_path, manifest_index_payload)
+    return {
+        'family': family,
+        'profile_path': resolved_profile_path,
+        'completed_ledger_path': completed_ledger_path,
+        'manifest_index_path': manifest_index_path,
+        'lane_id': normalized_lane_id,
+        'manifest_path': resolved_manifest_path,
+    }
+
+
 def build_generic_completed_aggregate_manifest_from_profile(
     *,
     repo_root: Path,

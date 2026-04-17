@@ -59,6 +59,22 @@ After registration, the family can run through:
 ./run-dataset-mvp-graph --family <family-name> [review args]
 ```
 
+## Admitting completed manifests into a family
+Once a family has real completed manifests, add them to the family ledger/index with:
+
+```bash
+python3 scripts/pipeline_cli.py admit-completed-aggregate-manifest \
+  --family <family-name> \
+  --lane-id <lane-id> \
+  --manifest <manifest-yaml>
+```
+
+This updates the family’s:
+- completed-lanes ledger
+- manifest index
+
+so the family aggregate build/run path can discover the newly admitted lane.
+
 ## Scaffolding a brand-new dataset family
 If a family does not yet have:
 - completed-lanes ledger

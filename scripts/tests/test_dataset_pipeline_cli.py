@@ -2048,6 +2048,50 @@ def test_scaffold_completed_aggregate_family_writes_starter_files(tmp_path: Path
     assert result['catalog_entry']['family'] == 'history-demo'
 
 
+def test_admit_completed_manifest_to_family_updates_ledger_and_index(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import admit_completed_manifest_to_family, scaffold_completed_aggregate_family
+
+    scaffold_completed_aggregate_family(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        dataset_kind='history-aggregate',
+    )
+    manifest_path = tmp_path / 'config' / 'datasets' / 'history-lane-1.yaml'
+    manifest_path.write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'history-lane-1',
+                'dataset_kind': 'history-aggregate',
+                'raw_slice_anchors': [],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {'relationships': []},
+                'graph_output_root': 'graph/history-lane-1',
+                'run_output_root': 'runs/history-lane-1',
+                'query_snapshot_path_template': 'graph/history-lane-1/{run_id}.json',
+                'freshness_policy': {'mode': 'exact'},
+                'pilot_gate': {'require_manifest_validation': True, 'source_to_graph_execute_ready': False},
+                'law_units': [],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+
+    result = admit_completed_manifest_to_family(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        lane_id='history-lane-1',
+        manifest_path=Path('config/datasets/history-lane-1.yaml'),
+    )
+    completed_payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'history-demo-completed-lanes.yaml').read_text(encoding='utf-8'))
+    manifest_index_payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'history-demo-manifest-index.yaml').read_text(encoding='utf-8'))
+    assert completed_payload['completed_lanes'] == [{'lane_id': 'history-lane-1'}]
+    assert manifest_index_payload['manifests'] == [{'lane_id': 'history-lane-1', 'manifest': 'config/datasets/history-lane-1.yaml'}]
+    assert result['lane_id'] == 'history-lane-1'
+
+
 def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
     tmp_path: Path,
     monkeypatch,
@@ -2338,6 +2382,72 @@ def test_pipeline_cli_scaffold_completed_aggregate_family_writes_starter_files(
     assert profile_payload['dataset_id'] == 'history-demo-aggregate'
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'scaffold-completed-aggregate-family'
+    assert stdout_payload['family'] == 'history-demo'
+
+
+def test_pipeline_cli_admit_completed_aggregate_manifest_updates_family_ledgers(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    (tmp_path / 'config' / 'datasets' / 'history-lane-1.yaml').write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'history-lane-1',
+                'dataset_kind': 'history-aggregate',
+                'raw_slice_anchors': [],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {'relationships': []},
+                'graph_output_root': 'graph/history-lane-1',
+                'run_output_root': 'runs/history-lane-1',
+                'query_snapshot_path_template': 'graph/history-lane-1/{run_id}.json',
+                'freshness_policy': {'mode': 'exact'},
+                'pilot_gate': {'require_manifest_validation': True, 'source_to_graph_execute_ready': False},
+                'law_units': [],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-family',
+            '--family', 'history-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--dataset-kind', 'history-aggregate',
+        ],
+    )
+    assert pipeline_cli.main() == 0
+    capsys.readouterr()
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'admit-completed-aggregate-manifest',
+            '--family', 'history-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--lane-id', 'history-lane-1',
+            '--manifest', 'config/datasets/history-lane-1.yaml',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    completed_payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'history-demo-completed-lanes.yaml').read_text(encoding='utf-8'))
+    manifest_index_payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'history-demo-manifest-index.yaml').read_text(encoding='utf-8'))
+    assert completed_payload['completed_lanes'] == [{'lane_id': 'history-lane-1'}]
+    assert manifest_index_payload['manifests'] == [{'lane_id': 'history-lane-1', 'manifest': 'config/datasets/history-lane-1.yaml'}]
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'admit-completed-aggregate-manifest'
     assert stdout_payload['family'] == 'history-demo'
 
 
