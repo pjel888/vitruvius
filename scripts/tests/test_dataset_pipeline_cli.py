@@ -1944,3 +1944,29 @@ def test_run_laws_tranche_source_to_graph_execute_wrapper_reports_success(tmp_pa
     assert visibility['excluded_variant_paths'] == [
         '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf',
     ]
+
+
+def test_generic_completed_manifest_paths_returns_existing_manifests(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import completed_manifest_paths
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    (tmp_path / 'config' / 'datasets' / 'done-a.yaml').write_text('x: 1\n', encoding='utf-8')
+    (tmp_path / 'config' / 'datasets' / 'done-b.yaml').write_text('x: 1\n', encoding='utf-8')
+    (tmp_path / 'config' / 'datasets' / 'completed.yaml').write_text(
+        yaml.safe_dump({'completed_lanes': [{'lane_id': 'a'}, {'lane_id': 'b'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'index.yaml').write_text(
+        yaml.safe_dump({'manifests': [
+            {'lane_id': 'a', 'manifest': 'config/datasets/done-a.yaml'},
+            {'lane_id': 'b', 'manifest': 'config/datasets/done-b.yaml'},
+        ]}, sort_keys=False),
+        encoding='utf-8',
+    )
+
+    paths = completed_manifest_paths(
+        repo_root=tmp_path,
+        completed_ledger_path=tmp_path / 'config' / 'datasets' / 'completed.yaml',
+        manifest_index_path=tmp_path / 'config' / 'datasets' / 'index.yaml',
+    )
+    assert [path.name for path in paths] == ['done-a.yaml', 'done-b.yaml']
