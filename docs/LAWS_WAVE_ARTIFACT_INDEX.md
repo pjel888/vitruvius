@@ -1,3 +1,7 @@
+## Operator entry points
+- `./run-laws-mvp-graph`
+  - one-button wrapper for the aggregate completed-laws graph
+
 # Laws Wave Artifact Index
 
 ## Machine-readable state artifacts

@@ -15,10 +15,22 @@ That means:
 Run the completed authoritative laws wave as one aggregate graph:
 
 ```bash
+./run-laws-mvp-graph --review-preset m2-8gb-safe
+```
+
+Equivalent direct CLI:
+
+```bash
 python3 scripts/pipeline_cli.py run-laws-completed-aggregate --review-preset m2-8gb-safe
 ```
 
 For a planning-only pass:
+
+```bash
+./run-laws-mvp-graph --dry-run --review-preset m2-8gb-safe
+```
+
+Equivalent direct CLI:
 
 ```bash
 python3 scripts/pipeline_cli.py run-laws-completed-aggregate --dry-run --review-preset m2-8gb-safe
