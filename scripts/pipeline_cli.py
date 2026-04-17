@@ -352,6 +352,21 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_manifest_parser.add_argument("--graph-output-root", required=True)
     generic_aggregate_manifest_parser.add_argument("--run-output-root", required=True)
     generic_aggregate_manifest_parser.add_argument("--query-snapshot-template", required=True)
+    generic_aggregate_run_parser = add_command_parser(subparsers, "run-completed-aggregate")
+    generic_aggregate_run_parser.add_argument("--completed-ledger", required=True)
+    generic_aggregate_run_parser.add_argument("--manifest-index", required=True)
+    generic_aggregate_run_parser.add_argument("--dataset-id", required=True)
+    generic_aggregate_run_parser.add_argument("--dataset-kind", default="aggregate")
+    generic_aggregate_run_parser.add_argument("--out", required=True)
+    generic_aggregate_run_parser.add_argument("--graph-output-root", required=True)
+    generic_aggregate_run_parser.add_argument("--run-output-root", required=True)
+    generic_aggregate_run_parser.add_argument("--query-snapshot-template", required=True)
+    generic_aggregate_run_parser.add_argument("--dry-run", action="store_true")
+    generic_aggregate_run_parser.add_argument("--review-model", default=None)
+    generic_aggregate_run_parser.add_argument("--review-timeout-seconds", type=int, default=None)
+    generic_aggregate_run_parser.add_argument("--review-parallel", type=int, default=None)
+    generic_aggregate_run_parser.add_argument("--review-preset", default=None)
+    generic_aggregate_run_parser.add_argument("--skip-export-owl", action="store_true")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -963,6 +978,50 @@ def main() -> int:
             )
             return 0
         return _run("build-completed-aggregate-manifest", _run_generic)
+
+    if args.command == "run-completed-aggregate":
+        from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary
+        from vitruvius.dataset_pipeline import run_dataset_source_to_graph_pipeline
+        def _run_generic_aggregate():
+            repo_root = Path.cwd().resolve()
+            completed_ledger_path = Path(args.completed_ledger)
+            if not completed_ledger_path.is_absolute():
+                completed_ledger_path = repo_root / completed_ledger_path
+            manifest_index_path = Path(args.manifest_index)
+            if not manifest_index_path.is_absolute():
+                manifest_index_path = repo_root / manifest_index_path
+            out_manifest_path = Path(args.out)
+            if not out_manifest_path.is_absolute():
+                out_manifest_path = repo_root / out_manifest_path
+            aggregate_payload = build_generic_completed_aggregate_manifest(
+                repo_root=repo_root,
+                completed_ledger_path=completed_ledger_path,
+                manifest_index_path=manifest_index_path,
+                out_manifest_path=out_manifest_path,
+                dataset_id=args.dataset_id,
+                dataset_kind=args.dataset_kind,
+                graph_output_root=args.graph_output_root,
+                run_output_root=args.run_output_root,
+                query_snapshot_path_template=args.query_snapshot_template,
+                scope_notes=[f"Aggregate graph input for completed lanes from {completed_ledger_path.name}."],
+                lane_note_builder=lambda lane_id: f"Aggregate lane: {lane_id}",
+                folder_name_resolver=lambda item: str(item.get('raw_folder_name') or item.get('folder_name') or ''),
+            )
+            print_aggregate_manifest_summary(
+                repo_root=repo_root,
+                out_manifest_path=out_manifest_path,
+                aggregate_payload=aggregate_payload,
+            )
+            return run_dataset_source_to_graph_pipeline(
+                dataset_manifest=str(out_manifest_path.relative_to(repo_root)),
+                dry_run=args.dry_run,
+                review_preset=args.review_preset,
+                review_model=args.review_model,
+                review_timeout_seconds=args.review_timeout_seconds,
+                review_parallelism=args.review_parallel,
+                export_owl=not args.skip_export_owl,
+            )
+        return _run("run-completed-aggregate", _run_generic_aggregate)
 
     if args.command == "build-laws-completed-aggregate-manifest":
         from vitruvius.laws_readiness import build_laws_completed_aggregate_manifest
