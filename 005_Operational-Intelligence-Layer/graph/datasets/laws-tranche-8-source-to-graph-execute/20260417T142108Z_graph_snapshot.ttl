@@ -1,0 +1,30 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:law-energy-efficiency-and-conservation-act a vitruvius:source ;
+    rdfs:label "energy-efficiency-and-conservation-act (law-energy-efficiency-and-conservation-act)" ;
+    vitruvius:defines vitruvius:concept-designated-establishment,
+        vitruvius:concept-energy-audit,
+        vitruvius:concept-minimum-energy-performance ;
+    vitruvius:governs vitruvius:concept-designated-establishment,
+        vitruvius:concept-energy-audit,
+        vitruvius:concept-minimum-energy-performance ;
+    vitruvius:last_updated_utc "2026-04-17T14:21:08Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:concept-designated-establishment a vitruvius:concept ;
+    rdfs:label "designated-establishment (concept-designated-establishment)" ;
+    vitruvius:last_updated_utc "2026-04-17T14:25:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-energy-audit a vitruvius:concept ;
+    rdfs:label "energy-audit (concept-energy-audit)" ;
+    vitruvius:last_updated_utc "2026-04-17T14:25:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-minimum-energy-performance a vitruvius:concept ;
+    rdfs:label "minimum-energy-performance (concept-minimum-energy-performance)" ;
+    vitruvius:last_updated_utc "2026-04-17T14:25:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+

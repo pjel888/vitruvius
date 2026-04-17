@@ -1,0 +1,43 @@
+{
+  "action": "run-laws-tranche-source-prep",
+  "allow_ocr": true,
+  "execute": true,
+  "failed_count": 0,
+  "folders": [
+    {
+      "candidate_reason": "Energy-efficiency and conservation governance adjacency with distinct non-fire-code compliance concepts.",
+      "failed_count": 0,
+      "file_reports": [
+        {
+          "convert_output": "{\"markdown_output_relative\": \"001-Laws/raw_markdown/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.md\", \"json_output_relative\": \"001-Laws/sidecar_json/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.json\"}",
+          "detection_result": "LIKELY_SCANNED_PDF",
+          "expected_ocr_pdf_path": "002_Raw-Conversion-Layer/001-Laws/ocr_pdf/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.pdf",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.json",
+          "ocr_output": "ocrmypdf completed: 002_Raw-Conversion-Layer/001-Laws/ocr_pdf/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.pdf",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.pdf",
+          "recommended_route": "OCR_FIRST_THEN_OPENDATALOADER",
+          "refine_output": "",
+          "status": "prepared",
+          "supported_direct_input": true
+        }
+      ],
+      "folder_name": "RA-11285",
+      "ocr_required_count": 0,
+      "prepared_count": 1,
+      "raw_file_count": 1,
+      "raw_root_present": true,
+      "supported_direct_input_count": 1
+    }
+  ],
+  "generated_at_utc": "20260417T141938Z",
+  "ocr_required_count": 0,
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "prepared_count": 1,
+  "run_id": "20260417T141806Z",
+  "sample_pages": 5,
+  "tranche_id": "laws-tranche-8",
+  "tranche_manifest_path": "config/datasets/laws-tranche-8.yaml"
+}

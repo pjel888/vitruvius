@@ -884,6 +884,34 @@ rules:
 
       core_concepts: []
 
+
+  # --------------------------------------------------
+  # RA 11285 Law
+  # --------------------------------------------------
+  - name: "RA 11285 Law"
+
+    match:
+      all_contains:
+        - "11285"
+      any_contains:
+        - "energy efficiency"
+        - "conservation act"
+        - "energy efficiency and conservation"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Energy Efficiency and Conservation Act"
+
+      aliases:
+        - "RA 11285"
+        - "Republic Act No. 11285"
+        - "Energy Efficiency and Conservation Act"
+
+      core_concepts: []
+
   # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------

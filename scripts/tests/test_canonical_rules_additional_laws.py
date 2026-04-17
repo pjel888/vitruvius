@@ -275,3 +275,13 @@ def test_build_plan_matches_ra_11201_irr_rule() -> None:
     assert plan['prefix'] == 'irr'
     assert plan['source_type'] == 'irr'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_11285_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.md'
+    )
+    assert plan['title'] == 'Energy Efficiency and Conservation Act'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'

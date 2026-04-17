@@ -302,13 +302,23 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - authoritative statute admission succeeded for `MASTER PLUMBING LAW.pdf`
       - excluded auxiliary plumbing-code / board files remain explicit
       - the family still stays out of staged source-to-graph because the excluded `Board of Master Plumber.doc` prep failure leaves `source_admission_state = admitted_subset_failed`
-    - tranche-8 scouting truth on 2026-04-17:
-      - no clean three-law tranche-8 cohort is currently evidenced in-repo
-      - `RA-11285` is the cleanest next singleton scout because the raw registry shows one non-duplicate statute PDF and no overlap/alias warning in current tranche records
-      - defer `RA-9266` (duplicate cluster), `PD-9514` (already-covered fire-code overlap), `RA-11361` (draft-only IRR file), and `RA-9279` (mismatched `IRR RA 7279 Sec 18` filename) from tranche-8 until prep/admission evidence improves
     - see `/.ai/05_logs/2026-04-17_laws-tranche-7-execution-validation.md`
     - see `/.ai/05_logs/2026-04-17_ra11201-housing-governance-concept-fit-validation.md`
     - see `/.ai/13_research/2026-04-17_tranche-8-scout-research.md`
+  - tranche-8 is now defined and executed through the same bounded workflow:
+    - manifest: `config/datasets/laws-tranche-8.yaml`
+    - tranche-8 law:
+      - `RA-11285`
+    - current execute evidence:
+      - `staged_law_folders = [RA-11285]`
+      - `duplicate_law_folders = []`
+      - `generated_relationship_count = 0`
+      - `shallow_representation_count = 0`
+      - `source_to_graph_execute_completed = true`
+      - graph snapshot: `4 nodes / 6 edges`
+    - bounded `RA-11285` energy-governance concept-fit follow-on is now admitted
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-8-execution-validation.md`
+    - see `/.ai/05_logs/2026-04-17_ra11285-energy-governance-concept-fit-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

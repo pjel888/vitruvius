@@ -1,0 +1,22 @@
+{
+  "generated_at": "20260417T142108Z",
+  "source": "001-Laws/refined_markdown/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.md",
+  "source_id": "law-energy-efficiency-and-conservation-act",
+  "total_sections": 40,
+  "total_relationships": 1,
+  "relationships": [
+    {
+      "from": "law-energy-efficiency-and-conservation-act",
+      "type": "governs",
+      "to": "concept-minimum-energy-performance",
+      "occurrences": 1,
+      "sections": [
+        "section-16"
+      ],
+      "examples": [
+        "All manufacturers, importers, distributors, and retailers of energy-consuming products shall comply with the MEP, subject their energy-consuming products to energy performance"
+      ],
+      "alternate_predicates": []
+    }
+  ]
+}
