@@ -170,6 +170,63 @@ rules:
       core_concepts: []
 
   # --------------------------------------------------
+  # PD 957 IRR
+  # --------------------------------------------------
+  - name: "PD 957 IRR"
+
+    match:
+      all_contains:
+        - "pd"
+        - "957"
+        - "irr"
+      not_contains:
+        - "illustrated"
+        - "slides"
+
+    classification:
+      source_type: irr
+      trust_level: primary
+
+    canonical:
+      title: "Revised Implementing Rules and Regulations for PD 957"
+
+      aliases:
+        - "PD 957 IRR"
+        - "Presidential Decree No. 957 IRR"
+        - "Subdivision and Condominium IRR"
+        - "Revised Implementing Rules and Regulations for PD 957"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # PD 1185 Law
+  # --------------------------------------------------
+  - name: "PD 1185 Law"
+
+    match:
+      all_contains:
+        - "pd"
+        - "1185"
+      any_contains:
+        - "fire code"
+      not_contains:
+        - "irr"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Fire Code of the Philippines"
+
+      aliases:
+        - "PD 1185"
+        - "Presidential Decree No. 1185"
+        - "Fire Code of the Philippines 1977"
+
+      core_concepts: []
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

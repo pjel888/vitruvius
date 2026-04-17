@@ -70,6 +70,18 @@
   - current tranche-1 split:
     - ready: `PD-957`, `PD-1185`
     - blocked: `PD-1216`
+- Tranche source-admission execute slice:
+  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/pipeline_cli.py scripts/vitruvius/cli_experience.py scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py`
+  - **PASS**
+  - `python3 -m pytest scripts/tests/test_canonical_rules_additional_laws.py scripts/tests/test_dataset_pipeline_cli.py -k 'source_admission or pd_957 or pd_1185' -q`
+  - **4 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-admission --tranche-manifest config/datasets/laws-tranche-1.yaml` passes
+  - current execute evidence:
+    - admitted: `PD-957`, `PD-1185`
+    - blocked: `PD-1216`
+    - `admitted_source_page_count = 2`
+    - `canonicalize_failure_count = 0`
+    - `PD-957` same-content raw aliases now collapse to one authoritative IRR source while excluded aliases remain explicit in the tranche manifest/report
 
 ## Residual Graph Caveat
 
@@ -91,6 +103,7 @@
 - Latest tranche source-preparation validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-dry-run-validation.md`
 - Latest tranche source-preparation execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-implementation-validation.md`
 - Latest tranche source-admission validation: `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-implementation-validation.md`
+- Latest tranche source-admission execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-execution-validation.md`
 
 ## Handoff Note
 

@@ -46,6 +46,25 @@ def _seed_conversion_inventory(root: Path, folder_name: str, stem: str) -> None:
         _write(rel_path, payload)
 
 
+def _seed_conversion_inventory_path(root: Path, folder_name: str, filename: str, *, refined_payload: str | None = None) -> None:
+    refined_text = refined_payload or '---\nid: source-demo\n---\n\n# refined\n'
+    for rel_path, payload in (
+        (
+            root / '002_Raw-Conversion-Layer' / '001-Laws' / 'refined_markdown' / folder_name / f'{filename}.md',
+            refined_text,
+        ),
+        (
+            root / '002_Raw-Conversion-Layer' / '001-Laws' / 'raw_markdown' / folder_name / f'{filename}.md',
+            '# raw\n',
+        ),
+        (
+            root / '002_Raw-Conversion-Layer' / '001-Laws' / 'sidecar_json' / folder_name / f'{filename}.json',
+            '{}\n',
+        ),
+    ):
+        _write(rel_path, payload)
+
+
 def _seed_refined_with_headers(root: Path, folder_name: str, stem: str, header_count: int) -> None:
     lines = [f"## Section {idx}. Example Heading" for idx in range(1, header_count + 1)]
     _write(
@@ -92,6 +111,11 @@ def _write_valid_pdf(path: Path) -> None:
     writer.add_blank_page(width=72, height=72)
     with path.open('wb') as fp:
         writer.write(fp)
+
+
+def _write_pdf_bytes(path: Path, data: bytes) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(data)
 
 
 def _seed_repo(root: Path) -> Path:
@@ -567,8 +591,18 @@ def test_run_laws_tranche_source_admission_dry_run_reports_ready_vs_blocked_spli
         ),
         encoding='utf-8',
     )
-    _seed_conversion_inventory(tmp_path, 'PD-957', 'pd957-law')
-    _seed_conversion_inventory(tmp_path, 'PD-1185', 'pd1185-law')
+    _seed_conversion_inventory_path(
+        tmp_path,
+        'PD-957',
+        'PD 957 IRR - Subdivision and Condominium IRR',
+        refined_payload='# REVISED IMPLEMENTING RULES AND REGULATIONS FOR PD 957\n',
+    )
+    _seed_conversion_inventory_path(
+        tmp_path,
+        'PD-1185',
+        'PD 1185 - Fire Code of the Philippines 1977',
+        refined_payload='# FIRE CODE OF THE PHILIPPINES\n',
+    )
     source_prep_report = _write_source_prep_report(
         tmp_path,
         'laws-tranche-1',
@@ -582,7 +616,8 @@ def test_run_laws_tranche_source_admission_dry_run_reports_ready_vs_blocked_spli
                 'file_reports': [
                     {
                         'status': 'prepared',
-                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/pd957-law.md',
+                        'raw_path': '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf',
+                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md',
                     }
                 ],
             },
@@ -607,11 +642,18 @@ def test_run_laws_tranche_source_admission_dry_run_reports_ready_vs_blocked_spli
                 'file_reports': [
                     {
                         'status': 'prepared',
-                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1185/pd1185-law.md',
+                        'raw_path': '001_Raw-Source-Layer/001-Laws/PD-1185/PD 1185 - Fire Code of the Philippines 1977.pdf',
+                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1185/PD 1185 - Fire Code of the Philippines 1977.md',
                     }
                 ],
             },
         ],
+    )
+    _write_valid_pdf(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'PD 957 IRR - Subdivision and Condominium IRR.pdf'
+    )
+    _write_valid_pdf(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-1185' / 'PD 1185 - Fire Code of the Philippines 1977.pdf'
     )
 
     result = _run_cli(
@@ -635,8 +677,176 @@ def test_run_laws_tranche_source_admission_dry_run_reports_ready_vs_blocked_spli
     assert ready_law['status'] == 'ready_for_admission_review'
     assert ready_law['candidate_source_page_count'] == 1
     assert ready_law['candidate_source_pages'][0]['canonical_source_path'].endswith(
-        '003_Canonical-Knowledge-Layer/shared/sources/pd957-law.md'
+        '003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-for-pd-957.md'
     )
     blocked_law = next(item for item in report['laws'] if item['folder_name'] == 'PD-1216')
     assert blocked_law['status'] == 'blocked_pending_ocr'
     assert blocked_law['blocked_file_reports'][0]['recommended_route'] == 'OCR_FIRST_THEN_OPENDATALOADER'
+
+
+def test_run_laws_tranche_source_admission_exec_collapses_duplicate_pd957_variants_and_keeps_blocked_laws(tmp_path: Path) -> None:
+    _seed_repo(tmp_path)
+    tranche_manifest = tmp_path / 'config' / 'datasets' / 'laws-tranche-1.yaml'
+    tranche_manifest.write_text(
+        yaml.safe_dump(
+            {
+                'tranche_id': 'laws-tranche-1',
+                'candidate_law_folders': [
+                    {'folder_name': 'PD-957', 'reason': 'housing adjacency'},
+                    {'folder_name': 'PD-1216', 'reason': 'open-space adjacency'},
+                    {'folder_name': 'PD-1185', 'reason': 'fire adjacency'},
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+
+    duplicate_pdf_bytes = b'%PDF-1.4\\n% identical pd957 bytes\\n'
+    _write_pdf_bytes(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'PD 957 - Subdivision _ Condominium Buyer_s Act.pdf',
+        duplicate_pdf_bytes,
+    )
+    _write_pdf_bytes(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf',
+        duplicate_pdf_bytes,
+    )
+    _write_pdf_bytes(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'PD 957 IRR - Subdivision and Condominium IRR.pdf',
+        duplicate_pdf_bytes,
+    )
+    _write_pdf_bytes(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-957' / 'PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).pdf',
+        b'%PDF-1.4\\n% slide deck bytes\\n',
+    )
+    _write_pdf_bytes(
+        tmp_path / '001_Raw-Source-Layer' / '001-Laws' / 'PD-1185' / 'PD 1185 - Fire Code of the Philippines 1977.pdf',
+        b'%PDF-1.4\\n% fire code bytes\\n',
+    )
+
+    for filename in (
+        'PD 957 - Subdivision _ Condominium Buyer_s Act',
+        'PD 957 - Subdivision and Condominium Buyers Protective Decree',
+        'PD 957 IRR - Subdivision and Condominium IRR',
+        'PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)',
+    ):
+        refined_payload = (
+            '# REVISED IMPLEMENTING RULES AND REGULATIONS FOR PD 957\\n'
+            if 'Illustrated Slides' not in filename
+            else '# PRESIDENTIAL DECREE 957\\n\\nStudy slides\\n'
+        )
+        _seed_conversion_inventory_path(tmp_path, 'PD-957', filename, refined_payload=refined_payload)
+    _seed_conversion_inventory_path(
+        tmp_path,
+        'PD-1185',
+        'PD 1185 - Fire Code of the Philippines 1977',
+        refined_payload='# FIRE CODE OF THE PHILIPPINES\\n',
+    )
+
+    source_prep_report = _write_source_prep_report(
+        tmp_path,
+        'laws-tranche-1',
+        '20260417T022819Z',
+        [
+            {
+                'folder_name': 'PD-957',
+                'prepared_count': 4,
+                'ocr_required_count': 0,
+                'failed_count': 0,
+                'file_reports': [
+                    {
+                        'status': 'prepared',
+                        'raw_path': '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf',
+                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md',
+                    },
+                    {
+                        'status': 'prepared',
+                        'raw_path': '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf',
+                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.md',
+                    },
+                    {
+                        'status': 'prepared',
+                        'raw_path': '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf',
+                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md',
+                    },
+                    {
+                        'status': 'prepared',
+                        'raw_path': '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).pdf',
+                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md',
+                    },
+                ],
+            },
+            {
+                'folder_name': 'PD-1216',
+                'prepared_count': 0,
+                'ocr_required_count': 1,
+                'failed_count': 0,
+                'file_reports': [
+                    {
+                        'status': 'ocr_required',
+                        'raw_path': '001_Raw-Source-Layer/001-Laws/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.pdf',
+                        'recommended_route': 'OCR_FIRST_THEN_OPENDATALOADER',
+                    }
+                ],
+            },
+            {
+                'folder_name': 'PD-1185',
+                'prepared_count': 1,
+                'ocr_required_count': 0,
+                'failed_count': 0,
+                'file_reports': [
+                    {
+                        'status': 'prepared',
+                        'raw_path': '001_Raw-Source-Layer/001-Laws/PD-1185/PD 1185 - Fire Code of the Philippines 1977.pdf',
+                        'expected_refined_markdown_path': '002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1185/PD 1185 - Fire Code of the Philippines 1977.md',
+                    }
+                ],
+            },
+        ],
+    )
+
+    result = _run_cli(
+        [
+            'run-laws-tranche-source-admission',
+            '--tranche-manifest', str(tranche_manifest),
+            '--source-prep-report', str(source_prep_report),
+        ],
+        cwd=tmp_path,
+    )
+    assert result.returncode == 0, result.stderr
+    payload = json.loads(result.stdout)
+    assert payload['action'] == 'run-laws-tranche-source-admission'
+    assert payload['admitted_source_page_count'] == 2
+    assert payload['blocked_law_folders'] == ['PD-1216']
+    report_path = tmp_path / payload['report_path']
+    report = json.loads(report_path.read_text(encoding='utf-8'))
+    pd957 = next(item for item in report['laws'] if item['folder_name'] == 'PD-957')
+    assert pd957['admitted_source_count'] == 1
+    assert pd957['candidate_source_page_count'] == 1
+    assert pd957['excluded_prepared_count'] == 3
+    assert pd957['admitted_source_paths'] == [
+        '003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-for-pd-957.md'
+    ]
+    assert set(pd957['excluded_prepared_file_reports'][idx]['excluded_reason'] for idx in range(3)) == {
+        'duplicate_sha256_alias',
+        'study_aid_variant',
+    }
+    assert (tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'revised-implementing-rules-and-regulations-for-pd-957.md').exists()
+    assert (tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'fire-code-of-the-philippines.md').exists()
+    assert not (tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'pd-1216-open-space-requirements-in-subdivisions.md').exists()
+
+    updated_manifest = yaml.safe_load(tranche_manifest.read_text(encoding='utf-8'))
+    pd957_entry = next(item for item in updated_manifest['candidate_law_folders'] if item['folder_name'] == 'PD-957')
+    assert pd957_entry['source_admission_state'] == 'admitted'
+    assert pd957_entry['admitted_source_paths'] == [
+        '003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-for-pd-957.md'
+    ]
+    assert pd957_entry['authoritative_variant_paths'] == [
+        '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf'
+    ]
+    assert '001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).pdf' in pd957_entry['excluded_variant_paths']
+    pd1216_entry = next(item for item in updated_manifest['candidate_law_folders'] if item['folder_name'] == 'PD-1216')
+    assert pd1216_entry['source_admission_state'] == 'blocked_pending_ocr'
+    assert pd1216_entry['blocked_raw_anchor_paths'] == [
+        '001_Raw-Source-Layer/001-Laws/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.pdf'
+    ]

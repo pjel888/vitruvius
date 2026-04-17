@@ -304,6 +304,11 @@ def build_parser() -> argparse.ArgumentParser:
                                                  help="Tranche manifest whose prepared outputs should be classified into ready-vs-blocked source admission state")
     tranche_source_admission_parser.add_argument("--source-prep-report", default=None,
                                                  help="Optional explicit tranche source-prep execute report to classify for source admission")
+    tranche_source_admission_exec_parser = add_command_parser(subparsers, "run-laws-tranche-source-admission")
+    tranche_source_admission_exec_parser.add_argument("--tranche-manifest", default="config/datasets/laws-tranche-1.yaml",
+                                                      help="Tranche manifest whose selected prepared outputs should be admitted into canonical source pages")
+    tranche_source_admission_exec_parser.add_argument("--source-prep-report", default=None,
+                                                      help="Optional explicit tranche source-prep execute report to use during source admission")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -836,6 +841,16 @@ def main() -> int:
         return _run(
             "run-laws-tranche-source-admission-dry-run",
             lambda: run_laws_tranche_source_admission_dry_run(
+                tranche_manifest=args.tranche_manifest,
+                source_prep_report=args.source_prep_report,
+            ),
+        )
+
+    if args.command == "run-laws-tranche-source-admission":
+        from vitruvius.laws_readiness import run_laws_tranche_source_admission
+        return _run(
+            "run-laws-tranche-source-admission",
+            lambda: run_laws_tranche_source_admission(
                 tranche_manifest=args.tranche_manifest,
                 source_prep_report=args.source_prep_report,
             ),

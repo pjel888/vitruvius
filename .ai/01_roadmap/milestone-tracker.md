@@ -208,6 +208,7 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - tranche source-preparation dry-run now exists for pre-conversion readiness: `run-laws-tranche-source-prep-dry-run`; see `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-dry-run-validation.md`
   - tranche source-preparation execute step now exists: `run-laws-tranche-source-prep`; see `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-implementation-validation.md`
   - tranche-1 source-admission dry-run now exists: `run-laws-tranche-source-admission-dry-run`; see `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-implementation-validation.md`
+  - tranche-1 source-admission execute step now exists: `run-laws-tranche-source-admission`; `PD-957` duplicate/raw-alias variants collapse to one admitted IRR source, `PD-1185` is admitted, and `PD-1216` stays blocked pending OCR; see `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-execution-validation.md`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)

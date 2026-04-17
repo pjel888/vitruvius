@@ -25,3 +25,23 @@ def test_build_plan_matches_bp_344_primary_variant_rule() -> None:
     assert plan['prefix'] == 'irr'
     assert plan['source_type'] == 'irr'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_pd_957_irr_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md'
+    )
+    assert plan['title'] == 'Revised Implementing Rules and Regulations for PD 957'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_pd_1185_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/PD-1185/PD 1185 - Fire Code of the Philippines 1977.md'
+    )
+    assert plan['title'] == 'Fire Code of the Philippines'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'

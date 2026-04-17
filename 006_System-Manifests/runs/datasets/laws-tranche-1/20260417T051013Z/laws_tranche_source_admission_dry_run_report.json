@@ -1,0 +1,204 @@
+{
+  "action": "run-laws-tranche-source-admission-dry-run",
+  "admission_review_ready_law_folders": [
+    "PD-957",
+    "PD-1185"
+  ],
+  "blocked_law_folders": [
+    "PD-1216"
+  ],
+  "candidate_source_page_count": 2,
+  "dry_run": true,
+  "excluded_prepared_count": 3,
+  "generated_at_utc": "20260417T051013Z",
+  "laws": [
+    {
+      "admission_guardrails": [
+        "duplicate raw variants collapsed to one representative for sha256 1f9ab17a8168: PD 957 IRR - Subdivision and Condominium IRR.pdf",
+        "same-content raw variants carry conflicting law/IRR filename semantics for sha256 1f9ab17a8168; review aliases before widening execution"
+      ],
+      "blocked_file_reports": [],
+      "candidate_reason": "Housing and subdivision development baseline cited by BP-220.",
+      "candidate_source_page_count": 1,
+      "candidate_source_pages": [
+        {
+          "aliases": [
+            "PD 957 IRR",
+            "Presidential Decree No. 957 IRR",
+            "Subdivision and Condominium IRR",
+            "Revised Implementing Rules and Regulations for PD 957"
+          ],
+          "canonical_id": "irr-revised-implementing-rules-and-regulations-for-pd-957",
+          "canonical_prefix": "irr",
+          "canonical_source_exists": true,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-for-pd-957.md",
+          "canonical_source_type": "irr",
+          "canonical_title": "Revised Implementing Rules and Regulations for PD 957",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [
+            "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf",
+            "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf"
+          ],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf",
+          "raw_sha256": "1f9ab17a816885cfdbafafc03e3e9b64470a737447129a32a459836d6773f9ea",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 3,
+          "selection_reason": "selected authoritative representative from duplicate raw-variant cluster",
+          "trust_level": "primary"
+        }
+      ],
+      "excluded_prepared_count": 3,
+      "excluded_prepared_file_reports": [
+        {
+          "convert_output": "Apr 17, 2026 10:28:20 AM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).pdf\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 34\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: pedrosantosjr\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: BP 220\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:20150517214152+08'00'\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:20150517214152+08'00'\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 34 pages with 8 threads\nApr 17, 2026 10:28:22 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:25 AM org.apache.pdfbox.pdmodel.font.PDType1Font <init>\nWARNING: Using fallback font Helvetica-Bold for Archer Bold\nApr 17, 2026 10:28:25 AM org.apache.pdfbox.pdmodel.font.PDType1Font <init>\nWARNING: Using fallback font Helvetica for Archer Medium\nApr 17, 2026 10:28:25 AM org.apache.pdfbox.pdmodel.font.PDType1Font <init>\nWARNING: Using fallback font Helvetica-Bold for Aleo,Bold\nApr 17, 2026 10:28:26 AM org.apache.pdfbox.pdmodel.font.PDType1Font <init>\nWARNING: Using fallback font Helvetica for Aleo\nApr 17, 2026 10:28:27 AM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpt7os46u8/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).json\nApr 17, 2026 10:28:27 AM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpt7os46u8/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "excluded_reason": "study_aid_variant",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "status": "prepared",
+          "supported_direct_input": true
+        },
+        {
+          "convert_output": "Apr 17, 2026 10:28:29 AM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 68\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: Valued Acer Customer\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: null\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:20130306143207+08'00'\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:20130306143207+08'00'\nApr 17, 2026 10:28:31 AM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 68 pages with 8 threads\nApr 17, 2026 10:28:33 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:33 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:33 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:33 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:34 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:34 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:34 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:34 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:34 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:38 AM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmp4jpnsz8v/PD 957 - Subdivision _ Condominium Buyer_s Act.json\nApr 17, 2026 10:28:38 AM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmp4jpnsz8v/PD 957 - Subdivision _ Condominium Buyer_s Act.md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "excluded_reason": "duplicate_sha256_alias",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf",
+          "raw_sha256": "1f9ab17a816885cfdbafafc03e3e9b64470a737447129a32a459836d6773f9ea",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "selected_representative_raw_path": "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf",
+          "status": "prepared",
+          "supported_direct_input": true
+        },
+        {
+          "convert_output": "Apr 17, 2026 10:28:40 AM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 68\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: Valued Acer Customer\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: null\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:20130306143207+08'00'\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:20130306143207+08'00'\nApr 17, 2026 10:28:43 AM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 68 pages with 8 threads\nApr 17, 2026 10:28:44 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:44 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:44 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:44 AM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 10:28:45 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:45 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:45 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:45 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:45 AM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 10:28:50 AM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpwp7tfztk/PD 957 - Subdivision and Condominium Buyers Protective Decree.json\nApr 17, 2026 10:28:50 AM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpwp7tfztk/PD 957 - Subdivision and Condominium Buyers Protective Decree.md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "excluded_reason": "duplicate_sha256_alias",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.pdf",
+          "raw_sha256": "1f9ab17a816885cfdbafafc03e3e9b64470a737447129a32a459836d6773f9ea",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "selected_representative_raw_path": "001_Raw-Source-Layer/001-Laws/PD-957/PD 957 IRR - Subdivision and Condominium IRR.pdf",
+          "status": "prepared",
+          "supported_direct_input": true
+        }
+      ],
+      "failed_count": 0,
+      "failed_file_reports": [],
+      "folder_name": "PD-957",
+      "next_step": "Admit the selected canonical source pages now, keep excluded variants explicit, and only then revisit tranche source-to-graph execution.",
+      "ocr_required_count": 0,
+      "prepared_count": 4,
+      "raw_file_count": 4,
+      "source_prep_report_summary": {
+        "failed_count": 0,
+        "ocr_required_count": 0,
+        "prepared_count": 4
+      },
+      "status": "ready_for_admission_review"
+    },
+    {
+      "admission_guardrails": [],
+      "blocked_file_reports": [
+        {
+          "detection_result": "LIKELY_SCANNED_PDF",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.pdf",
+          "recommended_route": "OCR_FIRST_THEN_OPENDATALOADER",
+          "status": "ocr_required",
+          "supported_direct_input": true
+        }
+      ],
+      "candidate_reason": "Open-space / subdivision-standards baseline cited by BP-220.",
+      "candidate_source_page_count": 0,
+      "candidate_source_pages": [],
+      "excluded_prepared_count": 0,
+      "excluded_prepared_file_reports": [],
+      "failed_count": 0,
+      "failed_file_reports": [],
+      "folder_name": "PD-1216",
+      "next_step": "Keep this law family blocked until OCR-first preparation produces refined outputs for admission review.",
+      "ocr_required_count": 1,
+      "prepared_count": 0,
+      "raw_file_count": 1,
+      "source_prep_report_summary": {
+        "failed_count": 0,
+        "ocr_required_count": 1,
+        "prepared_count": 0
+      },
+      "status": "blocked_pending_ocr"
+    },
+    {
+      "admission_guardrails": [],
+      "blocked_file_reports": [],
+      "candidate_reason": "Fire-code adjacency cited by BP-220 and relevant to safety overlap.",
+      "candidate_source_page_count": 1,
+      "candidate_source_pages": [
+        {
+          "aliases": [
+            "PD 1185",
+            "Presidential Decree No. 1185",
+            "Fire Code of the Philippines 1977"
+          ],
+          "canonical_id": "law-fire-code-of-the-philippines",
+          "canonical_prefix": "law",
+          "canonical_source_exists": true,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/fire-code-of-the-philippines.md",
+          "canonical_source_type": "law",
+          "canonical_title": "Fire Code of the Philippines",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/PD-1185/PD 1185 - Fire Code of the Philippines 1977.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/PD-1185/PD 1185 - Fire Code of the Philippines 1977.pdf",
+          "raw_sha256": "8510fbbc1d0fb9db377becd677014634377c77dce3e6c5dcaa0b02f309126f1a",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1185/PD 1185 - Fire Code of the Philippines 1977.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        }
+      ],
+      "excluded_prepared_count": 0,
+      "excluded_prepared_file_reports": [],
+      "failed_count": 0,
+      "failed_file_reports": [],
+      "folder_name": "PD-1185",
+      "next_step": "Admit the selected canonical source pages now, keep excluded variants explicit, and only then revisit tranche source-to-graph execution.",
+      "ocr_required_count": 0,
+      "prepared_count": 1,
+      "raw_file_count": 1,
+      "source_prep_report_summary": {
+        "failed_count": 0,
+        "ocr_required_count": 0,
+        "prepared_count": 1
+      },
+      "status": "ready_for_admission_review"
+    }
+  ],
+  "mixed_readiness_law_folders": [],
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "run_id": "20260417T051013Z",
+  "source_prep_report_path": "006_System-Manifests/runs/datasets/laws-tranche-1/20260417T022819Z/laws_tranche_source_prep_report.json",
+  "source_prep_run_id": "20260417T022819Z",
+  "source_to_graph_execute_blockers": [
+    "tranche source-to-graph execute remains gated until source admission is explicitly completed for ready tranche members",
+    "duplicate raw variants collapsed to one representative for sha256 1f9ab17a8168: PD 957 IRR - Subdivision and Condominium IRR.pdf",
+    "same-content raw variants carry conflicting law/IRR filename semantics for sha256 1f9ab17a8168; review aliases before widening execution",
+    "PD-1216 remains blocked pending OCR-first processing"
+  ],
+  "source_to_graph_execute_ready": false,
+  "tranche_id": "laws-tranche-1",
+  "tranche_manifest_path": "config/datasets/laws-tranche-1.yaml"
+}

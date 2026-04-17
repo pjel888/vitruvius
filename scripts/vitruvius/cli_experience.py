@@ -360,6 +360,15 @@ COMMAND_DOCS: dict[str, CommandDoc] = {
         failure="Some concepts could not be enriched safely, so concept coverage remains partial and downstream relationship/query quality may stay uneven.",
         next_step="Review skipped reasons, improve source coverage if needed, and rerun `enrich-concepts` or `enrich-concept-one` selectively.",
     ),
+    "run-laws-tranche-source-admission": _doc(
+        "run-laws-tranche-source-admission",
+        "Admit selected prepared tranche outputs into canonical source pages while keeping blocked members explicit.",
+        human="This is the conservative execute step after the tranche source-admission dry-run. It writes canonical source pages only for selected ready tranche members, preserves blocked OCR-required laws, and records excluded duplicate or study-aid variants instead of silently dropping them.",
+        technical="Loads the tranche source-preparation execute report, collapses duplicate prepared raw variants, excludes study-aid variants, canonicalizes selected prepared refined markdown into canonical source pages, updates the tranche manifest with admitted and blocked state, and writes an execution report under the tranche dataset run root.",
+        success="A healthy result writes only the selected authoritative canonical source pages, updates the tranche manifest truthfully, and keeps blocked or excluded variants explicit for later review.",
+        failure="Canonical source admission could not be completed cleanly, so the tranche manifest and source-admission report will show partial or blocked state and source-to-graph remains gated.",
+        next_step="Rerun tranche dry-run and source-admission dry-run against the updated tranche state, then revisit tranche source-to-graph only if the manifest and canonical outputs are truthful.",
+    ),
     "canonicalize": _doc(
         "canonicalize",
         "Batch-write refined sources into canonical source pages.",

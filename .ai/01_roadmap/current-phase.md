@@ -93,6 +93,14 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - `run-laws-tranche-source-admission-dry-run`
     - current tranche split: ready = `PD-957`, `PD-1185`; blocked = `PD-1216`
     - see `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-implementation-validation.md`
+  - tranche-1 source-admission execute step is now complete:
+    - `run-laws-tranche-source-admission`
+    - admitted canonical source pages:
+      - `revised-implementing-rules-and-regulations-for-pd-957.md`
+      - `fire-code-of-the-philippines.md`
+    - `PD-957` duplicate/raw-alias guardrails now collapse the same-content raw cluster to one authoritative representative while keeping excluded aliases explicit
+    - `PD-1216` remains explicitly blocked pending OCR
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-execution-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

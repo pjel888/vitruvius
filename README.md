@@ -1328,6 +1328,23 @@ This command:
 - keeps OCR-blocked members explicit instead of silently dropping them
 - keeps tranche source→graph execution gated until admission state is explicit
 
+### Tranche source-admission execute
+
+After reviewing the dry-run output, you can admit the selected ready tranche
+sources conservatively:
+
+```bash
+PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-admission \
+  --tranche-manifest config/datasets/laws-tranche-1.yaml
+```
+
+This command:
+- writes canonical source pages only for the selected authoritative prepared tranche members
+- keeps OCR-blocked tranche members explicit instead of pretending the whole tranche is ready
+- collapses duplicate same-content raw variants into one admitted representative
+- records excluded study-aid or duplicate aliases directly in the tranche manifest/report
+- keeps tranche source→graph execution gated until the next accepted slice
+
 ### Progress / developer experience
 
 When you run the command in an interactive terminal, it emits phase/progress
