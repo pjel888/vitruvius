@@ -357,6 +357,45 @@ def build_generic_completed_aggregate_manifest(
     )
 
 
+def build_catalog_completed_aggregate_manifest(
+    *,
+    repo_root: Path,
+    catalog_path: Path,
+    out_manifest_path: Path,
+    dataset_id: str,
+    dataset_kind: str,
+    graph_output_root: str,
+    run_output_root: str,
+    query_snapshot_path_template: str,
+    scope_notes: list[str],
+    statuses: list[str] | None = None,
+    families: list[str] | None = None,
+    lane_note_builder=None,
+    folder_name_resolver=None,
+) -> dict[str, Any]:
+    manifest_paths = completed_manifest_paths_from_catalog(
+        repo_root=repo_root,
+        catalog_path=catalog_path,
+        statuses=statuses,
+        families=families,
+    )
+    if not manifest_paths:
+        raise ValueError('no completed manifests found from catalog selection')
+    return build_completed_aggregate_manifest(
+        repo_root=repo_root,
+        manifest_paths=manifest_paths,
+        out_manifest_path=out_manifest_path,
+        dataset_id=dataset_id,
+        dataset_kind=dataset_kind,
+        graph_output_root=graph_output_root,
+        run_output_root=run_output_root,
+        query_snapshot_path_template=query_snapshot_path_template,
+        scope_notes=scope_notes,
+        lane_note_builder=lane_note_builder or (lambda lane_id: f'Catalog aggregate lane: {lane_id}'),
+        folder_name_resolver=folder_name_resolver or (lambda item: str(item.get('raw_folder_name') or item.get('folder_name') or '')),
+    )
+
+
 def load_completed_aggregate_profile(*, repo_root: Path, profile_path: Path) -> dict[str, Any]:
     resolved_profile_path = profile_path if profile_path.is_absolute() else repo_root / profile_path
     payload = load_yaml_payload(resolved_profile_path)
@@ -413,6 +452,48 @@ def resolve_completed_aggregate_profile_path(
             raise ValueError(f"aggregate profile path for family '{family}' does not exist: {profile_path}")
         return resolved_profile_path
     raise ValueError(f"no aggregate profile registered for family '{family}'")
+
+
+def completed_manifest_paths_from_catalog(
+    *,
+    repo_root: Path,
+    catalog_path: Path,
+    statuses: list[str] | None = None,
+    families: list[str] | None = None,
+) -> list[Path]:
+    catalog = load_completed_aggregate_profile_catalog(repo_root=repo_root, catalog_path=catalog_path)
+    allowed_statuses = {status for status in (statuses or []) if status}
+    allowed_families = {family for family in (families or []) if family}
+    manifest_paths: list[Path] = []
+    seen: set[Path] = set()
+    for item in catalog['profiles']:
+        family = str(item.get('family') or '')
+        if allowed_families and family not in allowed_families:
+            continue
+        status = str(item.get('status') or '')
+        if allowed_statuses and status not in allowed_statuses:
+            continue
+        profile_path = item.get('profile')
+        if not isinstance(profile_path, str) or not profile_path.strip():
+            continue
+        profile_payload = load_yaml_payload(repo_root / profile_path)
+        completed_ledger = profile_payload.get('completed_ledger')
+        manifest_index = profile_payload.get('manifest_index')
+        if not isinstance(completed_ledger, str) or not completed_ledger.strip():
+            continue
+        if not isinstance(manifest_index, str) or not manifest_index.strip():
+            continue
+        family_manifest_paths = completed_manifest_paths(
+            repo_root=repo_root,
+            completed_ledger_path=repo_root / completed_ledger,
+            manifest_index_path=repo_root / manifest_index,
+        )
+        for manifest_path in family_manifest_paths:
+            if manifest_path in seen:
+                continue
+            seen.add(manifest_path)
+            manifest_paths.append(manifest_path)
+    return manifest_paths
 
 
 def register_completed_aggregate_family(

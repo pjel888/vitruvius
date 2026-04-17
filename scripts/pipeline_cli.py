@@ -355,6 +355,16 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_profile_build_parser = add_command_parser(subparsers, "build-completed-aggregate-from-profile")
     generic_aggregate_profile_build_parser.add_argument("--profile", required=True,
                                                        help="Aggregate profile YAML path")
+    generic_aggregate_catalog_build_parser = add_command_parser(subparsers, "build-completed-aggregate-from-catalog")
+    generic_aggregate_catalog_build_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml")
+    generic_aggregate_catalog_build_parser.add_argument("--dataset-id", required=True)
+    generic_aggregate_catalog_build_parser.add_argument("--dataset-kind", default="aggregate")
+    generic_aggregate_catalog_build_parser.add_argument("--out", required=True)
+    generic_aggregate_catalog_build_parser.add_argument("--graph-output-root", required=True)
+    generic_aggregate_catalog_build_parser.add_argument("--run-output-root", required=True)
+    generic_aggregate_catalog_build_parser.add_argument("--query-snapshot-template", required=True)
+    generic_aggregate_catalog_build_parser.add_argument("--status", action="append", default=[])
+    generic_aggregate_catalog_build_parser.add_argument("--family", action="append", default=[])
     generic_aggregate_register_parser = add_command_parser(subparsers, "register-completed-aggregate-family")
     generic_aggregate_register_parser.add_argument("--family", required=True)
     generic_aggregate_register_parser.add_argument("--profile", required=True,
@@ -499,6 +509,22 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_profile_run_parser.add_argument("--review-parallel", type=int, default=None)
     generic_aggregate_profile_run_parser.add_argument("--review-preset", default=None)
     generic_aggregate_profile_run_parser.add_argument("--skip-export-owl", action="store_true")
+    generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-from-catalog")
+    generic_aggregate_catalog_run_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml")
+    generic_aggregate_catalog_run_parser.add_argument("--dataset-id", required=True)
+    generic_aggregate_catalog_run_parser.add_argument("--dataset-kind", default="aggregate")
+    generic_aggregate_catalog_run_parser.add_argument("--out", required=True)
+    generic_aggregate_catalog_run_parser.add_argument("--graph-output-root", required=True)
+    generic_aggregate_catalog_run_parser.add_argument("--run-output-root", required=True)
+    generic_aggregate_catalog_run_parser.add_argument("--query-snapshot-template", required=True)
+    generic_aggregate_catalog_run_parser.add_argument("--status", action="append", default=[])
+    generic_aggregate_catalog_run_parser.add_argument("--family", action="append", default=[])
+    generic_aggregate_catalog_run_parser.add_argument("--dry-run", action="store_true")
+    generic_aggregate_catalog_run_parser.add_argument("--review-model", default=None)
+    generic_aggregate_catalog_run_parser.add_argument("--review-timeout-seconds", type=int, default=None)
+    generic_aggregate_catalog_run_parser.add_argument("--review-parallel", type=int, default=None)
+    generic_aggregate_catalog_run_parser.add_argument("--review-preset", default=None)
+    generic_aggregate_catalog_run_parser.add_argument("--skip-export-owl", action="store_true")
     refine_one_parser = add_command_parser(subparsers, "refine-one")
     refine_one_parser.add_argument("relative_markdown_path")
 
@@ -1130,6 +1156,37 @@ def main() -> int:
             return 0
         return _run("build-completed-aggregate-from-profile", _run_generic_from_profile)
 
+    if args.command == "build-completed-aggregate-from-catalog":
+        from vitruvius.aggregate_manifest import (
+            build_catalog_completed_aggregate_manifest,
+            print_aggregate_manifest_summary,
+        )
+        def _run_generic_from_catalog():
+            repo_root = Path.cwd().resolve()
+            out_manifest_path = Path(args.out)
+            if not out_manifest_path.is_absolute():
+                out_manifest_path = repo_root / out_manifest_path
+            aggregate_payload = build_catalog_completed_aggregate_manifest(
+                repo_root=repo_root,
+                catalog_path=Path(args.catalog),
+                out_manifest_path=out_manifest_path,
+                dataset_id=args.dataset_id,
+                dataset_kind=args.dataset_kind,
+                graph_output_root=args.graph_output_root,
+                run_output_root=args.run_output_root,
+                query_snapshot_path_template=args.query_snapshot_template,
+                scope_notes=[f"Catalog aggregate graph input from {Path(args.catalog).name}."],
+                statuses=list(args.status or []),
+                families=list(args.family or []),
+            )
+            print_aggregate_manifest_summary(
+                repo_root=repo_root,
+                out_manifest_path=out_manifest_path,
+                aggregate_payload=aggregate_payload,
+            )
+            return 0
+        return _run("build-completed-aggregate-from-catalog", _run_generic_from_catalog)
+
     if args.command == "register-completed-aggregate-family":
         from vitruvius.aggregate_manifest import register_completed_aggregate_family
         def _run_register_generic_family():
@@ -1495,6 +1552,46 @@ def main() -> int:
                 export_owl=not args.skip_export_owl,
             ),
         )
+
+    if args.command == "run-completed-aggregate-from-catalog":
+        from vitruvius.aggregate_manifest import (
+            build_catalog_completed_aggregate_manifest,
+            print_aggregate_manifest_summary,
+        )
+        from vitruvius.dataset_pipeline import run_dataset_source_to_graph_pipeline
+        def _run_generic_catalog_aggregate():
+            repo_root = Path.cwd().resolve()
+            out_manifest_path = Path(args.out)
+            if not out_manifest_path.is_absolute():
+                out_manifest_path = repo_root / out_manifest_path
+            aggregate_payload = build_catalog_completed_aggregate_manifest(
+                repo_root=repo_root,
+                catalog_path=Path(args.catalog),
+                out_manifest_path=out_manifest_path,
+                dataset_id=args.dataset_id,
+                dataset_kind=args.dataset_kind,
+                graph_output_root=args.graph_output_root,
+                run_output_root=args.run_output_root,
+                query_snapshot_path_template=args.query_snapshot_template,
+                scope_notes=[f"Catalog aggregate graph input from {Path(args.catalog).name}."],
+                statuses=list(args.status or []),
+                families=list(args.family or []),
+            )
+            print_aggregate_manifest_summary(
+                repo_root=repo_root,
+                out_manifest_path=out_manifest_path,
+                aggregate_payload=aggregate_payload,
+            )
+            return run_dataset_source_to_graph_pipeline(
+                dataset_manifest=str(out_manifest_path.relative_to(repo_root)),
+                dry_run=args.dry_run,
+                review_preset=args.review_preset,
+                review_model=args.review_model,
+                review_timeout_seconds=args.review_timeout_seconds,
+                review_parallelism=args.review_parallel,
+                export_owl=not args.skip_export_owl,
+            )
+        return _run("run-completed-aggregate-from-catalog", _run_generic_catalog_aggregate)
 
     if args.command == "run-completed-aggregate-family":
         from vitruvius.aggregate_manifest import (

@@ -1972,6 +1972,74 @@ def test_generic_completed_manifest_paths_returns_existing_manifests(tmp_path: P
     assert [path.name for path in paths] == ['done-a.yaml', 'done-b.yaml']
 
 
+def test_completed_manifest_paths_from_catalog_filters_ready_profiles(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import completed_manifest_paths_from_catalog
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    for name in ['done-a.yaml', 'done-b.yaml', 'done-c.yaml']:
+        (tmp_path / 'config' / 'datasets' / name).write_text('x: 1\n', encoding='utf-8')
+    (tmp_path / 'config' / 'datasets' / 'a-completed.yaml').write_text(
+        yaml.safe_dump({'completed_lanes': [{'lane_id': 'a'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'a-index.yaml').write_text(
+        yaml.safe_dump({'manifests': [{'lane_id': 'a', 'manifest': 'config/datasets/done-a.yaml'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'b-completed.yaml').write_text(
+        yaml.safe_dump({'completed_lanes': [{'lane_id': 'b'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'b-index.yaml').write_text(
+        yaml.safe_dump({'manifests': [{'lane_id': 'b', 'manifest': 'config/datasets/done-b.yaml'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'c-completed.yaml').write_text(
+        yaml.safe_dump({'completed_lanes': [{'lane_id': 'c'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'c-index.yaml').write_text(
+        yaml.safe_dump({'manifests': [{'lane_id': 'c', 'manifest': 'config/datasets/done-c.yaml'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    for family in ['a', 'b', 'c']:
+        (tmp_path / 'config' / 'datasets' / f'{family}-profile.yaml').write_text(
+            yaml.safe_dump(
+                {
+                    'dataset_id': f'{family}-aggregate',
+                    'dataset_kind': 'demo',
+                    'completed_ledger': f'config/datasets/{family}-completed.yaml',
+                    'manifest_index': f'config/datasets/{family}-index.yaml',
+                    'out_manifest': f'config/datasets/{family}-out.yaml',
+                    'graph_output_root': f'graph/{family}',
+                    'run_output_root': f'runs/{family}',
+                    'query_snapshot_template': f'graph/{family}/{{run_id}}.json',
+                },
+                sort_keys=False,
+            ),
+            encoding='utf-8',
+        )
+    (tmp_path / 'config' / 'datasets' / 'catalog.yaml').write_text(
+        yaml.safe_dump(
+            {
+                'profiles': [
+                    {'family': 'a', 'profile': 'config/datasets/a-profile.yaml', 'status': 'ready'},
+                    {'family': 'b', 'profile': 'config/datasets/b-profile.yaml', 'status': 'scaffolded'},
+                    {'family': 'c', 'profile': 'config/datasets/c-profile.yaml', 'status': 'ready'},
+                ]
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    paths = completed_manifest_paths_from_catalog(
+        repo_root=tmp_path,
+        catalog_path=tmp_path / 'config' / 'datasets' / 'catalog.yaml',
+        statuses=['ready'],
+    )
+    assert [path.name for path in paths] == ['done-a.yaml', 'done-c.yaml']
+
+
 def test_resolve_completed_aggregate_profile_path_returns_registered_profile(tmp_path: Path) -> None:
     from vitruvius.aggregate_manifest import resolve_completed_aggregate_profile_path
 
@@ -3140,6 +3208,92 @@ def test_pipeline_cli_build_completed_aggregate_from_profile_writes_manifest(
     assert stdout_payload['dataset_manifest_path'] == 'config/datasets/profile-out.yaml'
 
 
+def test_pipeline_cli_build_completed_aggregate_from_catalog_writes_manifest(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    _seed_repo(tmp_path)
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    for name in ['done-a.yaml', 'done-b.yaml']:
+        (tmp_path / 'config' / 'datasets' / name).write_text(
+            yaml.safe_dump(
+                {
+                    'dataset_id': name[:-5],
+                    'dataset_kind': 'demo',
+                    'raw_slice_anchors': [],
+                    'canonical_input_manifest': {'sources': [], 'concepts': []},
+                    'relationship_input_manifest': {'relationships': []},
+                    'graph_output_root': 'graph/demo',
+                    'run_output_root': 'runs/demo',
+                    'query_snapshot_path_template': 'graph/demo/{run_id}.json',
+                    'freshness_policy': {'mode': 'exact'},
+                    'pilot_gate': {'require_manifest_validation': True, 'source_to_graph_execute_ready': False},
+                    'law_units': [],
+                },
+                sort_keys=False,
+            ),
+            encoding='utf-8',
+        )
+    for family, lane in [('a', 'lane-a'), ('b', 'lane-b')]:
+        (tmp_path / 'config' / 'datasets' / f'{family}-completed.yaml').write_text(
+            yaml.safe_dump({'completed_lanes': [{'lane_id': lane}]}, sort_keys=False),
+            encoding='utf-8',
+        )
+        (tmp_path / 'config' / 'datasets' / f'{family}-index.yaml').write_text(
+            yaml.safe_dump({'manifests': [{'lane_id': lane, 'manifest': f'config/datasets/done-{family}.yaml'}]}, sort_keys=False),
+            encoding='utf-8',
+        )
+        (tmp_path / 'config' / 'datasets' / f'{family}-profile.yaml').write_text(
+            yaml.safe_dump(
+                {
+                    'dataset_id': f'{family}-aggregate',
+                    'dataset_kind': 'demo',
+                    'completed_ledger': f'config/datasets/{family}-completed.yaml',
+                    'manifest_index': f'config/datasets/{family}-index.yaml',
+                    'out_manifest': f'config/datasets/{family}-out.yaml',
+                    'graph_output_root': f'graph/{family}',
+                    'run_output_root': f'runs/{family}',
+                    'query_snapshot_template': f'graph/{family}/{{run_id}}.json',
+                },
+                sort_keys=False,
+            ),
+            encoding='utf-8',
+        )
+    (tmp_path / 'config' / 'datasets' / 'catalog.yaml').write_text(
+        yaml.safe_dump({'profiles': [
+            {'family': 'a', 'profile': 'config/datasets/a-profile.yaml', 'status': 'ready'},
+            {'family': 'b', 'profile': 'config/datasets/b-profile.yaml', 'status': 'ready'},
+        ]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'build-completed-aggregate-from-catalog',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--dataset-id', 'catalog-demo',
+            '--dataset-kind', 'demo-aggregate',
+            '--out', 'config/datasets/catalog-out.yaml',
+            '--graph-output-root', '005_Operational-Intelligence-Layer/graph/datasets/catalog-demo',
+            '--run-output-root', '006_System-Manifests/runs/datasets/catalog-demo',
+            '--query-snapshot-template', '005_Operational-Intelligence-Layer/graph/datasets/catalog-demo/{run_id}_graph_snapshot.json',
+            '--status', 'ready',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'catalog-out.yaml').read_text(encoding='utf-8'))
+    assert payload['dataset_id'] == 'catalog-demo'
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['dataset_manifest_path'] == 'config/datasets/catalog-out.yaml'
+
+
 def test_pipeline_cli_register_completed_aggregate_family_writes_profile_and_catalog(
     tmp_path: Path,
     monkeypatch,
@@ -4200,6 +4354,96 @@ def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipel
     assert seen['export_owl'] is False
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['dataset_manifest_path'] == 'config/datasets/profile-out.yaml'
+
+
+def test_pipeline_cli_run_completed_aggregate_from_catalog_invokes_dataset_pipeline(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    _seed_repo(tmp_path)
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    (tmp_path / 'config' / 'datasets' / 'done-a.yaml').write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'done-a',
+                'dataset_kind': 'demo',
+                'raw_slice_anchors': [],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {'relationships': []},
+                'graph_output_root': 'graph/demo',
+                'run_output_root': 'runs/demo',
+                'query_snapshot_path_template': 'graph/demo/{run_id}.json',
+                'freshness_policy': {'mode': 'exact'},
+                'pilot_gate': {'require_manifest_validation': True, 'source_to_graph_execute_ready': False},
+                'law_units': [],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'a-completed.yaml').write_text(
+        yaml.safe_dump({'completed_lanes': [{'lane_id': 'lane-a'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'a-index.yaml').write_text(
+        yaml.safe_dump({'manifests': [{'lane_id': 'lane-a', 'manifest': 'config/datasets/done-a.yaml'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'a-profile.yaml').write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'a-aggregate',
+                'dataset_kind': 'demo',
+                'completed_ledger': 'config/datasets/a-completed.yaml',
+                'manifest_index': 'config/datasets/a-index.yaml',
+                'out_manifest': 'config/datasets/a-out.yaml',
+                'graph_output_root': 'graph/a',
+                'run_output_root': 'runs/a',
+                'query_snapshot_path_template': 'graph/a/{run_id}.json',
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'catalog.yaml').write_text(
+        yaml.safe_dump({'profiles': [{'family': 'a', 'profile': 'config/datasets/a-profile.yaml', 'status': 'ready'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    seen: dict[str, object] = {}
+
+    def fake_run_dataset_source_to_graph_pipeline(**kwargs):
+        seen.update(kwargs)
+        return 0
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr('vitruvius.dataset_pipeline.run_dataset_source_to_graph_pipeline', fake_run_dataset_source_to_graph_pipeline)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'run-completed-aggregate-from-catalog',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--dataset-id', 'catalog-demo',
+            '--dataset-kind', 'demo-aggregate',
+            '--out', 'config/datasets/catalog-out.yaml',
+            '--graph-output-root', '005_Operational-Intelligence-Layer/graph/datasets/catalog-demo',
+            '--run-output-root', '006_System-Manifests/runs/datasets/catalog-demo',
+            '--query-snapshot-template', '005_Operational-Intelligence-Layer/graph/datasets/catalog-demo/{run_id}_graph_snapshot.json',
+            '--status', 'ready',
+            '--dry-run',
+            '--review-preset', 'm2-8gb-safe',
+            '--skip-export-owl',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    assert seen['dataset_manifest'] == 'config/datasets/catalog-out.yaml'
+    assert seen['dry_run'] is True
+    assert seen['review_preset'] == 'm2-8gb-safe'
 
 
 def test_pipeline_cli_run_completed_aggregate_family_invokes_dataset_pipeline(
