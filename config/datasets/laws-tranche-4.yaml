@@ -1,0 +1,80 @@
+tranche_id: laws-tranche-4
+purpose: readiness-only
+phase_11_gate: gated
+description: Fourth explicit widening tranche after tranche-3 maturity. This tranche
+  stays bounded around compact urban-land, hazardous-materials, and cultural-heritage
+  law surfaces with direct text-PDF readiness and no current exact-duplicate cluster
+  evidence.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: PD-1517
+  reason: Housing and urban-land adjacency with a compact single-law surface.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/PD-1517/PD 1517_Urban Land Reform.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-4/20260417T110704Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T110704Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1517/PD 1517_Urban Land
+    Reform.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-urban-land-reform-act.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+- folder_name: RA-6969
+  reason: Hazardous-materials and environmental-compliance adjacency with a compact
+    single-law surface.
+  raw_anchor_paths: &id002
+  - 001_Raw-Source-Layer/001-Laws/RA-6969/RA 6969 Toxic Substances and Hazardouse
+    Nuclear Wastes Control Act 1990.pdf
+  authoritative_variant_paths: *id002
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-4/20260417T110704Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T110704Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-6969/RA 6969 Toxic Substances
+    and Hazardouse Nuclear Wastes Control Act 1990.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+- folder_name: RA-10066
+  reason: Cultural-heritage and built-environment adjacency with a compact single-law
+    surface.
+  raw_anchor_paths: &id003
+  - 001_Raw-Source-Layer/001-Laws/RA-10066/ra 10066.pdf
+  authoritative_variant_paths: *id003
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-4/20260417T110704Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T110704Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-10066/ra 10066.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/national-cultural-heritage-act-of-2009.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+source_admission:
+  last_run_id: 20260417T110704Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-4/20260417T110704Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - PD-1517
+  - RA-6969
+  - RA-10066
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []

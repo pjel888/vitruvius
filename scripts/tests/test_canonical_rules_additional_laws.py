@@ -85,3 +85,73 @@ def test_build_plan_matches_ra_7899_law_rule() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_pd_1067_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/PD-1067/PD 1067 - Water Code of the Philippines.md'
+    )
+    assert plan['title'] == 'Water Code of the Philippines'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_pd_1067_amended_irr_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/PD-1067/Water Code of PH IRR 2005.md'
+    )
+    assert plan['title'] == 'Amended Implementing Rules and Regulations of the Water Code of the Philippines'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_pd_1151_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/PD-1151/PD 1151 - PD 1152 Environmental Code.md'
+    )
+    assert plan['title'] == 'Philippine Environmental Policy'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_9003_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md'
+    )
+    assert plan['title'] == 'Ecological Solid Waste Management Act of 2000'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_pd_1517_irr_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/PD-1517/PD 1517_Urban Land Reform.md'
+    )
+    assert plan['title'] == 'Implementing Rules and Regulations of the Urban Land Reform Act'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_6969_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.md'
+    )
+    assert plan['title'] == 'Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_10066_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-10066/ra 10066.md'
+    )
+    assert plan['title'] == 'National Cultural Heritage Act of 2009'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'

@@ -38,3 +38,13 @@
 ## Truthful residuals
 - tranche-3 is now a successful bounded execute lane
 - tranche-3 still needs graph-richness follow-on work before it should be considered mature
+
+## Updated tranche-3 richness follow-on
+- bounded `PD-1067` water-governance concept-fit slice admitted three new shared concepts and five dataset-scoped relationships
+- refreshed execute evidence:
+  - `staged_law_folders = [PD-1067, PD-1151, RA-9003]`
+  - `raw_alias_law_folders = [PD-1067]`
+  - `generated_relationship_count = 1`
+  - `shallow_representation_count = 0`
+  - graph snapshot: `7 nodes / 11 edges`
+- see `/.ai/05_logs/2026-04-17_pd1067-water-governance-concept-fit-validation.md`

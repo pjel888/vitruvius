@@ -214,9 +214,39 @@
     - `staged_law_folders = [PD-1067, PD-1151, RA-9003]`
     - `duplicate_law_folders = []`
     - `raw_alias_law_folders = [PD-1067]`
+    - `generated_relationship_count = 1`
+    - `shallow_representation_count = 0`
+    - `source_to_graph_execute_completed = true`
+- PD-1067 tranche-3 richness follow-on:
+  - admitted concepts:
+    - `concept-water-permit`
+    - `concept-water-right`
+    - `concept-groundwater-drilling`
+  - admitted dataset-scoped relationships:
+    - `law-water-code-of-the-philippines governs concept-water-permit`
+    - `law-water-code-of-the-philippines governs concept-water-right`
+    - `law-water-code-of-the-philippines governs concept-groundwater-drilling`
+    - `irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines governs concept-water-permit`
+    - `irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines governs concept-groundwater-drilling`
+  - fresh tranche-3 execute graph improves from:
+    - `4 nodes / 0 edges`
+    - to `7 nodes / 11 edges`
+- Tranche-4 bounded execution:
+  - `python3 -m py_compile scripts/tests/test_canonical_rules_additional_laws.py`
+  - **PASS**
+  - `python3 -m pytest scripts/tests/test_canonical_rules_additional_laws.py -q`
+  - **16 passed**
+  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-graph --tranche-manifest config/datasets/laws-tranche-4.yaml --review-preset m2-8gb-safe`
+  - current tranche-4 execute evidence:
+    - `staged_law_folders = [PD-1517, RA-6969, RA-10066]`
+    - `duplicate_law_folders = []`
     - `generated_relationship_count = 0`
+    - `spot_review_required_count = 1`
+    - `summary_auto_withheld_count = 1`
     - `shallow_representation_count = 1`
     - `source_to_graph_execute_completed = true`
+  - next bounded richness target:
+    - `RA-10066`
 
 ## Residual Graph Caveat
 
@@ -251,6 +281,9 @@
 - Latest RA-7279 socialized-housing validation: `/.ai/05_logs/2026-04-17_ra7279-socialized-housing-concept-fit-validation.md`
 - Latest tranche-3 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-3-execution-validation.md`
 - Latest tranche source-admission variant-selection validation: `/.ai/05_logs/2026-04-17_tranche-source-admission-variant-selection-validation.md`
+- Latest PD-1067 tranche-3 richness validation: `/.ai/05_logs/2026-04-17_pd1067-water-governance-concept-fit-validation.md`
+- Latest tranche-4 scouting validation: `/.ai/05_logs/2026-04-17_tranche-4-scouting-validation.md`
+- Latest tranche-4 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-4-execution-validation.md`
 
 ## Handoff Note
 

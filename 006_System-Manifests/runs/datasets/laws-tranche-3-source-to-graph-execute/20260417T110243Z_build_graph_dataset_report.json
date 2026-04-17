@@ -1,0 +1,448 @@
+{
+  "action": "build-graph",
+  "artifact_metadata": {
+    "contributing_law_ids": [
+      "pd-1067",
+      "pd-1151",
+      "ra-9003"
+    ],
+    "dataset_id": "laws-tranche-3-source-to-graph-execute",
+    "dataset_kind": "laws-tranche",
+    "freshness_policy": {
+      "mode": "exact"
+    },
+    "input_fingerprint": {
+      "combined_sha256": "b99e7a1b908756b7a2b01604f46e0771e7bf48d17802698949be5c045f280cd5",
+      "file_count": 13,
+      "files": [
+        {
+          "mtime_ns": 1776423736279045139,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/groundwater-drilling.md",
+          "sha256": "59604c406a11c132af1a07372406b124111e24b14ce63c5e9b286bb217e16eee",
+          "size_bytes": 1568
+        },
+        {
+          "mtime_ns": 1776423736275046477,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/water-permit.md",
+          "sha256": "9f10e013b8ca4a42c49bb481cd26ce31b3abffbfac13628c84ff5eb63821a19a",
+          "size_bytes": 1614
+        },
+        {
+          "mtime_ns": 1776423736277073537,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/water-right.md",
+          "sha256": "60be01ce31e8dc047660c8c7f06c10a070b5e59ef3644fda707fbde386947d40",
+          "size_bytes": 837
+        },
+        {
+          "mtime_ns": 1776423757284686416,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines.md",
+          "sha256": "0b1603e659588c24b7e3774aaa3d9077aeccc18e65ad6eb820aa32d8175da125",
+          "size_bytes": 9715
+        },
+        {
+          "mtime_ns": 1776422333404248642,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/ecological-solid-waste-management-act-of-2000.md",
+          "sha256": "96bd3663c336b3930c710caa93e065d8e23edf2cff1e382ac39837fa9a51441d",
+          "size_bytes": 894
+        },
+        {
+          "mtime_ns": 1776422520730658669,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/philippine-environmental-policy.md",
+          "sha256": "14d4046fe04ae2c730c00586afba8d52805fecba1c7db383a897cd811aa26414",
+          "size_bytes": 1304
+        },
+        {
+          "mtime_ns": 1776423763483811554,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/water-code-of-the-philippines.md",
+          "sha256": "ec3f57fdf162e1025f8dbe757dbb057e4ff986ef7308efa63aaedcaba1acb2f4",
+          "size_bytes": 1118
+        },
+        {
+          "mtime_ns": 1776423736290598954,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-groundwater-drilling.md",
+          "sha256": "2c6a23c9ed41bb69a130b5f9bedc57efe428cea11e609cab405331493b3e111c",
+          "size_bytes": 2069
+        },
+        {
+          "mtime_ns": 1776423736288644436,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md",
+          "sha256": "f8d01a92a20f5c369fb16b24a99c46eaf85393c7c92eea1b11f8bd914cc0cf6c",
+          "size_bytes": 2020
+        },
+        {
+          "mtime_ns": 1776423736286819960,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-groundwater-drilling.md",
+          "sha256": "08bec043bb5d5d4191aa74495e0353a3bc7988644577f1ec5b97828d120ac9f4",
+          "size_bytes": 1526
+        },
+        {
+          "mtime_ns": 1776423736282952091,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-permit.md",
+          "sha256": "8e19a186186cbee01fb2b03d9d9a35eb4a3edf16b570a62cf6f0f61151b12d61",
+          "size_bytes": 1614
+        },
+        {
+          "mtime_ns": 1776423736285000194,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-right.md",
+          "sha256": "2c0d33a17b47a0120b45f388a253bf6d74662ea82684059c959f1d300580472d",
+          "size_bytes": 1512
+        },
+        {
+          "mtime_ns": 1776423763436330200,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T110237Z/promoted_relationships/pd-1067/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md",
+          "sha256": "531821ee659e21610fbfc045275c591bfa8896cb028f7fd4fe470668dabe1f52",
+          "size_bytes": 2332
+        }
+      ]
+    },
+    "law_units": [
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/water-permit.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/water-right.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/groundwater-drilling.md"
+        ],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-permit.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-right.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-groundwater-drilling.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-groundwater-drilling.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/water-code-of-the-philippines.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/PD-1067/Water Code of PH IRR 2005.pdf",
+          "001_Raw-Source-Layer/001-Laws/PD-1067/PD 1067 - Water Code of the Philippines.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/PD-1067/PD 1067 IRR - Water Code Implementing Rules.pdf"
+        ],
+        "folder_name": "PD-1067",
+        "law_id": "pd-1067",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/PD-1067/Water Code of PH IRR 2005.pdf",
+          "001_Raw-Source-Layer/001-Laws/PD-1067/PD 1067 - Water Code of the Philippines.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1067/Water Code of PH IRR 2005.md",
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1067/PD 1067 - Water Code of the Philippines.md"
+        ],
+        "scope_notes": [
+          "Older non-amended IRR text is kept explicit and excluded pending any later supersession review.",
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+          "PD-1067 concept-fit slice admits water-governance concepts and dataset-scoped governs relationships only."
+        ],
+        "verification_checks": [
+          "initial tranche-3 selection keeps PD-1067 bounded to the base law plus the amended IRR.",
+          "source admission executed for the selected authoritative prepared variants",
+          "duplicate or study-aid raw variants remain explicit and excluded from canonical admission",
+          "PD-1067 concept-fit slice admits water-governance concepts and dataset-scoped governs relationships only."
+        ]
+      },
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/philippine-environmental-policy.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/PD-1151/PD 1151 - PD 1152 Environmental Code.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "PD-1151",
+        "law_id": "pd-1151",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/PD-1151/PD 1151 - PD 1152 Environmental Code.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1151/PD 1151 - PD 1152 Environmental Code.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants"
+        ]
+      },
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/ecological-solid-waste-management-act-of-2000.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "RA-9003",
+        "law_id": "ra-9003",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants"
+        ]
+      }
+    ],
+    "manifest_hash": "14d852a3789e89554b317b20b56aaae7baed57f61f6f94a555b9d66e983381fb",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T110237Z/derived_dataset_manifest.yaml",
+    "pilot_gate": {
+      "derived_from_tranche_id": "laws-tranche-3",
+      "derived_run_id": "20260417T110237Z",
+      "require_manifest_validation": true,
+      "source_to_graph_execute_ready": false
+    },
+    "run_id": "20260417T110243Z",
+    "scope_notes": [
+      "Derived from laws-tranche-3 after tranche source admission.",
+      "Dry-run only: stage admitted tranche members without unlocking execute.",
+      "Blocked tranche members remain explicit outside the staged law-unit list."
+    ],
+    "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-3-source-to-graph-execute/20260417T110243Z_graph_integrity_report.json",
+    "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-3-source-to-graph-execute/20260417T110243Z_graph_snapshot.json",
+    "upstream_artifact_refs": {
+      "canonical_concepts": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/water-permit.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/water-right.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/groundwater-drilling.md"
+      ],
+      "canonical_sources": [
+        "003_Canonical-Knowledge-Layer/shared/sources/amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/water-code-of-the-philippines.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/philippine-environmental-policy.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/ecological-solid-waste-management-act-of-2000.md"
+      ],
+      "relationship_inputs": [
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-permit.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-right.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-groundwater-drilling.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-groundwater-drilling.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T110237Z/promoted_relationships/pd-1067/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md"
+      ]
+    }
+  },
+  "contributing_law_ids": [
+    "pd-1067",
+    "pd-1151",
+    "ra-9003"
+  ],
+  "coverage": [
+    {
+      "approved_relationship_input_count": 6,
+      "canonical_count": 5,
+      "converted_count": null,
+      "edge_count_contributed": 11,
+      "folder_name": "PD-1067",
+      "node_count_contributed": 5,
+      "notes": "selected truth-bearing inputs contributed nodes/edges",
+      "raw_file_count": 3,
+      "refined_count": null,
+      "status": "covered"
+    },
+    {
+      "approved_relationship_input_count": 0,
+      "canonical_count": 1,
+      "converted_count": null,
+      "edge_count_contributed": 0,
+      "folder_name": "PD-1151",
+      "node_count_contributed": 1,
+      "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+      "raw_file_count": 1,
+      "refined_count": null,
+      "status": "partial"
+    },
+    {
+      "approved_relationship_input_count": 0,
+      "canonical_count": 1,
+      "converted_count": null,
+      "edge_count_contributed": 0,
+      "folder_name": "RA-9003",
+      "node_count_contributed": 1,
+      "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+      "raw_file_count": 1,
+      "refined_count": null,
+      "status": "partial"
+    }
+  ],
+  "dataset_id": "laws-tranche-3-source-to-graph-execute",
+  "dataset_kind": "laws-tranche",
+  "dry_run": false,
+  "edge_count": 11,
+  "incomplete": true,
+  "integrity": {
+    "error_count": 0,
+    "findings": [
+      {
+        "code": "orphan_node",
+        "edge_from": null,
+        "edge_to": null,
+        "message": "node 'law-ecological-solid-waste-management-act-of-2000' has zero incident edges",
+        "node_id": "law-ecological-solid-waste-management-act-of-2000",
+        "severity": "warning"
+      },
+      {
+        "code": "orphan_node",
+        "edge_from": null,
+        "edge_to": null,
+        "message": "node 'law-philippine-environmental-policy' has zero incident edges",
+        "node_id": "law-philippine-environmental-policy",
+        "severity": "warning"
+      },
+      {
+        "code": "duplicate_edge",
+        "edge_from": "irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines",
+        "edge_to": "concept-water-permit",
+        "message": "duplicate edge: irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines -[governs]-> concept-water-permit (evidence rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit)",
+        "node_id": null,
+        "severity": "warning"
+      }
+    ],
+    "passed": true,
+    "warning_count": 3
+  },
+  "integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-3-source-to-graph-execute/20260417T110243Z_graph_integrity_report.json",
+  "law_unit_count": 3,
+  "law_units": [
+    {
+      "admitted_concept_paths": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/water-permit.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/water-right.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/groundwater-drilling.md"
+      ],
+      "admitted_relationship_paths": [
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-permit.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-right.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-groundwater-drilling.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-groundwater-drilling.md"
+      ],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/water-code-of-the-philippines.md"
+      ],
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-1067/Water Code of PH IRR 2005.pdf",
+        "001_Raw-Source-Layer/001-Laws/PD-1067/PD 1067 - Water Code of the Philippines.pdf"
+      ],
+      "excluded_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-1067/PD 1067 IRR - Water Code Implementing Rules.pdf"
+      ],
+      "folder_name": "PD-1067",
+      "law_id": "pd-1067",
+      "raw_anchor_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-1067/Water Code of PH IRR 2005.pdf",
+        "001_Raw-Source-Layer/001-Laws/PD-1067/PD 1067 - Water Code of the Philippines.pdf"
+      ],
+      "refined_markdown_paths": [
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1067/Water Code of PH IRR 2005.md",
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1067/PD 1067 - Water Code of the Philippines.md"
+      ],
+      "scope_notes": [
+        "Older non-amended IRR text is kept explicit and excluded pending any later supersession review.",
+        "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+        "PD-1067 concept-fit slice admits water-governance concepts and dataset-scoped governs relationships only."
+      ],
+      "verification_checks": [
+        "initial tranche-3 selection keeps PD-1067 bounded to the base law plus the amended IRR.",
+        "source admission executed for the selected authoritative prepared variants",
+        "duplicate or study-aid raw variants remain explicit and excluded from canonical admission",
+        "PD-1067 concept-fit slice admits water-governance concepts and dataset-scoped governs relationships only."
+      ]
+    },
+    {
+      "admitted_concept_paths": [],
+      "admitted_relationship_paths": [],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/philippine-environmental-policy.md"
+      ],
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-1151/PD 1151 - PD 1152 Environmental Code.pdf"
+      ],
+      "excluded_variant_paths": [],
+      "folder_name": "PD-1151",
+      "law_id": "pd-1151",
+      "raw_anchor_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-1151/PD 1151 - PD 1152 Environmental Code.pdf"
+      ],
+      "refined_markdown_paths": [
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1151/PD 1151 - PD 1152 Environmental Code.md"
+      ],
+      "scope_notes": [
+        "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+      ],
+      "verification_checks": [
+        "source admission executed for the selected authoritative prepared variants"
+      ]
+    },
+    {
+      "admitted_concept_paths": [],
+      "admitted_relationship_paths": [],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/ecological-solid-waste-management-act-of-2000.md"
+      ],
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.pdf"
+      ],
+      "excluded_variant_paths": [],
+      "folder_name": "RA-9003",
+      "law_id": "ra-9003",
+      "raw_anchor_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.pdf"
+      ],
+      "refined_markdown_paths": [
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md"
+      ],
+      "scope_notes": [
+        "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+      ],
+      "verification_checks": [
+        "source admission executed for the selected authoritative prepared variants"
+      ]
+    }
+  ],
+  "manifest_hash": "14d852a3789e89554b317b20b56aaae7baed57f61f6f94a555b9d66e983381fb",
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-execute/source_to_graph/20260417T110237Z/derived_dataset_manifest.yaml",
+  "mode": "dataset",
+  "node_count": 7,
+  "run_id": "20260417T110243Z",
+  "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-3-source-to-graph-execute/20260417T110243Z_graph_snapshot.json",
+  "thin_graph_metrics": {
+    "connected_component_count": 3,
+    "edge_type_diversity": {
+      "count": 2,
+      "types": [
+        "defines",
+        "governs"
+      ]
+    },
+    "isolated_node_count": 2,
+    "isolated_node_rate": 0.285714,
+    "per_folder_node_edge_balance": {
+      "PD-1067": {
+        "edge_count_contributed": 11,
+        "node_count_contributed": 5,
+        "status": "covered"
+      },
+      "PD-1151": {
+        "edge_count_contributed": 0,
+        "node_count_contributed": 1,
+        "status": "partial"
+      },
+      "RA-9003": {
+        "edge_count_contributed": 0,
+        "node_count_contributed": 1,
+        "status": "partial"
+      }
+    }
+  }
+}

@@ -456,6 +456,86 @@ rules:
       core_concepts: []
 
   # --------------------------------------------------
+  # PD 1517 IRR
+  # --------------------------------------------------
+  - name: "PD 1517 IRR"
+
+    match:
+      all_contains:
+        - "pd"
+        - "1517"
+      any_contains:
+        - "urban land reform"
+        - "implement"
+        - "rules and regulations"
+
+    classification:
+      source_type: irr
+      trust_level: primary
+
+    canonical:
+      title: "Implementing Rules and Regulations of the Urban Land Reform Act"
+
+      aliases:
+        - "PD 1517"
+        - "Presidential Decree No. 1517"
+        - "Urban Land Reform Act IRR"
+        - "Urban Land Reform Rules and Regulations"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # RA 6969 Law
+  # --------------------------------------------------
+  - name: "RA 6969 Law"
+
+    match:
+      all_contains:
+        - "ra"
+        - "6969"
+      any_contains:
+        - "toxic substances"
+        - "hazardous"
+        - "nuclear wastes"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990"
+
+      aliases:
+        - "RA 6969"
+        - "Republic Act No. 6969"
+        - "Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # RA 10066 Law
+  # --------------------------------------------------
+  - name: "RA 10066 Law"
+
+    match:
+      all_contains:
+        - "10066"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "National Cultural Heritage Act of 2009"
+
+      aliases:
+        - "RA 10066"
+        - "Republic Act No. 10066"
+        - "National Cultural Heritage Act of 2009"
+
+      core_concepts: []
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

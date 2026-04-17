@@ -204,11 +204,36 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
       - `duplicate_law_folders = []`
       - `raw_alias_law_folders = [PD-1067]`
       - `generated_relationship_count = 0`
-      - `shallow_representation_count = 1`
+      - `shallow_representation_count = 0`
       - `source_to_graph_execute_completed = true`
     - tranche source admission now respects manifest-level authoritative/excluded variant intent, preserving explicit raw-alias visibility for `PD-1067`
+    - bounded `PD-1067` water-governance concept-fit follow-on is now admitted:
+      - concepts:
+        - `water-permit`
+        - `water-right`
+        - `groundwater-drilling`
+      - fresh tranche-3 execute graph moves from:
+        - `4 nodes / 0 edges`
+        - to `7 nodes / 11 edges`
     - see `/.ai/05_logs/2026-04-17_laws-tranche-3-execution-validation.md`
     - see `/.ai/05_logs/2026-04-17_tranche-source-admission-variant-selection-validation.md`
+    - see `/.ai/05_logs/2026-04-17_pd1067-water-governance-concept-fit-validation.md`
+  - tranche-4 is now defined and executed through the same bounded workflow:
+    - manifest: `config/datasets/laws-tranche-4.yaml`
+    - tranche-4 laws:
+      - `PD-1517`
+      - `RA-6969`
+      - `RA-10066`
+    - current execute evidence:
+      - `staged_law_folders = [PD-1517, RA-6969, RA-10066]`
+      - `duplicate_law_folders = []`
+      - `generated_relationship_count = 0`
+      - `spot_review_required_count = 1`
+      - `shallow_representation_count = 1`
+      - `source_to_graph_execute_completed = true`
+    - current truthful next richness target inside tranche-4 is `RA-10066`
+    - see `/.ai/05_logs/2026-04-17_laws-tranche-4-execution-validation.md`
+    - see `/.ai/05_logs/2026-04-17_tranche-4-scouting-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

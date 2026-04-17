@@ -21,11 +21,15 @@ candidate_law_folders:
   - source admission executed for the selected authoritative prepared variants
   - duplicate or study-aid raw variants remain explicit and excluded from canonical
     admission
+  - PD-1067 concept-fit slice admits water-governance concepts and dataset-scoped
+    governs relationships only.
   scope_notes:
   - Older non-amended IRR text is kept explicit and excluded pending any later supersession
     review.
   - Source admission is intentionally conservative and admits only selected authoritative
     prepared variants.
+  - PD-1067 concept-fit slice admits water-governance concepts and dataset-scoped
+    governs relationships only.
   source_admission_state: admitted
   source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-3/20260417T104200Z/laws_tranche_source_admission_report.json
   source_admission_run_id: 20260417T104200Z
@@ -38,6 +42,16 @@ candidate_law_folders:
   - 003_Canonical-Knowledge-Layer/shared/sources/amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines.md
   - 003_Canonical-Knowledge-Layer/shared/sources/water-code-of-the-philippines.md
   source_admission_guardrails: []
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/water-permit.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/water-right.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/groundwater-drilling.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-permit.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-right.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-groundwater-drilling.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-groundwater-drilling.md
 - folder_name: PD-1151
   reason: Environmental policy adjacency with a compact single-law surface.
   raw_anchor_paths: &id002

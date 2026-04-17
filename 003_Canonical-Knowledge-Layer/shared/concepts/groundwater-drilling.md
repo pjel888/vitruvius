@@ -1,0 +1,32 @@
+---
+id: concept-groundwater-drilling
+title: Groundwater Drilling
+page_type: concept
+canonical_status: enriched
+concept_status: enriched
+last_canonicalized_utc: '2026-04-17T10:52:00Z'
+enriched_at_utc: '2026-04-17T10:52:00Z'
+regulatory_basis:
+- source_id: law-water-code-of-the-philippines
+  section_id: article-64
+  evidence_snippet: 'No person shall drill a well without prior permission from the Council.'
+- source_id: irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines
+  section_id: section-45
+  evidence_snippet: 'No person shall drill any well for the extraction of groundwater or make any alteration to any existing well without securing a permit from the Board.'
+stringency_vector: qualitative
+aliases:
+- groundwater drilling
+- drilling of wells
+- permit to drill a well
+---
+
+# Groundwater Drilling
+
+## Definition
+
+Groundwater drilling is the regulated drilling or alteration of wells for groundwater extraction, requiring prior permission or permit under the Water Code framework.
+
+## Regulatory Basis
+
+- **[law-water-code-of-the-philippines](law-water-code-of-the-philippines)** - Article article-64: "No person shall drill a well without prior permission from the Council."
+- **[irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines](irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines)** - Section section-45: "No person shall drill any well for the extraction of groundwater or make any alteration to any existing well without securing a permit from the Board."

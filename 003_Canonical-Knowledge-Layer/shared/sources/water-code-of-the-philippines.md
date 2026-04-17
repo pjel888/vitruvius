@@ -4,7 +4,7 @@ title: Water Code of the Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T10:38:53.375916+00:00
+last_canonicalized_utc: 2026-04-17T11:02:43.483293+00:00
 aliases:
   - PD 1067
   - Presidential Decree No. 1067
@@ -37,4 +37,5 @@ decree instituting a Water Code, thereby revising and consolidating the laws gov
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-water-right
+- concept-water-permit

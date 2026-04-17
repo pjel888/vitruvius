@@ -1,0 +1,986 @@
+{
+  "file name" : "RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.pdf",
+  "number of pages" : 8,
+  "author" : "Ninya Racho",
+  "title" : null,
+  "creation date" : "D:20220929131757+08'00'",
+  "modification date" : "D:20220929131757+08'00'",
+  "kids" : [ {
+    "type" : "paragraph",
+    "id" : 205,
+    "page number" : 1,
+    "bounding box" : [ 81.624, 613.08, 513.084, 769.513 ],
+    "font" : "Roboto-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.267]",
+    "content" : "Republic of the Philippines Congress of the Philippines Metro Manila REPUBLIC ACT NO. 6969 AN ACT TO CONTROL TOXIC SUBSTANCES AND HAZARDOUS AND NUCLEAR WASTES, PROVIDING PENALTIES FOR VIOLATIONS THEREOF, AND FOR OTHER PURPOSES"
+  }, {
+    "type" : "list",
+    "id" : 213,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 72.024, 340.85, 523.414, 598.583 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "next list id" : 218,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 72.024, 570.12, 523.192, 598.583 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 1. Short Title. — This Act shall be known as the “Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990.”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 72.024, 455.35, 523.414, 555.833 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 2. Declaration of Policy. — It is the policy of the State to regulate, restrict or prohibit the importation, manufacture, processing, sale, distribution, use and disposal of chemical substances and mixtures that present unreasonable risk and/or injury to health or the environment; to prohibit the entry, even in transit, of hazardous and nuclear wastes and their disposal into the Philippine territorial limits for whatever purpose; and to provide advancement and facilitate research and studies on toxic chemicals.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 72.024, 369.17, 523.382, 441.093 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 3. Scope. — This Act shall cover the importation, manufacture, processing, handling, storage, transportation, sale, distribution, use and disposal of all unregulated chemical substances and mixtures in the Philippines, including the entry, even in transit, as well as the keeping or storage and disposal of hazardous and nuclear wastes into the country for whatever purpose.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 72.024, 340.85, 371.728, 354.913 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 4. Objectives. — The objectives of this Act are:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 215,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 72.024, 97.65, 523.678, 326.593 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 72.024, 269.3, 523.332, 326.593 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "a) To keep an inventory of chemicals that are presently being imported, manufactured, or used, indicating, among others, their existing and possible uses, test data, names of firms manufacturing or using them, and such other information as may be considered relevant to the protection of health and the environment;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 72.024, 197.52, 523.678, 254.803 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "b) To monitor and regulate the importation, manufacture, processing, handling, storage, transportation, sale, distribution, use and disposal of chemical substances and mixtures that present unreasonable risk or injury to health or to the environment in accordance with national policies and international commitments;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 72.024, 140.4, 522.972, 183.263 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "c) To inform and educate the populace regarding the hazards and risks attendant to the manufacture, handling, storage, transportation, processing, distribution, use and disposal of toxic chemicals and other substances and mixtures; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 72.024, 97.65, 522.876, 126.113 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "d) To prevent the entry, even in transit, as well as the keeping or storage and disposal of hazardous and nuclear wastes into the country for whatever purpose.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 218,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 72.024, 755.45, 308.532, 769.513 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 213,
+    "next list id" : 234,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 755.45, 308.532, 769.513 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 5. Definition. — As used in this Act:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 220,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 72.024, 198.0, 523.364, 741.193 ],
+    "numbering style" : "english letters",
+    "number of list items" : 7,
+    "next list id" : 229,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 712.7, 522.504, 741.193 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "a) Chemical substance means any organic or inorganic substance of a particular molecular identity, including:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 89,
+        "level" : "3",
+        "page number" : 2,
+        "bounding box" : [ 72.024, 641.42, 522.768, 698.203 ],
+        "numbering style" : "roman numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 72.024, 669.74, 522.768, 698.203 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "i) Any combination of such substances occurring in whole or in part as a result of chemical reaction or occurring in nature; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 72.024, 641.42, 291.794, 655.483 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "ii) Any element or uncombined chemical.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 526.65, 523.238, 627.143 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "b) Chemical mixture means any combination of two or more chemical substances if the combination does not occur in nature and is not, in whole or in part, the result of a chemical reaction, if none of the chemical substances comprising the combination is a new chemical substance and if the combination could have been manufactured for commercial purposes without a chemical reaction at the time the chemical substances comprising the combination were combined. This shall include nonbiodegradable mixtures.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 483.69, 522.96, 512.153 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "c) Process means the preparation of a chemical substance or mixture after its manufacture for commercial distribution:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 100,
+        "level" : "3",
+        "page number" : 2,
+        "bounding box" : [ 72.024, 412.63, 522.72, 469.413 ],
+        "numbering style" : "roman numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 72.024, 440.95, 522.72, 469.413 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "i) In the same form or physical state or in a different form or physical state from that which it was received by the person so preparing such substance or mixture; or",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 72.024, 412.63, 430.584, 426.693 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "ii) As part of an article containing a chemical substance or mixture.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 340.85, 523.356, 398.133 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "d) Importation means the entry of a product or substance into the Philippines (through the seaports or airports of entry) after having been properly cleared through or still remaining under customs control, the product or substance of which is intended for direct consumption, merchandising, warehousing, or for further processing.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 269.3, 523.364, 326.593 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "e) Manufacture means the mechanical or chemical transformation of substances into new products whether work is performed by power-driven machines or by hand, whether it is done in a factory or in the worker’s home, and whether the products are sold at wholesale or retail.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 226.34, 523.212, 254.803 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "f) Unreasonable risk means expected frequency of undesirable effects or adverse responses arising from a given exposure to a substance.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 198.0, 409.644, 212.063 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "g) Hazardous substances are substances which present either:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 222,
+    "level" : "3",
+    "page number" : 2,
+    "bounding box" : [ 72.024, 83.494, 523.19, 183.743 ],
+    "numbering style" : "roman numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 140.88, 522.938, 183.743 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "i) Short-term acute hazards, such as acute toxicity by ingestion, inhalation or skin absorption, corrosivity or other skin or eye contact hazards or the risk of fire or explosion; or",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 72.024, 83.494, 523.19, 126.353 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "ii) Long-term environmental hazards, including chronic toxicity upon repeated exposure, carcinogenicity (which may in some cases result from acute exposure but with a long latent period), resistance to detoxification process such as biodegradation,",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 226,
+    "page number" : 3,
+    "bounding box" : [ 72.024, 741.05, 522.89, 769.513 ],
+    "font" : "Roboto-Regular",
+    "font size" : 12.0,
+    "text color" : "[0.267]",
+    "content" : "the potential to pollute underground or surface waters, or aesthetically objectionable properties such as offensive odors."
+  }, {
+    "type" : "list",
+    "id" : 229,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 72.024, 540.57, 523.526, 726.763 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "previous list id" : 220,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 612.12, 523.526, 726.763 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "h) Hazardous wastes are hereby defined as substances that are without any safe commercial, industrial, agricultural or economic usage and are shipped, transported or brought from the country of origin for dumping or disposal into or in transit through any part of the territory of the Philippines. Hazardous wastes shall also refer to by-products, side-products, process residues, spent reaction media, contaminated plant or equipment or other substances from manufacturing operations, and as consumer discards of manufactured products.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 540.57, 523.24, 597.863 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "i) Nuclear wastes are hazardous wastes made radioactive by exposure to the radiation incidental to the production or utilization of nuclear fuels but does not include nuclear fuel, or radioisotopes which have reached the final stage of fabrication so as to be usable for any scientific, medical, agricultural, commercial, or industrial purpose.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 234,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 72.024, 469.05, 523.144, 526.313 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 218,
+    "next list id" : 246,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 469.05, 523.144, 526.313 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 6. Functions, Powers and Responsibilities of the Department of Environment and Natural Resources. — The Department of Environment and Natural Resources shall be the implementing agency tasked with the following functions, powers, and responsibilities:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 239,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 72.024, 82.774, 523.244, 454.533 ],
+    "numbering style" : "english letters",
+    "number of list items" : 7,
+    "next list id" : 243,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 397.27, 523.186, 454.533 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "a) To keep an updated inventory of chemicals that are presently being manufactured or used, indicating, among others, their existing and possible uses, quantity, test data, names of firms manufacturing or using them, and such other information as the Secretary may consider relevant to the protection of health and the environment;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 340.13, 522.84, 382.993 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "b) To require chemical substances and mixtures that present unreasonable risk or injury to health or to the environment to be tested before they are manufactured or imported for the first time;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 282.74, 523.094, 325.633 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "c) To require chemical substances and mixtures which are presently being manufactured or processed to be tested if there is a reason to believe that they pose unreasonable risk or injury to health or the environment;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 240.02, 523.244, 268.483 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "d) To evaluate the characteristics of chemicals that have been tested to determine their toxicity and the extent of their effects on health and the environment;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 197.28, 523.104, 225.763 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "e) To enter into contracts and make grants for research, development, and monitoring of chemical substances and mixtures;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 139.92, 523.09, 182.783 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "f) To conduct inspection of any establishment in which chemicals are manufactured, processed, stored or held before or after their commercial distribution and to make recommendations to the proper authorities concerned;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 72.024, 82.774, 522.902, 125.633 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "g) To confiscate or impound chemicals found not falling within the standard set by the rules and regulations and the said acts cannot be enjoined except after the chemicals have been impounded;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 243,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 72.024, 555.48, 523.404, 769.513 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "previous list id" : 239,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 741.05, 522.9, 769.513 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "h) To monitor and prevent the entry, even in transit, of hazardous and nuclear wastes and their disposal into the country;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 698.3, 522.852, 726.763 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "i) To subpoena witnesses and documents and to require other information if necessary to carry out the provisions of this Act;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 640.94, 523.248, 683.803 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "j) To call on any department, bureau, office, agency, state university or college, and other instrumentalities of the Government for assistance in the form of personnel, facilities, and other resources as the need arises in the discharge of its functions;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 598.2, 523.404, 626.663 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "k) To disseminate information and conduct educational awareness campaigns on the effects of chemical substances, mixtures and wastes on health and environment; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 555.48, 522.912, 583.943 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "l) To exercise such powers and perform such other functions as may be necessary to carry out its duties and responsibilities under this Act.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 246,
+    "level" : "1",
+    "page number" : 4,
+    "bounding box" : [ 72.024, 483.69, 523.27, 540.953 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 234,
+    "next list id" : 331,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 483.69, 523.27, 540.953 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 7. Inter-Agency Technical Advisory Council. — There is hereby created an Inter-Agency Technical Advisory Council attached to the Department of Environment and Natural Resources which shall be composed of the following officials or their duly authorized representatives:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 253,
+    "page number" : 4,
+    "bounding box" : [ 73.224, 281.3, 473.122, 439.413 ],
+    "font" : "Roboto-Regular",
+    "font size" : 12.0,
+    "text color" : "[0.133]",
+    "content" : "Secretary of Environment and Natural Resources Chairman Secretary of Health Member Director of the Philippine Nuclear Research Institute Member Secretary of Trade and Industry Member Secretary of Science and Technology Member Secretary of National Defense Member Secretary of Foreign Affairs Member Secretary of Labor and Employment Member Secretary of Finance Member Secretary of Finance Member Secretary of Agriculture Member"
+  }, {
+    "type" : "paragraph",
+    "id" : 310,
+    "page number" : 4,
+    "bounding box" : [ 73.224, 210.02, 465.938, 252.883 ],
+    "font" : "Roboto-Regular",
+    "font size" : 12.0,
+    "text color" : "[0.133]",
+    "content" : "Secretary of Agriculture Member Representative from a non-governmental organization on health and safety"
+  }, {
+    "type" : "paragraph",
+    "id" : 319,
+    "page number" : 4,
+    "bounding box" : [ 421.37, 224.42, 465.938, 238.483 ],
+    "font" : "Roboto-Regular",
+    "font size" : 12.0,
+    "text color" : "[0.133]",
+    "content" : "Member"
+  }, {
+    "type" : "paragraph",
+    "id" : 323,
+    "page number" : 4,
+    "bounding box" : [ 72.024, 137.28, 522.964, 165.743 ],
+    "font" : "Roboto-Regular",
+    "font size" : 12.0,
+    "text color" : "[0.267]",
+    "content" : "The representative from the non-governmental organization shall be appointed by the President for a term of three (3) years."
+  }, {
+    "type" : "paragraph",
+    "id" : 326,
+    "page number" : 4,
+    "bounding box" : [ 72.024, 108.93, 319.032, 122.993 ],
+    "font" : "Roboto-Regular",
+    "font size" : 12.0,
+    "text color" : "[0.267]",
+    "content" : "The Council shall have the following functions:"
+  }, {
+    "type" : "list",
+    "id" : 328,
+    "level" : "2",
+    "page number" : 5,
+    "bounding box" : [ 72.024, 569.4, 523.286, 769.513 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 72.024, 741.05, 522.948, 769.513 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "a) To assist the Department of Environment and Natural Resources in the formulation of the pertinent rules and regulations for the effective implementation of this Act;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 72.024, 683.9, 522.984, 726.763 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "b) To assist the Department of Environment and Natural Resources in the preparation and updating of the inventory of chemical substances and mixtures that fall within the coverage of this Act;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 72.024, 612.12, 523.286, 669.403 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "c) To conduct preliminary evaluation of the characteristics of chemical substances and mixtures to determine their toxicity and effects on health and the environment and make the necessary recommendations to the Department of Environment and Natural Resources; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 72.024, 569.4, 523.164, 597.863 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "d) To perform such other functions as the Secretary of Environment and Natural Resources may, from time to time, require.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 331,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 72.024, 96.694, 523.498, 555.113 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "previous list id" : 246,
+    "next list id" : 340,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 72.024, 439.99, 523.498, 555.113 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 8. Pre-Manufacture and Pre-Importation Requirements. — Before any new chemical substance or mixture can be manufactured, processed or imported for the first time as determined by the Department of Environment and Natural Resources, the manufacturer, processor or importer shall submit the following information: the name of the chemical substance or mixture; its chemical identity and molecular structure; proposed categories of use; an estimate of the amount to be manufactured, processed or imported; processing and disposal thereof; and any test data related to health and environmental effects which the manufacturer, processor or importer has.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 72.024, 397.27, 523.032, 425.733 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 9. Chemicals Subject to Testing. — Testing shall be required in all cases where:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 154,
+        "level" : "2",
+        "page number" : 5,
+        "bounding box" : [ 72.024, 268.82, 523.216, 382.993 ],
+        "numbering style" : "english letters",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 72.024, 340.13, 522.96, 382.993 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "a) There is a reason to believe that the chemical substances or mixture may present an unreasonable risk to health or the environment or there may be substantial human or environmental exposure thereto;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 72.024, 297.17, 522.864, 325.633 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "b) There are insufficient data and experience for determining or predicting the health and environmental effects of the chemical substance or mixture; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 72.024, 268.82, 523.216, 282.883 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "c) The testing of the chemical substance or mixture is necessary to develop such data.",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "paragraph",
+        "id" : 156,
+        "page number" : 5,
+        "bounding box" : [ 72.024, 226.1, 522.792, 254.563 ],
+        "font" : "Roboto-Regular",
+        "font size" : 12.0,
+        "text color" : "[0.267]",
+        "content" : "The manufacturers, processors or importers shall shoulder the costs of testing the chemical substance or mixture that will be manufactured, processed, or imported."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 72.024, 96.694, 523.284, 211.583 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 10. Action by the Secretary of Environment and Natural Resources of his Duly Authorized Representative. — The Secretary of Environment and Natural Resources or his duly authorized representative shall, within ninety (90) days from the date of filing of the notice of manufacture, processing or importation of a chemical substance or mixture, decide whether or not to regulate or prohibit its importation, manufacture, processing, sale, distribution, use or disposal. The Secretary may, for justifiable reasons, extend the ninety-day pre-manufacture period within a reasonable time.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 340,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 72.024, 268.1, 523.366, 769.513 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "previous list id" : 331,
+    "next list id" : 351,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 72.024, 755.45, 523.298, 769.513 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 11. Chemical Substances Exempt from Pre-Manufacture Notification.",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 160,
+        "level" : "2",
+        "page number" : 6,
+        "bounding box" : [ 72.024, 726.65, 523.116, 755.113 ],
+        "font" : "Roboto-Regular",
+        "font size" : 12.0,
+        "text color" : "[0.267]",
+        "content" : "— The manufacture of the following chemical substances or mixtures shall be exempt from pre-manufacture notification:"
+      }, {
+        "type" : "list",
+        "id" : 163,
+        "level" : "3",
+        "page number" : 6,
+        "bounding box" : [ 72.024, 526.65, 523.442, 712.363 ],
+        "numbering style" : "english letters",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 72.024, 683.9, 523.442, 712.363 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "a) Those included in the categories of chemical substances and mixtures already listed in the inventory of existing chemicals;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 72.024, 640.94, 522.998, 669.403 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "b) Those to be produced in small quantities solely for experimental or research and developmental purposes;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 72.024, 598.2, 523.334, 626.663 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "c) Chemical substances and mixtures that will not present an unreasonable risk to health and the environment; and",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 72.024, 526.65, 523.288, 583.943 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "d) Chemical substances and mixtures that exist temporarily and which have no human or environmental exposure such as those which exist as a result of chemical reaction in the manufacture or processing of a mixture of another chemical substance.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 72.024, 310.85, 523.366, 512.153 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 12. Public Access to Records, Reports or Notification. — The public shall have access to records, reports, or information concerning chemical substances and mixtures including safety data submitted, data on emission or discharge into the environment, and such documents shall be available for inspection or reproduction during normal business hours except that the Department of Environment and Natural Resources may consider a record, report or information or particular portions thereof confidential and may not be made public when such would divulge trade secrets, production or sales figures or methods, production or processes unique to such manufacturer, processor or distributor, or would otherwise tend to affect adversely the competitive position of such manufacturer, processor or distributor. The Department of Environment and Natural Resources, however, may release information subject to claim of confidentiality to a medical research or scientific institution where the information is needed for the purpose of medical diagnosis or treatment of a person exposed to the chemical substance or mixture.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 72.024, 268.1, 523.152, 296.563 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 13. Prohibited Acts. — The following acts and omissions shall be considered unlawful:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 343,
+    "level" : "3",
+    "page number" : 6,
+    "bounding box" : [ 72.024, 110.85, 523.498, 253.603 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "next list id" : 346,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 72.024, 210.74, 523.01, 253.603 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "a) Knowingly use a chemical substance or mixture which is imported, manufactured, processed or distributed in violation of this Act or implementing rules and regulations or orders;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 72.024, 153.6, 523.116, 196.463 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "b) Failure or refusal to submit reports, notices or other information, access to records as required by this Act, or permit inspection of establishment where chemicals are manufactured, processed, stored or otherwise held;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 72.024, 110.85, 523.498, 139.343 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "c) Failure or refusal to comply with the pre-manufacture and pre-importation requirements; and",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 346,
+    "level" : "3",
+    "page number" : 7,
+    "bounding box" : [ 72.024, 712.22, 523.12, 769.513 ],
+    "numbering style" : "english letters",
+    "number of list items" : 1,
+    "previous list id" : 343,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 712.22, 523.12, 769.513 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "d) Cause, aid or facilitate, directly or indirectly, in the storage, importation, or bringing into Philippine territory, including its maritime economic zones, even in transit, either by means of land, air or sea transportation or otherwise keeping in storage any amount of hazardous and nuclear wastes in any part of the Philippines.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 351,
+    "level" : "1",
+    "page number" : 7,
+    "bounding box" : [ 72.024, 683.9, 353.672, 697.963 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 340,
+    "next list id" : 371,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 683.9, 353.672, 697.963 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 14. Criminal Offenses and Penalties. —",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 353,
+    "level" : "3",
+    "page number" : 7,
+    "bounding box" : [ 72.024, 95.974, 523.666, 669.403 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "next list id" : 362,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 454.63, 523.27, 669.403 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "a) (i) The penalty of imprisonment of six (6) months and one (1) day to six (6) years and one (1) day and a fine ranging from Six hundred pesos (P600.00) to Four thousand pesos (P4,000.00) shall be imposed upon any person who shall violate Section 13(a) to (c) of this Act and shall not be covered by the Probation Law. If the offender is a foreigner, he or she shall be deported and barred from any subsequent entry into the Philippines after serving his or her sentence; ii) In case any violation of this Act is committed by a partnership, corporation, association or any juridical person, the partner, president, director or manager who shall consent to or shall knowingly tolerate such violation shall be directly liable and responsible for the act of the employees and shall be criminally liable as a co-principal; (iii) In case the offender is a government official or employee, he or she shall, in addition to the above penalties, be deemed automatically dismissed from office and permanently disqualified from holding any elective or appointive position.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 382.87, 522.9, 440.133 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "b) (i) The penalty of imprisonment of twelve (12) years and one (1) day to twenty (20) years, shall be imposed upon any person who shall violate Section 13(d) of this Act. If the offender is a foreigner, he or she shall be deported and barred from any subsequent entry into the Philippines after serving his or her sentence;",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 24,
+        "level" : "4",
+        "page number" : 7,
+        "bounding box" : [ 72.024, 225.14, 522.958, 368.593 ],
+        "numbering style" : "roman numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 72.024, 282.5, 522.924, 368.593 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "(ii) In the case of corporations or other associations, the above penalty shall be imposed upon the managing partner, president or chief executive in addition to an exemplary damage of at least Five hundred thousand pesos (P500,000.00). If it is a foreign firm, the director and all the officers of such foreign firm shall be barred from entry into the Philippines, in addition to the cancellation of its license to do business in the Philippines;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 72.024, 225.14, 522.958, 268.003 ],
+          "font" : "Roboto-Regular",
+          "font size" : 12.0,
+          "text color" : "[0.267]",
+          "content" : "(iii) In case the offender is a government official or employee, he or she shall in addition to the above penalties be deemed automatically dismissed from office and permanently disqualified from holding any elective or appointive position.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 95.974, 523.666, 210.863 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "c) Every penalty imposed for the unlawful importation, entry, transport, manufacture, processing, sale or distribution of chemical substances or mixtures into or within the Philippines shall carry with it the confiscation and forfeiture in favor of the Government of the proceeds of the unlawful act and instruments, tools or other improvements including vehicles, sea vessels, and aircrafts used in or with which the offense was committed. Chemical substances so confiscated and forfeited by the Government at its option shall be turned over to the Department of Environment and Natural Resources for safekeeping and proper disposal.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 362,
+    "level" : "3",
+    "page number" : 8,
+    "bounding box" : [ 72.024, 726.65, 523.376, 769.513 ],
+    "numbering style" : "english letters",
+    "number of list items" : 1,
+    "previous list id" : 353,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 72.024, 726.65, 523.376, 769.513 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "d) The person or firm responsible or connected with the bringing or importation into the country of hazardous or nuclear wastes shall be under obligation to transport or send back said prohibited wastes;",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 366,
+    "page number" : 8,
+    "bounding box" : [ 72.024, 655.1, 522.864, 712.363 ],
+    "font" : "Roboto-Regular",
+    "font size" : 12.0,
+    "text color" : "[0.267]",
+    "content" : "Any and all means of transportation, including all facilities and appurtenances that may have been used in transporting to or in the storage in the Philippines of any significant amount of hazardous or nuclear wastes shall at the option of the government be forfeited in its favor."
+  }, {
+    "type" : "list",
+    "id" : 371,
+    "level" : "1",
+    "page number" : 8,
+    "bounding box" : [ 72.024, 182.4, 523.642, 640.583 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 6,
+    "previous list id" : 351,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 72.024, 511.29, 523.642, 640.583 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 15. Administrative Fines. — In all cases of violations of this Act, including violations of implementing rules and regulations which have been duly promulgated and published in accordance with Section 16 of this Act, the Secretary of Environment and Natural Resources is hereby authorized to impose a fine of not less than Ten thousand pesos (P10,000.00), but not more than Fifty thousand pesos (P50,000.00) upon any person or entity found guilty thereof. The administrative fines imposed and collected by the Department of Environment and Natural Resources shall accrue to a special fund to be administered by the Department exclusively for projects and research activities relative to toxic substances and mixtures.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 72.024, 439.75, 523.184, 497.033 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 16. Promulgation of Rules and Regulations. — The Department of Environment and Natural Resources, in coordination with the member agencies of the Inter-Agency Technical Advisory Council, shall prepare and publish the rules and regulations implementing this Act within six (6) months from the date of its effectivity.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 72.024, 382.39, 523.472, 425.253 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 17. Appropriations. — Such amount as may be necessary to implement the provisions of this Act is hereby annually appropriated and included in the budget of the Department of Environment and Natural Resources.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 72.024, 325.25, 522.972, 368.113 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 18. Separability Clause. — If any provision of this Act is declared void or unconstitutional, the remaining provisions thereof not affected thereby shall remain in full force and effect.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 72.024, 268.1, 523.372, 310.993 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 19. Repealing Clause. — All laws, presidential decrees, executive orders and issuances, and rules and regulations which are inconsistent with this Act are hereby repealed or modified accordingly.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 72.024, 182.4, 523.056, 253.603 ],
+      "font" : "Roboto-Regular",
+      "font size" : 12.0,
+      "text color" : "[0.267]",
+      "content" : "SECTION 20. Effectivity Clause. — This Act shall take effect after fifteen (15) days following its publication in the Official Gazette or in any newspaper of general circulation. Approved: October 26, 1990",
+      "kids" : [ ]
+    } ]
+  } ]
+}

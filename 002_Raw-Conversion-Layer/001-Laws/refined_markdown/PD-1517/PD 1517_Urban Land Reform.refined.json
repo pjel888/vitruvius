@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T110645Z",
+  "source_relative_path": "001-Laws/raw_markdown/PD-1517/PD 1517_Urban Land Reform.md",
+  "refined_relative_path": "001-Laws/refined_markdown/PD-1517/PD 1517_Urban Land Reform.md",
+  "source_hash": "296abb2109578386aa87732ec8f020197f0cca87c649dce7d9b41a7c46e78ce5",
+  "output_hash": "294cde87c3dc06637744eddc8a0334a8a75fb54cc2466ee06f4526b81ed7f4bb",
+  "chars_before": 24204,
+  "chars_after": 24190,
+  "chars_delta": -14,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "collapse-consecutive-blank-lines"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 24204,
+      "chars_after": 24204,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 24204,
+      "chars_after": 24204,
+      "changed": false
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 24204,
+      "chars_after": 24204,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 24204,
+      "chars_after": 24204,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 24204,
+      "chars_after": 24190,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 24190,
+      "chars_after": 24190,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 24190,
+      "chars_after": 24190,
+      "changed": false
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 24190,
+      "chars_after": 24190,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}

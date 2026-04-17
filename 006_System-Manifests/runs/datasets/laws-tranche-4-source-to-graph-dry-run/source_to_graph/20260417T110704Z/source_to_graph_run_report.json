@@ -1,0 +1,370 @@
+{
+  "action": "run-dataset-source-to-graph",
+  "dataset_id": "laws-tranche-4-source-to-graph-dry-run",
+  "dry_run": true,
+  "generated_at_utc": "20260417T110704Z",
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-4/source_to_graph_dry_run/20260417T110704Z/derived_dataset_manifest.yaml",
+  "review_runtime": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "review_settings": {
+    "keeps_phase_11_gated": true,
+    "model": "qwen2.5:7b",
+    "name": "m2-8gb-safe",
+    "num_ctx_cap": 4096,
+    "parallelism": 1,
+    "preset": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "timeout_seconds": 900
+    },
+    "timeout_seconds": 900
+  },
+  "run_id": "20260417T110704Z",
+  "source_quality_summary": {
+    "benchmark_source_hints": [],
+    "extraction_trust_counts": {
+      "guarded": 1,
+      "review_required": 0,
+      "trusted": 2
+    },
+    "high_severity_paths": [],
+    "high_severity_sources": [],
+    "manual_review_required_paths": [],
+    "manual_review_required_sources": [],
+    "representation_guardrail_counts": {
+      "high": 0,
+      "low": 2,
+      "medium": 1
+    },
+    "severity_counts": {
+      "high": 0,
+      "low": 3,
+      "medium": 0
+    },
+    "shallow_representation_paths": [
+      "001-Laws/refined_markdown/RA-10066/ra 10066.md"
+    ],
+    "shallow_representation_sources": [
+      {
+        "benchmark_source_hints": [],
+        "difficulty_signals": {
+          "image_line_count": 36,
+          "noise_line_count": 0,
+          "structural_heading_count": 28,
+          "table_line_count": 0,
+          "useful_text_ratio": 0.903485
+        },
+        "manual_review_recommended": false,
+        "recommendations": [
+          "spot-review OCR-sensitive title/heading lines before trusting automated summaries"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-10066/ra 10066.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "RA-10066",
+          "law_id": "ra-10066",
+          "reasons": [
+            "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+            "relationship coverage is also thin relative to detected structure"
+          ],
+          "recommendations": [
+            "add law-native canonical concepts before widening this tranche",
+            "treat current graph coverage as concept-shallow rather than section-complete"
+          ],
+          "section_to_concept_ratio": 28.0,
+          "section_to_relationship_ratio": 28.0,
+          "severity": "medium",
+          "status": "shallow_representation",
+          "structural_heading_count": 28
+        },
+        "severity": "low",
+        "source_id": "law-national-cultural-heritage-act-of-2009"
+      }
+    ],
+    "source_acceptance_counts": {
+      "accepted": 2,
+      "accepted_with_spot_review": 1,
+      "manual_review_required": 0
+    },
+    "spot_review_required_paths": [
+      "001-Laws/refined_markdown/RA-10066/ra 10066.md"
+    ],
+    "summary_auto_withheld_paths": [
+      "001-Laws/refined_markdown/RA-10066/ra 10066.md"
+    ]
+  },
+  "stage_results": [
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "irr-implementing-rules-and-regulations-of-the-urban-land-reform-act",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-urban-land-reform-act.md",
+        "title": "Implementing Rules and Regulations of the Urban Land Reform Act",
+        "trust_level": "primary"
+      },
+      "law_id": "pd-1517",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/PD-1517/PD 1517_Urban Land Reform.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/pd-1517/PD 1517_Urban Land Reform_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/pd-1517/PD 1517_Urban Land Reform_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/promoted_relationships/pd-1517",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/pd-1517/PD 1517_Urban Land Reform_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-1517/PD 1517_Urban Land Reform.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 0,
+        "admitted_relationship_count": 0,
+        "folder_name": "PD-1517",
+        "law_id": "pd-1517",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 6.0,
+        "section_to_relationship_ratio": 6.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 6
+      },
+      "source_id": "irr-implementing-rules-and-regulations-of-the-urban-land-reform-act",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 1,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 0,
+        "noise_line_count": 0,
+        "non_empty_line_count": 128,
+        "recommendations": [],
+        "refined_markdown_path": "001-Laws/refined_markdown/PD-1517/PD 1517_Urban Land Reform.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "PD-1517",
+          "law_id": "pd-1517",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 6.0,
+          "section_to_relationship_ratio": 6.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 6
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 6,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [
+          "Subleasing or assignment of lease of residential units in whole or in part, without the written consent of the owner/lessor; Provided, that in the case of subleases or assignments executed prior to the approval of this Rules, the sublessor/assignor shall have sixty days from the effectivity of this Rules within which to obtain the approval of the owner/lessor or terminate the sublease or assignment."
+        ],
+        "suspicious_ocr_line_count": 1,
+        "suspicious_ocr_line_ratio": 0.007812,
+        "table_line_count": 0,
+        "total_line_count": 224,
+        "useful_text_line_count": 128,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/source_quality/pd-1517/PD 1517_Urban Land Reform_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990.md",
+        "title": "Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-6969",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/ra-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/ra-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/promoted_relationships/ra-6969",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/ra-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 0,
+        "admitted_relationship_count": 0,
+        "folder_name": "RA-6969",
+        "law_id": "ra-6969",
+        "reasons": [],
+        "recommendations": [],
+        "section_to_concept_ratio": 0.0,
+        "section_to_relationship_ratio": 0.0,
+        "severity": "low",
+        "status": "balanced",
+        "structural_heading_count": 0
+      },
+      "source_id": "law-toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "allow_auto_summary",
+        "extraction_trust_level": "trusted",
+        "extraction_trust_reasons": [],
+        "front_matter_suspicious_ocr_line_count": 1,
+        "image_line_count": 0,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 0,
+        "noise_line_count": 0,
+        "non_empty_line_count": 82,
+        "recommendations": [
+          "low structural-heading count: verify section detection and source structure fidelity"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "RA-6969",
+          "law_id": "ra-6969",
+          "reasons": [],
+          "recommendations": [],
+          "section_to_concept_ratio": 0.0,
+          "section_to_relationship_ratio": 0.0,
+          "severity": "low",
+          "status": "balanced",
+          "structural_heading_count": 0
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [],
+        "source_acceptance_status": "accepted",
+        "spot_review_focus": [],
+        "spot_review_required": false,
+        "structural_heading_count": 0,
+        "summary_auto_withheld": false,
+        "summary_hygiene_flags": [],
+        "suspicious_ocr_examples": [
+          "- e) Manufacture means the mechanical or chemical transformation of substances into new products whether work is performed by power-driven machines or by hand, whether it is done in a factory or in the worker’s home, and whether the products are sold at wholesale or retail."
+        ],
+        "suspicious_ocr_line_count": 1,
+        "suspicious_ocr_line_ratio": 0.012195,
+        "table_line_count": 0,
+        "total_line_count": 164,
+        "useful_text_line_count": 82,
+        "useful_text_ratio": 1.0
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/source_quality/ra-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990_source_quality.json"
+    },
+    {
+      "admitted_canonical_source_anchor": {
+        "id": "law-national-cultural-heritage-act-of-2009",
+        "path": "003_Canonical-Knowledge-Layer/shared/sources/national-cultural-heritage-act-of-2009.md",
+        "title": "National Cultural Heritage Act of 2009",
+        "trust_level": "primary"
+      },
+      "law_id": "ra-10066",
+      "normalized_refined_markdown_path": "001-Laws/refined_markdown/RA-10066/ra 10066.md",
+      "planned_extract_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/ra-10066/ra 10066_extract.json",
+      "planned_high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/ra-10066/ra 10066_high_conf.json",
+      "planned_promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/promoted_relationships/ra-10066",
+      "planned_review_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/ra-10066/ra 10066_review.json",
+      "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-10066/ra 10066.md",
+      "representation_guardrail": {
+        "admitted_concept_count": 0,
+        "admitted_relationship_count": 0,
+        "folder_name": "RA-10066",
+        "law_id": "ra-10066",
+        "reasons": [
+          "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+          "relationship coverage is also thin relative to detected structure"
+        ],
+        "recommendations": [
+          "add law-native canonical concepts before widening this tranche",
+          "treat current graph coverage as concept-shallow rather than section-complete"
+        ],
+        "section_to_concept_ratio": 28.0,
+        "section_to_relationship_ratio": 28.0,
+        "severity": "medium",
+        "status": "shallow_representation",
+        "structural_heading_count": 28
+      },
+      "source_id": "law-national-cultural-heritage-act-of-2009",
+      "source_quality": {
+        "benchmark_source_hints": [],
+        "canonical_summary_action": "withhold_auto_summary",
+        "extraction_trust_level": "guarded",
+        "extraction_trust_reasons": [
+          "front matter is image-heavy and may reflect OCR/layout instability",
+          "image-heavy front matter still contains suspicious OCR text near the document title/opening lines",
+          "spot-review the flagged OCR-sensitive regions before trusting summary prose"
+        ],
+        "front_matter_suspicious_ocr_line_count": 2,
+        "image_line_count": 36,
+        "manual_review_recommended": false,
+        "markdown_heading_count": 16,
+        "noise_line_count": 0,
+        "non_empty_line_count": 373,
+        "recommendations": [
+          "spot-review OCR-sensitive title/heading lines before trusting automated summaries"
+        ],
+        "refined_markdown_path": "001-Laws/refined_markdown/RA-10066/ra 10066.md",
+        "representation_guardrail": {
+          "admitted_concept_count": 0,
+          "admitted_relationship_count": 0,
+          "folder_name": "RA-10066",
+          "law_id": "ra-10066",
+          "reasons": [
+            "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+            "relationship coverage is also thin relative to detected structure"
+          ],
+          "recommendations": [
+            "add law-native canonical concepts before widening this tranche",
+            "treat current graph coverage as concept-shallow rather than section-complete"
+          ],
+          "section_to_concept_ratio": 28.0,
+          "section_to_relationship_ratio": 28.0,
+          "severity": "medium",
+          "status": "shallow_representation",
+          "structural_heading_count": 28
+        },
+        "severity": "low",
+        "source_acceptance_reasons": [
+          "image-heavy front matter still contains suspicious OCR text near the document title/opening lines"
+        ],
+        "source_acceptance_status": "accepted_with_spot_review",
+        "spot_review_focus": [
+          "title/header lines and the first operative section",
+          "section numbering and other numeric provisions",
+          "image-backed front matter, page breaks, and signature/footer spillover"
+        ],
+        "spot_review_required": true,
+        "structural_heading_count": 28,
+        "summary_auto_withheld": true,
+        "summary_hygiene_flags": [
+          "image_heavy_front_matter"
+        ],
+        "suspicious_ocr_examples": [
+          "2J\\rJlublirllffqr JqiliJlJlinrz",
+          "- (d) The petitioner/stakeholder shall give their answer within fifteen (15) days upon receipt of any position paper. Thereafter, no further submissions shall be allowed; and",
+          "POWERS OF THE COMMISSION/CULTURAL AGENCIES",
+          "- SECTION 30. Anthropological Research and Archaeological Exploration/Excavation. - (a) The National Museum, with respect to cultural/archaeological/anthropological matters, and the National Historical Institute, with respect to historical anthropological matters, shall regulate and. control all anthropological research conducted by foreigners; and all archaeological excavation or exploration. Pursuant to the foregoing, the National Museum or the National Historical Institute shall deputize other agencies to protect archaeological and anthropological sites. It shall be guided by the following rules:",
+          "training programs and other measures to protect the well-being of curators, conservators, authenticators, cultural researchers or educators, historians, librarians, archivists and valuators/appraisers of cultural property. Such cultural workers shall be given grants, incentives and scholarships upon the endorsement by the head of the appropriate cultural agency:"
+        ],
+        "suspicious_ocr_line_count": 6,
+        "suspicious_ocr_line_ratio": 0.016086,
+        "table_line_count": 0,
+        "total_line_count": 676,
+        "useful_text_line_count": 337,
+        "useful_text_ratio": 0.903485
+      },
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-dry-run/source_to_graph/20260417T110704Z/source_quality/ra-10066/ra 10066_source_quality.json"
+    }
+  ]
+}
