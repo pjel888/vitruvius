@@ -9,24 +9,20 @@
 - `PRC` — professional-practice / PRBoA resolution lane now completed
 - `RA-9279` — remediation lane now resolved truthfully as the Section 18 RA 7279 IRR source surface
 
-## Proposed future tranche sequence
-### Tranche 9 — Environmental / implementation guidance
-- `DENR`
-- `DOE`
-- `DPWH`
-
-### Tranche 10 — Architecture duplicate-remediation lane
-- `RA-9266`
-- optional bounded supporting context later from `PRC`
-
-### Tranche 11 — Fire-code overlap closure singleton
-- `PD-9514`
-
-### Tranche 12 — Planning / settlements governance pack
-- `EO`
-- `DHSUD` (from the legacy combined `HLURB-DHSUD` raw folder)
-
-### Tranche 15 — Local ordinance / zoning sharding lane
+## Historical completed lane sequence
+### Previously completed tranche / lane families
+- Environmental / implementation guidance
+  - `DENR`
+  - `DOE`
+  - `DPWH`
+- Architecture duplicate-remediation
+  - `RA-9266`
+- Fire-code overlap closure singleton
+  - `PD-9514`
+- Planning / settlements governance pack
+  - `EO`
+  - `DHSUD` (from the legacy combined `HLURB-DHSUD` raw folder)
+- Local ordinance / zoning sharding lane
 - `LGU`
   - completed shards:
     - San Mateo zoning ordinance + San Mateo/Rizal CLUP
@@ -38,6 +34,10 @@
     - Quezon City ordinance no. 2117 / QC-CBD zoning ordinance
     - Pasay City zoning ordinance of 2003
   - remaining blocker: the wider LGU lane still needs additional city/family shards beyond San Mateo
+- Professional-practice / board-resolution lane
+  - `PRC`
+- Filename/folder mismatch remediation
+  - `RA-9279`
 
 ## Remediation / defer lanes
 ### Remediation-first
@@ -65,9 +65,12 @@
 - `config/datasets/laws-remaining-dispositions.yaml`
 
 ## Realistic remaining workload
-- normal future tranches likely needed: **2–4**
-- remediation/defer lanes likely needed: **2–4**
-- realistic remaining total work units: **4–7**
+- stronger normal executable tranches currently evident: **0**
+- residual defer/final-disposition lanes: **6 uncovered folders**
+- additional work would require:
+  - new authoritative source material
+  - a material change in source status/finality
+  - or an explicit user-directed reopening of a deferred item
 
 ## Tracking rule
 Track progress by **lane completed**, not just tranche number. Some future lanes are remediation-only and should not be counted as normal law tranches.
