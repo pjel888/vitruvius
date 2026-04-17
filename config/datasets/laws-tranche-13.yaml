@@ -1,0 +1,117 @@
+tranche_id: laws-tranche-13
+purpose: readiness-only
+phase_11_gate: gated
+description: Thirteenth explicit widening tranche after tranche-12. This tranche is
+  a scoped professional/standards lane across CHED, CIAP, and UAP, using explicit
+  authoritative files only and excluding reviewer-style bundle content.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: CHED
+  reason: architecture curriculum standards adjacency.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum
+    Standards.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-13/20260417T160110Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T160110Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017
+    - BS Architecture Curriculum Standards.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/cmo-61-series-2017-bs-architecture-curriculum-standards.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - OCR-first preparation completed for the selected curriculum-standard PDF before
+    canonical admission
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+- folder_name: CIAP
+  reason: private construction contract governance adjacency.
+  raw_anchor_paths: &id002
+  - 001_Raw-Source-Layer/001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf
+  authoritative_variant_paths: *id002
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-13/20260417T160110Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T160110Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/ciap-document-102-uniform-general-conditions-of-contract-for-private-construction.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+- folder_name: UAP
+  reason: professional ethics and standards adjacency.
+  raw_anchor_paths: &id003
+  - 001_Raw-Source-Layer/001-Laws/UAP/UAP Document Code of Ethics.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/UAP Document Standards of Professional Practice.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf
+  authoritative_variant_paths: *id003
+  excluded_variant_paths:
+  - 001_Raw-Source-Layer/001-Laws/UAP/1979 UAP Documents.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/Professional Practice Reviewer2.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/SPP 201.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/SPP 202.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/SPP 203.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/SPP 204A.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/SPP 204B.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/SPP 205.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/SPP 206.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/SPP 207.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/SPP 208.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/SPP 209.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/Standards of Professional Practice2.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/UAP Document 3012.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/UAP Document 401-402.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/UAP Documents Q _ A.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/UAP Documents Reviewer.pdf
+  - 001_Raw-Source-Layer/001-Laws/UAP/UAP Documents.pdf
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-13/20260417T160110Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T160110Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Code of Ethics.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Standards
+    of Professional Practice.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document 301.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/uap-document-code-of-ethics.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/uap-document-standards-of-professional-practice.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/uap-document-301-general-conditions.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - duplicate or study-aid raw variants remain explicit and excluded from canonical
+    admission
+  - UAP concept-fit slice admits only directly evidenced ethics, practice-standard,
+    and contract-conditions concepts plus dataset-scoped governs relationships
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - UAP concept-fit slice admits only directly evidenced ethics, practice-standard,
+    and contract-conditions concepts plus dataset-scoped governs relationships.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/code-of-ethics.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/standards-of-professional-practice.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/general-conditions-of-contract.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-code-of-ethics-governs-concept-code-of-ethics.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-professional-practice-governs-concept-standards-of-professional-practice.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-301-general-conditions-governs-concept-general-conditions-of-contract.md
+source_admission:
+  last_run_id: 20260417T160110Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-13/20260417T160110Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - CHED
+  - CIAP
+  - UAP
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []

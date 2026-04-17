@@ -1,0 +1,50 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:handout-ciap-document-102-uniform-general-conditions-of-contract-for-private-construction a vitruvius:source ;
+    rdfs:label "ciap-document-102-uniform-general-conditions-of-contract-for-private-construction (handout-ciap-document-102-uniform-general-conditions-of-contract-for-private-construction)" ;
+    vitruvius:last_updated_utc "2026-04-17T16:01:10Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-cmo-61-series-2017-bs-architecture-curriculum-standards a vitruvius:source ;
+    rdfs:label "cmo-61-series-2017-bs-architecture-curriculum-standards (handout-cmo-61-series-2017-bs-architecture-curriculum-standards)" ;
+    vitruvius:last_updated_utc "2026-04-17T16:01:10Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-uap-document-301-general-conditions a vitruvius:source ;
+    rdfs:label "uap-document-301-general-conditions (handout-uap-document-301-general-conditions)" ;
+    vitruvius:defines vitruvius:concept-general-conditions-of-contract ;
+    vitruvius:governs vitruvius:concept-general-conditions-of-contract ;
+    vitruvius:last_updated_utc "2026-04-17T16:01:10Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-uap-document-code-of-ethics a vitruvius:source ;
+    rdfs:label "uap-document-code-of-ethics (handout-uap-document-code-of-ethics)" ;
+    vitruvius:defines vitruvius:concept-code-of-ethics ;
+    vitruvius:governs vitruvius:concept-code-of-ethics ;
+    vitruvius:last_updated_utc "2026-04-17T16:01:10Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:handout-uap-document-standards-of-professional-practice a vitruvius:source ;
+    rdfs:label "uap-document-standards-of-professional-practice (handout-uap-document-standards-of-professional-practice)" ;
+    vitruvius:defines vitruvius:concept-standards-of-professional-practice ;
+    vitruvius:governs vitruvius:concept-standards-of-professional-practice ;
+    vitruvius:last_updated_utc "2026-04-17T16:01:10Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:concept-code-of-ethics a vitruvius:concept ;
+    rdfs:label "code-of-ethics (concept-code-of-ethics)" ;
+    vitruvius:last_updated_utc "2026-04-17T15:16:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-general-conditions-of-contract a vitruvius:concept ;
+    rdfs:label "general-conditions-of-contract (concept-general-conditions-of-contract)" ;
+    vitruvius:last_updated_utc "2026-04-17T15:16:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-standards-of-professional-practice a vitruvius:concept ;
+    rdfs:label "standards-of-professional-practice (concept-standards-of-professional-practice)" ;
+    vitruvius:last_updated_utc "2026-04-17T15:16:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+

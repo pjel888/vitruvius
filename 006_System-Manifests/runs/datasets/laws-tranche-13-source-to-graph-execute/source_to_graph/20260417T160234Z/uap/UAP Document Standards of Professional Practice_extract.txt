@@ -1,0 +1,6 @@
+Section-Aware Relationship Extraction
+
+Sections: 75
+Unique relationships: 1
+
+handout-uap-document-standards-of-professional-practice -> governs -> concept-standards-of-professional-practice (x22) sections=['section-4', 'section-1', 'section-2', 'section-5', 'section-7', 'section-9', 'section-18', 'section-24', 'section-28']

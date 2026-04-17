@@ -1,0 +1,22 @@
+{
+  "generated_at": "20260417T151653Z",
+  "source": "001-Laws/refined_markdown/UAP/UAP Document 301.md",
+  "source_id": "handout-uap-document-301-general-conditions",
+  "total_sections": 1,
+  "total_relationships": 1,
+  "relationships": [
+    {
+      "from": "handout-uap-document-301-general-conditions",
+      "type": "governs",
+      "to": "concept-stairs",
+      "occurrences": 1,
+      "sections": [
+        "section-1"
+      ],
+      "examples": [
+        "- 15.07 TEMPORARY ROADWAYS: The Contractor shall construct and properly maintain temporary roadways within and adjacent to site in order to provide proper access to the building. Temporary roadways shall adequately sustain loads to be carried on them and be so constructed as not to endanger existing"
+      ],
+      "alternate_predicates": []
+    }
+  ]
+}

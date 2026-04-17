@@ -1,0 +1,52 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "front matter includes a table of contents before operative text"
+  ],
+  "front_matter_suspicious_ocr_line_count": 1,
+  "image_line_count": 0,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 19,
+  "noise_line_count": 1,
+  "non_empty_line_count": 600,
+  "recommendations": [],
+  "refined_markdown_path": "001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 0,
+    "admitted_relationship_count": 0,
+    "folder_name": "CIAP",
+    "law_id": "ciap",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 9.0,
+    "section_to_relationship_ratio": 9.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 9
+  },
+  "severity": "low",
+  "source_acceptance_reasons": [],
+  "source_acceptance_status": "accepted",
+  "spot_review_focus": [],
+  "spot_review_required": false,
+  "structural_heading_count": 9,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [
+    "table_of_contents_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "- Article 35: Owner’s Representative - 39",
+    "- [f] Failure of the Owner to supply Owner-supplied/furnished materials on time, where such failure is due to causes beyond the reasonable control of the Owner;",
+    "- ART. 35: Owner’s Representative",
+    "|NO. TITLE|TIME LIMIT|REFERENCE ARTICLE NO.|",
+    "|1. CONTRACT TIME 1.1 Contract Time Reckoning|To commence on the 7th day from receipt of Notice to Proceed (NTP) unless NTP provides for a later date|21.02|"
+  ],
+  "suspicious_ocr_line_count": 15,
+  "suspicious_ocr_line_ratio": 0.025,
+  "table_line_count": 25,
+  "total_line_count": 926,
+  "useful_text_line_count": 574,
+  "useful_text_ratio": 0.956667
+}

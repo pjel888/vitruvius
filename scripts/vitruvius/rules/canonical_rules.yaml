@@ -1126,6 +1126,114 @@ rules:
       aliases:
         - "DHSUD Resilient Urban Design and Development Guidelines"
 
+
+  # --------------------------------------------------
+  # CHED Architecture Curriculum Standards
+  # --------------------------------------------------
+  - name: "CHED Architecture Curriculum Standards"
+
+    match:
+      any_contains:
+        - "ched cmo 61"
+        - "bs architecture curriculum standards"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "CMO 61 Series 2017 BS Architecture Curriculum Standards"
+
+      aliases:
+        - "CHED CMO 61 Series 2017"
+        - "BS Architecture Curriculum Standards"
+
+  # --------------------------------------------------
+  # CIAP Document 102
+  # --------------------------------------------------
+  - name: "CIAP Document 102"
+
+    match:
+      any_contains:
+        - "ciap-document-102"
+        - "uniform general conditions of contract"
+        - "private constn contract"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "CIAP Document 102 Uniform General Conditions of Contract for Private Construction"
+
+      aliases:
+        - "CIAP Document 102"
+        - "Uniform General Conditions of Contract for Private Construction"
+
+  # --------------------------------------------------
+  # UAP Code of Ethics
+  # --------------------------------------------------
+  - name: "UAP Code of Ethics"
+
+    match:
+      any_contains:
+        - "uap document code of ethics"
+        - "architect's code of ethics"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "UAP Document Code of Ethics"
+
+      aliases:
+        - "UAP Code of Ethics"
+        - "Architect's Code of Ethics"
+
+  # --------------------------------------------------
+  # UAP Standards of Professional Practice
+  # --------------------------------------------------
+  - name: "UAP Standards of Professional Practice"
+
+    match:
+      any_contains:
+        - "uap document standards of professional practice"
+        - "standards of professional practice2"
+        - "2010 standards of professional practice"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "UAP Document Standards of Professional Practice"
+
+      aliases:
+        - "UAP Standards of Professional Practice"
+        - "2010 Standards of Professional Practice"
+
+  # --------------------------------------------------
+  # UAP Document 301 General Conditions
+  # --------------------------------------------------
+  - name: "UAP Document 301 General Conditions"
+
+    match:
+      any_contains:
+        - "uap document 301"
+        - "general conditions"
+
+    classification:
+      source_type: handout
+      trust_level: primary
+
+    canonical:
+      title: "UAP Document 301 General Conditions"
+
+      aliases:
+        - "UAP Document 301"
+        - "General Conditions"
+
   # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------

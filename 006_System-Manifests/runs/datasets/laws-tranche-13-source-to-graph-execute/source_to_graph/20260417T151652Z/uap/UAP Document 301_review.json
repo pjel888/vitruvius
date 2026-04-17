@@ -1,0 +1,42 @@
+{
+  "generated_at": "20260417T151653Z",
+  "model": "qwen2.5:7b",
+  "source": "001-Laws/refined_markdown/UAP/UAP Document 301.md",
+  "total_candidates": 1,
+  "llm_reviewed": 0,
+  "pre_review_auto_accepted": 0,
+  "pre_review_auto_rejected": 1,
+  "completed_reviews": 1,
+  "status": "completed",
+  "summary": {
+    "keep": 0,
+    "review_further": 0,
+    "reject": 1,
+    "high_confidence_keep": 0,
+    "high_confidence_reject": 1
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "handout-uap-document-301-general-conditions",
+        "type": "governs",
+        "to": "concept-stairs",
+        "occurrences": 1,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "- 15.07 TEMPORARY ROADWAYS: The Contractor shall construct and properly maintain temporary roadways within and adjacent to site in order to provide proper access to the building. Temporary roadways shall adequately sustain loads to be carried on them and be so constructed as not to endanger existing"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['stairs'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}

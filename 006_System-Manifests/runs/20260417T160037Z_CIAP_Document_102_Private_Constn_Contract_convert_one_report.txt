@@ -1,0 +1,9 @@
+Vitruvius Convert One Report
+
+Source: 001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf
+Detection result: TEXT_PDF
+Recommended route: OPENDATALOADER_DIRECT
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/CIAP/CIAP-Document-102-Private-Constn-Contract.json
+
+STATUS: converted

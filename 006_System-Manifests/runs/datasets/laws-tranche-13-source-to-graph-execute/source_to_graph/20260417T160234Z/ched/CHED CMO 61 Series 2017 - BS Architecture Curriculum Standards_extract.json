@@ -1,0 +1,37 @@
+{
+  "generated_at": "20260417T160234Z",
+  "source": "001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md",
+  "source_id": "handout-cmo-61-series-2017-bs-architecture-curriculum-standards",
+  "total_sections": 39,
+  "total_relationships": 2,
+  "relationships": [
+    {
+      "from": "handout-cmo-61-series-2017-bs-architecture-curriculum-standards",
+      "type": "governs",
+      "to": "concept-occupancy-load",
+      "occurrences": 2,
+      "sections": [
+        "section-19"
+      ],
+      "examples": [
+        "Actual occupancy load of instructional rooms shall be properly observed and maintained.",
+        "- a. All classrooms, lecture rooms, studios and laboratories in the architectural institution shall be clean and properly maintained to meet public health and safety regulations. - b. Physical education and recreational areas shall conform with all rules and regulations pertaining to safety and suit"
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "handout-cmo-61-series-2017-bs-architecture-curriculum-standards",
+      "type": "governs",
+      "to": "concept-building-permit",
+      "occurrences": 2,
+      "sections": [
+        "section-35"
+      ],
+      "examples": [
+        "structural, electrical, mechanical and plumbing design, specifications and related calculation as appropriate in accordance with the Building Code and all other documents required to obtain a building permit.",
+        "normally include: architectural design: vicinity map, site plans, floor plans, elevations; sections, perspective/isometric presentations, foundation plans, roof plans, roof and floor framing plans and their details; structural, electrical, mechanical and plumbing design, specifications and related c"
+      ],
+      "alternate_predicates": []
+    }
+  ]
+}

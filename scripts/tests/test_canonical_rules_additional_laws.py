@@ -375,3 +375,43 @@ def test_build_plan_matches_dhsud_resilient_urban_guidelines_rule() -> None:
     assert plan['prefix'] == 'handout'
     assert plan['source_type'] == 'handout'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ched_architecture_curriculum_standards_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md')
+    assert plan['title'] == 'CMO 61 Series 2017 BS Architecture Curriculum Standards'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ciap_document_102_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md')
+    assert plan['title'] == 'CIAP Document 102 Uniform General Conditions of Contract for Private Construction'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_uap_code_of_ethics_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/UAP/UAP Document Code of Ethics.md')
+    assert plan['title'] == 'UAP Document Code of Ethics'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_uap_spp_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md')
+    assert plan['title'] == 'UAP Document Standards of Professional Practice'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_uap_document_301_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/UAP/UAP Document 301.md')
+    assert plan['title'] == 'UAP Document 301 General Conditions'
+    assert plan['prefix'] == 'handout'
+    assert plan['source_type'] == 'handout'
+    assert plan['trust'] == 'primary'

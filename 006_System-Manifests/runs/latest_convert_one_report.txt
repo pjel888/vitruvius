@@ -1,9 +1,9 @@
 Vitruvius Convert One Report
 
-Source: 001-Laws/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.pdf
+Source: 001-Laws/UAP/UAP Document 301.pdf
 Detection result: TEXT_PDF
 Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.json
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/UAP/UAP Document 301.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/UAP/UAP Document 301.json
 
 STATUS: converted

@@ -1,0 +1,386 @@
+{
+  "action": "run-laws-tranche-source-admission",
+  "admission_review_ready_law_folders": [
+    "CHED",
+    "CIAP",
+    "UAP"
+  ],
+  "admitted_source_page_count": 5,
+  "blocked_law_folders": [],
+  "canonicalize_failure_count": 0,
+  "execute": true,
+  "generated_at_utc": "20260417T160110Z",
+  "laws": [
+    {
+      "admission_guardrails": [],
+      "admitted_source_count": 1,
+      "admitted_source_pages": [
+        {
+          "aliases": [
+            "CHED CMO 61 Series 2017",
+            "BS Architecture Curriculum Standards"
+          ],
+          "canonical_id": "handout-cmo-61-series-2017-bs-architecture-curriculum-standards",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/cmo-61-series-2017-bs-architecture-curriculum-standards.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "CMO 61 Series 2017 BS Architecture Curriculum Standards",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+          "raw_sha256": "0361c80cdce99ccde8e2e107944181ccf1069d206c819f82a8a9023393cfa620",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        }
+      ],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/cmo-61-series-2017-bs-architecture-curriculum-standards.md"
+      ],
+      "blocked_file_reports": [],
+      "candidate_reason": "architecture curriculum standards adjacency.",
+      "candidate_source_page_count": 1,
+      "candidate_source_pages": [
+        {
+          "aliases": [
+            "CHED CMO 61 Series 2017",
+            "BS Architecture Curriculum Standards"
+          ],
+          "canonical_id": "handout-cmo-61-series-2017-bs-architecture-curriculum-standards",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": false,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/cmo-61-series-2017-bs-architecture-curriculum-standards.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "CMO 61 Series 2017 BS Architecture Curriculum Standards",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+          "raw_sha256": "0361c80cdce99ccde8e2e107944181ccf1069d206c819f82a8a9023393cfa620",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        }
+      ],
+      "canonicalize_results": [
+        {
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/cmo-61-series-2017-bs-architecture-curriculum-standards.md",
+          "output": "canonicalize-one complete. Wrote: /Users/philiplewis/vitruvius/003_Canonical-Knowledge-Layer/shared/sources/cmo-61-series-2017-bs-architecture-curriculum-standards.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+          "rc": 0,
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md",
+          "wrote_or_kept": true
+        }
+      ],
+      "excluded_prepared_count": 0,
+      "excluded_prepared_file_reports": [],
+      "executed_source_admission_state": "admitted",
+      "failed_count": 0,
+      "failed_file_reports": [],
+      "folder_name": "CHED",
+      "next_step": "Admit the selected canonical source pages now, keep excluded variants explicit, and only then revisit tranche source-to-graph execution.",
+      "ocr_required_count": 0,
+      "prepared_count": 1,
+      "raw_file_count": 1,
+      "source_prep_report_summary": {
+        "failed_count": 0,
+        "ocr_required_count": 0,
+        "prepared_count": 1
+      },
+      "status": "ready_for_admission_review"
+    },
+    {
+      "admission_guardrails": [],
+      "admitted_source_count": 1,
+      "admitted_source_pages": [
+        {
+          "aliases": [
+            "CIAP Document 102",
+            "Uniform General Conditions of Contract for Private Construction"
+          ],
+          "canonical_id": "handout-ciap-document-102-uniform-general-conditions-of-contract-for-private-construction",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": true,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/ciap-document-102-uniform-general-conditions-of-contract-for-private-construction.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "CIAP Document 102 Uniform General Conditions of Contract for Private Construction",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf",
+          "raw_sha256": "63943bc59465b154329631d2b286706ba45e85c63b31433d1c285d9b7caecd15",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        }
+      ],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/ciap-document-102-uniform-general-conditions-of-contract-for-private-construction.md"
+      ],
+      "blocked_file_reports": [],
+      "candidate_reason": "private construction contract governance adjacency.",
+      "candidate_source_page_count": 1,
+      "candidate_source_pages": [
+        {
+          "aliases": [
+            "CIAP Document 102",
+            "Uniform General Conditions of Contract for Private Construction"
+          ],
+          "canonical_id": "handout-ciap-document-102-uniform-general-conditions-of-contract-for-private-construction",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": true,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/ciap-document-102-uniform-general-conditions-of-contract-for-private-construction.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "CIAP Document 102 Uniform General Conditions of Contract for Private Construction",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf",
+          "raw_sha256": "63943bc59465b154329631d2b286706ba45e85c63b31433d1c285d9b7caecd15",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        }
+      ],
+      "canonicalize_results": [
+        {
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/ciap-document-102-uniform-general-conditions-of-contract-for-private-construction.md",
+          "output": "canonicalize-one complete. Wrote: /Users/philiplewis/vitruvius/003_Canonical-Knowledge-Layer/shared/sources/ciap-document-102-uniform-general-conditions-of-contract-for-private-construction.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf",
+          "rc": 0,
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md",
+          "wrote_or_kept": true
+        }
+      ],
+      "excluded_prepared_count": 0,
+      "excluded_prepared_file_reports": [],
+      "executed_source_admission_state": "admitted",
+      "failed_count": 0,
+      "failed_file_reports": [],
+      "folder_name": "CIAP",
+      "next_step": "Admit the selected canonical source pages now, keep excluded variants explicit, and only then revisit tranche source-to-graph execution.",
+      "ocr_required_count": 0,
+      "prepared_count": 1,
+      "raw_file_count": 1,
+      "source_prep_report_summary": {
+        "failed_count": 0,
+        "ocr_required_count": 0,
+        "prepared_count": 1
+      },
+      "status": "ready_for_admission_review"
+    },
+    {
+      "admission_guardrails": [],
+      "admitted_source_count": 3,
+      "admitted_source_pages": [
+        {
+          "aliases": [
+            "UAP Code of Ethics",
+            "Architect's Code of Ethics"
+          ],
+          "canonical_id": "handout-uap-document-code-of-ethics",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": true,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-code-of-ethics.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "UAP Document Code of Ethics",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/UAP/UAP Document Code of Ethics.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Code of Ethics.pdf",
+          "raw_sha256": "74444a64eb5da055137c52e64c37d32e73c95d8e899f7564471d960dd5a56eea",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Code of Ethics.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        },
+        {
+          "aliases": [
+            "UAP Standards of Professional Practice",
+            "2010 Standards of Professional Practice"
+          ],
+          "canonical_id": "handout-uap-document-standards-of-professional-practice",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": true,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-standards-of-professional-practice.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "UAP Document Standards of Professional Practice",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Standards of Professional Practice.pdf",
+          "raw_sha256": "af3b0fd1b232443881cbb79d3b2ed2a9a93ecb34677cdbd3b2acddbcdb7d2b3b",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        },
+        {
+          "aliases": [
+            "UAP Document 301",
+            "General Conditions"
+          ],
+          "canonical_id": "handout-uap-document-301-general-conditions",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": true,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-301-general-conditions.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "UAP Document 301 General Conditions",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/UAP/UAP Document 301.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf",
+          "raw_sha256": "bd1d2f88cf3e430a893c8d52b0a1ca74b234b2e2ca14dfc7aa67fc0ce1ee86a3",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document 301.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        }
+      ],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/uap-document-code-of-ethics.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/uap-document-standards-of-professional-practice.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/uap-document-301-general-conditions.md"
+      ],
+      "blocked_file_reports": [],
+      "candidate_reason": "professional ethics and standards adjacency.",
+      "candidate_source_page_count": 3,
+      "candidate_source_pages": [
+        {
+          "aliases": [
+            "UAP Code of Ethics",
+            "Architect's Code of Ethics"
+          ],
+          "canonical_id": "handout-uap-document-code-of-ethics",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": true,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-code-of-ethics.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "UAP Document Code of Ethics",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/UAP/UAP Document Code of Ethics.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Code of Ethics.pdf",
+          "raw_sha256": "74444a64eb5da055137c52e64c37d32e73c95d8e899f7564471d960dd5a56eea",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Code of Ethics.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        },
+        {
+          "aliases": [
+            "UAP Standards of Professional Practice",
+            "2010 Standards of Professional Practice"
+          ],
+          "canonical_id": "handout-uap-document-standards-of-professional-practice",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": true,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-standards-of-professional-practice.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "UAP Document Standards of Professional Practice",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Standards of Professional Practice.pdf",
+          "raw_sha256": "af3b0fd1b232443881cbb79d3b2ed2a9a93ecb34677cdbd3b2acddbcdb7d2b3b",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        },
+        {
+          "aliases": [
+            "UAP Document 301",
+            "General Conditions"
+          ],
+          "canonical_id": "handout-uap-document-301-general-conditions",
+          "canonical_prefix": "handout",
+          "canonical_source_exists": true,
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-301-general-conditions.md",
+          "canonical_source_type": "handout",
+          "canonical_title": "UAP Document 301 General Conditions",
+          "concepts": [],
+          "excluded_duplicate_raw_paths": [],
+          "normalized_refined_markdown_path": "001-Laws/refined_markdown/UAP/UAP Document 301.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf",
+          "raw_sha256": "bd1d2f88cf3e430a893c8d52b0a1ca74b234b2e2ca14dfc7aa67fc0ce1ee86a3",
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document 301.md",
+          "relationships": [],
+          "selected_from_duplicate_group_size": 1,
+          "selection_reason": "selected prepared authoritative candidate",
+          "trust_level": "primary"
+        }
+      ],
+      "canonicalize_results": [
+        {
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-code-of-ethics.md",
+          "output": "canonicalize-one complete. Wrote: /Users/philiplewis/vitruvius/003_Canonical-Knowledge-Layer/shared/sources/uap-document-code-of-ethics.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Code of Ethics.pdf",
+          "rc": 0,
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Code of Ethics.md",
+          "wrote_or_kept": true
+        },
+        {
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-standards-of-professional-practice.md",
+          "output": "canonicalize-one complete. Wrote: /Users/philiplewis/vitruvius/003_Canonical-Knowledge-Layer/shared/sources/uap-document-standards-of-professional-practice.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Standards of Professional Practice.pdf",
+          "rc": 0,
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md",
+          "wrote_or_kept": true
+        },
+        {
+          "canonical_source_path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-301-general-conditions.md",
+          "output": "canonicalize-one complete. Wrote: /Users/philiplewis/vitruvius/003_Canonical-Knowledge-Layer/shared/sources/uap-document-301-general-conditions.md",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf",
+          "rc": 0,
+          "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document 301.md",
+          "wrote_or_kept": true
+        }
+      ],
+      "excluded_prepared_count": 0,
+      "excluded_prepared_file_reports": [],
+      "executed_source_admission_state": "admitted",
+      "failed_count": 0,
+      "failed_file_reports": [],
+      "folder_name": "UAP",
+      "next_step": "Admit the selected canonical source pages now, keep excluded variants explicit, and only then revisit tranche source-to-graph execution.",
+      "ocr_required_count": 0,
+      "prepared_count": 3,
+      "raw_file_count": 3,
+      "source_prep_report_summary": {
+        "failed_count": 0,
+        "ocr_required_count": 0,
+        "prepared_count": 3
+      },
+      "status": "ready_for_admission_review"
+    }
+  ],
+  "manifest_updated": true,
+  "mixed_readiness_law_folders": [],
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "run_id": "20260417T160110Z",
+  "source_prep_report_path": "006_System-Manifests/runs/datasets/laws-tranche-13/20260417T160029Z/laws_tranche_source_prep_report.json",
+  "source_prep_run_id": "20260417T160029Z",
+  "source_to_graph_execute_blockers": [
+    "tranche source-to-graph execute remains gated until source admission is explicitly executed for ready tranche members"
+  ],
+  "source_to_graph_execute_ready": false,
+  "tranche_id": "laws-tranche-13",
+  "tranche_manifest_path": "config/datasets/laws-tranche-13.yaml"
+}

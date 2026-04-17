@@ -1,0 +1,112 @@
+{
+  "action": "run-laws-tranche-source-prep",
+  "allow_ocr": false,
+  "execute": true,
+  "failed_count": 0,
+  "folders": [
+    {
+      "candidate_reason": "architecture curriculum standards adjacency.",
+      "failed_count": 0,
+      "file_reports": [
+        {
+          "detection_result": "LIKELY_SCANNED_PDF",
+          "expected_ocr_pdf_path": "002_Raw-Conversion-Layer/001-Laws/ocr_pdf/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf",
+          "recommended_route": "OCR_FIRST_THEN_OPENDATALOADER",
+          "status": "ocr_required",
+          "supported_direct_input": true
+        }
+      ],
+      "folder_name": "CHED",
+      "ocr_required_count": 1,
+      "prepared_count": 0,
+      "raw_file_count": 1,
+      "raw_root_present": true,
+      "supported_direct_input_count": 1
+    },
+    {
+      "candidate_reason": "private construction contract governance adjacency.",
+      "failed_count": 0,
+      "file_reports": [
+        {
+          "convert_output": "Apr 17, 2026 11:16:23 PM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf\nApr 17, 2026 11:16:25 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 42\nApr 17, 2026 11:16:25 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: Ar Armando N. ALLI, apec ar\nApr 17, 2026 11:16:25 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: Document 102\nApr 17, 2026 11:16:25 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:20190913121159+08'00'\nApr 17, 2026 11:16:25 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:20190913121159+08'00'\nApr 17, 2026 11:16:25 PM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 42 pages with 8 threads\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nWARNING: List is not added to contents\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nWARNING: List is not added to contents\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmps162m0z_/CIAP-Document-102-Private-Constn-Contract.json\nApr 17, 2026 11:16:28 PM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmps162m0z_/CIAP-Document-102-Private-Constn-Contract.md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/CIAP/CIAP-Document-102-Private-Constn-Contract.json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/CIAP/CIAP-Document-102-Private-Constn-Contract.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "status": "prepared",
+          "supported_direct_input": true
+        }
+      ],
+      "folder_name": "CIAP",
+      "ocr_required_count": 0,
+      "prepared_count": 1,
+      "raw_file_count": 1,
+      "raw_root_present": true,
+      "supported_direct_input_count": 1
+    },
+    {
+      "candidate_reason": "professional ethics and standards adjacency.",
+      "failed_count": 0,
+      "file_reports": [
+        {
+          "convert_output": "Apr 17, 2026 11:16:29 PM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/UAP/UAP Document Code of Ethics.pdf\nApr 17, 2026 11:16:30 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 7\nApr 17, 2026 11:16:30 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: Erwin N. Aquino\nApr 17, 2026 11:16:30 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: THE ARCHITECT’S CODE OF ETHICS\nApr 17, 2026 11:16:30 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:19991028132513\nApr 17, 2026 11:16:30 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:19991028132636+08'00'\nApr 17, 2026 11:16:30 PM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 7 pages with 8 threads\nApr 17, 2026 11:16:31 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:31 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nWARNING: List is not added to contents\nApr 17, 2026 11:16:31 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:31 PM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpjxe2i4vt/UAP Document Code of Ethics.json\nApr 17, 2026 11:16:31 PM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmpjxe2i4vt/UAP Document Code of Ethics.md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/UAP/UAP Document Code of Ethics.pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/UAP/UAP Document Code of Ethics.md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/UAP/UAP Document Code of Ethics.json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/UAP/UAP Document Code of Ethics.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Code of Ethics.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/UAP/UAP Document Code of Ethics.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Code of Ethics.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "status": "prepared",
+          "supported_direct_input": true
+        },
+        {
+          "convert_output": "Apr 17, 2026 11:16:32 PM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/UAP/UAP Document Standards of Professional Practice.pdf\nApr 17, 2026 11:16:34 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 69\nApr 17, 2026 11:16:34 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: PRBoA\nApr 17, 2026 11:16:34 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: 2010 SPP 4 RLAs Docs 201 - 209\nApr 17, 2026 11:16:34 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:20160208124905+08'00'\nApr 17, 2026 11:16:34 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:20160208124917+08'00'\nApr 17, 2026 11:16:34 PM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 69 pages with 8 threads\nApr 17, 2026 11:16:36 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:36 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:36 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:36 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:36 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:45 PM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmp3qq52ehi/UAP Document Standards of Professional Practice.json\nApr 17, 2026 11:16:45 PM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmp3qq52ehi/UAP Document Standards of Professional Practice.md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/UAP/UAP Document Standards of Professional Practice.pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/UAP/UAP Document Standards of Professional Practice.md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/UAP/UAP Document Standards of Professional Practice.json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/UAP/UAP Document Standards of Professional Practice.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/UAP/UAP Document Standards of Professional Practice.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Standards of Professional Practice.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "status": "prepared",
+          "supported_direct_input": true
+        },
+        {
+          "convert_output": "Apr 17, 2026 11:16:47 PM org.opendataloader.pdf.processors.DocumentProcessor preprocessing\nINFO: File name: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf\nApr 17, 2026 11:16:49 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Number of pages: 50\nApr 17, 2026 11:16:49 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Author: Administrator\nApr 17, 2026 11:16:49 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Title: GENERAL CONDITIONS\nApr 17, 2026 11:16:49 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Creation date: D:20160212110519+08'00'\nApr 17, 2026 11:16:49 PM org.opendataloader.pdf.processors.DocumentProcessor calculateDocumentInfo\nINFO: Modification date: D:20160212110525+08'00'\nApr 17, 2026 11:16:49 PM org.opendataloader.pdf.processors.DocumentProcessor processDocument\nINFO: Processing 50 pages with 8 threads\nApr 17, 2026 11:16:50 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:50 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nINFO: List item is connected with different lists\nApr 17, 2026 11:16:50 PM org.opendataloader.pdf.processors.ListProcessor calculateList\nWARNING: List is not added to contents\nApr 17, 2026 11:16:50 PM org.opendataloader.pdf.processors.LevelProcessor setLevels\nWARNING: List without detected level\nApr 17, 2026 11:16:50 PM org.opendataloader.pdf.json.JsonWriter writeToJson\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmp0kzqld1y/UAP Document 301.json\nApr 17, 2026 11:16:50 PM org.opendataloader.pdf.markdown.MarkdownGenerator writeToMarkdown\nINFO: Created /var/folders/bn/7b1mmzfj6j52jkpfny_33f840000gn/T/tmp0kzqld1y/UAP Document 301.md\nConvert-one complete.\nSource file: /Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf\nDetection result: TEXT_PDF\nMarkdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/UAP/UAP Document 301.md\nJSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/UAP/UAP Document 301.json\nLatest convert-one JSON: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.json\nLatest convert-one TXT: /Users/philiplewis/vitruvius/006_System-Manifests/runs/latest_convert_one_report.txt",
+          "detection_result": "TEXT_PDF",
+          "expected_raw_markdown_path": "002_Raw-Conversion-Layer/001-Laws/raw_markdown/UAP/UAP Document 301.md",
+          "expected_refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document 301.md",
+          "expected_sidecar_json_path": "002_Raw-Conversion-Layer/001-Laws/sidecar_json/UAP/UAP Document 301.json",
+          "raw_path": "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf",
+          "recommended_route": "OPENDATALOADER_DIRECT",
+          "refine_output": "",
+          "status": "prepared",
+          "supported_direct_input": true
+        }
+      ],
+      "folder_name": "UAP",
+      "ocr_required_count": 0,
+      "prepared_count": 3,
+      "raw_file_count": 3,
+      "raw_root_present": true,
+      "supported_direct_input_count": 3
+    }
+  ],
+  "generated_at_utc": "20260417T151650Z",
+  "ocr_required_count": 1,
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "prepared_count": 4,
+  "run_id": "20260417T151621Z",
+  "sample_pages": 5,
+  "tranche_id": "laws-tranche-13",
+  "tranche_manifest_path": "config/datasets/laws-tranche-13.yaml"
+}

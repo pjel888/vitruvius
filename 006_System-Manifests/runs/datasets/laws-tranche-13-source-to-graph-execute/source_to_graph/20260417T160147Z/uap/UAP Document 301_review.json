@@ -1,0 +1,66 @@
+{
+  "generated_at": "20260417T160200Z",
+  "model": "qwen2.5:7b",
+  "source": "001-Laws/refined_markdown/UAP/UAP Document 301.md",
+  "total_candidates": 2,
+  "llm_reviewed": 0,
+  "pre_review_auto_accepted": 0,
+  "pre_review_auto_rejected": 2,
+  "completed_reviews": 2,
+  "status": "completed",
+  "summary": {
+    "keep": 0,
+    "review_further": 0,
+    "reject": 2,
+    "high_confidence_keep": 0,
+    "high_confidence_reject": 2
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "handout-uap-document-301-general-conditions",
+        "type": "governs",
+        "to": "concept-general-conditions-of-contract",
+        "occurrences": 8,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "- and estimated cost or information that would give the contractor a general idea of the magnitude and extent of the project. - 1.16 BID BULLETIN: is additional information on contract documents issued to bidders before date of bidding. - 1.17 INSTRUCTIONS TO BIDDERS: The list of instructions stipul",
+          "- and estimated cost or information that would give the contractor a general idea of the magnitude and extent of the project. - 1.16 BID BULLETIN: is additional information on contract documents issued to bidders before date of bidding. - 1.17 INSTRUCTIONS TO BIDDERS: The list of instructions stipul",
+          "- a. If there be variance between drawings and the Specifications, the provisions of the specifications shall control. In case of conflict between the General Conditions of the contract or any modification thereof and the detailed specifications requirements shall control - b. Any discrepancies foun"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['general conditions of contract'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "handout-uap-document-301-general-conditions",
+        "type": "governs",
+        "to": "concept-stairs",
+        "occurrences": 1,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "- 15.07 TEMPORARY ROADWAYS: The Contractor shall construct and properly maintain temporary roadways within and adjacent to site in order to provide proper access to the building. Temporary roadways shall adequately sustain loads to be carried on them and be so constructed as not to endanger existing"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['stairs'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}

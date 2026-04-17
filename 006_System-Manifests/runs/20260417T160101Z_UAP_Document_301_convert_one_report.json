@@ -1,0 +1,13 @@
+{
+  "project": "Vitruvius",
+  "generated_at_utc": "2026-04-17T16:01:01.621512+00:00",
+  "source_relative_path": "001-Laws/UAP/UAP Document 301.pdf",
+  "source_absolute_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf",
+  "detection_result": "TEXT_PDF",
+  "recommended_route": "OPENDATALOADER_DIRECT",
+  "markdown_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/UAP/UAP Document 301.md",
+  "json_output": "/Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/UAP/UAP Document 301.json",
+  "markdown_output_relative": "001-Laws/raw_markdown/UAP/UAP Document 301.md",
+  "json_output_relative": "001-Laws/sidecar_json/UAP/UAP Document 301.json",
+  "status": "converted"
+}

@@ -1,0 +1,462 @@
+{
+  "action": "build-graph",
+  "artifact_metadata": {
+    "contributing_law_ids": [
+      "ched",
+      "ciap",
+      "uap"
+    ],
+    "dataset_id": "laws-tranche-13-source-to-graph-execute",
+    "dataset_kind": "laws-tranche",
+    "freshness_policy": {
+      "mode": "exact"
+    },
+    "input_fingerprint": {
+      "combined_sha256": "a0498812a5dc383556b76283e286979d32c1f4cfb7f4cd033b207f3a42441163",
+      "file_count": 11,
+      "files": [
+        {
+          "mtime_ns": 1776441749207906651,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/code-of-ethics.md",
+          "sha256": "660252f764f15c08fd0cc615b2256494e40ecfdfdd09e3b609bcae45ddf4eeac",
+          "size_bytes": 786
+        },
+        {
+          "mtime_ns": 1776439090508659672,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/general-conditions-of-contract.md",
+          "sha256": "d1ddb265271bdd5c7619d5df5907d2a2cb2f75236f4b4f32f48f8332c00702cf",
+          "size_bytes": 1170
+        },
+        {
+          "mtime_ns": 1776439090506701244,
+          "path": "003_Canonical-Knowledge-Layer/shared/concepts/standards-of-professional-practice.md",
+          "sha256": "d188553bcdbf5902655032bfcf68f35d2da77f6b9ced066f72667d7520f3dbc8",
+          "size_bytes": 943
+        },
+        {
+          "mtime_ns": 1776441670491875077,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/ciap-document-102-uniform-general-conditions-of-contract-for-private-construction.md",
+          "sha256": "0f359cd57efbe914216a1e29b98dfd0959ff350ee2f8dcf133b0438ceafcaf68",
+          "size_bytes": 1942
+        },
+        {
+          "mtime_ns": 1776441670421826133,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/cmo-61-series-2017-bs-architecture-curriculum-standards.md",
+          "sha256": "841da53240ea4385e77a2f3b507f7b809361f403024853c2f1d7dfd9f6f98d88",
+          "size_bytes": 1073
+        },
+        {
+          "mtime_ns": 1776441670708095016,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-301-general-conditions.md",
+          "sha256": "93ed07075314e076efcb82b0c4877c03abcbd68b117ed53e1e672b86df441267",
+          "size_bytes": 1749
+        },
+        {
+          "mtime_ns": 1776441670543222238,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-code-of-ethics.md",
+          "sha256": "4cecaf950e57de8923f1a15e07ecf4b04145cb0bd73a3085b49c7d550156ea37",
+          "size_bytes": 642
+        },
+        {
+          "mtime_ns": 1776441670626055733,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/uap-document-standards-of-professional-practice.md",
+          "sha256": "066c493b25a8c802d0b215e1344f07181dace51d44c91c34fc0a395a08eba3ff",
+          "size_bytes": 2823
+        },
+        {
+          "mtime_ns": 1776439090516748469,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-301-general-conditions-governs-concept-general-conditions-of-contract.md",
+          "sha256": "9419d4698acadbbdaea715af25f221262b7aac45790076e041bad63bedf3c5f4",
+          "size_bytes": 1198
+        },
+        {
+          "mtime_ns": 1776441749208531611,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-code-of-ethics-governs-concept-code-of-ethics.md",
+          "sha256": "dcb1ee405c2198396a62ff596c3569e31f8d9a19e4c0c76815f27d0aa36f313a",
+          "size_bytes": 976
+        },
+        {
+          "mtime_ns": 1776439090514948125,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-professional-practice-governs-concept-standards-of-professional-practice.md",
+          "sha256": "311be50c60c37183dc1151d2c2cb35f082751b4198fc5a0e1c79bcb277c544f2",
+          "size_bytes": 1136
+        }
+      ]
+    },
+    "law_units": [
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/cmo-61-series-2017-bs-architecture-curriculum-standards.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "CHED",
+        "law_id": "ched",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "OCR-first preparation completed for the selected curriculum-standard PDF before canonical admission"
+        ]
+      },
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/ciap-document-102-uniform-general-conditions-of-contract-for-private-construction.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "CIAP",
+        "law_id": "ciap",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants"
+        ]
+      },
+      {
+        "admitted_concept_paths": [
+          "003_Canonical-Knowledge-Layer/shared/concepts/code-of-ethics.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/standards-of-professional-practice.md",
+          "003_Canonical-Knowledge-Layer/shared/concepts/general-conditions-of-contract.md"
+        ],
+        "admitted_relationship_paths": [
+          "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-code-of-ethics-governs-concept-code-of-ethics.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-professional-practice-governs-concept-standards-of-professional-practice.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-301-general-conditions-governs-concept-general-conditions-of-contract.md"
+        ],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/uap-document-code-of-ethics.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/uap-document-standards-of-professional-practice.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/uap-document-301-general-conditions.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Code of Ethics.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Standards of Professional Practice.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf"
+        ],
+        "excluded_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/UAP/1979 UAP Documents.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/Professional Practice Reviewer2.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/SPP 201.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/SPP 202.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/SPP 203.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/SPP 204A.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/SPP 204B.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/SPP 205.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/SPP 206.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/SPP 207.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/SPP 208.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/SPP 209.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/Standards of Professional Practice2.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 3012.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 401-402.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/UAP Documents Q _ A.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/UAP Documents Reviewer.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/UAP Documents.pdf"
+        ],
+        "folder_name": "UAP",
+        "law_id": "uap",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Code of Ethics.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Standards of Professional Practice.pdf",
+          "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Code of Ethics.md",
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md",
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document 301.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+          "UAP concept-fit slice admits only directly evidenced ethics, practice-standard, and contract-conditions concepts plus dataset-scoped governs relationships."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants",
+          "duplicate or study-aid raw variants remain explicit and excluded from canonical admission",
+          "UAP concept-fit slice admits only directly evidenced ethics, practice-standard, and contract-conditions concepts plus dataset-scoped governs relationships"
+        ]
+      }
+    ],
+    "manifest_hash": "2bf112aa87e1cccfcb0bdef3ae8d0ea4d13f4036da2c1508a609673425610e4d",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-13-source-to-graph-execute/source_to_graph/20260417T160234Z/derived_dataset_manifest.yaml",
+    "pilot_gate": {
+      "derived_from_tranche_id": "laws-tranche-13",
+      "derived_run_id": "20260417T160234Z",
+      "require_manifest_validation": true,
+      "source_to_graph_execute_ready": false
+    },
+    "run_id": "20260417T160247Z",
+    "scope_notes": [
+      "Derived from laws-tranche-13 after tranche source admission.",
+      "Dry-run only: stage admitted tranche members without unlocking execute.",
+      "Blocked tranche members remain explicit outside the staged law-unit list."
+    ],
+    "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-13-source-to-graph-execute/20260417T160247Z_graph_integrity_report.json",
+    "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-13-source-to-graph-execute/20260417T160247Z_graph_snapshot.json",
+    "upstream_artifact_refs": {
+      "canonical_concepts": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/code-of-ethics.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/standards-of-professional-practice.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/general-conditions-of-contract.md"
+      ],
+      "canonical_sources": [
+        "003_Canonical-Knowledge-Layer/shared/sources/cmo-61-series-2017-bs-architecture-curriculum-standards.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/ciap-document-102-uniform-general-conditions-of-contract-for-private-construction.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/uap-document-code-of-ethics.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/uap-document-standards-of-professional-practice.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/uap-document-301-general-conditions.md"
+      ],
+      "relationship_inputs": [
+        "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-code-of-ethics-governs-concept-code-of-ethics.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-professional-practice-governs-concept-standards-of-professional-practice.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-301-general-conditions-governs-concept-general-conditions-of-contract.md"
+      ]
+    }
+  },
+  "contributing_law_ids": [
+    "ched",
+    "ciap",
+    "uap"
+  ],
+  "coverage": [
+    {
+      "approved_relationship_input_count": 0,
+      "canonical_count": 1,
+      "converted_count": null,
+      "edge_count_contributed": 0,
+      "folder_name": "CHED",
+      "node_count_contributed": 1,
+      "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+      "raw_file_count": 1,
+      "refined_count": null,
+      "status": "partial"
+    },
+    {
+      "approved_relationship_input_count": 0,
+      "canonical_count": 1,
+      "converted_count": null,
+      "edge_count_contributed": 0,
+      "folder_name": "CIAP",
+      "node_count_contributed": 1,
+      "notes": "selected truth-bearing inputs contributed source/concept nodes only; no relationship-backed edges yet",
+      "raw_file_count": 1,
+      "refined_count": null,
+      "status": "partial"
+    },
+    {
+      "approved_relationship_input_count": 3,
+      "canonical_count": 6,
+      "converted_count": null,
+      "edge_count_contributed": 6,
+      "folder_name": "UAP",
+      "node_count_contributed": 6,
+      "notes": "selected truth-bearing inputs contributed nodes/edges",
+      "raw_file_count": 21,
+      "refined_count": null,
+      "status": "covered"
+    }
+  ],
+  "dataset_id": "laws-tranche-13-source-to-graph-execute",
+  "dataset_kind": "laws-tranche",
+  "dry_run": false,
+  "edge_count": 6,
+  "incomplete": true,
+  "integrity": {
+    "error_count": 0,
+    "findings": [
+      {
+        "code": "orphan_node",
+        "edge_from": null,
+        "edge_to": null,
+        "message": "node 'handout-ciap-document-102-uniform-general-conditions-of-contract-for-private-construction' has zero incident edges",
+        "node_id": "handout-ciap-document-102-uniform-general-conditions-of-contract-for-private-construction",
+        "severity": "warning"
+      },
+      {
+        "code": "orphan_node",
+        "edge_from": null,
+        "edge_to": null,
+        "message": "node 'handout-cmo-61-series-2017-bs-architecture-curriculum-standards' has zero incident edges",
+        "node_id": "handout-cmo-61-series-2017-bs-architecture-curriculum-standards",
+        "severity": "warning"
+      }
+    ],
+    "passed": true,
+    "warning_count": 2
+  },
+  "integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-13-source-to-graph-execute/20260417T160247Z_graph_integrity_report.json",
+  "law_unit_count": 3,
+  "law_units": [
+    {
+      "admitted_concept_paths": [],
+      "admitted_relationship_paths": [],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/cmo-61-series-2017-bs-architecture-curriculum-standards.md"
+      ],
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf"
+      ],
+      "excluded_variant_paths": [],
+      "folder_name": "CHED",
+      "law_id": "ched",
+      "raw_anchor_paths": [
+        "001_Raw-Source-Layer/001-Laws/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf"
+      ],
+      "refined_markdown_paths": [
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md"
+      ],
+      "scope_notes": [
+        "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+      ],
+      "verification_checks": [
+        "source admission executed for the selected authoritative prepared variants",
+        "OCR-first preparation completed for the selected curriculum-standard PDF before canonical admission"
+      ]
+    },
+    {
+      "admitted_concept_paths": [],
+      "admitted_relationship_paths": [],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/ciap-document-102-uniform-general-conditions-of-contract-for-private-construction.md"
+      ],
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf"
+      ],
+      "excluded_variant_paths": [],
+      "folder_name": "CIAP",
+      "law_id": "ciap",
+      "raw_anchor_paths": [
+        "001_Raw-Source-Layer/001-Laws/CIAP/CIAP-Document-102-Private-Constn-Contract.pdf"
+      ],
+      "refined_markdown_paths": [
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md"
+      ],
+      "scope_notes": [
+        "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+      ],
+      "verification_checks": [
+        "source admission executed for the selected authoritative prepared variants"
+      ]
+    },
+    {
+      "admitted_concept_paths": [
+        "003_Canonical-Knowledge-Layer/shared/concepts/code-of-ethics.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/standards-of-professional-practice.md",
+        "003_Canonical-Knowledge-Layer/shared/concepts/general-conditions-of-contract.md"
+      ],
+      "admitted_relationship_paths": [
+        "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-code-of-ethics-governs-concept-code-of-ethics.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-professional-practice-governs-concept-standards-of-professional-practice.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-301-general-conditions-governs-concept-general-conditions-of-contract.md"
+      ],
+      "admitted_source_paths": [
+        "003_Canonical-Knowledge-Layer/shared/sources/uap-document-code-of-ethics.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/uap-document-standards-of-professional-practice.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/uap-document-301-general-conditions.md"
+      ],
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Code of Ethics.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Standards of Professional Practice.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf"
+      ],
+      "excluded_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/UAP/1979 UAP Documents.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/Professional Practice Reviewer2.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/SPP 201.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/SPP 202.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/SPP 203.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/SPP 204A.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/SPP 204B.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/SPP 205.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/SPP 206.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/SPP 207.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/SPP 208.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/SPP 209.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/Standards of Professional Practice2.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 3012.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 401-402.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/UAP Documents Q _ A.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/UAP Documents Reviewer.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/UAP Documents.pdf"
+      ],
+      "folder_name": "UAP",
+      "law_id": "uap",
+      "raw_anchor_paths": [
+        "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Code of Ethics.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/UAP Document Standards of Professional Practice.pdf",
+        "001_Raw-Source-Layer/001-Laws/UAP/UAP Document 301.pdf"
+      ],
+      "refined_markdown_paths": [
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Code of Ethics.md",
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md",
+        "002_Raw-Conversion-Layer/001-Laws/refined_markdown/UAP/UAP Document 301.md"
+      ],
+      "scope_notes": [
+        "Source admission is intentionally conservative and admits only selected authoritative prepared variants.",
+        "UAP concept-fit slice admits only directly evidenced ethics, practice-standard, and contract-conditions concepts plus dataset-scoped governs relationships."
+      ],
+      "verification_checks": [
+        "source admission executed for the selected authoritative prepared variants",
+        "duplicate or study-aid raw variants remain explicit and excluded from canonical admission",
+        "UAP concept-fit slice admits only directly evidenced ethics, practice-standard, and contract-conditions concepts plus dataset-scoped governs relationships"
+      ]
+    }
+  ],
+  "manifest_hash": "2bf112aa87e1cccfcb0bdef3ae8d0ea4d13f4036da2c1508a609673425610e4d",
+  "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-13-source-to-graph-execute/source_to_graph/20260417T160234Z/derived_dataset_manifest.yaml",
+  "mode": "dataset",
+  "node_count": 8,
+  "run_id": "20260417T160247Z",
+  "snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-13-source-to-graph-execute/20260417T160247Z_graph_snapshot.json",
+  "thin_graph_metrics": {
+    "connected_component_count": 5,
+    "edge_type_diversity": {
+      "count": 2,
+      "types": [
+        "defines",
+        "governs"
+      ]
+    },
+    "isolated_node_count": 2,
+    "isolated_node_rate": 0.25,
+    "per_folder_node_edge_balance": {
+      "CHED": {
+        "edge_count_contributed": 0,
+        "node_count_contributed": 1,
+        "status": "partial"
+      },
+      "CIAP": {
+        "edge_count_contributed": 0,
+        "node_count_contributed": 1,
+        "status": "partial"
+      },
+      "UAP": {
+        "edge_count_contributed": 6,
+        "node_count_contributed": 6,
+        "status": "covered"
+      }
+    }
+  }
+}
