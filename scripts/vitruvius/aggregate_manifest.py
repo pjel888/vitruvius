@@ -396,6 +396,79 @@ def build_catalog_completed_aggregate_manifest(
     )
 
 
+def promote_generated_canonical_rules(
+    *,
+    repo_root: Path,
+    rule_names: list[str],
+    generated_rules_path: Path | None = None,
+    base_rules_path: Path | None = None,
+) -> dict[str, Any]:
+    normalized_rule_names = [name.strip() for name in rule_names if isinstance(name, str) and name.strip()]
+    if not normalized_rule_names:
+        raise ValueError('at least one non-empty rule name is required')
+
+    resolved_generated_rules_path = (
+        generated_rules_path
+        if generated_rules_path is not None and generated_rules_path.is_absolute()
+        else repo_root / (generated_rules_path or Path('config/datasets/canonical_rules.generated.yaml'))
+    )
+    resolved_base_rules_path = (
+        base_rules_path
+        if base_rules_path is not None and base_rules_path.is_absolute()
+        else repo_root / (base_rules_path or Path('scripts/vitruvius/rules/canonical_rules.yaml'))
+    )
+
+    generated_payload = load_yaml_payload(resolved_generated_rules_path)
+    base_payload = load_yaml_payload(resolved_base_rules_path)
+    generated_rules = generated_payload.get('rules')
+    base_rules = base_payload.get('rules')
+    if not isinstance(generated_rules, list) or not isinstance(base_rules, list):
+        raise ValueError('both generated and base canonical rule files must contain a rules list')
+
+    requested = set(normalized_rule_names)
+    base_rule_names = {
+        str(item.get('name') or '')
+        for item in base_rules
+        if isinstance(item, dict)
+    }
+    promoted_rules: list[dict[str, Any]] = []
+    skipped_missing: list[str] = []
+    skipped_existing: list[str] = []
+    remaining_generated: list[dict[str, Any]] = []
+
+    for item in generated_rules:
+        if not isinstance(item, dict):
+            continue
+        name = str(item.get('name') or '')
+        if name not in requested:
+            remaining_generated.append(item)
+            continue
+        if name in base_rule_names:
+            skipped_existing.append(name)
+            remaining_generated.append(item)
+            continue
+        promoted_rules.append(item)
+
+    found_names = {str(item.get('name') or '') for item in promoted_rules} | set(skipped_existing)
+    skipped_missing = sorted(requested - found_names)
+
+    if promoted_rules:
+        base_payload['rules'] = [*base_rules, *promoted_rules]
+        generated_payload['rules'] = remaining_generated
+        write_yaml_payload(resolved_base_rules_path, base_payload)
+        write_yaml_payload(resolved_generated_rules_path, generated_payload)
+
+    return {
+        'generated_rules_path': _relative(resolved_generated_rules_path, repo_root),
+        'base_rules_path': _relative(resolved_base_rules_path, repo_root),
+        'requested_rule_names': normalized_rule_names,
+        'promoted_rule_count': len(promoted_rules),
+        'promoted_rule_names': [str(item.get('name') or '') for item in promoted_rules],
+        'skipped_missing_rule_names': skipped_missing,
+        'skipped_existing_rule_names': skipped_existing,
+    }
+
+
 def load_completed_aggregate_profile(*, repo_root: Path, profile_path: Path) -> dict[str, Any]:
     resolved_profile_path = profile_path if profile_path.is_absolute() else repo_root / profile_path
     payload = load_yaml_payload(resolved_profile_path)

@@ -383,6 +383,10 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_register_parser.add_argument("--lane-note-template", default=None)
     generic_aggregate_register_parser.add_argument("--status", default="ready")
     generic_aggregate_register_parser.add_argument("--note", default=None)
+    generic_aggregate_promote_rules_parser = add_command_parser(subparsers, "promote-generated-canonical-rules")
+    generic_aggregate_promote_rules_parser.add_argument("--rule-name", action="append", required=True)
+    generic_aggregate_promote_rules_parser.add_argument("--generated-rules", default=None)
+    generic_aggregate_promote_rules_parser.add_argument("--base-rules", default=None)
     generic_aggregate_scaffold_parser = add_command_parser(subparsers, "scaffold-completed-aggregate-family")
     generic_aggregate_scaffold_parser.add_argument("--family", required=True)
     generic_aggregate_scaffold_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml",
@@ -1220,6 +1224,23 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("register-completed-aggregate-family", _run_register_generic_family)
+
+    if args.command == "promote-generated-canonical-rules":
+        from vitruvius.aggregate_manifest import promote_generated_canonical_rules
+        def _run_promote_generated_rules():
+            repo_root = Path.cwd().resolve()
+            summary = promote_generated_canonical_rules(
+                repo_root=repo_root,
+                rule_names=list(args.rule_name or []),
+                generated_rules_path=Path(args.generated_rules) if args.generated_rules else None,
+                base_rules_path=Path(args.base_rules) if args.base_rules else None,
+            )
+            print(json.dumps({
+                "action": "promote-generated-canonical-rules",
+                **summary,
+            }, indent=2))
+            return 0
+        return _run("promote-generated-canonical-rules", _run_promote_generated_rules)
 
     if args.command == "scaffold-completed-aggregate-family":
         from vitruvius.aggregate_manifest import scaffold_completed_aggregate_family

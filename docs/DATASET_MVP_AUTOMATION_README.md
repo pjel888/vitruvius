@@ -286,6 +286,22 @@ This is a bootstrap surface only:
 - it gives the lane a truthful classification/type/trust starting point
 - it does **not** replace source review or relationship admission
 
+## Promoting generated canonical rules into the durable rules file
+Once a generated starter rule has been reviewed, promote it with:
+
+```bash
+python3 scripts/pipeline_cli.py promote-generated-canonical-rules \
+  --rule-name "<exact generated rule name>"
+```
+
+This moves the selected rule from:
+- `config/datasets/canonical_rules.generated.yaml`
+
+into:
+- `scripts/vitruvius/rules/canonical_rules.yaml`
+
+and removes it from the generated overlay.
+
 ## Scaffolding starter concepts from generated lane rules
 If your generated starter rules include `core_concepts`, scaffold concept files with:
 

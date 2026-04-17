@@ -3294,6 +3294,96 @@ def test_pipeline_cli_build_completed_aggregate_from_catalog_writes_manifest(
     assert stdout_payload['dataset_manifest_path'] == 'config/datasets/catalog-out.yaml'
 
 
+def test_promote_generated_canonical_rules_moves_rules_to_base(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import promote_generated_canonical_rules
+
+    generated_path = tmp_path / 'config' / 'datasets' / 'canonical_rules.generated.yaml'
+    base_path = tmp_path / 'scripts' / 'vitruvius' / 'rules' / 'canonical_rules.yaml'
+    generated_path.parent.mkdir(parents=True, exist_ok=True)
+    base_path.parent.mkdir(parents=True, exist_ok=True)
+    generated_path.write_text(
+        yaml.safe_dump(
+            {
+                'version': 1,
+                'rules': [
+                    {
+                        'name': 'Generated Rule',
+                        'match': {'all_contains': ['generated']},
+                        'classification': {'source_type': 'handout', 'trust_level': 'secondary'},
+                        'canonical': {'title': 'Generated', 'aliases': [], 'relationships': {}, 'core_concepts': []},
+                    }
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    base_path.write_text(
+        yaml.safe_dump({'version': 1, 'rules': []}, sort_keys=False),
+        encoding='utf-8',
+    )
+    summary = promote_generated_canonical_rules(
+        repo_root=tmp_path,
+        rule_names=['Generated Rule'],
+        generated_rules_path=generated_path,
+        base_rules_path=base_path,
+    )
+    base_payload = yaml.safe_load(base_path.read_text(encoding='utf-8'))
+    generated_payload = yaml.safe_load(generated_path.read_text(encoding='utf-8'))
+    assert summary['promoted_rule_count'] == 1
+    assert base_payload['rules'][0]['name'] == 'Generated Rule'
+    assert generated_payload['rules'] == []
+
+
+def test_pipeline_cli_promote_generated_canonical_rules_reports_summary(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    generated_path = tmp_path / 'config' / 'datasets' / 'canonical_rules.generated.yaml'
+    base_path = tmp_path / 'scripts' / 'vitruvius' / 'rules' / 'canonical_rules.yaml'
+    generated_path.parent.mkdir(parents=True, exist_ok=True)
+    base_path.parent.mkdir(parents=True, exist_ok=True)
+    generated_path.write_text(
+        yaml.safe_dump(
+            {
+                'version': 1,
+                'rules': [
+                    {
+                        'name': 'Generated Rule',
+                        'match': {'all_contains': ['generated']},
+                        'classification': {'source_type': 'handout', 'trust_level': 'secondary'},
+                        'canonical': {'title': 'Generated', 'aliases': [], 'relationships': {}, 'core_concepts': []},
+                    }
+                ],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    base_path.write_text(yaml.safe_dump({'version': 1, 'rules': []}, sort_keys=False), encoding='utf-8')
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'promote-generated-canonical-rules',
+            '--rule-name', 'Generated Rule',
+            '--generated-rules', 'config/datasets/canonical_rules.generated.yaml',
+            '--base-rules', 'scripts/vitruvius/rules/canonical_rules.yaml',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'promote-generated-canonical-rules'
+    assert stdout_payload['promoted_rule_count'] == 1
+
+
 def test_pipeline_cli_register_completed_aggregate_family_writes_profile_and_catalog(
     tmp_path: Path,
     monkeypatch,
