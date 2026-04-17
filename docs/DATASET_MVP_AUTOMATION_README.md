@@ -16,6 +16,15 @@ This wrapper delegates to:
 python3 scripts/pipeline_cli.py run-completed-aggregate-from-profile --profile <profile-yaml>
 ```
 
+## Ready-family aggregate wrapper
+Run all families currently marked `ready` with:
+
+```bash
+./run-ready-families-mvp-graph [review args]
+```
+
+This delegates to the catalog-driven aggregate path for every ready family.
+
 You can also run by registered family alias:
 
 ```bash

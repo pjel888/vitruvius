@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+export PYTHONPATH="scripts${PYTHONPATH:+:$PYTHONPATH}"
+
+exec python3 scripts/pipeline_cli.py run-completed-aggregate-from-catalog \
+  --catalog config/datasets/dataset-mvp-profile-catalog.yaml \
+  --status ready \
+  --dataset-id ready-family-aggregate \
+  --dataset-kind dataset-aggregate \
+  --out config/datasets/ready-family-aggregate.yaml \
+  --graph-output-root 005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate \
+  --run-output-root 006_System-Manifests/runs/datasets/ready-family-aggregate \
+  --query-snapshot-template 005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/{run_id}_graph_snapshot.json \
+  "$@"
