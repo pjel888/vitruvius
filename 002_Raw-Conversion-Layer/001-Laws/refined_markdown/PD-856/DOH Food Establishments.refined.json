@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T131517Z",
+  "source_relative_path": "001-Laws/raw_markdown/PD-856/DOH Food Establishments.md",
+  "refined_relative_path": "001-Laws/refined_markdown/PD-856/DOH Food Establishments.md",
+  "source_hash": "a1a360d6e6649ea2b778d5e9597c28afdff8b3727cec0dc2b381cd6b79c46fed",
+  "output_hash": "d785c363888d78d152ae2c232a7e8e998a1192a4baf7cde219af36575ffe1e2d",
+  "chars_before": 205117,
+  "chars_after": 205040,
+  "chars_delta": -77,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "collapse-consecutive-blank-lines",
+    "normalize-section-abbreviation"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 205117,
+      "chars_after": 205117,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 205117,
+      "chars_after": 205117,
+      "changed": false
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 205117,
+      "chars_after": 205117,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 205117,
+      "chars_after": 205117,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 205117,
+      "chars_after": 205022,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 205022,
+      "chars_after": 205022,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 205022,
+      "chars_after": 205040,
+      "changed": true
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 205040,
+      "chars_after": 205040,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}

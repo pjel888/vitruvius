@@ -1,0 +1,7 @@
+Section-Aware Relationship Extraction
+
+Sections: 406
+Unique relationships: 2
+
+law-local-government-code-of-1991 -> governs -> concept-local-autonomy (x6) sections=['section-3']
+law-local-government-code-of-1991 -> governs -> concept-comprehensive-land-use-plan (x7) sections=['section-383']

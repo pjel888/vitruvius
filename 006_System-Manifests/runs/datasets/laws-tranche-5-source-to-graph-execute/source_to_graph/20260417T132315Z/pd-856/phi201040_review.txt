@@ -1,0 +1,16 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/PD-856/phi201040.md
+Candidates reviewed: 2
+Keep: 2
+Review Further: 0
+Reject: 0
+
+law-code-on-sanitation-of-the-philippines -> governs -> concept-food-establishment
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+law-code-on-sanitation-of-the-philippines -> governs -> concept-local-health-authority
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language

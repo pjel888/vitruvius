@@ -224,6 +224,7 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - tranche-3 graph-richness follow-on now exists: a bounded `PD-1067` water-governance slice raises tranche-3 graph output from `4 nodes / 0 edges` to `7 nodes / 11 edges`; see `/.ai/05_logs/2026-04-17_pd1067-water-governance-concept-fit-validation.md`
   - tranche-4 now exists and executes through the same bounded workflow: `config/datasets/laws-tranche-4.yaml` stages `PD-1517`, `RA-6969`, and `RA-10066`; current execute evidence shows `generated_relationship_count = 1`, `spot_review_required_count = 1`, `shallow_representation_count = 0`, and graph snapshot `6 nodes / 7 edges`; see `/.ai/05_logs/2026-04-17_laws-tranche-4-execution-validation.md`
   - tranche-4 graph-richness follow-on now exists: a bounded `RA-10066` cultural-heritage slice raises tranche-4 graph output from `3 nodes / 0 edges` to `6 nodes / 7 edges`; see `/.ai/05_logs/2026-04-17_ra10066-cultural-heritage-concept-fit-validation.md`
+  - tranche-5 now exists and executes through the same bounded workflow: `config/datasets/laws-tranche-5.yaml` stages `PD-856`, `RA-7160`, and `RA-9257`; current execute evidence shows `generated_relationship_count = 7`, `shallow_representation_count = 0`, and graph snapshot `13 nodes / 24 edges`; see `/.ai/05_logs/2026-04-17_tranche-5-richness-validation.md`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)

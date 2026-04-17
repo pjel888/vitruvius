@@ -1,0 +1,121 @@
+tranche_id: laws-tranche-5
+purpose: readiness-only
+phase_11_gate: gated
+description: Fifth explicit widening tranche after tranche-4 maturity. This tranche
+  stays bounded around sanitation, local-government, and clean-water law surfaces
+  with direct text-PDF readiness and no current exact-duplicate cluster evidence.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: PD-856
+  reason: Sanitation and public-health adjacency for building/site operations.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/PD-856/phi201040.pdf
+  - 001_Raw-Source-Layer/001-Laws/PD-856/DOH Food Establishments.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-5/20260417T131542Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T131542Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-856/phi201040.md
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-856/DOH Food Establishments.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/code-on-sanitation-of-the-philippines.md
+  - 003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - PD-856 direct execute currently surfaces a floor-area relationship from sanitary
+    ventilation requirements; include the existing shared concept to keep graph integrity
+    truthful.
+  - PD-856 concept-fit slice admits sanitation concepts and dataset-scoped governs
+    relationships only.
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - PD-856 direct execute currently surfaces a floor-area relationship from sanitary
+    ventilation requirements; include the existing shared concept to keep graph integrity
+    truthful.
+  - PD-856 concept-fit slice admits sanitation concepts and dataset-scoped governs
+    relationships only.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/food-establishment.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/local-health-authority.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md
+- folder_name: RA-7160
+  reason: Local-government governance adjacency for land use and permitting context.
+  raw_anchor_paths: &id002
+  - 001_Raw-Source-Layer/001-Laws/RA-7160/RA 7160 The Local Government Code.pdf
+  authoritative_variant_paths: *id002
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-5/20260417T131542Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T131542Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-7160/RA 7160 The Local Government
+    Code.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/local-government-code-of-1991.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - RA-7160 concept-fit slice admits local-governance concepts and dataset-scoped
+    governs relationships only.
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - RA-7160 concept-fit slice admits local-governance concepts and dataset-scoped
+    governs relationships only.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/local-autonomy.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/prior-consultations.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra7160/relationships/rel-law-local-government-code-of-1991-governs-concept-local-autonomy.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra7160/relationships/rel-law-local-government-code-of-1991-governs-concept-prior-consultations.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra7160/relationships/rel-law-local-government-code-of-1991-governs-concept-comprehensive-land-use-plan.md
+- folder_name: RA-9257
+  reason: Water-quality and environmental compliance adjacency.
+  raw_anchor_paths: &id003
+  - 001_Raw-Source-Layer/001-Laws/RA-9257/RA 9275 PH Clean Water Act.pdf
+  authoritative_variant_paths: *id003
+  excluded_variant_paths: []
+  source_admission_state: admitted
+  source_admission_report_path: 006_System-Manifests/runs/datasets/laws-tranche-5/20260417T131542Z/laws_tranche_source_admission_report.json
+  source_admission_run_id: 20260417T131542Z
+  refined_markdown_paths:
+  - 002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9257/RA 9275 PH Clean Water
+    Act.md
+  admitted_source_paths:
+  - 003_Canonical-Knowledge-Layer/shared/sources/philippine-clean-water-act-of-2004.md
+  source_admission_guardrails: []
+  verification_checks:
+  - source admission executed for the selected authoritative prepared variants
+  - RA-9275 concept-fit slice admits clean-water governance concepts and dataset-scoped
+    governs relationships only.
+  scope_notes:
+  - Source admission is intentionally conservative and admits only selected authoritative
+    prepared variants.
+  - RA-9275 concept-fit slice admits clean-water governance concepts and dataset-scoped
+    governs relationships only.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/water-quality-management-area.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/wastewater-charge-system.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/discharge-permit.md
+  admitted_relationship_paths:
+  - 006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra9257/relationships/rel-law-philippine-clean-water-act-of-2004-governs-concept-water-quality-management-area.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra9257/relationships/rel-law-philippine-clean-water-act-of-2004-governs-concept-wastewater-charge-system.md
+  - 006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra9257/relationships/rel-law-philippine-clean-water-act-of-2004-governs-concept-discharge-permit.md
+source_admission:
+  last_run_id: 20260417T131542Z
+  last_report_path: 006_System-Manifests/runs/datasets/laws-tranche-5/20260417T131542Z/laws_tranche_source_admission_report.json
+  admitted_ready_law_folders:
+  - PD-856
+  - RA-7160
+  - RA-9257
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []

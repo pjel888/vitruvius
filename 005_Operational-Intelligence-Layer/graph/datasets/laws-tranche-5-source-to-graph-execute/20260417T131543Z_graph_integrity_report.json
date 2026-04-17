@@ -1,0 +1,205 @@
+{
+  "artifact_metadata": {
+    "contributing_law_ids": [
+      "pd-856",
+      "ra-7160",
+      "ra-9257"
+    ],
+    "dataset_id": "laws-tranche-5-source-to-graph-execute",
+    "dataset_kind": "laws-tranche",
+    "freshness_policy": {
+      "mode": "exact"
+    },
+    "input_fingerprint": {
+      "combined_sha256": "d7c9daaf8d5b7ab4f5cda2c3235f98fd880ad5afb1dfd799fdd9f0348ff51e04",
+      "file_count": 6,
+      "files": [
+        {
+          "mtime_ns": 1776132650185597810,
+          "path": "003_Canonical-Knowledge-Layer/shared/relationships/occupancy-governs-fire-requirements.md",
+          "sha256": "02efc10b58b6d6263d679dd85e8acac9f5f53bebaddb29779df590b9e12abf8c",
+          "size_bytes": 2111
+        },
+        {
+          "mtime_ns": 1776431742137888406,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/code-on-sanitation-of-the-philippines.md",
+          "sha256": "3ce475d63e38444ad35ffbbb22650228c3f03d99fb00ce7fdcbdc683e60ec98d",
+          "size_bytes": 7192
+        },
+        {
+          "mtime_ns": 1776431742205907584,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines.md",
+          "sha256": "7a6319f5525acf5ef5ff1e016fec85a6773112080e8522512bf5f487a384e178",
+          "size_bytes": 3322
+        },
+        {
+          "mtime_ns": 1776431742323397387,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/local-government-code-of-1991.md",
+          "sha256": "e5165998098176f934ac5dd5a09399f6cfc6d5169061bc8cc3154decd7af7b05",
+          "size_bytes": 5986
+        },
+        {
+          "mtime_ns": 1776431742358858942,
+          "path": "003_Canonical-Knowledge-Layer/shared/sources/philippine-clean-water-act-of-2004.md",
+          "sha256": "8e0ea864fb733a9662d49d1ba7fc41d94c8951676752950d7bc21234de07eeaf",
+          "size_bytes": 736
+        },
+        {
+          "mtime_ns": 1776431743295626892,
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T131542Z/promoted_relationships/pd-856/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md",
+          "sha256": "0b55df52e93a6f15b603326d42b166f2b7c6688e503171e20cc345bf652646e6",
+          "size_bytes": 2003
+        }
+      ]
+    },
+    "law_units": [
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/code-on-sanitation-of-the-philippines.md",
+          "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/PD-856/phi201040.pdf",
+          "001_Raw-Source-Layer/001-Laws/PD-856/DOH Food Establishments.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "PD-856",
+        "law_id": "pd-856",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/PD-856/phi201040.pdf",
+          "001_Raw-Source-Layer/001-Laws/PD-856/DOH Food Establishments.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-856/phi201040.md",
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/PD-856/DOH Food Establishments.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants"
+        ]
+      },
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/local-government-code-of-1991.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-7160/RA 7160 The Local Government Code.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "RA-7160",
+        "law_id": "ra-7160",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-7160/RA 7160 The Local Government Code.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-7160/RA 7160 The Local Government Code.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants"
+        ]
+      },
+      {
+        "admitted_concept_paths": [],
+        "admitted_relationship_paths": [],
+        "admitted_source_paths": [
+          "003_Canonical-Knowledge-Layer/shared/sources/philippine-clean-water-act-of-2004.md"
+        ],
+        "authoritative_variant_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9257/RA 9275 PH Clean Water Act.pdf"
+        ],
+        "excluded_variant_paths": [],
+        "folder_name": "RA-9257",
+        "law_id": "ra-9257",
+        "raw_anchor_paths": [
+          "001_Raw-Source-Layer/001-Laws/RA-9257/RA 9275 PH Clean Water Act.pdf"
+        ],
+        "refined_markdown_paths": [
+          "002_Raw-Conversion-Layer/001-Laws/refined_markdown/RA-9257/RA 9275 PH Clean Water Act.md"
+        ],
+        "scope_notes": [
+          "Source admission is intentionally conservative and admits only selected authoritative prepared variants."
+        ],
+        "verification_checks": [
+          "source admission executed for the selected authoritative prepared variants"
+        ]
+      }
+    ],
+    "manifest_hash": "356357248ed1a7893cb76570c658a126f3d7e6c6c29ddfb0f5c7217ea2e3cfd1",
+    "manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T131542Z/derived_dataset_manifest.yaml",
+    "pilot_gate": {
+      "derived_from_tranche_id": "laws-tranche-5",
+      "derived_run_id": "20260417T131542Z",
+      "require_manifest_validation": true,
+      "source_to_graph_execute_ready": false
+    },
+    "run_id": "20260417T131543Z",
+    "scope_notes": [
+      "Derived from laws-tranche-5 after tranche source admission.",
+      "Dry-run only: stage admitted tranche members without unlocking execute.",
+      "Blocked tranche members remain explicit outside the staged law-unit list."
+    ],
+    "selected_integrity_report_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-5-source-to-graph-execute/20260417T131543Z_graph_integrity_report.json",
+    "selected_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-5-source-to-graph-execute/20260417T131543Z_graph_snapshot.json",
+    "upstream_artifact_refs": {
+      "canonical_concepts": [],
+      "canonical_sources": [
+        "003_Canonical-Knowledge-Layer/shared/sources/code-on-sanitation-of-the-philippines.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/local-government-code-of-1991.md",
+        "003_Canonical-Knowledge-Layer/shared/sources/philippine-clean-water-act-of-2004.md"
+      ],
+      "relationship_inputs": [
+        "003_Canonical-Knowledge-Layer/shared/relationships/occupancy-governs-fire-requirements.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T131542Z/promoted_relationships/pd-856/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md"
+      ]
+    }
+  },
+  "integrity": {
+    "error_count": 1,
+    "findings": [
+      {
+        "code": "orphan_node",
+        "edge_from": null,
+        "edge_to": null,
+        "message": "node 'law-code-on-sanitation-of-the-philippines' has zero incident edges",
+        "node_id": "law-code-on-sanitation-of-the-philippines",
+        "severity": "warning"
+      },
+      {
+        "code": "orphan_node",
+        "edge_from": null,
+        "edge_to": null,
+        "message": "node 'law-local-government-code-of-1991' has zero incident edges",
+        "node_id": "law-local-government-code-of-1991",
+        "severity": "warning"
+      },
+      {
+        "code": "orphan_node",
+        "edge_from": null,
+        "edge_to": null,
+        "message": "node 'law-philippine-clean-water-act-of-2004' has zero incident edges",
+        "node_id": "law-philippine-clean-water-act-of-2004",
+        "severity": "warning"
+      },
+      {
+        "code": "dangling_edge",
+        "edge_from": "irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines",
+        "edge_to": "concept-floor-area",
+        "message": "edge 'rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area' references missing to_id",
+        "node_id": null,
+        "severity": "error"
+      }
+    ],
+    "passed": false,
+    "warning_count": 3
+  }
+}

@@ -242,6 +242,32 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - see `/.ai/05_logs/2026-04-17_laws-tranche-4-execution-validation.md`
     - see `/.ai/05_logs/2026-04-17_tranche-4-scouting-validation.md`
     - see `/.ai/05_logs/2026-04-17_ra10066-cultural-heritage-concept-fit-validation.md`
+  - tranche-5 is now defined and executed through the same bounded workflow:
+    - manifest: `config/datasets/laws-tranche-5.yaml`
+    - tranche-5 laws:
+      - `PD-856`
+      - `RA-7160`
+      - `RA-9257`
+    - current execute evidence:
+      - `staged_law_folders = [PD-856, RA-7160, RA-9257]`
+      - `duplicate_law_folders = []`
+      - `generated_relationship_count = 7`
+      - `shallow_representation_count = 0`
+      - `source_to_graph_execute_completed = true`
+      - graph snapshot: `13 nodes / 24 edges`
+    - `RA-9257` folder naming remains explicit while canonical source truth resolves to `RA 9275 / Philippine Clean Water Act of 2004`
+    - see `/.ai/05_logs/2026-04-17_tranche-5-richness-validation.md`
+  - tranche-6 scouting now favors a compact construction / civil / procurement governance cohort:
+    - rejected scout set:
+      - `RA-4566`
+      - `RA-9184`
+      - `RA-9266`
+      - because `RA-9266` currently carries duplicate risk
+    - preferred scout set:
+      - `RA-4566`
+      - `RA-386`
+      - `RA-9184`
+    - see `/.ai/13_research/2026-04-17_tranche-6-expansion-research.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

@@ -1,0 +1,35 @@
+{
+  "generated_at": "20260417T131612Z",
+  "source_report_generated_at": "20260417T131612Z",
+  "source_model": "qwen2.5:7b",
+  "source": "001-Laws/refined_markdown/PD-856/DOH Food Establishments.md",
+  "threshold": 0.9,
+  "count": 1,
+  "candidates": [
+    {
+      "candidate": {
+        "from": "irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines",
+        "type": "governs",
+        "to": "concept-floor-area",
+        "occurrences": 8,
+        "sections": [
+          "section-1",
+          "section-6"
+        ],
+        "examples": [
+          "Natural Ventilation -window space shall be at least 10% of the floor area of toilet room",
+          "v. Natural Ventilation -window space shall be at least 10% of the floor area of toilet room",
+          "The floor area of the dining room shall be completely covered with high grade c~uality carpet;"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    }
+  ]
+}

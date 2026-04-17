@@ -536,6 +536,117 @@ rules:
       core_concepts: []
 
   # --------------------------------------------------
+  # PD 856 Law
+  # --------------------------------------------------
+  - name: "PD 856 Law"
+
+    match:
+      any_contains:
+        - "phi201040"
+        - "code on sanitation"
+        - "sanitation of the philippines"
+      not_contains:
+        - "implementing"
+        - "food establishment"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Code on Sanitation of the Philippines"
+
+      aliases:
+        - "PD 856"
+        - "Presidential Decree No. 856"
+        - "Code on Sanitation of the Philippines"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # PD 856 Food Establishments IRR
+  # --------------------------------------------------
+  - name: "PD 856 Food Establishments IRR"
+
+    match:
+      all_contains:
+        - "856"
+      any_contains:
+        - "food establishment"
+        - "implementing"
+        - "chapter ill"
+
+    classification:
+      source_type: irr
+      trust_level: primary
+
+    canonical:
+      title: "Implementing Rules and Regulations of Chapter III of the Code on Sanitation of the Philippines"
+
+      aliases:
+        - "PD 856 IRR"
+        - "Food Establishments IRR"
+        - "Implementing Rules and Regulations of Chapter III of the Code on Sanitation of the Philippines"
+
+      relationships:
+        implements:
+          - "law-code-on-sanitation-of-the-philippines"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # RA 7160 Law
+  # --------------------------------------------------
+  - name: "RA 7160 Law"
+
+    match:
+      all_contains:
+        - "ra"
+        - "7160"
+      any_contains:
+        - "local government code"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Local Government Code of 1991"
+
+      aliases:
+        - "RA 7160"
+        - "Republic Act No. 7160"
+        - "Local Government Code of 1991"
+
+      core_concepts: []
+
+  # --------------------------------------------------
+  # RA 9275 Law
+  # --------------------------------------------------
+  - name: "RA 9275 Law"
+
+    match:
+      any_contains:
+        - "ra 9275"
+        - "ra-9275"
+        - "clean water act"
+        - "water quality management"
+
+    classification:
+      source_type: law
+      trust_level: primary
+
+    canonical:
+      title: "Philippine Clean Water Act of 2004"
+
+      aliases:
+        - "RA 9275"
+        - "Republic Act No. 9275"
+        - "Philippine Clean Water Act of 2004"
+
+      core_concepts: []
+
+  # --------------------------------------------------
   # GENERIC LAW SECTION
   # --------------------------------------------------
   - name: "Generic Law Section"

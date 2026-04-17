@@ -1,0 +1,262 @@
+{
+  "action": "run-laws-tranche-source-to-graph",
+  "blocked_law_folders": [],
+  "derived_manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-5/source_to_graph_execute/20260417T131612Z/derived_dataset_manifest.yaml",
+  "duplicate_cluster_count": 0,
+  "duplicate_clusters": [],
+  "duplicate_law_folders": [],
+  "execute": true,
+  "generated_at_utc": "20260417T131613Z",
+  "guardrail_law_folders": [],
+  "inner_source_to_graph_summary": {
+    "action": "run-dataset-source-to-graph",
+    "benchmark_hint_count": 0,
+    "browser_opened": null,
+    "dataset_id": "laws-tranche-5-source-to-graph-execute",
+    "derived_manifest_path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T131612Z/derived_dataset_manifest.yaml",
+    "filtered_relationship_count": 0,
+    "generated_relationship_count": 1,
+    "graph_build_report_path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/20260417T131613Z_build_graph_dataset_report.json",
+    "graph_snapshot_path": "005_Operational-Intelligence-Layer/graph/datasets/laws-tranche-5-source-to-graph-execute/20260417T131613Z_graph_snapshot.json",
+    "manual_review_required_count": 0,
+    "pipeline_report_path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T131612Z/source_to_graph_run_report.json",
+    "review_model": "qwen2.5:7b",
+    "review_preset": "m2-8gb-safe",
+    "review_runtime": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "preset": {
+        "keeps_phase_11_gated": true,
+        "model": "qwen2.5:7b",
+        "name": "m2-8gb-safe",
+        "num_ctx_cap": 4096,
+        "parallelism": 1,
+        "timeout_seconds": 900
+      },
+      "timeout_seconds": 900
+    },
+    "review_settings": {
+      "keeps_phase_11_gated": true,
+      "model": "qwen2.5:7b",
+      "name": "m2-8gb-safe",
+      "num_ctx_cap": 4096,
+      "parallelism": 1,
+      "preset": {
+        "keeps_phase_11_gated": true,
+        "model": "qwen2.5:7b",
+        "name": "m2-8gb-safe",
+        "num_ctx_cap": 4096,
+        "parallelism": 1,
+        "timeout_seconds": 900
+      },
+      "timeout_seconds": 900
+    },
+    "run_id": "20260417T131612Z",
+    "shallow_representation_count": 3,
+    "source_quality_summary": {
+      "benchmark_source_hints": [],
+      "extraction_trust_counts": {
+        "guarded": 2,
+        "review_required": 0,
+        "trusted": 2
+      },
+      "high_severity_paths": [],
+      "high_severity_sources": [],
+      "manual_review_required_paths": [],
+      "manual_review_required_sources": [],
+      "representation_guardrail_counts": {
+        "high": 3,
+        "low": 1,
+        "medium": 0
+      },
+      "severity_counts": {
+        "high": 0,
+        "low": 4,
+        "medium": 0
+      },
+      "shallow_representation_paths": [
+        "001-Laws/refined_markdown/PD-856/phi201040.md",
+        "001-Laws/refined_markdown/PD-856/DOH Food Establishments.md",
+        "001-Laws/refined_markdown/RA-7160/RA 7160 The Local Government Code.md"
+      ],
+      "shallow_representation_sources": [
+        {
+          "benchmark_source_hints": [],
+          "difficulty_signals": {
+            "image_line_count": 23,
+            "noise_line_count": 0,
+            "structural_heading_count": 97,
+            "table_line_count": 0,
+            "useful_text_ratio": 0.975661
+          },
+          "manual_review_recommended": false,
+          "recommendations": [],
+          "refined_markdown_path": "001-Laws/refined_markdown/PD-856/phi201040.md",
+          "representation_guardrail": {
+            "admitted_concept_count": 1,
+            "admitted_relationship_count": 0,
+            "folder_name": "PD-856",
+            "law_id": "pd-856",
+            "reasons": [
+              "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+              "relationship coverage is also thin relative to detected structure"
+            ],
+            "recommendations": [
+              "add law-native canonical concepts before widening this tranche",
+              "treat current graph coverage as concept-shallow rather than section-complete"
+            ],
+            "section_to_concept_ratio": 97.0,
+            "section_to_relationship_ratio": 97.0,
+            "severity": "high",
+            "status": "shallow_representation",
+            "structural_heading_count": 97
+          },
+          "severity": "low",
+          "source_id": "law-code-on-sanitation-of-the-philippines"
+        },
+        {
+          "benchmark_source_hints": [],
+          "difficulty_signals": {
+            "image_line_count": 67,
+            "noise_line_count": 0,
+            "structural_heading_count": 243,
+            "table_line_count": 0,
+            "useful_text_ratio": 0.968589
+          },
+          "manual_review_recommended": false,
+          "recommendations": [],
+          "refined_markdown_path": "001-Laws/refined_markdown/PD-856/DOH Food Establishments.md",
+          "representation_guardrail": {
+            "admitted_concept_count": 1,
+            "admitted_relationship_count": 0,
+            "folder_name": "PD-856",
+            "law_id": "pd-856",
+            "reasons": [
+              "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+              "relationship coverage is also thin relative to detected structure"
+            ],
+            "recommendations": [
+              "add law-native canonical concepts before widening this tranche",
+              "treat current graph coverage as concept-shallow rather than section-complete"
+            ],
+            "section_to_concept_ratio": 243.0,
+            "section_to_relationship_ratio": 243.0,
+            "severity": "high",
+            "status": "shallow_representation",
+            "structural_heading_count": 243
+          },
+          "severity": "low",
+          "source_id": "irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines"
+        },
+        {
+          "benchmark_source_hints": [],
+          "difficulty_signals": {
+            "image_line_count": 0,
+            "noise_line_count": 0,
+            "structural_heading_count": 70,
+            "table_line_count": 0,
+            "useful_text_ratio": 1.0
+          },
+          "manual_review_recommended": false,
+          "recommendations": [],
+          "refined_markdown_path": "001-Laws/refined_markdown/RA-7160/RA 7160 The Local Government Code.md",
+          "representation_guardrail": {
+            "admitted_concept_count": 0,
+            "admitted_relationship_count": 0,
+            "folder_name": "RA-7160",
+            "law_id": "ra-7160",
+            "reasons": [
+              "rich section structure is backed by too few admitted law-native concepts for trustworthy concept coverage",
+              "relationship coverage is also thin relative to detected structure"
+            ],
+            "recommendations": [
+              "add law-native canonical concepts before widening this tranche",
+              "treat current graph coverage as concept-shallow rather than section-complete"
+            ],
+            "section_to_concept_ratio": 70.0,
+            "section_to_relationship_ratio": 70.0,
+            "severity": "high",
+            "status": "shallow_representation",
+            "structural_heading_count": 70
+          },
+          "severity": "low",
+          "source_id": "law-local-government-code-of-1991"
+        }
+      ],
+      "source_acceptance_counts": {
+        "accepted": 4,
+        "accepted_with_spot_review": 0,
+        "manual_review_required": 0
+      },
+      "spot_review_required_paths": [],
+      "summary_auto_withheld_paths": []
+    },
+    "spot_review_required_count": 0,
+    "summary_auto_withheld_count": 0,
+    "visualization_html_path": null
+  },
+  "law_folder_variant_visibility": [
+    {
+      "authoritative_variant_count": 2,
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/PD-856/phi201040.pdf",
+        "001_Raw-Source-Layer/001-Laws/PD-856/DOH Food Establishments.pdf"
+      ],
+      "blocked_raw_anchor_count": 0,
+      "blocked_raw_anchor_paths": [],
+      "duplicate_guardrails": [],
+      "excluded_variant_count": 0,
+      "excluded_variant_paths": [],
+      "folder_name": "PD-856",
+      "source_admission_guardrails": [],
+      "source_admission_state": "admitted",
+      "staged_for_source_to_graph": true
+    },
+    {
+      "authoritative_variant_count": 1,
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-7160/RA 7160 The Local Government Code.pdf"
+      ],
+      "blocked_raw_anchor_count": 0,
+      "blocked_raw_anchor_paths": [],
+      "duplicate_guardrails": [],
+      "excluded_variant_count": 0,
+      "excluded_variant_paths": [],
+      "folder_name": "RA-7160",
+      "source_admission_guardrails": [],
+      "source_admission_state": "admitted",
+      "staged_for_source_to_graph": true
+    },
+    {
+      "authoritative_variant_count": 1,
+      "authoritative_variant_paths": [
+        "001_Raw-Source-Layer/001-Laws/RA-9257/RA 9275 PH Clean Water Act.pdf"
+      ],
+      "blocked_raw_anchor_count": 0,
+      "blocked_raw_anchor_paths": [],
+      "duplicate_guardrails": [],
+      "excluded_variant_count": 0,
+      "excluded_variant_paths": [],
+      "folder_name": "RA-9257",
+      "source_admission_guardrails": [],
+      "source_admission_state": "admitted",
+      "staged_for_source_to_graph": true
+    }
+  ],
+  "phase_11_gate": "gated",
+  "phase_11_generic_expansion_gated": true,
+  "raw_alias_law_folders": [],
+  "review_preset": "m2-8gb-safe",
+  "run_id": "20260417T131612Z",
+  "source_to_graph_execute_completed": true,
+  "staged_law_folders": [
+    "PD-856",
+    "RA-7160",
+    "RA-9257"
+  ],
+  "tranche_id": "laws-tranche-5",
+  "tranche_manifest_path": "config/datasets/laws-tranche-5.yaml"
+}

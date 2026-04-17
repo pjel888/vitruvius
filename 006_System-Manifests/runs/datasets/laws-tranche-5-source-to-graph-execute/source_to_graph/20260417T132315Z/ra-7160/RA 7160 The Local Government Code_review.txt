@@ -1,0 +1,16 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/RA-7160/RA 7160 The Local Government Code.md
+Candidates reviewed: 2
+Keep: 2
+Review Further: 0
+Reject: 0
+
+law-local-government-code-of-1991 -> governs -> concept-local-autonomy
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+law-local-government-code-of-1991 -> governs -> concept-comprehensive-land-use-plan
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language

@@ -1,0 +1,91 @@
+@prefix ifc: <https://standards.buildingsmart.org/IFC/RELEASE/IFC4/FINAL/OWL#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vitruvius: <https://vitruvius.ai/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+vitruvius:irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines a vitruvius:source ;
+    rdfs:label "implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines (irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines)" ;
+    vitruvius:defines vitruvius:concept-food-establishment,
+        vitruvius:concept-local-health-authority ;
+    vitruvius:governs vitruvius:concept-floor-area,
+        vitruvius:concept-food-establishment,
+        vitruvius:concept-local-health-authority ;
+    vitruvius:last_updated_utc "2026-04-17T13:23:16Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-code-on-sanitation-of-the-philippines a vitruvius:source ;
+    rdfs:label "code-on-sanitation-of-the-philippines (law-code-on-sanitation-of-the-philippines)" ;
+    vitruvius:governs vitruvius:concept-food-establishment,
+        vitruvius:concept-local-health-authority ;
+    vitruvius:last_updated_utc "2026-04-17T13:23:16Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-local-government-code-of-1991 a vitruvius:source ;
+    rdfs:label "local-government-code-of-1991 (law-local-government-code-of-1991)" ;
+    vitruvius:defines vitruvius:concept-comprehensive-land-use-plan,
+        vitruvius:concept-local-autonomy,
+        vitruvius:concept-prior-consultations ;
+    vitruvius:governs vitruvius:concept-comprehensive-land-use-plan,
+        vitruvius:concept-local-autonomy,
+        vitruvius:concept-prior-consultations ;
+    vitruvius:last_updated_utc "2026-04-17T13:23:16Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:law-philippine-clean-water-act-of-2004 a vitruvius:source ;
+    rdfs:label "philippine-clean-water-act-of-2004 (law-philippine-clean-water-act-of-2004)" ;
+    vitruvius:defines vitruvius:concept-discharge-permit,
+        vitruvius:concept-wastewater-charge-system,
+        vitruvius:concept-water-quality-management-area ;
+    vitruvius:governs vitruvius:concept-discharge-permit,
+        vitruvius:concept-wastewater-charge-system,
+        vitruvius:concept-water-quality-management-area ;
+    vitruvius:last_updated_utc "2026-04-17T13:23:16Z"^^xsd:string ;
+    vitruvius:trust_level "primary"^^xsd:string .
+
+vitruvius:concept-floor-area a vitruvius:concept ;
+    rdfs:label "floor-area (concept-floor-area)" ;
+    owl:sameAs ifc:IfcSpace ;
+    vitruvius:last_updated_utc "2026-04-14T05:59:57.423702+00:00"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-comprehensive-land-use-plan a vitruvius:concept ;
+    rdfs:label "comprehensive-land-use-plan (concept-comprehensive-land-use-plan)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-discharge-permit a vitruvius:concept ;
+    rdfs:label "discharge-permit (concept-discharge-permit)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-local-autonomy a vitruvius:concept ;
+    rdfs:label "local-autonomy (concept-local-autonomy)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-prior-consultations a vitruvius:concept ;
+    rdfs:label "prior-consultations (concept-prior-consultations)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-wastewater-charge-system a vitruvius:concept ;
+    rdfs:label "wastewater-charge-system (concept-wastewater-charge-system)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-water-quality-management-area a vitruvius:concept ;
+    rdfs:label "water-quality-management-area (concept-water-quality-management-area)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-food-establishment a vitruvius:concept ;
+    rdfs:label "food-establishment (concept-food-establishment)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+
+vitruvius:concept-local-health-authority a vitruvius:concept ;
+    rdfs:label "local-health-authority (concept-local-health-authority)" ;
+    vitruvius:last_updated_utc "2026-04-17T13:20:00Z"^^xsd:string ;
+    vitruvius:trust_level "derived"^^xsd:string .
+

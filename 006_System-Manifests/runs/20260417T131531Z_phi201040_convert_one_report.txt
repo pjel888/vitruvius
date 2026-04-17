@@ -1,0 +1,9 @@
+Vitruvius Convert One Report
+
+Source: 001-Laws/PD-856/phi201040.pdf
+Detection result: TEXT_PDF
+Recommended route: OPENDATALOADER_DIRECT
+Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-856/phi201040.md
+JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-856/phi201040.json
+
+STATUS: converted

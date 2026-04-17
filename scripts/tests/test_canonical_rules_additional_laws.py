@@ -155,3 +155,43 @@ def test_build_plan_matches_ra_10066_law_rule() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_pd_856_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/PD-856/phi201040.md'
+    )
+    assert plan['title'] == 'Code on Sanitation of the Philippines'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_pd_856_food_establishments_irr_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/PD-856/DOH Food Establishments.md'
+    )
+    assert plan['title'] == 'Implementing Rules and Regulations of Chapter III of the Code on Sanitation of the Philippines'
+    assert plan['prefix'] == 'irr'
+    assert plan['source_type'] == 'irr'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_7160_law_rule() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-7160/RA 7160 The Local Government Code.md'
+    )
+    assert plan['title'] == 'Local Government Code of 1991'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_ra_9275_law_rule_from_ra_9257_folder_file() -> None:
+    plan = build_plan(
+        '001-Laws/refined_markdown/RA-9257/RA 9275 PH Clean Water Act.md'
+    )
+    assert plan['title'] == 'Philippine Clean Water Act of 2004'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'

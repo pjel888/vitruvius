@@ -257,6 +257,28 @@
   - fresh tranche-4 execute graph improves from:
     - `3 nodes / 0 edges`
     - to `6 nodes / 7 edges`
+- Tranche-5 bounded execution and richness:
+  - current tranche-5 execute evidence:
+    - `staged_law_folders = [PD-856, RA-7160, RA-9257]`
+    - `generated_relationship_count = 7`
+    - `shallow_representation_count = 0`
+    - graph snapshot: `13 nodes / 24 edges`
+  - admitted tranche-5 concepts include:
+    - `food-establishment`
+    - `local-health-authority`
+    - `local-autonomy`
+    - `prior-consultations`
+    - `comprehensive-land-use-plan`
+    - `water-quality-management-area`
+    - `wastewater-charge-system`
+    - `discharge-permit`
+  - the `RA-9257` folder remains explicitly mismatched to the file truth, but canonical source truth resolves to `RA 9275 / Philippine Clean Water Act of 2004`
+- Tranche-6 scouting:
+  - rejected scout set included `RA-9266` because of duplicate risk
+  - preferred next scout cohort:
+    - `RA-4566`
+    - `RA-386`
+    - `RA-9184`
 
 ## Residual Graph Caveat
 
@@ -295,6 +317,8 @@
 - Latest tranche-4 scouting validation: `/.ai/05_logs/2026-04-17_tranche-4-scouting-validation.md`
 - Latest tranche-4 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-4-execution-validation.md`
 - Latest RA-10066 tranche-4 richness validation: `/.ai/05_logs/2026-04-17_ra10066-cultural-heritage-concept-fit-validation.md`
+- Latest tranche-5 richness validation: `/.ai/05_logs/2026-04-17_tranche-5-richness-validation.md`
+- Latest tranche-6 expansion research: `/.ai/13_research/2026-04-17_tranche-6-expansion-research.md`
 
 ## Handoff Note
 
