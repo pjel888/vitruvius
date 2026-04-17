@@ -1,0 +1,13 @@
+dataset_id: laws-completed-aggregate
+dataset_kind: laws-aggregate
+completed_ledger: config/datasets/laws-completed-lanes.yaml
+manifest_index: config/datasets/laws-manifest-index.yaml
+out_manifest: config/datasets/laws-completed-aggregate.yaml
+graph_output_root: 005_Operational-Intelligence-Layer/graph/datasets/laws-completed-aggregate
+run_output_root: 006_System-Manifests/runs/datasets/laws-completed-aggregate
+query_snapshot_template: 005_Operational-Intelligence-Layer/graph/datasets/laws-completed-aggregate/{run_id}_graph_snapshot.json
+scope_notes:
+  - Aggregate graph input for all completed executable and remediation laws-wave lanes.
+  - Explicitly excludes deferred residual folders from laws-remaining-dispositions.yaml.
+  - Preserves raw storage folder truth while keeping completed lane law-units distinct.
+lane_note_template: 'Aggregate completed-laws graph lane: {lane_id}'

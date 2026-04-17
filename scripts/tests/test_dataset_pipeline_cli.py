@@ -2109,3 +2109,162 @@ def test_pipeline_cli_run_completed_aggregate_invokes_dataset_pipeline(
     assert seen['export_owl'] is False
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['dataset_manifest_path'] == 'config/datasets/generic-demo.yaml'
+
+
+def test_pipeline_cli_build_completed_aggregate_from_profile_writes_manifest(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    _seed_repo(tmp_path)
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    (tmp_path / 'config' / 'datasets' / 'done-a.yaml').write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'done-a',
+                'dataset_kind': 'laws-aggregate',
+                'raw_slice_anchors': [],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {'relationships': []},
+                'graph_output_root': 'graph/a',
+                'run_output_root': 'runs/a',
+                'query_snapshot_path_template': 'graph/a/{run_id}.json',
+                'freshness_policy': {'mode': 'exact'},
+                'pilot_gate': {'require_manifest_validation': True, 'source_to_graph_execute_ready': False},
+                'law_units': [],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'completed.yaml').write_text(
+        yaml.safe_dump({'completed_lanes': [{'lane_id': 'lane-a'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'index.yaml').write_text(
+        yaml.safe_dump({'manifests': [{'lane_id': 'lane-a', 'manifest': 'config/datasets/done-a.yaml'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'profile.yaml').write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'generic-profile-demo',
+                'dataset_kind': 'laws-aggregate',
+                'completed_ledger': 'config/datasets/completed.yaml',
+                'manifest_index': 'config/datasets/index.yaml',
+                'out_manifest': 'config/datasets/profile-out.yaml',
+                'graph_output_root': '005_Operational-Intelligence-Layer/graph/datasets/profile-out',
+                'run_output_root': '006_System-Manifests/runs/datasets/profile-out',
+                'query_snapshot_template': '005_Operational-Intelligence-Layer/graph/datasets/profile-out/{run_id}_graph_snapshot.json',
+                'scope_notes': ['profile based aggregate'],
+                'lane_note_template': 'Profile aggregate lane: {lane_id}',
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'build-completed-aggregate-from-profile',
+            '--profile', 'config/datasets/profile.yaml',
+        ],
+    )
+
+    rc = pipeline_cli.main()
+    assert rc == 0
+    payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'profile-out.yaml').read_text(encoding='utf-8'))
+    assert payload['dataset_id'] == 'generic-profile-demo'
+    assert payload['scope_notes'] == ['profile based aggregate']
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['dataset_manifest_path'] == 'config/datasets/profile-out.yaml'
+
+
+def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    _seed_repo(tmp_path)
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    (tmp_path / 'config' / 'datasets' / 'done-a.yaml').write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'done-a',
+                'dataset_kind': 'laws-aggregate',
+                'raw_slice_anchors': [],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {'relationships': []},
+                'graph_output_root': 'graph/a',
+                'run_output_root': 'runs/a',
+                'query_snapshot_path_template': 'graph/a/{run_id}.json',
+                'freshness_policy': {'mode': 'exact'},
+                'pilot_gate': {'require_manifest_validation': True, 'source_to_graph_execute_ready': False},
+                'law_units': [],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'completed.yaml').write_text(
+        yaml.safe_dump({'completed_lanes': [{'lane_id': 'lane-a'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'index.yaml').write_text(
+        yaml.safe_dump({'manifests': [{'lane_id': 'lane-a', 'manifest': 'config/datasets/done-a.yaml'}]}, sort_keys=False),
+        encoding='utf-8',
+    )
+    (tmp_path / 'config' / 'datasets' / 'profile.yaml').write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'generic-profile-demo',
+                'dataset_kind': 'laws-aggregate',
+                'completed_ledger': 'config/datasets/completed.yaml',
+                'manifest_index': 'config/datasets/index.yaml',
+                'out_manifest': 'config/datasets/profile-out.yaml',
+                'graph_output_root': '005_Operational-Intelligence-Layer/graph/datasets/profile-out',
+                'run_output_root': '006_System-Manifests/runs/datasets/profile-out',
+                'query_snapshot_template': '005_Operational-Intelligence-Layer/graph/datasets/profile-out/{run_id}_graph_snapshot.json',
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+
+    seen: dict[str, object] = {}
+
+    def fake_run_dataset_source_to_graph_pipeline(**kwargs):
+        seen.update(kwargs)
+        return 0
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr('vitruvius.dataset_pipeline.run_dataset_source_to_graph_pipeline', fake_run_dataset_source_to_graph_pipeline)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'run-completed-aggregate-from-profile',
+            '--profile', 'config/datasets/profile.yaml',
+            '--dry-run',
+            '--review-preset', 'm2-8gb-safe',
+            '--skip-export-owl',
+        ],
+    )
+
+    rc = pipeline_cli.main()
+    assert rc == 0
+    assert seen['dataset_manifest'] == 'config/datasets/profile-out.yaml'
+    assert seen['dry_run'] is True
+    assert seen['review_preset'] == 'm2-8gb-safe'
+    assert seen['export_owl'] is False
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['dataset_manifest_path'] == 'config/datasets/profile-out.yaml'

@@ -4,6 +4,6 @@ set -euo pipefail
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-export PYTHONPATH="scripts${PYTHONPATH:+:$PYTHONPATH}"
-
-exec python3 scripts/pipeline_cli.py run-laws-completed-aggregate "$@"
+exec "$SCRIPT_DIR"/run-dataset-mvp-graph \
+  --profile config/datasets/laws-mvp-profile.yaml \
+  "$@"

@@ -1,7 +1,7 @@
 dataset_id: laws-completed-aggregate
 dataset_kind: laws-aggregate
 scope_notes:
-- Aggregate graph input for all completed executable/remediation laws-wave lanes.
+- Aggregate graph input for all completed executable and remediation laws-wave lanes.
 - Explicitly excludes deferred residual folders from laws-remaining-dispositions.yaml.
 - Preserves raw storage folder truth while keeping completed lane law-units distinct.
 raw_slice_anchors:

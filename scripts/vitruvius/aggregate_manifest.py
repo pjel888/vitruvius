@@ -342,3 +342,85 @@ def build_generic_completed_aggregate_manifest(
         lane_note_builder=lane_note_builder,
         folder_name_resolver=folder_name_resolver,
     )
+
+
+def load_completed_aggregate_profile(*, repo_root: Path, profile_path: Path) -> dict[str, Any]:
+    resolved_profile_path = profile_path if profile_path.is_absolute() else repo_root / profile_path
+    payload = load_yaml_payload(resolved_profile_path)
+    required_keys = (
+        'dataset_id',
+        'dataset_kind',
+        'completed_ledger',
+        'manifest_index',
+        'out_manifest',
+        'graph_output_root',
+        'run_output_root',
+        'query_snapshot_template',
+    )
+    missing = [key for key in required_keys if not isinstance(payload.get(key), str) or not str(payload.get(key)).strip()]
+    if missing:
+        raise ValueError(f"aggregate profile missing required string keys: {', '.join(missing)}")
+    payload['profile_path'] = str(resolved_profile_path)
+    payload['scope_notes'] = [str(note) for note in payload.get('scope_notes') or [] if isinstance(note, str)]
+    payload['lane_note_template'] = str(payload.get('lane_note_template') or 'Aggregate lane: {lane_id}')
+    return payload
+
+
+def build_generic_completed_aggregate_manifest_from_profile(
+    *,
+    repo_root: Path,
+    profile_path: Path,
+) -> tuple[Path, dict[str, Any], dict[str, Any]]:
+    profile = load_completed_aggregate_profile(repo_root=repo_root, profile_path=profile_path)
+    completed_ledger_path = repo_root / str(profile['completed_ledger'])
+    manifest_index_path = repo_root / str(profile['manifest_index'])
+    out_manifest_path = repo_root / str(profile['out_manifest'])
+    lane_note_template = str(profile['lane_note_template'])
+    aggregate_payload = build_generic_completed_aggregate_manifest(
+        repo_root=repo_root,
+        completed_ledger_path=completed_ledger_path,
+        manifest_index_path=manifest_index_path,
+        out_manifest_path=out_manifest_path,
+        dataset_id=str(profile['dataset_id']),
+        dataset_kind=str(profile['dataset_kind']),
+        graph_output_root=str(profile['graph_output_root']),
+        run_output_root=str(profile['run_output_root']),
+        query_snapshot_path_template=str(profile['query_snapshot_template']),
+        scope_notes=list(profile['scope_notes']),
+        lane_note_builder=lambda lane_id: lane_note_template.format(lane_id=lane_id),
+        folder_name_resolver=lambda item: str(item.get('raw_folder_name') or item.get('folder_name') or ''),
+    )
+    return out_manifest_path, aggregate_payload, profile
+
+
+def run_generic_completed_aggregate_from_profile(
+    *,
+    repo_root: Path,
+    profile_path: Path,
+    dry_run: bool = False,
+    review_preset: str | None = None,
+    review_model: str | None = None,
+    review_timeout_seconds: int | None = None,
+    review_parallelism: int | None = None,
+    export_owl: bool = True,
+) -> int:
+    from .dataset_pipeline import run_dataset_source_to_graph_pipeline
+
+    out_manifest_path, aggregate_payload, _profile = build_generic_completed_aggregate_manifest_from_profile(
+        repo_root=repo_root,
+        profile_path=profile_path,
+    )
+    print_aggregate_manifest_summary(
+        repo_root=repo_root,
+        out_manifest_path=out_manifest_path,
+        aggregate_payload=aggregate_payload,
+    )
+    return run_dataset_source_to_graph_pipeline(
+        dataset_manifest=str(out_manifest_path.relative_to(repo_root)),
+        dry_run=dry_run,
+        review_preset=review_preset,
+        review_model=review_model,
+        review_timeout_seconds=review_timeout_seconds,
+        review_parallelism=review_parallelism,
+        export_owl=export_owl,
+    )
