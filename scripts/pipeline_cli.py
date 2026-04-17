@@ -373,6 +373,23 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_register_parser.add_argument("--lane-note-template", default=None)
     generic_aggregate_register_parser.add_argument("--status", default="ready")
     generic_aggregate_register_parser.add_argument("--note", default=None)
+    generic_aggregate_scaffold_parser = add_command_parser(subparsers, "scaffold-completed-aggregate-family")
+    generic_aggregate_scaffold_parser.add_argument("--family", required=True)
+    generic_aggregate_scaffold_parser.add_argument("--catalog", default="config/datasets/dataset-mvp-profile-catalog.yaml",
+                                                  help="Profile catalog YAML path")
+    generic_aggregate_scaffold_parser.add_argument("--dataset-id", default=None)
+    generic_aggregate_scaffold_parser.add_argument("--dataset-kind", default="aggregate")
+    generic_aggregate_scaffold_parser.add_argument("--profile", default=None)
+    generic_aggregate_scaffold_parser.add_argument("--completed-ledger", default=None)
+    generic_aggregate_scaffold_parser.add_argument("--manifest-index", default=None)
+    generic_aggregate_scaffold_parser.add_argument("--out-manifest", default=None)
+    generic_aggregate_scaffold_parser.add_argument("--graph-output-root", default=None)
+    generic_aggregate_scaffold_parser.add_argument("--run-output-root", default=None)
+    generic_aggregate_scaffold_parser.add_argument("--query-snapshot-template", default=None)
+    generic_aggregate_scaffold_parser.add_argument("--scope-note", action="append", default=[])
+    generic_aggregate_scaffold_parser.add_argument("--lane-note-template", default=None)
+    generic_aggregate_scaffold_parser.add_argument("--status", default="scaffolded")
+    generic_aggregate_scaffold_parser.add_argument("--note", default=None)
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1072,6 +1089,42 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("register-completed-aggregate-family", _run_register_generic_family)
+
+    if args.command == "scaffold-completed-aggregate-family":
+        from vitruvius.aggregate_manifest import scaffold_completed_aggregate_family
+        def _run_scaffold_generic_family():
+            repo_root = Path.cwd().resolve()
+            scaffold_result = scaffold_completed_aggregate_family(
+                repo_root=repo_root,
+                family=args.family,
+                catalog_path=Path(args.catalog),
+                dataset_id=args.dataset_id,
+                dataset_kind=args.dataset_kind,
+                profile_path=Path(args.profile) if args.profile else None,
+                completed_ledger_path=Path(args.completed_ledger) if args.completed_ledger else None,
+                manifest_index_path=Path(args.manifest_index) if args.manifest_index else None,
+                out_manifest=args.out_manifest,
+                graph_output_root=args.graph_output_root,
+                run_output_root=args.run_output_root,
+                query_snapshot_template=args.query_snapshot_template,
+                scope_notes=list(args.scope_note or []),
+                lane_note_template=args.lane_note_template,
+                status=args.status,
+                note=args.note,
+            )
+            print(json.dumps({
+                "action": "scaffold-completed-aggregate-family",
+                "family": args.family,
+                "profile_path": str(scaffold_result["profile_path"].relative_to(repo_root)),
+                "catalog_path": str(scaffold_result["catalog_path"].relative_to(repo_root)),
+                "completed_ledger_path": str(scaffold_result["completed_ledger_path"].relative_to(repo_root)),
+                "manifest_index_path": str(scaffold_result["manifest_index_path"].relative_to(repo_root)),
+                "dataset_id": scaffold_result["profile_payload"]["dataset_id"],
+                "dataset_kind": scaffold_result["profile_payload"]["dataset_kind"],
+                "catalog_entry": scaffold_result["catalog_entry"],
+            }, indent=2))
+            return 0
+        return _run("scaffold-completed-aggregate-family", _run_scaffold_generic_family)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary

@@ -483,6 +483,84 @@ def register_completed_aggregate_family(
     return resolved_profile_path, resolved_catalog_path, profile_payload, new_entry
 
 
+def scaffold_completed_aggregate_family(
+    *,
+    repo_root: Path,
+    family: str,
+    catalog_path: Path,
+    dataset_id: str | None = None,
+    dataset_kind: str = 'aggregate',
+    profile_path: Path | None = None,
+    completed_ledger_path: Path | None = None,
+    manifest_index_path: Path | None = None,
+    out_manifest: str | None = None,
+    graph_output_root: str | None = None,
+    run_output_root: str | None = None,
+    query_snapshot_template: str | None = None,
+    scope_notes: list[str] | None = None,
+    lane_note_template: str | None = None,
+    status: str = 'scaffolded',
+    note: str | None = None,
+) -> dict[str, Any]:
+    normalized_family = family.strip()
+    if not normalized_family:
+        raise ValueError('family must not be empty')
+
+    normalized_dataset_id = dataset_id or f'{normalized_family}-aggregate'
+    normalized_profile_path = profile_path or Path(f'config/datasets/{normalized_family}-mvp-profile.yaml')
+    normalized_completed_ledger_path = completed_ledger_path or Path(f'config/datasets/{normalized_family}-completed-lanes.yaml')
+    normalized_manifest_index_path = manifest_index_path or Path(f'config/datasets/{normalized_family}-manifest-index.yaml')
+    normalized_out_manifest = out_manifest or f'006_System-Manifests/runs/datasets/{normalized_dataset_id}/latest_dataset_manifest.yaml'
+    normalized_graph_output_root = graph_output_root or f'005_Operational-Intelligence-Layer/graph/datasets/{normalized_dataset_id}'
+    normalized_run_output_root = run_output_root or f'006_System-Manifests/runs/datasets/{normalized_dataset_id}'
+    normalized_query_snapshot_template = query_snapshot_template or (
+        f'005_Operational-Intelligence-Layer/graph/datasets/{normalized_dataset_id}' + '/{run_id}_graph_snapshot.json'
+    )
+
+    resolved_completed_ledger_path = (
+        normalized_completed_ledger_path
+        if normalized_completed_ledger_path.is_absolute()
+        else repo_root / normalized_completed_ledger_path
+    )
+    resolved_manifest_index_path = (
+        normalized_manifest_index_path
+        if normalized_manifest_index_path.is_absolute()
+        else repo_root / normalized_manifest_index_path
+    )
+    if not resolved_completed_ledger_path.exists():
+        write_yaml_payload(resolved_completed_ledger_path, {'completed_lanes': []})
+    if not resolved_manifest_index_path.exists():
+        write_yaml_payload(resolved_manifest_index_path, {'manifests': []})
+
+    resolved_profile_path, resolved_catalog_path, profile_payload, catalog_entry = register_completed_aggregate_family(
+        repo_root=repo_root,
+        family=normalized_family,
+        profile_path=normalized_profile_path,
+        catalog_path=catalog_path,
+        dataset_id=normalized_dataset_id,
+        dataset_kind=dataset_kind,
+        completed_ledger=str(resolved_completed_ledger_path.relative_to(repo_root)),
+        manifest_index=str(resolved_manifest_index_path.relative_to(repo_root)),
+        out_manifest=normalized_out_manifest,
+        graph_output_root=normalized_graph_output_root,
+        run_output_root=normalized_run_output_root,
+        query_snapshot_template=normalized_query_snapshot_template,
+        scope_notes=scope_notes,
+        lane_note_template=lane_note_template,
+        status=status,
+        note=note,
+    )
+    return {
+        'family': normalized_family,
+        'profile_path': resolved_profile_path,
+        'catalog_path': resolved_catalog_path,
+        'completed_ledger_path': resolved_completed_ledger_path,
+        'manifest_index_path': resolved_manifest_index_path,
+        'profile_payload': profile_payload,
+        'catalog_entry': catalog_entry,
+    }
+
+
 def build_generic_completed_aggregate_manifest_from_profile(
     *,
     repo_root: Path,

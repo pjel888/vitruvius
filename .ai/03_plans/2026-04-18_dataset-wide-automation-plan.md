@@ -34,4 +34,10 @@ status: in_progress
   - one command can write the profile and catalog entry
 
 ## Current next step
-- onboard the first true non-laws trusted dataset family when a completed-ledger/manifest-index pair exists
+- family scaffolding is now in place:
+  - starter completed-ledger
+  - starter manifest index
+  - profile
+  - catalog entry
+- the next real proof is still:
+  - onboard the first true non-laws trusted dataset family once its completed lanes are admitted

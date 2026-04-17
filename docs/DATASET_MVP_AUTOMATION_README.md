@@ -59,6 +59,29 @@ After registration, the family can run through:
 ./run-dataset-mvp-graph --family <family-name> [review args]
 ```
 
+## Scaffolding a brand-new dataset family
+If a family does not yet have:
+- completed-lanes ledger
+- manifest index
+- profile
+- catalog entry
+
+bootstrap all of them with:
+
+```bash
+python3 scripts/pipeline_cli.py scaffold-completed-aggregate-family \
+  --family <family-name> \
+  --dataset-kind <dataset-kind>
+```
+
+This creates starter artifacts for:
+- `config/datasets/<family>-completed-lanes.yaml`
+- `config/datasets/<family>-manifest-index.yaml`
+- `config/datasets/<family>-mvp-profile.yaml`
+- catalog registration in `config/datasets/dataset-mvp-profile-catalog.yaml`
+
+The scaffolded family is intentionally empty until completed lanes and manifest entries are admitted.
+
 ## Profile contract
 A profile YAML must define:
 - `dataset_id`

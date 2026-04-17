@@ -2029,6 +2029,25 @@ def test_register_completed_aggregate_family_writes_profile_and_catalog(tmp_path
     assert catalog_entry['status'] == 'demo'
 
 
+def test_scaffold_completed_aggregate_family_writes_starter_files(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import scaffold_completed_aggregate_family
+
+    result = scaffold_completed_aggregate_family(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        dataset_kind='history-aggregate',
+        note='History demo family.',
+    )
+    completed_ledger_payload = yaml.safe_load(result['completed_ledger_path'].read_text(encoding='utf-8'))
+    manifest_index_payload = yaml.safe_load(result['manifest_index_path'].read_text(encoding='utf-8'))
+    profile_payload = yaml.safe_load(result['profile_path'].read_text(encoding='utf-8'))
+    assert completed_ledger_payload == {'completed_lanes': []}
+    assert manifest_index_payload == {'manifests': []}
+    assert profile_payload['dataset_id'] == 'history-demo-aggregate'
+    assert result['catalog_entry']['family'] == 'history-demo'
+
+
 def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
     tmp_path: Path,
     monkeypatch,
@@ -2285,6 +2304,41 @@ def test_pipeline_cli_register_completed_aggregate_family_writes_profile_and_cat
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'register-completed-aggregate-family'
     assert stdout_payload['family'] == 'demo'
+
+
+def test_pipeline_cli_scaffold_completed_aggregate_family_writes_starter_files(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-family',
+            '--family', 'history-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--dataset-kind', 'history-aggregate',
+            '--note', 'History demo family.',
+        ],
+    )
+
+    rc = pipeline_cli.main()
+    assert rc == 0
+    completed_ledger_payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'history-demo-completed-lanes.yaml').read_text(encoding='utf-8'))
+    manifest_index_payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'history-demo-manifest-index.yaml').read_text(encoding='utf-8'))
+    profile_payload = yaml.safe_load((tmp_path / 'config' / 'datasets' / 'history-demo-mvp-profile.yaml').read_text(encoding='utf-8'))
+    assert completed_ledger_payload == {'completed_lanes': []}
+    assert manifest_index_payload == {'manifests': []}
+    assert profile_payload['dataset_id'] == 'history-demo-aggregate'
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'scaffold-completed-aggregate-family'
+    assert stdout_payload['family'] == 'history-demo'
 
 
 def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline(
