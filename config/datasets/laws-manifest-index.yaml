@@ -1,0 +1,107 @@
+as_of: 2026-04-18
+scope: laws-wave
+notes:
+  - This index lists the manifests that define the completed executable and remediation lanes for the laws wave.
+  - Use together with `config/datasets/laws-completed-lanes.yaml` and `config/datasets/laws-remaining-dispositions.yaml`.
+manifests:
+  - manifest: config/datasets/laws-core-bundle-m1.yaml
+    lane_id: laws-core-bundle-pilot
+    lane_type: pilot_core_bundle
+    status: completed
+  - manifest: config/datasets/laws-tranche-1.yaml
+    lane_id: laws-tranche-1
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-2.yaml
+    lane_id: laws-tranche-2
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-3.yaml
+    lane_id: laws-tranche-3
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-4.yaml
+    lane_id: laws-tranche-4
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-5.yaml
+    lane_id: laws-tranche-5
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-6.yaml
+    lane_id: laws-tranche-6
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-7.yaml
+    lane_id: laws-tranche-7
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-8.yaml
+    lane_id: laws-tranche-8
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-9.yaml
+    lane_id: laws-tranche-9
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-10.yaml
+    lane_id: laws-tranche-10
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-11.yaml
+    lane_id: laws-tranche-11
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-12.yaml
+    lane_id: laws-tranche-12
+    lane_type: tranche
+    status: completed
+    note: Logical agency identity is DHSUD while raw storage folder remains HLURB-DHSUD.
+  - manifest: config/datasets/laws-tranche-13.yaml
+    lane_id: laws-tranche-13
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-14.yaml
+    lane_id: laws-tranche-14
+    lane_type: tranche
+    status: completed
+  - manifest: config/datasets/laws-tranche-prc.yaml
+    lane_id: laws-tranche-prc
+    lane_type: resolution_bundle
+    status: completed
+  - manifest: config/datasets/laws-tranche-ra-9279-remediation.yaml
+    lane_id: laws-tranche-ra-9279-remediation
+    lane_type: remediation
+    status: completed
+  - manifest: config/datasets/laws-tranche-15-san-mateo.yaml
+    lane_id: laws-tranche-15-san-mateo
+    lane_type: lgu_shard
+    status: completed
+  - manifest: config/datasets/laws-tranche-15-dagupan.yaml
+    lane_id: laws-tranche-15-dagupan
+    lane_type: lgu_shard
+    status: completed
+  - manifest: config/datasets/laws-tranche-15-malolos.yaml
+    lane_id: laws-tranche-15-malolos
+    lane_type: lgu_shard
+    status: completed
+  - manifest: config/datasets/laws-tranche-15-meycauayan.yaml
+    lane_id: laws-tranche-15-meycauayan
+    lane_type: lgu_shard
+    status: completed
+  - manifest: config/datasets/laws-tranche-15-davao.yaml
+    lane_id: laws-tranche-15-davao
+    lane_type: lgu_shard
+    status: completed
+  - manifest: config/datasets/laws-tranche-15-tarlac.yaml
+    lane_id: laws-tranche-15-tarlac
+    lane_type: lgu_shard
+    status: completed
+  - manifest: config/datasets/laws-tranche-15-ordinance-2117.yaml
+    lane_id: laws-tranche-15-ordinance-2117
+    lane_type: lgu_shard
+    status: completed
+  - manifest: config/datasets/laws-tranche-15-pasay.yaml
+    lane_id: laws-tranche-15-pasay
+    lane_type: lgu_shard
+    status: completed
