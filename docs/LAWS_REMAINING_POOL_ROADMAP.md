@@ -24,6 +24,8 @@
 
 ### Tranche 15 — Local ordinance / zoning sharding lane
 - `LGU`
+  - first candidate shard: San Mateo zoning ordinance + San Mateo/Rizal CLUP
+  - current blocker: shard duplicate readiness still sees unrelated duplicate files elsewhere in `LGU`
 
 ## Remediation / defer lanes
 ### Remediation-first

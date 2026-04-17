@@ -392,6 +392,8 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - exact duplicate clusters already visible: `2`
     - sampled zoning / CLUP PDFs detect as direct text-PDFs
     - see `/.ai/03_plans/2026-04-18_tranche-15-sharding-plan.md`
+  - first LGU shard scouting now identifies a San Mateo zoning/CLUP pair as the smallest current candidate, but duplicate readiness still reports `duplicate_law_folders = [LGU]` because unrelated duplicate files elsewhere in the folder are still seen during shard-only scans
+    - see `/.ai/05_logs/2026-04-18_tranche-15-first-shard-scout-validation.md`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
   - current truthful bounded state:
     - `PD-1096` = `covered`

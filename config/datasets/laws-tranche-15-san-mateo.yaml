@@ -1,0 +1,19 @@
+tranche_id: laws-tranche-15-san-mateo
+purpose: readiness-only
+phase_11_gate: gated
+description: First shard-specific tranche-15 lane for the LGU bundle. This shard isolates the San Mateo zoning ordinance and San Mateo/Rizal CLUP materials as the smallest currently truthful city-coherent first execute candidate.
+review_model_preset: m2-8gb-safe
+candidate_law_folders:
+- folder_name: LGU
+  reason: first city-coherent LGU shard centered on San Mateo zoning / CLUP materials.
+  raw_anchor_paths: &id001
+  - 001_Raw-Source-Layer/001-Laws/LGU/794216046-San-Mateo-Zoning-Ordinance.pdf
+  - 001_Raw-Source-Layer/001-Laws/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.pdf
+  authoritative_variant_paths: *id001
+  excluded_variant_paths: []
+source_admission:
+  last_run_id: null
+  last_report_path: null
+  admitted_ready_law_folders: []
+  mixed_readiness_law_folders: []
+  blocked_law_folders: []
