@@ -128,4 +128,5 @@ Before tranche-1 execute is considered safe:
 
 - `.ai/02_audits/2026-04-17_laws-tranche-expansion-audit.md`
 - `.ai/03_plans/2026-04-17_laws-tranche-expansion-plan.md`
+- `docs/LAWS_POST_TRANCHE2_MANIFEST_STRATEGY.md`
 - `.omx/context/laws-tranche-implementation-20260417T012217Z.md`
