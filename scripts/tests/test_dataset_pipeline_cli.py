@@ -2628,6 +2628,79 @@ def test_scaffold_completed_aggregate_lane_concepts_writes_concept_files(tmp_pat
     assert summary['concept_count'] == 1
     concept_payload = (tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'concepts' / 'architectural-history.md').read_text(encoding='utf-8')
     assert 'id: concept-architectural-history' in concept_payload
+    updated_manifest = yaml.safe_load(lane_result['out_manifest_path'].read_text(encoding='utf-8'))
+    assert updated_manifest['canonical_input_manifest']['concepts'][0]['path'] == '003_Canonical-Knowledge-Layer/shared/concepts/architectural-history.md'
+
+
+def test_scaffold_completed_aggregate_lane_relationships_writes_relationship_files(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import (
+        scaffold_completed_aggregate_family,
+        scaffold_completed_aggregate_lane_canonical_rules,
+        scaffold_completed_aggregate_lane_concepts,
+        scaffold_completed_aggregate_lane_manifest,
+        scaffold_completed_aggregate_lane_relationships,
+    )
+
+    scaffold_completed_aggregate_family(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        dataset_kind='history-aggregate',
+    )
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '002-History' / 'Chinese Architecture.pdf')
+    lane_result = scaffold_completed_aggregate_lane_manifest(
+        repo_root=tmp_path,
+        family='history-demo',
+        catalog_path=Path('config/datasets/catalog.yaml'),
+        lane_id='history-lane-starter',
+        raw_root=Path('001_Raw-Source-Layer/002-History'),
+        max_files=1,
+        extensions=['.pdf'],
+    )
+    scaffold_completed_aggregate_lane_canonical_rules(
+        repo_root=tmp_path,
+        manifest_path=lane_result['out_manifest_path'],
+        source_type='handout',
+        trust_level='secondary',
+        output_rules_path=Path('config/datasets/canonical_rules.generated.yaml'),
+        core_concepts=['architectural history'],
+    )
+    # seed an admitted source file
+    _write(
+        tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'chinese-architecture.md',
+        '---\nid: handout-chinese-architecture\n---\n',
+    )
+    manifest_payload = yaml.safe_load(lane_result['out_manifest_path'].read_text(encoding='utf-8'))
+    manifest_payload['canonical_input_manifest']['sources'] = [
+        {
+            'path': '003_Canonical-Knowledge-Layer/shared/sources/chinese-architecture.md',
+            'folder_name': 'history-demo',
+            'entry_role': 'authoritative',
+            'authority_tier': 'primary',
+            'variant_family': 'history-demo-source',
+            'edition_or_source_note': 'history demo source',
+            'include_in_m1': True,
+            'reason': 'history demo lane',
+        }
+    ]
+    manifest_payload['law_units'][0]['admitted_source_paths'] = ['003_Canonical-Knowledge-Layer/shared/sources/chinese-architecture.md']
+    lane_result['out_manifest_path'].write_text(yaml.safe_dump(manifest_payload, sort_keys=False), encoding='utf-8')
+    scaffold_completed_aggregate_lane_concepts(
+        repo_root=tmp_path,
+        manifest_path=lane_result['out_manifest_path'],
+        output_dir=Path('003_Canonical-Knowledge-Layer/shared/concepts'),
+    )
+    summary = scaffold_completed_aggregate_lane_relationships(
+        repo_root=tmp_path,
+        manifest_path=lane_result['out_manifest_path'],
+        predicate='covers',
+        output_dir=Path('003_Canonical-Knowledge-Layer/shared/relationships'),
+    )
+    assert summary['relationship_count'] == 1
+    rel_payload = (tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-handout-chinese-architecture-covers-concept-architectural-history.md').read_text(encoding='utf-8')
+    assert 'relationship_type: covers' in rel_payload
+    updated_manifest = yaml.safe_load(lane_result['out_manifest_path'].read_text(encoding='utf-8'))
+    assert updated_manifest['relationship_input_manifest']['relationships'][0]['path'].endswith('rel-handout-chinese-architecture-covers-concept-architectural-history.md')
 
 
 def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
@@ -3463,6 +3536,112 @@ def test_pipeline_cli_scaffold_completed_aggregate_lane_concepts_reports_summary
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'scaffold-completed-aggregate-lane-concepts'
     assert stdout_payload['concept_count'] == 1
+
+
+def test_pipeline_cli_scaffold_completed_aggregate_lane_relationships_reports_summary(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
+    _write_valid_pdf(tmp_path / '001_Raw-Source-Layer' / '002-History' / 'Chinese Architecture.pdf')
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-family',
+            '--family', 'history-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--dataset-kind', 'history-aggregate',
+        ],
+    )
+    assert pipeline_cli.main() == 0
+    capsys.readouterr()
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-lane-manifest',
+            '--family', 'history-demo',
+            '--catalog', 'config/datasets/catalog.yaml',
+            '--lane-id', 'history-lane-starter',
+            '--raw-root', '001_Raw-Source-Layer/002-History',
+            '--max-files', '1',
+            '--extension', '.pdf',
+        ],
+    )
+    assert pipeline_cli.main() == 0
+    capsys.readouterr()
+    _write(
+        tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'sources' / 'chinese-architecture.md',
+        '---\nid: handout-chinese-architecture\n---\n',
+    )
+    manifest_path = tmp_path / 'config' / 'datasets' / 'history-lane-starter.yaml'
+    payload = yaml.safe_load(manifest_path.read_text(encoding='utf-8'))
+    payload['canonical_input_manifest']['sources'] = [
+        {
+            'path': '003_Canonical-Knowledge-Layer/shared/sources/chinese-architecture.md',
+            'folder_name': 'history-demo',
+            'entry_role': 'authoritative',
+            'authority_tier': 'primary',
+            'variant_family': 'history-demo-source',
+            'edition_or_source_note': 'history demo source',
+            'include_in_m1': True,
+            'reason': 'history demo lane',
+        }
+    ]
+    payload['law_units'][0]['admitted_source_paths'] = ['003_Canonical-Knowledge-Layer/shared/sources/chinese-architecture.md']
+    manifest_path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding='utf-8')
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-lane-canonical-rules',
+            '--manifest', 'config/datasets/history-lane-starter.yaml',
+            '--source-type', 'handout',
+            '--trust-level', 'secondary',
+            '--core-concept', 'architectural history',
+        ],
+    )
+    assert pipeline_cli.main() == 0
+    capsys.readouterr()
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-lane-concepts',
+            '--manifest', 'config/datasets/history-lane-starter.yaml',
+        ],
+    )
+    assert pipeline_cli.main() == 0
+    capsys.readouterr()
+
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'scaffold-completed-aggregate-lane-relationships',
+            '--manifest', 'config/datasets/history-lane-starter.yaml',
+            '--predicate', 'covers',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'scaffold-completed-aggregate-lane-relationships'
+    assert stdout_payload['relationship_count'] == 1
 
 
 def test_pipeline_cli_run_completed_aggregate_from_profile_invokes_dataset_pipeline(

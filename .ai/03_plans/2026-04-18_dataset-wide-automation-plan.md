@@ -57,5 +57,7 @@ status: in_progress
   - lane manifest -> generated canonical rule overlay entries
 - starter concept scaffolding is now in place:
   - generated lane rules -> draft concept pages
+- starter relationship scaffolding is now in place:
+  - admitted starter sources + draft concepts -> draft relationship inputs
 - the next real proof is still:
   - onboard the first true non-laws trusted dataset family once its completed lanes are admitted

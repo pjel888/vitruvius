@@ -1280,6 +1280,22 @@ def _rule_tokens_for_path(path_value: str) -> list[str]:
     return filtered[:4] if filtered else tokens[:4]
 
 
+def _frontmatter_id(path: Path) -> str | None:
+    if not path.exists():
+        return None
+    text = path.read_text(encoding='utf-8')
+    if not text.startswith('---'):
+        return None
+    end = text.find('\n---', 3)
+    if end == -1:
+        return None
+    data = yaml.safe_load(text[3:end].strip())
+    if not isinstance(data, dict):
+        return None
+    node_id = data.get('id')
+    return node_id if isinstance(node_id, str) and node_id.strip() else None
+
+
 def scaffold_completed_aggregate_lane_canonical_rules(
     *,
     repo_root: Path,
@@ -1400,10 +1416,157 @@ def scaffold_completed_aggregate_lane_concepts(
             )
         written_paths.append(_relative(target_path, repo_root))
 
+    canonical_section = payload.setdefault('canonical_input_manifest', {})
+    concept_entries = canonical_section.setdefault('concepts', [])
+    if not isinstance(concept_entries, list):
+        concept_entries = []
+        canonical_section['concepts'] = concept_entries
+    existing_concept_paths = {
+        str(item.get('path') or '')
+        for item in concept_entries
+        if isinstance(item, dict)
+    }
+    anchor_folder_name = ''
+    raw_slice = payload.get('raw_slice_anchors') or []
+    if raw_slice and isinstance(raw_slice[0], dict):
+        anchor_folder_name = str(raw_slice[0].get('folder_name') or '')
+    for concept_path in written_paths:
+        if concept_path in existing_concept_paths:
+            continue
+        concept_entries.append({
+            'path': concept_path,
+            'folder_name': anchor_folder_name,
+            'entry_role': 'derived',
+            'authority_tier': 'derived',
+            'variant_family': f"{str(payload.get('dataset_id') or resolved_manifest_path.stem)}-bootstrap-concept",
+            'edition_or_source_note': 'Bootstrap concept scaffold from generated lane rules.',
+            'include_in_m1': True,
+            'reason': 'Starter lane concept scaffold',
+        })
+        existing_concept_paths.add(concept_path)
+
+    law_units = payload.get('law_units')
+    if isinstance(law_units, list):
+        for law_unit in law_units:
+            if not isinstance(law_unit, dict):
+                continue
+            admitted_concepts = [str(path) for path in law_unit.get('admitted_concept_paths') or [] if isinstance(path, str)]
+            for concept_path in written_paths:
+                if concept_path not in admitted_concepts:
+                    admitted_concepts.append(concept_path)
+            law_unit['admitted_concept_paths'] = admitted_concepts
+
+    write_yaml_payload(resolved_manifest_path, payload)
+
     return {
         'manifest_path': _relative(resolved_manifest_path, repo_root),
         'concept_count': len(selected_concepts),
         'written_paths': written_paths,
+    }
+
+
+def scaffold_completed_aggregate_lane_relationships(
+    *,
+    repo_root: Path,
+    manifest_path: Path,
+    predicate: str = 'covers',
+    output_dir: Path | None = None,
+) -> dict[str, Any]:
+    from .canonicalize import slugify
+
+    resolved_manifest_path = manifest_path if manifest_path.is_absolute() else repo_root / manifest_path
+    payload = load_yaml_payload(resolved_manifest_path)
+    dataset_id = str(payload.get('dataset_id') or resolved_manifest_path.stem)
+    canonical_section = payload.setdefault('canonical_input_manifest', {})
+    source_entries = canonical_section.setdefault('sources', [])
+    concept_entries = canonical_section.setdefault('concepts', [])
+    if not isinstance(source_entries, list) or not isinstance(concept_entries, list):
+        raise ValueError('lane manifest canonical_input_manifest must contain sources and concepts lists')
+
+    sources: list[tuple[str, str]] = []
+    for item in source_entries:
+        if not isinstance(item, dict):
+            continue
+        rel_path = item.get('path')
+        if not isinstance(rel_path, str) or not rel_path.strip():
+            continue
+        abs_path = repo_root / rel_path
+        node_id = _frontmatter_id(abs_path)
+        if node_id:
+            sources.append((node_id, rel_path))
+
+    concepts: list[tuple[str, str]] = []
+    for item in concept_entries:
+        if not isinstance(item, dict):
+            continue
+        rel_path = item.get('path')
+        if not isinstance(rel_path, str) or not rel_path.strip():
+            continue
+        abs_path = repo_root / rel_path
+        node_id = _frontmatter_id(abs_path)
+        if node_id:
+            concepts.append((node_id, rel_path))
+
+    target_dir = output_dir if output_dir is not None and output_dir.is_absolute() else repo_root / (output_dir or Path('003_Canonical-Knowledge-Layer/shared/relationships'))
+    written_paths: list[str] = []
+    for source_id, _source_path in sources:
+        for concept_id, _concept_path in concepts:
+            relationship_id = f'rel-{slugify(source_id)}-{predicate}-{slugify(concept_id)}'
+            target_path = target_dir / f'{relationship_id}.md'
+            if not target_path.exists():
+                target_path.parent.mkdir(parents=True, exist_ok=True)
+                target_path.write_text(
+                    f"---\nid: {relationship_id}\ntitle: {source_id} {predicate} {concept_id}\npage_type: relationship\nrelationship_type: {predicate}\nfrom_entity: {source_id}\nto_entity: {concept_id}\ntrust_level: bootstrap\ncanonical_status: draft\n---\n\n# {source_id} {predicate} {concept_id}\n\n## Relationship Summary\n\nBootstrap relationship scaffold generated from completed aggregate lane source/concept state.\n",
+                    encoding='utf-8',
+                )
+            written_paths.append(_relative(target_path, repo_root))
+
+    relationship_section = payload.setdefault('relationship_input_manifest', {})
+    relationship_entries = relationship_section.setdefault('relationships', [])
+    if not isinstance(relationship_entries, list):
+        relationship_entries = []
+        relationship_section['relationships'] = relationship_entries
+    existing_rel_paths = {
+        str(item.get('path') or '')
+        for item in relationship_entries
+        if isinstance(item, dict)
+    }
+    anchor_folder_name = ''
+    raw_slice = payload.get('raw_slice_anchors') or []
+    if raw_slice and isinstance(raw_slice[0], dict):
+        anchor_folder_name = str(raw_slice[0].get('folder_name') or '')
+    for rel_path in written_paths:
+        if rel_path in existing_rel_paths:
+            continue
+        relationship_entries.append({
+            'path': rel_path,
+            'folder_name': anchor_folder_name,
+            'entry_role': 'authoritative',
+            'authority_tier': 'approved',
+            'variant_family': f'{dataset_id}-bootstrap-relationship',
+            'edition_or_source_note': 'Bootstrap relationship scaffold from starter lane source/concept state.',
+            'include_in_m1': True,
+            'reason': 'Starter lane relationship scaffold',
+        })
+        existing_rel_paths.add(rel_path)
+
+    law_units = payload.get('law_units')
+    if isinstance(law_units, list):
+        for law_unit in law_units:
+            if not isinstance(law_unit, dict):
+                continue
+            admitted_relationships = [str(path) for path in law_unit.get('admitted_relationship_paths') or [] if isinstance(path, str)]
+            for rel_path in written_paths:
+                if rel_path not in admitted_relationships:
+                    admitted_relationships.append(rel_path)
+            law_unit['admitted_relationship_paths'] = admitted_relationships
+
+    write_yaml_payload(resolved_manifest_path, payload)
+    return {
+        'manifest_path': _relative(resolved_manifest_path, repo_root),
+        'relationship_count': len(written_paths),
+        'written_paths': written_paths,
+        'predicate': predicate,
     }
 
 

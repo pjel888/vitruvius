@@ -239,6 +239,25 @@ This writes draft concept pages under:
 
 These are bootstrap concept stubs only. They help the next relationship-input layer, but they are not a substitute for reviewed concept enrichment.
 
+## Scaffolding starter relationship inputs
+Once starter sources and concepts exist, scaffold draft relationship inputs with:
+
+```bash
+python3 scripts/pipeline_cli.py scaffold-completed-aggregate-lane-relationships \
+  --manifest <lane-manifest-yaml> \
+  --predicate covers
+```
+
+This writes draft relationship pages under:
+
+- `003_Canonical-Knowledge-Layer/shared/relationships/`
+
+and updates the lane manifest:
+- `relationship_input_manifest.relationships`
+- `law_units[*].admitted_relationship_paths`
+
+For non-laws starter lanes, `covers` is the intended bootstrap predicate for source→concept coverage. These are still draft bootstrap relationships, not reviewed promoted truth.
+
 ## Profile contract
 A profile YAML must define:
 - `dataset_id`
