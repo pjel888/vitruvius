@@ -1,0 +1,30 @@
+{
+  "as_of": "2026-04-18",
+  "status": "saturated_truth_complete",
+  "branch": "ralph/laws-dataset-phases",
+  "counts": {
+    "raw_folder_count": 47,
+    "covered_raw_folder_count": 41,
+    "remaining_uncovered_folder_count": 6,
+    "completed_lane_count": 25,
+    "resolved_truth_model_fix_count": 2,
+    "source_provenance_set_count": 3
+  },
+  "remaining_uncovered_folders": [
+    "BERDE",
+    "HB-3391",
+    "HB-5207",
+    "RA-11361",
+    "RA-7920",
+    "SB-2982"
+  ],
+  "artifact_refs": {
+    "completed_lanes": "config/datasets/laws-completed-lanes.yaml",
+    "remaining_dispositions": "config/datasets/laws-remaining-dispositions.yaml",
+    "source_provenance": "config/datasets/laws-source-provenance.yaml",
+    "manifest_index": "config/datasets/laws-manifest-index.yaml",
+    "artifact_index": "docs/LAWS_WAVE_ARTIFACT_INDEX.md",
+    "completion_summary": ".ai/05_logs/2026-04-18_laws-wave-completion-summary.md"
+  },
+  "note": "No stronger normal primary-law or primary-regulation lane remains in the current pool under the present authority and source-quality rules."
+}
