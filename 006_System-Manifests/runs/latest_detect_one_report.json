@@ -1,29 +1,29 @@
 {
-  "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/700996086-Malolos-City-Zoning-Ordinance.pdf",
-  "total_pages": 82,
+  "pdf_path": "/Users/philiplewis/vitruvius/001_Raw-Source-Layer/001-Laws/LGU/253090760-Zoning-Davao-City.pdf",
+  "total_pages": 19,
   "pages_sampled": 5,
-  "pages_with_usable_text": 5,
-  "total_extracted_characters": 9240,
+  "pages_with_usable_text": 3,
+  "total_extracted_characters": 552,
   "page_details": [
     {
       "page_number": 1,
-      "extracted_characters": 53
+      "extracted_characters": 38
     },
     {
       "page_number": 2,
-      "extracted_characters": 1886
+      "extracted_characters": 27
     },
     {
       "page_number": 3,
-      "extracted_characters": 2935
+      "extracted_characters": 80
     },
     {
       "page_number": 4,
-      "extracted_characters": 2348
+      "extracted_characters": 319
     },
     {
       "page_number": 5,
-      "extracted_characters": 2018
+      "extracted_characters": 88
     }
   ],
   "result": "TEXT_PDF",

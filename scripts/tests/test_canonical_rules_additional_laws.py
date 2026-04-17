@@ -463,3 +463,11 @@ def test_build_plan_matches_malolos_zoning_ordinance_rule() -> None:
     assert plan['prefix'] == 'law'
     assert plan['source_type'] == 'law'
     assert plan['trust'] == 'primary'
+
+
+def test_build_plan_matches_meycauayan_zoning_ordinance_rule() -> None:
+    plan = build_plan('001-Laws/refined_markdown/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.md')
+    assert plan['title'] == 'Comprehensive Zoning Ordinance of the Municipality of Meycauayan'
+    assert plan['prefix'] == 'law'
+    assert plan['source_type'] == 'law'
+    assert plan['trust'] == 'primary'

@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at_utc": "20260417T164732Z",
+  "source_relative_path": "001-Laws/raw_markdown/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.md",
+  "refined_relative_path": "001-Laws/refined_markdown/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.md",
+  "source_hash": "61271c4cb5bdf6ace4ffa9cfaa136d69f00881e7526eff8dcbbbfb64293c0c7d",
+  "output_hash": "7c9a1cd944d8083590e0006592b5710abd91913c9f61f301667cb7d253430854",
+  "chars_before": 70718,
+  "chars_after": 70572,
+  "chars_delta": -146,
+  "rules_count": 8,
+  "rules_applied": [
+    "unicode-nfc",
+    "strip-control-chars",
+    "normalize-line-endings",
+    "collapse-trailing-whitespace",
+    "collapse-consecutive-blank-lines",
+    "normalize-setext-to-atx",
+    "normalize-section-abbreviation",
+    "trim-heading-whitespace"
+  ],
+  "rules_changed_text": [
+    "strip-control-chars",
+    "collapse-consecutive-blank-lines",
+    "normalize-section-abbreviation"
+  ],
+  "audit": [
+    {
+      "rule": "unicode-nfc",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 70718,
+      "chars_after": 70718,
+      "changed": false
+    },
+    {
+      "rule": "strip-control-chars",
+      "tier": "A",
+      "phase": 1,
+      "chars_before": 70718,
+      "chars_after": 70699,
+      "changed": true
+    },
+    {
+      "rule": "normalize-line-endings",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 70699,
+      "chars_after": 70699,
+      "changed": false
+    },
+    {
+      "rule": "collapse-trailing-whitespace",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 70699,
+      "chars_after": 70699,
+      "changed": false
+    },
+    {
+      "rule": "collapse-consecutive-blank-lines",
+      "tier": "A",
+      "phase": 2,
+      "chars_before": 70699,
+      "chars_after": 70563,
+      "changed": true
+    },
+    {
+      "rule": "normalize-setext-to-atx",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 70563,
+      "chars_after": 70563,
+      "changed": false
+    },
+    {
+      "rule": "normalize-section-abbreviation",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 70563,
+      "chars_after": 70572,
+      "changed": true
+    },
+    {
+      "rule": "trim-heading-whitespace",
+      "tier": "B",
+      "phase": 3,
+      "chars_before": 70572,
+      "chars_after": 70572,
+      "changed": false
+    }
+  ],
+  "manual_review": false,
+  "manual_review_reason": null
+}
