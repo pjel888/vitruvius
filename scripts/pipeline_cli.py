@@ -485,6 +485,10 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_build_report_summary_parser = add_command_parser(subparsers, "summarize-dataset-build-report")
     generic_aggregate_build_report_summary_parser.add_argument("--build-report", required=True)
     generic_aggregate_build_report_summary_parser.add_argument("--top-n", type=int, default=10)
+    concept_candidate_parser = add_command_parser(subparsers, "suggest-concept-candidates-from-refined")
+    concept_candidate_parser.add_argument("--refined-markdown-path", required=True,
+                                         help="Path under 002_Raw-Conversion-Layer to inspect for definition-style concept candidates.")
+    concept_candidate_parser.add_argument("--top-n", type=int, default=25)
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1566,6 +1570,17 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("summarize-dataset-build-report", _run_summarize_dataset_build_report)
+
+    if args.command == "suggest-concept-candidates-from-refined":
+        from vitruvius.concept_candidate_suggestions import run_suggest_concept_candidates
+
+        def _run_suggest_concept_candidates_from_refined():
+            return run_suggest_concept_candidates(
+                refined_markdown_path=args.refined_markdown_path,
+                top_n=args.top_n,
+            )
+
+        return _run("suggest-concept-candidates-from-refined", _run_suggest_concept_candidates_from_refined)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary
