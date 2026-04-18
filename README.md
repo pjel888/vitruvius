@@ -1441,6 +1441,41 @@ Yes — Vitruvius can now build both:
 1. a **global/latest graph** from the shared canonical knowledge layer, and
 2. a **dataset-scoped graph** from an explicit dataset manifest.
 
+### 0) See the current best graph now
+
+If you just want to open the broadest current knowledge graph in this
+repository, use the **ready-family aggregate**.
+
+Current verified ready-family aggregate state:
+
+- `node_count = 143`
+- `edge_count = 266`
+- `warning_count = 1`
+- `duplicate_edge = 0`
+
+If you want the full rebuild → render → open sequence:
+
+```bash
+python3 scripts/pipeline_cli.py build-graph \
+  --dataset-manifest config/datasets/ready-family-aggregate.yaml
+
+python3 scripts/pipeline_cli.py visualize-graph \
+  --snapshot 005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260418T023807Z_graph_snapshot.json \
+  --out 004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html
+
+open 004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html
+```
+
+If you already trust the current verified snapshot and only want the
+viewer, you can skip the `build-graph` step and run just the last two
+commands.
+
+This is the best current graph if your goal is to inspect:
+
+- cross-family interconnectedness
+- current MVP graph quality
+- the broadest admitted graph state in the repo today
+
 ### 1) Build the global/latest graph
 
 This writes the default latest snapshot and integrity report:
