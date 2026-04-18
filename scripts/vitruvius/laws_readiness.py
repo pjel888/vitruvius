@@ -2470,6 +2470,11 @@ def run_laws_tranche_source_to_graph_dry_run(
         staged_law_folders=staged_law_folders,
         duplicate_flags_by_folder=duplicate_flags_by_folder,
     )
+    variant_visibility, raw_alias_law_folders, guardrail_law_folders = _tranche_variant_visibility(
+        tranche_payload=tranche_payload,
+        staged_law_folders=staged_law_folders,
+        duplicate_flags_by_folder=duplicate_flags_by_folder,
+    )
     inner_rc, inner_output = _capture_text_handler(
         lambda: run_dataset_source_to_graph_pipeline(
             dataset_manifest=str(paths["derived_manifest"]),
@@ -2586,6 +2591,11 @@ def run_laws_tranche_source_to_graph(
         repo_root=repo_root,
         folder_names=[str(item["folder_name"]) for item in tranche_payload["candidate_law_folders"]],
         scoped_raw_paths_by_folder=duplicate_scope,
+    )
+    variant_visibility, raw_alias_law_folders, guardrail_law_folders = _tranche_variant_visibility(
+        tranche_payload=tranche_payload,
+        staged_law_folders=staged_law_folders,
+        duplicate_flags_by_folder=duplicate_flags_by_folder,
     )
     variant_visibility, raw_alias_law_folders, guardrail_law_folders = _tranche_variant_visibility(
         tranche_payload=tranche_payload,
