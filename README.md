@@ -284,8 +284,11 @@ AD-029 (RocksDB migration) for the per-sprint ledgers.
 ## Table of contents
 
 - [Compound AI System Definition](#vitruvius-compound-ai-system-definition)
+- [What Vitruvius is today](#what-vitruvius-is-today)
 - [Vitruvius in plain English](#vitruvius-in-plain-english)
 - [From source documents to investor value](#from-source-documents-to-investor-value)
+- [Current automation & MVP status](#current-automation--mvp-status)
+- [From raw file to graph](#from-raw-file-to-graph)
 - [Quick start](#quick-start)
 - [Architecture at a glance](#architecture-at-a-glance)
 - [Use cases](#use-cases)
@@ -306,10 +309,69 @@ AD-029 (RocksDB migration) for the per-sprint ledgers.
 
 ---
 
+## What Vitruvius is today
+
+If you ignore the internal jargon and future roadmap for a moment, the
+clearest human-readable description is:
+
+> **Vitruvius is an auditable system for turning messy professional
+> documents into structured, traceable knowledge and then building
+> knowledge-graph outputs on top of that admitted knowledge.**
+
+Today, that means Vitruvius can already do all of the following inside
+this repository:
+
+- ingest raw PDFs and related source files
+- convert them into machine-readable text
+- refine and canonicalize that text into governed source pages
+- scaffold and admit concepts and relationships
+- build dataset-family graph artifacts
+- combine multiple ready dataset families into a larger aggregate graph
+
+### In plain terms
+
+Vitruvius helps answer questions like:
+
+- What documents do we actually have?
+- Which version or variant should count as the authoritative one?
+- What concepts keep recurring across these documents?
+- What relationships between ideas, rules, and entities can be admitted
+  with an audit trail?
+- Can we build a graph that shows how those concepts and sources connect?
+
+### What Vitruvius is **not**
+
+Vitruvius is **not**:
+
+- a chatbot that makes up compliance answers from memory
+- a generic “AI search” wrapper with no provenance
+- a 3D modeler
+- a finished all-domains reasoning engine today
+
+The AEC constraint-solver direction is real and important, but the
+repository already delivers something concrete **before** that future
+layer: a governed document-to-knowledge-to-graph pipeline.
+
+### Current repo reality
+
+The repository is no longer just a research scaffold. It already has a
+working MVP automation path for:
+
+- the laws corpus
+- multiple non-laws dataset families
+- a combined ready-family aggregate graph
+
+That is the most useful way to think about Vitruvius today:
+
+1. **source documents come in**
+2. **auditable structured knowledge comes out**
+3. **graphs and downstream reasoning surfaces are built from that admitted knowledge**
+
 ## Vitruvius in plain English
 
 Vitruvius is a tool for turning messy, hard-to-use technical documents
-into something a person can actually work with.
+into something a person can actually work with — and, now, something a
+machine can also traverse as structured knowledge.
 
 In human terms, it does four things:
 
@@ -325,6 +387,15 @@ In this repository, the current working corpus is mostly Philippine
 building-code material such as PD 1096 and its IRR. The same workflow is
 meant to carry over to other technical or regulatory document sets once
 their source corpus and rules are added.
+
+You can think of the current product surface like this:
+
+- **for a human:** it makes the corpus more understandable, more
+  structured, and more traceable
+- **for an operator:** it exposes repeatable CLI paths from raw files to
+  canonical sources, concepts, relationships, and graph artifacts
+- **for the long-term roadmap:** it provides the governed substrate on
+  which compliance-grade reasoning and AEC decision support can be built
 
 ---
 
@@ -370,6 +441,178 @@ How to read this diagram:
   building toward higher-level compliance and AEC decision support, but
   that layer should be read as direction, not as a fully shipped product
   surface in this repo yet.
+
+---
+
+## Current automation & MVP status
+
+### Human-readable summary
+
+Vitruvius has already crossed the line from “interesting prototype” to
+“working MVP automation system.”
+
+The most important current truth is:
+
+- we already have one-command graph paths
+- we already have reusable dataset-family onboarding automation
+- we already have both laws and non-laws families running through the
+  same general pipeline
+- we already have a combined multi-family graph, not just isolated
+  family demos
+
+### What already works
+
+#### One-command operator paths
+
+- **Laws MVP graph**
+  - `./run-laws-mvp-graph`
+- **Generic family MVP graph**
+  - `./run-dataset-mvp-graph --family <family>`
+- **Combined ready-family aggregate graph**
+  - `./run-ready-families-mvp-graph`
+
+#### Reusable automation path
+
+Vitruvius now supports a reusable path for dataset families that covers:
+
+- family scaffold
+- family registration/cataloging
+- starter lane scaffold from raw inventory
+- source inspection and preparation
+- canonical source admission
+- concept scaffolding
+- relationship scaffolding
+- readiness checks
+- family graph execution
+- promotion of generated/scaffolded artifacts into more durable states
+
+#### Proven families so far
+
+The reusable path has already been proven on:
+
+- `laws`
+- `history`
+- `theory`
+- `utilities`
+- `technology`
+- `structural`
+
+### Current graph-quality snapshot
+
+The combined ready-family aggregate recently went through a major
+hardening pass.
+
+**Best hardened build-path result currently verified:**
+
+- `node_count = 136`
+- `edge_count = 256`
+- `warning_count = 5`
+- `duplicate_edge = 0`
+- `covered_folder_count = 42`
+- `partial_folder_count = 4`
+
+This is a major improvement over the earlier aggregate state, which had:
+
+- `warning_count = 62`
+- `duplicate_edge = 44`
+- `orphan_node = 18`
+- `covered_folder_count = 31`
+- `partial_folder_count = 15`
+
+### Important current limitation
+
+The hardened **build path** is cleaner than the latest full
+**source-to-graph operator rerun**.
+
+That means one remaining engineering task is to align the broader
+operator path so it preserves the same cleaner graph quality as the
+hardened build path. In other words: the system works, but one higher
+level execution path still needs hardening to match the cleaner lower
+level result.
+
+---
+
+## From raw file to graph
+
+This is the shortest accurate map of the current Vitruvius automation
+pipeline.
+
+### 1. Raw source layer
+
+Input files begin in:
+
+- `001_Raw-Source-Layer/...`
+
+These may be PDFs, scans, office files, spreadsheets, or related source
+documents.
+
+### 2. Conversion layer
+
+Vitruvius converts and refines those files into machine-readable
+artifacts under:
+
+- `002_Raw-Conversion-Layer/...`
+
+This is where extracted markdown, OCR outputs, and sidecar JSON records
+live.
+
+### 3. Canonical knowledge layer
+
+Vitruvius turns selected refined outputs into governed canonical
+artifacts under:
+
+- `003_Canonical-Knowledge-Layer/shared/sources/...`
+- `003_Canonical-Knowledge-Layer/shared/concepts/...`
+- `003_Canonical-Knowledge-Layer/shared/relationships/...`
+
+This is the trust-bearing layer for graph construction.
+
+### 4. Family manifests and readiness control
+
+Dataset-family orchestration is driven through manifests and family
+control files in:
+
+- `config/datasets/...`
+
+This layer decides which families/lane manifests are admitted, ready,
+partial, deferred, or still missing inputs.
+
+### 5. Graph build outputs
+
+Family-level and aggregate graph outputs are written under:
+
+- `005_Operational-Intelligence-Layer/graph/datasets/...`
+
+Run reports and operator artifacts are written under:
+
+- `006_System-Manifests/runs/datasets/...`
+
+### 6. Human/operator paths
+
+In human terms, the flow is:
+
+```text
+raw file
+  -> converted/refined text
+  -> canonical source
+  -> concept/relationship admission
+  -> family readiness
+  -> family graph
+  -> multi-family aggregate graph
+```
+
+In operator terms, the important current commands are:
+
+```bash
+# laws MVP
+./run-laws-mvp-graph
+
+# one dataset family
+./run-dataset-mvp-graph --family <family>
+
+# all families currently marked ready in the catalog
+./run-ready-families-mvp-graph
+```
 
 ---
 
@@ -1132,7 +1375,27 @@ numbers.
 
 ## Current status
 
-As of 2026-04-15 — after closing ten governing-plan sprints this session (Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, HP.3-R) plus a Phase 1B Modernization Tranche 1 TDD plan ready to execute. The authoritative status is `.ai/01_roadmap/master-roadmap.md` §4, and the per-sprint ledgers live in `.ai/10_state/decisions.md` AD-024 through AD-029 (AD-031 when Tranche 1 ships).
+As of **2026-04-18**, the repository has two simultaneous truths:
+
+1. **the long-range platform roadmap remains broader than the current MVP**, and
+2. **the dataset-to-graph automation MVP is materially working today**.
+
+The authoritative planning/status documents remain:
+
+- `.ai/01_roadmap/master-roadmap.md`
+- `.ai/01_roadmap/current-phase.md`
+- `.ai/10_state/decisions.md`
+
+For a practical operator reading, the current state is:
+
+- the laws dataset has a one-command MVP graph path
+- multiple non-laws families are already running through the reusable family automation path
+- the combined ready-family aggregate graph exists and has already been hardened significantly
+- the main remaining near-term issue is quality alignment between the hardened build path and the broader one-command source-to-graph operator path
+
+The broader historical phase table below is still useful as architecture
+context, but the dataset-to-graph MVP status above is the best summary of
+what the repository is delivering right now.
 
 | Phase / Sprint | Status | Notes |
 |---|---|---|
