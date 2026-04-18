@@ -1,6 +1,8 @@
 import warnings
 
-from vitruvius.utils import normalize_filename, normalize_text
+import pytest
+
+from vitruvius.utils import assert_windows_safe_path, normalize_filename, normalize_text
 
 
 def test_normalize_text_matches_historical_behavior():
@@ -33,3 +35,14 @@ def test_normalize_filename_still_lowercases_and_strips_nonalnum():
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", DeprecationWarning)
         assert normalize_filename("Foo-Bar.PDF") == "foobar.pdf"
+
+
+def test_assert_windows_safe_path_accepts_safe_segments():
+    assert str(assert_windows_safe_path("004_Derived-Content-Layer/graph-visualizations/demo/run.html")) == (
+        "004_Derived-Content-Layer/graph-visualizations/demo/run.html"
+    )
+
+
+def test_assert_windows_safe_path_rejects_forbidden_segment_chars():
+    with pytest.raises(ValueError, match="Windows-forbidden filename characters"):
+        assert_windows_safe_path('004_Derived-Content-Layer/graph-visualizations/demo:bad/run.html')

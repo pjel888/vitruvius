@@ -7,6 +7,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from .models import FileEntry
+from .utils import assert_windows_safe_path
 
 
 CONVERSION_REGISTRY_HEADERS = [
@@ -47,6 +48,7 @@ SPREADSHEET_REGISTRY_HEADERS = [
 
 
 def ensure_parent_dir(path: Path) -> None:
+    assert_windows_safe_path(path, what="output path")
     path.parent.mkdir(parents=True, exist_ok=True)
 
 

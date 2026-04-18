@@ -14,7 +14,7 @@ from ..promotion_validator import (
     load_registry,
     validate_promotion_record,
 )
-from ..utils import utc_now_stamp
+from ..utils import assert_windows_safe_path, utc_now_stamp
 
 
 @dataclass
@@ -142,6 +142,7 @@ def _render_body(record: dict) -> str:
 
 
 def write_relationship_file(path: Path, record: dict) -> None:
+    assert_windows_safe_path(path, what="promoted relationship output path")
     path.parent.mkdir(parents=True, exist_ok=True)
     content = _render_frontmatter(record) + "\n\n" + _render_body(record) + "\n"
     path.write_text(content, encoding="utf-8")

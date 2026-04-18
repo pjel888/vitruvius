@@ -5,6 +5,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from .contract import GraphEdge, GraphNode, GraphSnapshot
+from ..utils import assert_windows_safe_path
 
 
 def _edge_to_dict(edge: GraphEdge) -> dict:
@@ -37,6 +38,7 @@ def _snapshot_to_dict(snapshot: GraphSnapshot) -> dict:
 
 
 def write_snapshot(snapshot: GraphSnapshot, out_path: Path) -> None:
+    assert_windows_safe_path(out_path, what="graph snapshot output path")
     out_path.parent.mkdir(parents=True, exist_ok=True)
     payload = _snapshot_to_dict(snapshot)
     text = json.dumps(payload, sort_keys=True, indent=2, ensure_ascii=False)

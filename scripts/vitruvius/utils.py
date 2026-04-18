@@ -2,6 +2,10 @@ from __future__ import annotations
 
 import warnings
 from datetime import datetime, timezone
+from pathlib import Path
+
+
+WINDOWS_FORBIDDEN_PATH_CHARS = frozenset('<>:"/\\|?*')
 
 
 def utc_now_stamp() -> str:
@@ -50,3 +54,28 @@ def normalize_text(text: str) -> str:
 
 def safe_name_for_report(name: str) -> str:
     return "".join(ch if ch.isalnum() else "_" for ch in name)
+
+
+def _windows_unsafe_segments(path: Path) -> list[str]:
+    segments: list[str] = []
+    for segment in path.parts:
+        if segment in {"", ".", ".."}:
+            continue
+        if path.anchor and segment == path.anchor:
+            continue
+        if any(ch in WINDOWS_FORBIDDEN_PATH_CHARS for ch in segment):
+            segments.append(segment)
+    return segments
+
+
+def assert_windows_safe_path(path: str | Path, *, what: str = "path") -> Path:
+    candidate = Path(path)
+    unsafe_segments = _windows_unsafe_segments(candidate)
+    if unsafe_segments:
+        joined = ", ".join(repr(segment) for segment in unsafe_segments)
+        forbidden = "".join(sorted(WINDOWS_FORBIDDEN_PATH_CHARS))
+        raise ValueError(
+            f"{what} contains Windows-forbidden filename characters in segment(s): "
+            f"{joined}. Forbidden characters: {forbidden}"
+        )
+    return candidate

@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from .snapshot import read_snapshot
+from ..utils import assert_windows_safe_path
 
 
 _DEFAULT_SNAPSHOT_RELPATH = (
@@ -37,8 +38,14 @@ def _default_output_path(snapshot_file: Path, metadata: dict[str, Any]) -> Path:
     if isinstance(dataset_id, str) and dataset_id.strip():
         folder = Path.cwd() / _DEFAULT_VIS_ROOT / dataset_id
         stem = f"{run_id}_graph_snapshot" if isinstance(run_id, str) and run_id.strip() else snapshot_file.stem
-        return folder / f"{stem}.html"
-    return Path.cwd() / _DEFAULT_VIS_ROOT / "global" / f"{snapshot_file.stem}.html"
+        return assert_windows_safe_path(
+            folder / f"{stem}.html",
+            what="graph visualization output path",
+        )
+    return assert_windows_safe_path(
+        Path.cwd() / _DEFAULT_VIS_ROOT / "global" / f"{snapshot_file.stem}.html",
+        what="graph visualization output path",
+    )
 
 
 def _asset_script_path(out_path: Path) -> str:
@@ -391,6 +398,10 @@ def run_visualize_graph(*, snapshot_path: str | None = None, out_path: str | Non
     )
     if not rendered_out_path.is_absolute():
         rendered_out_path = Path.cwd() / rendered_out_path
+    rendered_out_path = assert_windows_safe_path(
+        rendered_out_path,
+        what="graph visualization output path",
+    )
 
     html = _render_html(
         snapshot_dict,

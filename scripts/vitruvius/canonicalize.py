@@ -10,6 +10,7 @@ import yaml
 from .concept_matching import find_concepts_in_text, load_concept_term_map
 from .constants import CONVERSION_LAYER_NAME
 from .paths import get_repo_root
+from .utils import assert_windows_safe_path
 
 
 # --------------------------------------------------
@@ -628,6 +629,7 @@ def build_structured_source_file(
     target.mkdir(parents=True, exist_ok=True)
     filename = f"{slugify(plan['title'])}.md"
     target_file = target / filename
+    assert_windows_safe_path(target_file, what="canonical source output path")
     return target_file, "\n".join(lines)
 
 

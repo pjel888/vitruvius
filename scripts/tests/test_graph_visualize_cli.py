@@ -158,6 +158,25 @@ def test_visualize_graph_accepts_relative_out_path(tmp_path: Path) -> None:
     assert (tmp_path / 'tmp' / 'demo.html').exists()
 
 
+def test_visualize_graph_rejects_windows_unsafe_dataset_id(tmp_path: Path) -> None:
+    snapshot_path = (
+        tmp_path
+        / "005_Operational-Intelligence-Layer"
+        / "graph"
+        / "datasets"
+        / "demo-dataset"
+        / "20260416T000000Z_graph_snapshot.json"
+    )
+    _write_snapshot(snapshot_path)
+    payload = json.loads(snapshot_path.read_text(encoding="utf-8"))
+    payload["metadata"]["dataset_id"] = "demo:dataset"
+    snapshot_path.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+
+    result = _run_cli(["visualize-graph", "--snapshot", str(snapshot_path)], cwd=tmp_path)
+    assert result.returncode != 0
+    assert "Windows-forbidden filename characters" in result.stderr
+
+
 def test_visualize_graph_embeds_parseable_json_payloads(tmp_path: Path) -> None:
     snapshot_path = (
         tmp_path

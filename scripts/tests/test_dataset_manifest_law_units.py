@@ -7,6 +7,7 @@ import yaml
 
 from vitruvius.graph.dataset_manifest import (
     DatasetManifestError,
+    build_run_paths,
     load_dataset_manifest,
     snapshot_metadata,
 )
@@ -210,3 +211,15 @@ def test_load_dataset_manifest_rejects_unselected_law_unit_paths(tmp_path: Path)
 
     with pytest.raises(DatasetManifestError, match="references source path not selected"):
         load_dataset_manifest(manifest_path, tmp_path)
+
+
+def test_build_run_paths_rejects_windows_unsafe_output_roots(tmp_path: Path) -> None:
+    manifest_path = _seed_repo(tmp_path)
+    manifest_payload = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
+    manifest_payload["graph_output_root"] = "005_Operational-Intelligence-Layer/graph/datasets/demo:dataset"
+    manifest_path.write_text(yaml.safe_dump(manifest_payload, sort_keys=False), encoding="utf-8")
+
+    manifest = load_dataset_manifest(manifest_path, tmp_path)
+
+    with pytest.raises(ValueError, match="Windows-forbidden filename characters"):
+        build_run_paths(manifest, repo_root=tmp_path, run_id="20260416T000000Z")

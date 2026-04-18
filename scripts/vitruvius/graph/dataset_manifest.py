@@ -9,6 +9,7 @@ from typing import Any, Iterable
 import yaml
 
 from .contract import GraphSnapshot
+from ..utils import assert_windows_safe_path
 
 
 class DatasetManifestError(ValueError):
@@ -555,14 +556,17 @@ def build_run_paths(manifest: DatasetManifest, *, repo_root: Path, run_id: str) 
         if manifest.query_snapshot_path_template is not None
         else f"{manifest.graph_output_root_rel}/{run_id}_graph_snapshot.json"
     )
+    assert_windows_safe_path(snapshot_rel, what="dataset snapshot output path")
     snapshot_path, snapshot_rel = _resolve_repo_relative_path(
         repo_root, snapshot_rel, what="dataset snapshot output"
     )
     integrity_rel = f"{manifest.graph_output_root_rel}/{run_id}_graph_integrity_report.json"
+    assert_windows_safe_path(integrity_rel, what="dataset integrity output path")
     integrity_path, integrity_rel = _resolve_repo_relative_path(
         repo_root, integrity_rel, what="dataset integrity output"
     )
     build_report_rel = f"{manifest.run_output_root_rel}/{run_id}_build_graph_dataset_report.json"
+    assert_windows_safe_path(build_report_rel, what="dataset build report output path")
     build_report_path, build_report_rel = _resolve_repo_relative_path(
         repo_root, build_report_rel, what="dataset build report output"
     )
@@ -799,6 +803,7 @@ def dataset_build_report(
 
 
 def write_json_report(path: Path, payload: dict[str, Any]) -> None:
+    assert_windows_safe_path(path, what="graph JSON report output path")
     path.parent.mkdir(parents=True, exist_ok=True)
     text = json.dumps(payload, sort_keys=True, indent=2, ensure_ascii=False)
     path.write_text(text + "\n", encoding="utf-8")
