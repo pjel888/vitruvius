@@ -2040,6 +2040,44 @@ def test_completed_manifest_paths_from_catalog_filters_ready_profiles(tmp_path: 
     assert [path.name for path in paths] == ['done-a.yaml', 'done-c.yaml']
 
 
+def test_summarize_dataset_build_report_reports_warning_summary(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import summarize_dataset_build_report
+
+    build_report_path = tmp_path / 'report.json'
+    build_report_path.write_text(
+        json.dumps(
+            {
+                'dataset_id': 'demo',
+                'node_count': 10,
+                'edge_count': 5,
+                'integrity': {
+                    'passed': True,
+                    'warning_count': 2,
+                    'error_count': 0,
+                    'findings': [
+                        {'code': 'orphan_node', 'node_id': 'source-a'},
+                        {'code': 'duplicate_edge', 'edge_from': 'source-a', 'edge_to': 'concept-a', 'message': 'duplicate edge'},
+                    ],
+                },
+                'coverage': [
+                    {'folder_name': 'A', 'status': 'covered', 'node_count_contributed': 2, 'edge_count_contributed': 1},
+                    {'folder_name': 'B', 'status': 'partial', 'node_count_contributed': 1, 'edge_count_contributed': 0, 'notes': 'no relationship-backed edges yet'},
+                ],
+            },
+            indent=2,
+        ),
+        encoding='utf-8',
+    )
+    summary = summarize_dataset_build_report(
+        repo_root=tmp_path,
+        build_report_path=build_report_path,
+        top_n=5,
+    )
+    assert summary['warning_codes'] == {'orphan_node': 1, 'duplicate_edge': 1}
+    assert summary['top_orphan_nodes'] == ['source-a']
+    assert summary['partial_folder_count'] == 1
+
+
 def test_resolve_completed_aggregate_profile_path_returns_registered_profile(tmp_path: Path) -> None:
     from vitruvius.aggregate_manifest import resolve_completed_aggregate_profile_path
 
@@ -3056,6 +3094,55 @@ def test_pipeline_cli_build_completed_aggregate_manifest_writes_manifest(
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'build-completed-aggregate-manifest'
     assert stdout_payload['dataset_manifest_path'] == 'config/datasets/generic-demo.yaml'
+
+
+def test_pipeline_cli_summarize_dataset_build_report_reports_summary(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    build_report_path = tmp_path / 'report.json'
+    build_report_path.write_text(
+        json.dumps(
+            {
+                'dataset_id': 'demo',
+                'node_count': 10,
+                'edge_count': 5,
+                'integrity': {
+                    'passed': True,
+                    'warning_count': 2,
+                    'error_count': 0,
+                    'findings': [
+                        {'code': 'orphan_node', 'node_id': 'source-a'},
+                        {'code': 'duplicate_edge', 'edge_from': 'source-a', 'edge_to': 'concept-a', 'message': 'duplicate edge'},
+                    ],
+                },
+                'coverage': [
+                    {'folder_name': 'A', 'status': 'covered', 'node_count_contributed': 2, 'edge_count_contributed': 1},
+                    {'folder_name': 'B', 'status': 'partial', 'node_count_contributed': 1, 'edge_count_contributed': 0, 'notes': 'no relationship-backed edges yet'},
+                ],
+            },
+            indent=2,
+        ),
+        encoding='utf-8',
+    )
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'summarize-dataset-build-report',
+            '--build-report', 'report.json',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'summarize-dataset-build-report'
+    assert stdout_payload['warning_codes'] == {'orphan_node': 1, 'duplicate_edge': 1}
 
 
 def test_pipeline_cli_run_completed_aggregate_invokes_dataset_pipeline(

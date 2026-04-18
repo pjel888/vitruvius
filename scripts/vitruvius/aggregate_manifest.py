@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -2092,6 +2093,68 @@ def suggest_completed_aggregate_family_candidates(
         'raw_root': _relative(resolved_raw_root, repo_root),
         'candidate_count': len(ranked),
         'top_candidates': ranked[:max_candidates],
+    }
+
+
+def summarize_dataset_build_report(
+    *,
+    repo_root: Path,
+    build_report_path: Path,
+    top_n: int = 10,
+) -> dict[str, Any]:
+    if top_n <= 0:
+        raise ValueError('top_n must be positive')
+    resolved_build_report_path = build_report_path if build_report_path.is_absolute() else repo_root / build_report_path
+    payload = json.loads(resolved_build_report_path.read_text(encoding='utf-8'))
+    integrity = payload.get('integrity') or {}
+    findings = integrity.get('findings') or []
+    coverage = payload.get('coverage') or []
+
+    warning_codes = Counter()
+    orphan_nodes: list[str] = []
+    duplicate_edges: list[str] = []
+    for finding in findings:
+        if not isinstance(finding, dict):
+            continue
+        code = str(finding.get('code') or '')
+        if code:
+            warning_codes[code] += 1
+        if code == 'orphan_node':
+            node_id = finding.get('node_id')
+            if isinstance(node_id, str):
+                orphan_nodes.append(node_id)
+        if code == 'duplicate_edge':
+            edge_from = str(finding.get('edge_from') or '')
+            edge_to = str(finding.get('edge_to') or '')
+            predicate = str(finding.get('message') or '')
+            duplicate_edges.append(f'{edge_from}->{edge_to} | {predicate}')
+
+    partial_folders = [
+        {
+            'folder_name': str(item.get('folder_name') or ''),
+            'status': str(item.get('status') or ''),
+            'node_count_contributed': int(item.get('node_count_contributed') or 0),
+            'edge_count_contributed': int(item.get('edge_count_contributed') or 0),
+            'notes': str(item.get('notes') or ''),
+        }
+        for item in coverage
+        if isinstance(item, dict) and str(item.get('status') or '') != 'covered'
+    ]
+
+    return {
+        'build_report_path': _relative(resolved_build_report_path, repo_root),
+        'dataset_id': payload.get('dataset_id'),
+        'node_count': payload.get('node_count'),
+        'edge_count': payload.get('edge_count'),
+        'integrity_passed': integrity.get('passed'),
+        'warning_count': integrity.get('warning_count'),
+        'error_count': integrity.get('error_count'),
+        'warning_codes': dict(warning_codes),
+        'top_orphan_nodes': orphan_nodes[:top_n],
+        'top_duplicate_edges': duplicate_edges[:top_n],
+        'covered_folder_count': sum(1 for item in coverage if isinstance(item, dict) and str(item.get('status') or '') == 'covered'),
+        'partial_folder_count': len(partial_folders),
+        'partial_folders': partial_folders[:top_n],
     }
 
 

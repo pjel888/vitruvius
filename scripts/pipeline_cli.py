@@ -482,6 +482,9 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_candidate_parser.add_argument("--max-candidates", type=int, default=5)
     generic_aggregate_candidate_parser.add_argument("--sample-pages", type=int, default=5)
     generic_aggregate_candidate_parser.add_argument("--extension", action="append", default=[])
+    generic_aggregate_build_report_summary_parser = add_command_parser(subparsers, "summarize-dataset-build-report")
+    generic_aggregate_build_report_summary_parser.add_argument("--build-report", required=True)
+    generic_aggregate_build_report_summary_parser.add_argument("--top-n", type=int, default=10)
     generic_aggregate_catalog_run_parser = add_command_parser(subparsers, "run-completed-aggregate-family")
     generic_aggregate_catalog_run_parser.add_argument("--family", required=True,
                                                      help="Registered dataset family name from the profile catalog")
@@ -1547,6 +1550,22 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("suggest-completed-aggregate-family-candidates", _run_suggest_generic_family_candidates)
+
+    if args.command == "summarize-dataset-build-report":
+        from vitruvius.aggregate_manifest import summarize_dataset_build_report
+        def _run_summarize_dataset_build_report():
+            repo_root = Path.cwd().resolve()
+            summary = summarize_dataset_build_report(
+                repo_root=repo_root,
+                build_report_path=Path(args.build_report),
+                top_n=args.top_n,
+            )
+            print(json.dumps({
+                "action": "summarize-dataset-build-report",
+                **summary,
+            }, indent=2))
+            return 0
+        return _run("summarize-dataset-build-report", _run_summarize_dataset_build_report)
 
     if args.command == "run-completed-aggregate":
         from vitruvius.aggregate_manifest import build_generic_completed_aggregate_manifest, print_aggregate_manifest_summary
