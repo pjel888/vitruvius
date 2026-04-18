@@ -11,6 +11,7 @@ from vitruvius.graph.builder import (
     walk_concept_basis_edges,
     walk_concepts,
     walk_relationships,
+    walk_source_referenced_concept_edges,
     walk_source_relationship_edges,
     walk_sources,
 )
@@ -291,6 +292,38 @@ def test_walk_concept_basis_edges_emits_source_to_concept_edges(tmp_path: Path) 
     assert edge.evidence_id.startswith("rel-basis-")
 
 
+def test_walk_source_referenced_concept_edges_emits_covers_edges_for_orphan_sources(
+    tmp_path: Path,
+) -> None:
+    sources = tmp_path / "sources"
+    _write(
+        sources / "guide.md",
+        (
+            "---\n"
+            "id: handout-example\n"
+            "trust_level: primary\n"
+            "last_canonicalized_utc: 2026-04-01T00:00:00Z\n"
+            "---\n\n"
+            "# Example\n\n"
+            "## Referenced Concepts\n"
+            "- concept-alpha\n"
+            "- concept-alpha\n"
+            "- concept-beta\n"
+            "- law-example\n"
+        ),
+    )
+    edges = walk_source_referenced_concept_edges(
+        sources,
+        valid_target_ids={"concept-alpha", "concept-beta"},
+        allowed_source_ids={"handout-example"},
+    )
+    assert [(edge.to_id, edge.type, edge.status) for edge in edges] == [
+        ("concept-alpha", "covers", "unverified"),
+        ("concept-beta", "covers", "unverified"),
+    ]
+    assert all(edge.evidence_id.startswith("rel-ref-") for edge in edges)
+
+
 def test_build_snapshot_empty_root(tmp_path: Path) -> None:
     snapshot = build_snapshot(tmp_path, now="2026-04-14T00:00:00Z")
     assert isinstance(snapshot, GraphSnapshot)
@@ -420,6 +453,65 @@ def test_build_snapshot_keeps_unreferenced_sources_without_broken_frontmatter_li
     snapshot = build_snapshot(canonical, now="2026-04-14T00:00:00Z")
     assert [n.id for n in snapshot.nodes] == ["law-standalone"]
     assert snapshot.edges == []
+
+
+def test_build_snapshot_adds_referenced_concept_edges_only_for_orphan_sources(
+    tmp_path: Path,
+) -> None:
+    canonical = tmp_path / "shared"
+    _write(
+        canonical / "sources" / "orphan.md",
+        (
+            "---\n"
+            "id: handout-orphan\n"
+            "trust_level: primary\n"
+            "last_canonicalized_utc: 2026-04-01T00:00:00Z\n"
+            "---\n\n"
+            "# Orphan\n\n"
+            "## Referenced Concepts\n"
+            "- concept-energy\n"
+        ),
+    )
+    _write(
+        canonical / "sources" / "linked.md",
+        (
+            "---\n"
+            "id: irr-linked\n"
+            "trust_level: primary\n"
+            "last_canonicalized_utc: 2026-04-01T00:00:00Z\n"
+            "relationships:\n"
+            "- implements: law-example\n"
+            "---\n\n"
+            "# Linked\n\n"
+            "## Referenced Concepts\n"
+            "- concept-energy\n"
+        ),
+    )
+    _write(
+        canonical / "sources" / "law.md",
+        (
+            "---\n"
+            "id: law-example\n"
+            "trust_level: primary\n"
+            "last_canonicalized_utc: 2026-04-01T00:00:00Z\n"
+            "---\n"
+        ),
+    )
+    _write(
+        canonical / "concepts" / "energy.md",
+        (
+            "---\n"
+            "id: concept-energy\n"
+            "last_canonicalized_utc: 2026-04-01T00:00:00Z\n"
+            "---\n"
+        ),
+    )
+
+    snapshot = build_snapshot(canonical, now="2026-04-14T00:00:00Z")
+    edge_pairs = {(e.from_id, e.type, e.to_id) for e in snapshot.edges}
+    assert ("handout-orphan", "covers", "concept-energy") in edge_pairs
+    assert ("irr-linked", "covers", "concept-energy") not in edge_pairs
+    assert ("irr-linked", "implements", "law-example") in edge_pairs
 
 
 def test_build_snapshot_sorts_edges_deterministically(tmp_path: Path) -> None:

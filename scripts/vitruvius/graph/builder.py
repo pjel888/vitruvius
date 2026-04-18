@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import date, datetime, timezone
 from pathlib import Path
+import re
 from typing import Any, Iterable
 
 import yaml
@@ -17,6 +18,10 @@ from .contract import (
 
 
 _PROMOTED_STATUSES = frozenset({"promoted", "verified"})
+_REFERENCED_CONCEPTS_SECTION_RE = re.compile(
+    r"^## Referenced Concepts\s*\n(?P<body>.*?)(?=^## |\Z)",
+    re.MULTILINE | re.DOTALL,
+)
 
 
 def _to_iso_string(value: Any) -> str | None:
@@ -51,6 +56,13 @@ def _load_frontmatter(path: Path) -> dict[str, Any] | None:
     if not isinstance(data, dict):
         return None
     return data
+
+
+def _load_markdown_text(path: Path) -> str | None:
+    try:
+        return path.read_text(encoding="utf-8")
+    except OSError:
+        return None
 
 
 def _mtime_iso(path: Path) -> str:
@@ -110,6 +122,22 @@ def _iter_frontmatter_relationships(fm: dict[str, Any]) -> list[tuple[str, str]]
                 continue
             pairs.append((predicate, target))
     return pairs
+
+
+def _iter_referenced_concept_ids(text: str) -> list[str]:
+    match = _REFERENCED_CONCEPTS_SECTION_RE.search(text)
+    if match is None:
+        return []
+    concept_ids: list[str] = []
+    for raw_line in match.group("body").splitlines():
+        line = raw_line.strip()
+        if not line.startswith("- "):
+            continue
+        concept_id = line[2:].strip()
+        if not concept_id or not concept_id.startswith("concept-"):
+            continue
+        concept_ids.append(concept_id)
+    return concept_ids
 
 
 def _collect_unresolved_frontmatter_source_ids(
@@ -338,6 +366,52 @@ def walk_source_relationship_edges(
     return edges
 
 
+def walk_source_referenced_concept_edges(
+    sources_dir: Path,
+    *,
+    valid_target_ids: set[str],
+    allowed_source_ids: set[str] | None = None,
+    allowed_paths: Iterable[Path] | None = None,
+) -> list[GraphEdge]:
+    edges: list[GraphEdge] = []
+    for path in _iter_md_files(sources_dir, allowed_paths=allowed_paths):
+        text = _load_markdown_text(path)
+        if not text:
+            continue
+        fm = _load_frontmatter(path)
+        if not fm:
+            continue
+        source_id = fm.get("id")
+        if not isinstance(source_id, str) or not source_id:
+            continue
+        if allowed_source_ids is not None and source_id not in allowed_source_ids:
+            continue
+        seen_target_ids: set[str] = set()
+        for target_id in _iter_referenced_concept_ids(text):
+            if target_id not in valid_target_ids or target_id in seen_target_ids:
+                continue
+            seen_target_ids.add(target_id)
+            edge = GraphEdge(
+                from_id=source_id,
+                to_id=target_id,
+                type="covers",
+                evidence_id=(
+                    f"rel-ref-{_slugify_id(source_id)}-"
+                    f"covers-{_slugify_id(target_id)}"
+                ),
+                status="unverified",
+                evidence_source_id=source_id,
+                evidence_snippet="Referenced Concepts section",
+            )
+            try:
+                validate_edge(edge)
+            except ValueError:
+                continue
+            edges.append(edge)
+    edges.sort(key=lambda e: (e.from_id, e.type, e.to_id, e.evidence_id))
+    return edges
+
+
 def walk_concept_basis_edges(
     concepts_dir: Path,
     *,
@@ -430,7 +504,22 @@ def build_snapshot(
         valid_source_ids=valid_source_ids,
         allowed_paths=concept_paths,
     )
-    edges = relationship_edges + source_relationship_edges + concept_basis_edges
+    source_ids_with_incident_edges = (
+        {edge.from_id for edge in relationship_edges + source_relationship_edges + concept_basis_edges}
+        | {edge.to_id for edge in relationship_edges + source_relationship_edges + concept_basis_edges}
+    ) & valid_source_ids
+    source_referenced_concept_edges = walk_source_referenced_concept_edges(
+        canonical_root / "sources",
+        valid_target_ids=valid_concept_ids,
+        allowed_source_ids=valid_source_ids - source_ids_with_incident_edges,
+        allowed_paths=source_paths,
+    )
+    edges = (
+        relationship_edges
+        + source_relationship_edges
+        + concept_basis_edges
+        + source_referenced_concept_edges
+    )
     referenced_node_ids = {edge.from_id for edge in edges} | {edge.to_id for edge in edges}
     referenced_node_ids.update(
         {node_id for node_id, count in source_id_counts.items() if count > 1}
