@@ -1,0 +1,54 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "guarded",
+  "extraction_trust_reasons": [
+    "front matter includes a table of contents before operative text",
+    "front matter is table-heavy and may reflect layout extraction noise"
+  ],
+  "front_matter_suspicious_ocr_line_count": 14,
+  "image_line_count": 2,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 173,
+  "noise_line_count": 1,
+  "non_empty_line_count": 1043,
+  "recommendations": [],
+  "refined_markdown_path": "001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 3,
+    "admitted_relationship_count": 3,
+    "folder_name": "UAP",
+    "law_id": "13-3",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 21.333333,
+    "section_to_relationship_ratio": 21.333333,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 64
+  },
+  "severity": "low",
+  "source_acceptance_reasons": [],
+  "source_acceptance_status": "accepted",
+  "spot_review_focus": [],
+  "spot_review_required": false,
+  "structural_heading_count": 64,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [
+    "table_of_contents_front_matter",
+    "table_heavy_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "|SPP No.|Document Name|Page No.|",
+    "|204-A|SPP ON FULLTIME SUPERVISION SERVICES|37|",
+    "|204-B|SPP ON CONSTRUCTION MANAGEMENT SERVICES|41|",
+    "- 3.1.3. Recommendation of the Architect’s former Client",
+    "- 3.2.6. Negotiation. The Architect explains to the Client the Scope of Services and the Architect’s Fee as prescribed under the Architect’s Guidelines."
+  ],
+  "suspicious_ocr_line_count": 102,
+  "suspicious_ocr_line_ratio": 0.097795,
+  "table_line_count": 12,
+  "total_line_count": 1681,
+  "useful_text_line_count": 1028,
+  "useful_text_ratio": 0.985618
+}

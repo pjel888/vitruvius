@@ -1,0 +1,8 @@
+Section-Aware Relationship Extraction
+
+Sections: 98
+Unique relationships: 3
+
+law-code-on-sanitation-of-the-philippines -> governs -> concept-food-establishment (x5) sections=['section-17', 'section-14', 'section-27', 'section-33']
+law-code-on-sanitation-of-the-philippines -> governs -> concept-local-health-authority (x34) sections=['section-17', 'section-14', 'section-33', 'section-36', 'section-38', 'section-53', 'section-58', 'section-63', 'section-68', 'section-64', 'section-83', 'section-90', 'section-96']
+law-code-on-sanitation-of-the-philippines -> governs -> concept-waste-disposal (x2) sections=['section-44']

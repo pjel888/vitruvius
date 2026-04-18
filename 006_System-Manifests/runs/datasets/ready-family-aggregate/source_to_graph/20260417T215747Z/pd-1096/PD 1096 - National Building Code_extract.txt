@@ -1,0 +1,20 @@
+Section-Aware Relationship Extraction
+
+Sections: 140
+Unique relationships: 15
+
+law-national-building-code-of-the-philippines -> governs -> concept-building-permit (x1) sections=['section-207']
+law-national-building-code-of-the-philippines -> governs -> concept-certificate-of-occupancy (x2) sections=['section-309']
+law-national-building-code-of-the-philippines -> governs -> concept-floor-area-ratio (x1) sections=['section-309']
+law-national-building-code-of-the-philippines -> governs -> concept-fire-resistive-construction (x20) sections=['section-401', 'section-703', 'section-1005', 'section-1204', 'section-1207', 'section-1401']
+law-national-building-code-of-the-philippines -> governs -> concept-stairs (x11) sections=['section-403', 'section-708', 'section-1207']
+law-national-building-code-of-the-philippines -> governs -> concept-occupancy-classification (x1) sections=['section-703']
+law-national-building-code-of-the-philippines -> governs -> concept-occupancy-separation (x9) sections=['section-703', 'section-1213']
+concept-fire-resistive-construction -> limits -> concept-occupancy-separation (x1) sections=['section-703']
+law-national-building-code-of-the-philippines -> governs -> concept-yards (x3) sections=['section-706', 'section-802']
+law-national-building-code-of-the-philippines -> governs -> concept-light-and-ventilation (x2) sections=['section-708', 'section-801']
+law-national-building-code-of-the-philippines -> governs -> concept-lot-occupancy (x1) sections=['section-802']
+law-national-building-code-of-the-philippines -> governs -> concept-floor-area (x13) sections=['section-808', 'section-1207', 'section-1213', 'section-1214', 'section-1604', 'section-1605']
+law-national-building-code-of-the-philippines -> governs -> concept-exit-width (x9) sections=['section-1207']
+concept-stairs -> requires -> concept-fire-resistive-construction (x1) sections=['section-1207']
+law-national-building-code-of-the-philippines -> governs -> concept-means-of-egress (x2) sections=['section-1207']

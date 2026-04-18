@@ -1,0 +1,6 @@
+Section-Aware Relationship Extraction
+
+Sections: 52
+Unique relationships: 1
+
+law-national-cultural-heritage-act-of-2009 -> governs -> concept-built-heritage (x5) sections=['section-32']

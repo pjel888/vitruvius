@@ -1,0 +1,96 @@
+{
+  "generated_at": "20260417T220506Z",
+  "source": "001-Laws/refined_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md",
+  "source_id": "law-comprehensive-zoning-ordinance-of-the-city-of-tarlac",
+  "total_sections": 65,
+  "total_relationships": 6,
+  "relationships": [
+    {
+      "from": "law-comprehensive-zoning-ordinance-of-the-city-of-tarlac",
+      "type": "governs",
+      "to": "concept-zoning-ordinance",
+      "occurrences": 5,
+      "sections": [
+        "section-4"
+      ],
+      "examples": [
+        "The definition of technical terms used in the Zoning Ordinance shall carry the same meaning given to them in already approved codes and regulations, such as but not limited to the National Building Code, Water Code, Philippine Environmental Code and other Implementing Rules and Regulations, promulga",
+        "Non-Conforming Use – existing non-conforming uses/ establishments in an area allowed to operate inspite of the non-conformity to the provisions of the Ordinance subject to the conditions stipulated in this Zoning Ordinance.",
+        "- 37. Mitigating Device – a means to grant relief in complying with certain provisions of the Ordinance. - 38. Newtown – shall refer to a town deliberately planned and built which provides, in addition to houses, employment, shopping, education, recreation, culture and other services normally associ"
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "law-comprehensive-zoning-ordinance-of-the-city-of-tarlac",
+      "type": "governs",
+      "to": "concept-comprehensive-land-use-plan",
+      "occurrences": 2,
+      "sections": [
+        "section-4",
+        "section-50"
+      ],
+      "examples": [
+        "- 8. Compatible Use – uses or lands activities capable of existing together harmoniously e.g. residential use and parks and playground. - 9. COMPONENT CITIES – CITIES WHICH DO NOT MEET THE REQUIREMENTS FOR HIGHLY URBANIZED CITIES SHALL BE CONSIDERED COMPONENT CITIES OF THE PROVINCE IN WHICH THEY ARE",
+        "Determine changes to be introduced in the Comprehensive Land Use Plan in the light of permits given, and exceptions and variances granted."
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "concept-floor-area-ratio",
+      "type": "affects",
+      "to": "concept-floor-area",
+      "occurrences": 2,
+      "sections": [
+        "section-4"
+      ],
+      "examples": [
+        "FLOOR AREA RATIO OR “FAR” – IS THE RATIO BETWEEN THE GROSS FLOOR AREA OF A BUILDING AND THE AREA OF THE LOT ON WHICH IT STANDS, DETERMINED BY DIVIDING THE GROSS FLOOR AREA OF THE BUILDING AND THE AREA OF THE LOT.",
+        "- 17. FLOOR AREA RATIO OR “FAR” – IS THE RATIO BETWEEN THE GROSS FLOOR AREA OF A BUILDING AND THE AREA OF THE LOT ON WHICH IT STANDS, DETERMINED BY DIVIDING THE GROSS FLOOR AREA OF THE BUILDING AND THE AREA OF THE LOT. THE GROSS FLOOR AREA OF ANY BUILDING SHOULD NOT EXCEED THE PRESCRIBED FLOOR AREA."
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "law-comprehensive-zoning-ordinance-of-the-city-of-tarlac",
+      "type": "governs",
+      "to": "concept-floor-area",
+      "occurrences": 6,
+      "sections": [
+        "section-10",
+        "section-18"
+      ],
+      "examples": [
+        "- a. Such home industry shall not occupy more than thirty percent (30%) of the floor area of the dwelling unit. There shall be no change or alteration in the outside appearance of the dwelling unit and shall not be a hazard or nuisance; - b. Allotted capitalization shall not exceed the capitalizatio",
+        "- a. Such home industry shall not occupy more than thirty percent (30%) of the floor area of the dwelling unit. There shall be no change or alteration in the outside appearance of the dwelling unit and shall not be a hazard or nuisance; - b. Allotted capitalization shall not exceed the capitalizatio",
+        "- a. Such home industry shall not occupy more than thirty percent (30%) of the floor area of the dwelling unit. There shall be no change or alteration in the outside appearance of the dwelling unit and shall not be a hazard or nuisance; - b. Allotted capitalization shall not exceed the capitalizatio"
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "law-comprehensive-zoning-ordinance-of-the-city-of-tarlac",
+      "type": "governs",
+      "to": "concept-floor-area-ratio",
+      "occurrences": 1,
+      "sections": [
+        "section-24"
+      ],
+      "examples": [
+        "The FAR of an R-3 Zone shall be based on the planned density of development intended for the zone."
+      ],
+      "alternate_predicates": []
+    },
+    {
+      "from": "concept-zoning-ordinance",
+      "type": "affects",
+      "to": "concept-comprehensive-land-use-plan",
+      "occurrences": 2,
+      "sections": [
+        "section-50"
+      ],
+      "examples": [
+        "Determine amendments or revisions necessary in the Zoning Ordinance because of changes that might have been introduced in the Comprehensive Land Use Plan.",
+        "- 1. Determine amendments or revisions necessary in the Zoning Ordinance because of changes that might have been introduced in the Comprehensive Land Use Plan. - 2. Determine changes to be introduced in the Comprehensive Land Use Plan in the light of permits given, and exceptions and variances grant"
+      ],
+      "alternate_predicates": []
+    }
+  ]
+}

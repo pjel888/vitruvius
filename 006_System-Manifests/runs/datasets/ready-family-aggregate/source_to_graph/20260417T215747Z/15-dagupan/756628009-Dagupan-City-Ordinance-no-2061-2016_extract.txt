@@ -1,0 +1,12 @@
+Section-Aware Relationship Extraction
+
+Sections: 123
+Unique relationships: 7
+
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-comprehensive-land-use-plan (x25) sections=['section-7', 'section-1', 'section-40', 'section-42', 'section-47', 'section-48', 'section-50', 'section-72', 'section-76']
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-building-height (x3) sections=['section-1', 'section-4']
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-adaptive-reuse (x2) sections=['section-1']
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-floor-area (x2) sections=['section-1', 'section-23']
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-zoning-ordinance (x7) sections=['section-17', 'section-1', 'section-73']
+law-comprehensive-zoning-ordinance-of-dagupan-city -> governs -> concept-light-and-ventilation (x2) sections=['section-33']
+concept-zoning-ordinance -> affects -> concept-comprehensive-land-use-plan (x2) sections=['section-72']

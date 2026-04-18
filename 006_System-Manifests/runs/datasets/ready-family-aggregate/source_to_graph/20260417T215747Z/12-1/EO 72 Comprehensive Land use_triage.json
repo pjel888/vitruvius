@@ -1,0 +1,35 @@
+{
+  "generated_at": "20260417T220248Z",
+  "source": "001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md",
+  "total_candidates": 1,
+  "auto_accept_count": 0,
+  "auto_reject_count": 0,
+  "needs_review_count": 1,
+  "buckets": {
+    "auto_accept": [],
+    "auto_reject": [],
+    "needs_review": [
+      {
+        "from": "law-executive-order-no-72-on-comprehensive-land-use-plans",
+        "type": "governs",
+        "to": "concept-comprehensive-land-use-plan",
+        "occurrences": 2,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "The comprehensive land use plan prepared by the PDC shall be submitted to the sangguniang panlalawigan for enactment into an ordinance.",
+          "The comprehensive land use plan prepared by the PDC shall be submitted to the sangguniang panlalawigan for enactment into an ordinance. Such ordinance shall be enacted and approved in accordance with Articles 107 and 108 of the IRR of the LGC."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      }
+    ]
+  }
+}

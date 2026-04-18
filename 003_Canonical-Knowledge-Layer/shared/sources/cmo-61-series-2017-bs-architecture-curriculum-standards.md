@@ -4,7 +4,7 @@ title: CMO 61 Series 2017 BS Architecture Curriculum Standards
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:38:54.933683+00:00
+last_canonicalized_utc: 2026-04-17T22:02:55.146272+00:00
 aliases:
   - CHED CMO 61 Series 2017
   - BS Architecture Curriculum Standards
@@ -32,6 +32,7 @@ following policies, standards and guidelines (PSGs) are hereby adopted and
 - concept-built-heritage
 - concept-architectural-interiors
 - concept-urban-development-planning
+- concept-building-utilities
 - concept-occupancy-load
 - concept-building-permit
 - concept-general-conditions-of-contract

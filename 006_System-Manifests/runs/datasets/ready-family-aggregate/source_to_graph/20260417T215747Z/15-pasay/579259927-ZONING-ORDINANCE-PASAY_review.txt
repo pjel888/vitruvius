@@ -1,0 +1,36 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/LGU/579259927-ZONING-ORDINANCE-PASAY.md
+Candidates reviewed: 7
+Keep: 1
+Review Further: 4
+Reject: 2
+
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-floor-area
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-comprehensive-land-use-plan
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['comprehensive land use plan'] appear in the evidence text
+
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-floor-area-ratio
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['floor area ratio'] appear in the evidence text
+
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-setbacks
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-yards
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-certificate-of-occupancy
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+law-pasay-city-zoning-ordinance-of-2003 -> governs -> concept-building-permit
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.

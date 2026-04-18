@@ -1,0 +1,12 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md
+Candidates reviewed: 1
+Keep: 0
+Review Further: 1
+Reject: 0
+
+law-executive-order-no-72-on-comprehensive-land-use-plans -> governs -> concept-comprehensive-land-use-plan
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.

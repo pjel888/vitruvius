@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the Architecture Act of 2004
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:38:02.144836+00:00
+last_canonicalized_utc: 2026-04-17T22:02:10.696243+00:00
 aliases:
   - RA 9266
   - RA 9266 IRR
@@ -40,4 +40,5 @@ Republic of the Philippines Professional Regulation Commission Manila BOARD OF A
 - concept-standards-of-professional-practice
 - concept-temporary-special-permit
 - concept-human-settlements
+- concept-building-utilities
 - concept-code-of-ethics

@@ -4,7 +4,7 @@ title: Statement that Architectural and Architectural Interior Design are Exclus
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T17:40:22.790369+00:00
+last_canonicalized_utc: 2026-04-17T22:03:08.931961+00:00
 aliases:
   - Architecture and AR Interiors are Exclusive
   - Architectural Interior Design Exclusive
@@ -54,6 +54,7 @@ SUBJECT : Statement that Architectural (and Architectural Interior) Design are E
 - concept-temporary-special-permit
 - concept-standards-of-professional-practice
 - concept-stairs
+- concept-building-utilities
 - concept-general-conditions-of-contract
 - concept-waste-disposal
 - concept-light-and-ventilation

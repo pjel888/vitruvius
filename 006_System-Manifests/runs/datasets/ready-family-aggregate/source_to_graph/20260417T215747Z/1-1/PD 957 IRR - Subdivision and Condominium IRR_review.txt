@@ -1,0 +1,32 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md
+Candidates reviewed: 6
+Keep: 2
+Review Further: 2
+Reject: 2
+
+irr-revised-implementing-rules-and-regulations-for-pd-957 -> governs -> concept-yards
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-revised-implementing-rules-and-regulations-for-pd-957 -> governs -> concept-floor-area
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-revised-implementing-rules-and-regulations-for-pd-957 -> governs -> concept-floor-area-ratio
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['floor area ratio'] appear in the evidence text
+
+irr-revised-implementing-rules-and-regulations-for-pd-957 -> governs -> concept-project-area
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['project area'] appear in the evidence text
+
+irr-revised-implementing-rules-and-regulations-for-pd-957 -> governs -> concept-zoning-ordinance
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+irr-revised-implementing-rules-and-regulations-for-pd-957 -> governs -> concept-common-areas
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.

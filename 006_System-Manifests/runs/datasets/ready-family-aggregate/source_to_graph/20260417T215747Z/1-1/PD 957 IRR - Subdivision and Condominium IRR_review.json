@@ -1,0 +1,172 @@
+{
+  "generated_at": "20260417T220133Z",
+  "model": "qwen2.5:7b",
+  "source": "001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md",
+  "total_candidates": 6,
+  "llm_reviewed": 2,
+  "pre_review_auto_accepted": 2,
+  "pre_review_auto_rejected": 2,
+  "completed_reviews": 6,
+  "status": "completed",
+  "summary": {
+    "keep": 2,
+    "review_further": 2,
+    "reject": 2,
+    "high_confidence_keep": 2,
+    "high_confidence_reject": 2
+  },
+  "reviews": [
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-for-pd-957",
+        "type": "governs",
+        "to": "concept-yards",
+        "occurrences": 7,
+        "sections": [
+          "section-1",
+          "section-2"
+        ],
+        "examples": [
+          "Where a good quality top soil exists in the site, it shall be banked and shall be preserved for finishing grades of yards, playgrounds, parks and garden area.",
+          "Suitable trees with a caliper diameter of 200 millimetres or more, shrubs and desirable ground cover per Department of Environment and Natural Resources (DENR) rules shall be preserved. Where a good quality top soil exists in the site, it shall be banked and shall be preserved for finishing grades o",
+          "- c.6 Lots shall be planned with adequate width for side yards."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-for-pd-957",
+        "type": "governs",
+        "to": "concept-floor-area",
+        "occurrences": 3,
+        "sections": [
+          "section-1",
+          "section-2"
+        ],
+        "examples": [
+          "Minimum floor area for open market housing shall be 42 square meters and 30 square meters for medium cost housing.",
+          "- a. Minimum floor area for open market housing shall be 42 square meters and 30 square meters for medium cost housing. - b. Minimum level of completion -complete house for all types of dwelling units based on the submitted specifications.",
+          "The minimum floor area of family condominium units shall be 36 square meters and 22 square meters for open market and medium cost condominium project respectively."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "keep",
+        "confidence": 0.95,
+        "reason": "pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-for-pd-957",
+        "type": "governs",
+        "to": "concept-floor-area-ratio",
+        "occurrences": 2,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "As far as practicable, streets shall be laid out at right angles to minimize critical intersections such as blind corners, skew junction, etc.",
+          "- c. As far as practicable, streets shall be laid out at right angles to minimize critical intersections such as blind corners, skew junction, etc. - d. Roads shall conform to sound engineering practices."
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['floor area ratio'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-for-pd-957",
+        "type": "governs",
+        "to": "concept-project-area",
+        "occurrences": 1,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "Allocation of area for parks and playgrounds shall be mandatory for projects one (1) hectare or more and shall be deemed non-buildable area. The same shall be strategically located within the subdivision project. Area allocated for parks and playgrounds shall in no case be less than 100 square meter"
+        ],
+        "alternate_predicates": []
+      },
+      "review": {
+        "decision": "reject",
+        "confidence": 0.85,
+        "reason": "pre_review_filter: endpoint_not_in_evidence: none of ['project area'] appear in the evidence text",
+        "suggested_type": null,
+        "source": "pre_review_filter"
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-for-pd-957",
+        "type": "governs",
+        "to": "concept-zoning-ordinance",
+        "occurrences": 1,
+        "sections": [
+          "section-2"
+        ],
+        "examples": [
+          "Supplementary and supportive activities to residential use shall be allowed provided that the privacy, order, health and safety of the residents are not jeopardized nor threatened and that the land use plan and/or zoning ordinance of the locality can accommodate such mixture of land uses."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      "review": {
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.",
+        "suggested_type": null
+      }
+    },
+    {
+      "candidate": {
+        "from": "irr-revised-implementing-rules-and-regulations-for-pd-957",
+        "type": "governs",
+        "to": "concept-common-areas",
+        "occurrences": 2,
+        "sections": [
+          "section-8"
+        ],
+        "examples": [
+          "Submission of a Certified True Copy of title of the common areas/open space, which title shall expressly indicate the kind of common use approved therefor, on or before a definite date (to be specified by applicant subject to approval by the Board).",
+          "- 1. Segregation of the individual titles for all lots or units within the project; - 2. Submission of proof that titles to the saleable lots or units have been issued, which proof may include a certification from concerned register of deeds indicating the lots/blocks or units or data similar to tho"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      "review": {
+        "decision": "review_further",
+        "confidence": 0.0,
+        "reason": "Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.",
+        "suggested_type": null
+      }
+    }
+  ]
+}
