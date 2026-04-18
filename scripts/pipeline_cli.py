@@ -643,6 +643,42 @@ def build_parser() -> argparse.ArgumentParser:
     add_command_parser(subparsers, "kg-backfill-evidence")
     add_command_parser(subparsers, "kg-seed-taxonomy")
 
+    # Sprint KG — review queue (Gate 6)
+    kg_review_queue_parser = add_command_parser(subparsers, "kg-review-queue")
+    kg_review_queue_parser.add_argument(
+        "--status",
+        default="REVIEW_REQUIRED",
+        choices=["CANDIDATE", "VALIDATED", "REVIEW_REQUIRED", "REJECTED"],
+        help="Filter assertions by validation status",
+    )
+    kg_review_queue_parser.add_argument(
+        "--snapshot",
+        default=None,
+        help="Path to a kg-v2 snapshot JSON (defaults to latest in 005_Operational-Intelligence-Layer/graph/kg-v2/)",
+    )
+
+    kg_review_action_parser = add_command_parser(subparsers, "kg-review-action")
+    kg_review_action_parser.add_argument(
+        "assertion_id",
+        help="ID of the assertion to act on",
+    )
+    kg_review_action_parser.add_argument(
+        "--action",
+        required=True,
+        choices=["approve", "reject", "escalate"],
+        help="Operator decision",
+    )
+    kg_review_action_parser.add_argument(
+        "--reason",
+        default="",
+        help="Human-readable reason for the decision",
+    )
+    kg_review_action_parser.add_argument(
+        "--snapshot",
+        default=None,
+        help="Path to a kg-v2 snapshot JSON (defaults to latest in 005_Operational-Intelligence-Layer/graph/kg-v2/)",
+    )
+
     evaluate_spatial_parser = add_command_parser(subparsers, "evaluate-spatial")
     evaluate_spatial_parser.add_argument(
         "--concepts",
@@ -1972,6 +2008,83 @@ def main() -> int:
             print(f"Warnings ({len(loader._warnings)}):")
             for w in loader._warnings[:10]:
                 print(f"  - {w}")
+        return 0
+
+    if args.command == "kg-review-queue":
+        from vitruvius.kg.query_engine import QueryEngine
+        from vitruvius.paths import get_repo_root
+
+        snap_path = args.snapshot
+        if snap_path is None:
+            snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+            candidates = sorted(snap_dir.glob("*_kg_v2_snapshot.json"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No snapshot found in {snap_dir}")
+                return 1
+            snap_path = candidates[0]
+
+        engine = QueryEngine.from_path(snap_path)
+        target_status = args.status.lower()
+        rows: list[tuple[str, str, str, float, str]] = []
+        for assertion in engine.snapshot.relationship_assertions:
+            if assertion.validation_status.value.lower() == target_status:
+                rows.append(
+                    (
+                        assertion.id,
+                        assertion.from_node_id,
+                        assertion.to_node_id,
+                        assertion.confidence,
+                        assertion.reasoning_summary.replace("\n", " ")[:60],
+                    )
+                )
+        if not rows:
+            print(f"No assertions with status '{args.status}'.")
+            return 0
+        print(f"{'ID':<40} {'From':<30} {'To':<30} {'Conf':>6} {'Reasoning'}")
+        print("-" * 130)
+        for rid, from_n, to_n, conf, reason in rows:
+            print(f"{rid:<40} {from_n:<30} {to_n:<30} {conf:>6.2f} {reason}")
+        print(f"\nTotal: {len(rows)} assertion(s)")
+        return 0
+
+    if args.command == "kg-review-action":
+        from vitruvius.kg.enums import ValidationState
+        from vitruvius.kg.json_evidence_store import KgV2Snapshot
+        from vitruvius.paths import get_repo_root
+
+        snap_path = args.snapshot
+        if snap_path is None:
+            snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+            candidates = sorted(snap_dir.glob("*_kg_v2_snapshot.json"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No snapshot found in {snap_dir}")
+                return 1
+            snap_path = candidates[0]
+
+        snap = KgV2Snapshot.read(Path(snap_path))
+        matched = False
+        for assertion in snap.relationship_assertions:
+            if assertion.id == args.assertion_id:
+                matched = True
+                if args.action == "approve":
+                    assertion.validation_status = ValidationState.VALIDATED
+                    assertion.review_state = "approved"
+                elif args.action == "reject":
+                    assertion.validation_status = ValidationState.REJECTED
+                    assertion.review_state = "rejected"
+                else:  # escalate
+                    assertion.validation_status = ValidationState.REVIEW_REQUIRED
+                    assertion.review_state = "escalated"
+                if args.reason:
+                    assertion.reasoning_detail.append(f"[{args.action}] {args.reason}")
+                break
+
+        if not matched:
+            print(f"ERROR: Assertion '{args.assertion_id}' not found in snapshot.")
+            return 1
+
+        snap.write(Path(snap_path))
+        print(f"Updated {args.assertion_id} → {args.action}")
         return 0
 
     parser.print_help()

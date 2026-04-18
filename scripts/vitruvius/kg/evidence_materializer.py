@@ -20,6 +20,8 @@ import yaml
 
 from vitruvius.normalization.ast_chunker import split_into_chunks
 
+from .assertion_validator import AssertionValidator
+from .edge_materializer import EdgeMaterializer
 from .enums import EdgeType, InferenceType, ValidationState
 from .json_evidence_store import KgV2Snapshot
 from .schemas import (
@@ -140,6 +142,7 @@ class EvidenceMaterializer:
         """Run the full materialization pipeline."""
         self._materialize_sources()
         self._materialize_relationships()
+        self._materialize_fast_edges()
         self.snapshot.metadata = {
             "generator": "evidence_materializer",
             "version": "2.0.0-alpha",
@@ -353,6 +356,54 @@ class EvidenceMaterializer:
                     version=1,
                 )
             )
+
+    def _materialize_fast_edges(self) -> None:
+        """Validate relationship assertions and materialize fast edges."""
+        if not self.snapshot.relationship_assertions:
+            return
+
+        # Build indices from the snapshot for validation
+        canonical_index: dict[str, dict[str, Any]] = {
+            node.id: {"type": node.type, "status": node.status}
+            for node in self.snapshot.canonical_nodes
+        }
+        # Also include document versions as valid endpoints (sources)
+        for dv in self.snapshot.document_versions:
+            canonical_index[dv.id] = {"type": "document_version", "status": "validated"}
+            canonical_index[dv.document_id] = {"type": "document", "status": "validated"}
+        # Also include concept files on disk (they may not be in snapshot.canonical_nodes yet)
+        concepts_dir = self.canonical_root / "concepts"
+        if concepts_dir.exists():
+            for md_path in sorted(concepts_dir.rglob("*.md")):
+                fm = _load_frontmatter(md_path)
+                if fm:
+                    entity_id = fm.get("id")
+                    if entity_id:
+                        canonical_index[entity_id] = {
+                            "type": "concept",
+                            "status": _validation_state_from_string(fm.get("canonical_status")),
+                        }
+
+        evidence_index: dict[str, dict[str, Any]] = {
+            span.id: {"id": span.id}
+            for span in self.snapshot.evidence_spans
+        }
+
+        validator = AssertionValidator(
+            canonical_index=canonical_index,
+            evidence_index=evidence_index,
+        )
+
+        passed_assertions: list[RelationshipAssertion] = []
+        for assertion in self.snapshot.relationship_assertions:
+            result = validator.validate_relationship(assertion)
+            if result.passed:
+                passed_assertions.append(assertion)
+
+        if passed_assertions:
+            materializer = EdgeMaterializer(snapshot=self.snapshot)
+            materializer.materialize(passed_assertions, skip_unvalidated=False)
+            self.snapshot.fast_edges = materializer.write_snapshot(out_path=None)["edges"]
 
 
 # ---------------------------------------------------------------------------

@@ -46,6 +46,7 @@ class KgV2Snapshot:
         self.relationship_assertions: list[RelationshipAssertion] = []
         self.placement_assertions: list[PlacementAssertion] = []
         self.merge_assertions: list[MergeAssertion] = []
+        self.fast_edges: list[dict[str, Any]] = []
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -60,6 +61,7 @@ class KgV2Snapshot:
             "relationship_assertions": [ra.model_dump(mode="json") for ra in self.relationship_assertions],
             "placement_assertions": [pa.model_dump(mode="json") for pa in self.placement_assertions],
             "merge_assertions": [ma.model_dump(mode="json") for ma in self.merge_assertions],
+            "fast_edges": self.fast_edges,
         }
 
     def write(self, path: Path) -> None:
@@ -85,6 +87,7 @@ class KgV2Snapshot:
         snap.relationship_assertions = [RelationshipAssertion(**d) for d in data.get("relationship_assertions", [])]
         snap.placement_assertions = [PlacementAssertion(**d) for d in data.get("placement_assertions", [])]
         snap.merge_assertions = [MergeAssertion(**d) for d in data.get("merge_assertions", [])]
+        snap.fast_edges = data.get("fast_edges", [])
         return snap
 
     def checksum(self) -> str:
@@ -103,4 +106,5 @@ class KgV2Snapshot:
             "relationship_assertions": len(self.relationship_assertions),
             "placement_assertions": len(self.placement_assertions),
             "merge_assertions": len(self.merge_assertions),
+            "fast_edges": len(self.fast_edges),
         }

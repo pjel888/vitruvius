@@ -151,6 +151,13 @@ class AssertionValidator:
         errors: list[str] = []
         aid = assertion.id
 
+        # R2 edge_type must be registered (only for RelationshipAssertion)
+        if isinstance(assertion, RelationshipAssertion):
+            if assertion.edge_type not in EdgeType:
+                errors.append(
+                    f"R2: edge_type '{assertion.edge_type}' is not a registered EdgeType"
+                )
+
         # R3 / R4 endpoint existence
         if hasattr(assertion, "from_node_id"):
             if assertion.from_node_id not in self.canonical_index:
