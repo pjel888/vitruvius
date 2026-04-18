@@ -1,29 +1,50 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-17
+> **Updated:** 2026-04-18
 > **Live branch:** `ralph/laws-dataset-phases`
-> **Most recent completed work:** bounded laws pilot operator-experience hardening (`/.ai/05_logs/2026-04-17_laws-pilot-operator-experience-validation.md`)
+> **Most recent completed work:** laws-wave saturated end-state + ready-family aggregate residual hardening (`/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`, `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md`)
 
 ## Live Repo Truth
 
-- PASS 1 produced the audit pack, master implementation plan, baseline, research, and validation artifacts for the 2026-04-16 stabilization lane.
-- PASS 2 is stabilization-only. It is focused on:
-  1. truth/state reconciliation
-  2. graph identity + query provenance trust
-  3. advanced-boundary claim cleanup
-  4. Rust/static validation hygiene
-- The bounded laws pilot follow-on lane has now been hardened beyond the original scoped-graph proof:
-  - `run-dataset-source-to-graph` supports one-command visualization/browser flow
-  - `run-laws-pilot` and repo-root `./run-laws-pilot` exist for the 4-law pilot
-  - generated graph HTML is self-contained and no longer depends on external/relative browser assets
-- a readiness-only next-step lane now exists for broader all-laws planning:
-  - `run-laws-all-dry-run`
-  - `m2-8gb-safe` review preset
-  - `run-laws-tranche-dry-run`
-  - automated structure guardrails for BP220-style shallowness
-- The 2026-04-15 sprint-wave summary remains historical context in `decisions.md` and `master-roadmap.md`; it is **not** the live dispatcher anymore.
+- The current parent objective is the bounded laws-wave/operatorization effort, not the old 4-law pilot by itself.
+- The laws-wave is now truthfully at a saturated end-state under the present authority and source-quality rules:
+  - `status = saturated_truth_complete`
+  - `raw_folder_count = 47`
+  - `covered_raw_folder_count = 41`
+  - `remaining_uncovered_folder_count = 6`
+  - `completed_lane_count = 25`
+  - `resolved_truth_model_fix_count = 2`
+  - source: `/.ai/10_state/laws-wave-status.json`
+- `ready-family-aggregate` is the current combined proving surface for that larger laws-wave, not the whole objective by itself.
+- The current active bounded follow-on is residual hardening of the verified ready-family aggregate baseline:
+  - snapshot: `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260418T023807Z_graph_snapshot.json`
+  - build report: `006_System-Manifests/runs/datasets/ready-family-aggregate/20260418T023807Z_build_graph_dataset_report.json`
+  - viewer artifact: `004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html`
+  - latest result: `143 nodes / 266 edges / 1 warning / 45 covered folders / 1 partial folder`
+  - only truthful residual family remaining in that aggregate: `RA-386` / `law-civil-code-of-the-philippines`
+- The resumability artifact stack for the broader laws-wave now exists and should be consulted before opening any new lane:
+  - `config/datasets/laws-completed-lanes.yaml`
+  - `config/datasets/laws-remaining-dispositions.yaml`
+  - `config/datasets/laws-source-provenance.yaml`
+  - `config/datasets/laws-manifest-index.yaml`
+  - `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
+  - `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`
+- Generic Phase 11 expansion is still gated. The accepted exception remains bounded, manifest-backed laws-wave execution only.
 
 ## Current Validation Snapshot
+
+- Larger laws-wave end-state:
+  - `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md` records the bounded tranche/remediation wave as truth-complete under current rules
+- Ready-family aggregate residual-hardening lane:
+  - `/.ai/05_logs/2026-04-18_ready-family-operator-alignment-validation.md`
+  - `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md`
+  - current aggregate evidence:
+    - `node_count = 143`
+    - `edge_count = 266`
+    - `warning_count = 1`
+    - `covered_folder_count = 45`
+    - `partial_folder_count = 1`
+    - remaining truthful residual family: `RA-386`
 
 - Python tests: **1572 passed, 1 skipped** (`PYTHONPATH=scripts pytest scripts/tests -q`)
 - TypeScript tests: **21 passed** (`spatial-daemon`: `npm test`)
@@ -374,7 +395,8 @@
 
 ## Residual Graph Caveat
 
-- `build-graph` is now green on errors, but still reports six orphan-node warnings that remain informational rather than blocking.
+- The larger laws-wave is truth-complete, but the current `ready-family-aggregate` follow-on still has one informational residual family (`RA-386`) in the combined aggregate.
+- This is a bounded aggregate-hardening concern, not evidence that the whole laws-wave needs to be reopened from scratch.
 
 ## Reference Map
 
@@ -386,6 +408,9 @@
 - Active roadmap snapshot: `/.ai/01_roadmap/current-phase.md`
 - Milestones: `/.ai/01_roadmap/milestone-tracker.md`
 - Decisions: `/.ai/10_state/decisions.md`
+- Laws-wave status snapshot: `/.ai/10_state/laws-wave-status.json`
+- Laws-wave completion summary: `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`
+- Laws-wave artifact index: `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
 - Latest bounded-laws operator validation: `/.ai/05_logs/2026-04-17_laws-pilot-operator-experience-validation.md`
 - Latest all-laws readiness validation: `/.ai/05_logs/2026-04-17_all-laws-readiness-8gb-implementation-validation.md`
 - Latest tranche-expansion validation: `/.ai/05_logs/2026-04-17_laws-tranche-expansion-implementation-validation.md`
@@ -420,10 +445,22 @@
 - Latest RA-11285 tranche-8 richness validation: `/.ai/05_logs/2026-04-17_ra11285-energy-governance-concept-fit-validation.md`
 - Latest tranche-9 scout research: `/.ai/13_research/2026-04-17_tranche-9-scout-research.md`
 - Latest tranche-9 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-9-execution-validation.md`
+- Latest ready-family operator alignment validation: `/.ai/05_logs/2026-04-18_ready-family-operator-alignment-validation.md`
+- Latest ready-family residual hardening validation: `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md`
 
 ## Handoff Note
 
 If you continue from here, do **not** restart with a new repo-wide audit. Consult the **archived** 2026-04-16 stabilization/remediation plans together with the PASS 2 validation log and the duplicate-ID remediation validation log.
+
+Before assuming the next task is only about the graph viewer, orient against the parent laws-wave first:
+- read `/.ai/10_state/laws-wave-status.json`
+- read `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
+- read `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`
+
+Then decide whether the next task is:
+- final residual hardening inside `ready-family-aggregate`
+- generic dataset-automation work derived from the laws-wave pattern
+- maintenance of the laws-wave artifact stack after a newly opened lane
 
 - tranche-10 selection now favors duplicate-remediation-first `RA-9266`, with overlap-closure `PD-9514` deferred to the following lane.
 

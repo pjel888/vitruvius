@@ -4,7 +4,7 @@
 > **Audience:** Architects, engineers, auditors, and autonomous agents operating on this repo.
 > **Authoritative for:** Phase order, definitions of done, gating metrics, status reconciliation.
 > **Supersedes:** Prior phase lists, ad-hoc README roadmaps, and any conflicting status claims.
-> **Version:** 2.3.0 · **Last revised:** 2026-04-15T19:00:00+08:00 · **Next review due:** 2026-05-01
+> **Version:** 2.3.1 · **Last revised:** 2026-04-18T11:30:00+08:00 · **Next review due:** 2026-05-01
 > **Owner:** Senior Systems Architect
 
 ---
@@ -648,6 +648,25 @@ That exception is valid only because the M1 slice is explicitly constrained to:
 - no claim of generic all-laws expansion beyond the accepted pilot bundle
 
 If implementation widens beyond that bounded pilot contract, it becomes normal Phase 11 dataset-expansion work again and remains gated by the conditions above.
+
+**Current bounded continuation (2026-04-18).**
+The live continuation point inside that exception is the `ready-family-aggregate` residual-hardening lane. The latest verified bounded baseline is:
+- snapshot: `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260418T023807Z_graph_snapshot.json`
+- build report: `006_System-Manifests/runs/datasets/ready-family-aggregate/20260418T023807Z_build_graph_dataset_report.json`
+- viewer artifact: `004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html`
+- result: `143 nodes / 266 edges / 1 warning / 45 covered folders / 1 partial folder`
+
+The only truthful remaining residual family at this point is `RA-386` / `law-civil-code-of-the-philippines`. The next valid bounded step is to test whether that residual can be reduced through the same conservative mechanisms already proven in the lane: explicit concept admission, canonical source-page refreshes that only mirror admitted concepts, and aggregate rebuild verification. This does **not** authorize broader Phase 11 expansion.
+
+The larger parent objective around that continuation is the bounded laws-wave/operatorization effort. `ready-family-aggregate` is the combined proving surface for currently `ready` families inside that larger lane, not an isolated one-off sample. The corresponding resumability artifact stack is:
+- `config/datasets/laws-completed-lanes.yaml`
+- `config/datasets/laws-remaining-dispositions.yaml`
+- `config/datasets/laws-source-provenance.yaml`
+- `config/datasets/laws-manifest-index.yaml`
+- `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
+- `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`
+
+As of `/.ai/10_state/laws-wave-status.json` on 2026-04-18, the laws-wave state is `saturated_truth_complete`: `41/47` raw folders are covered, `25` executable/remediation lanes are complete, and no stronger normal primary-law or primary-regulation lane remains in the current pool under the present authority and source-quality rules.
 
 **Priority order once gated.**
 1. PD 1096 IRR.

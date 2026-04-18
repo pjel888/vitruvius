@@ -1,21 +1,79 @@
-# Current Phase — Between Sprints / Governance & Planning Maintenance
+# Current Phase — Ready-Family Aggregate Residual Hardening
 
-> **Authoritative roadmap:** `/.ai/01_roadmap/master-roadmap.md` (v2.3.0)
+> **Authoritative roadmap:** `/.ai/01_roadmap/master-roadmap.md` (v2.3.1)
 > **Authoritative execution order:** `/.ai/03_plans/00-governing-implementation-plan.md` (v4.0.0)
 > **This document:** live snapshot of active execution state and the next valid gates
-> **Updated:** 2026-04-17
+> **Updated:** 2026-04-18
 
 ---
 
 ## State
 
-**Active implementation sprint:** none.
+**Active implementation sprint:** ready-family aggregate residual hardening.
 
-Vitruvius is currently between feature sprints, but it is **not** idle. The live work is governance/planning maintenance, centered on the plan-layer rewrite and pending governance plans rather than runtime feature execution.
+Vitruvius is not between runtime lanes anymore. The live bounded execution focus is the `ready-family-aggregate` hardening path inside the accepted laws dataset pilot. The goal is to reduce the last truthful orphan/partial residuals in the combined ready-family graph without fabricating stronger relationships or treating this as generic Phase 11 expansion.
 
 **Live branch:** `ralph/laws-dataset-phases`
 
-**Most recent validated implementation burst:** the historical multi-sprint closure recorded on 2026-04-15 remains the latest recorded runtime execution baseline. See `/.ai/10_state/active_context.md` and `/.ai/10_state/decisions.md` for that historical delivery record.
+**Most recent validated implementation burst:** the latest live bounded runtime evidence is the 2026-04-18 ready-family aggregate hardening sequence, culminating in `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260418T023807Z_graph_snapshot.json` and `004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html`.
+
+## Resume Anchor
+
+If a future Codex session needs the current task immediately, resume from this goal:
+
+- remember the parent objective: finish and preserve the bounded laws-wave/operatorization lane truthfully
+- treat `ready-family-aggregate` as the combined proving surface for that larger lane, not as the whole objective by itself
+- continue the bounded `ready-family-aggregate` residual-hardening lane
+- preserve the Phase 11 gate: this is still a bounded validation lane, not generic corpus expansion
+- use the post-concept-admission aggregate as the baseline:
+  - snapshot: `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260418T023807Z_graph_snapshot.json`
+  - build report: `006_System-Manifests/runs/datasets/ready-family-aggregate/20260418T023807Z_build_graph_dataset_report.json`
+  - viewer: `004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html`
+- treat `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md` as the latest validation log for the active lane
+
+### Larger parent objective
+- the broader task is the laws-wave bounded expansion/operatorization effort:
+  - prove that many laws/regulation families can be staged, admitted, executed, and aggregated truthfully through manifest-backed automation
+  - preserve machine-readable completion/disposition state so future sessions do not need to reconstruct lane status from chat history
+- current state from `/.ai/10_state/laws-wave-status.json`:
+  - `status = saturated_truth_complete`
+  - `raw_folder_count = 47`
+  - `covered_raw_folder_count = 41`
+  - `remaining_uncovered_folder_count = 6`
+  - `completed_lane_count = 25`
+  - `resolved_truth_model_fix_count = 2`
+- this means the ready-family aggregate is the current aggregate health surface inside a larger laws-wave artifact stack, not a random sample detached from the main objective
+
+### Laws-Wave Artifact Stack
+- use these artifacts together when resuming the larger laws-wave task:
+  - completed lanes: `config/datasets/laws-completed-lanes.yaml`
+  - remaining dispositions: `config/datasets/laws-remaining-dispositions.yaml`
+  - source provenance: `config/datasets/laws-source-provenance.yaml`
+  - manifest index: `config/datasets/laws-manifest-index.yaml`
+  - artifact index: `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
+  - completion summary: `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`
+- interpret `ready-family-aggregate` as the aggregate graph built from the currently `ready` families in that larger laws-wave system
+
+### Current truthful status
+- `node_count = 143`
+- `edge_count = 266`
+- `warning_count = 1`
+- `covered_folder_count = 45`
+- `partial_folder_count = 1`
+- remaining truthful residual family:
+  - `RA-386`
+  - `law-civil-code-of-the-philippines`
+
+### Next bounded step
+- if the next session is continuing the larger laws-wave effort, first orient against the artifact stack above and confirm whether the task is:
+  - final residual hardening inside `ready-family-aggregate`
+  - generic dataset-automation work derived from the laws-wave pattern
+  - maintenance of completed/disposition/provenance artifacts after a new lane opens
+- for the currently active aggregate lane, investigate whether `RA-386` can be improved through the same conservative mechanisms already used successfully in this lane:
+  - explicit concept admission into manifests
+  - canonical source-page refreshes that only reflect already-admitted concepts
+  - aggregate rebuild + graph rebuild + warning-summary verification
+- do **not** jump to broader Phase 11 work or invent stronger relationship claims just to remove the final residual
 
 ## Active Planning / Governance Tracks
 
@@ -514,11 +572,16 @@ Vitruvius is currently between feature sprints, but it is **not** idle. The live
     - see `/.ai/05_logs/2026-04-18_remaining-pool-final-disposition-validation.md`
     - machine-readable artifact: `config/datasets/laws-remaining-dispositions.yaml`
   - dataset snapshot provenance now records `contributing_law_ids` from the manifest-backed law-unit contract
-  - current truthful bounded state:
-    - `PD-1096` = `covered`
-    - `RA-9514` = `covered`
-    - `BP-344` = `covered`
-    - `BP-220` = `covered`
+  - ready-family aggregate operator alignment is now complete:
+    - the one-command operator path no longer reintroduces duplicate-edge regressions
+    - see `/.ai/05_logs/2026-04-18_ready-family-operator-alignment-validation.md`
+  - residual-cluster concept admission is now complete:
+    - `RA-9285`, `RA-6969`, and `RA-1378` moved into the aggregate through conservative concept admission
+    - the aggregate now sits at `143 nodes / 266 edges / 1 warning / 45 covered folders / 1 partial folder`
+    - only `RA-386` remains as the truthful residual family
+    - see `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md`
+  - current operator-facing graph viewer:
+    - `004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html`
 
 ## Historical Runtime Context
 The prior sprint chain remains important historical context, but it is not the active dispatcher anymore.
@@ -537,7 +600,7 @@ Do not use it for:
 1. Finish validation of the current plan-layer rewrite.
 2. If AGENTS coverage remains incomplete after validation, execute the nested-AGENTS governance plan.
 3. If AEC implementation is requested, accept the planned namespace and the relevant subsystem slice, then create fresh trigger/baseline/research/audit artifacts before coding.
-4. If follow-on laws dataset work is requested, keep it inside the accepted bounded pilot lane: the bounded four-folder pilot is successful and the accepted M4 slice is complete, but generic Phase 11 expansion remains gated. Any new section-scoped runtime, merged-graph runtime, or broader all-laws expansion work requires a fresh accepted slice rather than continuation by momentum.
+4. If follow-on laws dataset work is requested, resume from the ready-family aggregate residual-hardening lane first. Use `20260418T023807Z` as the baseline, treat `RA-386` as the only truthful remaining residual family, and stay inside the accepted bounded pilot lane. Any broader all-laws expansion still requires a fresh accepted slice rather than continuation by momentum.
 
 ## Not Current By Default
 - archived sprint plans under `/.ai/09_archive/plans/`

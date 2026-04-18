@@ -2,7 +2,7 @@
 
 > **Source of truth:** This tracker is reconciled against `/.ai/01_roadmap/master-roadmap.md` §4 and the 2026-04-13 audit pack.
 > **Legend:** `[x]` complete · `[~]` partial / skeleton · `[ ]` not started · `🔒` gated (do not start) · `🔥` highest priority · `🚫` DEFERRED (documented in an AD)
-> **Revised:** 2026-04-16 (post plan-layer reconciliation)
+> **Revised:** 2026-04-18 (ready-family aggregate residual-hardening reconciliation)
 
 ## Phase 0 — Foundation ✅ COMPLETE
 - [x] Layered root structure `001_` through `006_`
@@ -194,6 +194,8 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
 ## Phase 11 — Dataset Expansion 🔒 GATED
 **Do not start generic expansion.** Gated until Phase 7 validates PD 1096 for ≥1 week with zero audit violations AND 1B/1C are shipping.
 - **Bounded pilot note (2026-04-16):** the accepted `/.ai/03_plans/2026-04-16_laws-mini-dataset-graph-pipeline-plan.md` M1 scoped graph proof may proceed as a bounded validation lane only. It does **not** open generic Phase 11 dataset expansion and must remain inside the plan’s additive manifest-scoped guardrails.
+- **Resume note (2026-04-18):** the current bounded continuation point is the `ready-family-aggregate` residual-hardening lane, not a new tranche family. The verified baseline is `20260418T023807Z` with `143 nodes / 266 edges / 1 warning / 45 covered folders / 1 partial folder`; the only truthful remaining residual family is `RA-386` / `law-civil-code-of-the-philippines`. See `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md`.
+- **Parent-lane note (2026-04-18):** `ready-family-aggregate` is the current combined proving surface for the larger laws-wave/operatorization lane. The broader laws-wave state in `/.ai/10_state/laws-wave-status.json` is `saturated_truth_complete` with `41/47` raw folders covered, `25` completed lanes, and a preserved artifact stack (`laws-completed-lanes.yaml`, `laws-remaining-dispositions.yaml`, `laws-source-provenance.yaml`, `laws-manifest-index.yaml`). Resume from that parent context before assuming the next task is only about the aggregate viewer.
 - **Execution note (2026-04-16):** the bounded `laws-core-bundle-m1` pilot was implemented and validated as `PARTIAL`; bounded follow-on work then executed inside the accepted pilot lane:
   - M2A source admission is complete for `RA-9514`, `BP-344`, and `BP-220`
   - M2B additive dataset-safe extraction/review/second-pass/promotion path wiring is complete
@@ -251,6 +253,16 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
   - the HLURB/DHSUD agency split is now modeled truthfully in tranche metadata: `config/datasets/laws-tranche-12.yaml` stages `DHSUD` guidance surfaces from the legacy combined `HLURB-DHSUD` raw folder, and focused raw-folder-override regression coverage is now in place; see `/.ai/05_logs/2026-04-18_hlurb-dhsud-agency-split-validation.md`
   - final remaining-pool disposition is now explicit: `RA-11361`, `RA-7920`, `HB-3391`, `HB-5207`, `SB-2982`, and `BERDE` are all tracked as defer/final-disposition lanes rather than normal tranche candidates; see `/.ai/05_logs/2026-04-18_remaining-pool-final-disposition-validation.md`
   - machine-readable remaining-pool disposition artifact now exists at `config/datasets/laws-remaining-dispositions.yaml`
+  - ready-family aggregate operator alignment is now complete: the one-command operator path no longer reintroduces duplicate-edge regressions; see `/.ai/05_logs/2026-04-18_ready-family-operator-alignment-validation.md`
+  - residual-cluster concept admission is now complete: `RA-9285`, `RA-6969`, and `RA-1378` moved into the aggregate through conservative concept admission, leaving only `RA-386` residual; see `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md`
+  - current checked-in viewer artifact for that baseline: `004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html`
+  - laws-wave end-state artifacts now make the broader bounded lane resumable without replaying chat history:
+    - `config/datasets/laws-completed-lanes.yaml`
+    - `config/datasets/laws-remaining-dispositions.yaml`
+    - `config/datasets/laws-source-provenance.yaml`
+    - `config/datasets/laws-manifest-index.yaml`
+    - `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
+    - `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`
   - generic Phase 11 expansion remains gated
 - [ ] PD 1096 IRR ingestion
 - [ ] Occupancy tables (structured spreadsheet pathway)

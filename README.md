@@ -499,17 +499,19 @@ The reusable path has already been proven on:
 
 ### Current graph-quality snapshot
 
-The combined ready-family aggregate recently went through a major
-hardening pass.
+The combined ready-family aggregate is currently the broadest admitted
+graph surface in the repository and now sits inside a larger
+laws-wave/operatorization artifact stack.
 
-**Best hardened build-path result currently verified:**
+**Current verified ready-family aggregate baseline:**
 
-- `node_count = 136`
-- `edge_count = 256`
-- `warning_count = 5`
+- `node_count = 143`
+- `edge_count = 266`
+- `warning_count = 1`
 - `duplicate_edge = 0`
-- `covered_folder_count = 42`
-- `partial_folder_count = 4`
+- `covered_folder_count = 45`
+- `partial_folder_count = 1`
+- remaining truthful residual family: `RA-386`
 
 This is a major improvement over the earlier aggregate state, which had:
 
@@ -519,16 +521,27 @@ This is a major improvement over the earlier aggregate state, which had:
 - `covered_folder_count = 31`
 - `partial_folder_count = 15`
 
-### Important current limitation
+### Current laws-wave status
 
-The hardened **build path** is cleaner than the latest full
-**source-to-graph operator rerun**.
+The broader bounded laws-wave is now truthfully at a saturated end-state
+under the present authority and source-quality rules:
 
-That means one remaining engineering task is to align the broader
-operator path so it preserves the same cleaner graph quality as the
-hardened build path. In other words: the system works, but one higher
-level execution path still needs hardening to match the cleaner lower
-level result.
+- `41 / 47` raw folders covered
+- `25` completed executable/remediation lanes
+- no stronger normal primary-law / primary-regulation lane remains in
+  the current pool
+
+The key resumability artifacts for that larger lane are:
+
+- `config/datasets/laws-completed-lanes.yaml`
+- `config/datasets/laws-remaining-dispositions.yaml`
+- `config/datasets/laws-source-provenance.yaml`
+- `config/datasets/laws-manifest-index.yaml`
+- `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
+
+The `ready-family-aggregate` should be read as the combined proving
+surface for the currently `ready` families in that larger laws-wave,
+not as an isolated one-off sample.
 
 ---
 
@@ -1517,7 +1530,8 @@ python3 scripts/pipeline_cli.py run-dataset-source-to-graph \
 
 ### Recommended operator command (repo root)
 
-If you are already inside the repo root, the simplest operator path is:
+If you are already inside the repo root, the simplest historical
+operator path for the original 4-law pilot is:
 
 ```bash
 ./run-laws-pilot --skip-export-owl --open-browser
@@ -1533,6 +1547,21 @@ The generated HTML is self-contained (it bundles Cytoscape and embeds the graph
 data directly), so opening the file from Finder or a browser tab does not depend
 on additional repo-relative assets.
 
+### Current best graph to inspect now
+
+If you want the broadest current laws graph rather than the original
+4-law pilot, use the checked-in ready-family aggregate viewer:
+
+```bash
+open 004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html
+```
+
+This is the better default if your goal is to inspect:
+
+- cross-family interconnectedness
+- the current admitted multi-family graph state
+- the latest hardened aggregate rather than the earlier pilot-sized graph
+
 ### Dry-run first
 
 If you want to validate the bounded stage plan without executing writes:
@@ -1541,7 +1570,7 @@ If you want to validate the bounded stage plan without executing writes:
 ./run-laws-pilot --dry-run
 ```
 
-### Next safe step after the 4-law pilot
+### Next safe step after the original 4-law pilot
 
 If you want to assess the broader laws corpus **without** starting a generic
 all-laws execute run, use the readiness-only dry-run:
@@ -1552,7 +1581,7 @@ PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-all-dry-run --review
 
 This command:
 - inventories the repo-local laws corpus
-- compares it against the currently admitted bounded pilot
+- compares it against the currently admitted bounded laws-wave state
 - resolves an 8GB-safe review preset up front
 - writes a readiness report only
 - does **not** run review / promotion / graph build / browser output for the whole corpus
@@ -1860,12 +1889,12 @@ Current truthfulness note:
 - it does **not** mean every concept mentioned anywhere in the raw PDFs is already represented in the official bounded graph
 - graph density improves as additional concepts and relationships are truthfully admitted
 
-Important expectations for the current bounded pilot:
+Important expectations for the current bounded dataset work:
 
-- the current laws-core-bundle graph is still intentionally small compared with showcase Neo4j / Cambridge Intelligence screenshots
-- a recent bounded run produced about **26 nodes / 53 edges**, so the graph is real but not yet dense enough to resemble a large production knowledge map
+- the original `laws-core-bundle-m1` pilot graph is still intentionally small compared with showcase Neo4j / Cambridge Intelligence screenshots
+- the broader current aggregate is materially larger: the verified `ready-family-aggregate` baseline is **143 nodes / 266 edges / 1 warning**
 - dataset-scoped snapshots may include **dataset-local admitted relationship artifacts** selected by the manifest; those edges may not appear in the global `latest_graph_snapshot.json` until they are separately admitted into the global/shared path
-- if you want the exact bounded pilot truth, visualize or query the emitted dataset snapshot path rather than the global `latest_*` graph
+- if you want the exact current bounded aggregate truth, visualize or query the emitted dataset snapshot path rather than the global `latest_*` graph
 
 ### 6) Dry-run the dataset graph build without writing outputs
 
@@ -1879,6 +1908,11 @@ python3 scripts/pipeline_cli.py build-graph \
 
 - The bounded laws dataset command is currently driven by:
   - `config/datasets/laws-core-bundle-m1.yaml`
+- The larger bounded laws-wave now also has a machine-readable artifact stack:
+  - `config/datasets/laws-completed-lanes.yaml`
+  - `config/datasets/laws-remaining-dispositions.yaml`
+  - `config/datasets/laws-source-provenance.yaml`
+  - `config/datasets/laws-manifest-index.yaml`
 - Snapshot/query/export scoping is path-based via `--snapshot`.
 - The bounded dataset run now records `contributing_law_ids` in snapshot provenance.
 - Generic Phase 11 all-laws expansion is still gated; the current dataset command is a bounded pilot lane, not a blanket “all laws” switch.
