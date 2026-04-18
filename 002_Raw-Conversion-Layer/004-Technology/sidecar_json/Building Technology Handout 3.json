@@ -1,0 +1,797 @@
+{
+  "file name" : "Building Technology Handout 3.pdf",
+  "number of pages" : 12,
+  "author" : "mar",
+  "title" : "Building Tech",
+  "creation date" : "D:20260413100650+08'00'",
+  "modification date" : "D:20260413100650+08'00'",
+  "kids" : [ {
+    "type" : "header",
+    "id" : 54,
+    "page number" : 1,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 37,
+      "page number" : 1,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 56,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 135.02, 768.889, 257.08, 780.017 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "2. SLIDING WOOD DOOR"
+  }, {
+    "type" : "image",
+    "id" : 57,
+    "page number" : 1,
+    "bounding box" : [ 101.4, 478.33, 530.05, 757.58 ],
+    "source" : "Building Technology Handout 3_images/imageFile1.png"
+  }, {
+    "type" : "list",
+    "id" : 60,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 99.384, 453.459, 205.178, 473.982 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 99.384, 453.459, 205.178, 473.982 ],
+      "font" : "ArialMT",
+      "font size" : 6.0,
+      "text color" : "[0.0]",
+      "content" : "*MERCADO, JOSE L. The Architectural Reviewer, Vol. II: Materials and Methods of Construction",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 58,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 135.02, 420.699, 272.697, 431.827 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "3. ALUMINUM SWING DOOR"
+  }, {
+    "type" : "image",
+    "id" : 59,
+    "page number" : 1,
+    "bounding box" : [ 128.15, 96.58, 503.15, 420.73 ],
+    "source" : "Building Technology Handout 3_images/imageFile2.png"
+  }, {
+    "type" : "footer",
+    "id" : 64,
+    "page number" : 1,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 25,
+      "page number" : 1,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 48"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 65,
+    "page number" : 2,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 38,
+      "page number" : 2,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 67,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 135.02, 771.289, 260.446, 782.417 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "4. METAL LOUVRE DOOR"
+  }, {
+    "type" : "image",
+    "id" : 68,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 433.18, 538.7, 771.23 ],
+    "source" : "Building Technology Handout 3_images/imageFile3.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 69,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 538.78, 431.019, 541.549, 442.147 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "."
+  }, {
+    "type" : "heading",
+    "id" : 70,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 135.02, 407.979, 283.333, 419.107 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "5. ALUMINUM ROLL-UP DOOR"
+  }, {
+    "type" : "image",
+    "id" : 71,
+    "page number" : 2,
+    "bounding box" : [ 139.1, 133.43, 492.35, 407.98 ],
+    "source" : "Building Technology Handout 3_images/imageFile4.png"
+  }, {
+    "type" : "footer",
+    "id" : 72,
+    "page number" : 2,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 26,
+      "page number" : 2,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 49"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 73,
+    "page number" : 3,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 39,
+      "page number" : 3,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 75,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 135.02, 771.289, 272.209, 782.417 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "6. ACCORDION TYPE DOOR"
+  }, {
+    "type" : "image",
+    "id" : 76,
+    "page number" : 3,
+    "bounding box" : [ 173.9, 562.58, 457.45, 771.23 ],
+    "source" : "Building Technology Handout 3_images/imageFile5.png"
+  }, {
+    "type" : "heading",
+    "id" : 77,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 135.02, 527.999, 187.131, 539.127 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "7. HINGES"
+  }, {
+    "type" : "image",
+    "id" : 78,
+    "page number" : 3,
+    "bounding box" : [ 106.2, 219.48, 525.25, 516.48 ],
+    "source" : "Building Technology Handout 3_images/imageFile6.png"
+  }, {
+    "type" : "footer",
+    "id" : 79,
+    "page number" : 3,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 27,
+      "page number" : 3,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 50"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 80,
+    "page number" : 4,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 40,
+      "page number" : 4,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 82,
+    "page number" : 4,
+    "bounding box" : [ 172.2, 416.28, 459.25, 794.28 ],
+    "source" : "Building Technology Handout 3_images/imageFile7.png"
+  }, {
+    "type" : "heading",
+    "id" : 84,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 92.664, 429.099, 198.458, 449.602 ],
+    "heading level" : 4,
+    "font" : "ArialMT",
+    "font size" : 6.0,
+    "text color" : "[0.0]",
+    "content" : "*MERCADO, JOSE L. The ArchitecturalReviewer, Vol. II: Materials andMethods of Construction"
+  }, {
+    "type" : "image",
+    "id" : 83,
+    "page number" : 4,
+    "bounding box" : [ 91.55, 111.48, 539.9, 404.78 ],
+    "source" : "Building Technology Handout 3_images/imageFile8.png"
+  }, {
+    "type" : "footer",
+    "id" : 88,
+    "page number" : 4,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 28,
+      "page number" : 4,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 51"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 89,
+    "page number" : 5,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 41,
+      "page number" : 5,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 91,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 135.02, 771.289, 243.843, 782.417 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "8. LOCKS & LATCHES"
+  }, {
+    "type" : "image",
+    "id" : 92,
+    "page number" : 5,
+    "bounding box" : [ 90.1, 382.18, 541.3, 759.73 ],
+    "source" : "Building Technology Handout 3_images/imageFile9.png"
+  }, {
+    "type" : "caption",
+    "id" : 94,
+    "level" : "3",
+    "page number" : 5,
+    "bounding box" : [ 111.38, 352.299, 217.178, 372.802 ],
+    "font" : "ArialMT",
+    "font size" : 6.0,
+    "text color" : "[0.0]",
+    "content" : "*MERCADO, JOSE L. The Architectural Reviewer, Vol. II: Materials and Methods of Construction"
+  }, {
+    "type" : "image",
+    "id" : 93,
+    "page number" : 5,
+    "bounding box" : [ 90.0, 88.43, 541.45, 347.63 ],
+    "source" : "Building Technology Handout 3_images/imageFile10.png"
+  }, {
+    "type" : "footer",
+    "id" : 98,
+    "page number" : 5,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 29,
+      "page number" : 5,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 52"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 99,
+    "page number" : 6,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 42,
+      "page number" : 6,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 101,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 135.02, 771.289, 256.562, 782.417 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "9. OVERHEAD CLOSERS"
+  }, {
+    "type" : "image",
+    "id" : 102,
+    "page number" : 6,
+    "bounding box" : [ 90.1, 404.63, 541.3, 759.73 ],
+    "source" : "Building Technology Handout 3_images/imageFile11.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 104,
+    "level" : "4",
+    "page number" : 6,
+    "bounding box" : [ 85.464, 384.099, 191.258, 404.602 ],
+    "font" : "ArialMT",
+    "font size" : 6.0,
+    "text color" : "[0.0]",
+    "content" : "*MERCADO, JOSE L. The Architectural Reviewer, Vol. II: Materials and Methods of Construction"
+  }, {
+    "type" : "image",
+    "id" : 103,
+    "page number" : 6,
+    "bounding box" : [ 102.25, 180.38, 529.1, 324.13 ],
+    "source" : "Building Technology Handout 3_images/imageFile12.png"
+  }, {
+    "type" : "footer",
+    "id" : 108,
+    "page number" : 6,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 30,
+      "page number" : 6,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 53"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 111,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 135.02, 771.289, 240.467, 782.417 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "10. FLOOR CLOSERS"
+  }, {
+    "type" : "header",
+    "id" : 109,
+    "page number" : 7,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 43,
+      "page number" : 7,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 112,
+    "page number" : 7,
+    "bounding box" : [ 101.9, 568.93, 529.45, 748.18 ],
+    "source" : "Building Technology Handout 3_images/imageFile13.png"
+  }, {
+    "type" : "heading",
+    "id" : 113,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 135.02, 465.479, 281.641, 476.607 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "11. PANIC EXIT MECHANISMS"
+  }, {
+    "type" : "image",
+    "id" : 114,
+    "page number" : 7,
+    "bounding box" : [ 116.5, 152.88, 514.9, 465.48 ],
+    "source" : "Building Technology Handout 3_images/imageFile14.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 115,
+    "level" : "5",
+    "page number" : 7,
+    "bounding box" : [ 89.424, 141.289, 195.218, 161.792 ],
+    "font" : "ArialMT",
+    "font size" : 6.0,
+    "text color" : "[0.0]",
+    "content" : "*MERCADO, JOSE L. The Architectural Reviewer, Vol. II: Materials and Methods of Construction"
+  }, {
+    "type" : "footer",
+    "id" : 119,
+    "page number" : 7,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 31,
+      "page number" : 7,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 54"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 120,
+    "page number" : 8,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 44,
+      "page number" : 8,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 122,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 135.02, 771.289, 221.025, 782.417 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "12. DOOR BOLTS"
+  }, {
+    "type" : "image",
+    "id" : 123,
+    "page number" : 8,
+    "bounding box" : [ 138.25, 531.73, 493.2, 771.23 ],
+    "source" : "Building Technology Handout 3_images/imageFile15.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 127,
+    "level" : "7",
+    "page number" : 8,
+    "bounding box" : [ 74.424, 522.839, 180.218, 543.342 ],
+    "font" : "ArialMT",
+    "font size" : 6.0,
+    "text color" : "[0.0]",
+    "content" : "*MERCADO, JOSE L. The Architectural Reviewer, Vol. II: Materials and Methods of Construction"
+  }, {
+    "type" : "paragraph",
+    "id" : 124,
+    "page number" : 8,
+    "bounding box" : [ 117.02, 493.69, 353.407, 506.024 ],
+    "font" : "ArialMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "2.2.15. WINDOWS AND WINDOW HARDWARE"
+  }, {
+    "type" : "list",
+    "id" : 125,
+    "level" : "6",
+    "page number" : 8,
+    "bounding box" : [ 135.02, 470.759, 286.561, 481.887 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 135.02, 470.759, 286.561, 481.887 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. STEEL CASEMENT WINDOW",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 126,
+    "page number" : 8,
+    "bounding box" : [ 107.75, 258.98, 523.7, 459.23 ],
+    "source" : "Building Technology Handout 3_images/imageFile16.png"
+  }, {
+    "type" : "footer",
+    "id" : 131,
+    "page number" : 8,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 32,
+      "page number" : 8,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 55"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 132,
+    "page number" : 9,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 45,
+      "page number" : 9,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 134,
+    "page number" : 9,
+    "bounding box" : [ 144.35, 594.23, 486.95, 771.23 ],
+    "source" : "Building Technology Handout 3_images/imageFile17.png"
+  }, {
+    "type" : "heading",
+    "id" : 135,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 135.02, 548.159, 302.637, 559.287 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "2. ALUMINUM JALOUSIE WINDOW"
+  }, {
+    "type" : "image",
+    "id" : 136,
+    "page number" : 9,
+    "bounding box" : [ 90.25, 338.18, 541.2, 536.63 ],
+    "source" : "Building Technology Handout 3_images/imageFile18.png"
+  }, {
+    "type" : "image",
+    "id" : 137,
+    "page number" : 9,
+    "bounding box" : [ 90.25, 96.48, 541.2, 338.28 ],
+    "source" : "Building Technology Handout 3_images/imageFile19.png"
+  }, {
+    "type" : "footer",
+    "id" : 138,
+    "page number" : 9,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 33,
+      "page number" : 9,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 56"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 139,
+    "page number" : 10,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 46,
+      "page number" : 10,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 141,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 135.02, 771.289, 295.426, 782.417 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "3. ALUMINUM FRAMED WINDOW"
+  }, {
+    "type" : "image",
+    "id" : 142,
+    "page number" : 10,
+    "bounding box" : [ 90.25, 553.93, 541.1, 759.73 ],
+    "source" : "Building Technology Handout 3_images/imageFile20.png"
+  }, {
+    "type" : "image",
+    "id" : 143,
+    "page number" : 10,
+    "bounding box" : [ 90.1, 280.18, 541.2, 484.93 ],
+    "source" : "Building Technology Handout 3_images/imageFile21.png"
+  }, {
+    "type" : "footer",
+    "id" : 144,
+    "page number" : 10,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 34,
+      "page number" : 10,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 57"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 145,
+    "page number" : 11,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 47,
+      "page number" : 11,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 147,
+    "level" : "Doctitle",
+    "page number" : 11,
+    "bounding box" : [ 117.02, 769.98, 240.501, 782.314 ],
+    "heading level" : 1,
+    "font" : "ArialMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "2.2.16. MISCELANEOUS"
+  }, {
+    "type" : "image",
+    "id" : 148,
+    "page number" : 11,
+    "bounding box" : [ 136.45, 319.78, 495.0, 758.53 ],
+    "source" : "Building Technology Handout 3_images/imageFile22.png"
+  }, {
+    "type" : "footer",
+    "id" : 149,
+    "page number" : 11,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 35,
+      "page number" : 11,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 58"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 150,
+    "page number" : 12,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 48,
+      "page number" : 12,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 152,
+    "page number" : 12,
+    "bounding box" : [ 117.35, 442.58, 513.95, 771.23 ],
+    "source" : "Building Technology Handout 3_images/imageFile23.png"
+  }, {
+    "type" : "image",
+    "id" : 153,
+    "page number" : 12,
+    "bounding box" : [ 72.0, 74.03, 481.1, 442.58 ],
+    "source" : "Building Technology Handout 3_images/imageFile24.png"
+  }, {
+    "type" : "footer",
+    "id" : 154,
+    "page number" : 12,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 36,
+      "page number" : 12,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 3,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 59"
+    } ]
+  } ]
+}

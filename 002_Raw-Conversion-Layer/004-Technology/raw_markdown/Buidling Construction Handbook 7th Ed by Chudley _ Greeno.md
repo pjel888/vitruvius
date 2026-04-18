@@ -1,0 +1,4257 @@
+##### BUILDING CONSTRUCTION HANDBOOK
+
+|BUILDING CONSTRUCTION HANDBOOK<br><br>Seventh edition<br><br>R. Chudley<br><br>MCIOB<br><br>and<br><br>R. Greeno<br><br>BA (Hons) FCIOB FIPHE FRSA<br><br>![image 1](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile1.png)<br><br>AMSTERDAM . BOSTON . HEIDELBERG . LONDON . NEW YORK . OXFORD PARIS . SAN DIEGO . SAN FRANCISCO . SINGAPORE . SYDNEY . TOKYO<br><br>Butterworth-Heinemann is an imprint of Elsevier<br><br>![image 2](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile2.png)|
+|---|
+
+
+|Butterworth-Heinemann is an imprint of Elsevier Linacre House, Jordan Hill, Oxford OX2 8DP, UK 30 Corporate Drive, Suite 400, Burlington, MA 01803, USA First edition 1988 Second edition 1995 Third edition 1998 Fourth edition 2001 Fifth edition 2004 Sixth edition 2006 Seventh edition 2008 Copyright ª 1988, 1995, 1996, R. Chudley. Copyright ª 1998, 2001, 2004, 2006, 2008, R. Chudley and R. Greeno Published by Elsevier Ltd. All rights reserved Illustrations by the authors The right of R. Chudley and R. Greeno to be identified as the authors of this work has been asserted in accordance with the Copyright, Designs and Patents Act 1988 No part of this publication may be reproduced, stored in a retrieval system or transmitted in any form or by any means electronic, mechanical, photocopying, recording or otherwise without the prior written permission of the publisher Permissions may be sought directly from Elsevier’s Science & Technology Rights Department in Oxford, UK: phone (+44) (0) 1865 843830; fax (+44) (0) 1865 853333; email: permissions@elsevier.com. Alternatively you can submit your request online by visiting the Elsevier website at http://elsevier.com/locate/permissions, and selecting Obtaining permission to use Elsevier material<br><br>Notice No responsibility is assumed by the publisher for any injury and/or damage to persons or property as a matter of products liability, negligence or otherwise, or from any use or operation of any methods, products, instructions or ideas contained in the material herein. Because of rapid advances in the medical sciences, in particular, independent verification of diagnoses and drug dosages should be made British Library Cataloguing in Publication Data A catalogue record for this book is available from the British Library Library of Congress Cataloging-in-Publication Data Control Number: 2005938728 ISBN: 978-0-7506-86228<br><br>Typeset by Integra Software Services Printed and bound in Great Britain<br><br>08 09 10 11 11 10 9 8 7 6 5 4 3 2<br><br>|For information on all Butterworth-Heinemann publications visit our website at books.elsevier.com|
+|---|
+<br><br>|This Low Priced Edition is only for sale in Africa, the Middle East and selected Eastern European countries. Please contact the Elsevier Books Customer Service team to obtain a list of the countries eligible. In all other countries the regular edition is available with the ISBNs: 978-0-7506-6822-4 or 0-7506-6822-9 Elsevier Books Customer Service Phone: +44 01865 464100 Fax: +44 1865 474101 Email: internationalenquiries@elsevier.com|
+|---|
+|
+|---|
+
+
+|CONTENTS<br><br>Preface to seventh edition xi<br><br>Part One General<br><br>Built environment 2 The structure 5 Primary and secondary elements 12 Component parts and functions 15 Construction activities 19 Construction documents 20 Construction drawings 21 Building surveys 28 HIPS/Energy Performance Certificates 32 Method statement and programming 33 Weights and densities of building materials 35 Drawings --notations 37 Planning application 41 Modular coordination 46 Construction regulations 48 CDM regulations 49 Safety signs and symbols 50 Building Regulations 52 Code for Sustainable Homes 58 British Standards 59 European Standards 60 Product and practice accreditation 62 CPI System of Coding 63 CI/SfB system of coding 64<br><br>Part Two Site Works<br><br>Site survey 66 Site investigations 67 Soil investigation 70 Soil assessment and testing 77 Site layout considerations 84 Site security 87 Site lighting and electrical supply 90 Site office accommodation 94 Materials storage 97|
+|---|
+
+
+###### v
+
+|Materials testing 102 Protection orders for trees and structures 109 Locating public utility services 110 Setting out 111 Levels and angles 115 Road construction 118 Tubular scaffolding and scaffolding systems 126 Shoring systems 139 Demolition 147<br><br>Part Three Builders Plant<br><br>General considerations 152 Bulldozers 155 Scrapers 156 Graders 157 Tractor shovels 158 Excavators 159 Transport vehicles 164 Hoists 167 Rubble chutes and skips 169 Cranes 170 Concreting plant 182<br><br>Part Four Substructure<br><br>Foundations--function, materials and sizing 190 Foundation beds 199 Short bored pile foundations 205 Foundation types and selection 207 Piled foundations 212 Retaining walls 230 Gabions and mattresses 244 Basement construction 251 Waterproofing basements 254 Excavations 260 Concrete production 266 Cofferdams 272 Caissons 274 Underpinning 276 Ground water control 285 Soil stabilisation and improvement 295 Reclamation of waste land 300 Contaminated sub-soil treatment 301|
+|---|
+
+
+###### vi
+
+|Part Five Superstructure † 1<br><br>Choice of materials 304 Brick and block walls 305 Cavity walls 320 Damp-proof courses and membranes 326 Gas resistant membranes 333 Calculated brickwork 335 Mortars 338 Arches and openings 341 Windows 348 Glass and glazing 361 Doors 373 Crosswall construction 382 Framed construction 386 Cladding to external walls 390 Roofs--basic forms 392 Pitched roofs 395 Plain tiling 402 Single lap tiling 408 Slating 410 Flat roofs 416 Dormer windows 419 Dry and wet rot 428 Green roofs 430 Thermal insulation 432 ‘U’ values 437 Thermal bridging 452 Access for the disabled 456<br><br>Part Six Superstructure † 2<br><br>Reinforced concrete slabs 461 Reinforced concrete framed structures 464 Reinforcement types 474 Structural concrete, fire protection 476 Formwork 478 Precast concrete frames 483 Prestressed concrete 487 Structural steelwork sections 494 Structural steelwork connections 499 Structural fire protection 504 Portal frames 510 Composite timber beams 518 Multi-storey structures 520 Roof sheet coverings 524|
+|---|
+
+
+###### vii
+
+|Long span roofs 529 Shell roof construction 536 Membrane roofs 544 Rooflights 546 Panel walls 552 Rainscreen cladding 556 Structural glazing 558 Curtain walling 559 Concrete claddings 563 Concrete surface finishes 566 Concrete surface defects 568<br><br>Part Seven Internal Construction and Finishes<br><br>Internal elements 570 Internal walls 571 Construction joints 576 Internal walls, fire protection 578 Party/separating walls 579 Partitions 581 Plasters and plastering 587 Dry lining techniques 589 Wall tiling 593 Domestic floors and finishes 595 Large cast in-situ ground floors 602 Concrete floor screeds 604 Timber suspended floors 606 Lateral restraint 608 Timber beam design 612 Timber floors, fire protection 614 Reinforced concrete suspended floors 615 Precast concrete floors 620 Raised access floors 623 Sound insulation 625 Timber, concrete and metal stairs 629 Internal doors 654 Doorsets 657 Fire resisting doors 658 Plasterboard ceilings 664 Suspended ceilings 665 Paints and painting 669 Joinery production 673 Composite boarding 678 Plastics in building 680|
+|---|
+
+
+###### viii
+
+|Part Eight Domestic Services<br><br>Drainage effluents 682 Subsoil drainage 683 Surface water removal 685 Road drainage 688 Rainwater installations 692 Drainage systems 694 Drainage pipe sizes and gradients 702 Water supply 703 Cold water installations 705 Hot water installations 707 Flow controls 710 Cisterns and cylinders 711 Pipework joints 713 Sanitary fittings 714 Single and ventilated stack systems 717 Domestic hot water heating systems 720 Electrical supply and installation 724 Gas supply and gas fires 733 Services--fire stops and seals 737 Open fireplaces and flues 738 Telephone installations 747 Electronic communications installations 748<br><br>Index 749|
+|---|
+
+
+###### ix
+
+|PREFACE TO SEVENTH EDITION<br><br>The presentation of this seventh edition continues the familiar and unique format of clear illustrations supplemented with comprehensive notes throughout. The benefit of data accumulated from the numerous previous editions, permits traditional construction techniques to be retained alongside contemporary and developing practice. Established procedures are purposely retained with regard to maintenance and refurbishment of existing building stock.<br><br>Progressive development, new initiatives and government directives to reduce fuel energy consumption in buildings by incorporating sustainable and energy efficient features is included. In support of these environmental issues, the companion volume Building Services Handbook should be consulted for applications to energy consuming systems, their design and incorporation within the structure.<br><br>The diverse nature of modern construction practice, techniques and developments with new and synthetic materials cannot be contained in this volume alone. The content is therefore intended as representative and not prescriptive. Further reading of specific topics is encouraged, especially through professional journals, trade and manufacturers’ literature, illustrative guides to the Building Regulations and the supplementary references given hereinafter.<br><br>R.G.|
+|---|
+
+
+###### xi
+
+|1 GENERAL<br><br>![image 3](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile3.png)<br><br>BUILT ENVIRONMENT THE STRUCTURE PRIMARY AND SECONDARY ELEMENTS CONSTRUCTION ACTIVITIES CONSTRUCTION DOCUMENTS CONSTRUCTION DRAWINGS BUILDING SURVEY HIPS/EPCs PLANNING APPLICATION MODULAR COORDINATION CONSTRUCTION REGULATIONS CDM REGULATIONS SAFETY SIGNS AND SYMBOLS BUILDING REGULATIONS CODE FOR SUSTAINABLE HOMES BRITISH STANDARDS EUROPEAN STANDARDS CPI SYSTEM OF CODING CI/SFB SYSTEM OF CODING|
+|---|
+
+
+|Environment = surroundings which can be natural, man-made or a combination of these. Built Environment = created by man with or without the aid of the natural environment.<br><br>![image 4](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile4.png)<br><br>![image 5](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile5.png)<br><br>![image 6](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile6.png)|
+|---|
+
+
+Built Environment
+
+|Environmental Considerations<br><br>1. Planning requirements.<br>2. Building Regulations.<br>3. Land restrictions by vendor or lessor.<br>4. Availability of services.<br>5. Local amenities including transport.<br>6. Subsoil conditions.<br>7. Levels and topography of land.<br>8. Adjoining buildings or land.<br>9. Use of building.<br>10. Daylight and view aspects.<br><br><br>![image 7](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile7.png)<br><br>![image 8](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile8.png)|
+|---|
+
+
+|Physical considerations<br><br>1. Natural contours of land.<br>2. Natural vegetation and trees.<br>3. Size of land and/or proposed building.<br>4. Shape of land and/or proposed building.<br>5. Approach and access roads and footpaths.<br>6. Services available.<br>7. Natural waterways, lakes and ponds.<br>8. Restrictions such as rights of way; tree preservation and ancient buildings.<br>9. Climatic conditions created by surrounding properties, land or activities.<br>10. Proposed future developments.<br><br><br>![image 9](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile9.png)|
+|---|
+
+
+###### The Structure---Basic Types
+
+|![image 10](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile10.png)|
+|---|
+
+
+###### The Structure---Basic Types
+
+|![image 11](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile11.png)|
+|---|
+
+
+|![image 12](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile12.png)|
+|---|
+
+
+|![image 13](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile13.png)|
+|---|
+
+
+|Shell Roofs ~ these are formed by a structural curved skin covering a given plan shape and area.<br><br>![image 14](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile14.png)|
+|---|
+
+
+|![image 15](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile15.png)|
+|---|
+
+
+Substructure
+
+|Substructure ~ can be defined as all structure below the superstructure which in general terms is considered to include all structure below ground level but including the ground floor bed.<br><br>![image 16](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile16.png)|
+|---|
+
+
+###### Superstructure and Primary Elements
+
+|Superstructure ~ can be defined as all structure above substructure both internally and externally.<br><br>Primary Elements ~ basically components of the building carcass above the substructure excluding secondary elements, finishes, services and fittings.<br><br>![image 17](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile17.png)|
+|---|
+
+
+Secondary Elements
+
+|Secondary Elements ~ completion of the structure including completion around and within openings in primary elements.<br><br>![image 18](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile18.png)|
+|---|
+
+
+Finishes
+
+|Finish ~ the final surface which can be self finished as with a trowelled concrete surface or an applied finish such as floor tiles.<br><br>![image 19](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile19.png)|
+|---|
+
+
+|![image 20](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile20.png)|
+|---|
+
+
+|![image 21](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile21.png)|
+|---|
+
+
+External Envelope---Functions
+
+|External Envelope ~ consists of the materials and components which form the external shell or enclosure of a building. These may be load bearing or non-load bearing according to the structural form of the building.<br><br>![image 22](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile22.png)|
+|---|
+
+
+###### Internal Separation and Compartmentation
+
+|Dwelling houses ~<br><br>roof void ridge or apex of roof<br><br>wall continuous to roof ridge<br><br>separated buildings<br><br>upper floor<br><br>ground floor<br><br>walls between terraced and semi-detached houses defined as compartment (fire) and separating (sound)<br><br>![image 23](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile23.png)<br><br>Flats ~<br><br>stair well-protected shaft<br><br>compartment walls (fire), separating walls (sound)<br><br>compartment floor (fire), separating floor (sound)<br><br>separated living units<br><br>![image 24](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile24.png)<br><br>Note: Floors within a maisonette are not required to be ``compartment''. For non-residential buildings, compartment size is limited by floor area depending on the building function (purpose group) and height.<br><br>Compartment ~ a building or part of a building with walls and floors constructed to contain fire and to prevent it spreading to another part of the same building or to an adjoining building.<br><br>Separating floor/wall ~ element of sound resisting construction between individual living units.|
+|---|
+
+
+Construction Activities---The Site
+
+|A Building or Construction Site can be considered as a temporary factory employing the necessary resources to successfully fulfil a contract.<br><br>![image 25](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile25.png)|
+|---|
+
+
+###### Construction Activities---The Documents
+
+|![image 26](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile26.png)|
+|---|
+
+
+###### Drawings Used in the Construction Process
+
+|Location Drawings ~<br><br>Site Plans † used to locate site, buildings, define site levels, indicate services to buildings, identify parts of site such as roads, footpaths and boundaries and to give setting out dimensions for the site and buildings as a whole. Suitable scale not less than 1 : 2500<br><br>Floor Plans † used to identify and set out parts of the building such as rooms, corridors, doors, windows, etc., Suitable scale not less than 1 : 100<br><br>Elevations † used to show external appearance of all faces and to identify doors and windows. Suitable scale not less than 1 : 100<br><br>Sections † used to provide vertical views through the building to show method of construction. Suitable scale not less than 1 : 50<br><br>Component Drawings ~<br><br>used to identify and supply data for components to be supplied by a manufacturer or for components not completely covered by assembly drawings. Suitable scale range 1 : 100 to 1 : 1<br><br>Assembly Drawings ~<br><br>used to show how items fit together or are assembled to form elements. Suitable scale range 1 : 20 to 1 : 5<br><br>All drawings should be fully annotated, fully dimensioned and cross referenced.<br><br>![image 27](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile27.png)<br><br>Ref. BS EN ISO 7519: Technical drawings. Construction drawings. General principles of presentation for general arrangement and assembly drawings.|
+|---|
+
+
+###### Drawings---Sketches
+
+|Sketch ~ this can be defined as a draft or rough outline of an idea, it can be a means of depicting a three-dimensional form in a two-dimensional guise. Sketches can be produced free-hand or using rules and set squares to give basic guide lines.<br><br>All sketches should be clear, show all the necessary detail and above all be in the correct proportions.<br><br>Sketches can be drawn by observing a solid object or they can be produced from conventional orthographic views but in all cases can usually be successfully drawn by starting with an outline `box' format giving length, width and height proportions and then building up the sketch within the outline box.<br><br>![image 28](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile28.png)|
+|---|
+
+
+###### Communicating Information---Orthographic Projections
+
+|![image 29](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile29.png)|
+|---|
+
+
+###### Communicating Information---Isometric Projections
+
+|Isometric Projections ~ a pictorial projection of a solid object on a plane surface drawn so that all vertical lines remain vertical and of true scale length, all horizontal lines are drawn at an angle of 30 and are of true scale length therefore scale measurements can be taken on the vertical and 30 lines but cannot be taken on any other inclined line.<br><br>A similar drawing can be produced using an angle of 45 for all horizontal lines and is called an Axonometric Projection<br><br>![image 30](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile30.png)<br><br>ISOMETRIC PROJECTION SHOWING SOUTH AND WEST ELEVATIONS OF SMALL GARAGE AND WORKSHOP ILLUSTRATED ON PAGE 23|
+|---|
+
+
+###### Communicating Information---Perspective Projections
+
+|![image 31](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile31.png)|
+|---|
+
+
+###### Communicating Information---Floor Plans and Elevations
+
+|![image 32](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile32.png)|
+|---|
+
+
+###### Communicating Information---Block and Site Plans
+
+|![image 33](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile33.png)|
+|---|
+
+
+###### Communicating Information---Building Survey
+
+|Construction Defects † correct application of materials produced to the recommendations of British, European and International Standards authorities, in accordance with local building regulations, by laws and the rules of building guarantee companies, i.e. National House Building Council (NHBC) and Zurich Insurance, should ensure a sound and functional structure. However, these controls can be seriously undermined if the human factor of quality workmanship is not fulfilled. The following guidance is designed to promote quality controls:<br><br>BS 8000: Workmanship on building sites.<br><br>Building Regulations, Approved Document to support Regulation 7 † materials and workmanship.<br><br>No matter how good the materials, the workmanship and supervision, the unforeseen may still affect a building. This may materialise several years after construction. Some examples of these latent defects include: woodworm emerging from untreated timber, electrolytic decomposition of dissimilar metals inadvertently in contact, and chemical decomposition of concrete. Generally, the older a building the more opportunity there is for its components and systems to have deteriorated and malfunctioned. Hence the need for regular inspection and maintenance. The profession of facilities management has evolved for this purpose and is represented by the British Institute of Facilities Management (BIFM).<br><br>Property values, repairs and replacements are of sufficient magnitude for potential purchasers to engage the professional services of a building surveyor. Surveyors are usually members of the Royal Institution of Chartered Surveyors (RICS). The extent of survey can vary, depending on a client's requirements. This may be no more than a market valuation to secure financial backing, to a full structural survey incorporating specialist reports on electrical installations, drains, heating systems, etc.<br><br>Further reading:<br><br>BRE Digest No. 268 † Common defects in low-rise traditional housing. Available from Building Research Establishment Bookshop † www.brebookshop.com.|
+|---|
+
+
+###### Communicating Information---Survey Preliminaries
+
+|Established Procedure † the interested purchaser engages a building surveyor.<br><br>UK Government Requirements † the seller to provide a property/ home information pack (HIP) which can include `A survey report on the condition of the property, including requirements for urgent or significant repairs . . .'.<br><br>Survey document preliminaries:<br><br>* Title and address of property<br>* Client's name, address and contacts<br>* Survey date and time<br>* Property status † freehold, leasehold or commonhold<br>* Occupancy † occupied or vacant. If vacant, source of keys<br>* Extent of survey, e.g. full structural + services reports<br>* Specialists in attendance, e.g. electrician, heating engineer, etc.<br>* Age of property (approx. if very dated or no records)<br>* Disposition of rooms, i.e. number of bedrooms, etc.<br>* Floor plans and elevations if available<br>* Elevation (flooding potential) and orientation (solar effect)<br>* Estate/garden area and disposition if appropriate<br>* Means of access † roads, pedestrian only, rights of way<br><br>Survey tools and equipment:<br><br>* Drawings + estate agent's particulars if available<br>* Notebook and pencil/pen<br>* Binoculars and a camera with flash facility<br>* Tape measure, spirit level and plumb line<br>* Other useful tools, to include small hammer, torch, screwdriver and manhole lifting irons<br>* Moisture meter<br>* Ladders † eaves access and loft access<br>* Sealable bags for taking samples, e.g. wood rot, asbestos, etc.<br>|
+|---|
+
+
+###### Communicating Information---Survey Order (Exterior)
+
+|Estate and garden:<br><br>* Location and establishment of boundaries<br>* Fences, gates and hedges † material, condition and suitability<br>* Trees † type and height, proximity to building<br>* Pathways and drives † material and condition<br>* Outbuildings † garages, sheds, greenhouses, barns, etc.<br>* Proximity of water courses<br><br>Roof:<br><br>* Tile type, treatment at ridge, hips, verge and valleys<br>* Age of covering, repairs, replacements, renewals, general condition, defects and growths<br>* Eaves finish, type and condition<br>* Gutters † material, size, condition, evidence of leakage<br>* Rainwater downpipes as above<br>* Chimney † dpcs, flashings, flaunching, pointing, signs of movement<br>* Flat roofs † materials, repairs, abutments, flashings and drainage<br><br><br>Walls:<br><br>* Materials † type of brick, rendering, cladding, etc., condition and evidence of repairs<br>* Solid or cavity construction, if cavity extent of insulation and type<br>* Pointing of masonry, painting of rendering and cladding<br>* Air brick location, function and suitability<br>* Dpc, material and condition, position relative to ground level<br>* Windows and doors, material, signs of rot or damage, original or replacement, frame seal<br>* Settlement † signs of cracking, distortion of window and door frames † specialist report<br><br><br>Drainage:<br><br>A building surveyor may provide a general report on the condition of the drainage and sanitation installation. However, a full test for leakage and determination of self-cleansing and flow conditions to include fibre-optic scope examination is undertaken as a specialist survey.|
+|---|
+
+
+###### Communicating Information---Survey Order (Interior)
+
+|Roof space:<br><br>* Access to all parts, construction type † traditional or trussed<br>* Evidence of moisture due to condensation † ventilation at eaves, ridge, etc.<br>* Evidence of water penetration † chimney flashings, abutments and valleys<br>* Insulation † type and quantity<br>* Party wall in semi-detached and terraced dwellings † suitability as fire barrier<br>* Plumbing † adequacy of storage cistern, insulation, overflow function<br><br><br>Floors:<br><br>* Construction † timber, pre-cast or cast in-situ concrete? Finish condition?<br>* Timber ground floor † evidence of dampness, rot, woodworm, ventilation, dpcs<br>* Timber upper floor stability, ie. wall fixing, strutting, joist size, woodworm, span and loading<br><br><br>Stairs:<br><br>* Type of construction and method of fixing † built in-situ or preformed<br>* Soffit, re. fire protection (plasterboard?)<br>* Balustrading † suitability and stability<br>* Safety † adequate screening, balusters, handrail, pitch angle, open tread, tread wear<br><br><br>Finishes:<br><br>* General de' cor, i.e. paint and wallpaper condition † damaged, faded<br>* Woodwork/joinery † condition, defects, damage, paintwork<br>* Plaster † ceiling (plasterboard or lath and plaster?) † condition and stability<br>* Plaster † walls † render and plaster or plasterboard, damage and quality of finish<br>* Staining † plumbing leaks (ceiling), moisture penetration (wall openings), rising damp<br>* Fittings and ironmongery † adequacy and function, weather exclusion and security<br><br><br>Supplementary enquiries should determine the extent of additional building work, particularly since the planning threshold of 1948. Check for planning approvals, permitted development and Building Regulation approvals, exemptions and completion certificates.<br><br>Services † apart from a cursory inspection to ascertain location and suitability of system controls, these areas are highly specialised and should be surveyed by those appropriately qualified.|
+|---|
+
+
+###### Communicating Information -- HIPS
+
+|Home Information Packs ~ otherwise known as HIPS or ``seller's packs''. A HIP is provided as supplementary data to the estate agent's sales particulars by home sellers when marketing a house. The packs place emphasis on an energy use assessment and contain some contract preliminaries such as evidence of ownership. Property developers are required to provide a HIP as part of their sales literature. Preparation is by a surveyor, specifically trained in energy performance assessment.<br><br>Compulsory Content ~<br><br>• Index<br>• Energy performance certificate<br>• Sales statement<br>• Standard searches, e.g. LA enquiries, planning consents, drainage arrangements, utilities providers<br>• Evidence of title (ownership)<br>• Leasehold and commonhold details (generally flats and maisonettes) Optional Content ~<br>• Home condition report (general survey)<br>• Legal summary † terms of sale<br>• Home use and contents form (fixtures and fittings)<br>• Guarantees and warrantees<br>• Other relevant information, e.g. access over ancillary land<br><br><br>Energy Performance Certificate (EPC) ~ provides a rating between A and G. A is the highest possible grade for energy efficiency and lowest impact on environmental damage in terms of CO2 emissions. The certificate is similar to the EU energy label (see page 445 as applied to windows) and it relates to SAP numerical ratings (see page 442). The certificate is an asset rating based on a building's performance relating to its age, location/exposure, size, appliance efficiency e.g. boiler, glazing type, construction, insulation and general condition.<br><br>EPC rating (SAP rating) ~<br><br>Ref. The Home Information Pack Regulations 2006.<br><br>A (92†100) B (81†91) C (69†80) D (55†68) E (39†54) F (21†38) G (1†20)|
+|---|
+
+
+Communicating Information --- Method Statement
+
+|Amethodstatementprecedespreparationoftheprojectprogrammeandcontainsthedetailnecessaryfor<br><br>constructionofeachelementofabuilding.Itispreparedfrominformationcontainedinthecontract<br><br>documents†seepage20.Italsofunctionsasabriefforsitestaffandoperativesinsequencingactivities,<br><br>indicatingresourcerequirementsanddeterminingthedurationofeachelementofconstruction.It<br><br>complementsconstructionprogrammingbyprovidingdetailedanalysisofeachactivity.<br><br>Atypicalexampleforfoundationexcavationcouldtakethefollowingformat:<br><br>|Days|0„75|0„50|
+|---|---|---|
+|Plant|JCB-4CX<br><br>backhoe/<br><br>loader|JCB-4CX<br><br>backhoe/<br><br>loader.<br><br>Tipper<br><br>truck.|
+|Labour|Exc.driver2þ<br><br>labourers|Exc.driver2þ<br><br>labourers.<br><br>Truckdriver.|
+|Output/hour|2/hr50 m|3/hr15 m|
+|Method|Exc.toreduced<br><br>levelover<br><br>construction<br><br>area†JCB-4CX<br><br>faceshovel/<br><br>loader.Topsoil<br><br>retainedonsite.|Excavate<br><br>foundation<br><br>trenchto<br><br>required<br><br>depth†JCB-4CX<br><br>backhoe.Surplus<br><br>spoilremoved<br><br>fromsite.|
+|Quantity|2300m|360 m|
+|Activity|Stripsitefor<br><br>excavation|Excavatefor<br><br>foundations|
+<br><br>ActivityQurLabourPlantDays<br><br>Stripsitefor<br><br>excavation 30Exc.driver2þ<br><br>labourers JCB-4CX<br><br>backhoe/<br><br>loader<br><br>0„75<br><br>Excavatefor<br><br>foundations Exc.driver260þ<br><br>labourers.<br><br>Truckdriver.<br><br>JCB-4CX<br><br>backhoe/<br><br>loader.<br><br>Tipper<br><br>truck.<br><br>0„50|
+|---|
+
+
+eachelementofconstruction.It
+
+andcontainsthedetailnecessaryfor
+
+formationcontainedinthecontract
+
+ndoperativesinsequencingactivities,
+
+bourPlantDays
+
+0„50
+
+0„75
+
+backhoe/
+
+backhoe/
+
+bourers JCB-4CX
+
+JCB-4CX
+
+loader.
+
+loader
+
+Tipper
+
+truck.
+
+ofeachactivity.
+
+c.driver2þ
+
+c.driver2þ
+
+uckdriver.
+
+bourers.
+
+format:
+
+###### Communicating Information---Bar Chart Programme
+
+|![image 34](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile34.png)|
+|---|
+
+
+###### Typical Weights of Building Materials
+
+|Material Weight (kg/m2) BRICKS, BLOCKS and PAVING †<br><br>Clay brickwork † 102.5mm<br><br>low density 205 medium density 221 high density 238<br><br>Calcium silicate brickwork † 102.5mm 205 Concrete blockwork, aerated 78 .. .. .. .. .. .. .. .. lightweight aggregate 129 Concrete flagstones (50 mm) 115 Glass blocks (100mm thick) 150 150 98 .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ..200 200 83 ROOFING † Thatching (300mm thick) 40„00 Tiles † plain clay 63„50<br><br>.. † plain concrete 93„00 .. single lap, concrete 49„00<br><br>Tile battens (50 25) and felt underlay 7„70 Bituminous felt underlay 1„00 Bituminous felt, sanded topcoat 2„70 3 layers bituminous felt 4„80 HD/PE breather membrane underlay 0„20 SHEET MATERIALS † Aluminium (0„9mm) 2„50 Copper (0„9 mm) 4„88 Cork board (standard) per 25 mm thickness 4„33 .. .. .. .. .. .. .. .. (compressed) .. .. .. .. .. .. .. .. 9„65 Hardboard (3„2mm) 3„40 Glass (3 mm) 7„30 Lead (1„32 mm † code 3) 14„97<br><br>.. .. (3„15 mm † code 7) 35„72 Particle board/chipboard (12mm) 9„26 .. .... .... .. .. .. .. .. .. .. .. .. .. .. .. (22mm) 16„82 Planking, softwood strip flooring (ex 25mm) 11„20 .. .. .. .. .. .. .. .. .. .. hardwood .. .. .. .. .. .. .. .. .. 16„10 Plasterboard (9„5mm) 8„30 .. .. .. .. .. .. .. (12„5 mm) 11„00 .. .. .. .. .. .. .. (19 mm) 17„00 Plywood per 25 mm 1„75 PVC floor tiling (2„5mm) 3„90 Strawboard (25 mm) 9„80 Weatherboarding (20 mm) 7„68 Woodwool (25 mm) 14„50|
+|---|
+
+
+###### Typical Weights of Building Materials and Densities
+
+|Densities -<br><br>Refs. BS 648: Schedule of Weights of Building Materials. BS 6399-1: Loadings for buildings. Code of Practice for Dead and Imposed Loads.<br><br>|Material|Approx. Density (kg/m3)|
+|---|---|
+|Cement<br><br>Concrete (aerated)<br><br>.. .. .. .. .. .. (broken brick)<br><br>.. .. .. .. .. .. (natural aggregates)<br><br>.. .. .. .. .. .. (no-fines)<br><br>.. .. .. .. .. .. (reinforced)<br><br>Metals Aluminium Copper Lead Steel<br><br>Timber (softwood/pine)<br><br>.. .. .. (hardwood, eg. maple, teak, oak)<br><br>Water|1440<br><br>640 2000 2300<br><br>1760 2400<br><br>2770 8730 11325 7849<br><br>480 (average) 720 .. .. ..<br><br>1000|
+<br><br>M C<br><br>C<br><br>. . . .<br><br>M A C L<br><br>S<br>T<br><br><br>.<br><br>W<br><br>Material Weight (kg/m2)<br><br>INSULATION<br><br>Glass fibre thermal (100mm) 2„00 .. .. .. .. .. .. .. acoustic .. .. .. .. . 4„00<br><br>APPLIED MATERIALS -<br><br>Asphalte (18mm) 42 Plaster, 2 coat work 22<br><br>STRUCTURAL TIMBER -<br><br>Rafters and Joists (100 50 @ 400c/c) 5„87 Floor joists (225 50 @ 400c/c) 14„93|
+|---|
+
+
+|Drawings ~ these are the major means of communication between the designer and the contractor as to what, where and how the proposed project is to be constructed.<br><br>Drawings should therefore be clear, accurate, contain all the necessary information and be capable of being easily read.<br><br>To achieve these objectives most designers use the symbols and notations recommended in BS 1192-5 and BS EN ISO 7519 to which readers should refer for full information.<br><br>![image 35](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile35.png)|
+|---|
+
+
+|Hatchings ~ the main objective is to differentiate between the materials being used thus enabling rapid recognition and location. Whichever hatchings are chosen they must be used consistently throughout the whole set of drawings. In large areas it is not always necessary to hatch the whole area.<br><br>Symbols ~ these are graphical representations and should wherever possible be drawn to scale but above all they must be consistent for the whole set of drawings and clearly drawn.<br><br>![image 36](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile36.png)|
+|---|
+
+
+|![image 37](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile37.png)|
+|---|
+
+
+###### Drawings---Using Hatchings and Symbols
+
+|![image 38](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile38.png)|
+|---|
+
+
+###### Planning Application
+
+|Principal legislation: ~<br><br>The Town & Country Planning Act 1990 † Effects control over volume of development, appearance and layout of buildings. The Public Health Acts 1936 to 1961 † Limits development with regard to emission of noise, pollution and public nuisance. The Highways Act 1980 † Determines layout and construction of roads and pavements.<br><br>The Building Act 1984 † Effects the Building Regulations 2000, which enforce minimum material and design standards. The Civic Amenities Act 1967 † Establishes conservation areas, providing local authorities with greater control of development. The Town & Country Amenities Act 1974 † Local authorities empowered to prevent demolition of buildings and tree felling.<br><br>Procedure: ~ Outline Planning Application † This is necessary for permission to develop a proposed site. The application should contain: An application form describing the work. A site plan showing adjacent roads and buildings (1 : 2500). A block plan showing the plot, access and siting (1 : 500). A certificate of land ownership. Detail or Full Planning Application † This follows outline permission and is also used for proposed alterations to existing buildings. It should contain: details of the proposal, to include trees, materials, drainage and any demolition.<br><br>Site and block plans (as above). A certificate of land ownership. Building drawings showing elevations, sections, plans, material specifications, access, landscaping, boundaries and relationship with adjacent properties (1 : 100).<br><br>Permitted Developments † Small developments may be exempt from formal application. These include house extensions <15% of the original volume (vol, in 1948 for older houses), <10% for terraced properties. Other exceptions include porches <2m2 floor area, <3m in height and over 2m from the boundary.<br><br>Note: All developments are subject to Building Regulation approval. Certificates of ownership † Article 7 of the Town & Country Planning (General Development Procedure) Order 1995:<br><br>Cert. A † States the applicant is sole site freeholder.<br>Cert. B † States the applicant is part freeholder or prospective purchaser and all owners of the site know of the application.<br>Cert. C † As Cert. B, but the applicant is only able to ascertain some of the other land owners.<br>Cert. D † As Cert. B, but the applicant cannot ascertain any owners of the site other than him/herself.<br>|
+|---|
+
+
+###### Planning Application---Householder
+
+|![image 39](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile39.png)|
+|---|
+
+
+|![image 40](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile40.png)|
+|---|
+
+
+|![image 41](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile41.png)|
+|---|
+
+
+###### Planning Application---Certificates
+
+|TOWN AND COUNTRY PLANNING ACT<br><br>TOWN AND COUNTRY PLANNING (General Development Procedure) ORDER Certificates under Article 7 of the Order<br><br>CERTIFICATE A For Freehold Owner (or his/her Agent)<br><br>I hereby certify that:-<br><br>1. No person other than the applicant was an owner of any part of the land to which the application relates at the beginning of the period of 21 days before the date of the accompanying application.<br>2. *Either (i) None of the land to which the application relates constitutes or forms part of an agricultural holding:<br><br><br>*or (ii) *(I have) (the applicant has) given the requisite notice to every person other than *(myself) (himself) (herself) who, 21 days before the date of the application, was a tenant of any agricultural holding any part of which was comprised in the land to which the application relates, viz:-<br><br>Name and Address of Tenant................................................. ................................................................................................. ................................................................................................. Signed ........................ ........... Date..........................<br><br>Date of Service of Notice........................................................ *On Behalf of ....................................... ....................<br><br>CERTIFICATE B For Part Freehold Owner or Prospective Purchaser (or his/her Agent) able to ascertainall the owners of the land<br><br>I hereby certify that:-<br><br>1. *(I have) (the applicant has) given the requisite notice to all persons other than (myself) (the applicant) who, 21 days before the date of the accompanying application were owners of any part of the land to which the application relates, viz:-<br><br>Name and Address of Owner .................................................<br><br>.................................................................................................<br><br>................................................................................................. Date of Service of Notice ......... ................................<br><br>2. *Either (i) None of the land to which the application relates constitutes or forms part of an agricultural holding;<br><br><br>*or (ii) *(I have) (the applicant has) given the requisite notice to every person other than *(myself) (himself) (herself) who, 21 days before the date of the application, was a tenant of any agricultural holding any part of which was comprised in the land to which the application relates, viz:-<br><br>Name and Address of Tenant................................................. ................................................................................................. ................................................................................................. Signed ........................ .......... Date..........................|
+|---|
+
+
+###### Modular Coordination
+
+|Modular Coordination ~ a module can be defined as a basic dimension which could for example form the basis of a planning grid in terms of multiples and submultiples of the standard module.<br><br>Typical Modular Coordinated Planning Grid ~<br><br>Let M = the standard module<br><br>![image 42](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile42.png)<br><br>Structural Grid ~ used to locate structural components such as beams and columns. Planning Grid ~ based on any convenient modular multiple for regulating space requirements such as rooms. Controlling Grid ~ based on any convenient modular multiple for location of internal walls, partitions etc. Basic Module Grid ~ used for detail location of components and fittings.<br><br>All the above grids, being based on a basic module, are contained one within the other and are therefore interrelated. These grids can be used in both the horizontal and vertical planes thus forming a three dimensional grid system. If a first preference numerical value is given to M dimensional coordination is established † see next page.<br><br>Ref. BS 6750: Specification for modular coordination in building.|
+|---|
+
+
+###### Modular Coordination
+
+|Dimensional Coordination ~ the practical aims of this concept are to:-<br><br>1. Size components so as to avoid the wasteful process of cutting and fitting on site.<br>2. Obtain maximum economy in the production of components.<br>3. Reduce the need for the manufacture of special sizes.<br>4. Increase the effective choice of components by the promotion of interchangeability.<br><br><br>BS 6750 specifies the increments of size for coordinating dimensions of building components thus:-<br><br>the 3rd and 4th preferences having a maximum of 300mm<br><br>Dimensional Grids † the modular grid network as shown on page 46 defines the space into which dimensionally coordinated components must fit. An important factor is that the component must always be undersized to allow for the joint which is sized by the obtainable degree of tolerance and site assembly:-<br><br>![image 43](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile43.png)<br><br>Controlling Lines, Zones and Controlling Dimensions † these terms can best be defined by example:-<br><br>![image 44](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile44.png)<br><br>|Preference|1st|2nd|3rd|4th|
+|---|---|---|---|---|
+|Size (mm)|300|100|50|25|
+|
+|---|
+
+
+Construction Regulations
+
+|Construction Regulations ~ these are Statutory Instruments made under the Factories Acts of 1937 and 1961 and come under the umbrella of the Health and Safety at Work etc., Act 1974. They set out the minimum legal requirements for construction works and relate primarily to the health, safety and welfare of the work force. The requirements contained within these documents must therefore be taken into account when planning construction operations and during the actual construction period. Reference should be made to the relevant document for specific requirements but the broad areas covered can be shown thus:-<br><br>![image 45](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile45.png)|
+|---|
+
+
+###### Construction (Design & Management) Regulations
+
+|Objective † To create an all-party integrated and planned approach to health and safety throughout the duration of a construction project.<br><br>Administering Body † The Health and Safety Executive (HSE).<br><br>Scope † The CDM Regulations are intended to embrace all aspects of construction, with the exception of very minor works.<br><br>Responsibilities † The CDM Regulations apportion responsibility to everyone involved in a project to cooperate with others and for health and safety issues to all parties involved in the construction process, i.e. client, designer, project coordinator and principal contractor.<br><br>Client † Appoints a project coordinator and the principal contractor. Provides the project coordinator with information on health and safety matters and ensures that the principal contractor has prepared an acceptable construction phase plan for the conduct of work. Ensures adequate provision for welfare and that a health and safety file is available.<br><br>Designer † Establishes that the client is aware of their duties. Considers the design implications with regard to health and safety issues, including an assessment of any perceived risks. Coordinates the work of the project coordinator and other members of the design team.<br><br>Project Coordinator † Ensures that:<br><br>* a pre-tender, construction phase plan is prepared.<br>* the HSE are informed of the work.<br>* designers are liaising and conforming with their health and safety obligations.<br>* a health and safety file is prepared.<br>* contractors are of adequate competence with regard to health and safety matters and advises the client and principal contractor accordingly.<br><br><br>Principal Contractor † Develops a construction phase plan, collates relevant information and maintains it as the work proceeds. Administers day-to-day health and safety issues. Cooperates with the project coordinator, designers and site operatives preparing risk assessments as required.<br><br>Note: The CDM Regulations include requirements defined under The Construction (Health, Safety and Welfare) Regulations.|
+|---|
+
+
+|![image 46](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile46.png)<br><br>Under these regulations, employers are required to provide and maintain health and safety signs conforming to European Directive 92/58 EEC:<br><br>![image 47](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile47.png)<br><br>In addition, employers obligations include the need to provide:<br><br>Risk Assessment † provide and maintain safety signs where there is a risk to health and safety, eg. obstacles. Train staff to comprehend safety signs.<br><br>Pictorial Symbols † pictograms alone are acceptable but supplementary text, eg. FIRE EXIT, is recommended.<br><br>Fire/Emergency Escape Signs † conformity to BS 5499-1:2002. A green square or rectangular symbol.<br><br>Positioning of signs † primarily for location of fire exits, fire equipment, alarms, assembly points, etc. Not to be located where they could be obscured.<br><br>Marking of Hazardous Areas † to identify designated areas for storing dangerous substances: Dangerous Substances (Notification and Marking of Sites) Regulations 1990. Yellow triangular symbol.<br><br>Pipeline Identification † pipes conveying dangerous substances to be labelled with a pictogram on a coloured background conforming to BS 1710:1984 and BS 4800:1989. Non-dangerous substances should also be labelled for easy identification.|
+|---|
+
+
+|![image 48](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile48.png)|
+|---|
+
+
+|The Building Regulations ~ this is a Statutory Instrument which sets out the minimum performance standards for the design and construction of buildings and where applicable to the extension of buildings. The regulations are supported by other documents which generally give guidance on how to achieve the required performance standards. The relationship of these and other documents is set out below:-<br><br>The Building Act 1984<br><br>The Building Regulations 2000<br><br>Amendments<br><br>|BRE Report, Thermal Insulation: Avoiding Risks. 3rd ed.|
+|---|
+<br><br>|The Building (Approved Inspectors etc.) Regulations 2000 and The Building and Approved Inspectors (Amendment) Regulations 2006|
+|---|
+<br><br>|Approved Documents A to P and the Approved Document to support Reg. 7| |
+|---|---|
+| | |
+<br><br>|Codes of Practice; British Standards; Building Research Establishment reports; Agrement Certificates; Test data from approved sources; DCLG publications; European Standards; National Building Specifications; Robust Details (Part E); Accredited Construction Details (Part L); Code for Sustainable Homes.<br><br>'|
+|---|
+<br><br>NB. The Building Regulations apply to England and Wales but not to Scotland and Northern Ireland which have separate systems of control.|
+|---|
+
+
+|Approved Documents ~ these are non-statutory publications supporting the Building Regulations prepared by the Department for Communities and Local Government approved by the Secretary of State and issued by The Stationery Office. The Approved Documents (ADs) have been compiled to give practical guidance to comply with the performance standards set out in the various regulations. They are not mandatory but in the event of a dispute they will be seen as tending to show compliance with the requirements of the Building Regulations. If other solutions are used to satisfy the requirements of the Regulations the burden of proving compliance rests with the applicant or designer.<br><br>|Approved Document B — FIRE SAFETY<br><br>Volume 1 – Dwelling houses<br>Volume 2 – Buildings other than dwelling houses<br>|
+|---|
+<br><br>|Approved Document A — STRUCTURE|
+|---|
+<br><br>|Approved Document C — SITE PREPARATION AND RESISTANCE TO CONTAMINANTS AND MOISTURE|
+|---|
+<br><br>|Approved Document D — TOXIC SUBSTANCES|
+|---|
+<br><br>|Approved Document E — RESISTANCE TO THE PASSAGE OF SOUND|
+|---|
+<br><br>|Approved Document F — VENTILATION|
+|---|
+<br><br>|Approved Document G — HYGIENE|
+|---|
+<br><br>|Approved Document H — DRAINAGE AND WASTE DISPOSAL|
+|---|
+<br><br>|Approved Document J — COMBUSTION APPLIANCES AND FUEL STORAGE SYSTEMS|
+|---|
+<br><br>|Approved Document K — PROTECTION FROM FALLING, COLLISION AND IMPACT|
+|---|
+<br><br>|Approved Document L — CONSERVATION OF FUEL AND POWER<br><br>L1A — New dwellings<br>L1B — Existing dwellings<br><br><br>L2A — New buildings other than dwellings<br>L2B — Existing buildings other than dwellings<br>|
+|---|
+<br><br>|Approved Document M — ACCESS TO AND USE OF BUILDINGS|
+|---|
+<br><br>|Approved Document N — GLAZING — SAFETY IN RELATION TO IMPACT, OPENING AND CLEANING|
+|---|
+<br><br>|Approved Document P — ELECTRICAL SAFETY|
+|---|
+<br><br>|Approved Document to support Regulation 7 MATERIALS AND WORKMANSHIP|
+|---|
+<br><br>|
+|---|
+
+
+|Example in the Use of Approved Documents Problem:- the sizing of suspended upper floor joists to be spaced<br><br>at 400mm centres with a clear span of 3„600m for use in a two storey domestic dwelling.<br><br>Building Regulation A1:- states that the building shall be constructed so that the combined dead, imposed and wind loads are sustained and transmitted by it to the ground †<br><br>(a) safely, and<br>(b) without causing such deflection or deformation of any part of the building, or such movement of the ground, as will impair the stability of any part of another building.<br><br><br>Approved Document A:- guidance on sizing floor joists can be found in `Span Tables for Solid Timber Members in Dwellings', published by the Timber Research And Development Association (TRADA), and BS5268-2: Structural use of timber. Code of practice for permissible stress design, materials and workmanship.<br><br>![image 49](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile49.png)<br><br>Dead loading is therefore in the 0„25 to 0„50kN/m2 band From table on page xxx suitable joist sizes are:- 38 200, 50 175, 63 175 and 75 150. Final choice of section to be used will depend upon cost; availability; practical considerations and/or personal preference.|
+|---|
+
+
+|Building Control ~ unless the applicant has opted for control by a private approved inspector under The Building (Approved Inspectors etc.) Regulations 2000 the control of building works in the context of the Building Regulations is vested in the Local Authority. There are two systems of control namely the Building Notice and the Deposit of Plans. The sequence of systems is shown below:-<br><br>Building Notice:written submission to LA with block plans and drainage details for new work. Not applicable for nonresidential buildings and most buildings designated under the Regulatory Reform Order (Fire Safety)<br><br>Deposit of Plans:submission of full plans and statutory fee to LA.<br><br>If required:Certificates of compliance by an approved person in the context of the structural design and the conversation of energy.<br><br>Approval decision within 5 weeks or 2 months by mutual agreement.<br><br>Notice of rejection.<br><br>Appeal to the Secretary of State<br><br>Inspections carried out<br><br>Work acceptable to LA<br><br>Contravention found by building inspector<br><br>Contravention corrected<br><br>Section 36 of the Bldg. Act Notice served — work to be taken down or altered to comply<br><br>Application complies with the Section 36 Notice<br><br>Applicant can appeal to a Magistrate's Court within 70 days of a Section 36 Notice being served<br><br>LA rejects submission<br><br>Approval which can be partial or conditional by mutual agreement.<br><br>Notification only – approval not required.<br><br>Written or other notices to LA :48 hrs. before commencement 24 hrs. before excavations covered<br><br>before damp course covered before site concrete covered before drains covered<br><br>7 days after drains completed after work completed and/or before occupation<br><br>Applicant contests Notice and submits favourable second opinion to LA.<br><br>LA accepts submission and withdraws Section 36 Notice<br><br>![image 50](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile50.png)<br><br>NB. In some stages of the above sequence statutory fees are payable as set out in The Building (Local Authority Charges) Regulations 1998.|
+|---|
+
+
+###### Building Regulations Exemptions
+
+|![image 51](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile51.png)|
+|---|
+
+
+###### Building Regulations---Full Plans
+
+|![image 52](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile52.png)|
+|---|
+
+
+###### Code for Sustainable Homes
+
+|Published ~ 2006 by the Department for Communities and Local Government (DCLG) in response to the damaging effects of climate change. The code promotes awareness and need for new energy conservation initiatives in the design of new dwellings.<br><br>Objective ~ to significantly reduce the 27% of UK CO2 emissions that are produced by 21 million homes. This is to be a gradual process, with the target of reducing CO2 emissions from all UK sources by 60% by 2050.<br><br>Sustainability ~ measured in terms of a quality standard designed to provide new homes with a factor of environmental performance. This measure is applied primarily to categories of thermal energy, use of water, material resources, surface water run-off and management of waste.<br><br>Measurement ~ a `green' star rating that indicates environmental performance ranging from one to six stars. Shown below is the star rating criteria applied specifically to use of thermal energy. A home with a six star rating is also regarded as a zero carbon home.<br><br>Proposed Progression ~<br><br>Zero Carbon Home ~ zero net emissions of CO2 from all energy use in the home. This incorporates insulation of the building fabric, heating equipment, hot water systems, cooling, washing appliances, lighting and other electrical/electronic facilities. Net zero emissions can be measured by comparing the carbon emissions produced in consuming on- or off-site fossil fuel energy use in the home, with the amount of on-site renewable energy produced. Means for producing low or zero carbon energy include micro combined heat and power units, photovoltaic (solar) panels, wind generators and ground energy heat pumps, (see Building Services Handbook).<br><br>Percentage Improvement compared with AD L 2006<br><br>Year Star rating<br><br>10 † 1 18 † 2<br><br>25 2010 3 44 2013 4<br><br>100 2016 5 and 6|
+|---|
+
+
+###### British Standards
+
+|British Standards ~ these are publications issued by the British Standards Institution which give recommended minimum standards for materials, components, design and construction practices. These recommendations are not legally enforceable but some of the Building Regulations refer directly to specific British Standards and accept them as deemed to satisfy provisions. All materials and components complying with a particular British Standards are marked with the British Standards kitemark thus:- together with the appropriate BS number.<br><br>![image 53](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile53.png)<br><br>This symbol assures the user that the product so marked has been produced and tested in accordance with the recommendations set out in that specific standard. Full details of BS products and services can be obtained from, Customer Services, BSI, 389 Chiswick High Road, London, W4 4AL. Standards applicable to building may be purchased individually or in modules, GBM 48, 49 and 50; Construction in General, Building Materials and Components and Building Installations and Finishing, respectively. British Standards are constantly under review and are amended, revised and rewritten as necessary, therefore a check should always be made to ensure that any standard being used is the current issue. There are over 1500 British Standards which are directly related to the construction industry and these are prepared in four formats:-<br><br>1. British Standards † these give recommendations for the minimum standard of quality and testing for materials and components. Each standard number is prefixed BS.<br>2. Codes of Practice † these give recommendations for good practice relative to design, manufacture, construction, installation and maintenance with the main objectives of safety, quality, economy and fitness for the intended purpose. Each code of practice number is prefixed CP or BS.<br>3. Draft for Development † these are issued instead of a British Standard or Code of Practice when there is insufficient data or information to make firm or positive recommendations. Each draft number is prefixed DD. Sometimes given a BS number and suffixed DC, ie. Draft for public Comment.<br>4. Published Document † these are publications which cannot be placed into any one of the above categories. Each published document is numbered and prefixed PD.<br>|
+|---|
+
+
+###### European Standards
+
+|European Standards † since joining the European Union (EU), trade and tariff barriers have been lifted. This has opened up the market for manufacturers of construction-related products, from all EU and European Economic Area (EEA) member states. Before 2004, the EU was composed of 15 countries: Austria, Belgium, Denmark, Finland, France, Germany, Greece, Ireland, Italy, Luxemburg, Netherlands, Portugal, Spain, Sweden and the United Kingdom. It now includes Bulgaria, Cyprus, the Czech Republic, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Romania, Slovakia and Slovenia. The EEA extends to: Iceland, Liechtenstein and Norway. Nevertheless, the wider market is not so easily satisfied, as regional variations exist. This can create difficulties where product dimensions and performance standards differ. For example, thermal insulation standards for masonry walls in Mediterranean regions need not be the same as those in the UK. Also, preferred dimensions differ across Europe in items such as bricks, timber, tiles and pipes.<br><br>European Standards are prepared under the auspices of Comite' Europe' en de Normalisation (CEN), of which the BSI is a member. European Standards that the BSI have not recognised or adopted, are prefixed EN. These are EuroNorms and will need revision for national acceptance.<br><br>For the time being, British Standards will continue and where similarity with other countries' standards and ENs can be identified, they will run side by side until harmonisation is complete and approved by CEN.<br><br>eg. BS EN 295, complements the previous national standard: BS 65 † Vitrefied clay pipes . . . . . for drains and sewers.<br><br>European Pre-standards are similar to BS Drafts for Development. These are known as ENVs.<br><br>Some products which satisfy the European requirements for safety, durability and energy efficiency, carry the CE mark. This is not to be assumed a mark of performance and is not intended to show equivalence to the BS kitemark. However, the BSI is recognised as a Notified Body by the EU and as such is authorised to provide testing and certification in support of the CE mark.<br><br>International Standards † these are prepared by the International Organisation for Standardisation and are prefixed ISO. Many are compatible with and complement BSs, e.g. the ISO 9000 Quality Management series and BS 5750: Quality systems.|
+|---|
+
+
+###### Construction Products Directive (CPD)
+
+|For manufacturers' products to be compatible and uniformly acceptable in the European market, there exists a process for harmonising technical specifications. These specifications are known as harmonised European product standards (hENs), produced and administered by the Comite' Europe' en de Normalisation (CEN). European Technical Approvals (ETAs) are also acceptable where issued by the European Organisation for Technical Approvals (EOTA). These standards are not a harmonisation of regulations. Whether or not the technical specification satisfies regional and national regulations is for local determination. However, for commercial purposes a technical specification should cover the performance characteristics required by regulations established by any member state in the European Economic Area (EEA).<br><br>CPD harmonises:<br><br>* methods and criteria for testing<br>* methods for declaring product performance<br>* methods and measures of conformity assessment<br><br><br>UK attestation accredited bodies include: BBA, BRE and BSI.<br><br>CE mark † a marking or labelling for conforming products. A `passport' permitting a product to be legally marketed in any EEA. It is not a quality mark, e.g. BS Kitemark, but where appropriate this may appear with the CE marking.<br><br>CE marking † reproduced with kind permission of Rockwool Ltd.|
+|---|
+
+
+###### Product and Practice Accreditation
+
+|Building Research Establishment ~ The BRE was founded as a UK Government agency in 1921 and was known until the early 1970s as the Building Research Station.<br><br>In addition to UK Government funding, some financial support is now provided by the European Union. Additional funding is derived from a variety of sources, including commercial services for private industry and from publications. The latter includes the BRE's well known regular issue of research information products, i.e. Digests, Information Papers, Good Building Guides and Good Repair Guides.<br><br>UK Government support is principally through the Department of Trade and Industry (DTI) and the Department for Communities and Local Government (DCLG). The DCLG works with the BRE in formulating specific aspects of the Approved Documents to the Building Regulations. Commissioned research is funded by BRE Trust.<br><br>The BRE incorporates and works with other specialised research and material testing organisations, e.g. see LPCB, below. It is accredited under the United Kingdom Accreditation Service (UKAS) as a testing laboratory authorised to issue approvals and certifications such as CE product marking (see pages 60 and 61). Certification of products, materials and applications is effected through BRE Certification Ltd.<br><br>Loss Prevention Certification Board (LPCB) ~ The origins of this organisation date back to the latter part of the 19th century, when it was established by a group of building insurers as the Fire Offices' Committee (FOC).<br><br>Through a subdivision known as the Loss Prevention Council (LPC), the FOC produced a number of technical papers and specifications relating to standards of building construction and fire control installations. These became the industry standards that were, and continue to be, frequently used by building insurers as supplementary to local byelaws and latterly the Building Regulation Approved Documents.<br><br>In the late 1980s the LPC was renamed as the LPCB as a result of reorganisation within the insurance profession. At this time the former LPC guidance documents became established in the current format of Loss Prevention Standards.<br><br>In 2000 the LCPB became part of the BRE and now publishes its Standards under BRE Certification Ltd.|
+|---|
+
+
+###### CPI System of Coding
+
+|CPI System of Coding ~ the Co-ordinated Project Information initiative originated in the 1970s in response to the need to establish a common arrangement of document and language communication, across the varied trades and professions of the construction industry.<br><br>However, it has only been effective in recent years with the publication of the Standard Method of Measurement 7th edition (SMM 7), the National Building Specification (NBS) and the Drawings Code. (Note: The NBS is also produced in CI/SfB format.)<br><br>The arrangement in all documents is a coordination of alphabetic sections, corresponding to elements of work, the purpose being to avoid mistakes, omissions and other errors which have in the past occurred between drawings, specification and bill of quantities descriptions.<br><br>The coding is a combination of letters and numbers, spanning 3 levels:-<br><br>Level 1 has 24 headings from A to Z (omitting I and O). Each heading relates to part of the construction process, such as groundwork (D), Joinery (L), surface finishes (M), etc.<br>Level 2 is a sub-heading, which in turn is sub-grouped numerically into different categories. So for example, Surface Finishes is subheaded; Plaster, Screeds, Painting, etc. These sub-headings are then extended further, thus Plaster becomes; Plastered/Rendered Coatings, Insulated Finishes, Sprayed Coatings etc.<br>Level 3 is the work section sub-grouped from level 2, to include a summary of inclusions and omissions.<br><br><br>As an example, an item of work coded M21 signifies:M † Surface finishes 2 † Plastered coatings 1 † Insulation with rendered finish<br><br>The coding may be used to:-<br><br>(a) simplify specification writing<br>(b) reduce annotation on drawings<br>(c) rationalise traditional taking-off methods<br>|
+|---|
+
+
+###### CI/SfB System of Coding
+
+|CI/SfB System ~ this is a coded filing system for the classification and storing of building information and data. It was created in Sweden under the title of Samarbetskommitte<br><br>..<br><br>n fo<br><br>..<br><br>r Byggnadsfraƒgor and was introduced into this country in 1961 by the RIBA. In 1968 the CI (Construction Index) was added to the system which is used nationally and recognised throughout the construction industry. The system consists of 5 sections called tables which are subdivided by a series of letters or numbers and these are listed in the CI/SfB index book to which reference should always be made in the first instance to enable an item to be correctly filed or retrieved.<br><br>|Table 0 † Physical Environment<br><br>This table contains ten sections 0 to 9 and deals mainly with the end product (i.e. the type of building.) Each section can be further subdivided (e.g. 21, 22, et seq.) as required.|
+|---|
+<br><br>|Table 1 † Elements<br><br>This table contains ten sections numbered (††) to (9†) and covers all parts of the structure such as walls, floors and services. Each section can be further subdivided (e.g. 31, 32 et seq.) as required.|
+|---|
+<br><br>|Table 2 † Construction Form<br><br>This table contains twenty five sections lettered A to Z (O being omitted) and covers construction forms such as excavation work, blockwork, cast in-situ work etc., and is not subdivided but used in conjunction with Table 3.|
+|---|
+<br><br>|Table 3 † Materials<br><br>This table contains twenty five sections lettered a to z (l being omitted) and covers the actual materials used in the construction form such as metal, timber, glass etc., and can be subdivided (e.g. n1, n2 et seq.) as required.|
+|---|
+<br><br>|Table 4 † Activities and Requirements<br><br>This table contains twenty five sections lettered (A) to (Z), (O being omitted) and covers anything which results from the building process such as shape, heat, sound, etc. Each section can be further subdivided ((M1), (M2) et seq.) as required.|
+|---|
+|
+|---|
+
+
+|2 SITE WORKS<br><br>![image 54](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile54.png)<br><br>SITE INVESTIGATIONS SOIL INVESTIGATION SOIL ASSESSMENT AND TESTING SITE LAYOUT CONSIDERATIONS SITE SECURITY SITE LIGHTING AND ELECTRICAL SUPPLY SITE OFFICE ACCOMMODATION MATERIALS STORAGE MATERIALS TESTING SETTING OUT LEVELS AND ANGLES ROAD CONSTRUCTION TUBULAR SCAFFOLDING AND SCAFFOLDING SYSTEMS SHORING SYSTEMS DEMOLITION|
+|---|
+
+
+###### Site Survey
+
+|Site Analysis † prior to purchasing a building site it is essential to conduct a thorough survey to ascertain whether the site characteristics suit the development concept. The following guidance forms a basic checklist:<br><br>* Refer to Ordnance Survey maps to determine adjacent features, location, roads, facilities, footpaths and rights of way.<br>* Conduct a measurement survey to establish site dimensions and levels.<br>* Observe surface characteristics, i.e. trees, steep slopes, existing buildings, rock outcrops, wells.<br>* Inquire of local authority whether preservation orders affect the site and if it forms part of a conservation area.<br>* Investigate subsoil. Use trial holes and borings to determine soil quality and water table level.<br>* Consider flood potential, possibilities for drainage of water table, capping of springs, filling of ponds, diversion of streams and rivers.<br>* Consult local utilities providers for underground and overhead services, proximity to site and whether they cross the site.<br>* Note suspicious factors such as filled ground, cracks in the ground, subsidence due to mining and any cracks in existing buildings.<br>* Regard neighbourhood scale and character of buildings with respect to proposed new development.<br>* Decide on best location for building (if space permits) with regard to `cut and fill', land slope, exposure to sun and prevailing conditions, practical use and access.<br><br><br>![image 55](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile55.png)<br><br>See also, desk and field studies on page 68|
+|---|
+
+
+Site Investigations
+
+|Site Investigation For New Works ~ the basic objective of this form of site investigation is to collect systematically and record all the necessary data which will be needed or will help in the design and construction processes of the proposed work. The collected data should be presented in the form of fully annotated and dimensioned plans and sections. Anything on adjacent sites which may affect the proposed works or conversely anything appertaining to the proposed works which may affect an adjacent site should also be recorded.<br><br>![image 56](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile56.png)|
+|---|
+
+
+###### Site Investigations
+
+|Procedures ~<br><br>1 . Desk study<br>2. Field study or walk-over survey<br>3. Laboratory analysis (see pages 77†78 and 81†83)<br><br><br>Desk Study ~ collection of known data, to include:<br><br>• Ordnance Survey maps † historical and modern, note grid reference.<br>• Geological maps † subsoil types, radon risk.<br>• Site history † green-field/brown-field.<br>• Previous planning applications/approvals.<br>• Current planning applications in the area.<br>• Development restrictions † conservation orders.<br>• Utilities † location of services on and near the site.<br>• Aerial photographs.<br>• Ecology factors † protected wildlife.<br>• Local knowledge † anecdotal information/rights of way.<br>• Proximity of local land fill sites † methane risk.<br><br>Field Study ~ intrusive visual and physical activity to:<br><br>• Establish site characteristics from the desk study.<br>• Assess potential hazards to health and safety.<br>• Appraise surface conditions:<br><br>* Trees † preservation orders.<br>* Topography and geomorphological mapping.<br><br><br>• Appraise ground conditions:<br><br>* Water table.<br>* Flood potential † local water courses and springs.<br>* Soil types.<br>* Contamination † vegetation die-back.<br>* Engineering risks † ground subsidence, mining, old fuel tanks.<br>* Financial risks † potential for the unforeseen.<br><br><br>• Take subsoil samples and conduct in-situ tests.<br>• Consider the need for subsoil exploration, trial pits and bore holes.<br>• Appraise existing structures:<br><br><br>* Potential for re-use/refurbishment.<br>* Archaeological value/preservation orders.<br>* Demolition † costs, health issues e.g. asbestos.<br>|
+|---|
+
+
+###### Trial Pits and Hand Auger Holes
+
+|Purpose ~ primarily to obtain subsoil samples for identification, classification and ascertaining the subsoil's characteristics and properties. Trial pits and augered holes may also be used to establish the presence of any geological faults and the upper or lower limits of the water table.<br><br>![image 57](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile57.png)<br><br>General use ~ dry ground which requires little or no temporary support to sides of excavation. Subsidiary use~ to expose and/or locate underground services. Advantages ~ subsoil can be visually examined in-situ † both disturbed and undisturbed samples can be obtained.<br><br>General use ~ dry ground but liner tubes could be used if required to extract subsoil samples at a depth beyond the economic limit of trial holes. Advantages ~ generally a cheaper and simpler method of obtaining subsoil samples than the trial pit method.<br><br>Trial pits and holes should be sited so that the subsoil samples will be representative but not interfering with works.|
+|---|
+
+
+|Site Investigation ~ this is an all embracing term covering every aspect of the site under investigation.<br><br>Soil Investigation ~ specifically related to the subsoil beneath the site under investigation and could be part of or separate from the site investigation.<br><br>Purpose of Soil Investigation ~<br><br>1 . Determine the suitability of the site for the proposed project.<br>2. Determine an adequate and economic foundation design.<br>3. Determine the difficulties which may arise during the construction process and period.<br>4. Determine the occurrence and/or cause of all changes in subsoil conditions.<br><br><br>The above purposes can usually be assessed by establishing the physical, chemical and general characteristics of the subsoil by obtaining subsoil samples which should be taken from positions on the site which are truly representative of the area but are not taken from the actual position of the proposed foundations. A series of samples extracted at the intersection points of a 20„000 square grid pattern should be adequate for most cases.<br><br>Soil Samples ~ these can be obtained as disturbed or as undisturbed samples.<br><br>Disturbed Soil Samples ~ these are soil samples obtained from bore holes and trial pits. The method of extraction disturbs the natural structure of the subsoil but such samples are suitable for visual grading, establishing the moisture content and some laboratory tests. Disturbed soil samples should be stored in labelled airtight jars.<br><br>Undisturbed Soil Samples ~ these are soil samples obtained using coring tools which preserve the natural structure and properties of the subsoil. The extracted undisturbed soil samples are labelled and laid in wooden boxes for dispatch to a laboratory for testing. This method of obtaining soil samples is suitable for rock and clay subsoils but difficulties can be experienced in trying to obtain undisturbed soil samples in other types of subsoil.<br><br>The test results of soil samples are usually shown on a drawing which gives the location of each sample and the test results in the form of a hatched legend or section.|
+|---|
+
+
+|Depth of Soil Investigation ~ before determining the actual method of obtaining the required subsoil samples the depth to which the soil investigation should be carried out must be established. This is usually based on the following factors †<br><br>1 . Proposed foundation type.<br>2. Pressure bulb of proposed foundation.<br>3. Relationship of proposed foundation to other foundations.<br><br><br>![image 58](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile58.png)<br><br>Pressure bulbs of less than 20% of original loading at foundation level can be ignored † this applies to all foundation types.<br><br>For further examples see next page.|
+|---|
+
+
+|![image 59](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile59.png)|
+|---|
+
+
+|Soil Investigation Methods ~ method chosen will depend on several factors †<br><br>1 . Size of contract.<br>2. Type of proposed foundation.<br>3. Type of sample required.<br>4. Type of subsoils which may be encountered.<br><br><br>As a general guide the most suitable methods in terms of investigation depth are †<br><br>1 . Foundations up to 3 000 deep † trial pits.<br>2. Foundations up to 30 000 deep † borings.<br>3. Foundations over 30 000 deep † deep borings and in-situ examinations from tunnels and/or deep pits.<br><br><br>![image 60](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile60.png)|
+|---|
+
+
+|Boring Methods to Obtain Disturbed Soil Samples ~<br><br>1 . Hand or Mechanical Auger † suitable for depths up to 3 000 using a 150 or 200mm diameter flight auger.<br>2. Mechanical Auger † suitable for depths over 3 000 using a flight or Cheshire auger † a liner or casing is required for most granular soils and may be required for other types of subsoil.<br>3. Sampling Shells † suitable for shallow to medium depth borings in all subsoils except rock.<br><br><br>![image 61](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile61.png)|
+|---|
+
+
+|Wash Boring ~ this is a method of removing loosened soil from a bore hole using a strong jet of water or bentonite which is a controlled mixture of fullers earth and water. The jetting tube is worked up and down inside the bore hole, the jetting liquid disintegrates the subsoil which is carried in suspension up the annular space to a settling tank. The settled subsoil particles can be dried for testing and classification. This method has the advantage of producing subsoil samples which have not been disturbed by the impact of sampling shells however it is not suitable for large gravel subsoils or subsoils which contain boulders.<br><br>![image 62](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile62.png)<br><br>Mud-rotary Drilling ~ this is a method which can be used for rock investigations where bentonite is pumped in a continuous flow down hollow drilling rods to a rotating bit. The cutting bit is kept in contact with the bore face and the debris is carried up the annular space by the circulating fluid. Core samples can be obtained using coring tools.<br><br>Core Drilling ~ water or compressed air is jetted down the bore hole through a hollow tube and returns via the annular space. Coring tools extract continuous cores of rock samples which are sent in wooden boxes for laboratory testing.|
+|---|
+
+
+###### Bore Hole Data
+
+|Bore Hole Data ~ the information obtained from trial pits or bore holes can be recorded on a pro forma sheet or on a drawing showing the position and data from each trial pit or bore hole thus:-<br><br>![image 63](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile63.png)<br><br>Bore holes can be taken on a 15„000 to 20„000 grid covering the whole site or in isolated positions relevant to the proposed foundation(s)<br><br>![image 64](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile64.png)<br><br>As a general guide the cost of site and soil investigations should not exceed 1% of estimated project costs|
+|---|
+
+
+|Soil Assessment ~ prior to designing the foundations for a building or structure the properties of the subsoil(s) must be assessed. These processes can also be carried out to confirm the suitability of the proposed foundations. Soil assessment can include classification, grading, tests to establish shear strength and consolidation. The full range of methods for testing soils is given in BS 1377: Methods of test for soils for civil engineering purposes.<br><br>Classification ~ soils may be classified in many ways such as geological origin, physical properties, chemical composition and particle size. It has been found that the particle size and physical properties of a soil are closely linked and are therefore of particular importance and interest to a designer.<br><br>Particle Size Distribution ~ this is the percentages of the various particle sizes present in a soil sample as determined by sieving or sedimentation. BS 1377 divides particle sizes into groups as follows:-<br><br>Gravel particles † over 2mm Sand particles † between 2 mm and 0„06mm Silt particles † between 0„06mm and 0„002mm Clay particles † less than 0„002 mm<br><br>The sand and silt classifications can be further divided thus:-<br><br>The results of a sieve analysis can be plotted as a grading curve thus:-<br><br>![image 65](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile65.png)<br><br>|CLAY|SILT| | |SAND| | |GRAVEL|
+|---|---|---|---|---|---|---|---|
+| |fine|medium|coarse|fine|medium|coarse| |
+|0„002|0„006|0„02|0„06|0„2|0„6|2| |
+|
+|---|
+
+
+|Triangular Chart ~ this provides a general classification of soils composed predominantly from clay, sand and silt. Each side of the triangle represents a percentage of material component. Following laboratory analysis, a sample's properties can be graphically plotted on the chart and classed accordingly.<br><br>e.g. Sand † 70%. Clay † 10% and Silt † 20% = Sandy Loam.<br><br>Note:<br><br>Silt is very fine particles of sand, easily suspended in water. Loam is very fine particles of clay, easily dissolved in water.<br><br>![image 66](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile66.png)|
+|---|
+
+
+|Site Soil Tests ~ these tests are designed to evaluate the density or shear strength of soils and are very valuable since they do not disturb the soil under test. Three such tests are the standard penetration test, the vane test and the unconfined compression test all of which are fully described in BS 1377; Methods of test for soils for civil engineering purposes.<br><br>Standard Penetration Test ~ this test measures the resistance of a soil to the penetration of a split spoon or split barrel sampler driven into the bottom of a bore hole. The sampler is driven into the soil to a depth of 150mm by a falling standard weight of 65kg falling through a distance of 760mm. The sampler is then driven into the soil a further 300mm and the number of blows counted up to a maximum of 50 blows. This test establishes the relative density of the soil.<br><br>![image 67](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile67.png)<br><br>TYPICAL RESULTS Non-cohesive soils:-<br><br>Cohesive soils:-<br><br>The results of this test in terms of number of blows and amounts of penetration will need expert interpretation.<br><br>|No. of Blows|Relative Density|
+|---|---|
+|0 to 4|very loose|
+|4 to 10|loose|
+|10 to 30|medium|
+|30 to 50|dense|
+|50+|very dense|
+<br><br>|No. of Blows|Relative Density|
+|---|---|
+|0 to 2|very soft|
+|2 to 4|soft|
+|4 to 8|medium|
+|8 to 15|stiff|
+|15 to 30|very stiff|
+|30+|hard|
+|
+|---|
+
+
+|Vane Test ~ this test measures the shear strength of soft cohesive soils. The steel vane is pushed into the soft clay soil and rotated by hand at a constant rate. The amount of torque necessary for rotation is measured and the soil shear strength calculated as shown below.<br><br>This test can be carried out within a lined bore hole where the vane is pushed into the soil below the base of the bore hole for a distance equal to three times the vane diameter before rotation commences. Alternatively the vane can be driven or jacked to the required depth, the vane being protected within a special protection shoe, the vane is then driven or jacked a further 500 mm before rotation commences.<br><br>Calculation of Shear Strength †<br><br>Formula:- S =<br><br>M K<br><br>where S = shear value in kN/m2<br><br>M = torque required to shear soil<br><br>K = constant for vane<br><br>= 3„66 D3 10 6<br><br>D = vane diameter<br><br>![image 68](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile68.png)|
+|---|
+
+
+|Unconfined Compression Test ~ this test can be used to establish the shear strength of a non-fissured cohesive soil sample using portable apparatus either on site or in a laboratory. The 75 mm long 38 mm diameter soil sample is placed in the apparatus and loaded in compression until failure occurs by shearing or lateral bulging. For accurate reading of the trace on the recording chart a transparent viewfoil is placed over the trace on the chart.<br><br>![image 69](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile69.png)<br><br>Typical Results ~ showing compression strengths of clays:-<br><br>Very soft clay † less than 25 kN/m2<br><br>Soft clay † 25 to 50 kN/m2<br><br>Medium clay † 50 to 100kN/m2<br><br>Stiff clay † 100 to 200 kN/m2<br><br>Very stiff clay † 200 to 400 kN/m2<br><br>Hard clay † more than 400 kN/m2<br><br>NB. The shear strength of clay soils is only half of the compression strength values given above.|
+|---|
+
+
+|Laboratory Testing ~ tests for identifying and classifying soils with regard to moisture content, liquid limit, plastic limit, particle size distribution and bulk density are given in BS 1377.<br><br>Bulk Density ~ this is the mass per unit volume which includes mass of air or water in the voids and is essential information required for the design of retaining structures where the weight of the retained earth is an important factor.<br><br>Shear Strength ~ this soil property can be used to establish its bearing capacity and also the pressure being exerted on the supports in an excavation. The most popular method to establish the shear strength of cohesive soils is the Triaxial Compression Test. In principle this test consists of subjecting a cylindrical sample of undisturbed soil (75 mm long 38mm diameter) to a lateral hydraulic pressure in addition to a vertical load. Three tests are carried out on three samples (all cut from the same large sample) each being subjected to a higher hydraulic pressure before axial loading is applied. The results are plotted in the form of Mohr's circles.<br><br>![image 70](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile70.png)|
+|---|
+
+
+|Shear Strength ~ this can be defined as the resistance offered by a soil to the sliding of one particle over another. A simple method of establishing this property is the Shear Box Test in which the apparatus consists of two bottomless boxes which are filled with the soil sample to be tested. A horizontal shearing force (S) is applied against a vertical load (W) causing the soil sample to shear along a line between the two boxes.<br><br>![image 71](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile71.png)<br><br>Consolidation of Soil ~ this property is very important in calculating the movement of a soil under a foundation. The laboratory testing apparatus is called an Oedometer.<br><br>![image 72](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile72.png)|
+|---|
+
+
+|General Considerations ~ before any specific considerations and decisions can be made regarding site layout a general appreciation should be obtained by conducting a thorough site investigation at the pre-tender stage and examining in detail the drawings, specification and Bill of Quantities to formulate proposals of how the contract will be carried out if the tender is successful. This will involve a preliminary assessment of plant, materials and manpower requirements plotted against the proposed time scale in the form of a bar chart (see page 34).<br><br>Access Considerations ~ this must be considered for both on- and off-site access. Routes to and from the site must be checked as to the suitability for transporting all the requirements for the proposed works. Access on site for deliveries and general circulation must also be carefully considered.<br><br>![image 73](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile73.png)|
+|---|
+
+
+###### Site Layout Considerations
+
+|Storage Considerations ~ amount and types of material to be stored, security and weather protection requirements, allocation of adequate areas for storing materials and allocating adequate working space around storage areas as required, siting of storage areas to reduce double handling to a minimum without impeding the general site circulation and/or works in progress.<br><br>Accommodation Considerations ~ number and type of site staff anticipated, calculate size and select units of accommodation and check to ensure compliance with the minimum requirements of the Construction (Health, Safety and Welfare) Regulations 1996, select siting for offices to give easy and quick access for visitors but at the same time giving a reasonable view of the site, select siting for messroom and toilets to reduce walking time to a minimum without impeding the general site circulation and/or works in progress.<br><br>Temporary Services Considerations ~ what, when and where are they required? Possibility of having permanent services installed at an early stage and making temporary connections for site use during the construction period, coordination with the various service undertakings is essential.<br><br>Plant Considerations ~ what plant, when and where is it required? static or mobile plant? If static select the most appropriate position and provide any necessary hard standing, if mobile check on circulation routes for optimum efficiency and suitability, provision of space and hard standing for on-site plant maintenance if required.<br><br>Fencing and Hoarding Considerations ~ what is mandatory and what is desirable? Local vandalism record, type or types of fence and/or hoarding required, possibility of using fencing which is part of the contract by erecting this at an early stage in the contract.<br><br>Safety and Health Considerations ~ check to ensure that all the above conclusions from the considerations comply with the minimum requirements set out in the various Construction Regulations and in the Health and Safety at Work etc., Act 1974.<br><br>For a typical site layout example see next page.|
+|---|
+
+
+|![image 74](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile74.png)|
+|---|
+
+
+###### Site Security
+
+|Site Security ~ the primary objectives of site security are †<br><br>1 . Security against theft.<br>2. Security from vandals.<br>3. Protection from innocent trespassers.<br><br><br>The need for and type of security required will vary from site to site according to the neighbourhood, local vandalism record and the value of goods stored on site. Perimeter fencing, internal site protection and night security may all be necessary.<br><br>![image 75](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile75.png)|
+|---|
+
+
+Hoardings
+
+|Hoardings ~ under the Highways Act 1980 a close boarded fence hoarding must be erected prior to the commencement of building operations if such operations are adjacent to a public footpath or highway. The hoarding needs to be adequately constructed to provide protection for the public, resist impact damage, resist anticipated wind pressures and adequately lit at night. Before a hoarding can be erected a licence or permit must be obtained from the local authority who will usually require 10 to 20 days notice. The licence will set out the minimum local authority requirements for hoardings and define the time limit period of the licence.<br><br>![image 76](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile76.png)|
+|---|
+
+
+###### Hoardings
+
+|![image 77](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile77.png)|
+|---|
+
+
+|Site Lighting ~ this can be used effectively to enable work to continue during periods of inadequate daylight. It can also be used as a deterrent to would-be trespassers. Site lighting can be employed externally to illuminate the storage and circulation areas and internally for general movement and for specific work tasks. The types of lamp available range from simple tungsten filament lamps to tungsten halogen and discharge lamps. The arrangement of site lighting can be static where the lamps are fixed to support poles or mounted on items of fixed plant such as scaffolding and tower cranes. Alternatively the lamps can be sited locally where the work is in progress by being mounted on a movable support or hand held with a trailing lead. Whenever the position of site lighting is such that it can be manhandled it should be run on a reduced voltage of 110 V single phase as opposed to the mains voltage of 230 V.<br><br>To plan an adequate system of site lighting the types of activity must be defined and given an illumination target value which is quoted in lux (lx). Recommended minimum target values for building activities are:-<br><br>![image 78](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile78.png)<br><br>Such target values do not take into account deterioration, dirt or abnormal conditions therefore it is usual to plan for at least twice the recommended target values. Generally the manufacturers will provide guidance as to the best arrangement to use in any particular situation but lamp requirements can be calculated thus:-<br><br>Total lumens required<br><br>=<br><br>area to be illluminated (m2) targ et value (lx) utilisation factor 0„23 [dispersive lights 0„27]<br><br>After choosing lamp type to be used:-<br><br>Numberof lamps required<br><br>=<br><br>total lumens required lumen output of chosen lamp|
+|---|
+
+
+###### Site Lighting
+
+|Typical Site Lighting Arrangement:-<br><br>![image 79](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile79.png)<br><br>Typical minimum heights for dispersive lamps:<br><br>Fluorescent 40 to 125 W † 2„500 m; Tungsten filament 300W † 3„000 m|
+|---|
+
+
+|Walkway and Local Lighting ~ to illuminate the general circulation routes bulkhead and/or festoon lighting could be used either on a standard mains voltage of 230V or on a reduced voltage of 110V. For local lighting at the place of work hand lamps with trailing leads or lamp fittings on stands can be used and positioned to give the maximum amount of illumination without unacceptable shadow cast.<br><br>![image 80](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile80.png)|
+|---|
+
+
+###### Electrical Supply to Building Sites
+
+|Electrical Supply to Building Sites ~ a supply of electricity is usually required at an early stage in the contract to provide light and power to the units of accommodation. As the work progresses power could also be required for site lighting, hand held power tools and large items of plant. The supply of electricity to a building site is the subject of a contract between the contractor and the local area electricity company who will want to know the date when supply is required; site address together with a block plan of the site; final load demand of proposed building and an estimate of the maximum load demand in kilowatts for the construction period. The latter can be estimated by allowing 10 W/m2 of the total floor area of the proposed building plus an allowance for high load equipment such as cranes. The installation should be undertaken by a competent electrical contractor to ensure that it complies with all the statutory rules and regulations for the supply of electricity to building sites.<br><br>![image 81](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile81.png)<br><br>The units must be strong, durable and resistant to rain penetration with adequate weather seals to all access panels and doors. All plug and socket outlets should be colour coded :- 400V † red; 230 V † blue; 110V † yellow|
+|---|
+
+
+###### Site Office Accommodation
+
+|Office Accommodation ~ the arrangements for office accommodation to be provided on site is a matter of choice for each individual contractor. Generally separate offices would be provided for site agent, clerk of works, administrative staff, site surveyors and sales staff.<br><br>The minimum requirements of such accommodation is governed by the Offices, Shops and Railway Premises Act 1963 unless they are ~<br><br>1 . Mobile units in use for not more then 6 months.<br>2. Fixed units in use for not more than 6 weeks.<br>3. Any type of unit in use for not more than 21 man hours per week.<br>4. Office for exclusive use of self employed person.<br>5. Office used by family only staff.<br><br><br>Sizing Example ~<br><br>Office for site agent and assistant plus an allowance for 3 visitors. Assume an internal average height of 2„400. Allow 3„7m2 minimum per person and 11„5 m3 minimum per person. Minimum area = 5 3„7 = 18„5m2 Minimum volume = 5 11„5 = 57„5m3<br><br>Assume office width of 3„000 then minimum length required is<br><br>=<br><br>57„5 3 2„4<br><br>=<br><br>57„5 7„2<br><br>= 7„986 say 8„000<br><br>Area check 3 8 = 24m2 which is > 18„5m2 \ satisfactory<br><br>Typical Example ~<br><br>Portable cabin with four adjustable steel legs with attachments for stacking. Panelling of galvanised steel sheet and rigid insulation core. Plasterboard inner lining to walls and ceiling. Pyro-shield windows with steel shutters and a high security steel door.<br><br>![image 82](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile82.png)<br><br>Ref. Fire prevention on construction sites † the joint code of practice on protection from fire of construction sites and buildings undergoing renovation. Published by Construction Confederation and The Fire Protection Association.|
+|---|
+
+
+Site Health and Welfare Requirements
+
+|The requirements for health and wellbeing of persons on construction sites are enforced by the Health and Safety Executive, through the Health and Safety at Work etc. Act 1974 and the Construction (Health, Safety and Welfare) Regulations 1996. The following minimum requirements apply and the numbers of persons on site were established by the Construction Regulations of 1966.<br><br>|Provision|Requirement|No of persons employed on site|
+|---|---|---|
+|FIRST AID|Box to be distinctively marked and in charge of responsible person.|5 to 50 † first aid boxes 50+first aid box and a person trained in first aid|
+|AMBULANCES|Stretcher(s) in charge of responsible person|25+notify ambulance authority of site details within 24 hours of employing more than 25 persons|
+|FIRST AID ROOM|Used only for rest or treatment and in charge of trained person|If more than 250 persons employed on site each employer of more than 40 persons to provide a first aid room|
+|SHELTER AND ACCOMMODATION FOR CLOTHING|All persons on site to have shelter and a place for changing, drying and depositing clothes. Separate facilities for male and female staff.|Up to 5 where possible a means of warming themselves and drying wet clothes 5+adequate means of warming themselves and drying wet clothing|
+|REST ROOM|Drinking water, means of boiling water, preparing and eating meals for all persons on site. Arrangements to protect non-smokers from tobacco smoke.|10+facilities for heating food if hot meals are not available on site|
+|WASHING FACILITIES|Washing facilities to be provided for all persons on site for more than 4 hours. Ventilated and lit. Separate facilities for male and female staff.|20 to 100 if work is to last more than 6 weeks † hot and cold or warm water, soap and towel. 100+work lasting more than 12 months † 4 wash places+1 for every 35 persons over 100|
+|SANITARY FACILITIES|To be maintained, lit, ventilated and kept clean. Separate facilities for male and female staff|Up to 100 † 1 convenience for every 25 persons 100+ convenience for every 35 persons|
+|
+|---|
+
+
+###### Site Storage
+
+|Site Storage ~ materials stored on site prior to being used or fixed may require protection for security reasons or against the adverse effects which can be caused by exposure to the elements.<br><br>Small and Valuable Items ~ these should be kept in a secure and lockable store. Similar items should be stored together in a rack or bin system and only issued against an authorised requisition.<br><br>Large or Bulk Storage Items ~ for security protection these items can be stored within a lockable fenced compound. The form of fencing chosen may give visual security by being of an open nature but these are generally easier to climb than the close boarded type of fence which lacks the visual security property.<br><br>Typical Storage Compound Fencing ~<br><br>Close boarded fences can be constructed on the same methods used for hoardings † see pages 86 & 87.<br><br>![image 83](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile83.png)<br><br>Alternative Fence Types ~ woven wire fence, strained wire fence, cleft chestnut pale fence, wooden palisade fence, wooden post and rail fence and metal fences † see BS 1722: Fences, for details.|
+|---|
+
+
+|Storage of Materials ~ this can be defined as the provision of adequate space, protection and control for building materials and components held on site during the construction process. The actual requirements for specific items should be familiar to students who have completed studies in construction technology at an introductory level but the need for storage and control of materials held on site can be analysed further:-<br><br>1 . Physical Properties † size, shape, weight and mode of delivery will assist in determining the safe handling and stacking method(s) to be employed on site, which in turn will enable handling and storage costs to be estimated.<br>2. Organisation † this is the planning process of ensuring that all the materials required are delivered to site at the correct time, in sufficient quantity, of the right quality, the means of unloading is available and that adequate space for storage or stacking has been allocated.<br>3. Protection † building materials and components can be classified as durable or non-durable, the latter will usually require some form of weather protection to prevent deterioration whilst in store.<br>4. Security † many building materials have a high resale and/or usage value to persons other than those for whom they were ordered and unless site security is adequate material losses can become unacceptable.<br>5. Costs † to achieve an economic balance of how much expenditure can be allocated to site storage facilities the following should be taken into account:-<br><br>a. Storage areas, fencing, racks, bins, etc.<br>b. Protection requirements.<br>c. Handling, transporting and stacking requirements.<br>d. Salaries and wages of staff involved in storage of materials and components.<br>e. Heating and/or lighting if required.<br>f. Allowance for losses due to wastage, deterioration, vandalism and theft.<br>g. Facilities to be provided for subcontractors.<br><br><br>6. Control † checking quality and quantity of materials at delivery and during storage period, recording delivery and issue of materials and monitoring stock holdings.<br>|
+|---|
+
+
+|Site Storage Space ~ the location and size(s) of space to be allocated for any particular material should be planned by calculating the area(s) required and by taking into account all the relevant factors before selecting the most appropriate position on site in terms of handling, storage and convenience. Failure to carry out this simple planning exercise can result in chaos on site or having on site more materials than there is storage space available.<br><br>Calculation of Storage Space Requirements ~ each site will present its own problems since a certain amount of site space must be allocated to the units of accommodation, car parking, circulation and working areas, therefore the amount of space available for materials storage may be limited. The size of the materials or component being ordered must be known together with the proposed method of storage and this may vary between different sites of similar building activities. There are therefore no standard solutions for allocating site storage space and each site must be considered separately to suit its own requirements.<br><br>Typical Examples ~<br><br>Bricks † quantity = 15,200 to be delivered in strapped packs of 380 bricks per pack each being 1100mm wide 670 mm long 850 mm high. Unloading and stacking to be by forklift truck to form 2 rows 2 packs high.<br><br>Area required :- number of packs per row =<br><br>15,200 380 2<br><br>= 20<br><br>length of row = 10 670 = 6„700 width of row = 2 1100 = 2„200<br><br>allowance for forklift approach in front of stack = 5„000 \ minimum brick storage area = 6„700 long 7„200 wide<br><br>Timber † to be stored in open sided top covered racks constructed of standard scaffold tubes. Maximum length of timber ordered = 5„600. Allow for rack to accept at least 4 No. 300mm wide timbers placed side by side then minimum width required = 4 300 = 1„200 Minimum plan area for timber storage rack = 5„600 1„200 Allow for end loading of rack equal to length of rack \ minimum timber storage area = 11„200 long 1„200 wide Height of rack to be not more than 3 width = 3„600<br><br>Areas for other materials stored on site can be calculated using the basic principles contained in the examples above.|
+|---|
+
+
+|Site Allocation for Materials Storage ~ the area and type of storage required can be determined as shown on pages 96 to 98, but the allocation of an actual position on site will depend on:-<br><br>1 . Space available after areas for units of accommodation have been allocated.<br>2. Access facilities on site for delivery, vehicles.<br>3. Relationship of storage area(s) to activity area(s) † the distance between them needs to be kept as short as possible to reduce transportation needs in terms of time and costs to the minimum. Alternatively storage areas and work areas need to be sited within the reach of any static transport plant such as a tower crane.<br>4. Security † needs to be considered in the context of site operations, vandalism and theft.<br>5. Stock holding policy † too little storage could result in delays awaiting for materials to be delivered, too much storage can be expensive in terms of weather and security protection requirements apart from the capital used to purchase the materials stored on site.<br><br><br>![image 84](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile84.png)<br><br>NB. temporary site services omitted for clarity.|
+|---|
+
+
+|Bricks ~ may be supplied loose or strapped in unit loads and stored on timber pallets<br><br>![image 85](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile85.png)|
+|---|
+
+
+|Drainage Pipes ~ supplied loose or strapped together on timber pallets<br><br>![image 86](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile86.png)<br><br>Gullies etc., should be stored upside down and supported to remain level<br><br>![image 87](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile87.png)<br><br>Cement, Sand and Aggregates ~ for supply and storage details see pages 267 & 271|
+|---|
+
+
+|Site Tests ~ the majority of materials and components arriving on site will conform to the minimum recommendations of the appropriate British Standard and therefore the only tests which need be applied are those of checking quantity received against amount stated on the delivery note, ensuring quality is as ordered and a visual inspection to reject damaged or broken goods. The latter should be recorded on the delivery note and entered in the site records. Certain site tests can however be carried out on some materials to establish specific data such as the moisture content of timber which can be read direct from a moisture meter. Other simple site tests are given in the various British Standards to ascertain compliance with the recommendations, such as tests for dimensional tolerances and changes given in BS EN 771-1 and BS EN 772-16 which covers clay bricks. Site tests can be carried out by measuring a sample of 24 bricks taken at random from a delivered load thus:-<br><br>![image 88](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile88.png)<br><br>Refs. BS EN 772-16: Methods of test for masonry units. BS EN 771-1: Specification for masonry units.|
+|---|
+
+
+|Site Test ~ apart from the test outlined on page 102 site tests on materials which are to be combined to form another material such as concrete can also be tested to establish certain properties which if not known could affect the consistency and/or quality of the final material.<br><br>Typical Example ~ Testing Sand for Bulking ~<br><br>this data is required when batching concrete by volume † test made at commencement of mixing and if change in weather<br><br>![image 89](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile89.png)<br><br>therefore volume of sand should be increased by 21% over that quoted in the specification NB. a given weight of saturated sand will occupy the same space as when dry but more space when damp|
+|---|
+
+
+|Silt Test for Sand ~ the object of this test is to ascertain the cleanliness of sand by establishing the percentage of silt present in a natural sand since too much silt will weaken the concrete<br><br>![image 90](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile90.png)<br><br>Obtaining Samples for Laboratory Testing ~ these tests may be required for checking aggregate grading by means of a sieve test, checking quality or checking for organic impurities but whatever the reason the sample must be truly representative of the whole:-<br><br>![image 91](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile91.png)|
+|---|
+
+
+|Concrete requires monitoring by means of tests to ensure that subsequent mixes are of the same consistency and this can be carried out on site by means of the slump test and in a laboratory by crushing test cubes to check that the cured concrete has obtained the required designed strength.<br><br>![image 92](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile92.png)<br><br>The slump cone is filled to a quarter depth and tamped 25 times † filling and tamping is repeated three more times until the cone is full and the top smoothed off. The cone is removed and the slump measured, for consistent mixes the slump should remain the same for all samples tested. Usual specification 50mm or 75mm slump.<br><br>![image 93](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile93.png)<br><br>Refs. BS EN 12350-2 (Slump) and BS EN 12390-1 (Cubes)|
+|---|
+
+
+|Non destructive testing of concrete. Also known as in-place or in-situ tests.<br><br>Changes over time and in different exposures can be monitored.<br><br>References: BS 6089: Guide to assessment of concrete strength in existing structures; BS 1881: Testing concrete. BS EN 13791: Assessment of in-situ compressive strength in structures and pre-cast concrete components.<br><br>Provides information on: strength in-situ, voids, flaws, cracks and deterioration.<br><br>Rebound hammer test † attributed to Ernst Schmidt after he devised the impact hammer in 1948. It works on the principle of an elastic mass rebounding off a hard surface. Varying surface densities will affect impact and propagation of stress waves. These can be recorded on a numerical scale known as rebound numbers. It has limited application to smooth surfaces of concrete only. False results may occur where there are local variations in the concrete, such as a large piece of aggregate immediately below the impact surface. Rebound numbers can be graphically plotted to correspond with compressive strength.<br><br>Ref: BS EN 12504-2: Testing concrete in structures.<br><br>![image 94](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile94.png)|
+|---|
+
+
+###### Materials Testing---Concrete
+
+|Penetration or Windsor probe test ~ there are various interpretations of this test. It is a measure of the penetration of a steel alloy rod, fired by a predetermined amount of energy into concrete. In principle, the depth of penetration is inversely proportional to the concrete compressive strength. Several recordings are necessary to obtain a fair assessment and some can be discarded particularly where the probe cannot penetrate some dense aggregates. The advantage over the rebound hammer is provision of test results at a greater depth (up to 50 mm).<br><br>Pull out test ~ this is not entirely non destructive as there will be some surface damage, albeit easily repaired. A number of circular bars of steel with enlarged ends are cast into the concrete as work proceeds. This requires careful planning and location of bars with corresponding voids provided in the formwork. At the appropriate time, the bar and a piece of concrete are pulled out by tension jack. Although the concrete fails in tension and shear, the pull out force can be correlated to the compressive strength of the concrete.<br><br>![image 95](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile95.png)<br><br>Ref: BS 1881†207: Testing concrete. Recommendations for the assessment of concrete strength by near-to-surface tests.|
+|---|
+
+
+|Vibration test ~ a number of electronic tests have been devised, which include measurement of ultrasonic pulse velocity through concrete. This applies the principle of recording a pulse at predetermined frequencies over a given distance. The apparatus includes transducers in contact with the concrete, pulse generator, amplifier, and time measurement to digital display circuit. For converting the data to concrete compressive strength, see BS EN 12504-4: Testing concrete. Determination of ultrasonic pulse velocity.<br><br>A variation, using resonant frequency, measures vibrations produced at one end of a concrete sample against a receiver or pick up at the other. The driving unit or exciter is activated by a variable frequency oscillator to generate vibrations varying in resonance, depending on the concrete quality. The calculation of compressive strength by conversion of amplified vibration data is by formulae found in BS 1881-209: Testing concrete. Recommendations for the measurement of dynamic modulus of elasticity.<br><br>![image 96](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile96.png)<br><br>Other relevant standards:†<br><br>BS 1881-122: Testing concrete. Method for determination of water absorption. BS 1881-124: Testing concrete. Methods for analysis of hardened concrete. BS EN 12390-7: Testing hardened concrete. Density of hardened concrete.|
+|---|
+
+
+###### Protection Orders for Trees and Structures
+
+|Trees ~ these are part of our national heritage and are also the source of timber † to maintain this source a control over tree felling has been established under the Forestry Act 1967 which places the control responsibility on the Forestry Commission. Local planning authorities also have powers under the Town and Country Planning Act 1990 and the Town and Country Amenities Act 1974 to protect trees by making tree preservation orders. Contravention of such an order can lead to a substantial fine and a compulsion to replace any protected tree which has been removed or destroyed. Trees on building sites which are covered by a tree preservation order should be protected by a suitable fence.<br><br>![image 97](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile97.png)<br><br>Trees, shrubs, bushes and tree roots which are to be removed from site can usually be grubbed out using hand held tools such as saws, picks and spades. Where whole trees are to be removed for relocation special labour and equipment is required to ensure that the roots, root earth ball and bark are not damaged.<br><br>Structures ~ buildings which are considered to be of historic or architectural interest can be protected under the Town and Country Acts provisions. The Department of the Environment lists buildings according to age, architectural, historical and/or intrinsic value. It is an offence to demolish or alter a listed building without first obtaining `listed building consent' from the local planning authority. Contravention is punishable by a fine and/or imprisonment. It is also an offence to demolish a listed building without giving notice to the Royal Commission on Historic Monuments, this is to enable them to note and record details of the building.|
+|---|
+
+
+###### Locating Public Utility Services
+
+|Services which may be encountered on construction sites and the authority responsible are:-<br><br>Water † Local Water Company<br><br>Electricity † transmission ~ RWE npower, BNFL and E-on.<br><br>distribution ~ Area Electricity Companies in England and Wales. Scottish Power and Scottish Hydro-Electric, EDF Energy.<br><br>Gas † Local gas or energy service providers, e.g. British Gas. Telephones † National Telecommunications Companys, eg. BT, C&W,<br><br>etc. Drainage † Local Authority unless a private drain or sewer when owner(s) is responsible.<br><br>All the above authorities must be notified of any proposed new services and alterations or terminations to existing services before any work is carried out.<br><br>Locating Existing Services on Site ~<br><br>Method 1 † By reference to maps and plans prepared and issued by the respective responsible authority.<br>Method 2 † Using visual indicators ~<br><br>![image 98](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile98.png)<br><br>Method 3 † Detection specialist contractor employed to trace all forms of underground services using electronic subsurface survey equipment.<br><br><br>Once located, position and type of service can be plotted on a map or plan, marked with special paint on hard surfaces and marked with wood pegs with indentification data on earth surfaces.|
+|---|
+
+
+|Setting Out the Building Outline ~ this task is usually undertaken once the site has been cleared of any debris or obstructions and any reduced level excavation work is finished. It is usually the responsibility of the contractor to set out the building(s) using the information provided by the designer or architect. Accurate setting out is of paramount importance and should therefore only be carried out by competent persons and all their work thoroughly checked, preferably by different personnel and by a different method.<br><br>The first task in setting out the building is to establish a base line to which all the setting out can be related. The base line very often coincides with the building line which is a line, whose position on site is given by the local authority in front of which no development is permitted.<br><br>![image 99](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile99.png)|
+|---|
+
+
+|Setting Out Trenches ~ the objective of this task is twofold. Firstly it must establish the excavation size, shape and direction and secondly it must establish the width and position of the walls. The outline of building will have been set out and using this outline profile boards can be set up to control the position, width and possibly the depth of the proposed trenches. Profile boards should be set up at least 2„000 clear of trench positions so they do not obstruct the excavation work. The level of the profile crossboard should be related to the site datum and fixed at a convenient height above ground level if a traveller is to be used to control the depth of the trench. Alternatively the trench depth can be controlled using a level and staff related to site datum. The trench width can be marked on the profile with either nails or sawcuts and with a painted band if required for identification.<br><br>![image 100](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile100.png)<br><br>NB. Corners of walls transferred from intersecting cord lines to mortar spots on concrete foundations using a spirit level|
+|---|
+
+
+|Setting Out a Framed Building ~ framed buildings are usually related to a grid, the intersections of the grid lines being the centre point of an isolated or pad foundation. The grid is usually set out from a base line which does not always form part of the grid. Setting out dimensions for locating the grid can either be given on a drawing or they will have to be accurately scaled off a general layout plan. The grid is established using a theodolite and marking the grid line intersections with stout pegs. Once the grid has been set out offset pegs or profiles can be fixed clear of any subsequent excavation work. Control of excavation depth can be by means of a traveller sighted between sight rails or by level and staff related to site datum.<br><br>![image 101](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile101.png)|
+|---|
+
+
+|Setting Out Reduced Level Excavations ~ the overall outline of the reduced level area can be set out using a theodolite, ranging rods, tape and pegs working from a base line. To control the depth of excavation, sight rails are set up at a convenient height and at positions which will enable a traveller to be used.<br><br>![image 102](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile102.png)|
+|---|
+
+
+###### Setting Out---Levelling
+
+|Levelling ~ the process of establishing height dimensions, relative to a fixed point or datum. Datum is mean sea level, which varies between different countries. For UK purposes this is established at Newlyn in Cornwall, from tide data recorded between May 1915 and April 1921. Relative levels defined by benchmarks are located throughout the country. The most common, identified as carved arrows, can be found cut into walls of stable structures. Reference to Ordnance Survey maps of an area will indicate benchmark positions and their height above sea level, hence the name Ordnance Datum (OD).<br><br>On site it is usual to measure levels from a temporary benchmark (TBM), i.e. a manhole cover or other permanent fixture, as an OD may be some distance away.<br><br>Instruments consist of a level (tilting or automatic) and a staff. A tilting level is basically a telescope mounted on a tripod for stability. Correcting screws establish accuracy in the horizontal plane by air bubble in a vial and focus is by adjustable lens. Cross hairs of horizontal and vertical lines indicate image sharpness on an extending staff of 3, 4 or 5 m length. Staff graduations are in 10 mm intervals, with estimates taken to the nearest millimetre. An automatic level is much simpler to use, eliminating the need for manual adjustment. It is approximately levelled by centre bulb bubble. A compensator within the telescope effects fine adjustment.<br><br>![image 103](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile103.png)|
+|---|
+
+
+###### Setting Out---Levelling
+
+|![image 104](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile104.png)|
+|---|
+
+
+###### Setting Out---Angles
+
+|Theodolite † a tripod mounted instrument designed to measure angles in the horizontal or vertical plane.<br><br>![image 105](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile105.png)<br><br>The theodolite in principle<br><br>Measurement † a telescope provides for focal location between instrument and subject. Position of the scope is defined by an index of angles. The scale and presentation of angles varies from traditional micrometer readings to computer compatible crystal displays. Angles are measured in degrees, minutes and seconds, e.g. 165 530 3000.<br><br>![image 106](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile106.png)<br><br>Direct reading micrometer scale<br><br>Application † at least two sightings are taken and the readings averaged. After the first sighting, the horizontal plate is rotated through 180 and the scope also rotated 180 through the vertical to return the instrument to its original alignment for the second reading. This process will move the vertical circle from right face to left face, or vice-versa. It is important to note the readings against the facing † see below.<br><br>![image 107](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile107.png)|
+|---|
+
+
+|Road Construction ~ within the context of building operations roadworks usually consist of the construction of small estate roads, access roads and driveways together with temporary roads laid to define site circulation routes and/or provide a suitable surface for plant movements. The construction of roads can be considered under three headings:-<br><br>1 . Setting out.<br>2. Earthworks (see page 119).<br>3. Paving Construction (see pages 120 & 121).<br><br><br>Setting Out Roads ~ this activity is usually carried out after the topsoil has been removed using the dimensions given on the layout drawing(s). The layout could include straight lengths junctions, hammer heads, turning bays and intersecting curves.<br><br>Straight Road Lengths † these are usually set out from centre lines which have been established by traditional means<br><br>![image 108](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile108.png)|
+|---|
+
+
+|Earthworks ~ this will involve the removal of topsoil together with any vegetation, scraping and grading the required area down to formation level plus the formation of any cuttings or embankments. Suitable plant for these operations would be tractor shovels fitted with a 4 in 1 bucket (page 158): graders (page 157) and bulldozers (page 155). The soil immediately below the formation level is called the subgrade whose strength will generally decrease as its moisture content rises therefore if it is to be left exposed for any length of time protection may be required. Subgrade protection may take the form of a covering of medium gauge plastic sheeting with 300mm laps or alternatively a covering of sprayed bituminous binder with a sand topping applied at a rate of 1 litre per m2. To preserve the strength and durability of the subgrade it may be necessary to install cut off subsoil drains alongside the proposed road (see Road Drainage on page 688).<br><br>Paving Construction ~ once the subgrade has been prepared and any drainage or other buried services installed the construction of the paving can be undertaken. Paved surfaces can be either flexible or rigid in format. Flexible or bound surfaces are formed of materials applied in layers directly over the subgrade whereas rigid pavings consist of a concrete slab resting on a granular base (see pages 120 & 121).<br><br>![image 109](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile109.png)|
+|---|
+
+
+|Rigid Pavings ~ these consist of a reinforced or unreinforced in-situ concrete slab laid over a base course of crushed stone or similar material which has been blinded to receive a polythene sheet slip membrane. The primary objective of this membrane is to prevent grout loss from the in-situ slab.<br><br>![image 110](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile110.png)|
+|---|
+
+
+|Joints in Rigid Pavings ~ longitudinal and transverse joints are required in rigid pavings to:-<br><br>1 . Limit size of slab.<br>2. Limit stresses due to subgrade restraint.<br>3. Provide for expansion and contraction movements.<br><br><br>The main joints used are classified as expansion, contraction or longitudinal, the latter being the same in detail as the contraction joint differing only in direction. The spacing of road joints is determined by:-<br><br>1 . Slab thickness.<br>2. Whether slab is reinforced or unreinforced.<br>3. Anticipated traffic load and flow rate.<br>4. Temperature at which concrete is laid.<br><br><br>![image 111](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile111.png)|
+|---|
+
+
+###### Roads---Footpaths
+
+|![image 112](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile112.png)|
+|---|
+
+
+|![image 113](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile113.png)|
+|---|
+
+
+|Concrete paving flags † BS dimensions:<br><br>Note: All dimensions in millimetres.<br><br>Tactile flags † manufactured with a blistered (shown) or ribbed surface. Used in walkways to provide warning of hazards or to enable recognition of locations for people whose visibility is impaired. See also, Department of Transport Disability Circular DU 1/86[1], for uses and applications.<br><br>![image 114](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile114.png)<br><br>Ref. BS 7263†1: Pre-cast concrete flags, kerbs, channels, edgings and quadrants. BS EN 1339: Concrete paving flags.<br><br>|Type|Size (nominal)|Size (work)|Thickness (T)|
+|---|---|---|---|
+|A † plain|600 450|598 448|50 or 63|
+|B † plain|600 600|598 598|50 or 63|
+|C † plain|600 750|598 748|50 or 63|
+|D † plain|600 900|598 898|50 or 63|
+|E † plain|450 450|448 448|50 or 70|
+|A/E † tactile|450 450|448 448|50 or 70|
+|A/F † tactile|400 400|398 398|50 or 65|
+|TA/G † tactile|300 300|298 298|50 or 60|
+<br><br>T T|
+|---|
+
+
+|Landscaping ~ in the context of building works this would involve reinstatement of the site as a preparation to the landscaping in the form of lawns, paths, pavings, flower and shrub beds and tree planting. The actual planning, lawn laying and planting activities are normally undertaken by a landscape subcontractor. The main contractor's work would involve clearing away all waste and unwanted materials, breaking up and levelling surface areas, removing all unwanted vegetation, preparing the subsoil for and spreading topsoil to a depth of at least 150 mm.<br><br>Services ~ the actual position and laying of services is the responsibility of the various service boards and undertakings. The best method is to use the common trench approach, avoid as far as practicable laying services under the highway.<br><br>![image 115](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile115.png)|
+|---|
+
+
+|Scaffolds ~ these are temporary working platforms erected around the perimeter of a building or structure to provide a safe working place at a convenient height. They are usually required when the working height or level is 1„500 or more above the ground level. All scaffolds must comply with the minimum requirements and objectives of the Work at Height Regulations 2005.<br><br>![image 116](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile116.png)<br><br>Component Parts of a Tubular Scaffold ~<br><br>standard<br><br>all tubes to comply with BS EN 39 or BS 1139-1.2<br><br>transom or putlog<br><br>ledger<br><br>ledger<br><br>double coupler<br><br>putlog coupler<br><br>standard<br><br>ledger<br><br>base plate with locating spigot plan size 150 × 150<br><br>transverse horizontal member called a transom fixed to ledgers<br><br>HORIZONTAL COMPONENTS<br><br>VERTICAL COMPONENT SLOPING COMPONENTS<br><br>all bracing fixed with swivel couplers<br><br>cross brace<br><br>timber sole plate under base plates on soft or uneven ground<br><br>transverse horizontal member called a putlog — fixed to ledger with a putlog coupler<br><br>longitudinal horizontal member called a ledger — fixed to standards with double couplers<br><br>blade end standard<br><br>transom or putlog<br><br>vertical member usually called a standard spaced at 1.800 to 2.400 centres depending on load to be carried<br><br>transoms or putlogs<br><br>facade brace<br><br>Refs. BS EN 39: Loose steel tubes for tube and coupler scaffolds. BS 1139-1.2: Metal scaffolding. Tubes. Specification for aluminium tube.|
+|---|
+
+
+|Putlog Scaffolds ~ these are scaffolds which have an outer row of standards joined together by ledgers which in turn support the transverse putlogs which are built into the bed joints or perpends as the work proceeds, they are therefore only suitable for new work in bricks or blocks.<br><br>![image 117](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile117.png)|
+|---|
+
+
+|Independent Scaffolds ~ these are scaffolds which have two rows of standards each row joined together with ledgers which in turn support the transverse transoms. The scaffold is erected clear of the existing or proposed building but is tied to the building or structure at suitable intervals † see page 130<br><br>![image 118](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile118.png)|
+|---|
+
+
+|Working Platforms ~ these are close boarded or plated level surfaces at a height at which work is being carried out and they must provide a safe working place of sufficient strength to support the imposed loads of operatives and/or materials. All working platforms above the ground level must be fitted with a toe board and a guard rail.<br><br>![image 119](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile119.png)|
+|---|
+
+
+|Tying-in ~ all putlog and independent scaffolds should be tied securely to the building or structure at alternate lift heights vertically and at not more than 6„000 centres horizontally. Putlogs should not be classified as ties.<br><br>Suitable tying-in methods include connecting to tubes fitted between sides of window openings or to internal tubes fitted across window openings, the former method should not be used for more than 50% of the total number of ties. If there is an insufficient number of window openings for the required number of ties external rakers should be used.<br><br>![image 120](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile120.png)|
+|---|
+
+
+|Mobile Scaffolds ~ otherwise known as mobile tower scaffolds. They can be assembled from pre-formed framing components or from standard scaffold tube and fittings. Used mainly for property maintenance. Must not be moved whilst occupied by persons or equipment.<br><br>![image 121](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile121.png)|
+|---|
+
+
+|Some basic fittings ~<br><br>![image 122](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile122.png)<br><br>![image 123](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile123.png)<br><br>Reveal pin<br><br>Base plate<br><br>scaffold tube<br><br>scaffold tube over circular spigot welded to<br><br>150 mm square plate<br><br>circular nut with "podger" recess<br><br>face plate<br><br>Wrapover putlog coupler Split joint pin<br><br>bolt<br><br>swing over bolt<br><br>swing over bolt<br><br>Putlog end<br><br>putlog tube<br><br>blade<br><br>scaffold tube<br><br>split sections<br><br>tube clamp<br><br>![image 124](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile124.png)<br><br>Swivel coupler Double coupler<br><br>swivel joint<br><br>swing over bolt<br><br>scaffold tube<br><br>scaffold tube<br><br>tube clamp<br><br>tube clamp<br><br>swing over bolt<br><br>swing over bolt|
+|---|
+
+
+Patent Scaffolding
+
+|Patent Scaffolding ~ these are systems based on an independent scaffold format in which the members are connected together using an integral locking device instead of conventional clips and couplers used with traditional tubular scaffolding. They have the advantages of being easy to assemble and take down using semi-skilled labour and should automatically comply with the requirements set out in the Work at Height Regulations 2005. Generally cross bracing is not required with these systems but fac¸ade bracing can be fitted if necessary. Although simple in concept patent systems of scaffolding can lack the flexibility of traditional tubular scaffolds in complex layout situations.<br><br>![image 125](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile125.png)|
+|---|
+
+
+|Scaffolding Systems ~ these are temporary stagings to provide safe access to and egress from a working platform. The traditional putlog and independent scaffolds have been covered on pages 126 to 130 inclusive. The minimum legal requirements contained in the Construction (Health Safety and Welfare) Regulations 1996 applicable to traditional scaffolds apply equally to special scaffolds. Special scaffolds are designed to fulfil a specific function or to provide access to areas where it is not possible and or economic to use traditional formats. They can be constructed from standard tubes or patent systems, the latter complying with most regulation requirements are easy and quick to assemble but lack the complete flexibility of the traditional tubular scaffolds.<br><br>Birdcage Scaffolds ~ these are a form of independent scaffold normally used for internal work in large buildings such as public halls and churches to provide access to ceilings and soffits for light maintenance work like painting and cleaning. They consist of parallel rows of standards connected by leaders in both directions, the whole arrangement being firmly braced in all directions. The whole birdcage scaffold assembly is designed to support a single working platform which should be double planked or underlined with polythene or similar sheeting as a means of restricting the amount of dust reaching the floor level.<br><br>Slung Scaffolds ~ these are a form of scaffold which is suspended from the main structure by means of wire ropes or steel chains and is not provided with a means of being raised or lowered. Each working platform of a slung scaffold consists of a supporting framework of ledgers and transoms which should not create a plan size in excess of 2„500 2„500 and be held in position by not less than six evenly spaced wire ropes or steel chains securely anchored at both ends. The working platform should be double planked or underlined with polythene or similar sheeting to restrict the amount of dust reaching the floor level. Slung scaffolds are an alternative to birdcage scaffolds and although more difficult to erect have the advantage of leaving a clear space beneath the working platform which makes them suitable for cinemas, theatres and high ceiling banking halls.|
+|---|
+
+
+|Suspended Scaffolds ~ these consist of a working platform in the form of a cradle which is suspended from cantilever beams or outriggers from the roof of a tall building to give access to the fac¸ade for carrying out light maintenance work and cleaning activities. The cradles can have manual or power control and be in single units or grouped together to form a continuous working platform. If grouped together they are connected to one another at their abutment ends with hinges to form a gap of not more than 25 mm wide. Many high rise buildings have a permanent cradle system installed at roof level and this is recommended for all buildings over 30„000 high.<br><br>![image 126](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile126.png)|
+|---|
+
+
+|Cantilever Scaffolds ~ these are a form of independent tied scaffold erected on cantilever beams and used where it is impracticable, undesirable or uneconomic to use a traditional scaffold raised from ground level. The assembly of a cantilever scaffold requires special skills and should therefore always be carried out by trained and experienced personnel.<br><br>![image 127](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile127.png)|
+|---|
+
+
+|Truss-out Scaffold ~ this is a form of independent tied scaffold used where it is impracticable, undesirable or uneconomic to build a scaffold from ground level. The supporting scaffold structure is known as the truss-out. The assembly of this form of scaffold requires special skills and should therefore be carried out by trained and experienced personnel.<br><br>![image 128](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile128.png)|
+|---|
+
+
+|Gantries ~ these are elevated platforms used when the building being maintained or under construction is adjacent to a public footpath. A gantry over a footpath can be used for storage of materials, housing units of accommodation and supporting an independent scaffold. Local authority permission will be required before a gantry can be erected and they have the power to set out the conditions regarding minimum sizes to be used for public walkways and lighting requirements. It may also be necessary to comply with police restrictions regarding the loading and unloading of vehicles at the gantry position. A gantry can be constructed of any suitable structural material and may need to be structurally designed to meet all the necessary safety requirements.<br><br>![image 129](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile129.png)|
+|---|
+
+
+|Shoring ~ this is a form of temporary support which can be given to existing buildings with the primary function of providing the necessary precautions to avoid damage to any person from collapse of structure as required by the Construction (Health, Safety and Welfare) Regulations 1996.<br><br>Shoring Systems ~ there are three basic systems of shoring which can be used separately or in combination with one another to provide the support(s) and these are namely:-<br><br>1 . Dead Shoring † used primarily to carry vertical loadings.<br>2. Raking Shoring † used to support a combination of vertical and horizontal loadings.<br>3. Flying Shoring † an alternative to raking shoring to give a clear working space at ground level.<br><br><br>![image 130](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile130.png)|
+|---|
+
+
+|Dead Shores ~ these shores should be placed at approximately 2„000 c/c and positioned under the piers between the windows, any windows in the vicinity of the shores being strutted to prevent distortion of the openings. A survey should be carried out to establish the location of any underground services so that they can be protected as necessary. The sizes shown in the detail below are typical, actual sizes should be obtained from tables or calculated from first principles. Any suitable structural material such as steel can be substituted for the timber members shown.<br><br>![image 131](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile131.png)|
+|---|
+
+
+|Raking Shoring ~ these are placed at 3„000 to 4„500 c/c and can be of single, double, triple or multiple raker format. Suitable materials are timber structural steel and framed tubular scaffolding.<br><br>![image 132](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile132.png)|
+|---|
+
+
+|FlyingShores~theseareplacedat3„000to4„500c/candcanbeofasingleordoubleformat.Theyare<br><br>designed,detailedandconstructedtothesamebasicprinciplesasthatshownforrakingshoresonpage141.<br><br>Unsymmetricalarrangementsarepossibleprovidingthebasicprinciplesforflyingshoresareapplied†see<br><br>page144.<br><br>![image 133](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile133.png)|
+|---|
+
+
+eofasingleordoubleformat.Theyare
+
+iplesforflyingshoresareapplied†see
+
+hatshownforrakingshoresonpage141.
+
+|![image 134](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile134.png)|
+|---|
+
+
+|Unsymmetrical Flying Shores ~ arrangements of flying shores for unsymmetrical situations can be devised if the basic principles for symmetrical shores is applied (see page 142). In some cases the arrangement will consist of a combination of both raking and flying shore principles.<br><br>![image 135](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile135.png)|
+|---|
+
+
+|Temporary Support Determination ~ the basic sizing of most temporary supports follows the principles of elementary structural design. Readers with this basic knowledge should be able to calculate such support members which are required, particularly those used in the context of the maintenance and adaptation of buildings such as a dead shoring system.<br><br>![image 136](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile136.png)|
+|---|
+
+
+|Design calculations reference previous page.<br><br>![image 137](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile137.png)<br><br>BM =<br><br>WL 4<br><br>=<br><br>39300 3000 4<br><br>= 29475000 N=mm<br><br>MR = stress section modulus = fZ = f<br><br>bd2 6 assume b = 300mm and f = 7 N/mm2<br><br>then 29475000 =<br><br>7 300 d2 6<br><br>d =<br><br>29475000 6 7 300<br><br>= 290„2mm<br><br>use 300 300 timber section or 2 No. 150 300 sections bolted together with timber connectors.<br><br>Props to Needle Design:-<br><br>area =<br><br>load stress<br><br>=<br><br>19650 7<br><br>= 2807„143 mm2<br><br>\ minimum timber size = 2807„143 = 53 53<br><br>check slenderness ratio:<br><br>slenderness ratio =<br><br>l b<br><br>=<br><br>4500 53<br><br>= 84„9 slenderness ratio for medium term load is not more than 17„3 (from CP 112 † now BS 5268: Structural use of timber)<br><br>\ minimum timber prop size =<br><br>l sr<br><br>=<br><br>4500 17„3<br><br>= 260„12 mm for practical reasons use 300 300 prop \ new sr = 15 Check crushing at point of loading on needle:wall loading on needle = 3930kg = 39300N = 39„3kN area of contact = width of wall width of needle<br><br>= 215 300 = 64500 mm2 safe compressive stress perpendicular to grain = 1„72 N/mm2 \ safe load =<br><br>64500 1„72 1000<br><br>= 110„94 kN which is > 39„3 kN|
+|---|
+
+
+###### Demolition -- Relevant Acts
+
+|Town and Country Planning Act ~ demolition is generally not regarded as development, but planning permission will be required if the site is to have a change of use. Attitudes to demolition can vary between local planning authorities and consultation should be sought.<br><br>Planning (Listed Buildings and Conservation Areas) Act ~ listed buildings and those in conservation areas will require local authority approval for any alterations. Consent for change may be limited to partial demolition, particularly where it is necessary to preserve a building frontage for historic reasons. See the arrangements for temporary shoring on the preceding pages.<br><br>Building Act ~ intention to demolish a building requires six weeks written notice of intent. The next page shows the typical outline of a standard form for submission to the building control department of the local authority, along with location plans. Notice must also be given to utilities providers and adjoining/ adjacent building owners, particularly where party walls are involved. Small buildings of volume less than 50m3 are generally exempt. Within six weeks of the notice being submitted, the local authority will specify their requirements for shoring, protection of adjacent buildings, debris disposal and general safety requirements under the HSE.<br><br>Public Health Act ~ the local authority can issue a demolition enforcement order to a building owner, where a building is considered to be insecure, a danger to the general public and detrimental to amenities.<br><br>Highways Act ~ concerns the protection of the general public using a thoroughfare in or near to an area affected by demolition work. The building owner and demolition contractor are required to ensure that debris and other materials are not deposited in the street unless in a suitable receptacle (skip) and the local authority highways department and police are in agreement with its location. Temporary road works require protective fencing and site hoardings must be robust and secure. All supplementary provisions such as hoardings and skips may also require adequate illumination. Provision must be made for immediate removal of poisonous and hazardous waste.|
+|---|
+
+
+###### Demolition -- Notice
+
+|![image 138](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile138.png)|
+|---|
+
+
+###### Demolition
+
+|Demolition ~ skilled and potentially dangerous work that should only be undertaken by experienced contractors.<br><br>Types of demolition ~ partial or complete removal. Partial is less dynamic than complete removal, requiring temporary support to the remaining structure. This may involve window strutting, floor props and shoring. The execution of work is likely to be limited to manual handling with minimal use of powered equipment.<br><br>Preliminaries ~ a detailed survey should include:<br><br>• an assessment of condition of the structure and the impact of removing parts on the remainder.<br>• the effect demolition will have on adjacent properties.<br>• photographic records, particularly of any noticeable defects on adjacent buildings.<br>• neighbourhood impact, ie. disruption, disturbance, protection.<br>• the need for hoardings, see pages 85 to 89.<br>• potential for salvaging/recycling/re-use of materials.<br>• extent of basements and tunnels.<br>• services † need to terminate and protect for future reconnections.<br>• means for selective removal of hazardous materials.<br><br><br>Insurance ~ general builders are unlikely to find demolition cover in their standard policies. All risks indemnity should be considered to cover claims from site personnel and others accessing the site. Additional third party cover will be required for claims for loss or damage to other property, occupied areas, business, utilities, private and public roads.<br><br>Salvage ~ salvaged materials and components can be valuable, bricks, tiles, slates, steel sections and timber are all marketable. Architectural features such as fireplaces and stairs will command a good price. Reclamation costs will be balanced against the financial gain.<br><br>Asbestos ~ this banned material has been used in a variety of applications including pipe insulation, fire protection, sheet claddings, linings and roofing. Samples should be taken for laboratory analysis and if necessary, specialist contractors engaged to remove material before demolition commences.|
+|---|
+
+
+###### Demolition -- Methods
+
+|Generally ~ the reverse order of construction to gradually reduce the height. Where space in not confined, overturning or explosives may be considered.<br><br>Piecemeal ~ use of hand held equipment such as pneumatic breakers, oxy-acetylene cutters, picks and hammers. Care should be taken when salvaging materials and other reusable components. Chutes should be used to direct debris to a suitable place of collection (see page 169).<br><br>Pusher Arm ~ usually attached to a long reach articulated boom fitted to a tracked chassis. Hydraulic movement is controlled from a robust cab structure mounted above the tracks.<br><br>Wrecking Ball ~ largely confined to history, as even with safety features such as anti-spin devices, limited control over a heavy weight swinging and slewing from a crane jib will be considered unsafe in many situations.<br><br>Impact Hammer ~ otherwise known as a ``pecker''. Basically a large chisel operated by pneumatic power and fitted to the end of an articulated boom on a tracked chassis.<br><br>Nibbler ~ a hydraulically operated grip fitted as above that can be rotated to break brittle materials such as concrete.<br><br>Overturning ~ steel wire ropes of at least 38 mm diameter attached at high level and to an anchored winch or heavy vehicle. May be considered where controlled collapse is encouraged by initial removal of key elements of structure, typical of steel framed buildings. Alternative methods should be given preference.<br><br>Explosives ~ demolition is specialised work and the use of explosives in demolition is a further specialised practice limited to very few licensed operators. Charges are set to fire in a sequence that weakens the building to a controlled internal collapse.<br><br>Some additional references ~<br><br>BS 6187: Code of practice for demolition.<br><br>The Construction (Health, Safety and Welfare) Regulations.<br><br>The Management of Health and Safety at Work Regulations.|
+|---|
+
+
+|3 BUILDERS PLANT<br><br>![image 139](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile139.png)<br><br>GENERAL CONSIDERATIONS BULLDOZERS SCRAPERS GRADERS TRACTOR SHOVELS EXCAVATORS TRANSPORT VEHICLES HOISTS RUBBLE CHUTES AND SKIPS CRANES CONCRETING PLANT|
+|---|
+
+
+|General Considerations ~ items of builders plant ranging from small hand held power tools to larger pieces of plant such as mechanical excavators and tower cranes can be considered for use for one or more of the following reasons:-<br><br>1 . Increased production.<br>2. Reduction in overall construction costs.<br>3. Carry out activities which cannot be carried out by the traditional manual methods in the context of economics.<br>4. Eliminate heavy manual work thus reducing fatigue and as a consequence increasing productivity.<br>5. Replacing labour where there is a shortage of personnel with the necessary skills.<br>6. Maintain the high standards required particularly in the context of structural engineering works.<br><br><br>Economic Considerations ~ the introduction of plant does not always result in economic savings since extra temporary site works such as roadworks, hardstandings, foundations and anchorages may have to be provided at a cost which is in excess of the savings made by using the plant. The site layout and circulation may have to be planned around plant positions and movements rather than around personnel and material movements and accommodation. To be economic plant must be fully utilised and not left standing idle since plant, whether hired or owned, will have to be paid for even if it is non-productive. Full utilisation of plant is usually considered to be in the region of 85% of on site time, thus making an allowance for routine, daily and planned maintenance which needs to be carried out to avoid as far as practicable plant breakdowns which could disrupt the construction programme. Many pieces of plant work in conjunction with other items of plant such as excavators and their attendant haulage vehicles therefore a correct balance of such plant items must be obtained to achieve an economic result.<br><br>Maintenance Considerations ~ on large contracts where a number of plant items are to be used it may be advantageous to employ a skilled mechanic to be on site to carry out all the necessary daily, preventive and planned maintenance tasks together with any running repairs which could be carried out on site.|
+|---|
+
+
+###### Builders Plant
+
+|Plant Costing ~ with the exception of small pieces of plant, which are usually purchased, items of plant can be bought or hired or where there are a number of similar items a combination of buying and hiring could be considered. The choice will be governed by economic factors and the possibility of using the plant on future sites thus enabling the costs to be apportioned over several contracts.<br><br>Advantages of Hiring Plant:-<br><br>1 . Plant can be hired for short periods.<br>2. Repairs and replacements are usually the responsibility of the hire company.<br>3. Plant is returned to the hire company after use thus relieving the building contractor of the problem of disposal or finding more work for the plant to justify its purchase or retention.<br>4. Plant can be hired with the operator, fuel and oil included in the hire rate.<br><br><br>Advantages of Buying Plant:-<br><br>1 . Plant availability is totally within the control of the contractor.<br>2. Hourly cost of plant is generally less than hired plant.<br>3. Owner has choice of costing method used.<br><br><br>![image 140](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile140.png)|
+|---|
+
+
+|Output and Cycle Times ~ all items of plant have optimum output and cycle times which can be used as a basis for estimating anticipated productivity taking into account the task involved, task efficiency of the machine, operator's efficiency and in the case of excavators the type of soil. Data for the factors to be taken into consideration can be obtained from timed observations, feedback information or published tables contained in manufacturer's literature or reliable textbooks.<br><br>Typical Example ~<br><br>Backacter with 1 m3 capacity bucket engaged in normal trench excavation in a clayey soil and discharging directly into an attendant haulage vehicle.<br><br>An allowance should be made for the bulking or swell of the solid material due to the introduction of air or voids during the excavation process<br><br>\ Net output allowing for a 30% swell = 36 † (36 0„3)<br><br>= say 25 m3 per hr.<br><br>If the Bill of Quantities gives a total net excavation of 950m3<br><br>time required =<br><br>950 25<br><br>= 38 hours<br><br>or assuming an 8 hour day---1/2 hour maintenance time in<br><br>days =<br><br>38 7„5<br><br>= say 5 days<br><br>Haulage vehicles required = 1 +<br><br>round trip time of vehicle loading time of vehicle<br><br>If round trip time = 30 minutes and loading time = 10 mins.<br><br>number of haulage vehicles required = 1 +<br><br>30 10<br><br>= 4<br><br>This gives a vehicle waiting overlap ensuring excavator is fully utilised which is economically desirable.<br><br>Optimum output = 60 bucket loads per hour Task efficiency factor = 0„8 (from tables) Operator efficiency factor = 75% (typical figure) \ Anticipated output = 60 0„8 0„75<br><br>= 36 bucket loads per hour<br><br>= 36 1 = 36 m3 per hour|
+|---|
+
+
+###### Bulldozers
+
+|Bulldozers ~ these machines consist of a track or wheel mounted power unit with a mould blade at the front which is controlled by hydraulic rams. Many bulldozers have the capacity to adjust the mould blade to form an angledozer and the capacity to tilt the mould blade about a central swivel point. Some bulldozers can also be fitted with rear attachments such as rollers and scarifiers.<br><br>The main functions of a bulldozer are:-<br><br>1 . Shallow excavations up to 300 m deep either on level ground or sidehill cutting.<br>2. Clearance of shrubs and small trees.<br>3. Clearance of trees by using raised mould blade as a pusher arm.<br>4. Acting as a towing tractor.<br>5. Acting as a pusher to scraper machines (see next page).<br><br><br>NB. Bulldozers push earth in front of the mould blade with some side spillage whereas angledozers push and cast the spoil to one side of the mould blade.<br><br>![image 141](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile141.png)<br><br>Note: Protective cab/roll bar to be fitted before use.|
+|---|
+
+
+###### Scrapers
+
+|Scrapers ~ these machines consist of a scraper bowl which is lowered to cut and collect soil where site stripping and levelling operations are required involving large volume of earth. When the scraper bowl is full the apron at the cutting edge is closed to retain the earth and the bowl is raised for travelling to the disposal area. On arrival the bowl is lowered, the apron opened and the spoil pushed out by the tailgate as the machine moves forwards. Scrapers are available in three basic formats:-<br><br>1 . Towed Scrapers † these consist of a four wheeled scraper bowl which is towed behind a power unit such as a crawler tractor. They tend to be slower than other forms of scraper but are useful for small capacities with haul distances up to 300 00.<br>2. Two Axle Scrapers † these have a two wheeled scraper bowl with an attached two wheeled power unit. They are very manoeuvrable with a low rolling resistance and very good traction.<br>3. Three Axle Scrapers † these consist of a two wheeled scraper bowl which may have a rear engine to assist the four wheeled traction engine which makes up the complement. Generally these machines have a greater capacity potential than their counterparts, are easier to control and have a faster cycle time.<br><br><br>To obtain maximum efficiency scrapers should operate downhill if possible, have smooth haul roads, hard surfaces broken up before scraping and be assisted over the last few metres by a pushing vehicle such as a bulldozer.<br><br>![image 142](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile142.png)<br><br>Note: Protective cab/roll bar to be fitted before use.|
+|---|
+
+
+###### Graders
+
+|Graders ~ these machines are similar in concept to bulldozers in that they have a long slender adjustable mould blade, which is usually slung under the centre of the machine. A grader's main function is to finish or grade the upper surface of a large area usually as a follow up operation to scraping or bulldozing. They can produce a fine and accurate finish but do not have the power of a bulldozer therefore they are not suitable for oversite excavation work. The mould blade can be adjusted in both the horizontal and vertical planes through an angle of 300 the latter enabling it to be used for grading sloping banks.<br><br>Two basic formats of grader are available:-<br><br>1 . Four Wheeled † all wheels are driven and steered which gives the machine the ability to offset and crab along its direction of travel.<br>2. Six Wheeled † this machine has 4 wheels in tandem drive at the rear and 2 front tilting idler wheels giving it the ability to counteract side thrust.<br><br><br>![image 143](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile143.png)|
+|---|
+
+
+Tractor Shovels
+
+|Tractor Shovels ~ these machines are sometimes called loaders or loader shovels and primary function is to scoop up loose materials in the front mounted bucket, elevate the bucket and manoeuvre into a position to deposit the loose material into an attendant transport vehicle. Tractor shovels are driven towards the pile of loose material with the bucket lowered, the speed and power of the machine will enable the bucket to be filled. Both tracked and wheeled versions are available, the tracked format being more suitable for wet and uneven ground conditions than the wheeled tractor shovel which has greater speed and manoeuvring capabilities. To increase their versatility tractor shovels can be fitted with a 4 in 1 bucket enabling them to carry out bulldozing, excavating, clam lifting and loading activities.<br><br>![image 144](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile144.png)|
+|---|
+
+
+|Excavating Machines ~ these are one of the major items of builders plant and are used primarily to excavate and load most types of soil. Excavating machines come in a wide variety of designs and sizes but all of them can be placed within one of three categories:-<br><br>1. Universal Excavators † this category covers most forms of excavators all of which have a common factor the power unit. The universal power unit is a tracked based machine with a slewing capacity of 360 and by altering the boom arrangement and bucket type different excavating functions can be obtained. These machines are selected for high output requirements and are rope controlled.<br>2. Purpose Designed Excavators † these are machines which have been designed specifically to carry out one mode of excavation and they usually have smaller bucket capacities than universal excavators; they are hydraulically controlled with a shorter cycle time.<br>3. Multi-purpose Excavators † these machines can perform several excavating functions having both front and rear attachments. They are designed to carry out small excavation operations of low output quickly and efficiently. Multi-purpose excavators can be obtained with a wheeled or tracked base and are ideally suited for a small building firm with low excavation plant utilisation requirements.<br><br><br>Skimmers ~ these excavators are rigged using a universal power unit for surface stripping and shallow excavation work up to 300 mm deep where a high degree of accuracy is required. They usually require attendant haulage vehicles to remove the spoil and need to be transported between sites on a low-loader. Because of their limitations and the alternative machines available they are seldom used today.<br><br>![image 145](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile145.png)|
+|---|
+
+
+|Face Shovels ~ the primary function of this piece of plant is to excavate above its own track or wheel level. They are available as a universal power unit based machine or as a hydraulic purpose designed unit. These machines can usually excavate any type of soil except rock which needs to be loosened, usually by blasting, prior to excavation. Face shovels generally require attendant haulage vehicles for the removal of spoil and a low loader transport lorry for travel between sites. Most of these machines have a limited capacity of between 300 and 400 mm for excavation below their own track or wheel level.<br><br>![image 146](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile146.png)|
+|---|
+
+
+|Backacters ~ these machines are suitable for trench, foundation and basement excavations and are available as a universal power unit base machine or as a purpose designed hydraulic unit. They can be used with or without attendant haulage vehicles since the spoil can be placed alongside the excavation for use in backfilling. These machines will require a low loader transport vehicle for travel between sites. Backacters used in trenching operations with a bucket width equal to the trench width can be very accurate with a high output rating.<br><br>![image 147](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile147.png)|
+|---|
+
+
+|Draglines ~ these machines are based on the universal power unit with basic crane rigging to which is attached a drag bucket. The machine is primarily designed for bulk excavation in loose soils up to 3„000 below its own track level by swinging the bucket out to the excavation position and hauling or dragging it back towards the power unit. Dragline machines can also be fitted with a grab or clamshell bucket for excavating in very loose soils.<br><br>![image 148](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile148.png)|
+|---|
+
+
+|Multi-purpose Excavators ~ these machines are usually based on the agricultural tractor with 2 or 4 wheel drive and are intended mainly for use in conjunction with small excavation works such as those encountered by the small to medium sized building contractor. Most multi-purpose excavators are fitted with a loading/excavating front bucket and a rear backacter bucket both being hydraulically controlled. When in operation using the backacter bucket the machine is raised off its axles by rear mounted hydraulic outriggers or jacks and in some models by placing the front bucket on the ground. Most machines can be fitted with a variety of bucket widths and various attachments such as bulldozer blades, scarifiers, grab buckets and post hole auger borers.<br><br>![image 149](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile149.png)|
+|---|
+
+
+|Transport Vehicles ~ these can be defined as vehicles whose primary function is to convey passengers and/or materials between and around building sites. The types available range from the conventional saloon car to the large low loader lorries designed to transport other items of builders plant between construction sites and the plant yard or depot.<br><br>Vans † these transport vehicles range from the small two person plus a limited amount of materials to the large vans with purpose designed bodies such as those built to carry large sheets of glass. Most small vans are usually fitted with a petrol engine and are based on the manufacturer's standard car range whereas the larger vans are purpose designed with either petrol or diesel engines. These basic designs can usually be supplied with an uncovered tipping or non-tipping container mounted behind the passenger cab for use as a `pick-up' truck.<br><br>Passenger Vehicles † these can range from a simple framed cabin which can be placed in the container of a small lorry or `pick-up' truck to a conventional bus or coach. Vans can also be designed to carry a limited number of seated passengers by having fixed or removable seating together with windows fitted in the van sides thus giving the vehicle a dual function. The number of passengers carried can be limited so that the driver does not have to hold a PSV (public service vehicle) licence.<br><br>Lorries † these are sometimes referred to as haul vehicles and are available as road or site only vehicles. Road haulage vehicles have to comply with all the requirements of the Road Traffic Acts which among other requirements limits size and axle loads. The offhighway or site only lorries are not so restricted and can be designed to carry two to three times the axle load allowed on the public highway. Site only lorries are usually specially designed to traverse and withstand the rough terrain encountered on many construction sites. Lorries are available as non-tipping, tipping and special purpose carriers such as those with removable skips and those equipped with self loading and unloading devices. Lorries specifically designed for the transportation of large items of plant are called low loaders and are usually fitted with integral or removable ramps to facilitate loading and some have a winching system to haul the plant onto the carrier platform.|
+|---|
+
+
+Transport Vehicles
+
+|Dumpers ~ these are used for the horizontal transportation of materials on and off construction sites generally by means of an integral tipping skip. Highway dumpers are of a similar but larger design and can be used to carry materials such as excavated spoil along the roads. A wide range of dumpers are available of various carrying capacities and options for gravity or hydraulic discharge control with front tipping, side tipping or elevated tipping facilities. Special format dumpers fitted with flat platforms, rigs to carry materials skips and rigs for concrete skips for crane hoisting are also obtainable. These machines are designed to traverse rough terrain but they are not designed to carry passengers and this misuse is the cause of many accidents involving dumpers.<br><br>![image 150](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile150.png)|
+|---|
+
+
+|Fork Lift Trucks ~ these are used for the horizontal and limited vertical transportation of materials positioned on pallets or banded together such as brick packs. They are generally suitable for construction sites where the building height does not exceed three storeys. Although designed to negotiate rough terrain site fork lift trucks have a higher productivity on firm and level soils. Three basic fork lift truck formats are available, namely straight mast, overhead and telescopic boom with various height, reach and lifting capacities. Scaffolds onto which the load(s) are to be placed should be strengthened locally or a specially constructed loading tower could be built as an attachment to or as an integral part of the main scaffold.<br><br>![image 151](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile151.png)|
+|---|
+
+
+Hoists
+
+|Hoists ~ these are designed for the vertical transportation of materials, passengers or materials and passengers (see page 168). Materials hoists are designed for one specific use (i.e. the vertical transportation of materials) and under no circumstances should they be used to transport passengers. Most material hoists are of a mobile format which can be dismantled, folded onto the chassis and moved to another position or site under their own power or towed by a haulage vehicle. When in use material hoists need to be stabilised and/or tied to the structure and enclosed with a protective screen.<br><br>![image 152](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile152.png)|
+|---|
+
+
+Hoists
+
+|Passenger Hoists ~ these are designed to carry passengers although most are capable of transporting a combined load of materials and passengers within the lifting capacity of the hoist. A wide selection of hoists are available ranging from a single cage with rope suspension to twin cages with rack and pinion operation mounted on two sides of a static tower.<br><br>![image 153](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile153.png)|
+|---|
+
+
+###### Rubble Chutes and Skips
+
+|Rubble Chutes ~ these apply to contracts involving demolition, repair, maintenance and refurbishment. The simple concept of connecting several perforated dustbins is reputed to have been conceived by an ingenious site operative for the expedient and safe conveyance of materials.<br><br>In purpose designed format, the tapered cylinders are produced from reinforced rubber with chain linkage for continuity. Overall unit lengths are generally 1100 mm, providing an effective length of 1 m. Hoppers and side entry units are made for special applications.<br><br>![image 154](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile154.png)<br><br>Ref. Highways Act † written permit (license) must be obtained from the local authority highways department for use of a skip on a public thoroughfare. It will have to be illuminated at night and may require a temporary traffic light system to regulate vehicles.|
+|---|
+
+
+|Cranes ~ these are lifting devices designed to raise materials by means of rope operation and move the load horizontally within the limitations of any particular machine. The range of cranes available is very wide and therefore choice must be based on the loads to be lifted, height and horizontal distance to be covered, time period(s) of lifting operations, utilisation factors and degree of mobility required. Crane types can range from a simple rope and pulley or gin wheel to a complex tower crane but most can be placed within 1 of 3 groups, namely mobile, static and tower cranes.<br><br>![image 155](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile155.png)|
+|---|
+
+
+|Self Propelled Cranes ~ these are mobile cranes mounted on a wheeled chassis and have only one operator position from which the crane is controlled and the vehicle driven. The road speed of this type of crane is generally low, usually not exceeding 30 km p.h. A variety of self propelled crane formats are available ranging from short height lifting strut booms of fixed length to variable length lattice booms with a fly jib attachment.<br><br>![image 156](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile156.png)|
+|---|
+
+
+|Lorry Mounted Cranes ~ these mobile cranes consist of a lattice or telescopic boom mounted on a specially adapted truck or lorry. They have two operating positions: the lorry being driven from a conventional front cab and the crane being controlled from a different location. The lifting capacity of these cranes can be increased by using outrigger stabilising jacks and the approach distance to the face of building decreased by using a fly jib. Lorry mounted telescopic cranes require a firm surface from which to operate and because of their short site preparation time they are ideally suited for short hire periods.<br><br>![image 157](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile157.png)|
+|---|
+
+
+|Lorry Mounted Lattice Jib Cranes ~ these cranes follow the same basic principles as the lorry mounted telescopic cranes but they have a lattice boom and are designed as heavy duty cranes with lifting capacities in excess of 100 tonnes. These cranes will require a firm level surface from which to operate and can have a folding or sectional jib which will require the crane to be rigged on site before use.<br><br>![image 158](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile158.png)|
+|---|
+
+
+|Track Mounted Cranes ~ these machines can be a universal power unit rigged as a crane (see page 162) or a purpose designed track mounted crane with or without a fly jib attachment. The latter type are usually more powerful with lifting capacities up to 45 tonnes. Track mounted cranes can travel and carry out lifting operations on most sites without the need for special road and hardstand provisions but they have to be rigged on arrival after being transported to site on a low loader lorry.<br><br>![image 159](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile159.png)|
+|---|
+
+
+|Gantry Cranes ~ these are sometimes called portal cranes and consist basically of two `A' frames joined together with a cross member on which transverses the lifting appliance. In small gantry cranes (up to 10 tonnes lifting capacity) the `A' frames are usually wheel mounted and manually propelled whereas in the large gantry cranes (up to 100 tonnes lifting capacity) the `A' frames are mounted on powered bogies running on rail tracks with the driving cab and lifting gear mounted on the cross beam or gantry. Small gantry cranes are used primarily for loading and unloading activities in stock yards whereas the medium and large gantry cranes are used to straddle the work area such as in power station construction or in repetitive low to medium rise developments. All gantry cranes have the advantage of three direction movement †<br><br>1 . Transverse by moving along the cross beam.<br>2. Vertical by raising and lowering the hoist block.<br>3. Horizontal by forward and reverse movements of the whole gantry crane.<br><br><br>![image 160](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile160.png)|
+|---|
+
+
+|Mast Cranes ~ these are similar in appearance to the familiar tower cranes but they have one major difference in that the mast or tower is mounted on the slewing ring and thus rotates whereas a tower crane has the slewing ring at the top of the tower and therefore only the jib portion rotates. Mast cranes are often mobile, self erecting, of relatively low lifting capacity and are usually fitted with a luffing jib. A wide variety of models are available and have the advantage over most mobile low pivot cranes of a closer approach to the face of the building.<br><br>![image 161](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile161.png)|
+|---|
+
+
+|Tower Cranes ~ most tower cranes have to be assembled and erected on site prior to use and can be equipped with a horizontal or luffing jib. The wide range of models available often make it difficult to choose a crane suitable for any particular site but most tower cranes can be classified into one of four basic groups thus:-<br><br>1. Self Supporting Static Tower Cranes † high lifting capacity with the mast or tower fixed to a foundation base † they are suitable for confined and open sites. (see page 178)<br>2. Supported Static Tower Cranes † similar in concept to self supporting cranes and are used where high lifts are required, the mast or tower being tied at suitable intervals to the structure to give extra stability. (see page 179)<br>3. Travelling Tower Cranes † these are tower cranes mounted on power bogies running on a wide gauge railway track to give greater site coverage † only slight gradients can be accommodated therefore a reasonably level site or specially constructed railway support trestle is required. (see page 180)<br>4. Climbing Cranes † these are used in conjunction with tall buildings and structures. The climbing mast or tower is housed within the structure and raised as the height of the structure is increased. Upon completion the crane is dismantled into small sections and lowered down the face of the building. (see page 181)<br><br><br>All tower cranes should be left in an `out of service' condition when unattended and in high wind conditions, the latter varying with different models but generally wind speeds in excess of 60 km p.h. would require the crane to be placed in an out of service condition thus:-<br><br>![image 162](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile162.png)|
+|---|
+
+
+|![image 163](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile163.png)|
+|---|
+
+
+|![image 164](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile164.png)|
+|---|
+
+
+|![image 165](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile165.png)|
+|---|
+
+
+|![image 166](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile166.png)|
+|---|
+
+
+|Concreting ~ this site activity consists of four basic procedures †<br><br>1 . Material Supply and Storage † this is the receiving on site of the basic materials namely cement, fine aggregate and coarse aggregate and storing them under satisfactory conditions. (see Concrete Production † Materials on pages 266 & 267)<br>2. Mixing † carried out in small batches this requires only simple hand held tools whereas when demand for increased output is required mixers or ready mixed supplies could be used. (see Concrete Production on pages 268 to 271 and Concreting Plant on pages 183 to 188)<br>3. Transporting † this can range from a simple bucket to barrows and dumpers for small amounts. For larger loads, especially those required at high level, crane skips could be used:-<br><br>![image 167](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile167.png)<br><br>For the transportation of large volumes of concrete over a limited distance concrete pumps could be used. (see page 186)<br><br>4. Placing Concrete † this activity involves placing the wet concrete in the excavation, formwork or mould; working the concrete between and around any reinforcement; vibrating and/ or tamping and curing in accordance with the recommendations of BS 8110: Structural use of concrete. This standard also covers the striking or removal of the formwork. (see Concreting Plant on page 187 and Formwork on page 478) Further ref. BS 8000-2.1: Workmanship on building sites. Codes of practice for concrete work. Mixing and transporting concrete.<br>|
+|---|
+
+
+|Concrete Mixers ~ apart from the very large output mixers most concrete mixers in general use have a rotating drum designed to produce a concrete without segregation of the mix.<br><br>Concreting Plant ~ the selection of concreting plant can be considered under three activity headings †<br><br>1. Mixing. 2. Transporting. 3. Placing.<br><br>Choice of Mixer ~ the factors to be taken into consideration when selecting the type of concrete mixer required are †<br><br>1 . Maximum output required (m3/hour).<br>2. Total output required (m3).<br>3. Type or method of transporting the mixed concrete.<br>4. Discharge height of mixer (compatibility with transporting method).<br><br><br>Concrete mixer types are generally related to their designed output performance, therefore when the answer to the question `How much concrete can be placed in a given time period?' or alternatively `What mixing and placing methods are to be employed to mix and place a certain amount of concrete in a given time period?' has been found the actual mixer can be selected. Generally a batch mixing time of 5 minutes per cycle or 12 batches per hour can be assumed as a reasonable basis for assessing mixer output.<br><br>Small Batch Mixers ~ these mixers have outputs of up to 200 litres per batch with wheelbarrow transportation an hourly placing rate of 2 to 3 m3 can be achieved. Most small batch mixers are of the tilting drum type. Generally these mixers are hand loaded which makes the quality control of successive mixes difficult to regulate.<br><br>![image 168](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile168.png)|
+|---|
+
+
+|Medium Batch Mixers ~ outputs of these mixers range from 200 to 750 litres and can be obtained at the lower end of the range as a tilting drum mixer or over the complete range as a non-tilting drum mixer with either reversing drum or chute discharge. The latter usually having a lower discharge height. These mixers usually have integral weight batching loading hoppers, scraper shovels and water tanks thus giving better quality control than the small batch mixers. Generally they are unsuitable for wheelbarrow transportation because of their high output.<br><br>![image 169](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile169.png)|
+|---|
+
+
+|Transporting Concrete ~ the usual means of transporting mixed concrete produced in a small capacity mixer is by wheelbarrow. The run between the mixing and placing positions should be kept to a minimum and as smooth as possible by using planks or similar materials to prevent segregation of the mix within the wheelbarrow.<br><br>Dumpers ~ these can be used for transporting mixed concrete from mixers up to 600 litre capacity when fitted with an integral skip and for lower capacities when designed to take a crane skip.<br><br>![image 170](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile170.png)<br><br>Ready Mixed Concrete Trucks ~ these are used to transport mixed concrete from a mixing plant or depot to the site. Usual capacity range of ready mixed concrete trucks is 4 to 6 m3. Discharge can be direct into placing position via a chute or into some form of site transport such as a dumper, crane skip or concrete pump.<br><br>![image 171](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile171.png)|
+|---|
+
+
+|Concrete Pumps ~ these are used to transport large volumes of concrete in a short time period (up to 100 m3 per hour) in both the vertical and horizontal directions from the pump position to the point of placing. Concrete pumps can be trailer or lorry mounted and are usually of a twin cylinder hydraulically driven format with a small bore pipeline (100 mm diameter) with pumping ranges of up to 85„000 vertically and 200„000 horizontally depending on the pump model and the combination of vertical and horizontal distances. It generally requires about 45 minutes to set up a concrete pump on site including coating the bore of the pipeline with a cement grout prior to pumping the special concrete mix. The pump is supplied with pumpable concrete by means of a constant flow of ready mixed concrete lorries throughout the pumping period after which the pipeline is cleared and cleaned. Usually a concrete pump and its operator(s) are hired for the period required.<br><br>![image 172](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile172.png)|
+|---|
+
+
+|Placing Concrete ~ this activity is usually carried out by hand with the objectives of filling the mould, formwork or excavated area to the correct depth, working the concrete around any inserts or reinforcement and finally compacting the concrete to the required consolidation. The compaction of concrete can be carried out using simple tamping rods or boards or alternatively it can be carried out with the aid of plant such as vibrators.<br><br>Poker Vibrators ~ these consist of a hollow steel tube casing in which is a rotating impellor which generates vibrations as its head comes into contact with the casing †<br><br>![image 173](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile173.png)<br><br>Poker vibrators should be inserted vertically and allowed to penetrate 75 mm into any previously vibrated concrete.<br><br>Clamp or Tamping Board Vibrators ~ clamp vibrators are powered either by compressed air or electricity whereas tamping board vibrators are usually petrol driven †<br><br>![image 174](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile174.png)|
+|---|
+
+
+|Power Float † a hand-operated electric motor or petrol engine, surmounted over a mechanical surface skimmer. Machines are provided with an interchangeable revolving disc and a set of blades. These are used in combination to produce a smooth, dense and level surface finish to in-situ concrete beds.<br><br>The advantages offset against the cost of plant hire are:<br><br>* Eliminates the time and materials needed to apply a finishing screed.<br>* A quicker process and less labour-intensive than hand troweling.<br><br><br>Application † after transverse tamping, the concrete is left to partially set for a few hours. Amount of setting time will depend on a number of variables, including air temperature and humidity, mix specification and machine weight. As a rough guide, walking on the concrete will leave indentations of about 3†4 mm. A surfacing disc is used initially to remove high tamping lines, before two passes with blades to finish and polish the surface.<br><br>![image 175](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile175.png)|
+|---|
+
+
+|4 SUBSTRUCTURE<br><br>![image 176](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile176.png)<br><br>FOUNDATIONS † FUNCTION, MATERIALS AND SIZING FOUNDATION BEDS SHORT BORED PILE FOUNDATIONS FOUNDATION TYPES AND SELECTION PILED FOUNDATIONS RETAINING WALLS GABIONS AND MATTRESSES BASEMENT CONSTRUCTION WATERPROOFING BASEMENTS EXCAVATIONS CONCRETE PRODUCTION COFFERDAMS CAISSONS UNDERPINNING GROUND WATER CONTROL SOIL STABILISATION AND IMPROVEMENT CONTAMINATED SUBSOIL TREATMENT|
+|---|
+
+
+###### Foundations---Functions
+
+|Foundations ~ the function of any foundation is to safely sustain and transmit to the ground on which it rests the combined dead, imposed and wind loads in such a manner as not to cause any settlement or other movement which would impair the stability or cause damage to any part of the building.<br><br>![image 177](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile177.png)<br><br>Subsoil beneath foundation is compressed and reacts by exerting an upward pressure to resist foundation loading. If foundation load exceeds maximum passive pressure of ground (i.e. bearing capacity) a downward movement of the foundation could occur. Remedy is to increase plan size of foundation to reduce the load per unit area or alternatively reduce the loadings being carried by the foundations.|
+|---|
+
+
+|Subsoil Movements ~ these are due primarily to changes in volume when the subsoil becomes wet or dry and occurs near the upper surface of the soil. Compact granular soils such as gravel suffer very little movement whereas cohesive soils such as clay do suffer volume changes near the upper surface. Similar volume changes can occur due to water held in the subsoil freezing and expanding † this is called Frost Heave.<br><br>![image 178](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile178.png)|
+|---|
+
+
+|Trees ~ damage to foundations. Substructural damage to buildings can occur with direct physical contact by tree roots. More common is the indirect effect of moisture shrinkage or heave, particularly apparent in clay subsoils.<br><br>Shrinkage is most evident in long periods of dry weather, compounded by moisture abstraction from vegetation. Notably broad leaved trees such as oak, elm and poplar in addition to the thirsty willow species. Heave is the opposite. It occurs during wet weather and is compounded by previous removal of moisture-dependent trees that would otherwise effect some drainage and balance to subsoil conditions.<br><br>![image 179](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile179.png)|
+|---|
+
+
+|Trees ~ effect on foundations. Trees up to 30 m distance may have an effect on foundations, therefore reference to local authority building control policy should be undertaken before specifying construction techniques.<br><br>Traditional strip foundations are practically unsuited, but at excavation depths up to 2„5 or 3„0 m, deep strip or trench fill (preferably reinforced) may be appropriate. Short bored pile foundations are likely to be more economical and particularly suited to depths exceeding 3„0 m.<br><br>For guidance only, the illustration and table provide an indication of foundation depths in shrinkable subsoils.<br><br>![image 180](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile180.png)|
+|---|
+
+
+|Trees ~ preservation orders (see page 109) may be waived by the local planning authority. Permission for tree felling is by formal application and will be considered if the proposed development is in the economic and business interests of the community. However, tree removal is only likely to be acceptable if there is an agreement for replacement stock being provided elsewhere on the site.<br><br>In these circumstances, there is potential for ground heave within the `footprint' of felled trees. To resist this movement, foundations must incorporate an absorbing layer or compressible filler with ground floor suspended above the soil.<br><br>![image 181](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile181.png)|
+|---|
+
+
+###### Foundations---Defect Observation
+
+|Cracking in Walls ~ cracks are caused by applied forces which exceed those that the building can withstand. Most cracking is superficial, occurring as materials dry out and subsequently shrink to reveal minor surface fractures of < 2 mm. These insignificant cracks can be made good with proprietary fillers.<br><br>Severe cracking in walls may result from foundation failure, due to inadequate design or physical damage. Further problems could include:<br><br>A survey should be undertaken to determine:<br><br>1 . The cause of cracking, i.e.<br><br>* Loads applied externally (tree roots, subsoil movement).<br>* Climate/temperature changes (thermal movement).<br>* Moisture content change (faulty dpc, building leakage).<br>* Vibration (adjacent work, traffic).<br>* Changes in physical composition (salt or ice formation).<br>* Chemical change (corrosion, sulphate attack).<br>* Biological change (timber decay).<br><br><br>2. The effect on a building's performance (structural and environmental).<br>3. The nature of movement † completed, ongoing or intermittent (seasonal).<br><br><br>Observations over a period of several months, preferably over a full year, will determine whether the cracking is new or established and whether it is progressing.<br><br>Simple method for monitoring cracks †<br><br>![image 182](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile182.png)<br><br>pencil lines drawn level<br><br>Pencil lines<br><br>Tell-Tales<br><br>Gauge<br><br>crack in wall<br><br>glass strip<br><br>original position of pencil line<br><br>later location of pencil line<br><br>epoxy resin dabs<br><br>nails positioned each side of crack<br><br>micrometer or vernier gauge<br><br>crack<br><br>glass sheared to show crack progression<br><br>Further reading † BRE Digest 251: Assessment of damage in low rise buildings.<br><br>* Structural instability<br>* Air infiltration<br>* Sound insulation reduction<br><br><br>* Rain penetration<br>* Heat loss<br>* Visual depreciation<br>|
+|---|
+
+
+###### Foundations---Materials
+
+|Foundation Materials ~ from page 190 one of the functions of a foundation can be seen to be the ability to spread its load evenly over the ground on which it rests. It must of course be constructed of a durable material of adequate strength. Experience has shown that the most suitable material is concrete.<br><br>Concrete is a mixture of cement + aggregates + water in controlled proportions.<br><br>![image 183](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile183.png)|
+|---|
+
+
+###### Foundation Types
+
+|![image 184](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile184.png)|
+|---|
+
+
+###### Foundation Types
+
+|![image 185](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile185.png)|
+|---|
+
+
+Foundation Beds
+
+|Bed ~ a concrete slab resting on and supported by the subsoil, usually forming the ground floor surface. Beds (sometimes called oversite concrete) are usually cast on a layer of hardcore which is used to make up the reduced level excavation and thus raise the level of the concrete bed to a position above ground level.<br><br>![image 186](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile186.png)|
+|---|
+
+
+###### Foundations---Basic Sizing
+
+|Basic Sizing ~ the size of a foundation is basically dependent on two factors †<br><br>1 . Load being transmitted, max 70 kN/m (dwellings up to 3 storeys).<br>2. Bearing capacity of subsoil under proposed foundation.<br><br><br>Bearing capacities for different types of subsoils may be obtained from tables such as those in BS 8004: Code of practice for foundations and BS 8103-1: Structural design of low rise buildings. Also, directly from soil investigation results.<br><br>![image 187](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile187.png)|
+|---|
+
+
+###### Guide to Strip Foundation Width
+
+|Max. total load on load bearing wall (kN/m) 20 30 40 50 60 70<br><br>Ground type<br><br>Ground condition<br><br>Field test<br><br>Minimum width (mm)<br><br>Rock Not inferior to sandstone, limestone or firm chalk.<br><br>Requires a mechanical device to excavate.<br><br>At least equal to the width of the wall<br><br>Gravel Medium density<br><br>Pick required to excavate.<br><br>Sand Compact 50 mm square peg hard to drive beyond 150 mm.<br><br>250 300 400 500 600 650<br><br>Clay Sandy clay<br><br>Stiff Stiff<br><br>Requires pick or mechanical device to aid removal. Can be indented slightly with thumb.<br><br>250 300 400 500 600 650<br><br>Clay Sandy clay<br><br>Firm Firm<br><br>Can be moulded under substantial pressure by fingers.<br><br>300 350 450 600 750 850<br><br>Sand Silty sand Clayey sand<br><br>Loose Loose Loose<br><br>Can be excavated by spade. 50 mm square peg easily driven.<br><br>400 600<br><br>Silt Soft<br><br>450 650<br><br>Clay Soft Sandy clay Soft Silty clay Soft<br><br>Silt Very soft Clay Very soft Sandy clay Very soft Silty clay Very soft<br><br>Adapted from Table 10 in the Bldg. Regs., A.D: A † Structure.<br><br>Conventional strip foundations unsuitable for a total load<br><br>exceeding 30 kN/m.<br><br>Finger pushed in up to 10 mm. Easily moulded with fingers.<br><br>Finger easily pushed in up to 25 mm. Wet sample exudes between fingers when squeezed.<br><br>Conventional strip inappropriate. Steel reinforced wide strip, deep strip or piled foundation selected subject to specialist advice.|
+|---|
+
+
+###### Foundations---Calculated Sizing
+
+|Typical procedure (for guidance only) †<br><br>![image 188](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile188.png)<br><br>5.0 m<br><br>5.0 m<br><br>1.0 m<br><br>2.5 m<br><br>2.5 m<br><br>2.9 m<br><br>2.9 m<br><br>30°<br><br>30°<br><br>1 m wide strip<br><br>foundation 0.15 m x 0.5 m (assumed)<br><br>Note: For roof pitch >30 , snow load = 0„75 kN/m2 Dead + imposed load is, 26„56 kN + 7„80 kN = 34„36 kN Given that the subsoil has a safe bearing capacity of 75 kN/m2, W = load … bearing capacity = 34„36 … 75 = 0„458 m or 458 mm<br><br>Therefore a foundation width of 500 mm is adequate.<br><br>Note: This example assumes the site is sheltered. If it is necessary to make allowance for wind loading, reference should be made to BS 6399-2: Code of practice for wind loads.<br><br>Dead load per m run (see pages 35 and 36) Substructure brickwork, 1 m 1 m 476 kg/m2 = 476 kg .. .. .. .. cavity conc. (50 mm), 1 m 1 m 2300 kg/m3 = 115 kg Foundation concrete, 0„15 m 1 m 0„5 m 2300 kg/m3<br><br>= 173 kg<br><br>Superstructure brickwork, 5 m 1 m 221 kg/m2 = 1105 kg .. .. .. .. .. blockwork & ins., 5 m 1 m 79 kg/m2 = 395 kg .. .. .. .. .. 2 coat plasterwork, 5 m 1 m 22 kg/m2 = 110 kg Floor joists/boards/plstrbrd., 2„5 m 1 m 42„75 kg/m2 = 107 kg Ceiling joists/plstrbrd/ins., 2„5 m 1 m 19„87 kg/m2 = 50 kg Rafters, battens & felt, 2„9 m 1 m 12„10 kg/m2 = 35 kg Single lap tiling, 2„9 m 1 m 49 kg/m2 = 142 kg<br><br>2708 kg<br><br>Note: kg 9„81 = Newtons Therefore: 2708 kg 9„81 = 26565 N or 26„56 kN Imposed load per m run (see BS 6399-1: Code of practice for dead<br><br>and imposed loads) † Floor, 2„5 m 1 m 1„5 kN/m2 = 3„75 kN Roof, 2„9 m 1 m 1„5 kN/m2 (snow) = 4„05 kN<br><br>7„80 kN<br><br>|
+|---|
+
+
+Stepped Foundations
+
+|Stepped Foundations ~ these are usually considered in the context of strip foundations and are used mainly on sloping sites to reduce the amount of excavation and materials required to produce an adequate foundation.<br><br>![image 189](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile189.png)|
+|---|
+
+
+Simple RC Foundations
+
+|Concrete Foundations ~ concrete is a material which is strong in compression but weak in tension. If its tensile strength is exceeded cracks will occur resulting in a weak and unsuitable foundation. One method of providing tensile resistance is to include in the concrete foundation bars of steel as a form of reinforcement to resist all the tensile forces induced into the foundation. Steel is a material which is readily available and has high tensile strength.<br><br>![image 190](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile190.png)|
+|---|
+
+
+###### Short Bored Pile Foundations
+
+|Short Bored Piles ~ these are a form of foundation which are suitable for domestic loadings and clay subsoils where ground movements can occur below the 1„000 depth associated with traditional strip and trench fill foundations. They can be used where trees are planted close to a new building since the trees may eventually cause damaging ground movements due to extracting water from the subsoil and root growth. Conversely where trees have been removed this may lead to ground swelling.<br><br>Typical Details ~<br><br>![image 191](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile191.png)<br><br>40 mm thick sand or lean concrete blinding<br><br>damp-proof course<br><br>damp-proof membrane<br><br>mass concrete ground floor<br><br>compacted hardcore<br><br>reinforced concrete ground beam cast in trench over short bored pile heads size of beam and reinforcement to design or from tables<br><br>250 to 300 mm diameter according to design<br><br>bored and cast in-situ piles of mass concrete maximum spacing to design<br><br>piles formed by lorry or tractor mounted auger capable of drilling 80 piles per day<br><br>ground level<br><br>cavity filling<br><br>external wall<br><br>cavity insulation<br><br>50 mm rigid insulation<br><br>floor screed<br><br>depth of pile governed by level of suitable bearing capacity ground and/or stability of clay subsoil — economic maximum depth 4.500<br><br>typical spacing of piles 1.800 to 2.500<br><br>typical loading 40 to 125 kN per pile<br><br>|
+|---|
+
+
+###### Simple RC Raft Foundations
+
+|Simple Raft Foundations ~ these can be used for lightly loaded buildings on poor soils or where the top 450 to 600 mm of soil is overlaying a poor quality substrata.<br><br>Typical Details ~<br><br>![image 192](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile192.png)<br><br>cavity insulation<br><br>external wall<br><br>floor screed<br><br>rigid insulation damp-proof membrane<br><br>damp-proof course<br><br>damp-proof cavity tray min. 150 mm step<br><br>75 mm thick rolled sand or similar blinding<br><br>edge thickening to 150 mm min. thick RC raft<br><br>300<br><br>225<br><br>450 225<br><br>weep holes at 900 c/c<br><br>REINFORCED CONCRETE RAFT WITH EDGE THICKENING<br><br>REINFORCED CONCRETE RAFT WITH EDGE BEAM<br><br>![image 193](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile193.png)<br><br>floor screed<br><br>rigid insulation cavity insulation<br><br>cavity tray<br><br>ground level<br><br>external wall<br><br>dpc<br><br>damp-proof membrane steel fabric reinforcement<br><br>150 mm min. thick RC raft forming ground floor slab<br><br>225<br><br>300 min.<br><br>750minimum<br><br>mass concrete edge beam<br><br>225<br><br>compacted hardcore with upper surface blinded with 50 mm coarse sand|
+|---|
+
+
+0
+
+5
+
+|Foundation Design Principles ~ the main objectives of foundation design are to ensure that the structural loads are transmitted to the subsoil(s) safely, economically and without any unacceptable movement during the construction period and throughout the anticipated life of the building or structure.<br><br>Basic Design Procedure ~ this can be considered as a series of steps or stages †<br><br>1. Assessment of site conditions in the context of the site and soil investigation report.<br>2. Calculation of anticipated structural loading(s).<br>3. Choosing the foundation type taking into consideration †<br><br>a. Soil conditions;<br>b. Type of structure;<br>c. Structural loading(s);<br>d. Economic factors;<br>e. Time factors relative to the proposed contract period;<br>f. Construction problems.<br><br><br>4. Sizing the chosen foundation in the context of loading(s), ground bearing capacity and any likely future movements of the building or structure.<br><br><br>Foundation Types ~ apart from simple domestic foundations most foundation types are constructed in reinforced concrete and may be considered as being shallow or deep. Most shallow types of foundation are constructed within 2„000 of the ground level but in some circumstances it may be necessary to take the whole or part of the foundations down to a depth of 2„000 to 5„000 as in the case of a deep basement where the structural elements of the basement are to carry the superstructure loads. Generally foundations which need to be taken below 5„000 deep are cheaper when designed and constructed as piled foundations and such foundations are classified as deep foundations. (For piled foundation details see pages 212 to 229)<br><br>Foundations are usually classified by their type such as strips, pads, rafts and piles. It is also possible to combine foundation types such as strip foundations connected by beams to and working in conjunction with pad foundations.|
+|---|
+
+
+|Strip Foundations ~ these are suitable for most subsoils and light structural loadings such as those encountered in low to medium rise domestic dwellings where mass concrete can be used. Reinforced concrete is usually required for all other situations.<br><br>![image 194](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile194.png)|
+|---|
+
+
+|Pad Foundations ~ suitable for most subsoils except loose sands, loose gravels and filled areas. Pad foundations are usually constructed of reinforced concrete and where possible are square in plan.<br><br>![image 195](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile195.png)|
+|---|
+
+
+|Raft Foundations ~ these are used to spread the load of the superstructure over a large base to reduce the load per unit area being imposed on the ground and this is particularly useful where low bearing capacity soils are encountered and where individual column loads are heavy.<br><br>![image 196](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile196.png)|
+|---|
+
+
+|Cantilever Foundations ~ these can be used where it is necessary to avoid imposing any pressure on an adjacent foundation or underground service.<br><br>![image 197](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile197.png)|
+|---|
+
+
+|Piled Foundations ~ these can be defined as a series of columns constructed or inserted into the ground to transmit the load(s) of a structure to a lower level of subsoil. Piled foundations can be used when suitable foundation conditions are not present at or near ground level making the use of deep traditional foundations uneconomic. The lack of suitable foundation conditions may be caused by:-<br><br>1. Natural low bearing capacity of subsoil.<br>2. High water table † giving rise to high permanent dewatering costs.<br>3. Presence of layers of highly compressible subsoils such as peat and recently placed filling materials which have not sufficiently consolidated.<br>4. Subsoils which may be subject to moisture movement or plastic failure.<br><br><br>Classification of Piles ~ piles may be classified by their basic design function or by their method of construction:-<br><br>![image 198](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile198.png)|
+|---|
+
+
+|Replacement Piles ~ these are often called bored piles since the removal of the spoil to form the hole for the pile is always carried out by a boring technique. They are used primarily in cohesive subsoils for the formation of friction piles and when forming pile foundations close to existing buildings where the allowable amount of noise and/or vibration is limited.<br><br>![image 199](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile199.png)|
+|---|
+
+
+|Percussion Bored Piles<br><br>![image 200](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile200.png)|
+|---|
+
+
+|Flush Bored Piles<br><br>![image 201](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile201.png)|
+|---|
+
+
+|Small Diameter Rotary Bored Piles<br><br>![image 202](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile202.png)|
+|---|
+
+
+|Large Diameter Rotary Bored Piles<br><br>![image 203](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile203.png)|
+|---|
+
+
+|Displacement Piles ~ these are often called driven piles since they are usually driven into the ground displacing the earth around the pile shaft. These piles can be either preformed or partially preformed if they are not cast in-situ and are available in a wide variety of types and materials. The pile or forming tube is driven into the required position to a predetermined depth or to the required `set' which is a measure of the subsoils resistance to the penetration of the pile and hence its bearing capacity by noting the amount of penetration obtained by a fixed number of hammer blows.<br><br>![image 204](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile204.png)|
+|---|
+
+
+|Timber Piles ~ these are usually square sawn and can be used for small contracts on sites with shallow alluvial deposits overlying a suitable bearing strata (e.g. river banks and estuaries.) Timber piles are percussion driven.<br><br>![image 205](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile205.png)|
+|---|
+
+
+|Preformed Concrete Piles ~ variety of types available which are generally used on medium to large contracts of not less than one hundred piles where soft soil deposits overlie a firmer strata. These piles are percussion driven using a drop or single acting hammer.<br><br>![image 206](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile206.png)|
+|---|
+
+
+|Preformed Concrete Piles † jointing with a peripheral steel splicing collar as shown on the preceding page is adequate for most concentrically or directly loaded situations. Where very long piles are to be used and/or high stresses due to compression, tension and bending from the superstructure or the ground conditions are anticipated, the 4 or 8 lock pile joint [AARSLEFF PILING] may be considered.<br><br>![image 207](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile207.png)<br><br>hardwood or dense plastic driving plate removed<br><br>steel dowel with void for pin<br><br>treated steel shutter and pile lock bonded to pile reinforcement<br><br>* upper section as lower section but inverted and dowels located over holes<br><br>lower preformed concrete pile section*<br><br>high tensile steel locking pin<br><br>|Pile dimensions (mm)|Possible No. of locks per joint|
+|---|---|
+|250 250, 300 300, 350 350 and 400 400 350 350, 400 400 and 450 450|4<br><br>8|
+<br><br>P<br><br>2<br>3 3<br><br><br>|
+|---|
+
+
+|Steel Box and `H' Sections ~ standard steel sheet pile sections can be used to form box section piles whereas the `H' section piles are cut from standard rolled sections. These piles are percussion driven and are used mainly in connection with marine structures.<br><br>![image 208](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile208.png)<br><br>Steel Screw Piles ~ rotary driven and used for dock and jetty works where support at shallow depths in soft silts and sands is required.<br><br>![image 209](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile209.png)|
+|---|
+
+
+|Steel Tube Piles ~ used on small to medium size contracts for marine structures and foundations in soft subsoils over a suitable bearing strata. Tube piles are usually bottom driven with an internal drop hammer. The loading can be carried by the tube alone but it is usual to fill the tube with mass concrete to form a composite pile. Reinforcement, except for pile cap bonding bars, is not normally required.<br><br>![image 210](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile210.png)|
+|---|
+
+
+|Partially Preformed Piles ~ these are composite piles of precast concrete and in-situ concrete or steel and in-situ concrete (see page 223). These percussion driven piles are used on medium to large contracts where bored piles would not be suitable owing to running water or very loose soils.<br><br>![image 211](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile211.png)|
+|---|
+
+
+|Driven In-situ Piles ~ used on medium to large contracts as an alternative to preformed piles particularly where final length of pile is a variable to be determined on site.<br><br>![image 212](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile212.png)|
+|---|
+
+
+|Cast In-situ Piles ~ an alternative to the driven in-situ piles (see page 225)<br><br>![image 213](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile213.png)|
+|---|
+
+
+|Piling Hammers ~ these are designed to deliver an impact blow to the top of the pile to be driven. The hammer weight and drop height is chosen to suit the pile type and nature of subsoil(s) through which it will be driven. The head of the pile being driven is protected against damage with a steel helmet which is padded with a sand bed or similar material and is cushioned with a plastic or hardwood block called a dolly.<br><br>Drop Hammers ~ these are blocks of iron with a rear lug(s) which locate in the piling rig guides or leaders and have a top eye for attachment of the winch rope. The number of blows which can be delivered with a free fall of 1„200 to 1„500 ranges from 10 to 20 per minute. The weight of the hammer should be not less than 50% of the concrete or steel pile weight and 1 to 1„5 times the weight of a timber pile.<br><br>Single Acting Hammers ~ these consist of a heavy falling cylinder raised by steam or compressed air sliding up and down a fixed piston. Guide lugs or rollers are located in the piling frame leaders to maintain the hammer position relative to the pile head. The number of blows delivered ranges from 36 to 75 per minute with a total hammer weight range of 2 to 15 tonnes.<br><br>![image 214](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile214.png)|
+|---|
+
+
+|Double Acting Hammers ~ these consist of a cast iron cylinder which remains stationary on the pile head whilst a ram powered by steam or compressed air for both up and down strokes delivers a series of rapid blows which tends to keep the pile on the move during driving. The blow delivered is a smaller force than that from a drop or single acting hammer. The number of blows delivered ranges from 95 to 300 per minute with a total hammer weight range of 0„7 to 6„5 tonnes. Diesel powered double acting hammers are also available.<br><br>Diesel Hammers ~ these are self contained hammers which are located in the leaders of a piling rig and rest on the head of the pile. The driving action is started by raising the ram within the cylinder which activates the injection of a measured amount of fuel. The free falling ram compresses the fuel above the anvil causing the fuel to explode and expand resulting in a downward force on the anvil and upward force which raises the ram to recommence the cycle which is repeated until the fuel is cut off. The number of blows delivered ranges from 40 to 60 per minute with a total hammer weight range of 1„0 to 4„5 tonnes.<br><br>![image 215](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile215.png)|
+|---|
+
+
+|Pile Caps ~ piles can be used singly to support the load but often it is more economical to use piles in groups or clusters linked together with a reinforced concrete cap. The pile caps can also be linked together with reinforced concrete ground beams.<br><br>The usual minimum spacing for piles is:-<br><br>1 . Friction Piles † 1„100 or not less than 3 pile diameter, whichever is the greater.<br>2. Bearing Piles † 750 mm or not less than 2 pile diameter, whichever is the greater.<br><br><br>![image 216](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile216.png)<br><br>Pile Testing ~ it is advisable to test load at least one pile per scheme. The test pile should be overloaded by at least 50% of its working load and this load should be held for 24 hours. The test pile should not form part of the actual foundations. Suitable testing methods are:-<br><br>1 . Jacking against kentledge placed over test pile.<br>2. Jacking against a beam fixed to anchor piles driven in on two sides of the test pile.<br>|
+|---|
+
+
+Retaining Walls up to 1 m High---1
+
+|Retaining Walls ~ the major function of any retaining wall is to act as on earth retaining structure for the whole or part of its height on one face, the other being exposed to the elements. Most small height retaining walls are built entirely of brickwork or a combination of brick facing and blockwork or mass concrete backing. To reduce hydrostatic pressure on the wall from ground water an adequate drainage system in the form of weep holes should be used, alternatively subsoil drainage behind the wall could be employed.<br><br>![image 217](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile217.png)|
+|---|
+
+
+Retaining Walls up to 1 m High---2
+
+|Small Height Retaining Walls ~ retaining walls must be stable and the usual rule of thumb for small height brick retaining walls is for the height to lie between 2 and 4 times the wall thickness. Stability can be checked by applying the middle third rule †<br><br>![image 218](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile218.png)|
+|---|
+
+
+|Retaining Walls up to 6„000 high ~ these can be classified as medium height retaining walls and have the primary function of retaining soils at an angle in excess of the soil's natural angle of repose. Walls within this height range are designed to provide the necessary resistance by either their own mass or by the principles of leverage.<br><br>Design ~ the actual design calculations are usually carried out by a structural engineer who endeavours to ensure that:-<br><br>1 . Overturning of the wall does not occur.<br>2. Forward sliding of the wall does not occur.<br>3. Materials used are suitable and not overstressed.<br>4. The subsoil is not overloaded.<br>5. In clay subsoils slip circle failure does not occur.<br><br><br>The factors which the designer will have to take into account:-<br><br>1 . Nature and characteristics of the subsoil(s).<br>2. Height of water table † the presence of water can create hydrostatic pressure on the rear face of the wall, it can also affect the bearing capacity of the subsoil together with its shear strength, reduce the frictional resistance between the underside of the foundation and the subsoil and reduce the passive pressure in front of the toe of the wall.<br>3. Type of wall.<br>4. Material(s) to be used in the construction of the wall.<br><br><br>![image 219](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile219.png)|
+|---|
+
+
+|Earth Pressures ~ these can take one of two forms namely:-<br><br>1 . Active Earth Pressures † these are those pressures which tend to move the wall at all times and consist of the wedge of earth retained plus any hydrostatic pressure. The latter can be reduced by including a subsoil drainage system behind and/or through the wall.<br>2. Passive Earth Pressures ~ these are a reaction of an equal and opposite force to any imposed pressure thus giving stability by resisting movement.<br><br><br>![image 220](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile220.png)|
+|---|
+
+
+|Mass Retaining Walls ~ these walls rely mainly on their own mass to overcome the tendency to slide forwards. Mass retaining walls are not generally considered to be economic over a height of 1„800 when constructed of brick or concrete and 1„000 high in the case of natural stonework. Any mass retaining wall can be faced with another material but generally any applied facing will not increase the strength of the wall and is therefore only used for aesthetic reasons.<br><br>![image 221](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile221.png)|
+|---|
+
+
+|![image 222](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile222.png)|
+|---|
+
+
+|Cantilever Retaining Walls ~ these are constructed of reinforced concrete with an economic height range of 1„200 to 6„000. They work on the principles of leverage where the stem is designed as a cantilever fixed at the base and base is designed as a cantilever fixed at the stem. Several formats are possible and in most cases a beam is placed below the base to increase the total passive resistance to sliding. Facing materials can be used in a similar manner to that shown on page 235.<br><br>![image 223](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile223.png)|
+|---|
+
+
+|Formwork ~ concrete retaining walls can be cast in one of three ways † full height; climbing (page 238) or against earth face (page 239).<br><br>Full Height Casting ~ this can be carried out if the wall is to be cast as a freestanding wall and allowed to cure and gain strength before the earth to be retained is backfilled behind the wall. Considerations are the height of the wall, anticipated pressure of wet concrete, any strutting requirements and the availability of suitable materials to fabricate the formwork. As with all types of formwork a traditional timber format or a patent system using steel forms could be used.<br><br>![image 224](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile224.png)|
+|---|
+
+
+|Climbing Formwork or Lift Casting ~ this method can be employed on long walls, high walls or where the amount of concrete which can be placed in a shift is limited.<br><br>![image 225](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile225.png)|
+|---|
+
+
+|Casting Against Earth Face ~ this method can be an adaptation of the full height or climbing formwork systems. The latter uses a steel wire loop tie fixing to provide the support for the second and subsequent lifts.<br><br>![image 226](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile226.png)|
+|---|
+
+
+###### Retaining Walls---Reinforced Masonry
+
+|Masonry units † these are an option where it is impractical or cost-ineffective to use temporary formwork to in-situ concrete. Exposed brick or blockwork may also be a preferred finish. In addition to being a structural component, masonry units provide permanent formwork to reinforced concrete poured into the voids created by:<br><br>* Quetta bonded standard brick units, OR<br>* Stretcher bonded standard hollow dense concrete blocks.<br><br><br>![image 227](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile227.png)<br><br>vertical reinforcement bars<br><br>void filled with steel reinforced concrete from foundation<br><br>concrete filling in voids<br><br>Elevation, as Flemish bond<br><br>Elevation<br><br>steel bar reinforcement<br><br>Plan<br><br>250 mm Plan<br><br>327 mm<br><br>1 12 B or<br><br>Reinforced quetta bonded brickwork<br><br>Reinforced hollow concrete blocks<br><br>Standard hollow concrete block to BS 6073-2<br><br>Purpose made hollow block for use with additional horizontal reinforcement<br><br>440 mm<br><br>60-250 mm<br><br>215 mm<br><br>|
+|---|
+
+
+###### Post-Tensioned Retaining Wall
+
+|Construction † a reinforced concrete base is cast with projecting steel bars accurately located for vertical continuity. The wall may be built solid, e.g. Quetta bond, with voids left around the bars for subsequent grouting. Alternatively, the wall may be of wide cavity construction, where the exposed reinforcement is wrapped in `denso' grease tape for protection against corrosion. Steel bars are threaded at the top to take a tensioning nut over a bearing plate.<br><br>Typical post-tensioned masonry retaining wall<br><br>![image 228](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile228.png)<br><br>precast concrete padstone<br><br>nut and bearing plate<br><br>upper ground level<br><br>granular backfill<br><br>ground water drain<br><br>post-tensioning bar reinforcement in concrete foundation<br><br>masonry cavity wall<br><br>grease tape corrosion protection to steel bars if void left open<br><br>lower ground level<br><br>![image 229](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile229.png)<br><br>post-tensioning nuts on threaded steel<br><br>threaded socket couplers<br><br>masonry wall<br><br>bearing plate<br><br>reinforcement grouted into voids in perforated bricks<br><br>curtailed bars<br><br>base retention plate<br><br>interim nuts and bearing plate<br><br>continuity reinforcement from base<br><br>Staged post-tensioning to high masonry retaining walls BS 5628-2: Code of practice for use of masonry. Structural use of reinforced and prestressed masonry.|
+|---|
+
+
+###### Retaining Walls---Cribs
+
+|Crib Retaining Walls † a system of pre-cast concrete or treated timber components comprising headers and stretchers which interlock to form a three-dimensional framework. During assembly the framework is filled with graded stone to create sufficient mass to withstand ground pressures.<br><br>![image 230](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile230.png)<br><br>batter 1:4 timber 1:6– 8 concrete<br><br>headers<br><br>stretchers with joints staggered<br><br>concrete foundation with surface of incline finished rough<br><br>Note: height limited to 10 m with timber<br><br>upper ground<br><br>graded granular fill within cribs and up to 1 m behind wall<br><br>subsoil drain<br><br>lower ground<br><br>![image 231](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile231.png)<br><br>stretcher 100 × 50 mm up to 2.2 m long<br><br>header 100 × 50 mm, 0.6–1.4 m long spaced at 550 mm<br><br>stretcher 1.2 or 1.5 m<br><br>Timber preserved with copper/chrome/arsenic<br><br>Reinforced concrete, sulphate resisting 50 N/mm2<br><br>header<br><br>header 300 × 125 mm, 0.65, 1.2 or 1.6 m long<br><br>header stretcher<br><br>stretcher<br><br>Principle †<br><br>Components †|
+|---|
+
+
+###### Soil Nailing
+
+|Soil Nailing ~ a cost effective geotechnic process used for retaining large soil slopes, notably highway and railway embankments.<br><br>Function ~ after excavating and removing the natural slope support, the remaining wedge of exposed unstable soil is pinned or nailed back with tendons into stable soil behind the potential slip plane.<br><br>Types of Soil Nails or Tendons ~<br><br>• Solid deformed steel rods up to 50 mm in diameter, located in bore holes up to 100 mm in diameter. Cement grout is pressurised into the void around the rods.<br>• Hollow steel, typically 100 mm diameter tubes with an expendable auger attached. Cement grout is injected into the tube during boring to be ejected through purpose-made holes in the auger.<br>• Solid glass reinforced plastic (GRP) with resin grouts.<br><br><br>Embankment Treatment ~ the exposed surface is faced with a plastic coated wire mesh to fit over the ends of the tendons. A steel head plate is fitted over and centrally bolted to each projecting tendon, followed by spray concreting to the whole face.<br><br>Typical Application ~<br><br>![image 232](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile232.png)<br><br>soil nails at 10ƒ incline, 1.5 to 2.5 m spacing and at up to 20 m depth<br><br>unstable soil<br><br>plant mounted drilling rig<br><br>natural support angle of soil<br><br>70ƒ cut<br><br>potential slip plane<br><br>tendon|
+|---|
+
+
+###### Gabions and Mattresses
+
+|Gabion ~ a type of retaining wall produced from individual rectangular boxes made from panels of wire mesh, divided internally and filled with stones. These units are stacked and overlapped (like stretcher bonded masonry) and applied in several layers or courses to retained earth situations. Typical sizes, 1„0 m long x 0„5 m wide x 0„5 m high, up to 4„0 m long x 1„0 m wide x 1„0 m high.<br><br>Mattress ~ unit fabrication is similar to a gabion but of less thickness, smaller mesh and stone size to provide some flexibility and shaping potential. Application is at a much lower incline. Generally used next to waterways for protection against land erosion where tidal movement and/or water level differentials could scour embankments. Typical sizes, 3„0 m long x 2„0 m wide x 0„15 m thick, up to 6„0 m long x 2„0 m wide x 0„3 m thick.<br><br>![image 233](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile233.png)<br><br>Gabion wall<br><br>foundation to suit situation<br><br>horizontally laid staggered units dry jointed and angled to suit height and type of retained soil<br><br>units laid across the slope with joints staggered<br><br>sloped and protected embankment<br><br>Mattress wall<br><br>natural drainage through stone<br><br>filling water at variable levels<br><br>![image 234](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile234.png)<br><br>length<br><br>Woven mesh box<br><br>selvedge wire plastic coated hexagon mesh fabric<br><br>loose stone filling<br><br>height or thickness<br><br>width|
+|---|
+
+
+Retaining Walls---Design Calculations
+
+|Design of Retaining Walls ~ this should allow for the effect of hydrostatics or water pressure behind the wall and the pressure created by the retained earth (see page 233). Calculations are based on a 1 m unit length of wall, from which it is possible to ascertain:<br><br>![image 235](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile235.png)|
+|---|
+
+
+###### Retaining Walls---Coulomb’s Wedge Theory
+
+|A graphical design solution, to determine the earth thrust (P) behind a retaining wall. Data from previous page: h = 3„300 m<br><br>= 30 w = 1500 kg/m3<br><br>![image 236](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile236.png)<br><br>Wall height is drawn to scale and plane of repose plotted. The wedge section is obtained by drawing the plane of rupture through an angle bisecting the plane of repose and vertical back of the wall. Dimension `y' can be scaled or calculated:<br><br>Tangent x =<br><br>y 3„3<br><br>x = 30 ; and tan 30 = 0„5774<br><br>therefore, y = 3„3 0„5774 = 1„905 m<br><br>Area of wedge section =<br><br>3„3 2<br><br>1„905 m = 3„143 m2 Volume of wedge per metre run of wall = 3„143 x 1 = 3„143 m3 Weight .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. = 3„143 1500 = 4715 kg<br><br>Vector line A † B is drawn to a scale through centre of gravity of wedge section, line of thrust and plane of rupture to represent 4715 kg.<br>Vector line B † C is drawn at the angle of earth friction (usually same as angle of repose, i.e. 30 in this case), to the normal to the plane of rupture until it meets the horizontal line C † A.<br><br><br>Triangle ABC represents the triangle of forces for the wedge section of earth, so C † A can be scaled at 2723 kg to represent (P), the earth thrust behind the retaining wall.|
+|---|
+
+
+|Open Excavations ~ one of the main problems which can be encountered with basement excavations is the need to provide temporary support or timbering to the sides of the excavation. This can be intrusive when the actual construction of the basement floor and walls is being carried out. One method is to use battered excavation sides cut back to a safe angle of repose thus eliminating the need for temporary support works to the sides of the excavation.<br><br>![image 237](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile237.png)<br><br>In economic terms the costs of plant and manpower to cover the extra excavation, backfilling and consolidating must be offset by the savings made by omitting the temporary support works to the sides of the excavation. The main disadvantage of this method is the large amount of free site space required.|
+|---|
+
+
+|Perimeter Trench Excavations ~ in this method a trench wide enough for the basement walls to be constructed is excavated and supported with timbering as required. It may be necessary for runners or steel sheet piling to be driven ahead of the excavation work. This method can be used where weak subsoils are encountered so that the basement walls act as permanent timbering whilst the mound or dumpling is excavated and the base slab cast. Perimeter trench excavations can also be employed in firm subsoils when the mechanical plant required for excavating the dumpling is not available at the right time.<br><br>![image 238](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile238.png)|
+|---|
+
+
+|Complete Excavation ~ this method can be used in firm subsoils where the centre of the proposed basement can be excavated first to enable the basement slab to be cast thus giving protection to the subsoil at formation level. The sides of excavation to the perimeter of the basement can be supported from the formation level using raking struts or by using raking struts pitched from the edge of the basement slab.<br><br>![image 239](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile239.png)|
+|---|
+
+
+|Excavating Plant ~ the choice of actual pieces of plant to be used in any construction activity is a complex matter taking into account many factors. Specific details of various types of excavators are given on pages 159 to 163. At this stage it is only necessary to consider basic types for particular operations. In the context of basement excavation two forms of excavator could be considered.<br><br>![image 240](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile240.png)|
+|---|
+
+
+|Basement Construction ~ in the general context of buildings a basement can be defined as a storey which is below the ground storey and is therefore constructed below ground level. Most basements can be classified into one of three groups:-<br><br>![image 241](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile241.png)|
+|---|
+
+
+###### Basement Construction
+
+|Deep Basement Construction ~ basements can be constructed within a cofferdam or other temporary supported excavation (see Basement Excavations on pages 247 to 249) up to the point when these methods become uneconomic, unacceptable or both due to the amount of necessary temporary support work. Deep basements can be constructed by installing diaphragm walls within a trench and providing permanent support with ground anchors or by using the permanent lateral support given by the internal floor during the excavation period (see next page). Temporary lateral support during the excavation period can be provided by lattice beams spanning between the diaphragm walls (see next page).<br><br>![image 242](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile242.png)<br><br>NB. vertical ground anchors installed through the lowest floor can be used to overcome any tendency to flotation during the construction period|
+|---|
+
+
+|![image 243](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile243.png)|
+|---|
+
+
+|Waterproofing Basements ~ basements can be waterproofed by one of three basic methods namely:-<br><br>1 . Use of dense monolithic concrete walls and floor<br>2. Tanking techniques (see pages 256 & 257)<br>3. Drained cavity system (see page 258)<br><br><br>Dense Monolithic Concrete † the main objective is to form a watertight basement using dense high quality reinforced or prestressed concrete by a combination of good materials, good workmanship, attention to design detail and on site construction methods. If strict control of all aspects is employed a sound watertight structure can be produced but it should be noted that such structures are not always water vapourproof. If the latter is desirable some waterproof coating, lining or tanking should be used. The watertightness of dense concrete mixes depends primarily upon two factors:-<br><br>1 . Water/cement ratio.<br>2. Degree of compaction.<br><br><br>The hydration of cement during the hardening process produces heat therefore to prevent early stage cracking the temperature changes within the hardening concrete should be kept to a minimum. The greater the cement content the more is the evolution of heat therefore the mix should contain no more cement than is necessary to fulfil design requirements. Concrete with a free water/cement ratio of 0.5 is watertight and although the permeability is three time more at a ratio of 0.6 it is for practical purposes still watertight but above this ratio the concrete becomes progressively less watertight. For lower water/ cement ratios the workability of the mix would have to be increased, usually by adding more cement, to enable the concrete to be fully compacted.<br><br>Admixtures † if the ingredients of good design, materials and workmanship are present watertight concrete can be produced without the use of admixtures. If admixtures are used they should be carefully chosen and used to obtain a specific objective:-<br><br>1 . Water-reducing admixtures † used to improve workability<br>2. Retarding admixtures † slow down rate of hardening<br>3. Accelerating admixtures † increase rate of hardening † useful for low temperatures † calcium chloride not suitable for reinforced concrete.<br>4. Water-repelling admixtures † effective only with low water head, will not improve poor quality or porous mixes.<br>5. Air-entraining admixtures † increases workability † lowers water content.<br>|
+|---|
+
+
+|Joints ~ in general these are formed in basement constructions to provide for movement accommodation (expansion joints) or to create a convenient stopping point in the construction process (construction joints). Joints are lines of weakness which will leak unless carefully designed and constructed therefore they should be simple in concept and easy to construct.<br><br>Basement slabs ~ these are usually designed to span in two directions and as a consequence have relatively heavy top and bottom reinforcement. To enable them to fulfil their basic functions they usually have a depth in excess of 250 mm. The joints, preferably of the construction type, should be kept to a minimum and if waterbars are specified they must be placed to ensure that complete compaction of the concrete is achieved.<br><br>![image 244](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile244.png)|
+|---|
+
+
+|Mastic Asphalt Tanking ~ the objective of tanking is to provide a continuous waterproof membrane which is applied to the base slab and walls with complete continuity between the two applications. The tanking can be applied externally or internally according to the circumstances prevailing on site. Alternatives to mastic asphalt are polythene sheeting: bituminous compounds: epoxy resin compounds and bitumen laminates.<br><br>External Mastic Asphalt Tanking ~ this is the preferred method since it not only prevents the ingress of water it also protects the main structure of the basement from aggressive sulphates which may be present in the surrounding soil or ground water.<br><br>![image 245](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile245.png)|
+|---|
+
+
+|Internal Mastic Asphalt Tanking ~ this method should only be adopted if external tanking is not possible since it will not give protection to the main structure and unless adequately loaded may be forced away from the walls and/or floor by hydrostatic pressure. To be effective the horizontal and vertical coats of mastic asphalt must be continuous.<br><br>![image 246](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile246.png)|
+|---|
+
+
+|Drained Cavity System ~ this method of waterproofing basements can be used for both new and refurbishment work. The basic concept is very simple in that it accepts that a small amount of water seepage is possible through a monolithic concrete wall and the best method of dealing with such moisture is to collect it and drain it away. This is achieved by building an inner non-load bearing wall to form a cavity which is joined to a floor composed of special triangular tiles laid to falls which enables the moisture to drain away to a sump from which it is either discharged direct or pumped into the surface water drainage system. The inner wall should be relatively vapour tight or alternatively the cavity should be ventilated.<br><br>![image 247](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile247.png)|
+|---|
+
+
+###### Insulation on Basements
+
+|Basements benefit considerably from the insulating properties of the surrounding soil. However, that alone is insufficient to satisfy the typical requirements for wall and floor U-values of 0„35 and 0„30 W/m2K, respectively.<br><br>Refurbishment of existing basements may include insulation within dry lined walls and under the floor screed or particle board overlay. This should incorporate an integral vapour control layer to minimise risk of condensation.<br><br>External insulation of closed cell rigid polystyrene slabs is generally applied to new construction. These slabs combine low thermal conductivity with low water absorption and high compressive strength. The external face of insulation is grooved to encourage moisture run off. It is also filter faced to prevent clogging of the grooves. Backfill is granular.<br><br>![image 248](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile248.png)<br><br>Tables and calculations to determine U-values for basements are provided in the Building Regulations, Approved Document L and in BS EN ISO 13370: Thermal performance of buildings. Heat transfer via the ground. Calculation methods.|
+|---|
+
+
+###### Excavations
+
+|Excavation ~ to hollow out † in building terms to remove earth to form a cavity in the ground.<br><br>![image 249](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile249.png)<br><br>NB. Water in Excavations † this should be removed since it can:~<br><br>1 . Undermine sides of excavation.<br>2. Make it impossible to adequately compact bottom of excavation to receive foundations.<br>3. Cause puddling which can reduce the bearing capacity of the subsoil.<br>|
+|---|
+
+
+Excavations
+
+|Trench Excavations ~ narrow excavations primarily for strip foundations and buried services † excavation can be carried out by hand or machine.<br><br>![image 250](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile250.png)|
+|---|
+
+
+###### Excavations up to 2.5 m deep---Processes
+
+|![image 251](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile251.png)|
+|---|
+
+
+|All subsoils have different abilities in remaining stable during excavation works. Most will assume a natural angle of repose or rest unless given temporary support. The presence of ground water apart from creating difficult working conditions can have an adverse effect on the subsoil's natural angle of repose.<br><br>![image 252](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile252.png)<br><br>Time factors such as period during which excavation will remain open and the time of year when work is carried out.<br><br>The need for an assessment of risk with regard to the support of excavations and protection of people within, is contained in the Construction (Health, Safety and Welfare) Regulations 1996.|
+|---|
+
+
+|Temporary Support ~ in the context of excavations this is called timbering irrespective of the actual materials used. If the sides of the excavation are completely covered with timbering it is known as close timbering whereas any form of partial covering is called open timbering.<br><br>An adequate supply of timber or other suitable material must be available and used to prevent danger to any person employed in an excavation from a fall or dislodgement of materials forming the sides of an excavation.<br><br>A suitable barrier or fence must be provided to the sides of all excavations or alternatively they must be securely covered<br><br>Materials must not be placed near to the edge of any excavation, nor must plant be placed or moved near to any excavation so that persons employed in the excavation are endangered.<br><br>![image 253](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile253.png)|
+|---|
+
+
+|Poling Boards ~ a form of temporary support which is placed in position against the sides of excavation after the excavation work has been carried out. Poling boards are placed at centres according to the stability of the subsoils encountered.<br><br>Runners ~ a form of temporary support which is driven into position ahead of the excavation work either to the full depth or by a drive and dig technique where the depth of the runner is always lower than that of the excavation.<br><br>Trench Sheeting ~ form of runner made from sheet steel with a trough profile † can be obtained with a lapped joint or an interlocking joint.<br><br>Water ~ if present or enters an excavation, a pit or sump should be excavated below the formation level to act as collection point from which the water can be pumped away.<br><br>![image 254](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile254.png)|
+|---|
+
+
+###### Concrete Production---Materials
+
+|![image 255](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile255.png)<br><br>![image 256](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile256.png)<br><br>![image 257](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile257.png)|
+|---|
+
+
+Concrete Production---Site Storage of Materials
+
+|Cement ~ whichever type of cement is being used it must be properly stored on site to keep it in good condition. The cement must be kept dry since contact with any moisture whether direct or airborne could cause it to set. A rotational use system should be introduced to ensure that the first batch of cement delivered is the first to be used.<br><br>![image 258](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile258.png)|
+|---|
+
+
+###### Concrete Production---Volume Batching
+
+|Concrete Batching ~ a batch is one mixing of concrete and can be carried out by measuring the quantities of materials required by volume or weight. The main aim of both methods is to ensure that all consecutive batches are of the same standard and quality.<br><br>Volume Batching ~ concrete mixes are often quoted by ratio such as 1 :2 :4 (cement : fine aggregate or sand : coarse aggregate). Cement weighing 50 kg has a volume of 0„033 m3 therefore for the above mix 2 0„033 (0„066 m3) of sand and 4 0„033 (0„132 m3) of coarse aggregate is required. To ensure accurate amounts of materials are used for each batch a gauge box should be employed its size being based on convenient handling. Ideally a batch of concrete should be equated to using 50 kg of cement per batch. Assuming a gauge box 300 mm deep and 300 mm wide with a volume of half the required sand the gauge box size would be † volume = length width depth = length 300 300<br><br>length =<br><br>volume width depth<br><br>=<br><br>0„033 0„3 0„3<br><br>= 0„366 m<br><br>![image 259](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile259.png)<br><br>For the above given mix fill gauge box once with cement, twice with sand and four times with coarse aggregate.<br><br>An allowance must be made for the bulking of damp sand which can be as much as 331/3 %. General rule of thumb unless using dry sand allow for 25% bulking.<br><br>Materials should be well mixed dry before adding water.|
+|---|
+
+
+###### Concrete Production---Weight Batching
+
+|Weight Batching ~ this is a more accurate method of measuring materials for concrete than volume batching since it reduces considerably the risk of variation between different batches. The weight of sand is affected very little by its dampness which in turn leads to greater accuracy in proportioning materials. When loading a weighing hopper the materials should be loaded in a specific order †<br><br>1 . Coarse aggregates † tends to push other materials out and leaves the hopper clean.<br>2. Cement † this is sandwiched between the other materials since some of the fine cement particles could be blown away if cement is put in last.<br>3. Sand or fine Aggregates † put in last to stabilise the fine lightweight particles of cement powder.<br><br><br>![image 260](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile260.png)<br><br>Typical Densities ~ cement † 1440 kg/m3 sand † 1600 kg/m3 coarse aggregate † 1440 kg/m3 Water/Cement Ratio ~ water in concrete has two functions †<br><br>1 . Start the chemical reaction which causes the mixture to set into a solid mass.<br>2. Give the mix workability so that it can be placed, tamped or vibrated into the required position.<br><br><br>Very little water is required to set concrete (approximately 0„2 w/c ratio) the surplus evaporates leaving minute voids therefore the more water added to the mix to increase its workability the weaker is the resultant concrete. Generally w/c ratios of 0„4 to 0„5 are adequate for most purposes.|
+|---|
+
+
+###### Concrete Production---Specification
+
+|Concrete ~ a composite with many variables, represented by numerous gradings which indicate components, quality and manufacturing control.<br><br>Grade mixes: C7.5, C10, C15, C20, C25, C30, C35, C40, C45, C50, C55, and C60; F3, F4 and F5; IT2, IT2.5, and IT3.<br><br>C = Characteristic compressive F = Flexural IT = Indirect tensile NB. If the grade is followed by a `P', e.g. C30P, this indicates a<br><br>prescribed mix (see below).<br><br>Grades C7.5 and C10 † Unreinforced plain concrete. Grades C15 and C20 † Plain concrete or if reinforced containing<br><br>lightweight aggregate. Grades C25 † Reinforced concrete containing dense<br><br>aggregate. Grades C30 and C35 † Post-tensioned reinforced concrete. Grades C40 to C60 † Pre-tensioned reinforced concrete.<br><br>Categories of mix: 1. Standard; 2. Prescribed; 3. Designed; 4. Designated.<br><br>1 . Standard Mix † BS guidelines provide this for minor works or in situations limited by available material and manufacturing data. Volume or weight batching is appropriate, but no grade over C30 is recognised.<br>2. Prescribed Mix † components are predetermined (to a recipe) to ensure strength requirements. Variations exist to allow the purchaser to specify particular aggregates, admixtures and colours. All grades permitted.<br>3. Designed Mix † concrete is specified to an expected performance. Criteria can include characteristic strength, durability and workability, to which a concrete manufacturer will design and supply an appropriate mix. All grades permitted.<br>4. Designated Mix † selected for specific applications. General (GEN) graded 0†4, 7„5†25 N/mm2 for foundations, floors and external works. Foundations (FND) graded 2, 3, 4A and 4B, 35 N/mm2 mainly for sulphate resisting foundations.<br><br><br>Paving (PAV) graded 1 or 2, 35 or 45 N/mm2 for roads and drives.<br><br>Reinforced (RC) graded 30, 35, 40, 45 and 50 N/mm2 mainly for prestressing.<br><br>See also BS EN 206-1: Concrete. Specification, performance, production and conformity, and BS's 8500-1 and -2: Concrete.<br><br>strengths at 28 days (N/mm2)|
+|---|
+
+
+###### Concrete Production---Supply
+
+|Concrete Supply ~ this is usually geared to the demand or the rate at which the mixed concrete can be placed. Fresh concrete should always be used or placed within 30 minutes of mixing to prevent any undue drying out. Under no circumstances should more water be added after the initial mixing.<br><br>![image 261](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile261.png)<br><br>![image 262](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile262.png)<br><br>![image 263](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile263.png)<br><br>Ref. BS EN 206-1: Concrete. Specification, performance, production and conformity.|
+|---|
+
+
+Cofferdams
+
+|Cofferdams ~ these are temporary enclosures installed in soil or water to prevent the ingress of soil and/or water into the working area with the cofferdam. They are usually constructed from interlocking steel sheet piles which are suitably braced or tied back with ground anchors. Alternatively a cofferdam can be installed using any structural material which will fulfil the required function.<br><br>![image 264](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile264.png)|
+|---|
+
+
+###### Cofferdams
+
+|Steel Sheet Piling ~ apart from cofferdam work steel sheet can be used as a conventional timbering material in excavations and to form permanent retaining walls. Three common formats of steel sheet piles with interlocking joints are available with a range of section sizes and strengths up to a usual maximum length of 18„000:-<br><br>![image 265](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile265.png)<br><br>Installing Steel Sheet Piles ~ to ensure that the sheet piles are pitched and installed vertically a driving trestle or guide frame is used. These are usually purpose built to accommodate a panel of 10 to 12 pairs of piles. The piles are lifted into position by a crane and driven by means of percussion piling hammer or alternatively they can be pushed into the ground by hydraulic rams acting against the weight of the power pack which is positioned over the heads of the pitched piles.<br><br>![image 266](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile266.png)<br><br>Note: Rot-proof PVC sheet piling is also available.|
+|---|
+
+
+###### Caissons
+
+|Caissons ~ these are box-like structures which are similar in concept to cofferdams but they usually form an integral part of the finished structure. They can be economically constructed and installed in water or soil where the depth exceeds 18„000. There are 4 basic types of caisson namely:-<br><br>1 . Box Caissons<br>2. Open Caissons<br>3. Monolithic Caissons<br>4. Pneumatic Caissons † used in water † see next page.<br><br><br>![image 267](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile267.png)<br><br>usually of precast concrete and used in water being towed or floated into position and sunk † land caissons are of the open type and constructed in-situ.|
+|---|
+
+
+Caissons
+
+|Pneumatic Caissons ~ these are sometimes called compressed air caissons and are similar in concept to open caissons. They can be used in difficult subsoil conditions below water level and have a pressurised lower working chamber to provide a safe dry working area. Pneumatic caissons can be made of concrete whereby they sink under their own weight or they can be constructed from steel with hollow walls which can be filled with water to act as ballast. These caissons are usually designed to form part of the finished structure.<br><br>![image 268](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile268.png)|
+|---|
+
+
+|Underpinning ~ the main objective of most underpinning work is to transfer the load carried by a foundation from its existing bearing level to a new level at a lower depth. Underpinning techniques can also be used to replace an existing weak foundation. An underpinning operation may be necessary for one or more of the following reasons:-<br><br>1. Uneven Settlement † this could be caused by uneven loading of the building, unequal resistance of the soil action of tree roots or cohesive soil settlement.<br>2. Increase in Loading † this could be due to the addition of an extra storey or an increase in imposed loadings such as that which may occur with a change of use.<br>3. Lowering of Adjacent Ground † usually required when constructing a basement adjacent to existing foundations.<br><br><br>General Precautions ~ before any form of underpinning work is commenced the following precautions should be taken:-<br><br>1. Notify adjoining owners of proposed works giving full details and temporary shoring or tying.<br>2. Carry out a detailed survey of the site, the building to be underpinned and of any other adjoining or adjacent building or structures. A careful record of any defects found should be made and where possible agreed with the adjoining owner(s) before being lodged in a safe place.<br>3. Indicators or `tell tales' should be fixed over existing cracks so that any subsequent movements can be noted and monitored.<br>4. If settlement is the reason for the underpinning works a thorough investigation should be carried out to establish the cause and any necessary remedial work put in hand before any underpinning works are started.<br>5. Before any underpinning work is started the loads on the building to be underpinned should be reduced as much as possible by removing the imposed loads from the floors and installing any props and/or shoring which is required.<br>6. Any services which are in the vicinity of the proposed underpinning works should be identified, traced, carefully exposed, supported and protected as necessary.<br>|
+|---|
+
+
+|Underpinning to Walls ~ to prevent fracture, damage or settlement of the wall(s) being underpinned the work should always be carried out in short lengths called legs or bays. The length of these bays will depend upon the following factors:-<br><br>1. Total length of wall to be underpinned.<br>2. Wall loading.<br>3. General state of repair and stability of wall and foundation to be underpinned.<br>4. Nature of subsoil beneath existing foundation.<br>5. Estimated spanning ability of existing foundation.<br><br><br>Generally suitable bay lengths are:1„000 to 1„500 for mass concrete strip foundations supporting walls of traditional construction. 1„500 to 3„000 for reinforced concrete strip foundations supporting walls of moderate loading. In all the cases the total sum of the unsupported lengths of wall should not exceed 25% of the total wall length.<br><br>The sequence of bays should be arranged so that working in adjoining bays is avoided until one leg of underpinning has been completed, pinned and cured sufficiently to support the wall above.<br><br>![image 269](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile269.png)|
+|---|
+
+
+|![image 270](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile270.png)|
+|---|
+
+
+|Jack Pile Underpinning ~ this method can be used when the depth of a suitable bearing capacity subsoil is too deep to make traditional underpinning uneconomic. Jack pile underpinning is quiet, vibration free and flexible since the pile depth can be adjusted to suit subsoil conditions encountered. The existing foundations must be in a good condition since they will have to span over the heads of the pile caps which are cast onto the jack pile heads after the hydraulic jacks have been removed.<br><br>![image 271](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile271.png)|
+|---|
+
+
+|Needle and Pile Underpinning ~ this method of underpinning can be used where the condition of the existing foundation is unsuitable for traditional or jack pile underpinning techniques. The brickwork above the existing foundation must be in a sound condition since this method relies on the `arching effect' of the brick bonding to transmit the wall loads onto the needles and ultimately to the piles. The piles used with this method are usually small diameter bored piles † see page 214.<br><br>![image 272](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile272.png)|
+|---|
+
+
+|`Pynford' Stool Method of Underpinning ~ this method can be used where the existing foundations are in a poor condition and it enables the wall to be underpinned in a continuous run without the need for needles or shoring. The reinforced concrete beam formed by this method may well be adequate to spread the load of the existing wall or it may be used in conjunction with other forms of underpinning such as traditional and jack pile.<br><br>![image 273](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile273.png)|
+|---|
+
+
+|Root Pile or Angle Piling ~ this is a much simpler alternative to traditional underpinning techniques, applying modern concrete drilling equipment to achieve cost benefits through time saving. The process is also considerably less disruptive, as large volumes of excavation are avoided. Where sound bearing strata can be located within a few metres of the surface, wall stability is achieved through lined reinforced concrete piles installed in pairs, at opposing angles. The existing floor, wall and foundation are predrilled with air flushed percussion auger, giving access for a steel lining to be driven through the low grade/clay subsoil until it impacts with firm strata. The lining is cut to terminate at the underside of the foundation and the void steel reinforced prior to concreting.<br><br>![image 274](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile274.png)<br><br>In many situations it is impractical to apply angle piling to both sides of a wall. Subject to subsoil conditions being adequate, it may be acceptable to apply remedial treatment from one side only. The piles will need to be relatively close spaced.|
+|---|
+
+
+|Underpinning Columns ~ columns can be underpinned in the some manner as walls using traditional or jack pile methods after the columns have been relieved of their loadings. The beam loads can usually be transferred from the columns by means of dead shores and the actual load of the column can be transferred by means of a pair of beams acting against a collar attached to the base of the column shaft.<br><br>![image 275](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile275.png)|
+|---|
+
+
+###### Dewater Principles
+
+|Classification of Water ~ water can be classified by its relative position to or within the ground thus †<br><br>![image 276](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile276.png)<br><br>Problems of Water in the Subsoil ~<br><br>1 . A high water table could cause flooding during wet periods.<br>2. Subsoil water can cause problems during excavation works by its natural tendency to flow into the voids created by the excavation activities.<br>3. It can cause an unacceptable humidity level around finished buildings and structures.<br><br><br>Control of Ground Water ~ this can take one of two forms which are usually referred to as temporary and permanent exclusion †<br><br>![image 277](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile277.png)|
+|---|
+
+
+|Permanent Exclusion ~ this can be defined as the insertion of an impermeable barrier to stop the flow of water within the ground.<br><br>Temporary Exclusion ~ this can be defined as the lowering of the water table and within the economic depth range of 1„500 can be achieved by subsoil drainage methods, for deeper treatment a pump or pumps are usually involved.<br><br>Simple Sump Pumping ~ suitable for trench work and/or where small volumes of water are involved.<br><br>![image 278](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile278.png)|
+|---|
+
+
+|Jetted Sumps ~ this method achieves the same objectives as the simple sump methods of dewatering (previous page) but it will prevent the soil movement associated with this and other open sump methods. A borehole is formed in the subsoil by jetting a metal tube into the ground by means of pressurised water, to a depth within the maximum suction lift of the extract pump. The metal tube is withdrawn to leave a void for placing a disposable wellpoint and plastic suction pipe. The area surrounding the pipe is filled with coarse sand to function as a filtering media.<br><br>![image 279](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile279.png)|
+|---|
+
+
+|Wellpoint Systems ~ method of lowering the water table to a position below the formation level to give a dry working area. The basic principle is to jet into the subsoil a series of wellpoints which are connected to a common header pipe which is connected to a vacuum pump. Wellpoint systems are suitable for most subsoils and can encircle an excavation or be laid progressively alongside as in the case of a trench excavation. If the proposed formation level is below the suction lift capacity of the pump a multi-stage system can be employed † see next page.<br><br>![image 280](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile280.png)|
+|---|
+
+
+|![image 281](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile281.png)|
+|---|
+
+
+|Thin Grouted Membranes ~ these are permanent curtain or cut-off non-structural walls or barriers inserted in the ground to enclose the proposed excavation area. They are suitable for silts and sands and can be installed rapidly but they must be adequately supported by earth on both sides. The only limitation is the depth to which the formers can be driven and extracted.<br><br>![image 282](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile282.png)|
+|---|
+
+
+|Contiguous or Secant Piling ~ this forms a permanent structural wall of interlocking bored piles. Alternate piles are bored and cast by traditional methods and before the concrete has fully hardened the interlocking piles are bored using a toothed flight auger. This system is suitable for most types of subsoil and has the main advantages of being economical on small and confined sites; capable of being formed close to existing foundations and can be installed with the minimum of vibration and noise. Ensuring a complete interlock of all piles over the entire length may be difficult to achieve in practice therefore the exposed face of the piles is usually covered with a mesh or similar fabric and face with rendering or sprayed concrete. Alternatively a reinforced concrete wall could be cast in front of the contiguous piling. This method of ground water control is suitable for structures such as basements, road underpasses and underground car parks.<br><br>![image 283](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile283.png)|
+|---|
+
+
+|Diaphragm Walls ~ these are structural concrete walls which can be cast in-situ (usually by the bentonite slurry method) or constructed using precast concrete components (see next page). They are suitable for most subsoils and their installation generates only a small amount of vibration and noise making them suitable for works close to existing buildings. The high cost of these walls makes them uneconomic unless they can be incorporated into the finished structure. Diaphragm walls are suitable for basements, underground car parks and similar structures.<br><br>![image 284](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile284.png)|
+|---|
+
+
+|Precast Concrete Diaphragm Walls ~ these walls have the some applications as their in-situ counterparts and have the advantages of factory produced components but lack the design flexibility of cast in-situ walls. The panel or post and panel units are installed in a trench filled with a special mixture of bentonite and cement with a retarder to control the setting time. This mixture ensures that the joints between the wall components are effectively sealed. To provide stability the panels or posts are tied to the retained earth with ground anchors.<br><br>![image 285](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile285.png)|
+|---|
+
+
+|Grouting Methods ~ these techniques are used to form a curtain or cut off wall in high permeability soils where pumping methods could be uneconomic. The curtain walls formed by grouting methods are non-structural therefore adequate earth support will be required and in some cases this will be a distance of at least 4„000 from the face of the proposed excavation. Grout mixtures are injected into the soil by pumping the grout at high pressure through special injection pipes inserted in the ground. The pattern and spacing of the injection pipes will depend on the grout type and soil conditions.<br><br>Grout Types ~<br><br>1 . Cement Grouts † mixture of neat cement and water cement sand up to 1 : 4 or PFA (pulverized fuel ash) cement to a 1 : 1 ratio. Suitable for coarse grained soils and fissured and jointed rock strata.<br>2. Chemical Grouts † one shot (premixed) of two shot (first chemical is injected followed immediately by second chemical resulting in an immediate reaction) methods can be employed to form a permanent gel in the soil to reduce its permeability and at the same time increase the soil's strength. Suitable for medium to coarse sands and gravels.<br>3. Resin Grouts † these are similar in application to chemical grouts but have a low viscosity and can therefore penetrate into silty fine sands.<br><br><br>![image 286](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile286.png)|
+|---|
+
+
+Ground Water Control---Medium Term Exclusion
+
+|Ground Freezing Techniques ~ this method is suitable for all types of saturated soils and rock and for soils with a moisture content in excess of 8% of the voids. The basic principle is to insert into the ground a series of freezing tubes to form an ice wall thus creating an impermeable barrier. The treatment takes time to develop and the initial costs are high, therefore it is only suitable for large contracts of reasonable duration. The freezing tubes can be installed vertically for conventional excavations and horizontally for tunnelling works. The usual circulating brines employed are magnesium chloride and calcium chloride with a temperature of 15 to 25 C which would take 10 to 17 days to form an ice wall 1„000 thick. Liquid nitrogen could be used as the freezing medium to reduce the initial freezing period if the extra cost can be justified.<br><br>![image 287](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile287.png)|
+|---|
+
+
+|Soil Investigation ~ before a decision is made as to the type of foundation which should be used on any particular site a soil investigation should be carried out to establish existing ground conditions and soil properties. The methods which can be employed together with other sources of information such as local knowledge, ordnance survey and geological maps, mining records and aerial photography should be familiar to students at this level. If such an investigation reveals a naturally poor subsoil or extensive filling the designer has several options:-<br><br>1. Not to Build † unless a new and suitable site can be found building is only possible if the poor ground is localised and the proposed foundations can be designed around these areas with the remainder of the structure bridging over these positions.<br>2. Remove and Replace † the poor ground can be excavated, removed and replaced by compacted fills. Using this method there is a risk of differential settlement and generally for depths over 4„000 it is uneconomic.<br>3. Surcharging † this involves preloading the poor ground with a surcharge of aggregate or similar material to speed up settlement and thereby improve the soil's bearing capacity. Generally this method is uneconomic due to the time delay before actual building operations can commence which can vary from a few weeks to two or more years.<br>4. Vibration † this is a method of strengthening ground by vibrating a granular soil into compacted stone columns either by using the natural coarse granular soil or by replacement † see pages 296 and 297.<br>5. Dynamic Compaction † this is a method of soil improvement which consists of dropping a heavy weight through a considerable vertical distance to compact the soil and thus improve its bearing capacity and is especially suitable for granular soils † see page 298.<br>6. Jet Grouting † this method of consolidating ground can be used in all types of subsoil and consists of lowering a monitor probe into a 150 mm diameter prebored guide hole. The probe has two jets the upper of which blasts water, concentrated by compressed air to force any loose material up the guide to ground level. The lower jet fills the void with a cement slurry which sets into a solid mass † see page 299.<br>|
+|---|
+
+
+|Ground Vibration ~ the objective of this method is to strengthen the existing soil by rearranging and compacting coarse granular particles to form stone columns with the ground. This is carried out by means of a large poker vibrator which has an effective compacting radius of 1„500 to 2„700. On large sites the vibrator is inserted on a regular triangulated grid pattern with centres ranging from 1„500 to 3„000. In coarse grained soils extra coarse aggregate is tipped into the insertion positions to make up levels as required whereas in clay and other fine particle soils the vibrator is surged up and down enabling the water jetting action to remove the surrounding soft material thus forming a borehole which is backfilled with a coarse granular material compacted in-situ by the vibrator. The backfill material is usually of 20 to 70 mm size of uniform grading within the chosen range. Ground vibration is not a piling system but a means of strengthening ground to increase the bearing capacity within a range of 200 to 500 kN/m2.<br><br>![image 288](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile288.png)|
+|---|
+
+
+|Sand Compaction † applied to non-cohesive subsoils where the granular particles are rearranged into a denser condition by poker vibration.<br><br>The crane-suspended vibrating poker is water-jetted into the ground using a combination of self weight and water displacement of the finer soil particles to penetrate the ground. Under this pressure, the soil granules compact to increase in density as the poker descends. At the appropriate depth, which may be determined by building load calculations or the practical limit of plant (generally 30 m max.), jetting ceases and fine aggregates or sand are infilled around the poker. The poker is then gradually withdrawn compacting the granular fill in the process. Compaction continues until sand fill reaches ground level. Spacing of compaction boreholes is relatively close to ensure continuity and an integral ground condition.<br><br>![image 289](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile289.png)|
+|---|
+
+
+|Dynamic Compaction ~ this method of ground improvement consists of dropping a heavy weight from a considerable height and is particularly effective in granular soils. Where water is present in the subsoil, trenches should be excavated to allow the water to escape and not collect in the craters formed by the dropped weight. The drop pattern, size of weight and height of drop are selected to suit each individual site but generally 3 or 4 drops are made in each position forming a crater up to 2„500 deep and 5„000 in diameter. Vibration through the subsoil can be a problem with dynamic compaction operations therefore the proximity and condition of nearby buildings must be considered together with the depth position and condition of existing services on site.<br><br>![image 290](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile290.png)|
+|---|
+
+
+|Jet Grouting ~ this is a means of consolidating ground by lowering into preformed bore holes a monitor probe. The probe is rotated and the sides of the bore hole are subjected to a jet of pressurised water and air from a single outlet which enlarges and compacts the bore hole sides. At the same time a cement grout is being introduced under pressure to fill the void being created. The water used by the probe and any combined earth is forced up to the surface in the form of a sludge. If the monitor probe is not rotated grouted panels can be formed. The spacing, depth and layout of the bore holes is subject to specialist design.<br><br>![image 291](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile291.png)|
+|---|
+
+
+###### Reclamation of Waste Land
+
+|Green-Field † land not previously built upon. Usually part of the `green†belt' surrounding urban areas, designated inappropriate for development in order to preserve the countryside. Limited development for agricultural purposes only may be permitted on `green-belt' land.<br><br>Brown-Field † derelict land formerly a developed site and usually associated with previous construction of industrial buildings. UK government has set an objective to build 60% of the 4 million new homes required by 2016 on these sites.<br><br>Site Survey † essential that a geo†technical survey is undertaken to determine whether contaminants are in the soil and ground water. Of particular concern are: acids, salts, heavy metals, cyanides and coal tars, in addition to organic materials which decompose to form the highly explosive gas, methane. Analysis of the soil will determine a `trigger threshold value', above which it will be declared sensitive to the end user. For example, a domestic garden or children's play area will have a low value relative to land designated for a commercial car park.<br><br>Site Preparation † when building on sites previously infilled with uncontaminated material, a reinforced raft type foundation may be adequate for light structures. Larger buildings will justify soil consolidation and compaction processes to improve the bearing capacity. Remedial measures for subsoils containing chemicals or other contaminants are varied.<br><br>Legislation † the Environment Protection Act of 1990 attempted to enforce responsibility on local authorities to compile a register of all potentially contaminated land. This proved unrealistic and too costly due to inherent complexities. Since then, requirements under the Environment Act 1995, the Pollution Prevention and Control Act 1999, the PPC Regulations 2000 and the subsequent DCLG Planning Policy Statement (PPS 23, 2004): Planning and Pollution Control (Annex 2: Development of land affected by contamination), have made this more of a planning issue. It has become the responsibility of developers to conduct site investigations and to present details of proposed remedial measures as part of their planning application.|
+|---|
+
+
+###### Physical Treatment of Contaminated Sub-soil
+
+|The traditional low-technology method for dealing with contaminated sites has been to excavate the soil and remove it to places licensed for depositing. However, with the increase in building work on brown-field sites, suitable dumps are becoming scarce. Added to this is the reluctance of ground operators to handle large volumes of this type of waste. Also, where excavations exceed depths of about 5 m, it becomes less practical and too expensive. Alternative physical, biological or chemical methods of soil treatment may be considered.<br><br>Encapsulation † in-situ enclosure of the contaminated soil. A perimeter trench is taken down to rock or other sound strata and filled with an impervious agent such as Bentonite clay. An impermeable horizontal capping is also required to link with the trenches. A high-specification barrier is necessary where liquid or gas contaminants are present as these can migrate quite easily. A system of monitoring soil condition is essential as the barrier may decay in time. Suitable for all types of contaminant.<br><br>Soil washing † involves extraction of the soil, sifting to remove large objects and placing it in a scrubbing unit resembling a huge concrete mixer. Within this unit water and detergents are added for a basic wash process, before pressure spraying to dissolve pollutants and to separate clay from silt. Eliminates fuels, metals and chemicals.<br><br>Vapour extraction † used to remove fuels or industrial solvents and other organic deposits. At variable depths, small diameter boreholes are located at frequent intervals. Attached to these are vacuum pipes to draw air through the contaminated soil. The contaminants are collected at a vapour treatment processing plant on the surface, treated and evaporated into the atmosphere. This is a slow process and it may take several months to cleanse a site.<br><br>Electrolysis † use of low voltage d.c. in the presence of metals. Electricity flows between an anode and cathode, where metal ions in water accumulate in a sump before pumping to the surface for treatment.|
+|---|
+
+
+###### Biological, Chemical and Thermal Treatment of Contaminated Sub-soil
+
+|BIOLOGICAL<br><br>Phytoremediation † the removal of contaminants by plants which will absorb harmful chemicals from the ground. The plants are subsequently harvested and destroyed. A variant uses fungal degradation of the contaminants.<br><br>Bioremediation † stimulating the growth of naturally occurring microbes. Microbes consume petrochemicals and oils, converting them to water and carbon dioxide. Conditions must be right, i.e. a temperature of at least 10 C with an adequate supply of nutrients and oxygen. Untreated soil can be excavated and placed over perforated piping, through which air is pumped to enhance the process prior to the soil being replaced.<br><br>CHEMICAL<br><br>Oxidation † sub-soil boreholes are used for the pumped distribution of liquid hydrogen peroxide or potassium permanganate. Chemicals and fuel deposits convert to water and carbon dioxide.<br><br>Solvent extraction † the sub-soil is excavated and mixed with a solvent to break down oils, grease and chemicals that do not dissolve in water.<br><br>THERMAL<br><br>Thermal treatment (off site) † an incineration process involving the use of a large heating container/oven. Soil is excavated, dried and crushed prior to heating to 2500 C, where harmful chemicals are removed by evaporation or fusion.<br><br>Thermal treatment (in-situ) † steam, hot water or hot air is pressure-injected through the soil. Variations include electric currents and radio waves to heat water in the ground to become steam. Evaporates chemicals.<br><br>Ref. Building Regulations, Approved Document, C1: Site preparation and resistance to contaminants. Section 1: Clearance or treatment of unsuitable material. Section 2: Resistance to contaminants.|
+|---|
+
+
+|5 SUPERSTRUCTURE † 1<br><br>![image 292](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile292.png)<br><br>CHOICE OF MATERIALS BRICK AND BLOCK WALLS BRICK BONDING SPECIAL BRICKS AND APPLICATIONS CAVITY WALLS DAMP-PROOF COURSES GAS RESISTANT MEMBRANES ARCHES AND OPENINGS WINDOWS, GLASS AND GLAZING DOMESTIC AND INDUSTRIAL DOORS TIMBER FRAME CONSTRUCTION TIMBER PITCHED AND FLAT ROOFS TIMBER DECAY AND TREATMENT GREEN ROOFS THERMAL INSULATION U-VALUE CALCULATION THERMAL BRIDGING ACCESS FOR THE DISABLED|
+|---|
+
+
+###### External Envelope---Choice of Materials
+
+|STAGE 1<br><br>Consideration to be given to the following:~<br><br>1 . Building type and usage.<br>2. Building owner's requirements and preferences.<br>3. Local planning restrictions.<br>4. Legal restrictions and requirements.<br>5. Site restrictions.<br>6. Capital resources.<br>7. Future policy in terms of maintenance and adaptation.<br><br><br>![image 293](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile293.png)|
+|---|
+
+
+Solid Brick Walls
+
+|Bricks ~ these are walling units within a length of 337„5mm, a width of 225 mm and a height of 112„5 mm. The usual size of bricks in common use is length 215 mm, width 102„5mm and height 65 mm and like blocks they must be laid in a definite pattern or bond if they are to form a structural wall. Bricks are usually made from clay (BS EN 772-1, BS EN 772-3 and BS EN 772-7) or from sand and lime (BS EN 771-2) and are available in a wide variety of strengths, types, textures, colours and special shaped bricks to BS 4729.<br><br>![image 294](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile294.png)|
+|---|
+
+
+###### Brick Bonding---Principles
+
+|Typical Details ~ Bonding ~ an arrangement of bricks in a wall, column or pier laid to a set pattern to maintain an adequate lap.<br><br>Purposes of Brick Bonding ~<br><br>1 . Obtain maximum strength whilst distributing the loads to be carried throughout the wall, column or pier.<br>2. Ensure lateral stability and resistance to side thrusts.<br>3. Create an acceptable appearance.<br><br><br>![image 295](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile295.png)<br><br>Simple Bonding Rules ~<br><br>1 . Bond is set out along length of wall working from each end to ensure that no vertical joints are above one another in consecutive courses.<br><br>![image 296](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile296.png)<br><br>2. Walls which are not in exact bond length can be set out thus †<br><br>![image 297](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile297.png)<br><br>3. Transverse or cross joints continue unbroken across the width of wall unless stopped by a face stretcher.<br><br><br>![image 298](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile298.png)|
+|---|
+
+
+###### Brick Bonding---English Bond
+
+|English Bond ~ formed by laying alternate courses of stretchers and headers it is one of the strongest bonds but it will require more facing bricks than other bonds (89 facing bricks per m2)<br><br>Typical Example ~<br><br>![image 299](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile299.png)|
+|---|
+
+
+###### Brick Bonding---Flemish Bond
+
+|Flemish Bond ~ formed by laying headers and stretchers alternately in each course. Not as strong as English bond but is considered to be aesthetically superior uses less facing bricks. (79 facing bricks per m2)<br><br>Typical Example<br><br>![image 300](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile300.png)|
+|---|
+
+
+###### Brick Bonding---Special Bonds
+
+|![image 301](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile301.png)|
+|---|
+
+
+###### Brick Bonding---Stack Bond
+
+|Stack Bonding † the quickest, easiest and most economical bond to lay, as there is no need to cut bricks or to provide special sizes. Visually the wall appears unbonded as continuity of vertical joints is structurally unsound, unless wire bed-joint reinforcement is placed in every horizontal course, or alternate courses where loading is moderate. In cavity walls, wall ties should be closer than normal at 600 mm max. spacing horizontally and 225 mm max. spacing vertically and staggered.<br><br>![image 302](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile302.png)<br><br>Application † this distinctive uniform pattern is popular as nonstructural infill panelling to framed buildings and for non-load bearing exposed brickwork partitions.<br><br>![image 303](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile303.png)|
+|---|
+
+
+###### Brick Bonding---Attached Piers
+
+|Attached Piers ~ the main function of an attached pier is to give lateral support to the wall of which it forms part from the base to the top of the wall. It also has the subsidiary function of dividing a wall into distinct lengths whereby each length can be considered as a wall. Generally walls must be tied at end to an attached pier, buttressing or return wall.<br><br>Typical Examples ~<br><br>![image 304](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile304.png)<br><br>Requirements for the external wall of a small single storey nonresidential building or annex exceeding 2.5m in length or height and of floor area not exceeding 36 m2 ~<br><br>• Minimum thickness, 90 mm, i.e. 102.5mm brick or 100mm block.<br>• Built solid of bonded brick or block masonry and bedded in cement mortar.<br>• Surface mass of masonry, minimum 130kg/m2 where floor area exceeds 10 m2.<br>• No lateral loading permitted excepting wind loads.<br>• Maximum length or width not greater than 9 m.<br>• Maximum height as shown on page 313.<br>• Lateral restraint provided by direct bearing of roof and as shown on page 425.<br>• Maximum of two major openings in one wall of the building. Height maximum 2.1 m, width maximum 5 m (if 2 openings, total width maximum 5 m).<br>• Other small openings permitted, as shown on next page.<br>• Bonded or connected to piers of minimum size 390 5 190mm at maximum 3 m centres for the full wall height as shown above. Pier connections are with pairs of wall ties of 20 5 3 mm flat stainless steel type at 300mm vertical spacing.<br>|
+|---|
+
+
+Attached Piers
+
+|Attached piers as applied to 1/2 brick (90 mm min.) thick walls ~<br><br>![image 305](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile305.png)<br><br>• Major openings A and B are permitted in one wall only. Aggregate width is 5m maximum. Height not greater than 2.1 m. No other openings within 2 m.<br>• Other walls not containing a major opening can have smaller openings of maximum aggregate area 2.4 m2.<br>• Maximum of only one opening between piers.<br>• Distance from external corner of a wall to an opening at least 390mm unless the corner contains a pier.<br>• The minimum pier dimension of 390 5 190mm can be varied to 327 5 215 mm to suit brick sizes.<br>|
+|---|
+
+
+###### Small Non-Residential Buildings or Annexes
+
+|Construction of half-brick and 100mm thick solid concrete block walls (90 mm min.) with attached piers, has height limitations to maintain stability. The height of these buildings will vary depending on the roof profile; it should not exceed the lesser value in the following examples ~<br><br>![image 306](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile306.png)<br><br>Note: All dimensions are maximum.<br><br>Height is measured from top of foundation to top of wall except where shown at an intermediate position. Where the underside of the floor slab provides an effective lateral restraint, measurements may be taken from here.|
+|---|
+
+
+###### Brickwork---Jointing and Pointing
+
+|The appearance of a building can be significantly influenced by the mortar finishing treatment to masonry. Finishing may be achieved by jointing or pointing.<br><br>Jointing † the finish applied to mortar joints as the work proceeds.<br><br>Pointing † the process of removing semi-set mortar to a depth of about 20mm and replacing it with fresh mortar. Pointing may contain a colouring pigment to further enhance the masonry.<br><br>Finish profiles, typical examples shown pointed †<br><br>![image 307](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile307.png)<br><br>Examples of pointing to masonry<br><br>Note: Recessed and overhung finishes should not be used in exposed situations, as rainwater can be detained. This could encourage damage by frost action and growth of lichens.|
+|---|
+
+
+###### Special Bricks
+
+|Specials † these are required for feature work and application to various bonds, as shown on the preceding pages. Bonding is not solely for aesthetic enhancement. In many applications, e.g. English bonded manhole walls, the disposition of bricks is to maximise wall strength and integrity. In a masonry wall the amount of overlap should not be less than one quarter of a brick length. Specials may be machine or hand cut from standard bricks, or they may be purchased as purpose-made. These purpose-made bricks are relatively expensive as they are individually manufactured in hardwood moulds.<br><br>![image 308](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile308.png)<br><br>Ref. BS 4729: Clay and calcium silicate bricks of special shapes and sizes. Recommendations.|
+|---|
+
+
+###### Purpose-Made Special Bricks
+
+|Brickwork can be repetitive and monotonous, but with a little imagination and skilled application it can be a highly decorative art form. Artistic potential is made possible by the variety of naturally occurring brick colours, textures and finishes, the latter often applied as a sanding to soft clay prior to baking. Furthermore, the range of pointing techniques, mortar colourings, brick shapes and profiles can combine to create countless possibilities for architectural expression.<br><br>Bricks are manufactured from baked clay, autoclaved sand/lime or concrete. Clay is ideally suited to hand making special shapes in hardwood moulds. Some popular formats are shown below, but there is no limit to creative possibilities.<br><br>![image 309](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile309.png)|
+|---|
+
+
+###### Special Bricks---Plinths
+
+|Plinths † used as a projecting feature to enhance external wall appearance at its base. The exposed projection determines that only frost-proof quality bricks are suitable and that recessed or raked out joints which could retain water must be avoided.<br><br>Typical external wall base †<br><br>![image 310](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile310.png)<br><br>Corbel † a projecting feature at higher levels of a building. This may be created by using plinth bricks laid upside down with header and stretcher formats maintaining bond. For structural integrity, the amount of projection (P) must not exceed one third of the overall wall thickness (T). Some other types of corbel are shown on the next page.<br><br>![image 311](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile311.png)|
+|---|
+
+
+###### Special Bricks---Corbels, Dentils and Dog Toothing
+
+|Corbel † a type of inverted plinth, generally located at the higher levels of a building to create a feature. A typical example is quarter bonded headers as a detail below window openings.<br><br>![image 312](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile312.png)<br><br>Dentil Coursing † a variation on continuous corbelling where alternative headers project. This is sometimes referred to as table corbelling.<br><br>![image 313](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile313.png)<br><br>Dog Toothing † a variation on a dentil course created by setting the feature bricks at 45 .<br><br>![image 314](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile314.png)<br><br>Note: Cavity insulated as required.|
+|---|
+
+
+###### Solid Block Walls
+
+|Blocks ~ these are walling units exceeding in length, width or height the dimensions specified for bricks in BS EN 772-16. Precast concrete blocks should comply with the recommendations set out in BS 6073-2 and BS EN 771-3. Blocks suitable for external solid walls are classified as loadbearing and are required to have a minimum average crushing strength of 2„8 N/mm2.<br><br>Typical Details ~<br><br>![image 315](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile315.png)<br><br>Refs. BS 6073-2: Precast concrete masonry units. BS EN 772-16: Methods of test for masonry units. BS EN 771-3: Specification for masonry units.|
+|---|
+
+
+|Cavity Walls ~ these consist of an outer brick or block leaf or skin separated from an inner brick or block leaf or skin by an air space called a cavity. These walls have better thermal insulation and weather resistance properties than a comparable solid brick or block wall and therefore are in general use for the enclosing walls of domestic buildings. The two leaves of a cavity wall are tied together with wall ties located at 2.5/m2, or at equivalent spacings shown below and as given in Section 2C of Approved Document A † Building Regulations.<br><br>With butterfly type ties the width of the cavity should be between 50 and 75mm. Where vertical twist type ties are used the cavity width can be between 75 and 300mm. Cavities are not normally ventilated and are closed by roof insulation at eaves level.<br><br>![image 316](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile316.png)<br><br>* Note: Stainless steel or non-ferrous ties are now preferred.|
+|---|
+
+
+###### Cavity Walls
+
+|Minimum requirements ~ Thickness of each leaf, 90mm. Width of cavity, 50 mm. Wall ties at 2.5/m2 (see previous page). Compressive strength of bricks, 5 N/mm2 up to two storeys.* Compressive strength of blocks, 2.8 N/mm2 up to two storeys.*<br><br>* For work between the foundation and the surface a 7 N/mm2 minimum brick and block strength is normally specified. This is also a requirement where the foundation to underside of the ground floor structure exceeds 1.0 m.<br><br>Combined thickness of each leaf + 10 mm whether used as an external wall, a separating wall or a compartment wall, should be not less than 1/16 of the storey height** which contains the wall.<br><br>** Generally measured between the undersides of lateral supports, eg. undersides of floor or ceiling joists, or from the underside of upper floor joists to half way up a laterally restrained gable wall. See Approved Document A, Section 2C for variations.<br><br>Wall dimensions for minimum combined leaf thicknesses of 90mm + 90mm ~<br><br>Wall dimensions for minimum combined leaf thickness of 280mm, eg. 190mm + 90mm for one storey height and a minimum 180 mm combined leaf thickness, ie. 90 mm + 90mm for the remainder of its height ~<br><br>Wall dimensions for minimum combined leaf thickness of 280mm for two storey heights and a minimum 180mm combined leaf thickness for the remainder of its height ~<br><br>Wall length is measured from centre to centre of restraints by buttress walls, piers or chimneys. For other wall applications, see the reference to calculated brickwork on page 337.<br><br>Height Length 9.0 m † 12.0 m 9.0 m † 12.0 m<br><br>Height Length 3.5m max. 12.0 m max. 3.5m † 9.0 m 9.0 m max.<br><br>Height Length 3.5 † 9.0 m 9.0 - 12.0 m 9.0 m † 12.0 m 9.0 m max.|
+|---|
+
+
+|*Min. compressive strength depends on building height and loading. See Building Regulations AD A: Section 2C (Diagram 9).<br><br>![image 317](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile317.png)<br><br>cavity leaves to be not less than 90 mm thick<br><br>cavity to extend at least 225 mm below the lowest dpc<br><br>outer leaf of selected facing bricks<br><br>dpc<br><br>ground level<br><br>TRADITIONAL CONSTRUCTION<br><br>bricks and blocks below ground level to be of suitable quality*<br><br>mass concrete strip foundation (1 : 3 : 6) 15 N/mm2<br><br>cavity filling of weak concrete to prevent leaves of wall moving towards each other as a result of earth pressures<br><br>well compacted hardcore<br><br>mass concrete ground floor slab<br><br>damp-proof membrane<br><br>50 mm min. rigid insulation<br><br>floor screed<br><br>150<br><br>min.<br><br>![image 318](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile318.png)<br><br>brick outer leaf and block inner leaf<br><br>dpc<br><br>150<br><br>min.<br><br>ground level<br><br>ALTERNATIVE CONSTRUCTION<br><br>225 or 300 mm wide blocks of 150 or 225 mm thickness laid flat<br><br>mass concrete strip foundation (1 : 3 : 6) 15 N/mm2<br><br>blocks below ground level to be of a suitable quality*<br><br>ground floor construction as above<br><br>damp-proof membrane<br><br>insulated cavity to be unbridged except by wall ties, unless a suitable dpc is used to prevent the passage of moisture to the inner leaf|
+|---|
+
+
+min.
+
+150
+
+Parapet Walls
+
+|Parapet ~ a low wall projecting above the level of a roof, bridge or balcony forming a guard or barrier at the edge. Parapets are exposed to the elements on three faces namely front, rear and top and will therefore need careful design and construction if they are to be durable and reliable.<br><br>![image 319](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile319.png)|
+|---|
+
+
+###### Masonry Fin Walls
+
+|Historically, finned or buttressed walls have been used to provide lateral support to tall single storey masonry structures such as churches and cathedrals. Modern applications are similar in principle and include theatres, gymnasiums, warehouses, etc. Where space permits, they are an economic alternative to masonry cladding of steel or reinforced concrete framed buildings. The fin or pier is preferably brick bonded to the main wall. It may also be connected with horizontally bedded wall ties, sufficient to resist vertical shear stresses between fin and wall.<br><br>![image 320](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile320.png)<br><br>Structurally, the fins are deep piers which reinforce solid or cavity masonry walls. For design purposes the wall may be considered as a series of `T' sections composed of a flange and a pier. If the wall is of cavity construction, the inner leaf is not considered for bending moment calculations, although it does provide stiffening to the outer leaf or flange.<br><br>![image 321](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile321.png)|
+|---|
+
+
+###### Masonry Diaphragm Walls
+
+|Masonry diaphragm walls are an alternative means of constructing tall, single storey buildings such as warehouses, sports centres, churches, assembly halls, etc. They can also be used as retaining and boundary walls with planting potential within the voids. These voids may also be steel reinforced and concrete filled to resist the lateral stresses in high retaining walls.<br><br>![image 322](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile322.png)<br><br>A diaphragm wall is effectively a cavity wall where the two leaves of masonry are bonded together with cross ribs and not wall ties. It is stronger than a conventionally tied cavity wall and for structural purposes may be considered as a series of bonded `I' sections or box sections. The voids may be useful for housing services, but any access holes in the construction must not disturb the integrity of the wall. The voids may also be filled with insulation to reduce heat energy losses from the building, and to prevent air circulatory heat losses within the voids. Where thermal insulation standards apply, this type of wall will have limitations as the cross ribs will provide a route for cold bridging. U values will increase by about 10% compared with conventional cavity wall construction of the same materials.<br><br>Ref. BS 5628-1: Code of practice for use of masonry. Structural use of unreinforced masonry. BS 5628-3: Code of practice for use of masonry. Materials and components, design and workmanship.|
+|---|
+
+
+###### Damp-proof Courses and Membranes
+
+|Function † the primary function of any damp-proof course (dpc) or damp-proof membrane (dpm) is to provide an impermeable barrier to the passage of moisture. The three basic ways in which dampproof courses are used is to:-<br><br>1 . Resist moisture penetration from below (rising damp).<br>2. Resist moisture penetration from above.<br>3. Resist moisture penetration from horizontal entry.<br><br><br>Typical examples ~<br><br>![image 323](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile323.png)<br><br>![image 324](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile324.png)<br><br>external wall<br><br>passage of moisture dpm lapped<br><br>with dpc<br><br>weep holes at 900 c/c<br><br>ground floor<br><br>dpc's<br><br>cavity insulation<br><br>galvanised steel lintel with insulated fill and a polyester coating as integral dpc<br><br>lintel extends 150 mm min. as end bearing<br><br>rain<br><br>PENETRATION FROM BELOW (Ground Floor/External Wall)<br><br>PENETRATION FROM ABOVE (Window/Door Head)<br><br>150<br><br>min.<br><br>internal reveal see also page 332<br><br>vertical dpc<br><br>traditional uninsulated cavity<br><br>HORIZONTAL ENTRY (Window/Door Jamb)<br><br>cavity closer/dpc<br><br>external wall mastic seal<br><br>rain<br><br>rain<br><br>See also: BS's 743, 8102 and 8215.|
+|---|
+
+
+|Building Regulations, Approved Document C2, Section 5: A wall may be built with a `damp-proof course of bituminous material, engineering bricks or slates in cement mortar, or any other material that will prevent the passage of moisture.'<br><br>|Material|Remarks|
+|---|---|
+|Lead BS EN 12588 Code 4 (1„8mm)<br><br>Copper BS EN 1172 0„25mm<br><br>Bitumen BS 6398 in various bases:<br><br>Hessian 3„8 kg/m2 Fibre 3„3 .. .. Asbestos 3„8 .. ..<br><br>Hessian & lead 4„4 .. .. Fibre & lead 4„4 .. ..<br><br>LDPE BS 6515 0„46 mm|May corrode in the presence of mortar. Both surfaces to be coated with bituminous paint. Workable for application to cavity trays, etc. Can cause staining to adjacent masonry. Resistant to corrosion. Hessian or fibre may decay with age, but this will not affect efficiency. Tearable if not protected. Lead bases are suited where there may be a high degree of movement in the wall. Asbestos is now prohibited.<br><br>No deterioration likely,<br><br>|
+<br><br>(polyethylene) but may be difficult to bond, hence the profiled surface finish. Not suited under light loads.<br><br>Bitumen polymer and pitch polymer 1„10 mm<br><br>Absorbs movement well. Joints and angles made with product manufacturer's adhesive tape.<br><br>Polypropylene BS 5139 1.5 to 2.0mm<br><br>Preformed dpc for cavity trays, cloaks, direction changes and over lintels.<br><br>Note: All the above dpcs to be lapped at least 100mm at joints and adhesive sealed. Dpcs should be continuous with any dpm in the floor.|
+|---|
+
+
+|Refs:<br><br>BS 743: Specification for materials for damp-proof courses.<br><br>BS 5268-3: Code of practice for use of masonry. Materials and components, design and workmanship.<br><br>BS 8102: Code of practice for protection of structures against water from the ground.<br><br>BS 8215: Code of practice for design and installation of damp-proof courses in masonry construction.<br><br>BRE Digest 380: Damp-proof courses.<br><br>Note: It was not until the Public Health Act of 1875, that it became mandatory to instal damp-proof courses in new buildings. Structures constructed before that time, and those since, which have suffered dpc failure due to deterioration or incorrect installation, will require remedial treatment. This could involve cutting out the mortar bed joint two brick courses above ground level in stages of about 1m in length. A new dpc can then be inserted with mortar packing, before proceeding to the next length. No two adjacent sections should be worked consecutively. This process is very time consuming and may lead to some structural settlement. Therefore, the measures explained on the following two pages are usually preferred.<br><br>|Material|Remarks|
+|---|---|
+|Mastic asphalt BS 6925 12 kg/m2|Does not deteriorate. Requires surface treatment with sand or scoring to effect a mortar key.|
+<br><br>Engineering BS EN 771-1 <4„5% bricks BS EN 772-7 absorption<br><br>Min. 2 courses laid breaking joint in cement mortar 1:3. No deterioration, but may not blend with adjacent facings.<br><br>Slate BS EN 12326-1 4 mm Min. 2 courses laid as above. Will not deteriorate, but brittle so may fracture if building settles.|
+|---|
+
+
+|Materials † Silicone solutions in organic solvent. Aluminium stearate solutions. Water soluble silicone formulations (siliconates).<br><br>Methods † High pressure injection (0„70 † 0„90 MPa) solvent based. Low pressure injection (0„15 † 0„30 MPa) water based. Gravity feed, water based. Insertion/injection, mortar based.<br><br>Pressure injection † 12 mm diameter holes are bored to about twothirds the depth of masonry, at approximately 150 mm horizontal intervals at the appropriate depth above ground (normally 2†3 brick courses). These holes can incline slightly downwards. With high (low) pressure injection, walls in excess of 120 mm (460mm) thickness should be drilled from both sides. The chemical solution is injected by pressure pump until it exudes from the masonry. Cavity walls are treated as each leaf being a solid wall.<br><br>Gravity feed † 25 mm diameter holes are bored as above. Dilute chemical is transfused from containers which feed tubes inserted in the holes. This process can take from a few hours to several days to effect. An alternative application is insertion of frozen pellets placed in the bore holes. On melting, the solution disperses into the masonry to be replaced with further pellets until the wall is saturated.<br><br>![image 325](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile325.png)|
+|---|
+
+
+|Injection mortars † 19mm diameter holes are bored from both sides of a wall, at the appropriate level and no more than 230mm apart horizontally, to a depth equating to three-fifths of the wall thickness. They should be inclined downwards at an angle of 20 to 30 . The drill holes are flushed out with water, before injecting mortar from the base of the hole and outwards. This can be undertaken with a hand operated caulking gun. Special cement mortars contain styrene butadiene resin (SDR) or epoxy resin and must be mixed in accordance with the manufacturer's guidance.<br><br>Notes relating to all applications of chemical dpcs:<br><br>* Before commencing work, old plasterwork and rendered undercoats are removed to expose the masonry. This should be to a height of at least 300 mm above the last detectable (moisture meter reading) signs of rising dampness (1 metre min.).<br>* If the wall is only accessible from one side and both sides need treatment, a second deeper series of holes may be bored from one side, to penetrate the inaccessible side.<br>* On completion of work, all boreholes are made good with cement mortar. Where dilute chemicals are used for the dpc, the mortar is rammed the full length of the hole with a piece of timber dowelling.<br>* The chemicals are effective by bonding to, and lining the masonry pores by curing and solvent evaporation.<br>* The process is intended to provide an acceptable measure of control over rising dampness. A limited amount of water vapour may still rise, but this should be dispersed by evaporation in a heated building.<br><br><br>Refs.<br><br>BS 6576: Code of practice for diagnosis of rising damp in walls of<br><br>buildings and installation of chemical damp-proof courses. BRE Digest 245: Rising damp in walls: diagnosis and treatment. BRE Digest 380: Damp-proof courses. BRE Good Repair Guide 6: Treating rising damp in houses.|
+|---|
+
+
+###### Bridging of Damp-Proof Courses
+
+|In addition to damp-proof courses failing due to deterioration or damage, they may be bridged as a result of:<br><br>* Faults occurring during construction.<br>* Work undertaken after construction, with disregard for the damp-proof course.<br><br><br>Typical examples ~<br><br>![image 326](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile326.png)|
+|---|
+
+
+###### Insulating Damp-Proof Course
+
+|Thermal insulation regulations may require insulating dpcs to prevent cold bridging around window and door openings in cavity wall construction (see pages 452 and 453). By locating a vertical dpc with a bonded insulant at the cavity closure, the dpc prevents penetration of dampness from the outside, and the insulation retains the structural temperature of the internal reveal. This will reduce heat losses by maintaining the temperature above dewpoint, preventing condensation, wall staining and mould growth.<br><br>Application †<br><br>![image 327](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile327.png)<br><br>Refs. Building Regulations, Approved Document L: Conservation of fuel and power. BRE Report † Thermal Insulation: avoiding risks (3rd. ed.). Building Regulations, Approved Document B3, Section 6 (Vol. 1): Concealed spaces (cavities).|
+|---|
+
+
+###### Gas Resistant Membranes
+
+|Penetrating Gases ~ Methane and Radon<br><br>Methane † methane is produced by deposited organic material decaying in the ground. It often occurs with carbon dioxide and traces of other gases to form a cocktail known as landfill gas. It has become an acute problem in recent years, as planning restrictions on `green-field' sites have forced development of derelict and reclaimed `brown-field' land.<br><br>The gas would normally escape to the atmosphere, but under a building it pressurizes until percolating through cracks, cavities and junctions with services. Being odourless, it is not easily detected until contacting a naked flame, then the result is devastating!<br><br>Radon ~ a naturally occurring colour/odourless gas produced by radioactive decay of radium. It originates in uranium deposits of granite subsoils as far apart as the south-west and north of England and the Grampian region of Scotland. Concentrations of radon are considerably increased if the building is constructed of granite masonry. The combination of radon gas and the tiny radioactive particles known as radon daughters are inhaled. In some people with several years' exposure, research indicates a high correlation with cancer related illness and death.<br><br>Protection of buildings and the occupants from subterranean gases can be achieved by passive or active measures incorporated within the structure.<br><br>1 . Passive protection consists of a complete airtight seal integrated within the ground floor and walls. A standard LDPE damp proof membrane of 0 3 mm thickness should be adequate if carefully sealed at joints, but thicknesses up to 1mm are preferred, combined with foil and/or wire reinforcement.<br>2. Active protection requires installation of a permanently running extract fan connected to a gas sump below the ground floor. It is an integral part of the building services system and will incur operating and maintenance costs throughout the building's life.<br><br><br>(See next page for construction details)|
+|---|
+
+
+###### Gas Resistant Construction
+
+|![image 328](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile328.png)<br><br>![image 329](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile329.png)<br><br>![image 330](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile330.png)<br><br>cavity wall insulated as required<br><br>stepped cavity tray/dpc<br><br>weep hole<br><br>air brick<br><br>dpc<br><br>sealed joint<br><br>screed<br><br>insulation<br><br>LDPE membrane min. 1200 gauge (0.3 mm)<br><br>Suspended concrete floor PASSIVE<br><br>pre-cast reinforced concrete floor<br><br>min. 150 mm<br><br>LDPE membrane<br><br>finished slab level<br><br>reinforced concrete slab<br><br>Solid floor (2 possibilities)<br><br>damp and gas proof membrane<br><br>vent outlet above eaves<br><br>vent riser if trench paved over<br><br>granular trench<br><br>sub-floor vent pipe<br><br>min. 200 mm granular layer<br><br>EPS profiled matting heights … 80, 100, 150 & 200 mm<br><br>reinforced concrete slab ACTIVE LDPE membrane paving slab<br><br>perforated bricks<br><br>granular fill<br><br>void<br><br>110 mm uPVC extract duct<br><br>fan<br><br>sump centrally located|
+|---|
+
+
+|Calculated Brickwork ~ for small and residential buildings up to three storeys high the sizing of load bearing brick walls can be taken from data given in Section 2C of Approved Document A. The alternative methods for these and other load bearing brick walls are given in:<br><br>BS 5628-1: Code of practice for the use of masonry. Structural use of unreinforced masonry, and BS 8103-2: Structural design of low rise buildings. Code of practice for masonry walls for housing.<br><br>The main factors governing the loadbearing capacity of brick walls and columns are:-<br><br>1 . Thickness of wall.<br>2. Strength of bricks used.<br>3. Type of mortar used.<br>4. Slenderness ratio of wall or column.<br>5. Eccentricity of applied load.<br><br><br>Thickness of wall ~ this must always be sufficient throughout its entire body to carry the design loads and induced stresses. Other design requirements such as thermal and sound insulation properties must also be taken into account when determining the actual wall thickness to be used.<br><br>Effective Thickness ~ this is the assumed thickness of the wall or column used for the purpose of calculating its slenderness ratio † see page 337.<br><br>Typical Examples ~<br><br>![image 331](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile331.png)|
+|---|
+
+
+###### Principles of Calculated Brickwork
+
+|Strength of Bricks ~ due to the wide variation of the raw materials and methods of manufacture bricks can vary greatly in their compressive strength. The compressive strength of a particular type of brick or batch of bricks is taken as the arithmetic mean of a sample of ten bricks tested in accordance with the appropriate British Standard. A typical range for clay bricks would be from 20 to 170 MN/m2 the majority of which would be in the 20 to 90 MN/m2 band. Generally calcium silicate bricks have a lower compressive strength than clay bricks with a typical strength range of 10 to 65 MN/m2.<br><br>Strength of Mortars ~ mortars consist of an aggregate (sand) and a binder which is usually cement; cement plus additives to improve workability; or cement and lime. The factors controlling the strength of any particular mix are the ratio of binder to aggregate plus the water:cement ratio. The strength of any particular mix can be ascertained by taking the arithmetic mean of a series of test cubes or prisms (BS EN 196 and BS EN 1015).<br><br>Wall Design Strength ~ the basic stress of any brickwork depends on the crushing strength of the bricks and the type of mortar used to form the wall unit. This relationship can be plotted on a graph using data given in BS 5628 as shown below:-<br><br>![image 332](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile332.png)|
+|---|
+
+
+|Slenderness Ratio ~ this is the relationship of the effective height to the effective thickness thus:-<br><br>Slenderness ratio ¼<br><br>effective height effective thickness ¼<br><br>h t B 27 see BS 5628<br><br>Effective Height ~ this is the dimension taken to calculate the slenderness ratio as opposed to the actual height.<br><br>Typical Examples † actual height = H effective height = h<br><br>![image 333](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile333.png)<br><br>Effective Thickness ~ this is the dimension taken to calculate the slenderness ratio as opposed to the actual thickness.<br><br>Typical Examples † actual thickness = T effective thickness = t<br><br>![image 334](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile334.png)<br><br>Stress Reduction ~ the permissible stress for a wall is based on the basic stress multiplied by a reduction factor related to the slenderness factor and the eccentricity of the load:-<br><br>![image 335](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile335.png)|
+|---|
+
+
+|Lime ~ traditional mortars are a combination of lime, sand and water. These mixes are very workable and have sufficient flexibility to accommodate a limited amount of wall movement due to settlement, expansion and contraction. The long term durability of lime mortars is poor as they can break down in the presence of atmospheric contaminants and surface growths. Nevertheless, lime is frequently specified as a supplementary binder with cement, to increase mix workability and to reduce the possibility of joint shrinkage and cracking, a characteristic of stronger cement mortars.<br><br>Cement ~ the history of cement type mortar products is extensive. Examples dating back to the Mesopotamians and the Egyptians are not unusual; one of the earliest examples from over 10000 years ago has been found in Galilee, Israel. Modern mortars are made with Portland cement, the name attributed to a bricklayer named Joseph Aspdin. In 1824 he patented his improved hydraulic lime product as Portland cement, as it resembled Portland stone in appearance. It was not until the 1920s that Portland cement, as we now know it, was first produced commercially by mixing a slurry of clay (silica, alumina and iron-oxides) with limestone (calcium carbonate). The mix is burnt in a furnace (calcinated) and the resulting clinker crushed and bagged.<br><br>Mortar ~ mixes for masonry should have the following properties:<br><br>* Adequate strength<br>* Workability<br>* Water retention during laying<br>* Plasticity during application<br>* Adhesion or bond<br>* Durability<br>* Good appearance ~ texture and colour<br><br><br>Modern mortars are a combination of cement, lime and sand plus water. Liquid plasticisers exist as a substitute for lime, to improve workability and to provide some resistance to frost when used during winter.<br><br>Masonry cement ~ these proprietary cements generally contain about 75% Portland cement and about 25% of fine limestone filler with an air entraining plasticiser. Allowance must be made when specifying the mortar constituents to allow for the reduced cement content. These cements are not suitable for concrete.<br><br>Refs. BS 6463-101, 102 and 103: Quicklime, hydrated lime and natural calcium carbonate. BS EN 197-1: Cement. Composition, specifications and conformity criteria for common cements.|
+|---|
+
+
+|Ready mixed mortar ~ this is delivered dry for storage in purpose made silos with integral mixers as an alternative to site blending and mixing. This ensures:<br><br>* Guaranteed factory quality controlled product<br>* Convenience<br>* Mix consistency between batches<br>* Convenient facility for satisfying variable demand<br>* Limited wastage<br>* Optimum use of site space<br><br><br>Mortar and cement strength ~ see also page 336. Test samples are made in prisms of 40 40 mm cross section, 160 mm long. At 28 days samples are broken in half to test for flexural strength. The broken pieces are subject to a compression test across the 40 mm width. An approximate comparison between mortar strength (MN/m2 or N/mm2), mortar designations (i to v) and proportional mix ratios is shown in the classification table below. Included is guidance on application.<br><br>Proportional mixing of mortar constituents by volume is otherwise known as a prescribed mix or simply a recipe.<br><br>Mortar classification ~<br><br>Relevant standards;<br><br>BS 5628-3: Code of practice for use of masonry. Materials and<br><br>components, design and workmanship. BS EN 196: Methods of testing cement. BS EN 998-2: Specification for mortar for masonry. Masonry<br><br>mortar. PD 6678: Guide to the specification of masonry mortar. BS EN 1015: Methods of test for mortar for masonry.<br><br>Traditional BS EN 998-2 Proportions by volume<br><br>designation Strength cement/lime/sand cement/sand Application<br><br>i 12 1:0.25:3 1:3 Exposed external<br>ii 6 1:0.5:4†4.5 1:3†4 General external<br>iii 4 1:1:5†6 1:5†6 Sheltered internal<br>iv 2 1:2:8†9 1:7†8 General internal<br>v † 1:3:10†12 1:9†10 Internal, grouting<br>|
+|---|
+
+
+Supports Over Openings
+
+|Supports Over Openings ~ the primary function of any support over an opening is to carry the loads above the opening and transmit them safely to the abutments, jambs or piers on both sides. A support over an opening is usually required since the opening infilling such as a door or window frame will not have sufficient strength to carry the load through its own members.<br><br>![image 336](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile336.png)|
+|---|
+
+
+Arches
+
+|Arch Construction ~ by the arrangement of the bricks or stones in an arch over an opening it will be self supporting once the jointing material has set and gained adequate strength. The arch must therefore be constructed over a temporary support until the arch becomes self supporting. The traditional method is to use a framed timber support called a centre. Permanent arch centres are also available for small spans and simple formats.<br><br>![image 337](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile337.png)|
+|---|
+
+
+###### Arch Cavity Tray
+
+|The profile of an arch does not lend itself to simple positioning of a damp proof course. At best, it can be located horizontally at upper extrados level. This leaves the depth of the arch and masonry below the dpc vulnerable to dampness. Proprietary galvanised or stainless steel cavity trays resolve this problem by providing:<br><br>* Continuity of dpc around the extrados.<br>* Arch support/centring during construction.<br>* Arch and wall support after construction.<br><br><br>![image 338](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile338.png)<br><br>Standard profiles are made to the traditional outlines shown on the previous two pages, in spans up to 2 m. Other options may also be available from some manufacturers. Irregular shapes and spans can be made to order.<br><br>Note: Arches in semi-circular, segmental or parabolic form up to 2m span can be proportioned empirically. For integrity of structure it is important to ensure sufficient provision of masonry over and around any arch, see BS 5628: Code of practice for use of masonry.|
+|---|
+
+
+###### Alternative Arch Cavity Tray
+
+|The example in steel shown on the preceding page combines structural support with a damp proof course, without the need for temporary support from a centre. Where traditional centring is retained, a lightweight preformed polypropylene cavity tray/dpc can be used. These factory made plastic trays are produced in various thicknesses of 1.5 to 3 mm relative to spans up to about 2 m. Arch centres are made to match the tray profile and with care can be reused several times.<br><br>An alternative material is code 4 lead sheet*. Lead is an adaptable material but relatively heavy. Therefore, its suitability is limited to small spans particularly with non-standard profiles.<br><br>*BS EN 12588: Lead and lead alloys. Rolled lead sheet for building purposes. Lead sheet is coded numerically from 3 to 8, which closely relates to the traditional specification in lbs./sq. ft.<br><br>![image 339](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile339.png)<br><br>Ref. BS 5628-3: Code of practice for the use of masonry. Materials and components, design and workmanship.|
+|---|
+
+
+###### Opening Details---Heads
+
+|Openings ~ these consist of a head, jambs and sill and the different methods and treatments which can be used in their formation is very wide but they are all based on the same concepts. Application limited † see pages 452 and 453.<br><br>Typical Head Details ~<br><br>![image 340](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile340.png)|
+|---|
+
+
+###### Opening Details---Jambs
+
+|Jambs ~ these may be bonded as in solid walls or unbonded as in cavity walls. The latter must have some means of preventing the ingress of moisture from the outer leaf to the inner leaf and hence the interior of the building.<br><br>Application limited † see pages 452 and 453.<br><br>![image 341](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile341.png)|
+|---|
+
+
+###### Opening Details---Sills
+
+|Sills ~ the primary function of any sill is to collect the rainwater which has run down the face of the window or door and shed it clear of the wall below.<br><br>Application limited † see pages 452 and 453.<br><br>![image 342](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile342.png)|
+|---|
+
+
+###### Opening Details---Checked Head, Jamb and Sill
+
+|Traditional Construction † checked rebates or recesses in masonry solid walls were often provided at openings to accommodate door and window frames. This detail was used as a means to complement frame retention and prevent weather intrusion.<br><br>![image 343](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile343.png)<br><br>Exposure Zones † checked reveal treatment is now required mainly where wind-driven rain will have most impact. This is primarily in the south west and west coast areas of the British Isles, plus some isolated inland parts that will be identified by their respective local authorities.<br><br>Typical Checked Opening Details †<br><br>![image 344](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile344.png)<br><br>Ref. Building Regulations, Approved Document C2: Resistance to moisture. Driving rain exposure zones 3 and 4.|
+|---|
+
+
+###### Windows---Performance Requirements
+
+|A window must be aesthetically acceptable in the context of building design and surrounding environment<br><br>![image 345](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile345.png)<br><br>Windows should be selected or designed to resist wind loadings, be easy to clean and provide for safety and security. They should be sited to provide visual contact with the outside.<br><br>Habitable upper floor rooms should have a window for emergency escape. Min. opening area, 0.330 m2. Min. height and width, 0.450 m. Max height of opening, 1.100 m above floor.|
+|---|
+
+
+###### Windows---Conventional Types
+
+|![image 346](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile346.png)|
+|---|
+
+
+###### Timber Casement Windows
+
+|![image 347](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile347.png)|
+|---|
+
+
+High Performance Timber Casement Windows
+
+|The standard range of casement windows used in the UK was derived from the English Joinery Manufacturer's Association (EJMA) designs of some 50 years ago. These became adopted in BS 644: Timber windows. Specification for factory assembled windows of various types. A modified type is shown on the preceding page. Contemporary building standards require higher levels of performance in terms of thermal and sound insulation (Bldg. Regs. Pt. L and E), air permeability, water tightness and wind resistance (BS ENs 1026, 1027 and 12211, respectively). This has been achieved by adapting Scandinavian designs with double and triple glazing to attain U values as low as 1„2 W/m2K and a sound reduction of 50 dB.<br><br>![image 348](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile348.png)<br><br>![image 349](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile349.png)|
+|---|
+
+
+###### Metal Casement Windows
+
+|Metal Windows ~ these can be obtained in steel (BS 6510) or in aluminium alloy (BS 4873). Steel windows are cheaper in initial cost than aluminium alloy but have higher maintenance costs over their anticipated life, both can be obtained fitted into timber subframes. Generally they give a larger glass area for any given opening size than similar timber windows but they can give rise to condensation on the metal components.<br><br>top hung ventlight 1500<br><br>1500<br><br>head<br><br>70 x 44 timber subframe head<br><br>121 x 70 timber subframe sill<br><br>25 x 33 o/a metal sash framing<br><br>25 x 33 o/a metal framing<br><br>side hung casement sash<br><br>fixed sub-light<br><br>70 x 57 transom<br><br>glass<br><br>putty<br><br>BS6510 metal windows<br><br>mastic seal<br><br>top hung vent.<br><br>4mm glass factory glazed fixed light<br><br>aluminium alloy framing in mill, anodised or acrylic finishes<br><br>projecting or flush sills available<br><br>STEEL FRAME SECTIONS TYPICAL VERTICAL SECTIONS<br><br>TYPICAL ELEVATION<br><br>fixed light<br><br>![image 350](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile350.png)<br><br>![image 351](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile351.png)<br><br>Refs.: BS 4873: Aluminium alloy windows. BS 6510: Steel-framed windows and glazed doors.|
+|---|
+
+
+1500
+
+###### Casement Windows---Ironmongery
+
+|Timber Windows ~ wide range of ironmongery available which can be factory fitted or supplied and fixed on site.<br><br>Metal Windows ~ ironmongery usually supplied with and factory fitted to the windows.<br><br>![image 352](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile352.png)|
+|---|
+
+
+|Sliding Sash Windows ~ these are an alternative format to the conventional side hung casement windows and can be constructed as a vertical or double hung sash window or as a horizontal sliding window in timber, metal, plastic or in any combination of these materials. The performance and design functions of providing daylight, ventilation, vision out, etc., are the same as those given for traditional windows in Windows † Performance Requirements on page 348.<br><br>![image 353](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile353.png)|
+|---|
+
+
+Sliding Sash Windows
+
+|Double Hung Sash Windows ~ these vertical sliding sash windows come in two formats when constructed in timber. The weight balanced format is shown on the preceding page, the alternative spring balanced type is illustrated below. Both formats are usually designed and constructed to the recommendations set out in BS 644.<br><br>![image 354](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile354.png)|
+|---|
+
+
+|Horizontally Sliding Sash Windows ~ these are an alternative format to the vertically sliding or double hung sash windows shown on pages 354 & 355 and can be constructed in timber, metal, plastic or combinations of these materials with single or double glazing. A wide range of arrangements are available with two or more sliding sashes which can have a ventlight incorporated in the outer sliding sash.<br><br>![image 355](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile355.png)|
+|---|
+
+
+###### Pivot Windows
+
+|Pivot Windows ~ like other windows these are available in timber, metal, plastic or in combinations of these materials.<br><br>They can be constructed with centre jamb pivots enabling the sash to pivot or rotate in the horizontal plane or alternatively the pivots can be fixed in the head and sill of the frame so that the sash rotates in the vertical plane.<br><br>![image 356](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile356.png)|
+|---|
+
+
+Bay Windows
+
+|Bay Windows ~ these can be defined as any window with side lights which projects in front of the external wall and is supported by a sill height wall. Bay windows not supported by a sill height wall are called oriel windows. They can be of any window type, constructed from any of the usual window materials and are available in three plan formats namely square, splay and circular or segmental. Timber corner posts can be boxed, solid or jointed the latter being the common method.<br><br>![image 357](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile357.png)|
+|---|
+
+
+Window Schedules
+
+|Schedules~themainfunctionofascheduleistocollecttogetherallthenecessaryinformationfora<br><br>particulargroupofcomponentssuchaswindows,doorsanddrainageinspectionchambers.Thereisno<br><br>standardformatforschedulesbuttheyshouldbeeasytoread,accurateandcontainallthenecessary<br><br>informationfortheirpurpose.Schedulesareusuallypresentedinatabulatedformatwhichcanberelated<br><br>toandreadinconjunctionwiththeworkingdrawings.<br><br>![image 358](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile358.png)|
+|---|
+
+
+urateandcontainallthenecessary
+
+geinspectionchambers.Thereisno
+
+allthenecessaryinformationfora
+
+bulatedformatwhichcanberelated
+
+###### Window Notation
+
+|Window manufacturers identify their products with a notation that combines figures with numbers. The objective is to simplify catalogue entries, specification clauses and schedules. For example:<br><br>![image 359](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile359.png)<br><br>head<br><br>1350<br><br>1770<br><br>fixed light<br><br>sill<br><br>left-hand casement vent-light as viewed from front<br><br>right-hand casement as viewed from front<br><br>Ref. 313 CVC<br><br>Notation will vary to some extent between the different joinery producers. The example of 313 CVC translates to:<br><br>3 = width divided into three units. 13 = first two dimensions of standard height, ie. 1350 mm. C = casement. V = ventlight.<br><br>Other common notations include:<br><br>N = narrow light. P = plain (picture type window, ie. no transom or mullion). T = through transom. S = sub-light, fixed. VS = vent-light and sub-light. F = fixed light. B = bottom casement opening inwards. RH/LH = right or left-hand as viewed from the outside.|
+|---|
+
+
+1350
+
+###### Glass and Glazing
+
+|Glass ~ this material is produced by fusing together soda, lime and silica with other minor ingredients such as magnesia and alumina. A number of glass types are available for domestic work and these include:-<br><br>Clear Float ~ used where clear undistorted vision is required. Available thicknesses range from 3mm to 25 mm.<br><br>Clear Sheet ~ suitable for all clear glass areas but because the two faces of the glass are never perfectly flat or parallel some distortion of vision usually occurs. This type of glass is gradually being superseded by the clear float glass. Available thicknesses range from 3 mm to 6 mm.<br><br>Translucent Glass ~ these are patterned glasses most having one patterned surface and one relatively flat surface. The amount of obscurity and diffusion obtained depend on the type and nature of pattern. Available thicknesses range from 4 mm to 6 mm for patterned glasses and from 5 mm to 10mm for rough cast glasses.<br><br>Wired Glass ~ obtainable as a clear polished wired glass or as a rough cast wired glass with a nominal thickness of 7 mm. Generally used where a degree of fire resistance is required. Georgian wired glass has a 12mm square mesh whereas the hexagonally wired glass has a 20 mm mesh.<br><br>Choice of Glass ~ the main factors to be considered are:-<br><br>1. Resistance to wind loadings. 2. Clear vision required.<br><br>3. Privacy. 4. Security. 5. Fire resistance. 6. Aesthetics.<br><br>Glazing Terminology ~<br><br>![image 360](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile360.png)|
+|---|
+
+
+###### Glass and Glazing
+
+|Glazing ~ the act of fixing glass into a frame or surround in domestic work this is usually achieved by locating the glass in a rebate and securing it with putty or beading and should be carried out in accordance with the recommendations contained in BS 6262: Glazing for buildings.<br><br>Timber Surrounds ~ linseed oil putty to BS 544 † rebate to be clean, dry and primed before glazing is carried out. Putty should be protected with paint within two weeks of application.<br><br>Metal Surrounds ~ metal casement putty if metal surround is to be painted † if surround is not to be painted a non-setting compound should be used.<br><br>![image 361](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile361.png)|
+|---|
+
+
+###### Double Glazing
+
+|Double Glazing ~ as its name implies this is where two layers of glass are used instead of the traditional single layer. Double glazing can be used to reduce the rate of heat loss through windows and glazed doors or it can be employed to reduce the sound transmission through windows. In the context of thermal insulation this is achieved by having a small air or argon gas filled space within the range of 6 to 20mm between the two layers of glass. The sealed double glazing unit will also prevent internal misting by condensation. If metal frames are used these should have a thermal break incorporated in their design. All opening sashes in a double glazing system should be fitted with adequate weather seals to reduce the rate of heat loss through the opening clearance gap.<br><br>In the context of sound insulation three factors affect the performance of double glazing. Firstly good installation to ensure airtightness, secondly the weight of glass used and thirdly the size of air space between the layers of glass. The heavier the glass used the better the sound insulation and the air space needs to be within the range of 50 to 300mm. Absorbent lining to the reveals within the air space will also improve the sound insulation properties of the system.<br><br>![image 362](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile362.png)|
+|---|
+
+
+Secondary Glazing
+
+|Secondary glazing of existing windows is an acceptable method for reducing heat energy losses at wall openings. Providing the existing windows are in a good state of repair, this is a cost effective, simple method for upgrading windows to current energy efficiency standards. In addition to avoiding the disruption of removing existing windows, further advantages of secondary glazing include, retention of the original window features, reduction in sound transmission and elimination of draughts. Applications are manufactured for all types of window, with sliding or hinged variations. The following details are typical of horizontal sliding sashes -<br><br>![image 363](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile363.png)|
+|---|
+
+
+###### Low Emissivity Glass
+
+|Low emissivity or ``Low E'' glass is specially manufactured with a surface coating to significantly improve its thermal performance. The surface coating has a dual function:<br><br>1 . Allows solar short wave light radiation to penetrate a building.<br>2. Reflects long wave heat radiation losses back into a building.<br><br><br>![image 364](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile364.png)<br><br>Manufacturing processes:<br><br>1 . Pyrolitic hard coat, applied on-line as the glass is made. Emissivity range, 0.15†0.20, e.g. Pilkington `K'.<br>2. A sputtered soft coat applied after glass manufacture. Emissivity range, 0.05†0.10, e.g. Pilkington `Kappafloat' and `Suncool High Performance'.<br><br><br>Note: In relative terms, uncoated glass has a normal emissivity of about 0.90. Indicative U-values for multi-glazed windows of 4mm glass with a 16mm void width:<br><br>Glazing type uPVC or wood frame metal frame Double, air filled 2.7 3.3 Double, argon filled 2.6 3.2 Double, air filled Low E (0.20) 2.1 2.6 Double, argon filled Low E (0.20) 2.0 2.5 Double, air filled Low E (0.05) 2.0 2.3 Double, argon filled Low E (0.05) 1.7 2.1 Triple, air filled 2.0 2.5 Triple, argon filled 1.9 2.4 Triple, air filled Low E (0.20) 1.6 2.0 Triple, argon filled Low E (0.20) 1.5 1.9 Triple, air filled Low E (0.05) 1.4 1.8 Triple, argon filled Low E (0.05) 1.3 1.7 Notes:<br><br>1. A larger void and thicker glass will reduce the U-value, and vice-versa.<br>2. Data for metal frames assumes a thermal break of 4mm (see next page).<br>3. Hollow metal framing units can be filled with a closed cell insulant foam to considerably reduce U-values.<br>|
+|---|
+
+
+###### Aluminium Hollow Profile Casement Windows
+
+|Extruded aluminium profiled sections are designed and manufactured to create lightweight hollow window (and door) framing members.<br><br>Finish † untreated aluminium is prone to surface oxidisation. This can be controlled by paint application, but most manufacturers provide a variable colour range of polyester coatings finished gloss, satin or matt.<br><br>Thermal insulation † poor insulation and high conductivity are characteristics of solid profile metal windows. This is much less apparent with hollow profile outer members, as they can be considerably enhanced by a thermal infilling of closed cell foam.<br><br>Condensation † a high strength 2-part polyurethane resin thermal break between internal and external profiles inhibits cold bridging. This reduces the opportunity for condensation to form on the surface. The indicative U-values given on the preceding page are based on a thermal break of 4 mm. If this is increased to 16mm, the values can be reduced by up to 0.2 W/m2 K.<br><br>![image 365](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile365.png)<br><br>Hollow Core Aluminium Profiled Window Section|
+|---|
+
+
+###### Multiple Glazing
+
+|Inert gas fills ~ argon or krypton. Argon is generally used as it is the least expensive and more readily available. Where krypton is used, the air gap need only be half that with argon to achieve a similar effect. Both gases have a higher insulating value than air due to their greater density.<br><br>Densities (kg/m3): Air = 1.20 Argon = 1.66 Krypton = 3.49<br><br>Argon and krypton also have a lower thermal conductivity than air.<br><br>Spacers ~ generally hollow aluminium with a desiccant or drying agent fill. The filling absorbs the initial moisture present in between the glass layers. Non-metallic spacers are preferred as aluminium is an effective heat conductor.<br><br>Approximate solar gains with ordinary float glass ~<br><br>![image 366](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile366.png)<br><br>Single glazing<br><br>88% 78% 70%<br><br>Double glazing Triple glazing<br><br>``Low E'' invisible coatings reduce the solar gain by up to onethird. Depending on the glass quality and cleanliness, about 10 to 15% of visible light reduction applies for each pane of glass.|
+|---|
+
+
+###### Triple glazing
+
+|Typical application ~<br><br>* Hollow profiles manufactured with a closed cell insulant foam/expanded polystyrene core.<br><br>Vertical section<br><br>synthetic rubber sealing strip<br><br>"L" shaped glazing bead/clip and seal<br><br>glazed units of 3 mm glass and 12 mm gap or 4 mm glass and 16 mm gap<br><br>air, argon or krypton filled gaps<br><br>casement frame*<br><br>window board, material optional<br><br>synthetic rubber seal<br><br>middle and inner pane "E" coated<br><br>33 or 44 mm overall depth<br><br>synthetic rubber compression seal<br><br>standard head and jamb profile*<br><br>hollow profile "plastic" sections*, typically uPVC or glass fibres with polyester resin bonding<br><br>sill<br><br>![image 367](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile367.png)<br><br>Further considerations ~<br><br>* U value potential, less than 1.0 W/m2K.<br>* ``Low E'' invisible metallic layer on one pane of double glazing gives a similar insulating value to standard triple glazing (see page 365).<br>* Performance enhanced with blinds between wide gap panes.<br>* High quality ironmongery required due to weight of glazed frames.<br>* Improved sound insulation, particularly with heavier than air gap fill.<br>|
+|---|
+
+
+###### Glazing---Location
+
+|![image 368](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile368.png)<br><br>In these critical locations, glazing must satisfy one of the following:-<br><br>1 . Breakage to leave only a small opening with small detachable particles without sharp edges.<br>2. Disintegrating glass must leave only small detached pieces.<br>3. Inherent robustness, e.g. polycarbonate composition. Annealed glass acceptable but with the following limitations:-<br>4. Panes in small areas, <250 mm wide and <0.5 m2 area. e.g. leaded lights (4 mm annealed glass) and Georgian pattern (6mm annealed glass).<br>5. Protective screening as shown:<br><br><br>![image 369](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile369.png)<br><br>Thickness of Max. glazed area. annealed glass (mm) Height (m) Width(m)<br><br>8 1„100 1„100 10 2„250 2„250 12 3„000 4„500 15 no limit|
+|---|
+
+
+###### Glazing---Manifestation
+
+|Manifestation or Marking of Glass ~ another aspect of the critical location concept which frequently occurs with contemporary glazed features in a building. Commercial premises such as open plan offices, shops and showrooms often incorporate large walled areas of uninterrupted glass to promote visual depth, whilst dividing space or forming part of the exterior envelope. To prevent collision, glazed doors and walls must have prominent framing or intermediate transoms and mullions. An alternative is to position obvious markings at 1000 and 1500mm above floor level. Glass doors could have large pull/push handles and/or IN and OUT signs in bold lettering. Other areas may be adorned with company logos, stripes, geometric shape, etc.<br><br>![image 370](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile370.png)<br><br>Critical Locations ~ The Building Regulations, Approved Document † N, determines positions where potential personal impact and injury with glazed doors and windows are most critical. In these situations the glazing specification must incorporate a degree of safety such that any breakage would be relatively harmless. Additional measures in British Standard 6206 complement the Building Regulations and provide test requirements and specifications for impact performance for different classes of glazing material. See also BS 6262.<br><br>Refs. Building Regulations, A.D. N1: Protection against impact.<br><br>A.D. N2: Manifestation of glazing. BS 6206: Specification for impact performance requirements for flat safety glass and safety plastics for use in buildings. BS 6262: Code of practice for glazing for buildings.|
+|---|
+
+
+###### Glass Block Walling---1
+
+|Glass blocks have been used for some time as internal feature partitioning. They now include a variety of applications in external walls, where they combine the benefits of a walling unit with a natural source of light. They have also been used in paving to allow natural light penetration into basements.<br><br>![image 371](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile371.png)<br><br>Fire resistance, BS 476-22 - 1 hour integrity (load bearing capacity and fire containment). Maximum panel size is 9m2. Maximum panel dimension is 3 m<br><br>Laying † glass blocks can be bonded like conventional brickwork, but for aesthetic reasons are usually laid with continuous vertical and horizontal joints.<br><br>Jointing † blocks are bedded in mortar with reinforcement from two, 9 gauge galvanised steel wires in horizontal joints. Every 3rd. course for 150 mm units, every 2nd. course for 200mm units and every course for 300mm units. First and last course to be reinforced.<br><br>Ref: BS 476-22: Fire tests on building materials and structures. Methods for determination of the fire resistance of nonloadbearing elements of construction.|
+|---|
+
+
+###### Glass Block Walling---2
+
+|Mortar † dryer than for bricklaying as the blocks are nonabsorbent. The general specification will include: White Portland Cement (BS EN 197-1), High Calcium Lime (BS EN 459-1) and Sand. The sand should be white quartzite or silica type. Fine silver sand is acceptable. An integral waterproofing agent should also be provided. Recommended mix ratios † 1 part cement: 0.5 part lime: 4 parts sand.<br><br>![image 372](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile372.png)<br><br>Ref. BS EN 1051-1: Glass in building † glass blocks and glass pavers. Definitions and description.|
+|---|
+
+
+Doors---Performance Requirements
+
+|Doors ~ can be classed as external or internal. External doors are usually thicker and more robust in design than internal doors since they have more functions to fulfil.<br><br>![image 373](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile373.png)|
+|---|
+
+
+Door Types
+
+|External Doors ~ these are available in a wide variety of types and styles in timber, aluminium alloy or steel. The majority of external doors are however made from timber, the metal doors being mainly confined to fully glazed doors such as `patio doors'.<br><br>![image 374](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile374.png)|
+|---|
+
+
+###### Door Types
+
+|![image 375](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile375.png)|
+|---|
+
+
+External Door Frames
+
+|Door Frames ~ these are available for all standard external doors and can be obtained with a fixed solid or glazed panel above a door height transom. Door frames are available for doors opening inwards or outwards. Most door frames are made to the recommendations set out in BS 4787: Internal and external wood doorsets, door leaves and frames. Specification for dimensional requirements.<br><br>![image 376](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile376.png)|
+|---|
+
+
+###### Door Ironmongery
+
+|Door Ironmongery ~ available in a wide variety of materials, styles and finishers but will consist of essentially the same components:Hinges or Butts † these are used to fix the door to its frame or lining and to enable it to pivot about its hanging edge.<br><br>Locks, Latches and Bolts ~ the means of keeping the door in its closed position and providing the required degree of security. The handles and cover plates used in conjunction with locks and latches are collectively called door furniture.<br><br>Letter Plates † fitted in external doors to enable letters etc., to be deposited through the door.<br><br>Other items include Finger and Kicking Plates which are used to protect the door fabric where there is high usage,<br><br>Draught Excluders to seal the clearance gap around the edges of the door and Security Chains to enable the door to be partially opened and thus retain some security.<br><br>![image 377](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile377.png)|
+|---|
+
+
+|Industrial Doors ~ these doors are usually classified by their method of operation and construction. There is a very wide range of doors available and the choice should be based on the following considerations:-<br><br>1 . Movement - vertical or horizontal.<br>2. Size of opening.<br>3. Position and purpose of door(s).<br>4. Frequency of opening and closing door(s).<br>5. Manual or mechanical operation.<br>6. Thermal and/or sound insulation requirements.<br>7. Fire resistance requirements.<br><br><br>![image 378](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile378.png)|
+|---|
+
+
+|Straight Sliding Doors ~ these doors are easy to operate, economic to maintain and present no problems for the inclusion of a wicket gate. They do however take up wall space to enable the leaves to be parked in the open position. The floor guide channel associated with top hung doors can become blocked with dirt causing a malfunction of the sliding movement whereas the rollers in bottom track doors can seize up unless regularly lubricated and kept clean. Straight sliding doors are available with either manual or mechanical operation.<br><br>![image 379](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile379.png)|
+|---|
+
+
+|Sliding/Folding Doors ~ these doors are an alternative format to the straight sliding door types and have the same advantages and disadvantages except that the parking space required for the opened door is less than that for straight sliding doors. Sliding/ folding are usually manually operated and can be arranged in groups of 2 to 8 leaves.<br><br>Typical Example ~<br><br>![image 380](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile380.png)|
+|---|
+
+
+|Shutters ~ horizontal folding shutters are similar in operation to sliding/folding doors but are composed of smaller leaves and present the same problems. Roller shutters however do not occupy any wall space but usually have to be fully opened for access. They can be manually operated by means of a pole when the shutters are self coiling, operated by means of an endless chain winding gear or mechanically raised and lowered by an electric motor but in all cases they are slow to open and close. Vision panels cannot be incorporated in the roller shutter but it is possible to include a small wicket gate or door in the design.<br><br>![image 381](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile381.png)|
+|---|
+
+
+Crosswall Construction
+
+|Crosswall Construction ~ this is a form of construction where load bearing walls are placed at right angles to the lateral axis of the building, the front and rear walls being essentially non-load bearing cladding. Crosswall construction is suitable for buildings up to 5 storeys high where the floors are similar and where internal separating or party walls are required such as in blocks of flats or maisonettes. The intermediate floors span longitudinally between the crosswalls providing the necessary lateral restraint and if both walls and floors are of cast in-situ reinforced concrete the series of `boxes' so formed is sometimes called box frame construction. Great care must be taken in both design and construction to ensure that the junctions between the non-load bearing claddings and the crosswalls are weathertight. If a pitched roof is to be employed with the ridge parallel to the lateral axis an edge beam will be required to provide a seating for the trussed or common rafters and to transmit the roof loads to the crosswalls.<br><br>![image 382](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile382.png)|
+|---|
+
+
+###### Crosswall Construction
+
+|![image 383](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile383.png)<br><br>Advantages of Crosswall Construction:-<br><br>1 . Load bearing and non-load bearing components can be standardised and in same cases prefabricated giving faster construction times.<br>2. Fenestration between crosswalls unrestricted structurally.<br>3. Crosswalls although load bearing need not be weather resistant as is the case with external walls.<br><br><br>Disadvantages of Crosswall Construction:-<br><br>1 . Limitations of possible plans.<br>2. Need for adequate lateral ties between crosswalls.<br>3. Need to weather adequately projecting crosswalls.<br><br><br>Floors:-<br><br>An in-situ solid reinforced concrete floor will provide the greatest rigidity, all other form must be adequately tied to walls.|
+|---|
+
+
+|System ~ comprises quality controlled factory produced components of plain reinforced concrete walls and prestressed concrete hollow or solid core plank floors.<br><br>Site Assembly ~ components are crane lifted and stacked manually with the floor panel edges bearing on surrounding walls. Temporary support will be necessary until the units are ``stitched'' together with horizontal and vertical steel reinforcing ties located through reinforcement loops projecting from adjacent panels. In-situ concrete completes the structural connection to provide full transfer of all forces and loads through the joint. Precast concrete stair flights and landings are located and connected to support panels by steel angle bracketing and in-situ concrete joints.<br><br>Typical ``stitched'' joint between precast concrete crosswall components ~<br><br>RC crosswall PLAN VIEW<br><br>vertical reinforcement tie and in-situ concrete in void<br><br>joint seal RC external wall<br><br>cavity insulated as required<br><br>external masonry cladding<br><br>movement joint (12 m max. spacing)<br><br>purpose made wall tie in dovetail recess<br><br>panel reinforcement looped at ends<br><br>![image 384](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile384.png)|
+|---|
+
+
+|Concept ~ a cost effective simple and fast site assembly system using load-bearing partitions and external walls to transfer vertical loads from floor panels. The floor provides lateral stability by diaphragm action between the walls.<br><br>Application ~ precast reinforced concrete crosswall construction systems may be used to construct multi-storey buildings, particularly where the diaphragm floor load distribution is transferred to lift or stair well cores. Typical applications include schools, hotels, hostels apartment blocks and hospitals. External appearance can be enhanced by a variety of cladding possibilities, including the traditional look of face brickwork secured to the structure by in-built ties. Internal finishing may be with paint or plaster, but it is usually dry lined with plasterboard.<br><br>Location of ``stitched'' in-situ reinforced concrete ties ~<br><br>floor panels and walls stacked and "stitched"<br><br>precast reinforced concrete external wall<br><br>precast reinforced concrete crosswall<br><br>precast, prestressed first floor panel<br><br>precast reinforced concrete crosswall<br><br>precast, prestressed upper floor panel<br><br>![image 385](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile385.png)<br><br>Fire resistance and sound insulation are achieved by density and quality of concrete. The thermal mass of concrete can be enhanced by applying insulation in between the external precast panel and the masonry or other cladding.|
+|---|
+
+
+###### Timber Frame Construction
+
+|Framing ~ an industry based pre-fabricated house manufacturing process permitting rapid site construction, with considerably fewer site operatives than traditional construction. This technique has a long history of conventional practice in Scandinavia and North America, but has only gained credibility in the UK since the 1960s. Factory-made panels are based on a stud framework of timber, normally ex. 100 50mm, an outer sheathing of plywood, particleboard or similar sheet material, insulation between the framing members and an internal lining of plasterboard. An outer cladding of brickwork weatherproofs the building and provides a traditional appearance.<br><br>Assembly techniques are derived from two systems:-<br><br>1 . Balloon frame<br>2. Platform frame<br><br><br>![image 386](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile386.png)<br><br>A balloon frame consists of two-storey height panels with an intermediate floor suspended from the framework. In the UK, the platform frame is preferred with intermediate floor support directly on the lower panel. It is also easier to transport, easier to handle on site and has fewer shrinkage and movement problems.|
+|---|
+
+
+Timber Frame Construction
+
+|![image 387](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile387.png)<br><br>Notes:<br><br>1 . Cavity barriers prevent fire spread. The principal locations are between elements and compartments of construction (see B. Regs. A.D. B3).<br>2. Thermal bridging through solid framing may be reduced by using rigid EPS insulation and lighter `I' section members of plywood or OSB.<br>|
+|---|
+
+
+###### Steel Frame Construction (1)
+
+|Framing ~ comprising inner leaf wall panels of standard coldformed galvanised steel channel sections as structural support, with a lined inner face of vapour check layer under plasterboard. These panels can be site assembled, but it is more realistic to order them factory made. Panels are usually produced in 600 mm wide modules and bolted together on site. Roof trusses are made up from steel channel or sigma sections. See page 494 for examples of standard steel sections and BS EN 10162: Cold rolled steel sections.<br><br>Standard channel and panel.<br><br>![image 388](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile388.png)<br><br>Background/history ~ the concept of steel framing for house construction evolved in the early 1920s, but development of the lightweight concrete ``breeze'' block soon took preference. Due to a shortage of traditional building materials, a resurgence of interest occurred again during the early post-war building boom of the late 1940s. Thereafter, steel became relatively costly and uncompetitive as a viable alternative to concrete block or timber frame construction techniques. Since the 1990s more efficient factory production processes, use of semi-skilled site labour and availability of economic cold-formed sections have revived an interest in this alternative means of house construction.|
+|---|
+
+
+###### Steel Frame Construction (2)
+
+|Typical Details ~<br><br>Eaves<br><br>insulated cavity closer barrier (see Building Regs. A. D: B3, Section 6 [Vol. 1] and 9 [Vol. 2]) and plywood bracket<br><br>bolted channel section truss<br><br>storey height modular frame<br><br>brickwork outer leaf<br><br>channel section floor joists<br><br>ground floor slab<br><br>channel section truss members<br><br>header binder or wall plate<br><br>stud framing<br><br>fire retardant insulation<br><br>wall tie breather membrane<br><br>50 mm cavity<br><br>insulation between studding and into cavity<br><br>Intermediate floor Ground floor<br><br>plasterboard<br><br>plywood deck<br><br>dpc<br><br>channel section floor joists<br><br>insulated cavity barrier/fire stop if a compartment floor<br><br>concrete slab or beam and block floor<br><br>dpm<br><br>insulation<br><br>anchor screed bolt<br><br>12.5 mm vapour check plasterboard screwed to stud framework<br><br>![image 389](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile389.png)<br><br>Advantages ~<br><br>• Factory made, therefore produced to quality controlled standards and tolerances.<br>• Relatively simple to assemble on site † bolted connections in pre-formed holes.<br>• Dimensionally stable, consistent composition, insignificant movement.<br>• Unaffected by moisture, therefore will not rot.<br>• Does not burn.<br>• Inedible by insects.<br>• Roof spans potentially long relative to weight.<br><br>Disadvantages ~<br><br>• Possibility of corrosion if galvanised protective layer is damaged.<br>• Deforms at high temperature, therefore unpredictable in fire.<br>• Electricity conductor † must be earthed.<br>|
+|---|
+
+
+Cladding to External Walls
+
+|Claddings to External Walls ~ external walls of block or timber frame construction can be clad with tiles, timber boards or plastic board sections. The tiles used are plain roofing tiles with either a straight or patterned bottom edge. They are applied to the vertical surface in the same manner as tiles laid on a sloping surface (see pages 401 to 403) except that the gauge can be wider and each tile is twice nailed. External and internal angles can be formed using special tiles or they can be mitred. Timber boards such as matchboarding and shiplap can be fixed vertically to horizontal battens or horizontally to vertical battens. Plastic moulded board claddings can be applied in a similar manner. The battens to which the claddings are fixed should be treated with a preservative against fungi and beetle attack and should be fixed with corrosion resistant nails.<br><br>![image 390](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile390.png)|
+|---|
+
+
+###### Roofs---Performance Requirements
+
+|![image 391](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile391.png)|
+|---|
+
+
+|Roofs ~ these can be classified as either:Flat † pitch from 0 to 10 Pitched † pitch over 10<br><br>It is worth noting that for design purposes roof pitches over 70 are classified as walls.<br><br>Roofs can be designed in many different forms and in combinations of these forms some of which would not be suitable and/or economic for domestic properties.<br><br>![image 392](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile392.png)|
+|---|
+
+
+###### Basic Roof Forms
+
+|![image 393](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile393.png)|
+|---|
+
+
+|![image 394](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile394.png)|
+|---|
+
+
+###### Timber Pitched Roofs up to 7.5 m Span
+
+|Pitched Roofs ~ the primary functions of any domestic roof are to:-<br><br>1 . Provide an adequate barrier to the penetration of the elements.<br>2. Maintain the internal environment by providing an adequate resistance to heat loss.<br><br><br>A roof is in a very exposed situation and must therefore be designed and constructed in such a manner as to:-<br><br>1 . Safely resist all imposed loadings such as snow and wind.<br>2. Be capable of accommodating thermal and moisture movements.<br>3. Be durable so as to give a satisfactory performance and reduce maintenance to a minimum.<br><br><br>![image 395](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile395.png)|
+|---|
+
+
+|![image 396](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile396.png)|
+|---|
+
+
+|![image 397](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile397.png)|
+|---|
+
+
+|RoofTrusses~thesearetriangulatedplaneroofframesdesignedtogiveclearspansbetweenthe<br><br>externalsupportingwalls.Theyareusuallyprefabricatedorpartiallyprefabricatedoffsiteandarefixed<br><br>at1„800centrestosupportpurlinswhichacceptloadsfromtheinfillrafters.<br><br>![image 398](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile398.png)|
+|---|
+
+
+nedtogiveclearspansbetweenthe
+
+llyprefabricatedoffsiteandarefixed
+
+illrafters.
+
+|TrussedRafters~thesearetriangulatedplaneroofframesdesignedtogiveclearspansbetweentheexternal<br><br>supportingwalls.Theyaredeliveredtositeasaprefabricatedcomponentwheretheyarefixedtothewall<br><br>platesat600mmcentres.Trussedraftersdonotrequireanyridgeboardorpurlinssincetheyreceivetheir<br><br>lateralstabilitybyusinglargertilingbattens(50 25mm)thanthoseusedontraditionalroofs.<br><br>![image 399](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile399.png)<br><br>Longitudinalties(75 38)fixedoverceilingtiesandunderinternaltiesneartoroofapexandrafter<br><br>diagonalbracing(75 38)fixedunderraftersatgableendsfromeavestoapexmayberequiredtoprovide<br><br>stabilitybracing†actualrequirementsspecifiedbymanufacturer.Lateralrestrainttogablewallsattop<br><br>andbottomchordlevelsintheformofmildsteelstrapsat2„000maximumcentresover2No.trussed<br><br>raftersmayalsoberequired.|
+|---|
+
+
+giveclearspansbetweentheexternal
+
+nentwheretheyarefixedtothewall
+
+ardorpurlinssincetheyreceivetheir
+
+teralrestrainttogablewallsattop
+
+ltiesneartoroofapexandrafter
+
+stoapexmayberequiredtoprovide
+
+maximumcentresover2No.trussed
+
+sedontraditionalroofs.
+
+###### Gambrel or Mansard Roof
+
+|Gambrel roofs are double pitched with a break in the roof slope. The pitch angle above the break is less than 45 relative to the horizontal, whilst the pitch angle below the break is greater. Generally, these angles are 30 and 60 .<br><br>Gambrels are useful in providing more attic headroom and frequently incorporate dormers and rooflights. They have a variety of constructional forms.<br><br>![image 400](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile400.png)<br><br>Intermediate support can be provided in various ways as shown above. To create headroom for accommodation in what would otherwise be attic space, a double head plate and partition studding is usual. The collar beam and rafters can conveniently locate on the head plates or prefabricated trusses can span between partitions.|
+|---|
+
+
+###### Roof Underlays
+
+|Roof Underlays ~ sometimes called sarking or roofing felt provides the barrier to the entry of snow, wind and rain blown between the tiles or slates. It also prevents the entry of water from capillary action.<br><br>Suitable Materials ~<br><br>Bitumen fibre based felts † supplied in rolls 1m wide and up to 25 m long. Traditionally used in house construction with a cold ventilated roof.<br><br>Breather or vapour permeable underlay † typically produced from HDPE fibre or extruded polypropylene fibre, bonded by heat and pressure. Materials permeable to water vapour are preferred as these do not need to be perforated to ventilate the roof space. Also, subject to manufacturer's guidelines, traditional eaves ventilation may not be necessary. Underlay of this type should be installed taut across the rafters with counter battens support to the tile battens. Where counter battens are not used, underlay should sag slightly between rafters to allow rain penetration to flow under tile battens.<br><br>Underlays are fixed initially with galvanised clout nails or st/st staples but are finally secured with the tiling or slating batten fixings<br><br>![image 401](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile401.png)<br><br>tile batten<br><br>rain blown under tiles deflected to gutter<br><br>rafter<br><br>100 mm min. head and side laps to be adhesive or tape sealed<br><br>vapour permeable underlay<br><br>counter batten<br><br>tiling<br><br>|
+|---|
+
+
+###### Double Lap Tiling
+
+|Double Lap Tiles ~ these are the traditional tile covering for pitched roofs and are available made from clay and concrete and are usually called plain tiles. Plain tiles have a slight camber in their length to ensure that the tail of the tile will bed and not ride on the tile below. There is always at least two layers of tiles covering any part of the roof. Each tile has at least two nibs on the underside of its head so that it can be hung on support battens nailed over the rafters. Two nail holes provide the means of fixing the tile to the batten, in practice only every 4th course of tiles is nailed unless the roof exposure is high. Double lap tiles are laid to a bond so that the edge joints between the tiles are in the centre of the tiles immediately below and above the course under consideration.<br><br>![image 402](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile402.png)<br><br>For other types shapes and sections see BS EN 1304: Clay roofing tiles and fittings. Product definitions and specifications.|
+|---|
+
+
+###### Double Lap Tiling
+
+|Typical details ~<br><br>![image 403](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile403.png)<br><br>![image 404](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile404.png)<br><br>timber battens<br><br>underlay<br><br>rafters ceiling joists<br><br>insulation between and over joists<br><br>vapour-check plasterboard ceiling<br><br>50 mm deep wall plate<br><br>external wall with insulated cavity<br><br>cavity insulation<br><br>EAVES DETAIL<br><br>10 mm wide continuous ventilation gap<br><br>fascia<br><br>soffit board<br><br>gutter<br><br>eaves tile<br><br>margin = gauge<br><br>ventilation spacer<br><br>plain tiles nailed to battens every 4th course<br><br>=<br><br>tile length — lap 2<br><br>= 100 mm<br><br>=<br><br>265 — 65 2<br><br>Note 1: Through ventilation is necessary to prevent condensation occurring in the roof space.<br>Note 2: 50 25 where rafter spacing is 600mm.<br>|
+|---|
+
+
+###### Pitched Roof---Insulation Above Rafters
+
+|![image 405](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile405.png)<br><br>Note 1. If a cavity closer is also required to function as a cavity barrier to prevent fire spread, it should provide at least 30 minutes fire resistance, (B. Reg. A.D. B3 Section 6 [Vol. 1] and 9 [Vol. 2]).<br>Note 2. A breather membrane is an alternative to conventional bituminous felt as an under-tiling layer. It has the benefit of restricting liquid water penetration whilst allowing water vapour transfer from within the roof space. This permits air circulation without perforating the under-tiling layer.<br>|
+|---|
+
+
+###### Eaves and Ridge---Alternative Treatment
+
+|![image 406](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile406.png)<br><br>Where a roof space is used for habitable space, insulation must be provided within the roof slope. Insulation above the rafters (as shown) creates a `warm roof', eliminating the need for continuous ventilation. Insulation placed between the rafters creates a `cold roof', requiring a continuous 50 mm ventilation void above the insulation to prevent the possible occurrence of interstitial condensation.<br><br>Suitable rigid insulants include; low density polyisocyanurate (PIR) foam, reinforced with long strand glass fibres, both faces bonded to aluminium foil with joints aluminium foil taped on the upper surface; high density mineral wool slabs over rafters with less dense mineral wool between rafters.<br><br>An alternative location for the breather membrane is under the counter battens. This is often preferred as the insulation board will provide uniform support for the underlay. Otherwise, extra insulation could be provided between the counter battens, retaining sufficient space for the underlay to sag between rafter positions to permit any rainwater penetration to drain to eaves.|
+|---|
+
+
+###### Double Lap Tiling
+
+|![image 407](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile407.png)|
+|---|
+
+
+###### Double Lap Tiling
+
+|![image 408](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile408.png)|
+|---|
+
+
+Single Lap Tiling
+
+|Single Lap Tiling ~ so called because the single lap of one tile over another provides the weather tightness as opposed to the two layers of tiles used in double lap tiling. Most of the single lap tiles produced in clay and concrete have a tongue and groove joint along their side edges and in some patterns on all four edges which forms a series of interlocking joints and therefore these tiles are called single lap interlocking tiles. Generally there will be an overall reduction in the weight of the roof covering when compared with double lap tiling but the batten size is larger than that used for plain tiles and as a minimum every tile in alternate courses should be twice nailed, although a good specification will require every tile to be twice nailed. The gauge or batten spacing for single lap tiling is found by subtracting the end lap from the length of the tile.<br><br>![image 409](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile409.png)|
+|---|
+
+
+###### Single Lap Tiling
+
+|![image 410](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile410.png)<br><br>![image 411](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile411.png)<br><br>lap<br><br>margin<br><br>underside of deep profiles filled with filler piece or bedded in cm.mt. on eaves course of plain tiles<br><br>margin = gauge<br><br>=tile length — lap<br><br>fascia ventilation gap<br><br>soffit board<br><br>cavity insulation<br><br>external wall with thermal blockwork inner leaf<br><br>100 × 50 wall plate<br><br>vapour check plasterboard<br><br>insulation<br><br>ceiling joists<br><br>ventilation spacer<br><br>rafters<br><br>EAVES DETAIL<br><br>Hips † can be finished with a half round tile as a capping as shown for double lap tiling on page 406.<br><br>Valleys † these can be finished by using special valley trough tiles or with a lead lined gutter † see manufacturer's data.|
+|---|
+
+
+|Slates ~ slate is a natural dense material which can be split into thin sheets and cut to form a small unit covering suitable for pitched roofs in excess of 25 pitch. Slates are graded according to thickness and texture, the thinnest being known as `Bests'. These are of 4 mm nominal thickness. Slates are laid to the same double lap principles as plain tiles. Ridges and hips are normally covered with half round or angular tiles whereas valley junctions are usually of mitred slates over soakers. Unlike plain tiles every course is fixed to the battens by head or centre nailing, the latter being used on long slates and on pitches below 35 to overcome the problem of vibration caused by the wind which can break head nailed long slates.<br><br>Typical Details ~<br><br>![image 412](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile412.png)|
+|---|
+
+
+###### Roof Slating
+
+|The UK has been supplied with its own slate resources from quarries in Wales, Cornwall and Westermorland. Imported slate is also available from Spain, Argentina and parts of the Far East.<br><br>![image 413](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile413.png)<br><br>e.g. Countess slate, 510 255 mm laid to a 30 pitch with 75 mm head lap.<br><br>Batten gauge = (slate length † lap) … 2<br><br>= (510 † 75) … 2 = 218 mm.<br><br>Holing gauge = batten gauge + head lap + 8 to 15 mm,<br><br>= 218 + 75 + (8 to 15 mm) = 301 to 308mm.<br><br>Side lap = 255 … 2 = 127mm.<br><br>Margin = batten gauge of 218mm.<br><br>Eaves course length = head lap + margin = 293 mm.|
+|---|
+
+
+|Traditional slate names and sizes (mm) †<br><br>Empress 650 400 Wide Viscountess 460 255 Princess 610 355 Viscountess 460 230 Duchess 610 305 Wide Ladies 405 255 Small Duchess 560 305 Broad Ladies 405 230 Marchioness 560 280 Ladies 405 205 Wide Countess 510 305 Wide Headers 355 305 Countess 510 255 Headers 355 255<br><br>.. .. .. .. 510 230 Small Ladies 355 203<br><br>.. .. .. .. 460 305 Narrow Ladies 355 180<br><br>Sizes can also be cut to special order.<br><br>Generally, the larger the slate, the lower the roof may be pitched. Also, the lower the roof pitch, the greater the head lap.<br><br>See also:<br><br>1 . BS EN 12326-1: Slate and stone products for discontinuous roofing and cladding. Product specification.<br>2. Slate producers' catalogues.<br>3. BS 5534: Code of practice for slating and tiling.<br><br><br>|Slate quality|Thickness (mm)|
+|---|---|
+|Best Medium strong Heavy Extra heavy|4<br>5<br>6 9<br>|
+<br><br>|Roof pitch (degrees)|Min. head lap (mm)|
+|---|---|
+|20 25 35 45|115 85 75 65|
+|
+|---|
+
+
+Roof Slating---Applications
+
+|Roof hip exaples †<br><br>![image 414](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile414.png)|
+|---|
+
+
+###### Roof Slating---Applications
+
+|Roof valley examples †<br><br>![image 415](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile415.png)<br><br>Note: In swept valleys, cut and tapered slates are interleaved with code 3 lead soakers|
+|---|
+
+
+###### Roof Thatching
+
+|Materials † water reed (Norfolk reed), wheat straw (Spring or Winter), Winter being the most suitable. Wheat for thatch is often known as wheat reed, long straw or Devon reed. Other thatches include rye and oat straws, and sedge. Sedge is harvested every fourth year to provide long growth, making it most suitable as a ridging material.<br><br>There are various patterns and styles of thatching, relating to the skill of the thatcher and local traditions.<br><br>Typical details †<br><br>![image 416](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile416.png)<br><br>The material composition of thatch with its natural voids and surface irregularities provides excellent insulation when dry and compact. However, when worn with possible accumulation of moss and rainwater, the U-value is less reliable. Thatch is also very vulnerable to fire. Therefore in addition to imposing a premium, insurers may require application of a surface fire retardant and a fire insulant underlay.|
+|---|
+
+
+###### Timber Flat Roofs up to 4 m Span
+
+|Flat Roofs ~ these roofs are very seldom flat with a pitch of 0 but are considered to be flat if the pitch does not exceed 10 . The actual pitch chosen can be governed by the roof covering selected and/or by the required rate of rainwater discharge off the roof. As a general rule the minimum pitch for smooth surfaces such as asphalt should be 1:80 or 0 †430 and for sheet coverings with laps 1:60 or 0 †570.<br><br>Methods of Obtaining Falls ~<br><br>![image 417](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile417.png)<br><br>![image 418](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile418.png)<br><br>![image 419](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile419.png)<br><br>![image 420](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile420.png)<br><br>Wherever possible joists should span the shortest distance of the roof plan.|
+|---|
+
+
+###### Timber Flat Roofs---1
+
+|Timber Roof Joists ~ the spacing and sizes of joists is related to the loadings and span, actual dimensions for domestic loadings can be taken direct from recommendations in Approved Document A or they can be calculated as shown for timber beam designs. Strutting between joists should be used if the span exceeds 2„400 to restrict joist movements and twisting.<br><br>Typical Eaves Details ~<br><br>![image 421](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile421.png)<br><br>Ref. BS EN 13707: Flexible sheets for waterproofing. Reinforced bitumen sheets for roof waterproofing. Definitions and characteristics.|
+|---|
+
+
+Timber Flat Roofs---2
+
+|![image 422](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile422.png)<br><br>![image 423](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile423.png)<br><br>Ref. BS 8217: Reinforced bitumen membranes for roofing. Code of practice.|
+|---|
+
+
+Dormer Windows
+
+|A dormer is the framework for a vertical window constructed from the roof slope. It may be used as a feature, but is more likely as an economical and practical means for accessing light and ventilation to an attic room. Dormers are normally external with the option of a flat or pitched roof. Frame construction is typical of the following illustrations, with connections made by traditional housed and tenoned joints or simpler galvanized steel brackets and hangers.<br><br>![image 424](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile424.png)|
+|---|
+
+
+###### Timber Flat Roofs---Thermal Insulation
+
+|Conservation of Energy ~ this can be achieved in two ways:<br><br>1 . Cold Deck † insulation is placed on the ceiling lining, between joists. See page 417 for details. A metallized polyester lined plasterboard ceiling functions as a vapour control layer, with a minimum 50 mm air circulation space between insulation and decking. The air space corresponds with eaves vents and both provisions will prevent moisture build-up, condensation and possible decay of timber.<br>2. (a) Warm Deck † rigid* insulation is placed below the waterproof covering and above the roof decking. The insulation must be sufficient to maintain the vapour control layer and roof members at a temperature above dewpoint, as this type of roof does not require ventilation.<br><br><br>(b) Inverted Warm Deck † rigid* insulation is positioned above the waterproof covering. The insulation must be unaffected by water and capable of receiving a stone dressing or ceramic pavings.<br><br>* Resin bonded mineral fibre roof boards, expanded polystyrene or polyurethane slabs.<br><br>Typical Warm Deck Details ~<br><br>![image 425](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile425.png)|
+|---|
+
+
+###### Typical Timber Flat Roof Coverings
+
+|Built-up Roofing Felt ~ this consists of three layers of bitumen roofing felt to BS EN 13707, and should be laid to the recommendations of BS 8217. The layers of felt are bonded together with hot bitumen and should have staggered laps of 50 mm minimum for side laps and 75 mm minimum for end laps † for typical details and references see pages 417 & 418.<br><br>Other felt materials which could be used are the two layer polyester based roofing felts which use a non-woven polyester base instead of the woven rag fibre base used in traditional felts.<br><br>Mastic Asphalt ~ this consists of two layers of mastic asphalt laid breaking joints and built up to a minimum thickness of 20mm and should be laid to the recommendations of BS 8218. The mastic asphalt is laid over an isolating membrane of black sheathing felt which should be laid loose with 50 mm minimum overlaps.<br><br>Typical Datails ~<br><br>![image 426](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile426.png)<br><br>Ref. BS 8218: Code of practice for mastic asphalt roofing.|
+|---|
+
+
+|Air carries water vapour, the amount increasing proportionally with the air temperature. As the water vapour increases so does the pressure and this causes the vapour to migrate from warmer to cooler parts of a building. As the air temperature reduces, so does its ability to hold water and this manifests as condensation on cold surfaces. Insulation between living areas and roof spaces increases the temperature differential and potential for condensation in the roof void.<br><br>Condensation can be prevented by either of the following:<br><br>* Providing a vapour control layer on the warm side of any insulation.<br>* Removing the damp air by ventilating the colder area.<br><br><br>The most convenient form of vapour layer is vapour check plasterboard which has a moisture resistant lining bonded to the back of the board. A typical patented product is a foil or metallised polyester backed plasterboard in 9„5 and 12„5 mm standard thicknesses. This is most suitable where there are rooms in roofs and for cold deck flat roofs. Ventilation is appropriate to larger roof spaces.<br><br>![image 427](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile427.png)|
+|---|
+
+
+###### Ventilation of Roof Spaces---2
+
+|Roof ventilation † provision of eaves ventilation alone should allow adequate air circulation in most situations. However, in some climatic conditions and where the air movement is not directly at right angles to the building, moist air can be trapped in the roof apex. Therefore, supplementary ridge ventilation is recommended.<br><br>![image 428](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile428.png)<br><br>Note: ventilation dimensions shown relate to a continuous strip (or equivalent) of at least the given gap.|
+|---|
+
+
+|![image 429](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile429.png)<br><br>Refs. Building Regulations, Approved Document C † Site preparation and resistance to contaminants and moisture. Section 6 † Roofs. BS 5250: Code of practice for control of condensation in buildings.<br><br>BRE report † Thermal Insulation: avoiding risks (3rd. ed.).|
+|---|
+
+
+###### Timber Pitched Roofs
+
+|Lateral Restraint † stability of gable walls and construction at the eaves, plus integrity of the roof structure during excessive wind forces, requires complementary restraint and continuity through 30 5mm cross sectional area galvanised steel straps.<br><br>Exceptions may occur if the roof:-<br><br>1. exceeds 15 pitch, and<br>2. is tiled or slated, and<br>3. has the type of construction known locally to resist gusts, and<br>4. has ceiling joists and rafters bearing onto support walls at not more than 1 2m centres.<br><br><br>Application ~<br><br>![image 430](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile430.png)|
+|---|
+
+
+###### Timber Roofs---Preservation
+
+|Preservation ~ ref. Building Regulations: Materials and Workmanship. Approved Document to support Regulation 7.<br><br>Woodworm infestation of untreated structural timbers is common. However, the smaller woodborers such as the abundant Furniture beetle are controllable. It is the threat of considerable damage potential from the House Longhorn beetle that has forced many local authorities in Surrey and the fringe areas of adjacent counties to seek timber preservation listing in the Building Regulations (see Table 1 in the above reference). Prior to the introduction of pretreated timber (c. 1960s), the House Longhorn beetle was once prolific in housing in the south of England, establishing a reputation for destroying structural roof timbers, particularly in the Camberley area.<br><br>House Longhorn beetle data:Latin name † Hylotrupes bajulus Life cycle † Mature beetle lays up to 200 eggs on rough surface<br><br>of untreated timber. After 2-3 weeks, larvae emerge and bore into wood, preferring sapwood to denser growth areas. Up to 10 years in the damaging larval stage. In 3 weeks, larvae change to chrysalis to emerge as mature beetles in summer to reproduce.<br><br>Timber appearance † powdery deposits (frass) on the surface and the obvious mature beetle flight holes.<br><br>Beetle appearence †<br><br>![image 431](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile431.png)<br><br>Other woodborers:-<br><br>Furniture beetle † dark brown, 6†8mm long, lays 20†50 eggs on soft or hardwoods. Bore holes only 1†2 mm diameter. Lyctus powder post beetle † reddish brown, 10†15 mm long, lays 70†200 eggs on sapwood of new hardwood. Bore holes only 1†2 mm in diameter. Death Watch beetle † dark brown, sometimes speckled in lighter shades. Lays 40†80 eggs on hardwood. Known for preferring the oak timbers used in old churches and similar buildings.<br><br>Bore holes about 3mm diameter.|
+|---|
+
+
+###### Timber Roofs---Preservation
+
+|Preservation ~ treatment of timber to prevent damage from House Longhorn beetle.<br><br>In the areas specified (see previous page), all softwood used in roof structures including ceiling joists and any other softwood fixings should be treated with insecticide prior to installation. Specific chemicals and processes have not been listed in the Building Regulations since the 1976 issue, although the processes detailed then should suffice:-<br><br>1 . Treatment to BS 4072.*<br>2. Diffusion with sodium borate (boron salts).<br>3. Steeping for at least 10 mins in an organic solvent wood preservative.<br><br><br>NB. Steeping or soaking in creosote will be effective, but problems of local staining are likely.<br><br>BS 4072 provides guidance on an acceptable blend of copper, chromium and arsenic known commercially as Tanalizing. Application is at specialist timber yards by vacuum/pressure impregnation in large cylindrical containers, but see note below.<br><br>Insect treatment adds about 10% to the cost of timber and also enhances its resistance to moisture. Other parts of the structure, e.g. floors and partitions are less exposed to woodworm damage as they are enclosed. Also, there is a suggestion that if these areas received treated timber, the toxic fumes could be harmful to the health of building occupants. Current requirements for through ventilation in roofs has the added benefit of discouraging wood boring insects, as they prefer draught-free damp areas.<br><br>Refs. BS 4072: Copper/chromium/arsenic preparations for wood preservation.* BS 4261: Wood preservation. Vocabulary. BS 5589: Code of practice for preservation of timber. BS 8417: Preservation of timber. Recommendations. BS 5707: Specification for preparations of wood preservatives in organic solvents.<br><br>*Note: The EU are processing legislation which will prohibit the use of CCA preservatives for domestic applications and in places where the public may be in contact with it. Ref. CEN/TC 38.|
+|---|
+
+
+###### Wood Rot---Types
+
+|Damp conditions can be the source of many different types of wood-decaying fungi. The principal agencies of decay are †<br><br>* Dry rot (Serpula lacrymans or merulius lacrymans), and<br>* Wet rot (Coniophora cerabella)<br><br><br>Dry rot † this is the most difficult to control as its root system can penetrate damp and porous plaster, brickwork and concrete. It can also remain dormant until damp conditions encourage its growth, even though the original source of dampness is removed.<br><br>Appearance † white fungal threads which attract dampness from the air or adjacent materials. The threads develop strands bearing spores or seeds which drift with air movements to settle and germinate on timber having a moisture content exceeding about 25%. Fruiting bodies of a grey or red flat profile may also identify dry rot.<br><br>Typical surface appearance of dry rot †<br><br>![image 432](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile432.png)<br><br>Wet rot † this is limited in its development and must have moisture continually present, e.g. a permanent leaking pipe or a faulty dpc. Growth pattern is similar to dry rot, but spores will not germinate in dry timber.<br><br>Appearance † fungal threads of black or dark brown colour. Fruiting bodies may be olive-green or dark brown and these are often the first sign of decay.<br><br>Typical surface appearance of wet rot †<br><br>![image 433](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile433.png)|
+|---|
+
+
+###### Wood Rot---Causes, Treatment and Preservation
+
+|Causes †<br><br>* Defective construction, e.g. broken roof tiles; no damp-proof course.<br>* Installation of wet timber during construction, e.g. framing sealed behind plasterboard linings; wet joists under floor decking.<br>* Lack of ventilation, e.g. blocked air bricks to suspended timber ground floor; condensation in unventilated roof spaces.<br>* Defective water services, e.g. undetected leaks on internal pipework; blocked or broken rainwater pipes and guttering.<br><br><br>General treatment †<br><br>* Remove source of dampness.<br>* Allow affected area to dry.<br>* Remove and burn all affected timber and sound timber within 500 mm of fungal attack.<br>* Remove contaminated plaster and rake out adjacent mortar joints to masonry.<br><br><br>Note: This is normally sufficient treatment where wet rot is identified. However, where dry rot is apparent the following additional treatment is necessary:<br><br>* Sterilise surface of concrete and masonry.<br><br>Heat with a blow torch until the surface is too hot to touch. Apply a proprietary fungicide† generously to warm surface. Irrigate badly affected masonry and floors, i.e. provide 12 mm diameter bore holes at about 500mm spacing and flood or pressure inject with fungicide.<br><br>† 20:1 dilution of water and sodium pentachlorophenate, sodium orthophenylphate or mercuric chloride. Product manufacturers' safety in handling and use measures must be observed when applying these chemicals.<br><br>Replacement work should ensure that new timbers are pressure impregnated with a preservative. Cement and sand mixes for rendering, plastering and screeds should contain a zinc oxychloride fungicide.<br><br>Further reading † BRE: Timber durability and treatment pack † various Digests, Information Papers and Good Repair Guides. Remedial timber treatment in buildings † HSE Books.<br><br>Ref: Bldg. Regs. Approved Document C, Site preparation and resistance to contaminants and moisture.|
+|---|
+
+
+###### Green Roofs
+
+|Green roof ~ green with reference to the general appearance of plant growths and for being environmentally acceptable. Part of the measures for constructing sustainable and ecologically friendly buildings.<br><br>Categories ~<br><br>• Extensive ~ a relatively shallow soil base (typically 50mm) and lightweight construction. Maximum roof pitch is 400 and slopes greater than 200 will require a system of baffles to prevent the soil moving. Plant life is limited by the shallow soil base to grasses, mosses, herbs and sedum (succulents, generally with fleshy leaves producing pink or white flowers).<br>• Intensive ~ otherwise known as a roof garden. This category has a deeper soil base (typically 400mm) that will provide for landscaping features, small ponds, occasional shrubs and small trees. A substantial building structure is required for support and it is only feasible to use a flat roof.<br><br>Advantages ~<br><br>• Absorbs and controls water run-off.<br>• Integral thermal insulation.<br>• Integral sound insulation.<br>• Absorbs air pollutants, dust and CO2.<br>• Passive heat storage potential.<br><br>Disadvantages ~<br><br>• Weight.<br>• Maintenance.<br><br>Construction ~ the following build-up will be necessary to fulfil the objectives and to create stability:<br><br>• Vapour control layer above the roof structure.<br>• Rigid slab insulation.<br>• Root resilient waterproof under-layer.<br>• Drainage layer.<br>• Filter.<br>• Growing medium (soil).<br>• Vegetation (grass, etc.)<br><br><br>Examples of both extensive and intensive green roof construction are shown on the next page.|
+|---|
+
+
+###### Green Roofs -- Types
+
+|Typical extensive roof build up ~<br><br>grass/sedum<br><br>soil filter layer or fleece drainage layer* waterproof membrane insulation vapour control layer<br><br>reinforced concrete roof structure<br><br>* typically, expanded polystyrene with slots<br><br>![image 434](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile434.png)<br><br>147 kg/m2 saturated weight x 9.81 = 1442 N/m2 or 1.44 kN/m2<br><br>Typical intensive roof build up ~<br><br>filter layer or fleece drainage layer water retention fleece over waterproof membrane insulation vapour control layer<br><br>reinforced concrete roof structure<br><br>Depth to vcl, approximately 560 mm at about 750 kg/m2 saturated weight. 750 kg/m2 × 9.81 = 7358 N/m2 or 7.36 kN/m2.<br><br>plants, shrubs and grasses<br><br>soil substrate up to 450 mm<br><br>![image 435](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile435.png)<br><br>Component Weight (kg/m2) Thickness (mm) vcl 3 3 insulation 3 50 membrane 5 5 drainage layer 3 50 filter 3 3 soil 90 50 turf 40 20<br><br>------------- --------147 kg/m2 181mm|
+|---|
+
+
+|Thermal insulation of external elements of construction is measured in terms of thermal transmittance rate, otherwise known as the U-value. It is the amount of heat energy in watts transmitted through one square metre of construction for every one degree Kelvin between external and internal air temperature, i.e. W/m2K.<br><br>U-values are unlikely to be entirely accurate, due to:<br><br>* the varying effects of solar radiation, atmospheric dampness and prevailing winds.<br>* inconsistencies in construction, even with the best of supervision.<br>* `bridging' where different structural components meet, e.g. dense mortar in lightweight blockwork.<br><br><br>Nevertheless, calculation of the U-value for a particular element of construction will provide guidance as to whether the structure is thermally acceptable. The Building Regulations, Approved Document L, Conservation of fuel and power, determines acceptable energy efficiency standards for modern buildings, with the objective of limiting the emission of carbon dioxide and other burnt gases into the atmosphere.<br><br>The U-value is calculated by taking the reciprocal of the summed thermal resistances (R) of the component parts of an element of construction:<br><br>U ¼ 1<br><br>R<br><br>¼ W=m<br><br>2<br><br>K<br><br>R is expressed in m2K/W. The higher the value, the better a component's insulation. Conversely, the lower the value of U, the better the insulative properties of the structure.<br><br>Building Regulations, Approved Document references:<br><br>L1A, Work in new dwellings.<br>L1B, Work in existing dwellings.<br><br><br>L2A, Work in new buildings other than dwellings.<br>L2B, Work in existing buildings other than dwellings.<br>|
+|---|
+
+
+|Thermal resistances (R) are a combination of the different structural, surface and air space components which make up an element of construction. Typically:<br><br>U =<br><br>1 Rso + R1 + R2 + Ra + R3 + R4 etc... + Rsi(m2K=W)<br><br>Where: Rso = Outside or external surface resistance. R1, R2, etc. = Thermal resistance of structural components. Ra = Air space resistance, eg. wall cavity. Rsi = Internal surface resistance.<br><br>The thermal resistance of a structural component (R1, R2, etc.) is calculated by dividing its thickness (L) by its thermal conductivity ( ), i.e.<br><br>R(m2K=W) =<br><br>L(m) (W=mK)<br><br>eg. 1. A 102mm brick with a conductivity of 0„84 W/mK has a thermal resistance (R) of: 0„102 … 0„84 = 0„121 m2K/W.<br>eg. 2.<br><br><br>![image 436](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile436.png)<br><br>Note: the effect of mortar joints in the brickwork can be ignored, as both components have similar density and insulative properties.<br><br>U =<br><br>1 Rso + R1 + R2 + Rsi<br><br>R1 = 0„215 … 0„84 = 0„256<br>R2 = 0„013 … 0„50 = 0„026<br><br><br>U =<br><br>1 0:055 + 0:256 + 0:026 + 0:123<br><br>= 2:17W=m2K|
+|---|
+
+
+###### Thermal Insulation, Surface and Air Space Resistances
+
+|Typical values in: m2K/W<br><br>Internal surface resistances (Rsi):<br><br>Walls † 0 123 Floors or ceilings for upward heat flow † 0 104 Floors or ceilings for downward heat flow † 0 148 Roofs (flat or pitched) † 0 104<br><br>External surface resistances (Rso):<br><br>Sheltered † town buildings to 3 storeys. Normal † town buildings 4 to 8 storeys and most suburban<br><br>premises.<br><br>Severe † > 9 storeys in towns. > 5 storeys elsewhere and any buildings on exposed coasts and hills.<br><br>Air space resistances (Ra):<br><br>Pitched or flat roof space † 0„180 Behind vertical tile hanging † 0„120 Cavity wall void † 0„180 Between high and low emissivity surfaces † 0„300 Unventilated/sealed † 0„180<br><br>Emissivity relates to the heat transfer across and from surfaces by radiant heat emission and absorption effects. The amount will depend on the surface texture, the quantity and temperature of air movement across it, the surface position or orientation and the temperature of adjacent bodies or materials. High surface emissivity is appropriate for most building materials. An example of low emissivity would be bright aluminium foil on one or both sides of an air space.<br><br>|Surface|Exposure| | |
+|---|---|---|---|
+| |Sheltered|Normal|Severe|
+|Wall † high emissivity|0„080|0„055|0„030|
+|Wall † low emissivity|0„1 1 0|0„070|0„030|
+|Roof † high emissivity|0„070|0„045|0„020|
+|Roof † low emissivity|0„090|0„050|0„020|
+|Floor † high emissivity|0„070|0„040|0„020|
+|
+|---|
+
+
+|Typical values †<br><br>|aterial|Density (kg/m3)|Conductivity ( ) (W/mK)|
+|---|---|---|
+|ALLS:| | |
+|Boarding (hardwood)|700|0„1 8|
+|.. .. .. (softwood)|500|0„1 3|
+|Brick outer leaf|1 700|0„84|
+|.. .. inner leaf|1 700|0„62|
+|Calcium silicate board|875|0„1 7|
+|Ceramic tiles|2300|1 „30|
+|Concrete|2400|1 „93|
+|.. .. .. .. ..|2200|1 „59|
+|.. .. .. .. ..|2000|1 „33|
+|.. .. .. .. ..|1 800|1 „1 3|
+|.. .. .. .. .. (lightweight)|1 200|0„38|
+|.. .. .. .. .. (reinforced)|2400|2„50|
+|Concrete block (lightweight)|600|0„1 8|
+|.. .. .. .. .. .. .. (mediumweight)|1 400|0„53|
+|Cement mortar (protected)|1 750|0„88|
+|.. .. .. .. .. .. .. (exposed)|1 750|0„94|
+|Fibreboard|350|0„08|
+|Gypsum plaster (dense)|1 300|0„57|
+|Gypsum plaster (lightweight)|600|0„1 6|
+|Plasterboard|950|0„1 6|
+|Tile hanging|1 900|0„84|
+|Rendering|1 300|0„57|
+|Sandstone|2600|2„30|
+|Wall ties (st/st)|7900|1 7„00|
+|OOFS:| | |
+|Aerated concrete slab|500|0„1 6|
+|Asphalt|1 900|0„60|
+|Bituminous felt in 3 layers|1 700|0„50|
+|Sarking felt|1 700|0„50|
+|Stone chippings|1 800|0„96|
+|Tiles (clay)|2000|1 „00|
+|.. .. (concrete)|21 00|1 „50|
+|Wood wool slab|500|0„10|
+<br><br>M<br><br>W<br><br>R|
+|---|
+
+
+|Notes:<br><br>1 . For purposes of calculating U-values, the effect of mortar in external brickwork is usually ignored as the density and thermal properties of bricks and mortar are similar.<br>2. Where butterfly wall ties are used at normal spacing in an<br><br>insulated cavity £ 75mm, no adjustment is required to<br><br>calculations. If vertical twist ties are used in insulated cavities > 75mm, 0 020 W/m2K should be added to the U-value.<br><br>3. Thermal conductivity ( ) is a measure of the rate that heat is conducted through a material under specific conditions (W/mK).<br><br><br>|aterial|Density (kg/m3)|Conductivity ( ) (W/mK)|
+|---|---|---|
+|LOORS:| | |
+|Cast concrete|2000|1 „33|
+|Hardwood block/strip|700|0„1 8|
+|Plywood/particle board|650|0„1 4|
+|Screed|1 200|0„41|
+|Softwood board|500|0„1 3|
+|Steel tray|7800|50„00|
+|NSULATION:| | |
+|Expanded polystyrene board|20|0„035|
+|Mineral wool batt/slab|25|0„038|
+|Mineral wool quilt|1 2|0„042|
+|Phenolic foam board|30|0„025|
+|Polyurethane board|30|0„025|
+|Urea formaldehyde foam|1 0|0„040|
+|ROUND:| | |
+|Clay/silt|1 250|1 „50|
+|Sand/gravel|1 500|2„00|
+|Homogenous rock|3000|3„50|
+<br><br>Typical values †<br><br>M<br><br>F<br><br>I<br><br>G<br>|
+|---|
+
+
+###### Thermal Insulation, Methods for Determining U-Values
+
+|* Tables and charts † Insulation manufacturers' design guides and technical papers (walls, roofs and ground floors).<br>* Calculation using the Proportional Area Method (walls and roofs).<br>* Calculation using the Combined Method † BS EN ISO 6946 (walls and roofs).<br>* Calculation using BS EN ISO 13370 (ground floors and basements).<br><br><br>Tables and charts † these apply where specific U-values are required and standard forms of construction are adopted. The values contain appropriate allowances for variable heat transfer due to different components in the construction, e.g. twisted pattern wall-ties and non-uniformity of insulation with the interruption by ceiling joists. The example below shows the tabulated data for a solid ground floor with embedded insulation of = 0.03 W/mK<br><br>![image 437](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile437.png)<br><br>Typical table for floor insulation:<br><br>90mm of insulation required.<br><br>Refs. BS EN ISO 6946: Building components and building elements. Thermal resistance and thermal transmittance. Calculation method. BS EN ISO 13370: Thermal performance of buildings. Heat transfer via the ground. Calculation methods.<br><br>|P/A|0„020|0„025|0„030*|0„035|0„040|0„045|W/mK|
+|---|---|---|---|---|---|---|---|
+|1 „0|6 1|76|9 1|1 07|1 22|1 37|mm ins.|
+|0„9*|60|75|90|1 05|1 20|1 35|.. ..|
+|0„8|58|73|88|1 02|1 1 7|1 32|.. ..|
+|0„7|57|7 1|85|99|1 1 3|1 28|.. ..|
+|0„6|54|68|82|95|1 09|1 22|.. ..|
+|0„5|5 1|64|77|90|1 03<br><br>|1 1 5|.. ..|
+|
+|---|
+
+
+|Various applications to different ground floor situations are considered in BS EN ISO 13370. The following is an example for a solid concrete slab in direct contact with the ground. The data used is from the previous page.<br><br>Floor section<br><br>Perimeter = 18 m (exposed) Floor area = 20 m2<br><br>for 90mm insulation = 0.03 W/mK Characteristic floor dimension = B1 B1 = Floor area … (1/2 exp. perimeter) B1 = 20 … 9 = 2.222 m<br><br>Formula to calculate total equivalent floor thickness for uninsulated and insulated all over floor:<br><br>dt = w+ (Rsi + Rf + Rso) where: dt = total equivalent floor thickness (m) w = wall thickness (m)<br><br>= thermal conductivity of soil (W/mK) [see page 436] Rsi = internal surface resistance (m2K/W) [see page 434]<br><br>Rf = insulation resistance (0.09 … 0.03 = 3 m2K/W)<br><br>Rso = external surface resistance (m2K/W) [see page 434] Uninsulated: dt = 0.3 + 1.5 (0.148 + 0 + 0.04) = 0.582 m Insulated: dt = 0.3 + 1.5 (0.148 +3+0.04) = 5.082 m<br><br>Formulae to calculate U-values ~ Uninsulated or poorly insulated floor, dt < B1:<br><br>U = (2 ) … [(p B1) + dt] ln [(p B1 … dt) + 1]<br><br>Well insulated floor, dt ‡ B1: U = … [(0.457 B1) +dt] where: U = thermal transmittance coefficient (W/m2/K)<br><br>= thermal conductivity of soil (W/mK) B1 = characteristic floor dimension (m) dt = total equivalent floor thickness (m)<br><br>ln = natural logarithm Uninsulated floor ~<br><br>U = (2 1.5) … [(3.142 2.222) + 0.582] ln [(3.142 2.222) … 0.582 + 1] U = 0.397 ln 12.996 = 1.02 W/m2K<br><br>Insulated floor ~<br><br>U = 1.5 … [(0.457 2.222)+5.082] = 1.5 … 6.097 = 0.246 W/m2K Compares with the tabulated figure of 0.250 W/m2K on the previous page.<br><br>![image 438](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile438.png)|
+|---|
+
+
+|![image 439](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile439.png)<br><br>A standard block with mortar is 450 225 mm = 101250 mm2 A standard block format of 440 215 mm = 94600mm2 The area of mortar per block = 6650 mm2 Proportional area of mortar =<br><br>6650 101250<br><br>100 1<br><br>= 6„57%(0:066) Therefore the proportional area of blocks = 93„43% (0„934)<br><br>Thermal resistances (R):<br><br>Outer leaf + insulation (unbridged) Inner leaf (unbridged)<br><br>Rso = 0„055 blocks = 0„555 brickwork = 0„122 plaster = 0„081 insulation = 2.631 Rsi = 0.123<br><br>2„808 0„759 100% = 2„808 93„43% = 0„709<br><br>Inner leaf (bridged) mortar = 0„114 plaster = 0„081 Rsi = 0.123<br><br>= 0„318 6„57% = 0„021<br><br>U =<br><br>1 R<br><br>=<br><br>1 2„808 + 0„709 + 0:021<br><br>= 0„283W=m2K|
+|---|
+
+
+|Combined Method (Wall)<br><br>This method considers the upper and lower thermal resistance (R) limits of an element of structure. The average of these is reciprocated to provide the U-value.<br><br>Formula for upper and lower resistances =<br><br>1<br><br>(Fx… Rx) Where: Fx = Fractional area of a section<br><br>Rx = Total thermal resistance of a section Using the wall example from the previous page: Upper limit of resistance (R) through section containing blocks † (Rso, 0„055) + (brkwk, 0„122) + (ins, 2„631) + (blocks, 0„555) + (plstr, 0„081) + (Rsi, 0„123) = 3„567 m2K/W Fractional area of section (F) = 93„43% or 0„934 Upper limit of resistance (R) through section containing mortar † (Rso 0„055) + (brkwk, 0„122) + (ins, 2„631) + (mortar, 0„114) + (plstr, 0„081) + (Rsi, 0„123) = 3„126 m2K/W Fractional area of section (F) = 6„57% or 0„066 The upper limit of resistance =<br><br>1<br><br>(0„943 … 3„567) + (0„066 … 3„126) = 3„533m<br><br>2K=W<br><br>Lower limit of resistance (R) is obtained by summating the resistance of all the layers †<br><br>(Rso, 0„055) + (brkwk, 0„122) + (ins, 2„631) + (bridged layer, 1 … [0„934 … 0„555] + [0„066 … 0„114] = 0„442) + (plstr, 0„081) + (Rsi, 0„123) = 3„454 m2K/W<br><br>Total resistance (R) of wall is the average of upper and lower limits = (3„533 + 3„454) … 2 = 3„493 m2K/W<br><br>U-value =<br><br>1 R<br><br>=<br><br>1 3„493<br><br>= 0„286 W=m2K<br><br>Note: Both proportional area and combined method calculations require an addition of 0„020 W/m2K to the calculated U-value. This is for vertical twist type wall ties in the wide cavity. See page 320 and note 2 on page 436.|
+|---|
+
+
+|![image 440](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile440.png)<br><br>Notes:<br><br>1 . The air space in the loft area is divided between pitched and ceiling components, ie. Ra = 0 180 2 = 0 090 m2K/W.<br>2. The U-value is calculated perpendicular to the insulation, therefore the pitched component resistance is adjusted by multiplying by the cosine of the pitch angle, ie. 0 819.<br>3. Proportional area of bridging parts (rafters and joists) is 50 400 = 0 125 or 12 5%.<br>4. With an air space resistance value (R1) of 0 120 m2K/W between tiles and felt, the resistance of the tiling may be ignored.<br><br><br>Thermal resistance (R) of the pitched component: Raftered part Non-raftered part Rso = 0„045 Rso = 0„045<br><br>R1 = 0„120 R1 = 0„120<br>R2 = 0„004 R2 = 0„004<br>R3 = 0„714 Ra = 0.090 Ra = 0.090 0„259 87„5%<br><br>0„973 12„5% = 0„122 = 0„227<br><br>Total resistance of pitched components =<br><br>(0„122 + 0„227) 0„819 = 0„286 m2K/W Thermal resistance (R) of the ceiling component: Joisted part Fully insulated part Rsi = 0„104 Rsi = 0„104 R6 = 0„081 R6 = 0„081 R5 = 0„714 R4 = 5„000 (200mm)<br><br>R4 = 2„500 (100mm) Ra = 0.090 Ra = 0.090 5„275 87„5%<br><br><br>3„489 12„5% = 0„436 = 4„615 Total resistance of ceiling components = 0„436 + 4„615<br><br>= 5„051 m2K/W.<br><br>U =<br><br>1<br><br>R<br><br>=<br><br>1 0:286 + 5:051<br><br>= 0:187 W=m2K|
+|---|
+
+
+###### Thermal Insulation Energy Efficiency of New Dwellings
+
+|Standard Assessment Procedure ~ the Approved Document to Part L of the Building Regulations emphasises the importance of quantifying the energy costs of running homes. For this purpose it uses the Government's Standard Assessment Procedure (SAP). SAP has a numerical scale of 1 to 100, although it can exceed 100 if a dwelling is a net energy exporter. It takes into account the effectiveness of a building's fabric relative to insulation and standard of construction. It also appraises the energy efficiency of fuel consuming installations such as ventilation, hot water, heating and lighting. Incidentals like solar gain also feature in the calculations.<br><br>As part of the Building Regulations approval procedure, energy rating (SAP) calculations are submitted to the local building control authority. SAP ratings are also required to provide prospective home purchasers or tenants with an indication of the expected fuel costs for hot water and heating. This information is documented and included with the property conveyance. The SAP calculation involves combining data from tables, work sheets and formulae. Guidance is found in Approved Document L, or by application of certified SAP computer software programmes.<br><br>As a guide, housing built to 1995 energy standards can be expected to have a SAP rating of around 80. That built to 2002 energy standards will have a SAP expectation of about 90. Current quality construction standards should rate dwellings close to 100.<br><br>Ref. Standard Assessment Procedure for Energy Rating of Dwellings. The Stationery Office.<br><br>Air Permeability ~ air tightness in the construction of dwellings is an important quality control objective. Compliance is achieved by attention to detail at construction interfaces, e.g. by silicone sealing built-in joists to blockwork inner leafs and door and window frames to masonry surrounds; draft proofing sashes, doors and loft hatches. Dwellings failing to comply with these measures are penalised in SAP calculations.<br><br>Compliance with the Building Regulations Part L Robust Details is an acceptable standard of construction. Alternatively, a certificate must be obtained to show pre-completion testing satisfying air permeability of less than 10 m3/h per m2 envelope area at 50 Pascals (Pa or N/m2) pressure.<br><br>Ref. Limiting thermal bridging and air leakage: Robust construction details for dwellings and similar buildings. The Stationery Office.|
+|---|
+
+
+###### Thermal Insulation, Elements of Construction
+
+|Domestic buildings (England and Wales) ~<br><br>The area weighted average U-value for an element of construction depends on the individual U-values of all components and the area they occupy within that element. E.g. The part of a wall with a meter cupboard built in will have less resistance to thermal transmittance than the rest of the wall (max. U-value at cupboard, 0.45).<br><br>Note: Maximum area of windows, doors, rooflights and roof windows, 25% of the total floor area. An alternative to the area weighted average U-value for windows, etc., may be a window energy rating of not less than minus 30.<br><br>Energy source ~ gas or oil fired central heating boiler with a minimum SEDBUK efficiency rating of 86% (band rating A or B). There are transitional and exceptional circumstances that permit lower band rated boilers. Where this occurs, the construction of the building envelope should compensate with very low U-values.<br><br>SEDBUK = Seasonal Efficiency of a Domestic Boiler in the United Kingdom. SEDBUK values are defined in the Government's Standard Assessment Procedure for Energy Rating of Dwellings. There is also a SEDBUK website, www.sedbuk.com. Note: SEDBUK band A = > 90% efficiency<br><br>band B = 86†90% ..<br>band C = 82†86% ..<br>band D = 78†82% ..<br><br><br>Element of construction<br><br>Limiting area weighted ave. U-value (W/m2K)<br><br>Limiting individual component U-value<br><br>Roof 0.25 0.35 Wall 0.35 0.70 Floor 0.25 0.70 Windows, doors, rooflights and roof windows<br><br>2.20 3.30<br><br>Element of construction U-value targets (W/m2K) Pitched roof (insulation between rafters) 0.15 Pitched roof (insulation between joists) 0.15 Flat roof 0.15 Wall 0.28 Floor 0.20 Windows, doors, rooflights and roof windows<br><br>1.80 (area weighted ave.)|
+|---|
+
+
+###### Thermal Insulation, U-Value Objectives for New Dwellings
+
+|![image 441](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile441.png)<br><br>Further Quality Procedures (Structure) ~<br><br>* Provision of insulation to be continuous. Gaps are unacceptable and if allowed to occur will invalidate the insulation value by thermal bridging.<br>* Junctions at elements of construction (wall/floor, wall/roof) to receive particular attention with regard to continuity of insulation.<br>* Openings in walls for windows and doors to be adequately treated with insulating cavity closers.<br><br><br>Further Quality Procedures (Energy Consumption) ~<br><br>* Hot water and heating systems to be fully commissioned on completion and controls set with regard for comfort, health and economic use.<br>* As part of the commissioning process, the sealed heating system should be flushed out and filled with a proprietary additive diluted in accordance with the manufacturer's guidance.<br><br><br>This is necessary to enhance system performance by resisting corrosion, scaling and freezing.<br><br>* A certificate confirming system commissioning and water treatment should be available for the dwelling occupant. This document should be accompanied with component manufacturer's operating and maintenance instructions.<br><br>Note: Commissioning of heating installations and the issue of certificates is by a qualified ``competent person'' as recognised by the appropriate body, i.e. CORGI, OFTEC or HETAS. CORGI ~ Council for Registered Gas Installers. OFTEC ~ Oil Firing Technical Association for the Petroleum Industry. HETAS ~ Solid Fuel. Heating Equipment Testing and Approval Scheme.|
+|---|
+
+
+###### Thermal Insulation, Window Energy Rating
+
+|European Window Energy Rating Scheme (EWERS) ~ an alternative to U-values for measuring the thermal efficiency of windows. U-values form part of the assessment, in addition to factors for solar heat gain and air leakage. In the UK, testing and labelling of window manufacturer's products is promoted by the British Fenestration Rating Council (BFRC). The scheme uses a computer to simulate energy movement over a year through a standard window of 1.480 1.230 m containing a central mullion and opening sash to one side.<br><br>Data is expressed on a scale from A†G in units of kWh/m2/year.<br><br>A > zero<br>B †10 to 0<br>C †20 to †10<br>D †30 to †20<br>E †50 to †30<br>F †70 to †50<br>G < †70<br><br><br>By formula, rating = (218.6 g value) † 68.5 (U-value L value) Where: g value = factor measuring effectiveness of solar heat block expressed between 0 and 1. For comparison:<br><br>0.48 (no curtains) 0.43 (curtains open) 0.17 (curtains closed)<br><br>U value = weighted average transmittance coefficient L value = air leakage factor<br><br>From the label shown opposite: Rating = (218„6 0„5)<br><br>† 68„5 (1„8 + 0„10)<br><br>= 109„3 † 130„15<br><br>= †20„85 i.e. †21<br><br>![image 442](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile442.png)<br><br>Typical format of a window energy rating label ~<br><br>ABC Joinery Ltd. Window ref. XYZ 123|
+|---|
+
+
+###### Thermal Insulation, Carbon Emissions
+
+|The Government's Standard Assessment Procedure (SAP) for energy rating dwellings includes a facility to calculate carbon dioxide (CO2) emissions in kilograms or tonnes per year. The established carbon index method allows for adjustment to dwelling floor area to obtain a carbon factor (CF):<br><br>CF = CO2 … (total floor area + 45)<br><br>The carbon index (CI) = 17„7 † (9 log. CF)<br><br>Note: log. = logarithm to the base 10.<br><br>e.g. A dwelling of total floor area 125m2, with CO2 emissions of 2000 kg/yr.<br><br>CF = 2000 … (125 + 45) = 11„76<br><br>CI = 17„7 † (9 log. 11„76) = 8„06<br><br>The carbon index (CI) is expressed on a scale of 0 to 10. The higher the number the better. Every new dwelling should have a CI value of a least 8.<br><br>Approved Document L to the Building Regulations includes the Dwelling Carbon Emissions Rate (DER) as another means for assessing carbon discharge. The DER is compared by calculation to a Target Carbon Emissions Rate (TER), based on data for type of lighting, floor area, building shape and choice of fuel.<br><br>The DER is derived primarily by appraising the potential CO2 emission from a dwelling relative to the consumption of fuel (directly or indirectly) in hot water, heating, lighting, cooling (if fitted), fans and pumps.<br><br>DER £ TER<br><br>Buildings account for about half of the UK's carbon emissions. Therefore, there are considerable possibilities for energy savings and reductions in atmospheric pollution.|
+|---|
+
+
+|In new buildings and those subject to alterations, the objective is to optimise the use of fuel and power to minimise emission of carbon dioxide and other burnt fuel gases into the atmosphere. This applies principally to the installation of hot water, heating, lighting, ventilation and air conditioning systems. Pipes, ducting, storage vessels and other energy consuming plant should be insulated to limit heat losses. The fabric or external envelope of a building is constructed with regard to limiting heat losses through the structure and to regulate solar gains.<br><br>Approved Document L2 of the Building Regulations is not prescriptive. It sets out a series of objectives relating to achievement of a satisfactory carbon emission standard. A number of other technical references and approvals are cross referenced in the Approved Document and these provide a significant degree of design flexibility in achieving the objectives.<br><br>Energy efficiency of buildings other than dwellings is determined by applying a series of procedures modelled on a notional building of the same size and shape as the proposed building. The performance standards used for the notional building are similar to the 2002 edition of Approved Document L2. Therefore the proposed or actual building must be seen to be a significant improvement in terms of reduced carbon emissions by calculation. Improvements can be achieved in a number of ways, including the following:<br><br>• Limit the area or number of rooflights, windows and other openings.<br>• Improve the U-values of the external envelope. The limiting values are shown on the next page.<br>• Improve the airtightness of the building from the poorest acceptable air permeability of 10 m3/hour/m2 of external envelope at 50 Pa pressure.<br>• Improve the heating system efficiency by installing thermostatic controls, zone controls, optimum time controls, etc. Fully insulate pipes and equipment.<br>• Use of high efficacy lighting fittings, automated controls, low voltage equipment, etc.<br>• Apply heat recovery systems to ventilation and air conditioning systems. Insulate ducting.<br>• Install a building energy management system to monitor and regulate use of heating and air conditioning plant.<br>• Limit overheating of the building with solar controls and appropriate glazing systems.<br>• Ensure that the quality of construction provides for continuity of insulation in the external envelope.<br>• Establish a commissioning and plant maintenance procedure. Provide a log-book to document all repairs, replacements and routine inspections.<br>|
+|---|
+
+
+|Buildings Other Than Dwellings (England and Wales) ~<br><br>Notes:<br><br>• For display windows separate consideration applies. See Section 5 in A.D., L2A.<br>• The poorest acceptable thermal transmittance values provide some flexibility for design, allowing a trade off against other thermally beneficial features such as energy recovery systems.<br>• The minimum U-value standard is set with regard to minimise the risk of condensation.<br>• The concept of area weighted values is explained on page 443.<br>• Elements will normally be expected to have much better insulation than the limiting U-values. Suitable objectives or targets could be as shown for domestic buildings.<br><br><br>Further requirements for the building fabric ~ Insulation continuity ~ this requirement is for a fully insulated external envelope with no air gaps in the fabric. Vulnerable places are at junctions between elements of construction, e.g. wall to roof, and around openings such as door and window reveals. Conformity can be shown by producing evidence in the form of a report produced for the local authority building control department by an accredited surveyor. The report must indicate that:<br><br>* the approved design specification and construction practice are to an acceptable standard of conformity, OR<br>* a thermographic survey shows continuity of insulation over the external envelope. This is essential when it is impractical to fully inspect the work in progress.<br><br><br>Air tightness ~ requires that there is no air infiltration through gaps in construction and at the intersection of elements. Permeability of air is tested by using portable fans of capacity to suit the building volume. Smoke capsules in conjunction with air pressurisation will provide a visual indication of air leakage paths.<br><br>Element of construction<br><br>Limiting area weighted ave. U-value (W/m2K)<br><br>Limiting individual component U-value<br><br>Roof 0.25 0.35<br><br>Wall 0.35 0.45 Floor 0.25 0.45 Windows, doors roof-lights and roof windows<br><br>2.20 3.30<br><br>Curtain wall (full fac¸ade) 1.60 2.50 Large and vehicle access doors<br><br>1.50 4.00|
+|---|
+
+
+###### Thermal Insulation, Dwelling Roof Space
+
+|Thermal Insulation ~ this is required within the roof of all dwellings in the UK. It is necessary to create a comfortable internal environment, to reduce the risk of condensation and to economise in fuel consumption costs.<br><br>To satisfy these objectives, insulation may be placed between and over the ceiling joists as shown below to produce a cold roof void. Alternatively, the insulation can be located above the rafters as shown on page 404. Insulation above the rafters creates a warm roof void and space within the roof structure that may be useful for habitable accommodation.<br><br>![image 443](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile443.png)|
+|---|
+
+
+|Thermal insulation to Walls ~ the minimum performance standards for exposed walls set out in Approved Document L to meet the requirements of Part L of the Building Regulations can be achieved in several ways (see pages 439 and 440). The usual methods require careful specification, detail and construction of the wall fabric, insulating material(s) and/or applied finishes.<br><br>Typical Examples of existing construction that would require upgrading to satisfy contemporary UK standards ~<br><br>![image 444](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile444.png)|
+|---|
+
+
+|Typical examples of contemporary construction practice that achieve a thermal transmittance or U-value below 0„30 W/m2K ~<br><br>120 mm mineral<br><br>wool cavity batts 100 mm lightweight concrete block inner leaf<br><br>13 mm lightweight plaster<br><br>102.5 mm external brick outer leaf<br><br>![image 445](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile445.png)<br><br>![image 446](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile446.png)<br><br>75 mm mineral wool cavity batts<br><br>lightweight concrete blocks, density 460 kg/m3<br><br>9.5 mm plasterboard on dabs<br><br>T<br><br>102.5 mm external brick outer leaf<br><br>![image 447](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile447.png)<br><br>50 mm wide cavity<br><br>40 mm mineral wool cavity batts<br><br>mineral wool batts<br><br>T<br><br>VCL and 12.5 mm plasterboard<br><br>breather membrane and sheathing board<br><br>102.5 mm external brick outer leaf<br><br>TIMBER FRAME PART CAVITY FILL, T = 100 mm U = 0.26 W/m2K T = 120 mm U = 0.24 W/m2K T = 140 mm U = 0.21 W/m2K<br><br>FULL FILL CAVITY WALL, Block density 750 kg/m3 U = 0.25 W/m2K Block density 600 kg/m3 U = 0.24 W/m2K Block density 475 kg/m3 U = 0.23 W/m2K<br><br>FULL FILL CAVITY WALL,<br><br>T = 150 mm U = 0.26 W/m2K T = 200 mm U = 0.24 W/m2K<br><br>T = 125 mm U = 0.28 W/m2K<br><br>Note: Mineral wool insulating batts have a typical thermal conductivity ( ) value of 0„038 W/mK.|
+|---|
+
+
+|Thermal or Cold Bridging ~ this is heat loss and possible condensation, occurring mainly around window and door openings and at the junction between ground floor and wall. Other opportunities for thermal bridging occur where uniform construction is interrupted by unspecified components, e.g. occasional use of bricks and/or tile slips to make good gaps in thermal block inner leaf construction. NB. This practice was quite common, but no longer acceptable by current legislative standards in the UK.<br><br>Prime areas for concern †<br><br>*Note: Cavity should extend down at least 225 mm below the level of the lowest dpc (AD, C: Section 5).<br><br>GROUND FLOOR & WALL<br><br>dpc<br><br>cavity insulation incomplete, possibly caused by mortar droppings building up and bridging the lower part of the cavity*<br><br>hollow steel lintel and incomplete cavity insulation<br><br>heat loss through uninsulated wall<br><br>incomplete cavity insulation<br><br>WINDOW/DOOR HEAD<br><br>WINDOW SILL WINDOW/DOOR JAMB<br><br>![image 448](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile448.png)<br><br>![image 449](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile449.png)|
+|---|
+
+
+###### Thermal Bridging
+
+|As shown on the preceding page, continuity of insulated construction in the external envelope is necessary to prevent thermal bridging. Nevertheless, some discontinuity is unavoidable where the pattern of construction has to change. For example, windows and doors have significantly higher U-values than elsewhere. Heat loss and condensation risk in these situations is regulated by limiting areas, effectively providing a trade off against very low U-values elsewhere.<br><br>The following details should be observed around openings and at ground floor ~<br><br>![image 450](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile450.png)|
+|---|
+
+
+|The possibility of a thermal or cold bridge occurring in a specific location can be appraised by calculation. Alternatively, the calculations can be used to determine how much insulation will be required to prevent a cold bridge. The composite lintel of concrete and steel shown below will serve as an example ~<br><br>![image 451](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile451.png)<br><br>Wall components, less insulation (steel in lintel is insignificant):<br><br>Resistances of above components:<br><br>Resistances of surfaces:<br><br>To achieve a U-value of say 0„27 W/m2K, total resistance required = 1 … 0„27 = 3„703 m2K/W The insulation in the cavity at the lintel position is required to have a resistance of 3„703 † 0„613 = 3„09 m2K/W Using a urethane insulation with a thermal conductivity ( ) of 0„025 W/mK, 0„025 3„09 = 0„077m or 77mm minimum thickness. If the cavity closer has the same thermal conductivity, then: Summary of resistance = 0„613 † 0„180 (Ra) = 0„433 m2K/W Total resistance required = 3„703 m2K/W, therefore the cavity closer is required to have a resistance of: 3„703 † 0„433 = 3„270 m2K/W Min. cavity closer width = 0„025 W/mK 3„270 m2K/W = 0„082m or 82 mm.<br><br>In practice, the cavity width and the lintel insulation would exceed 82 mm.<br><br>Note: data for resistances and values taken from pages 434 to 436.<br><br>102.5mm brickwork outer leaf, = 0.84 W/mK 100mm dense concrete lintel, = 1.93 .. 13mm lightweight plaster, = 0.16 ..<br><br>Brickwork, 0.1025 … 0.84 = 0.122 m2K/W Concrete lintel, 0.100 … 1.93 = 0.052 .. Lightweight plaster, 0.013 … 0.16 = 0.081 ..<br><br>Internal (Rsi) = 0.123 .. Cavity (Ra) = 0.180 ..<br><br>External (Rso) = 0.055 .. Summary of resistances = 0„613 ..|
+|---|
+
+
+###### Thermal Insulation---Draught Proofing
+
+|Air Infiltration ~ heating costs will increase if cold air is allowed to penetrate peripheral gaps and breaks in the continuity of construction. Furthermore, heat energy will escape through structural breaks and the following are prime situations for treatment:-<br><br>1 . Loft hatch<br>2. Services penetrating the structure<br>3. Opening components in windows, doors and rooflights<br>4. Gaps between dry lining and masonry walls<br><br><br>![image 452](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile452.png)<br><br>Note: See page 347 for threshold detail.|
+|---|
+
+
+###### Access for the Disabled---Dwellings
+
+|Main features †<br><br>* Site entrance or car parking space to building entrance to be firm and level, with a 900mm min. width. A gentle slope is acceptable with a gradient up to 1 in 20 and up to 1 in 40 in cross falls. A slightly steeper ramped access or easy steps should satisfy A.D. Sections 6 14 & 6 15, and 6 16 & 6 17 respectively.<br>* An accessible threshold for wheelchairs is required at the principal entrance † see illustration.<br>* Entrance door † minimum clear opening width of 775 mm.<br>* Corridors, passageways and internal doors of adequate width for wheelchair circulation. Minimum 750 mm † see also table 1 in A.D. Section 7.<br>* Stair minimum clear width of 900mm, with provision of handrails both sides. Other requirements as A.D. K for private stairs.<br>* Accessible light switches, power, telephone and aerial sockets between 450 and 1200mm above floor level.<br>* WC provision in the entrance storey or first habitable storey. Door to open outwards. Clear wheelchair space of at least 750 mm in front of WC and a preferred dimension of 500 mm either side of the WC as measured from its centre.<br>* Special provisions are required for passenger lifts and stairs in blocks of flats, to enable disabled people to access other storeys. See A.D. Section 9 for details.<br><br><br>![image 453](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile453.png)<br><br>Note: A.D. refers to the Building Regulations, Approved Document. Refs. Accessible thresholds in new housing † Guidance for house<br><br>builders and designers. The Stationery Office. BS 8300: Design of buildings and their approaches to meet the needs of disabled people. Code of practice.|
+|---|
+
+
+###### Access for the Disabled---Buildings Other Than Dwellings
+
+|Main features †<br><br>* Site entrance, or car parking space to building entrance to be firm and level, ie. maximum gradient 1 in 20 with a minimum car access zone of 1200mm. Ramped and easy stepped approaches are also acceptable.<br><br>* Access to include tactile warnings, ie. profiled (blistered or ribbed) pavings over a width of at least 1200mm, for the benefit of people with impaired vision. Dropped kerbs are required to ease wheelchair use.<br>* Special provision for handrails is necessary for those who may have difficulty in negotiating changes in level.<br>* Guarding and warning to be provided where projections or obstructions occur, eg. tactile paving could be used around window opening areas.<br><br><br>* Sufficient space for wheelchair manoeuvrability in entrances.<br><br>Minimum entrance width of 800 mm. Unobstructed space of at least 300 mm to the leading (opening) edge of door. Glazed panel in the door to provide visibility from 500 to 1500 mm above floor level. Entrance lobby space should be sufficient for a wheelchair user to clear one door before opening another.<br><br>![image 454](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile454.png)<br><br>* Internal door openings, minimum width 750 mm. Unobstructed space of at least 300mm to the leading edge. Visibility panel as above.<br><br><br>continued......|
+|---|
+
+
+Access for the Disabled---Buildings Other Than Dwellings (Cont.)
+
+|* Main access and internal fire doors that self-close should have a maximum operating force of 20 Newtons at the leading edge. If this is not possible, a power operated door opening and closing system is required.<br>* Corridors and passageways, minimum unobstructed width 1200mm. Internal lobbies as described on the previous page for external lobbies.<br>* Lift dimensions and capacities to suit the building size. Ref. BS EN 81-1 and 2: Lifts and service lifts. Alternative vertical access may be by wheelchair stairlift † BS 5776: Specification for powered stairlifts, or a platform lift † BS 6440: Powered lifting platforms for use by disabled persons. Code of practice.<br>* Stair minimum width 1200 mm, with step nosings brightly distinguished. Rise maximum 12 risers external, 16 risers internal between landings. Landings to have 1200mm of clear space from any door swings. Step rise, maximum 170 mm and uniform throughout. Step going, minimum 250mm (internal), 280 mm (external) and uniform throughout. No open risers. Handrail to each side of the stair.<br>* Number and location of WCs to reflect ease of access for wheelchair users. In no case should a wheelchair user have to travel more than one storey. Provision may be `unisex' which is generally more suitable, or `integral' with specific sex conveniences. Particular provision is outlined in Section 5 of the Approved Document.<br>* Section 4 should be consulted for special provisions for restaurants, bars and hotel bedrooms, and for special provisions for spectator seating in theatres, stadia and conference facilities.<br><br><br>Refs. Building Regulations, Approved Document M: Access to and use of buildings. Disability Discrimination Act. BS 5588-8: Fire precautions in the design, construction and use of buildings. Code of practice for means of escape for disabled people. PD 6523: Information on access to and movement within and around buildings and on certain facilities for disabled people. BS 8300: Design of buildings and their approaches to meet the needs of disabled people. Code of practice.|
+|---|
+
+
+|6 SUPERSTRUCTURE † 2<br><br>![image 455](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile455.png)<br><br>REINFORCED CONCRETE FRAMED STRUCTURES STRUCTURAL CONCRETE FIRE PROTECTION FORMWORK PRECAST CONCRETE FRAMES PRESTRESSED CONCRETE STRUCTURAL STEELWORK ASSEMBLY STRUCTURAL STEELWORK CONNECTIONS STRUCTURAL FIRE PROTECTION COMPOSITE TIMBER BEAMS ROOF SHEET COVERINGS LONG SPAN ROOFS SHELL ROOF CONSTRUCTION ROOFLIGHTS MEMBRANE ROOFS RAINSCREEN CLADDING PANEL WALLS AND CURTAIN WALLING CONCRETE CLADDINGS CONCRETE SURFACE FINISHES AND DEFECTS|
+|---|
+
+
+|Simply Supported Slabs ~ these are slabs which rest on a bearing and for design purposes are not considered to be fixed to the support and are therefore, in theory, free to lift. In practice however they are restrained from unacceptable lifting by their own self weight plus any loadings.<br><br>Concrete Slabs ~ concrete is a material which is strong in compression and weak in tension and if the member is overloaded its tensile resistance may be exceeded leading to structural failure.<br><br>![image 456](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile456.png)|
+|---|
+
+
+Simply Supported RC Slabs
+
+|Reinforcement ~ generally in the form of steel bars which are used to provide the tensile strength which plain concrete lacks. The number, diameter, spacing, shape and type of bars to be used have to be designed; a basic guide is shown on pages 465 and 466. Reinforcement is placed as near to the outside fibres as practicable, a cover of concrete over the reinforcement is required to protect the steel bars from corrosion and to provide a degree of fire resistance. Slabs which are square in plan are considered to be spanning in two directions and therefore main reinforcing bars are used both ways whereas slabs which are rectangular in plan are considered to span across the shortest distance and main bars are used in this direction only with smaller diameter distribution bars placed at right angles forming a mat or grid.<br><br>![image 457](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile457.png)|
+|---|
+
+
+|Construction ~ whatever method of construction is used the construction sequence will follow the same pattern-<br><br>1. Assemble and erect formwork.<br>2. Prepare and place reinforcement.<br>3. Pour and compact or vibrate concrete.<br>4. Strike and remove formwork in stages as curing proceeds.<br><br><br>![image 458](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile458.png)|
+|---|
+
+
+###### Metal Section (MetSec) Decking
+
+|Profiled galvanised steel decking is a permanent formwork system for construction of composite floor slabs. The steel sheet has surface indentations and deformities to effect a bond with the concrete topping. The concrete will still require reinforcing with steel rods or mesh, even though the metal section will contribute considerably to the tensile strength of the finished slab.<br><br>Typical detail †<br><br>![image 459](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile459.png)<br><br>Where structural support framing is located at the ends of a section and at intermediate points, studs are through-deck welded to provide resistance to shear †<br><br>![image 460](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile460.png)<br><br>There are considerable savings in concrete volume compared with standard in-situ reinforced concrete floor slabs. This reduction in concrete also reduces structural load on foundations.|
+|---|
+
+
+###### In-situ RC Framed Structures -- Beams
+
+|Beams ~ these are horizontal load bearing members which are classified as either main beams which transmit floor and secondary beam loads to the columns or secondary beams which transmit floor loads to the main beams.<br><br>Concrete being a material which has little tensile strength needs to be reinforced to resist the induced tensile stresses which can be in the form of ordinary tension or diagonal tension (shear). The calculation of the area, diameter, type, position and number of reinforcing bars required is one of the functions of a structural engineer.<br><br>![image 461](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile461.png)|
+|---|
+
+
+###### Simply Reinforced Concrete Beam and Slab Design (1)
+
+|Mild Steel Reinforcement † located in areas where tension occurs in a beam or slab. Concrete specification is normally 25 or 30 N/mm2 in this situation.<br><br>![image 462](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile462.png)<br><br>![image 463](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile463.png)<br><br>Note: Distribution or cross bars function as lateral reinforcement and supplement the units strength in tensile areas. They also provide resistance to cracking in the concrete as the unit contracts during setting and drying.<br><br>Pitch of main bars < …<br><br>3 effective depth.<br><br>Pitch of distribution bars < …<br><br>5 effective depth.|
+|---|
+
+
+###### Simple Reinforced Concrete Beam and Slab Design (2)
+
+|Guidance † simply supported slabs are capable of the following loading relative to their thickness:<br><br>Note: As a rule of thumb, it is easy to remember that for general use (as above), thickness of slab equates to 1/24 span.<br><br>* Imposed loading varies with application from 1„5 kN/m2 (153 kg/m2) for domestic buildings, to over 10 kN/m2 (1020 kg/m2) for heavy industrial storage areas. 500 kg/m2 is typical for office filing and storage space. See BS 6399-1: Loading for buildings. Code of practice for dead and imposed loads.<br><br>For larger spans † thickness can be increased proportionally to the span, eg. 6 m span will require a 250 mm thickness.<br><br>For greater loading † slab thickness is increased proportionally to the square root of the load, eg. for a total load of 1500 kg/m2 over a 3 m span:<br><br>1500 800 125 = 171„2 i:e: 175 mm<br><br>Continuous beams and slabs have several supports, therefore they are stronger than simple beams and slabs. The spans given in the above table may be increased by 20% for interior spans and 10% for end spans.<br><br>![image 464](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile464.png)<br><br>Deflection limit on reinforced concrete beams and slabs is 1/250 span. BS 8110-1: Structural use of concrete. Code of practice for design and construction. See page 508 for deflection formulae.<br><br>|Thickness (mm)|Self weight (kg/m2)|Imposed load* (kg/m2)|Total load| |Span (m)|
+|---|---|---|---|---|---|
+| | | |(kg/m2)|(kN/m2)| |
+|100 125 150|240 300 360|500 500 500|740 800 860|7„26<br><br>7„85<br>8„44<br>|2„4<br>3„0 3„6<br>|
+|
+|---|
+
+
+###### Grip Length of Reinforcement
+
+|Bond Between Concrete and Steel † permissible stress for the bond between concrete and steel can be taken as one tenth of the compressive concrete stress, plus 0„175 N/mm2*. Given the stresses in concrete and steel, it is possible to calculate sufficient grip length.<br><br>e.g. concrete working stress of 5 N/mm2 steel working stress of 125 N/mm2 sectional area of reinf. bar = 3„142 r2 or 0„7854 d2 tensile strength of bar = 125 0„7854 d2 circumference of bar = 3„142 d area of bar in contact = 3„142 d L<br><br>Key: r = radius of steel bar d = diameter of steel bar L = Length of bar in contact<br><br>* Conc. bond stress = (0„10 5 N/mm2) + 0„175 = 0„675 N/mm2 Total bond stress = 3„142 d L 0„675 N/mm2 Thus, developing the tensile strength of the bar: 125 0.7854 d2 = 3„142 d L 0„675 98„175 d = 2„120 L L = 46 d<br><br>As a guide to good practice, a margin of 14 d should be added to L. Therefore the bar bond or grip length in this example is equivalent to 60 times the bar diameter.<br><br>![image 465](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile465.png)|
+|---|
+
+
+In-situ RC Framed Structures -- Columns
+
+|Columns ~ these are the vertical load bearing members of the structural frame which transmits the beam loads down to the foundations. They are usually constructed in storey heights and therefore the reinforcement must be lapped to provide structural continuity.<br><br>![image 466](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile466.png)|
+|---|
+
+
+###### Spacing of Reinforcement Bars
+
+|With the exception of where bars are spliced ~ BEAMS The distance between any two parallel bars in the horizontal should be not less than the greater of:<br><br>* 25 mm<br>* the bar diameter where they are equal<br>* the diameter of the larger bar if they are unequal<br>* 6 mm greater than the largest size of aggregate in the concrete The distance between successive layers of bars should be not less than the greater of:<br>* 15 mm (25 mm if bars > 25 mm dia.)<br>* the maximum aggregate size An exception is where the bars transverse each other, e.g. mesh reinforcement.<br><br>COLUMNS Established design guides allow for reinforcement of between 0„8% and 8% of column gross cross sectional area. A lesser figure of 0„6% may be acceptable. A relatively high percentage of steel may save on concrete volume, but consideration must be given to the practicalities of placing and compacting wet concrete. If the design justifies a large proportion of steel, it may be preferable to consider using a concrete clad rolled steel I section.<br><br>Transverse reinforcement ~ otherwise known as binders or links. These have the purpose of retaining the main longitudinal reinforcement during construction and restraining each reinforcing bar against buckling. Diameter, take the greater of:<br><br>* 6 mm<br>* 0„25 main longitudinal reinforcement Spacing or pitch, not more than the lesser of:<br>* least lateral column dimension<br>* 12 diameter of smallest longitudinal reinforcement<br>* 300 mm Helical binding ~ normally, spacing or pitch as above, unless the binding has the additional function of restraining the concrete core from lateral expansion, thereby increasing its load carrying potential. This increased load must be allowed for with a pitch:<br>* not greater than 75 mm<br>* not greater than 0.166 core diameter of the column<br>* not less than 25 mm<br>* not less than 3 diameter of the binding steel<br><br><br>Note: Core diameter is measured across the area of concrete enclosed within the centre line of the binding.|
+|---|
+
+
+|Typical RC Column Details ~<br><br>Steel Reinforced Concrete † a modular ratio represents the amount of load that a square unit of steel can safely transmit relative to that of concrete. A figure of 18 is normal, with some variation depending on materials specification and quality.<br><br>![image 467](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile467.png)<br><br>Area of concrete = 88,743 mm2<br><br>Equivalent area of steel = 18 1257 mm2 = 22626 mm2<br><br>Equivalent combined area of concrete and steel:<br><br>88743<br><br>+22626 1 1 1 36 9 mm2<br><br>Using concrete with a safe or working stress of 5 N/mm2, derived from a factor of safety of 5, i.e.<br><br>Factory of safety =<br><br>Ultimate stress Working stress<br><br>=<br><br>25 N=mm2 5 N=mm2<br><br>= 5N=mm2<br><br>5 N/mm2 111369 mm2 = 556845 Newtons kg 9„81 (gravity) = Newtons<br><br>Therefore :<br><br>556845 9„81<br><br>= 56763 kg or 56„76 tonnes permissible load<br><br>Note: This is the safe load calculation for a reinforced concrete column where the load is axial and bending is minimal or nonexistant, due to a very low slenderness ratio (effective length to least lateral dimension). In reality this is unusual and the next example shows how factors for buckling can be incorporated into the calculation.|
+|---|
+
+
+|Buckling or Bending Effect † the previous example assumed total rigidity and made no allowance for column length and attachments such as floor beams.<br><br>The working stress unit for concrete may be taken as 0.8 times the maximum working stress of concrete where the effective length of column (see page 509) is less than 15 times its least lateral dimension. Where this exceeds 15, a further factor for buckling can be obtained from the following:<br><br>Using the example from the previous page, with a column effective length of 9 metres and a modular ratio of 18:<br><br>Effective length … Least lateral dimension = 9000 … 300 = 30<br><br>From above table the buckling factor = 0„5<br><br>Concrete working stress = 5 N/mm2<br><br>Equivalent combined area of concrete and steel = 111369 mm2<br><br>Therefore: 5 0„8 0„5 111369 = 222738 Newtons<br><br>222738 9:81<br><br>= 22705 kg or 22„7 tonnes permissible load<br><br>Effective length … Least lateral dimension Buckling factor<br><br>15 1„0 18 0„9 21 0„8<br><br>24 0„7 27 0„6 30 0„5 33 0„4 36 0„3 39 0„2 42 0„1 45 0|
+|---|
+
+
+|Bar Coding ~ a convenient method for specifying and coordinating the prefabrication of steel reinforcement in the assembly area. It is also useful on site, for checking deliveries and locating materials relative to project requirements. BS EN ISO 3766 provides guidance for a simplified coding system, such that bars can be manufactured and labelled without ambiguity for easy recognition and application on site.<br><br>A typical example is the beam shown on page 464, where the lower longitudinal reinforcement (mk„1) could be coded:~<br><br>2T20-1-200B or, *1 2TO= 20-200-B-21 2 = number of bars T = deformed high yield steel (460 N/mm2, 8†40 mm dia.)<br><br>20 or, O= 20 = diameter of bar (mm)<br><br>1 or *1 = bar mark or ref. no.<br><br>200 = spacing (mm)<br><br>B = located in bottom of member 21 = shape code<br><br>Other common notation:-<br><br>R = plain round mild steel (250 N/mm2, 8†16 mm dia.)<br>S = stainless steel W = wire reinforcement (4†12 mm dia.)<br>T (at the end) = located in top of member<br><br><br>abr = alternate bars reversed (useful for offsets)<br><br>Thus, bar mk.2 = 2R10-2-200T or, *2 RO= 10-200-T-00 and mk.3 = 10R8-3-270 or, *3 10RO= 8-270-54<br><br>All but the most obscure reinforcement shapes are illustrated in the British Standard. For the beam referred to on page 464, the standard listing is:-<br><br>![image 468](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile468.png)<br><br>Ref. BS EN ISO 3766: Construction drawings. Simplified representation of concrete reinforcement.|
+|---|
+
+
+|Bar Schedule ~ this can be derived from the coding explained on the previous page. Assuming 10 No. beams are required:-<br><br>![image 469](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile469.png)<br><br>Bar coding ~<br><br>Note: 9 is used for special or non-standard shapes<br><br>1st character 2nd character<br><br>0 No bends 0 Straight bars<br>1 1 bend 1 90 bends, standard radius, all bends towards same direction<br>2 2 bends 2 90 bends, non-standard radius, all bends towards same direction<br>3 3 bends 3 180 bends, non-standard radius, all bends towards same direction<br>4 4 bends 4 90 bends, standard radius, not all bends towards same direction<br>5 5 bends 5 Bends <90 , standard radius, all bends towards same direction<br>6 Arcs of circles 6 Bends <90 , standard radius, not all bends towards same direction<br>7 Complete helices 7 Arcs or helices<br>|
+|---|
+
+
+###### Types of Reinforcement---Steel Bars
+
+|Material ~ Mild steel or high yield steel. Both contain about 99% iron, the remaining constituents are manganese, carbon, sulphur and phosphorus. The proportion of carbon determines the quality and grade of steel; mild steel has 0„25% carbon, high yield steel 0„40%. High yield steel may also be produced by cold working or deforming mild steel until it is strain hardened. Mild steel has the letter R preceding the bar diameter in mm, e.g. R20, and high yield steel the letter T or Y.<br><br>Standard bar diameters ~ 6, 8, 10, 12, 16, 20, 25, 32 and 40 mm.<br><br>Grade notation ~<br><br>• Mild steel † grade 250 or 250 N/mm2 characteristic tensile strength (0„25% carbon, 0„06% sulphur and 0„06% phosphorus).<br>• High yield steel † grade 460/425 (0„40% carbon, 0„05% sulphur and 0„05% phosphorus).<br><br><br>460 N/mm2 characteristic tensile strength: 6, 8, 10, 12 and 16 mm diameter.<br><br>425 N/mm2 characteristic tensile strength: 20, 25, 32 and 40 mm diameter.<br><br>![image 470](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile470.png)<br><br>Ref. BS 4449: Steel for the reinforcement of concrete, weldable reinforcing steel. Bar, coil and decoiled product. Specification.|
+|---|
+
+
+###### Types of Reinforcement---Steel Mesh
+
+|Steel reinforcement mesh or fabric is produced in four different formats for different applications:<br><br>Standard sheet size ~ 4„8 m long 2„4 m wide. Standard roll size ~ 48 and 72 m long 2„4 m wide.<br><br>Specification ~ format letter plus a reference number. This number equates to the cross sectional area in mm2 of the main bars per metre width of mesh. E.g. B385 is rectangular mesh with 7 mm dia. main bars, i.e. 10 bars of 7 mm dia. @ 100 mm spacing = 385 mm2.<br><br>![image 471](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile471.png)<br><br>Refs. BS 4483: Steel fabric for the reinforcement of concrete. Specification.<br><br>BS 4482: Steel wire for the reinforcement of concrete products. Specification.<br><br>Format Type Typical application<br><br>A Square mesh Floor slabs<br>B Rectangular mesh Floor slabs<br>C Long mesh Roads and pavements<br>D Wrapping mesh Binding wire with concrete fire protection to structural steelwork<br>|
+|---|
+
+
+###### Concrete Cover to Reinforcing Steel
+
+|Cover to reinforcement in columns, beams, foundations, etc. is required for the following reasons:<br><br>• To protect the steel against corrosion.<br>• To provide sufficient bond or adhesion between steel and concrete.<br>• To ensure sufficient protection of the steel in a fire (see note).<br><br>If the cover is insufficient, concrete will spall away from the steel.<br><br>Minimum cover ~ never less than the maximum size of aggregate in the concrete, or the largest reinforcement bar size (take greater value). Guidance on minimum cover for particular locations:<br><br>Below ground ~<br><br>• Foundations,retainingwalls,basements,etc.,40 mm,binders25 mm.<br>• Marine structures, 65 mm, binders 50 mm.<br>• Uneven earth and fill 75 mm, blinding 40 mm.<br><br>Above ground ~<br><br>• Ends of reinforcing bars, not less than 25 mm nor less than 2 bar diameter.<br>• Column longitudinal reinforcement 40 mm, binders 20 mm.<br>• Columns <190 mm min. dimension with bars <12 mm dia., 25 mm.<br>• Beams 25 mm, binders 20 mm.<br>• Slabs 20 mm (15 mm where max. aggregate size is <15 mm).<br><br><br>![image 472](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile472.png)<br><br>Note: Minimum cover for corrosion protection and bond may not be sufficient for fire protection and severe exposure situations. For details of fire protection see ~ Building Regulations, Approved Document B: Fire safety BS 8110-2: Structural use of concrete. Code of practice for special circumstances. For general applications, including exposure situations, see ~ BS 8110-1: Structural use of concrete. Code of practice for design and construction.|
+|---|
+
+
+###### Reinforced Concrete -- Fire Protection
+
+|Typical examples using dense concrete of calcareous aggregates (excluding limestone) or siliceous aggregates, eg. flints, quartzites and granites ~<br><br>Column fully exposed ~<br><br>35 mm min. concrete cover to reinforcement<br><br>300 mm min. each face, 120 minutes fire resistance 450 mm min. each face, 240 minutes fire resistance<br><br>![image 473](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile473.png)<br><br>Column, maximum 50% exposed ~<br><br>200 mm min., 120 minutes fire resistance, 25 mm cover 350 mm min., 240 minutes fire resistance, 35 mm cover<br><br>concrete cover to reinforcement<br><br>240 minute fire resistant compartment wall<br><br>![image 474](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile474.png)<br><br>Column, one face only exposed ~<br><br>160 mm min., 120 minutes fire resistance 240 mm min., 240 minutes fire resistance<br><br>25 mm min. cover<br><br>240 minute fire resistant compartment wall<br><br>![image 475](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile475.png)<br><br>Beam and floor slab ~<br><br>125 mm min. thickness reinforced concrete compartment floor, 120 minutes fire resistance, 35 mm cover<br><br>cover<br><br>150 mm min., 120 minutes fire resistance, 50 mm cover 240 mm min., 240 minutes fire resistance, 70 mm cover<br><br>![image 476](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile476.png)|
+|---|
+
+
+###### Basic Formwork---Details
+
+|Basic Formwork ~ concrete when first mixed is a fluid and therefore to form any concrete member the wet concrete must be placed in a suitable mould to retain its shape, size and position as it sets. It is possible with some forms of concrete foundations to use the sides of the excavation as the mould but in most cases when casting concrete members a mould will have to be constructed on site. These moulds are usually called formwork. It is important to appreciate that the actual formwork is the reverse shape of the concrete member which is to be cast.<br><br>Basic Principles ~<br><br>![image 477](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile477.png)|
+|---|
+
+
+###### Basic Formwork---Details
+
+|![image 478](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile478.png)|
+|---|
+
+
+###### Formwork---Beams
+
+|Beam Formwork ~ this is basically a three sided box supported and propped in the correct position and to the desired level. The beam formwork sides have to retain the wet concrete in the required shape and be able to withstand the initial hydrostatic pressure of the wet concrete whereas the formwork soffit apart from retaining the concrete has to support the initial load of the wet concrete and finally the set concrete until it has gained sufficient strength to be self supporting. It is essential that all joints in the formwork are constructed to prevent the escape of grout which could result in honeycombing and/or feather edging in the cast beam. The removal time for the formwork will vary with air temperature, humidity and consequent curing rate.<br><br>![image 479](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile479.png)<br><br>Typical Formwork Striking Times ~<br><br>Beam Sides † 9 to 12 hours Beam Soffits † 8 to 14 days (props left under) Beam Props † 15 to 21 days<br><br>Using OPC-air temp 7 to 16 C|
+|---|
+
+
+Formwork---Columns
+
+|Column Formwork ~ this consists of a vertical mould of the desired shape and size which has to retain the wet concrete and resist the initial hydrostatic pressure caused by the wet concrete. To keep the thickness of the formwork material to a minimum horizontal clamps or yokes are used at equal centres for batch filling and at varying centres for complete filling in one pour. The head of the column formwork can be used to support the incoming beam formwork which gives good top lateral restraint but results in complex formwork. Alternatively the column can be cast to the underside of the beams and at a later stage a collar of formwork can be clamped around the cast column to complete casting and support the incoming beam formwork. Column forms are located at the bottom around a 75 to 100 mm high concrete plinth or kicker which has the dual function of location and preventing grout loss from the bottom of the column formwork.<br><br>![image 480](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile480.png)|
+|---|
+
+
+###### Formwork---Column Clamps and Yokes
+
+|Column Yokes ~ these are obtainable as a metal yoke or clamp or they can be purpose made from timber.<br><br>Typical Examples ~<br><br>![image 481](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile481.png)|
+|---|
+
+
+|Precast Concrete Frames ~ these frames are suitable for single storey and low rise applications, the former usually in the form of portal frames which are normally studied separately. Precast concrete frames provide the skeleton for the building and can be clad externally and finished internally by all the traditional methods. The frames are usually produced as part of a manufacturer's standard range of designs and are therefore seldom purpose made due mainly to the high cost of the moulds.<br><br>Advantages:-<br><br>1. Frames are produced under factory controlled conditions resulting in a uniform product of both quality and accuracy.<br>2. Repetitive casting lowers the cost of individual members.<br>3. Off site production releases site space for other activities.<br>4. Frames can be assembled in cold weather and generally by semi-skilled labour.<br><br><br>Disadvantages:-<br><br>1. Although a wide choice of frames is available from various manufacturers these systems lack the design flexibility of cast in-situ purpose made frames.<br>2. Site planning can be limited by manufacturer's delivery and unloading programmes and requirements.<br>3. Lifting plant of a type and size not normally required by traditional construction methods may be needed.<br><br><br>![image 482](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile482.png)|
+|---|
+
+
+|Foundation Connections ~ the preferred method of connection is to set the column into a pocket cast into a reinforced concrete pad foundation and is suitable for light to medium loadings. Where heavy column loadings are encountered it may be necessary to use a steel base plate secured to the reinforced concrete pad foundation with holding down bolts.<br><br>![image 483](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile483.png)|
+|---|
+
+
+|Column to Column Connection ~ precast columns are usually cast in one length and can be up to four storeys in height. They are either reinforced with bar reinforcement or they are prestressed according to the loading conditions. If column to column are required they are usually made at floor levels above the beam to column connections and can range from a simple dowel connection to a complex connection involving in-situ concrete.<br><br>![image 484](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile484.png)|
+|---|
+
+
+|Beam to Column Connections ~ as with the column to column connections (see page 485) the main objective is to provide structural continuity at the junction. This is usually achieved by one of two basic methods:-<br><br>1. Projecting bearing haunches cast onto the columns with a projecting dowel or stud bolt to provide both location and fixing.<br>2. Steel to steel fixings which are usually in the form of a corbel or bracket projecting from the column providing a bolted connection to a steel plate cast into the end of the beam.<br><br><br>![image 485](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile485.png)|
+|---|
+
+
+|Principles ~ the well known properties of concrete are that it has high compressive strength and low tensile strength. The basic concept of reinforced concrete is to include a designed amount of steel bars in a predetermined pattern to give the concrete a reasonable amount of tensile strength. In prestressed concrete a precompression is induced into the member to make full use of its own inherent compressive strength when loaded. The design aim is to achieve a balance of tensile and compressive forces so that the end result is a concrete member which is resisting only stresses which are compressive. In practice a small amount of tension may be present but providing this does not exceed the tensile strength of the concrete being used tensile failure will not occur.<br><br>![image 486](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile486.png)|
+|---|
+
+
+|Materials ~ concrete will shrink whilst curing and it can also suffer sectional losses due to creep when subjected to pressure. The amount of shrinkage and creep likely to occur can be controlled by designing the strength and workability of the concrete, high strength and low workability giving the greatest reduction in both shrinkage and creep. Mild steel will suffer from relaxation losses which is where the stresses in steel under load decrease to a minimum value after a period of time and this can be overcome by increasing the initial stress in the steel. If mild steel is used for prestressing the summation of shrinkage, creep and relaxation losses will cancel out any induced compression, therefore special alloy steels must be used to form tendons for prestressed work.<br><br>Tendons † these can be of small diameter wires (2 to 7 mm) in a plain round, crimped or indented format, these wires may be individual or grouped to form cables. Another form of tendon is strand which consists of a straight core wire around which is helically wound further wires to give formats such as 7 wire (6 over 1) and 19 wire (9 over 9 over 1) and like wire tendons strand can be used individually or in groups to form cables. The two main advantages of strand are:-<br><br>1. A large prestressing force can be provided over a restricted area.<br>2. Strand can be supplied in long flexible lengths capable of being stored on drums thus saving site storage and site fabrication space.<br><br><br>![image 487](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile487.png)|
+|---|
+
+
+|Pre-tensioning ~ this method is used mainly in the factory production of precast concrete components such as lintels, floor units and small beams. Many of these units are formed by the long line method where precision steel moulds up to 120„000 long are used with spacer or dividing plates to form the various lengths required. In pre-tensioning the wires are stressed within the mould before the concrete is placed around them. Steam curing is often used to accelerate this process to achieve a 24 hour characteristic strength of 28 N/mm2 with a typical 28 day cube strength of 40 N/mm2. Stressing of the wires is carried out by using hydraulic jacks operating from one or both ends of the mould to achieve an initial 10% overstress to counteract expected looses. After curing the wires are released or cut and the bond between the stressed wires and the concrete prevents the tendons from regaining their original length thus maintaining the precompression or prestress.<br><br>At the extreme ends of the members the bond between the stressed wires and concrete is not fully developed due to low frictional resistance. This results in a small contraction and swelling at the ends of the wire forming in effect a cone shape anchorage. The distance over which this contraction occurs is called the transfer length and is equal to 80 to 120 times the wire diameter. To achieve a greater total surface contact area it is common practice to use a larger number of small diameter wires rather than a smaller number of large diameter wires giving the same total cross sectional area.<br><br>![image 488](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile488.png)|
+|---|
+
+
+|Post-tensioning ~ this method is usually employed where stressing is to be carried out on site after casting an in-situ component or where a series of precast concrete units are to be joined together to form the required member. It can also be used where curved tendons are to be used to overcome negative bending moments. In post-tensioning the concrete is cast around ducts or sheathing in which the tendons are to be housed. Stressing is carried out after the concrete has cured by means of hydraulic jacks operating from one or both ends of the member. The anchorages (see next page) which form part of the complete component prevent the stressed tendon from regaining its original length thus maintaining the precompression or prestress. After stressing the annular space in the tendon ducts should be filled with grout to prevent corrosion of the tendons due to any entrapped moisture and to assist in stress distribution. Due to the high local stresses at the anchorage positions it is usual for a reinforcing spiral to be included in the design.<br><br>![image 489](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile489.png)|
+|---|
+
+
+|Typical Post-tensioning Arrangement ~<br><br>Anchorages ~ the formats for anchorages used in conjunction with post-tensioned prestressed concrete works depends mainly on whether the tendons are to be stressed individually or as a group, but most systems use a form of split cone wedges or jaws acting against a form of bearing or pressure plate.<br><br>![image 490](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile490.png)|
+|---|
+
+
+|Comparison with Reinforced Concrete ~ when comparing prestressed concrete with conventional reinforced concrete the main advantages and disadvantages can be enumerated but in the final analysis each structure and/or component must be decided on its own merit.<br><br>Main advantages:-<br><br>1. Makes full use of the inherent compressive strength of concrete.<br>2. Makes full use of the special alloy steels used to form the prestressing tendons.<br>3. Eliminates tension cracks thus reducing the risk of corrosion of steel components.<br>4. Reduces shear stresses.<br>5. For any given span and loading condition a component with a smaller cross section can be used thus giving a reduction in weight.<br>6. Individual precast concrete units can be joined together to form a composite member.<br><br><br>Main Disadvantages:-<br><br>1. High degree of control over materials, design and quality of workmanship is required.<br>2. Special alloy steels are dearer than most traditional steels used in reinforced concrete.<br>3. Extra cost of special equipment required to carry out the prestressing activities.<br>4. Cost of extra safety requirements needed whilst stressing tendons.<br><br><br>As a general comparison between the two structural options under consideration it is usually found that:-<br><br>1. Up to 6„000 span traditional reinforced concrete is the most economic method.<br>2. Spans between 6„000 and 9„000 the two cost options are comparable.<br>3. Over 9„000 span prestressed concrete is more economical than reinforced concrete.<br><br><br>It should be noted that generally columns and walls do not need prestressing but in tall columns and high retaining walls where the bending stresses are high, prestressing techniques can sometimes be economically applied.|
+|---|
+
+
+|Ground Anchors ~ these are a particular application of posttensioning prestressing techniques and can be used to form ground tie backs to cofferdams, retaining walls and basement walls. They can also be used as vertical tie downs to basement and similar slabs to prevent flotation during and after construction. Ground anchors can be of a solid bar format (rock anchors) or of a wire or cable format for granular and cohesive soils. A lined or unlined bore hole must be drilled into the soil to the design depth and at the required angle to house the ground anchor. In clay soils the bore hole needs to be underreamed over the anchorage length to provide adequate bond. The tail end of the anchor is pressure grouted to form a bond with the surrounding soil, the remaining length being unbonded so that it can be stressed and anchored at head thus inducing the prestress. The void around the unbonded or elastic length is gravity grouted after completion of the stressing operation.<br><br>![image 491](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile491.png)|
+|---|
+
+
+###### Structural Steelwork---Standard Cold Rolled Sections
+
+|Cold rolled steel sections are a lightweight alternative to the relatively heavy, hot rolled steel sections that have been traditionally used in sub-framing situations, e.g. purlins, joists and sheeting rails. Cold rolled sections are generally only a few millimetres in wall thickness, saving on material and handling costs and building dead load. They are also produced in a wide variety of section profiles, some of which are shown below.<br><br>![image 492](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile492.png)<br><br>Dimensions vary considerably and many non-standard profiles are made for particular situations. A range of standard sections are produced to:<br><br>BS EN 10162: Cold rolled steel sections. Technical delivery conditions. Dimensional and cross sectional tolerances.|
+|---|
+
+
+###### Structural Steelwork---Standard Hot Rolled Sections
+
+|Structural Steelwork ~ the standard sections available for use in structural steelwork are given in BS 4-1 and BS ENs 10056 and 10210. These standards give a wide range of sizes and weights to enable the designer to formulate an economic design.<br><br>Typical Standard Steelwork Sections ~<br><br>NB. Sizes given are serial or nominal, for actual sizes see relevant BS.<br><br>![image 493](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile493.png)<br><br>![image 494](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile494.png)<br><br>![image 495](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile495.png)<br><br>width<br><br>constantdim.<br><br>foreachserial<br><br>size<br><br>constant<br><br>dimensionfor<br><br>eachserial<br><br>size<br><br>width<br><br>web web<br><br>92ƒ 52′ or 90ƒ 90ƒ<br><br>root radius root radius<br><br>flange<br><br>flange<br><br>127 x 76 x 13 kg/m to 914 x 419 x 388 kg/m<br><br>UNIVERSAL COLUMNS<br><br>depth<br><br>depth<br><br>width<br><br>width breadth<br><br>web web<br><br>95ƒ 95ƒ<br><br>root radius<br><br>JOISTS CHANNELS HOLLOW SECTIONS<br><br>root radius<br><br>flange<br><br>flange<br><br>toe radius<br><br>toe radius<br><br>depth<br><br>depth<br><br>depth<br><br>wall<br><br>90ƒ 90ƒ<br><br>root radius<br><br>EQUAL ANGLES UNEQUAL ANGLES HOLLOW SECTIONS<br><br>root radius<br><br>A B<br><br>A<br><br>A flange flange<br><br>toe radius<br><br>toe radius<br><br>diameter<br><br>wall<br><br>UNIVERSAL BEAMS<br><br>152 x 152 x 23 kg/m to 356 x 406 x 634 kg/m<br><br>25 x 25 x 1.2 kg/m to 200 x 200 x 71.1 kg/m<br><br>40 x 25 x 1.91 kg/m to 200 x 150 x 47.1 kg/m<br><br>21.3 dia. x 1.43 kg/m to 508 dia. x 194 kg/m<br><br>76 x 76 x 13 kg/m to 254 x 203 x 82 kg/m<br><br>100 x 50 x 10 kg/m to 430 x 100 x 64 kg/m<br><br>50 x 30 x 2.89 kg/m to 500 x 300 x 191 kg/m|
+|---|
+
+
+foreachserial
+
+dimensionfor
+
+constantdim.
+
+eachserial
+
+constant
+
+depth
+
+depth
+
+size
+
+size
+
+Structural Steelwork---Compound Sections
+
+|Compound Sections † these are produced by welding together standard sections. Various profiles are possible, which can be designed specifically for extreme situations such as very high loads and long spans, where standard sections alone would be insufficient. Some popular combinations of standard sections include:<br><br>![image 496](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile496.png)|
+|---|
+
+
+###### Structural Steelwork---Open Web Beams
+
+|Open Web Beams † these are particularly suited to long spans with light to moderate loading. The relative increase in depth will help resist deflection and voids in the web will reduce structural dead load.<br><br>Perforated Beam † a standard beam section with circular voids cut about the neutral axis.<br><br>![image 497](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile497.png)<br><br>Castellated Beam † a standard beam section web is profile cut into two by oxy-acetylene torch. The projections on each section are welded together to create a new beam 50% deeper than the original.<br><br>![image 498](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile498.png)<br><br>Litzka Beam † a standard beam cut as the castellated beam, but with overall depth increased further by using spacer plates welded to the projections. Minimal increase in weight.<br><br>![image 499](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile499.png)<br><br>Note: Voids at the end of open web beams should be filled with a welded steel plate, as this is the area of maximum shear stress in a beam.|
+|---|
+
+
+###### Structural Steelwork---Lattice Beams
+
+|Lattices † these are an alternative type of open web beam, using standard steel sections to fabricate high depth to weight ratio units capable of spans up to about 15 m. The range of possible components is extensive and some examples are shown below:<br><br>![image 500](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile500.png)<br><br>Note: span potential for lattice beams is approximately 24 D|
+|---|
+
+
+###### Structural Steelwork---Connections
+
+|Structural Steelwork Connections ~ these are either workshop or site connections according to where the fabrication takes place. Most site connections are bolted whereas workshop connections are very often carried out by welding. The design of structural steelwork members and their connections is the province of the structural engineer who selects the type and number of bolts or the size and length of weld to be used according to the connection strength to be achieved.<br><br>Typical Connection Examples ~<br><br>![image 501](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile501.png)<br><br>3 mm wide expansion gap<br><br>universal beams<br><br>universal beam<br><br>erection cleat<br><br>erection cleat ground level<br><br>web cleats if required<br><br>site fillet welds<br><br>seating cleats<br><br>top cleats<br><br>site connection<br><br>site connection<br><br>site connections<br><br>workshop connections<br><br>workshop connection<br><br>SIMPLE CONNECTION<br><br>SEMI-RIGID CONNECTION<br><br>universal column<br><br>universal beam workshop fillet weld<br><br>workshop fillet welds<br><br>holding down bolts grouted after final levelling<br><br>steel levelling wedges or shims steel base plate bolted and grouted to RC foundation removable bolt box of foamed plastic, plywood, PVC tube, etc., 100 x 100 plate washers<br><br>COLUMN TO FOUNDATION CONNECTION<br><br>RIGID CONNECTION<br><br>150 mm thick minimum concrete encasing<br><br>universal column<br><br>universal column<br><br>![image 502](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile502.png)<br><br>![image 503](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile503.png)|
+|---|
+
+
+Structural Steelwork---Connections
+
+|![image 504](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile504.png)<br><br>NB. All holes for bolted connections must be made from backmarking the outer surface of the section(s) involved. For actual positions see structural steelwork manuals.|
+|---|
+
+
+###### Structural Steelwork -- Column Base Connections
+
+|Types ~ Slab or bloom base. Gusset base. Steel grillage (see page 209).<br><br>The type selected will depend on the load carried by the column and the distribution area of the base plate. The cross sectional area of a UC concentrates the load into a relatively small part of the base plate. Therefore to resist bending and shear, the base must be designed to resist the column loads and transfer them onto the pad foundation below.<br><br>SLAB or BLOOM BASE<br><br>universal column<br><br>bolt hole<br><br>fillet weld<br><br>relatively thick steel base plate<br><br>SLAB BASE WITH ANGLE CLEATS<br><br>UC<br><br>bolt hole<br><br>angle cleat welded to UC and base plate<br><br>![image 505](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile505.png)<br><br>![image 506](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile506.png)<br><br>GUSSET BASE<br><br>UC<br><br>angle cleat angle cleats to both sides of UC<br><br>gusset<br><br>BOLT BOX<br><br>EPS moulding to be removed before placing concrete<br><br>chipboard or plywood template with holes spaced to match base plate<br><br>large steel plate washer<br><br>bolt thread, nut and rough washer<br><br>![image 507](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile507.png)<br><br>![image 508](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile508.png)<br><br>Bolt Box ~ a template used to accurately locate column holding down bolts into wet concrete. EPS or plastic tubes provide space around the bolts when the concrete has set. The bolts can then be moved slightly to aid alignment with the column base.|
+|---|
+
+
+###### Structural Steelwork---Welded Connections
+
+|Welding is used to prefabricate the sub-assembly of steel frame components in the workshop, prior to delivery to site where the convenience of bolted joints will be preferred.<br><br>Oxygen and acetylene (oxy-acetylene) gas welding equipment may be used to fuse together light steel sections, but otherwise it is limited to cutting profiles of the type shown on page 497. The electric arc process is preferred as it is more effective and efficient. This technique applies an expendable steel electrode to fuse parts together by high amperage current. The current potential and electrode size can be easily changed to suit the thickness of metal.<br><br>Overlapping of sections permits the convenience of fillet welds, but if the overlap is obstructive or continuity and direct transfer of loads is necessary, a butt weld will be specified. To ensure adequate weld penetration with a butt weld, the edges of the parent metal should be ground to produce an edge chamfer. For very large sections, both sides of the material should be chamfered to allow for double welds.<br><br>BUTT WELD<br><br>single V weld<br><br>chamfered edge throat thickness T<br><br>T<br><br>penetration<br><br>parent metal<br><br>Note: For greater thicknesses of parent metal, both sides are chamfered in preparation for a double weld.<br><br>![image 509](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile509.png)<br><br>FILLET WELD<br><br>end fillet<br><br>side fillet parent metal throat thickness, 0.7 x<br><br>L<br><br>L<br><br>penetration<br><br>![image 510](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile510.png)<br><br>Ref. BS EN 1011-1 and 2: Welding. Recommendations for welding of metallic materials.|
+|---|
+
+
+###### Structural Steelwork -- Bolted Connections
+
+|Bolts are the preferred method for site assembly of framed building components, although rivets have been popular in the past and will be found when working on existing buildings. Cold driven and `pop' rivets may be used for factory assembly of light steel frames such as stud walling, but the traditional process of hot riveting structural steel both in the workshop and on site has largely been superseded for safety reasons and the convenience of other practices.<br><br>Types of Bolt ~<br><br>1. Black Bolts ~ the least expensive and least precise type of bolt, produced by forging with only the bolt and nut threads machined. Clearance between the bolt shank and bolt hole is about 2 mm, a tolerance that provides for ease of assembly. However, this imprecision limits the application of these bolts to direct bearing of components onto support brackets or seating cleats.<br>2. Bright Bolts ~ also known as turned and fitted bolts. These are machined under the bolt head and along the shank to produce a close fit of 0„5 mm hole clearance. They are specified where accuracy is paramount.<br>3. High Strength Friction Grip Bolts ~ also known as torque bolts as they are tightened to a predetermined shank tension by a torque controlled wrench. This procedure produces a clamping force that transfers the connection by friction between components and not by shear or bearing on the bolts. These bolts are manufactured from high-yield steel. The number of bolts used to make a connection is less than otherwise required.<br><br><br>Refs. BS 4190: ISO metric black hexagon bolts, screws and nuts. Specification.<br><br>BS 3692: ISO metric precision hexagon bolts, screws and nuts. Specification.<br><br>BS 4395 (2 parts): Specification for high strength friction grip bolts and associated nuts and washers for structural engineering.<br><br>BS EN 14399 (6 parts): High strength structural bolting assemblies for preloading.|
+|---|
+
+
+|Fire Resistance of Structural Steelwork ~ although steel is a noncombustible material with negligible surface spread of flame properties it does not behave very well under fire conditions. During the initial stages of a fire the steel will actually gain in strength but this reduces to normal at a steel temperature range of 250 to 400 C and continues to decrease until the steel temperature reaches 550 C when it has lost most of its strength. Since the temperature rise during a fire is rapid, most structural steelwork will need protection to give it a specific degree of fire resistance in terms of time. Part B of the Building Regulations sets out the minimum requirements related to building usage and size, BRE Report 128 `Guidelines for the construction of fire resisting structural elements' gives acceptable methods.<br><br>Typical Examples for 120 minutes Fire Resistance ~<br><br>25 mm minimum cover of concrete over steel<br><br>1.6 mm wire binding at 100 mm pitch<br><br>steel column with section factor 90…140<br><br>25 mm firecheck plasterboard<br><br>15 mm firecheck plasterboard<br><br>25<br><br>min.<br><br>steel column with section factor 90…140<br><br>non-loadbearing concrete not leaner than a 1: 2: 4 mix with natural aggregates<br><br>2.3 mm wire binding at 150 mm pitch<br><br>SOLID PROTECTION<br><br>SOLID PROTECTION<br><br>compartment floor slab<br><br>steel beam with section factor 90…140<br><br>non-loadbearing concrete not leaner than a 1: 2: 4 mix with natural aggs.<br><br>metal lathing<br><br>20 mm thick perlitegypsum plaster<br><br>2.3 mm wire binding at 150 mm pitch<br><br>minimum cover of concrete over steel 25 mm<br><br>HOLLOW PROTECTION<br><br>HOLLOW PROTECTION<br><br>![image 511](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile511.png)<br><br>![image 512](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile512.png)<br><br>For section factor calculations see next page.|
+|---|
+
+
+###### n.
+
+|Section Factors † these are criteria found in tabulated fire protection data such as the Loss Prevention Certification Board's Standards. These factors can be used to establish the minimum thickness or cover of protective material for structural sections. This interpretation is usually preferred by buildings insurance companies, as it often provides a standard in excess of the building regulations. Section factors are categorised: < 90, 90 † 140 and > 140. They can be calculated by the following formula:<br><br>Section Factor = Hp/A (m 1) Hp = Perimeter of section exposed to fire (m) A = Cross sectional area of steel (m2) [see BS 4-1 or Structural Steel Tables] Examples:<br><br>![image 513](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile513.png)<br><br>Hp = (2 124„3) + (2 306„6) + 2(124„3 † 8) = 1„0944 m A = 53„2 cm2 or 0„00532 m2 Section Factor, Hp/A = 1„0944/0„00532 = 205<br><br>![image 514](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile514.png)<br><br>As beam above, but 3 sides only exposed<br><br>fire protection<br><br>UB<br><br>compartment concrete floor, f.r. = 120 minutes<br><br>Hp = 124„3 + (2 306„6) + 2(124„3 † 8) = 0„9701 m A = 53„2 cm2 or 0„00532 m2 Section Factor, Hp/A = 0„9701/0„00532 = 182|
+|---|
+
+
+|References: BS 4-1: Structural steel sections. Specification for hot-rolled sections. BS 449-2: Specification for the use of structural steel in building. Metric units. BS 5950-1: Structural use of steelwork in building. Code of practice for design. Rolled and welded sections. BS EN 1993-1: Eurocode 3. Design of steel structures.<br><br>Simple beam design (Bending) Formula:<br><br>Z =<br><br>M f<br><br>where: Z = section or elastic modulus (BS 4-1) M = moment of resistance > or = max. bending moment f = fibre stress of the material, (normally 165 N/mm2 for<br><br>rolled steel sections) In simple situations the bending moment can be calculated:-<br><br>![image 515](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile515.png)<br><br>eg.<br><br>From structural design tables, e.g. BS 4-1, a Universal Beam 305 127 48 kg/m with section modulus (Z) of 612„4 cm3 about the x-x axis, can be seen to satisfy the calculated 606 cm3.<br><br>Note: Total load in kN can be established by summating the weight of materials † see BS648: Schedule of Weights of Building Materials, and multiplying by gravity; i.e. kg 9„81 = Newtons.<br><br>This must be added to any imposed loading:People and furniture = 1„5 kN/m2 Snow on roofs < 30 pitch = 1„5 kN/m2 Snow on roofs > 30 pitch = 0„75 kN/m2|
+|---|
+
+
+|Simple beam design (Shear) From the previous example, the section profile is:-<br><br>![image 516](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile516.png)<br><br>Maximum shear force normally occurs at the support points, i.e. near the end of the beam. Calculation is made of the average stress value on the web sectional area.<br><br>Using the example of 200 kN load distributed over the beam, the maximum shear force at each end support will be 100 kN.<br><br>Therefore, the average shear stress =<br><br>shear force web sectional area<br><br>=<br><br>100 103 2762„56<br><br>= 36„20 N=mm2<br><br>Grade S275 steel has an allowable shear stress in the web of 110 N/mm2. Therefore the example section of serial size: 305 mm 127 mm 48 kg/m with only 36„20 N/mm2 calculated average shear stress is more than capable of resisting the applied forces.<br><br>Grade S275 steel has a characteristic yield stress of 275 N/mm2 in sections up to 40 mm thickness. This grade is adequate for most applications, but the more expensive grade S355 steel is available for higher stress situations.<br><br>Ref. BS EN 10025: Hot rolled products of structural steels.|
+|---|
+
+
+|Simple beam design (Deflection)<br><br>The deflection due to loading, other than the weight of the structure, should not exceed 1/360 of the span.<br><br>The formula to determine the extent of deflection varies, depending on:-<br><br>(a) Point loading<br><br>![image 517](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile517.png)<br><br>(b) Uniformly distributed loading<br><br><br>![image 518](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile518.png)<br><br>where: W = load in kN L = span in cm E = Young's modulus of elasticity (typically 21,000 kN/cm2 for steel) I = 2nd moment of area about the x-x axis (see BS 4-1)<br><br>Using the example of 200 kN uniformly distributed over a 4 m span:-<br><br>Deflection =<br><br>5WL3 384EI<br><br>=<br><br>5 200 43 1003 384 21000 9504<br><br>= 0„835cm<br><br>Permissible deflection is 1/360 of 4 m = 11„1 mm or 1„11 cm.<br><br>Therefore actual deflection of 8„35 mm or 0„835 cm is acceptable. Ref. BS 5950-1: Structural use of steelwork in building. Code of practice for design. Rolled and welded sections.|
+|---|
+
+
+###### Structural Steelwork---Column Design
+
+|Simple column design<br><br>Steel columns or stanchions have a tendency to buckle or bend under extreme loading. This can be attributed to:<br><br>(a) length<br>(b) cross sectional area<br>(c) method of end fixing, and<br>(d) the shape of section. (b) and (d) are incorporated into a geometric property of section, known as the radius of gyration (r). It can be calculated:-<br><br><br>r ¼<br><br>I A<br><br>where: I = 2nd moment of area A = cross sectional area<br><br>Note: r,I and A are all listed in steel design tables, eg. BS 4-1.<br><br>![image 519](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile519.png)<br><br>Position and direction fixed is location at specific points by beams or other means of retention. Position fixed only means hinged or pinned. eg. A Universal Column 203 mm 203 mm 46 kg/m, 10 m long, position and direction fixed both ends. Determine the maximum axial loading.<br><br>Effective length (l) = 0.7 10 m = 7 m (r) from BS 4-1 = 51„1 mm<br><br>Slenderness ratio =<br><br>l r<br><br>=<br><br>7 103 51:1<br><br>= 137 Maximum allowable stress for grade S275 steel = 48 N/mm2 (BS 449-2) Cross sectional area of stanchion (UC) = 5880 mm2 (BS 4-1) The total axial load =<br><br>48 5880 103<br><br>= 283 kN (approx. 28 tonnes)|
+|---|
+
+
+|Portal Frames ~ these can be defined as two dimensional rigid frames which have the basic characteristic of a rigid joint between the column and the beam. The main objective of this form of design is to reduce the bending moment in the beam thus allowing the frame to act as one structural unit. The transfer of stresses from the beam to the column can result in a rotational movement at the foundation which can be overcome by the introduction of a pin or hinge joint. The pin or hinge will allow free rotation to take place at the point of fixity whilst transmitting both load and shear from one member to another. In practice a true `pivot' is not always required but there must be enough movement to ensure that the rigidity at the point of connection is low enough to overcome the tendency of rotational movement.<br><br>![image 520](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile520.png)|
+|---|
+
+
+|![image 521](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile521.png)|
+|---|
+
+
+|![image 522](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile522.png)|
+|---|
+
+
+|![image 523](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile523.png)|
+|---|
+
+
+|Laminated Timber ~ sometimes called `Gluelam' and is the process of building up beams, ribs, arches, portal frames and other structural units by gluing together layers of timber boards so that the direction of the grain of each board runs parallel with the longitudinal axis of the member being fabricated.<br><br>Laminates ~ these are the layers of board and may be jointed in width and length.<br><br>Joints ~<br><br>Width † joints in consecutive layers should lap twice the board thickness or one quarter of its width whichever is the greater.<br><br>Length † scarf and finger joints can be used. Scarf joints should have a minimum slope of 1 in 12 but this can be steeper (say 1 in 6) in the compression edge of a beam:-<br><br>![image 524](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile524.png)<br><br>Moisture Content ~ timber should have a moisture content equal to that which the member will reach in service and this is known as its equilibrium moisture content; for most buildings this will be between 11 and 15%. Generally at the time of gluing timber should not exceed 15 – 3% in moisture content.|
+|---|
+
+
+|Vertical Laminations ~ not often used for structural laminated timber members and is unsatisfactory for curved members.<br><br>![image 525](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile525.png)<br><br>Horizontal Laminations ~ most popular method for all types of laminated timber members. The stress diagrams below show that laminates near the upper edge are subject to a compressive stress whilst those near the lower edge to a tensile stress and those near the neutral axis are subject to shear stress.<br><br>![image 526](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile526.png)<br><br>Flat sawn timber shrinks twice as much as quarter sawn timber therefore flat and quarter sawn timbers should not be mixed in the same member since the different shrinkage rates will cause unacceptable stresses to occur on the glue lines.<br><br>![image 527](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile527.png)<br><br>Planing ~ before gluing, laminates should be planed so that the depth of the planer cutter marks are not greater than 0„025 mm.|
+|---|
+
+
+|Gluing ~ this should be carried out within 48 hours of the planing operation to reduce the risk of the planed surfaces becoming contaminated or case hardened (for suitable adhesives see page 517). Just before gluing up the laminates they should be checked for `cupping.' The amount of cupping allowed depends upon the thickness and width of the laminates and has a range of 0„75 mm to 1„5 mm.<br><br>Laminate Thickness ~ no laminate should be more than 50 mm thick since seasoning up to this thickness can be carried out economically and there is less chance of any individual laminate having excessive cross grain strength.<br><br>Straight Members † laminate thickness is determined by the depth of the member, there must be enough layers to allow the end joints (i.e. scarf or finger joints † see page 514) to be properly staggered.<br><br>Curved Members † laminate thickness is determined by the radius to which the laminate is to be bent and the species together with the quality of the timber being used. Generally the maximum laminate thickness should be 1/150 of the sharpest curve radius although with some softwoods 1/100 may be used.<br><br>![image 528](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile528.png)|
+|---|
+
+
+|Adhesives ~ although timber laminates are carefully machined, the minimum of cupping permitted and efficient cramping methods employed it is not always possible to obtain really tight joints between the laminates. One of the important properties of the adhesive is therefore that it should be gap filling. The maximum permissible gap being 1.25 mm.<br><br>There are four adhesives suitable for laminated timber work which have the necessary gap filling property and they are namely:-<br><br>1. Casein † the protein in milk, extracted by coagulation and precipitation. It is a cold setting adhesive in the form of a powder which is mixed with water, it has a tendency to stain timber and is only suitable for members used in dry conditions of service.<br>2. Urea Formaldehyde † this is a cold setting resin glue formulated to MR/GF (moisture resistant/gap filling). Although moisture resistant it is not suitable for prolonged exposure in wet conditions and there is a tendency for the glue to lose its strength in temperatures above 40 C such as when exposed to direct sunlight. The use of this adhesive is usually confined to members used in dry, unexposed conditions of service. This adhesive will set under temperatures down to 10 C.<br>3. Resorcinol Formaldehyde † this is a cold setting glue formulated to WBP/GF (weather and boilproof/gap filling). It is suitable for members used in external situations but is relatively expensive. This adhesive will set under temperatures down to 15 C and does not lose its strength at high temperatures.<br>4. Phenol Formaldehyde † this is a similar glue to resorcinol formaldehyde but is a warm setting adhesive requiring a temperature of above 86 C in order to set. Phenol/resorcinol formaldehyde is an alternative, having similar properties to, but less expensive than resorcinol formaldehyde. PRF needs a setting temperature of at least 23 C.<br><br><br>Preservative Treatment † this can be employed if required, provided that the pressure impregnated preservative used is selected with regard to the adhesive being employed. See also page 427.<br><br>Ref. BS EN 301: Adhesives, phenolic and aminoplastic, for loadbearing timber structures. Classification and performance requirements.|
+|---|
+
+
+###### Composite Timber Beams
+
+|Composite Beams ~ stock sizes of structural softwood have sectional limitations of about 225 mm and corresponding span potential in the region of 6 m. At this distance, even modest loadings could interpose with the maximum recommended deflection of 0„003 span.<br><br>Fabricated softwood box, lattice and plywood beams are an economic consideration for medium spans. They are produced with adequate depth to resist deflection and with sufficient strength for spans into double figures. The high strength to weight ratio and simple construction provides advantages in many situations otherwise associated with steel or reinforced concrete, e.g. frames, trusses, beams and purlins in gymnasia, workshops, garages, churches, shops, etc. They are also appropriate as purlins in loft conversion.<br><br>![image 529](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile529.png)|
+|---|
+
+
+###### Steel Web Lattice Joist
+
+|Composite Joist ~ a type of lattice frame, constructed from a pair of parallel and opposing stress graded softwood timber flanges, separated and jointed with a web of V shaped galvanised steel plate connectors. Manufacture is off-site in a factory quality controlled situation. Here, joists can be made in standard or specific lengths to order. Depending on loading, spans to about 8 m are possible at joist spacing up to 600 mm.<br><br>![image 530](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile530.png)<br><br>Advantages over solid timber joists:<br><br>Large span to depth ratio. High strength to weight ratio. Alternative applications, including roof members, purlins, etc. Generous space for services without holing or notching. Minimal movement and shrinkage. Wide flanges provide large bearing area for decking and ceiling board.|
+|---|
+
+
+Multi-storey Structures
+
+|Multi-storey Structures ~ these buildings are usually designed for office, hotel or residential use and contain the means of vertical circulation in the form of stairs and lifts occupying up to 20% of the floor area. These means of circulation can be housed within a core inside the structure and this can be used to provide a degree of restraint to sway due to lateral wind pressures (see next page).<br><br>![image 531](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile531.png)|
+|---|
+
+
+Multi-storey Structures
+
+|Typical Multi-storey Structures ~ the formats shown below are designed to provide lateral restraint against wind pressures.<br><br>![image 532](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile532.png)|
+|---|
+
+
+|Steel Roof Trusses ~ these are triangulated plane frames which carry purlins to which the roof coverings can be fixed. Steel is stronger than timber and will not spread fire over its surface and for these reasons it is often preferred to timber for medium and long span roofs. The rafters are restrained from spreading by being connected securely at their feet by a tie member. Struts and ties are provided within the basic triangle to give adequate bracing. Angle sections are usually employed for steel truss members since they are economic and accept both tensile and compressive stresses. The members of a steel roof truss are connected together with bolts or by welding to shaped plates called gussets. Steel trusses are usually placed at 3„000 to 4„500 centres which gives an economic purlin size.<br><br>![image 533](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile533.png)|
+|---|
+
+
+|![image 534](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile534.png)|
+|---|
+
+
+|Sheet Coverings ~ the basic functions of sheet coverings used in conjunction with steel roof trusses are to :-<br><br>1. Provide resistance to penetration by the elements.<br>2. Provide restraint to wind and snow loads.<br>3. Provide a degree of thermal insulation of not less than that set out in Part L of the Building Regulations.<br>4. Provide resistance to surface spread of flame as set out in Part B of the Building Regulations.<br>5. Provide any natural daylight required through the roof in accordance with the maximum permitted areas set out in Part L of the Building Regulations.<br>6. Be of low self weight to give overall design economy.<br>7. Be durable to keep maintenance needs to a minimum.<br><br><br>Suitable Materials ~<br><br>Hot-dip galvanised corrugated steel sheets † BS 3083<br><br>Aluminium profiled sheets † BS 4868.<br><br>Asbestos free profiled sheets † various manufacturers whose products are usually based on a mixture of Portland cement, mineral fibres and density modifiers † BS EN 494.<br><br>![image 535](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile535.png)|
+|---|
+
+
+|![image 536](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile536.png)|
+|---|
+
+
+|![image 537](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile537.png)|
+|---|
+
+
+|Double Skin, Energy Roof systems ~ apply to industrial and commercial use buildings. In addition to new projects constructed to current thermal insulation standards, these systems can be specified to upgrade existing sheet profiled roofs with superimposed supplementary insulation and protective decking. Thermal performance with resin bonded mineral wool fibre of up to 250 mm overall depth may provide `U' values as low as 0„13 W/m2K.<br><br>Typical Details ~<br><br>![image 538](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile538.png)|
+|---|
+
+
+|Further typical details using profiled galvanised steel or aluminium, colour coated if required ~<br><br>RIDGE<br><br>cranked one-piece profiled ridge<br><br>zed purlin<br><br>ridge lining<br><br>outer profiled sheeting<br><br>![image 539](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile539.png)<br><br>VALLEY GUTTER<br><br>compressible profiled filler<br><br>mineral fibre quilt insulation<br><br>thermal break `plastic' spacer<br><br>inner lining and gutter support<br><br>gutter lining<br><br>![image 540](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile540.png)<br><br>EAVES GUTTER<br><br>radiused eaves piece<br><br>galvanised steel or aluminium flashing<br><br>zed purlin<br><br>zed rail<br><br>inner profiled sheeting, overlaps butyl or silicone sealed to provide vapour control layer … optional polythene vcl and breather membrane as shown on previous page<br><br>insulated trough gutter<br><br>![image 541](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile541.png)|
+|---|
+
+
+|Long Span Roofs ~ these can be defined as those exceeding 12„000 in span. They can be fabricated in steel, aluminium alloy, timber, reinforced concrete and prestressed concrete. Long span roofs can be used for buildings such as factories. Large public halls and gymnasiums which require a large floor area free of roof support columns. The primary roof functions of providing weather protection, thermal insulation, sound insulation and restricting spread of fire over the roof surface are common to all roof types but these roofs may also have to provide strength sufficient to carry services lifting equipment and provide for natural daylight to the interior by means of rooflights.<br><br>![image 542](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile542.png)|
+|---|
+
+
+|Pitched Trusses ~ these can be constructed with a symmetrical outline (as shown on pages 522 to 523) or with an asymmetrical outline (Northlight † see detail below). They are usually made from standard steel sections with shop welded or bolted connections, alternatively they can be fabricated using timber members joined together with bolts and timber connectors or formed as a precast concrete portal frame.<br><br>![image 543](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile543.png)|
+|---|
+
+
+|MonitorRoofs~thesearebasicallyaflatroofwithraisedglazedportionscalledmonitorswhichformsa<br><br>roofhavingauniformdistributionofdaylightwithnosolarglareproblemsirrespectiveoforientationanda<br><br>roofwitheasyaccessformaintenance.Theseroofscanbeconstructedwithlightlongspangirders<br><br>supportingthemonitorframes,crankedweldedbeamsfollowingtheprofileoftheroofortheycanbeofa<br><br>precastconcreteportalframeformat.<br><br>![image 544](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile544.png)|
+|---|
+
+
+ortionscalledmonitorswhichformsa
+
+lemsirrespectiveoforientationanda
+
+rofileoftheroofortheycanbeofa
+
+tructedwithlightlongspangirders
+
+|FlatTopGirders~thesearesuitableforroofspansrangingfrom15„000to45„000andarebasicallylow<br><br>pitchedlatticebeamsusedtocarrypurlinswhichsupporttheroofcoverings.Oneofthemainadvantages<br><br>ofthisformofroofisthereductioninroofvolume.Theusualmaterialsemployedinthefabricationofflat<br><br>topgirdersaretimberandsteel.<br><br>![image 545](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile545.png)|
+|---|
+
+
+15„000to45„000andarebasicallylow
+
+erialsemployedinthefabricationofflat
+
+coverings.Oneofthemainadvantages
+
+|Connections ~ nails, screws and bolts have their limitations when used to join structural timber members. The low efficiency of joints made with a rigid bar such as a bolt is caused by the usual low shear strength of timber parallel to the grain and the non-uniform distribution of bearing stress along the shank of the bolt †<br><br>![image 546](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile546.png)<br><br>Timber Connectors ~ these are designed to overcome the problems of structural timber connections outlined above by increasing the effective bearing area of the bolts.<br><br>Toothed Plate Connector † provides an efficient joint without special tools or equipment † suitable for all connections especially small sections † bolt holes are drilled 2 mm larger than the bolt diameter, the timbers forming the joint being held together whilst being drilled.<br><br>Split Ring Connector † very efficient and develops a high joint strength † suitable for all connections † split ring connectors are inserted into a precut groove formed with a special tool making the connector independent from the bolt.<br><br>Shear Plate Connector † counterpart of a split ring connector † housed flush into timber † used for temporary joints.<br><br>![image 547](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile547.png)|
+|---|
+
+
+|Space Deck ~ this is a structural roofing system based on a simple repetitive pyramidal unit to give large clear spans of up to 22„000 for single spanning designs and up to 33„000 for two way spanning designs. The steel units are easily transported to site before assembly into beams and the complete space deck at ground level before being hoisted into position on top of the perimeter supports. A roof covering of wood wool slabs with built-up roofing felt could be used, although any suitable structural lightweight decking is appropriate. Rooflights can be mounted directly onto the square top space deck units<br><br>![image 548](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile548.png)|
+|---|
+
+
+|Space Frames ~ these are roofing systems which consist of a series of connectors which joins together the chords and bracing members of the system. Single or double layer grids are possible, the former usually employed in connection with small domes or curved roofs. Space frames are similar in concept to space decks but they have greater flexibility in design and layout possibilities. Most space frames are fabricated from structural steel tubes or tubes of aluminium alloy although any suitable structural material could be used.<br><br>Typical Examples~<br><br>![image 549](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile549.png)|
+|---|
+
+
+|Shell Roofs ~ these can be defined as a structural curved skin covering a given plan shape and area where the forces in the shell or membrane are compressive and in the restraining edge beams are tensile. The usual materials employed in shell roof construction are in-situ reinforced concrete and timber. Concrete shell roofs are constructed over formwork which in itself is very often a shell roof making this format expensive since the principle of use and reuse of formwork can not normally be applied. The main factors of shell roofs are:-<br><br>1. The entire roof is primarily a structural element.<br>2. Basic strength of any particular shell is inherent in its geometrical shape and form.<br>3. Comparatively less material is required for shell roofs than other forms of roof construction.<br><br><br>Domes ~ these are double curvature shells which can be rotationally formed by any curved geometrical plane figure rotating about a central vertical axis. Translation domes are formed by a curved line moving over another curved line whereas pendentive domes are formed by inscribing within the base circle a regular polygon and vertical planes through the true hemispherical dome.<br><br>![image 550](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile550.png)|
+|---|
+
+
+|Barrel Vaults ~ these are single curvature shells which are essentially a cut cylinder which must be restrained at both ends to overcome the tendency to flatten. A barrel vault acts as a beam whose span is equal to the length of the roof. Long span barrel vaults are those whose span is longer than its width or chord length and conversely short barrel vaults are those whose span is shorter than its width or chord length. In every long span barrel vaults thermal expansion joints will be required at 30„000 centres which will create a series of abutting barrel vault roofs weather sealed together (see next page).<br><br>Typical Single Barrel Vault Principles~<br><br>![image 551](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile551.png)|
+|---|
+
+
+|![image 552](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile552.png)<br><br>NB. ribs not connected to support columns will set up extra stresses within the shell roof therefore extra reinforcement will be required at the stiffening rib or beam positions.|
+|---|
+
+
+|Other Forms of Barrel Vault ~ by cutting intersecting and placing at different levels the basic barrel vault roof can be formed into a groin or northlight barrel vault roof:-<br><br>![image 553](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile553.png)<br><br>Conoids ~ these are double curvative shell roofs which can be considered as an alternative to barrel vaults. Spans up to 12„000 with chord lengths up to 24„000 are possible. Typical chord to span ratio 2:1.<br><br>![image 554](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile554.png)|
+|---|
+
+
+|Hyperbolic Paraboloids ~ the true hyperbolic paraboloid shell roof shape is generated by moving a vertical parabola (the generator) over another vertical parabola (the directrix) set at right angles to the moving parabola. This forms a saddle shape where horizontal sections taken through the roof are hyperbolic in format and vertical sections are parabolic. The resultant shape is not very suitable for roofing purposes therefore only part of the saddle shape is used and this is formed by joining the centre points thus:-<br><br>![image 555](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile555.png)<br><br>To obtain a more practical shape than the true saddle a straight line limited hyperbolic paraboloid is used. This is formed by raising or lowering one or more corners of a square forming a warped parallelogram thus:-<br><br>![image 556](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile556.png)<br><br>For further examples see next page.|
+|---|
+
+
+|Typical Straight Line Limited Hyperbolic Paraboloid Formats ~<br><br>![image 557](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile557.png)|
+|---|
+
+
+|Concrete Hyperbolic Paraboloid Shell Roofs ~ these can be constructed in reinforced concrete (characteristic strength 25 or 30 N/mm2) with a minimum shell thickness of 50 mm with diagonal spans up to 35„000. These shells are cast over a timber form in the shape of the required hyperbolic paraboloid format. In practice therefore two roofs are constructed and it is one of the reasons for the popularity of timber versions of this form of shell roof.<br><br>Timber Hyperbolic Paraboloid Shell Roofs ~ these are usually constructed using laminated edge beams and layers of t & g boarding to form the shell membrane. For roofs with a plan size of up to 6„000 6„000 only 2 layers of boards are required and these are laid parallel to the diagonals with both layers running in opposite directions. Roofs with a plan size of over 6„000 6„000 require 3 layers of board as shown below. The weather protective cover can be of any suitable flexible material such as built-up roofing felt, copper and lead. During construction the relatively lightweight roof is tied down to a framework of scaffolding until the anchorages and wall infilling have been completed. This is to overcome any negative and positive wind pressures due to the open sides.<br><br>Typical Details ~<br><br>![image 558](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile558.png)|
+|---|
+
+
+|![image 559](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile559.png)|
+|---|
+
+
+###### Membrane Roof Structures
+
+|Membrane Structure Principles ~ a form of tensioned cable structural support system with a covering of stretched fabric. In principle and origin, this compares to a tent with poles as compression members secured to the ground. The fabric membrane is attached to peripheral stressing cables suspended in a catenary between vertical support members.<br><br>Form ~ there are limitless three-dimensional possibilities. The following geometric shapes provide a basis for imagination and elegance in design:<br><br>• Hyperbolic paraboloid (Hypar)<br>• Barrel vault<br>• Conical or double conical<br><br><br>Hyperbolic paraboloid Barrel vault Conical<br><br>![image 560](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile560.png)<br><br>Double conical~<br><br>anchor cable<br><br>centre support<br><br>corner support<br><br>fabric support ground anchor cables<br><br>stressed fabric<br><br>![image 561](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile561.png)|
+|---|
+
+
+###### Membrane Roof Structures
+
+|Simple support structure as viewed from the underside ~<br><br>vertical compression member<br><br>stressed fabric<br><br>reinforced gussets<br><br>peripheral support or ties<br><br>tensioned fabric support cables<br><br>tensioned horizontal cables secured centrally to a vertical support plate<br><br>![image 562](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile562.png)<br><br>Fabric ~ has the advantages of requiring minimal support, opportunity for architectural expression in colour and geometry and a translucent quality that provides an outside feel inside, whilst combining shaded cover from the sun and shelter from rain. Applications are generally attachments as a feature to entrances and function areas in prominent buildings, notably sports venues, airports and convention centres.<br><br>Materials ~ historically, animal hides were the first materials used for tensile fabric structures, but more recently woven fibres of hemp, flax or other natural yarns have evolved as canvas. Contemporary synthetic materials have a plastic coating on a fibrous base. These include polyvinyl chloride (PVC) on polyester fibres, silicone on glass fibres and polytetrafluorethylene (PTFE) on glass fibres. Design life is difficult to estimate, as it will depend very much on type of exposure. Previous use of these materials would indicate that at least 20 years is anticipated, with an excess of 30 years being likely. Jointing can be by fusion welding of plastics, bonding with silicone adhesives and stitching with glass threads.|
+|---|
+
+
+|Rooflights ~ the useful penetration of daylight through the windows in external walls of buildings is from 6„000 to 9„000 depending on the height and size of the window. In buildings with spans over 18„000 side wall daylighting needs to be supplemented by artificial lighting or in the case of top floors or single storey buildings by rooflights. The total maximum area of wall window openings and rooflights for the various purpose groups is set out in the Building Regulations with allowances for increased areas if double or triple glazing is used. In pitched roofs such as northlight and monitor roofs the rooflights are usually in the form of patent glazing (see Long Span Roofs on pages 530 and 531). In flat roof construction natural daylighting can be provided by one or more of the following methods:-<br><br>1. Lantern lights † see page 548.<br>2. Lens lights † see page 548.<br>3. Dome, pyramid and similar rooflights † see page 549.<br><br><br>Patent Glazing ~ these are systems of steel or aluminium alloy glazing bars which span the distance to be glazed whilst giving continuous edge support to the glass. They can be used in the roof forms noted above as well as in pitched roofs with profiled coverings where the patent glazing bars are fixed above and below the profiled sheets † see page 547.<br><br>![image 563](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile563.png)|
+|---|
+
+
+|![image 564](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile564.png)|
+|---|
+
+
+|Lantern Lights ~ these are a form of rooflight used in conjuction with flat roofs. They consist of glazed vertical sides and fully glazed pitched roof which is usually hipped at both ends. Part of the glazed upstand sides is usually formed as an opening light or alternatively glazed with louvres to provide a degree of controllable ventilation. They can be constructed of timber, metal or a combination of these two materials. Lantern lights in the context of new buildings have been generally superseded by the various forms of dome light (see next page)<br><br>![image 565](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile565.png)<br><br>Lens Lights ~ these are small square or round blocks of translucent toughened glass especially designed for casting into concrete and are suitable for use in flat roofs and curved roofs such as barrel vaults. They can also be incorporated in precast concrete frames for inclusion into a cast in-situ roof.<br><br>![image 566](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile566.png)|
+|---|
+
+
+|Dome, Pyramid and Similar Rooflights ~ these are used in conjuction with flat roofs and may be framed or unframed. The glazing can be of glass or plastics such as polycarbonate, acrylic, PVC and glass fibre reinforced polyester resin (grp). The whole component is fixed to a kerb and may have a raising piece containing hit and miss ventilators, louvres or flaps for controllable ventilation purposes.<br><br>Typical Details ~<br><br>![image 567](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile567.png)|
+|---|
+
+
+###### Non-load Bearing Brick Panel Walls
+
+|Non-load Bearing Brick Panel Walls ~ these are used in conjunction with framed structures as an infill between the beams and columns. They are constructed in the same manner as ordinary brick walls with the openings being formed by traditional methods.<br><br>Basic Requirements ~<br><br>1. To be adequately supported by and tied to the structural frame.<br>2. Have sufficient strength to support own self weight plus any attached finishes and imposed loads such as wind pressures.<br>3. Provide the necessary resistance to penetration by the natural elements.<br>4. Provide the required degree of thermal insulation, sound insulation and fire resistance.<br>5. Have sufficient durability to reduce maintenance costs to a minimum.<br>6. Provide for movements due to moisture and thermal expansion of the panel and for contraction of the frame.<br><br><br>![image 568](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile568.png)|
+|---|
+
+
+###### Brickwork Cladding Support System
+
+|![image 569](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile569.png)<br><br>Application † multi-storey buildings, where a traditional brick fac¸ade is required.<br><br>Brickwork movement † to allow for climatic changes and differential movement between the cladding and main structure, a `soft' joint (cellular polyethylene, cellular polyurethane, expanded rubber or sponge rubber with polysulphide or silicon pointing) should be located below the support angle. Vertical movement joints may also be required at a maximum of 12 m spacing.<br><br>Lateral restraint † provided by normal wall ties between inner and outer leaf of masonry, plus sliding brick anchors below the support angle.|
+|---|
+
+
+|Infill Panel Walls ~ these can be used between the framing members of a building to provide the cladding and division between the internal and external environments and are distinct from claddings and facing:-<br><br>![image 570](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile570.png)<br><br>Functional Requirements ~ all forms of infill panel should be designed and constructed to fulfil the following functional requirements:-<br><br>1. Self supporting between structural framing members.<br>2. Provide resistance to the penetration of the elements.<br>3. Provide resistance to positive and negative wind pressures.<br>4. Give the required degree of thermal insulation.<br>5. Give the required degree of sound insulation.<br>6. Give the required degree of fire resistance.<br>7. Have sufficient openings to provide the required amount of natural ventilation.<br>8. Have sufficient glazed area to fulfil the natural daylight and vision out requirements.<br>9. Be economic in the context of construction and maintenance.<br>10. Provide for any differential movements between panel and structural frame.<br>|
+|---|
+
+
+|Brick Infill Panels ~ these can be constructed in a solid or cavity format, the latter usually having an inner skin of blockwork to increase the thermal insulation properties of the panel. All the fundamental construction processes and detail of solid and cavity walls (bonding, lintels over openings, wall ties, damp-proof courses etc.,) apply equally to infill panel walls. The infill panel walls can be tied to the columns by means of wall ties cast into the columns at 300 mm centres or located in cast-in dovetail anchor slots. The head of every infill panel should have a compressible joint to allow for any differential movements between the frame and panel.<br><br>Typical Details<br><br>![image 571](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile571.png)|
+|---|
+
+
+|Lightweight Infill Panels ~ these can be constructed from a wide variety or combination of materials such as timber, metals and plastics into which single or double glazing can be fitted. If solid panels are to be used below a transom they are usually of a composite or sandwich construction to provide the required sound insulation, thermal insulation and fire resistance properties.<br><br>![image 572](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile572.png)|
+|---|
+
+
+|Lightweight Infill Panels ~ these can be fixed between the structural horizontal and vertical members of the frame or fixed to the face of either the columns or beams to give a grid, horizontal or vertical emphasis to the fac¸ade thus †<br><br>![image 573](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile573.png)|
+|---|
+
+
+Rainscreen Cladding
+
+|Overcladding ~ a superficial treatment, applied either as a component of new construction work, or as a fac¸ade and insulation enhancement to existing structures. The outer weather resistant decorative panelling is `loose fit' in concept, which is easily replaced to suit changing tastes, new materials and company image. Panels attach to the main structure with a grid of simple metal framing or vertical timber battens. This allows space for a ventilated and drained cavity, with provision for insulation to be attached to the substructure; a normal requirement in upgrade/ refurbishment work.<br><br>![image 574](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile574.png)<br><br>Note (1): Cladding materials include, plastic laminates, fibre cement, ceramics, aluminium, enamelled steel and various stone effects.<br>Note (2): Anti-bird mesh coated with intumescent material to form a fire stop cavity barrier.<br>|
+|---|
+
+
+###### Structural Sealant Glazed Cladding
+
+|Glazed fac¸ades have been associated with hi-tech architecture since the 1970s. The increasing use of this type of cladding is largely due to developments in toughened glass and improved qualities of elastomeric silicone sealants. The properties of the latter must incorporate a resilience to varying atmospheric conditions as well as the facility to absorb structural movement without loss of adhesion.<br><br>Systems † two edge and four edge.<br><br>The two edge system relies on conventional glazing beads/fixings to the head and sill parts of a frame, with sides silicone bonded to mullions and styles.<br><br>The four edge system relies entirely on structural adhesion, using silicone bonding between glazing and support frame † see details.<br><br>Structural glazing, as shown on this and the next page, is in principle a type of curtain walling. Due to its unique appearance, it is usual to consider full glazing of the building fac¸ade as a separate design and construction concept. BS EN 13830: Curtain walling. Product standard; defines curtain walling as an external vertical building enclosure produced by elements mainly of metal, timber or plastic. Glass as a primary material is excluded. Note: Sides of frame as head.<br><br>![image 575](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile575.png)<br><br>![image 576](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile576.png)|
+|---|
+
+
+###### Structural Glazing
+
+|Structural glazing is otherwise known as frameless glazing. It is a system of toughened glass cladding without the visual impact of surface fixings and supporting components. Unlike curtain walling, the self-weight of the glass and wind loads are carried by the glass itself and transferred to a subsidiary lightweight support structure behind the glazing.<br><br>Assembly principles ~<br><br>![image 577](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile577.png)|
+|---|
+
+
+|Curtain Walling ~ this is a form of lightweight non-load bearing external cladding which forms a complete envelope or sheath around the structural frame. In low rise structures the curtain wall framing could be of timber or patent glazing but in the usual high rise context, box or solid members of steel or aluminium alloy are normally employed.<br><br>Basic Requirements for Curtain Walls ~<br><br>1. Provide the necessary resistance to penetration by the elements.<br>2. Have sufficient strength to carry own self weight and provide resistance to both positive and negative wind pressures.<br>3. Provide required degree of fire resistance † glazed areas are classified in the Building Regulations as unprotected areas therefore any required fire resistance must be obtained from the infill or undersill panels and any backing wall or beam.<br>4. Be easy to assemble, fix and maintain.<br>5. Provide the required degree of sound and thermal insulation.<br>6. Provide for thermal and structural movements.<br><br><br>![image 578](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile578.png)|
+|---|
+
+
+###### Curtain Walling
+
+|![image 579](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile579.png)|
+|---|
+
+
+|Fixing Curtain Walling to the Structure ~ in curtain walling systems it is the main vertical component or mullion which carries the loads and transfers them to the structural frame at every or alternate floor levels depending on the spanning ability of the mullion. At each fixing point the load must be transferred and an allowance made for thermal expansion and differential movement between the structural frame and curtain walling. The usual method employed is slotted bolt fixings.<br><br>![image 580](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile580.png)|
+|---|
+
+
+###### Curtain Wall---Over-cladding in Glass
+
+|Re-cladding existing framed buildings has become an economical alternative to complete demolition and re-building. This may be justified when a building has a change of use or it is in need of an image upgrade. Current energy conservation measures can also be achieved by the re-dressing of older buildings.<br><br>Typical section through an existing structural floor slab with a replacement system attached ~<br><br>![image 581](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile581.png)|
+|---|
+
+
+|Load bearing Concrete Panels ~ this form of construction uses storey height load bearing pre-cast reinforced concrete perimeter panels. The width and depth of the panels is governed by the load(s) to be carried, the height and exposure of the building. Panels can be plain or fenestrated providing the latter leaves sufficient concrete to transmit the load(s) around the opening. The cladding panels, being structural, eliminate the need for perimeter columns and beams and provide an internal surface ready to receive insulation, attached services and decorations. In the context of design these structures must be formed in such a manner that should a single member be removed by an internal explosion, wind pressure or similar force, progressive or structural collapse will not occur, the minimum requirements being set out in Part A of the Building Regulations. Load bearing concrete panel construction can be a cost effective method of building.<br><br>Typical Details ~<br><br>![image 582](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile582.png)|
+|---|
+
+
+###### Concrete Claddings
+
+|Concrete Cladding Panels ~ these are usually of reinforced precast concrete to an undersill or storey height format, the former being sometimes called apron panels. All precast concrete cladding panels should be designed and installed to fulfil the following functions:-<br><br>1. Self supporting between framing members.<br>2. Provide resistance to penetration by the natural elements.<br>3. Resist both positive and negative wind pressures.<br>4. Provide required degree of fire resistance.<br>5. Provide required degree of thermal insulation by having the insulating material incorporated within the body of the cladding or alternatively allow the cladding to act as the outer leaf of cavity wall panel.<br>6. Provide required degree of sound insulation.<br><br><br>Undersill or Apron Cladding Panels ~ these are designed to span from column to column and provide a seating for the windows located above. Levelling is usually carried out by wedging and packing from the lower edge before being fixed with grouted dowels.<br><br>Typical Details ~<br><br>![image 583](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile583.png)|
+|---|
+
+
+|Storey Height Cladding Panels ~ these are designed to span vertically from beam to beam and can be fenestrated if required. Levelling is usually carried out by wedging and packing from floor level before being fixed by bolts or grouted dowels.<br><br>Typical Details ~<br><br>![image 584](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile584.png)|
+|---|
+
+
+###### Concrete Surface Finishes
+
+|Concrete Surface Finishes ~ it is not easy to produce a concrete surface with a smooth finish of uniform colour direct from the mould or formwork since the colour of the concrete can be affected by the cement and fine aggregate used. The concrete surface texture can be affected by the aggregate grading, cement content, water content, degree of compaction, pin holes caused by entrapped air and rough patches caused by adhesion to parts of the formworks. Complete control over the above mentioned causes is difficult under ideal factory conditions and almost impossible under normal site conditions. The use of textured and applied finishes has therefore the primary function of improving the appearance of the concrete surface and in some cases it will help to restrict the amount of water which reaches a vertical joint.<br><br>Casting ~ concrete components can usually be cast in-situ or precast in moulds. Obtaining a surface finish to concrete cast insitu is usually carried out against a vertical face, whereas precast concrete components can be cast horizontally and treated on either upper or lower mould face. Apart from a plain surface concrete the other main options are:-<br><br>1. Textured and profiled surfaces.<br>2. Tooled finishes.<br>3. Cast-on finishes. (see next page)<br>4. Exposed aggregate finishes. (see next page)<br><br><br>Textured and Profiled Surfaces ~ these can be produced on the upper surface of a horizontal casting by rolling, tamping, brushing and sawing techniques but variations in colour are difficult to avoid. Textured and profiled surfaces can be produced on the lower face of a horizontal casting by using suitable mould linings.<br><br>Tooled Finishes ~ the surface of hardened concrete can be tooled by bush hammering, point tooling and grinding. Bush hammering and point tooling can be carried out by using an electric or pneumatic hammer on concrete which is at least three weeks old provided gravel aggregates have not been used since these tend to shatter leaving surface pits. Tooling up to the arris could cause spalling therefore a 10 mm wide edge margin should be left untooled. Grinding the hardened concrete consists of smoothing the surface with a rotary carborundum disc which may have an integral water feed. Grinding is a suitable treatment for concrete containing the softer aggregates such as limestone.|
+|---|
+
+
+###### Concrete Surface Finishes
+
+|Cast-on Finishes ~ these finishes include split blocks, bricks, stone, tiles and mosaic. Cast-on finishes to the upper surface of a horizontal casting are not recommended although such finishes could be bedded onto the fresh concrete. Lower face treatment is by laying the materials with sealed or grouted joints onto the base of mould or alternatively the materials to be cast-on may be located in a sand bed spread over the base of the mould.<br><br>Exposed Aggregate Finishes ~ attractive effects can be obtained by removing the skin of hardened cement paste or surface matrix, which forms on the surface of concrete, to expose the aggregate. The methods which can be employed differ with the casting position.<br><br>Horizontal Casting † treatment to the upper face can consist of spraying with water and brushing some two hours after casting, trowelling aggregate into the fresh concrete surface or by using the felt-float method. This method consists of trowelling 10 mm of dry mix fine concrete onto the fresh concrete surface and using the felt pad to pick up the cement and fine particles from the surface leaving a clean exposed aggregate finish.<br><br>Treatment to the lower face can consist of applying a retarder to the base of the mould so that the partially set surface matrix can be removed by water and/or brushing as soon as the castings are removed from the moulds. When special face aggregates are used the sand bed method could be employed.<br><br>Vertical Casting † exposed aggregate finishes to the vertical faces can be obtained by tooling the hardened concrete or they can be cast-on by the aggregate transfer process. This consists of sticking the selected aggregate onto the rough side of pegboard sheets with a mixture of water soluble cellulose compounds and sand fillers. The cream like mixture is spread evenly over the surface of the pegboard to a depth of one third the aggregate size and the aggregate sprinkled or placed evenly over the surface before being lightly tamped into the adhesive. The prepared board is then set aside for 36 hours to set before being used as a liner to the formwork or mould. The liner is used in conjunction with a loose plywood or hardboard baffle placed against the face of the aggregate. The baffle board is removed as the concrete is being placed.<br><br>![image 585](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile585.png)|
+|---|
+
+
+###### Concrete -- Surface Defects
+
+|Discolouration ~ manifests as a patchy surface finish. It is caused where there are differences in hydration or moisture loss during the concrete set, due to concentrations of cement or where aggregates become segregated. Both of these will produce moisture content differences at the surface. Areas with a darker surface indicate the greater loss of moisture, possibly caused by insufficient mixing and/or poorly sealed formwork producing differences in surface absorption.<br><br>Crazing ~ surface shrinkage cracks caused by a cement rich surface skin or by too much water in the mix. Out-of-date cement can have the same effect as well as impairing the strength of the concrete.<br><br>Lime bloom ~ a chalky surface deposit produced when the calcium present in cement reacts to contamination from moisture in the atmosphere or rainwater during the hydration process. Generally resolved by dry brushing or with a 20:1 water/hydrochloric acid wash.<br><br>Scabbing ~ small areas or surface patches of concrete falling away as the formwork is struck. Caused by poor preparation of formwork, ie. insufficient use of mould oil or by formwork having a surface texture that is too rough.<br><br>Blow holes ~ otherwise known as surface popping. Possible causes are use of formwork finishes with nil or low absorbency or by insufficient vibration of concrete during placement.<br><br>Rust staining ~ if not caused by inadequate concrete cover to reinforcement, this characteristic is quite common where iron rich aggregates or pyrites are used. Rust-brown stains are a feature and there may also be some cracking where the iron reacts with the cement.<br><br>Dusting ~ caused by unnaturally rapid hardening of concrete and possibly where out-of-date cement is used. The surface of set concrete is dusty and friable.|
+|---|
+
+
+|7 INTERNAL CONSTRUCTION AND FINISHES<br><br>![image 586](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile586.png)<br><br>INTERNAL ELEMENTS INTERNAL WALLS CONSTRUCTION JOINTS PARTITIONS PLASTERS AND PLASTERING DRY LINING TECHNIQUES WALL TILING DOMESTIC FLOORS AND FINISHES LARGE CAST IN-SITU GROUND FLOORS CONCRETE FLOOR SCREEDS TIMBER SUSPENDED FLOORS TIMBER BEAM DESIGN REINFORCED CONCRETE SUSPENDED FLOORS PRECAST CONCRETE FLOORS RAISED ACCESS FLOORS SOUND INSULATION TIMBER, CONCRETE AND METAL STAIRS INTERNAL DOORS FIRE RESISTING DOORS PLASTERBOARD CEILINGS SUSPENDED CEILINGS PAINTS AND PAINTING JOINERY PRODUCTION COMPOSITE BOARDING PLASTICS IN BUILDING|
+|---|
+
+
+###### Internal Elements
+
+|NB. roof coverings, roof insulation and guttering not shown<br><br>![image 587](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile587.png)<br><br>NB. all work below dpc level is classed as substructure|
+|---|
+
+
+Internal Walls---Functions
+
+|Internal Walls ~ their primary function is to act as a vertical divider of floor space and in so doing form a storey height enclosing element.<br><br>![image 588](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile588.png)|
+|---|
+
+
+Internal Walls---Types
+
+|Internal Walls ~ there are two basic design concepts for internal walls those which accept and transmit structural loads to the foundations are called Load Bearing Walls and those which support only their own self-weight and do not accept any structural loads are called Non-load Bearing Walls or Partitions.<br><br>![image 589](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile589.png)|
+|---|
+
+
+Internal Brick Walls
+
+|Internal Brick Walls ~ these can be load bearing or non-load bearing (see previous page) and for most two storey buildings are built in half brick thickness in stretcher bond.<br><br>![image 590](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile590.png)|
+|---|
+
+
+Internal Block Walls
+
+|Internal Block Walls ~ these can be load bearing or non-load bearing (see page 572) the thickness and type of block to be used will depend upon the loadings it has to carry.<br><br>![image 591](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile591.png)|
+|---|
+
+
+Internal Brick and Block Walls
+
+|Internal Walls ~ an alternative to brick and block bonding shown on the preceding two pages is application of wall profiles. These are quick and simple to install, provide adequate lateral stability, sufficient movement flexibility and will overcome the problem of thermal bridging where a brick partition would otherwise bond into a block inner leaf. They are also useful for attaching extension walls at right angles to existing masonry.<br><br>![image 592](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile592.png)|
+|---|
+
+
+###### Construction Joints
+
+|Movement or Construction Joints ~ provide an alternative to ties or mesh reinforcement in masonry bed joints. Even with reinforcement, lightweight concrete block walls are renowned for producing unsightly and possibly unstable shrinkage cracks. Galvanised or stainless steel formers and ties are built in at a maximum of 6 m horizontal spacing and within 3 m of corners to accommodate initial drying, shrinkage movement and structural settlement. One side of the former is fitted with profiled or perforated ties to bond into bed joints and the other has plastic sleeved ties. The sleeved tie maintains continuity, but restricts bonding to allow for controlled movement.<br><br>![image 593](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile593.png)<br><br>Note: Movement joints in brickwork should be provided at 12 m maximum spacing. Ref. BS 5628-3: Code of practice for use of masonry. Materials and components, design and workmanship.|
+|---|
+
+
+###### Reinforced Bed Joints
+
+|Location ~ specifically in positions of high stress. Reinforcement ~ expanded metal or wire mesh (see page 310). Mortar Cover ~ 13 mm minimum thickness, 25 mm to external faces.<br><br>Openings~<br><br>600 mm minimum<br><br>door opening<br><br>blockwork wall<br><br>bed joint reinforcement lintel<br><br>![image 594](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile594.png)<br><br>Concentrated Load ~<br><br>padstone load bearing beam<br><br>bed joint reinforcement stepped in three courses<br><br>![image 595](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile595.png)<br><br>Suspended Floor~<br><br>bed joint reinforcement in first two courses of blockwork<br><br>upper floor subject to deflection (also direct bearing ground floor that may settle)<br><br>![image 596](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile596.png)<br><br>Differential Movement ~ may occur where materials such as steel, brick, timber or dense concrete abut with or bear on lightweight concrete blocks. A smooth separating interface of two layers of non-compressible dpc or similar is suitable in this situation.|
+|---|
+
+
+###### Internal Masonry Walls -- Fire Protection
+
+|Typical examples ~<br><br>Solid brickwork<br><br>![image 597](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile597.png)<br><br>T = thickness<br><br>Note: For practical reasons a standard one-brick dimension is given for 240 minutes fire resistance. Theoretically a clay brick wall can be 170 mm and a concrete or sand/lime brick wall 200 mm, finishes excluded.<br><br>Solid concrete blocks of lightweight aggregate<br><br>![image 598](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile598.png)<br><br>T = thickness<br><br>Note: Finishes excluded<br><br>Fire resistance (minutes) 120 240 Material and application T (mm) 102.5 215 Clay bricks. Load bearing or non-load bearing wall.<br><br>T (mm) 102.5 215 Concrete or sand/lime bricks. Load bearing or non-load bearing wall.<br><br>Fire resistance (minutes) 60 120 240 Material and application T (mm) 100 130 200 Load bearing, 2.8†3.5 N/mm2 compressive strength. T (mm) 90 100 190 Load bearing, 4.0†10 N/mm2 compressive strength. T (mm) 75 100 140 Non-load bearing, 2.8†3.5 N/mm2 compressive strength. T (mm) 75 75 100 Non-load bearing, 4.0†10 N/mm2 compressive strength.<br><br>|
+|---|
+
+
+###### Internal Party Walls
+
+|Party Wall ~ a wall separating different owners buildings, ie. a wall that stands astride the boundary line between property of different ownerships. It may also be solely on one owner's land but used to separate two buildings.<br><br>![image 599](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile599.png)<br><br>ridge<br><br>eaves<br><br>upper floor<br><br>ground floor<br><br>party wall between dwellings functions as a separating wall for sound insulation and for fire compartmentation<br><br>fire stopping in boxed eaves<br><br>ct/s mortar or mineral wool fire stop between separating wall and underside of roof tiles<br><br>Where an internal separating wall forms a junction with an external cavity wall, the cavity must be fire stopped by using a barrier of fire resisting material. Depending on the application, the material specification is of at least 30 minutes fire resistance. Between terraced and semi-detached dwellings the location is usually limited by the separating elements. For other buildings additional fire stopping will be required in constructional cavities such as suspended ceilings, rainscreen cladding and raised floors. The spacing of these cavity barriers is generally not more than 20 m in any direction, subject to some variation as indicated in Volume 2 of Approved Document B.<br><br>Refs. Party Wall Act 1996. Building Regulations, A.D. B, Volumes 1 and 2: Fire safety. Building Regulations, A.D. E: Resistance to the passage of sound.|
+|---|
+
+
+###### Internal Party/Separating Walls
+
+|Requirements for fire and sound resisting construction ~<br><br>Typical masonry construction~<br><br>![image 600](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile600.png)<br><br>cavity stopped with a non-combustible mineral wool closer unless cavity is fully filled with mineral wool insulation<br><br>external cavity wall<br><br>Plan view<br><br>solid or cavity construction of separating wall<br><br>vertical dpc<br><br>Typical timber framed construction~<br><br>![image 601](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile601.png)<br><br>one layer 12.5 mm plasterboard lining, two layers where there is a separating floor<br><br>external cavity wall<br><br>Plan view cavity construction<br><br>separating wall<br><br>insulation<br><br>vertical dpc cavity fire stopped as above|
+|---|
+
+
+###### Partitions
+
+|Internal Partitions ~ these are vertical dividers which are used to separate the internal space of a building into rooms and circulation areas such as corridors. Partitions which give support to a floor or roof are classified as load bearing whereas those which give no such support are called non-load bearing.<br><br>Load Bearing Partitions ~ these walls can be constructed of bricks, blocks or in-situ concrete by traditional methods and have the design advantages of being capable of having good fire resistance and/or high sound insulation. Their main disadvantage is permanence giving rise to an inflexible internal layout.<br><br>Non-load Bearing Partitions ~ the wide variety of methods available makes it difficult to classify the form of partition but most can be placed into one of three groups:-<br><br>1. Masonry partitions.<br>2. Stud partitions † see pages 582 & 583.<br>3. Demountable partitions † see pages 585 & 586.<br><br><br>Masonry Partitions ~ these are usually built with blocks of clay or lightweight concrete which are readily available and easy to construct thus making them popular. These masonry partitions should be adequately tied to the structure or load bearing walls to provide continuity as a sound barrier, provide edge restraint and to reduce the shrinkage cracking which inevitably occurs at abutments. Wherever possible openings for doors should be in the form of storey height frames to provide extra stiffness at these positions.<br><br>![image 602](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile602.png)|
+|---|
+
+
+Timber Stud Partitions
+
+|Timber Stud Partitions ~ these are non-load bearing internal dividing walls which are easy to construct, lightweight, adaptable and can be clad and infilled with various materials to give different finishes and properties. The timber studs should be of prepared or planed material to ensure that the wall is of constant thickness with parallel faces. Stud spacings will be governed by the size and spanning ability of the facing or cladding material.<br><br>![image 603](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile603.png)|
+|---|
+
+
+Metal Stud Partitions
+
+|Stud Partitions ~ these non-load bearing partitions consist of a framework of vertical studs to which the facing material can be attached. The void between the studs created by the two faces can be infilled to meet specific design needs. The traditional material for stud partitions is timber (see Timber Stud Partitions on previous page) but a similar arrangement can be constructed using metal studs faced on both sides with plasterboard.<br><br>![image 604](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile604.png)|
+|---|
+
+
+###### Stud Partitions -- Fire Protection
+
+|Plasterboard lining to stud framed partition walls satisfies the Building Regulations, Approved Document B † Fire safety, as a material of ``limited combustibility'' with a Class O rating for surface spread of flame (Class O is better than Classes 1 to 4 as determined by BS 476-7). The plasterboard dry walling should completely protect any combustible timber components such as sole plates. The following shows typical fire resistances as applied to a metal stud frame ~<br><br>![image 605](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile605.png)<br><br>30 minute fire resistance<br><br>75 mm<br><br>Height limit 2.500<br><br>self drilling/self tapping screw fixings<br><br>metal channel stud frame<br><br>12.5 mm wallboard<br><br>![image 606](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile606.png)<br><br>staggered screw fixings<br><br>2 Nƒ 12.5 (15) mm wallboards<br><br>60(90) minute fire resistance<br><br>100 mm (110)<br><br>Height limit 3.400 (3.700)<br><br><br>![image 607](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile607.png)<br><br>110 mm<br><br>120 minute fire resistance<br><br>Height limit 4.200 metal box stud frame<br><br>2 Nƒ 15 mm firecheck plasterboards<br><br>For plasterboard types see page 592.|
+|---|
+
+
+Demountable Partitions
+
+|Partitions ~ these can be defined as vertical internal space dividers and are usually non-loadbearing. They can be permanent, constructed of materials such as bricks or blocks or they can be demountable constructed using lightweight materials and capable of being taken down and moved to a new location incurring little or no damage to the structure or finishes. There is a wide range of demountable partitions available constructed from a variety of materials giving a range that will be suitable for most situations. Many of these partitions have a permanent finish which requires no decoration and only periodic cleaning in the context of planned maintenance.<br><br>![image 608](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile608.png)|
+|---|
+
+
+Demountable Partitions
+
+|Demountable Partitions ~ it can be argued that all internal nonload bearing partitions are demountable and therefore the major problem is the amount of demountability required in the context of ease of moving and the possible frequency anticipated. The range of partitions available is very wide including stud partitions, framed panel partitions (see Demountable Partitions on page 585), panel to panel partitions and sliding/folding partitions which are similar in concept to industrial doors (see Industrial Doors on pages 378 and 379) The latter type is often used where movement of the partition is required frequently. The choice is therefore based on the above stated factors taking into account finish and glazing requirements together with any personal preference for a particular system but in all cases the same basic problems will have to be considered:-<br><br>![image 609](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile609.png)|
+|---|
+
+
+###### Plasters
+
+|Plaster ~ this is a wet mixed material applied to internal walls as a finish to fill in any irregularities in the wall surface and to provide a smooth continuous surface suitable for direct decoration. The plaster finish also needs to have a good resistance to impact damage. The material used to fulfil these requirements is gypsum plaster. Gypsum is a crystalline combination of calcium sulphate and water. The raw material is crushed, screened and heated to dehydrate the gypsum and this process together with various additives defines its type as set out in BS EN 13279-1: Gypsum binders and gypsum plasters. Definitions and requirement.<br><br>Raw material (gypsum) is heated to 150 to 170ƒC to drive off 75% of the combined water<br><br>Expanded perlite and other additives added giving … One coat plaster; Renovating grade plaster; Spray plaster.<br><br>Usual lightweight additives:Expanded perlite giving … Browning plaster type C3/20. Exfoliated vermiculite + perlite + rust inhibitor giving … Metal lath plaster and Exfoliated vermiculite giving … Bonding plaster types B4/20/2 and C3/20.<br><br>Retarder added giving … Retarded hemi hydrate finish plaster type B1/20/2<br><br>Lightweight aggregates added giving … Premixed lightweight plaster<br><br>Hemi-hydrate Plaster of Paris<br><br>![image 610](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile610.png)<br><br>Plaster of Paris is quick setting plaster (5 to 10 minutes) and is therefore not suitable for walls but can be used for filling cracks and cast or run mouldings.<br><br>Browning and Bonding plasters are used as undercoats to Premixed lightweight plasters.<br><br>All plaster should be stored in dry conditions since any absorption of moisture before mixing may shorten the normal setting time of about one and a half hours which can reduce the strength of the set plaster. Gypsum plasters are not suitable for use in temperatures exceeding 43 C and should not be applied to frozen backgrounds.<br><br>A good key to the background and between successive coats is essential for successful plastering. Generally brick and block walls provide the key whereas concrete unless cast against rough formwork will need to be treated to provide the key.|
+|---|
+
+
+###### Plaster Finish to Internal Walls
+
+|Internal Wall Finishes ~ these can be classified as wet or dry. The traditional wet finish is plaster which is mixed and applied to the wall in layers to achieve a smooth and durable finish suitable for decorative treatments such as paint and wallpaper.<br><br>Most plasters are supplied in 25 kg paper sacks and require only the addition of clean water or sand and clean water according to the type of plaster being used.<br><br>![image 611](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile611.png)|
+|---|
+
+
+|Plasterboard ~ a board material made of two sheets of thin mill † board with gypsum plaster between † three edge profiles are available:-<br><br>Tapered Edge †<br><br>A flush seamless surface is obtained by filling the joint with a special filling plaster, applying a joint tape over the filling and finishing with a thin layer of joint filling plaster the edge of which is feathered out using a slightly damp jointing sponge.<br><br>Square Edge † edges are close butted and finished with a cover fillet or the joint is covered with a jute scrim before being plastered.<br><br>Bevelled Edge † edges are close butted forming a vee-joint which becomes a feature of the lining.<br><br>![image 612](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile612.png)<br><br>![image 613](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile613.png)|
+|---|
+
+
+Dry Lining Techniques
+
+|Dry Linings ~ the internal surfaces of walls and partitions are usually covered with a wet finish (plaster or rendering) or with a dry lining such as plasterboard, insulating fibre board, hardboard, timber boards, and plywood, all of which can be supplied with a permanent finish or they can be supplied to accept an applied finish such as paint or wallpaper. The main purpose of any applied covering to an internal wall surface is to provide an acceptable but not necessarily an elegant or expensive wall finish. It is also very difficult and expensive to build a brick or block wall which has a fair face to both sides since this would involve the hand selection of bricks and blocks to ensure a constant thickness together with a high degree of skill to construct a satisfactory wall. The main advantage of dry lining walls is that the drying out period required with wet finishes is eliminated. By careful selection and fixing of some dry lining materials it is possible to improve the thermal insulation properties of a wall. Dry linings can be fixed direct to the backing by means of a recommended adhesive or they can be fixed to a suitable arrangement of wall battens.<br><br>![image 614](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile614.png)|
+|---|
+
+
+|![image 615](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile615.png)|
+|---|
+
+
+###### Plasterboard
+
+|Plasterboard Types ~ to BS EN 520: Gypsum plasterboards. Definitions, requirements and test methods.<br><br>BS PLASTERBOARDS:~<br><br>1. Wallboard † ivory faced for taping, jointing and direct decoration; grey faced for finishing plaster or wall adhesion with dabs. General applications, i.e. internal walls, ceilings and partitions. Thicknesses: 9„5, 12„5 and 15 mm. Widths: 900 and 1200 mm. Lengths: vary between 1800 and 3000 mm.<br>2. Baseboard † lining ceilings requiring direct plastering. Thickness: 9„5 mm. Width: 900 mm. Length: 1220 mm and, Thickness: 12„5 mm. Width: 600 mm. Length: 1220 mm.<br>3. Moisture Resistant † wallboard for bathrooms and kitchens. Pale green colour, ideal base for ceramic tiling. Thicknesses: 12„5 mm and 15 mm. Width: 1200 mm. Lengths: 2400, 2700 and 3000 mm.<br>4. Firecheck † wallboard of glass fibre reinforced vermiculite and gypsum for fire cladding. Thicknesses: 12„5 and 15 mm. Widths: 900 and 1200 mm. Lengths: 1800, 2400, 2700 and 3000 mm. A 25 mm thickness is also produced, 600 mm wide 3000 mm long.<br>5. Lath † rounded edge wallboard of limited area for easy application to ceilings requiring a direct plaster finish. Thicknesses: 9„5 and 12„5 mm. Widths: 400 and 600 mm. Lengths: 1200 and 1220 mm.<br>6. Plank † used as fire protection for structural steel and timber, in addition to sound insulation in wall panels and floating floors. Thickness: 19 mm. Width: 600 mm. Lengths: 2350, 2400, 2700 and 3000 mm.<br><br><br>NON † STANDARD PLASTERBOARDS:~<br><br>1. Contour † only 6 mm in thickness to adapt to curved featurework. Width: 1200 mm. Lengths: 2400m and 3000 mm.<br>2. Vapourcheck † a metallized polyester wallboard lining to provide an integral water vapour control layer. Thicknesses: 9„5 and 12„5 mm. Widths: 900 and 1200 mm. Lengths: vary between 1800 and 3000 mm.<br>3. Thermalcheck † various expanded or foamed insulants are bonded to wallboard. Approximately 25†50 mm overall thickness in board sizes 1200 2400 mm.<br>|
+|---|
+
+
+###### Wall Tiling
+
+|Glazed Wall Tiles ~ internal glazed wall tiles are usually made to the various specifications under BS EN 14411: Ceramic tiles. Definitions, classification, characteristics and marking.<br><br>Internal Glazed Wall Tiles ~ the body of the tile can be made from ball-clay, china clay, china stone, flint and limestone. The material is usually mixed with water to the desired consistency, shaped and then fired in a tunnel oven at a high temperature (1150 C) for several days to form the unglazed biscuit tile. The glaze pattern and colour can now be imparted onto to the biscuit tile before the final firing process at a temperature slightly lower than that of the first firing (1050 C) for about two days.<br><br>Typical Internal Glazed Wall Tiles and Fittings ~<br><br>Sizes † Modular 100 100 5 mm thick and 200 100 6„5 mm thick.<br><br>Non-modular 152 152 5 to 8 mm thick and 108 108 4 and 6„5 mm thick.<br><br>![image 616](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile616.png)|
+|---|
+
+
+###### Wall Tiling
+
+|Bedding of Internal Wall Tiles ~ generally glazed internal wall tiles are considered to be inert in the context of moisture and thermal movement, therefore if movement of the applied wall tile finish is to be avoided attention must be given to the background and the method of fixing the tiles.<br><br>Backgrounds ~ these are usually of a cement rendered or plastered surface and should be flat, dry, stable, firmly attached to the substrate and sufficiently old enough for any initial shrinkage to have taken place. The flatness of the background should be not more than 3 mm in 2„000 for the thin bedding of tiles and not more than 6 mm in 2„000 for thick bedded tiles.<br><br>Fixing Wall Tiles ~ two methods are in general use:-<br><br>1. Thin Bedding † lightweight internal glazed wall tiles fixed dry using a recommended adhesive which is applied to the wall in small areas 1 m2 at a time with a notched trowel, the tile being pressed or tapped into the adhesive.<br>2. Thick Bedding † cement mortar within the mix range of 1 :3 to 1:4 is used as the adhesive either by buttering the backs of the tiles which are then pressed or tapped into position or by rendering the wall surface to a thickness of approximately 10 mm and then applying the lightly buttered tiles (1:2 mix) to the rendered wall surface within two hours. It is usually necessary to soak the wall tiles in water to reduce suction before they are placed in position.<br><br><br>Grouting ~ when the wall tiles have set, the joints can be grouted by rubbing into the joints a grout paste either using a sponge or brush. Most grouting materials are based on cement with inert fillers and are used neat.<br><br>![image 617](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile617.png)|
+|---|
+
+
+Domestic Ground Floors
+
+|Primary Functions ~<br><br>1. Provide a level surface with sufficient strength to support the imposed loads of people and furniture.<br>2. Exclude the passage of water and water vapour to the interior of the building.<br>3. Provide resistance to unacceptable heat loss through the floor.<br>4. Provide the correct type of surface to receive the chosen finish.<br><br><br>![image 618](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile618.png)|
+|---|
+
+
+###### Domestic Solid Ground Floors
+
+|This drawing should be read in conjunction with page 199 † Foundation Beds.<br><br>A domestic solid ground floor consists of three components:-<br><br>1. Hardcore † a suitable filling material to make up the top soil removal and reduced level excavations. It should have a top surface which can be rolled out to ensure that cement grout is not lost from the concrete. It may be necessary to blind the top surface with a layer of sand especially if the dampproof membrane is to be placed under the concrete bed.<br>2. Damp-proof Membrane † an impervious layer such as heavy duty polythene sheeting to prevent moisture passing through the floor to the interior of the building.<br>3. Concrete Bed † the component providing the solid level surface to which screeds and finishes can be applied.<br><br><br>Typical Details ~<br><br>![image 619](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile619.png)<br><br>external wall<br><br>insulated screed<br><br>a damp-proof membrane in this position is easier to incorporate in the floor but gives no protection to the concrete bed against ingress of moisture<br><br>a damp-proof membrane in this position protects the concrete bed from the ingress of moisture and harmful salts … risk of damage to dpm when concrete is being placed<br><br>dpc dpc<br><br>225 min. below lowest dpc, or dpc stepped<br><br>hardcore<br><br>DPM PLACED BELOW CONCRETE BED<br><br>DPM PLACED ABOVE CONCRETE BED<br><br>15 N/mm2 (1 : 3 : 6) mass concrete foundations<br><br>150<br><br>min.<br><br>NB. a compromise to the above methods is to place the dpm in the middle of the concrete bed but this needs two concrete pouring operations.|
+|---|
+
+
+Domestic Suspended Timber Ground Floors
+
+|Suspended Timber Ground Floors ~ these need to have a well ventilated space beneath the floor construction to prevent the moisture content of the timber rising above an unacceptable level (i.e. not more than 20%) which would create the conditions for possible fungal attack.<br><br>![image 620](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile620.png)|
+|---|
+
+
+###### Domestic Suspended Concrete Ground Floors
+
+|Precast Concrete Floors ~ these have been successfully adapted from commercial building practice (see pages 620 and 621), as an economic alternative construction technique for suspended timber and solid concrete domestic ground (and upper) floors. See also page 334 for special situations.<br><br>Typical Details ~<br><br>![image 621](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile621.png)<br><br>cavity wall insulated as required<br><br>BEAMS PARALLEL WITH EXTERNAL WALL<br><br>18 mm t&g chipboard over vapour control layer<br><br>insulation<br><br>150 mm min.<br><br>organic material stripped; surface treated with weed killer: lower level than adjacent ground if free draining (not Scotland)<br><br>GL<br><br>dpc<br><br>stepped ventilator<br><br>beam and block<br><br>coursing slip<br><br>dpc<br><br>cavity tray over vent<br><br>![image 622](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile622.png)<br><br>![image 623](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile623.png)<br><br>![image 624](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile624.png)<br><br>floor finish as above or screeded (reinforce in garage)<br><br>BEAMS BEARING ON EXTERNAL WALL<br><br>this block to wall strength<br><br>beam and block<br><br>dpc<br><br>if inner ground level is significantly lower, this area to be designed as a retaining wall<br><br>GL<br><br>vent<br><br>dpc|
+|---|
+
+
+###### Domestic Suspended Concrete and EPS Ground Floors
+
+|Precast Reinforced Concrete Beam and Expanded Polystyrene (EPS) Block Floors ~ these have evolved from the principles of beam and block floor systems as shown on the preceding page. The light weight and easy to cut properties of the blocks provide for speed and simplicity in construction. Exceptional thermal insulation is possible, with U-values as low as 0.2 W/m2K.<br><br>Typical detail ~<br><br>structural screed gas membrane (if required)<br><br>heel toe<br><br>inverted reinforced concrete `T' beams at 600 c/c<br><br>EPS infill block 1200 long, density approx. 17 kg/m3, cut to fit wall at periphery<br><br>150<br><br>210<br><br>![image 625](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile625.png)<br><br>Cold Bridging ~ this is prevented by the EPS ``toe'' projecting beneath the underside of the concrete beam.<br><br>Structural Floor Finish ~ 50 mm structural concrete (C30grade) screed, reinforced with 10 mm steel Type A square mesh or with polypropylene fibres in the mix. A low-density polyethylene (LDPE) methane/radon gas membrane can be incorporated under the screed if local conditions require it.<br><br>Floating Floor Finish ~ subject to the system manufacturer's specification and accreditation, 18 mm flooring grade moisture resistant chipboard can be used over a 1000 gauge polythene vapour control layer. All four tongued and grooved edges of the chipboard are glued for continuity.|
+|---|
+
+
+###### Domestic Floor Finishes
+
+|Floor Finishes ~ these are usually applied to a structural base but may form part of the floor structure as in the case of floor boards. Most finishes are chosen to fulfil a particular function such as:-<br><br>1 . Appearance † chosen mainly for their aesthetic appeal or effect but should however have reasonable wearing properties. Examples are carpets; carpet tiles and wood blocks.<br>2. High Resistance † chosen mainly for their wearing and impact resistance properties and for high usage areas such as kitchens. Examples are quarry tiles and granolithic pavings.<br>3. Hygiene † chosen to provide an impervious easy to clean surface with reasonable aesthetic appeal. Examples are quarry tiles and polyvinyl chloride (PVC) sheets and tiles.<br><br><br>Carpets and Carpet Tiles † made from animal hair, mineral fibres and man made fibres such as nylon and acrylic. They are also available in mixtures of the above. A wide range of patterns; sizes and colours are available. Carpets and carpet tiles can be laid loose, stuck with a suitable adhesive or in the case of carpets edge fixed using special grip strips.<br><br>PVC Tiles † made from a blended mix of thermoplastic binders; fillers and pigments in a wide variety of colours and patterns to the recommendations of BS EN 649: Resilient floor coverings. PVC tiles are usually 305 305<br><br>1„6 mm thick and are stuck to a suitable base with special adhesives as recommended by the manufacturer.<br><br>![image 626](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile626.png)|
+|---|
+
+
+###### Domestic Floor Finishes
+
+|![image 627](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile627.png)<br><br>Tongue and Groove Boarding ~ prepared from softwoods to the recommendations of BS 1297. Boards are laid at right angles to the joists and are fixed with 2 No. 65 mm long cut floor brads per joists. The ends of board lengths are butt jointed on the centre line of the supporting joist.<br><br>Maximum board spans are:16 mm thick † 505 mm 19 mm thick † 600 mm 21 mm thick † 635 mm 28 mm thick † 790 mm<br><br>![image 628](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile628.png)<br><br>Timber Strip Flooring ~ strip flooring is usually considered to be boards under 100 mm face width. In good class work hardwoods would be specified the boards being individually laid and secret nailed. Strip flooring can be obtained treated with a spiritbased fungicide. Spacing of supports depends on type of timber used and applied loading. After laying the strip flooring should be finely sanded and treated with a seal or wax. In common with all timber floorings a narrow perimeter gap should be left for moisture movement.<br><br>Chipboard ~ sometimes called Particle Board is made from particles of wood bonded with a synthetic resin and/or other organic binders to the recommendations of BS EN 312.<br><br>It can be obtained with a rebated or tongue and groove joint in 600 mm wide boards 19 mm thick. The former must be supported on all the longitudinal edges whereas the latter should be supported at all cross joints.<br><br>![image 629](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile629.png)<br><br>Wood Blocks ~ prepared from hardwoods and softwoods to the recommendations of BS 1187. Wood blocks can be laid to a variety of patterns, also different timbers can be used to create colour and grain effects. Laid blocks should be finely sanded and sealed or polished.|
+|---|
+
+
+###### Large Cast In-situ Ground Floors
+
+|Large Cast-In-situ Ground Floors ~ these are floors designed to carry medium to heavy loadings such as those used in factories, warehouses, shops, garages and similar buildings. Their design and construction is similar to that used for small roads (see pages 118 to 121). Floors of this type are usually laid in alternate 4„500 wide strips running the length of the building or in line with the anticipated traffic flow where applicable. Transverse joints will be required to control the tensile stresses due to the thermal movement and contraction of the slab. The spacing of these joints will be determined by the design and the amount of reinforcement used. Such joints can either be formed by using a crack inducer or by sawing a 20 to 25 mm deep groove into the upper surface of the slab within 20 to 30 hours of casting.<br><br>![image 630](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile630.png)<br><br>Surface Finishing ~ the surface of the concrete may be finished by power floating or trowelling which is carried out whilst the concrete is still plastic but with sufficient resistance to the weight of machine and operator whose footprint should not leave a depression of more than 3 mm. Power grinding of the surface is an alternative method which is carried out within a few days of the concrete hardening. The wet concrete having been surface finished with a skip float after the initial levelling with a tamping bar has been carried out. Power grinding removes 1 to 2 mm from the surface and is intended to improve surface texture and not to make good deficiencies in levels.|
+|---|
+
+
+###### Large Cast In-situ Ground Floors
+
+|Vacuum Dewatering ~ if the specification calls for a power float surface finish vacuum dewatering could be used to shorten the time delay between tamping the concrete and power floating the surface. This method is suitable for slabs up to 300 mm thick. The vacuum should be applied for approximately 3 minutes for every 25 mm depth of concrete which will allow power floating to take place usually within 20 to 30 minutes of the tamping operation. The applied vacuum forces out the surplus water by compressing the slab and this causes a reduction in slab depth of approximately 2% therefore packing strips should be placed on the side forms before tamping to allow for sufficient surcharge of concrete.<br><br>Typical Details~<br><br>![image 631](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile631.png)|
+|---|
+
+
+###### Concrete Floor Screeds
+
+|Concrete Floor Screeds ~ these are used to give a concrete floor a finish suitable to receive the floor finish or covering specified. It should be noted that it is not always necessary or desirable to apply a floor screed to receive a floor covering, techniques are available to enable the concrete floor surface to be prepared at the time of casting to receive the coverings at a later stage.<br><br>Typical Screed Mixes ~<br><br>Laying Floor Screeds ~ floor screeds should not be laid in bays since this can cause curling at the edges, screeds can however be laid in 3„000 wide strips to receive thin coverings. Levelling of screeds is achieved by working to levelled timber screeding batten or alternatively a 75 mm wide band of levelled screed with square edges can be laid to the perimeter of the floor prior to the general screed laying operation.<br><br>Monolithic Screeds †<br><br>screed laid directly on concrete floor slab within three hours of placing concrete † before any screed is placed all surface water should be removed † all screeding work should be carried out from scaffold board runways to avoid walking on the `green' concrete slab.<br><br>![image 632](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile632.png)<br><br>|Screed Thickness|Cement|Dry Fine Aggregate <5 mm|Coarse Aggregate > 5 mm < 10 mm|
+|---|---|---|---|
+|up to 40 mm|||3 to 4 1/2|†|
+|40 to 75 mm|||3 to 4 1/2|†|
+| |||1 1/2|3|
+|
+|---|
+
+
+###### Concrete Floor Screeds
+
+|![image 633](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile633.png)<br><br>Separate Screeds †<br><br>screed is laid onto the concrete floor slab after it has cured. The floor surface must be clean and rough enough to ensure an adequate bond unless the floor surface is prepared by applying a suitable bonding agent or by brushing with a cement/water grout of a thick cream like consistency just before laying the screed.<br><br>Unbonded Screeds †<br><br>screed is laid directly over a damp-proof membrane or over a damp-proof membrane and insulation. A rigid form of floor insulation is required where the concrete floor slab is in contact with the ground. Care must be taken during this operation to ensure that the damp-proof membrane is not damaged.<br><br>Floating Screeds †<br><br>a resilient quilt of 25 mm thickness is laid with butt joints and turned up at the edges against the abutment walls, the screed being laid directly over the resilient quilt. The main objective of this form of floor screed is to improve the sound insulation properties of the floor.<br><br>*preferably wire mesh reinforced|
+|---|
+
+
+|Primary Functions ~<br><br>1 . Provide a level surface with sufficient strength to support the imposed loads of people and furniture plus the dead loads of flooring and ceiling.<br>2. Reduce heat loss from lower floor as required.<br>3. Provide required degree of sound insulation.<br>4. Provide required degree of fire resistance.<br><br><br>Basic Construction † a timber suspended upper floor consists of a series of beams or joists supported by load bearing walls sized and spaced to carry all the dead and imposed loads.<br><br>Joist Sizing † three methods can be used:†<br><br>1. Building Regs. Approved Document A † Structure. Refs.<br><br>*BS 6399†1: Code of practice for dead and imposed loads (max. 1„5 kN/m2 distributed, 1.4kN/m2 concentrated).<br>*TRADA publication † Span Tables for Solid Timber Members in Dwellings.<br><br><br>2. Calculation formula:†<br><br>BM =<br><br>fbd2 6<br><br>where BM = bending<br><br>moment f = fibre stress b = breadth d = depth in mm must be assumed<br><br>3. Empirical formula:†<br><br>D =<br><br>span in mm 24 + 50<br><br>where D = depth of joist in<br><br>mm<br><br>above assumes that joists have a breadth of 50 mm and are at 400c=c spacing<br><br>![image 634](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile634.png)<br><br>|
+|---|
+
+
+Timber Suspended Upper Floors
+
+|Strutting ~ used in timber suspended floors to restrict the movements due to twisting and vibration which could damage ceiling finishes. Strutting should be included if the span of the floor joists exceeds 2„5m and is positioned on the centre line of the span. Max. floor span ~ 6 m measured centre to centre of bearing (inner leaf centre line in cavity wall).<br><br>![image 635](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile635.png)|
+|---|
+
+
+|Lateral Restraint ~ external, compartment (fire), separating (party) and internal loadbearing walls must have horizontal support from adjacent floors, to restrict movement. Exceptions occur when the wall is less than 3m long.<br><br>Methods:<br><br>1 . 90 mm end bearing of floor joists, spaced not more than 1„2m apart † see page 606.<br>2. Galvanised steel straps spaced at intervals not exceeding 2m and fixed square to joists † see page 606.<br><br><br>![image 636](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile636.png)<br><br>Ref. BS EN 845-1: Specification for ancillary components for masonry. Ties, tension straps, hangers and brackets.|
+|---|
+
+
+###### Lateral Restraint---Retro-ties
+
+|Wall Stability † at right angles to floor and ceiling joists this is achieved by building the joists into masonry support walls or locating them on approved joist hangers.<br><br>Walls parallel to joists are stabilised by lateral restraint straps. Buildings constructed before current stability requirements (see Bldg. Regs. A.D; A † Structure) often show signs of wall bulge due to the effects of eccentric loading and years of thermal movement.<br><br>![image 637](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile637.png)|
+|---|
+
+
+|Trimming Members ~ these are the edge members of an opening in a floor and are the same depth as common joists but are usually 25 mm wider.<br><br>![image 638](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile638.png)|
+|---|
+
+
+###### Timber Suspended Upper Floors---Joist Sizes
+
+|Typical spans and loading for floor joists of general structural grade †<br><br>Dead weight of flooring and ceiling, excluding the self weight of the joists (kg/m2)<br><br>< 25 25†50 50†125<br><br>Spacing of joists (mm)<br><br>400 450 600 400 450 600 400 450 600<br><br>Sawn size (mm mm) Maximum clear span (m)<br><br>38 75 1.22 1.09 0.83 1.14 1.03 0.79 0.98 0.89 0.70 38 100 1.91 1.78 1.38 1.80 1.64 1.28 1.49 1.36 1.09 38 125 2.54 2.45 2.01 2.43 2.30 1.83 2.01 1.85 1.50 38 150 3.05 2.93 2.56 2.91 2.76 2.40 2.50 2.35 1.93 38 175 3.55 3.40 2.96 3.37 3.19 2.77 2.89 2.73 2.36 38 200 4.04 3.85 3.35 3.82 3.61 3.13 3.27 3.09 2.68 38 225 4.53 4.29 3.73 4.25 4.02 3.50 3.65 3.44 2.99 50 75 1.45 1.37 1.08 1.39 1.30 1.01 1.22 1.11 0.88 50 100 2.18 2.06 1.76 2.06 1.95 1.62 1.82 1.67 1.35 50 125 2.79 2.68 2.44 2.67 2.56 2.28 2.40 2.24 1.84 50 150 3.33 3.21 2.92 3.19 3.07 2.75 2.86 2.70 2.33 50 175 3.88 3.73 3.38 3.71 3.57 3.17 3.30 3.12 2.71 50 200 4.42 4.25 3.82 4.23 4.07 3.58 3.74 3.53 3.07 50 225 4.88 4.74 4.26 4.72 4.57 3.99 4.16 3.94 3.42 63 100 2.41 2.29 2.01 2.28 2.17 1.90 2.01 1.91 1.60 63 125 3.00 2.89 2.63 2.88 2.77 2.52 2.59 2.49 2.16 63 150 3.59 3.46 3.15 3.44 3.31 3.01 3.10 2.98 2.63 63 175 4.17 4.02 3.66 4.00 3.85 3.51 3.61 3.47 3.03 63 200 4.73 4.58 4.18 4.56 4.39 4.00 4.11 3.95 3.43 63 225 5.15 5.01 4.68 4.99 4.85 4.46 4.62 4.40 3.83 75 125 3.18 3.06 2.79 3.04 2.93 2.67 2.74 2.64 2.40 75 150 3.79 3.66 3.33 3.64 3.50 3.19 3.28 3.16 2.86 75 175 4.41 4.25 3.88 4.23 4.07 3.71 3.82 3.68 3.30 75 200 4.92 4.79 4.42 4.77 4.64 4.23 4.35 4.19 3.74 75 225 5.36 5.22 4.88 5.20 5.06 4.72 4.82 4.69 4.16<br><br>Notes:<br><br>1. Where a bath is supported, the joists should be duplicated.<br>2. See pages 35 and 36 for material dead weights.<br>|
+|---|
+
+
+###### Timber Beam Design
+
+|Joist and Beam Sizing ~ design tables and formulae have limitations, therefore where loading, span and/or conventional joist spacings are exceeded, calculations are required. BS 5268: Structural Use Of Timber and BS EN 338: Structural Timber † Strength Classes, are both useful resource material for detailed information on a variety of timber species. The following example serves to provide guidance on the design process for determining joist size, measurement of deflection, safe bearing and resistance to shear force:-<br><br>![image 639](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile639.png)<br><br>Total load (W) per joist = 5 m 0„4 m 2„25 kN/m2 = 4„5 kN<br><br>or :<br><br>4„5 kN 5 m span<br><br>= 0„9 kN=m<br><br>![image 640](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile640.png)<br><br>Bending moment formulae are shown on page 506<br><br>BM =<br><br>WL 8<br><br>=<br><br>fbd2 6<br><br>Where: W = total load, 4„5 kN (4500 N) L = span, 5m (5000 mm) f = fibre stress of timber, 7„5 N/mm2 b = breadth of joist, try 50 mm d = depth of joist, unknown<br><br>Transposing:<br><br>WL 8<br><br>=<br><br>fbd2 6<br><br>Becomes:<br><br>d =<br><br>6WL 8fb<br><br>=<br><br>6 4500 5000 8 7„5 50<br><br>¼ 212 mm<br><br>Nearest commercial size: 50 mm 225 mm|
+|---|
+
+
+###### Timber Beam Design
+
+|Joist and Beam Sizing ~ calculating overall dimensions alone is insufficient, checks should also be made to satisfy: resistance to deflection, adequate safe bearing and resistance to shear.<br><br>Deflection † should be minimal to prevent damage to plastered ceilings. An allowance of up to 0„003 span is normally acceptable; for the preceding example this will be:-<br><br>0„003 5000 mm = 15 mm<br><br>The formula for calculating deflection due to a uniformly distributed load (see page 508) is: ~<br><br>5WL3 384El<br><br>where l =<br><br>bd3 12<br><br>l =<br><br>50 ð225Þ3 12<br><br>= 4„75 ð10Þ7<br><br>So, deflection =<br><br>5 4500 ð5000Þ3 384 10800 4:75 ð10Þ7<br><br>= 14„27 mm<br><br>NB. This is only just within the calculated allowance of 15 mm, therefore it would be prudent to specify slightly wider or deeper joists to allow for unknown future use.<br><br>Safe Bearing ~<br><br>=<br><br>load at the joist end, W/2 compression perpendicular to grain breadth<br><br>=<br><br>4500=2 1„9 50<br><br>= 24mm:<br><br>therefore full support from masonry (90 mm min.) or joist hangers will be more than adequate.<br><br>Shear Strength ~<br><br>V =<br><br>2bdv 3<br><br>where: V = vertical loading at the joist end, W/2<br><br>v = shear strength parallel to the grain, 0.7 N/mm2 Transposing:-<br><br>bd =<br><br>3V 2v<br><br>=<br><br>3 2250 2 0:7<br><br>= 4821 mm2 minimum<br><br>Actual bd = 50 mm 225 mm = 11,250 mm2<br><br>Resistance to shear is satisfied as actual is well above the minimum.|
+|---|
+
+
+###### Timber Upper Floors---Fire Protection
+
+|For fire protection, floors are categorised depending on their height relative to adjacent ground ~<br><br>Tests for fire resistance relate to load bearing capacity, integrity and insulation as determined by BS 476: Fire tests on building materials and structures. Methods of test for fire propagation for products.<br><br>Integrity ~ the ability of an element to resist fire penetration and capacity to bear load in a fire.<br><br>Insulation ~ ability to resist heat penetration so that fire is not spread by radiation and conduction.<br><br>Typical applications ~<br><br>![image 641](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile641.png)<br><br>38 mm timber joists with noggins or struts to support board edges<br><br>12.5 mm plasterboard, joints taped and filled<br><br>50 mm timber joists with noggins or struts to support board edges<br><br>two layers of 15 mm plasterboard independently nailed with joints taped and filled<br><br>600 mm max. spacing<br><br>600 mm max. spacing<br><br>40 mm galv. steel clout nails at 150 mm spacing<br><br>60 mm galv. steel clout nails at 150 mm spacing<br><br>21 mm t & g wood board flooring<br><br>21 mm t & g wood board flooring<br><br>30 MINUTE FIRE RESISTANCE<br><br>60 MINUTE FIRE RESISTANCE<br><br>Ref. Building Regulations, AD B Fire safety, Volume 1 † Dwellinghouses.<br><br>Height of top floor above ground Fire resistance<br><br>Less than 5 m 30 minutes (60 min.<br><br>for compartment floors) More than 5 m 60 minutes (30 min. for<br><br>a three storey dwelling)|
+|---|
+
+
+|Reinforced Concrete Suspended Floors ~ a simple reinforced concrete flat slab cast to act as a suspended floor is not usually economical for spans over 5„000. To overcome this problem beams can be incorporated into the design to span in one or two directions. Such beams usually span between columns which transfers their loads to the foundations. The disadvantages of introducing beams are the greater overall depth of the floor construction and the increased complexity of the formwork and reinforcement. To reduce the overall depth of the floor construction flat slabs can be used where the beam is incorporated with the depth of the slab. This method usually results in a deeper slab with complex reinforcement especially at the column positions.<br><br>![image 642](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile642.png)|
+|---|
+
+
+|Ribbed Floors ~ to reduce the overall depth of a traditional cast in-situ reinforced concrete beam and slab suspended floor a ribbed floor could be used. The basic concept is to replace the wide spaced deep beams with narrow spaced shallow beams or ribs which will carry only a small amount of slab loading. These floors can be designed as one or two way spanning floors. One way spanning ribbed floors are sometimes called troughed floors whereas the two way spanning ribbed floors are called coffered or waffle floors. Ribbed floors are usually cast against metal, glass fibre or polypropylene preformed moulds which are temporarily supported on plywood decking, joists and props † see page 462.<br><br>![image 643](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile643.png)|
+|---|
+
+
+|Ribbed Floors † these have greater span and load potential per unit weight than flat slab construction. This benefits a considerable reduction in dead load, to provide cost economies in other superstructural elements and foundations. The regular pattern of voids created with waffle moulds produces a honeycombed effect, which may be left exposed in utility buildings such as car parks. Elsewhere such as shopping malls, a suspended ceiling would be appropriate. The trough finish is also suitable in various situations and has the advantage of creating a continuous void for accommodation of service cables and pipes. A suspended ceiling can add to this space where air conditioning ducting is required, also providing several options for finishing effect.<br><br>![image 644](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile644.png)<br><br>Note: After removing the temporary support structure, moulds are struck by flexing with a flat tool. A compressed air line is also effective.|
+|---|
+
+
+|Hollow Pot Floors ~ these are in essence a ribbed floor with permanent formwork in the form of hollow clay or concrete pots. The main advantage of this type of cast in-situ floor is that it has a flat soffit which is suitable for the direct application of a plaster finish or an attached dry lining. The voids in the pots can be utilised to house small diameter services within the overall depth of the slab. These floors can be designed as one or two way spanning slabs, the common format being the one way spanning floor.<br><br>![image 645](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile645.png)|
+|---|
+
+
+|Soffit and Beam Fixings ~ concrete suspended floors can be designed to carry loads other than the direct upper surface loadings. Services can be housed within the voids created by the beams or ribs and suspended or attached ceilings can be supported by the floor. Services which run at right angles to the beams or ribs are usually housed in cast-in holes. There are many types of fixings available for use in conjunction with floor slabs, some are designed to be cast-in whilst others are fitted after the concrete has cured. All fixings must be positioned and installed so that they are not detrimental to the structural integrity of the floor.<br><br>![image 646](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile646.png)|
+|---|
+
+
+|Precast Concrete Floors ~ these are available in several basic formats and provide an alternative form of floor construction to suspended timber floors and in-situ reinforced concrete suspended floors. The main advantages of precast concrete floors are:-<br><br>1. Elimination of the need for formwork except for nominal propping which is required with some systems.<br>2. Curing time of concrete is eliminated therefore the floor is available for use as a working platform at an earlier stage.<br>3. Superior quality control of product is possible with factory produced components.<br><br><br>The main disadvantages of precast concrete floors when compared with in-situ reinforced concrete floors are:-<br><br>1. Less flexible in design terms.<br>2. Formation of large openings in the floor for ducts, shafts and stairwells usually have to be formed by casting an in-situ reinforced concrete floor strip around the opening position.<br>3. Higher degree of site accuracy is required to ensure that the precast concrete floor units can be accommodated without any alterations or making good<br><br><br>![image 647](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile647.png)|
+|---|
+
+
+###### Precast Concrete Floors
+
+|![image 648](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile648.png)|
+|---|
+
+
+|![image 649](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile649.png)|
+|---|
+
+
+Raised Access Floors
+
+|Raised Flooring ~ developed in response to the high-tech boom of the 1970s. It has proved expedient in accommodating computer and communications cabling as well as numerous other established services. The system is a combination of adjustable floor pedestals, supporting a variety of decking materials. Pedestal height ranges from as little as 30 mm up to about 600 mm, although greater heights are possible at the expense of structural floor levels. Decking is usually in loose fit squares of 600 mm, but may be sheet plywood or particleboard screwed direct to closer spaced pedestal support plates on to joists bearing on pedestals. Cavity fire stops are required between decking and structural floor at appropriate intervals (see Building Regulations, A D B, Volume 2, Section 9).<br><br>![image 650](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile650.png)|
+|---|
+
+
+###### Sound Insulation
+
+|Sound Insulation ~ sound can be defined as vibrations of air which are registered by the human ear. All sounds are produced by a vibrating object which causes tiny particles of air around it to move in unison. These displaced air particles collide with adjacent air particles setting them in motion and in unison with the vibrating object. This continuous chain reaction creates a sound wave which travels through the air until at some distance the air particle movement is so small that it is inaudible to the human ear. Sounds are defined as either impact or airborne sound, the definition being determined by the source producing the sound. Impact sounds are created when the fabric of structure is vibrated by direct contact whereas airborne sound only sets the structural fabric vibrating in unison when the emitted sound wave reaches the enclosing structural fabric. The vibrations set up by the structural fabric can therefore transmit the sound to adjacent rooms which can cause annoyance, disturbance of sleep and of the ability to hold a normal conservation. The objective of sound insulation is to reduce transmitted sound to an acceptable level, the intensity of which is measured in units of decibels (dB).<br><br>The Building Regulations, Approved Document E: Resistance to the passage of sound, establishes sound insulation standards as follows<br><br>E1: Between dwellings and between dwellings and other buildings.<br>E2: Within a dwelling, ie. between rooms, particularly WC and habitable rooms, and bedrooms and other rooms.<br>E3: Control of reverberation noise in common parts (stairwells and corridors) of buildings containing dwellings, ie. flats.<br>E4: Specific applications to acoustic conditions in schools. Note: E1 includes, hotels, hostels, student accommodation, nurses' homes and homes for the elderly, but not hospitals and prisons.<br><br><br>![image 651](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile651.png)|
+|---|
+
+
+Sound Insulation---Walls
+
+|Separating Walls ~ types:-<br><br>1. Solid masonry<br>2. Cavity masonry<br>3. Masonry between isolating panels<br>4. Timber frame<br><br><br>![image 652](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile652.png)<br><br>![image 653](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile653.png)<br><br>|Material A|Density of A [Kg/m3]|Finish B|Combined mass A + B (Kg/m2)|Thickness C [mm]|Coursing D [mm]|
+|---|---|---|---|---|---|
+|brickwork|1610|13 mm lwt. pl.|375|215|75|
+|.. ..|.. ..|12„5 mm pl. brd.|.. ..|.. ..|.. ..|
+|Concrete block|1840|13 mm lwt. pl|415|.. ..|110|
+|.. ..|1840|12„5 mm pl. brd|.. ..|.. ..|150|
+|In-situ concrete|2200|Optional|415|190|n/a|
+<br><br>|Material A|Density of A [Kg/m3]|Finish B|Mass A + B (Kg/m2)|Thickness C [mm]|Coursing D [mm]|Cavity E [mm]|
+|---|---|---|---|---|---|---|
+|bkwk.|1970|13 mm lwt. pl.|415|102|75|50|
+|concrete block|1990|..|..|100|225|..|
+|lwt. conc. block|1375|.. or 12.5 mm pl. brd.|300|100|225|75|
+|
+|---|
+
+
+###### Sound Insulation---Walls
+
+|![image 654](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile654.png)<br><br>Panel materials † B<br><br>(i) Plasterboard with cellular core plus plaster finish, mass 18 kg/m2. All joints taped. Fixed floor and ceiling only.<br>(ii) 2 No. plasterboard sheets, 12„5 mm each, with joints staggered. Frame support or 30 mm overall thickness.<br><br><br>![image 655](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile655.png)<br><br>Absorbent material † quilting of unfaced mineral fibre batts with a minimum density of 10 kg/m3, located in the cavity or frames.<br><br>|Core material A|Density of A [kg/m3]|Mass A (kg/m2)|Thickness C (mm)|Coursing D (mm)|Cavity (mm)|
+|---|---|---|---|---|---|
+|brickwork|1290|300|215|75|n/a|
+|concrete block|2200|300|140|110|n/a|
+|lwt. conc. block|1400|150|200|225|n/a|
+|Cavity bkwk. or block|any|any|2 100|to suit|50|
+<br><br>|Thickness (mm)|Location|
+|---|---|
+|25|Suspended in cavity|
+|50|Fixed within one frame|
+|2 25|Each quilt fixed within each frame|
+|
+|---|
+
+
+###### Sound Insulation---Floors
+
+|Separating Floors ~ types:-<br><br>1. Concrete with soft covering<br>2. Concrete with floating layer<br>3. Timber with floating layer<br><br><br>![image 656](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile656.png)<br><br>![image 657](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile657.png)<br><br>Resilient layers:<br><br>(a) 25 mm paper faced mineral fibre, density 36 kg/m3. Timber floor † paper faced underside. Screeded floor † paper faced upper side to prevent screed entering layer.<br>(b) Screeded floor only: 13 mm pre-compressed expanded polystyrene (EPS) board, or 5 mm extruded polyethylene foam of density 30†45 kg/m3, laid over a levelling screed for protection.<br><br><br>See BS EN 29052-1: Acoustics. Method for the determination of dynamic stiffness. Materials used under floating floors in dwellings.|
+|---|
+
+
+###### Sound Insulation---Floors
+
+|Type 3. Airborne resistance varies depending on floor construction, absorbency of materials, extent of pugging and partly on the floating layer. Impact resistance depends mainly on the resilient layer separating floating from structure.<br><br>![image 658](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile658.png)<br><br>Note: Minimum mass per unit area = 25 kg/m2 Floating layer: 18 mm timber or wood based board, t & g joints glued and spot bonded to a sub-strate of 19 mm plasterboard.<br><br>Alternatively, cement bonded particle board in 2 thicknesses † 24 mm total, joints staggered, glued and screwed together. Resilient layer: 25 mm mineral fibre, density 60†100 kg/m3. Base: 12 mm timber boarding or wood based board nailed to joists. Absorbent material: 100 mm unfaced rock fibre, minimum density 10 kg/m3. Ceiling: 30 mm plasterboard in 2 layers, joints staggered.<br><br>![image 659](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile659.png)|
+|---|
+
+
+Domestic Stairs
+
+|Primary Functions ~<br><br>1. Provide a means of circulation between floor levels.<br>2. Establish a safe means of travel between floor levels.<br>3. Provide an easy means of travel between floor levels.<br>4. Provide a means of conveying fittings and furniture between floor levels.<br><br><br>![image 660](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile660.png)|
+|---|
+
+
+###### Domestic Straight Flight Stairs---Critical Dimensions
+
+|All dimensions quoted are the minimum required for domestic stairs exclusive to one dwelling as given in Approved Document K unless stated otherwise.<br><br>![image 661](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile661.png)<br><br>* AD K does not give a minimum dimension far stair width. See also page 634|
+|---|
+
+
+|![image 662](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile662.png)|
+|---|
+
+
+|![image 663](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile663.png)<br><br>Projecting bottom steps are usually included to enable the outer string to be securely jointed to the back face of the newel post and to provide an easy line of travel when ascending or descending at the foot of the stairs.<br><br>![image 664](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile664.png)|
+|---|
+
+
+|![image 665](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile665.png)|
+|---|
+
+
+###### Timber Open Riser Stairs
+
+|Open Riser Timber Stairs ~ these are timber stairs constructed to the same basic principles as standard timber stairs excluding the use of a riser. They have no real advantage over traditional stairs except for the generally accepted aesthetic appeal of elegance. Like the traditional timber stairs they must comply with the minimum requirements set out in Part K of the Building Regulations.<br><br>Typical Requirements for Stairs in a Small Residential Building ~<br><br>![image 666](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile666.png)<br><br>upper floor landing<br><br>wall string hooked over landing trimmer<br><br>minimum going 220 mm<br><br>pitch line<br><br>outer string<br><br>floor level<br><br>rise … 220 mm max.<br><br>treads housed into strings<br><br>minimum overlap 16 mm<br><br>maximum pitch 42ƒ<br><br>recommended clear width of stairs … 800 mm minimum, but 900 mm wall to wall or wall to centre of handrail is preferable<br><br>aggregate of going plus twice the rise to be 550 mm minimum and 700 mm maximum<br><br>no opening which will allow a 100 mm diameter sphere to pass through … see details on following page<br><br>no opening which will allow a 100 mm diameter sphere to pass through<br><br>handrail<br><br>balusters<br><br>newel post<br><br>minimumheadroom2.000<br><br>900 mmmin.<br><br>mmmax.1000|
+|---|
+
+
+2.000
+
+Timber Open Riser Stairs
+
+|Design and Construction ~ because of the legal requirement of not having a gap between any two consecutive treads through which a 100 mm diameter sphere can pass and the limitation relating to the going and rise, as shown on the previous page, it is generally not practicable to have a completely riserless stair for residential buildings since by using minimum dimensions a very low pitch of approximately 271=2 would result and by choosing an acceptable pitch a very thick tread would have to be used to restrict the gap to 100 mm.<br><br>![image 667](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile667.png)|
+|---|
+
+
+###### Alternating Tread Stairs
+
+|Application † a straight flight for access to a domestic loft conversion only. This can provide one habitable room, plus a bathroom or WC. The WC must not be the only WC in the dwelling.<br><br>Practical issues † an economic use of space, achieved by a very steep pitch of about 60 and opposing overlapping treads.<br><br>Safety † pitch and tread profile differ considerably from other stairs, but they are acceptable to Building Regulations by virtue of ``familiarity and regular use'' by the building occupants.<br><br>Additional features are:<br><br>* a non-slip tread surface.<br>* handrails to both sides.<br>* minimum going 220 mm.<br>* maximum rise 220 mm.<br>* (2 + rise) + (going) between 550 and 700 mm.<br>* a stair used by children under 5 years old, must have the tread voids barred to leave a gap not greater than 100 mm.<br><br><br>![image 668](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile668.png)<br><br>Ref. Building Regulations, Approved Document K1: Stairs, ladders and ramps: Section 1.29|
+|---|
+
+
+###### Timber Stairs with Landings
+
+|Timber Stairs ~ these must comply with the minimum requirements set out in Part K of the Building Regulations. Straight flight stairs are simple, easy to construct and install but by the introduction of intermediate landings stairs can be designed to change direction of travel and be more compact in plan than the straight flight stairs.<br><br>Landings ~ these are designed and constructed in the same manner as timber upper floors but due to the shorter spans they require smaller joist sections. Landings can be detailed for a 90 change of direction (quarter space landing) or a 180 change of direction (half space landing) and can be introduced at any position between the two floors being served by the stairs.<br><br>![image 669](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile669.png)|
+|---|
+
+
+###### Timber Stairs with Landings
+
+|![image 670](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile670.png)|
+|---|
+
+
+|In-situ Reinforced Concrete Stairs ~ a variety of stair types and arrangements are possible each having its own appearance and design characteristics. In all cases these stairs must comply with the minimum requirements set out in Part K of the Building Regulations in accordance with the purpose group of the building in which the stairs are situated.<br><br>![image 671](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile671.png)<br><br>![image 672](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile672.png)<br><br>INCLINED SLAB STAIR<br><br>landings span from well edge to load bearing wall<br><br>stair flights span from floor to landing and from landing to floor<br><br>for detailed example see page 642<br><br>CRANKED SLAB STAIR<br><br>Stair flights span as a cranked slab from floor to landing edge beam and from landing edge beam to floor<br><br>If no structural support is given at landing levels stairs are called a continuous slab or scissor stair|
+|---|
+
+
+|![image 673](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile673.png)<br><br>![image 674](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile674.png)|
+|---|
+
+
+|Spiral and Helical Stairs ~ these stairs constructed in in-situ reinforced concrete are considered to be aesthetically pleasing but are expensive to construct. They are therefore mainly confined to prestige buildings usually as accommodation stairs linking floors within the same compartment. Like all other forms of stair they must conform to the requirements of Part K of the Building Regulations and if used as a means of escape in case of fire with the requirements of Part B. Spiral stairs can be defined as those describing a helix around a central column whereas a helical stair has an open well. The open well of a helical stair is usually circular or elliptical in plan and the formwork is built up around a vertical timber core.<br><br>![image 675](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile675.png)|
+|---|
+
+
+|![image 676](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile676.png)|
+|---|
+
+
+In-situ RC Stairs---Formwork
+
+|In-situ Reinforced Concrete Stair Formwork ~ in specific detail the formwork will vary for the different types of reinforced concrete stair but the basic principles for each format will remain constant.<br><br>![image 677](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile677.png)|
+|---|
+
+
+|Precast Concrete Stairs ~ these can be produced to most of the formats used for in-situ concrete stairs and like those must comply with the appropriate requirements set out in Part K of the Building Regulations. To be economic the total production run must be sufficient to justify the costs of the moulds and therefore the designers choice may be limited to the stair types which are produced as a manufacturer's standard item.<br><br>Precast concrete stairs can have the following advantages:†<br><br>1 . Good quality control of finished product.<br>2. Saving in site space since formwork fabrication and storage will not be required.<br>3. The stairs can be installed at any time after the floors have been completed thus giving full utilisation to the stair shaft as a lifting or hoisting space if required.<br>4. Hoisting, positioning and fixing can usually be carried out by semi†skilled labour.<br><br><br>![image 678](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile678.png)|
+|---|
+
+
+|![image 679](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile679.png)|
+|---|
+
+
+|![image 680](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile680.png)|
+|---|
+
+
+|Precast Concrete Spiral Stairs ~ this form of stair is usually constructed with an open riser format using tapered treads which have a keyhole plan shape. Each tread has a hollow cylinder at the narrow end equal to the rise which is fitted over a central steel column usually filled with in-situ concrete. The outer end of the tread has holes through which the balusters pass to be fixed on the underside of the tread below, a hollow spacer being used to maintain the distance between consecutive treads.<br><br>![image 681](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile681.png)|
+|---|
+
+
+|Metal Stairs ~ these can be produced in cast iron, mild steel or aluminium alloy for use as escape stairs or for internal accommodation stairs. Most escape stairs are fabricated from cast iron or mild steel and must comply with the Building Regulation requirements for stairs in general and fire escape stairs in particular. Most metal stairs are purpose made and therefore tend to cost more than comparable concrete stairs. Their main advantage is the elimination of the need for formwork whilst the main disadvantage is the regular maintenance in the form of painting required for cast iron and mild steel stairs.<br><br>![image 682](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile682.png)|
+|---|
+
+
+###### Metal Stairs
+
+|![image 683](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile683.png)|
+|---|
+
+
+|![image 684](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile684.png)|
+|---|
+
+
+Balustrades and Handrails
+
+|Balustrades and Handrails ~ these must comply in all respects with the requirements given in Part K of the Building Regulations and in the context of escape stairs are constructed of a non†combustible material with a handrail shaped to give a comfortable hand grip. The handrail may be covered or capped with a combustible material such as timber or plastic. Most balustrades are designed to be fixed after the stairs have been cast or installed by housing the balusters in a preformed pocket or by direct surface fixing.<br><br>![image 685](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile685.png)|
+|---|
+
+
+###### Public and General Use Stairs
+
+|Institutional and Assembly Stairs ~ Serving a place where a substantial number of people will gather.<br><br>minimum going, 280 mm (may reduce to 250 mm if the building<br><br>floor area <100 m2), maximum, 340 mm<br><br>The maximum pitch for gangways with seated spectators in assembly buildings is 35ƒ.<br><br>rise 135 to 180 mm<br><br>![image 686](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile686.png)<br><br>Other stairs ~ All other buildings.<br><br>minimum going, 250 mm maximum, 320 mm<br><br>rise 150 to 190 mm<br><br>Common to both functional groups: twice the rise plus the going, 550 to 700 mm.<br><br>Alternative guidance: BS 5395-1: Stairs, ladders and walkways. Code of practice for the design, construction and maintenance of straight stairs and winders.<br><br>![image 687](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile687.png)<br><br>The rise and going in both situations may be subject to the requirements of Approved Document M: Access to and use of buildings. AD M will take priority and the following will apply:<br><br>Going (external steps) ~ 280 mm minimum (300 mm min. preferred). Going (stairs) ~ 250 mm minimum. Rise ~ 170 mm maximum.<br><br>Other AD M requirements for stairs:<br><br>Avoid tapered treads. Width at least 1200 mm between walls, strings or upstands. Landing top and bottom, minimum length not less than stair width. Handrails both sides; circular or oval preferred as shown on next page. Door openings onto landings to be avoided. Full risers, no gaps. Nosings with prominent colour 55 mm wide on tread and riser. Nosing projections avoided, maximum of 25 mm if necessary. Maximum 12 risers; exceptionally in certain small premises 16. Non-slip surface to treads and landing.|
+|---|
+
+
+###### Spiral Stairs and Tapered Treads
+
+|Measurement of the going (AD K) ~<br><br>![image 688](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile688.png)<br><br>< 1 m<br><br>50 mm minimum tread width at newel<br><br>going measured at centre of tread, minimum for private stairs 220 mm, other applications 250 mm<br><br>=<br><br>=<br><br>For stair widths greater than 1 m, the going is measured at 270 mm from each side of the stair.<br><br>Additional requirements: Going of tapered treads not less than the going of parallel treads in the same stair. Curved landing lengths measured on the stair centre line. Twice the rise plus the going, 550 to 700 mm. Uniform going for consecutive tapered treads. Other going and rise limitations as shown on the previous page.<br><br>Alternative guidance that is acceptable to the requirements of Approved Document K is published in BS 5395-2: Stairs, ladders and walkways. Code of practice for the design of helical and spiral stairs.<br><br>Preferred handrail profile (AD M) ~<br><br>![image 689](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile689.png)<br><br>60 to 75 mm<br><br>40 to 45 mm diameter 50 mm<br><br>30 mm diameter<br><br>Oval Round<br><br>50 mm|
+|---|
+
+
+###### Doors and Door Linings
+
+|Functions ~ the main functions of any door are to:<br><br>1. Provide a means of access and egress.<br>2. Maintain continuity of wall function when closed.<br>3. Provide a degree of privacy and security.<br><br><br>Choice of door type can be determined by:†<br><br>1. Position † whether internal or external.<br>2. Properties required † fire resistant, glazed to provide for borrowed light or vision through, etc.<br>3. Appearance † flush or panelled, painted or polished, etc.<br><br><br>Door Schedules ~ these can be prepared in the same manner and for the same purpose as that given for windows on page 359.<br><br>Internal Doors ~ these are usually lightweight and can be fixed to a lining, if heavy doors are specified these can be hung to frames in a similar manner to external doors. An alternative method is to use door sets which are usually storey height and supplied with prehung doors.<br><br>![image 690](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile690.png)|
+|---|
+
+
+Internal Doors
+
+|Internal Doors ~ these are similar in construction to the external doors but are usually thinner and therefore lighter in weight.<br><br>![image 691](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile691.png)|
+|---|
+
+
+###### Internal Door Frames
+
+|Internal Door Frames and linings ~ these are similar in construction to external door frames but usually have planted door stops and do not have a sill. The frames are sized to be built in conjunction with various partition thicknesses and surface finishes. Linings with planted stops ae usually employed for lightweight domestic doors.<br><br>![image 692](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile692.png)<br><br>Ref. BS 4787: Internal and external wood doorsets, door leaves and frames. Specification for dimensional requirements.|
+|---|
+
+
+Doorsets
+
+|Doorsets ~ these are factory produced fully assembled prehung doors which are supplied complete with frame, architraves and ironmongery except for door furniture. The doors may be hung to the frames using pin butts for easy door removal. Prehung door sets are available in standard and storey height versions and are suitable for all internal door applications with normal wall and partition thicknesses.<br><br>![image 693](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile693.png)|
+|---|
+
+
+###### Fire Doorsets and Fire Door Assemblies
+
+|Fire doorset ~ a ``complete unit consisting of a door frame and a door leaf or leaves, supplied with all essential parts from a single source''. The difference between a doorset and a fire doorset is the latter is endorsed with a fire certificate for the complete unit. When supplied as a collection of parts for site assembly, this is known as a door kit.<br><br>Fire door assembly ~ a ``complete assembly as installed, including door frame and one or more leaves, together with its essential hardware [ironmongery] supplied from separate sources''. Provided the components to an assembly satisfy the Building Regulations † Approved Document B, fire safety requirements and standards for certification and compatibility, then a fire door assembly is an acceptable alternative to a doorset.<br><br>Fire doorsets are usually more expensive than fire door assemblies, but assemblies permit more flexibility in choice of components. Site fixing time will be longer for assemblies.<br><br>(Quotes from BS EN 12519: Windows and pedestrian doors. Terminology.)<br><br>Fire door ~ a fire door is not just the door leaf. A fire door includes the frame, ironmongery, glazing, intumescent core and smoke seal. To comply with European market requirements, ironmongery should be CE marked (see page 61). A fire door should also be marked accordingly on the top or hinge side. The label type shown below, reproduced with kind permission of the British Woodworking Federation is acceptable.<br><br>Company's Name<br><br>Company's Own Telephone no.<br><br>CERTIFIRE Certificate no.<br><br>Unique number = Full traceability<br><br>Sequential no.<br><br>![image 694](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile694.png)|
+|---|
+
+
+###### 30 Minute Flush Fire Doors
+
+|30 Minute Flush Fire Doors ~ these are usually based on the recommendations given in BS 8214. A wide variety of door constructions are available from various manufacturers but they all have to be fitted to a similar frame for testing as a doorset or assembly, including ironmongery.<br><br>A door's resistance to fire is measured by:-<br><br>1. Insulation † resistance to thermal transmittance, see BS 476†20 & 22: Fire tests on building materials and structures.<br>2. Integrity † resistance in minutes to the penetration of flame and hot gases under simulated fire conditions.<br><br><br>![image 695](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile695.png)|
+|---|
+
+
+60 Minute Flush Fire Doors
+
+|60 Minute Flush Fire Door ~ like the 30 minute flush fire door shown on page 659 these doors are based on the recommendations given in BS 8214 which covers both door and frame. A wide variety of fire resistant door constructions are available from various manufacturers with most classified as having both insulation and integrity ratings of 60 minutes.<br><br>![image 696](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile696.png)|
+|---|
+
+
+###### Fire Resisting Doors
+
+|Fire and Smoke Resistance ~ Doors can be assessed for both integrity and smoke resistance. They are coded accordingly, for example FD30 or FD30s. FD indicates a fire door and 30 the integrity time in minutes. The letter `s' denotes that the door or frame contains a facility to resist the passage of smoke.<br><br>Manufacturers produce doors of standard ratings † 30, 60 and 90 minutes, with higher ratings available to order. A colour coded plug inserted in the door edge corresponds to the fire rating. See BS 8214, Table 1 for details.<br><br>![image 697](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile697.png)<br><br>The intumescent core may be fitted to the door edge or the frame. In practice, most joinery manufacturers leave a recess in the frame where the seal is secured with rubber based or PVA adhesive. At temperatures of about 150 C, the core expands to create a seal around the door edge. This remains throughout the fire resistance period whilst the door can still be opened for escape and access purposes. The smoke seal will also function as an effective draught seal.<br><br>Further references:<br><br>BS EN 1634-1: Fire resistance tests for door and shutter assemblies. Fire doors and shutters.<br><br>BS EN 13501: Fire classification of construction products and building elements.|
+|---|
+
+
+###### Fire Doors -- Vision Panels
+
+|Apertures will reduce the potential fire resistance if not appropriately filled. Suitable material should have the same standard of fire performance as the door into which it is fitted.<br><br>Fire rated glass types ~<br><br>• Embedded Georgian wired glass<br>• Composite glass containing borosilicates and ceramics<br>• Tempered and toughened glass<br>• Glass laminated with reactive fire resisting interlayers<br><br><br>Installation ~ Hardwood beads and intumescent seals. Compatibility of glass type and sealing product is essential, therefore manufacturers details must be consulted.<br><br>![image 698](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile698.png)<br><br>intumescent sealant<br><br>fire-rated safety glass<br><br>bead fixing<br><br>intumescent lining tape<br><br>hardwood glazing bead<br><br>door-width and construction as shown pages 659 to 661<br><br>Intumescent products ~<br><br>• Sealants and mastics `gun' applied<br>• Adhesive glazing strip or tape<br>• Preformed moulded channel<br><br><br>Note: Calcium silicate preformed channel is also available. Woven ceramic fire-glazing tape/ribbon is produced specifically for use in metal frames.<br><br>Building Regulations references:<br><br>AD M, Section 2.13, visibility zones/panels between 500 and 1500 mm above floor finish.<br>AD N, Section 1.6, aperture size (see page 369)<br>|
+|---|
+
+
+###### Glazed Double Swing Doors
+
+|![image 699](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile699.png)|
+|---|
+
+
+###### Plasterboard Ceilings
+
+|Plasterboard ~ this is a rigid board made with a core of gypsum sandwiched between face sheets of strong durable paper. In the context of ceilings two sizes can be considered †<br><br>1. Baseboard 2„400 1„200 9„5 mm thick for supports at centres not exceeding 400 mm; 2„400 1„200 12„5 mm for supports at centres not exceeding 600 mm. Baseboard has square edges and therefore the joints will need reinforcing with jute scrim at least 90 mm wide or alternatively a special tape to prevent cracking.<br>2. Gypsum Lath 1„200 406 9„5 or 12„5 mm thick. Lath has rounded edges which eliminates the need to reinforce the joints.<br><br><br>Baseboard is available with a metallised polyester facing which acts as a vapour control layer to prevent moisture penetrating the insulation and timber, joints should be sealed with an adhesive metallised tape.<br><br>The boards are fixed to the underside of the floor or ceiling joists with galvanised or sheradised plasterboard nails at not more than 150 mm centres and are laid breaking the joint. Edge treatments consist of jute scrim or plastic mesh reinforcement or a pre-formed plaster cove moulding.<br><br>![image 700](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile700.png)|
+|---|
+
+
+|Suspended Ceilings ~ these can be defined as ceilings which are fixed to a framework suspended from main structure thus forming a void between the two components. The basic functional requirements of suspended ceilings are:†<br><br>1. They should be easy to construct, repair, maintain and clean.<br>2. So designed that an adequate means of access is provided to the void space for the maintenance of the suspension system, concealed services and/or light fittings.<br>3. Provide any required sound and/or thermal insulation.<br>4. Provide any required acoustic control in terms of absorption and reverberation.<br>5. Provide if required structural fire protection to structural steel beams supporting a concrete floor and contain fire stop cavity barriers within the void at defined intervals.<br>6. Conform with the minimum requirements set out in the Building Regulations governing the restriction of spread of flame over surfaces of ceilings and the exemptions permitting the use of certain plastic materials.<br>7. Flexural design strength in varying humidity and temperature.<br>8. Resistance to impact.<br>9. Designed on a planning module, preferably a 300 mm dimensional coordinated system.<br><br><br>![image 701](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile701.png)|
+|---|
+
+
+|Classification of Suspended Ceiling ~ there is no standard method of classification since some are classified by their function such as illuminated and acoustic suspended ceilings, others are classified by the materials used and classification by method of construction is also very popular. The latter method is simple since most suspended ceiling types can be placed in one of three groups:-<br><br>1. Jointless suspended ceilings.<br>2. Panelled suspended ceilings † see page 667.<br>3. Decorative and open suspended ceilings † see page 668.<br><br><br>Jointless Suspended Ceilings ~ these forms of suspended ceilings provide a continuous and jointless surface with the internal appearance of a conventional ceiling. They may be selected to fulfil fire resistance requirements or to provide a robust form of suspended ceiling. The two common ways of construction are a plasterboard or expanded metal lathing soffit with hand applied plaster finish or a sprayed applied rendering with a cement base.<br><br>![image 702](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile702.png)<br><br>See also: BS EN 13964: Suspended ceilings. Requirements and test methods.|
+|---|
+
+
+|Panelled Suspended Ceilings ~ these are the most popular form of suspended ceiling consisting of a suspended grid framework to which the ceiling covering is attached. The covering can be of a tile, tray, board or strip format in a wide variety of materials with an exposed or concealed supporting framework. Services such as luminaries can usually be incorporated within the system. Generally panelled systems are easy to assemble and install using a water level or laser beam for initial and final levelling. Provision for maintenance access can be easily incorporated into most systems and layouts.<br><br>![image 703](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile703.png)|
+|---|
+
+
+|Decorative and Open Suspended Ceilings ~ these ceilings usually consist of an openwork grid or suspended shapes onto which the lights fixed at, above or below ceiling level can be trained thus creating a decorative and illuminated effect. Many of these ceilings are purpose designed and built as opposed to the proprietary systems associated with jointless and panelled suspended ceilings.<br><br>![image 704](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile704.png)|
+|---|
+
+
+###### Paints and Painting
+
+|Functions ~ the main functions of paint are to provide:†<br><br>1. An economic method of surface protection to building materials and components.<br>2. An economic method of surface decoration to building materials and components.<br><br><br>Composition ~ the actual composition of any paint can be complex but the basic components are:†<br><br>1. Binder ~ this is the liquid vehicle or medium which dries to form the surface film and can be composed of linseed oil, drying oils, synthetic resins and water. The first function of a paint medium is to provide a means of spreading the paint over the surface and at the same time acting as a binder to the pigment.<br>2. Pigment ~ this provides the body, colour, durability and corrosion protection properties of the paint. White lead pigments are very durable and moisture resistant but are poisonous and their use is generally restricted to priming and undercoating paints. If a paint contains a lead pigment the fact must be stated on the container. The general pigment used in paint is titanium dioxide which is not poisonous and gives good obliteration of the undercoats.<br>3. Solvents and Thinners ~ these are materials which can be added to a paint to alter its viscosity.<br><br><br>Paint Types † there is a wide range available but for most general uses the following can be considered:†<br><br>1. Oil Based paints † these are available in priming, undercoat and finishing grades. The latter can be obtained in a wide range of colours and finishes such as matt, semi†matt, eggshell, satin, gloss and enamel. Polyurethane paints have a good hardness and resistance to water and cleaning. Oil based paints are suitable for most applications if used in conjunction with correct primer and undercoat.<br>2. Water Based Paints † most of these are called emulsion paints the various finishes available being obtained by adding to the water medium additives such as alkyd resin & polyvinyl acetate (PVA). Finishes include matt, eggshell, semi-gloss and gloss. Emulsion paints are easily applied, quick drying and can be obtained with a washable finish and are suitable for most applications.<br>|
+|---|
+
+
+###### Paints and Painting
+
+|Supply ~ paint is usually supplied in metal containers ranging from 250 millilitres to 5 litres capacity to the colour ranges recommended in BS 381C (colours for specific purposes) and BS 4800 (paint colours for building purposes).<br><br>Application ~ paint can be applied to almost any surface providing the surface preparation and sequence of paint coats are suitable. The manufacturers specification and/or the recommendations of BS 6150 (painting of buildings) should be followed. Preparation of the surface to receive the paint is of the utmost importance since poor preparation is one of the chief causes of paint failure. The preperation consists basically of removing all dirt, grease, dust and ensuring that the surface will provide an adequate key for the paint which is to be applied. In new work the basic build-up of paint coats consists of:-<br><br>1. Priming Coats † these are used on unpainted surfaces to obtain the necessary adhesion and to inhibit corrosion of ferrous metals. New timber should have the knots treated with a solution of shellac or other alcohol based resin called knotting prior to the application of the primer.<br>2. Undercoats † these are used on top of the primer after any defects have been made good with a suitable stopper or filler. The primary function of an undercoat is to give the opacity and build†up necessary for the application of the finishing coat(s).<br>3. Finish † applied directly over the undercoating in one or more coats to impart the required colour and finish.<br><br><br>Paint can applied by:-<br><br>1. Brush † the correct type, size and quality of brush such as those recommended in BS 2992 (painters and decorators brushes) needs to be selected and used. To achieve a first class finish by means of brush application requires a high degree of skill.<br>2. Spray † as with brush application a high degree of skill is required to achieve a good finish. Generally compressed air sprays or airless sprays are used for building works.<br>3. Roller † simple and inexpensive method of quickly and cleanly applying a wide range of paints to flat and textured surfaces. Roller heads vary in size from 50 to 450 mm wide with various covers such as sheepskin, synthetic pile fibres, mohair and foamed polystyrene. All paint applicators must be thoroughly cleaned after use.<br>|
+|---|
+
+
+###### Painting---Preparation
+
+|Painting ~ the main objectives of applying coats of paint to a surface are preservation, protection and decoration to give a finish which is easy to clean and maintain. To achieve these objectives the surface preparation and paint application must be adequate. The preparation of new and previously painted surfaces should ensure that prior to painting the surface is smooth, clean, dry and stable.<br><br>Basic Surface Preparation Techniques ~<br><br>Timber † to ensure a good adhesion of the paint film all timber should have a moisture content of less than 18%. The timber surface should be prepared using an abrasive paper to produce a smooth surface brushed and wiped free of dust and any grease removed with a suitable spirit. Careful treatment of knots is essential either by sealing with two coats of knotting or in extreme cases cutting out the knot and replacing with sound timber. The stopping and filling of cracks and fixing holes with putty or an appropriate filler should be carried out after the application of the priming coat. Each coat of paint must be allowed to dry hard and be rubbed down with a fine abrasive paper before applying the next coat. On previously painted surfaces if the paint is in a reasonable condition the surface will only require cleaning and rubbing down before repainting, when the paint is in a poor condition it will be necessary to remove completely the layers of paint and then prepare the surface as described above for new timber.<br><br>Building Boards † most of these boards require no special preparation except for the application of a sealer as specified by the manufacturer.<br><br>Iron and Steel † good preparation is the key to painting iron and steel successfully and this will include removing all rust, mill scale, oil, grease and wax. This can be achieved by wire brushing, using mechanical means such as shot blasting, flame cleaning and chemical processes and any of these processes are often carried out in the steel fabrication works prior to shop applied priming.<br><br>Plaster † the essential requirement of the preparation is to ensure that the plaster surface is perfectly dry, smooth and free of defects before applying any coats of paint especially when using gloss paints. Plaster which contains lime can be alkaline and such surfaces should be treated with an alkali resistant primer when the surface is dry before applying the final coats of paint.|
+|---|
+
+
+###### Painting---Defects
+
+|Paint Defects ~ these may be due to poor or incorrect preparation of the surface, poor application of the paint and/or chemical reactions. The general remedy is to remove all the affected paint and carry out the correct preparation of the surface before applying in the correct manner new coats of paint. Most paint defects are visual and therefore an accurate diagnosis of the cause must be established before any remedial treatment is undertaken.<br><br>Typical Paint Defects ~<br><br>1. Bleeding † staining and disruption of the paint surface by chemical action, usually caused by applying an incorrect paint over another. Remedy is to remove affected paint surface and repaint with correct type of overcoat paint.<br>2. Blistering † usually caused by poor presentation allowing resin or moisture to be entrapped, the subsequent expansion causing the defect. Remedy is to remove all the coats of paint and ensure that the surface is dry before repainting.<br>3. Blooming † mistiness usually on high gloss or varnished surfaces due to the presence of moisture during application. It can be avoided by not painting under these conditions. Remedy is to remove affected paint and repaint.<br>4. Chalking † powdering of the paint surface due to natural ageing or the use of poor quality paint. Remedy is to remove paint if necessary, prepare surface and repaint.<br>5. Cracking and Crazing † usually due to unequal elasticity of successive coats of paint. Remedy is to remove affected paint and repaint with compatible coats of paint.<br>6. Flaking and Peeling † can be due to poor adhesion, presence of moisture, painting over unclean areas or poor preparation. Remedy is to remove defective paint, prepare surface and repaint.<br>7. Grinning † due to poor opacity of paint film allowing paint coat below or background to show through, could be the result of poor application; incorrect thinning or the use of the wrong colour. Remedy is to apply further coats of paint to obtain a satisfactory surface.<br>8. Saponification † formation of soap from alkali present in or on surface painted. The paint is ultimately destroyed and a brown liquid appears on the surface. Remedy is to remove the paint films and seal the alkaline surface before repainting.<br>|
+|---|
+
+
+|Joinery Production ~ this can vary from the flow production where one product such as flush doors is being made usually with the aid of purpose designed and built machines, to batch production where a limited number of similar items are being made with the aid of conventional woodworking machines. Purpose made joinery is very often largely hand made with a limited use of machines and is considered when special and/or high class joinery components are required.<br><br>Woodworking Machines ~ except for the portable electric tools such as drills, routers, jigsaws and sanders most woodworking machines need to be fixed to a solid base and connected to an extractor system to extract and collect the sawdust and chippings produced by the machines.<br><br>Saws † basically three formats are available, namely the circular, cross cut and band saws. Circular are general purpose saws and usually have tungsten carbide tipped teeth with feed rates of up to 60„000 per minute. Cross cut saws usually have a long bench to support the timber, the saw being mounted on a radial arm enabling the circular saw to be drawn across the timber to be cut. Band saws consist of an endless thin band or blade with saw teeth and a table on which to support the timber and are generally used for curved work.<br><br>Planers † most of these machines are combined planers and thicknessers, the timber being passed over the table surface for planning and the table or bed for thicknessing. The planer has a guide fence which can be tilted for angle planning and usually the rear bed can be lowered for rebating operations. The same rotating cutter block is used for all operations. Planing speeds are dependent upon the operator since it is a hand fed operation whereas thicknessing is mechanically fed with a feed speed range of 6„000 to 20„000 per minute. Maximum planing depth is usually 10 mm per passing.<br><br>Morticing Machines † these are used to cut mortices up to 25 mm wide and can be either a chisel or chain morticer. The former consists of a hollow chisel containing a bit or auger whereas the latter has an endless chain cutter.<br><br>Tenoning Machines † these machines with their rotary cutter blocks can be set to form tenon and scribe. In most cases they can also be set for trenching, grooving and cross cutting.<br><br>Spindle Moulder † this machine has a horizontally rotating cutter block into which standard or purpose made cutters are fixed to reproduce a moulding on timber passed across the cutter.|
+|---|
+
+
+|Purpose Made Joinery ~ joinery items in the form of doors, windows, stairs and cupboard fitments can be purchased as stock items from manufacturers. There is also a need for purpose made joinery to fulfil client/designer/user requirement to suit a specific need, to fit into a non-standard space, as a specific decor requirement or to complement a particular internal environment. These purpose made joinery items can range from the simple to the complex which require high degrees of workshop and site skills.<br><br>![image 705](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile705.png)|
+|---|
+
+
+|![image 706](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile706.png)|
+|---|
+
+
+|Joinery Timbers ~ both hardwoods and softwoods can be used for joinery works. Softwoods can be selected for their stability, durability and/or workability if the finish is to be paint but if it is left in its natural colour with a sealing coat the grain texture and appearance should be taken into consideration. Hardwoods are usually left in their natural colour and treated with a protective clear sealer or polish therefore texture, colour and grain pattern are important when selecting hardwoods for high class joinery work.<br><br>Typical Softwoods Suitable for Joinery Work ~<br><br>1. Douglas Fir † sometimes referred to as Columbian Pine or Oregon Pine. It is available in long lengths and has a straight grain. Colour is reddish brown to pink. Suitable for general and high class joinery. Approximate density 530 kg/m3.<br>2. Redwood † also known as Scots Pine. Red Pine, Red Deal and Yellow Deal. It is a widely used softwood for general joinery work having good durability a straight grain and is reddish brown to straw in colour. Approximate density 430 kg/m3.<br>3. European Spruce † similar to redwood but with a lower durability. It is pale yellow to pinkish white in colour and is used mainly for basic framing work and simple internal joinery. Approximate density 650 kg/m3.<br>4. Sitka Spruce † originates from Alaska, Western Canada and Northwest USA. The long, white strong fibres provide a timber quality for use in board or plywood panels. Approximate density 450 kg/m3.<br>5. Pitch Pine † durable softwood suitable for general joinery work. It is light red to reddish yellow in colour and tends to have large knots which in some cases can be used as a decorative effect. Approximate density 650 kg/m3.<br>6. Parana Pine † moderately durable straight grained timber available in a good range of sizes. Suitable for general joinery work especially timber stairs. Light to dark brown in colour with the occasional pink stripe. Approximate density 560 kg/m3.<br>7. Western Hemlock † durable softwood suitable for interior joinery work such as panelling. Light yellow to reddish brown in colour. Approximate density 500 kg/m3.<br>8. Western Red Cedar † originates from British Columbia and Western USA. A straight grained timber suitable for flush doors and panel work. Approximate density 380 kg/m3.<br>|
+|---|
+
+
+|Typical Hardwoods Suitable for Joinery Works ~<br><br>1. Beech † hard close grained timber with some silver grain in the predominately reddish yellow to light brown colour. Suitable for all internal joinery. Approximately density 700 kg/m3.<br>2. Iroko † hard durable hardwood with a figured grain and is usually golden brown in colour. Suitable for all forms of good class joinery. Approximate density 660 kg/m3.<br>3. Mahogany (African) † interlocking grained hardwood with good durability. It has an attractive light brown to deep red colour and is suitable for panelling and all high class joinery work. Approximate density 560 kg/m3.<br>4. Mahogany (Honduras) † durable hardwood usually straight grained but can have a mottled or swirl pattern. It is light red to pale reddish brown in colour and is suitable for all good class joinery work. Approximate density 530 kg/m3.<br>5. Mahogany (South American) † a well figured, stable and durable hardwood with a deep red or brown colour which is suitable for all high class joinery particularly where a high polish is required. Approximate density 550 kg/m3.<br>6. Oak (English) † very durable hardwood with a wide variety of grain patterns. It is usually a light yellow brown to a warm brown in colour and is suitable for all forms of joinery but should not be used in conjunction with ferrous metals due to the risk of staining caused by an interaction of the two materials. (The gallic acid in oak causes corrosion in ferrous metals.) Approximate density 720 kg/m3.<br>7. Sapele † close texture timber of good durability, dark reddish brown in colour with a varied grain pattern. It is suitable for most internal joinery work especially where a polished finish is required. Approximate density 640 kg/m3.<br>8. Teak † very strong and durable timber but hard to work. It is light golden brown to dark golden yellow in colour which darkens with age and is suitable for high class joinery work and laboratory fittings. Approximate density 650 kg/m3.<br>9. Jarrah (Western Australia) † hard, dense, straight grained timber. Dull red colour, suited to floor and stair construction subjected to heavy wear. Approximate density 820 kg/m3.<br>|
+|---|
+
+
+|Composite Boards ~ are factory manufactured, performed sheets with a wide range of properties and applications. The most common size is 2440 1220 mm or 2400 1200 mm in thicknesses from 3 to 50 mm.<br><br>1. Plywood (BS EN 636) † produced in a range of laminated thicknesses from 3 to 25 mm, with the grain of each layer normally at right angles to that adjacent. 3,7,9 or 11 plies make up the overall thickness and inner layers may have lower strength and different dimensions to those in the outer layers. Adhesives vary considerably from natural vegetable and animal glues to synthetics such as urea, melamine, phenol and resorcinol formaldehydes. Quality of laminates and type of adhesive determine application. Surface finishes include plastics, decorative hardwood veneers, metals, rubber and mineral aggregates.<br>2. Block and Stripboards (BS EN 12871) † range from 12 to 43 mm thickness, made up from a solid core of glued softwood strips with a surface enhancing veneer. Appropriate for dense panelling and doors.<br><br>Battenboard † strips over 30 mm wide (unsuitable for joinery). Blockboard † strips up to 25 mm wide. Laminboard † strips up to 7 mm wide.<br><br>![image 707](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile707.png)<br><br>3. Compressed Strawboard (BS 4046) † produced by compacting straw under heat and pressure, and edge binding with paper. Used as panels with direct decoration or as partitioning with framed support. Also, for insulated roof decking with 58 mm slabs spanning 600 mm joist spacing.<br>|
+|---|
+
+
+|4. Particle Board<br><br>Chipboard (BS EN 319) † bonded waste wood or chip particles in thicknesses from 6 to 50 mm, popularly used for floors in 18 and 22 mm at 450 and 600 mm maximum joist spacing, respectively. Sheets are produced by heat pressing the particles in thermosetting resins.<br><br>Wood Cement Board † approximately 25% wood particles mixed with water and cement, to produce a heavy and dense board often preferred to plasterboard and fibre cement for fire cladding. Often 3 layer boards, from 6 to 40 mm in thickness.<br><br>Oriented Strand Board (BS EN 300) † composed of wafer thin strands of wood, approximately 80 mm long 25 m wide, resin bonded and directionally oriented before superimposed by further layers. Each layer is at right angles to adjacent layers, similar to the structure of plywood. A popular alternative for wall panels, floors and other chipboard and plywood applications, they are produced in a range of thicknesses from 6 to 25 mm.<br><br>5. Fibreboards (BS EN 622†4) † basically wood in composition, reduced to a pulp and pressed to achieve 3 categories:<br><br>Hardboard density at least 800 kg/m3 in thicknesses from 3„2 to 8 mm. Provides an excellent base for coatings and laminated finishes. Mediumboard (low density) 350 to 560 kg/m3 for pinboards and wall linings in thicknesses of 6„4,9, and 12„7 mm. Mediumboard (high density) 560 to 800 kg/m3 for linings and partitions in thicknesses of 9 and 12 mm.<br><br>Softboard, otherwise known as insulating board with density usually below 250 kg/m3. Thicknesses from 9 to 25 mm, often found impregnated with bitumen in existing flat roofing applications. Ideal as pinboard.<br><br>Medium Density Fibreboard, differs from other fibreboards with the addition of resin bonding agent. These boards have a very smooth surface, ideal for painting and are available moulded for a variety of joinery applications. Density exceeds 600 kg/m3 and common board thicknesses are 9, 12, 18 and 25 mm for internal and external applications.<br><br>6. Woodwool (BS EN 13168) † units of 600 mm width are available in 50, 75 and 100 mm thicknesses. They comprise long wood shavings coated with a cement slurry, compressed to leave a high proportion of voids. These voids provide good thermal insulation and sound absorption. The perforated surface is an ideal key for direct plastering and they are frequently specified as permanent formwork.<br>|
+|---|
+
+
+###### Plastics in Building
+
+|Plastics ~ the term plastic can be applied to any group of substances based on synthetic or modified natural polymers which during manufacture are moulded by heat and/or pressure into the required form. Plastics can be classified by their overall grouping such as polyvinyl chloride (PVC) or they can be classified as thermoplastic or thermosetting. The former soften on heating whereas the latter are formed into permanent non-softening materials. The range of plastics available give the designer and builder a group of materials which are strong, reasonably durable, easy to fit and maintain and since most are mass produced of relative low cost.<br><br>Typical Applications of Plastics in Buildings ~<br><br>|Application|Plastics Used|
+|---|---|
+|Rainwater goods|unplasticised PVC (uPVC or PVC†U).|
+|Soil, waste, water and gas pipes and fittings|uPVC; polyethylene (PE); acrylonitrile butadiene styrene (ABS), polypropylene (PP).|
+|Hot and cold water pipes|chlorinated PVC; ABS; polypropylene; polyethylene; PVC (not for hot water).|
+|Bathroom and kitchen fittings|glass fibre reinforced polyester (GRP); acrylic resins.|
+|Cold water cisterns|polypropylene; polystyrene; polyethylene.|
+|Rooflights and sheets|GRP; acrylic resins; uPVC.|
+|DPC's and membranes, vapour control layers|low density polyethylene (LDPE); PVC film; polypropylene.|
+|Doors and windows|GRP; uPVC.|
+|Electrical conduit and fittings|plasticised PVC; uPVC; phenolic resins.|
+|Thermal insulation|generally cellular plastics such as expanded polystyrene bead and boards; expanded PVC; foamed polyurethane; foamed phenol formaldehyde; foamed urea formaldehyde.|
+|Floor finishes|plasticised PVC tiles and sheets; resin based floor paints; uPVC.|
+|Wall claddings and internal linings|unplasticised PVC; polyvinyl fluoride film laminate; melamine resins; expanded polystyrene tiles & sheets.|
+|
+|---|
+
+
+|8 DOMESTIC SERVICES<br><br>![image 708](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile708.png)<br><br>DRAINAGE EFFLUENTS SUBSOIL DRAINAGE SURFACE WATER REMOVAL ROAD DRAINAGE RAINWATER INSTALLATIONS DRAINAGE SYSTEMS DRAINAGE PIPE SIZES AND GRADIENTS WATER SUPPLY COLD WATER INSTALLATIONS HOT WATER INSTALLATIONS CISTERNS AND CYLINDERS SANITARY FITTINGS SINGLE AND VENTILATED STACK SYSTEMS DOMESTIC HOT WATER HEATING SYSTEMS ELECTRICAL SUPPLY AND INSTALLATION GAS SUPPLY AND GAS FIRES SERVICES FIRE STOPS AND SEALS OPEN FIREPLACES AND FLUES COMMUNICATIONS INSTALLATIONS|
+|---|
+
+
+Drainage Effluents
+
+|Effluent ~ can be defined as that which flows out. In building drainage terms there are three main forms of effluent:-<br><br>1 . Subsoil Water ~ water collected by means of special drains from the earth primarily to lower the water table level in the subsoil. It is considered to be clean and therefore requires no treatment and can be discharged direct into an approved water course.<br>2. Surface water ~ effluent collected from surfaces such as roofs and paved areas and like subsoil water is considered to be clean and can be discharged direct into an approved water course or soakaway<br><br>![image 709](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile709.png)<br><br>3. Foul or Soil Water ~ effluent contaminated by domestic or trade waste and will require treatment to render it clean before it can be discharged into an approved water course.<br><br><br>![image 710](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile710.png)|
+|---|
+
+
+###### Subsoil Drainage
+
+|Subsoil Drainage ~ Building Regulation C2 requires that subsoil drainage shall be provided if it is needed to avoid:-<br><br>a) the passage of ground moisture into the interior of the building or<br>b) damage to the fabric of the building.<br><br><br>Subsoil drainage can also be used to improve the stability of the ground, lower the humidity of the site and enhance its horticultural properties. Subsoil drains consist of porous or perforated pipes laid dry jointed in a rubble filled trench. Porous pipes allow the subsoil water to pass through the body of the pipe whereas perforated pipes which have a series of holes in the lower half allow the subsoil water to rise into the pipe. This form of ground water control is only economic up to a depth of 1„500, if the water table needs to be lowered to a greater depth other methods of ground water control should be considered (see pages 289 to 293).<br><br>The water collected by a subsoil drainage system has to be conveyed to a suitable outfall such as a river, lake or surface water drain or sewer. In all cases permission to discharge the subsoil water will be required from the authority or owner and in the case of streams, rivers and lakes, bank protection at the outfall may be required to prevent erosion (see page 684).<br><br>![image 711](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile711.png)|
+|---|
+
+
+###### Subsoil Drainage
+
+|Subsoil Drainage Systems ~ the lay out of subsoil drains will depend on whether it is necessary to drain the whole site or if it is only the substructure of the building which needs to be protected. The latter is carried out by installing a cut off drain around the substructure to intercept the flow of water and divert it away from the site of the building. Junctions in a subsoil drainage system can be made using standard fittings or by placing the end of the branch drain onto the crown of the main drain.<br><br>![image 712](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile712.png)<br><br>NB. connections to surface water sewer can be made at inspection chamber or direct to the sewer using a saddle connector † it may be necessary to have a catchpit to trap any silt (see page 688)|
+|---|
+
+
+Surface Water Removal---Roofs
+
+|General Principles ~ a roof must be designed with a suitable fall towards the surface water collection channel or gutter which in turn is connected to vertical rainwater pipes which convey the collected discharge to the drainage system. The fall of the roof will be determined by the chosen roof covering or the chosen pitch will limit the range of coverings which can be selected.<br><br>![image 713](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile713.png)|
+|---|
+
+
+###### Surface Water Removal---Roofs
+
+|![image 714](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile714.png)|
+|---|
+
+
+###### Surface Water Removal---Paved Areas
+
+|![image 715](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile715.png)|
+|---|
+
+
+###### Road Drainage
+
+|Highway Drainage ~ the stability of a highway or road relies on two factors †<br><br>1 . Strength and durability of upper surface<br>2. Strength and durability of subgrade which is the subsoil on which the highway construction is laid.<br><br><br>The above can be adversely affected by water therefore it may be necessary to install two drainage systems. One system (subsoil drainage) to reduce the flow of subsoil water through the subgrade under the highway construction and a system of surface water drainage.<br><br>![image 716](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile716.png)<br><br>![image 717](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile717.png)|
+|---|
+
+
+###### Road Drainage
+
+|Road Drainage ~ this consists of laying the paved area or road to a suitable crossfall or gradient to direct the run-off of surface water towards the drainage channel or gutter. This is usually bounded by a kerb which helps to convey the water to the road gullies which are connected to a surface water sewer. For drains or sewers under 900mm internal diameter inspection chambers will be required as set out in the Building Regulations. The actual spacing of road gullies is usually determined by the local highway authority based upon the carriageway gradient and the area to be drained into one road gully. Alternatively the following formula could be used:-<br><br>D =<br><br>280 S W<br><br>where D = gully spacing<br><br>S = carriageway gradient (per cent) W = width of carriageway in metres<br><br>\ If S = 1 : 60 = 1„66% and W = 4„500<br><br>D =<br><br>280 1„66 4„500<br><br>= say 80„000<br><br>![image 718](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile718.png)|
+|---|
+
+
+Rainwater Installation Details
+
+|Materials ~ the traditional material for domestic eaves gutters and rainwater pipes is cast iron but uPVC systems are very often specified today because of their simple installation and low maintenance costs. Other materials which could be considered are aluminium alloy, galvanised steel and stainless steel, but whatever material is chosen it must be of adequate size, strength and durability.<br><br>![image 719](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile719.png)|
+|---|
+
+
+###### Rainwater Installation Details
+
+|![image 720](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile720.png)<br><br>external wall<br><br>pipe clip, holderbat or spigot with projecting ears<br><br>rainwater pipe<br><br>rainwater shoe<br><br>sealed access cover<br><br>ground level<br><br>drain coupling<br><br>drain to surface water sewer or soakaway<br><br>mass concrete bed<br><br>ground floor<br><br>![image 721](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile721.png)<br><br>external wall<br><br>pipe clip, holderbat or spigot with projectings ears<br><br>rainwater pipe<br><br>drain coupling<br><br>sealedaccesscoverto gullywith50 mmminimum waterseal<br><br>drain to combined sewer<br><br>mass concrete bed<br><br>For details of rainwater pipe connection to gutter see previous page<br><br>ground floor<br><br>ground level|
+|---|
+
+
+###### Rainwater Drainage---Soakaways
+
+|Soakaways ~ provide a means for collecting and controlling the seapage of rainwater into surrounding granular subsoils. They are not suitable in clay subsoils. Siting is on land at least level and preferably lower than adjacent buildings and no closer than 5m to a building. Concentration of a large volume of water any closer could undermine the foundations. The simplest soakaway is a rubble filled pit, which is normally adequate to serve a dwelling or other small building. Where several buildings share a soakaway, the pit should be lined with precast perforated concrete rings and surrounded in free-draining material.<br><br>BRE Digest 365 provides capacity calculations based on percolation tests. The following empirical formula will prove adequate for most situations:-<br><br>C =<br><br>AR 3<br><br>where: C = capacity (m3) A = area on plan to be drained (m2) R = rainfall (m/h)<br><br>e.g. roof plan area 60 m2 and rainfall of 50 mm/h (0„05 m/h)<br><br>C =<br><br>60 0„05 3<br><br>= 1„0m3 (below invert of discharge pipe)<br><br>![image 722](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile722.png)<br><br>Ref. BRE Digest 365: Soakaways.|
+|---|
+
+
+###### Simple Domestic Drainage
+
+|Drains ~ these can be defined as a means of conveying surface water or foul water below ground level.<br><br>Sewers ~ these have the same functions as drains but collect the discharge from a number of drains and convey it to the final outfall. They can be a private or public sewer depending on who is responsible for the maintenance.<br><br>Basic Principles ~ to provide a drainage system which is simple efficient and economic by laying the drains to a gradient which will render them self cleansing and will convey the effluent to a sewer without danger to health or giving nuisance. To provide a drainage system which will comply with the minimum requirements given in Part H of the Building Regulations<br><br>![image 723](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile723.png)<br><br>There must be an access point at a junction unless each run can be cleared from another access point.|
+|---|
+
+
+|Separate System ~ the most common drainage system in use where the surface water discharge is conveyed in separate drains and sewers to that of foul water discharges and therefore receives no treatment before the final outfall.<br><br>![image 724](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile724.png)|
+|---|
+
+
+###### Drainage Systems
+
+|Combined System ~ this is the simplest and least expensive system to design and install but since all forms of discharge are conveyed in the same sewer the whole effluent must be treated unless a sea outfall is used to discharge the untreated effluent.<br><br>Typical Example ~<br><br>![image 725](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile725.png)<br><br>Ref. BS EN 752-1 to -7: Drain and sewer systems outside buildings.|
+|---|
+
+
+|Partially Separate System ~ a compromise system † there are two drains, one to convey only surface water and a combined drain to convey the total foul discharge and a proportion of the surface water.<br><br>![image 726](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile726.png)|
+|---|
+
+
+|Inspection Chambers ~ these provide a means of access to drainage systems where the depth to invert level does not exceed 1„000. Manholes ~ these are also a means of access to the drains and sewers, and are so called if the depth to invert level exceeds 1„000.<br><br>These means of access should be positioned in accordance with the requirements of part H of the Building Regulations. In domestic work inspection chambers can be of brick, precast concrete or preformed in plastic for use with patent drainage systems. The size of an inspection chamber depends on the depth to invert level, drain diameter and number of branch drains to be accommodated within the chamber. Ref. BS EN 752: Drain and sewer systems outside buildings.<br><br>Typical Details ~<br><br>brick levelling course<br><br>one brick wall in dense engineering quality bricks bedded in cm. mt. (1 : 3) and laid in English bond<br><br>branch drain<br><br>150 mm thick mass concrete (1 : 3 : 6) base<br><br>brick levelling course<br><br>precast concrete cover slab<br><br>precast concrete chamber sections to BS 5911- 4, circular or rectangular shapes available<br><br>precast concrete base unit with main channel and branch channel(s) cast in as required<br><br>branch drain<br><br>step irons required for invert levels over 1„200 deep<br><br>600 × 450 light duty cover and frame bedded in cm. mt.<br><br>600 × 450 c.i. cover and frame<br><br>600 minimum<br><br>1:6fall<br><br>main drainage channel<br><br>100 mm thick precast concrete slab<br><br>150 mm mass concrete encasing required in wet subsoils<br><br>25 mm thick (1 : 1) cement/sand topping to 1 : 6 fall over mass concrete benching<br><br>main drainage channel<br><br>arch or lintel over pipe<br><br>![image 727](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile727.png)|
+|---|
+
+
+|Plastic Inspection Chambers ~ the raising piece can be sawn horizontally with a carpenter's saw to suit depth requirements with the cover and frame fitted at surface level. Bedding may be a 100 mm prepared shingle base or 150 mm wet concrete to ensure a uniform support.<br><br>The unit may need weighting to retain it in place in areas of high water table, until backfilled with granular material. Under roads a peripheral concrete collar is applied to the top of the chamber in addition to the 150 mm thickness of concrete surrounding the inspection chamber.<br><br>![image 728](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile728.png)|
+|---|
+
+
+###### Simple Drainage---Access Location
+
+|Means Of Access † provision is required for maintenance and inspection of drainage systems. This should occur at:<br><br>* the head (highest part) or close to it<br>* a change in horizontal direction<br>* a change in vertical direction (gradient)<br>* a change in pipe diameter<br>* a junction, unless the junction can be rodded through from an access point<br>* long straight runs (see table) Maximum spacing of drain access points (m)<br>* Small access fitting is 150 mm dia. or 150 mm 100mm. Large access fitting is 225mm 100mm.<br><br><br>Rodding Eyes and Shallow Access Chambers † these may be used at the higher parts of drainage systems where the volume of excavation and cost of an inspection chamber or manhole would be unnecessary. SACs have the advantage of providing access in both directions. Covers to all drain openings should be secured to deter unauthorised access.<br><br>Ref. Building Regulations, Approved Document H1: Foul Water Drainage.<br><br>To: Small access fitting<br><br>Large access fitting<br><br>Junction Inspection chamber<br><br>Manhole<br><br>From:<br><br>Drain head 12 12 22 45<br><br>Rodding eye<br><br>22 22 22 45 45<br><br>Small access fitting<br><br>12 22 22<br><br>Large access fitting<br><br>22 45 45<br><br>Inspection chamber<br><br>22 45 22 45 45<br><br>Manhole 45 90|
+|---|
+
+
+###### Simple Drainage---Drain Laying
+
+|Excavations ~ drains are laid in trenches which are set out, excavated and supported in a similar manner to foundation trenches except for the base of the trench which is cut to the required gradient or fall.<br><br>![image 729](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile729.png)<br><br>Joints ~ these must be watertight under all working and movement conditions and this can be achieved by using rigid and flexible joints in conjuntion with the appropriate bedding.<br><br>![image 730](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile730.png)<br><br>![image 731](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile731.png)|
+|---|
+
+
+###### Drainage Systems---Testing
+
+|Watertightness ~ must be ensured to prevent water seapage and erosion of the subsoil. Also, in the interests of public health, foul water should not escape untreated. The Building Regulaions, Approved Document H1: Section 2 specifies either an air or water test to determine soundness of installation.<br><br>AIR TEST ~ equipment : manometer and accessories (see page 719) 2 drain stoppers, one with tube attachment<br><br>![image 732](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile732.png)<br><br>Test ~ 100 mm water gauge to fall no more than 25mm in 5 mins. Or, 50 mm w.g. to fall no more than 12 mm in 5mins. WATER TEST ~ equipment : Drain stopper<br><br>Test bend Extension pipe<br><br>![image 733](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile733.png)<br><br>Test ~ 1„5 m head of water to stand for 2 hours and then topped up. Leakage over the next 30 minutes should be minimal, i.e. 100 mm pipe † 0„05 litres per metre, which equates to a drop of 6„4mm/m in the extension pipe, and 150 mm pipe † 0„08 litres per metre, which equates to a drop of 4„5 mm/m in the extension pipe.|
+|---|
+
+
+###### Drainage---Pipe Sizes and Gradients
+
+|Drainage Pipes ~ sizes for normal domestic foul water applications:-<br><br>< 20 dwellings = 100mm diameter 20†150 dwellings = 150 mm diameter<br><br>Exceptions: 75mm diameter for waste or rainwater only (no WCs) 150 mm diameter minimum for a public sewer<br><br>Other situations can be assessed by summating the Discharge Units from appliances and converting these to an appropriate diameter stack and drain, see BS EN 12056-2 (stack) and BS EN 752-4 (drain). Gradient will also affect pipe capacity and when combined with discharge calculations, provides the basis for complex hydraulic theories.<br><br>The simplest correlation of pipe size and fall, is represented in Maguire's rule:400 (100mm) pipe, minimum gradient 1 in 40 600 (150 mm) pipe, minimum gradient 1 in 60 900 (225 mm) pipe, minimum gradient 1 in 90<br><br>The Building Regulations, approved Document H1 provides more scope and relates to foul water drains running at 0„75 proportional depth. See Diagram 9 and Table 6 in Section 2 of the Approved Document.<br><br>Other situations outside of design tables and empirical practice can be calculated. eg. A 150 mm diameter pipe flowing 0„5 proportional depth.<br><br>![image 734](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile734.png)<br><br>Applying the Chezy formula for gradient calculations:v = c m i where: v = velocity of flow, (min for self cleansing = 0„8 m/s)<br><br>c = Chezy coefficient (58) m = hydraulic mean depth or; area of water flowing wetted perimeter<br><br>for 0„5 p:d: = diam=4<br><br>i = inclination or gradient as a fraction 1/x<br><br>Selecting a velocity of 1 m/s as a margin of safety over the minimum:-<br><br>1 = 58 0:15=4 i i = 0„0079 where i = 1/x So, x = 1/0„0079 = 126, i.e. a minimum gradient of 1 in 126|
+|---|
+
+
+|Water supply ~ an adequate supply of cold water of drinking quality should be provided to every residential building and a drinking water tap installed within the building. The installation should be designed to prevent waste, undue consumption, misuse, contamination of general supply, be protected against corrosion and frost damage and be accessible for maintenance activities. The intake of a cold water supply to a building is owned jointly by the water authority and the consumer who therefore have joint maintenance responsibilities.<br><br>![image 735](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile735.png)|
+|---|
+
+
+|![image 736](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile736.png)|
+|---|
+
+
+###### Cold Water Installations
+
+|General ~ when planning or designing any water installation the basic physical laws must be considered:-<br><br>1 . Water is subject to the force of gravity and will find its own level.<br>2. To overcome friction within the conveying pipes water which is stored prior to distribution will require to be under pressure and this is normally achieved by storing the water at a level above the level of the outlets. The vertical distance between these levels is usually called the head.<br>3. Water becomes less dense as its temperature is raised, therefore warm water will always displace colder water whether in a closed or open circuit.<br><br><br>Direct Cold Water Systems ~ the cold water is supplied to the outlets at mains pressure; the only storage requirements is a small capacity cistern to feed the hot water storage tank. These systems are suitable for districts which have high level reservoirs with a good supply and pressure. The main advantage is that drinking water is available from all cold water outlets, disadvantages include lack of reserve in case of supply cut off, risk of back syphonage due to negative mains pressure and a risk of reduced pressure during peak demand periods.<br><br>![image 737](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile737.png)|
+|---|
+
+
+Cold Water Installations
+
+|Indirect Systems ~ Cold water is supplied to all outlets from a cold water storage cistern except for the cold water supply to the sink(s) where the drinking water tap is connected directly to incoming supply from the main. This system requires more pipework than the direct system but it reduces the risk of back syphonage and provides a reserve of water should the mains supply fail or be cut off. The local water authority will stipulate the system to be used in their area.<br><br>![image 738](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile738.png)|
+|---|
+
+
+|Direct System ~ this is the simplest and least expensive system of hot water installation. The water is heated in the boiler and the hot water rises by convection to the hot water storage tank or cylinder to be replaced by the cooler water from the bottom of the storage vessel. Hot water drawn from storage is replaced with cold water from the cold water storage cistern. Direct systems are suitable for soft water areas and for installations which are not supplying a central heating circuit.<br><br>![image 739](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile739.png)|
+|---|
+
+
+Hot Water Installations
+
+|Indirect System ~ this is a more complex system than the direct system but it does overcome the problem of furring which can occur in direct hot water systems. This method is therefore suitable for hard water areas and in all systems where a central heating circuit is to be part of the hot water installation. Basically the pipe layouts of the two systems are similar but in the indirect system a separate small capacity feed cistern is required to charge and top up the primary circuit. In this system the hot water storage tank or cylinder is in fact a heat exchanger † see page 712.<br><br>![image 740](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile740.png)|
+|---|
+
+
+|Mains Fed Indirect System ~ now widely used as an alternative to conventional systems. It eliminates the need for cold water storage and saves considerably on installation time. This system is established in Europe and the USA, but only acceptable in the UK at the local water authority's discretion. It complements electric heating systems, where a boiler is not required. An expansion vessel replaces the standard vent and expansion pipe and may be integrated with the hot water storage cylinder. It contains a neoprene diaphragm to separate water from air, the air providing a `cushion' for the expansion of hot water. Air loss can be replenished by foot pump as required.<br><br>![image 741](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile741.png)|
+|---|
+
+
+###### Hot and Cold Water Installations---Flow Controls
+
+|Flow Controls ~ these are valves inserted into a water installation to control the water flow along the pipes or to isolate a branch circuit or to control the draw-off of water from the system.<br><br>![image 742](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile742.png)<br><br>crutch head<br><br>packing gland<br><br>STOP VALVE high pressure mains supply<br><br>spindle<br><br>loose jumper<br><br>flow<br><br>GATE VALVE low pressure cistern supply<br><br>Spindle<br><br>Typical Examples ~<br><br>wheel head<br><br>packing gland<br><br>wedge shaped gate<br><br>![image 743](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile743.png)<br><br>![image 744](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile744.png)|
+|---|
+
+
+###### Hot and Cold Water Installations---Cisterns
+
+|Cisterns ~ these are fixed containers used for storing water at atmospheric pressure. The inflow of water is controlled by a floatvalve which is adjusted to shut off the water supply when it has reached the designed level within the cistern. The capacity of the cistern depends on the draw off demand and whether the cistern feeds both hot and cold water systems. Domestic cold water cisterns should be placed at least 750 mm away from an external wall or roof surface and in such a position that it can be inspected, cleaned and maintained. A minimum clear space of 300mm is required over the cistern for floatvalve maintenance. An overflow or warning pipe of not less than 22mm diameter must be fitted to fall away to discharge in a conspicuous position. All draw off pipes must be fitted with a gate valve positioned as near to the cistern as possible.<br><br>Cisterns are available in a variety of sizes and materials such as galvanised mild steel (BS 417-2), moulded plastic (BS 4213) and reinforced plastic (BS 4994). If the cistern and its associated pipework are to be housed in a cold area such as a roof they should be insulated against freezing.<br><br>![image 745](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile745.png)|
+|---|
+
+
+###### Indirect Hot Water Cylinders
+
+|Indirect Hot Water Cylinders ~ these cylinders are a form of heat exchanger where the primary circuit of hot water from the boiler flows through a coil or annulus within the storage vessel and transfers the heat to the water stored within. An alternative hot water cylinder for small installations is the single feed or `Primatic' cylinder which is self venting and relies on two air locks to separate the primary water from the secondary water. This form of cylinder is connected to pipework in the same manner as for a direct system (see page 707) and therefore gives savings in both pipework and fittings. Indirect cylinders usually conform to the recommendations of BS 417-2 (galvanised mild steel) or BS 1566-1 (copper). Primatic or single feed cylinders to BS 1566-2 (copper).<br><br>![image 746](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile746.png)<br><br>Primatic Cylinders ~<br><br>1 . Cylinder is filled in the normal way and the primary system is filled via the heat exchanger, as the initial filling continues air locks are formed in the upper and lower chambers of the heat exchanger and in the vent pipe.<br>2. The two air locks in the heat exchanger are permanently maintained and are self-recuperating in operation. These air locks isolate the primary water from the secondary water almost as effectively as a mechanical barrier.<br>3. The expansion volume of total primary water at a flow temperature of 82 C is approximately 1/25 and is accommodated in the upper expansion chamber by displacing air into the lower chamber; upon contraction reverse occurs.<br>|
+|---|
+
+
+###### Water Installations---Pipework Joints
+
+|![image 747](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile747.png)|
+|---|
+
+
+###### Sanitary Fittings---Sinks and Basins
+
+|Fireclay Sinks (BS 1206) † these are white glazed sinks and are available in a wide range of sizes from 460 380 200 deep up to 1220 610 305 deep and can be obtained with an integral drainer. They should be fixed at a height between 850 and 920mm and supported by legs, cantilever brackets or dwarf brick walls.<br><br>Metal Sinks (BS EN 13310) † these can be made of enamelled pressed steel or stainless steel with single or double drainers in sizes ranging from 1070 460 to 1600 530 supported on a cantilever brackets or sink cupboards.<br><br>![image 748](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile748.png)<br><br>![image 749](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile749.png)|
+|---|
+
+
+###### Sanitary Fittings---Baths and Showers
+
+|![image 750](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile750.png)|
+|---|
+
+
+###### Sanitary Fittings---Water Closets and Cisterns
+
+|![image 751](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile751.png)|
+|---|
+
+
+Single Stack Discharge Systems
+
+|Single Stack System ~ method developed by the Building Research Establishment to eliminate the need for ventilating pipework to maintain the water seals in traps to sanitary fittings. The slope and distance of the branch connections must be kept within the design limitations given below. This system is only possible when the sanitary appliances are closely grouped around the discharge stack.<br><br>![image 752](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile752.png)|
+|---|
+
+
+Ventilated Stack Discharge Systems
+
+|Ventilated Stack Systems ~ where the layout of sanitary appliances is such that they do not conform to the requirements for the single stack system shown on page 717 ventilating pipes will be required to maintain the water seals in the traps. Three methods are available to overcome the problem, namely a fully ventilated system, a ventilated stack system and a modified single stack system which can be applied over any number of storeys.<br><br>![image 753](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile753.png)|
+|---|
+
+
+###### Sanitation Systems---Testing
+
+|Airtightness ~ must be ensured to satisfy public health legislation. The Building Regulations, Approved Document H1: Section 1, provides minimum standards for test procedures. An air or smoke test on the stack must produce a pressure at least equal to 38 mm water gauge for not less than 3 minutes.<br><br>![image 754](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile754.png)<br><br>NB. Smoke tests are rarely applied now as the equipment is quite bulky and unsuited for use with uPVC pipes. Smoke producing pellets are ideal for leakage detection, but must not come into direct contact with plastic materials.|
+|---|
+
+
+|One Pipe System ~ the hot water is circulated around the system by means of a centrifugal pump. The flow pipe temperature being about 80 C and the return pipe temperature being about 60 to 70 C. The one pipe system is simple in concept and easy to install but has the main disadvantage that the hot water passing through each heat emitter flows onto the next heat emitter or radiator, therefore the average temperature of successive radiators is reduced unless the radiators are carefully balanced or the size of the radiators at the end of the circuit are increased to compensate for the temperature drop.<br><br>![image 755](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile755.png)|
+|---|
+
+
+|Two Pipe System ~ this is a dearer but much more efficient system than the one pipe system shown on the previous page. It is easier to balance since each radiator or heat emitter receives hot water at approximately the same temperature because the hot water leaving the radiator is returned to the boiler via the return pipe without passing through another radiator.<br><br>![image 756](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile756.png)|
+|---|
+
+
+|Micro Bore System ~ this system uses 6 to 12 mm diameter soft copper tubing with an individual flow and return pipe to each heat emitter or radiator from a 22 mm diameter manifold. The flexible and unobstrusive pipework makes this system easy to install in awkward situations but it requires a more powerful pump than that used in the traditional small bore systems. The heat emitter or radiator valves can be as used for the one or two pipe small bore systems alternatively a double entry valve can be used.<br><br>![image 757](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile757.png)|
+|---|
+
+
+|Controls ~ the range of controls available to regulate the heat output and timing operations for a domestic hot water heating system is considerable, ranging from thermostatic radiator control valves to programmers and controllers.<br><br>Typical Example ~<br><br>Boiler † fitted with a thermostat to control the temperature of the hot water leaving the boiler.<br><br>Heat Emitters or Radiators † fitted with thermostatically controlled radiator valves to control flow of hot water to the radiators to keep room at desired temperature.<br><br>Programmer/Controller † this is basically a time switch which can usually be set for 24 hours, once daily or twice daily time periods and will generally give separate programme control for the hot water supply and central heating systems. The hot water cylinder and room thermostatic switches control the pump and motorised valve action.<br><br>![image 758](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile758.png)|
+|---|
+
+
+|Electrical Supply ~ in England and Wales electricity is generated and supplied by National Power, PowerGen and Nuclear Electric and distributed through regional supply companies, whereas in Scotland it is generated, supplied and distributed by Scottish Power and the Scottish Hydro-Electric Power Company. The electrical supply to a domestic installation is usually 230 volt single phase and is designed with the following basic aims:-<br><br>1 . Proper earthing to avoid shocks to occupant.<br>2. Prevention of current leakage.<br>3. Prevention of outbreak of fire.<br><br><br>![image 759](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile759.png)|
+|---|
+
+
+|Electrical Supply Intake ~ although the electrical supply intake can be terminated in a meter box situated within a dwelling, most supply companies prefer to use the external meter box to enable the meter to be read without the need to enter the premises.<br><br>![image 760](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile760.png)<br><br>For alternative arrangement of supply intake see previous page|
+|---|
+
+
+|Entry and Intake of Electrical Service ~ the local electricity supply company is responsible for providing electricity up to and including the meter, but the consumer is responsible for safety and protection of the company's equipment. The supplier will install the service cable up to the meter position where their termination equipment is installed. This equipment may be located internally or fixed externally on a wall, the latter being preferred since it gives easy access for reading the meter † see details on the previous page.<br><br>Meter Boxes † generally the supply company's meters and termination equipment are housed in a meter box. These are available in fibreglass and plastic, ranging in size from 450 mm wide 638mm high to 585 m wide 815 mm high with an overall depth of 177 mm.<br><br>Consumer Control Unit † this provides a uniform, compact and effective means of efficiently controlling and distributing electrical energy within a dwelling. The control unit contains a main double pole isolating switch controlling the live phase and neutral conductors, called bus bars. These connect to the fuses or miniature circuit breakers protecting the final subcircuits.<br><br>![image 761](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile761.png)|
+|---|
+
+
+###### Electrical Supply---Consumer Unit
+
+|Consumer's Power Supply Control Unit † this is conveniently abbreviated to consumer unit. As described on the previous page, it contains a supply isolator switch, live, neutral and earth bars, plus a range of individual circuit over-load safety protection devices. By historical reference this unit is sometimes referred to as a fuse box, but modern variants are far more sophisticated. Over-load protection is provided by miniature circuit breakers attached to the live or phase bar. Additional protection is provided by a split load residual current device (RCD) dedicated specifically to any circuits that could be used as a supply to equipment outdoors, e.g. power sockets on a ground floor ring main.<br><br>RCD † a type of electro-magnetic switch or solenoid which disconnects the electricity supply when a surge of current or earth fault occurs. See Part 10 of the Building Services Handbook for more detail.<br><br>![image 762](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile762.png)<br><br>Note that with an overhead supply, the MAIN SWITCH is combined with a 100mA RCD protecting all circuits.<br><br>Note:<br><br>Circuits (1) to fixtures, i.e. lights, cooker, immersion heater and smoke alarms.<br>Circuits (2) to socket outlets that could supply portable equipment outdoors.<br>|
+|---|
+
+
+|Electric Cables ~ these are made up of copper or aluminium wires called conductors surrounded by an insulating material such as PVC or rubber.<br><br>![image 763](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile763.png)<br><br>Conduits ~ these are steel or plastic tubes which protect the cables. Steel conduits act as an earth conductor whereas plastic conduits will require a separate earth conductor drawn in. Conduits enable a system to be rewired without damage or interference of the fabric of the building. The cables used within conduits are usually insulated only, whereas in non-rewireable systems the cables have a protective outer sheath.<br><br>![image 764](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile764.png)<br><br>Trunking † alternative to conduit and consists of a preformed cable carrier which is surface mounted and is fitted with a removable or `snap on' cover which can have the dual function of protection and trim or surface finish.|
+|---|
+
+
+|Wiring systems ~ rewireable systems housed in horizontal conduits can be cast into the structural floor slab or sited within the depth of the floor screed. To ensure that such a system is rewireable, draw-in boxes must be incorporated at regular intervals and not more than two right angle boxes to be included between draw-in points. Vertical conduits can be surface mounted or housed in a chase cut in to a wall provided the depth of the chase is not more than one-third of the wall thickness. A horizontal non-rewireable system can be housed within the depth of the timber joists to a suspended floor whereas vertical cables can be surface mounted or housed in a length of conduit as described for rewireable systems.<br><br>![image 765](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile765.png)|
+|---|
+
+
+|Cable Sizing ~ the size of a conductor wire can be calculated taking into account the maximum current the conductor will have to carry (which is limited by the heating effect caused by the resistance to the flow of electricity through the conductor) and the voltage drop which will occur when the current is carried. For domestic electrical installations the following minimum cable specifications are usually suitable †<br><br>![image 766](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile766.png)<br><br>All the above ratings are for one twin cable with or without an earth conductor.<br><br>Electrical Accessories ~ for power circuits these include cooker control units and fused connector units for fixed appliances such as immersion heaters, water heaters and refrigerators.<br><br>Socket Outlets ~ these may be single or double outlets, switched or unswitched, surface or flush mounted and may be fitted with indicator lights. Recommended fixing heights are †<br><br>![image 767](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile767.png)|
+|---|
+
+
+|Power Circuits ~ in new domestic electrical installations the ring main system is usually employed instead of the older system of having each socket outlet on its own individual fused circuit with unfused round pin plugs. Ring circuits consist of a fuse or miniature circuit breaker protected subcircuit with a 32 amp rating of a live conductor, neutral conductor and an earth looped from socket outlet to socket outlet. Metal conduit systems do not require an earth wire providing the conduit is electrically sound and earthed. The number of socket outlets per ring main is unlimited but a separate circuit must be provided for every 100m2 of floor area. To conserve wiring, spur outlets can be used as long as the total number of spur outlets does not exceed the total number of outlets connected to the ring and that there is not more than two outlets per spur.<br><br>![image 768](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile768.png)|
+|---|
+
+
+|Lighting Circuits ~ these are usually wired by the loop-in method using an earthed twin cable with a 6 amp fuse or miniature circuit breaker protection. In calculating the rating of a lighting circuit an allowance of 100 watts per outlet should be used. More than one lighting circuit should be used for each installation so that in the event of a circuit failure some lighting will be in working order.<br><br>![image 769](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile769.png)<br><br>Electrical Accessories ~ for lighting circuits these consist mainly of switches and lampholders, the latter can be wall mounted, ceiling mounted or pendant in format with one or more bulb or tube holders. Switches are usually rated at 5 amps and are available in a variety of types such as double or 2 gang, dimmer and pull or pendant switches. The latter must always be used in bathrooms.|
+|---|
+
+
+Gas Supply---Basic Requirements
+
+|Gas Supply ~ potential consumers of mains gas may apply to their local utilities supplier for connection, e.g. Transco (Lattice Group plc). The cost is normally based on a fee per metre run. However, where the distance is considerable, the gas authority may absorb some of the cost if there is potential for more customers. The supply, appliances and installation must comply with the safety requirements made under the Gas Safety (Installation and Use) Regulations, 1998, and Part J of the Building Regulations.<br><br>![image 770](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile770.png)|
+|---|
+
+
+Gas Supply---Basic Requirements
+
+|Gas Service Pipes ~<br><br>1 . Whenever possible the service pipe should enter the building on the side nearest to the main.<br>2. A service pipe must not pass under the foundations of a building.<br>3. No service pipe must be run within a cavity but it may pass through a cavity by the shortest route.<br>4. Service pipes passing through a wall or solid floor must be enclosed by a sleeve or duct which is end sealed with mastic.<br>5. No service pipe shall be housed in an unventilated void.<br>6. Suitable materials for service pipes are copper (BS EN 1057) and steel (BS EN 10255). Polyethylene (BS 7281 or BS EN 1555-2) is normally used underground.<br><br><br>![image 771](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile771.png)|
+|---|
+
+
+Gas Fires
+
+|Gas Fires ~ for domestic use these generally have a low energy rating of less than 7 kW net input and must be installed in accordance with minimum requirements set out in Part J of the Building Regulations. Most gas fires connected to a flue are designed to provide radiant and convected heating whereas the room sealed balanced flue appliances are primarily convector heaters.<br><br>![image 772](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile772.png)|
+|---|
+
+
+Gas Fires
+
+|Gas Fire Flues ~ these can be defined as a passage for the discharge of the products of combustion to the outside air and can be formed by means of a chimney, special flue blocks or by using a flue pipe. In all cases the type and size of the flue as recommended in Approved Document J, BS EN 1806 and BS 5440 will meet the requirements of the Building Regulations.<br><br>![image 773](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile773.png)|
+|---|
+
+
+###### Open Fireplaces and Flues
+
+|Open Fireplaces ~ for domestic purposes these are a means of providing a heat source by consuming solid fuels with an output rating of under 50 kW. Room-heaters can be defined in a similar manner but these are an enclosed appliance as opposed to the open recessed fireplace.<br><br>Components ~ the complete construction required for a domestic open fireplace installation is composed of the hearth, fireplace recess, chimney, flue and terminal.<br><br>![image 774](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile774.png)<br><br>See also BS 5854: Code of practice for flues and flue structures in buildings.|
+|---|
+
+
+|Open Fireplace Recesses ~ these must have a constructional hearth and can be constructed of bricks or blocks of concrete or burnt clay or they can be of cast in-situ concrete. All fireplace recesses must have jambs on both sides of the opening and a backing wall of a minimum thickness in accordance with its position and such jambs and backing walls must extend to the full height of the fireplace recess.<br><br>![image 775](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile775.png)|
+|---|
+
+
+###### Open Fireplace and Flues
+
+|![image 776](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile776.png)|
+|---|
+
+
+|Open Fireplace Chimneys and Flues ~ the main functions of a chimney and flue are to:-<br><br>1 . Induce an adequate supply of air for the combustion of the fuel being used.<br>2. Remove the products of combustion.<br><br><br>In fulfilling the above functions a chimney will also encourage a flow of ventilating air promoting constant air changes within the room which will assist in the prevention of condensation.<br><br>Approved Document J recommends that all flues should be lined with approved materials so that the minimum size of the flue so formed will be 200mm diameter or a square section of equivalent area. Flues should also be terminated above the roof level as shown, with a significant increase where combustible roof coverings such as thatch or wood shingles are used.<br><br>![image 777](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile777.png)|
+|---|
+
+
+|![image 778](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile778.png)<br><br>Refs. BS EN 13502: Chimneys. Requirements and test methods for clay/ceramic flue terminals. BS EN 1457: Chimneys. Clay/ceramic flue liners. Requirements and test methods.|
+|---|
+
+
+|![image 779](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile779.png)|
+|---|
+
+
+|Chimney construction †<br><br>![image 780](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile780.png)<br><br>Typical chimney outlet<br><br>Clay bricks † Frost resistant quality. Min. density 1500 kg/m3.<br><br>Calcium silicate bricks † Min. compressive strength 20.5 N/mm2 (27.5 N/mm2 for cappings).<br><br>Precast concrete masonry units † Min. compressive strength 15 N/mm2.<br><br>Mortar † A relatively strong mix of cement and sand 1:3. Cement to be specified as sulphate resisting because of the presence of soluble sulphates in the flue gas condensation.<br><br>Chimney pot † The pot should be firmly bedded in at least 3 courses of brickwork to prevent it being dislodged in high winds.<br><br>Flashings and dpcs † Essential to prevent water which has permeated the chimney, penetrating into the building. The minimum specification is Code 4 lead (1.80 mm), Code 3 (1.32 mm) for soakers. This should be coated both sides with a solvent-based bituminous paint to prevent the risk of corrosion when in contact with cement. The lower dpc may be in the form of a tray with edges turned up 25 mm, except where it coincides with bedded flashings such as the front apron upper level. Here weep holes in the perpends will encourage water to drain. The inside of the tray is taken through a flue lining joint and turned up 25 mm.|
+|---|
+
+
+|Combustion Air ~ it is a Building Regulation requirement that in the case of open fireplaces provision must be made for the introduction of combustion air in sufficient quantity to ensure the efficient operation of the open fire. Traditionally such air is taken from the volume of the room in which the open fire is situated, this can create air movements resulting in draughts. An alternative method is to construct an ash pit below the hearth level fret and introduce the air necessary for combustion via the ash by means of a duct.<br><br>![image 781](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile781.png)<br><br>Ref. BS 1251: Specification for open-fireplace components.|
+|---|
+
+
+|Lightweight Pumice Chimney Blocks ~ these are suitable as a flue system for solid fuels, gas and oil. The highly insulative properties provide low condensation risk, easy installation as a supplement to existing or on-going construction and suitability for use with timber frame and thatched dwellings, where fire safety is of paramount importance. Also, the natural resistance of pumice to acid and sulphurous smoke corrosion requires no further treatment or special lining. A range of manufacturer's accessories allow for internal use with lintel support over an open fire or stove, or as an external structure supported on its own foundation. Whether internal or external, the units are not bonded in, but supported on purpose made ties at a maximum of 2 metre intervals.<br><br>![image 782](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile782.png)<br><br>|flue (mm)|plan size (mm)|
+|---|---|
+|150 dia.|390 390|
+|200 dia.|440 440|
+|230 dia.|470 470|
+|260 square|500 500|
+|260 150 oblong|500 390|
+<br><br>|
+|---|
+
+
+###### Services---Fire Stops and Seals
+
+|Fire Protection of Services Openings ~ penetration of compartment walls and floors (zones of restricted fire spread, e.g. flats in one building), by service pipes and conduits is very difficult to avoid. An exception is where purpose built service ducts can be accommodated. The Building Regulations, Approved Document B3:Sections 7 [Vol. 1] and 10 [Vol. 2] determines that where a pipe passes through a compartment interface, it must be provided with a proprietary seal. Seals are collars of intumescent material which expands rapidly when subjected to heat, to form a carbonaceous charring. The expansion is sufficient to compress warm plastic and successfully close a pipe void for up to 4 hours.<br><br>In some circumstances fire stopping around the pipe will be acceptable, provided the gap around the pipe and hole through the structure are filled with non-combustible material. Various materials are acceptable, including reinforced mineral fibre, cement and plasters, asbestos rope and intumescent mastics.<br><br>Pipes of low heat resistance, such as PVC, lead, aluminium alloys and fibre cement may have a protective sleeve of non-combustible material extending at least 1 m either side of the structure.<br><br>![image 783](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile783.png)|
+|---|
+
+
+Telephone Installations---Basic Requirements
+
+|Telephone Installations ~ unlike other services such as water, gas and electricity, telephones cannot be connected to a common mains supply. Each telephone requires a pair of wires connecting it to the telephone exchange. The external supply service and connection to the lead-in socket is carried out by telecommunication engineers. Internal extensions can be installed by the site electrician.<br><br>![image 784](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile784.png)|
+|---|
+
+
+Electronic Communications Installations
+
+|Electronic Installations † in addition to standard electrical and telecommunication supplies into buildings, there is a growing demand for cable TV, security cabling and broadband access to the Internet. Previous construction practice has not foreseen the need to accommodate these services from distribution networks into buildings, and retrospective installation through underground ducting is both costly and disruptive to the structure and surrounding area, particularly when repeated for each different service. Ideally there should be a common facility integral with new construction to permit simple installation of these communication services at any time. A typical installation will provide connection from a common external terminal chamber via underground ducting to a terminal distribution box within the building. Internal distribution is through service voids within the structure or attached trunking.<br><br>![image 785](Buidling Construction Handbook 7th Ed by Chudley _ Greeno_images/imageFile785.png)|
+|---|
+
+
+|INDEX<br><br>Access for disabled, 456 8 Access to sites, 84 Accommodation on sites, 85 6 Active earth pressures, 233, 245 6 Adhesives, 517 Admixtures, 254, 338 Aerated concrete floor units, 620 Aggregate samples, 104 Air lock hopper, 214 Air test, 701, 719 Air tightness, infiltration and permeability,<br><br>442, 445, 447 8, 455, 519 Alternating tread stair, 636 Aluminium alloy infill panels, 554 Aluminium alloy windows, 364, 366 Anchor bars, 464 Anchor straps, 425, 608 Anchorages, 252, 489 91, 493, 544 Angle Piling, 282 Angledozers, 155 Angles:<br><br>structural steel, 494 5 surveying, 117<br><br>Angles of repose, 232, 245 6, 263 Annexed buildings, 312 13 Anti-shear studs, 463 Apex hinges, 512 Approved Documents, 52 4 Approved inspector, 52, 55 Apron cladding panels, 564 Apron flashing, 742 3 Arches, 340 3 Asphalt tanking, 256 7 Attached piers, 307 8, 311 12 Augers, 74, 216 17 Automatic level, 115 Axial grid, 47 Axonometric projection, 24<br><br>Backacter/hoe, 33, 154, 161, 163, 250 Backgutter, 742 Backshore, 141 Balanced flue, 735 Balloon frame, 386 Balusters, 629, 632 5, 638, 641, 647,<br><br>649, 651 Balustrade, 13, 641 2, 647, 649 51<br><br>Bar chart, 34, 84 Bargeboard, 525 Barrel vaults, 9, 537 Basement excavation, 247 50 Basement insulation, 259 Basement waterproofing, 254 8 Basements, 247 59 Basic forms and types of structure, 5 10 Basic formwork, 478 82 Basic module grid, 46 Basic roof forms, 392 4 Basins, 714 Batch mixers, 183 4 Baths, 715 Bay window, 358 Beam and block floor, 599 Beam and pot floor, 621 Beam and slab raft, 210 Beam formwork, 479 80 Beam to column connection, 486, 499 500 Beam design:<br><br>concrete, 465 7 steel, 506 8 timber, 611 13<br><br>Beams, 464, 495 500, 514 15, 518 19 Bearing piles, 212 Beech, 677 Benchmark, 67, 111, 113 16 Bending moment, 506, 510, 612 Bentonite, 215, 291 2 Bib tap, 710 Binder, 669 Binders/binding reinforcement, 210, 464,<br><br>468 70 Binders/binding shoring, 141, 249 Birdcage scaffold, 134 Block bonding, 574 Block plan, 27, 41 Block walls, 574 8 Blockboard, 678 Bloom base, 209, 501 Boarded web girder, 518 Bolection moulding, 675 Bolt box, 484, 499, 501 Bolted connections, 499 500, 503 Bolts types, 503 Bonding, bricks, 305 11|
+|---|
+
+
+|Bonnet tiles, 402, 406 Boot lintels, 344 Bore hole, 68, 76 Borrowed light, 585 Bottom shore, 141 Box beam, 518 Box caisson, 274 Box pile foundation, 222 Braced structures, 521 Breather membrane, 390, 401, 404 5 Brick:<br><br>corbel, 317 18, 741, 743 dentil, 318 dog-tooth, 318 infill panels, 553 internal walls, 573 jointing and pointing, 314 panel walls, 550 plinths, 316 17 purpose made, 316 retaining walls, 230 1, 234 5, 240 1 specials, 315 16 strength, 335 6 testing, 102 underpinning, 277 8<br><br>Brick bonding: attached piers, 307 8 English bond, 305, 307, 697 Flemish bond, 308 principles, 306 quetta bond, 240 1 special bonds, 240, 305 6, 309 10 stack bond, 310 stretcher bond, 306 zipper bond, 305<br><br>Brickwork cladding support, 551 Bridging of dpc’s, 331 British Standards, 59 Brown field, 300 Buckling factor, 471 Builders plant, 152 88 Building control, 55 Building Regulations, 52 7 Building Regulations application, 57 Building Regulations exemptions, 56 Building Research Establishment, 62 Building surveyor, 28 32 Built environment, 2 4 Built-up roofing felt, 417 18, 420 1 Bulk density of soil, 82 Bulking of sand, 103 Bulldozer, 155 Busbar, 726 7<br><br>Cab crane control, 178 Cable sizing, 730<br><br>Caissons, 274 5 Calculated brickwork, 335 6 Calculation of storage space, 98 Camber arch, 341 Cantilever:<br><br>beam, 5, 464 foundations, 211 retaining wall, 236 scaffold, 136 stairs, 640, 646 structures, 520<br><br>Cap tendons, 490 Carbon emissions, 32, 446 7 Carbon index, 446 Cartridge fuse, 730 Cased pile foundation, 223 Casein adhesive, 517 Casement windows:<br><br>ironmongery, 353 metal, 352, 364 timber, 350 1<br><br>Castellated beam, 497 Cast-in wall ties, 553 Cast insitu diaphragm walls, 252, 291 Cast insitu pile foundation, 226 Cast-on finishes, 567 Cavity barrier/closer, 332, 387, 404, 444,<br><br>453 4, 562, 579 80 Cavity fire stop, 579 80 Cavity tray, 206, 342 3 Cavity walls, 320 5, 450 1 Cedar, 676 Ceilings:<br><br>plasterboard, 592, 664, 666 suspended, 665 8 Cellular basement, 251 Cement, 266 7, 336, 338 Cement grouts, 293 Central heating, 720 2 Centres, 341, 343 Certificates of ownership, 41, 45 Channel floor units, 621 Channels structural steel, 494 5 Checked rebates in walls, 347 Chemical dpc, 329 30 Chemical grouts, 293 Cheshire auger, 74 Chezy formula, 702 Chimney pot, 22, 741, 745 Chimneys, 737, 740 3 Chipboard, 601, 679 Circular bay window, 358 Circular column, 468 CI/SfB system, 64 Cisterns, 705 8, 711, 716, 720 2 Cladding panels, 551 2|
+|---|
+
+
+|Clamp vibrator, 187 Classification of piled foundations, 212 13 Clay cutter, 214 Clear glass, 361 Client, 49 Climbing cranes, 177, 181 Climbing formwork, 238 Closed couple roof, 396 Code for Sustainable Homes, 58 Codes of Practice, 59 Cofferdams, 272 3 Coil wall ties, 237 Cold bridging, 332, 366, 452 3, 599 Cold deck, 417, 420 Cold water installations, 703 6 Collar roof, 396 Column design, 470 1, 509 Column formwork, 481 2 Column to column connection, 485, 500 Column underpinning, 283 Columns, 468, 495 6, 499 501 Combined column foundation, 209 Combined method, 440 Combined pad foundation, 198 Combined system, 695 Combustion air, 744 Communicating information:<br><br>bar chart, 34, 84 elevations, 23, 26 floor plans, 21, 23, 26, 38, 40 isometric projection, 24 orthographic projection, 23 perspective projection, 25 sketches, 22<br><br>Compartment floor, 18, 477 Compartment wall, 18, 579 Complete excavation, 249 Completion certificate, 31 Composite beams and joists, 518 19 Composite boarding, 678 9 Composite floors, 463, 621 Composite lintels, 344 Composite panel, 554 Composite piled foundation, 223 4 Compound sections, 496 Compressed strawboard, 678 Compressible joints, 550, 576, 644 5 Concrete:<br><br>admixtures, 254 beam design, 465 7 claddings, 563 5 column design, 470 1 floor screed, 604 5 mixers, 183 4 placing, 186 7 production, 266 71<br><br>pumps, 186 slab design, 465 7 stairs, 639 47 surface defects, 568 surface finishes, 566 7 test cubes, 105 testing, 106 8<br><br>Concrete production: designated mix, 270 designed mix, 270 materials, 266 prescribed mix, 270 site storage, 86, 267 specification, 270 standard mix, 270 supply, 271 volume batching, 268 weight batching, 269<br><br>Concreting, 182 Concreting plant, 182 8 Conductivity, 435 6 Conduit and fittings, 728 9 Conoid roof, 9, 539 Consolidation of soil, 83 Construction activities, 19, 34 Construction, Design and Management<br><br>Regs., 48 9 Construction joints, 121, 255, 576, 602 Construction Products Directive, 61 Construction Regulations, 48 9 Consumer control unit, 724 7, 731 2 Contaminated subsoil, 300 1 Contiguous piling, 290 Continuous column foundations, 208 Contraction joints, 121, 576 Controlling dimensions, 47 Controlling grid and lines, 46 7 Cooker circuit cable, 730 Coping stones, 230, 234 5, 323 Corbelled brickwork, 317 18, 741, 743 Core drilling, 75 Core structures, 521 Cored floor units, 589 CORGI, 444 Cor-ply beam, 518 Cornice, 675 Corrugated sheet, 524 8 Coulomb’s line, 82 Coulomb’s wedge theory, 246 Counter batten, 401, 405 Couple roof, 396 Cove mouldings, 591, 664 Cover flashing, 742 CPI System of Coding, 63 Cracking in walls, 195 Cradles, 135|
+|---|
+
+
+|Crane operation, 178 Crane rail track, 180 Crane skips, 182, 185 Cranes, 170 81 Cranked slab stairs, 639, 645 Crawler crane, 174 Crib retaining wall, 242 Crosswall construction, 382 5 Crown hinges, 512 Curtain walling, 559 62 Curved laminated timber, 516 Curved tendons, 490 Cut and fill, 66, 260 Cylinders hot water, 712<br><br>Dado panel and rail, 675 Damp proof course, 326 32 Damp proof course materials, 327 8 Damp proof membrane, 326, 333 Datum, 111 16 Datum post, 111, 114 Dead loads, 35 6, 145, 202 Dead shoring, 139 40, 145 6 Decorative suspended ceiling, 668 Deep basements, 252 3 Deep strip foundation, 197, 208 Defects in painting, 672 Deflection, 460, 508, 518, 613 Demolition, 147 50 Demountable partitions, 585 6 Dense monolithic concrete, 254 Dentil course, 318 Density of materials, 36, 435 6 Design of foundations, 200 2, 207 Designer, 49 Desk study, 68 Dewatering, 284 8 Diaphragm floatvalve, 710 Diaphragm walls, 252 3, 291 2, 325 Diesel hammers, 228 Dimensional coordination, 44 5 Dimensional grids, 46 7 Direct cold water system, 705 Direct hot water system, 707 Displacement pile foundation, 212, 218 26 Disturbed soil sample, 69 70, 73 Documents for construction, 20 Dog leg stair, 637 8 Dog toothed brickwork, 318 Domelights, 549 Domes, 9, 535 6 Domestic drainage, 682 702 Domestic electrical installations, 724 32 Domestic floor finishes, 600 1 Domestic ground floors, 595 9 Domestic heating systems, 720 3<br><br>Doors: external, 373 6 fire, 658 62 frames, 376, 656 7 glazed double swing, 663 industrial, 378 81 internal, 373, 654 7 ironmongery, 377 linings, 654, 656 performance, 373 sliding, 378 80 types, 374 5<br><br>Door set, 657 8 Dormer window, 394, 419 Double acting hammers, 228 Double action floor spring, 663 Double flying shore, 143 Double glazing, 351, 357, 363 7 Double hung sash windows, 349, 354 5 Double lap tiling, 401 4, 406 7 Double layer grids, 535 Double rafter roof, 397 Double swing doors, 663 Douglas fir, 676 Dovetail anchor slots, 550, 553 Draft for Development, 59 Draglines, 162 Drainage:<br><br>effluent, 682 gradient, 699 700, 702 paved areas, 687 pipe sizes, 702 proportional depth, 702 rainwater, 690 2 roads, 688 9 roofs, 686 simple, 693 700 systems, 693 6 testing, 701<br><br>Drained cavities, 258 Draught proofing, 455 Drawings:<br><br>axonometric projection, 24 construction process, 21 hatchings, symbols and notation, 37 9 isometric projection, 24 orthographic projection, 23 perspective projection, 25 plans and elevations, 26 sketches, 22<br><br>Drilling rigs, 214 17 Driven insitu piled foundations, 225 Drop arch, 341 Drop hammer, 214, 220, 223 5, 227 Dry linings, 589 91 Dry rot, 428 9|
+|---|
+
+
+|Dumpers, 165, 185 Dumpling, 248 Dynamic compaction, 295, 298<br><br>Earth pressures, 233, 245 6 Earthworks for roads, 118 19 Eaves:<br><br>closure piece, 525 6 details, 403 7, 409 10, 415, 417 18,<br><br>421, 449 filler piece, 525 6 gutter, 403, 409, 528, 686, 690 ventilation, 403, 409 10, 417, 421 4<br><br>Effective height of walls, 337 Effective length of columns, 471, 509 Effective thickness of walls, 335, 337 Effluents, 682 Electrical cables, 730 Electrical installations, 728 32 Electrical site lighting, 90 2 Electricity:<br><br>domestic supply, 724 7 supply to sites, 93<br><br>Elevations, 23, 26 End bearing pile foundation, 212 Energy efficiency, 32, 442 3, 447 8 Energy performance certificate, 32 Energy rating, 32, 442, 445 6 Energy roof system, 527 English bond, 305, 307, 697 Environment, 2 4 Equivalent area, 470 1 Espagnolette, 357 European spruce, 676 European Standards, 60 Excavating machines, 159 63, 250 Excavations:<br><br>basement, 247 50 dewatering, 285, 288 oversite, 260 pier holes, 261 reduced level, 260 setting out, 111 12 trench, 261 temporary support, 263 5<br><br>Expansion joint, 121, 255, 538, 550,<br><br>576, 600 Exposed aggregate, 566 7 External asphalt tanking, 256 External doors, 373 6 External envelope, 17, 304 External escape stairs, 648<br><br>Facade bracing, 126 Face grid, 47 Face shovel, 160, 250<br><br>Facings to panel walls, 552 Factories Acts, 48 Fencing, 85 9, 96, 109 Festoon lighting, 92 Fibreboard, 679 Field study, 68 Finger joint, 514 Finishes, 14, 566 7, 587 8, 600 1,<br><br>669 72 Fin wall, 324 Fire:<br><br>doors, 658 62 doorsets and assemblies, 658 protection of masonry walls, 578 protection of steelwork, 504 5, 584 protection of timber floors, 614 resistance 332, 504 5, 578, 584, 614, 659 resistance of steelwork, 504 resistance/insulation, 614, 659 resistance/integrity, 332, 614, 659 resisting doors, 661 stops and seals, 579 80, 746<br><br>Fire back, 739, 744 Fireplaces and flues, 736 45 Fish plates, 500 Fixed portal frame, 510 11, 513 Flashings, 323, 407, 418, 421, 742 3 Flat roofs, 392, 416 21, 424, 431 Flat sawn timber, 515 Flat slabs, 460 2, 615 Flat top girder, 529, 532 Flemish bond, 308 Flexible paving, 119 Flight auger, 74 Flitch beam, 518 Float valves, 710 11 Floating floor, 599, 627 8 Floating pile foundation, 212 Floor plans, 26, 40 Floor springs, 663 Floors:<br><br>domestic ground, 595 9 finishes, 600 1 fixings, 619 flat slab, 460 2, 615 hollow pot, 618 19 insitu RC suspended, 460 2, 615 large cast insitu, 602 3 precast concrete, 620 2 ribbed, 616 17 screeds, 595 6, 604 5 sound insulation, 624, 627 8 suspended concrete ground, 334, 598 9 suspended timber ground, 595, 597 suspended timber upper, 606 11 waffle, 616 17|
+|---|
+
+
+|Flue blocks, 736, 745 Flue lining, 736 7, 739, 741 2, 744 Flush bored pile foundation, 213, 215 Fly jib, 173 4 Flying shore, 139, 142 4 Folded plate construction, 8 Footpaths, 122 Forklift truck, 166 Formwork:<br><br>beams, 479 80 columns, 481 2 principles, 478 slab, 462 stairs, 643<br><br>Foundation hinges, 512 Foundations:<br><br>basic sizing, 200 beds, 199 calculated sizing, 202 defects, 192 5 functions, 190 grillage, 209 isolated pad, 209 piled, 205, 213 29 raft, 206 7 short bored piled, 205, 212 14 simple reinforced, 204 stepped, 203 strip width guide, 201 subsoil movement, 191 4 types, 207 11<br><br>Four-in-one bucket, 158 Four wheeled grader, 157 Framed structures, 464, 468, 483 6,<br><br>499 500, 520 Freyssinet anchorage, 491 Friction hinge, 357 Friction piling, 212 Frieze, 675 Frodingham box pile, 222 Frodingham sheet pile, 273 Full height casting, 237 Fungicide, 429 Furniture beetle, 426<br><br>Gabion wall, 244 Gable end roof, 393, 395 Gambrel roof, 394, 400 Gantry crane, 175 Gantry girder, 496 Gantry scaffolding, 138 Garage, 312 13 Garden wall bonds, 309 Gas:<br><br>fires, 736 flues, 736 7, 745<br><br>service intake, 733 4 supply, 733 4<br><br>Gas resistant membranes, 333 4, 599 Gate valve, 710 11 Gauge box, 268 Geodistic dome, 535 Girders, 496, 529, 531 2 Glass and glazing, 361 70 Glass block wall, 371 2 Glass manifestation, 370 Glazed cladding, 557 8 Gluelam, 514 7 Grab bucket, 162 Graders, 157 Granular soil shell, 214 Green field, 300, 333 Green roof, 431 2 Grillage foundation, 209 Groins, 539 Ground anchors, 252, 292, 493, 544 Ground freezing, 294 Ground vibration, 295 7 Ground water, 66, 68, 76, 284 Ground water control, 285 94 Grouting-subsoil, 293 Grouting-tiles, 594 Guard rail, 127 9, 131, 133, 136 7 Gusset base, 501 Gusset plate, 513, 523, 526<br><br>Half hour fire door, 659 Hammer head junction, 118 Hand auger, 74 Hand auger holes, 69 Handrail, 629 30, 632, 634, 638, 641 2,<br><br>647 9, 651 3 Hardwoods, 677 Half space landing, 637 Health and Safety at Work, etc. Act, 48, 50 Hearths, 737 9, 744 Helical binding, 468 9 Helical stairs, 641 Helmets, 220, 224 Hemispherical dome, 536 Herringbone strutting, 607 HETAS, 444 High performance window, 351 Highway dumpers, 165 Hinge or pin joints, 512 Hipped roof, 393, 395 Hip tiles, 402, 406 Hoardings, 85 9 Hoists, 167 8 Holding down bolts, 484, 499, 501, 512 13 Hollow box floor units, 620 Hollow pot floor, 618 19|
+|---|
+
+
+|Hollow steel sections, 494 5 Horizontal shore, 142 4 Horizontal sliding sash window, 356 Hot water:<br><br>cylinders, 712 direct system, 707 expansion vessel, 709 heating systems, 720 3 indirect system, 708 mains fed, 709<br><br>House Longhorn beetle, 426 Hull core structures, 521 Hyperbolic paraboloid roof, 9, 540 2, 544<br><br>Immersion heater cable, 730 Inclined slab stair, 639, 642 Independent scaffold, 128 Indirect cold water system, 706 Indirect cylinder, 712 Indirect hot water system, 708 Industrial doors, 378 81 Infill panel walls, 552 5 Inspection chambers, 682, 688, 693 9 Insulating dpc, 332, 453 Insulation of basements, 259 Insulation:<br><br>fire, 659 sound, 624 8 thermal, 432 55<br><br>Integrity fire, 659, 661 Interest on capital outlay costing, 153 Internal asphalt tanking, 257 Internal doors, 373, 654 7 Internal drop hammer, 214, 223, 225 Internal elements, 570 Internal environment, 2 Internal partitions, 581 6 Internal walls:<br><br>block, 574 81, 625 6 brick, 573, 578 81, 625 6 functions, 571 plaster finish, 587 8 plasterboard lining, 583 4, 589 92 types, 572<br><br>International Standards, 60 Intumescent collar, 746 Intumescent strips/seals, 659 62 Inverted warm deck, 420 Iroko, 677 Ironmongery, 353, 377, 658 Isolated foundations, 198, 209 Isometric projection, 24<br><br>Jack pile underpinning, 279 Jambs, 326, 332, 345, 347, 452 3, 455<br><br>Jarrah, 677 Jet grouting, 293, 295, 299 Jetted sumps, 286 Jetted well points, 287 8 Joinery production, 673 7 Joinery timbers, 676 7 Jointing and pointing, 314 Jointless suspended ceiling, 666 Joints:<br><br>basements, 255 blockwork, 574 6 drainage, 700 laminated timber, 514 portal frame, 510 13 roads, 121 timber, 519, 597, 606 14 steel, 495 6<br><br>Joist sizing: timber, 606, 611 13 steel, 506 8<br><br>Kerbs, 123 Kelly bar, 215 17 Kentledge, 135, 229, 283 Kitemark, 59<br><br>Laboratory analysis of soils, 68, 77 8,<br><br>81 3 Ladders, 127 8, 131 Laminated timber, 514 17 Land caissons, 274 Land reclamation, 300 Landings, 637 49 Lantern lights, 548 Large diameter piled foundations, 213, 217 Larssen sheet piling, 273 Latent defects, 28 Lateral restraint, 425, 606 9 Lateral support:<br><br>basements, 253 walls, 399, 425, 606, 609 10<br><br>Lattice beam, 498, 518, 529, 531 2 Lattice girder, 498 Lattice jib crane, 173 Leader piling rig, 220 Lean-to roof, 393, 396 Lens light, 548 Levelling, 115 17 Lift casting, 238 Lighting:<br><br>cable, 730 circuits, 730, 732 sites, 90 2<br><br>Lightweight decking, 534 Lightweight infill panels, 552, 554 5|
+|---|
+
+
+|Limiting U values, 443, 447 8 Lintels, 340, 344, 347, 573, 577 Litzka beam, 497 Load-bearing concrete panels, 563 Load-bearing partitions, 570, 572 4, 581 Locating services, 110 Loft hatch, 455 Long span roofs, 529 35 Loop ties, 239 Lorries, 164 Lorry mounted cranes, 172 3 Loss Prevention Certification Board, 62 Low emissivity glass, 365, 367 8 Luffing jib, 176<br><br>Maguire’s rule, 702 Mahogany, 677 Main beams, 7, 16, 500 Mandrel, 224 Manifestation of glass, 370 Manometer, 701, 719 Mansard roof, 394, 400 Masonry cement, 338 Masonry partitions, 581 Mass concrete retaining wall, 235<br><br>Mass retaining walls, 234 5<br>Mast cranes, 176 Mastic asphalt tanking, 256 7 Mastic asphalt to flat roofs, 421 Materials:<br><br><br>conductivity, 435 6 density, 36, 435 6 hoist, 167 storage, 96 101, 266 7 testing, 102 8 weights, 35 6<br><br>Mattress retaining wall, 244 Mechanical auger, 74 Meeting rails, 354 5 Meeting stiles, 356, 663 Metal casement windows, 352 Metal section decking, 463 Metal stairs, 648 50 Meter box, 725 6, 733 4 Methane, 333 Method statement, 33 Micro-bore heating, 722 Middle shore, 141 Middle third rule, 231 Mineral insulating cable, 728 Miniature circuit breaker, 726 7 Mixing concrete, 182 4, 268 70 Mobile cranes, 170 4 Mobile scaffold, 131 Modular coordination, 46 7 Modular ratio, 470<br><br>Mohr’s circle, 82 Moment of resistance, 146, 506 Monitor roof, 529, 531 Monogroup cable, 488 Monolithic caissons, 274 Monopitch roof, 393 Monostrand anchorage, 491 Monostrand cable, 488 Mortar mixes, 336, 338 9 Mortar strength, 336, 338 9 Morticing machine, 673 Movement joint, 121, 538, 551, 576, 645 Mud-rotary drilling, 75 Multi-purpose excavators, 159, 163 Multi-span portal frames, 511, 513 Multi-stage wellpoints, 288 Multi-storey structures, 520 1<br><br>National Building Specification, 63 Needle and pile underpinning, 280 Needle design, 145 6 Needles, 139 46 Newel post, 629, 632, 634 5, 637 8 NHBC, 28 Non-load-bearing partitions, 570, 572,<br><br>581 6 Non-residential buildings, 312 13 Northlight barrel vault, 539 Northlight roofs, 529 30<br><br>Oak, 677 Oedometer, 83 OFTEC, 444 Oil based paint, 669 One hour fire door, 660 One pipe heating, 720 Open caissons, 274 Open excavations, 247 Open fireplaces, 737 45 Open newel stairs, 637 Open riser stairs, 634 6, 646 Open suspended ceiling, 668 Open web beam, 497 Openings in walls: arches, 340 3 heads, 344, 347 jambs, 345, 347 sills, 346 7 support, 340 threshold, 347, 456<br><br>Oriel window, 358 Oriented strand board, 679 Orthographic projection, 23 Out-of-service crane condition, 177 Output and cycle times, 154|
+|---|
+
+
+|Overcladding, 552, 556 Overhead and forklift trucks, 166<br><br>Pad foundation, 198, 209, 468, 499,<br><br>511, 513 Pad foundation design, 200 Pad template, 113 Paint defects, 672 Paints and painting, 669 72 Panelled suspended ceiling, 666 7 Parallel lay cable, 488 Parana pine, 676 Parapet wall, 323 Partially preformed pile, 224 Particle board, 601, 679 Partitions:<br><br>demountable, 585 6, 581 load-bearing, 570, 572, 581 6 metal stud, 583 4 non-load-bearing, 570, 572, 581 6 timber stud, 582<br><br>Party wall, 579 80 Passenger hoist, 168 Passenger vehicles, 164 Passive earth pressures, 233 Patent glazing, 530 1, 546 7 Patent scaffolding, 133 Paved areas drainage, 687 Paving, 118 24 Paving flags, 124 Pedestal floor, 623 Pendentive dome, 9, 536 Penetration test, 79, 107 Percussion bored piling, 213 14 Perforated beam, 497 Performance requirements:<br><br>doors, 373 roofs, 391 windows, 348<br><br>Perimeter trench excavation, 248 Permanent exclusion of water, 284,<br><br>289 93 Permanent formwork, 463 Permitted development, 41 Perspective drawing, 25 Phenol formaldehyde, 517, 680 Pigment, 669 Pile:<br><br>angle, 282 beams, 229 caps, 216, 229 classification, 212 root, 282 testing, 229 types, 213, 218 Piled basements, 251<br><br>Piled foundations, 212 29 Piling:<br><br>contiguous, 290 hammers, 227 8 helmets, 220, 224 rigs, 220, 223 4 secant, 290 steel sheet, 272 3<br><br>Pillar tap, 710 Pin or hinge joint, 512 Pitch pine, 676 Pitched roofs:<br><br>domestic, 391, 393 415 industrial, 522 30<br><br>Pitched trusses, 398 9, 522 3, 529 30 Pivot window, 349, 357 Placing concrete, 182 Plain tiles and tiling, 390, 401 4, 406 7 Planer, 673 Plank and pot floor, 621 Planning application, 41 5 Planning grid, 46 Plant:<br><br>bulldozer, 155 concreting, 182 8 considerations, 152 costing, 153 cranes, 170 81 dumpers, 165, 185, 262 excavators, 159 63, 262 forklift trucks, 166 graders, 157 hoists, 167 8 scrapers, 156 skimmers, 159 tractor shovel, 158 transport vehicles, 164 6<br><br>Plaster cove, 591, 664 Plaster finish, 588 Plasterboard, 435, 589 92 Plasterboard ceiling, 403, 409 10, 441,<br><br>449, 627 8, 664 Plasterboard dry lining, 589 91 Plasters, 587 Plasticiser, 338 Platform floor, 628 Platform frame, 386 Plinths, 317 Plug wiring, 730 Plywood, 678 Pneumatic caisson, 275 Poker vibrator, 187 Poling boards, 264 5 Polyurethane paint, 669 Portal frames, 510 13, 516 Portsmouth float valve, 710|
+|---|
+
+
+|Post-tensioned retaining wall, 241 Post-tensioning, 241, 490 1 Power circuit, 730 1 Power float, 188, 602 3 Precast concrete:<br><br>diaphragm wall, 292 floors, 598 9, 620 2 frames, 483 6 portal frames, 511 12 stairs, 644 7<br><br>Preformed concrete pile, 220 1 Preservative treatment, 426 7, 429, 517 Pressed steel lintels, 344, 347 Pressure bulbs, 71 2 Prestressed concrete, 252, 344, 487 93 Pretensioning, 489 Primary elements, 12 Primatic cylinder, 712 Principal contractor, 49 Profile boards, 112 13 Profiled surface, 124, 457, 566 Program of work, 34 Programmer/controller, 723 Project co-ordinator, 49 Prop design, 146 Proportional area method, 439, 441 Propped structures, 5, 520 Protection orders, 109 Public utility services, 110 Published Document, 59 Pump sizing, 285 Purlin fixings, 525 8, 530 Purlin roof, 397 Purpose designed excavators, 159 Purpose made joinery, 674 5 Putlog scaffold, 127 Putty, 362 Pynford stool underpinning, 281<br><br>Quarter sawn timber, 515 Quarter space landing, 637 Quetta bond, 240 1<br><br>Radiators, 720 3 Radius of gyration, 509 Radon, 333 Raft basements, 251 Raft foundations, 206, 210 Rail tracks for cranes, 180 Rainscreen cladding, 552, 556 Rainwater drainage, 685 7, 690 2 Raised access floor, 623 Raking shore, 139, 141, 144 Raking struts, 142 3, 249 Rankine’s formula, 245<br><br>Rat trap bond, 309 Ready mixed concrete, 271 Ready mixed concrete truck, 185, 271 Ready mixed mortar, 339 Redwood, 676 Reinforced concrete:<br><br>beams, 464 6 column design, 470 1 columns, 468 71 floors, 463, 615 19 formwork, 462, 478 82, 643 foundations, 204 6, 208 10 lintels, 344 pile caps and beams, 216, 229 raft foundation, 206, 210 reinforcement, 461 86 retaining walls, 236 slabs, 460 3, 465 7 stairs, 639 43 strip foundations, 204, 208<br><br>Reinforced masonry, 240 1, 310, 577 Reinforcement:<br><br>bar coding and schedules, 472 3 concrete cover, 476 7 grip length, 465, 467 materials, 474 5 spacers, 476 spacing, 469 types of bar, 474 types of mesh, 475 Remedial dpc, 329 30 Remote crane control, 178 Rendhex box pile, 222 Replacement piling, 212 17 Residual current device, 727 Resin grout, 293 Resorcinol formaldehyde, 517, 678 Restraint straps, 425, 606 9 Retaining walls, 230 46 Retaining walls design, 245 6 Retro-ties and studs, 609 Reversing drum mixer, 184 Ribbed floor, 616 17, 628 Rider, 141 Ridge detail, 403 4, 409 10, 526, 528, 530 Ridge piece, 525 6, 528, 530 Ridge roll, 415 Ridge tiles, 402 4, 406, 409 10 Ridge ventilation, 403 4, 422 4 Rigid pavings, 120 1 Rigid portal frames, 510 11, 513 Ring main wiring, 731 Rising damp, 328 31 Roads:<br><br>construction, 118 21 drainage, 688 9|
+|---|
+
+
+|earthworks, 119 edgings, 122 3 footpaths, 122 forms, 120 gullies, 687 9 joints, 121 kerbs, 123 landscaping, 125 pavings, 124 services, 125 setting out, 118 signs, 125<br><br>Rolled steel joist, 495 Roll over crane skip, 182 Roller shutters, 378, 381 Roofs and roof covering: basic forms, 392 4 built-up felt, 417 18, 420 1 flat top girder, 529, 532 garden, 430 1 green, 430 1 long span, 529 35 mastic asphalt, 421 monitor, 529, 531 northlight, 529 30 performance, 391 sheet coverings, 524 8 shells, 536, 542 4 slating, 410 14 space deck, 534 space frame, 535 surface water removal, 682, 686 92 thatching, 415 thermal insulation, 403 5, 409 10,<br><br>417 18, 420 1, 441, 443 4, 448 9, 525 8, 530<br><br>tiling, 401 4, 406 10 timber flat, 392, 416 21 timber pitched, 393 400 trussed rafter, 399 trusses, 398, 523, 529 underlay, 401, 403 7, 409 11, 413 14 ventilation, 422 4<br><br>Rooflights, 394, 529, 531, 546 Room sealed appliance, 735 Root pile, 282 Rotary bored piling, 213, 216 17 Rotational dome, 9, 536 Rubble chutes and skips, 169 Runners, 265<br><br>Saddle vault, 540 Safe bearing, 200 2, 613 Safety signs, 50 1, 125 Sampling shells, 74 Sand bulking test, 103<br><br>Sand compaction, 297 Sand pugging, 628 Sanitary fittings:<br><br>basin, 714 bath, 715 discharge systems, 717 18 shower, 715 sink, 714 wc pan, 716<br><br>Sanitation systems, 717 19 Sanitation system testing, 719 Sapele, 677 Sarking felt, 401 Sash weights, 354 Saws, 673 Scaffolding:<br><br>birdcage, 134 boards, 127 9 cantilever, 136 component parts, 126, 132 fittings, 132 gantry, 138 independent, 128 ladders, 127 8, 131 mobile, 131 patent, 133 putlog, 127 slung, 134 suspended, 135 truss-out, 137 tying-in, 130 working platform, 129<br><br>Scarf joint, 514 Scrapers, 156 Screed, 595 6, 604 5 Secant piling, 290 Secondary beams, 7, 16, 500 Secondary elements, 13 Secondary glazing, 364 Section factor, 505 Section modulus, 146, 506 SEDBUK, 443 Segmental arch, 341 Self propelled crane, 171 Self supporting static crane, 177 8 Separate system, 694, 696 Separating wall, 18, 579 Services fire stops and seals, 746 Setting out:<br><br>angles, 113, 117 bases, 113 basic outline, 111 drainage, 700 grids, 113 levelling, 115 17 reduced levels, 114|
+|---|
+
+
+|Setting out (continued) roads, 118 theodolite, 113, 117 trenches, 112<br><br>Shear, 463 4, 507, 613 Shear bars, 464 Shear box, 83 Shear leg rig, 74 5, 214 Shear plate connector, 533 Shear strength of soils, 81 3 Shear strength of timber, 613 Shear wall structures, 521 Sheathed cables, 728 Sheet coverings, 524 8 Shell roofs, 536, 542 4 Shoring, 139 46 Short bored pile foundation, 205 Shower, 715 Shutters, 381 Sight rails, 113 14, 118, 700 Sills, 346 7, 350 2, 354 9, 366, 368 Silt test for sand, 104 Simple drainage: bedding, 700 inspection chambers, 693 9 jointing, 700 roads, 688 9 setting out, 700 systems, 693 6<br><br>Simply supported RC slabs, 460 2 Single acting hammer, 227 Single barrel vault, 537 Single flying shore, 139, 142 Single lap tiles and tiling, 408 9 Single span portal frames, 510 13, 516 Single stack drainage, 717 Sink, 714 Site:<br><br>construction activities, 19 electrical supply, 93 health and welfare, 95 investigations, 67 8, 70, 295 layout, 84 6 lighting, 90 2 materials testing, 102 8 offices, 85 6, 94, 99 plan, 21, 27, 41 preparation, 300 1 security, 85, 87 setting out, 111 18 soil investigations, 68 75 storage, 96 101, 266 7 survey, 66, 68, 300<br><br>Sitka spruce 676 Six wheeled grader, 157 Sixty minute fire door, 660<br><br>Sketches, 22 Skimmer, 159 Skips, 169 Slab base, 501 Slates and slating, 410 14 Slenderness ratio, 146, 337, 509 Sliding doors, 378 80 Sliding sash windows, 354 6 Slump test, 105 Slung scaffold, 134 Small diameter piled foundation, 205,<br><br>213 16 Smoke seal, 661 Smoke test, 719 Snow loading, 202, 506 Soakaway, 692 Soakers, 407, 413, 743 Socket outlets, 730 1 Softwoods, 676 Soil:<br><br>assessment, 77 83 classification, 77 9, 201 investigation, 66 75, 295 nailing, 243 particle size, 77 samples, 69 stabilization and improvement, 295 9 testing, 77 83 washing, 301<br><br>Solid block walls, 319 Solid brick walls, 305 8 Solid slab raft, 210 Solvent, 669 Sound insulating:<br><br>floors, 627 8 walls, 625 6<br><br>Sound insulation, 624 8 Sound reduction, 363, 624 Space deck, 10, 534 Space frame, 10, 535 Spindle moulder, 673 Spine beam stairs, 646 Spiral stair, 641, 647, 649, 653 Splice joint, 513 Splicing collar, 220 1 Split barrel sampler, 79 Split load consumer unit, 727 Split ring connector, 533 Spruce, 676 Stack bond, 310 Stairs:<br><br>alternating tread, 636 balusters, 629, 632 5, 638, 641, 647,<br><br>649, 651 balustrade, 13, 641 2, 647, 649 51 formwork, 643|
+|---|
+
+
+|handrail, 629 30, 632, 634, 638, 641 2,<br><br>647 9, 651 3 insitu RC, 639 42 metal, 648 50 open riser, 634 6, 646 precast concrete, 644 7 timber, 629 38<br><br>Standard Assessment Procedure, 32, 442,<br><br>446 Standard dumper, 165, 185 Standing crane skip, 182 Star rating, 58 Steel:<br><br>beam, 495 7, 500 beam design, 506 8 bolt connections, 503 cold rolled sections, 494 column, 495 6 column design, 509 compound sections, 496 fire protection, 504 5 frame construction, 388 9 gantry girder, 496 hot rolled sections, 495 lattice beams, 498 portal frames, 513 roof trusses, 522 3, 526, 529 31 screw pile, 222 sheet piling, 272 3 standard sections, 494 5 string stairs, 650 tube pile, 223 web lattice joist, 519 welding, 502<br><br>Stepped barrel vault, 539 Stepped flashing, 407, 743 Stepped foundation, 203 Stock holding policy, 99 Stop valve, 703 6, 710 Storage of materials, 86, 96 101, 266 7 Storey height cladding, 565 Straight flight stairs, 629 36, 644 Straight line costing, 153 Straight mast forklift truck, 166 Strand, 488 Strawboard, 678 Stress reduction in walls, 336 Stretcher bond, 240, 306 String beam stair, 640 Strip foundations, 197, 200 3 Stripboard, 678 Structural glazing, 557 8 Structural grid, 46 Structure:<br><br>basic forms, 7 10 basic types, 5 6<br><br>functions, 15 16 protection orders, 109<br><br>Strutting of floors, 607 Stud partitions, 582 4 Subsoil:<br><br>drainage, 683 4, 688 movements, 191 5 water, 66, 68, 76, 284<br><br>Substructure, 11 Sump pumping, 285 Supply and storage of concrete, 182 Supported static tower crane, 177, 179 Surcharging of soil, 295 Surface water, 284, 682, 685 9 Surface water removal, 685 7 Survey:<br><br>defects, 28 32, 195 desk, 68 field, 68 site, 66 8, 70, 295, 300 structure, 28 32 thermographic, 448 walk-over, 68<br><br>Suspended ceilings, 665 8 Suspended scaffold, 135 Suspended structures, 520 Suspended timber ground floors, 595, 597 Suspended timber upper floors, 606 11 Sustainability, 58 Swivel skip dumper, 165<br><br>Tactile pavings, 124 Tamping board vibrator, 187 Tapered treads, 653 Teak, 677 Telephone installation, 747 8 Telescopic boom forklift truck, 166 Telescopic crane, 172 Temporary bench mark, 111, 113 15 Temporary exclusion of water, 284 8 Temporary services, 85 Tendons, 243, 488 Tenoning machine, 673 Test cubes, 105 Testing of materials, 102 8 Textured surfaces, 566 Thatched roof, 415 Theodolite, 113, 117 Thermal break, 366 Thermal bridging, 444, 452 4 Thermal conductivity, 433, 435 9, 441 Thermal insulation, 432 55 Thermal resistance, 432 4, 438 41 Thin grouted membranes, 289 Thinners, 669 Thirty minute fire door, 659|
+|---|
+
+
+|Three axle scraper, 156 Three centre arch, 341 Three pin portal frame, 510 Tile hanging, 390 Tilting drum mixer, 183 4 Tilting level, 115 Timber:<br><br>beam design, 611 13 casement windows, 350 1 connectors, 532 3 doors, 373 6, 379 80, 654 5, 657,<br><br>659 62 flat roofs, 392, 416 21 frame construction, 386 7 girders, 532 hardwoods, 677 joinery production, 673 7 pile foundation, 218 19 pitched roofs, 391, 393 401, 404 6,<br><br>409 10, 425 preservation, 426 7, 429 softwoods, 676 stairs, 629 38 storage, 101 stud partition, 582 trestle, 223<br><br>Timbering trenches, 264 5 Tooled surface, 566 Toothed plate connector, 398, 532 3 Top shore, 141, 144 Towed scraper, 156 Tower cranes, 86, 170, 177 80 Tower scaffold, 131 Track mounted crane, 174 Tractor shovel, 158 Traditional strip foundation, 197 Traditional underpinning, 277 8 Translational dome, 9, 536 Translucent glass, 361 Transport vehicles, 164 6 Transporting concrete, 182, 185 Traveller, 112 14, 700 Travelling tower crane, 177, 180 Tree protection, 109, 194 Trees foundation damage, 192 4 Tremie pipe, 215, 291 Trench fill foundation, 197, 208 Trench setting out, 112 Trench sheeting, 265, 272 3 Trial pits, 68 9, 73 Triangle of forces, 231, 246 Triangular chart, 78 Triaxial compression test, 82 Triple glazing, 367 8 Tripod rig, 74 5, 214 Truss out scaffold, 137<br><br>Trussed purlin, 518 Trussed rafter roof, 399 Tubular scaffolding, 126 38 Two axle scraper, 156 Two pin portal frame, 510 Two pipe heating, 721 Tying-in scaffolding, 130<br><br>U value calculations, 432 3, 437 41 U value limits, 443, 447 8 U value objectives, 443 4, 447 8 U value targets, 443 U value weighted average, 443 4, 448 U values, 363, 365, 432 3, 437 41, 443 5, 447 8, 527, 450 1 Unconfined compression test, 81 Undercoat, 670 Underlay, 401, 403 7, 409 11, 413 14 Underpinning, 276 83 Under-reaming, 217 Undersill cladding panels, 564 Undisturbed soil sample, 69 70, 73, 81 2 Universal beam, 495 Universal bearing pile, 222 Universal column, 495 Universal excavator, 159 Urea formaldehyde, 517, 680<br><br>Vacuum dewatering, 594 Valley beam, 530 Valley gutter, 409, 528, 530 Valley tiles, 402, 406 Valves and taps, 710 Vane test, 80 Vans, 164 Vapour check plasterboard, 403, 409 10,<br><br>417, 421, 592 Vapour control layer, 387, 389, 403,<br><br>409 10, 417 18, 420 1, 431, 527 8 Vapour permeable underlay, 390, 401,<br><br>404 5 Vaults, 537 9 Ventilated stack discharge<br><br>system, 718 Ventilation of roof space, 401, 403 5,<br><br>409 10, 417, 421 4 Ventilation spacer, 403 4, 409 10 Verge details, 407, 418 Vertical casting, 567 Vertical laminations, 515 Vestibule frame, 369 Vibrating tamping beam, 187 Vibration of soil, 295 7 Vibro cast insitu piling, 226 Volume batching, 268|
+|---|
+
+
+|Walings, 264 5 Walk-over syrvey, 68 Wall hooks, 141, 143 4 Wall plates, 141 4, 396 400, 403 5, 409 10, 415, 417, 421, 597<br><br>Wall profiles, 575 Wallboard, 591 2 Walls:<br><br>cavity, 320 5, 450 1 curtain, 559 62 design strength, 335 diaphragm, 252 3, 291 2, 325 fin, 324 formwork, 237 9 glass block, 371 2 infill panel, 552 5 internal, 571, 573 81, 625 6 openings, 340 3, 344 7 panelling, 675 remedial work, 609 retaining, 230 46 rising dampness, 328 31 slenderness ratio, 146, 337 solid block, 319, 574, 576 8, 625 6 solid brick, 305 13, 625 6 sound insulation, 625 6 thermal insulation, 433 6, 439 40,<br><br>443 4, 448, 450 1 thickness, 312 13, 335, 337 tiling, 390, 593 4 underpinning, 277 82 waterproofing basements, 254 8<br><br>Warm deck, 417 18, 420 Wash boring, 75 Water bar, 255 9, 376 Water based paint, 669 Water/cement ratio, 254, 269 Water closet pan, 716 Water installations:<br><br>cisterns, 705 8, 711, 716, 720 2 cold, 703 6 hot, 706 8 pipe joints, 713 supply, 703 4 valves and taps, 710<br><br>Water jetting, 286 8, 297 Water table, 66, 68, 76, 284 Water test, 701 Waterproofing basements, 254 8<br><br>Weatherboarding, 390 Web cleats, 499 500 Weep holes, 230 6, 344, 347 Weight batching, 269 Weights of materials, 35 6 Welded connections, 499 502 Wellpoint systems, 287 8 Western hemlock, 676 Western red cedar, 676 Wet rot, 428 9 Windows:<br><br>aluminium casement, 366 bay, 358 double glazing, 351, 357, 363, 365 energy rating, 445 glass and glazing, 361 8 high performance, 351 ironmongery, 353 metal casement, 352 notation, 360 oriel, 358 performance requirements, 348 pivot, 349, 357 schedules, 359 secondary glazing, 364 sliding sash, 354 6 timber casement, 350 1 triple glazing, 365, 367 8 types, 349 uPVC, 368<br><br>Windsor probe test, 107 Wired glass, 361, 662 Wiring systems, 731 2 Wood cement board, 679 Wood rot, 428 9 Wood wool, 679 Woodworm, 426 7 Woodworking machinery, 673 Working platform, 129 Wrought iron dogs, 140, 142 3<br><br>Yokes, 482<br><br>Zed beam, 494, 525, 527 8 Zero carbon home, 58 Zipper bond, 305 Zones, 47 Zurich Insurance, 28|
+|---|
+
+

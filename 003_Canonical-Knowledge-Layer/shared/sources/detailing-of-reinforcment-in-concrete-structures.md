@@ -4,7 +4,7 @@ title: Detailing Of Reinforcment In Concrete Structures
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T21:08:43.532958+00:00
+last_canonicalized_utc: 2026-04-18T08:21:11.568446+00:00
 aliases:
   - Detailing of Reinforcment in Concrete Structures
 ---
@@ -13,7 +13,7 @@ aliases:
 
 ## Overview
 
-Provisions of SECTION 8.1 and 8.2 of Chapter 8 shall apply for detailing of reinforcement in reinforced concrete members, in general. For reinforced concrete structures, subject to earthquake loadings in seismic design categories B, C and D, special provisions contained in SECTION 8.3 of this chapter shall apply. For notations used in SECTION 8.1 and 8.2 and not explained therein, see 6.1.1.1.
+Provisions of Sec. 8.1 and 8.2 of Chapter 8 shall apply for detailing of reinforcement in reinforced concrete members, in general. For reinforced concrete structures, subject to earthquake loadings in seismic design categories B, C and D, special provisions contained in Sec. 8.3 of this chapter shall apply. For notations used in Sec. 8.1 and 8.2 and not explained therein, see 6.1.1.1.
 
 ## Coverage
 
@@ -21,7 +21,7 @@ Provisions of SECTION 8.1 and 8.2 of Chapter 8 shall apply for detailing of rein
 
 ## Key Points
 
-- Provisions of SECTION 8.1 and 8.2 of Chapter 8 shall apply for detailing of reinforcement in reinforced concrete members, in general.
+- Provisions of Sec.
 - 8.1.3.1 Unless otherwise permitted by the engineer, all reinforcement shall be bent cold.
 - 8.1.4.1 When concrete is placed, metal reinforcement shall be free from mud, oil, or other nonmetallic coatings that decrease bond. Epoxy‐coating of steel reinforcement in accordance with standards referenced in this code shall be permitted.
 - 8.1.5.1 Reinforcement shall be accurately placed and adequately supported before concrete is placed, and shall be secured against displacement within tolerances permitted in 8.1.5.2 below.

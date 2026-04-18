@@ -1,0 +1,3519 @@
+{
+  "file name" : "TOA 5 (Masters of Architecture).pdf",
+  "number of pages" : 83,
+  "author" : null,
+  "title" : null,
+  "creation date" : null,
+  "modification date" : null,
+  "kids" : [ {
+    "type" : "image",
+    "id" : 1,
+    "page number" : 1,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile1.png"
+  }, {
+    "type" : "heading",
+    "id" : 3,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 54.75, 210.909, 213.15, 304.659 ],
+    "heading level" : 1,
+    "font" : "Roboto-Bold",
+    "font size" : 80.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "TOA"
+  }, {
+    "type" : "paragraph",
+    "id" : 5,
+    "page number" : 1,
+    "bounding box" : [ 54.75, 188.024, 331.782, 220.836 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2627451, 0.2627451, 0.2627451]",
+    "content" : "Theory of Architecture"
+  }, {
+    "type" : "heading",
+    "id" : 7,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 268.387, 305.377, 915.367, 375.689 ],
+    "heading level" : 3,
+    "font" : "Roboto-Bold",
+    "font size" : 60.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Authorship + Disclaimer"
+  }, {
+    "type" : "paragraph",
+    "id" : 8,
+    "page number" : 2,
+    "bounding box" : [ 352.747, 157.001, 916.018, 315.157 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "This work is the property of Pedro Santos Jr. and Dianne Ancheta. For questions, contact the authors at arch. pedrosantosjr@gmail.com and arch. dianneancheta@gmail.com."
+  }, {
+    "type" : "image",
+    "id" : 13,
+    "page number" : 3,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile2.png"
+  }, {
+    "type" : "image",
+    "id" : 22,
+    "page number" : 3,
+    "bounding box" : [ 82.433, 325.006, 421.433, 409.756 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile3.png"
+  }, {
+    "type" : "heading",
+    "id" : 20,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 89.183, 253.172, 552.395, 316.454 ],
+    "heading level" : 4,
+    "font" : "Roboto-Bold",
+    "font size" : 54.0,
+    "text color" : "[0.2627451, 0.2627451, 0.2627451]",
+    "content" : "Creative Commons"
+  }, {
+    "type" : "paragraph",
+    "id" : 15,
+    "page number" : 3,
+    "bounding box" : [ 89.183, 130.654, 689.778, 263.779 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "This presentation is licensed under the Creative Commons Attribution NonCommercial ShareAlike 4.0 International License and is not licensed for commercial use. To view a copy of this license, visit http: //creativecommons.org/licenses/by-nc-sa/4.0/"
+  }, {
+    "type" : "image",
+    "id" : 23,
+    "page number" : 4,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile4.png"
+  }, {
+    "type" : "heading",
+    "id" : 25,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 54.75, 210.909, 438.51, 304.659 ],
+    "heading level" : 1,
+    "font" : "Roboto-Bold",
+    "font size" : 80.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "MODULE 5"
+  }, {
+    "type" : "paragraph",
+    "id" : 27,
+    "page number" : 4,
+    "bounding box" : [ 54.75, 185.616, 369.06, 220.772 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2627451, 0.2627451, 0.2627451]",
+    "content" : "Masters of Architecture"
+  }, {
+    "type" : "image",
+    "id" : 28,
+    "page number" : 5,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile5.png"
+  }, {
+    "type" : "image",
+    "id" : 35,
+    "page number" : 5,
+    "bounding box" : [ 0.0, 0.0, 544.641, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile6.png"
+  }, {
+    "type" : "heading",
+    "id" : 30,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 522.99, 364.528, 814.182, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "ALVAR AALTO"
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 5,
+    "bounding box" : [ 522.99, 210.951, 878.334, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Finland in 1898. He graduated with honors from Helsinki Polytechnic in 1921 after which he opened his own practice."
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 5,
+    "bounding box" : [ 522.99, 93.951, 873.654, 200.826 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "He held the position of Professor of Architecture at MIT 1946 to 1948, and was president of the Academy of Finland."
+  }, {
+    "type" : "image",
+    "id" : 44,
+    "page number" : 6,
+    "bounding box" : [ -129.609, 0.0, 706.12, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile7.png"
+  }, {
+    "type" : "image",
+    "id" : 36,
+    "page number" : 6,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile8.png"
+  }, {
+    "type" : "heading",
+    "id" : 38,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 522.99, 364.528, 743.606, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Auditorium"
+  }, {
+    "type" : "heading",
+    "id" : 40,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 522.99, 315.951, 850.782, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "University of Helsinki, Finland."
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "page number" : 6,
+    "bounding box" : [ 522.99, 108.201, 883.254, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Alvar Aalto generated a style of functionalism which avoided romantic excess and neoclassical monotony. He utilized texture, color, and structure in creative new ways."
+  }, {
+    "type" : "paragraph",
+    "id" : 42,
+    "page number" : 6,
+    "bounding box" : [ 522.99, -8.799, 866.382, 98.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Aalto's designs were particularly significant because of their response to site, material and form."
+  }, {
+    "type" : "image",
+    "id" : 51,
+    "page number" : 7,
+    "bounding box" : [ -228.793, 0.0, 551.02, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile9.png"
+  }, {
+    "type" : "image",
+    "id" : 45,
+    "page number" : 7,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile10.png"
+  }, {
+    "type" : "heading",
+    "id" : 47,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 522.99, 364.528, 869.05, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Kunsten Museum"
+  }, {
+    "type" : "heading",
+    "id" : 49,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 522.99, 289.701, 796.95, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "(Museum of Modern Art). Aalborg, Denmark."
+  }, {
+    "type" : "image",
+    "id" : 52,
+    "page number" : 8,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile11.png"
+  }, {
+    "type" : "image",
+    "id" : 58,
+    "page number" : 8,
+    "bounding box" : [ 0.0, -53.892, 479.998, 526.77 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile12.png"
+  }, {
+    "type" : "heading",
+    "id" : 54,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 522.99, 364.528, 825.842, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "ANTONI GAUDI"
+  }, {
+    "type" : "paragraph",
+    "id" : 56,
+    "page number" : 8,
+    "bounding box" : [ 522.99, 184.701, 875.214, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Spain in 1852. He studied at the Escola Superior d'Arquitectura and designed his first major commission for the Casa Vincens using a Gothic Revival style."
+  }, {
+    "type" : "image",
+    "id" : 67,
+    "page number" : 9,
+    "bounding box" : [ -162.431, 0.0, 641.627, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile13.png"
+  }, {
+    "type" : "image",
+    "id" : 59,
+    "page number" : 9,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile14.png"
+  }, {
+    "type" : "heading",
+    "id" : 61,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 522.99, 364.528, 744.97, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "La Sagrada Familia"
+  }, {
+    "type" : "heading",
+    "id" : 63,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 522.99, 315.951, 711.27, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Barcelona, Spain."
+  }, {
+    "type" : "paragraph",
+    "id" : 64,
+    "page number" : 9,
+    "bounding box" : [ 522.99, 134.451, 847.71, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Gaudi developed a sensuous, curving, almost surreal design style which established him as the leader of the Spanish Art Nouveau movement."
+  }, {
+    "type" : "paragraph",
+    "id" : 65,
+    "page number" : 9,
+    "bounding box" : [ 522.99, 17.451, 869.238, 124.326 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "His characteristically warped form of Gothic architecture drew admiration from other avantgarde artists."
+  }, {
+    "type" : "image",
+    "id" : 68,
+    "page number" : 10,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile15.png"
+  }, {
+    "type" : "image",
+    "id" : 74,
+    "page number" : 10,
+    "bounding box" : [ 0.0, -100.602, 480.622, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile16.png"
+  }, {
+    "type" : "heading",
+    "id" : 70,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 522.99, 364.528, 747.17, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Casa Batlló"
+  }, {
+    "type" : "heading",
+    "id" : 72,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 522.99, 315.951, 711.27, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Barcelona, Spain."
+  }, {
+    "type" : "image",
+    "id" : 81,
+    "page number" : 11,
+    "bounding box" : [ -331.82, 0.0, 480.203, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile17.png"
+  }, {
+    "type" : "image",
+    "id" : 75,
+    "page number" : 11,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile18.png"
+  }, {
+    "type" : "heading",
+    "id" : 77,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 522.99, 364.528, 815.634, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "FRANK GEHRY"
+  }, {
+    "type" : "paragraph",
+    "id" : 79,
+    "page number" : 11,
+    "bounding box" : [ 522.99, 210.951, 863.67, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Canada in 1929. He studied at the Universities of Southern California and Harvard before he established his first practice."
+  }, {
+    "type" : "image",
+    "id" : 89,
+    "page number" : 12,
+    "bounding box" : [ -180.718, 0.0, 539.306, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile19.png"
+  }, {
+    "type" : "image",
+    "id" : 82,
+    "page number" : 12,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile20.png"
+  }, {
+    "type" : "heading",
+    "id" : 84,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 522.99, 364.528, 774.186, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Guggenheim Museum"
+  }, {
+    "type" : "heading",
+    "id" : 86,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 522.99, 315.951, 670.614, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Bilbao, Spain."
+  }, {
+    "type" : "paragraph",
+    "id" : 87,
+    "page number" : 12,
+    "bounding box" : [ 522.99, 17.451, 883.542, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Gehry moved away from a conventional commercial practice to an artistically directed atelier. His deconstructed architectural style began to emerge in late 1970s when he created collagelike compositions out of found materials. He created pieces of functional sculpture."
+  }, {
+    "type" : "image",
+    "id" : 90,
+    "page number" : 13,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile21.png"
+  }, {
+    "type" : "image",
+    "id" : 96,
+    "page number" : 13,
+    "bounding box" : [ 0.0, -48.492, 482.862, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile22.png"
+  }, {
+    "type" : "heading",
+    "id" : 92,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 522.99, 364.528, 821.926, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Dancing House"
+  }, {
+    "type" : "heading",
+    "id" : 94,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 522.99, 315.951, 600.126, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Prague"
+  }, {
+    "type" : "image",
+    "id" : 97,
+    "page number" : 14,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile23.png"
+  }, {
+    "type" : "text block",
+    "id" : 102,
+    "page number" : 14,
+    "bounding box" : [ 0.278, -1.778, 481.211, 539.722 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 14,
+      "bounding box" : [ -59.165, 127.717, 545.295, 412.282 ],
+      "source" : "TOA 5 (Masters of Architecture)_images/imageFile24.png"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 99,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 522.99, 364.528, 765.078, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Vitra Design Museum"
+  }, {
+    "type" : "heading",
+    "id" : 101,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 522.99, 315.951, 627.078, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Germany."
+  }, {
+    "type" : "image",
+    "id" : 109,
+    "page number" : 15,
+    "bounding box" : [ -169.708, 0.0, 594.241, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile25.png"
+  }, {
+    "type" : "image",
+    "id" : 103,
+    "page number" : 15,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile26.png"
+  }, {
+    "type" : "heading",
+    "id" : 105,
+    "level" : "Subtitle",
+    "page number" : 15,
+    "bounding box" : [ 522.99, 364.528, 808.33, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "FRANK LLOYD WRIGHT"
+  }, {
+    "type" : "paragraph",
+    "id" : 107,
+    "page number" : 15,
+    "bounding box" : [ 522.99, 27.201, 880.302, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Richland Center, Wisconsin in 1867. He was educated at Second Ward School, Madison and at the University of Wisconsin where he took some mechanical drawing and basic mathematics courses. He then departed for Chicago where he spent several months in J. L. Silsbee's office before seeking employment with Adler and Sullivan."
+  }, {
+    "type" : "image",
+    "id" : 117,
+    "page number" : 16,
+    "bounding box" : [ -142.216, 0.0, 577.804, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile27.png"
+  }, {
+    "type" : "image",
+    "id" : 110,
+    "page number" : 16,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile28.png"
+  }, {
+    "type" : "heading",
+    "id" : 112,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 522.99, 364.528, 774.186, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Guggenheim Museum"
+  }, {
+    "type" : "heading",
+    "id" : 114,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 522.99, 315.951, 681.534, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "New York City."
+  }, {
+    "type" : "paragraph",
+    "id" : 115,
+    "page number" : 16,
+    "bounding box" : [ 522.99, 134.451, 861.054, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Wright believed in designing structures that were in harmony with humanity and its environment, a philosophy he called organic architecture."
+  }, {
+    "type" : "image",
+    "id" : 126,
+    "page number" : 17,
+    "bounding box" : [ -101.937, 0.0, 723.818, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile29.png"
+  }, {
+    "type" : "image",
+    "id" : 118,
+    "page number" : 17,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile30.png"
+  }, {
+    "type" : "heading",
+    "id" : 120,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 522.99, 364.528, 765.826, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Fallingwater"
+  }, {
+    "type" : "heading",
+    "id" : 122,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 522.99, 315.951, 878.013, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "(Kaufmann House) Pennsylvania."
+  }, {
+    "type" : "paragraph",
+    "id" : 123,
+    "page number" : 17,
+    "bounding box" : [ 522.99, 186.951, 871.422, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Through experimentation, Wright developed the idea of the prairie house - a long, low building with"
+  }, {
+    "type" : "paragraph",
+    "id" : 124,
+    "page number" : 17,
+    "bounding box" : [ 522.99, 134.451, 849.174, 188.826 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "hovering planes and horizontal emphasis."
+  }, {
+    "type" : "image",
+    "id" : 134,
+    "page number" : 18,
+    "bounding box" : [ 0.0, 0.0, 688.52, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile31.png"
+  }, {
+    "type" : "image",
+    "id" : 127,
+    "page number" : 18,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile32.png"
+  }, {
+    "type" : "heading",
+    "id" : 129,
+    "level" : "Subtitle",
+    "page number" : 18,
+    "bounding box" : [ 522.99, 364.528, 676.682, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "I.M. PEI"
+  }, {
+    "type" : "paragraph",
+    "id" : 131,
+    "page number" : 18,
+    "bounding box" : [ 522.99, 315.951, 843.822, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Ieoh Ming Pei, born in China in"
+  }, {
+    "type" : "paragraph",
+    "id" : 132,
+    "level" : "1",
+    "page number" : 18,
+    "bounding box" : [ 522.99, 158.451, 864.078, 317.826 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "1917. He studied architecture at MIT and Harvard. He worked for several companies and as a professor at Harvard before he founded his own architectural firm in 1960."
+  }, {
+    "type" : "image",
+    "id" : 143,
+    "page number" : 19,
+    "bounding box" : [ -96.365, 0.0, 623.655, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile33.png"
+  }, {
+    "type" : "image",
+    "id" : 135,
+    "page number" : 19,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile34.png"
+  }, {
+    "type" : "heading",
+    "id" : 137,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 522.99, 364.528, 833.718, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Louvre Pyramid"
+  }, {
+    "type" : "heading",
+    "id" : 139,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 522.99, 315.951, 671.19, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Paris, France."
+  }, {
+    "type" : "paragraph",
+    "id" : 140,
+    "page number" : 19,
+    "bounding box" : [ 522.99, 134.451, 884.454, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Due to his reliance on abstract form and materials such as stone, concrete, glass, and steel, he has been considered a disciple of Gropius."
+  }, {
+    "type" : "paragraph",
+    "id" : 141,
+    "page number" : 19,
+    "bounding box" : [ 522.99, 17.451, 883.494, 124.326 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Pei generally designs sophisticated glass clad buildings loosely related to the high-tech movement."
+  }, {
+    "type" : "image",
+    "id" : 150,
+    "page number" : 20,
+    "bounding box" : [ 0.0, -16.794, 481.742, 590.004 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile35.png"
+  }, {
+    "type" : "image",
+    "id" : 144,
+    "page number" : 20,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile36.png"
+  }, {
+    "type" : "heading",
+    "id" : 146,
+    "level" : "Subtitle",
+    "page number" : 20,
+    "bounding box" : [ 522.99, 364.528, 798.562, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Bank of China Tower"
+  }, {
+    "type" : "heading",
+    "id" : 148,
+    "level" : "Subtitle",
+    "page number" : 20,
+    "bounding box" : [ 522.99, 315.951, 649.446, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Hong Kong."
+  }, {
+    "type" : "image",
+    "id" : 157,
+    "page number" : 21,
+    "bounding box" : [ -178.871, 0.0, 631.564, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile37.png"
+  }, {
+    "type" : "image",
+    "id" : 151,
+    "page number" : 21,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile38.png"
+  }, {
+    "type" : "heading",
+    "id" : 153,
+    "level" : "Subtitle",
+    "page number" : 21,
+    "bounding box" : [ 522.99, 364.528, 845.246, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Essensa Towers"
+  }, {
+    "type" : "heading",
+    "id" : 155,
+    "level" : "Subtitle",
+    "page number" : 21,
+    "bounding box" : [ 522.99, 315.951, 652.926, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Taguig City."
+  }, {
+    "type" : "image",
+    "id" : 164,
+    "page number" : 22,
+    "bounding box" : [ -290.828, 0.0, 501.887, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile39.png"
+  }, {
+    "type" : "image",
+    "id" : 158,
+    "page number" : 22,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile40.png"
+  }, {
+    "type" : "heading",
+    "id" : 160,
+    "level" : "Subtitle",
+    "page number" : 22,
+    "bounding box" : [ 522.99, 364.528, 792.094, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "JØRN UTZON"
+  }, {
+    "type" : "paragraph",
+    "id" : 162,
+    "page number" : 22,
+    "bounding box" : [ 522.99, 132.201, 879.222, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Copenhagen in 1918. After studying at the Academy of Arts in Copenhagen, he travelled through Europe, the United States and Mexico. He established his own practice in Copenhagen in 1950 when he returned from his travels."
+  }, {
+    "type" : "image",
+    "id" : 172,
+    "page number" : 23,
+    "bounding box" : [ -34.685, 0.0, 781.578, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile41.png"
+  }, {
+    "type" : "image",
+    "id" : 165,
+    "page number" : 23,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile42.png"
+  }, {
+    "type" : "heading",
+    "id" : 167,
+    "level" : "Subtitle",
+    "page number" : 23,
+    "bounding box" : [ 522.99, 364.528, 796.67, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Sydney Opera House"
+  }, {
+    "type" : "heading",
+    "id" : 169,
+    "level" : "Subtitle",
+    "page number" : 23,
+    "bounding box" : [ 522.99, 315.951, 827.118, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "New South Wales, Australia."
+  }, {
+    "type" : "paragraph",
+    "id" : 170,
+    "page number" : 23,
+    "bounding box" : [ 522.99, -8.799, 875.233, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Utzon has created a style which incorporates the sculptural quality of Alvar Aalto, and the organic structures of Frank Lloyd Wright into his designs. Influenced by architectural tradition, he attempts to create architecture for living that adheres to a strict structural and constructive process."
+  }, {
+    "type" : "image",
+    "id" : 179,
+    "page number" : 24,
+    "bounding box" : [ -298.006, 0.0, 547.018, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile43.png"
+  }, {
+    "type" : "image",
+    "id" : 173,
+    "page number" : 24,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile44.png"
+  }, {
+    "type" : "heading",
+    "id" : 175,
+    "level" : "Subtitle",
+    "page number" : 24,
+    "bounding box" : [ 522.99, 364.528, 894.878, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "National Assembly Building"
+  }, {
+    "type" : "heading",
+    "id" : 177,
+    "level" : "Subtitle",
+    "page number" : 24,
+    "bounding box" : [ 522.99, 315.951, 603.51, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Kuwait."
+  }, {
+    "type" : "image",
+    "id" : 187,
+    "page number" : 25,
+    "bounding box" : [ -194.931, 0.0, 645.925, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile45.png"
+  }, {
+    "type" : "image",
+    "id" : 180,
+    "page number" : 25,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile46.png"
+  }, {
+    "type" : "heading",
+    "id" : 182,
+    "level" : "Subtitle",
+    "page number" : 25,
+    "bounding box" : [ 522.99, 364.528, 817.13, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "KENZO TANGE"
+  }, {
+    "type" : "paragraph",
+    "id" : 184,
+    "page number" : 25,
+    "bounding box" : [ 522.99, 158.451, 885.486, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Osaka, Japan in 1913. He graduated from the University of Tokyo in 1938 and studied city planning at the graduate school at the University of Tokyo. He received a degree in engineering in 1959."
+  }, {
+    "type" : "paragraph",
+    "id" : 185,
+    "page number" : 25,
+    "bounding box" : [ 522.99, 15.201, 882.87, 148.326 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Two years later, he established his own firm. He also served as professor of urban engineering at the University of Tokyo from 1963 to 1974."
+  }, {
+    "type" : "image",
+    "id" : 196,
+    "page number" : 26,
+    "bounding box" : [ -173.36, 0.0, 501.625, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile47.png"
+  }, {
+    "type" : "image",
+    "id" : 188,
+    "page number" : 26,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile48.png"
+  }, {
+    "type" : "heading",
+    "id" : 190,
+    "level" : "Subtitle",
+    "page number" : 26,
+    "bounding box" : [ 522.99, 364.528, 721.386, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "St. Mary’s Cathedral"
+  }, {
+    "type" : "heading",
+    "id" : 192,
+    "level" : "Subtitle",
+    "page number" : 26,
+    "bounding box" : [ 522.99, 315.951, 596.742, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Tokyo."
+  }, {
+    "type" : "paragraph",
+    "id" : 193,
+    "page number" : 26,
+    "bounding box" : [ 522.99, 160.701, 868.35, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Tange's early designs attempted to combine modernism with traditional Japanese forms of architecture."
+  }, {
+    "type" : "paragraph",
+    "id" : 194,
+    "page number" : 26,
+    "bounding box" : [ 522.99, 69.951, 868.47, 150.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "In the late 1960s he rejected this earlier regionalism in favor of an abstract international style."
+  }, {
+    "type" : "image",
+    "id" : 203,
+    "page number" : 27,
+    "bounding box" : [ -71.705, 0.0, 592.23, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile49.png"
+  }, {
+    "type" : "image",
+    "id" : 197,
+    "page number" : 27,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile50.png"
+  }, {
+    "type" : "heading",
+    "id" : 199,
+    "level" : "Subtitle",
+    "page number" : 27,
+    "bounding box" : [ 522.99, 364.528, 844.454, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Peace Memorial Museum"
+  }, {
+    "type" : "heading",
+    "id" : 201,
+    "level" : "Subtitle",
+    "page number" : 27,
+    "bounding box" : [ 522.99, 315.951, 641.286, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Hiroshima."
+  }, {
+    "type" : "image",
+    "id" : 211,
+    "page number" : 28,
+    "bounding box" : [ -254.345, 0.0, 659.366, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile51.png"
+  }, {
+    "type" : "image",
+    "id" : 204,
+    "page number" : 28,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile52.png"
+  }, {
+    "type" : "heading",
+    "id" : 206,
+    "level" : "Subtitle",
+    "page number" : 28,
+    "bounding box" : [ 522.99, 364.528, 819.33, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "LE CORBUSIER"
+  }, {
+    "type" : "paragraph",
+    "id" : 208,
+    "page number" : 28,
+    "bounding box" : [ 522.99, 289.701, 867.294, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Charles-Édouard Jeanneret-Gris. Born in Switzerland in 1887."
+  }, {
+    "type" : "paragraph",
+    "id" : 209,
+    "page number" : 28,
+    "bounding box" : [ 522.99, 120.201, 876.99, 279.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Trained as an artist, he travelled extensively through Germany and the East. In Paris, he studied under Auguste Perret and absorbed the cultural and artistic life of the city."
+  }, {
+    "type" : "image",
+    "id" : 220,
+    "page number" : 29,
+    "bounding box" : [ -149.041, 0.0, 923.275, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile53.png"
+  }, {
+    "type" : "image",
+    "id" : 212,
+    "page number" : 29,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile54.png"
+  }, {
+    "type" : "heading",
+    "id" : 214,
+    "level" : "Subtitle",
+    "page number" : 29,
+    "bounding box" : [ 522.99, 364.528, 764.726, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Villa Savoye"
+  }, {
+    "type" : "heading",
+    "id" : 216,
+    "level" : "Subtitle",
+    "page number" : 29,
+    "bounding box" : [ 522.99, 315.951, 687.51, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Poissy, France."
+  }, {
+    "type" : "paragraph",
+    "id" : 217,
+    "page number" : 29,
+    "bounding box" : [ 522.99, 213.201, 869.358, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "From 1922 Le Corbusier worked with his cousin Pierre Jeanneret."
+  }, {
+    "type" : "paragraph",
+    "id" : 218,
+    "page number" : 29,
+    "bounding box" : [ 522.99, 17.451, 886.542, 203.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "During this time, Le Corbusier's ideas began to take physical form, mainly as houses which he created as \"a machine for living in\" and which incorporated his trademark five points of architecture."
+  }, {
+    "type" : "image",
+    "id" : 227,
+    "page number" : 30,
+    "bounding box" : [ 0.0, -23.166, 480.457, 619.056 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile55.png"
+  }, {
+    "type" : "image",
+    "id" : 221,
+    "page number" : 30,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile56.png"
+  }, {
+    "type" : "heading",
+    "id" : 223,
+    "level" : "Subtitle",
+    "page number" : 30,
+    "bounding box" : [ 522.99, 364.528, 875.078, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Unité d'Habitation"
+  }, {
+    "type" : "heading",
+    "id" : 225,
+    "level" : "Subtitle",
+    "page number" : 30,
+    "bounding box" : [ 528.966, 315.951, 721.326, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Marseille, France."
+  }, {
+    "type" : "image",
+    "id" : 228,
+    "page number" : 31,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile57.png"
+  }, {
+    "type" : "heading",
+    "id" : 230,
+    "level" : "Subtitle",
+    "page number" : 31,
+    "bounding box" : [ 522.99, 364.528, 818.758, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Notre Dame du Haut"
+  }, {
+    "type" : "heading",
+    "id" : 232,
+    "level" : "Subtitle",
+    "page number" : 31,
+    "bounding box" : [ 522.99, 315.951, 730.758, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Ronchamp, France."
+  }, {
+    "type" : "image",
+    "id" : 234,
+    "page number" : 31,
+    "bounding box" : [ 0.0, -17.053, 479.429, 309.484 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile58.png"
+  }, {
+    "type" : "image",
+    "id" : 235,
+    "page number" : 32,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile59.png"
+  }, {
+    "type" : "image",
+    "id" : 243,
+    "page number" : 32,
+    "bounding box" : [ 0.0, -72.846, 480.362, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile60.png"
+  }, {
+    "type" : "heading",
+    "id" : 237,
+    "level" : "Subtitle",
+    "page number" : 32,
+    "bounding box" : [ 522.99, 364.528, 862.626, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "LOUIS SULLIVAN"
+  }, {
+    "type" : "paragraph",
+    "id" : 239,
+    "page number" : 32,
+    "bounding box" : [ 522.99, 315.951, 878.886, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Boston, Massachusetts in"
+  }, {
+    "type" : "paragraph",
+    "id" : 240,
+    "level" : "1",
+    "page number" : 32,
+    "bounding box" : [ 522.99, 132.201, 874.542, 317.826 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "1856. He studied architecture at the Massachusetts Institute of Technology for one year. He then worked as a draughtsman for Furness and Hewitt in Philadelphia and for William Le Baron Jenney in Chicago."
+  }, {
+    "type" : "paragraph",
+    "id" : 241,
+    "page number" : 32,
+    "bounding box" : [ 522.99, 15.201, 879.63, 122.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "In 1874 he travelled to Europe where he studied at the Ecole des Beaux Arts in Paris. He returned to Chicago a year later."
+  }, {
+    "type" : "image",
+    "id" : 252,
+    "page number" : 33,
+    "bounding box" : [ 0.0, -50.868, 479.494, 552.312 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile61.png"
+  }, {
+    "type" : "image",
+    "id" : 244,
+    "page number" : 33,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile62.png"
+  }, {
+    "type" : "heading",
+    "id" : 246,
+    "level" : "Subtitle",
+    "page number" : 33,
+    "bounding box" : [ 522.99, 364.528, 745.806, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Wainwright Building"
+  }, {
+    "type" : "heading",
+    "id" : 248,
+    "level" : "Subtitle",
+    "page number" : 33,
+    "bounding box" : [ 522.99, 315.951, 730.302, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "St. Louis, Missouri."
+  }, {
+    "type" : "paragraph",
+    "id" : 249,
+    "page number" : 33,
+    "bounding box" : [ 522.99, 160.701, 883.134, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "His designs generally involved a simple geometric form decorated with ornamentation based on organic symbolism."
+  }, {
+    "type" : "paragraph",
+    "id" : 250,
+    "page number" : 33,
+    "bounding box" : [ 522.99, 122.451, 758.214, 150.576 ],
+    "font" : "Roboto-Italic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Form follows function."
+  }, {
+    "type" : "image",
+    "id" : 253,
+    "page number" : 34,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile63.png"
+  }, {
+    "type" : "image",
+    "id" : 259,
+    "page number" : 34,
+    "bounding box" : [ 0.0, -4.482, 481.234, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile64.png"
+  }, {
+    "type" : "heading",
+    "id" : 255,
+    "level" : "Subtitle",
+    "page number" : 34,
+    "bounding box" : [ 522.99, 364.528, 909.266, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "The Sullivan Center"
+  }, {
+    "type" : "heading",
+    "id" : 257,
+    "level" : "Subtitle",
+    "page number" : 34,
+    "bounding box" : [ 522.99, 289.701, 886.614, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "(Formerly Carson, Pirie, Scott and Company Building) Chicago."
+  }, {
+    "type" : "image",
+    "id" : 266,
+    "page number" : 35,
+    "bounding box" : [ -96.188, 0.0, 575.642, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile65.png"
+  }, {
+    "type" : "image",
+    "id" : 260,
+    "page number" : 35,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile66.png"
+  }, {
+    "type" : "heading",
+    "id" : 262,
+    "level" : "Subtitle",
+    "page number" : 35,
+    "bounding box" : [ 522.99, 364.528, 829.846, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "LUDWIG MIES VAN DER ROHE"
+  }, {
+    "type" : "paragraph",
+    "id" : 264,
+    "page number" : 35,
+    "bounding box" : [ 522.99, 158.451, 881.646, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Aachen, Germany in 1886. He worked in the family stonecarving business before he joined the office of Bruno Paul in Berlin. He entered the studio of Peter Behrens in 1908 and remained until 1912."
+  }, {
+    "type" : "image",
+    "id" : 275,
+    "page number" : 36,
+    "bounding box" : [ 0.0, -38.556, 479.971, 578.61 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile67.png"
+  }, {
+    "type" : "image",
+    "id" : 267,
+    "page number" : 36,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile68.png"
+  }, {
+    "type" : "heading",
+    "id" : 269,
+    "level" : "Subtitle",
+    "page number" : 36,
+    "bounding box" : [ 522.99, 364.528, 873.186, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Seagram Building"
+  }, {
+    "type" : "heading",
+    "id" : 271,
+    "level" : "Subtitle",
+    "page number" : 36,
+    "bounding box" : [ 522.99, 289.701, 804.63, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "In collaboration with Philip Johnson. New York City."
+  }, {
+    "type" : "paragraph",
+    "id" : 272,
+    "page number" : 36,
+    "bounding box" : [ 522.99, 81.951, 885.054, 241.326 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "He developed a design approach based on advanced structural techniques. He also developed a sympathy for the aesthetic credos of both Russian Constructivism and the Dutch De Stijl group."
+  }, {
+    "type" : "paragraph",
+    "id" : 273,
+    "page number" : 36,
+    "bounding box" : [ 522.99, 43.701, 662.406, 71.826 ],
+    "font" : "Roboto-Italic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Less is more."
+  }, {
+    "type" : "image",
+    "id" : 282,
+    "page number" : 37,
+    "bounding box" : [ -69.81, 0.0, 854.877, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile69.png"
+  }, {
+    "type" : "image",
+    "id" : 276,
+    "page number" : 37,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile70.png"
+  }, {
+    "type" : "heading",
+    "id" : 278,
+    "level" : "Subtitle",
+    "page number" : 37,
+    "bounding box" : [ 522.99, 364.528, 884.362, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Farnsworth House"
+  }, {
+    "type" : "heading",
+    "id" : 280,
+    "level" : "Subtitle",
+    "page number" : 37,
+    "bounding box" : [ 522.99, 315.951, 675.246, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Plano, Illinois."
+  }, {
+    "type" : "image",
+    "id" : 290,
+    "page number" : 38,
+    "bounding box" : [ -108.681, 0.0, 671.308, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile71.png"
+  }, {
+    "type" : "image",
+    "id" : 283,
+    "page number" : 38,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile72.png"
+  }, {
+    "type" : "heading",
+    "id" : 285,
+    "level" : "Subtitle",
+    "page number" : 38,
+    "bounding box" : [ 522.99, 364.528, 712.234, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "MICHAEL GRAVES"
+  }, {
+    "type" : "paragraph",
+    "id" : 287,
+    "page number" : 38,
+    "bounding box" : [ 522.99, 315.951, 847.206, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Indianapolis, Indiana in"
+  }, {
+    "type" : "list",
+    "id" : 288,
+    "level" : "2",
+    "page number" : 38,
+    "bounding box" : [ 522.99, 79.701, 880.446, 317.826 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "next list id" : 312,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 522.99, 79.701, 880.446, 317.826 ],
+      "font" : "Roboto-Regular",
+      "font size" : 24.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "1934. He studied at the University of Cincinnati, Ohio and at Harvard University. After working as a Fellow at the American Academy in Rome for two years, he started his own practice in Princeton, New Jersey. He became a professor at Princeton University in 1972.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 299,
+    "page number" : 39,
+    "bounding box" : [ -95.578, 0.0, 577.32, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile73.png"
+  }, {
+    "type" : "image",
+    "id" : 291,
+    "page number" : 39,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile74.png"
+  }, {
+    "type" : "heading",
+    "id" : 293,
+    "level" : "Subtitle",
+    "page number" : 39,
+    "bounding box" : [ 522.99, 364.528, 806.086, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Disney’s Hotel"
+  }, {
+    "type" : "heading",
+    "id" : 295,
+    "level" : "Subtitle",
+    "page number" : 39,
+    "bounding box" : [ 522.99, 315.951, 681.534, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "New York City."
+  }, {
+    "type" : "paragraph",
+    "id" : 296,
+    "page number" : 39,
+    "bounding box" : [ 522.99, 108.201, 873.27, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "He generates an ironic, vision of Classicism in which his buildings have become classical in their mass and order. Graves also has become an an opponent of modern works who uses humor"
+  }, {
+    "type" : "list",
+    "id" : 297,
+    "level" : "3",
+    "page number" : 39,
+    "bounding box" : [ 522.99, 55.701, 780.054, 110.076 ],
+    "numbering style" : "english letters",
+    "number of list items" : 1,
+    "next list id" : 496,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 39,
+      "bounding box" : [ 522.99, 55.701, 780.054, 110.076 ],
+      "font" : "Roboto-Regular",
+      "font size" : 24.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "as an integral part of his architecture.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 306,
+    "page number" : 40,
+    "bounding box" : [ 0.0, -22.896, 479.65, 617.004 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile75.png"
+  }, {
+    "type" : "image",
+    "id" : 300,
+    "page number" : 40,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile76.png"
+  }, {
+    "type" : "heading",
+    "id" : 302,
+    "level" : "Subtitle",
+    "page number" : 40,
+    "bounding box" : [ 522.99, 364.528, 861.614, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Humana Building"
+  }, {
+    "type" : "heading",
+    "id" : 304,
+    "level" : "Subtitle",
+    "page number" : 40,
+    "bounding box" : [ 522.99, 315.951, 745.062, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Louisville, Kentucky."
+  }, {
+    "type" : "image",
+    "id" : 314,
+    "page number" : 41,
+    "bounding box" : [ -128.518, 0.0, 546.323, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile77.png"
+  }, {
+    "type" : "image",
+    "id" : 307,
+    "page number" : 41,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile78.png"
+  }, {
+    "type" : "heading",
+    "id" : 309,
+    "level" : "Subtitle",
+    "page number" : 41,
+    "bounding box" : [ 522.99, 364.528, 884.01, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "NORMAN FOSTER"
+  }, {
+    "type" : "paragraph",
+    "id" : 311,
+    "page number" : 41,
+    "bounding box" : [ 522.99, 315.951, 851.958, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Manchester, England in"
+  }, {
+    "type" : "list",
+    "id" : 312,
+    "level" : "2",
+    "page number" : 41,
+    "bounding box" : [ 522.99, 79.701, 868.662, 317.826 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 288,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 41,
+      "bounding box" : [ 522.99, 79.701, 868.662, 317.826 ],
+      "font" : "Roboto-Regular",
+      "font size" : 24.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "1935. He received his architectural training at Manchester University School of Architecture and Yale University. He worked with Richard Rogers and Sue Rogers and his wife, Wendy Foster, as a member of \"Team 4\" until Foster Associates was founded in London in 1967.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 322,
+    "page number" : 42,
+    "bounding box" : [ 0.0, 0.0, 810.502, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile79.png"
+  }, {
+    "type" : "image",
+    "id" : 315,
+    "page number" : 42,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile80.png"
+  }, {
+    "type" : "heading",
+    "id" : 317,
+    "level" : "Subtitle",
+    "page number" : 42,
+    "bounding box" : [ 522.99, 364.528, 836.71, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "30 St. Mary Axe"
+  }, {
+    "type" : "heading",
+    "id" : 319,
+    "level" : "Subtitle",
+    "page number" : 42,
+    "bounding box" : [ 522.99, 315.951, 863.166, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "(The Gherkin) London, England."
+  }, {
+    "type" : "paragraph",
+    "id" : 320,
+    "page number" : 42,
+    "bounding box" : [ 522.99, 3.201, 864.294, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The \"High Tech\" vocabulary of Foster Associates shows an uncompromising exploration of technological innovations and forms. Their designs emphasize the repetition of industrialized \"modular\" units in which prefabricated off-sitemanufactured elements are frequently employed."
+  }, {
+    "type" : "image",
+    "id" : 329,
+    "page number" : 43,
+    "bounding box" : [ 0.0, -39.204, 478.382, 564.3 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile81.png"
+  }, {
+    "type" : "image",
+    "id" : 323,
+    "page number" : 43,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile82.png"
+  }, {
+    "type" : "heading",
+    "id" : 325,
+    "level" : "Subtitle",
+    "page number" : 43,
+    "bounding box" : [ 522.99, 364.528, 789.938, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Hearst Tower"
+  }, {
+    "type" : "heading",
+    "id" : 327,
+    "level" : "Subtitle",
+    "page number" : 43,
+    "bounding box" : [ 522.99, 315.951, 681.534, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "New York City."
+  }, {
+    "type" : "image",
+    "id" : 330,
+    "page number" : 44,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile83.png"
+  }, {
+    "type" : "image",
+    "id" : 337,
+    "page number" : 44,
+    "bounding box" : [ 0.0, 0.0, 540.033, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile84.png"
+  }, {
+    "type" : "heading",
+    "id" : 332,
+    "level" : "Subtitle",
+    "page number" : 44,
+    "bounding box" : [ 522.99, 364.528, 734.806, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "OSCAR NIEMEYER"
+  }, {
+    "type" : "paragraph",
+    "id" : 334,
+    "page number" : 44,
+    "bounding box" : [ 522.99, 315.951, 846.366, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Rio de Janeiro Brazil in"
+  }, {
+    "type" : "paragraph",
+    "id" : 335,
+    "level" : "1",
+    "page number" : 44,
+    "bounding box" : [ 522.99, 79.701, 884.382, 317.826 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "1907. He graduated from the Escola Nacional de Belas Artas in Rio de Janeiro and later joined the office of Lucio Costa. In 1936 he joined the team of Brazilian architects collaborating with Le Corbusier on a new Ministry of Education and Health in Rio de Janeiro."
+  }, {
+    "type" : "image",
+    "id" : 346,
+    "page number" : 45,
+    "bounding box" : [ -246.459, 0.0, 576.308, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile85.png"
+  }, {
+    "type" : "image",
+    "id" : 338,
+    "page number" : 45,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile86.png"
+  }, {
+    "type" : "heading",
+    "id" : 340,
+    "level" : "Subtitle",
+    "page number" : 45,
+    "bounding box" : [ 522.99, 364.528, 874.374, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Brasilia Cathedral"
+  }, {
+    "type" : "heading",
+    "id" : 342,
+    "level" : "Subtitle",
+    "page number" : 45,
+    "bounding box" : [ 522.99, 315.951, 611.142, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Brasilia."
+  }, {
+    "type" : "paragraph",
+    "id" : 343,
+    "page number" : 45,
+    "bounding box" : [ 522.99, 225.201, 844.878, 305.826 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "In his early career, his designs borrowed extensively from the Brazilian Baroque style of"
+  }, {
+    "type" : "paragraph",
+    "id" : 344,
+    "page number" : 45,
+    "bounding box" : [ 522.99, 55.701, 881.934, 227.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "architecture. In 1956, Niemeyer was appointed architectural adviser to the organization in charge of implementing Lucio Costa's plans for Brazil's new capital."
+  }, {
+    "type" : "image",
+    "id" : 353,
+    "page number" : 46,
+    "bounding box" : [ -161.248, 0.0, 642.779, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile87.png"
+  }, {
+    "type" : "image",
+    "id" : 347,
+    "page number" : 46,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile88.png"
+  }, {
+    "type" : "heading",
+    "id" : 349,
+    "level" : "Subtitle",
+    "page number" : 46,
+    "bounding box" : [ 522.99, 364.528, 788.046, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Penang State Mosque"
+  }, {
+    "type" : "heading",
+    "id" : 351,
+    "level" : "Subtitle",
+    "page number" : 46,
+    "bounding box" : [ 522.99, 315.951, 733.35, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Jelutong, Malaysia."
+  }, {
+    "type" : "image",
+    "id" : 362,
+    "page number" : 47,
+    "bounding box" : [ 0.0, -115.452, 479.429, 603.666 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile89.png"
+  }, {
+    "type" : "image",
+    "id" : 354,
+    "page number" : 47,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile90.png"
+  }, {
+    "type" : "heading",
+    "id" : 356,
+    "level" : "Subtitle",
+    "page number" : 47,
+    "bounding box" : [ 522.99, 364.528, 876.662, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "PHILIP JOHNSON"
+  }, {
+    "type" : "paragraph",
+    "id" : 358,
+    "page number" : 47,
+    "bounding box" : [ 522.99, 210.951, 880.854, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Cleveland, Ohio in 1906. He graduated from Harvard University and received an A. B. in architectural history, in 1930 and a B.Arch in 1943."
+  }, {
+    "type" : "paragraph",
+    "id" : 359,
+    "page number" : 47,
+    "bounding box" : [ 522.99, 67.701, 886.11, 200.826 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "He served as Director of Architecture at MOMA. He worked with Richard Foster and with John Burgee until his retirement. He became a trustee of MOMA in"
+  }, {
+    "type" : "list",
+    "id" : 360,
+    "level" : "2",
+    "page number" : 47,
+    "bounding box" : [ 522.99, -37.299, 859.398, 69.576 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "next list id" : 407,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 47,
+      "bounding box" : [ 522.99, -37.299, 859.398, 69.576 ],
+      "font" : "Roboto-Regular",
+      "font size" : 24.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "1958, received the AIA Gold Medal in 1978, and received the Pritzker Architecture prize in 1979.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 371,
+    "page number" : 48,
+    "bounding box" : [ -116.807, 0.0, 629.922, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile91.png"
+  }, {
+    "type" : "image",
+    "id" : 363,
+    "page number" : 48,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile92.png"
+  }, {
+    "type" : "heading",
+    "id" : 365,
+    "level" : "Subtitle",
+    "page number" : 48,
+    "bounding box" : [ 522.99, 364.528, 771.282, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Glass House"
+  }, {
+    "type" : "heading",
+    "id" : 367,
+    "level" : "Subtitle",
+    "page number" : 48,
+    "bounding box" : [ 522.99, 315.951, 806.502, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "New Canaan, Connecticut."
+  }, {
+    "type" : "paragraph",
+    "id" : 368,
+    "page number" : 48,
+    "bounding box" : [ 522.99, 186.951, 870.846, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "As an architect, Johnson is most widely respected for his work in the early 1950s."
+  }, {
+    "type" : "paragraph",
+    "id" : 369,
+    "page number" : 48,
+    "bounding box" : [ 522.99, -8.799, 851.862, 176.826 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "He altered his architectural principles from Modernist to Postmodernist to AntiPostmodernist. He showed a keen interest in style and is remembered as a stimulator of ideas."
+  }, {
+    "type" : "image",
+    "id" : 378,
+    "page number" : 49,
+    "bounding box" : [ -48.993, 0.0, 481.742, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile93.png"
+  }, {
+    "type" : "image",
+    "id" : 372,
+    "page number" : 49,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile94.png"
+  }, {
+    "type" : "heading",
+    "id" : 374,
+    "level" : "Subtitle",
+    "page number" : 49,
+    "bounding box" : [ 522.99, 364.528, 756.63, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Sony Tower"
+  }, {
+    "type" : "heading",
+    "id" : 376,
+    "level" : "Subtitle",
+    "page number" : 49,
+    "bounding box" : [ 522.99, 289.701, 836.747, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Formerly AT&T Building. New York City."
+  }, {
+    "type" : "image",
+    "id" : 379,
+    "page number" : 50,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile95.png"
+  }, {
+    "type" : "image",
+    "id" : 386,
+    "page number" : 50,
+    "bounding box" : [ 0.0, 0.0, 398.473, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile96.png"
+  }, {
+    "type" : "heading",
+    "id" : 381,
+    "level" : "Subtitle",
+    "page number" : 50,
+    "bounding box" : [ 522.99, 364.528, 854.882, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "REM KOOLHAAS"
+  }, {
+    "type" : "paragraph",
+    "id" : 383,
+    "page number" : 50,
+    "bounding box" : [ 522.99, 184.701, 870.366, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Netherlands in 1944. Koolhaas studied at the Architectural Association School of Architecture in London and at Cornell University in Ithaca, New York."
+  }, {
+    "type" : "paragraph",
+    "id" : 384,
+    "page number" : 50,
+    "bounding box" : [ 522.99, 41.451, 880.014, 174.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "He founded The Office for Metropolitan Architecture in 1975 together with architects Elia Zenghelis, Zoe Zenghelis and Madelon Vriesendorp in London."
+  }, {
+    "type" : "image",
+    "id" : 394,
+    "page number" : 51,
+    "bounding box" : [ -85.129, 0.0, 724.873, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile97.png"
+  }, {
+    "type" : "image",
+    "id" : 387,
+    "page number" : 51,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile98.png"
+  }, {
+    "type" : "heading",
+    "id" : 389,
+    "level" : "Subtitle",
+    "page number" : 51,
+    "bounding box" : [ 522.99, 364.528, 792.402, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "CCTV Headquarters"
+  }, {
+    "type" : "heading",
+    "id" : 391,
+    "level" : "Subtitle",
+    "page number" : 51,
+    "bounding box" : [ 522.99, 315.951, 677.886, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Beijing, China."
+  }, {
+    "type" : "paragraph",
+    "id" : 392,
+    "page number" : 51,
+    "bounding box" : [ 522.99, 81.951, 875.646, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "He has been considered a noted Deconstructivist since the major MOMA exhibition in New York. Although Koolhaas tends toward the more humanist, less absolute branch of the Deconstructivist school."
+  }, {
+    "type" : "image",
+    "id" : 401,
+    "page number" : 52,
+    "bounding box" : [ -61.379, 0.0, 526.056, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile99.png"
+  }, {
+    "type" : "image",
+    "id" : 395,
+    "page number" : 52,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile100.png"
+  }, {
+    "type" : "heading",
+    "id" : 397,
+    "level" : "Subtitle",
+    "page number" : 52,
+    "bounding box" : [ 522.99, 364.528, 816.646, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Seattle Central Library"
+  }, {
+    "type" : "heading",
+    "id" : 399,
+    "level" : "Subtitle",
+    "page number" : 52,
+    "bounding box" : [ 522.99, 315.951, 745.998, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Seattle, Washington."
+  }, {
+    "type" : "image",
+    "id" : 409,
+    "page number" : 53,
+    "bounding box" : [ -243.31, -17.928, 500.908, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile101.png"
+  }, {
+    "type" : "image",
+    "id" : 402,
+    "page number" : 53,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile102.png"
+  }, {
+    "type" : "heading",
+    "id" : 404,
+    "level" : "Subtitle",
+    "page number" : 53,
+    "bounding box" : [ 522.99, 364.528, 806.966, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "RENZO PIANO"
+  }, {
+    "type" : "paragraph",
+    "id" : 406,
+    "page number" : 53,
+    "bounding box" : [ 522.99, 315.951, 880.998, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Genoa, Italy in 1937. From"
+  }, {
+    "type" : "list",
+    "id" : 407,
+    "level" : "2",
+    "page number" : 53,
+    "bounding box" : [ 522.99, 184.701, 882.366, 317.826 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 360,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 53,
+      "bounding box" : [ 522.99, 184.701, 882.366, 317.826 ],
+      "font" : "Roboto-Regular",
+      "font size" : 24.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "1959 to 1964 he studied at the Milan Politecnico, where he taught until 1968. In 1970, Piano established a partnership with the English architect Richard Rogers.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 410,
+    "page number" : 54,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile103.png"
+  }, {
+    "type" : "image",
+    "id" : 417,
+    "page number" : 54,
+    "bounding box" : [ 0.0, 539.998, 0.002, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile104.png"
+  }, {
+    "type" : "heading",
+    "id" : 412,
+    "level" : "Subtitle",
+    "page number" : 54,
+    "bounding box" : [ 522.99, 364.528, 831.782, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Centre Georges Pompidou"
+  }, {
+    "type" : "paragraph",
+    "id" : 414,
+    "page number" : 54,
+    "bounding box" : [ 522.99, 263.451, 882.39, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Together, Rogers and Piano designed a number of buildings in Italy and England."
+  }, {
+    "type" : "paragraph",
+    "id" : 415,
+    "page number" : 54,
+    "bounding box" : [ 522.99, 67.701, 862.59, 253.326 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Their most famous building, the Pompidou Center in Paris, takes its form from a metaphor of the 'cultural machine' with all colorcoded service elements and structure emphasized on the building's exterior."
+  }, {
+    "type" : "image",
+    "id" : 424,
+    "page number" : 55,
+    "bounding box" : [ 0.0, 0.0, 810.48, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile105.png"
+  }, {
+    "type" : "image",
+    "id" : 418,
+    "page number" : 55,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile106.png"
+  }, {
+    "type" : "heading",
+    "id" : 420,
+    "level" : "Subtitle",
+    "page number" : 55,
+    "bounding box" : [ 522.99, 364.528, 725.478, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "The Shard"
+  }, {
+    "type" : "heading",
+    "id" : 422,
+    "level" : "Subtitle",
+    "page number" : 55,
+    "bounding box" : [ 522.99, 237.201, 860.214, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Also referred to as the Shard of Glass, Shard London Bridge and formerly London Bridge Tower. London, England."
+  }, {
+    "type" : "image",
+    "id" : 432,
+    "page number" : 56,
+    "bounding box" : [ 0.0, 0.0, 479.839, 597.888 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile107.png"
+  }, {
+    "type" : "image",
+    "id" : 425,
+    "page number" : 56,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile108.png"
+  }, {
+    "type" : "heading",
+    "id" : 427,
+    "level" : "Subtitle",
+    "page number" : 56,
+    "bounding box" : [ 522.99, 364.528, 849.69, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "RICHARD MEIER"
+  }, {
+    "type" : "paragraph",
+    "id" : 429,
+    "page number" : 56,
+    "bounding box" : [ 522.99, 315.951, 844.686, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Newark, New Jersey in"
+  }, {
+    "type" : "paragraph",
+    "id" : 430,
+    "level" : "1",
+    "page number" : 56,
+    "bounding box" : [ 522.99, 132.201, 871.134, 317.826 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "1934. He graduated from Cornell University in 1957 then worked with a series of architects, including Skidmore, Owings, and Merrill and Marcel Breuer. He established his own practice in 1963."
+  }, {
+    "type" : "image",
+    "id" : 440,
+    "page number" : 57,
+    "bounding box" : [ -134.43, 0.0, 560.069, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile109.png"
+  }, {
+    "type" : "image",
+    "id" : 433,
+    "page number" : 57,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile110.png"
+  }, {
+    "type" : "heading",
+    "id" : 435,
+    "level" : "Subtitle",
+    "page number" : 57,
+    "bounding box" : [ 522.99, 364.528, 820.166, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Jubilee Church"
+  }, {
+    "type" : "heading",
+    "id" : 437,
+    "level" : "Subtitle",
+    "page number" : 57,
+    "bounding box" : [ 522.99, 315.951, 708.054, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Tre Teste, Rome."
+  }, {
+    "type" : "paragraph",
+    "id" : 438,
+    "page number" : 57,
+    "bounding box" : [ 522.99, 29.451, 885.87, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Meier usually designs white NeoCorbusian forms with enameled panels and glass. These structure usually play with the linear relationships of ramps and handrails. Although all have a similar look, Meier manages to generate endless variations on his singular theme."
+  }, {
+    "type" : "image",
+    "id" : 447,
+    "page number" : 58,
+    "bounding box" : [ -125.49, 0.0, 636.295, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile111.png"
+  }, {
+    "type" : "image",
+    "id" : 441,
+    "page number" : 58,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile112.png"
+  }, {
+    "type" : "heading",
+    "id" : 443,
+    "level" : "Subtitle",
+    "page number" : 58,
+    "bounding box" : [ 522.99, 364.528, 857.654, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "The Getty Center"
+  }, {
+    "type" : "heading",
+    "id" : 445,
+    "level" : "Subtitle",
+    "page number" : 58,
+    "bounding box" : [ 522.99, 315.951, 662.67, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Los Angeles."
+  }, {
+    "type" : "image",
+    "id" : 454,
+    "page number" : 59,
+    "bounding box" : [ 0.0, -193.752, 480.852, 559.062 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile113.png"
+  }, {
+    "type" : "image",
+    "id" : 448,
+    "page number" : 59,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile114.png"
+  }, {
+    "type" : "heading",
+    "id" : 450,
+    "level" : "Subtitle",
+    "page number" : 59,
+    "bounding box" : [ 522.99, 364.528, 881.986, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "ROBERT VENTURI"
+  }, {
+    "type" : "paragraph",
+    "id" : 452,
+    "page number" : 59,
+    "bounding box" : [ 522.99, 79.701, 885.438, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Philadelphia, Pennsylvania in 1925. He attended the Episcopal Academy in Philadelphia and graduated from Princeton University. He worked with Eero Saarinen and Louis I. Kahn before he founded his own practice in 1958. In 1964 he formed a partnership with John Rausch."
+  }, {
+    "type" : "image",
+    "id" : 461,
+    "page number" : 60,
+    "bounding box" : [ -178.984, 0.0, 514.218, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile115.png"
+  }, {
+    "type" : "image",
+    "id" : 455,
+    "page number" : 60,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile116.png"
+  }, {
+    "type" : "heading",
+    "id" : 457,
+    "level" : "Subtitle",
+    "page number" : 60,
+    "bounding box" : [ 522.99, 364.528, 803.358, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Vanna Venturi House"
+  }, {
+    "type" : "paragraph",
+    "id" : 459,
+    "page number" : 60,
+    "bounding box" : [ 522.99, 29.451, 873.702, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "In contrast to many modernists, Venturi uses a form of symbolically decorated architecture based on precedents. He believes that structure and decoration should remain separate entities and that decoration should reflect the culture in which it exists."
+  }, {
+    "type" : "image",
+    "id" : 468,
+    "page number" : 61,
+    "bounding box" : [ -49.264, 0.0, 682.435, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile117.png"
+  }, {
+    "type" : "image",
+    "id" : 462,
+    "page number" : 61,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile118.png"
+  }, {
+    "type" : "heading",
+    "id" : 464,
+    "level" : "Subtitle",
+    "page number" : 61,
+    "bounding box" : [ 522.99, 364.528, 878.73, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Allen Art Museum"
+  }, {
+    "type" : "heading",
+    "id" : 466,
+    "level" : "Subtitle",
+    "page number" : 61,
+    "bounding box" : [ 522.99, 315.951, 669.582, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Oberlin, Ohio."
+  }, {
+    "type" : "image",
+    "id" : 469,
+    "page number" : 62,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile119.png"
+  }, {
+    "type" : "image",
+    "id" : 475,
+    "page number" : 62,
+    "bounding box" : [ 0.0, -69.336, 480.852, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile120.png"
+  }, {
+    "type" : "heading",
+    "id" : 471,
+    "level" : "Subtitle",
+    "page number" : 62,
+    "bounding box" : [ 522.99, 364.528, 777.838, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "SANTIAGO CALATRAVA"
+  }, {
+    "type" : "paragraph",
+    "id" : 473,
+    "page number" : 62,
+    "bounding box" : [ 522.99, 158.451, 884.982, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Valencia, Spain in 1951. He graduated from the Institute of Architecture in Valencia and from the Federal Institute of Technology in Zurich. Calatrava opened his own architecture and engineering office in Zurich."
+  }, {
+    "type" : "image",
+    "id" : 483,
+    "page number" : 63,
+    "bounding box" : [ 0.0, -17.55, 478.382, 590.436 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile121.png"
+  }, {
+    "type" : "image",
+    "id" : 476,
+    "page number" : 63,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile122.png"
+  }, {
+    "type" : "heading",
+    "id" : 478,
+    "level" : "Subtitle",
+    "page number" : 63,
+    "bounding box" : [ 522.99, 364.528, 803.314, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Turning Torso"
+  }, {
+    "type" : "heading",
+    "id" : 480,
+    "level" : "Subtitle",
+    "page number" : 63,
+    "bounding box" : [ 522.99, 315.951, 839.79, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Malmö Municipality, Sweden."
+  }, {
+    "type" : "paragraph",
+    "id" : 481,
+    "page number" : 63,
+    "bounding box" : [ 522.99, 3.201, 884.358, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "As both an architect and an engineer, Calatrava easily identifies with both disciplines. He often creates innovative works that depend on a firm grasp of both the creative and structural aspects of design. His skills as an engineer allow him to create sculptural surfaces and unusual spaces."
+  }, {
+    "type" : "image",
+    "id" : 490,
+    "page number" : 64,
+    "bounding box" : [ -268.908, -0.272, 691.107, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile123.png"
+  }, {
+    "type" : "image",
+    "id" : 484,
+    "page number" : 64,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile124.png"
+  }, {
+    "type" : "heading",
+    "id" : 486,
+    "level" : "Subtitle",
+    "page number" : 64,
+    "bounding box" : [ 522.99, 364.528, 765.298, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Auditorio de Tenerife"
+  }, {
+    "type" : "heading",
+    "id" : 488,
+    "level" : "Subtitle",
+    "page number" : 64,
+    "bounding box" : [ 522.99, 315.951, 849.942, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Santa Cruz de Tenerife, Spain."
+  }, {
+    "type" : "image",
+    "id" : 498,
+    "page number" : 65,
+    "bounding box" : [ 0.0, -28.728, 479.502, 615.06 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile125.png"
+  }, {
+    "type" : "image",
+    "id" : 491,
+    "page number" : 65,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile126.png"
+  }, {
+    "type" : "heading",
+    "id" : 493,
+    "level" : "Subtitle",
+    "page number" : 65,
+    "bounding box" : [ 522.99, 364.528, 708.538, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "WALTER GROPIUS"
+  }, {
+    "type" : "paragraph",
+    "id" : 495,
+    "page number" : 65,
+    "bounding box" : [ 522.99, 315.951, 876.03, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Born in Berlin in 1883. He studied"
+  }, {
+    "type" : "list",
+    "id" : 496,
+    "level" : "3",
+    "page number" : 65,
+    "bounding box" : [ 522.99, 184.701, 868.782, 317.826 ],
+    "numbering style" : "english letters",
+    "number of list items" : 1,
+    "previous list id" : 297,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 522.99, 184.701, 868.782, 317.826 ],
+      "font" : "Roboto-Regular",
+      "font size" : 24.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "at the Technical Universities in Munich and Berlin. He joined the office of Peter Behrens in 1910 and three years later established a practice with Adolph Meyer.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 506,
+    "page number" : 66,
+    "bounding box" : [ -172.495, 0.0, 637.497, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile127.png"
+  }, {
+    "type" : "image",
+    "id" : 499,
+    "page number" : 66,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile128.png"
+  }, {
+    "type" : "heading",
+    "id" : 501,
+    "level" : "Subtitle",
+    "page number" : 66,
+    "bounding box" : [ 522.99, 364.528, 841.506, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Bauhaus School and Faculty"
+  }, {
+    "type" : "heading",
+    "id" : 503,
+    "level" : "Subtitle",
+    "page number" : 66,
+    "bounding box" : [ 522.99, 315.951, 718.398, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Dessau, Germany."
+  }, {
+    "type" : "paragraph",
+    "id" : 504,
+    "page number" : 66,
+    "bounding box" : [ 522.99, 29.451, 868.478, 267.576 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Gropius created innovative designs that borrowed materials and methods of construction from modern technology. This advocacy of industrialized building carried with it a belief in teamwork and an acceptance of standardization and prefabrication."
+  }, {
+    "type" : "image",
+    "id" : 513,
+    "page number" : 67,
+    "bounding box" : [ -120.428, 0.0, 753.575, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile129.png"
+  }, {
+    "type" : "image",
+    "id" : 507,
+    "page number" : 67,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile130.png"
+  }, {
+    "type" : "heading",
+    "id" : 509,
+    "level" : "Subtitle",
+    "page number" : 67,
+    "bounding box" : [ 522.99, 364.528, 802.214, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Fagus Factory"
+  }, {
+    "type" : "heading",
+    "id" : 511,
+    "level" : "Subtitle",
+    "page number" : 67,
+    "bounding box" : [ 522.99, 315.951, 702.822, 344.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Alfeld, Germany."
+  }, {
+    "type" : "image",
+    "id" : 514,
+    "page number" : 68,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile131.png"
+  }, {
+    "type" : "heading",
+    "id" : 516,
+    "level" : "Subtitle",
+    "page number" : 68,
+    "bounding box" : [ 54.75, 311.567, 307.662, 388.911 ],
+    "heading level" : 2,
+    "font" : "Roboto-Bold",
+    "font size" : 66.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "QUOTES"
+  }, {
+    "type" : "paragraph",
+    "id" : 518,
+    "page number" : 68,
+    "bounding box" : [ 54.75, 276.334, 511.178, 309.147 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Notable quotes by notable architects"
+  }, {
+    "type" : "text block",
+    "id" : 523,
+    "page number" : 69,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 69,
+      "bounding box" : [ 162.75, 232.116, 623.078, 328.679 ],
+      "font" : "Roboto-Bold",
+      "font size" : 44.0,
+      "text color" : "[0.105882354, 0.8627451, 1.0]",
+      "content" : "“An idea is salvation by imagination.”"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 528,
+    "page number" : 69,
+    "bounding box" : [ -229.707, 0.0, 621.09, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile132.png"
+  }, {
+    "type" : "image",
+    "id" : 519,
+    "page number" : 69,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile133.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 521,
+    "page number" : 69,
+    "bounding box" : [ 522.99, 364.528, 765.034, 461.09 ],
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Frank LLoyd Wright"
+  }, {
+    "type" : "paragraph",
+    "id" : 526,
+    "page number" : 69,
+    "bounding box" : [ 522.99, 289.701, 768.462, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“An idea is salvation by imagination.”"
+  }, {
+    "type" : "paragraph",
+    "id" : 524,
+    "page number" : 69,
+    "bounding box" : [ 489.362, 277.116, 623.078, 328.679 ],
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "tion by"
+  }, {
+    "type" : "heading",
+    "id" : 527,
+    "level" : "Subtitle",
+    "page number" : 69,
+    "bounding box" : [ 522.99, 213.201, 874.542, 241.326 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Guggenheim Museum, New York."
+  }, {
+    "type" : "text block",
+    "id" : 535,
+    "page number" : 70,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 2,
+      "page number" : 70,
+      "bounding box" : [ 123.956, 0.0, 480.0, 540.0 ],
+      "source" : "TOA 5 (Masters of Architecture)_images/imageFile134.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 529,
+    "page number" : 70,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile135.png"
+  }, {
+    "type" : "heading",
+    "id" : 531,
+    "level" : "Subtitle",
+    "page number" : 70,
+    "bounding box" : [ 522.99, 364.528, 776.43, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Mies van der Rohe"
+  }, {
+    "type" : "paragraph",
+    "id" : 533,
+    "page number" : 70,
+    "bounding box" : [ 522.99, 315.951, 755.526, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“God is in the details.”"
+  }, {
+    "type" : "heading",
+    "id" : 534,
+    "level" : "Subtitle",
+    "page number" : 70,
+    "bounding box" : [ 522.99, 239.451, 717.006, 267.576 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Seagram Building."
+  }, {
+    "type" : "table",
+    "id" : 542,
+    "level" : "2",
+    "page number" : 71,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "number of rows" : 1,
+    "number of columns" : 1,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 71,
+        "bounding box" : [ 0.001, 0.001, 479.999, 539.999 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 543,
+    "page number" : 71,
+    "bounding box" : [ -320.064, 0.0, 480.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile136.png"
+  }, {
+    "type" : "image",
+    "id" : 536,
+    "page number" : 71,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile137.png"
+  }, {
+    "type" : "heading",
+    "id" : 538,
+    "level" : "Subtitle",
+    "page number" : 71,
+    "bounding box" : [ 522.99, 364.528, 798.518, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Louis Sullivan"
+  }, {
+    "type" : "paragraph",
+    "id" : 540,
+    "page number" : 71,
+    "bounding box" : [ 522.99, 289.701, 881.91, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“But the building’s identity resides in the ornament.”"
+  }, {
+    "type" : "heading",
+    "id" : 541,
+    "level" : "Subtitle",
+    "page number" : 71,
+    "bounding box" : [ 522.99, 186.951, 830.454, 241.326 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Details of the Bayard Condict Building"
+  }, {
+    "type" : "text block",
+    "id" : 550,
+    "page number" : 72,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 72,
+      "bounding box" : [ -125.376, 0.0, 592.272, 540.0 ],
+      "source" : "TOA 5 (Masters of Architecture)_images/imageFile138.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 544,
+    "page number" : 72,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile139.png"
+  }, {
+    "type" : "heading",
+    "id" : 546,
+    "level" : "Subtitle",
+    "page number" : 72,
+    "bounding box" : [ 522.99, 364.528, 817.702, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Charles Eames"
+  }, {
+    "type" : "paragraph",
+    "id" : 548,
+    "page number" : 72,
+    "bounding box" : [ 522.99, 289.701, 820.518, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“Whoever said that pleasure wasn’t functional?”"
+  }, {
+    "type" : "heading",
+    "id" : 549,
+    "level" : "Subtitle",
+    "page number" : 72,
+    "bounding box" : [ 522.99, 213.201, 827.046, 241.326 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Eames moulded plastic chair"
+  }, {
+    "type" : "text block",
+    "id" : 557,
+    "page number" : 73,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 2,
+      "page number" : 73,
+      "bounding box" : [ 58.048, 0.0, 479.999, 540.0 ],
+      "source" : "TOA 5 (Masters of Architecture)_images/imageFile140.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 551,
+    "page number" : 73,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile141.png"
+  }, {
+    "type" : "heading",
+    "id" : 553,
+    "level" : "Subtitle",
+    "page number" : 73,
+    "bounding box" : [ 522.99, 364.528, 817.394, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Philip Johnson"
+  }, {
+    "type" : "paragraph",
+    "id" : 555,
+    "page number" : 73,
+    "bounding box" : [ 522.99, 289.701, 866.55, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“Architecture is the art of how to waste space.”"
+  }, {
+    "type" : "heading",
+    "id" : 556,
+    "level" : "Subtitle",
+    "page number" : 73,
+    "bounding box" : [ 522.99, 213.201, 717.006, 241.326 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Seagram Building."
+  }, {
+    "type" : "table",
+    "id" : 564,
+    "level" : "3",
+    "page number" : 74,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "number of rows" : 1,
+    "number of columns" : 1,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 74,
+        "bounding box" : [ 0.001, 0.001, 479.999, 539.999 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 565,
+    "page number" : 74,
+    "bounding box" : [ -212.256, 0.0, 722.016, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile142.png"
+  }, {
+    "type" : "image",
+    "id" : 558,
+    "page number" : 74,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile143.png"
+  }, {
+    "type" : "heading",
+    "id" : 560,
+    "level" : "Subtitle",
+    "page number" : 74,
+    "bounding box" : [ 522.99, 364.528, 762.13, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Frank Gehry"
+  }, {
+    "type" : "paragraph",
+    "id" : 562,
+    "page number" : 74,
+    "bounding box" : [ 522.99, 263.451, 868.902, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“Architecture should speak of its time and place, but should yearn for timelessness.”"
+  }, {
+    "type" : "heading",
+    "id" : 563,
+    "level" : "Subtitle",
+    "page number" : 74,
+    "bounding box" : [ 522.99, 186.951, 735.078, 215.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Binoculars Building."
+  }, {
+    "type" : "text block",
+    "id" : 573,
+    "page number" : 75,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 75,
+      "bounding box" : [ -318.768, 0.0, 480.0, 540.0 ],
+      "source" : "TOA 5 (Masters of Architecture)_images/imageFile144.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 566,
+    "page number" : 75,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile145.png"
+  }, {
+    "type" : "heading",
+    "id" : 568,
+    "level" : "Subtitle",
+    "page number" : 75,
+    "bounding box" : [ 522.99, 364.528, 774.538, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Le Corbusier"
+  }, {
+    "type" : "paragraph",
+    "id" : 570,
+    "page number" : 75,
+    "bounding box" : [ 522.99, 289.701, 882.774, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“To create architecture is to put in order.”"
+  }, {
+    "type" : "heading",
+    "id" : 571,
+    "level" : "Subtitle",
+    "page number" : 75,
+    "bounding box" : [ 522.99, 213.201, 751.326, 241.326 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Radiant City Proposal"
+  }, {
+    "type" : "text block",
+    "id" : 580,
+    "page number" : 76,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 76,
+      "bounding box" : [ 0.0, 0.0, 480.0, 540.0 ],
+      "source" : "TOA 5 (Masters of Architecture)_images/imageFile146.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 574,
+    "page number" : 76,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile147.png"
+  }, {
+    "type" : "heading",
+    "id" : 576,
+    "level" : "Subtitle",
+    "page number" : 76,
+    "bounding box" : [ 522.99, 364.528, 798.518, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Louis Sullivan"
+  }, {
+    "type" : "paragraph",
+    "id" : 578,
+    "page number" : 76,
+    "bounding box" : [ 522.99, 315.951, 830.838, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“Form ever follows function.”"
+  }, {
+    "type" : "heading",
+    "id" : 579,
+    "level" : "Subtitle",
+    "page number" : 76,
+    "bounding box" : [ 522.99, 239.451, 741.558, 267.576 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Wainwright Building."
+  }, {
+    "type" : "table",
+    "id" : 587,
+    "level" : "4",
+    "page number" : 77,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "number of rows" : 1,
+    "number of columns" : 1,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 77,
+        "bounding box" : [ 0.001, 0.001, 479.999, 539.999 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 581,
+    "page number" : 77,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile148.png"
+  }, {
+    "type" : "image",
+    "id" : 588,
+    "page number" : 77,
+    "bounding box" : [ 0.0, 0.0, 1185.744, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile149.png"
+  }, {
+    "type" : "heading",
+    "id" : 583,
+    "level" : "Subtitle",
+    "page number" : 77,
+    "bounding box" : [ 522.99, 364.528, 781.71, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Kenzo Tange"
+  }, {
+    "type" : "paragraph",
+    "id" : 585,
+    "page number" : 77,
+    "bounding box" : [ 522.99, 210.952, 870.582, 344.077 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“Architects today tend to depreciate themselves, to regard themselves as no more than just ordinary citizens without the power to reform the future.”"
+  }, {
+    "type" : "heading",
+    "id" : 586,
+    "level" : "Subtitle",
+    "page number" : 77,
+    "bounding box" : [ 522.99, 108.202, 809.622, 162.577 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Hiroshima Peace Memorial Museum"
+  }, {
+    "type" : "text block",
+    "id" : 595,
+    "page number" : 78,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 78,
+      "bounding box" : [ 0.0, 0.0, 685.296, 540.0 ],
+      "source" : "TOA 5 (Masters of Architecture)_images/imageFile150.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 589,
+    "page number" : 78,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile151.png"
+  }, {
+    "type" : "heading",
+    "id" : 591,
+    "level" : "Subtitle",
+    "page number" : 78,
+    "bounding box" : [ 522.99, 364.528, 776.43, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Mies van der Rohe"
+  }, {
+    "type" : "paragraph",
+    "id" : 593,
+    "page number" : 78,
+    "bounding box" : [ 522.99, 289.701, 833.286, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“Architecture is the will of an epoch translated into space.”"
+  }, {
+    "type" : "heading",
+    "id" : 594,
+    "level" : "Subtitle",
+    "page number" : 78,
+    "bounding box" : [ 522.99, 148.701, 883.014, 203.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "S.R. Crown Hall in Illinois Institute of Technology (Chicago)"
+  }, {
+    "type" : "text block",
+    "id" : 602,
+    "page number" : 79,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 79,
+      "bounding box" : [ -276.96, 0.0, 480.0, 540.0 ],
+      "source" : "TOA 5 (Masters of Architecture)_images/imageFile152.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 596,
+    "page number" : 79,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile153.png"
+  }, {
+    "type" : "heading",
+    "id" : 598,
+    "level" : "Subtitle",
+    "page number" : 79,
+    "bounding box" : [ 522.99, 364.528, 774.538, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Le Corbusier"
+  }, {
+    "type" : "paragraph",
+    "id" : 600,
+    "page number" : 79,
+    "bounding box" : [ 522.99, 237.201, 880.374, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“A hundred times have I thought New York is a catastrophe and 50 times: it is a beautiful catastrophe.”"
+  }, {
+    "type" : "table",
+    "id" : 609,
+    "level" : "5",
+    "page number" : 80,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "number of rows" : 1,
+    "number of columns" : 1,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 80,
+        "bounding box" : [ 0.001, 0.001, 479.999, 539.999 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 610,
+    "page number" : 80,
+    "bounding box" : [ -70.272, 0.0, 738.096, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile154.png"
+  }, {
+    "type" : "image",
+    "id" : 603,
+    "page number" : 80,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile155.png"
+  }, {
+    "type" : "heading",
+    "id" : 605,
+    "level" : "Subtitle",
+    "page number" : 80,
+    "bounding box" : [ 522.99, 364.528, 816.69, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Walter Gropius"
+  }, {
+    "type" : "paragraph",
+    "id" : 607,
+    "page number" : 80,
+    "bounding box" : [ 522.99, 289.701, 809.31, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“Architecture begins where engineering ends.”"
+  }, {
+    "type" : "heading",
+    "id" : 608,
+    "level" : "Subtitle",
+    "page number" : 80,
+    "bounding box" : [ 522.99, 213.201, 864.174, 241.326 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Temple Oheb Shalom, Baltimore"
+  }, {
+    "type" : "image",
+    "id" : 618,
+    "page number" : 81,
+    "bounding box" : [ -183.648, 0.0, 623.904, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile156.png"
+  }, {
+    "type" : "image",
+    "id" : 611,
+    "page number" : 81,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile157.png"
+  }, {
+    "type" : "heading",
+    "id" : 613,
+    "level" : "Subtitle",
+    "page number" : 81,
+    "bounding box" : [ 522.99, 364.528, 774.538, 416.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Le Corbusier"
+  }, {
+    "type" : "paragraph",
+    "id" : 615,
+    "page number" : 81,
+    "bounding box" : [ 522.99, 263.452, 881.31, 344.077 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“Architecture is the learned game, correct and magnificent, of forms assembled in the light.”"
+  }, {
+    "type" : "heading",
+    "id" : 616,
+    "level" : "Subtitle",
+    "page number" : 81,
+    "bounding box" : [ 522.99, 148.702, 865.23, 176.827 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Palace of Assembly, Chandigarh"
+  }, {
+    "type" : "text block",
+    "id" : 625,
+    "page number" : 82,
+    "bounding box" : [ -0.002, -2.872, 482.734, 540.002 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 82,
+      "bounding box" : [ 99.955, -2.122, 481.985, 537.878 ],
+      "source" : "TOA 5 (Masters of Architecture)_images/imageFile158.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 619,
+    "page number" : 82,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile159.png"
+  }, {
+    "type" : "heading",
+    "id" : 621,
+    "level" : "Subtitle",
+    "page number" : 82,
+    "bounding box" : [ 522.99, 364.528, 776.43, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Mies van der Rohe"
+  }, {
+    "type" : "paragraph",
+    "id" : 623,
+    "page number" : 82,
+    "bounding box" : [ 522.99, 315.951, 682.182, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“Less is more.”"
+  }, {
+    "type" : "heading",
+    "id" : 624,
+    "level" : "Subtitle",
+    "page number" : 82,
+    "bounding box" : [ 522.99, 239.451, 722.91, 267.576 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Farnsworth House."
+  }, {
+    "type" : "text block",
+    "id" : 632,
+    "page number" : 83,
+    "bounding box" : [ -0.002, -0.002, 480.002, 540.002 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 2,
+      "page number" : 83,
+      "bounding box" : [ 75.0, 0.0, 480.0, 540.0 ],
+      "source" : "TOA 5 (Masters of Architecture)_images/imageFile160.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 626,
+    "page number" : 83,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 5 (Masters of Architecture)_images/imageFile161.png"
+  }, {
+    "type" : "heading",
+    "id" : 628,
+    "level" : "Subtitle",
+    "page number" : 83,
+    "bounding box" : [ 522.99, 364.528, 752.89, 461.09 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Frank Lloyd Wright"
+  }, {
+    "type" : "paragraph",
+    "id" : 630,
+    "page number" : 83,
+    "bounding box" : [ 522.99, 263.451, 864.39, 344.076 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "“A doctor can bury his mistakes, but an architect can only advise his clients to plant vines.”"
+  }, {
+    "type" : "heading",
+    "id" : 631,
+    "level" : "Subtitle",
+    "page number" : 83,
+    "bounding box" : [ 522.99, 186.951, 650.094, 215.076 ],
+    "heading level" : 6,
+    "font" : "Roboto-BoldItalic",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Price Tower"
+  } ]
+}

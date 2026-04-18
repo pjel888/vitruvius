@@ -4,7 +4,7 @@ title: CIAP Document 102 Uniform General Conditions of Contract for Private Cons
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:39:08.380331+00:00
+last_canonicalized_utc: 2026-04-18T08:20:57.764638+00:00
 aliases:
   - CIAP Document 102
   - Uniform General Conditions of Contract for Private Construction
@@ -32,4 +32,5 @@ Department of Trade and Industry (DTI) Construction Industry Authority of the Ph
 ## Referenced Concepts
 
 - concept-general-conditions-of-contract
+- concept-arbitration
 - concept-floor-area-ratio

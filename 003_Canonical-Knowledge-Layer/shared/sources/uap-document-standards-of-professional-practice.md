@@ -4,7 +4,7 @@ title: UAP Document Standards of Professional Practice
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T22:03:07.886747+00:00
+last_canonicalized_utc: 2026-04-18T08:21:07.503766+00:00
 aliases:
   - UAP Standards of Professional Practice
   - 2010 Standards of Professional Practice
@@ -83,5 +83,7 @@ Republic of the Philippines Department of Labor & Employment
 - concept-architectural-interiors
 - concept-competitive-bidding
 - concept-architectural-history
+- concept-arbitration
+- concept-mediation
 - concept-common-areas
 - concept-stairs

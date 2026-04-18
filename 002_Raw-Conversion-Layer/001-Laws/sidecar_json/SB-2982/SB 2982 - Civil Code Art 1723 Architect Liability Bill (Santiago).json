@@ -1,0 +1,706 @@
+{
+  "file name" : "SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago).pdf",
+  "number of pages" : 3,
+  "author" : null,
+  "title" : null,
+  "creation date" : "D:20100920153615+08'00'",
+  "modification date" : "D:20100920153628+08'00'",
+  "kids" : [ {
+    "type" : "image",
+    "id" : 8,
+    "page number" : 1,
+    "bounding box" : [ -3.6, -2.52, 610.56, 929.52 ],
+    "source" : "SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago)_images/imageFile1.png"
+  }, {
+    "type" : "image",
+    "id" : 10,
+    "page number" : 1,
+    "bounding box" : [ 470.17, 861.84, 542.17, 876.24 ],
+    "source" : "SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago)_images/imageFile2.png"
+  }, {
+    "type" : "image",
+    "id" : 9,
+    "page number" : 1,
+    "bounding box" : [ 411.13, 860.4, 458.65, 869.04 ],
+    "source" : "SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago)_images/imageFile3.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 15,
+    "page number" : 1,
+    "bounding box" : [ 51.79, 838.736, 308.811, 852.016 ],
+    "font" : "Times-Roman",
+    "font size" : 11.9,
+    "text color" : "[0.0]",
+    "content" : "FIFTEENTH CONGRESS OF THE REPUBLIC )"
+  }, {
+    "type" : "paragraph",
+    "id" : 16,
+    "page number" : 1,
+    "bounding box" : [ 51.786, 811.742, 308.803, 838.326 ],
+    "font" : "Times-Roman",
+    "font size" : 11.9,
+    "text color" : "[0.0]",
+    "content" : "OF THE PHILIPPINES ) First Regular Session )"
+  }, {
+    "type" : "image",
+    "id" : 11,
+    "page number" : 1,
+    "bounding box" : [ 445.69, 811.45, 552.25, 822.97 ],
+    "source" : "SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago)_images/imageFile4.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 17,
+    "page number" : 1,
+    "bounding box" : [ 240.27, 769.33, 329.04, 795.496 ],
+    "font" : "Times-Roman",
+    "font size" : 11.9,
+    "text color" : "[0.0]",
+    "content" : "SENAT.f S. No. ~qj82"
+  }, {
+    "type" : "image",
+    "id" : 12,
+    "page number" : 1,
+    "bounding box" : [ 385.2, 749.52, 532.08, 786.96 ],
+    "source" : "SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago)_images/imageFile5.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 18,
+    "page number" : 1,
+    "bounding box" : [ 167.32, 727.126, 405.601, 740.406 ],
+    "font" : "Times-Roman",
+    "font size" : 11.9,
+    "text color" : "[0.0]",
+    "content" : "Introduced by Senator Miriam Defensor Santiago"
+  }, {
+    "type" : "paragraph",
+    "id" : 19,
+    "page number" : 1,
+    "bounding box" : [ 224.93, 672.776, 347.839, 686.056 ],
+    "font" : "Times-Roman",
+    "font size" : 11.9,
+    "text color" : "[0.0]",
+    "content" : "EXPLANATORY NOTE"
+  }, {
+    "type" : "paragraph",
+    "id" : 20,
+    "page number" : 1,
+    "bounding box" : [ 51.862, 534.886, 520.67, 630.966 ],
+    "font" : "Times-Roman",
+    "font size" : 11.9,
+    "text color" : "[0.0]",
+    "content" : "The Civil Code, Article 1723, declares the liability for damages in any structure by reason of defects in its construction or use of inferior materials. The limited coverage of this provision allows the engineer, architect or contractor to avoid liability arising from nonobservance ofplans and specifications or the use ofmaterials ofinferior quality."
+  }, {
+    "type" : "paragraph",
+    "id" : 21,
+    "page number" : 1,
+    "bounding box" : [ 87.747, 480.536, 520.584, 521.165 ],
+    "font" : "Times-Roman",
+    "font size" : 11.9,
+    "text color" : "[0.0]",
+    "content" : "This bill seeks to expand its coverage with the following proposed amendments: First, unlike the present provision, which includes only buildings as subject matter, this"
+  }, {
+    "type" : "paragraph",
+    "id" : 22,
+    "page number" : 1,
+    "bounding box" : [ 52.214, 453.176, 271.26, 466.458 ],
+    "font" : "Times-Roman",
+    "font size" : 11.9,
+    "text color" : "[0.0]",
+    "content" : "bill covers all kinds ofinfrastructure projects."
+  }, {
+    "type" : "paragraph",
+    "id" : 23,
+    "page number" : 1,
+    "bounding box" : [ 52.786, 370.376, 522.854, 438.372 ],
+    "font" : "Times-Roman",
+    "font size" : 11.9,
+    "text color" : "[0.0]",
+    "content" : "Second, the liability for damages shall not arise not only in case the structure should collapse, but also where the infrastructury undertaking should require major repair by reason of defective construction."
+  }, {
+    "type" : "paragraph",
+    "id" : 24,
+    "page number" : 1,
+    "bounding box" : [ 53.157, 287.565, 521.79, 356.656 ],
+    "font" : "Times-Roman",
+    "font size" : 11.9,
+    "text color" : "[0.0]",
+    "content" : "Thirdly, this bill proposes to hold the contractors directly responsible for defective construction undertaken by sub-contractors. The sub-contractors shall merely assume subsidiary liability, This is to encourage contractors to be more cautious in their selection ofsubcontractors."
+  }, {
+    "type" : "paragraph",
+    "id" : 25,
+    "page number" : 1,
+    "bounding box" : [ 53.16, 233.216, 521.771, 273.846 ],
+    "font" : "Times-Roman",
+    "font size" : 11.9,
+    "text color" : "[0.0]",
+    "content" : "This bill is a product of the' public hearings conducted by the Committee on Constitutional Amendments, Revision ofCodes and Laws during the Tenth Congress1"
+  }, {
+    "type" : "image",
+    "id" : 13,
+    "page number" : 1,
+    "bounding box" : [ 277.2, 137.52, 491.76, 186.48 ],
+    "source" : "SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago)_images/imageFile6.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 26,
+    "page number" : 1,
+    "bounding box" : [ 53.79, 75.667, 363.062, 86.381 ],
+    "font" : "Times-Roman",
+    "font size" : 9.6,
+    "text color" : "[0.0]",
+    "content" : "1 This bill was re-filed during the Thlrteenth Congress, First Regular Session."
+  }, {
+    "type" : "footer",
+    "id" : 27,
+    "page number" : 1,
+    "bounding box" : [ 286.25, 41.388, 291.643, 52.601 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 4,
+      "page number" : 1,
+      "bounding box" : [ 286.25, 41.388, 291.643, 52.601 ],
+      "heading level" : 3,
+      "font" : "Helvetica",
+      "font size" : 9.7,
+      "text color" : "[0.0]",
+      "content" : "1"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 28,
+    "page number" : 2,
+    "bounding box" : [ -6.12, -4.32, 614.16, 932.76 ],
+    "source" : "SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago)_images/imageFile7.png"
+  }, {
+    "type" : "image",
+    "id" : 29,
+    "page number" : 2,
+    "bounding box" : [ 417.24, 855.01, 548.28, 863.65 ],
+    "source" : "SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago)_images/imageFile8.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 2,
+    "bounding box" : [ 56.47, 840.492, 291.989, 853.996 ],
+    "font" : "Times-Roman",
+    "font size" : 12.1,
+    "text color" : "[0.0]",
+    "content" : "FIFTEENTH CONGRESS OF THE REPUBLIC"
+  }, {
+    "type" : "paragraph",
+    "id" : 34,
+    "page number" : 2,
+    "bounding box" : [ 309.04, 839.092, 312.87, 852.386 ],
+    "font" : "Helvetica",
+    "font size" : 11.5,
+    "text color" : "[0.0]",
+    "content" : ")"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 2,
+    "bounding box" : [ 56.466, 813.49, 207.873, 840.316 ],
+    "font" : "Times-Roman",
+    "font size" : 12.1,
+    "text color" : "[0.0]",
+    "content" : "OF THE PHILIPPINES First Regular Session"
+  }, {
+    "type" : "paragraph",
+    "id" : 35,
+    "page number" : 2,
+    "bounding box" : [ 309.04, 825.512, 312.736, 838.344 ],
+    "font" : "Helvetica",
+    "font size" : 11.1,
+    "text color" : "[0.0]",
+    "content" : ")"
+  }, {
+    "type" : "paragraph",
+    "id" : 36,
+    "page number" : 2,
+    "bounding box" : [ 308.69, 812.25, 312.286, 824.735 ],
+    "font" : "Helvetica",
+    "font size" : 10.8,
+    "text color" : "[0.0]",
+    "content" : ")"
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 2,
+    "bounding box" : [ 452.33, 803.912, 509.929, 818.594 ],
+    "font" : "Helvetica",
+    "font size" : 12.7,
+    "text color" : "[0.0]",
+    "content" : "'0 jliJG 11"
+  }, {
+    "type" : "image",
+    "id" : 30,
+    "page number" : 2,
+    "bounding box" : [ 520.92, 804.6, 556.92, 816.12 ],
+    "source" : "SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago)_images/imageFile9.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 37,
+    "page number" : 2,
+    "bounding box" : [ 256.13, 786.132, 313.392, 799.636 ],
+    "font" : "Times-Roman",
+    "font size" : 12.1,
+    "text color" : "[0.0]",
+    "content" : ", SENA-1J3"
+  }, {
+    "type" : "paragraph",
+    "id" : 39,
+    "page number" : 2,
+    "bounding box" : [ 244.59, 771.76, 330.851, 788.41 ],
+    "font" : "HiddenHorzOCR",
+    "font size" : 13.32,
+    "text color" : "[0.0]",
+    "content" : "S. No. ~;:s82"
+  }, {
+    "type" : "heading",
+    "id" : 40,
+    "level" : "Doctitle",
+    "page number" : 2,
+    "bounding box" : [ 393.94, 754.947, 544.08, 787.981 ],
+    "heading level" : 1,
+    "font" : "Times-Roman",
+    "font size" : 16.92,
+    "text color" : "[0.0]",
+    "content" : ":;1 !'If(~Fi'WI\\!W @_____ _"
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "page number" : 2,
+    "bounding box" : [ 171.27, 730.692, 409.549, 744.196 ],
+    "font" : "Times-Roman",
+    "font size" : 12.1,
+    "text color" : "[0.0]",
+    "content" : "Introduced by Senator Miriam Defensor Santiago"
+  }, {
+    "type" : "list",
+    "id" : 42,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 25.86, 86.642, 523.918, 689.836 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 23,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 32.689, 676.327, 414.305, 689.836 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "1 AN ACT AMENDING REPUBLIC ACT NO. 386,",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 33.06, 662.642, 451.161, 676.146 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "2 OTHERWISE KNOWN AS THE CIVIL CODE, ARTICLE 1723,",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 32.978, 648.612, 508.742, 662.122 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "3 ON THE LIABILITY OF ENGINEERS, ARCHITECTS OR CONTRACTORS ARISING",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 32.355, 634.572, 467.8, 648.08 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "4 FROM NON-OBSERVANCE OF PLANS AND SPECIFICATIONS OR",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 32.98, 620.892, 426.409, 634.396 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "5 THE USE OF MATERIALS OF INFERIOR QUALITY",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 7,
+        "page number" : 2,
+        "bounding box" : [ 56.65, 577.769, 523.856, 606.579 ],
+        "font" : "Times-Italic",
+        "font size" : 11.8,
+        "text color" : "[0.0]",
+        "content" : "Be it enacted by the Senate and the House of Representatives of the Philippines in Congress assembled:"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 32.97, 551.762, 523.918, 565.266 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "6 SECTION 1. Republic Act No. 386, otherwise known as the The Civil Code, Article",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 32.637, 523.69, 266.066, 537.196 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "7 1723, is hereby amended to read as follows:",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 32.186, 496.332, 487.833, 509.838 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "8 Art. 1723. The engineer or architect who drew up the plans and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 32.272, 468.611, 487.904, 482.116 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "9 specifications for ANY STRUCTURE PROJECT WHETHER UNDERTAKEN",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.61, 441.252, 487.618, 454.756 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "10 BY THE GOVERNMENT OR PRIVATE INDIVIDUAL OR ENTITY [building]",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.98, 413.532, 488.182, 427.036 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "11 is liable for damages if within fifteen (15) years from the completion of the",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.98, 386.172, 488.224, 399.676 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "12 structure, the same should collapse OR SHOULD REQUIRE MAJOR REPAIR",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.98, 359.172, 488.181, 372.676 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "13 by reason of a defect in those plans and specifications, or due to the defects in the",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.97, 332.172, 488.013, 345.676 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "14 ground. The contractor AND THE SUBCONTRACTOR DIRECTLY HIRED BY",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.98, 304.812, 488.43, 318.316 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "15 THE FORMER ARE [is] likewise responsible for damages if the STRUCTURE",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.61, 277.442, 488.286, 290.946 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "16 [edifice] falls OR REQUIRES MAJOR REPAIR, within the same period, on",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.62, 250.442, 488.207, 263.946 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "17 account of defects in the construction or the use of materials of inferior quality",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.61, 223.082, 488.315, 236.586 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "18 furnished by him, due to any violation ofthe terms ofthe contract. Ifthe engineer",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.66, 196.082, 488.179, 209.586 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "19 or architect supervises the construction, he shall be solidarily liable with the",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.94, 168.722, 292.607, 182.226 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "20 contractor and the SUB-CONTRACTOR.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.58, 141.722, 488.339, 155.226 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "21 IN CASE THE CONSTRUCTION OF ANY INFRASTRUCTURE",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 26.58, 114.002, 488.596, 127.506 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "22 PROJECT OR ANY PART THEREOF IS UNDERTAKEN BY A",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 25.86, 86.642, 488.021, 100.146 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "23 SUBCONTRACTOR HIRED BY THE CONTRACTOR, THE LATTER SHALL",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 43,
+    "page number" : 2,
+    "bounding box" : [ 286.97, 45.347, 292.363, 56.561 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 5,
+      "page number" : 2,
+      "bounding box" : [ 286.97, 45.347, 292.363, 56.561 ],
+      "heading level" : 3,
+      "font" : "Helvetica",
+      "font size" : 9.7,
+      "text color" : "[0.0]",
+      "content" : "1"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 44,
+    "page number" : 3,
+    "bounding box" : [ -4.32, -2.88, 611.64, 930.24 ],
+    "source" : "SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago)_images/imageFile10.png"
+  }, {
+    "type" : "heading",
+    "id" : 46,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 27.52, 859.375, 31.93, 873.941 ],
+    "heading level" : 2,
+    "font" : "Helvetica",
+    "font size" : 12.6,
+    "text color" : "[0.0]",
+    "content" : "•"
+  }, {
+    "type" : "list",
+    "id" : 47,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 21.21, 403.092, 519.967, 851.836 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 15,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 26.94, 838.332, 484.066, 851.836 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "1 BE DIRECTLY RESPONSIBLE AND THE FORMER SUBSIDIARILY",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 25.85, 810.612, 483.913, 824.116 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "2 RESPONSIBLE IF UPON COMPLETION THEREOF OR WHILE UNDER",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 26.136, 782.522, 483.922, 796.032 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "3 CONSTRUCTION, THE STRUCTURE FALLS OR REQUIRES MAJOR",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 25.872, 754.45, 483.635, 767.956 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "4 REPAIR WITHIN THE SAME PERIOD AND FOR THE SAME CAUSE",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 26.14, 727.082, 175.792, 740.586 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "5 ABOVESTATED.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 26.13, 700.082, 485.054, 713.586 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "6 Acceptance of the building, after completion, does not imply waiver of",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 26.54, 672.722, 483.646, 686.226 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "7 any of the causes of action by reason of any defect mentioned in the preceding",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 26.42, 645.727, 135.871, 659.231 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "8 paragraph.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 26.844, 617.642, 485.054, 631.147 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "9 The action must be brought within ten (10) years following the coIIapse of",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 21.21, 589.932, 146.674, 603.436 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "10 the building.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 21.96, 549.252, 519.659, 562.756 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "11 SECTION 2. Repealing Clause. - Any law, presidential decree or issuance, executive",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 21.58, 521.522, 519.653, 535.026 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "12 order, letter of instruction, administrative order, rule or regulation contrary to or is inconsistent",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 21.94, 493.812, 456.903, 507.316 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "13 with the provision ofthis Act is hereby repealed, modified, or amended accordingly.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 22.32, 430.812, 519.967, 444.316 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "14 SECTION 3. Effectivity Clause. - This Act shaII take effect fifteen (15) days after its",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 22.32, 403.092, 359.842, 416.596 ],
+      "font" : "Times-Roman",
+      "font size" : 12.1,
+      "text color" : "[0.0]",
+      "content" : "15 publication in at least two (2) newspapers of general circulation.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 48,
+    "page number" : 3,
+    "bounding box" : [ 87.816, 338.999, 137.942, 352.502 ],
+    "font" : "Times-Roman",
+    "font size" : 12.1,
+    "text color" : "[0.0]",
+    "content" : "Approved,"
+  }, {
+    "type" : "footer",
+    "id" : 49,
+    "page number" : 3,
+    "bounding box" : [ 286.12, 42.468, 291.513, 53.681 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 6,
+      "page number" : 3,
+      "bounding box" : [ 286.12, 42.468, 291.513, 53.681 ],
+      "heading level" : 3,
+      "font" : "Helvetica",
+      "font size" : 9.7,
+      "text color" : "[0.0]",
+      "content" : "2"
+    } ]
+  } ]
+}

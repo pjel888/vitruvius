@@ -1,0 +1,1069 @@
+{
+  "file name" : "Privacy and Territoriality.pdf",
+  "number of pages" : 38,
+  "author" : "Tess Cruz",
+  "title" : "No Slide Title",
+  "creation date" : "D:20260413100612+08'00'",
+  "modification date" : "D:20260413100612+08'00'",
+  "kids" : [ {
+    "type" : "image",
+    "id" : 11,
+    "page number" : 1,
+    "bounding box" : [ 52.44, 150.06, 672.66, 402.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile1.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 12,
+    "page number" : 1,
+    "bounding box" : [ 152.23, 255.227, 585.622, 394.803 ],
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 48.0,
+    "text color" : "[1.0]",
+    "content" : "PRIVACY, TERRITORIALITY,"
+  }, {
+    "type" : "paragraph",
+    "id" : 13,
+    "page number" : 1,
+    "bounding box" : [ 111.43, 168.822, 626.487, 222.005 ],
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 48.024,
+    "text color" : "[1.0]",
+    "content" : "DEFENSIBILE SPACES"
+  }, {
+    "type" : "image",
+    "id" : 27,
+    "page number" : 2,
+    "bounding box" : [ 414.0, 306.0, 636.0, 510.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile2.png"
+  }, {
+    "type" : "image",
+    "id" : 24,
+    "page number" : 2,
+    "bounding box" : [ 34.44, 267.06, 390.66, 504.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile3.png"
+  }, {
+    "type" : "heading",
+    "id" : 25,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 55.2, 428.829, 267.648, 455.407 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 24.0,
+    "text color" : "[1.0, 0.6, 0.0]",
+    "content" : "PERSONAL SPACE"
+  }, {
+    "type" : "list",
+    "id" : 26,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 55.2, 327.999, 376.885, 412.228 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "next list id" : 42,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 55.2, 327.999, 376.885, 412.228 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• invisible boundary surrounding the person’s body into which intruders may not come",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 28,
+    "page number" : 2,
+    "bounding box" : [ 450.0, 69.25, 666.0, 276.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile4.png"
+  }, {
+    "type" : "image",
+    "id" : 29,
+    "page number" : 2,
+    "bounding box" : [ 204.0, 26.75, 426.0, 246.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile5.png"
+  }, {
+    "type" : "image",
+    "id" : 40,
+    "page number" : 3,
+    "bounding box" : [ 28.44, 219.18, 312.66, 528.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile6.png"
+  }, {
+    "type" : "image",
+    "id" : 43,
+    "page number" : 3,
+    "bounding box" : [ 495.88, 330.0, 682.5, 522.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile7.png"
+  }, {
+    "type" : "list",
+    "id" : 42,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 49.2, 279.993, 276.768, 479.407 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "previous list id" : 26,
+    "next list id" : 69,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 41,
+      "page number" : 3,
+      "bounding box" : [ 49.2, 452.829, 276.768, 479.407 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 24.0,
+      "text color" : "[1.0, 0.6, 0.0]",
+      "content" : "4 DISTANCE ZONES",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 49.2, 409.629, 233.688, 436.207 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• Intimate Distance",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 49.2, 366.399, 236.568, 392.977 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• Personal Distance",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 49.2, 323.199, 213.744, 349.777 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• Social Distance",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 49.2, 279.993, 215.143, 306.598 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• Public Distance",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 44,
+    "page number" : 3,
+    "bounding box" : [ 354.0, 102.5, 690.0, 306.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile8.png"
+  }, {
+    "type" : "image",
+    "id" : 45,
+    "page number" : 3,
+    "bounding box" : [ 30.0, 10.5, 547.5, 198.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile9.png"
+  }, {
+    "type" : "image",
+    "id" : 56,
+    "page number" : 4,
+    "bounding box" : [ 84.0, 2.125, 636.0, 537.875 ],
+    "source" : "Privacy and Territoriality_images/imageFile10.png"
+  }, {
+    "type" : "image",
+    "id" : 67,
+    "page number" : 5,
+    "bounding box" : [ -1.56, 190.38, 396.66, 528.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile11.png"
+  }, {
+    "type" : "list",
+    "id" : 69,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 19.2, 251.179, 384.984, 479.407 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "previous list id" : 42,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 68,
+      "page number" : 5,
+      "bounding box" : [ 19.2, 452.829, 126.528, 479.407 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 24.0,
+      "text color" : "[1.0, 0.6, 0.0]",
+      "content" : "PRIVACY",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 19.2, 323.199, 384.984, 436.207 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• the ability of an individual or groups of individuals to control their visual, auditory, olfactory interactions with others",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 19.2, 251.179, 364.056, 306.598 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• the ability to have options and to achieve desired level of interactions",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 70,
+    "page number" : 5,
+    "bounding box" : [ 394.0, 0.0, 714.87, 438.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile12.png"
+  }, {
+    "type" : "image",
+    "id" : 81,
+    "page number" : 6,
+    "bounding box" : [ 82.44, 57.42, 534.66, 510.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile13.png"
+  }, {
+    "type" : "heading",
+    "id" : 82,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 103.22, 434.829, 331.004, 461.407 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 24.0,
+    "text color" : "[1.0, 0.6, 0.0]",
+    "content" : "KINDS OF PRIVACY"
+  }, {
+    "type" : "paragraph",
+    "id" : 83,
+    "page number" : 6,
+    "bounding box" : [ 103.22, 391.623, 420.641, 418.228 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 24.024,
+    "text color" : "[1.0]",
+    "content" : "Solitude: state of being free from"
+  }, {
+    "type" : "paragraph",
+    "id" : 85,
+    "page number" : 6,
+    "bounding box" : [ 103.22, 319.599, 526.58, 389.377 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 24.0,
+    "text color" : "[1.0]",
+    "content" : "observation by others Intimacy: state of being with another person"
+  }, {
+    "type" : "paragraph",
+    "id" : 87,
+    "page number" : 6,
+    "bounding box" : [ 103.22, 290.793, 402.223, 317.398 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 24.024,
+    "text color" : "[1.0]",
+    "content" : "but free from the outside world"
+  }, {
+    "type" : "paragraph",
+    "id" : 88,
+    "page number" : 6,
+    "bounding box" : [ 103.22, 218.779, 526.172, 274.157 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 24.0,
+    "text color" : "[1.0]",
+    "content" : "Anonymity: state of being unknown even in a crowd"
+  }, {
+    "type" : "paragraph",
+    "id" : 90,
+    "page number" : 6,
+    "bounding box" : [ 103.22, 175.573, 500.019, 202.178 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 24.024,
+    "text color" : "[1.0]",
+    "content" : "Reserve: state in which a person employs"
+  }, {
+    "type" : "paragraph",
+    "id" : 92,
+    "page number" : 6,
+    "bounding box" : [ 103.22, 117.949, 513.308, 173.327 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 24.0,
+    "text color" : "[1.0]",
+    "content" : "psychological barriers to control unwanted intrusions"
+  }, {
+    "type" : "image",
+    "id" : 103,
+    "page number" : 7,
+    "bounding box" : [ 0.0, 0.0, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile14.png"
+  }, {
+    "type" : "image",
+    "id" : 114,
+    "page number" : 8,
+    "bounding box" : [ 34.44, 157.98, 420.66, 510.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile15.png"
+  }, {
+    "type" : "heading",
+    "id" : 115,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 55.2, 434.829, 195.192, 461.407 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 24.0,
+    "text color" : "[1.0, 0.6, 0.0]",
+    "content" : "CROWDING"
+  }, {
+    "type" : "list",
+    "id" : 116,
+    "level" : "1",
+    "page number" : 8,
+    "bounding box" : [ 55.2, 218.779, 404.422, 418.228 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "next list id" : 129,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 55.2, 362.799, 404.422, 418.228 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• associated with a feeling of lack of control over the environment",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 55.2, 290.793, 403.104, 346.177 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• leads to negative behavior because they are related to social overload",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 55.2, 218.779, 343.824, 274.157 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• results from overmanning of behavior settings",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 127,
+    "page number" : 9,
+    "bounding box" : [ 28.44, 186.78, 414.66, 510.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile16.png"
+  }, {
+    "type" : "list",
+    "id" : 129,
+    "level" : "1",
+    "page number" : 9,
+    "bounding box" : [ 49.2, 247.579, 367.704, 461.407 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "previous list id" : 116,
+    "next list id" : 164,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 128,
+      "page number" : 9,
+      "bounding box" : [ 49.2, 434.829, 326.784, 461.407 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 24.0,
+      "text color" : "[1.0, 0.6, 0.0]",
+      "content" : "DESIGN IMPLICATIONS",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 49.2, 362.799, 327.696, 418.228 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• need for privacy greater for introverts than for extroverts",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 49.2, 290.793, 367.704, 346.177 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• extroverts like contrast with the environment",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 49.2, 247.579, 305.28, 274.157 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• introverts like courtyards",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 140,
+    "page number" : 10,
+    "bounding box" : [ 0.0, 0.0, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile17.png"
+  }, {
+    "type" : "image",
+    "id" : 151,
+    "page number" : 11,
+    "bounding box" : [ 0.0, 0.0, 720.0, 537.5 ],
+    "source" : "Privacy and Territoriality_images/imageFile18.png"
+  }, {
+    "type" : "image",
+    "id" : 162,
+    "page number" : 12,
+    "bounding box" : [ 16.44, 129.3, 342.66, 510.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile19.png"
+  }, {
+    "type" : "image",
+    "id" : 165,
+    "page number" : 12,
+    "bounding box" : [ 340.13, 0.0, 718.5, 468.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile20.png"
+  }, {
+    "type" : "list",
+    "id" : 164,
+    "level" : "1",
+    "page number" : 12,
+    "bounding box" : [ 37.2, 189.973, 332.095, 461.407 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "previous list id" : 129,
+    "next list id" : 189,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 163,
+      "page number" : 12,
+      "bounding box" : [ 37.2, 434.829, 314.784, 461.407 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 24.0,
+      "text color" : "[1.0, 0.6, 0.0]",
+      "content" : "DESIGN IMPLICATIONS",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 37.2, 362.799, 320.699, 418.228 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "•extroverts like strong central plans",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 37.2, 261.979, 332.095, 346.177 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• introverts like complex internal relationships and clear territorial patterns",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 37.2, 189.973, 313.692, 245.357 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• people under stress need more privacy for workplaces",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 176,
+    "page number" : 13,
+    "bounding box" : [ 218.88, 0.0, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile21.png"
+  }, {
+    "type" : "image",
+    "id" : 187,
+    "page number" : 14,
+    "bounding box" : [ 16.44, 155.7, 348.66, 522.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile22.png"
+  }, {
+    "type" : "image",
+    "id" : 191,
+    "page number" : 14,
+    "bounding box" : [ 366.0, 294.75, 699.75, 516.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile23.png"
+  }, {
+    "type" : "list",
+    "id" : 189,
+    "level" : "1",
+    "page number" : 14,
+    "bounding box" : [ 37.2, 216.379, 339.744, 473.407 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "previous list id" : 164,
+    "next list id" : 204,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 188,
+      "page number" : 14,
+      "bounding box" : [ 37.2, 418.029, 339.744, 473.407 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 24.0,
+      "text color" : "[1.0, 0.6, 0.0]",
+      "content" : "LEVELS OF PRIVACY AND CULTURE",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 37.2, 317.199, 316.464, 401.377 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• traditional Islamic dwelling vs.traditional American dwelling",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 37.2, 216.379, 329.424, 300.598 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• the delineation of spaces in the traditional bahay kubo, the bahay the bato",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 190,
+    "page number" : 14,
+    "bounding box" : [ 336.0, 15.75, 702.0, 282.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile24.png"
+  }, {
+    "type" : "image",
+    "id" : 202,
+    "page number" : 15,
+    "bounding box" : [ 10.44, 219.18, 360.66, 528.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile25.png"
+  }, {
+    "type" : "list",
+    "id" : 204,
+    "level" : "1",
+    "page number" : 15,
+    "bounding box" : [ 31.2, 279.993, 342.813, 479.407 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "previous list id" : 189,
+    "next list id" : 217,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 203,
+      "page number" : 15,
+      "bounding box" : [ 31.2, 424.029, 333.744, 479.407 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 24.0,
+      "text color" : "[1.0, 0.6, 0.0]",
+      "content" : "LEVELS OF PRIVACY AND CLIMATE",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 31.2, 351.999, 342.813, 407.428 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• trade-offs between privacy and comfort",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 31.2, 279.993, 289.824, 335.377 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• physiological comfort vs. cultural requirements",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 215,
+    "page number" : 16,
+    "bounding box" : [ 16.44, 120.9, 366.66, 516.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile26.png"
+  }, {
+    "type" : "list",
+    "id" : 217,
+    "level" : "1",
+    "page number" : 16,
+    "bounding box" : [ 37.2, 181.573, 353.438, 467.407 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "previous list id" : 204,
+    "next list id" : 242,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 216,
+      "page number" : 16,
+      "bounding box" : [ 37.2, 440.829, 269.664, 467.407 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 24.0,
+      "text color" : "[1.0, 0.6, 0.0]",
+      "content" : "PERSONALIZATION",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 37.2, 397.623, 279.972, 424.228 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• staking claims to places",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 37.2, 296.793, 305.112, 380.977 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• manifestation of desire for control and expression of aesthetic tastes",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 37.2, 224.779, 342.744, 280.157 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• effort to make an environment fit activity better",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 37.2, 181.573, 353.438, 208.178 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• done for psychological security",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 218,
+    "page number" : 16,
+    "bounding box" : [ 378.0, 56.25, 701.37, 444.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile27.png"
+  }, {
+    "type" : "image",
+    "id" : 229,
+    "page number" : 17,
+    "bounding box" : [ 325.88, 0.0, 710.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile28.png"
+  }, {
+    "type" : "image",
+    "id" : 244,
+    "page number" : 18,
+    "bounding box" : [ 493.25, 269.63, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile29.png"
+  }, {
+    "type" : "image",
+    "id" : 240,
+    "page number" : 18,
+    "bounding box" : [ 22.44, 178.38, 354.66, 516.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile30.png"
+  }, {
+    "type" : "list",
+    "id" : 242,
+    "level" : "1",
+    "page number" : 18,
+    "bounding box" : [ 43.2, 239.179, 299.784, 467.407 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "previous list id" : 217,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 241,
+      "page number" : 18,
+      "bounding box" : [ 43.2, 440.829, 255.864, 467.407 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 24.0,
+      "text color" : "[1.0, 0.6, 0.0]",
+      "content" : "TERRITORIALITY",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 43.2, 311.199, 299.784, 424.228 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• a delimited space that a person or a group uses and defends as an exclusive preserve",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 43.2, 239.179, 292.728, 294.557 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• involves psychological identification with a place",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 243,
+    "page number" : 18,
+    "bounding box" : [ 312.0, 0.0, 654.37, 282.75 ],
+    "source" : "Privacy and Territoriality_images/imageFile31.png"
+  }, {
+    "type" : "image",
+    "id" : 255,
+    "page number" : 19,
+    "bounding box" : [ 0.0, 0.0, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile32.png"
+  }, {
+    "type" : "image",
+    "id" : 266,
+    "page number" : 20,
+    "bounding box" : [ 0.0, 144.0, 396.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile33.png"
+  }, {
+    "type" : "image",
+    "id" : 267,
+    "page number" : 20,
+    "bounding box" : [ 362.88, 0.0, 720.0, 498.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile34.png"
+  }, {
+    "type" : "image",
+    "id" : 278,
+    "page number" : 21,
+    "bounding box" : [ 100.44, 62.1, 468.66, 486.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile35.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 279,
+    "page number" : 21,
+    "bounding box" : [ 121.22, 410.829, 433.82, 437.407 ],
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 24.0,
+    "text color" : "[1.0, 0.6, 0.0]",
+    "content" : "BASIC CHARACTERISTICS"
+  }, {
+    "type" : "heading",
+    "id" : 280,
+    "level" : "Doctitle",
+    "page number" : 21,
+    "bounding box" : [ 121.22, 382.023, 325.16, 408.628 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 24.024,
+    "text color" : "[1.0, 0.6, 0.0]",
+    "content" : "OF TERRITORIES"
+  }, {
+    "type" : "list",
+    "id" : 281,
+    "level" : "2",
+    "page number" : 21,
+    "bounding box" : [ 121.22, 151.549, 460.7, 365.377 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 121.22, 338.799, 460.7, 365.377 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• ownership of and rights to a place",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 121.22, 266.779, 448.509, 322.198 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• personalization of marking of an area",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 121.22, 223.579, 383.516, 250.157 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• defense against intrusions",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 121.22, 151.549, 446.186, 206.978 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• serve functions ranging from physiological to self-actualization",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 292,
+    "page number" : 22,
+    "bounding box" : [ 28.44, 20.22, 324.66, 516.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile36.png"
+  }, {
+    "type" : "heading",
+    "id" : 293,
+    "level" : "Subtitle",
+    "page number" : 22,
+    "bounding box" : [ 49.2, 412.029, 285.648, 467.407 ],
+    "heading level" : 2,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 24.0,
+    "text color" : "[1.0, 0.6, 0.0]",
+    "content" : "SYSTEM OF HUMAN TERRITORIES"
+  }, {
+    "type" : "paragraph",
+    "id" : 294,
+    "page number" : 22,
+    "bounding box" : [ 49.2, 311.199, 298.776, 395.377 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 24.0,
+    "text color" : "[1.0]",
+    "content" : "Defensible Space: a space that affords easy recognition and control of"
+  }, {
+    "type" : "image",
+    "id" : 298,
+    "page number" : 22,
+    "bounding box" : [ 372.0, 18.0, 670.12, 384.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile37.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 295,
+    "page number" : 22,
+    "bounding box" : [ 49.2, 282.393, 135.927, 308.998 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 24.024,
+    "text color" : "[1.0]",
+    "content" : "activities"
+  }, {
+    "type" : "paragraph",
+    "id" : 296,
+    "page number" : 22,
+    "bounding box" : [ 49.2, 239.179, 119.904, 265.757 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 24.0,
+    "text color" : "[1.0]",
+    "content" : "Levels:"
+  }, {
+    "type" : "list",
+    "id" : 297,
+    "level" : "1",
+    "page number" : 22,
+    "bounding box" : [ 49.2, 80.747, 298.416, 222.557 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "next list id" : 344,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 22,
+      "bounding box" : [ 49.2, 195.979, 188.4, 222.557 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• visual access",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 22,
+      "bounding box" : [ 49.2, 152.749, 159.84, 179.327 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• adjacency",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 22,
+      "bounding box" : [ 49.2, 80.747, 298.416, 136.127 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• monitored by computers or cameras",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 309,
+    "page number" : 23,
+    "bounding box" : [ 0.0, -36.625, 720.0, 540.005 ],
+    "source" : "Privacy and Territoriality_images/imageFile38.png"
+  }, {
+    "type" : "image",
+    "id" : 320,
+    "page number" : 24,
+    "bounding box" : [ 0.0, 0.0, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile39.png"
+  }, {
+    "type" : "image",
+    "id" : 331,
+    "page number" : 25,
+    "bounding box" : [ 78.0, 1.125, 642.0, 539.125 ],
+    "source" : "Privacy and Territoriality_images/imageFile40.png"
+  }, {
+    "type" : "image",
+    "id" : 342,
+    "page number" : 26,
+    "bounding box" : [ 40.44, 183.18, 396.66, 492.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile41.png"
+  }, {
+    "type" : "list",
+    "id" : 344,
+    "level" : "1",
+    "page number" : 26,
+    "bounding box" : [ 61.2, 243.979, 371.256, 443.407 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "previous list id" : 297,
+    "next list id" : 357,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 343,
+      "page number" : 26,
+      "bounding box" : [ 61.2, 373.599, 371.256, 443.407 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 24.0,
+      "text color" : "[1.0, 0.6, 0.0]",
+      "content" : "TERRITORIAL VARIATION as a factor of:",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 26,
+      "bounding box" : [ 61.2, 330.399, 184.248, 356.977 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• social class",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 26,
+      "bounding box" : [ 61.2, 287.193, 178.879, 313.798 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• civil status",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 26,
+      "bounding box" : [ 61.2, 243.979, 150.456, 270.557 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• religion",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 355,
+    "page number" : 27,
+    "bounding box" : [ 52.44, 226.26, 402.66, 492.84 ],
+    "source" : "Privacy and Territoriality_images/imageFile42.png"
+  }, {
+    "type" : "list",
+    "id" : 357,
+    "level" : "1",
+    "page number" : 27,
+    "bounding box" : [ 73.224, 287.193, 355.92, 443.407 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 344,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 356,
+      "page number" : 27,
+      "bounding box" : [ 73.224, 416.829, 335.808, 443.407 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 24.0,
+      "text color" : "[1.0, 0.6, 0.0]",
+      "content" : "SOFT ARCHITECTURE",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 27,
+      "bounding box" : [ 73.224, 287.193, 355.92, 400.177 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• the building or environment can be personalized without damage to them or without difficult surgery",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 368,
+    "page number" : 28,
+    "bounding box" : [ 0.0, 0.0, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile43.png"
+  }, {
+    "type" : "image",
+    "id" : 379,
+    "page number" : 29,
+    "bounding box" : [ 0.0, 0.625, 719.37, 540.005 ],
+    "source" : "Privacy and Territoriality_images/imageFile44.png"
+  }, {
+    "type" : "image",
+    "id" : 390,
+    "page number" : 30,
+    "bounding box" : [ 0.0, 0.0, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile45.png"
+  }, {
+    "type" : "image",
+    "id" : 401,
+    "page number" : 31,
+    "bounding box" : [ 0.0, -1.0, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile46.png"
+  }, {
+    "type" : "image",
+    "id" : 412,
+    "page number" : 32,
+    "bounding box" : [ 0.0, 0.0, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile47.png"
+  }, {
+    "type" : "image",
+    "id" : 423,
+    "page number" : 33,
+    "bounding box" : [ 0.0, 196.75, 720.0, 411.37 ],
+    "source" : "Privacy and Territoriality_images/imageFile48.png"
+  }, {
+    "type" : "image",
+    "id" : 434,
+    "page number" : 34,
+    "bounding box" : [ 0.0, 0.0, 720.0, 538.25 ],
+    "source" : "Privacy and Territoriality_images/imageFile49.png"
+  }, {
+    "type" : "image",
+    "id" : 445,
+    "page number" : 35,
+    "bounding box" : [ 0.0, 0.0, 720.0, 538.37 ],
+    "source" : "Privacy and Territoriality_images/imageFile50.png"
+  }, {
+    "type" : "image",
+    "id" : 456,
+    "page number" : 36,
+    "bounding box" : [ 111.38, 0.0, 608.63, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile51.png"
+  }, {
+    "type" : "image",
+    "id" : 467,
+    "page number" : 37,
+    "bounding box" : [ 0.0, 0.0, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile52.png"
+  }, {
+    "type" : "image",
+    "id" : 478,
+    "page number" : 38,
+    "bounding box" : [ 141.13, 0.0, 720.0, 540.0 ],
+    "source" : "Privacy and Territoriality_images/imageFile53.png"
+  } ]
+}

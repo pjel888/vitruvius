@@ -1,0 +1,4326 @@
+{
+  "file name" : "TOA 3 (Design Perception).pdf",
+  "number of pages" : 108,
+  "author" : null,
+  "title" : null,
+  "creation date" : null,
+  "modification date" : null,
+  "kids" : [ {
+    "type" : "image",
+    "id" : 15,
+    "page number" : 1,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile1.png"
+  }, {
+    "type" : "heading",
+    "id" : 17,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 54.75, 210.909, 213.15, 304.659 ],
+    "heading level" : 1,
+    "font" : "Roboto-Bold",
+    "font size" : 80.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "TOA"
+  }, {
+    "type" : "paragraph",
+    "id" : 19,
+    "page number" : 1,
+    "bounding box" : [ 54.75, 188.024, 331.782, 220.836 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2627451, 0.2627451, 0.2627451]",
+    "content" : "Theory of Architecture"
+  }, {
+    "type" : "heading",
+    "id" : 21,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 268.387, 305.377, 915.367, 375.689 ],
+    "heading level" : 3,
+    "font" : "Roboto-Bold",
+    "font size" : 60.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Authorship + Disclaimer"
+  }, {
+    "type" : "paragraph",
+    "id" : 22,
+    "page number" : 2,
+    "bounding box" : [ 352.747, 157.001, 916.018, 315.157 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "This work is the property of Pedro Santos Jr. and Dianne Ancheta. For questions, contact the authors at arch. pedrosantosjr@gmail.com and arch. dianneancheta@gmail.com."
+  }, {
+    "type" : "image",
+    "id" : 27,
+    "page number" : 3,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile2.png"
+  }, {
+    "type" : "image",
+    "id" : 36,
+    "page number" : 3,
+    "bounding box" : [ 82.433, 325.006, 421.433, 409.756 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile3.png"
+  }, {
+    "type" : "heading",
+    "id" : 34,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 89.183, 253.172, 552.395, 316.454 ],
+    "heading level" : 4,
+    "font" : "Roboto-Bold",
+    "font size" : 54.0,
+    "text color" : "[0.2627451, 0.2627451, 0.2627451]",
+    "content" : "Creative Commons"
+  }, {
+    "type" : "paragraph",
+    "id" : 29,
+    "page number" : 3,
+    "bounding box" : [ 89.183, 130.654, 689.778, 263.779 ],
+    "font" : "Roboto-Regular",
+    "font size" : 24.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "This presentation is licensed under the Creative Commons Attribution NonCommercial ShareAlike 4.0 International License and is not licensed for commercial use. To view a copy of this license, visit http: //creativecommons.org/licenses/by-nc-sa/4.0/"
+  }, {
+    "type" : "image",
+    "id" : 37,
+    "page number" : 4,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile4.png"
+  }, {
+    "type" : "heading",
+    "id" : 39,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 54.75, 210.909, 438.51, 304.659 ],
+    "heading level" : 1,
+    "font" : "Roboto-Bold",
+    "font size" : 80.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "MODULE 3"
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "page number" : 4,
+    "bounding box" : [ 54.75, 185.616, 297.72, 220.772 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2627451, 0.2627451, 0.2627451]",
+    "content" : "Design Perception"
+  }, {
+    "type" : "image",
+    "id" : 42,
+    "page number" : 5,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile5.png"
+  }, {
+    "type" : "heading",
+    "id" : 44,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 162.75, 406.768, 724.542, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "OVERVIEW OF THE MODULE"
+  }, {
+    "type" : "paragraph",
+    "id" : 46,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 170.826, 325.044, 556.598, 357.857 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "▪ Module 3: Design Perception"
+  }, {
+    "type" : "list",
+    "id" : 47,
+    "level" : "2",
+    "page number" : 5,
+    "bounding box" : [ 206.826, 235.044, 589.435, 327.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 206.826, 295.044, 575.267, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Part 3.1: Space Articulation",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 206.826, 265.044, 480.515, 297.857 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Part 3.2: Proxemics",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 206.826, 235.044, 589.435, 267.857 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Part 3.3: Architectural Styles",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 48,
+    "page number" : 6,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile6.png"
+  }, {
+    "type" : "heading",
+    "id" : 50,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 54.75, 311.567, 290.172, 388.911 ],
+    "heading level" : 2,
+    "font" : "Roboto-Bold",
+    "font size" : 66.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Part 3.1"
+  }, {
+    "type" : "paragraph",
+    "id" : 52,
+    "page number" : 6,
+    "bounding box" : [ 54.75, 276.334, 281.606, 309.147 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Space Articulation"
+  }, {
+    "type" : "image",
+    "id" : 53,
+    "page number" : 7,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile7.png"
+  }, {
+    "type" : "heading",
+    "id" : 55,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 54.75, 311.567, 237.768, 388.911 ],
+    "heading level" : 2,
+    "font" : "Roboto-Bold",
+    "font size" : 66.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Space"
+  }, {
+    "type" : "paragraph",
+    "id" : 57,
+    "page number" : 7,
+    "bounding box" : [ 54.75, 186.334, 711.686, 309.147 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Space is the three-dimensional field in which objects and events occur and have relative position and direction, especially a portion of that field set apart in a given instance or for a particular purpose."
+  }, {
+    "type" : "image",
+    "id" : 58,
+    "page number" : 8,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile8.png"
+  }, {
+    "type" : "heading",
+    "id" : 60,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 162.75, 406.768, 580.046, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Spatial Relationships"
+  }, {
+    "type" : "paragraph",
+    "id" : 62,
+    "page number" : 8,
+    "bounding box" : [ 174.75, 295.044, 752.082, 357.857 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces may be related to each other in several fundamental ways:"
+  }, {
+    "type" : "list",
+    "id" : 63,
+    "level" : "3",
+    "page number" : 8,
+    "bounding box" : [ 170.826, 157.044, 635.802, 279.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 170.826, 247.044, 466.906, 279.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Space within a space;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 170.826, 217.044, 446.662, 249.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Interlocking spaces;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 170.826, 187.044, 463.994, 219.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Adjacent spaces; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 170.826, 157.044, 635.802, 189.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Spaces linked by a common space.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 64,
+    "page number" : 9,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile9.png"
+  }, {
+    "type" : "heading",
+    "id" : 66,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 162.75, 332.733, 654.098, 393.671 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 52.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Space within a space"
+  }, {
+    "type" : "paragraph",
+    "id" : 68,
+    "page number" : 9,
+    "bounding box" : [ 162.75, 230.974, 864.09, 327.63 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "In this type of spatial relationship, the larger, enveloping space serves as a three-dimensional field for the smaller space contained within it."
+  }, {
+    "type" : "image",
+    "id" : 70,
+    "page number" : 10,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile10.png"
+  }, {
+    "type" : "header",
+    "id" : 69,
+    "page number" : 10,
+    "bounding box" : [ 522.99, 364.528, 788.838, 416.09 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 13,
+      "page number" : 10,
+      "bounding box" : [ 522.99, 364.528, 788.838, 416.09 ],
+      "heading level" : 6,
+      "font" : "Roboto-Bold",
+      "font size" : 44.0,
+      "text color" : "[1.0, 1.0, 1.0]",
+      "content" : "Moore House"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 75,
+    "page number" : 10,
+    "bounding box" : [ -272.076, -91.304, 534.228, 362.047 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile11.png"
+  }, {
+    "type" : "heading",
+    "id" : 73,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 522.99, 320.767, 794.03, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "California, US. Charles Moore."
+  }, {
+    "type" : "image",
+    "id" : 77,
+    "page number" : 11,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile12.png"
+  }, {
+    "type" : "header",
+    "id" : 76,
+    "page number" : 11,
+    "bounding box" : [ 522.99, 364.528, 788.838, 416.09 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 14,
+      "page number" : 11,
+      "bounding box" : [ 522.99, 364.528, 788.838, 416.09 ],
+      "heading level" : 6,
+      "font" : "Roboto-Bold",
+      "font size" : 44.0,
+      "text color" : "[1.0, 1.0, 1.0]",
+      "content" : "Moore House"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 80,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 522.99, 320.767, 794.03, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "California, US. Charles Moore."
+  }, {
+    "type" : "image",
+    "id" : 82,
+    "page number" : 11,
+    "bounding box" : [ 0.0, 0.001, 479.433, 269.401 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile13.png"
+  }, {
+    "type" : "image",
+    "id" : 83,
+    "page number" : 12,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile14.png"
+  }, {
+    "type" : "heading",
+    "id" : 85,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 162.75, 332.733, 620.766, 393.671 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 52.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Interlocking spaces"
+  }, {
+    "type" : "paragraph",
+    "id" : 87,
+    "page number" : 12,
+    "bounding box" : [ 162.75, 230.974, 885.03, 327.63 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "An interlocking spatial relationship results from the overlapping of two spatial fields and the emergence of a zone of shared space."
+  }, {
+    "type" : "image",
+    "id" : 88,
+    "page number" : 13,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile15.png"
+  }, {
+    "type" : "image",
+    "id" : 94,
+    "page number" : 13,
+    "bounding box" : [ 107.474, 0.0, 373.498, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile16.png"
+  }, {
+    "type" : "heading",
+    "id" : 90,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 522.99, 364.528, 862.098, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Plan for St. Peter"
+  }, {
+    "type" : "heading",
+    "id" : 92,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 522.99, 299.017, 864.415, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Second Version. Donato Bramante and Baldassare Peruzzi."
+  }, {
+    "type" : "image",
+    "id" : 101,
+    "page number" : 14,
+    "bounding box" : [ 101.315, -0.375, 369.815, 540.375 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile17.png"
+  }, {
+    "type" : "image",
+    "id" : 95,
+    "page number" : 14,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile18.png"
+  }, {
+    "type" : "heading",
+    "id" : 97,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 522.99, 364.528, 850.834, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Villa at Carthage"
+  }, {
+    "type" : "heading",
+    "id" : 99,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 522.99, 320.767, 714.45, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Tunisia. Le Corbusier"
+  }, {
+    "type" : "image",
+    "id" : 102,
+    "page number" : 15,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile19.png"
+  }, {
+    "type" : "heading",
+    "id" : 104,
+    "level" : "Subtitle",
+    "page number" : 15,
+    "bounding box" : [ 162.75, 332.733, 548.798, 393.671 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 52.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Adjacent spaces"
+  }, {
+    "type" : "paragraph",
+    "id" : 106,
+    "page number" : 15,
+    "bounding box" : [ 162.75, 261.724, 778.26, 327.63 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Adjacency is the most common type of spatial relationship."
+  }, {
+    "type" : "paragraph",
+    "id" : 107,
+    "page number" : 15,
+    "bounding box" : [ 162.75, 138.724, 871.77, 235.38 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "It allows each space to be clearly defined and to respond, each in its own way, to specific functional or symbolic requirements."
+  }, {
+    "type" : "image",
+    "id" : 108,
+    "page number" : 16,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile20.png"
+  }, {
+    "type" : "image",
+    "id" : 115,
+    "page number" : 16,
+    "bounding box" : [ 49.278, 22.256, 427.278, 517.743 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile21.png"
+  }, {
+    "type" : "heading",
+    "id" : 110,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 522.99, 364.528, 838.866, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Chiswick House"
+  }, {
+    "type" : "heading",
+    "id" : 112,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 522.99, 299.017, 860.49, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "London, England. Lord Burlington and William Kent."
+  }, {
+    "type" : "paragraph",
+    "id" : 113,
+    "page number" : 16,
+    "bounding box" : [ 522.99, 144.517, 883.41, 254.955 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The spaces are individualistic in size, shape, and form. The walls that enclose them adapt their forms to accommodate the differences between adjacent spaces."
+  }, {
+    "type" : "image",
+    "id" : 116,
+    "page number" : 17,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile22.png"
+  }, {
+    "type" : "image",
+    "id" : 123,
+    "page number" : 17,
+    "bounding box" : [ 0.0, 137.122, 479.429, 442.907 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile23.png"
+  }, {
+    "type" : "heading",
+    "id" : 118,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 522.99, 364.528, 851.626, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Lawrence House"
+  }, {
+    "type" : "heading",
+    "id" : 120,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 522.99, 299.017, 791.97, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Sea Ranch, California. MooreTurnbull/MLTW."
+  }, {
+    "type" : "paragraph",
+    "id" : 121,
+    "page number" : 17,
+    "bounding box" : [ 522.99, 166.267, 885.37, 254.955 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Three spaces—the living, fireplace, and dining areas—are defined by changes in floor level, ceiling height, and quality of light and view, rather than by wall planes."
+  }, {
+    "type" : "image",
+    "id" : 124,
+    "page number" : 18,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile24.png"
+  }, {
+    "type" : "heading",
+    "id" : 126,
+    "level" : "Subtitle",
+    "page number" : 18,
+    "bounding box" : [ 162.75, 332.733, 628.67, 446.921 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 52.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Spaces linked by a common space"
+  }, {
+    "type" : "paragraph",
+    "id" : 128,
+    "page number" : 18,
+    "bounding box" : [ 162.75, 230.974, 875.85, 327.63 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Two spaces that are separated by distance can be linked or related to each other by a third, intermediate, space."
+  }, {
+    "type" : "image",
+    "id" : 129,
+    "page number" : 19,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile25.png"
+  }, {
+    "type" : "image",
+    "id" : 135,
+    "page number" : 19,
+    "bounding box" : [ 6.159, 30.339, 471.217, 509.661 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile26.png"
+  }, {
+    "type" : "heading",
+    "id" : 131,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 522.99, 364.528, 838.69, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "One-Half House"
+  }, {
+    "type" : "heading",
+    "id" : 133,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 522.99, 320.767, 641.83, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "John Hejduk."
+  }, {
+    "type" : "image",
+    "id" : 136,
+    "page number" : 20,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile27.png"
+  }, {
+    "type" : "heading",
+    "id" : 138,
+    "level" : "Subtitle",
+    "page number" : 20,
+    "bounding box" : [ 162.75, 406.768, 564.03, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Spatial Organization"
+  }, {
+    "type" : "list",
+    "id" : 140,
+    "level" : "3",
+    "page number" : 20,
+    "bounding box" : [ 170.826, 205.044, 338.974, 357.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 170.826, 325.044, 338.974, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Centralized",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 170.826, 295.044, 275.498, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Linear",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 170.826, 265.044, 275.694, 297.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Radial",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 170.826, 235.044, 317.554, 267.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Clustered",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 170.826, 205.044, 249.822, 237.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Grid",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 141,
+    "page number" : 21,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile28.png"
+  }, {
+    "type" : "heading",
+    "id" : 143,
+    "level" : "Subtitle",
+    "page number" : 21,
+    "bounding box" : [ 162.75, 332.733, 429.614, 393.671 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 52.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Centralized"
+  }, {
+    "type" : "paragraph",
+    "id" : 145,
+    "page number" : 21,
+    "bounding box" : [ 162.75, 200.224, 857.7, 327.63 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "A centralized organization is a stable, concentrated composition that consists of a number of secondary spaces grouped around a large, dominant, central space."
+  }, {
+    "type" : "image",
+    "id" : 146,
+    "page number" : 22,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile29.png"
+  }, {
+    "type" : "image",
+    "id" : 153,
+    "page number" : 22,
+    "bounding box" : [ 57.813, 249.811, 420.813, 512.311 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile30.png"
+  }, {
+    "type" : "heading",
+    "id" : 148,
+    "level" : "Subtitle",
+    "page number" : 22,
+    "bounding box" : [ 522.99, 364.528, 718.042, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Taj Mahal"
+  }, {
+    "type" : "heading",
+    "id" : 150,
+    "level" : "Subtitle",
+    "page number" : 22,
+    "bounding box" : [ 522.99, 320.767, 625.79, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Agra, India."
+  }, {
+    "type" : "paragraph",
+    "id" : 151,
+    "page number" : 22,
+    "bounding box" : [ 522.99, 166.267, 883.99, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The pattern of circulation and movement within a centralized organization may be radial, loop, or spiral in form. In almost every case, however, the pattern will terminate in or around the central space."
+  }, {
+    "type" : "image",
+    "id" : 155,
+    "page number" : 22,
+    "bounding box" : [ 120.367, 27.689, 358.259, 271.244 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile31.png"
+  }, {
+    "type" : "image",
+    "id" : 156,
+    "page number" : 23,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile32.png"
+  }, {
+    "type" : "image",
+    "id" : 163,
+    "page number" : 23,
+    "bounding box" : [ 10.915, 43.322, 471.681, 496.678 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile33.png"
+  }, {
+    "type" : "heading",
+    "id" : 158,
+    "level" : "Subtitle",
+    "page number" : 23,
+    "bounding box" : [ 522.99, 364.528, 779.686, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Villa Farnese"
+  }, {
+    "type" : "heading",
+    "id" : 160,
+    "level" : "Subtitle",
+    "page number" : 23,
+    "bounding box" : [ 522.99, 320.767, 855.85, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Caprarola, Italy. Giacomo da Vignola."
+  }, {
+    "type" : "paragraph",
+    "id" : 161,
+    "page number" : 23,
+    "bounding box" : [ 522.99, 166.267, 883.99, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The pattern of circulation and movement within a centralized organization may be radial, loop, or spiral in form. In almost every case, however, the pattern will terminate in or around the central space."
+  }, {
+    "type" : "image",
+    "id" : 164,
+    "page number" : 24,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile34.png"
+  }, {
+    "type" : "image",
+    "id" : 171,
+    "page number" : 24,
+    "bounding box" : [ 0.0, 0.0, 541.907, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile35.png"
+  }, {
+    "type" : "heading",
+    "id" : 166,
+    "level" : "Subtitle",
+    "page number" : 24,
+    "bounding box" : [ 522.99, 364.528, 779.686, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Villa Farnese"
+  }, {
+    "type" : "heading",
+    "id" : 168,
+    "level" : "Subtitle",
+    "page number" : 24,
+    "bounding box" : [ 522.99, 320.767, 855.85, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Caprarola, Italy. Giacomo da Vignola."
+  }, {
+    "type" : "paragraph",
+    "id" : 169,
+    "page number" : 24,
+    "bounding box" : [ 522.99, 166.267, 883.99, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The pattern of circulation and movement within a centralized organization may be radial, loop, or spiral in form. In almost every case, however, the pattern will terminate in or around the central space."
+  }, {
+    "type" : "image",
+    "id" : 172,
+    "page number" : 25,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile36.png"
+  }, {
+    "type" : "image",
+    "id" : 179,
+    "page number" : 25,
+    "bounding box" : [ 42.25, 39.73, 441.746, 500.27 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile37.png"
+  }, {
+    "type" : "heading",
+    "id" : 174,
+    "level" : "Subtitle",
+    "page number" : 25,
+    "bounding box" : [ 522.99, 364.528, 894.878, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "National Assembly Building"
+  }, {
+    "type" : "heading",
+    "id" : 176,
+    "level" : "Subtitle",
+    "page number" : 25,
+    "bounding box" : [ 522.99, 320.767, 809.95, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Dacca, Bangladesh. Louis Kahn."
+  }, {
+    "type" : "paragraph",
+    "id" : 177,
+    "page number" : 25,
+    "bounding box" : [ 522.99, 166.267, 883.99, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The pattern of circulation and movement within a centralized organization may be radial, loop, or spiral in form. In almost every case, however, the pattern will terminate in or around the central space."
+  }, {
+    "type" : "image",
+    "id" : 187,
+    "page number" : 26,
+    "bounding box" : [ -316.141, 0.0, 626.842, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile38.png"
+  }, {
+    "type" : "image",
+    "id" : 180,
+    "page number" : 26,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile39.png"
+  }, {
+    "type" : "heading",
+    "id" : 182,
+    "level" : "Subtitle",
+    "page number" : 26,
+    "bounding box" : [ 522.99, 364.528, 894.878, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "National Assembly Building"
+  }, {
+    "type" : "heading",
+    "id" : 184,
+    "level" : "Subtitle",
+    "page number" : 26,
+    "bounding box" : [ 522.99, 320.767, 809.95, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Dacca, Bangladesh. Louis Kahn."
+  }, {
+    "type" : "paragraph",
+    "id" : 185,
+    "page number" : 26,
+    "bounding box" : [ 522.99, 166.267, 883.99, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The pattern of circulation and movement within a centralized organization may be radial, loop, or spiral in form. In almost every case, however, the pattern will terminate in or around the central space."
+  }, {
+    "type" : "image",
+    "id" : 188,
+    "page number" : 27,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile40.png"
+  }, {
+    "type" : "heading",
+    "id" : 190,
+    "level" : "Subtitle",
+    "page number" : 27,
+    "bounding box" : [ 162.75, 332.733, 308.662, 393.671 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 52.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Linear"
+  }, {
+    "type" : "paragraph",
+    "id" : 192,
+    "page number" : 27,
+    "bounding box" : [ 162.75, 200.224, 875.97, 327.63 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "A linear organization consists essentially of a series of spaces. These spaces can either be directly related to one another or be linked through a separate and distinct linear space."
+  }, {
+    "type" : "image",
+    "id" : 193,
+    "page number" : 28,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile41.png"
+  }, {
+    "type" : "image",
+    "id" : 200,
+    "page number" : 28,
+    "bounding box" : [ 0.0, 60.778, 480.457, 479.222 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile42.png"
+  }, {
+    "type" : "heading",
+    "id" : 195,
+    "level" : "Subtitle",
+    "page number" : 28,
+    "bounding box" : [ 522.99, 364.528, 744.002, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Residential Expansion"
+  }, {
+    "type" : "heading",
+    "id" : 197,
+    "level" : "Subtitle",
+    "page number" : 28,
+    "bounding box" : [ 522.99, 299.017, 826.35, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "St. Andrew’s University, Scotland. James Stirling."
+  }, {
+    "type" : "paragraph",
+    "id" : 198,
+    "page number" : 28,
+    "bounding box" : [ 522.99, 231.517, 774.01, 254.955 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Linear Sequences of Spaces"
+  }, {
+    "type" : "image",
+    "id" : 201,
+    "page number" : 29,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile43.png"
+  }, {
+    "type" : "heading",
+    "id" : 203,
+    "level" : "Subtitle",
+    "page number" : 29,
+    "bounding box" : [ 522.99, 364.528, 744.002, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Residential Expansion"
+  }, {
+    "type" : "image",
+    "id" : 208,
+    "page number" : 29,
+    "bounding box" : [ 0.0, 0.0, 480.236, 360.343 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile44.png"
+  }, {
+    "type" : "heading",
+    "id" : 205,
+    "level" : "Subtitle",
+    "page number" : 29,
+    "bounding box" : [ 522.99, 299.017, 826.35, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "St. Andrew’s University, Scotland. James Stirling."
+  }, {
+    "type" : "paragraph",
+    "id" : 206,
+    "page number" : 29,
+    "bounding box" : [ 522.99, 231.517, 774.01, 254.955 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Linear Sequences of Spaces"
+  }, {
+    "type" : "image",
+    "id" : 209,
+    "page number" : 30,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile45.png"
+  }, {
+    "type" : "image",
+    "id" : 216,
+    "page number" : 30,
+    "bounding box" : [ 6.159, 206.35, 487.436, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile46.png"
+  }, {
+    "type" : "heading",
+    "id" : 211,
+    "level" : "Subtitle",
+    "page number" : 30,
+    "bounding box" : [ 522.99, 364.528, 755.222, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Lloyd Lewis House"
+  }, {
+    "type" : "heading",
+    "id" : 213,
+    "level" : "Subtitle",
+    "page number" : 30,
+    "bounding box" : [ 522.99, 320.767, 877.09, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Libertyville, Illinois. Frank Lloyd Wright."
+  }, {
+    "type" : "paragraph",
+    "id" : 214,
+    "page number" : 30,
+    "bounding box" : [ 522.99, 253.267, 771.65, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Linear Sequences of Rooms"
+  }, {
+    "type" : "image",
+    "id" : 217,
+    "page number" : 31,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile47.png"
+  }, {
+    "type" : "text block",
+    "id" : 223,
+    "page number" : 31,
+    "bounding box" : [ 0.278, -1.778, 481.211, 539.722 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 31,
+      "bounding box" : [ 0.0, 89.829, 480.457, 450.171 ],
+      "source" : "TOA 3 (Design Perception)_images/imageFile48.png"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 219,
+    "level" : "Subtitle",
+    "page number" : 31,
+    "bounding box" : [ 522.99, 364.528, 755.222, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Lloyd Lewis House"
+  }, {
+    "type" : "heading",
+    "id" : 221,
+    "level" : "Subtitle",
+    "page number" : 31,
+    "bounding box" : [ 522.99, 320.767, 877.09, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Libertyville, Illinois. Frank Lloyd Wright."
+  }, {
+    "type" : "paragraph",
+    "id" : 222,
+    "page number" : 31,
+    "bounding box" : [ 522.99, 253.267, 771.65, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Linear Sequences of Rooms"
+  }, {
+    "type" : "image",
+    "id" : 224,
+    "page number" : 32,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile49.png"
+  }, {
+    "type" : "heading",
+    "id" : 226,
+    "level" : "Subtitle",
+    "page number" : 32,
+    "bounding box" : [ 522.99, 364.528, 824.918, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Romano House"
+  }, {
+    "type" : "heading",
+    "id" : 228,
+    "level" : "Subtitle",
+    "page number" : 32,
+    "bounding box" : [ 522.99, 299.017, 868.21, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Kentfield, California. Esherick Homsey Dodge & Davis."
+  }, {
+    "type" : "image",
+    "id" : 231,
+    "page number" : 32,
+    "bounding box" : [ 0.0, 0.0, 479.429, 280.227 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile50.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 229,
+    "page number" : 32,
+    "bounding box" : [ 522.99, 231.517, 784.91, 254.955 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Adapting to Function and Site"
+  }, {
+    "type" : "image",
+    "id" : 239,
+    "page number" : 33,
+    "bounding box" : [ -125.089, 0.0, 495.879, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile51.png"
+  }, {
+    "type" : "image",
+    "id" : 232,
+    "page number" : 33,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile52.png"
+  }, {
+    "type" : "heading",
+    "id" : 234,
+    "level" : "Subtitle",
+    "page number" : 33,
+    "bounding box" : [ 522.99, 364.528, 824.918, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Romano House"
+  }, {
+    "type" : "heading",
+    "id" : 236,
+    "level" : "Subtitle",
+    "page number" : 33,
+    "bounding box" : [ 522.99, 299.017, 868.21, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Kentfield, California. Esherick Homsey Dodge & Davis."
+  }, {
+    "type" : "paragraph",
+    "id" : 237,
+    "page number" : 33,
+    "bounding box" : [ 522.99, 231.517, 784.91, 254.955 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Adapting to Function and Site"
+  }, {
+    "type" : "image",
+    "id" : 240,
+    "page number" : 34,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile53.png"
+  }, {
+    "type" : "heading",
+    "id" : 242,
+    "level" : "Subtitle",
+    "page number" : 34,
+    "bounding box" : [ 162.75, 332.733, 308.506, 393.671 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 52.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Radial"
+  }, {
+    "type" : "paragraph",
+    "id" : 244,
+    "page number" : 34,
+    "bounding box" : [ 162.75, 200.224, 863.34, 327.63 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "A radial organization of space combines elements of both centralized and linear organizations. It consists of a dominant central space from which a number of linear organizations extend in a radial manner."
+  }, {
+    "type" : "image",
+    "id" : 245,
+    "page number" : 35,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile54.png"
+  }, {
+    "type" : "heading",
+    "id" : 247,
+    "level" : "Subtitle",
+    "page number" : 35,
+    "bounding box" : [ 522.99, 364.528, 774.186, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Guggenheim Museum"
+  }, {
+    "type" : "image",
+    "id" : 253,
+    "page number" : 35,
+    "bounding box" : [ 0.0, 0.0, 478.368, 396.274 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile55.png"
+  }, {
+    "type" : "heading",
+    "id" : 249,
+    "level" : "Subtitle",
+    "page number" : 35,
+    "bounding box" : [ 522.99, 320.767, 765.49, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Bilbao, Spain. Frank Gehry."
+  }, {
+    "type" : "paragraph",
+    "id" : 250,
+    "page number" : 35,
+    "bounding box" : [ 522.99, 231.517, 879.41, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The central space of a radial organization is generally regular in form."
+  }, {
+    "type" : "paragraph",
+    "id" : 251,
+    "page number" : 35,
+    "bounding box" : [ 522.99, 176.017, 866.85, 221.205 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The linear arms, for which the central space is the hub, may be similar to one"
+  }, {
+    "type" : "footer",
+    "id" : 254,
+    "page number" : 35,
+    "bounding box" : [ 522.99, 110.767, 878.19, 177.705 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 8,
+      "page number" : 35,
+      "bounding box" : [ 522.99, 110.767, 878.19, 177.705 ],
+      "heading level" : 8,
+      "font" : "Roboto-Regular",
+      "font size" : 20.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "another in form and length and maintain the regularity of the organization’s overall form."
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 263,
+    "page number" : 36,
+    "bounding box" : [ -71.828, -34.344, 738.606, 573.696 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile56.png"
+  }, {
+    "type" : "image",
+    "id" : 255,
+    "page number" : 36,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile57.png"
+  }, {
+    "type" : "heading",
+    "id" : 257,
+    "level" : "Subtitle",
+    "page number" : 36,
+    "bounding box" : [ 522.99, 364.528, 774.186, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Guggenheim Museum"
+  }, {
+    "type" : "heading",
+    "id" : 259,
+    "level" : "Subtitle",
+    "page number" : 36,
+    "bounding box" : [ 522.99, 320.767, 765.49, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Bilbao, Spain. Frank Gehry."
+  }, {
+    "type" : "paragraph",
+    "id" : 260,
+    "page number" : 36,
+    "bounding box" : [ 522.99, 231.517, 879.41, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The central space of a radial organization is generally regular in form."
+  }, {
+    "type" : "paragraph",
+    "id" : 261,
+    "page number" : 36,
+    "bounding box" : [ 522.99, 176.017, 866.85, 221.205 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The linear arms, for which the central space is the hub, may be similar to one"
+  }, {
+    "type" : "footer",
+    "id" : 264,
+    "page number" : 36,
+    "bounding box" : [ 522.99, 110.767, 878.19, 177.705 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 9,
+      "page number" : 36,
+      "bounding box" : [ 522.99, 110.767, 878.19, 177.705 ],
+      "heading level" : 8,
+      "font" : "Roboto-Regular",
+      "font size" : 20.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "another in form and length and maintain the regularity of the organization’s overall form."
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 271,
+    "page number" : 37,
+    "bounding box" : [ -9.225, 0.0, 534.988, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile58.png"
+  }, {
+    "type" : "image",
+    "id" : 265,
+    "page number" : 37,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile59.png"
+  }, {
+    "type" : "heading",
+    "id" : 267,
+    "level" : "Subtitle",
+    "page number" : 37,
+    "bounding box" : [ 522.99, 364.528, 704.094, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Canberra"
+  }, {
+    "type" : "heading",
+    "id" : 269,
+    "level" : "Subtitle",
+    "page number" : 37,
+    "bounding box" : [ 522.99, 320.767, 803.17, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Australia. Walter Burley Griffin."
+  }, {
+    "type" : "image",
+    "id" : 272,
+    "page number" : 38,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile60.png"
+  }, {
+    "type" : "heading",
+    "id" : 274,
+    "level" : "Subtitle",
+    "page number" : 38,
+    "bounding box" : [ 522.99, 364.528, 796.318, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "H. F. Johnson House"
+  }, {
+    "type" : "image",
+    "id" : 279,
+    "page number" : 38,
+    "bounding box" : [ 0.0, 0.0, 477.443, 408.047 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile61.png"
+  }, {
+    "type" : "heading",
+    "id" : 276,
+    "level" : "Subtitle",
+    "page number" : 38,
+    "bounding box" : [ 522.99, 299.017, 838.55, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Wind Point, Wisconsin. Frank Lloyd Wright."
+  }, {
+    "type" : "paragraph",
+    "id" : 277,
+    "page number" : 38,
+    "bounding box" : [ 522.99, 166.267, 870.33, 254.955 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "A specific variation of a radial organization is the pinwheel pattern wherein the linear arms of the organization extend from the sides of a"
+  }, {
+    "type" : "footer",
+    "id" : 280,
+    "page number" : 38,
+    "bounding box" : [ 522.99, 144.517, 842.41, 167.955 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 10,
+      "page number" : 38,
+      "bounding box" : [ 522.99, 144.517, 842.41, 167.955 ],
+      "heading level" : 8,
+      "font" : "Roboto-Regular",
+      "font size" : 20.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "square or rectangular central space."
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 288,
+    "page number" : 39,
+    "bounding box" : [ -133.515, 0.0, 679.757, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile62.png"
+  }, {
+    "type" : "image",
+    "id" : 281,
+    "page number" : 39,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile63.png"
+  }, {
+    "type" : "heading",
+    "id" : 283,
+    "level" : "Subtitle",
+    "page number" : 39,
+    "bounding box" : [ 522.99, 364.528, 758.302, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Wingspread"
+  }, {
+    "type" : "heading",
+    "id" : 285,
+    "level" : "Subtitle",
+    "page number" : 39,
+    "bounding box" : [ 522.99, 299.017, 879.81, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "(Herbert F. Johnson House) Wind Point, Wisconsin. Frank Lloyd Wright."
+  }, {
+    "type" : "paragraph",
+    "id" : 286,
+    "page number" : 39,
+    "bounding box" : [ 522.99, 166.267, 870.33, 254.955 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "A specific variation of a radial organization is the pinwheel pattern wherein the linear arms of the organization extend from the sides of a"
+  }, {
+    "type" : "footer",
+    "id" : 289,
+    "page number" : 39,
+    "bounding box" : [ 522.99, 144.517, 842.41, 167.955 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 11,
+      "page number" : 39,
+      "bounding box" : [ 522.99, 144.517, 842.41, 167.955 ],
+      "heading level" : 8,
+      "font" : "Roboto-Regular",
+      "font size" : 20.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "square or rectangular central space."
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 297,
+    "page number" : 40,
+    "bounding box" : [ -255.651, 0.0, 553.342, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile64.png"
+  }, {
+    "type" : "image",
+    "id" : 290,
+    "page number" : 40,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile65.png"
+  }, {
+    "type" : "heading",
+    "id" : 292,
+    "level" : "Subtitle",
+    "page number" : 40,
+    "bounding box" : [ 522.99, 364.528, 758.302, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Wingspread"
+  }, {
+    "type" : "heading",
+    "id" : 294,
+    "level" : "Subtitle",
+    "page number" : 40,
+    "bounding box" : [ 522.99, 299.017, 879.81, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "(Herbert F. Johnson House) Wind Point, Wisconsin. Frank Lloyd Wright."
+  }, {
+    "type" : "paragraph",
+    "id" : 295,
+    "page number" : 40,
+    "bounding box" : [ 522.99, 166.267, 870.33, 254.955 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "A specific variation of a radial organization is the pinwheel pattern wherein the linear arms of the organization extend from the sides of a"
+  }, {
+    "type" : "footer",
+    "id" : 298,
+    "page number" : 40,
+    "bounding box" : [ 522.99, 144.517, 842.41, 167.955 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 12,
+      "page number" : 40,
+      "bounding box" : [ 522.99, 144.517, 842.41, 167.955 ],
+      "heading level" : 8,
+      "font" : "Roboto-Regular",
+      "font size" : 20.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "square or rectangular central space."
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 299,
+    "page number" : 41,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile66.png"
+  }, {
+    "type" : "heading",
+    "id" : 301,
+    "level" : "Subtitle",
+    "page number" : 41,
+    "bounding box" : [ 162.75, 332.733, 388.222, 393.671 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 52.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Clustered"
+  }, {
+    "type" : "paragraph",
+    "id" : 303,
+    "page number" : 41,
+    "bounding box" : [ 162.75, 169.474, 881.31, 327.63 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "A clustered organization relies on physical proximity to relate its spaces to one another. It often consists of repetitive, cellular spaces that have similar functions and share a common visual trait such as shape or orientation."
+  }, {
+    "type" : "image",
+    "id" : 304,
+    "page number" : 42,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile67.png"
+  }, {
+    "type" : "image",
+    "id" : 311,
+    "page number" : 42,
+    "bounding box" : [ 64.677, 0.0, 416.32, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile68.png"
+  }, {
+    "type" : "heading",
+    "id" : 306,
+    "level" : "Subtitle",
+    "page number" : 42,
+    "bounding box" : [ 522.99, 364.528, 773.306, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Yeni-Kaplica"
+  }, {
+    "type" : "heading",
+    "id" : 308,
+    "level" : "Subtitle",
+    "page number" : 42,
+    "bounding box" : [ 522.99, 320.767, 793.55, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "(Thermal Bath) Bursa, Turkey."
+  }, {
+    "type" : "paragraph",
+    "id" : 309,
+    "page number" : 42,
+    "bounding box" : [ 522.99, 253.267, 800.39, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces Organized by Geometry"
+  }, {
+    "type" : "table",
+    "id" : 313,
+    "level" : "4",
+    "page number" : 43,
+    "bounding box" : [ -0.75, -0.75, 480.75, 540.75 ],
+    "number of rows" : 3,
+    "number of columns" : 1,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 43,
+        "bounding box" : [ 0.375, 450.375, 479.625, 539.625 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 43,
+        "bounding box" : [ 0.375, 89.625, 479.625, 450.375 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "image",
+          "id" : 1,
+          "page number" : 43,
+          "bounding box" : [ 0.0, 90.0, 480.0, 450.0 ],
+          "source" : "TOA 3 (Design Perception)_images/imageFile69.png"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 43,
+        "bounding box" : [ 0.375, 0.375, 479.625, 89.625 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 312,
+    "page number" : 43,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile70.png"
+  }, {
+    "type" : "heading",
+    "id" : 315,
+    "level" : "Subtitle",
+    "page number" : 43,
+    "bounding box" : [ 522.99, 364.528, 773.306, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Yeni-Kaplica"
+  }, {
+    "type" : "heading",
+    "id" : 317,
+    "level" : "Subtitle",
+    "page number" : 43,
+    "bounding box" : [ 522.99, 320.767, 793.55, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "(Thermal Bath) Bursa, Turkey."
+  }, {
+    "type" : "paragraph",
+    "id" : 318,
+    "page number" : 43,
+    "bounding box" : [ 522.99, 253.267, 800.39, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces Organized by Geometry"
+  }, {
+    "type" : "image",
+    "id" : 319,
+    "page number" : 44,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile71.png"
+  }, {
+    "type" : "heading",
+    "id" : 321,
+    "level" : "Subtitle",
+    "page number" : 44,
+    "bounding box" : [ 522.99, 364.528, 808.682, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Palace of King Minos"
+  }, {
+    "type" : "image",
+    "id" : 326,
+    "page number" : 44,
+    "bounding box" : [ 0.0, 0.0, 480.457, 417.14 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile72.png"
+  }, {
+    "type" : "heading",
+    "id" : 323,
+    "level" : "Subtitle",
+    "page number" : 44,
+    "bounding box" : [ 522.99, 320.767, 664.67, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Knossos, Crete."
+  }, {
+    "type" : "paragraph",
+    "id" : 324,
+    "page number" : 44,
+    "bounding box" : [ 522.99, 231.517, 859.85, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces Organized Around a Dominant Space"
+  }, {
+    "type" : "text block",
+    "id" : 333,
+    "page number" : 45,
+    "bounding box" : [ -0.75, -0.75, 480.75, 540.75 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 45,
+      "bounding box" : [ 0.0, 89.855, 480.165, 450.145 ],
+      "source" : "TOA 3 (Design Perception)_images/imageFile73.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 327,
+    "page number" : 45,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile74.png"
+  }, {
+    "type" : "heading",
+    "id" : 329,
+    "level" : "Subtitle",
+    "page number" : 45,
+    "bounding box" : [ 522.99, 364.528, 808.682, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Palace of King Minos"
+  }, {
+    "type" : "heading",
+    "id" : 331,
+    "level" : "Subtitle",
+    "page number" : 45,
+    "bounding box" : [ 522.99, 320.767, 664.67, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Knossos, Crete."
+  }, {
+    "type" : "paragraph",
+    "id" : 332,
+    "page number" : 45,
+    "bounding box" : [ 522.99, 231.517, 859.85, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces Organized Around a Dominant Space"
+  }, {
+    "type" : "image",
+    "id" : 334,
+    "page number" : 46,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile75.png"
+  }, {
+    "type" : "image",
+    "id" : 341,
+    "page number" : 46,
+    "bounding box" : [ 93.423, -0.9, 370.787, 539.1 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile76.png"
+  }, {
+    "type" : "heading",
+    "id" : 336,
+    "level" : "Subtitle",
+    "page number" : 46,
+    "bounding box" : [ 522.99, 364.528, 827.074, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Rajarajeshwara Temple"
+  }, {
+    "type" : "heading",
+    "id" : 338,
+    "level" : "Subtitle",
+    "page number" : 46,
+    "bounding box" : [ 522.99, 320.767, 672.87, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Thanjavur, India."
+  }, {
+    "type" : "paragraph",
+    "id" : 339,
+    "page number" : 46,
+    "bounding box" : [ 522.99, 253.267, 870.81, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces Organized within a Spatial Field"
+  }, {
+    "type" : "image",
+    "id" : 349,
+    "page number" : 47,
+    "bounding box" : [ -112.907, 0.0, 722.511, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile77.png"
+  }, {
+    "type" : "image",
+    "id" : 342,
+    "page number" : 47,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile78.png"
+  }, {
+    "type" : "heading",
+    "id" : 344,
+    "level" : "Subtitle",
+    "page number" : 47,
+    "bounding box" : [ 522.99, 364.528, 827.074, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Rajarajeshwara Temple"
+  }, {
+    "type" : "heading",
+    "id" : 346,
+    "level" : "Subtitle",
+    "page number" : 47,
+    "bounding box" : [ 522.99, 320.767, 672.87, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Thanjavur, India."
+  }, {
+    "type" : "paragraph",
+    "id" : 347,
+    "page number" : 47,
+    "bounding box" : [ 522.99, 253.267, 870.81, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces Organized within a Spatial Field"
+  }, {
+    "type" : "image",
+    "id" : 350,
+    "page number" : 48,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile79.png"
+  }, {
+    "type" : "image",
+    "id" : 357,
+    "page number" : 48,
+    "bounding box" : [ 65.703, 0.0, 410.077, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile80.png"
+  }, {
+    "type" : "heading",
+    "id" : 352,
+    "level" : "Subtitle",
+    "page number" : 48,
+    "bounding box" : [ 522.99, 364.528, 843.398, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "St. Carlo alle Quattro Fontane"
+  }, {
+    "type" : "heading",
+    "id" : 354,
+    "level" : "Subtitle",
+    "page number" : 48,
+    "bounding box" : [ 522.99, 320.767, 779.09, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Rome. Francesco Borromini."
+  }, {
+    "type" : "paragraph",
+    "id" : 355,
+    "page number" : 48,
+    "bounding box" : [ 522.99, 253.267, 868.31, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces Organized by Axial Symmetries"
+  }, {
+    "type" : "image",
+    "id" : 358,
+    "page number" : 49,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile81.png"
+  }, {
+    "type" : "image",
+    "id" : 365,
+    "page number" : 49,
+    "bounding box" : [ 0.0, 0.0, 511.677, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile82.png"
+  }, {
+    "type" : "heading",
+    "id" : 360,
+    "level" : "Subtitle",
+    "page number" : 49,
+    "bounding box" : [ 522.99, 364.528, 843.398, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "St. Carlo alle Quattro Fontane"
+  }, {
+    "type" : "heading",
+    "id" : 362,
+    "level" : "Subtitle",
+    "page number" : 49,
+    "bounding box" : [ 522.99, 320.767, 779.09, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Rome. Francesco Borromini."
+  }, {
+    "type" : "paragraph",
+    "id" : 363,
+    "page number" : 49,
+    "bounding box" : [ 522.99, 253.267, 868.31, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces Organized by Axial Symmetries"
+  }, {
+    "type" : "image",
+    "id" : 366,
+    "page number" : 50,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile83.png"
+  }, {
+    "type" : "image",
+    "id" : 373,
+    "page number" : 50,
+    "bounding box" : [ 0.0, 64.978, 480.368, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile84.png"
+  }, {
+    "type" : "heading",
+    "id" : 368,
+    "level" : "Subtitle",
+    "page number" : 50,
+    "bounding box" : [ 522.99, 364.528, 812.598, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Gamble House"
+  }, {
+    "type" : "heading",
+    "id" : 370,
+    "level" : "Subtitle",
+    "page number" : 50,
+    "bounding box" : [ 522.99, 320.767, 877.47, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Pasadena, California. Greene & Greene."
+  }, {
+    "type" : "paragraph",
+    "id" : 371,
+    "page number" : 50,
+    "bounding box" : [ 522.99, 253.267, 876.03, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces Organized by Geometric Pattern"
+  }, {
+    "type" : "image",
+    "id" : 374,
+    "page number" : 51,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile85.png"
+  }, {
+    "type" : "heading",
+    "id" : 376,
+    "level" : "Subtitle",
+    "page number" : 51,
+    "bounding box" : [ 522.99, 364.528, 812.598, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Gamble House"
+  }, {
+    "type" : "image",
+    "id" : 381,
+    "page number" : 51,
+    "bounding box" : [ 0.0, 0.0, 480.622, 360.465 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile86.png"
+  }, {
+    "type" : "heading",
+    "id" : 378,
+    "level" : "Subtitle",
+    "page number" : 51,
+    "bounding box" : [ 522.99, 320.767, 877.47, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Pasadena, California. Greene & Greene."
+  }, {
+    "type" : "paragraph",
+    "id" : 379,
+    "page number" : 51,
+    "bounding box" : [ 522.99, 253.267, 876.03, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces Organized by Geometric Pattern"
+  }, {
+    "type" : "image",
+    "id" : 382,
+    "page number" : 52,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile87.png"
+  }, {
+    "type" : "heading",
+    "id" : 384,
+    "level" : "Subtitle",
+    "page number" : 52,
+    "bounding box" : [ 162.75, 332.733, 260.146, 393.671 ],
+    "heading level" : 5,
+    "font" : "Roboto-Bold",
+    "font size" : 52.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Grid"
+  }, {
+    "type" : "paragraph",
+    "id" : 386,
+    "page number" : 52,
+    "bounding box" : [ 162.75, 200.224, 855.75, 327.63 ],
+    "font" : "Roboto-Regular",
+    "font size" : 30.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "A grid organization consists of forms and spaces whose positions in space and relationships with one another are regulated by a three-dimensional grid pattern or field."
+  }, {
+    "type" : "image",
+    "id" : 393,
+    "page number" : 53,
+    "bounding box" : [ -212.882, 0.0, 596.011, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile88.png"
+  }, {
+    "type" : "image",
+    "id" : 387,
+    "page number" : 53,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile89.png"
+  }, {
+    "type" : "heading",
+    "id" : 389,
+    "level" : "Subtitle",
+    "page number" : 53,
+    "bounding box" : [ 522.99, 364.528, 834.906, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Shodhan House"
+  }, {
+    "type" : "heading",
+    "id" : 391,
+    "level" : "Subtitle",
+    "page number" : 53,
+    "bounding box" : [ 522.99, 320.767, 815.99, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Ahmedabad, India. Le Corbusier."
+  }, {
+    "type" : "image",
+    "id" : 394,
+    "page number" : 54,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile90.png"
+  }, {
+    "type" : "image",
+    "id" : 402,
+    "page number" : 54,
+    "bounding box" : [ 34.728, 305.714, 330.197, 523.427 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile91.png"
+  }, {
+    "type" : "heading",
+    "id" : 396,
+    "level" : "Subtitle",
+    "page number" : 54,
+    "bounding box" : [ 522.99, 364.528, 834.906, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Shodhan House"
+  }, {
+    "type" : "heading",
+    "id" : 398,
+    "level" : "Subtitle",
+    "page number" : 54,
+    "bounding box" : [ 522.99, 320.767, 815.99, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Ahmedabad, India. Le Corbusier."
+  }, {
+    "type" : "image",
+    "id" : 404,
+    "page number" : 54,
+    "bounding box" : [ 34.728, 201.416, 207.26, 329.439 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile92.png"
+  }, {
+    "type" : "image",
+    "id" : 400,
+    "page number" : 54,
+    "bounding box" : [ 271.305, 16.573, 443.837, 281.061 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile93.png"
+  }, {
+    "type" : "image",
+    "id" : 406,
+    "page number" : 54,
+    "bounding box" : [ 34.728, 16.572, 198.902, 156.602 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile94.png"
+  }, {
+    "type" : "image",
+    "id" : 407,
+    "page number" : 55,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile95.png"
+  }, {
+    "type" : "image",
+    "id" : 413,
+    "page number" : 55,
+    "bounding box" : [ 0.0, 145.945, 480.016, 490.602 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile96.png"
+  }, {
+    "type" : "heading",
+    "id" : 409,
+    "level" : "Subtitle",
+    "page number" : 55,
+    "bounding box" : [ 522.99, 364.528, 814.798, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Eric Boissonas House I"
+  }, {
+    "type" : "heading",
+    "id" : 411,
+    "level" : "Subtitle",
+    "page number" : 55,
+    "bounding box" : [ 522.99, 299.017, 815.45, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "New Canaan, Connecticut. Philip Johnson."
+  }, {
+    "type" : "text block",
+    "id" : 419,
+    "page number" : 56,
+    "bounding box" : [ -0.75, -0.75, 480.75, 540.75 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 2,
+      "page number" : 56,
+      "bounding box" : [ 0.0, 99.917, 479.51, 440.083 ],
+      "source" : "TOA 3 (Design Perception)_images/imageFile97.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 414,
+    "page number" : 56,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile98.png"
+  }, {
+    "type" : "heading",
+    "id" : 416,
+    "level" : "Subtitle",
+    "page number" : 56,
+    "bounding box" : [ 522.99, 364.528, 814.798, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Eric Boissonas House I"
+  }, {
+    "type" : "heading",
+    "id" : 418,
+    "level" : "Subtitle",
+    "page number" : 56,
+    "bounding box" : [ 522.99, 299.017, 815.45, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "New Canaan, Connecticut. Philip Johnson."
+  }, {
+    "type" : "image",
+    "id" : 420,
+    "page number" : 57,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile99.png"
+  }, {
+    "type" : "heading",
+    "id" : 422,
+    "level" : "Subtitle",
+    "page number" : 57,
+    "bounding box" : [ 54.75, 311.567, 290.172, 388.911 ],
+    "heading level" : 2,
+    "font" : "Roboto-Bold",
+    "font size" : 66.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Part 3.2"
+  }, {
+    "type" : "paragraph",
+    "id" : 424,
+    "page number" : 57,
+    "bounding box" : [ 54.75, 276.334, 186.854, 309.147 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Proxemics"
+  }, {
+    "type" : "image",
+    "id" : 425,
+    "page number" : 58,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile100.png"
+  }, {
+    "type" : "heading",
+    "id" : 427,
+    "level" : "Subtitle",
+    "page number" : 58,
+    "bounding box" : [ 54.75, 311.567, 370.692, 388.911 ],
+    "heading level" : 2,
+    "font" : "Roboto-Bold",
+    "font size" : 66.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Proxemics"
+  }, {
+    "type" : "paragraph",
+    "id" : 429,
+    "page number" : 58,
+    "bounding box" : [ 54.75, 126.334, 651.766, 309.147 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Proxemics is the study of the symbolic and communicative role of the spatial separation individuals maintain in various social and interpersonal situations, and how the nature and degree of this spatial arrangement relates to environmental and cultural factors."
+  }, {
+    "type" : "image",
+    "id" : 430,
+    "page number" : 59,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile101.png"
+  }, {
+    "type" : "heading",
+    "id" : 432,
+    "level" : "Subtitle",
+    "page number" : 59,
+    "bounding box" : [ 162.75, 406.768, 471.234, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Personal Space"
+  }, {
+    "type" : "paragraph",
+    "id" : 434,
+    "page number" : 59,
+    "bounding box" : [ 174.75, 265.044, 882.562, 357.857 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The variable and subjective distance at which one person feels comfortable talking to another. Also called personal distance."
+  }, {
+    "type" : "table",
+    "id" : 435,
+    "level" : "5",
+    "page number" : 59,
+    "bounding box" : [ 915.889, 30.51, 937.999, 91.833 ],
+    "number of rows" : 1,
+    "number of columns" : 1,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 59,
+        "bounding box" : [ 915.889, 30.51, 937.999, 91.833 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 436,
+    "page number" : 60,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile102.png"
+  }, {
+    "type" : "heading",
+    "id" : 438,
+    "level" : "Subtitle",
+    "page number" : 60,
+    "bounding box" : [ 522.99, 364.528, 759.71, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "LEVELS OF DISTANCES"
+  }, {
+    "type" : "image",
+    "id" : 442,
+    "page number" : 60,
+    "bounding box" : [ -440.412, -187.875, 703.334, 455.118 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile103.png"
+  }, {
+    "type" : "list",
+    "id" : 440,
+    "level" : "6",
+    "page number" : 60,
+    "bounding box" : [ 531.066, 215.913, 719.97, 336.921 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "next list id" : 482,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 60,
+      "bounding box" : [ 531.066, 305.913, 714.89, 336.921 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Intimate Distance",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 60,
+      "bounding box" : [ 531.066, 275.913, 719.97, 306.921 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Personal Distance",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 60,
+      "bounding box" : [ 531.066, 245.913, 695.87, 276.921 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Social Distance",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 60,
+      "bounding box" : [ 531.066, 215.913, 696.59, 246.921 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Public Distance",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 443,
+    "page number" : 61,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile104.png"
+  }, {
+    "type" : "heading",
+    "id" : 445,
+    "level" : "Subtitle",
+    "page number" : 61,
+    "bounding box" : [ 522.99, 364.528, 870.678, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Intimate Distance"
+  }, {
+    "type" : "heading",
+    "id" : 447,
+    "level" : "Subtitle",
+    "page number" : 61,
+    "bounding box" : [ 522.99, 320.767, 737.273, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "0-18 inches (0-450mm)."
+  }, {
+    "type" : "image",
+    "id" : 450,
+    "page number" : 61,
+    "bounding box" : [ 0.0, 0.0, 480.313, 320.4 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile105.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 448,
+    "page number" : 61,
+    "bounding box" : [ 522.99, 188.017, 883.57, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Voluntarily selected gap between people who are drawn to each other. At this close range, vision is distorted and any vocalization is a whisper, moan, or grunt."
+  }, {
+    "type" : "image",
+    "id" : 458,
+    "page number" : 62,
+    "bounding box" : [ -151.252, 0.0, 677.677, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile106.png"
+  }, {
+    "type" : "image",
+    "id" : 451,
+    "page number" : 62,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile107.png"
+  }, {
+    "type" : "heading",
+    "id" : 453,
+    "level" : "Subtitle",
+    "page number" : 62,
+    "bounding box" : [ 522.99, 364.528, 882.03, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Personal Distance"
+  }, {
+    "type" : "heading",
+    "id" : 455,
+    "level" : "Subtitle",
+    "page number" : 62,
+    "bounding box" : [ 522.99, 320.767, 836.401, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "18 inches to 4 feet (450mm-1.20m)"
+  }, {
+    "type" : "paragraph",
+    "id" : 456,
+    "page number" : 62,
+    "bounding box" : [ 522.99, 178.267, 881.15, 310.455 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "The sense of body heat is lost. Eyesight begins to focus, and vocalization comes into play. Although only ritualized touch is typical, the other person is still at arm’ s length, available to be grasped, held, or shoved away."
+  }, {
+    "type" : "image",
+    "id" : 459,
+    "page number" : 63,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile108.png"
+  }, {
+    "type" : "heading",
+    "id" : 461,
+    "level" : "Subtitle",
+    "page number" : 63,
+    "bounding box" : [ 522.99, 364.528, 828.218, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Social Distance"
+  }, {
+    "type" : "paragraph",
+    "id" : 463,
+    "page number" : 63,
+    "bounding box" : [ 522.99, 320.767, 770.147, 344.205 ],
+    "font" : "Roboto-Italic",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "4 to 10 feet (1.20m - 3.00m)"
+  }, {
+    "type" : "image",
+    "id" : 467,
+    "page number" : 63,
+    "bounding box" : [ 0.0, 0.0, 480.0, 300.75 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile109.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 464,
+    "page number" : 63,
+    "bounding box" : [ 522.99, 209.767, 867.31, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "This is the zone of impersonal transaction. We now have to rely solely on what we can see and hear."
+  }, {
+    "type" : "paragraph",
+    "id" : 465,
+    "page number" : 63,
+    "bounding box" : [ 522.99, 89.017, 872.27, 199.455 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "By the middle of the range, the eye can focus on an entire face. When the distance is more than eight feet, it’s OK to ignore another’s presence and it’s easy to disengage from a conversation."
+  }, {
+    "type" : "image",
+    "id" : 476,
+    "page number" : 64,
+    "bounding box" : [ -116.337, 0.0, 595.533, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile110.png"
+  }, {
+    "type" : "image",
+    "id" : 468,
+    "page number" : 64,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile111.png"
+  }, {
+    "type" : "heading",
+    "id" : 470,
+    "level" : "Subtitle",
+    "page number" : 64,
+    "bounding box" : [ 522.99, 364.528, 830.462, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Public Distance"
+  }, {
+    "type" : "paragraph",
+    "id" : 472,
+    "page number" : 64,
+    "bounding box" : [ 522.99, 320.767, 877.928, 344.205 ],
+    "font" : "Roboto-Italic",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "10 feet to infinity (3 meters and beyond)"
+  }, {
+    "type" : "paragraph",
+    "id" : 473,
+    "page number" : 64,
+    "bounding box" : [ 522.99, 188.017, 879.27, 276.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "This is the zone where we can no longer pick up subtle nuances of meaning from the face or tone of voice. The eye can take in the whole body at a glance."
+  }, {
+    "type" : "paragraph",
+    "id" : 474,
+    "page number" : 64,
+    "bounding box" : [ 522.99, 89.017, 882.67, 177.705 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "It’s the distance of the lecture hall, mass meetings, and interactions with powerful figures until such time as they bid you to come closer."
+  }, {
+    "type" : "image",
+    "id" : 477,
+    "page number" : 65,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile112.png"
+  }, {
+    "type" : "heading",
+    "id" : 479,
+    "level" : "Subtitle",
+    "page number" : 65,
+    "bounding box" : [ 522.99, 364.528, 859.722, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "SEMI-FIXED FEATURE SPACE"
+  }, {
+    "type" : "image",
+    "id" : 484,
+    "page number" : 65,
+    "bounding box" : [ 0.0, 109.8, 480.327, 430.2 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile113.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 481,
+    "page number" : 65,
+    "bounding box" : [ 522.99, 271.267, 872.59, 338.205 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Furniture arrangement in public places has a distinct relationship to the degree of conversation."
+  }, {
+    "type" : "list",
+    "id" : 482,
+    "level" : "6",
+    "page number" : 65,
+    "bounding box" : [ 531.066, 192.663, 653.83, 253.671 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 440,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 531.066, 222.663, 652.97, 253.671 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Sociopetal",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 531.066, 192.663, 653.83, 223.671 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Sociofugal",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 491,
+    "page number" : 66,
+    "bounding box" : [ -86.151, 0.0, 667.644, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile114.png"
+  }, {
+    "type" : "image",
+    "id" : 485,
+    "page number" : 66,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile115.png"
+  }, {
+    "type" : "heading",
+    "id" : 487,
+    "level" : "Subtitle",
+    "page number" : 66,
+    "bounding box" : [ 522.99, 364.528, 865.838, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Sociopetal Space"
+  }, {
+    "type" : "paragraph",
+    "id" : 489,
+    "page number" : 66,
+    "bounding box" : [ 522.99, 299.017, 827.49, 344.205 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spaces which tend to bring people together."
+  }, {
+    "type" : "image",
+    "id" : 498,
+    "page number" : 67,
+    "bounding box" : [ -118.725, 0.0, 598.227, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile116.png"
+  }, {
+    "type" : "image",
+    "id" : 492,
+    "page number" : 67,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile117.png"
+  }, {
+    "type" : "heading",
+    "id" : 494,
+    "level" : "Subtitle",
+    "page number" : 67,
+    "bounding box" : [ 522.99, 364.528, 867.95, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Sociofugal Space"
+  }, {
+    "type" : "paragraph",
+    "id" : 496,
+    "page number" : 67,
+    "bounding box" : [ 522.99, 299.017, 792.09, 344.205 ],
+    "font" : "Roboto-Regular",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Tend to keep people apart and discourage conversations."
+  }, {
+    "type" : "image",
+    "id" : 499,
+    "page number" : 68,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile118.png"
+  }, {
+    "type" : "heading",
+    "id" : 501,
+    "level" : "Subtitle",
+    "page number" : 68,
+    "bounding box" : [ 54.75, 311.567, 290.172, 388.911 ],
+    "heading level" : 2,
+    "font" : "Roboto-Bold",
+    "font size" : 66.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Part 3.3"
+  }, {
+    "type" : "paragraph",
+    "id" : 503,
+    "page number" : 68,
+    "bounding box" : [ 54.75, 276.334, 295.774, 309.147 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Architectural Styles"
+  }, {
+    "type" : "image",
+    "id" : 504,
+    "page number" : 69,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile119.png"
+  }, {
+    "type" : "heading",
+    "id" : 506,
+    "level" : "Subtitle",
+    "page number" : 69,
+    "bounding box" : [ 54.75, 311.567, 203.712, 388.911 ],
+    "heading level" : 2,
+    "font" : "Roboto-Bold",
+    "font size" : 66.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Style"
+  }, {
+    "type" : "paragraph",
+    "id" : 508,
+    "page number" : 69,
+    "bounding box" : [ 54.75, 246.334, 698.386, 309.147 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "A particular or distinctive form of artistic expression characteristic of a person, people, or period."
+  }, {
+    "type" : "image",
+    "id" : 509,
+    "page number" : 70,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile120.png"
+  }, {
+    "type" : "heading",
+    "id" : 511,
+    "level" : "Subtitle",
+    "page number" : 70,
+    "bounding box" : [ 162.75, 406.768, 325.858, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Moorish"
+  }, {
+    "type" : "list",
+    "id" : 513,
+    "level" : "3",
+    "page number" : 70,
+    "bounding box" : [ 170.826, 205.044, 854.958, 357.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 70,
+      "bounding box" : [ 170.826, 325.044, 596.602, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ prevalent in Spain and Morocco;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 70,
+      "bounding box" : [ 170.826, 265.044, 800.638, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ influences were Mesopotamian brick and stucco techniques;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 70,
+      "bounding box" : [ 170.826, 205.044, 854.958, 267.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ frequent use of horseshoe arch, and Roman columns and capitals.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 520,
+    "page number" : 71,
+    "bounding box" : [ -131.066, 0.0, 588.906, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile121.png"
+  }, {
+    "type" : "image",
+    "id" : 514,
+    "page number" : 71,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile122.png"
+  }, {
+    "type" : "heading",
+    "id" : 516,
+    "level" : "Subtitle",
+    "page number" : 71,
+    "bounding box" : [ 522.99, 364.528, 714.786, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Alhambra"
+  }, {
+    "type" : "heading",
+    "id" : 518,
+    "level" : "Subtitle",
+    "page number" : 71,
+    "bounding box" : [ 522.99, 320.767, 678.79, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Andalusia, Spain."
+  }, {
+    "type" : "image",
+    "id" : 521,
+    "page number" : 72,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile123.png"
+  }, {
+    "type" : "heading",
+    "id" : 523,
+    "level" : "Subtitle",
+    "page number" : 72,
+    "bounding box" : [ 162.75, 406.768, 341.83, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Classical"
+  }, {
+    "type" : "paragraph",
+    "id" : 525,
+    "level" : "1",
+    "page number" : 72,
+    "bounding box" : [ 170.826, 295.044, 790.362, 357.857 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "▪ derived from the principles of Greek and Roman architecture."
+  }, {
+    "type" : "image",
+    "id" : 532,
+    "page number" : 73,
+    "bounding box" : [ -95.211, 0.0, 824.892, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile124.png"
+  }, {
+    "type" : "image",
+    "id" : 526,
+    "page number" : 73,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile125.png"
+  }, {
+    "type" : "heading",
+    "id" : 528,
+    "level" : "Subtitle",
+    "page number" : 73,
+    "bounding box" : [ 522.99, 364.528, 744.794, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Colosseum"
+  }, {
+    "type" : "heading",
+    "id" : 530,
+    "level" : "Subtitle",
+    "page number" : 73,
+    "bounding box" : [ 522.99, 320.767, 629.41, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Rome, Italy."
+  }, {
+    "type" : "image",
+    "id" : 533,
+    "page number" : 74,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile126.png"
+  }, {
+    "type" : "heading",
+    "id" : 535,
+    "level" : "Subtitle",
+    "page number" : 74,
+    "bounding box" : [ 162.75, 406.768, 421.514, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Romanesque"
+  }, {
+    "type" : "list",
+    "id" : 537,
+    "level" : "3",
+    "page number" : 74,
+    "bounding box" : [ 170.826, 265.044, 849.106, 357.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 74,
+      "bounding box" : [ 170.826, 325.044, 779.554, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ emerged from Roman and Byzantine elements;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 74,
+      "bounding box" : [ 170.826, 265.044, 849.106, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ characterized by massive articulated wall structures, arches and powerful vaults.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 544,
+    "page number" : 75,
+    "bounding box" : [ -295.229, 0.0, 514.745, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile127.png"
+  }, {
+    "type" : "image",
+    "id" : 538,
+    "page number" : 75,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile128.png"
+  }, {
+    "type" : "heading",
+    "id" : 540,
+    "level" : "Subtitle",
+    "page number" : 75,
+    "bounding box" : [ 522.99, 364.528, 877.938, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Piazza del Duomo"
+  }, {
+    "type" : "heading",
+    "id" : 542,
+    "level" : "Subtitle",
+    "page number" : 75,
+    "bounding box" : [ 522.99, 320.767, 797.63, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Piazza dei Miracoli. Pisa, Italy."
+  }, {
+    "type" : "image",
+    "id" : 545,
+    "page number" : 76,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile129.png"
+  }, {
+    "type" : "heading",
+    "id" : 547,
+    "level" : "Subtitle",
+    "page number" : 76,
+    "bounding box" : [ 162.75, 406.768, 291.582, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Gothic"
+  }, {
+    "type" : "list",
+    "id" : 549,
+    "level" : "3",
+    "page number" : 76,
+    "bounding box" : [ 170.826, 145.044, 838.41, 357.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 76,
+      "bounding box" : [ 170.826, 325.044, 627.066, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ revolutionary style of construction;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 76,
+      "bounding box" : [ 170.826, 295.044, 814.302, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ emerged from Romanesque and Byzantine forms;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 76,
+      "bounding box" : [ 170.826, 235.044, 838.41, 297.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ characterized by a delicate balance of forces, with thrusts directed throughout a rigid structural lattice.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 76,
+      "bounding box" : [ 170.826, 145.044, 815.814, 237.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ features were height and light, achieved through a mixture of skeletal structures and ever increasing windows.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 556,
+    "page number" : 77,
+    "bounding box" : [ -43.405, 0.0, 521.775, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile130.png"
+  }, {
+    "type" : "image",
+    "id" : 550,
+    "page number" : 77,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile131.png"
+  }, {
+    "type" : "heading",
+    "id" : 552,
+    "level" : "Subtitle",
+    "page number" : 77,
+    "bounding box" : [ 522.99, 364.528, 714.566, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Chartres Cathedral"
+  }, {
+    "type" : "heading",
+    "id" : 554,
+    "level" : "Subtitle",
+    "page number" : 77,
+    "bounding box" : [ 522.99, 320.767, 677.37, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Chartres, France."
+  }, {
+    "type" : "image",
+    "id" : 557,
+    "page number" : 78,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile132.png"
+  }, {
+    "type" : "heading",
+    "id" : 559,
+    "level" : "Subtitle",
+    "page number" : 78,
+    "bounding box" : [ 162.75, 406.768, 414.606, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Renaissance"
+  }, {
+    "type" : "list",
+    "id" : 561,
+    "level" : "3",
+    "page number" : 78,
+    "bounding box" : [ 170.826, 235.044, 821.246, 357.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 78,
+      "bounding box" : [ 170.826, 295.044, 788.514, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ developed during the rebirth of classical art and learning in Europe;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 78,
+      "bounding box" : [ 170.826, 235.044, 821.246, 297.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ characterized by the use of classical orders, round arches, and symmetrical proportions.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 568,
+    "page number" : 79,
+    "bounding box" : [ -110.544, 0.0, 609.168, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile133.png"
+  }, {
+    "type" : "image",
+    "id" : 562,
+    "page number" : 79,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile134.png"
+  }, {
+    "type" : "heading",
+    "id" : 564,
+    "level" : "Subtitle",
+    "page number" : 79,
+    "bounding box" : [ 522.99, 364.528, 846.83, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "S. Maria Novella"
+  }, {
+    "type" : "heading",
+    "id" : 566,
+    "level" : "Subtitle",
+    "page number" : 79,
+    "bounding box" : [ 522.99, 320.767, 726.17, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Florence, Italy. Alberti."
+  }, {
+    "type" : "heading",
+    "id" : 570,
+    "level" : "Subtitle",
+    "page number" : 80,
+    "bounding box" : [ 162.75, 406.768, 328.454, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Baroque"
+  }, {
+    "type" : "list",
+    "id" : 572,
+    "level" : "3",
+    "page number" : 80,
+    "bounding box" : [ 170.826, 235.044, 872.43, 357.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 80,
+      "bounding box" : [ 170.826, 325.044, 695.246, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ more ornate than the Renaissance style;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 80,
+      "bounding box" : [ 170.826, 235.044, 872.43, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ deliberate in its attempt to impress, and was lavish of all styles, both in its use of materials and in the effects it achieves.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 579,
+    "page number" : 81,
+    "bounding box" : [ -370.848, 0.0, 589.147, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile135.png"
+  }, {
+    "type" : "image",
+    "id" : 573,
+    "page number" : 81,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile136.png"
+  }, {
+    "type" : "heading",
+    "id" : 575,
+    "level" : "Subtitle",
+    "page number" : 81,
+    "bounding box" : [ 522.99, 364.528, 839.746, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Miag-ao Church"
+  }, {
+    "type" : "heading",
+    "id" : 577,
+    "level" : "Subtitle",
+    "page number" : 81,
+    "bounding box" : [ 522.99, 320.767, 573.11, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Iloilo."
+  }, {
+    "type" : "heading",
+    "id" : 581,
+    "level" : "Subtitle",
+    "page number" : 82,
+    "bounding box" : [ 162.75, 406.768, 311.25, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Rococo"
+  }, {
+    "type" : "list",
+    "id" : 583,
+    "level" : "3",
+    "page number" : 82,
+    "bounding box" : [ 170.826, 205.044, 878.31, 357.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 82,
+      "bounding box" : [ 170.826, 325.044, 530.97, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ final phase of the Baroque;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 82,
+      "bounding box" : [ 170.826, 265.044, 711.878, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ characterized by a profuse, semi-abstract ornamentation;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 82,
+      "bounding box" : [ 170.826, 205.044, 878.31, 267.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ associated with lightness, swirling forms, flowing lines, ornate stucco work, and arabesque ornament.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 590,
+    "page number" : 83,
+    "bounding box" : [ -88.531, 0.0, 631.489, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile137.png"
+  }, {
+    "type" : "image",
+    "id" : 584,
+    "page number" : 83,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile138.png"
+  }, {
+    "type" : "heading",
+    "id" : 586,
+    "level" : "Subtitle",
+    "page number" : 83,
+    "bounding box" : [ 522.99, 364.528, 859.458, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Catherine Palace"
+  }, {
+    "type" : "heading",
+    "id" : 588,
+    "level" : "Subtitle",
+    "page number" : 83,
+    "bounding box" : [ 522.99, 320.767, 728.87, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "St. Petersburg, Russia."
+  }, {
+    "type" : "image",
+    "id" : 591,
+    "page number" : 84,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile139.png"
+  }, {
+    "type" : "heading",
+    "id" : 593,
+    "level" : "Subtitle",
+    "page number" : 84,
+    "bounding box" : [ 162.75, 406.768, 452.754, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Neoclassicism"
+  }, {
+    "type" : "paragraph",
+    "id" : 595,
+    "level" : "1",
+    "page number" : 84,
+    "bounding box" : [ 170.826, 295.044, 803.466, 357.857 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "▪ characterized by monumentality, strict use of the orders, and sparing application of ornament;"
+  }, {
+    "type" : "image",
+    "id" : 602,
+    "page number" : 85,
+    "bounding box" : [ -187.395, 0.0, 668.017, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile140.png"
+  }, {
+    "type" : "image",
+    "id" : 596,
+    "page number" : 85,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile141.png"
+  }, {
+    "type" : "heading",
+    "id" : 598,
+    "level" : "Subtitle",
+    "page number" : 85,
+    "bounding box" : [ 522.99, 364.528, 789.19, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "United States Capitol"
+  }, {
+    "type" : "heading",
+    "id" : 600,
+    "level" : "Subtitle",
+    "page number" : 85,
+    "bounding box" : [ 522.99, 320.767, 677.31, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Washington, D.C."
+  }, {
+    "type" : "image",
+    "id" : 603,
+    "page number" : 86,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile142.png"
+  }, {
+    "type" : "heading",
+    "id" : 605,
+    "level" : "Subtitle",
+    "page number" : 86,
+    "bounding box" : [ 162.75, 406.768, 453.062, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Expressionism"
+  }, {
+    "type" : "paragraph",
+    "id" : 607,
+    "level" : "1",
+    "page number" : 86,
+    "bounding box" : [ 170.826, 295.044, 880.746, 357.857 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "▪ buildings were treated not only as functional structures but also as sculptural objects;"
+  }, {
+    "type" : "image",
+    "id" : 614,
+    "page number" : 87,
+    "bounding box" : [ -138.9, 0.0, 581.12, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile143.png"
+  }, {
+    "type" : "image",
+    "id" : 608,
+    "page number" : 87,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile144.png"
+  }, {
+    "type" : "heading",
+    "id" : 610,
+    "level" : "Subtitle",
+    "page number" : 87,
+    "bounding box" : [ 522.99, 364.528, 816.602, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Einstein Tower"
+  }, {
+    "type" : "heading",
+    "id" : 612,
+    "level" : "Subtitle",
+    "page number" : 87,
+    "bounding box" : [ 522.99, 320.767, 872.09, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Potsdam, Germany. Erich Mendelsohn."
+  }, {
+    "type" : "image",
+    "id" : 615,
+    "page number" : 88,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile145.png"
+  }, {
+    "type" : "heading",
+    "id" : 617,
+    "level" : "Subtitle",
+    "page number" : 88,
+    "bounding box" : [ 162.75, 406.768, 408.798, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Art Nouveau"
+  }, {
+    "type" : "paragraph",
+    "id" : 619,
+    "level" : "1",
+    "page number" : 88,
+    "bounding box" : [ 170.826, 295.044, 841.07, 357.857 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "▪ style of fine and applied art characterized by fluid, undulating motifs, often derived from natural forms."
+  }, {
+    "type" : "image",
+    "id" : 626,
+    "page number" : 89,
+    "bounding box" : [ -143.418, 0.0, 660.134, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile146.png"
+  }, {
+    "type" : "image",
+    "id" : 620,
+    "page number" : 89,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile147.png"
+  }, {
+    "type" : "heading",
+    "id" : 622,
+    "level" : "Subtitle",
+    "page number" : 89,
+    "bounding box" : [ 522.99, 364.528, 842.21, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Sagrada Família"
+  }, {
+    "type" : "heading",
+    "id" : 624,
+    "level" : "Subtitle",
+    "page number" : 89,
+    "bounding box" : [ 522.99, 320.767, 679.89, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Barcelona, Spain."
+  }, {
+    "type" : "image",
+    "id" : 627,
+    "page number" : 90,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile148.png"
+  }, {
+    "type" : "heading",
+    "id" : 629,
+    "level" : "Subtitle",
+    "page number" : 90,
+    "bounding box" : [ 162.75, 406.768, 334.218, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Art Deco"
+  }, {
+    "type" : "list",
+    "id" : 631,
+    "level" : "2",
+    "page number" : 90,
+    "bounding box" : [ 170.826, 235.044, 854.902, 357.857 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 90,
+      "bounding box" : [ 170.826, 325.044, 382.822, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Style Moderne;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 90,
+      "bounding box" : [ 170.826, 235.044, 854.902, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ marked by geometric motifs, streamlined and curvilinear forms, sharply defined outlines, often bold colors.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 638,
+    "page number" : 91,
+    "bounding box" : [ -105.749, 0.354, 854.252, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile149.png"
+  }, {
+    "type" : "image",
+    "id" : 632,
+    "page number" : 91,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile150.png"
+  }, {
+    "type" : "heading",
+    "id" : 634,
+    "level" : "Subtitle",
+    "page number" : 91,
+    "bounding box" : [ 522.99, 364.528, 776.914, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Metropolitan Theater"
+  }, {
+    "type" : "heading",
+    "id" : 636,
+    "level" : "Subtitle",
+    "page number" : 91,
+    "bounding box" : [ 522.99, 320.767, 724.89, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Manila. Juan Arellano."
+  }, {
+    "type" : "image",
+    "id" : 639,
+    "page number" : 92,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile151.png"
+  }, {
+    "type" : "heading",
+    "id" : 641,
+    "level" : "Subtitle",
+    "page number" : 92,
+    "bounding box" : [ 162.75, 406.768, 524.518, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "International Style"
+  }, {
+    "type" : "list",
+    "id" : 643,
+    "level" : "2",
+    "page number" : 92,
+    "bounding box" : [ 170.826, 175.044, 860.446, 357.857 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 92,
+      "bounding box" : [ 170.826, 295.044, 708.238, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ functional architecture devoid of regional characteristics;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 92,
+      "bounding box" : [ 170.826, 175.044, 860.446, 297.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ characterized by simple geometric forms, large untextured, often white surfaces, large areas of glass, and general use of steel or reinforced concrete construction.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 650,
+    "page number" : 93,
+    "bounding box" : [ -181.472, 0.0, 625.06, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile152.png"
+  }, {
+    "type" : "image",
+    "id" : 644,
+    "page number" : 93,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile153.png"
+  }, {
+    "type" : "heading",
+    "id" : 646,
+    "level" : "Subtitle",
+    "page number" : 93,
+    "bounding box" : [ 522.99, 364.528, 722.09, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Barcelona Pavilion"
+  }, {
+    "type" : "heading",
+    "id" : 648,
+    "level" : "Subtitle",
+    "page number" : 93,
+    "bounding box" : [ 522.99, 320.767, 756.53, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Spain. Mies van der Rohe."
+  }, {
+    "type" : "image",
+    "id" : 651,
+    "page number" : 94,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile154.png"
+  }, {
+    "type" : "heading",
+    "id" : 653,
+    "level" : "Subtitle",
+    "page number" : 94,
+    "bounding box" : [ 162.75, 406.768, 334.394, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Bauhaus"
+  }, {
+    "type" : "list",
+    "id" : 655,
+    "level" : "3",
+    "page number" : 94,
+    "bounding box" : [ 170.826, 235.044, 861.79, 357.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 94,
+      "bounding box" : [ 170.826, 265.044, 861.79, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ The concepts and ideas were characterized chiefly by the synthesis of technology, craft, and design aesthetics;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 94,
+      "bounding box" : [ 170.826, 235.044, 615.586, 267.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ emphasizes on functional design.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 662,
+    "page number" : 95,
+    "bounding box" : [ -172.495, 0.0, 637.497, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile155.png"
+  }, {
+    "type" : "image",
+    "id" : 656,
+    "page number" : 95,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile156.png"
+  }, {
+    "type" : "heading",
+    "id" : 658,
+    "level" : "Subtitle",
+    "page number" : 95,
+    "bounding box" : [ 522.99, 364.528, 841.506, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Bauhaus School and Faculty"
+  }, {
+    "type" : "heading",
+    "id" : 660,
+    "level" : "Subtitle",
+    "page number" : 95,
+    "bounding box" : [ 522.99, 320.767, 830.11, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Dessau, Germany. Walter Gropius."
+  }, {
+    "type" : "image",
+    "id" : 663,
+    "page number" : 96,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile157.png"
+  }, {
+    "type" : "heading",
+    "id" : 665,
+    "level" : "Subtitle",
+    "page number" : 96,
+    "bounding box" : [ 162.75, 406.768, 353.842, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Brutalism"
+  }, {
+    "type" : "paragraph",
+    "id" : 667,
+    "level" : "1",
+    "page number" : 96,
+    "bounding box" : [ 170.826, 265.044, 879.486, 357.857 ],
+    "font" : "Roboto-Regular",
+    "font size" : 28.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "▪ emphasizes the aesthetic use of basic building processes, especially of cast-in-place concrete, with no apparent concern for visual amenity."
+  }, {
+    "type" : "image",
+    "id" : 674,
+    "page number" : 97,
+    "bounding box" : [ -246.176, 0.0, 562.36, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile158.png"
+  }, {
+    "type" : "image",
+    "id" : 668,
+    "page number" : 97,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile159.png"
+  }, {
+    "type" : "heading",
+    "id" : 670,
+    "level" : "Subtitle",
+    "page number" : 97,
+    "bounding box" : [ 522.99, 364.528, 875.078, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Unité d'Habitation"
+  }, {
+    "type" : "heading",
+    "id" : 672,
+    "level" : "Subtitle",
+    "page number" : 97,
+    "bounding box" : [ 522.99, 320.767, 808.41, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Marseille, France. Le Corbusier."
+  }, {
+    "type" : "image",
+    "id" : 675,
+    "page number" : 98,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile160.png"
+  }, {
+    "type" : "heading",
+    "id" : 677,
+    "level" : "Subtitle",
+    "page number" : 98,
+    "bounding box" : [ 162.75, 406.768, 494.906, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Post-modernism"
+  }, {
+    "type" : "list",
+    "id" : 679,
+    "level" : "2",
+    "page number" : 98,
+    "bounding box" : [ 170.826, 235.044, 875.37, 357.857 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 98,
+      "bounding box" : [ 170.826, 325.044, 836.674, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ reaction against International style and Modernism.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 98,
+      "bounding box" : [ 170.826, 235.044, 875.37, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ encourages use of elements from historical vernacular styles and often playful illusion, decoration, and complexity.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 686,
+    "page number" : 99,
+    "bounding box" : [ 0.0, -28.566, 479.148, 609.93 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile161.png"
+  }, {
+    "type" : "image",
+    "id" : 680,
+    "page number" : 99,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile162.png"
+  }, {
+    "type" : "heading",
+    "id" : 682,
+    "level" : "Subtitle",
+    "page number" : 99,
+    "bounding box" : [ 522.99, 364.528, 756.63, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Sony Tower"
+  }, {
+    "type" : "heading",
+    "id" : 684,
+    "level" : "Subtitle",
+    "page number" : 99,
+    "bounding box" : [ 522.99, 320.767, 799.71, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "New York City. Philip Johnson."
+  }, {
+    "type" : "image",
+    "id" : 687,
+    "page number" : 100,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile163.png"
+  }, {
+    "type" : "heading",
+    "id" : 689,
+    "level" : "Subtitle",
+    "page number" : 100,
+    "bounding box" : [ 162.75, 406.768, 573.446, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Organic Architecture"
+  }, {
+    "type" : "list",
+    "id" : 691,
+    "level" : "3",
+    "page number" : 100,
+    "bounding box" : [ 170.826, 235.044, 858.15, 357.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 100,
+      "bounding box" : [ 170.826, 325.044, 599.57, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ expression of personal freedom;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 100,
+      "bounding box" : [ 170.826, 295.044, 807.162, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ harmony between structure and the environment;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 100,
+      "bounding box" : [ 170.826, 265.044, 833.454, 297.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ integration of individual parts to the whole concept;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 100,
+      "bounding box" : [ 170.826, 235.044, 858.15, 267.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ all forms should express the natural use of materials.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 698,
+    "page number" : 101,
+    "bounding box" : [ -228.536, 2.929, 731.459, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile164.png"
+  }, {
+    "type" : "image",
+    "id" : 692,
+    "page number" : 101,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile165.png"
+  }, {
+    "type" : "heading",
+    "id" : 694,
+    "level" : "Subtitle",
+    "page number" : 101,
+    "bounding box" : [ 522.99, 364.528, 765.826, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Fallingwater"
+  }, {
+    "type" : "heading",
+    "id" : 696,
+    "level" : "Subtitle",
+    "page number" : 101,
+    "bounding box" : [ 522.99, 320.767, 828.17, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Pennsylvania. Frank Lloyd Wright."
+  }, {
+    "type" : "image",
+    "id" : 699,
+    "page number" : 102,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile166.png"
+  }, {
+    "type" : "heading",
+    "id" : 701,
+    "level" : "Subtitle",
+    "page number" : 102,
+    "bounding box" : [ 162.75, 406.768, 464.458, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Deconstruction"
+  }, {
+    "type" : "list",
+    "id" : 703,
+    "level" : "2",
+    "page number" : 102,
+    "bounding box" : [ 170.826, 235.044, 883.042, 357.857 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 102,
+      "bounding box" : [ 170.826, 325.044, 665.706, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ “Neo-modern” or “post-structuralism”;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 102,
+      "bounding box" : [ 170.826, 235.044, 883.042, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ questions traditional assumptions and takes modernist abstraction to an extreme and exaggerates already known motifs.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 710,
+    "page number" : 103,
+    "bounding box" : [ -59.405, 0.0, 750.588, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile167.png"
+  }, {
+    "type" : "image",
+    "id" : 704,
+    "page number" : 103,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile168.png"
+  }, {
+    "type" : "heading",
+    "id" : 706,
+    "level" : "Subtitle",
+    "page number" : 103,
+    "bounding box" : [ 522.99, 364.528, 817.438, 461.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Imperial War Museum North"
+  }, {
+    "type" : "heading",
+    "id" : 708,
+    "level" : "Subtitle",
+    "page number" : 103,
+    "bounding box" : [ 522.99, 299.017, 851.39, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Greater Manchester, England. Daniel Libeskind."
+  }, {
+    "type" : "image",
+    "id" : 711,
+    "page number" : 104,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile169.png"
+  }, {
+    "type" : "heading",
+    "id" : 713,
+    "level" : "Subtitle",
+    "page number" : 104,
+    "bounding box" : [ 162.75, 406.768, 664.878, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Evolutionary Architecture"
+  }, {
+    "type" : "list",
+    "id" : 715,
+    "level" : "3",
+    "page number" : 104,
+    "bounding box" : [ 170.826, 175.044, 872.794, 357.857 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 104,
+      "bounding box" : [ 170.826, 325.044, 575.714, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ Eugene Tsui, major proponent;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 104,
+      "bounding box" : [ 170.826, 235.044, 872.794, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ design that grows and develops based on climatic and ecological elements, as well as advances in technology;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 104,
+      "bounding box" : [ 170.826, 175.044, 841.042, 237.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ approached as a living organism as if natural forces had shaped the structure.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 722,
+    "page number" : 105,
+    "bounding box" : [ -231.9, 0.0, 488.12, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile170.png"
+  }, {
+    "type" : "image",
+    "id" : 716,
+    "page number" : 105,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile171.png"
+  }, {
+    "type" : "heading",
+    "id" : 718,
+    "level" : "Subtitle",
+    "page number" : 105,
+    "bounding box" : [ 522.99, 364.528, 743.782, 416.09 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "Fish House"
+  }, {
+    "type" : "heading",
+    "id" : 720,
+    "level" : "Subtitle",
+    "page number" : 105,
+    "bounding box" : [ 522.99, 320.767, 825.95, 344.205 ],
+    "heading level" : 7,
+    "font" : "Roboto-Bold",
+    "font size" : 20.0,
+    "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+    "content" : "Berkeley, California. Eugene Tsui."
+  }, {
+    "type" : "image",
+    "id" : 723,
+    "page number" : 106,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile172.png"
+  }, {
+    "type" : "heading",
+    "id" : 725,
+    "level" : "Subtitle",
+    "page number" : 106,
+    "bounding box" : [ 162.75, 406.768, 643.538, 458.33 ],
+    "heading level" : 6,
+    "font" : "Roboto-Bold",
+    "font size" : 44.0,
+    "text color" : "[0.105882354, 0.8627451, 1.0]",
+    "content" : "Conceptual Architecture"
+  }, {
+    "type" : "list",
+    "id" : 727,
+    "level" : "2",
+    "page number" : 106,
+    "bounding box" : [ 170.826, 235.044, 868.23, 357.857 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 106,
+      "bounding box" : [ 170.826, 325.044, 662.794, 357.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ “invisible” or “imaginary” architecture;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 106,
+      "bounding box" : [ 170.826, 265.044, 868.23, 327.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ represents plans and drawings for buildings and cities that have never been constructed;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 106,
+      "bounding box" : [ 170.826, 235.044, 560.202, 267.857 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 28.0,
+      "text color" : "[0.2509804, 0.2509804, 0.2509804]",
+      "content" : "▪ pure research or speculation.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 729,
+    "page number" : 107,
+    "bounding box" : [ 55.302, 0.0, 904.697, 540.0 ],
+    "source" : "TOA 3 (Design Perception)_images/imageFile173.png"
+  }, {
+    "type" : "heading",
+    "id" : 731,
+    "level" : "Subtitle",
+    "page number" : 108,
+    "bounding box" : [ 449.203, 228.502, 886.903, 298.814 ],
+    "heading level" : 3,
+    "font" : "Roboto-Bold",
+    "font size" : 60.0,
+    "text color" : "[1.0, 1.0, 1.0]",
+    "content" : "End of Module 3"
+  } ]
+}

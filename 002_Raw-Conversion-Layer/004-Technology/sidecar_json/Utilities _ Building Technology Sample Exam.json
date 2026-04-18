@@ -1,0 +1,3946 @@
+{
+  "file name" : "Utilities _ Building Technology Sample Exam.pdf",
+  "number of pages" : 8,
+  "author" : "LINDA KOH",
+  "title" : "INSTRUCTION: Select the correct answer for each of the following questions",
+  "creation date" : "D:20260413100713+08'00'",
+  "modification date" : "D:20260413100713+08'00'",
+  "kids" : [ {
+    "type" : "header",
+    "id" : 141,
+    "page number" : 1,
+    "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 9,
+      "page number" : 1,
+      "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+      "heading level" : 1,
+      "font" : "Garamond-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0]",
+      "content" : "UTLITIES AND BUILDING TECHNOLOGY 1"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 143,
+    "page number" : 1,
+    "bounding box" : [ 57.6, 686.544, 554.61, 722.589 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "INSTRUCTION: Select the correct answer for each of the following questions. Mark only one answer for each item by shading the box corresponding to the letter of your choice on the answer sheet provided. STRICLY NO ERASURES ALLOWED. Use pencil no. 1 only. MULTIPLE CHOICE:"
+  }, {
+    "type" : "list",
+    "id" : 144,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 57.6, 65.444, 554.599, 677.589 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 17,
+    "next list id" : 148,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 650.544, 508.327, 677.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "1. It is the branch of physics pertaining to the phenomena and law of sound including the study of regulating sound and its reflecting properties. C. echo D. attenuation",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 17,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 650.544, 119.222, 668.589 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 659.544, 119.222, 668.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. reverberation",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 650.544, 105.907, 659.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. acoustics",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 614.544, 394.738, 641.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "2. The person who signs and seals plans for electrical for the purpose of obtaining a building permit. C. sanitary engineer D. structural engineer",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 18,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 614.544, 172.961, 632.589 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 623.544, 126.763, 632.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. master plumber",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 614.544, 172.961, 623.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. professional electrical engineer",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 578.544, 373.745, 605.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "3. An equipment for transporting people or things vertically or up and down the building C. dumbwaiter D. elevator",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 19,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 578.544, 104.959, 596.589 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 587.544, 104.959, 596.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. escalator",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 578.544, 103.142, 587.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. stairwell",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 551.514, 554.599, 569.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "4. A process of treating air so as to control simultaneously its temperature, humidity, cleanliness and distribution within an interior space such as room or building.",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 20,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 533.514, 126.868, 551.559 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 542.514, 126.868, 551.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. air conditioning",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 533.514, 100.73, 542.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. cooling",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "paragraph",
+        "id" : 21,
+        "page number" : 1,
+        "bounding box" : [ 325.61, 533.514, 369.066, 551.559 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. heating D. ventilating"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 497.514, 348.99, 524.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "5. A pipe, sheet metal or conduit fitting having a bend usually 90 degrees. C. tee D. wye",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 22,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 497.514, 97.095, 515.559 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 506.514, 96.468, 515.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. elbow",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 497.514, 97.095, 506.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. nipple",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 461.514, 360.327, 488.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "6. A duct used to transfer air from one location to another. C. viaduct D. air duct",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 23,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 461.514, 105.923, 479.559 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 470.514, 105.923, 479.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. aqueduct",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 461.514, 98.527, 470.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. ductile",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 425.494, 355.655, 452.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "7. A water outlet valve; also called a cock. C. faucet D. union",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 24,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 425.494, 112.46, 443.559 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 434.514, 112.46, 443.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. globe valve",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 425.494, 108.247, 434.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. gate valve",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 389.494, 369.464, 416.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "8. A unit of luminous intensity C. brightness D. light",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 25,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 389.494, 101.795, 407.539 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 398.494, 101.795, 407.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. candela",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 389.494, 98.073, 398.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. lumen",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 353.494, 375.424, 380.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "9. A nipple having no shoulder and having the shortest possible length permitted by standard practice. C. open nipple D. 3” nipple",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 26,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 353.494, 114.615, 371.539 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 362.494, 106.446, 371.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. 1” nipple",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 353.494, 114.615, 362.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. close nipple",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 317.494, 373.975, 344.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "10. In a plumbing system, a branch in the shape of the letter Y C. wye branch D. split branch",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 27,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 317.494, 125.673, 335.539 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 326.494, 125.673, 335.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. tee-wye branch",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 317.494, 111.154, 326.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. tee branch",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 281.464, 350.06, 308.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "11. Color-coding of plastic pipes and fittings for electrical conduit C. blue D. gray",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 28,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 281.464, 99.009, 299.539 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 290.494, 87.914, 299.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. red",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 281.464, 99.009, 290.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. orange",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 245.464, 361.428, 272.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "12. A power-driven, inclined continuous stairway used for raising or lowering passengers C. stringer D. elevator",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 29,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 245.464, 104.959, 263.509 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 254.464, 104.959, 263.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. escalator",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 245.464, 103.142, 254.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. stairwell",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 209.464, 377.13, 236.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "13. What does the letter “U” in UPVC mean? C. unglazed D. unplasticized",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 30,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 209.464, 113.955, 227.509 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 218.464, 113.955, 227.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. unsaturated",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 209.464, 111.423, 218.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. undersized",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 173.464, 366.799, 200.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "14. A low, basin-like fixture on which the user sits, used to wash the posterior parts of the body. C. lavatory D. slopsink",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 31,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 173.464, 95.463, 191.509 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 182.464, 95.463, 191.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. urinal",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 173.464, 93.55, 182.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. bidet",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 137.444, 393.929, 164.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "15. A stream of high-velocity temperature-controlled air which is directed downward, across an opening. C. wind D. breeze",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 32,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 137.444, 113.682, 155.509 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 146.464, 113.682, 155.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. curtain wall",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 137.444, 109.212, 146.489 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. air curtain",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 101.444, 366.887, 128.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "16. A unit of flow of electric current C. resistance D. hertz",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 33,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 66.624, 101.444, 100.81, 119.489 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 110.444, 100.81, 119.489 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. ampere",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 66.624, 101.444, 100.086, 110.489 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. voltage",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 57.6, 65.444, 413.105, 92.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "17. A valve for controlling the flow of a liquid or air at right angles to the direction in which it enters the valve. C. angle valve D. gate valve",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 145,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 66.624, 65.444, 113.175, 83.489 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 66.624, 74.444, 113.175, 83.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. check valve",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 66.624, 65.444, 112.46, 74.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. globe valve",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 146,
+    "page number" : 2,
+    "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 10,
+      "page number" : 2,
+      "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+      "heading level" : 1,
+      "font" : "Garamond-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0]",
+      "content" : "UTLITIES AND BUILDING TECHNOLOGY 2"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 148,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 57.6, 83.444, 554.637, 713.589 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 18,
+    "previous list id" : 144,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 695.544, 554.637, 713.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "18. An over-current protective device consisting of a metal strip, ribbon or wire which is designed to open an electric circuit by melting if a predetermined current is exceeded.",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 34,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 677.544, 103.407, 695.589 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 686.544, 100.395, 695.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. cut-out",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 677.544, 103.407, 686.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. filament",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "paragraph",
+        "id" : 35,
+        "page number" : 2,
+        "bounding box" : [ 325.61, 677.544, 359.844, 695.589 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. breaker D. fuse"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 641.544, 494.636, 668.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "19. An artificial reservoir or tank for storing water at atmospheric pressure such as rainwater collected from a roof for use when required C. area drain D. cistern",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 36,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 641.544, 112.355, 659.589 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 650.544, 111.431, 659.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. septic tank",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 641.544, 112.355, 650.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. catch basin",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 605.544, 460.907, 632.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "20. A structure, usually on the roof of a building, over which water is circulated so as to cool it evaporately by contact with air C. evaporator D. radiator",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 37,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 605.544, 120.411, 623.589 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 614.544, 120.411, 623.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. cooling tower",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 605.544, 109.847, 614.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. condenser",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 569.514, 363.671, 596.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "21. A short internally-threaded section pipe, used to join two pipes or conduits. C. nipple D. coupling",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 38,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 569.514, 109.397, 587.589 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 578.544, 96.838, 587.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. flange",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 569.514, 109.397, 578.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. connector",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 533.514, 417.64, 560.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "22. A lamp from which light is emitted when tungsten filament is heated to incandescence by an electric current. C. tungsten D. halogen",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 39,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 533.514, 135.261, 551.559 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 542.514, 112.524, 551.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. fluorescent",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 533.514, 135.261, 542.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. incandescent lamp",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 497.514, 362.393, 524.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "23. A device that redirects light or sound by reflection C. filament D. dimmer",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 40,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 497.514, 104.34, 515.559 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 506.514, 104.34, 515.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. reflector",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 497.514, 92.561, 506.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. filter",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 461.514, 367.201, 488.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "24. …to circuit conductors is made C. panel box D. fuse box",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 41,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 461.514, 117.091, 479.559 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 470.514, 109.051, 479.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. utility box",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 461.514, 117.091, 470.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. junction box",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 425.494, 364.306, 452.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "25. Elisha Graves Otis is known for the technology of C. elevators D. lifts",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 42,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 425.494, 116.576, 443.559 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 434.514, 116.576, 443.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. curtain walls",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 425.494, 115.861, 434.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. door closers",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 389.494, 369.91, 416.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "26. What is the maximum angle of inclination of an escalator? C. 20 degrees D. 40 degrees",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 43,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 389.494, 110.924, 407.539 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 398.494, 110.924, 407.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. 35 degrees",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 389.494, 110.924, 398.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. 30 degrees",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 353.494, 366.887, 380.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "27. The flow of electric current in a circuit expressed in amperes C. amperage D. resistance",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 44,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 353.494, 101.413, 371.539 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 362.494, 100.086, 371.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. voltage",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 353.494, 101.413, 362.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. wattage",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 326.494, 396.503, 353.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "28. The flow of water or other liquids in a direction opposite to the natural or intended direction of flow. C. siphonage D. splash",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 45,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 326.494, 107.684, 344.539 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 335.494, 100.488, 344.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. suction",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 326.494, 107.684, 335.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. backwash",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 290.494, 376.077, 317.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "29. A cutout box containing the fuses for an electric circuit C. junction box D. fuse box",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 46,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 290.494, 122.196, 308.539 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 299.494, 122.196, 308.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. circuit breaker",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 290.494, 114.55, 299.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. panel board",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 254.464, 421.185, 281.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "30. A valve which is placed in a water or gas service pipe of a building near its junction with the public wate main C. gate valve D. water main",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 47,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 254.464, 130.976, 272.509 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 263.464, 95.801, 272.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. meter",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 254.464, 130.976, 263.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. corporation cock",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 227.464, 364.491, 245.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "31. The rate at which electricity flows in the same direction C. coulomb",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 48,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 218.464, 124.488, 236.509 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 227.464, 100.81, 236.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. ampere",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 218.464, 124.488, 227.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. electric current",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 191.464, 351.796, 209.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "32. Electric current which always flows in the same direction C. drop",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 49,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 182.464, 135.165, 200.509 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 191.464, 95.463, 200.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. direct",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 182.464, 135.165, 191.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. alternating current",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 146.464, 227.904, 173.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "33. The force that makes electron move in a circuit A. resistance B. electromotive force",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 50,
+        "page number" : 2,
+        "bounding box" : [ 325.61, 155.464, 380.346, 164.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. electric power"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 119.444, 376.527, 137.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "34. The ratio of output into input C. power factor",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 51,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 66.624, 110.444, 113.425, 128.489 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 119.444, 113.425, 128.489 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. capacitance",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 66.624, 110.444, 107.644, 119.489 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. efficiency",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 57.6, 83.444, 382.867, 101.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "35. Opposes the change in magnitude of an alternating current and makes the current lag the voltage C. cycle",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 149,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 66.624, 74.444, 111.471, 92.489 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 66.624, 83.444, 111.471, 92.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. inductance",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 66.624, 74.444, 108.456, 83.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. frequency",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 150,
+    "page number" : 3,
+    "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 11,
+      "page number" : 3,
+      "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+      "heading level" : 1,
+      "font" : "Garamond-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0]",
+      "content" : "UTLITIES AND BUILDING TECHNOLOGY 3"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 152,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 704.544, 386.915, 722.589 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "36. A large single panel frame or assembly of panels in the form of a single panelC. service entrance"
+  }, {
+    "type" : "list",
+    "id" : 153,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 66.624, 695.544, 118.731, 713.589 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 704.544, 115.499, 713.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. panelboards",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 695.544, 118.731, 704.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. switchboards",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 154,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 668.544, 378.063, 686.589 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "37. The unit of the quantity of lightC. candle power"
+  }, {
+    "type" : "list",
+    "id" : 155,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 66.624, 659.544, 113.402, 677.589 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 668.544, 113.402, 677.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. foot-candle",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 659.544, 97.353, 668.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. lumen",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 156,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 623.544, 256.116, 650.589 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "38. Connection which were merely pushed onto the conduitA. slip connectionB. pin grip"
+  }, {
+    "type" : "paragraph",
+    "id" : 157,
+    "page number" : 3,
+    "bounding box" : [ 325.61, 632.544, 374.035, 641.589 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. loop system"
+  }, {
+    "type" : "heading",
+    "id" : 158,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 596.544, 372.081, 614.589 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "39. Heat flows to a cooler surface through space in the same way in which light travelsC. conduction"
+  }, {
+    "type" : "list",
+    "id" : 159,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 66.624, 587.544, 112.018, 605.589 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 596.544, 112.018, 605.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. convection",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 587.544, 105.288, 596.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. radiation",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 160,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 551.514, 212.073, 578.559 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "40. Materials used to stop the transfer of heatA. caulkingB. insulation"
+  }, {
+    "type" : "paragraph",
+    "id" : 161,
+    "page number" : 3,
+    "bounding box" : [ 325.61, 560.514, 383.216, 569.559 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. water stripping"
+  }, {
+    "type" : "heading",
+    "id" : 162,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 524.514, 369.934, 542.559 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "41. Heat is produced when electricity passes through resistance wiresC. steam heat"
+  }, {
+    "type" : "list",
+    "id" : 163,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 66.624, 515.514, 114.912, 533.559 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 524.514, 107.596, 533.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. solar heat",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 515.514, 114.912, 524.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. electric heat",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 164,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 479.514, 230.292, 506.559 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "42. Blanket insulation consists of materials made ofA. thin sheetsB. flexible sheets"
+  }, {
+    "type" : "paragraph",
+    "id" : 165,
+    "page number" : 3,
+    "bounding box" : [ 325.61, 488.514, 371.84, 497.559 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. rigid sheets"
+  }, {
+    "type" : "heading",
+    "id" : 166,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 461.514, 377.138, 479.559 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "43. In this heating system, the main loss of heat is through the windows outside the walls.C. concentrated"
+  }, {
+    "type" : "list",
+    "id" : 167,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 66.624, 452.514, 107.797, 470.559 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 461.514, 107.797, 470.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. perimeter",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 452.514, 99.339, 461.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. radiant",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 168,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 425.494, 392.491, 443.559 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "44. A device that keeps the house at a constant temperature regardless of the loss of heat through walls.C. thermostat"
+  }, {
+    "type" : "list",
+    "id" : 169,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 66.624, 416.494, 114.189, 434.539 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 425.494, 105.666, 434.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. regulator",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 416.494, 114.189, 425.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. compressor",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 170,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 380.494, 330.1, 407.539 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "45. A system that takes the moisture from the damp air and passes it over cold coils.A. heatingB. humidification"
+  }, {
+    "type" : "paragraph",
+    "id" : 171,
+    "page number" : 3,
+    "bounding box" : [ 325.61, 389.494, 369.565, 398.539 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. ventilation"
+  }, {
+    "type" : "heading",
+    "id" : 172,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 353.494, 393.515, 371.539 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "46. Air-conditioning system absorbs the heat from the house and transfers it to a liquid refrigerant calledC. steam"
+  }, {
+    "type" : "list",
+    "id" : 173,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 66.624, 344.494, 96.063, 362.539 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 353.494, 96.063, 362.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. carbo",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 344.494, 95.444, 353.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. freon",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 174,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 308.494, 439.533, 335.539 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "47. A component of elevator, consisting of a flyball device designed to stop an elevator if the speed becomes excessiveA. modulatorsB. conductors"
+  }, {
+    "type" : "paragraph",
+    "id" : 175,
+    "page number" : 3,
+    "bounding box" : [ 325.61, 317.494, 368.133, 326.539 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. governors"
+  }, {
+    "type" : "heading",
+    "id" : 176,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 281.464, 367.852, 299.539 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "48. A mechanical system consisting of a boiler, water-circulating piping and pump and radiators.C. resistive"
+  }, {
+    "type" : "list",
+    "id" : 177,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 66.624, 272.464, 105.127, 290.509 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 281.464, 105.127, 290.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. hydronic",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 272.464, 100.561, 281.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. tractive",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 178,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 245.464, 362.847, 263.509 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "49. A cylindrical device that turns on an axis around which a firehose is wound and connected.C. drum"
+  }, {
+    "type" : "list",
+    "id" : 179,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 66.624, 236.464, 105.521, 254.509 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 245.464, 99.339, 254.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. radiant",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 236.464, 105.521, 245.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. hose reel",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 180,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 200.464, 349.412, 227.509 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "50. An electric friction that tends to prevent electrical current from passing through a wireA. resistanceB. short circuit"
+  }, {
+    "type" : "paragraph",
+    "id" : 181,
+    "page number" : 3,
+    "bounding box" : [ 325.61, 209.464, 371.004, 218.509 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. convection"
+  }, {
+    "type" : "heading",
+    "id" : 182,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 155.464, 554.659, 191.509 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "51. The process of treating air so as to control simultaneously its temperature, humidity, cleanliness and distribution to meet the requirements of theconditioned space.A. air-conditioningB. humidification"
+  }, {
+    "type" : "paragraph",
+    "id" : 183,
+    "page number" : 3,
+    "bounding box" : [ 325.61, 164.464, 361.018, 173.509 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. filtering"
+  }, {
+    "type" : "heading",
+    "id" : 184,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 128.444, 370.304, 146.489 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "52. A mechanical device for the purpose of increasing the pressure upon the refrigerantC. evaporator"
+  }, {
+    "type" : "list",
+    "id" : 185,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 66.624, 119.444, 114.189, 137.489 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 128.444, 109.847, 137.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. condenser",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 66.624, 119.444, 114.189, 128.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. compressor",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 186,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 83.444, 197.85, 110.489 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "53. A fitting joining two pipes at an angleA. bendB. elbow"
+  }, {
+    "type" : "paragraph",
+    "id" : 187,
+    "page number" : 3,
+    "bounding box" : [ 325.61, 92.444, 356.081, 101.489 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. nipple"
+  }, {
+    "type" : "heading",
+    "id" : 188,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 57.6, 65.444, 459.348, 74.489 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "54. A passageway made if sheet metal or other suitable material, leak-tight for conveying air or other gases at low temperature"
+  }, {
+    "type" : "header",
+    "id" : 189,
+    "page number" : 4,
+    "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 12,
+      "page number" : 4,
+      "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+      "heading level" : 1,
+      "font" : "Garamond-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0]",
+      "content" : "UTLITIES AND BUILDING TECHNOLOGY 4"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 191,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 66.624, 704.544, 101.075, 722.589 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 66.624, 713.544, 97.361, 722.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. piping",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 66.624, 704.544, 101.075, 713.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. ducting",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 192,
+    "page number" : 4,
+    "bounding box" : [ 325.61, 713.544, 361.243, 722.589 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. raceway"
+  }, {
+    "type" : "list",
+    "id" : 193,
+    "level" : "1",
+    "page number" : 4,
+    "bounding box" : [ 57.6, 83.444, 544.13, 695.589 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 17,
+    "next list id" : 197,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 668.544, 399.204, 695.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "55. The part of the AC/refrigerant system in which liquid refrigerant is vaporized to produce refrigeration A. condenser B. evaporation",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 70,
+        "page number" : 4,
+        "bounding box" : [ 325.61, 677.544, 376.305, 686.589 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. ventilation"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 641.544, 421.909, 659.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "56. A substance which produces a refrigerating by effect by its absorption of heat while expanding or evaporating C. condenser",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 71,
+        "level" : "2",
+        "page number" : 4,
+        "bounding box" : [ 66.624, 632.544, 110.37, 650.589 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 641.544, 95.697, 650.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. boiler",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 632.544, 110.37, 641.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. refrigerant",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 596.544, 470.37, 623.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "57. A receptacle in which liquids are retained for a sufficient time to permit the deposition and retention of sediment in the basin A. catch basin B. area drain",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 72,
+        "page number" : 4,
+        "bounding box" : [ 325.61, 605.544, 366.935, 614.589 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. sludge pit"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 578.544, 259.469, 587.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "58. Heating, ventilating and air-conditioning is abbreviated as",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 73,
+        "level" : "2",
+        "page number" : 4,
+        "bounding box" : [ 66.624, 551.514, 104.13, 578.559 ],
+        "numbering style" : "english letters",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 569.514, 98.728, 578.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. HVAC",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 560.514, 104.13, 569.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. HVAAC",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 551.514, 94.024, 560.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "C. HVA",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 515.514, 544.13, 542.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "59. As to the Building Code of the Philippines, under the Rule X, refrigerant piping crossing a passageway in any building shall have a height no less than A. 2.40 meters B. 2.30 meters",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 74,
+        "page number" : 4,
+        "bounding box" : [ 325.61, 524.514, 373.517, 533.559 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 2.10 meters"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 479.514, 448.602, 506.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "60. Window type ACU shall be provided with a way to discharge its condensed water into a suitable container by means of C. both D. any",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 75,
+        "level" : "2",
+        "page number" : 4,
+        "bounding box" : [ 66.624, 479.514, 119.431, 497.559 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 488.514, 109.107, 497.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. drain pipe",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 479.514, 119.431, 488.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. plastic tubing",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 443.514, 338.43, 470.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "61. Window type ACU installed on the ground floor of buildings shall not be less than A. 2.10 meters B. 2.13 meters",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 76,
+        "page number" : 4,
+        "bounding box" : [ 325.61, 452.514, 372.797, 461.559 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 2.20 meters"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 407.494, 500.531, 434.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "62. Window type ACU shall be provided with a way to exhaust its discharge into the corridors, hallways, arcades and sidewalks by means of A. exhaust ducts B. condenser",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 77,
+        "page number" : 4,
+        "bounding box" : [ 325.61, 416.494, 369.685, 425.539 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. roof vents"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 371.494, 473.746, 398.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "63. Window type ACU installed along corridors, hallways, above the first floor shall not be less than the ____ above the floor level A. 2.10 meters B. 2.13 meters",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 78,
+        "page number" : 4,
+        "bounding box" : [ 325.61, 380.494, 372.797, 389.539 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 2.20 meters"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 335.494, 279.657, 362.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "64. One of which is not equivalent to the normal body temperature A. 37 degrees Celsius B. 98.6 degrees Fahrenheit",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 79,
+        "page number" : 4,
+        "bounding box" : [ 325.61, 344.494, 394.38, 353.539 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 67 degrees Celsius"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 317.494, 180.629, 326.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "65. What does ASHRAE stand for?",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 80,
+        "level" : "2",
+        "page number" : 4,
+        "bounding box" : [ 66.624, 290.494, 312.458, 317.539 ],
+        "numbering style" : "english letters",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 308.494, 312.458, 317.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. American Society of Heating, Refrigeration and Air-conditioning Engineers",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 299.494, 294.458, 308.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. Association of Heating, Refrigeration and Air-conditioning Engineers",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 290.494, 271.306, 299.539 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "C. Association of Heating and Refrigeration American Engineers",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 254.464, 524.157, 281.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "66. As per the Building Code of the Philippines, the temperature and humidity of the air to be used for comfortable cooling shall be maintained at A. 68-74 degrees Fahrenheit B. 54-69 degrees Fahrenheit",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 81,
+        "page number" : 4,
+        "bounding box" : [ 325.61, 263.464, 415.194, 272.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 71-75 degrees Fahrenheit"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 218.464, 485.08, 245.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "67. To compute for the air volume, the unit of measurement is cubic feet per minute or cubic minute indicated in the abbreviations of A. cfm and cm B. cu. ft/m and cu. m./mm.",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 82,
+        "page number" : 4,
+        "bounding box" : [ 325.61, 227.464, 376.246, 236.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. both a and b"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 182.464, 346.655, 209.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "68. Measurable environment is one category that affects comfort, one under, which is the A. air temperature B. total cooling capacity",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 83,
+        "page number" : 4,
+        "bounding box" : [ 325.61, 191.464, 372.949, 200.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. metabolism"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 155.464, 372.949, 173.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "69. Personal or physical factors is one category that affects comfort, one of which is C. metabolism",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 84,
+        "level" : "2",
+        "page number" : 4,
+        "bounding box" : [ 66.624, 146.464, 143.398, 164.509 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 155.464, 125.179, 164.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. air temperature",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 66.624, 146.464, 143.398, 155.509 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. total cooling capacity",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 110.444, 498.115, 137.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "70. The basic component like door, window, wall and roof or the transition space between inside to outside is referred to in this subject as A. skin of the building B. building envelope",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 85,
+        "page number" : 4,
+        "bounding box" : [ 325.61, 119.444, 373.866, 128.489 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. fenestration"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 57.6, 83.444, 362.669, 101.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "71. A general freight leading has a rating in net are of the platform of C. 90 psf",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 194,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 66.624, 74.444, 103.663, 92.489 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 66.624, 83.444, 103.663, 92.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. 50 psf",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 66.624, 74.444, 103.663, 83.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. 45 psf",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 195,
+    "page number" : 5,
+    "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 13,
+      "page number" : 5,
+      "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+      "heading level" : 1,
+      "font" : "Garamond-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0]",
+      "content" : "UTLITIES AND BUILDING TECHNOLOGY 5"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 197,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 57.6, 74.444, 495.157, 722.589 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 18,
+    "previous list id" : 193,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 695.544, 224.414, 722.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "72. A dumbwaiter has a limited area and height of A. 9 sq. ft. area and 4 ft. height B. 18 sq. ft area and 9 ft. height",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 86,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 704.544, 477.48, 713.589 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. no limited height, depends upon the design"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 659.544, 201.01, 686.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "73. A vertical transportation for cargoes is A. freight elevator B. hydraulic elevator",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 87,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 668.544, 393.685, 677.589 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. passenger elevator"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 623.544, 474.127, 650.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "74. A type of elevator for the purpose of providing a spectacular unit usually glass enclosed outside of the building or inside malls A. slant elevator B. observation car elevator",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 88,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 632.544, 398.149, 641.589 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. hydraulic elevator"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 587.544, 237.262, 614.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "75. The maximum height a moving walk can extend is A. 300 meters B. 320 meters",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 89,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 596.544, 377.744, 605.589 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 365 meters"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 551.514, 355.579, 578.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "76. A type of elevator having 2 decks and can discharge into 2 succeeding floors at one time A. double-deck elevator B. skyplaza elevator",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 90,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 560.514, 402.607, 569.559 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. multi-level elevator"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 515.514, 495.157, 542.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "77. An electric passenger escalator having a size of 48 inches and a tread width of 40 inches has a maximum passenger per hour rating of A. 5200 passengers B. 9000 passengers",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 91,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 524.514, 393.824, 533.559 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 7300 passengers"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 479.514, 224.471, 506.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "78. A moving ramp has a maximum inclination of A. 50 psf B. 45 psf",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 92,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 488.514, 362.669, 497.559 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 90 psf"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 461.514, 221.407, 470.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "79. One significant purpose of a moving ramp is",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 93,
+        "level" : "2",
+        "page number" : 5,
+        "bounding box" : [ 66.624, 434.514, 288.591, 461.559 ],
+        "numbering style" : "english letters",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 66.624, 452.514, 288.591, 461.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. To move persons who lack the agility required to use the escalator",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 66.624, 443.514, 217.34, 452.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. To delay the impact of heaving traffic flow",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 66.624, 434.514, 248.142, 443.559 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "C. To minimize the loading requirements of an elevator",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 398.494, 326.136, 425.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "80. The dimension of “OH” is based on the overall height of elevator car which is A. 8 ft. 4 inches B. 6 ft. 4 inches",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 94,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 407.494, 383.388, 416.539 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 7 ft. 2 inches"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 362.494, 208.632, 389.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "81. Average strength of prestressed concrete A. 4000 psi B. 5000 psi",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 95,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 362.494, 369.358, 380.539 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 6000 psi D. 7000 psi"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 326.494, 246.42, 353.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "82. Critical period of concrete where it loses its moisture A. first 3 days B. first 5 days",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 96,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 326.494, 380.96, 344.539 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. first 7 days D. first 10 days"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 290.494, 261.834, 317.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "83. Lumber less than 4” in width and less than 2” in thickness A. furring B. ledger",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 97,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 290.494, 361.688, 308.539 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. strip D. board"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 254.464, 231.353, 281.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "84. Which is not a brand name of Portland cement? A. Dragon B. Universal",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 98,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 254.464, 369.712, 272.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. Rizal D. Filipinas"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 218.464, 175.652, 245.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "85. Brand name of plastic roofing A. Metalplas B. Plastech",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 99,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 218.464, 365.153, 236.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. Adplas D. Kveco"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 182.464, 173.184, 209.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "86. Undried or unseasoned wood A. green lumber B. sap lumber",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 100,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 182.464, 364.188, 200.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. timber D. xylem"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 146.464, 215.289, 173.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "87. Which is NOT a company of pest control? A. Rentokil B. Dorma",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 101,
+        "page number" : 5,
+        "bounding box" : [ 325.61, 146.464, 377.599, 164.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. Timberpro D. Mapelon"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 110.444, 369.101, 137.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "88. Which is NOT a brand name of skylight roofing? C. Luxalon D. Hi-corr",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 102,
+        "level" : "2",
+        "page number" : 5,
+        "bounding box" : [ 66.624, 110.444, 115.498, 128.489 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 66.624, 119.444, 103.598, 128.489 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. Lexan",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 66.624, 110.444, 115.498, 119.489 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. Danpalon",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 57.6, 74.444, 371.601, 101.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "89. Which is NOT a brand name of laminated flooring? C. Magellan D. Kendall",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 198,
+    "level" : "2",
+    "page number" : 5,
+    "bounding box" : [ 66.624, 74.444, 103.076, 92.489 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 66.624, 83.444, 102.875, 92.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. Pergo",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 66.624, 74.444, 103.076, 83.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. Bruce",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 199,
+    "page number" : 6,
+    "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 14,
+      "page number" : 6,
+      "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+      "heading level" : 1,
+      "font" : "Garamond-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0]",
+      "content" : "UTLITIES AND BUILDING TECHNOLOGY 6"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 201,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 695.544, 228.233, 722.589 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "90. Which of the following is an elastomeric paint?A. FlexsealB. Superseal"
+  }, {
+    "type" : "paragraph",
+    "id" : 202,
+    "page number" : 6,
+    "bounding box" : [ 325.61, 695.544, 374.906, 713.589 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. Acrybond D. Tilestik"
+  }, {
+    "type" : "heading",
+    "id" : 203,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 659.544, 378.958, 686.589 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "91. Which of the following is cementitious water-proofing?C. AcrybondD. Ceramicoat"
+  }, {
+    "type" : "list",
+    "id" : 204,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 659.544, 113.841, 677.589 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 668.544, 109.387, 677.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. Flexseal",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 659.544, 113.841, 668.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. Superseal",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 205,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 623.544, 378.958, 650.589 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "92. Which of the following is an insulating elastomeric paint?C. CeramicoatD. Tilestik"
+  }, {
+    "type" : "list",
+    "id" : 206,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 623.544, 113.841, 641.589 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 632.544, 109.387, 641.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. Flexseal",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 623.544, 113.841, 632.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. Superseal",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 207,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 587.544, 378.958, 614.589 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "93. Which of the following is a water-proof tile adhesive and grout?C. FlexsealD. Ceramicoat"
+  }, {
+    "type" : "list",
+    "id" : 208,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 587.544, 115.9, 605.589 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 596.544, 107.353, 605.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. Tilestik",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 587.544, 115.9, 596.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. Acrybond",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 209,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 551.514, 293.947, 578.559 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "94. Kilogram weight per square meter of load-bearing CHB with plasterA. 250 kg./sqmB. 285 kg./sqm"
+  }, {
+    "type" : "paragraph",
+    "id" : 210,
+    "page number" : 6,
+    "bounding box" : [ 325.61, 551.514, 384.489, 569.559 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. 325 kg./sqm. D. 375 kg./sqm."
+  }, {
+    "type" : "heading",
+    "id" : 211,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 515.514, 384.489, 542.559 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "95. Kilogram weight of steel reinforced concrete (SRC) panel with plasterC. 225 kg./sqm.D. 150 kg./sqm."
+  }, {
+    "type" : "list",
+    "id" : 212,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 515.514, 125.483, 533.559 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 524.514, 123.666, 533.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. 175 kg./sqm",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 515.514, 125.483, 524.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. 183 kg./sqm.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 213,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 479.514, 373.86, 506.559 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "96. Which is NOT part of a T-runner suspended ceiling system?C. wall angleD. furring"
+  }, {
+    "type" : "list",
+    "id" : 214,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 479.514, 111.598, 497.559 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 488.514, 111.003, 497.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. main tee",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 479.514, 111.598, 488.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. cross tee",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 215,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 443.514, 405.956, 470.559 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "97. Which one is NOT a quality of an IMAC roof?C. thermoplastic resinsD. built-in insulation"
+  }, {
+    "type" : "list",
+    "id" : 216,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 443.514, 172.453, 461.559 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 452.514, 172.453, 461.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. 15 microns regular polyester",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 443.514, 122.619, 452.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. shock-proof",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 217,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 407.494, 219.365, 434.539 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "98. An efficient substitute for costly wood panelA. SpanflexB. Pergo"
+  }, {
+    "type" : "paragraph",
+    "id" : 218,
+    "page number" : 6,
+    "bounding box" : [ 325.61, 407.494, 367.903, 425.539 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. Hi-corr D. Kendall"
+  }, {
+    "type" : "heading",
+    "id" : 219,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 371.494, 372.92, 398.539 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "99. Flexible method of controlling subsurface waterC. dredgingD. trenching"
+  }, {
+    "type" : "list",
+    "id" : 220,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 371.494, 125.321, 389.539 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 380.494, 106.236, 389.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. drilling",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 371.494, 125.321, 380.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. well-pointing",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 221,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 335.494, 370.797, 362.539 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "100. In masonry, any bond in which the vertical joists are precisely in lineC. ridge cutD. pluteus"
+  }, {
+    "type" : "list",
+    "id" : 222,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 335.494, 112.515, 353.539 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 344.494, 112.515, 353.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. plummet",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 335.494, 108.286, 344.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. plunger",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 223,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 299.494, 383.195, 326.539 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "101. Process which takes place at constant temperatureC. isotropicD. endothermic"
+  }, {
+    "type" : "list",
+    "id" : 224,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 299.494, 119.638, 317.539 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 308.494, 119.638, 317.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. exothermic",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 299.494, 117.403, 308.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. isothermal",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 225,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 263.464, 238.219, 290.509 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "102. Kind of brick bond mortar used for rough surfaceA. strippedB. raked"
+  }, {
+    "type" : "heading",
+    "id" : 227,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 227.464, 247.16, 254.509 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "103. A principal repeated element in an ornamental designA. intricacyB. motif"
+  }, {
+    "type" : "paragraph",
+    "id" : 226,
+    "page number" : 6,
+    "bounding box" : [ 325.61, 263.464, 369.953, 281.509 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. strucked D. v-cut"
+  }, {
+    "type" : "paragraph",
+    "id" : 228,
+    "page number" : 6,
+    "bounding box" : [ 325.61, 227.464, 390.141, 245.509 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. mouchette D. design concept"
+  }, {
+    "type" : "heading",
+    "id" : 229,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 191.464, 270.644, 218.509 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "104. Material used to build up the core of a larger plaster moldingA. muffleB. mud slab"
+  }, {
+    "type" : "paragraph",
+    "id" : 230,
+    "page number" : 6,
+    "bounding box" : [ 325.61, 191.464, 366.102, 209.509 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. mudsill D. mow"
+  }, {
+    "type" : "heading",
+    "id" : 231,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 155.464, 374.086, 182.509 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "105. A travelling support for concrete formsC. stationeryD. joist jack"
+  }, {
+    "type" : "list",
+    "id" : 232,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 155.464, 114.292, 173.509 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 164.464, 114.292, 173.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. jumpover",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 155.464, 104.82, 164.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. jumbo",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 233,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 119.444, 362.218, 146.489 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "106. A small hole in a door for watching, as in prison doorC. joggleD. chisel"
+  }, {
+    "type" : "list",
+    "id" : 234,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 119.444, 100.632, 137.489 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 128.444, 97.818, 137.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. jube",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 119.444, 100.632, 128.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. judas",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 235,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 83.444, 365.483, 110.489 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "107. A projecting part of a buildingC. jettyD. gabbro"
+  }, {
+    "type" : "list",
+    "id" : 236,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 66.624, 83.444, 94.423, 101.489 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 92.444, 92.324, 101.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "A. jib",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 66.624, 83.444, 94.423, 92.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "B. jim",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 237,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 57.6, 65.444, 111.838, 74.489 ],
+    "heading level" : 2,
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "108. A cornice"
+  }, {
+    "type" : "header",
+    "id" : 238,
+    "page number" : 7,
+    "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 15,
+      "page number" : 7,
+      "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+      "heading level" : 1,
+      "font" : "Garamond-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0]",
+      "content" : "UTLITIES AND BUILDING TECHNOLOGY 7"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 240,
+    "page number" : 7,
+    "bounding box" : [ 66.624, 704.544, 104.579, 722.589 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "A. gatch B. geison"
+  }, {
+    "type" : "paragraph",
+    "id" : 241,
+    "page number" : 7,
+    "bounding box" : [ 325.61, 704.544, 365.483, 722.589 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. gabbro D. jib"
+  }, {
+    "type" : "list",
+    "id" : 242,
+    "level" : "1",
+    "page number" : 7,
+    "bounding box" : [ 57.6, 65.444, 380.646, 695.589 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 18,
+    "next list id" : 246,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 668.544, 250.416, 695.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "109. The horizontal base course of masonry on the ground A. ground coat B. ground coarse",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 121,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 668.544, 385.165, 686.589 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. ground cover D. ground plane"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 632.544, 372.293, 659.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "110. A small tool with pointed screw at one end C. girandole D. gimlet",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 122,
+        "level" : "2",
+        "page number" : 7,
+        "bounding box" : [ 66.624, 632.544, 108.519, 650.589 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 66.624, 641.544, 98.606, 650.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. brad",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 66.624, 632.544, 108.519, 641.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. gimmer",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 596.544, 380.646, 623.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "111. Concrete should not be left exposed for more than C. 1 1/2 hours D. 2 hours",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 123,
+        "level" : "2",
+        "page number" : 7,
+        "bounding box" : [ 66.624, 596.544, 112.949, 614.589 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 66.624, 605.544, 112.949, 614.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. 1/2 hour",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 66.624, 596.544, 105.158, 605.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. 1 hour",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 560.514, 315.91, 587.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "112. Concrete vibrations should be put in location of pouring for not more than A. 5 seconds B. 10 seconds",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 124,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 560.514, 377.872, 578.559 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 20 seconds D. 30 seconds"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 524.514, 360.009, 551.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "113. Projections on the sides of steel that provides greater bonding between concrete and steel A. slug B. lugs",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 125,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 524.514, 362.508, 542.559 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. patina D. dowel"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 488.514, 326.563, 515.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "114. Concrete slab on fill shall be poured on a stable base of not less than ___ thick A. 50 mm B. 100 mm",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 126,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 488.514, 369.262, 506.559 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 150 mm D. 175 mm"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 452.514, 327.962, 479.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "115. Each concrete slab course to be poured shall not be more than ___ meter wide. A. 1 meter B. 1.50 meters",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 127,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 452.514, 375.702, 470.559 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 2.0 meters D. 0.5 meter"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 416.494, 261.101, 443.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "116. Compound to be poured before doing construction joints A. paste B. grout",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 128,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 416.494, 390.455, 434.539 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. hydraulic grout D. scratch grout"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 380.494, 207.86, 407.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "117. Reactive resins product for floor finishes A. boral B. silikal",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 129,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 380.494, 366.456, 398.539 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. segovia D. karl"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 344.494, 234.826, 371.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "118. Which is NOT a characteristic of gypsum board? A. thermal insulation B. sound control",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 130,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 344.494, 381.016, 362.539 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. washable D. sag resistant"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 308.494, 202.856, 335.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "119. T-joist floor system is manufactured by A. Jackbilt B. Custombilt",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 131,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 308.494, 374.785, 326.539 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. Freyssinet D. Prescon"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 272.464, 183.922, 299.539 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "120. T-joist floor and roof system is a A. prestressed B. cast-in-place",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 132,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 272.464, 384.465, 290.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. post-stressed D. prefabricated"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 236.464, 269.382, 263.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "121. Polymers modified fiber cement (PMFC) is manufactured by A. Quantum B. Riviera",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 133,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 236.464, 365.863, 254.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. Bucino D. Re-con"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 200.464, 245.849, 227.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "122. Which is NOT included in a composition of PMFC? A. cemtitious materials B. cyloxide?",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 134,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 200.464, 386.628, 218.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. cellulose fiber D. polyethelene"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 164.464, 197.553, 191.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "123. Used to fasten metal stud to concrete A. jetty B. tucker",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 135,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 164.464, 372.735, 182.509 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. ramset D. silent rod"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 128.444, 225.645, 155.509 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "124. Project manager’s representative on the jobsite A. assistant project manager B. resident manager",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 136,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 128.444, 388.549, 146.489 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. site manager D. site supervisor"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 92.444, 246.074, 119.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "125. A board of arbitrators is composed of ___ members A. 3 B. 5",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 137,
+        "page number" : 7,
+        "bounding box" : [ 325.61, 92.444, 347.401, 110.489 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. 2 D. 7"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 57.6, 65.444, 360.393, 83.489 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "126. Refers to a general accomplishment in construction at a point in time A. CPV B. event",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 243,
+    "page number" : 8,
+    "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 16,
+      "page number" : 8,
+      "bounding box" : [ 57.6, 733.465, 539.365, 749.422 ],
+      "heading level" : 1,
+      "font" : "Garamond-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0]",
+      "content" : "UTLITIES AND BUILDING TECHNOLOGY 8"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 246,
+    "level" : "1",
+    "page number" : 8,
+    "bounding box" : [ 57.6, 551.514, 359.292, 722.589 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "previous list id" : 242,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 245,
+      "page number" : 8,
+      "bounding box" : [ 66.624, 713.544, 359.292, 722.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "C. milestone D. gnatt",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 57.6, 677.544, 336.999, 704.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "127. Method of laminating a particle board and the like to enhandle surface appearance A. HPD B. FGM",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 138,
+        "page number" : 8,
+        "bounding box" : [ 325.61, 677.544, 364.325, 695.589 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. DPL D. GFRC"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 57.6, 659.544, 200.777, 668.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "128. A modified septic anaerobic filter tank",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 139,
+        "level" : "2",
+        "page number" : 8,
+        "bounding box" : [ 66.624, 623.544, 171.416, 659.589 ],
+        "numbering style" : "english letters",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 66.624, 650.544, 155.818, 659.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "A. sewage treatment plant",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 66.624, 641.544, 137.479, 650.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "B. chlorination tank",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 66.624, 632.544, 171.416, 641.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "C. microbe disinfection system",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 66.624, 623.544, 127.389, 632.589 ],
+          "font" : "Garamond",
+          "font size" : 8.04,
+          "text color" : "[0.0, 0.0, 0.502]",
+          "content" : "D. biogreen tank",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 57.6, 587.544, 298.447, 614.589 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "129. A metal plastic eyelet which provides a reinforced hole for attachment A. groin B. grit",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 140,
+        "page number" : 8,
+        "bounding box" : [ 325.61, 587.544, 372.244, 605.589 ],
+        "font" : "Garamond",
+        "font size" : 8.04,
+        "text color" : "[0.0, 0.0, 0.502]",
+        "content" : "C. griffe D. grommet"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 57.6, 551.514, 153.063, 578.559 ],
+      "font" : "Garamond",
+      "font size" : 8.04,
+      "text color" : "[0.0, 0.0, 0.502]",
+      "content" : "130. Also known as N-truss A. Pratt B. Fink",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 247,
+    "page number" : 8,
+    "bounding box" : [ 325.61, 551.514, 366.311, 569.559 ],
+    "font" : "Garamond",
+    "font size" : 8.04,
+    "text color" : "[0.0, 0.0, 0.502]",
+    "content" : "C. Warren D. Petit"
+  } ]
+}

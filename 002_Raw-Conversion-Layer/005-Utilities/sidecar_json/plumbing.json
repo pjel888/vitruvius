@@ -1,0 +1,4155 @@
+{
+  "file name" : "plumbing.pdf",
+  "number of pages" : 22,
+  "author" : "Owner",
+  "title" : null,
+  "creation date" : "D:20121027163633+08'00'",
+  "modification date" : "D:20121027163633+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 17,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 36.0, 240.998, 80.865, 252.033 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "PLUMBING"
+  }, {
+    "type" : "paragraph",
+    "id" : 18,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 54.024, 229.958, 368.07, 240.993 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "- art and technique of installing pipes, fixtures, and other apparatuses"
+  }, {
+    "type" : "heading",
+    "id" : 19,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 36.0, 207.878, 90.468, 218.913 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "SCOURGING"
+  }, {
+    "type" : "paragraph",
+    "id" : 20,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 54.024, 196.838, 378.033, 207.873 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "- cleaning of the water closet via additional water volume and pressure"
+  }, {
+    "type" : "heading",
+    "id" : 21,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 36.0, 174.728, 103.653, 185.763 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "APPURTENANCE"
+  }, {
+    "type" : "paragraph",
+    "id" : 22,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 54.024, 163.688, 242.403, 174.723 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "- not classified as a fixture, fitting, or pipe"
+  }, {
+    "type" : "paragraph",
+    "id" : 23,
+    "page number" : 1,
+    "bounding box" : [ 36.0, 119.508, 293.424, 152.643 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "NATURE OF WATER Inflow – adding water to the hydrological system Outflow – removing water from the hydrological system"
+  }, {
+    "type" : "paragraph",
+    "id" : 24,
+    "page number" : 1,
+    "bounding box" : [ 36.0, 81.226, 310.51, 108.581 ],
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "COMPONENTS OF FLOW Supply Distribution Use"
+  }, {
+    "type" : "paragraph",
+    "id" : 25,
+    "page number" : 1,
+    "bounding box" : [ 54.384, 38.002, 402.814, 70.637 ],
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "Source Collection Treatment Disposal"
+  }, {
+    "type" : "heading",
+    "id" : 26,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 36.0, 242.169, 68.2, 252.027 ],
+    "heading level" : 2,
+    "font" : "Century Gothic,Bold",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "AIR GAP"
+  }, {
+    "type" : "list",
+    "id" : 27,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 54.024, 222.609, 370.033, 242.187 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 54.024, 232.329, 370.033, 242.187 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- distance between the mouth of the faucet and the rim of the sink or lavatory",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 54.024, 222.609, 214.903, 232.467 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- air gap for lavatory: 25mm. minimum",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 28,
+    "page number" : 2,
+    "bounding box" : [ 36.0, 173.499, 338.534, 212.787 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "WATER SOURCES Rainwater: collected from roofs of buildings Natural Surface Water: from ponds, lakes, and rivers Groundwater: from underground via mechanical and manual equipment"
+  }, {
+    "type" : "heading",
+    "id" : 29,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 36.0, 153.819, 173.79, 163.677 ],
+    "heading level" : 2,
+    "font" : "Century Gothic,Bold",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "WATER QUALITIES AND CORRECTION"
+  }, {
+    "type" : "list",
+    "id" : 30,
+    "level" : "3",
+    "page number" : 2,
+    "bounding box" : [ 54.024, 55.733, 402.73, 153.957 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 54.024, 144.099, 392.371, 153.957 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "1. Acidity: entrance of oxygen and CO2; corrodes ferrous pipes and clogs steel pipes",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 13,
+        "level" : "4",
+        "page number" : 2,
+        "bounding box" : [ 90.024, 134.239, 240.865, 144.097 ],
+        "font" : "Century Gothic,Italic",
+        "font size" : 8.04,
+        "text color" : "[0.0]",
+        "content" : "- correction: raised alkaline content"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 54.024, 114.559, 402.73, 134.257 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "2. Hardness: presence of magnesium and calcium salts; clogs pipes and impairs laundry and cooking",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 14,
+        "level" : "4",
+        "page number" : 2,
+        "bounding box" : [ 90.024, 104.839, 178.306, 114.697 ],
+        "font" : "Century Gothic,Italic",
+        "font size" : 8.04,
+        "text color" : "[0.0]",
+        "content" : "- correction: boiling"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 54.024, 94.997, 332.189, 104.855 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "3. Turbidity: silt or mud on surface; causes discoloration and bad taste",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 15,
+        "level" : "4",
+        "page number" : 2,
+        "bounding box" : [ 90.024, 85.157, 183.307, 95.015 ],
+        "font" : "Century Gothic,Italic",
+        "font size" : 8.04,
+        "text color" : "[0.0]",
+        "content" : "- correction: filtration"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 54.024, 75.317, 390.482, 85.175 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "4. Color: presence of iron or manganese; causes discoloration of fixtures and laundry",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 16,
+        "level" : "4",
+        "page number" : 2,
+        "bounding box" : [ 90.024, 65.573, 203.865, 75.431 ],
+        "font" : "Century Gothic,Italic",
+        "font size" : 8.04,
+        "text color" : "[0.0]",
+        "content" : "- correction: oxidizing filter"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 54.024, 55.733, 301.417, 65.591 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "5. Pollution: contamination by organic matter; causes disease",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "level" : "4",
+    "page number" : 2,
+    "bounding box" : [ 90.024, 45.893, 198.259, 55.751 ],
+    "font" : "Century Gothic,Italic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "- correction: chlorination"
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 3,
+    "bounding box" : [ 36.0, 173.499, 288.237, 252.027 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "TYPES OF WATER Pure Water: colorless, odorless water Natural Water Purified Water: treated physically and chemically Contaminated Water: with organic biological substances Polluted Water: undesirable due to dirt, color, odor and taste Black Water: from water closet, with fecal matter Gray Water: from laundry and floor drains"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 3,
+    "bounding box" : [ 36.0, 134.239, 357.147, 163.677 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "TREATMENT AND PURIFICATION METHODS Aeration: water through atmosphere through jets to remove noxious gases Coagulation and Precipitation: addition of coagulants to form gelatinous mass"
+  }, {
+    "type" : "paragraph",
+    "id" : 34,
+    "level" : "5",
+    "page number" : 3,
+    "bounding box" : [ 72.024, 124.399, 255.07, 134.257 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : " Flocculation: slower combination of particles"
+  }, {
+    "type" : "paragraph",
+    "id" : 35,
+    "level" : "5",
+    "page number" : 3,
+    "bounding box" : [ 54.024, 36.053, 391.644, 124.417 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : " Coagulation: rapid mixing of dirty water Filtration: water passes through layers of sand and gravel Sedimentation: water passes through basins of sediment Chlorination: injection with chlorine gas Activated Carbon Filters: coal Reverse Osmosis: uses pressure to clean the water; may be used for product water and wastewater Fluoridation: introduction of fluoride into the water Distillation: purification through evaporation and condensation"
+  }, {
+    "type" : "paragraph",
+    "id" : 36,
+    "page number" : 4,
+    "bounding box" : [ 54.024, 196.838, 380.452, 252.033 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "TYPES OF WELLS Dug Wells Bored Wells: similar to dug well, constructed with an auger Jetted Wells: use of extreme water pressure, also called sand-point well Driven Wells: dug with sharp pointed hollow drill"
+  }, {
+    "type" : "heading",
+    "id" : 37,
+    "level" : "Doctitle",
+    "page number" : 4,
+    "bounding box" : [ 54.024, 174.728, 315.935, 185.763 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "Wells should be more than 50 ft. away from pollution sources"
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 4,
+    "bounding box" : [ 54.024, 141.608, 412.1, 163.683 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "TOTAL DYNAMIC HEAD (TDH): static head + pipe friction + velocity head at point of discharge"
+  }, {
+    "type" : "list",
+    "id" : 39,
+    "level" : "6",
+    "page number" : 4,
+    "bounding box" : [ 72.024, 97.546, 393.365, 141.583 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 119.508, 393.365, 141.583 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Static Head: total discharge in elevation of water from suction level to discharge level",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 108.588, 307.571, 119.623 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Pipe Friction: friction in suction and discharge lines",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 72.024, 97.546, 310.187, 108.581 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Velocity Head: kinetic energy change from source",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 40,
+    "page number" : 5,
+    "bounding box" : [ 54.024, 196.838, 398.608, 252.033 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "TYPES OF PUMPS Rotodynamic Pump: rotating, centrifugal, and peripheral (to propel water) Positive Displacement Pump: reciprocating (piston and plunger) and rotary Special Pump: jet, gas lift, hydraulic ram, electromagnetic Piston Pump: water is sucked into a sealed vacuum via piston"
+  }, {
+    "type" : "list",
+    "id" : 41,
+    "level" : "7",
+    "page number" : 5,
+    "bounding box" : [ 90.024, 130.548, 409.154, 196.803 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.024, 174.728, 409.154, 196.803 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Single Action Piston Pump: one motion via suction stroke and delivery stroke",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.024, 163.688, 379.012, 174.723 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Double Action Piston Pump: water is drawn in with either stroke",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.024, 152.648, 225.776, 163.683 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Duplex or Twin Piston Pump",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.024, 141.608, 406.886, 152.643 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Reciprocating Pump: piston pumps that operate at controlled speed",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.024, 130.548, 306.287, 141.583 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Rotary Pump: piston pumps using pump driver",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 42,
+    "level" : "Doctitle",
+    "page number" : 5,
+    "bounding box" : [ 72.024, 119.508, 147.3, 130.543 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "Centrifugal Pump"
+  }, {
+    "type" : "paragraph",
+    "id" : 43,
+    "level" : "4",
+    "page number" : 5,
+    "bounding box" : [ 90.024, 108.588, 396.362, 119.623 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "- Jet Pump: centrifugal pump used for draining water up from a well"
+  }, {
+    "type" : "list",
+    "id" : 44,
+    "level" : "6",
+    "page number" : 5,
+    "bounding box" : [ 126.02, 74.745, 380.887, 108.581 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 126.02, 96.825, 356.599, 108.581 ],
+      "font" : "Courier New",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "o Deep Well Jet Pump: for high volume application",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 126.02, 85.785, 326.749, 97.541 ],
+      "font" : "Courier New",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "o Shallow Well Jet Pump: for residential wells",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 126.02, 74.745, 380.887, 86.501 ],
+      "font" : "Courier New",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "o Convertible Jet Pump: for deep wells and shallow wells",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 45,
+    "page number" : 5,
+    "bounding box" : [ 72.024, 31.282, 389.419, 75.437 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "Turbine Pump Jack Pump Submersible Pump: fully submersible Sump Pump: excess water must be pumped away from a particular area"
+  }, {
+    "type" : "paragraph",
+    "id" : 46,
+    "page number" : 6,
+    "bounding box" : [ 36.0, 185.768, 389.423, 252.033 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "TYPES OF TANKS Overhead Tank: relies on gravity to supply water to fixtures below (gravity supply pump) Cistern: reinforced concrete, underground connected to pump Pressure Tank Hot Water Tank"
+  }, {
+    "type" : "list",
+    "id" : 47,
+    "level" : "7",
+    "page number" : 6,
+    "bounding box" : [ 90.024, 141.608, 406.123, 185.763 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 90.024, 163.688, 406.123, 185.763 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Range Boiler: small, 30 – 60cm. Ø, 180cm. maximum length, made of G.I., copper, or stainless steel",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 90.024, 141.608, 397.991, 163.683 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Storage Tank: large, 60 – 130cm. Ø, 5m. maximum length, made of heavy duty material with rustproof point",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 48,
+    "page number" : 6,
+    "bounding box" : [ 72.024, 108.588, 409.55, 141.583 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "Pneumatic Tank: centralized or per bathroom group, makes use of a pressure relief valve which relieves pressure automatically if necessary; helps water get to upper floors if pressure is low"
+  }, {
+    "type" : "heading",
+    "id" : 49,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 36.0, 242.169, 65.016, 252.027 ],
+    "heading level" : 2,
+    "font" : "Century Gothic,Bold",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "VALVES"
+  }, {
+    "type" : "paragraph",
+    "id" : 50,
+    "level" : "1",
+    "page number" : 7,
+    "bounding box" : [ 54.024, 232.329, 370.501, 242.187 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "- controls water system by isolating a certain section of the distribution network"
+  }, {
+    "type" : "paragraph",
+    "id" : 51,
+    "page number" : 7,
+    "bounding box" : [ 36.0, 193.059, 401.014, 222.627 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "TYPES OF VALVES Gate Valve (full-way valve): completely closes or opens a line, best suited for main supply and pump lines"
+  }, {
+    "type" : "list",
+    "id" : 52,
+    "level" : "5",
+    "page number" : 7,
+    "bounding box" : [ 72.024, 173.499, 208.799, 193.197 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 183.339, 208.799, 193.197 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Wedge Shaped / Tapered Disc",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 173.499, 160.543, 183.357 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Double Disk Valve",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 53,
+    "page number" : 7,
+    "bounding box" : [ 54.024, 163.659, 379.871, 173.517 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Globe Valve: controls flow of water via movable spindle, can reduce water pressure"
+  }, {
+    "type" : "list",
+    "id" : 54,
+    "level" : "5",
+    "page number" : 7,
+    "bounding box" : [ 72.024, 134.239, 258.278, 163.677 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 153.819, 178.195, 163.677 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Plug Type: for throttling",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 144.099, 253.474, 153.957 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Conventional Type: for shuttling (ball type)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 134.239, 258.278, 144.097 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Composition Type: for steam and hot water",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 55,
+    "page number" : 7,
+    "bounding box" : [ 54.024, 124.399, 265.477, 134.257 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Check Valve: to prevent backflow and contamination"
+  }, {
+    "type" : "list",
+    "id" : 56,
+    "level" : "5",
+    "page number" : 7,
+    "bounding box" : [ 72.024, 104.839, 316.611, 124.417 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 114.559, 308.33, 124.417 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Swing Type - Vertical Type",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 104.839, 316.611, 114.697 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Lift Type - Horizontal Type",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 57,
+    "page number" : 7,
+    "bounding box" : [ 54.024, 55.733, 311.441, 104.855 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Angle Valve: operates like a globe valve; reduces number of joints Butterfly Valve: typically used to regulate fluid Foot Valve (retention valve) Safety Valve: for pipe lines with excessive pressure Ball Valve"
+  }, {
+    "type" : "list",
+    "id" : 58,
+    "level" : "5",
+    "page number" : 7,
+    "bounding box" : [ 72.024, 36.053, 239.193, 55.751 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 45.893, 194.089, 55.751 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Full Port: ball size = port size",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 36.053, 239.193, 45.911 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Restrictive: ball size is less than port size",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 59,
+    "page number" : 8,
+    "bounding box" : [ 36.0, 196.838, 264.854, 252.033 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "FAUCETS AND BIBBS Compression Cock: compression of soft packing Key Cock: round tapered plug Ball Faucet: ball connected to handle Disk Faucet"
+  }, {
+    "type" : "paragraph",
+    "id" : 60,
+    "page number" : 9,
+    "bounding box" : [ 36.0, 196.838, 412.394, 252.033 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "DEFECTS IN THE WATER DISTRIBUTION SYSTEM Water Hammer: knocking in pipes when faucets at lower level are shut off abruptly Expansion / Contraction: pipes expand and contract due to temperature shift Friction Head Loss: liquid flowing through pipe makes contact with pipe enclosures, reducing speed of water flow"
+  }, {
+    "type" : "paragraph",
+    "id" : 61,
+    "level" : "6",
+    "page number" : 9,
+    "bounding box" : [ 72.024, 174.728, 410.524, 196.803 ],
+    "font" : "Century Gothic,Italic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "- commonly occurs in long pipes, small Ø pipes, and lines with high number of valves and fittings"
+  }, {
+    "type" : "heading",
+    "id" : 62,
+    "level" : "Doctitle",
+    "page number" : 9,
+    "bounding box" : [ 36.0, 152.648, 189.719, 163.683 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "COLD WATER DISTRIBUTION SYSTEMS"
+  }, {
+    "type" : "list",
+    "id" : 63,
+    "level" : "3",
+    "page number" : 9,
+    "bounding box" : [ 54.024, 42.322, 413.927, 152.643 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 54.024, 130.548, 411.602, 152.643 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "1. Direct Feed System (Upfeed): water supply is affected during peak load hours, eliminates extra cost",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 54.024, 108.588, 413.927, 130.543 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "2. Air Pressure System (Pneumatic): used for inefficient pressure, uses compressed air to push the water, supply is affected by pressure loss",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 11,
+        "page number" : 9,
+        "bounding box" : [ 108.02, 97.546, 196.31, 108.581 ],
+        "font" : "Century Gothic,Bold",
+        "font size" : 9.0,
+        "text color" : "[0.0]",
+        "content" : "Pressure Tank Types:"
+      }, {
+        "type" : "list",
+        "id" : 12,
+        "level" : "5",
+        "page number" : 9,
+        "bounding box" : [ 126.02, 75.466, 286.448, 97.541 ],
+        "numbering style" : "unordered",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 126.02, 86.506, 286.448, 97.541 ],
+          "font" : "Century Gothic",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "- Conventional Steel Pressure Tank",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 126.02, 75.466, 253.238, 86.501 ],
+          "font" : "Century Gothic",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "- Bladder/Membrane Tank",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 54.024, 42.322, 404.8, 75.437 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "3. Downfeed (Overheadfeed) or Gravity System: water is pumped into the tank and distributed to fixtures by means of gravity, water is subject to contamination, high maintenance cost",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 64,
+    "level" : "Doctitle",
+    "page number" : 10,
+    "bounding box" : [ 36.0, 240.998, 177.51, 252.033 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "HOT WATER DISTRIBUTION SYSTEM"
+  }, {
+    "type" : "list",
+    "id" : 65,
+    "level" : "3",
+    "page number" : 10,
+    "bounding box" : [ 54.024, 185.648, 411.341, 240.993 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 54.024, 218.918, 411.341, 240.993 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "1. Upfeed & Gravity Return System: hot water rises on its own, continuing network of pipes provide constant circulation",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 54.024, 196.838, 407.107, 218.913 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "2. Downfeed & Gravity Return System: hot water rises to highest point fixtures via gravity, distribution depends on hot water expansion and gravity",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 54.024, 185.648, 336.107, 196.683 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "3. Pump Circuit System: pumps are used for efficient circulation",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 66,
+    "page number" : 10,
+    "bounding box" : [ 36.0, 142.688, 403.172, 175.803 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "MAXIMUM AND PROBABLE DEMAND Maximum Demand: maximum water discharge for plumbing fixtures in terms of units"
+  }, {
+    "type" : "paragraph",
+    "id" : 67,
+    "page number" : 10,
+    "bounding box" : [ 108.02, 120.588, 224.81, 142.663 ],
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "MD = total fixture units 1 unit = approx. 7.5 gallons"
+  }, {
+    "type" : "paragraph",
+    "id" : 68,
+    "page number" : 10,
+    "bounding box" : [ 72.024, 98.508, 386.132, 120.583 ],
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "Probable Demand: probable amount of water discharge in a given time Lesser fixtures = greater probability of simultaneous use"
+  }, {
+    "type" : "heading",
+    "id" : 69,
+    "level" : "Doctitle",
+    "page number" : 11,
+    "bounding box" : [ 36.0, 240.998, 107.73, 252.033 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "STANDPIPE TYPES"
+  }, {
+    "type" : "list",
+    "id" : 70,
+    "level" : "3",
+    "page number" : 11,
+    "bounding box" : [ 54.024, 185.768, 402.936, 240.993 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 54.024, 218.918, 394.826, 240.993 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "1. Dry Standpipe: water conveyor from fire hose located at stairway landings (maximum height at 1.22m); Siamese connection",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 54.024, 185.768, 402.936, 218.913 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "2. Wet Standpipe: piping connected to main water line then to all levels, cross connection between the fire line and water line should have 2 check valves and 1 gate valve; Siamese connection",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 71,
+    "level" : "Doctitle",
+    "page number" : 11,
+    "bounding box" : [ 36.0, 163.688, 118.404, 174.723 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "SPRINKLER SYSTEMS"
+  }, {
+    "type" : "list",
+    "id" : 72,
+    "level" : "3",
+    "page number" : 11,
+    "bounding box" : [ 54.024, 141.608, 387.911, 163.683 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 54.024, 152.648, 278.453, 163.683 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "1. Automatic Wet: lines constantly filled with water",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 54.024, 141.608, 387.911, 152.643 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "2. Automatic Dry: equipped with activating sensor which triggers operation",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 73,
+    "page number" : 11,
+    "bounding box" : [ 36.0, 119.508, 132.201, 130.543 ],
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "SPRINKLER HEAD TYPES"
+  }, {
+    "type" : "paragraph",
+    "id" : 74,
+    "level" : "4",
+    "page number" : 11,
+    "bounding box" : [ 59.424, 108.588, 281.044, 119.623 ],
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "1. Upright 2. Pendent"
+  }, {
+    "type" : "paragraph",
+    "id" : 75,
+    "page number" : 11,
+    "bounding box" : [ 36.0, 64.402, 154.152, 75.437 ],
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "SPRINKLER SYSTEM LAYOUTS"
+  }, {
+    "type" : "paragraph",
+    "id" : 76,
+    "level" : "4",
+    "page number" : 11,
+    "bounding box" : [ 59.424, 53.362, 322.09, 64.397 ],
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "1. Tree 2. Loop 3. Grid"
+  }, {
+    "type" : "heading",
+    "id" : 77,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 36.0, 242.169, 111.061, 252.027 ],
+    "heading level" : 2,
+    "font" : "Century Gothic,Bold",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "PLUMBING FIXTURES"
+  }, {
+    "type" : "paragraph",
+    "id" : 78,
+    "level" : "1",
+    "page number" : 12,
+    "bounding box" : [ 36.0, 212.769, 411.221, 242.187 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "- Receptacles to provide, receive, and discharge water, liquid, and water carried wastes SOIL FIXTURES"
+  }, {
+    "type" : "heading",
+    "id" : 79,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 54.024, 202.929, 124.758, 212.787 ],
+    "heading level" : 2,
+    "font" : "Century Gothic,Bold",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "1. Water Closets"
+  }, {
+    "type" : "list",
+    "id" : 80,
+    "level" : "3",
+    "page number" : 12,
+    "bounding box" : [ 90.024, 94.997, 200.41, 202.917 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 90.024, 193.059, 161.727, 202.917 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "a. Classifications",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 7,
+        "level" : "4",
+        "page number" : 12,
+        "bounding box" : [ 129.62, 134.239, 212.253, 193.197 ],
+        "numbering style" : "roman numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 12,
+          "bounding box" : [ 131.18, 183.339, 182.385, 193.197 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "i. Flush Tank",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 6,
+            "level" : "5",
+            "page number" : 12,
+            "bounding box" : [ 162.05, 144.099, 278.821, 183.357 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 4,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 12,
+              "bounding box" : [ 162.05, 173.499, 250.038, 183.357 ],
+              "font" : "Century Gothic",
+              "font size" : 8.04,
+              "text color" : "[0.0]",
+              "content" : "1. Integral Flush Tank",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 12,
+              "bounding box" : [ 162.05, 163.659, 278.821, 173.517 ],
+              "font" : "Century Gothic",
+              "font size" : 8.04,
+              "text color" : "[0.0]",
+              "content" : "2. Closed Couple Flush Tank",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 12,
+              "bounding box" : [ 162.05, 153.819, 256.752, 163.677 ],
+              "font" : "Century Gothic",
+              "font size" : 8.04,
+              "text color" : "[0.0]",
+              "content" : "3. Low Flush Flush Tank",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 12,
+              "bounding box" : [ 162.05, 144.099, 258.44, 153.957 ],
+              "font" : "Century Gothic",
+              "font size" : 8.04,
+              "text color" : "[0.0]",
+              "content" : "4. High Flush Flush Tank",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 12,
+          "bounding box" : [ 129.62, 134.239, 212.253, 144.097 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "ii. Direct Flush Valve",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 90.024, 104.839, 200.41, 134.257 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "b. Types by Mount i. Floor Mounted ii. Wall Hung",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 90.024, 94.997, 189.849, 104.855 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "c. Types by Flush Action",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 81,
+    "level" : "4",
+    "page number" : 12,
+    "bounding box" : [ 125.18, 26.333, 372.021, 95.015 ],
+    "numbering style" : "roman numbers",
+    "number of list items" : 7,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 131.18, 85.157, 372.021, 95.015 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "i. Wash Down: bulge at front, smaller standing water amount",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 129.62, 75.317, 254.17, 85.175 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "ii. Reverse Trap: siphon flushing",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 128.06, 65.573, 245.654, 75.431 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "iii. Siphon Jet: larger trapway",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 126.74, 55.733, 236.478, 65.591 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "iv. Siphon Vortex: whirlpool",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 128.42, 45.893, 212.253, 55.751 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "v. Direct Flush Valve",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 126.74, 36.053, 187.169, 45.911 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "vi. Squat Type",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 125.18, 26.333, 178.075, 36.191 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "vii. Washout",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 82,
+    "level" : "5",
+    "page number" : 13,
+    "bounding box" : [ 54.024, 34.762, 208.728, 252.027 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 8,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 54.024, 232.329, 129.607, 252.027 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "2. Urinals a. Types",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 8,
+        "level" : "4",
+        "page number" : 13,
+        "bounding box" : [ 126.74, 193.059, 183.261, 232.467 ],
+        "numbering style" : "roman numbers",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 13,
+          "bounding box" : [ 131.18, 222.609, 183.261, 232.467 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "i. Wall Hung",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 13,
+          "bounding box" : [ 129.62, 212.769, 159.447, 222.627 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "ii. Stall",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 13,
+          "bounding box" : [ 128.06, 202.929, 177.561, 212.787 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "iii. Pedestal",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 13,
+          "bounding box" : [ 126.74, 193.059, 175.229, 202.917 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "iv. Through",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 54.024, 183.339, 122.588, 193.197 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "3. Kitchen Sinks",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 54.024, 173.499, 105.913, 183.357 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "4. Bar Sinks",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 54.024, 163.659, 122.121, 173.517 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "5. Laundry Tubs",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 54.024, 153.819, 109.852, 163.677 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "6. Slop Sinks",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 54.024, 144.099, 111.315, 153.957 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "7. Lavatories",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 9,
+        "level" : "3",
+        "page number" : 13,
+        "bounding box" : [ 90.024, 85.157, 145.068, 144.097 ],
+        "numbering style" : "english letters",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 13,
+          "bounding box" : [ 90.024, 134.239, 129.607, 144.097 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "a. Types",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 5,
+            "level" : "4",
+            "page number" : 13,
+            "bounding box" : [ 126.74, 94.997, 183.261, 134.257 ],
+            "numbering style" : "roman numbers",
+            "number of list items" : 4,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 13,
+              "bounding box" : [ 131.18, 124.399, 177.561, 134.257 ],
+              "font" : "Century Gothic",
+              "font size" : 8.04,
+              "text color" : "[0.0]",
+              "content" : "i. Pedestal",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 13,
+              "bounding box" : [ 129.62, 114.559, 183.261, 124.417 ],
+              "font" : "Century Gothic",
+              "font size" : 8.04,
+              "text color" : "[0.0]",
+              "content" : "ii. Wall Hung",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 13,
+              "bounding box" : [ 128.06, 104.839, 175.229, 114.697 ],
+              "font" : "Century Gothic",
+              "font size" : 8.04,
+              "text color" : "[0.0]",
+              "content" : "iii. Through",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 13,
+              "bounding box" : [ 126.74, 94.997, 175.977, 104.855 ],
+              "font" : "Century Gothic",
+              "font size" : 8.04,
+              "text color" : "[0.0]",
+              "content" : "iv. Counter",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 13,
+          "bounding box" : [ 90.024, 85.157, 145.068, 95.015 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "b. Mounting",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "list",
+        "id" : 10,
+        "level" : "4",
+        "page number" : 13,
+        "bounding box" : [ 128.06, 55.733, 200.081, 85.175 ],
+        "numbering style" : "roman numbers",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 13,
+          "bounding box" : [ 131.18, 75.317, 162.502, 85.175 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "i. Flush",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 13,
+          "bounding box" : [ 129.62, 65.573, 190.947, 75.431 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "ii. Self-rimming",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 13,
+          "bounding box" : [ 128.06, 55.733, 200.081, 65.591 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "iii. Under counter",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 54.024, 45.893, 208.728, 55.751 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "8. Bathtubs / Whirlpool Baths (Jacuzzi)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 54.024, 34.762, 95.018, 45.797 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "9. Bidets",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 83,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 36.0, 242.169, 105.538, 252.027 ],
+    "heading level" : 2,
+    "font" : "Century Gothic,Bold",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "BATHING FIXTURES"
+  }, {
+    "type" : "list",
+    "id" : 84,
+    "level" : "6",
+    "page number" : 14,
+    "bounding box" : [ 54.024, 220.358, 289.324, 242.073 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 54.024, 231.038, 289.324, 242.073 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "1. Floor Drains (total area of holes = total area of tailpiece)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 54.024, 220.358, 203.543, 231.393 ],
+      "font" : "Century Gothic,Bold",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "2. Shower Baths / Compartments",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 85,
+    "page number" : 14,
+    "bounding box" : [ 36.0, 98.988, 410.219, 209.313 ],
+    "font" : "Century Gothic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "SANITARY DRAINAGE SYSTEMS General Rules Waste Pipe: wastewater or liquid waste ONLY Vent Pipe: for circulation House / Building Drain: lowest horizontal piping House / Building Sewer: house drain to a point 0.60 m. outside face of foundation wall; less than 150mmØ only Trap Stack Branch"
+  }, {
+    "type" : "heading",
+    "id" : 86,
+    "level" : "Doctitle",
+    "page number" : 15,
+    "bounding box" : [ 36.0, 240.998, 146.943, 252.033 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "TRAPS AND INTERCEPTORS"
+  }, {
+    "type" : "list",
+    "id" : 87,
+    "level" : "2",
+    "page number" : 15,
+    "bounding box" : [ 54.024, 163.688, 412.771, 240.993 ],
+    "numbering style" : "unordered",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 218.918, 412.771, 240.993 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- P-Trap: used in lavatories, kitchen sinks, laundry tubs, urinals; prevents pre-entry of noxious gases",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 207.878, 372.205, 218.913 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Deep Seal P-Trap: 2x water size of P-trap, used for extreme conditions",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 196.838, 198.806, 207.873 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Stand Trap: used for slop sinks",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 185.768, 240.266, 196.803 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Running Trap: within line of house drain",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 174.728, 403.172, 185.763 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Drumtrap: fixture with large amount of wastewater discharge (e.g., bathtub)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 163.688, 269.096, 174.723 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- S-Trap: used before connection to ventilation",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 88,
+    "level" : "Doctitle",
+    "page number" : 15,
+    "bounding box" : [ 36.0, 141.608, 122.841, 152.643 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "TRAP REQUIREMENTS"
+  }, {
+    "type" : "list",
+    "id" : 89,
+    "level" : "2",
+    "page number" : 15,
+    "bounding box" : [ 54.024, 86.506, 406.806, 141.583 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 119.508, 390.076, 141.583 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Each shall be separately provided with waterseal trap (except those with integral trap)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 108.588, 276.306, 119.623 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Only one trap shall be permitted on a trap arm",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 86.506, 406.806, 108.581 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- One trap may serve 3 single compartments where waste outlets are less than 0.75m. apart",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 90,
+    "level" : "Doctitle",
+    "page number" : 15,
+    "bounding box" : [ 36.0, 64.402, 150.678, 75.437 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "CLEAN OUT REQUIREMENTS"
+  }, {
+    "type" : "list",
+    "id" : 91,
+    "level" : "2",
+    "page number" : 15,
+    "bounding box" : [ 54.024, 20.242, 384.91, 64.397 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 53.362, 283.758, 64.397 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- at upper terminal of horizontal sewer / waste line",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 42.322, 248.73, 53.357 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- at every 15 m. of total developed length",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 31.282, 384.91, 42.317 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- additional at horizontal line with aggregate offset angle more than 135o",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 54.024, 20.242, 290.139, 31.277 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- near connection between building line and sewer",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 92,
+    "level" : "Doctitle",
+    "page number" : 16,
+    "bounding box" : [ 36.0, 240.998, 91.116, 252.033 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "VENTILATION"
+  }, {
+    "type" : "list",
+    "id" : 93,
+    "level" : "2",
+    "page number" : 16,
+    "bounding box" : [ 54.024, 31.282, 407.698, 240.993 ],
+    "numbering style" : "unordered",
+    "number of list items" : 12,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 218.197, 397.934, 240.993 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Vent Pipe: opening for air circulation in a plumbing system o Main soil and waste vent: connected to main soil and waste stack,",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 3,
+        "page number" : 16,
+        "bounding box" : [ 108.02, 207.878, 367.382, 218.913 ],
+        "font" : "Century Gothic",
+        "font size" : 9.0,
+        "text color" : "[0.0]",
+        "content" : "and continues to SVTR where waste does not travel through"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 185.768, 382.691, 207.873 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Main Vent (Vent Stack): collecting vent line; principal artery where vent branches are connected, relief point",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 163.688, 407.698, 185.763 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Individual Vent / Back Vent (Re Vent): pipe to vent a fixture trap; connects to VS or directly to open air",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 4,
+        "page number" : 16,
+        "bounding box" : [ 90.024, 141.608, 405.71, 163.683 ],
+        "font" : "Century Gothic,Italic",
+        "font size" : 9.0,
+        "text color" : "[0.0]",
+        "content" : "o Ø of an individual vent shall not be less than 32 mm. (1 ¼”) nor less in size than ½ of the Ø of the drain it is connected to"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 130.548, 288.571, 141.583 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Unit, Common, or Dual Vent: one VS serves 2 traps",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 108.588, 403.409, 130.543 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Yoke / By-Pass Vent: upward pipe from soil or waste stack below the floor to adjacent VS above floor",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 97.546, 118.392, 108.581 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Relief Vent",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 86.506, 166.112, 97.541 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Loop Vent: stack vent",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 75.466, 335.585, 86.501 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Wet Vent: vent pipe portion where wastewater flows through",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 64.402, 354.544, 75.437 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- AAV (Air Admittance Valve): cannot be substituted for relief vent",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 53.362, 335.834, 64.397 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Local Vent: shaft that conveys foul air from fixture to outer air",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 42.322, 101.364, 53.357 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Sovent",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 54.024, 31.282, 117.546, 42.317 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Utility Vent",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 94,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 36.0, 242.169, 137.441, 252.027 ],
+    "heading level" : 2,
+    "font" : "Century Gothic,Bold",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "HOUSE DRAIN APPLIANCES"
+  }, {
+    "type" : "list",
+    "id" : 95,
+    "level" : "3",
+    "page number" : 17,
+    "bounding box" : [ 54.024, 173.499, 394.249, 242.187 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 221.966, 309.518, 242.187 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Grease Trap: for fixtures where grease may be introduced o Earth Cooled Grease Trap, Mechanical Grease Trap",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 212.769, 371.555, 222.627 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- House Trap: placed in the house drain immediately inside building foundation",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 202.929, 327.342, 212.787 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Drain Tiles: prevents groundwater from seeping into the basement",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 193.059, 394.249, 202.917 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Garage Trap (Garage Catchbasin): water-filled tank under garage to collect waste",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 183.339, 295.384, 193.197 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Backflow Valve: used in house drains to prevent backflow",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 173.499, 314.196, 183.357 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Sewage Ejector: sump pump for sewage disposal at basement",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 96,
+    "page number" : 17,
+    "bounding box" : [ 36.0, 153.819, 362.593, 163.677 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "SEPTIC TANK: watertight covered receptacle designed to receive sewage discharge"
+  }, {
+    "type" : "list",
+    "id" : 97,
+    "level" : "2",
+    "page number" : 17,
+    "bounding box" : [ 54.024, 124.399, 217.892, 153.957 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 144.099, 180.718, 153.957 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Sludge: solid organic matter",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 134.239, 217.892, 144.097 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Scum: lighter organic material/matter",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 124.399, 200.933, 134.257 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Effluent: liquid content of sewage",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 98,
+    "page number" : 17,
+    "bounding box" : [ 36.0, 104.839, 64.542, 114.697 ],
+    "font" : "Century Gothic,Bold",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "SEWERS"
+  }, {
+    "type" : "list",
+    "id" : 99,
+    "level" : "3",
+    "page number" : 17,
+    "bounding box" : [ 54.024, 75.317, 410.138, 104.855 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 94.997, 242.061, 104.855 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Combination Public Sewers: storm + sanitary",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 85.157, 122.949, 95.015 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Storm Sewers",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 54.024, 75.317, 410.138, 85.175 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Sanitary Sewers: regular sanitary waste only, terminates in a disposal plant for treatment",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 100,
+    "level" : "4",
+    "page number" : 17,
+    "bounding box" : [ 90.024, 45.25, 404.713, 75.431 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 90.024, 55.733, 404.713, 75.431 ],
+      "font" : "Courier New",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "o Intercepting Sewers (collecting sewers): termination point of tributary sewers, with 1:50 slope (2%)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 90.024, 45.25, 287.259, 55.751 ],
+      "font" : "Courier New",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "o Tributary Sewers: termination of individual units",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 101,
+    "page number" : 17,
+    "bounding box" : [ 36.0, 26.333, 368.481, 36.191 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "CESS POOL: non-watertight lined excavation which receives sanitary system discharge"
+  }, {
+    "type" : "paragraph",
+    "id" : 102,
+    "page number" : 18,
+    "bounding box" : [ 36.0, 232.329, 241.324, 252.027 ],
+    "font" : "Century Gothic",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "SEEPAGE UNITS: circular pit, termination of septic tank PRIVY: oldest form of organic waste disposal"
+  }, {
+    "type" : "heading",
+    "id" : 103,
+    "level" : "Subtitle",
+    "page number" : 18,
+    "bounding box" : [ 36.0, 212.769, 101.807, 222.627 ],
+    "heading level" : 2,
+    "font" : "Century Gothic,Bold",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "WASTE PIPE TYPES"
+  }, {
+    "type" : "list",
+    "id" : 104,
+    "level" : "2",
+    "page number" : 18,
+    "bounding box" : [ 54.024, 193.059, 380.304, 212.787 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 54.024, 202.929, 380.304, 212.787 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Indirect Waste Pipe: pipe that does not connect directly to the drainage system",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 54.024, 193.059, 340.499, 202.917 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Direct Waste Pipe: pipe that connects directly to the drainage system",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 105,
+    "level" : "Subtitle",
+    "page number" : 18,
+    "bounding box" : [ 36.0, 173.499, 120.195, 183.357 ],
+    "heading level" : 2,
+    "font" : "Century Gothic,Bold",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "WASTE PIPE PROBLEMS"
+  }, {
+    "type" : "list",
+    "id" : 106,
+    "level" : "2",
+    "page number" : 18,
+    "bounding box" : [ 54.024, 94.997, 269.965, 173.517 ],
+    "numbering style" : "unordered",
+    "number of list items" : 8,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 54.024, 163.659, 249.786, 173.517 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Trap Seal Loss: inadequate ventilation of traps",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 54.024, 153.819, 113.896, 163.677 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Siphonage",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 54.024, 144.099, 125.635, 153.957 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Back Pressure",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 54.024, 134.239, 134.671, 144.097 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Capillary Action",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 54.024, 124.399, 240.927, 134.257 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Evaporation: extreme temperature, idleness",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 54.024, 114.559, 243.255, 124.417 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Wind effects: strong winds blow the trap seal",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 54.024, 104.839, 269.965, 114.697 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Retardation of flow: atmospheric pressure or gravity",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 54.024, 94.997, 244.449, 104.855 ],
+      "font" : "Century Gothic",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- Deterioration of materials: formation of acids",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 107,
+    "level" : "Doctitle",
+    "page number" : 19,
+    "bounding box" : [ 36.0, 240.998, 118.413, 252.033 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "PIPES AND FITTINGS"
+  }, {
+    "type" : "list",
+    "id" : 108,
+    "level" : "2",
+    "page number" : 19,
+    "bounding box" : [ 54.024, 75.466, 406.266, 240.993 ],
+    "numbering style" : "unordered",
+    "number of list items" : 9,
+    "next list id" : 114,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 54.024, 229.958, 342.169, 240.993 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Cast Iron Pipe: most common for structures less than 25 storeys",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 1,
+        "level" : "3",
+        "page number" : 19,
+        "bounding box" : [ 90.024, 207.157, 379.37, 229.953 ],
+        "numbering style" : "unordered",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 19,
+          "bounding box" : [ 90.024, 218.197, 363.575, 229.953 ],
+          "font" : "Courier New",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "o SV Type (general), XV Type (heavy duty and underground)",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 19,
+          "bounding box" : [ 90.024, 207.157, 379.37, 218.913 ],
+          "font" : "Courier New",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "o Standard pipe, single hub pipe, double hub pipe, hubless pipe",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 54.024, 196.838, 332.819, 207.873 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Acid Resistant Cast Iron: cast iron + silicon, for chemistry labs",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 54.024, 174.728, 393.178, 196.803 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Asbestos: asbestos fibers + Portland cement, joined by tar soak or cement mortar",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 54.024, 163.688, 286.919, 174.723 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Lead: oldest pipe, highly acid-resistant, poisonous",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 54.024, 152.648, 406.266, 163.683 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- G.I.: 15 to 20 year life, subject to mineral deposits leading to friction head loss",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 54.024, 141.608, 292.355, 152.643 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Galvanized Wrought Iron Pipe: acid waste resistant",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 54.024, 130.548, 371.773, 141.583 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Copper Pipe: durable, corrosion-resistant, installed by solder or flaring",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 2,
+        "level" : "3",
+        "page number" : 19,
+        "bounding box" : [ 90.024, 96.825, 316.024, 130.543 ],
+        "numbering style" : "unordered",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 19,
+          "bounding box" : [ 90.024, 118.787, 271.744, 130.543 ],
+          "font" : "Courier New",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "o K Type: heaviest, underground; green",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 19,
+          "bounding box" : [ 90.024, 107.867, 316.024, 119.623 ],
+          "font" : "Courier New",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "o L Type: lighter, residential water supply line; blue",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 19,
+          "bounding box" : [ 90.024, 96.825, 295.81, 108.581 ],
+          "font" : "Courier New",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "o M type: lightest, small water supply line; red",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 54.024, 86.506, 353.906, 97.541 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Brass Pipe: most expensive, 15% zinc + 85% copper, acid resistant",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 54.024, 75.466, 289.91, 86.501 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Plastic / Synthetic Pipe: rust and corrosion resistant",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 109,
+    "level" : "3",
+    "page number" : 19,
+    "bounding box" : [ 90.024, 63.681, 131.873, 75.437 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "next list id" : 112,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 90.024, 63.681, 131.873, 75.437 ],
+      "font" : "Courier New",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "o Rigid:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 110,
+    "level" : "4",
+    "page number" : 19,
+    "bounding box" : [ 126.02, 20.242, 251.78, 64.397 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "next list id" : 111,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 126.02, 53.362, 162.464, 64.397 ],
+      "font" : "Wingdings",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : " PVC",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 126.02, 42.322, 247.436, 53.357 ],
+      "font" : "Wingdings",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : " CPVC: Chlorinated PVC",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 126.02, 31.282, 251.78, 42.317 ],
+      "font" : "Wingdings",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : " UPVC: Unplasticized PVC",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 126.02, 20.242, 221.648, 31.277 ],
+      "font" : "Wingdings",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : " PP: Polypropylene",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 111,
+    "level" : "4",
+    "page number" : 20,
+    "bounding box" : [ 126.02, 229.958, 297.947, 252.033 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 110,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 126.02, 240.998, 297.947, 252.033 ],
+      "font" : "Wingdings",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : " ABS: Acrylonitrile Butadiene Styrene",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 126.02, 229.958, 255.395, 240.993 ],
+      "font" : "Wingdings",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : " SR: Styrene Rubber Plastic",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 112,
+    "level" : "3",
+    "page number" : 20,
+    "bounding box" : [ 90.024, 218.197, 179.504, 229.953 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "previous list id" : 109,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 90.024, 218.197, 179.504, 229.953 ],
+      "font" : "Courier New",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "o Flexible (tubing):",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 113,
+    "level" : "4",
+    "page number" : 20,
+    "bounding box" : [ 126.02, 185.768, 386.182, 218.913 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 126.02, 207.878, 301.0, 218.913 ],
+      "font" : "Wingdings",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : " PE: Polyethylene  coil form, for gas",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 126.02, 185.768, 386.182, 207.873 ],
+      "font" : "Wingdings",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : " PB: Polybutadiene  coil form, for chemicals and water supply",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 114,
+    "level" : "2",
+    "page number" : 20,
+    "bounding box" : [ 54.024, 152.648, 338.093, 185.763 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "previous list id" : 108,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 54.024, 174.728, 338.093, 185.763 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Bituminous Fiber Sewer Pipe: cheapest pipe, for house sewers",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 54.024, 163.688, 282.206, 174.723 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Vitrified Clay Pipe: oldest material, public sewers",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 54.024, 152.648, 213.716, 163.683 ],
+      "font" : "Century Gothic",
+      "font size" : 9.0,
+      "text color" : "[0.0]",
+      "content" : "- Galvanized Steel: from mild steel",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 115,
+    "level" : "Doctitle",
+    "page number" : 21,
+    "bounding box" : [ 36.0, 229.958, 124.173, 240.993 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,Bold",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "FIXTURE UNIT VALUES"
+  }, {
+    "type" : "table",
+    "id" : 116,
+    "level" : "4",
+    "page number" : 21,
+    "bounding box" : [ 35.76, 149.11, 406.06, 229.9 ],
+    "number of rows" : 3,
+    "number of columns" : 11,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 36.48, 172.39, 81.384, 229.417 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 81.384, 172.39, 113.782, 229.417 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 2,
+          "page number" : 21,
+          "bounding box" : [ 87.457, 178.27, 97.315, 204.625 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "FLOOR"
+        }, {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 21,
+          "bounding box" : [ 97.533, 178.27, 107.391, 202.824 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "DRAIN"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 113.782, 172.39, 146.207, 229.417 ],
+        "row number" : 1,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 21,
+          "bounding box" : [ 119.853, 178.27, 129.711, 223.029 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "LAVATORY/"
+        }, {
+          "type" : "paragraph",
+          "id" : 8,
+          "page number" : 21,
+          "bounding box" : [ 129.963, 178.27, 139.821, 223.559 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "WASHBASIN"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 146.207, 172.39, 178.73, 229.417 ],
+        "row number" : 1,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 21,
+          "bounding box" : [ 157.443, 178.27, 167.301, 210.945 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "BATHTUB"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 178.73, 172.39, 211.13, 229.417 ],
+        "row number" : 1,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 12,
+          "page number" : 21,
+          "bounding box" : [ 184.803, 178.27, 194.661, 210.478 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "KITCHEN"
+        }, {
+          "type" : "paragraph",
+          "id" : 14,
+          "page number" : 21,
+          "bounding box" : [ 194.883, 178.27, 204.741, 194.776 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "SINK"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 211.13, 172.39, 243.552, 229.417 ],
+        "row number" : 1,
+        "column number" : 6,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 16,
+          "page number" : 21,
+          "bounding box" : [ 217.203, 178.27, 227.061, 214.683 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "LAUNDRY"
+        }, {
+          "type" : "paragraph",
+          "id" : 18,
+          "page number" : 21,
+          "bounding box" : [ 227.303, 178.27, 237.161, 191.52 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "TUB"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 243.552, 172.39, 276.07, 229.417 ],
+        "row number" : 1,
+        "column number" : 7,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 20,
+          "page number" : 21,
+          "bounding box" : [ 249.743, 178.27, 259.601, 211.58 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "SHOWER"
+        }, {
+          "type" : "paragraph",
+          "id" : 22,
+          "page number" : 21,
+          "bounding box" : [ 259.703, 178.27, 269.561, 197.783 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "BATH"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 276.07, 172.39, 308.47, 229.417 ],
+        "row number" : 1,
+        "column number" : 8,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 24,
+          "page number" : 21,
+          "bounding box" : [ 287.183, 178.27, 297.041, 216.372 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "SLOP SINK"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 308.47, 172.39, 340.897, 229.417 ],
+        "row number" : 1,
+        "column number" : 9,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 26,
+          "page number" : 21,
+          "bounding box" : [ 319.613, 178.27, 329.471, 205.847 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "URINAL"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 340.897, 172.39, 373.3, 229.417 ],
+        "row number" : 1,
+        "column number" : 10,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 28,
+          "page number" : 21,
+          "bounding box" : [ 346.973, 178.27, 356.831, 204.488 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "WATER"
+        }, {
+          "type" : "paragraph",
+          "id" : 30,
+          "page number" : 21,
+          "bounding box" : [ 357.053, 178.27, 366.911, 207.126 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "CLOSET"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 373.3, 172.39, 405.58, 229.417 ],
+        "row number" : 1,
+        "column number" : 11,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 32,
+          "page number" : 21,
+          "bounding box" : [ 380.819, 178.27, 389.353, 217.991 ],
+          "font" : "Century Gothic",
+          "font size" : 6.96,
+          "text color" : "[0.0]",
+          "content" : "BATHROOM"
+        }, {
+          "type" : "paragraph",
+          "id" : 34,
+          "page number" : 21,
+          "bounding box" : [ 389.699, 178.27, 398.233, 203.368 ],
+          "font" : "Century Gothic",
+          "font size" : 6.96,
+          "text color" : "[0.0]",
+          "content" : "GROUP"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 36.48, 160.87, 81.384, 172.39 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 36,
+          "page number" : 21,
+          "bounding box" : [ 41.4, 161.168, 71.388, 172.203 ],
+          "font" : "Century Gothic",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "PUBLIC"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 81.384, 160.87, 113.782, 172.39 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 37,
+          "page number" : 21,
+          "bounding box" : [ 95.064, 161.168, 100.104, 172.203 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "1"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 113.782, 160.87, 146.207, 172.39 ],
+        "row number" : 2,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 38,
+          "page number" : 21,
+          "bounding box" : [ 127.46, 161.168, 132.5, 172.203 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 146.207, 160.87, 178.73, 172.39 ],
+        "row number" : 2,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 39,
+          "page number" : 21,
+          "bounding box" : [ 159.89, 161.168, 164.93, 172.203 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 178.73, 160.87, 211.13, 172.39 ],
+        "row number" : 2,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 40,
+          "page number" : 21,
+          "bounding box" : [ 192.41, 161.168, 197.45, 172.203 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 211.13, 160.87, 243.552, 172.39 ],
+        "row number" : 2,
+        "column number" : 6,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 41,
+          "page number" : 21,
+          "bounding box" : [ 224.81, 161.168, 229.85, 172.203 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 243.552, 160.87, 276.07, 172.39 ],
+        "row number" : 2,
+        "column number" : 7,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 42,
+          "page number" : 21,
+          "bounding box" : [ 257.23, 161.168, 262.27, 172.203 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 276.07, 160.87, 308.47, 172.39 ],
+        "row number" : 2,
+        "column number" : 8,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 43,
+          "page number" : 21,
+          "bounding box" : [ 289.75, 161.168, 294.79, 172.203 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "3"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 308.47, 160.87, 340.897, 172.39 ],
+        "row number" : 2,
+        "column number" : 9,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 44,
+          "page number" : 21,
+          "bounding box" : [ 322.18, 161.168, 327.22, 172.203 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "5"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 340.897, 160.87, 373.3, 172.39 ],
+        "row number" : 2,
+        "column number" : 10,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 45,
+          "page number" : 21,
+          "bounding box" : [ 354.58, 161.168, 359.62, 172.203 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "6"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 373.3, 160.87, 405.58, 172.39 ],
+        "row number" : 2,
+        "column number" : 11,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 46,
+          "page number" : 21,
+          "bounding box" : [ 386.98, 161.168, 392.02, 172.203 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "8"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 36.48, 149.59, 81.384, 160.87 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 48,
+          "page number" : 21,
+          "bounding box" : [ 41.4, 149.648, 75.726, 160.683 ],
+          "font" : "Century Gothic",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "PRIVATE"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 81.384, 149.59, 113.782, 160.87 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 113.782, 149.59, 146.207, 160.87 ],
+        "row number" : 3,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 49,
+          "page number" : 21,
+          "bounding box" : [ 127.46, 149.648, 132.5, 160.683 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "1"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 146.207, 149.59, 178.73, 160.87 ],
+        "row number" : 3,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 50,
+          "page number" : 21,
+          "bounding box" : [ 159.89, 149.648, 164.93, 160.683 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 178.73, 149.59, 211.13, 160.87 ],
+        "row number" : 3,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 51,
+          "page number" : 21,
+          "bounding box" : [ 192.41, 149.648, 197.45, 160.683 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 211.13, 149.59, 243.552, 160.87 ],
+        "row number" : 3,
+        "column number" : 6,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 52,
+          "page number" : 21,
+          "bounding box" : [ 224.81, 149.648, 229.85, 160.683 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 243.552, 149.59, 276.07, 160.87 ],
+        "row number" : 3,
+        "column number" : 7,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 53,
+          "page number" : 21,
+          "bounding box" : [ 257.23, 149.648, 262.27, 160.683 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 276.07, 149.59, 308.47, 160.87 ],
+        "row number" : 3,
+        "column number" : 8,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 54,
+          "page number" : 21,
+          "bounding box" : [ 289.75, 149.648, 294.79, 160.683 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "3"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 308.47, 149.59, 340.897, 160.87 ],
+        "row number" : 3,
+        "column number" : 9,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 340.897, 149.59, 373.3, 160.87 ],
+        "row number" : 3,
+        "column number" : 10,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 55,
+          "page number" : 21,
+          "bounding box" : [ 354.58, 149.648, 359.62, 160.683 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "4"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 373.3, 149.59, 405.58, 160.87 ],
+        "row number" : 3,
+        "column number" : 11,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "caption",
+    "id" : 117,
+    "page number" : 21,
+    "bounding box" : [ 72.024, 127.068, 318.867, 149.163 ],
+    "linked content id" : 0,
+    "font" : "Century Gothic,Italic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "WSFU (Water System Fixture Unit) = corresponding pipe Ø WSFU x 7.5 = gallons per minute"
+  }, {
+    "type" : "paragraph",
+    "id" : 118,
+    "page number" : 21,
+    "bounding box" : [ 36.0, 105.108, 152.016, 116.143 ],
+    "font" : "Century Gothic,BoldItalic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "for maximum trap loading:"
+  }, {
+    "type" : "table",
+    "id" : 119,
+    "level" : "5",
+    "page number" : 21,
+    "bounding box" : [ 35.76, 50.904, 405.34, 104.93 ],
+    "number of rows" : 4,
+    "number of columns" : 6,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 36.42, 94.368, 95.304, 104.449 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 95.304, 94.368, 157.369, 104.449 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 57,
+          "page number" : 21,
+          "bounding box" : [ 101.78, 94.637, 151.041, 104.495 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "32 mm (1¼”)"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 157.369, 94.368, 219.29, 104.449 ],
+        "row number" : 1,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 59,
+          "page number" : 21,
+          "bounding box" : [ 163.73, 94.637, 213.017, 104.495 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "38 mm (1½”)"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 219.29, 94.368, 281.232, 104.449 ],
+        "row number" : 1,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 61,
+          "page number" : 21,
+          "bounding box" : [ 229.03, 94.637, 271.578, 104.495 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "51 mm (2”)"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 281.232, 94.368, 343.177, 104.449 ],
+        "row number" : 1,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 63,
+          "page number" : 21,
+          "bounding box" : [ 290.95, 94.637, 333.498, 104.495 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "76 mm (3”)"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 343.177, 94.368, 404.86, 104.449 ],
+        "row number" : 1,
+        "column number" : 6,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 65,
+          "page number" : 21,
+          "bounding box" : [ 350.62, 94.637, 397.606, 104.495 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "102 mm (4”)"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 36.42, 74.184, 95.304, 94.368 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 67,
+          "page number" : 21,
+          "bounding box" : [ 41.4, 74.477, 69.821, 94.175 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "FIXTURE UNITS"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 95.304, 74.184, 157.369, 94.368 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 69,
+          "page number" : 21,
+          "bounding box" : [ 123.86, 78.826, 128.9, 89.861 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "1"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 157.369, 74.184, 219.29, 94.368 ],
+        "row number" : 2,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 70,
+          "page number" : 21,
+          "bounding box" : [ 185.81, 78.826, 190.85, 89.861 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "3"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 219.29, 74.184, 281.232, 94.368 ],
+        "row number" : 2,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 71,
+          "page number" : 21,
+          "bounding box" : [ 247.75, 78.826, 252.79, 89.861 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "4"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 281.232, 74.184, 343.177, 94.368 ],
+        "row number" : 2,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 72,
+          "page number" : 21,
+          "bounding box" : [ 309.67, 78.826, 314.71, 89.861 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "6"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 343.177, 74.184, 404.86, 94.368 ],
+        "row number" : 2,
+        "column number" : 6,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 73,
+          "page number" : 21,
+          "bounding box" : [ 371.62, 78.826, 376.66, 89.861 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "8"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 36.42, 62.724, 95.304, 74.184 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 75,
+          "page number" : 21,
+          "bounding box" : [ 41.4, 63.533, 68.085, 73.391 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "PUBLIC"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 95.304, 62.724, 157.369, 74.184 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 76,
+          "page number" : 21,
+          "bounding box" : [ 123.86, 62.962, 128.9, 73.997 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 157.369, 62.724, 219.29, 74.184 ],
+        "row number" : 3,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 77,
+          "page number" : 21,
+          "bounding box" : [ 185.81, 62.962, 190.85, 73.997 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 219.29, 62.724, 281.232, 74.184 ],
+        "row number" : 3,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 78,
+          "page number" : 21,
+          "bounding box" : [ 247.75, 62.962, 252.79, 73.997 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "2"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 281.232, 62.724, 343.177, 74.184 ],
+        "row number" : 3,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 79,
+          "page number" : 21,
+          "bounding box" : [ 309.67, 62.962, 314.71, 73.997 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "6"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 343.177, 62.724, 404.86, 74.184 ],
+        "row number" : 3,
+        "column number" : 6,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 80,
+          "page number" : 21,
+          "bounding box" : [ 371.62, 62.962, 376.66, 73.997 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "6"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 36.42, 51.504, 95.304, 62.724 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 82,
+          "page number" : 21,
+          "bounding box" : [ 41.4, 52.013, 71.968, 61.871 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "PRIVATE"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 95.304, 51.504, 157.369, 62.724 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 83,
+          "page number" : 21,
+          "bounding box" : [ 123.86, 51.442, 128.9, 62.477 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "1"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 157.369, 51.504, 219.29, 62.724 ],
+        "row number" : 4,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 84,
+          "page number" : 21,
+          "bounding box" : [ 185.81, 51.442, 190.85, 62.477 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "1"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 219.29, 51.504, 281.232, 62.724 ],
+        "row number" : 4,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 85,
+          "page number" : 21,
+          "bounding box" : [ 247.75, 51.442, 252.79, 62.477 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "1"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 281.232, 51.504, 343.177, 62.724 ],
+        "row number" : 4,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 86,
+          "page number" : 21,
+          "bounding box" : [ 309.67, 51.442, 314.71, 62.477 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "4"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 21,
+        "bounding box" : [ 343.177, 51.504, 404.86, 62.724 ],
+        "row number" : 4,
+        "column number" : 6,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 87,
+          "page number" : 21,
+          "bounding box" : [ 371.62, 51.442, 376.66, 62.477 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "4"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "caption",
+    "id" : 120,
+    "page number" : 21,
+    "bounding box" : [ 72.024, 29.002, 281.184, 50.957 ],
+    "linked content id" : 1,
+    "font" : "Century Gothic,BoldItalic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "Lavatory: 0.45L / sec (28.3L / min) Minimum slope: 2% or 20mm / m. (1/4” per foot)"
+  }, {
+    "type" : "heading",
+    "id" : 121,
+    "level" : "Doctitle",
+    "page number" : 22,
+    "bounding box" : [ 36.0, 241.118, 76.104, 252.153 ],
+    "heading level" : 1,
+    "font" : "Century Gothic,BoldItalic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "for pipes:"
+  }, {
+    "type" : "table",
+    "id" : 122,
+    "level" : "6",
+    "page number" : 22,
+    "bounding box" : [ 35.76, 169.03, 405.34, 240.94 ],
+    "number of rows" : 3,
+    "number of columns" : 9,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 36.27, 210.7, 80.964, 240.46 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 2,
+          "page number" : 22,
+          "bounding box" : [ 41.4, 210.969, 69.821, 240.507 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "MAX FIXTURE UNIT"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 80.964, 210.7, 121.582, 240.46 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 5,
+          "page number" : 22,
+          "bounding box" : [ 98.664, 220.238, 103.704, 231.273 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "1"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 121.582, 210.7, 162.047, 240.46 ],
+        "row number" : 1,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 22,
+          "bounding box" : [ 139.13, 220.238, 144.17, 231.273 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "8"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 162.047, 210.7, 202.61, 240.46 ],
+        "row number" : 1,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 22,
+          "bounding box" : [ 177.17, 220.238, 187.25, 231.273 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "24"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 202.61, 210.7, 243.072, 240.46 ],
+        "row number" : 1,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 8,
+          "page number" : 22,
+          "bounding box" : [ 217.61, 220.238, 227.69, 231.273 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "48"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 243.072, 210.7, 283.63, 240.46 ],
+        "row number" : 1,
+        "column number" : 6,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 9,
+          "page number" : 22,
+          "bounding box" : [ 258.19, 220.238, 268.27, 231.273 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "84"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 283.63, 210.7, 324.097, 240.46 ],
+        "row number" : 1,
+        "column number" : 7,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 22,
+          "bounding box" : [ 296.11, 220.238, 311.23, 231.273 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "256"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 324.097, 210.7, 364.66, 240.46 ],
+        "row number" : 1,
+        "column number" : 8,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 11,
+          "page number" : 22,
+          "bounding box" : [ 336.7, 220.238, 351.82, 231.273 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "600"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 364.66, 210.7, 404.86, 240.46 ],
+        "row number" : 1,
+        "column number" : 9,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 12,
+          "page number" : 22,
+          "bounding box" : [ 374.62, 220.238, 394.78, 231.273 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "1380"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 36.27, 199.357, 80.964, 210.7 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 14,
+          "page number" : 22,
+          "bounding box" : [ 41.4, 200.049, 73.182, 209.907 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "PIPE SIZE"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 80.964, 199.357, 121.582, 210.7 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 15,
+          "page number" : 22,
+          "bounding box" : [ 96.144, 199.478, 106.224, 210.513 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "32"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 121.582, 199.357, 162.047, 210.7 ],
+        "row number" : 2,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 16,
+          "page number" : 22,
+          "bounding box" : [ 136.61, 199.478, 146.69, 210.513 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "38"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 162.047, 199.357, 202.61, 210.7 ],
+        "row number" : 2,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 17,
+          "page number" : 22,
+          "bounding box" : [ 177.17, 199.478, 187.25, 210.513 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "51"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 202.61, 199.357, 243.072, 210.7 ],
+        "row number" : 2,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 18,
+          "page number" : 22,
+          "bounding box" : [ 217.61, 199.478, 227.69, 210.513 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "65"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 243.072, 199.357, 283.63, 210.7 ],
+        "row number" : 2,
+        "column number" : 6,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 19,
+          "page number" : 22,
+          "bounding box" : [ 258.19, 199.478, 268.27, 210.513 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "76"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 283.63, 199.357, 324.097, 210.7 ],
+        "row number" : 2,
+        "column number" : 7,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 20,
+          "page number" : 22,
+          "bounding box" : [ 296.11, 199.478, 311.23, 210.513 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "102"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 324.097, 199.357, 364.66, 210.7 ],
+        "row number" : 2,
+        "column number" : 8,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 21,
+          "page number" : 22,
+          "bounding box" : [ 336.7, 199.478, 351.82, 210.513 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "127"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 364.66, 199.357, 404.86, 210.7 ],
+        "row number" : 2,
+        "column number" : 9,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 22,
+          "page number" : 22,
+          "bounding box" : [ 377.14, 199.478, 392.26, 210.513 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "152"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 36.27, 169.51, 80.964, 199.357 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 24,
+          "page number" : 22,
+          "bounding box" : [ 41.4, 169.539, 71.236, 198.957 ],
+          "font" : "Century Gothic",
+          "font size" : 8.04,
+          "text color" : "[0.0]",
+          "content" : "MAX LENGTH (m)"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 80.964, 169.51, 121.582, 199.357 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 27,
+          "page number" : 22,
+          "bounding box" : [ 96.144, 178.808, 106.224, 189.843 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "14"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 121.582, 169.51, 162.047, 199.357 ],
+        "row number" : 3,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 28,
+          "page number" : 22,
+          "bounding box" : [ 136.61, 178.808, 146.69, 189.843 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "18"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 162.047, 169.51, 202.61, 199.357 ],
+        "row number" : 3,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 29,
+          "page number" : 22,
+          "bounding box" : [ 177.17, 178.808, 187.25, 189.843 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "37"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 202.61, 169.51, 243.072, 199.357 ],
+        "row number" : 3,
+        "column number" : 5,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 30,
+          "page number" : 22,
+          "bounding box" : [ 217.61, 178.808, 227.69, 189.843 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "55"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 243.072, 169.51, 283.63, 199.357 ],
+        "row number" : 3,
+        "column number" : 6,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 31,
+          "page number" : 22,
+          "bounding box" : [ 258.19, 178.808, 268.27, 189.843 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "65"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 283.63, 169.51, 324.097, 199.357 ],
+        "row number" : 3,
+        "column number" : 7,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 32,
+          "page number" : 22,
+          "bounding box" : [ 298.63, 178.808, 308.71, 189.843 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "91"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 324.097, 169.51, 364.66, 199.357 ],
+        "row number" : 3,
+        "column number" : 8,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 33,
+          "page number" : 22,
+          "bounding box" : [ 336.7, 178.808, 351.82, 189.843 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "119"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 22,
+        "bounding box" : [ 364.66, 169.51, 404.86, 199.357 ],
+        "row number" : 3,
+        "column number" : 9,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 34,
+          "page number" : 22,
+          "bounding box" : [ 377.14, 178.808, 392.26, 189.843 ],
+          "font" : "Century Gothic,Bold",
+          "font size" : 9.0,
+          "text color" : "[0.0]",
+          "content" : "155"
+        } ]
+      } ]
+    } ]
+  } ]
+}

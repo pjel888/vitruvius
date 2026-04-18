@@ -4,7 +4,7 @@ title: UAP Document Code of Ethics
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T16:01:10.542602+00:00
+last_canonicalized_utc: 2026-04-18T08:21:07.388532+00:00
 aliases:
   - UAP Code of Ethics
   - Architect's Code of Ethics
@@ -29,3 +29,4 @@ shall work with this general objective – that my duty is not only to myself, b
 - concept-code-of-ethics
 - concept-built-heritage
 - concept-standards-of-professional-practice
+- concept-arbitration

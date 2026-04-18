@@ -1,0 +1,3855 @@
+{
+  "file name" : "UAP Document 3012.pdf",
+  "number of pages" : 8,
+  "author" : "Manuel A. Arguelles",
+  "title" : "UAP DOCUMENT 301: GENERAL CONDITIONS",
+  "creation date" : "D:20260413100533+08'00'",
+  "modification date" : "D:20260413100533+08'00'",
+  "kids" : [ {
+    "type" : "paragraph",
+    "id" : 74,
+    "page number" : 1,
+    "bounding box" : [ 50.4, 874.086, 272.379, 885.115 ],
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "UAP DOCUMENT 301: GENERAL CONDITIONS"
+  }, {
+    "type" : "list",
+    "id" : 75,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 50.4, 230.066, 380.644, 862.195 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 50.4, 851.166, 174.761, 862.195 ],
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "SECTION 1: DEFINITIONS",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 73,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 68.424, 253.072, 547.09, 839.553 ],
+        "numbering style" : "unordered",
+        "number of list items" : 32,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 827.352, 322.503, 839.553 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• CONTRACT DOCUMENTS – consists of the following:",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 72,
+            "level" : "3",
+            "page number" : 1,
+            "bounding box" : [ 104.42, 769.906, 198.226, 826.895 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 5,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 104.42, 815.866, 166.901, 826.895 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "1. Agreement",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 104.42, 804.346, 198.226, 815.375 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "2. General conditions",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 104.42, 792.826, 196.044, 803.855 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "3. Special provisions",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 104.42, 781.426, 179.043, 792.455 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "4. Specifications",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 1,
+              "bounding box" : [ 104.42, 769.906, 161.304, 780.935 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "5. Drawings",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 757.632, 298.644, 769.833 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• OWNER – person ordering the project for execution",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 745.392, 269.468, 757.593 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• ARCHITECT – commissioned by the owner",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 733.152, 318.423, 745.353 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• ENGINEER – person so named in the contract document",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 709.546, 546.817, 733.233 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• PROJECT REPRESENTATIVE – full time construction inspector hired by owner assisting in the supervision of the work.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 697.272, 446.624, 709.473 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• CONTRACTOR – person or firm whose proposal has been accepted & contract awarded",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 673.546, 546.76, 697.233 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• SUB-CONTRACTOR – having direct contact with contractor, acts in behalf of the contractor in executing any part of the contract",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 661.272, 421.009, 673.473 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• SURETY – person, firm, or corporation providing guarantee for contractor’s bonds",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 649.122, 215.969, 661.323 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• PROPOSAL – offer of a bidder",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 625.396, 546.68, 649.083 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• PROPOSAL BOND – cashier’s check or surety bond with the proposal submitted by the bidder to guarantee that the bidder will enter into the contract.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 601.636, 546.877, 625.323 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• PERFORMANCE BOND – (15%) approved form of security furnished by the contractor as a guarantee to execute work in accordance with terms of the contract.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 577.996, 546.846, 601.683 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• PAYMENT BOND – (15%) approved form of security furnished by the contractor as guarantee to pay all obligations arising from the contract",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 554.236, 546.729, 577.923 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• GUARANTEE BOND – (15%) approved form of security furnished by the contractor to guarantee to the quality of materials and workmanship performed.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 541.962, 412.494, 554.163 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• AGREEMENT – contract between owner and contractor undertaking the project",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 518.356, 546.957, 542.043 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• ADVERTISEMENT/ INVITATION TO BID – notice or invitation issued to bidders giving information of the magnitude and extent of the project, nature, etc.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 506.082, 350.957, 518.283 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• BID BULLETIN – additional information on contract documents",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 493.842, 504.491, 506.043 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• INSTRUCTION TO BIDDERS – list of instructions on preparation & conditions for award of contract",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 481.602, 282.638, 493.803 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• DRAWINGS – graphical representation of work",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 469.362, 545.036, 481.563 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• GENERAL CONDITIONS – printed documents stipulating procedural and administrative aspects of the contract",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 445.736, 546.861, 469.423 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• SPECIAL PROVISIONS – instructions that supplement or modify drawings, specs, & general conditions of the contract.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 421.976, 546.919, 445.663 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• SPECIFICATIONS – written or printed description of work describing qualities of materials and mode of construction",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 409.702, 499.219, 421.903 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• SUPPLEMENTARY SPECS – addt’l info issued as an addition or amendment to provisions of specs.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 386.096, 547.017, 409.783 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• SCHEDULE OF MATERIALS AND FINISHES – outline specs enumerating type and trade names of materials used",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 362.336, 547.09, 386.023 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• BREAKDOWN OF WORK AND CORRESPONDING VALUES – list of work and corresponding value in materials & labor including profit and overhead allowance.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 350.062, 386.518, 362.263 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• WRITTEN NOTICE – info, advice or notification pertinent to the project",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 326.456, 547.042, 350.143 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• ACT OF GOD/ FORCE MAJEURE – catastrophes, phenomena of nature, misfortunes and accidents which human prudence cannot foresee or prevent.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 314.182, 413.768, 326.383 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• TIME LIMITS – duration of time allowed by the contract for project completion",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 301.942, 445.728, 314.143 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• LOCAL LAWS – laws, ordinances, and government regulations applicable to the project",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 289.702, 546.713, 301.903 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• WORK – includes labor and materials, equipment, transportation, faculties necessary for completion of the project",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 277.462, 353.262, 289.663 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• FURNISH - “purchase and/or fabricate and deliver to the jobsite”",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 265.312, 322.16, 277.513 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• INSTALL – build in, mount in positions, connect or apply",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 68.424, 253.072, 223.465, 265.273 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• PROVIDE – “furnish and install”",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 50.4, 230.066, 380.644, 241.095 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "SECTION 2: EXECUTION, CORRELATION AND INTENT OF DOCUMENTS",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 76,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 68.424, 74.886, 546.795, 229.993 ],
+    "numbering style" : "unordered",
+    "number of list items" : 8,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 70.824, 217.792, 393.683, 229.993 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Documents signed in quintuplicate by owner and contactor duly witnessed.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 70.824, 205.672, 326.984, 217.873 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Intent of contract documents – prescribe the complete work",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 71,
+        "level" : "3",
+        "page number" : 1,
+        "bounding box" : [ 106.82, 182.666, 518.818, 205.215 ],
+        "font" : "TimesNewRomanPSMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "- Intention is to include labor, materials, equipment and transportation necessary for completion and Execution"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 68.424, 170.392, 340.563, 182.593 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Specs shall take control in discrepancies in drawings and specs.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 68.424, 146.786, 546.715, 170.353 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Any discrepancies, errors and omissions shall be reported to the architect or engineer. Any work done involving errors are the contractor’s risk.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 68.424, 134.512, 531.497, 146.713 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Architect or engineer shall furnish additional detail drawings and instructions consistent to contract documents.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 68.424, 122.272, 504.077, 134.473 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor and architect and engineer shall jointly prepare a schedule in accordance to progress of work.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 68.424, 98.546, 546.795, 122.233 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor shall keep a copy of all drawings, specs, breakdown of work, and schedule of constructions work, instructions at the site.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 68.424, 74.886, 546.646, 98.477 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Drawings, specs, and models are property of the architect and are to be returned at completion of work and before final payment to the contractor is made",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 77,
+    "level" : "4",
+    "page number" : 1,
+    "bounding box" : [ 68.424, 63.366, 70.914, 74.395 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "."
+  }, {
+    "type" : "footer",
+    "id" : 78,
+    "page number" : 1,
+    "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 9,
+      "page number" : 1,
+      "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 79,
+    "level" : "5",
+    "page number" : 2,
+    "bounding box" : [ 50.4, 322.856, 322.318, 885.115 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 50.4, 874.086, 215.148, 885.115 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 3: DRAWINGS AND SPECS",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 66,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 68.424, 744.706, 546.835, 874.013 ],
+        "numbering style" : "unordered",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 861.812, 365.351, 874.013 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Owner shall furnish contractor 3 sets of drawings and specs for free.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 838.186, 546.765, 861.893 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Drawings and models must cooperate with specs to form as part of the contract documents. Figures are to be followed in preference to measurement and scale.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 825.912, 464.386, 838.113 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The contractor shall explain and verify any doubt as to the meaning of the drawings and specs.",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 65,
+            "level" : "6",
+            "page number" : 2,
+            "bounding box" : [ 104.42, 768.466, 546.826, 825.455 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 2,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 779.986, 546.826, 825.455 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "1. If there is a conflict in both drawings and specs, the contractor, with the architect’s permission, shall submit to the owner proposals as to which method or material is required. If the les expensive work is done, the contractor shall credit the owner the amount equivalent to the difference of the expensive and less expensive work.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 768.466, 440.074, 779.495 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "2. The contractor must first refer to the architect before proceeding with the work.",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 744.706, 546.835, 768.393 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Discrepancies in figures, drawings must be referred to the architect before any adjustment be made by the contractor. The decision of the architect will govern and must be followed by the contractor.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 50.4, 733.186, 296.522, 744.215 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 4: DETAIL DRAWINGS AND INSTRUCTIONS",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 67,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 68.424, 697.272, 546.765, 733.233 ],
+        "numbering style" : "unordered",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 709.546, 546.765, 733.233 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Supplementary drawings and instructions shall be promptly supplied by the architect and must conform to contract documents. Contractor shall do no work without proper drawings and instructions.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 697.272, 444.327, 709.473 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor and architect shall prepare a schedule a when detail drawings will be required.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 50.4, 685.786, 187.211, 696.815 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 5: SHOP DRAWINGS",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 68,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 68.424, 416.182, 547.133, 685.713 ],
+        "numbering style" : "unordered",
+        "number of list items" : 7,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 662.026, 547.05, 685.713 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor shall prepare at his own expense and submit 2 copies of all shop drawings to the architect, who will make the necessary corrections, and file the corrected copies.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 649.842, 365.852, 662.043 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor shall check drawings before submitting to sub-contractors.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 637.602, 209.291, 649.803 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Shop drawings shall represent:",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 62,
+            "level" : "6",
+            "page number" : 2,
+            "bounding box" : [ 104.42, 591.676, 259.689, 637.145 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 4,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 626.116, 253.603, 637.145 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "1. Working and erection dimension",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 614.596, 259.689, 625.625 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "2. Arrangements and sectional views",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 603.076, 191.991, 614.105 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "3. Necessary details",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 591.676, 246.641, 602.705 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "4. Kinds of materials and finishes",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 579.402, 257.387, 591.603 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Shop Drawings shall be dated and contain:",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 63,
+            "level" : "6",
+            "page number" : 2,
+            "bounding box" : [ 104.42, 544.876, 407.993, 578.945 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 3,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 567.916, 187.369, 578.945 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "1. Name of project",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 556.396, 407.993, 567.425 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "2. Descriptive names of equipment, materials and classified item numbers",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 544.876, 364.886, 555.905 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "3. Location at which materials or equipment are to be installed.",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 521.236, 546.765, 544.803 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Drawings shall be accompanied by a letter of transmittal containing name of project, contractor, number of drawings, titles and other pertinent data.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 497.476, 547.133, 521.163 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor shall submit 3 sets of prints of shop drawings to the architect for approval. 1 copy shall be returned to the contractor with necessary corrections.",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 64,
+            "level" : "6",
+            "page number" : 2,
+            "bounding box" : [ 104.42, 428.456, 546.816, 496.985 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 4,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 485.956, 438.919, 496.985 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "1. Contractor shall make corrections and resubmit until approved by the architect.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 463.016, 546.567, 485.465 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "2. Contractor shall insert date of approval on tracings and furnish the architect with 3 additional prints of approved drawings.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 451.496, 308.652, 462.525 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "3. No work be done without architect’s approval.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 104.42, 428.456, 546.816, 451.005 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "4. Contractor shall mention specific variations of shop drawings from contract documents in his letter of submittal.",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 416.182, 312.277, 428.383 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor is responsible for accuracy of shop drawings.",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "list",
+        "id" : 69,
+        "level" : "1",
+        "page number" : 2,
+        "bounding box" : [ 50.4, 393.296, 335.308, 404.325 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 1,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 50.4, 393.296, 335.308, 404.325 ],
+          "font" : "TimesNewRomanPS-BoldMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "SECTION 2: LAWS, REGULATIONS, AND SITE CONDITIONS",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 50.4, 381.776, 322.318, 392.805 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 6: LAWS, REGULATIONS, AND SITE CONDITIONS",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 70,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 68.424, 334.256, 546.795, 381.703 ],
+        "numbering style" : "unordered",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 358.016, 546.795, 381.703 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor shall comply with all laws and regulations governing the project. If ever he resists without the knowledge of the architect, he shall bear the consequences.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 68.424, 334.256, 546.785, 357.943 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Before bidding, the contractor must visit the site and make estimates of facilities and difficulties attending to the scope of work and its execution.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 50.4, 322.856, 256.741, 333.885 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 7: PERMITS, TAXES AND SURVEYS",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 80,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 68.424, 111.472, 546.895, 322.783 ],
+    "numbering style" : "unordered",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 68.424, 299.096, 546.775, 322.783 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• All permits and licenses necessary shall be secured and fees paid by the contractor but may be reimbursed from the owner. Contractor is responsible if construction starts without necessary permits.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 68.424, 286.822, 266.331, 299.023 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor will secure the occupancy permit.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 68.424, 274.552, 345.523, 286.753 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor will pay taxes pertinent to construction of the project.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 68.424, 250.946, 546.735, 274.633 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Owner is responsible for establishment of boundaries made by a licensed surveyor. He may delegate the responsibility to the contractor but the owner must pay for surveyor’s fees.",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 53,
+        "level" : "5",
+        "page number" : 2,
+        "bounding box" : [ 104.42, 204.866, 546.636, 250.455 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 104.42, 239.426, 424.567, 250.455 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. Contractor shall verify all grades, lines and levels as indicated on drawings.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 104.42, 216.386, 546.636, 238.935 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. Contractor shall provide batter boards and maintain them. He shall establish grade marks at each floor line.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 104.42, 204.866, 325.783, 215.895 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "3. Contractor shall layout exact location of partitions.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 68.424, 169.706, 546.895, 204.913 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor shall pay the services of the surveyor when so required to confirm location of columns, piers, etc. required by the contract. Copy of certification shall be furnished by the architect and will represent as an independent verification of the layout.",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 54,
+        "level" : "5",
+        "page number" : 2,
+        "bounding box" : [ 104.42, 123.746, 546.666, 169.215 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 104.42, 146.666, 546.666, 169.215 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. Contractor shall furnish certifications from the surveyor that all partitions of work are in accordance with contract requirements.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 104.42, 123.746, 546.656, 146.295 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. Surveyor shall verify and certify to lines and levels of any portion of work any time deemed necessary by the architect.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 68.424, 111.472, 435.193, 123.673 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Final verification shall be submitted upon completion of work before payment is made.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 81,
+    "page number" : 2,
+    "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 10,
+      "page number" : 2,
+      "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 82,
+    "level" : "Doctitle",
+    "page number" : 3,
+    "bounding box" : [ 50.4, 874.086, 257.429, 885.115 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SECTION 3: EQUIPMENT AND MATERIALS"
+  }, {
+    "type" : "list",
+    "id" : 83,
+    "level" : "6",
+    "page number" : 3,
+    "bounding box" : [ 50.4, 674.986, 501.976, 873.595 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 50.4, 862.566, 151.773, 873.595 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 8: GENERAL",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 55,
+        "level" : "2",
+        "page number" : 3,
+        "bounding box" : [ 68.424, 825.912, 459.496, 862.613 ],
+        "numbering style" : "unordered",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 68.424, 850.412, 392.027, 862.613 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• All materials and equipment must conform to all laws governing the project.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 68.424, 838.152, 459.496, 850.353 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor shall obtain necessary permits and pay fees covered within period of construction.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 68.424, 825.912, 382.664, 838.113 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor shall bear any and all damages by reason of any delay in work.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 50.4, 814.426, 162.938, 825.455 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 9: EQUIPMENT",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 56,
+        "level" : "2",
+        "page number" : 3,
+        "bounding box" : [ 68.424, 755.472, 450.69, 814.353 ],
+        "numbering style" : "unordered",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 68.424, 802.152, 405.453, 814.353 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Architect and engineer must refer to equipment by catalogue number and name.",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 52,
+            "level" : "5",
+            "page number" : 3,
+            "bounding box" : [ 104.42, 767.746, 546.865, 801.695 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 2,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 3,
+              "bounding box" : [ 104.42, 790.666, 450.99, 801.695 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "1. Contractor shall furnish complete lists of substitutions prior to signing of contract.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 3,
+              "bounding box" : [ 104.42, 767.746, 546.865, 790.295 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "2. Contractor shall abide by architect and engineer’s judgment when proposed items of equipment are judged to be acceptable. General contractor shall submit proposals for substitutions in writing.",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 68.424, 755.472, 450.69, 767.673 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor shall furnish 3 copies of complete catalogue data for every item of equipment.",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "list",
+        "id" : 57,
+        "level" : "5",
+        "page number" : 3,
+        "bounding box" : [ 104.42, 686.506, 484.237, 755.015 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 6,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 743.986, 300.126, 755.015 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. Submission shall be compiled by contractor.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 732.466, 484.237, 743.495 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. Data sheet or catalogue shall be indexed according to specification, section and paragraph.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 721.066, 304.698, 732.095 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "3. Submission shall become part of the contract.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 709.546, 343.592, 720.575 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "4. Catalogue data does not supercede contract documents.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 698.026, 430.443, 709.055 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "5. It is contractor’s responsibility that items be furnished fit the space available.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 686.506, 392.167, 697.535 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "6. Contractor’s responsibility to install equipment to operate properly.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 50.4, 674.986, 501.976, 686.015 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 10: MATERIALS, FIXTURES, APPLIANCES AND FITTINGS FURNISHED BY CONTRACTOR",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 84,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 68.424, 366.622, 546.516, 674.913 ],
+    "numbering style" : "unordered",
+    "number of list items" : 13,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 662.712, 520.112, 674.913 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Names of proposed manufacturers, material men and dealers shall be submitted to the architect for approval.",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 50,
+        "level" : "5",
+        "page number" : 3,
+        "bounding box" : [ 104.42, 593.716, 546.806, 662.345 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 639.796, 546.796, 662.345 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. No manufacturer shall be approved unless he has a good reputation, capacity and adequate quality control.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 628.276, 324.698, 639.305 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. Transactions shall be made through the contractor.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 616.756, 449.496, 627.785 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "3. Contractor shall provide manufacturers with complete sets of specs and drawings.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 593.716, 546.806, 616.265 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "4. Manufacturer shall have materials supplied by him properly coded or identified in accordance with existing standards.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 581.562, 308.582, 593.763 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor shall furnish samples specified for approval.",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 51,
+        "level" : "5",
+        "page number" : 3,
+        "bounding box" : [ 104.42, 512.596, 538.17, 581.105 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 6,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 570.076, 246.482, 581.105 ],
+          "font" : "TimesNewRomanPS-BoldMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. 3 samples shall be submitted.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 558.556, 365.016, 569.585 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. Samples shall be labeled, bearing material name and quality.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 547.036, 538.17, 558.065 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "3. If specs require manufacturer’s installation directions, directions shall accompany samples for approval.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 535.516, 437.231, 546.545 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "4. 3 copies of letter of transmittal from contractor shall accompany all samples.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 524.116, 363.323, 535.145 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "5. Transportation charges to architect’s office must be prepaid.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 104.42, 512.596, 390.165, 523.625 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "6. No orders of materials are to be made without architect’s approval.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 500.322, 354.179, 512.523 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• No substitution for materials be made without architect’s approval.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 488.082, 404.736, 500.283 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Samples for materials to be used for substitution shall be approved by architect.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 475.842, 322.526, 488.043 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor shall submit samples for testing to the architect.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 463.582, 433.6, 475.783 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• All costs for shipping, handling and testing of samples are to be paid by the contractor.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 451.462, 392.903, 463.663 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Quality of materials used shall be of best grade and new otherwise specified.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 439.222, 383.332, 451.423 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor shall provide space for subcontractors’ storage and work force.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 426.982, 413.002, 439.183 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• All materials affected by moisture shall be stored and protected from the weather.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 414.742, 320.843, 426.943 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Moving materials will be done at the contractor’s expense.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 391.136, 546.516, 414.703 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Defective materials or materials not conforming to specs shall be used upon approval. The architect shall have the authority to remove or replace such deducting the cost from the contractor.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 378.862, 445.472, 391.063 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor shall pay for royalties and license fees on patented materials furnished by him.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 366.622, 420.223, 378.823 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• All materials shall be applied and installed following the manufacturer’s directions.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 85,
+    "level" : "Doctitle",
+    "page number" : 3,
+    "bounding box" : [ 50.4, 343.616, 316.083, 354.645 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SECTION 4: PREMISES AND TEMPORARY STRUCTURE"
+  }, {
+    "type" : "list",
+    "id" : 86,
+    "level" : "6",
+    "page number" : 3,
+    "bounding box" : [ 50.4, 284.696, 238.196, 343.245 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "next list id" : 90,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 50.4, 332.216, 194.631, 343.245 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 14: USE OF PREMISES",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 45,
+        "level" : "2",
+        "page number" : 3,
+        "bounding box" : [ 68.424, 296.216, 546.805, 332.143 ],
+        "numbering style" : "unordered",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 68.424, 319.942, 328.621, 332.143 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor shall confine materials to limits indicated by law.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 3,
+          "bounding box" : [ 68.424, 296.216, 546.805, 319.903 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor shall not load or permit any part of the structure to be loaded with a weight that will disregard the safety of others.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 50.4, 284.696, 238.196, 295.725 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 15: TEMPORARY STRUCTURES",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 87,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 68.424, 57.606, 547.413, 284.593 ],
+    "numbering style" : "unordered",
+    "number of list items" : 12,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 261.026, 547.413, 284.593 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• OFFICE AND CONTRACTOR’S BUILDING – wooden floor raised above ground; room of approx. 12 sq.m. for the architect,",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 248.752, 377.954, 260.953 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• HOUSING FOR WORKERS – tents or protection on designated areas.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 225.026, 547.06, 248.713 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• SANITARY FIXTURES AND 1ST AID STATION – ample sanitary toilets and other conveniences including water connections.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 201.386, 547.021, 224.953 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• TEMPORARY BARRICADES AND GUARD LIGHTS – necessary for proper prosecution and completion of work. Lights located at false work tower to be provided by contractor.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 177.626, 547.169, 201.313 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• TEMPORARY WATER, POWER, AND TELEPHONE FACILITIES – provided by contractor through arrangements with local utility companies. All expenses paid by the contractor",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 165.352, 447.055, 177.553 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• TEMPORARY SIGNS – no advertisements to be displayed without architect’s approval.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 153.112, 311.02, 165.313 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• TEMPORARY ROADWAYS – provide proper access",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 140.992, 541.568, 153.193 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• TEMPORARY STAIRS, LADDERS, RAMPS, and RUNWAYS – such shall meet requirements of local laws.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 117.266, 547.144, 140.953 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• TEMPORARY ELEVATORS AND HOISTS – install adequate number of elevators and hoists located bat sufficient distance from exterior walls.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 93.51, 547.053, 117.193 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• TEMPORARY ENCLOSURES – exterior doors shall be equipped with self-closing hardware; windows equipped with removable sash frames.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 81.212, 327.033, 93.413 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• TEMPORARY OR TRIAL USAGE – privilege of owner.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 68.424, 57.606, 547.113, 81.293 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• REMOVAL OF TEMPORARY STRUCTURES – contractor shall remove all temporary structures erected by him and shall clean premises as condition of completing the work.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 88,
+    "page number" : 3,
+    "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 11,
+      "page number" : 3,
+      "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 89,
+    "level" : "Doctitle",
+    "page number" : 4,
+    "bounding box" : [ 50.4, 874.086, 359.16, 885.115 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SECTION 5: PROTECTION OF WORK AND OWNER’S PROPERTY"
+  }, {
+    "type" : "list",
+    "id" : 90,
+    "level" : "6",
+    "page number" : 4,
+    "bounding box" : [ 50.4, 605.236, 428.193, 873.595 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "previous list id" : 86,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 50.4, 862.566, 346.561, 873.595 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 16: PROTECTION OF WORK AND OWNER’S PROPERTY",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 46,
+        "level" : "2",
+        "page number" : 4,
+        "bounding box" : [ 68.424, 710.232, 546.566, 862.613 ],
+        "numbering style" : "unordered",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 68.424, 850.412, 379.985, 862.613 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The contractor shall maintain and protect owner’s property from damage.",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 43,
+            "level" : "5",
+            "page number" : 4,
+            "bounding box" : [ 104.42, 781.426, 547.045, 849.935 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 4,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 4,
+              "bounding box" : [ 104.42, 827.386, 547.045, 849.935 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "1. The contractor shall provide watchmen (competent enough for the architect) and provide all doorways with locks. It is the contractor who shall lock and close the doors after each day’s work.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 4,
+              "bounding box" : [ 104.42, 815.866, 526.418, 826.895 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "2. No smoking except on designated areas. No building of fires except with the consent of the architect.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 4,
+              "bounding box" : [ 104.42, 792.826, 546.616, 815.375 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "3. Contractor shall provide barrels of water and buckets for the main purpose of fire protection and should not be used for any other reason.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 4,
+              "bounding box" : [ 104.42, 781.426, 375.872, 792.455 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "4. Contractor shall provide adequate number of fire extinguishers.",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 68.424, 757.666, 546.566, 781.353 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Old materials of value shall be piled in areas designated by the owner or architect and are in the responsibility of the contractor.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 68.424, 733.906, 546.516, 757.593 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Existing trees and shrubs are to be boxed and protected from damage. Cutting of trees in site must have consent of the architect.",
+          "kids" : [ {
+            "type" : "paragraph",
+            "id" : 44,
+            "level" : "6",
+            "page number" : 4,
+            "bounding box" : [ 108.02, 722.506, 512.704, 733.535 ],
+            "font" : "TimesNewRomanPSMT",
+            "font size" : 9.96,
+            "text color" : "[0.0]",
+            "content" : "1. Plants needed to be transplanted within 50 meters must be done at the expense of the contractor."
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 68.424, 710.232, 398.75, 722.433 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Damage to trees, etc shall be made good by the contractor at his own expense.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 50.4, 698.746, 417.834, 709.775 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 17: PROTECTION OF ADJACENT PROPERTY AND EXISTING UTILITIES",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 47,
+        "level" : "7",
+        "page number" : 4,
+        "bounding box" : [ 68.424, 674.986, 546.805, 698.673 ],
+        "font" : "TimesNewRomanPSMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "• Contractor shall protect adjacent property and existing utilities as provided by law and contract documents at his own expense. He is liable and must pay for all damages by his acts and negligence or by his employees."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 50.4, 663.466, 428.193, 674.495 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 18: PROTECTION OF LIFE, WORK AND PROPERTY DUE TO EMERGENCY",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 48,
+        "level" : "7",
+        "page number" : 4,
+        "bounding box" : [ 68.424, 651.282, 546.566, 663.483 ],
+        "font" : "TimesNewRomanPSMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "• In cases of emergency where a life is at stake, the contractor may have the power to act without consultation. Any"
+      }, {
+        "type" : "paragraph",
+        "id" : 49,
+        "page number" : 4,
+        "bounding box" : [ 50.4, 616.756, 440.93, 650.825 ],
+        "font" : "TimesNewRomanPSMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "compensation claimed by the contractor shall be determined by agreement or arbitration. SECTION 6: LABOR, WORK AND PAYMENTS"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 50.4, 605.236, 144.074, 616.265 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 19: LABOR",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 91,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 68.424, 522.676, 547.239, 605.283 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 68.424, 570.076, 546.795, 605.283 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor must employ competent and efficient workmen and must act, upon request of the architect, to discharge or remove any employee deemed incompetent. Should the contractor fail to do so, the architect may withhold payment or suspend work until such orders are complied with.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 68.424, 546.316, 547.239, 570.003 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The supervisor must be a licensed engineer or architect who will work personally and inspect at least once a week.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 68.424, 522.676, 546.755, 546.243 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor shall keep a competent project engineer who will represent the contractor in his absence. His decisions are binding to the contractor and he has full authority to execute the orders or directions of the architect.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 92,
+    "page number" : 4,
+    "bounding box" : [ 68.424, 511.156, 158.801, 522.185 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "ARTICLE 20: WORK"
+  }, {
+    "type" : "list",
+    "id" : 93,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 86.424, 416.936, 546.773, 511.083 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 86.424, 498.882, 511.904, 511.083 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor shall use methods and appliances necessary to complete the work within contract time.",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 42,
+        "level" : "4",
+        "page number" : 4,
+        "bounding box" : [ 122.42, 464.336, 546.738, 498.425 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 122.42, 475.876, 546.738, 498.425 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. The architect may order the contractor to increase efficiency or improve system of operation. Failure of the architect to demand such does not relieve contractor of his liability to the contract.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 4,
+          "bounding box" : [ 122.42, 464.336, 534.886, 475.365 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. The contractor shall furnish approved full information and evidence of appliances used if required.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 86.424, 440.696, 546.724, 464.383 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Stakes, benchmarks placed by contractor shall be gradually preserved and maintained by the Contractor. If such are displaced or damage due to neglect, the contractor must replace them at his own expense.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 86.424, 416.936, 546.773, 440.623 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The owner, architect and representatives shall have access to work for inspection. Contractor shall provide proper facilities for access and inspection.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 94,
+    "level" : "4",
+    "page number" : 4,
+    "bounding box" : [ 122.42, 278.936, 546.987, 416.445 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 122.42, 382.496, 546.788, 416.445 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. The contractor shall give the architect and party a notice of its readiness for inspection. If work should be covered up without approval, the architect may uncover it for examination at contractor’s expense.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 122.42, 359.456, 546.736, 382.005 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. Re-examination of work may be ordered by the architect and uncovered by the contractor. If work is found not in accordance with the contract, the contractor shall pay for the cost.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 122.42, 336.416, 546.788, 358.965 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. Contractor shall furnish promptly without additional charge all facilities, labor, and materials necessary for safe inspection without delaying schedule of work.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 122.42, 278.936, 546.987, 336.045 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. The architect may examine work already completed before final acceptance. If work is found defective due to contractor’s fault, he shall defray all the expenses of such examination and satisfactory reconstruction. If work is found to be satisfactory, actual cost of labor and materials in examination plus 15% shall be allowed the contractor and granted extension time on account of additional work.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 95,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 68.424, 136.672, 547.245, 278.953 ],
+    "numbering style" : "unordered",
+    "number of list items" : 6,
+    "next list id" : 98,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 68.424, 255.266, 546.755, 278.953 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor shall perform any work during an emergency. He may inform the architect and engineer of the emergency as soon as practicable.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 68.424, 219.986, 547.245, 255.193 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Adjustment of drawings to suit field conditions may be necessary during construction. The contract recognizes the essence of this as long as resulting overruns and underruns do not exceed 5%. Discrepancies shall be submitted immediately to the architect before adjustments.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 68.424, 196.346, 546.636, 219.913 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The owner may at any time change or alter by adding or deducting from work without invalidating the contract by stating the changes to be made in writing.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 68.424, 172.586, 546.837, 196.273 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• If sub-surface conditions that are different from that on the drawings are discovered, the architect must be informed immediately. He must investigate and make the necessary changes in the drawings and specs.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 68.424, 148.826, 546.566, 172.513 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• If changes in work ma cause an increase or decrease in the amount due, the contract shall be modified in writing and the contractor shall furnish proportionate additional performance bond.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 68.424, 136.672, 318.711, 148.873 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Value of extra work shall be determined by the following:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 96,
+    "level" : "4",
+    "page number" : 4,
+    "bounding box" : [ 104.42, 67.686, 547.151, 136.215 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 104.42, 125.186, 273.045, 136.215 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. Estimate and acceptance in lump sum",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 104.42, 102.146, 547.151, 124.695 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. Unit prices stipulated in contract provided that the extra does not exceed 20% of the original contract details.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 104.42, 67.686, 546.957, 101.659 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. Actual direct cost plus 15% for contractor’s profit, overhead and contractor’s tax. Contractor shall present a correct account of costs with vouchers. The architect will certify the 15% allowance for overhead and profit of the contractor.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 97,
+    "page number" : 4,
+    "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 12,
+      "page number" : 4,
+      "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 98,
+    "level" : "2",
+    "page number" : 5,
+    "bounding box" : [ 68.424, 567.916, 547.388, 885.533 ],
+    "numbering style" : "unordered",
+    "number of list items" : 10,
+    "previous list id" : 95,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 861.846, 546.858, 885.533 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Claim of adjustment must be asserted within 15 days from date of the order of change unless architect will extend the time.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 849.692, 462.623, 861.893 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Architect shall have the authority to make minor changes in the work not involving extra cost.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 837.432, 386.828, 849.633 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Owner reserves to right to employ other persons to perform the extra work.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 802.186, 546.676, 837.393 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• If any instructions in drawings involve extra cost, the contractor will inform the architect through written notice within 15 days after the receipt of such instruction. If delays incur in mobilization of work, the contractor must give the architect a written notice within 15 days after recognition of delay and proceed to claim the extra cost.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 767.026, 546.785, 802.113 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor shall keep the premises free of waste materials from the accumulation of work. After the work is completed, he shall remove all his rubbish, scaffolding, surplus materials and turn over the work to the occupants with:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 40,
+        "level" : "4",
+        "page number" : 5,
+        "bounding box" : [ 104.42, 732.466, 373.392, 766.535 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 104.42, 755.506, 344.458, 766.535 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. All dirt, stains from floors, walls, ceiling, etc. removed.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 104.42, 743.986, 373.392, 755.015 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. All woodwork, hardware and metalwork cleaned and polished.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 104.42, 732.466, 343.303, 743.495 ],
+          "font" : "TimesNewRomanPS-BoldMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "3. All glazing, marble and tile work washed and polished.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 720.312, 533.279, 732.513 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The owner has the right to use the completed portions of the work regardless of the time of completion of work.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 685.066, 547.273, 720.273 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Upon notice of completion of work from the contractor, the architect shall immediately inspect the project. If the work is substantially complete (not less than 98% is finished), the architect shall issue a certificate of completion of work in respect to the work.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 661.306, 546.656, 684.993 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Prior to the issuance of the certification of completion, the contractor must execute a written undertaking to finish any work during the period of Making Good of Known Defects or Faults (period of not more than 60 days).",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 614.596, 547.388, 661.323 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor shall execute at his own expense all work necessary for making good of known defects within the period of 60 days after the issuance of the certificate of completion or within 15 days after its expiration as a result of the inspection by the architect. If the owner is responsible for the defect, the value of work will be regarded and paid for as additional work.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 567.916, 546.705, 614.523 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor shall search for cause of any defects and faults in the project. If the cause of the defect is something the contractor is not liable for, the owner will pay for the cost of work carried out by the contractor. But if the cause binds the contractor liable, the cost of searching, repair, rectification and make good of such defect shall be borne by him.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 99,
+    "level" : "5",
+    "page number" : 5,
+    "bounding box" : [ 50.4, 242.306, 265.118, 567.425 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "next list id" : 106,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 50.4, 556.396, 265.118, 567.425 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 21: TIME OF COMPLETION OF WORK",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 27,
+        "level" : "2",
+        "page number" : 5,
+        "bounding box" : [ 68.424, 253.826, 546.845, 556.323 ],
+        "numbering style" : "unordered",
+        "number of list items" : 5,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 68.424, 544.122, 541.427, 556.323 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Written notice to proceed work shall be given to the contractor following the execution of the contract agreement.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 68.424, 520.516, 546.845, 544.083 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor shall complete all the work contracted in the time stated. Computation of the contract time shall commence on the 7th day from receipt of the notice to proceed.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 68.424, 496.756, 546.676, 520.443 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor shall submit the schedule of work in CPM form or any form acceptable to the architect, indicating the approximate dates each item will be started and completed, for approval.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 68.424, 484.482, 374.955, 496.683 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Contractor will be allowed an extension based on the following reasons:",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 26,
+            "level" : "6",
+            "page number" : 5,
+            "bounding box" : [ 122.42, 277.496, 547.157, 484.025 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 6,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 5,
+              "bounding box" : [ 122.42, 415.496, 547.066, 484.025 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "1. Delay due to the employees of the owner and the owner himself, act of god or force majeure, delay by the architect pending arbitration, the contractor shall within 15 days from the occurrence of such delay file the necessary request of extension for the approval of the architect. No extension of time shall be granted for failure of owner to furnish materials unless they be required for proper execution of work or contractor shall have made request for them 10 days before they are actually needed.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 5,
+              "bounding box" : [ 122.42, 392.576, 547.027, 415.005 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "2. Written consent of bondsmen must be attached to any request for extension and submitted to the owner.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 5,
+              "bounding box" : [ 122.42, 369.536, 546.828, 392.085 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "3. If there is increase in work and the contract time is unreasonably short, the time allowance for extension and increases shall be agreed upon in writing.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 5,
+              "bounding box" : [ 122.42, 334.976, 546.768, 369.045 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "4. If no schedule or agreement stating upon which drawings shall be furnished is made, then no claim for delay shall be allowed on the account of failure to furnish drawings until 2 weeks after demands for such drawings.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 5,
+              "bounding box" : [ 122.42, 323.576, 515.822, 334.605 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "5. If work is interrupted for any reason, it must be resumed on the removal of the cause of delay.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 5,
+              "bounding box" : [ 122.42, 277.496, 547.157, 323.085 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "6. Contractor shall submit written notice to the architect at least 10 days prior to beginning, suspending or resuming the work to the end that the architect may make preparations for inspection without delaying the work. All delays resulting from failure of the contractor are the contractor’s risk. All extra costs due to such delay will be deducted from the final payment.",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 68.424, 253.826, 546.755, 277.513 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• If failure to complete work at the said contract time, the contractor will pay the owner the liquidated damages in the amount stipulated in the contract agreement.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 50.4, 242.306, 164.064, 253.335 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 22: PAYMENTS",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 100,
+    "level" : "2",
+    "page number" : 5,
+    "bounding box" : [ 68.424, 66.212, 547.39, 242.233 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "next list id" : 104,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 218.546, 547.143, 242.233 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor shall, within 15 days from receipt of notice to proceed, submit a complete breakdown of work and corresponding value for approval and will be used as basis for all requests for payment.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 183.386, 547.39, 218.473 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor shall submit a request for payment for work done, not more than once each month. Each request shall be computed from the work completed on all items listed in the breakdown of work, less 10% retention. When 50% of the contract has been accomplished, no retention shall be made.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 171.112, 542.901, 183.313 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor, at his own expense, shall furnish the architect progress photographs which shall be taken monthly.",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 23,
+        "level" : "4",
+        "page number" : 5,
+        "bounding box" : [ 104.42, 113.666, 546.955, 170.655 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 104.42, 136.706, 546.955, 170.655 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. Photograph size shall be 6” by 8”. Four exposures shall be taken (2 copies for each exposure = 8), a total of 8 prints to be delivered to the architect, and all negatives bearing the date of exposure and name of work.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 104.42, 113.666, 546.766, 136.215 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. No partial payment may be considered for approval without the pictures accompanying request for payment.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 78.366, 547.065, 113.593 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• 15 days upon receipt of the request for payment, the architect shall either issue a certificate of payment or withhold the request and inform the contractor in writing the reasons for withholding it. The certificate of payment shall include the value of work accomplished during the period of time covered by the certificate.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 68.424, 66.212, 405.811, 78.413 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The architect may recommend withholding of payment on any of the following:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 101,
+    "level" : "4",
+    "page number" : 5,
+    "bounding box" : [ 104.42, 54.726, 241.781, 65.755 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "next list id" : 103,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 104.42, 54.726, 241.781, 65.755 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. Defective work not remedied.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 102,
+    "page number" : 5,
+    "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 13,
+      "page number" : 5,
+      "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 103,
+    "level" : "4",
+    "page number" : 6,
+    "bounding box" : [ 104.42, 839.626, 457.0, 885.115 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "previous list id" : 101,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 104.42, 874.086, 352.546, 885.115 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. Reasonable evidence indicating probable filing of claims.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 104.42, 862.566, 457.0, 873.595 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. Failure of contractor to make payments to sub-contractors or for material and labor.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 104.42, 851.166, 446.638, 862.195 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. Reasonable doubt that the contract can be completed for the balance then unpaid.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 104.42, 839.626, 244.052, 850.655 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5. Damage to another contractor.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 104,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 68.424, 383.182, 547.39, 839.553 ],
+    "numbering style" : "unordered",
+    "number of list items" : 11,
+    "previous list id" : 100,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 792.826, 546.815, 839.553 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The architect shall estimate the value of work using the breakdown of work and corresponding values as a basis. Estimates of the architect are considered final and conclusive evidence of the amount of work performed and shall be basis for the full measure of the compensation of the contractor, but bear in mind that the estimates are approximate only.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 757.666, 547.39, 792.873 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Within 15 days from the date of approval of a request for payment and issuance of certificate of payment, the owner shall pay the amount as certified, or such other amount he deems is due the contractor informing both the contractor and architect in writing his reasons for paying the amended amount.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 710.986, 546.676, 757.593 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor shall pay promptly his workmen, materials and equipment used, taxes and remit all amount withheld from salaries and wages of his employees. If required by the owner, the contractor shall swear before an officer duly authorized to administer oath that all persons who have done work and all materials furnished have been paid for.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 687.226, 547.011, 710.913 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• No payments shall be made in excess of 65% of the contract price unless a notarized statement is submitted by the contractor to the effect that all bills for labor, other than current wages, and bills for materials have been paid.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 652.036, 546.936, 687.153 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor shall promptly remove from the premises all work condemned by the architect as failing to conform to the contract. He shall replace and re-execute his own work in accordance to the contract documents at his own expense.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 639.762, 373.83, 651.963 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor shall submit the following before final payment is made:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 24,
+        "level" : "4",
+        "page number" : 6,
+        "bounding box" : [ 104.42, 536.236, 547.208, 639.305 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 7,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 104.42, 628.276, 277.308, 639.305 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. Certificate of final building occupancy",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 104.42, 616.756, 283.065, 627.785 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. Certificate of final inspection of utilities",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 104.42, 593.716, 547.052, 616.265 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "3. Original and 3 sets of prints of “as-built-drawings” of electrical, sanitary, gas, telephone and mechanical works.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 104.42, 582.316, 345.783, 593.345 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "4. 3 copies of directory of panel boards and list of circuits.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 104.42, 570.796, 415.642, 581.825 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "5. 3 copies of instructions and manual for operating fixtures and equipment.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 104.42, 559.276, 236.014, 570.305 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "6. 3 copies of keying schedule.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 104.42, 536.236, 547.208, 558.785 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "7. Guarantee bond equivalent to 30% of the contract price covering a period of 1 year after the final acceptance of the work.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 512.596, 546.745, 536.283 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The architect shall proceed to verify the work, make final estimates, certify the completion of work and accept the same.",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 25,
+        "level" : "4",
+        "page number" : 6,
+        "bounding box" : [ 104.42, 466.516, 546.706, 512.105 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 104.42, 478.036, 546.706, 512.105 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. The owner shall then pay the contractor the remainder of the fee provided that the final payment of the contract shall not be made until the contractor has submitted a sworn statement showing that all taxes due from him, all materials and labor have been duly paid.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 104.42, 466.516, 540.72, 477.545 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. The making and acceptance of the final payment shall constitute a waiver of all claims by the contractor.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 431.336, 546.656, 466.543 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The final certificate of payment nor any provisions may relieve the contractor of responsibility for faulty materials. He shall remedy defects and pay for the damage, which will appear within a year’s period from date of acceptance of work by the owner.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 419.062, 321.898, 431.263 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• No provision may limit the contractor’s liability to defects.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 395.456, 546.815, 419.023 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The owner shall give notice of observed defects with reasonable promptness. All questions shall be decided by the architect whose decision shall be subject to arbitration.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 383.182, 484.87, 395.383 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The amount retained by the owner shall be released 3 months after the date of the final payment.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 105,
+    "level" : "Doctitle",
+    "page number" : 6,
+    "bounding box" : [ 50.4, 360.176, 489.683, 371.205 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SECTION 7: CONTRACTOR-SEPARATE CONTRACTOR-SUB-CONTRACTOR RELATIONSHIP"
+  }, {
+    "type" : "list",
+    "id" : 106,
+    "level" : "5",
+    "page number" : 6,
+    "bounding box" : [ 50.4, 135.986, 360.232, 359.685 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "previous list id" : 99,
+    "next list id" : 113,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 50.4, 348.656, 350.067, 359.685 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 23: SEPARATE CONTRACTS TO OTHER CONTRACTORS",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 28,
+        "level" : "5",
+        "page number" : 6,
+        "bounding box" : [ 68.424, 336.382, 384.686, 348.583 ],
+        "font" : "TimesNewRomanPSMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "• Owner reserves the right to let other contractors in connection to the work."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 50.4, 325.016, 360.232, 336.045 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 24: CONTRACTOR-SEPARATE CONTRACTORS RELATION",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 29,
+        "level" : "2",
+        "page number" : 6,
+        "bounding box" : [ 68.424, 206.306, 547.217, 324.943 ],
+        "numbering style" : "unordered",
+        "number of list items" : 5,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 68.424, 301.256, 546.725, 324.943 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The contractor shall provide other contractors the opportunity for introduction and storage of materials and shall properly connect and coordinate his work with theirs.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 68.424, 277.496, 546.725, 301.183 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The contractor shall do the cutting, patching and fitting required of his work and must be fit to be received by work of other contractors.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 68.424, 253.826, 546.586, 277.513 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Any cost caused by defective work shall be born by the party responsible. The contractor shall not endanger any work by cutting, etc. or cut and alter any work done by the sub-contractor without the architect’s consent.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 68.424, 230.066, 547.217, 253.753 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The contractor shall promptly inform the architect of any defects done by the sub-contractors. His failure to inspect and report shall constitute an acceptance of proper execution of work by the sub-contractor.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 68.424, 206.306, 547.044, 229.993 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• Should the contractor cause any damage of the work done by the sub-contractors, both parties will settle as such by an agreement and relieve the owner of any liability, which may arise there from.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 50.4, 194.906, 192.482, 205.935 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 25: SUB-CONTRACTS",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 30,
+        "level" : "2",
+        "page number" : 6,
+        "bounding box" : [ 68.424, 147.352, 547.025, 194.833 ],
+        "numbering style" : "unordered",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 68.424, 159.626, 547.025, 194.833 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• At least 15 days prior to the date of bidding, the contractor shall seek the architect’s clarification as to which particular areas for which the competence of the sub-contractor shall be subject to evaluation by the architect where after, the contractor may submit a list of prospective sub-contractors for the architect’s approval.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 68.424, 147.352, 500.74, 159.553 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The contractor is responsible for the acts of his sub-contractors and persons directly employed by them.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 50.4, 135.986, 335.633, 147.015 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 26: CONTRACTOR-SUB-CONTRACTORS RELATIONS",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 107,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 68.424, 123.712, 175.715, 135.913 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "next list id" : 111,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 68.424, 123.712, 175.715, 135.913 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor agrees:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 108,
+    "level" : "4",
+    "page number" : 6,
+    "bounding box" : [ 104.42, 54.726, 546.883, 123.255 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "next list id" : 110,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 104.42, 100.706, 546.782, 123.255 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. To be bound to the sub-contractor by all the obligations assumed by the owner to the contractor under the contract documents.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 104.42, 89.19, 361.691, 100.219 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. To pay the sub-contractor, upon the payment of certificates.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 104.42, 77.646, 476.38, 88.675 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. To pay the sub-contractor, to such extent as may be provided by the contract documents.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 104.42, 54.726, 546.883, 77.275 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. To pay the sub-contractor on demand for his work or materials as far as executed and fixed in place less the retained percentage at the time the certificate should be issued.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 109,
+    "page number" : 6,
+    "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 14,
+      "page number" : 6,
+      "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "6"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 110,
+    "level" : "4",
+    "page number" : 7,
+    "bounding box" : [ 104.42, 828.106, 547.02, 885.115 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "previous list id" : 108,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 104.42, 874.086, 498.91, 885.115 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5. To pay the sub-contractor adjust share of any fire insurance money received by the contractor.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 104.42, 851.166, 547.02, 873.595 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "6. To make no demand to the sub-contractor for liquidated damages or penalty for delay in any sum in excess of the amount stated in the sub-contract.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 104.42, 828.106, 546.864, 850.655 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "7. To give the sub-contractor an opportunity to be present and to submit any evidence in any arbitration involving his rights.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 111,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 68.424, 734.626, 546.696, 828.033 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 107,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 68.424, 815.832, 193.024, 828.033 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The sub-contractor agrees:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 22,
+        "level" : "4",
+        "page number" : 7,
+        "bounding box" : [ 104.78, 758.386, 546.668, 815.375 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 104.78, 792.826, 546.668, 815.375 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. To be bound to the contractor by the terms of agreement in the contract documents and to assume toward him all obligations assumed to him by the owner.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 104.78, 769.906, 546.648, 792.455 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. To submit to the contractor application for payment in such reasonable time as to enable the contractor to apply for payment.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 104.78, 758.386, 470.304, 769.415 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "3. To make all claims for extensions, extras, and for damages for delays to the contractor.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 68.424, 734.626, 546.696, 758.313 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor and sub-contractor agree that their rights and obligations and all procedure shall be analogous to those set forth in the contract.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 112,
+    "level" : "Doctitle",
+    "page number" : 7,
+    "bounding box" : [ 50.4, 711.706, 423.253, 722.735 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SECTION 8: SUSPENSION OF WORK AND TERMINATION OF THE CONTRACT"
+  }, {
+    "type" : "list",
+    "id" : 113,
+    "level" : "5",
+    "page number" : 7,
+    "bounding box" : [ 50.4, 128.786, 477.186, 711.215 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "previous list id" : 106,
+    "next list id" : 118,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 50.4, 700.186, 454.228, 711.215 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 27: CONTRACTOR’S RIGHTS TO SUSPEND WORK OR TERMINATE CONTRACT",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 31,
+        "level" : "5",
+        "page number" : 7,
+        "bounding box" : [ 68.424, 676.426, 547.151, 700.113 ],
+        "font" : "TimesNewRomanPSMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "• The contractor may suspend or terminate work upon 15 days written notice to the owner and architect for the following:"
+      }, {
+        "type" : "list",
+        "id" : 32,
+        "level" : "4",
+        "page number" : 7,
+        "bounding box" : [ 104.42, 618.916, 547.236, 675.935 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 104.42, 653.476, 547.236, 675.935 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. Order of court or public authority caused the work to stop or suspension for 90 days through no act of the contractor and employees.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 104.42, 641.956, 449.08, 652.985 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. If architect fails to act upon request for payment within 15 days after presented.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 104.42, 630.436, 439.6, 641.465 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "3. If owner fails to act upon request for payment within 15 days after presented.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 104.42, 618.916, 444.213, 629.945 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "4. If owner fails to pay the contractor within 30 days after its award by arbitration.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 50.4, 607.396, 321.073, 618.425 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 28: OWNER’S RIGHT TO TERMINATE CONTRACT",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 33,
+        "level" : "2",
+        "page number" : 7,
+        "bounding box" : [ 68.424, 559.962, 546.977, 607.323 ],
+        "numbering style" : "unordered",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 68.424, 572.236, 546.977, 607.323 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The owner, upon certification of the architect justifying his action, may terminate the contract with the contractor within 15 days written notice and surety of the contractor if any and take possession of the premises, tools, materials, etc.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 68.424, 559.962, 322.317, 572.163 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The owner shall terminate contract based on the following:",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "list",
+        "id" : 34,
+        "level" : "4",
+        "page number" : 7,
+        "bounding box" : [ 105.62, 514.036, 546.392, 559.505 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 105.62, 548.476, 370.12, 559.505 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. If contractor declares bankruptcy or assign assets to creditors.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 105.62, 536.956, 546.392, 547.985 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. Disregard or violate provisions of the contract documents or fail to prosecute work according to schedule.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 105.62, 525.556, 453.897, 536.585 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "3. Fail to provide qualified superintendents, workman, sub-contractors and materials.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 105.62, 514.036, 381.709, 525.065 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "4. Fail to make payments to sub-contractors, workmen and dealers.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 50.4, 502.516, 477.186, 513.545 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 29: OWNER’S RIGHT TO PROCEED AFTER WORK TAKEOVER FROM CONTRACTOR",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 35,
+        "level" : "2",
+        "page number" : 7,
+        "bounding box" : [ 68.424, 361.582, 546.825, 502.443 ],
+        "numbering style" : "unordered",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 68.424, 478.756, 546.825, 502.443 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The contractor, upon receipt of notice of termination, shall vacate position and work stated in the notice. All materials, equipment, etc. shall remain, at the option of the architect, for completion of work.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 68.424, 466.482, 351.868, 478.683 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The owner shall take over the work and proceed in administration.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 68.424, 454.342, 414.925, 466.543 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The architect will ascertain and fix the value of work completed by the contractor.",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 21,
+            "level" : "4",
+            "page number" : 7,
+            "bounding box" : [ 104.42, 373.856, 546.796, 453.885 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 3,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 7,
+              "bounding box" : [ 104.42, 419.816, 546.796, 453.885 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "1. If expenditures of owner on completion of work including all charges prior to termination of the contract are not in excess of the contract price, the difference between total expenditures and contract price may be applied to settle claims, and the balance may be paid to the contractor.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 7,
+              "bounding box" : [ 104.42, 396.776, 546.706, 419.325 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "2. No amount in excess of the combined value of completed work, retained percentage, and usable materials shall be paid.",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 7,
+              "bounding box" : [ 104.42, 373.856, 546.786, 396.405 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "3. In case of suspension of work, all unpaid work and expenses incurred during suspension shall be evaluated by the architect and paid for by the owner.",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 68.424, 361.582, 416.508, 373.783 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The full extent of damage the contractor and/or his sureties shall be liable shall be:",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "list",
+        "id" : 36,
+        "level" : "4",
+        "page number" : 7,
+        "bounding box" : [ 104.42, 327.176, 546.806, 361.125 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 104.42, 350.096, 411.489, 361.125 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. Total daily liquidated damages until the date the owner takes over work.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 104.42, 327.176, 546.806, 349.605 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. Excess cost incurred by owner in completion of the project over the contract price, which includes administrative services, supervision and inspection.",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "paragraph",
+        "id" : 37,
+        "page number" : 7,
+        "bounding box" : [ 50.4, 304.136, 463.78, 315.165 ],
+        "font" : "TimesNewRomanPS-BoldMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "SECTION 9: RESPONSIBILITIES AND LIABILITIES OF CONTRACTOR AND OF OWNER"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 50.4, 292.616, 425.942, 303.645 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 30: CONTRACTOR’S RESPONSIBILITY FOR ACCIDENTS AND DAMAGES",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 38,
+        "level" : "2",
+        "page number" : 7,
+        "bounding box" : [ 68.424, 140.186, 546.755, 292.543 ],
+        "numbering style" : "unordered",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 68.424, 257.426, 546.735, 292.543 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The contractor shall take necessary precautions for the safety of employees. The contractor shall erect barriers, supports, braces, shoring, danger signs and necessary safeguards to protect workmen from any accident and damage in the consequence of his work.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 68.424, 233.666, 546.755, 257.353 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The contractor shall designate a member of his organization whose duty shall be prevention of accidents and damage to the owner’s property and adjoining property and his name and position will be reported to the architect.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 68.424, 221.392, 299.04, 233.593 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The owner shall not be responsible for the following:",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 19,
+            "level" : "4",
+            "page number" : 7,
+            "bounding box" : [ 104.78, 186.986, 469.776, 220.935 ],
+            "numbering style" : "arabic numbers",
+            "number of list items" : 3,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 7,
+              "bounding box" : [ 104.78, 209.906, 344.529, 220.935 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "1. Death of disease contracted by contractor or employees",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 7,
+              "bounding box" : [ 104.78, 198.506, 245.188, 209.535 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "2. Contractor’s plant or materials",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 7,
+              "bounding box" : [ 104.78, 186.986, 469.776, 198.015 ],
+              "font" : "TimesNewRomanPSMT",
+              "font size" : 9.96,
+              "text color" : "[0.0]",
+              "content" : "3. Damages caused by the contractor to any property of the owner and adjoining property",
+              "kids" : [ ]
+            } ]
+          }, {
+            "type" : "paragraph",
+            "id" : 20,
+            "page number" : 7,
+            "bounding box" : [ 89.274, 175.466, 278.534, 186.495 ],
+            "font" : "TimesNewRomanPSMT",
+            "font size" : 9.96,
+            "text color" : "[0.0]",
+            "content" : "All damages are the contractor’s responsibility."
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 7,
+          "bounding box" : [ 68.424, 140.186, 546.735, 175.393 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The contractor shall indemnify and save harmless the owner against all losses and claims, demands, payments, suits, actions, recoveries and judgment brought or recovered against him. Claims for payment and repairs for damages shall be settled by the contractor at his own expense.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 50.4, 128.786, 309.539, 139.815 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 31: CONTRACTOR’S INSURANCE AND BONDS",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 114,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 68.424, 81.966, 547.489, 128.713 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "next list id" : 116,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 68.424, 81.966, 547.489, 128.713 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor shall secure and maintain such insurance from a company acceptable to the owner. He shall not commence work until he has obtained insurance and shall have filed the certificate of insurance or the certified copy of the insurance policy to the owner. The policy will not be cancelled prior to 10 days’ written notice to the owner of intention to cancel.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 115,
+    "page number" : 7,
+    "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 15,
+      "page number" : 7,
+      "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "7"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 116,
+    "level" : "2",
+    "page number" : 8,
+    "bounding box" : [ 68.424, 791.352, 547.316, 885.533 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "previous list id" : 114,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 68.424, 850.446, 547.316, 885.533 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The contractor shall furnish a performance bond of equal to 15% of the contract amount and 15% payment bond covering payments and obligations arising from the contract, as form of sureties for the owner and will remain in effect until replaced by the guarantee bond.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 68.424, 803.626, 547.314, 850.353 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• The owner will release the performance and payment bonds after the expiration of 2 months from the final acceptance of work. Only after shall the contractor furnish a guarantee bond in the amount of 30% of the total contract cost and shall be for a period of 1 year commencing from the date of acceptance of work guaranteeing the quality of work and materials.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 68.424, 791.352, 219.357, 803.553 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Contractor’s guarantee-warranty:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 117,
+    "level" : "3",
+    "page number" : 8,
+    "bounding box" : [ 104.42, 687.946, 547.227, 791.015 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 104.42, 768.466, 547.061, 791.015 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. The contractor shall secure warranties from sub-contractors and deliver copies to the owner upon completion of work.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 104.42, 756.946, 461.15, 767.975 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. The contractor shall warrant all work performed by him where guarantee is required.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 104.42, 733.906, 547.227, 756.455 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. The contractor shall warrant and guarantee for a period of 1 year or for longer periods so provided in the specs all materials and workmanship installed under the contract.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 104.42, 710.986, 547.172, 733.535 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. The contractor hereby agrees to make repairs to correct defective work within a period of 5 days after written notice at his own expense within the agreed period of warranty.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 104.42, 687.946, 546.756, 710.495 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5. The owner may have the defective work done and charge the cost against the amount retained, if the work costs more than the retained amount, the contractor and his sureties will pay the remaining balance.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 118,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 50.4, 617.476, 329.798, 687.455 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "previous list id" : 113,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 50.4, 676.426, 329.798, 687.455 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 32: OWNER’S RESPONSIBILITIES AND LIABILITIES",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 39,
+        "level" : "2",
+        "page number" : 8,
+        "bounding box" : [ 68.424, 628.996, 546.785, 676.353 ],
+        "numbering style" : "unordered",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 68.424, 652.756, 546.785, 676.353 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The owner, although optional, shall be responsible and maintain such insurance to protect him from personal injury including disease and death of persons under his employment, etc.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 68.424, 628.996, 546.696, 652.683 ],
+          "font" : "SymbolMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "• The owner and architect shall give a list of personnel assigned to the project who need to be covered by insurance and amount of coverage.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 50.4, 617.476, 278.992, 628.505 ],
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "ARTICLE 33: LIENS, DISPUTE AND ARBITRATION",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 119,
+    "level" : "2",
+    "page number" : 8,
+    "bounding box" : [ 68.424, 349.376, 546.765, 617.403 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 68.424, 593.716, 546.616, 617.403 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Before release of the final payment and retained percentage, the contractor must deliver to the owner a complete release of all liens arising out of the contract, or receipts in full lieu.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 68.424, 581.562, 136.921, 593.763 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Assignment:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 17,
+        "level" : "3",
+        "page number" : 8,
+        "bounding box" : [ 104.42, 478.036, 546.901, 581.105 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 104.42, 547.036, 546.706, 581.105 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. The contract shall not be assigned by the contractor without prior written consent of the owner and such consent shall not relieve the contractor from responsibility and liability of all terms and conditions of the contract.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 104.42, 524.116, 546.901, 546.545 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. The owner’s consent of sub-letting of work shall; not be granted until the contractor furnishes the owner with evidence that the sub-contractor has ample insurance to the same extent.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 104.42, 501.076, 546.756, 523.625 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "3. The contractor shall exonerate, indemnify and save harmless the owner form any loss and expense caused by sub-letting.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 104.42, 478.036, 546.656, 500.585 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "4. In case of transfer without previous consent, the owner may refuse to carry out the contract, but rights to breach the contract is reserved to the owner and the contractor.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 68.424, 454.376, 546.765, 477.963 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Claim for damages shall be made in writing to the party liable within a reasonable time and not later than the final payment and shall be adjusted by agreement or arbitration.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 68.424, 442.102, 124.123, 454.303 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• Disputes:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 18,
+        "level" : "3",
+        "page number" : 8,
+        "bounding box" : [ 104.42, 373.136, 547.205, 441.645 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 104.42, 419.096, 546.726, 441.645 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "1. The architect shall make decisions on all claims of owner and contractor on all matters relating to the progress and execution of work or interpretation of contract documents.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 104.42, 396.176, 546.776, 418.605 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "2. The architect, whose decision is final, will decide disputes, concerning questions of fact arising under the contract.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 104.42, 373.136, 547.205, 395.685 ],
+          "font" : "TimesNewRomanPSMT",
+          "font size" : 9.96,
+          "text color" : "[0.0]",
+          "content" : "3. if the architect fails to render a decision within 15 days after parties presented their evidence, either party may demand arbitration.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 68.424, 349.376, 546.686, 373.063 ],
+      "font" : "SymbolMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "• All disputes, claims, questions subject to arbitration shall be settled in accordance with the provisions of this UAP document.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 120,
+    "page number" : 8,
+    "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 16,
+      "page number" : 8,
+      "bounding box" : [ 542.26, 35.886, 547.24, 46.915 ],
+      "heading level" : 2,
+      "font" : "TimesNewRomanPSMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "8"
+    } ]
+  } ]
+}

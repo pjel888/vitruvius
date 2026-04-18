@@ -1,0 +1,1865 @@
+{
+  "file name" : "Building Laws _ Utilities Mock Test with Key.pdf",
+  "number of pages" : 32,
+  "author" : "joel",
+  "title" : "Uapga mock test",
+  "creation date" : "D:20260413092608+08'00'",
+  "modification date" : "D:20260413092611+08'00'",
+  "kids" : [ {
+    "type" : "image",
+    "id" : 61,
+    "page number" : 1,
+    "bounding box" : [ 472.56, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile1.png"
+  }, {
+    "type" : "image",
+    "id" : 63,
+    "page number" : 1,
+    "bounding box" : [ 177.0, 401.76, 552.36, 440.28 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile2.png"
+  }, {
+    "type" : "image",
+    "id" : 59,
+    "page number" : 1,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile3.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 65,
+    "page number" : 1,
+    "bounding box" : [ 288.163, 120.316, 429.555, 171.502 ],
+    "font" : "ArialMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Building Laws Building Utilities"
+  }, {
+    "type" : "paragraph",
+    "id" : 66,
+    "page number" : 1,
+    "bounding box" : [ 210.868, 53.122, 506.48, 75.51 ],
+    "font" : "ArialMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "NOTE: ??? – unrecognizable text"
+  }, {
+    "type" : "image",
+    "id" : 69,
+    "page number" : 2,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile4.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 71,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 46.08, 424.146, 607.04, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " It is the minimum distance required of water line to the cistern tank."
+  }, {
+    "type" : "text block",
+    "id" : 72,
+    "page number" : 2,
+    "bounding box" : [ 65.25, 377.25, 186.75, 420.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 2,
+      "bounding box" : [ 78.48, 383.715, 162.375, 414.951 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " 15 m"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 73,
+    "page number" : 2,
+    "bounding box" : [ 78.48, 262.755, 162.375, 374.631 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 20 m  25 m  30 m"
+  }, {
+    "type" : "footer",
+    "id" : 74,
+    "page number" : 2,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 30,
+      "page number" : 2,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile5.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 77,
+    "page number" : 3,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile6.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 79,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 46.08, 424.146, 630.16, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " A type of faucet that operates with a round tapering plug to fit a metal sheet."
+  }, {
+    "type" : "paragraph",
+    "id" : 80,
+    "page number" : 3,
+    "bounding box" : [ 78.48, 383.715, 230.975, 414.951 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Ball faucet"
+  }, {
+    "type" : "text block",
+    "id" : 81,
+    "page number" : 3,
+    "bounding box" : [ 65.25, 335.25, 264.75, 378.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 3,
+      "bounding box" : [ 78.48, 343.395, 254.335, 374.631 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Round Cock"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 82,
+    "page number" : 3,
+    "bounding box" : [ 78.48, 262.755, 262.256, 334.311 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Key cock  Circular cock"
+  }, {
+    "type" : "footer",
+    "id" : 83,
+    "page number" : 3,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 31,
+      "page number" : 3,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile7.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 86,
+    "page number" : 4,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile8.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 88,
+    "level" : "1",
+    "page number" : 4,
+    "bounding box" : [ 46.08, 385.762, 622.894, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " The use of extreme pressure so as not affect the existing foundation in the vicinity"
+  }, {
+    "type" : "paragraph",
+    "id" : 89,
+    "page number" : 4,
+    "bounding box" : [ 78.48, 345.315, 316.636, 376.551 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Centrifugal Pump"
+  }, {
+    "type" : "text block",
+    "id" : 90,
+    "page number" : 4,
+    "bounding box" : [ 71.25, 299.25, 246.75, 342.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 4,
+      "bounding box" : [ 78.48, 304.995, 238.177, 336.231 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Jetted Well"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 91,
+    "page number" : 4,
+    "bounding box" : [ 78.48, 224.355, 258.784, 295.911 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Piston Pump  Driven Well"
+  }, {
+    "type" : "footer",
+    "id" : 92,
+    "page number" : 4,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 32,
+      "page number" : 4,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile9.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 95,
+    "page number" : 5,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile10.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 97,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 46.08, 308.963, 651.592, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " Any joint obtained by joining of metal parts with alloys and melt at temperature higher than 449 degrees centigrade but lower than the melting temp of the parts to be joined."
+  }, {
+    "type" : "text block",
+    "id" : 98,
+    "page number" : 5,
+    "bounding box" : [ 77.25, 263.25, 258.75, 306.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 5,
+      "bounding box" : [ 78.48, 268.515, 245.016, 299.751 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Blazed joint"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 99,
+    "page number" : 5,
+    "bounding box" : [ 78.48, 147.555, 354.214, 259.431 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Burned lead joint  Cement Mortar Joint  Flared Joint"
+  }, {
+    "type" : "footer",
+    "id" : 100,
+    "page number" : 5,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 33,
+      "page number" : 5,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile11.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 103,
+    "page number" : 6,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile12.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 105,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 46.08, 385.762, 594.567, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " For an apartment building how many gallons of hot water is needed per person?"
+  }, {
+    "type" : "text block",
+    "id" : 106,
+    "page number" : 6,
+    "bounding box" : [ 71.25, 341.25, 138.75, 384.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 6,
+      "bounding box" : [ 78.48, 345.315, 115.626, 376.551 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " 8"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 107,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 78.48, 224.355, 131.227, 336.231 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 78.48, 304.995, 115.626, 336.231 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.941, 0.635, 0.18]",
+      "content" : " 9",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 78.48, 224.355, 131.227, 295.911 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.941, 0.635, 0.18]",
+      "content" : " 10  12",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 108,
+    "page number" : 6,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 34,
+      "page number" : 6,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile13.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 112,
+    "page number" : 7,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile14.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 114,
+    "level" : "1",
+    "page number" : 7,
+    "bounding box" : [ 46.08, 385.762, 662.354, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " Among the following description, which of the following does NOT describe the down-feed and gravity return system?"
+  }, {
+    "type" : "paragraph",
+    "id" : 115,
+    "page number" : 7,
+    "bounding box" : [ 78.48, 345.315, 436.928, 376.551 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Overhead feed and system"
+  }, {
+    "type" : "text block",
+    "id" : 116,
+    "page number" : 7,
+    "bounding box" : [ 71.25, 269.25, 660.75, 336.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 7,
+      "bounding box" : [ 78.48, 271.387, 650.378, 336.231 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " With a continuing network of pipes o provide a constant circulation of water."
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 117,
+    "page number" : 7,
+    "bounding box" : [ 78.48, 163.859, 654.946, 262.311 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Hot water rises on the highest point of the plumbing system and travels to the fixture by gravity."
+  }, {
+    "type" : "image",
+    "id" : 110,
+    "page number" : 7,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile15.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 118,
+    "page number" : 7,
+    "bounding box" : [ 78.48, 89.947, 571.542, 154.791 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Water distribution is dependent on the expansion of the hot water gravity."
+  }, {
+    "type" : "image",
+    "id" : 121,
+    "page number" : 8,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile16.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 123,
+    "level" : "1",
+    "page number" : 8,
+    "bounding box" : [ 46.08, 424.146, 594.234, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " A Valve outlet of a boiler that permits discharge of accumulated sediment."
+  }, {
+    "type" : "paragraph",
+    "id" : 124,
+    "page number" : 8,
+    "bounding box" : [ 78.48, 343.395, 234.053, 414.951 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Blow-off  Blow valve"
+  }, {
+    "type" : "text block",
+    "id" : 125,
+    "page number" : 8,
+    "bounding box" : [ 71.25, 293.25, 294.75, 336.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 8,
+      "bounding box" : [ 78.48, 303.075, 277.179, 334.311 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Boiler blow-off"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 126,
+    "page number" : 8,
+    "bounding box" : [ 78.48, 262.755, 244.988, 293.991 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Boiler valve"
+  }, {
+    "type" : "footer",
+    "id" : 127,
+    "page number" : 8,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 35,
+      "page number" : 8,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile17.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 130,
+    "page number" : 9,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile18.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 132,
+    "level" : "1",
+    "page number" : 9,
+    "bounding box" : [ 46.08, 424.146, 653.251, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " A pipe or tubing that connects the outlets of plumbing fixture to the trap."
+  }, {
+    "type" : "paragraph",
+    "id" : 133,
+    "page number" : 9,
+    "bounding box" : [ 78.48, 383.715, 219.072, 414.951 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Trap tube"
+  }, {
+    "type" : "text block",
+    "id" : 134,
+    "page number" : 9,
+    "bounding box" : [ 71.25, 335.25, 228.75, 378.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 9,
+      "bounding box" : [ 78.48, 343.395, 217.02, 374.631 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Tail piece"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 135,
+    "page number" : 9,
+    "bounding box" : [ 78.48, 262.755, 217.509, 334.311 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Trap pipe  Trap pipe"
+  }, {
+    "type" : "footer",
+    "id" : 136,
+    "page number" : 9,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 36,
+      "page number" : 9,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile19.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 139,
+    "page number" : 10,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile20.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 141,
+    "level" : "1",
+    "page number" : 10,
+    "bounding box" : [ 46.08, 424.146, 656.866, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " Which of the following does not generally describe a vitrified clay pipe?"
+  }, {
+    "type" : "paragraph",
+    "id" : 142,
+    "page number" : 10,
+    "bounding box" : [ 78.48, 343.395, 626.849, 414.951 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Brittle  One of the oldest materials used for sewer"
+  }, {
+    "type" : "paragraph",
+    "id" : 143,
+    "page number" : 10,
+    "bounding box" : [ 78.48, 269.475, 444.452, 341.024 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : "line  High resistant to most acids"
+  }, {
+    "type" : "text block",
+    "id" : 144,
+    "page number" : 10,
+    "bounding box" : [ 71.25, 221.25, 228.75, 264.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 10,
+      "bounding box" : [ 78.48, 229.155, 220.056, 260.391 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Cheapest"
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 145,
+    "page number" : 10,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 37,
+      "page number" : 10,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile21.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 148,
+    "page number" : 11,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile22.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 150,
+    "level" : "1",
+    "page number" : 11,
+    "bounding box" : [ 46.08, 424.146, 654.962, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " What is the minimum trap diameter (mm) used for laundry tubs?"
+  }, {
+    "type" : "paragraph",
+    "id" : 151,
+    "page number" : 11,
+    "bounding box" : [ 78.48, 303.075, 185.654, 414.951 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 32 mm  38 mm  51 mm"
+  }, {
+    "type" : "text block",
+    "id" : 152,
+    "page number" : 11,
+    "bounding box" : [ 71.25, 257.25, 228.75, 300.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 11,
+      "bounding box" : [ 78.48, 262.755, 193.455, 293.991 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " 76 mm"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 153,
+    "page number" : 11,
+    "bounding box" : [ 247.2, 261.914, 337.944, 288.727 ],
+    "font" : "ArialMT",
+    "font size" : 24.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "Not sure"
+  }, {
+    "type" : "footer",
+    "id" : 154,
+    "page number" : 11,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 38,
+      "page number" : 11,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile23.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 157,
+    "page number" : 12,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile24.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 159,
+    "level" : "1",
+    "page number" : 12,
+    "bounding box" : [ 46.08, 385.762, 628.475, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " How many urinals would be needed for an auditorium with capacity of 500 persons?"
+  }, {
+    "type" : "paragraph",
+    "id" : 160,
+    "page number" : 12,
+    "bounding box" : [ 78.48, 345.315, 115.626, 376.551 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 3"
+  }, {
+    "type" : "text block",
+    "id" : 161,
+    "page number" : 12,
+    "bounding box" : [ 71.25, 299.25, 132.75, 342.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 12,
+      "bounding box" : [ 78.48, 304.995, 115.626, 336.231 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " 4"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 162,
+    "page number" : 12,
+    "bounding box" : [ 78.48, 224.355, 115.626, 295.911 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 5  7"
+  }, {
+    "type" : "footer",
+    "id" : 163,
+    "page number" : 12,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 39,
+      "page number" : 12,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile25.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 166,
+    "page number" : 13,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile26.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 168,
+    "level" : "1",
+    "page number" : 13,
+    "bounding box" : [ 46.08, 385.762, 621.461, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " The maximum developed length of the trap arm water closet or similar fixture shall not exceed to how many meters?"
+  }, {
+    "type" : "paragraph",
+    "id" : 169,
+    "page number" : 13,
+    "bounding box" : [ 78.48, 304.995, 185.777, 376.551 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 0.60 m  0.90 m"
+  }, {
+    "type" : "text block",
+    "id" : 170,
+    "page number" : 13,
+    "bounding box" : [ 65.25, 257.25, 192.75, 300.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 13,
+      "bounding box" : [ 78.48, 264.675, 170.176, 295.911 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " 1.8 m"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 171,
+    "page number" : 13,
+    "bounding box" : [ 78.48, 224.355, 170.176, 255.591 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 2.6 m"
+  }, {
+    "type" : "footer",
+    "id" : 172,
+    "page number" : 13,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 40,
+      "page number" : 13,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile27.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 175,
+    "page number" : 14,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile28.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 177,
+    "level" : "1",
+    "page number" : 14,
+    "bounding box" : [ 46.08, 347.346, 649.474, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " ??? joined to an opening in a pipe into which a plug is screwed that can be removed ??? or examining the interior of the pipe."
+  }, {
+    "type" : "text block",
+    "id" : 178,
+    "page number" : 14,
+    "bounding box" : [ 71.25, 299.25, 228.75, 342.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 14,
+      "bounding box" : [ 78.48, 306.915, 188.839, 338.151 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Ferrule"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 179,
+    "page number" : 14,
+    "bounding box" : [ 78.48, 185.955, 207.553, 297.831 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Cap  Manhole  Spigot"
+  }, {
+    "type" : "footer",
+    "id" : 180,
+    "page number" : 14,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 41,
+      "page number" : 14,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile29.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 183,
+    "page number" : 15,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile30.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 185,
+    "level" : "1",
+    "page number" : 15,
+    "bounding box" : [ 46.08, 347.346, 626.738, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " A cylindrical trap closed on the bottom and having a cover plate for access, usually installed in the drain line from a bathtub."
+  }, {
+    "type" : "paragraph",
+    "id" : 186,
+    "page number" : 15,
+    "bounding box" : [ 78.48, 226.275, 257.472, 338.151 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Drain trap  Sewage trap  Air trap"
+  }, {
+    "type" : "text block",
+    "id" : 187,
+    "page number" : 15,
+    "bounding box" : [ 71.25, 179.25, 240.75, 222.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 15,
+      "bounding box" : [ 78.48, 185.955, 224.714, 217.191 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Drum trap"
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 188,
+    "page number" : 15,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 42,
+      "page number" : 15,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile31.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 191,
+    "page number" : 16,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile32.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 193,
+    "level" : "1",
+    "page number" : 16,
+    "bounding box" : [ 46.08, 385.762, 603.686, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " What is the required number of water supply fixture unit for flush tank water closets (private/public use)?"
+  }, {
+    "type" : "paragraph",
+    "id" : 194,
+    "page number" : 16,
+    "bounding box" : [ 78.48, 304.995, 123.399, 376.551 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " ½  ¾"
+  }, {
+    "type" : "text block",
+    "id" : 195,
+    "page number" : 16,
+    "bounding box" : [ 65.25, 257.25, 162.75, 300.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 16,
+      "bounding box" : [ 78.48, 264.675, 139.025, 295.911 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " 3/5"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 196,
+    "page number" : 16,
+    "bounding box" : [ 78.48, 224.355, 139.025, 255.591 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 4/5"
+  }, {
+    "type" : "footer",
+    "id" : 197,
+    "page number" : 16,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 43,
+      "page number" : 16,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile33.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 200,
+    "page number" : 17,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile34.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 202,
+    "level" : "1",
+    "page number" : 17,
+    "bounding box" : [ 46.08, 462.53, 587.627, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " What is the pipe color for ammonia?"
+  }, {
+    "type" : "paragraph",
+    "id" : 203,
+    "page number" : 17,
+    "bounding box" : [ 78.48, 381.795, 193.517, 453.351 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Orange  Red"
+  }, {
+    "type" : "text block",
+    "id" : 204,
+    "page number" : 17,
+    "bounding box" : [ 65.25, 335.25, 198.75, 378.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 17,
+      "bounding box" : [ 78.48, 341.475, 180.015, 372.711 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Yellow"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 205,
+    "page number" : 17,
+    "bounding box" : [ 78.48, 301.155, 177.915, 332.391 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Green"
+  }, {
+    "type" : "footer",
+    "id" : 206,
+    "page number" : 17,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 44,
+      "page number" : 17,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile35.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 209,
+    "page number" : 18,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile36.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 211,
+    "level" : "1",
+    "page number" : 18,
+    "bounding box" : [ 46.08, 385.762, 615.931, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " What is the method of treatment when there are presence of calcium and magnesium in the water?"
+  }, {
+    "type" : "text block",
+    "id" : 212,
+    "page number" : 18,
+    "bounding box" : [ 71.25, 341.25, 438.75, 384.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 18,
+      "bounding box" : [ 78.48, 345.315, 432.088, 376.551 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Addition of water softeners"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 213,
+    "page number" : 18,
+    "bounding box" : [ 78.48, 224.355, 249.68, 336.231 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Filtration  Chlorination  Coagulation"
+  }, {
+    "type" : "footer",
+    "id" : 214,
+    "page number" : 18,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 45,
+      "page number" : 18,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile37.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 217,
+    "page number" : 19,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile38.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 219,
+    "level" : "1",
+    "page number" : 19,
+    "bounding box" : [ 46.08, 462.53, 634.233, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " Tube made of plastic material and color"
+  }, {
+    "type" : "paragraph",
+    "id" : 220,
+    "page number" : 19,
+    "bounding box" : [ 76.32, 347.346, 571.127, 459.941 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : "black. The cross sectional shape is normally oval and is denoted by its outside diameter"
+  }, {
+    "type" : "text block",
+    "id" : 221,
+    "page number" : 19,
+    "bounding box" : [ 71.25, 299.25, 294.75, 342.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 19,
+      "bounding box" : [ 78.48, 306.915, 260.584, 338.151 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Polybutylene"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 222,
+    "page number" : 19,
+    "bounding box" : [ 78.48, 185.955, 344.587, 297.831 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Polyethylene  Plastic Extra Pipe  Polyvinyl extra Pipe"
+  }, {
+    "type" : "footer",
+    "id" : 223,
+    "page number" : 19,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 46,
+      "page number" : 19,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile39.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 226,
+    "page number" : 20,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile40.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 228,
+    "level" : "1",
+    "page number" : 20,
+    "bounding box" : [ 46.08, 347.346, 663.86, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " A water supply system in which water is distributed from a water main or an enclosed storage tank storage tank under pressure from compressed air."
+  }, {
+    "type" : "text block",
+    "id" : 229,
+    "page number" : 20,
+    "bounding box" : [ 71.25, 299.25, 408.75, 342.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 20,
+      "bounding box" : [ 78.48, 306.915, 397.753, 338.151 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Pneumatic water supply"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 230,
+    "page number" : 20,
+    "bounding box" : [ 78.48, 185.955, 407.235, 297.831 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Mechanical water supply  Water pressure supply  Pump circuit system"
+  }, {
+    "type" : "footer",
+    "id" : 231,
+    "page number" : 20,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 47,
+      "page number" : 20,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile41.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 234,
+    "page number" : 21,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile42.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 236,
+    "level" : "1",
+    "page number" : 21,
+    "bounding box" : [ 46.08, 424.146, 654.962, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " What is the minimum trap diameter (mm) for drinking fountains?"
+  }, {
+    "type" : "paragraph",
+    "id" : 237,
+    "page number" : 21,
+    "bounding box" : [ 78.48, 343.395, 131.227, 414.951 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 21  38"
+  }, {
+    "type" : "text block",
+    "id" : 238,
+    "page number" : 21,
+    "bounding box" : [ 65.25, 299.25, 150.75, 342.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 21,
+      "bounding box" : [ 78.48, 303.075, 131.227, 334.311 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " 31"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 239,
+    "page number" : 21,
+    "bounding box" : [ 78.48, 262.755, 131.227, 293.991 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 48"
+  }, {
+    "type" : "footer",
+    "id" : 240,
+    "page number" : 21,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 48,
+      "page number" : 21,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile43.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 243,
+    "page number" : 22,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile44.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 245,
+    "level" : "1",
+    "page number" : 22,
+    "bounding box" : [ 46.08, 347.346, 641.006, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " A type of flush action of water closet where flushing action is started by a whirlpool motion followed by a complete flush down."
+  }, {
+    "type" : "paragraph",
+    "id" : 246,
+    "page number" : 22,
+    "bounding box" : [ 78.48, 306.915, 245.349, 338.151 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Wash down"
+  }, {
+    "type" : "text block",
+    "id" : 247,
+    "page number" : 22,
+    "bounding box" : [ 77.25, 263.25, 282.75, 306.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 22,
+      "bounding box" : [ 78.48, 266.595, 271.626, 297.831 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Siphon vortex"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 248,
+    "page number" : 22,
+    "bounding box" : [ 78.48, 185.955, 325.384, 257.511 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Siphon jet  Direct Flush Valve"
+  }, {
+    "type" : "footer",
+    "id" : 249,
+    "page number" : 22,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 49,
+      "page number" : 22,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile45.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 252,
+    "page number" : 23,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile46.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 254,
+    "level" : "1",
+    "page number" : 23,
+    "bounding box" : [ 46.08, 424.146, 568.269, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " What is the ratio pf water closet for dormitories (male)?"
+  }, {
+    "type" : "paragraph",
+    "id" : 255,
+    "page number" : 23,
+    "bounding box" : [ 78.48, 383.715, 139.025, 414.951 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 1:3"
+  }, {
+    "type" : "text block",
+    "id" : 256,
+    "page number" : 23,
+    "bounding box" : [ 71.25, 335.25, 162.75, 378.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 23,
+      "bounding box" : [ 78.48, 343.395, 139.025, 374.631 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " 1:8"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 257,
+    "page number" : 23,
+    "bounding box" : [ 78.48, 262.755, 154.63, 334.311 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 1:5  1:10"
+  }, {
+    "type" : "footer",
+    "id" : 258,
+    "page number" : 23,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 50,
+      "page number" : 23,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile47.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 261,
+    "page number" : 24,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile48.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 263,
+    "level" : "1",
+    "page number" : 24,
+    "bounding box" : [ 46.08, 424.146, 665.734, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " What is the minimum size of the trap for a bidet?"
+  }, {
+    "type" : "list",
+    "id" : 264,
+    "level" : "2",
+    "page number" : 24,
+    "bounding box" : [ 78.48, 303.075, 156.084, 414.951 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 24,
+      "bounding box" : [ 78.48, 343.395, 156.084, 414.951 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.941, 0.635, 0.18]",
+      "content" : " 2”  2 ½”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 24,
+      "bounding box" : [ 78.48, 303.075, 124.992, 334.311 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.941, 0.635, 0.18]",
+      "content" : " 3”",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "text block",
+    "id" : 265,
+    "page number" : 24,
+    "bounding box" : [ 59.25, 257.25, 348.75, 300.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 24,
+      "bounding box" : [ 78.48, 262.755, 329.24, 293.991 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " None of the above"
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 266,
+    "page number" : 24,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 51,
+      "page number" : 24,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile49.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 269,
+    "page number" : 25,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile50.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 271,
+    "level" : "1",
+    "page number" : 25,
+    "bounding box" : [ 46.08, 347.346, 662.376, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " The minimum allowable clearance from the highest point of the roof to the service drop conductor as per National Building Code:"
+  }, {
+    "type" : "text block",
+    "id" : 272,
+    "page number" : 25,
+    "bounding box" : [ 65.25, 299.25, 192.75, 342.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 25,
+      "bounding box" : [ 78.48, 306.915, 185.777, 338.151 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " 2.00 m"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 273,
+    "page number" : 25,
+    "bounding box" : [ 78.48, 266.595, 185.777, 297.831 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " 3.00 m"
+  }, {
+    "type" : "list",
+    "id" : 274,
+    "level" : "2",
+    "page number" : 25,
+    "bounding box" : [ 78.48, 185.955, 185.777, 257.511 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 25,
+      "bounding box" : [ 78.48, 226.275, 185.777, 257.511 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.941, 0.635, 0.18]",
+      "content" : " 2.50 m",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 25,
+      "bounding box" : [ 78.48, 185.955, 185.777, 217.191 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.941, 0.635, 0.18]",
+      "content" : " 3.50 m",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 275,
+    "page number" : 25,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 52,
+      "page number" : 25,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile51.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 278,
+    "page number" : 26,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile52.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 280,
+    "level" : "1",
+    "page number" : 26,
+    "bounding box" : [ 46.08, 424.146, 591.286, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " The specification on the electric wire XHHW refers to:"
+  }, {
+    "type" : "paragraph",
+    "id" : 281,
+    "page number" : 26,
+    "bounding box" : [ 78.48, 383.715, 637.166, 414.951 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Moisture and Heat Resistant Thermoplastic"
+  }, {
+    "type" : "text block",
+    "id" : 282,
+    "page number" : 26,
+    "bounding box" : [ 71.25, 299.25, 642.75, 378.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 26,
+      "bounding box" : [ 78.48, 309.787, 625.404, 374.631 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Moisture and Heat Resistant Cross Linked Thermosetting Polyethylene"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 283,
+    "page number" : 26,
+    "bounding box" : [ 78.48, 229.155, 553.653, 300.711 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Moisture and Heat Resistant Rubber  None of the above"
+  }, {
+    "type" : "footer",
+    "id" : 284,
+    "page number" : 26,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 53,
+      "page number" : 26,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile53.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 287,
+    "page number" : 27,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile54.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 289,
+    "level" : "1",
+    "page number" : 27,
+    "bounding box" : [ 46.08, 347.346, 653.239, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " A new air-conditioning system which answers the need to respond to changes in room cooling capacities of controlling air flow"
+  }, {
+    "type" : "paragraph",
+    "id" : 290,
+    "page number" : 27,
+    "bounding box" : [ 78.48, 266.595, 215.34, 338.151 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " VAV  Split type"
+  }, {
+    "type" : "text block",
+    "id" : 291,
+    "page number" : 27,
+    "bounding box" : [ 71.25, 221.25, 180.75, 264.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 27,
+      "bounding box" : [ 78.48, 226.275, 157.015, 257.511 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " VRV"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 292,
+    "page number" : 27,
+    "bounding box" : [ 78.48, 185.955, 154.35, 217.191 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " VTV"
+  }, {
+    "type" : "footer",
+    "id" : 293,
+    "page number" : 27,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 54,
+      "page number" : 27,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile55.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 296,
+    "page number" : 28,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile56.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 298,
+    "level" : "1",
+    "page number" : 28,
+    "bounding box" : [ 46.08, 424.146, 635.498, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " pipe o duct fitting having several outlets for making multiple connections."
+  }, {
+    "type" : "paragraph",
+    "id" : 299,
+    "page number" : 28,
+    "bounding box" : [ 78.48, 303.075, 237.193, 414.951 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Ductwork  Gatchering  Manifold"
+  }, {
+    "type" : "text block",
+    "id" : 300,
+    "page number" : 28,
+    "bounding box" : [ 71.25, 257.25, 204.75, 300.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 28,
+      "bounding box" : [ 78.48, 262.755, 173.257, 293.991 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Bonet"
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 301,
+    "page number" : 28,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 55,
+      "page number" : 28,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile57.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 305,
+    "page number" : 29,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile58.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 307,
+    "level" : "1",
+    "page number" : 29,
+    "bounding box" : [ 46.08, 270.579, 667.714, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " A dry-pipe sprinkler system through which after flow is controlled by a valve operated by fire detection devices more sensitive than those in the sprinkler heads. It is used when an accidental discharge would damage valuable ???."
+  }, {
+    "type" : "paragraph",
+    "id" : 308,
+    "page number" : 29,
+    "bounding box" : [ 78.48, 230.115, 311.899, 261.351 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Sprinkler System"
+  }, {
+    "type" : "text block",
+    "id" : 309,
+    "page number" : 29,
+    "bounding box" : [ 71.25, 185.25, 324.75, 228.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 29,
+      "bounding box" : [ 78.48, 189.795, 319.683, 221.031 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Preaction System"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 310,
+    "page number" : 29,
+    "bounding box" : [ 78.48, 109.155, 307.331, 180.711 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Deludge System  Dry-pipe System"
+  }, {
+    "type" : "image",
+    "id" : 303,
+    "page number" : 29,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile59.png"
+  }, {
+    "type" : "image",
+    "id" : 313,
+    "page number" : 30,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile60.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 315,
+    "level" : "1",
+    "page number" : 30,
+    "bounding box" : [ 46.08, 308.963, 635.61, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " A fire involving flammable liquid, as gasoline oil, and grease, which must be extinguished by excluding air and inhibiting the release of incombustible vapors"
+  }, {
+    "type" : "paragraph",
+    "id" : 316,
+    "page number" : 30,
+    "bounding box" : [ 78.48, 268.515, 249.423, 299.751 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Class A Fire"
+  }, {
+    "type" : "text block",
+    "id" : 317,
+    "page number" : 30,
+    "bounding box" : [ 71.25, 221.25, 264.75, 264.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 30,
+      "bounding box" : [ 78.48, 228.195, 252.549, 259.431 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Class B Fire"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 318,
+    "page number" : 30,
+    "bounding box" : [ 78.48, 147.555, 254.112, 219.111 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Class C Fire  Class D Fire"
+  }, {
+    "type" : "footer",
+    "id" : 319,
+    "page number" : 30,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 56,
+      "page number" : 30,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile61.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 322,
+    "page number" : 31,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile62.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 324,
+    "level" : "1",
+    "page number" : 31,
+    "bounding box" : [ 46.08, 347.346, 649.618, 498.325 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : " A rubber or plastic washer inserted in a hole in a metal part to prevent grounding of wire passing through the hole. (EL 005)."
+  }, {
+    "type" : "paragraph",
+    "id" : 325,
+    "page number" : 31,
+    "bounding box" : [ 78.48, 226.275, 207.676, 338.151 ],
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Insulator  Shield  Bushing"
+  }, {
+    "type" : "text block",
+    "id" : 326,
+    "page number" : 31,
+    "bounding box" : [ 77.25, 179.25, 234.75, 222.75 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 31,
+      "bounding box" : [ 78.48, 185.955, 216.704, 217.191 ],
+      "font" : "ArialMT",
+      "font size" : 27.96,
+      "text color" : "[1.0]",
+      "content" : " Grommet"
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 327,
+    "page number" : 31,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 57,
+      "page number" : 31,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile63.png"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 330,
+    "page number" : 32,
+    "bounding box" : [ 567.84, -4.08, 720.24, 544.08 ],
+    "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile64.png"
+  }, {
+    "type" : "heading",
+    "id" : 332,
+    "level" : "Doctitle",
+    "page number" : 32,
+    "bounding box" : [ 328.973, 245.235, 387.915, 276.471 ],
+    "heading level" : 1,
+    "font" : "ArialMT",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : "END"
+  }, {
+    "type" : "footer",
+    "id" : 333,
+    "page number" : 32,
+    "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 58,
+      "page number" : 32,
+      "bounding box" : [ -4.08, -1.2, 724.08, 173.52 ],
+      "source" : "Building Laws _ Utilities Mock Test with Key_images/imageFile65.png"
+    } ]
+  } ]
+}

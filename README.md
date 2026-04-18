@@ -1983,21 +1983,33 @@ the Vitruvius trunk will continue specializing downward into AEC physics.
 
 ---
 
-## Principles
+## Local-First Operation (No Cloud AI Required)
 
-The project operates under ten non-negotiable principles, formalized in
-`.ai/00_system/principles.md`:
+Vitruvius is designed as a **self-contained intelligence system**. Once the orchestration scripts are written, it runs entirely on your local hardware using your GPU (RTX 4070) and does not require an active internet connection or Cloud AI (like Gemini/OpenAI).
 
-1. **Filesystem is the database** — no hidden SQLite/pickle state
-2. **Raw layer is immutable** — the pipeline never modifies `001_Raw-Source-Layer/`
-3. **Idempotent stages** — every `run_*` command is safe to re-run
-4. **Path-based traceability** — `001` → `002` → `003` paths mirror structurally
-5. **Deterministic canonicalization** — IDs come from `canonical_rules.yaml`
-6. **Immutable canonical IDs** — changes go through `migrate-ids-plan`
-7. **Explicit concept vocabulary** — extraction only uses concepts in `003/shared/concepts/`
-8. **Local-first AI** — cloud LLMs are opt-in only; the core review loop runs air-gapped
-9. **No soft output** — any extracted candidate without `source_section_id` is rejected
-10. **No schema-less growth** — new corpora (a second jurisdiction, a new medical specialty, a new code of practice) wait until Phase 7 validates the existing reference corpus
+### Prerequisites for Local Build
+- **Ollama:** Installed and running locally.
+- **Model:** `llama3.1:8b` (Recommended for high-fidelity reasoning).
+- **Java:** OpenJDK 21+ (Required for PDF-to-Markdown conversion).
+
+### Master CLI Commands
+
+#### 1. Identity Provisioning (The "Who am I?" Pass)
+This command identifies all 341+ PDFs in your raw layer, assigns professional human-readable titles, standardized IDs, and determines legal trust levels.
+```bash
+# Windows (PowerShell)
+$env:PYTHONPATH="scripts"; python scripts/vitruvius/identity_provisioner.py --limit 400 --model "llama3.1:8b" --execute
+```
+
+#### 2. Discovery Weaver (The "Matchmaking" Pass)
+This command converts the identified PDFs, extracts architectural concepts, and "weaves" verified interconnections (e.g., Law -> History) into the graph.
+```bash
+# Windows (PowerShell)
+$env:PYTHONPATH="scripts"; python scripts/vitruvius/discovery_weaver.py --limit 10 --model "llama3.1:8b" --execute
+```
+
+### Knowledge Graph Persistence
+All discovered knowledge is **hardcoded** into the `003_Canonical-Knowledge-Layer/` as permanent Markdown files. This ensures your "Digital Brain" is stable, auditable, and yours to keep forever without monthly API bills.
 
 ---
 

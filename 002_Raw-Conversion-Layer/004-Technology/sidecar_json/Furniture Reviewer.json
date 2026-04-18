@@ -1,0 +1,587 @@
+{
+  "file name" : "Furniture Reviewer.pdf",
+  "number of pages" : 7,
+  "author" : "Owner",
+  "title" : "Slide 1",
+  "creation date" : "D:20260413100705+08'00'",
+  "modification date" : "D:20260413100705+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 10,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 73.224, 374.86, 357.378, 443.735 ],
+    "heading level" : 1,
+    "font" : "ArialNarrow-Bold",
+    "font size" : 60.024,
+    "text color" : "[1.0]",
+    "content" : "FURNITURE"
+  }, {
+    "type" : "heading",
+    "id" : 15,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 48.36, 445.495, 576.947, 511.178 ],
+    "heading level" : 2,
+    "font" : "ArialNarrow",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " What do you call the study that deals with human measurements?"
+  }, {
+    "type" : "list",
+    "id" : 16,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 48.36, 284.18, 283.489, 437.258 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 48.36, 405.175, 97.599, 437.258 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " a.",
+      "kids" : [ {
+        "type" : "text block",
+        "id" : 4,
+        "page number" : 2,
+        "bounding box" : [ 125.0, 401.0, 307.0, 439.0 ],
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 2,
+          "bounding box" : [ 135.875, 405.175, 300.041, 437.258 ],
+          "font" : "ArialNarrow",
+          "font size" : 27.96,
+          "text color" : "[1.0]",
+          "content" : "anthropometrics"
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 48.36, 364.825, 283.489, 396.908 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " b. Ergonometrics",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 48.36, 324.505, 255.531, 356.588 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " c. Ergonomics",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 48.36, 284.18, 231.425, 316.29 ],
+      "font" : "Wingdings2",
+      "font size" : 27.984,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " d. carpentry",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 17,
+    "page number" : 2,
+    "bounding box" : [ 79.224, 168.683, 700.355, 199.692 ],
+    "font" : "ArialNarrow",
+    "font size" : 27.024,
+    "text color" : "[1.0]",
+    "content" : "ergonometrics – deals with space planning in relationship with"
+  }, {
+    "type" : "paragraph",
+    "id" : 18,
+    "page number" : 2,
+    "bounding box" : [ 79.224, 90.902, 571.235, 173.72 ],
+    "font" : "ArialNarrow",
+    "font size" : 27.0,
+    "text color" : "[1.0]",
+    "content" : "man’s activities ergonomics – human factor engineering carpentry – is a process by which woodworks are"
+  }, {
+    "type" : "paragraph",
+    "id" : 19,
+    "page number" : 2,
+    "bounding box" : [ 79.224, 64.977, 356.842, 95.986 ],
+    "font" : "ArialNarrow",
+    "font size" : 27.024,
+    "text color" : "[1.0]",
+    "content" : "manufactured and produced"
+  }, {
+    "type" : "paragraph",
+    "id" : 24,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 48.36, 445.495, 611.729, 511.178 ],
+    "font" : "ArialNarrow",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Which Philippine furniture is specifically designed for giving birth?"
+  }, {
+    "type" : "list",
+    "id" : 25,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 48.36, 284.18, 222.396, 437.258 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 48.36, 405.175, 205.872, 437.258 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " a. Kapiya",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 48.36, 364.825, 222.396, 396.908 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " b. Comoda",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 48.36, 324.505, 96.399, 356.588 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " c.",
+      "kids" : [ {
+        "type" : "text block",
+        "id" : 3,
+        "page number" : 3,
+        "bounding box" : [ 125.0, 323.0, 307.0, 361.0 ],
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 3,
+          "bounding box" : [ 134.675, 324.505, 203.386, 356.588 ],
+          "font" : "ArialNarrow",
+          "font size" : 27.96,
+          "text color" : "[1.0]",
+          "content" : "butaca"
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 48.36, 284.18, 222.331, 316.29 ],
+      "font" : "Wingdings2",
+      "font size" : 27.984,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " d. gallinera",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 26,
+    "page number" : 3,
+    "bounding box" : [ 79.224, 108.263, 642.23, 200.286 ],
+    "font" : "ArialNarrow",
+    "font size" : 30.0,
+    "text color" : "[1.0]",
+    "content" : "kapiya – is a modified church pew comoda – is an exquisite chest drawers gallinera – is a wooden sofa that features a cabinet"
+  }, {
+    "type" : "paragraph",
+    "id" : 27,
+    "page number" : 3,
+    "bounding box" : [ 79.224, 79.461, 387.961, 113.913 ],
+    "font" : "ArialNarrow",
+    "font size" : 30.024,
+    "text color" : "[1.0]",
+    "content" : "compartment below the seat"
+  }, {
+    "type" : "heading",
+    "id" : 32,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 48.36, 445.495, 653.529, 511.178 ],
+    "heading level" : 2,
+    "font" : "ArialNarrow",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Which Philippine furniture is usually used to store pillows and mats?"
+  }, {
+    "type" : "list",
+    "id" : 33,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 48.36, 284.18, 268.225, 437.258 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 48.36, 405.175, 97.599, 437.258 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " a.",
+      "kids" : [ {
+        "type" : "text block",
+        "id" : 1,
+        "page number" : 4,
+        "bounding box" : [ 125.0, 395.0, 307.0, 433.0 ],
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 4,
+          "bounding box" : [ 135.875, 405.175, 210.933, 437.258 ],
+          "font" : "ArialNarrow",
+          "font size" : 27.96,
+          "text color" : "[1.0]",
+          "content" : "almario"
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 48.36, 364.825, 227.541, 396.908 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " b. aparador",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 48.36, 324.505, 268.225, 356.588 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " c. Paminggalan",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 48.36, 284.18, 195.69, 316.29 ],
+      "font" : "Wingdings2",
+      "font size" : 27.984,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " d. Diban",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 34,
+    "page number" : 4,
+    "bounding box" : [ 79.224, 117.79, 693.737, 192.955 ],
+    "font" : "ArialNarrow",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : "aparador – refers to a wardrobe with mirror attached to the door"
+  }, {
+    "type" : "paragraph",
+    "id" : 35,
+    "page number" : 4,
+    "bounding box" : [ 79.224, 79.389, 654.072, 116.181 ],
+    "font" : "ArialNarrow",
+    "font size" : 32.064,
+    "text color" : "[1.0]",
+    "content" : "paminggalan – is used to store food and utensils"
+  }, {
+    "type" : "paragraph",
+    "id" : 36,
+    "page number" : 4,
+    "bounding box" : [ 79.224, 40.97, 312.66, 77.735 ],
+    "font" : "ArialNarrow",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : "diban – is a daybed"
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "level" : "3",
+    "page number" : 5,
+    "bounding box" : [ 48.36, 479.095, 267.122, 511.178 ],
+    "font" : "ArialNarrow",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " What is escritoire?"
+  }, {
+    "type" : "list",
+    "id" : 42,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 48.36, 317.785, 453.206, 470.858 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 48.36, 438.775, 408.722, 470.858 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " a. arm chair with closed arms",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 48.36, 398.45, 97.604, 430.56 ],
+      "font" : "Wingdings2",
+      "font size" : 27.984,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " b.",
+      "kids" : [ {
+        "type" : "text block",
+        "id" : 2,
+        "page number" : 5,
+        "bounding box" : [ 125.0, 395.0, 307.0, 433.0 ],
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 5,
+          "bounding box" : [ 135.88, 398.45, 276.228, 430.56 ],
+          "font" : "ArialNarrow",
+          "font size" : 27.984,
+          "text color" : "[1.0]",
+          "content" : "a writing desk"
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 48.36, 358.105, 420.188, 390.188 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " c. hanging or standing shelves",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 48.36, 317.785, 453.206, 349.868 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " d. crowning ornament on furniture",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 43,
+    "page number" : 5,
+    "bounding box" : [ 49.2, 117.79, 669.012, 192.955 ],
+    "font" : "ArialNarrow-Bold",
+    "font size" : 32.04,
+    "text color" : "[1.0, 1.0, 0.0]",
+    "content" : "arm chair with closed arms – is called bergere hanging or standing shelves – is called the etagere"
+  }, {
+    "type" : "paragraph",
+    "id" : 44,
+    "page number" : 5,
+    "bounding box" : [ 49.2, 79.389, 632.454, 116.181 ],
+    "font" : "ArialNarrow-Bold",
+    "font size" : 32.064,
+    "text color" : "[1.0, 1.0, 0.0]",
+    "content" : "crowning ornament on furniture – is called finial"
+  }, {
+    "type" : "paragraph",
+    "id" : 49,
+    "level" : "3",
+    "page number" : 6,
+    "bounding box" : [ 48.36, 479.095, 462.395, 511.178 ],
+    "font" : "ArialNarrow",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " Who designed the “Barcelona Chair”?"
+  }, {
+    "type" : "list",
+    "id" : 50,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 48.36, 317.785, 267.104, 470.858 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 48.36, 438.775, 267.104, 470.858 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " a. Le Corbusier",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 48.36, 398.45, 244.329, 430.56 ],
+      "font" : "Wingdings2",
+      "font size" : 27.984,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " b. Alvar Aalto",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 48.36, 358.105, 96.399, 390.188 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " c.",
+      "kids" : [ {
+        "type" : "text block",
+        "id" : 1,
+        "page number" : 6,
+        "bounding box" : [ 125.0, 353.0, 421.0, 391.0 ],
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 6,
+          "bounding box" : [ 134.675, 358.105, 398.574, 390.188 ],
+          "font" : "ArialNarrow",
+          "font size" : 27.96,
+          "text color" : "[1.0]",
+          "content" : "Ludwig Mies van de Rohe"
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 48.36, 317.785, 267.076, 349.868 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " d. Marcel Bruer",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 51,
+    "page number" : 6,
+    "bounding box" : [ 49.2, 117.79, 601.092, 192.955 ],
+    "font" : "ArialNarrow",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : "Le Corbusier – designed the adjustable chaise lounge"
+  }, {
+    "type" : "paragraph",
+    "id" : 52,
+    "page number" : 6,
+    "bounding box" : [ 49.2, 79.389, 580.235, 116.181 ],
+    "font" : "ArialNarrow",
+    "font size" : 32.064,
+    "text color" : "[1.0]",
+    "content" : "Alvar Aalto – designed the cantilevered chair"
+  }, {
+    "type" : "paragraph",
+    "id" : 53,
+    "page number" : 6,
+    "bounding box" : [ 49.2, 40.97, 678.495, 77.735 ],
+    "font" : "ArialNarrow",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : "Marcel Bruer – designed the cesca cantilevered chair"
+  }, {
+    "type" : "heading",
+    "id" : 58,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 48.36, 445.495, 608.989, 511.178 ],
+    "heading level" : 2,
+    "font" : "ArialNarrow",
+    "font size" : 27.96,
+    "text color" : "[1.0]",
+    "content" : " It is a chair made of molded fiberglass rest on a cast aluminum pedestal"
+  }, {
+    "type" : "list",
+    "id" : 59,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 48.36, 284.18, 254.357, 437.258 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 48.36, 405.175, 97.599, 437.258 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " a.",
+      "kids" : [ {
+        "type" : "text block",
+        "id" : 1,
+        "page number" : 7,
+        "bounding box" : [ 125.0, 401.0, 271.0, 439.0 ],
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 7,
+          "bounding box" : [ 135.875, 405.175, 234.0, 437.258 ],
+          "font" : "ArialNarrow",
+          "font size" : 27.96,
+          "text color" : "[1.0]",
+          "content" : "tulip chair"
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 48.36, 364.825, 207.102, 396.908 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " b. Chaise",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 48.36, 324.505, 254.357, 356.588 ],
+      "font" : "Wingdings2",
+      "font size" : 27.96,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " c. ribbon chair",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 48.36, 284.18, 236.49, 316.29 ],
+      "font" : "Wingdings2",
+      "font size" : 27.984,
+      "text color" : "[0.0588, 0.435, 0.776]",
+      "content" : " d. gyro chair",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 60,
+    "page number" : 7,
+    "bounding box" : [ 49.2, 108.263, 638.0, 200.286 ],
+    "font" : "ArialNarrow",
+    "font size" : 30.0,
+    "text color" : "[1.0]",
+    "content" : "chaise – is made of nylon stretch fabric over urethane foam ribbon chair – is made of tubular steel frame covered"
+  }, {
+    "type" : "paragraph",
+    "id" : 61,
+    "page number" : 7,
+    "bounding box" : [ 49.2, 79.461, 569.722, 113.913 ],
+    "font" : "ArialNarrow",
+    "font size" : 30.024,
+    "text color" : "[1.0]",
+    "content" : "with rubber webbing and pre-foamed latex foam"
+  }, {
+    "type" : "paragraph",
+    "id" : 62,
+    "page number" : 7,
+    "bounding box" : [ 49.2, 50.643, 624.56, 85.066 ],
+    "font" : "ArialNarrow",
+    "font size" : 30.0,
+    "text color" : "[1.0]",
+    "content" : "gyro chair – is made of reinforced molded fiberglass"
+  } ]
+}

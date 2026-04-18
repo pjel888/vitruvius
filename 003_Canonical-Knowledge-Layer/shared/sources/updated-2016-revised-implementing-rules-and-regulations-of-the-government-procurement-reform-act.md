@@ -4,7 +4,7 @@ title: Updated 2016 Revised Implementing Rules and Regulations of the Government
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:37:47.763548+00:00
+last_canonicalized_utc: 2026-04-18T08:21:06.057235+00:00
 aliases:
   - RA 9184 IRR
   - Government Procurement Reform Act IRR
@@ -253,6 +253,7 @@ THE 2016 REVISED IMPLEMENTING RULES AND REGULATIONS OF REPUBLIC ACT NO. 9184, OT
 - concept-competitive-bidding
 - concept-approved-budget-for-the-contract
 - concept-bids-and-awards-committee
+- concept-arbitration
 - concept-light-and-ventilation
 - concept-floor-area-ratio
 - concept-general-conditions-of-contract

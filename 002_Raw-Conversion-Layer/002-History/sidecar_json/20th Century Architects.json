@@ -1,0 +1,797 @@
+{
+  "file name" : "20th Century Architects.pdf",
+  "number of pages" : 19,
+  "author" : "Devine Pasa Porte",
+  "title" : "PowerPoint Presentation",
+  "creation date" : "D:20260413100538+08'00'",
+  "modification date" : "D:20260413100538+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 6,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 31.2, 468.51, 554.422, 504.305 ],
+    "heading level" : 1,
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : "Richard Buckminster Fuller (1895-1983)"
+  }, {
+    "type" : "list",
+    "id" : 7,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 31.2, 266.644, 673.2, 437.507 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 31.2, 353.064, 673.2, 437.507 ],
+      "font" : "ArialMT",
+      "font size" : 24.024,
+      "text color" : "[1.0, 0.8, 0.0]",
+      "content" : "• American inventor of the Geodesic Dome and the principle of “Synergetics, ”who influenced High Tech leaders, especially Norman Foster",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 31.2, 266.644, 646.538, 351.077 ],
+      "font" : "ArialMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• “MORE WITH LESS” – a philosophy concerned with the efficient use of materials and technology for energy and cost-efficient designs, for the benefit of humanity.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 8,
+    "page number" : 1,
+    "bounding box" : [ 37.2, 216.46, 381.002, 252.255 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : "Eero Saarinen (1910-1961)"
+  }, {
+    "type" : "list",
+    "id" : 9,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 37.2, 33.794, 668.352, 175.827 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 37.2, 149.014, 233.616, 175.827 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• Finnish architect",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 37.2, 91.418, 668.352, 147.027 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• noted for his highly expressionist work reflected in the sculptural forms of his buildings using reinforced concrete",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 37.2, 62.613, 419.16, 89.452 ],
+      "font" : "ArialMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• studied architecture and sculpture",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 37.2, 33.794, 612.864, 60.607 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• influenced by Mies van der Rohe and Antonio Gaudi",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 11,
+    "page number" : 2,
+    "bounding box" : [ 144.0, 93.25, 618.0, 456.0 ],
+    "source" : "20th Century Architects_images/imageFile1.png"
+  }, {
+    "type" : "heading",
+    "id" : 12,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 225.91, 32.593, 536.062, 78.982 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Buck Fuller, DYMAXION HOUSE, Wichita, Kansas, 1946"
+  }, {
+    "type" : "image",
+    "id" : 14,
+    "page number" : 3,
+    "bounding box" : [ 18.0, 34.875, 357.0, 515.995 ],
+    "source" : "20th Century Architects_images/imageFile2.png"
+  }, {
+    "type" : "image",
+    "id" : 15,
+    "page number" : 3,
+    "bounding box" : [ 366.0, 323.38, 648.0, 514.26 ],
+    "source" : "20th Century Architects_images/imageFile3.png"
+  }, {
+    "type" : "image",
+    "id" : 17,
+    "page number" : 3,
+    "bounding box" : [ 366.0, 120.0, 654.0, 312.0 ],
+    "source" : "20th Century Architects_images/imageFile4.png"
+  }, {
+    "type" : "heading",
+    "id" : 16,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 385.27, 51.841, 696.735, 122.252 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Buck Fuller, U.S. PAVILION - 1967 Exposition, Montreal, Canada"
+  }, {
+    "type" : "image",
+    "id" : 19,
+    "page number" : 4,
+    "bounding box" : [ 108.0, 124.13, 630.0, 426.0 ],
+    "source" : "20th Century Architects_images/imageFile5.png"
+  }, {
+    "type" : "caption",
+    "id" : 20,
+    "page number" : 4,
+    "bounding box" : [ 212.47, 92.617, 544.774, 115.006 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Eero Saarinen, M.I.T. AUDITORIUM,"
+  }, {
+    "type" : "heading",
+    "id" : 21,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 276.94, 68.612, 480.429, 91.027 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[1.0]",
+    "content" : "Massachussets, 1962"
+  }, {
+    "type" : "image",
+    "id" : 23,
+    "page number" : 5,
+    "bounding box" : [ 48.0, 139.25, 678.0, 414.0 ],
+    "source" : "20th Century Architects_images/imageFile6.png"
+  }, {
+    "type" : "caption",
+    "id" : 24,
+    "page number" : 5,
+    "bounding box" : [ 306.05, 92.617, 446.261, 115.006 ],
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Eero Saarinen,"
+  }, {
+    "type" : "heading",
+    "id" : 25,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 127.68, 68.612, 629.762, 91.027 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[1.0]",
+    "content" : "T.W.A. TERMINAL, J.F.K. INTERNATIONAL AIRPORT,"
+  }, {
+    "type" : "paragraph",
+    "id" : 26,
+    "page number" : 5,
+    "bounding box" : [ 306.29, 44.593, 451.179, 66.982 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "New York, 1962"
+  }, {
+    "type" : "image",
+    "id" : 28,
+    "page number" : 6,
+    "bounding box" : [ 120.0, 138.25, 624.0, 462.0 ],
+    "source" : "20th Century Architects_images/imageFile7.png"
+  }, {
+    "type" : "caption",
+    "id" : 29,
+    "page number" : 6,
+    "bounding box" : [ 132.79, 92.617, 624.232, 115.006 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Eero Saarinen, DULLES INTERNATIONAL AIRPORT,"
+  }, {
+    "type" : "heading",
+    "id" : 30,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 293.76, 68.612, 463.18, 91.027 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[1.0]",
+    "content" : "Washington, 1962"
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 7,
+    "bounding box" : [ 37.2, 468.51, 378.022, 504.305 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : "Philip Johnson (1906- )"
+  }, {
+    "type" : "list",
+    "id" : 33,
+    "level" : "1",
+    "page number" : 7,
+    "bounding box" : [ 37.2, 93.818, 673.624, 437.507 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 37.2, 381.889, 580.704, 437.507 ],
+      "font" : "ArialMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• controversial architect who worked in the modern and, later, in the postmodern style",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 37.2, 295.459, 673.624, 379.877 ],
+      "font" : "ArialMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• together with Henry Russell-Hitchcock, curated an exhibition entitled “Modern Architecture: An International Exhibition” from which the “International Style” came from",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 37.2, 209.044, 595.56, 293.457 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• for his master’s thesis, built the Glass House whose concept was borrowed from van der Rohe’s Farnsworth House",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 37.2, 151.414, 587.592, 207.078 ],
+      "font" : "ArialMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• worked with Mies van der Rohe and together they designed the Seagram Building",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 37.2, 93.818, 622.08, 149.427 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• designed the AT& T Headquarters, considered as the first postmodern skyscraper",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 34,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 37.2, 36.194, 576.144, 63.007 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 24.0,
+    "text color" : "[1.0]",
+    "content" : "“ The only cardinal sin in building is boredom.”"
+  }, {
+    "type" : "paragraph",
+    "id" : 35,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 469.27, 9.098, 557.122, 26.928 ],
+    "font" : "ArialMT",
+    "font size" : 15.96,
+    "text color" : "[1.0]",
+    "content" : "- JOHNSON"
+  }, {
+    "type" : "image",
+    "id" : 38,
+    "page number" : 8,
+    "bounding box" : [ 24.0, 60.0, 265.12, 510.0 ],
+    "source" : "20th Century Architects_images/imageFile8.png"
+  }, {
+    "type" : "image",
+    "id" : 37,
+    "page number" : 8,
+    "bounding box" : [ 282.0, 267.0, 690.0, 510.0 ],
+    "source" : "20th Century Architects_images/imageFile9.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 39,
+    "page number" : 8,
+    "bounding box" : [ 289.25, 206.643, 559.467, 253.032 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Philip Johnson, (above) THE GLASS HOUSE,"
+  }, {
+    "type" : "heading",
+    "id" : 40,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 361.25, 182.638, 532.757, 205.053 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[1.0]",
+    "content" : "Connecticut, 1949"
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "page number" : 8,
+    "bounding box" : [ 289.25, 110.613, 612.842, 181.002 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "(left) THE SEAGRAM BUILDING, New York, 1958 (with Mies van der Rohe)"
+  }, {
+    "type" : "image",
+    "id" : 43,
+    "page number" : 9,
+    "bounding box" : [ 372.0, 18.0, 697.37, 516.0 ],
+    "source" : "20th Century Architects_images/imageFile10.png"
+  }, {
+    "type" : "heading",
+    "id" : 44,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 194.3, 74.612, 343.308, 97.027 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 20.064,
+    "text color" : "[1.0]",
+    "content" : "Philip Johnson,"
+  }, {
+    "type" : "paragraph",
+    "id" : 45,
+    "page number" : 9,
+    "bounding box" : [ 110.78, 26.593, 348.589, 72.982 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "AT&T HEADQUARTERS, New York, 1979"
+  }, {
+    "type" : "paragraph",
+    "id" : 47,
+    "page number" : 10,
+    "bounding box" : [ 31.2, 480.51, 399.262, 516.305 ],
+    "font" : "ArialMT",
+    "font size" : 32.04,
+    "text color" : "[1.0]",
+    "content" : "Michael Graves (1934- )"
+  }, {
+    "type" : "list",
+    "id" : 48,
+    "level" : "1",
+    "page number" : 10,
+    "bounding box" : [ 31.2, 175.511, 626.296, 439.907 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 31.2, 360.336, 626.296, 439.907 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• one of the New York Five or The Five Whites, together with Richard Meier, Peter Eisenman, Charles Gwathmey and John Hejduk, known for their white, modernist designs",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 31.2, 307.536, 572.669, 358.47 ],
+      "font" : "ArialMT",
+      "font size" : 21.96,
+      "text color" : "[1.0]",
+      "content" : "• in the mid-70s, abandoned modernism and became a famous figure in the postmodern camp",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 31.2, 228.316, 548.144, 305.692 ],
+      "font" : "ArialMT",
+      "font size" : 21.984,
+      "text color" : "[1.0]",
+      "content" : "• successfully brought the postmodern style from the academe to the public through the design of the controversial Portland Building in 1983.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 31.2, 175.511, 545.277, 226.45 ],
+      "font" : "ArialMT",
+      "font size" : 21.984,
+      "text color" : "[1.0]",
+      "content" : "• diverted architecture from modernist abstraction to restore literacy to readers and users of the building",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 49,
+    "page number" : 10,
+    "bounding box" : [ 31.2, 96.286, 651.812, 147.22 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 21.96,
+    "text color" : "[1.0]",
+    "content" : "“ I believe that people make natural associations with form, color, and the composition of elements while decoration"
+  }, {
+    "type" : "heading",
+    "id" : 50,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 31.2, 69.885, 604.653, 94.446 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 21.984,
+    "text color" : "[1.0]",
+    "content" : "and detailing help communicate a building’s purpose.”"
+  }, {
+    "type" : "paragraph",
+    "id" : 51,
+    "level" : "2",
+    "page number" : 10,
+    "bounding box" : [ 535.3, 43.466, 632.392, 68.0 ],
+    "font" : "ArialMT",
+    "font size" : 21.96,
+    "text color" : "[1.0]",
+    "content" : "-GRAVES"
+  }, {
+    "type" : "image",
+    "id" : 53,
+    "page number" : 11,
+    "bounding box" : [ 18.0, 291.13, 360.0, 510.01 ],
+    "source" : "20th Century Architects_images/imageFile11.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 55,
+    "page number" : 11,
+    "bounding box" : [ 373.27, 302.663, 598.139, 373.052 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Michael Graves, HANSELMANN HOUSE, Indiana, 1967"
+  }, {
+    "type" : "image",
+    "id" : 54,
+    "page number" : 11,
+    "bounding box" : [ 18.0, 42.5, 354.0, 264.0 ],
+    "source" : "20th Century Architects_images/imageFile12.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 56,
+    "page number" : 11,
+    "bounding box" : [ 367.27, 92.617, 519.601, 115.006 ],
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Michael Graves,"
+  }, {
+    "type" : "heading",
+    "id" : 57,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 367.27, 68.612, 578.885, 91.027 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[1.0]",
+    "content" : "SNYDERMAN HOUSE,"
+  }, {
+    "type" : "paragraph",
+    "id" : 58,
+    "page number" : 11,
+    "bounding box" : [ 367.27, 44.593, 492.821, 66.982 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Indiana, 1972"
+  }, {
+    "type" : "image",
+    "id" : 60,
+    "page number" : 12,
+    "bounding box" : [ 78.0, 110.0, 642.0, 492.0 ],
+    "source" : "20th Century Architects_images/imageFile13.png"
+  }, {
+    "type" : "heading",
+    "id" : 61,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 275.09, 68.612, 427.448, 91.027 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 20.064,
+    "text color" : "[1.0]",
+    "content" : "Michael Graves,"
+  }, {
+    "type" : "paragraph",
+    "id" : 62,
+    "page number" : 12,
+    "bounding box" : [ 246.05, 44.593, 461.841, 66.982 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "PLOCEK HOUSE, 1982"
+  }, {
+    "type" : "image",
+    "id" : 64,
+    "page number" : 13,
+    "bounding box" : [ 30.0, 25.625, 438.25, 515.995 ],
+    "source" : "20th Century Architects_images/imageFile14.png"
+  }, {
+    "type" : "heading",
+    "id" : 65,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 457.27, 62.593, 676.628, 133.002 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Michael Graves, PORTLAND BUILDING, Oregon, 1983"
+  }, {
+    "type" : "image",
+    "id" : 67,
+    "page number" : 14,
+    "bounding box" : [ 18.0, 24.0, 316.87, 522.0 ],
+    "source" : "20th Century Architects_images/imageFile15.png"
+  }, {
+    "type" : "heading",
+    "id" : 68,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 337.25, 62.593, 680.094, 133.002 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Michael Graves, WORLD TRADE EXCHANGE BLDG., Binondo, Manila"
+  }, {
+    "type" : "paragraph",
+    "id" : 70,
+    "page number" : 15,
+    "bounding box" : [ 43.2, 402.505, 245.941, 438.327 ],
+    "font" : "ArialMT",
+    "font size" : 32.064,
+    "text color" : "[1.0]",
+    "content" : "Arquitectonica"
+  }, {
+    "type" : "list",
+    "id" : 71,
+    "level" : "3",
+    "page number" : 15,
+    "bounding box" : [ 43.2, 162.214, 642.676, 361.877 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 43.2, 306.264, 642.676, 361.877 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[1.0]",
+      "content" : "• Miami-based firm composed of Bernardo Fort- Brescia and Laurinda Spears",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 43.2, 248.644, 543.574, 304.298 ],
+      "font" : "ArialMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• works are influenced by both Modernism and Postmodernism",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 43.2, 162.214, 642.098, 246.657 ],
+      "font" : "ArialMT",
+      "font size" : 24.024,
+      "text color" : "[1.0]",
+      "content" : "• pursued the style of an unconventional modernism, both abstract and romantic, playful as well as dramatic and forceful",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 73,
+    "page number" : 16,
+    "bounding box" : [ 36.0, 262.63, 450.0, 510.0 ],
+    "source" : "20th Century Architects_images/imageFile16.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 75,
+    "page number" : 16,
+    "bounding box" : [ 473.4, 314.663, 619.391, 337.052 ],
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Arquitectonica,"
+  }, {
+    "type" : "heading",
+    "id" : 76,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 473.4, 290.658, 649.261, 313.073 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[1.0]",
+    "content" : "THE PINK HOUSE,"
+  }, {
+    "type" : "heading",
+    "id" : 77,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 473.4, 266.643, 607.568, 289.032 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Miami, Florida"
+  }, {
+    "type" : "image",
+    "id" : 74,
+    "page number" : 16,
+    "bounding box" : [ 36.0, 32.625, 450.0, 257.995 ],
+    "source" : "20th Century Architects_images/imageFile17.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 78,
+    "page number" : 16,
+    "bounding box" : [ 473.4, 62.593, 704.621, 109.006 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0]",
+    "content" : "Arquitectonica, ATLANTIS CONDOMINIUM,"
+  }, {
+    "type" : "footer",
+    "id" : 79,
+    "page number" : 16,
+    "bounding box" : [ 473.4, 38.593, 585.424, 60.982 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 3,
+      "page number" : 16,
+      "bounding box" : [ 473.4, 38.593, 585.424, 60.982 ],
+      "heading level" : 5,
+      "font" : "Arial-BoldMT",
+      "font size" : 20.04,
+      "text color" : "[1.0]",
+      "content" : "Miami, 1982"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 81,
+    "page number" : 17,
+    "bounding box" : [ 30.0, 25.25, 407.25, 522.0 ],
+    "source" : "20th Century Architects_images/imageFile18.png"
+  }, {
+    "type" : "heading",
+    "id" : 82,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 439.27, 92.617, 585.271, 115.006 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Arquitectonica,"
+  }, {
+    "type" : "paragraph",
+    "id" : 83,
+    "page number" : 17,
+    "bounding box" : [ 439.27, 68.612, 670.498, 91.027 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[1.0]",
+    "content" : "ATLANTIS CONDOMINIUM,"
+  }, {
+    "type" : "footer",
+    "id" : 84,
+    "page number" : 17,
+    "bounding box" : [ 439.27, 44.593, 551.294, 66.982 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 4,
+      "page number" : 17,
+      "bounding box" : [ 439.27, 44.593, 551.294, 66.982 ],
+      "heading level" : 5,
+      "font" : "Arial-BoldMT",
+      "font size" : 20.04,
+      "text color" : "[1.0]",
+      "content" : "Miami, 1982"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 86,
+    "page number" : 18,
+    "bounding box" : [ 114.0, 99.75, 624.0, 510.0 ],
+    "source" : "20th Century Architects_images/imageFile19.png"
+  }, {
+    "type" : "heading",
+    "id" : 87,
+    "level" : "Subtitle",
+    "page number" : 18,
+    "bounding box" : [ 330.82, 68.612, 476.818, 91.027 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 20.064,
+    "text color" : "[1.0]",
+    "content" : "Arquitectonica,"
+  }, {
+    "type" : "paragraph",
+    "id" : 88,
+    "page number" : 18,
+    "bounding box" : [ 310.18, 20.593, 497.471, 66.982 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0]",
+    "content" : "BANCO DE CREDITO, Peru, 1988"
+  }, {
+    "type" : "image",
+    "id" : 90,
+    "page number" : 19,
+    "bounding box" : [ 84.0, 116.13, 642.0, 492.0 ],
+    "source" : "20th Century Architects_images/imageFile20.png"
+  }, {
+    "type" : "heading",
+    "id" : 91,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 266.02, 92.617, 412.011, 115.006 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Arquitectonica,"
+  }, {
+    "type" : "paragraph",
+    "id" : 92,
+    "page number" : 19,
+    "bounding box" : [ 226.9, 68.612, 451.258, 91.027 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[1.0]",
+    "content" : "PACIFIC PLAZA TOWERS,"
+  }, {
+    "type" : "heading",
+    "id" : 93,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 213.82, 20.593, 464.18, 66.982 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0]",
+    "content" : "Fort Bonifacio Global City, Philippines"
+  } ]
+}

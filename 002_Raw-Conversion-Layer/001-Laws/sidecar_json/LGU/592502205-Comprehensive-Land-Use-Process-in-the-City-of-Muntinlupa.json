@@ -1,0 +1,575 @@
+{
+  "file name" : "592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa.pdf",
+  "number of pages" : 7,
+  "author" : "Anna Lorraine Evangelista",
+  "title" : null,
+  "creation date" : "D:20220411195035+08'00'",
+  "modification date" : "D:20220411195035+08'00'",
+  "kids" : [ {
+    "type" : "paragraph",
+    "id" : 21,
+    "page number" : 1,
+    "bounding box" : [ 72.024, 688.24, 523.654, 719.988 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "Anat, Aron Joshua C. Section 2 ARC 1431: Planning 3 Formative/Summative Assessment No. 5"
+  }, {
+    "type" : "paragraph",
+    "id" : 23,
+    "page number" : 1,
+    "bounding box" : [ 225.05, 646.877, 386.918, 660.647 ],
+    "font" : "ArialNarrow-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Comprehensive Land Use Process"
+  }, {
+    "type" : "image",
+    "id" : 20,
+    "page number" : 1,
+    "bounding box" : [ 96.0, 102.35, 477.79, 642.55 ],
+    "source" : "592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa_images/imageFile1.png"
+  }, {
+    "type" : "heading",
+    "id" : 24,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 222.17, 86.929, 389.822, 103.039 ],
+    "heading level" : 1,
+    "font" : "ArialNarrow-Bold",
+    "font size" : 14.04,
+    "text color" : "[0.0]",
+    "content" : "Zoning Map of Muntinlupa City"
+  }, {
+    "type" : "footer",
+    "id" : 25,
+    "page number" : 1,
+    "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 8,
+      "page number" : 1,
+      "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+      "heading level" : 4,
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "Anat | ARC 1431| Formative Assessment 5"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 26,
+    "page number" : 2,
+    "bounding box" : [ 73.8, 93.6, 541.8, 720.0 ],
+    "source" : "592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa_images/imageFile2.png"
+  }, {
+    "type" : "footer",
+    "id" : 27,
+    "page number" : 2,
+    "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 9,
+      "page number" : 2,
+      "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+      "heading level" : 4,
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "Anat | ARC 1431| Formative Assessment 5"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 28,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 277.37, 706.157, 334.754, 719.927 ],
+    "heading level" : 2,
+    "font" : "ArialNarrow-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Introduction"
+  }, {
+    "type" : "paragraph",
+    "id" : 29,
+    "page number" : 3,
+    "bounding box" : [ 72.024, 610.96, 540.22, 680.388 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "The city of Muntinlupa is known as “Emerald City of the Philippines” for its recent urban developments. The municipality of Muntinlupa is the 4th district and is highly urbanized city in the National Capital Region of the Philippines (NCR) with a population of approximately 543,445 people according to 2020 census. Muntinlupa City is a growing city in which establishments and commercial buildings rose up as years go by."
+  }, {
+    "type" : "paragraph",
+    "id" : 30,
+    "page number" : 3,
+    "bounding box" : [ 72.024, 478.33, 540.221, 585.708 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "The city of Muntinlupa is regarded as a well-run city with a thorough and integrated eight-point program for its residents. The eight-point program aims to support the resident’s hopes, dreams, and vision for the growth of the city through programs supporting the Education, Livelihood and Employment, Health and Safety, Peace and Order, Socialize Housing, Good Local governance, Environmental Protection and Economic Development. However, certain factors such as housing developments, marginalized zones, and lack of service buildings in areas far from the center of barangays should be addressed or needs to improve."
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 90.024, 401.804, 375.243, 415.329 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "• Barangay Putatan, Muntinlupa City, NCR Metro Manila, Philippines"
+  }, {
+    "type" : "image",
+    "id" : 35,
+    "page number" : 3,
+    "bounding box" : [ 72.0, 213.31, 291.8, 385.66 ],
+    "source" : "592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa_images/imageFile3.png"
+  }, {
+    "type" : "image",
+    "id" : 34,
+    "page number" : 3,
+    "bounding box" : [ 298.35, 213.3, 556.65, 385.65 ],
+    "source" : "592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa_images/imageFile4.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 3,
+    "bounding box" : [ 109.331, 200.469, 540.208, 211.898 ],
+    "font" : "ArialNarrow-Italic",
+    "font size" : 9.0,
+    "text color" : "[0.0]",
+    "content" : "Photo Courtesy via Google Earth Pro Image taken from https://davidwoo.com/portfolio/squatters-in-the-philippines/"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 3,
+    "bounding box" : [ 72.024, 87.444, 540.181, 175.828 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "Barangay Putatan is one of the 9 barangays in Muntinlupa City with an area of 6.746 km2 and approximate population of 100,000 according to the data fromhttps://en.wikipedia.org/wiki/Muntinlupa. The barangay is adjacent to the Laguna De Bay which is also a source of living from residents nearby. However, as years go by, areas near Laguna De Bay are accumulated by informal settlers since riverbanks are a source of living and even railroad tracks where they can grow plantations and raise poultry."
+  }, {
+    "type" : "footer",
+    "id" : 36,
+    "page number" : 3,
+    "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 10,
+      "page number" : 3,
+      "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+      "heading level" : 4,
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "Anat | ARC 1431| Formative Assessment 5"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 37,
+    "page number" : 4,
+    "bounding box" : [ 72.024, 669.4, 540.174, 719.988 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "As a result, the area is congested causing land and water pollution to accumulate rapidly. To act regarding to the situation, the local ordinance introduced the Comprehensive Land Use plan and other city ordinances to aid with residents who is living within the area."
+  }, {
+    "type" : "list",
+    "id" : 38,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 90.024, 572.2, 540.172, 644.204 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 90.024, 572.2, 540.172, 644.204 ],
+      "font" : "SymbolMT",
+      "font size" : 12.0,
+      "text color" : "[0.0]",
+      "content" : "• City of Muntinlupa Comprehensive Land Use Plan The Comprehensive Land Use Plan (CLUP) of Muntinlupa contains data of from different area within the city and the future projects to sustain and develop the urban community. In addition, problems and issues are addressed which is inclined to the overall goals and objective.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 39,
+    "page number" : 4,
+    "bounding box" : [ 108.02, 534.37, 344.817, 547.038 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "According to the Muntinlupa CLUP, some of the issues are:"
+  }, {
+    "type" : "list",
+    "id" : 40,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 126.02, 457.675, 540.141, 528.078 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.02, 514.435, 285.983, 528.078 ],
+      "font" : "CourierNewPSMT",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "o The continuing influx of immigrants.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.02, 477.61, 540.141, 509.118 ],
+      "font" : "CourierNewPSMT",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "o 120 depressed areas with 29,799 households have been identified. This means that 7 percent of the population needs affordable housing units",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.02, 457.675, 455.37, 471.318 ],
+      "font" : "CourierNewPSMT",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "o Sites for socialized housing are tentative and are still under private ownership.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 41,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 108.02, 419.567, 400.46, 433.337 ],
+    "heading level" : 3,
+    "font" : "ArialNarrow",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Strategies, Programs and Projects to support the issues presented."
+  }, {
+    "type" : "list",
+    "id" : 42,
+    "level" : "3",
+    "page number" : 4,
+    "bounding box" : [ 126.02, 229.67, 540.132, 412.758 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.02, 400.09, 317.619, 412.758 ],
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "1. Identify possible areas for housing projects.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.02, 381.13, 394.749, 393.798 ],
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "2. Secure separate funding for Housing Program Implementation.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.02, 343.31, 539.848, 374.938 ],
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "3. To strictly implement R.A.7279 or the law that requires subdivisions to allocate 20 percent for socialized housing.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.02, 305.39, 540.132, 337.018 ],
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "4. To relocate informal settlers from depressed areas, like along the railroads tracks, banks of the river systems, and the shorelines of Laguna De Bay.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.02, 267.59, 539.837, 299.098 ],
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "5. To recommend land use areas suitable for Socialized Housing Programs through the City Government Land Bank/Interim financing.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 126.02, 229.67, 539.978, 261.298 ],
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "6. Encourage industrial firms to provide housing programs for their employees at terms within their reach.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 43,
+    "page number" : 4,
+    "bounding box" : [ 108.02, 116.0, 540.139, 204.508 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "These actions could provide great assistance to the marginalized sectors and low-income residents residing in the area. In addition, these could create opportunities for the residents to generate income through small businesses and provides a pollution free environment to the area. Riverbanks and railroad areas where informal settlers reside can be recovered from both land and water pollution through volunteers from communities and the local government."
+  }, {
+    "type" : "footer",
+    "id" : 44,
+    "page number" : 4,
+    "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 11,
+      "page number" : 4,
+      "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+      "heading level" : 4,
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "Anat | ARC 1431| Formative Assessment 5"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 47,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 90.024, 705.223, 502.918, 719.924 ],
+    "heading level" : 2,
+    "font" : "ArialNarrow-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "• Daang Hari Road – SLEX Connector, Muntinlupa City, NCR Metro Manila, Philippines"
+  }, {
+    "type" : "image",
+    "id" : 45,
+    "page number" : 5,
+    "bounding box" : [ 48.55, 506.08, 234.0, 685.13 ],
+    "source" : "592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa_images/imageFile5.png"
+  }, {
+    "type" : "image",
+    "id" : 46,
+    "page number" : 5,
+    "bounding box" : [ 242.15, 506.18, 570.8, 685.08 ],
+    "source" : "592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa_images/imageFile6.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 48,
+    "page number" : 5,
+    "bounding box" : [ 72.024, 494.279, 509.127, 505.708 ],
+    "font" : "ArialNarrow-Italic",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Photo Courtesy via Google Earth Pro Daang Hari Private Properties, Muntinlupa City Aerial View"
+  }, {
+    "type" : "paragraph",
+    "id" : 50,
+    "page number" : 5,
+    "bounding box" : [ 72.024, 362.27, 540.301, 469.518 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "Daang Hari Road is known as Las Piñas-Muntinlupa-Laguna-Cavite Link Road where most of the private cars and motorcycle drivers passes through from city to city. Daang Hari Road is a 9.2 kilometers highway with four-way lanes which accommodates a large number of vehicles without accumulating too much traffic within the area. Taking the Daang Hari Road reduces the time when travelling from Muntinlupa to Laguna, Cavity, Las Piñas and vice-versa. However, Daang Hari Road are mostly accessible by private cars and few motor cabs are available but limited areas only."
+  }, {
+    "type" : "paragraph",
+    "id" : 55,
+    "page number" : 5,
+    "bounding box" : [ 72.024, 172.88, 540.309, 337.018 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.125, 0.129, 0.133]",
+    "content" : "The span of Daang Hari in Muntinlupa has a wide area of private lands owned by Vista Land and Filinvest Land which is aimed to be developed into a subdivision and villages. With these type of development projects, economy will increase drastically through investors and commercial establishments from residents. According to the local governance policies and R.A 7279, subdivisions and lands are entitled to allocate at least 20 percent of the overall land for socialized housing. In order for the proposed development to be successful, the city government must also develop additional road networks to provide access from different points where public transports are accessible. The local government proposed future development projects which is also reflected into the Muntinlupa City Comprehensive Plan. According to the Muntinlupa CLUP, these programs and projects are:"
+  }, {
+    "type" : "list",
+    "id" : 65,
+    "level" : "2",
+    "page number" : 5,
+    "bounding box" : [ 90.024, 116.0, 539.982, 147.628 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "next list id" : 69,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.024, 116.0, 539.982, 147.628 ],
+      "font" : "CourierNewPSMT",
+      "font size" : 11.04,
+      "text color" : "[0.125, 0.129, 0.133]",
+      "content" : "o Construction of Soldiers Hills main entrance road of around 800 linear meters long and 12 linear meters width, which will benefit Camella 2d Subdivision, Mutual Homes, Soldiers Hills Q other subdivisions.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 67,
+    "page number" : 5,
+    "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 12,
+      "page number" : 5,
+      "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+      "heading level" : 4,
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "Anat | ARC 1431| Formative Assessment 5"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 69,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 90.024, 573.865, 540.234, 719.988 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "previous list id" : 65,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 90.024, 688.36, 539.805, 719.988 ],
+      "font" : "CourierNewPSMT",
+      "font size" : 11.04,
+      "text color" : "[0.125, 0.129, 0.133]",
+      "content" : "o Construction of East Kabulusan Road consisting of 700 linear meter access from the East Service toward PPTA Road in Barangay Cupang (with drainage).",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 90.024, 612.64, 540.234, 663.228 ],
+      "font" : "CourierNewPSMT",
+      "font size" : 11.04,
+      "text color" : "[0.125, 0.129, 0.133]",
+      "content" : "o Construction of Concepcion St. access road from East Service Road towards PPTA Road, Buli. This involves construction of approximately 100 linear meters of road together with the corresponding expropriation of lot to be affected.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 90.024, 573.865, 231.812, 587.508 ],
+      "font" : "CourierNewPSMT",
+      "font size" : 11.04,
+      "text color" : "[0.125, 0.129, 0.133]",
+      "content" : "o Opening of Subdivision Roads.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 71,
+    "page number" : 6,
+    "bounding box" : [ 72.024, 498.97, 540.204, 549.558 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.125, 0.129, 0.133]",
+    "content" : "Inadequate road networks are one of the issues that is currently present in the city of Muntinlupa which resulted into traffic congestion in certain areas. With these proposals, the traffic situation and economy in the city will improve drastically and will provide more opportunity for low-income residents of the city."
+  }, {
+    "type" : "footer",
+    "id" : 74,
+    "page number" : 6,
+    "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 13,
+      "page number" : 6,
+      "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+      "heading level" : 4,
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "Anat | ARC 1431| Formative Assessment 5"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 75,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 72.024, 706.157, 179.28, 719.927 ],
+    "heading level" : 2,
+    "font" : "ArialNarrow-Bold",
+    "font size" : 12.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "Reference and Citation"
+  }, {
+    "type" : "paragraph",
+    "id" : 76,
+    "page number" : 7,
+    "bounding box" : [ 72.024, 647.08, 498.82, 678.708 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "Guest. (n.d.). 237742350-Comprehensive-land-use-Plan.pdf. pdfcoffee.com. Retrieved April 11, 2022, from https://pdfcoffee.com/download/237742350-comprehensive-land-use-planpdf-pdf-free.html"
+  }, {
+    "type" : "paragraph",
+    "id" : 77,
+    "page number" : 7,
+    "bounding box" : [ 72.024, 590.32, 381.482, 621.828 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "Squatters in the Philippines. David Woo. (n.d.). Retrieved April 11, 2022, from https://davidwoo.com/portfolio/squatters-in-the-philippines/"
+  }, {
+    "type" : "paragraph",
+    "id" : 78,
+    "page number" : 7,
+    "bounding box" : [ 72.024, 533.41, 536.687, 565.068 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "Urban Agriculture Project Kicks off in Muntinlupa City. Official Portal of the Department of Agriculture. (2020, April 8). Retrieved April 11, 2022, from https://www.da.gov.ph/urban-agriculture-project-kicks-off-at-muntinlupa-city/"
+  }, {
+    "type" : "list",
+    "id" : 79,
+    "level" : "3",
+    "page number" : 7,
+    "bounding box" : [ 72.024, 419.89, 505.841, 508.278 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 476.65, 505.841, 508.278 ],
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "Wikimedia Foundation. (2021, November 30). Putatan, Muntinlupa. Wikipedia. Retrieved April 11, 2022, from https://en.wikipedia.org/wiki/Putatan,_Muntinlupa",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 72.024, 419.89, 441.047, 451.398 ],
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "Wikimedia Foundation. (2022, April 1). Muntinlupa. Wikipedia. Retrieved April 11, 2022, from https://en.wikipedia.org/wiki/Muntinlupa",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 80,
+    "page number" : 7,
+    "bounding box" : [ 72.024, 344.15, 530.514, 394.638 ],
+    "font" : "ArialNarrow",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "gerryshore77. (2022, March 19). Muntinlupa-Cavite Expressway (MCX): Daang Hari-Slex Link. SkyscraperCity Forum. Retrieved April 11, 2022, from https://www.skyscrapercity.com/threads/muntinlupa-cavite-expressway-mcxdaang-hari-slex-link.1741552/page-32"
+  }, {
+    "type" : "footer",
+    "id" : 81,
+    "page number" : 7,
+    "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 14,
+      "page number" : 7,
+      "bounding box" : [ 368.47, 35.22, 540.214, 47.888 ],
+      "heading level" : 4,
+      "font" : "ArialNarrow",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "Anat | ARC 1431| Formative Assessment 5"
+    } ]
+  } ]
+}

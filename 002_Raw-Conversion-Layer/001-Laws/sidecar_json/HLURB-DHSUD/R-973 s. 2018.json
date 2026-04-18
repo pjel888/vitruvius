@@ -1,0 +1,1346 @@
+{
+  "file name" : "R-973 s. 2018.pdf",
+  "number of pages" : 4,
+  "author" : null,
+  "title" : null,
+  "creation date" : "D:20181025092250+08'00'",
+  "modification date" : "D:20181115104120+08'00'",
+  "kids" : [ {
+    "type" : "image",
+    "id" : 1,
+    "page number" : 1,
+    "bounding box" : [ -6.48, -4.8, 606.96, 829.68 ],
+    "source" : "R-973 s. 2018_images/imageFile1.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 6,
+    "page number" : 1,
+    "bounding box" : [ 132.97, 794.64, 135.639, 805.738 ],
+    "font" : "Helvetica",
+    "font size" : 9.6,
+    "text color" : "[0.722]",
+    "content" : ","
+  }, {
+    "type" : "image",
+    "id" : 2,
+    "page number" : 1,
+    "bounding box" : [ 54.96, 743.29, 109.68, 800.89 ],
+    "source" : "R-973 s. 2018_images/imageFile2.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 7,
+    "page number" : 1,
+    "bounding box" : [ 120.93, 786.513, 207.724, 794.995 ],
+    "font" : "Times-Roman",
+    "font size" : 7.6,
+    "text color" : "[0.529, 0.525, 0.533]",
+    "content" : "Republic ofthe Philippines"
+  }, {
+    "type" : "paragraph",
+    "id" : 8,
+    "page number" : 1,
+    "bounding box" : [ 120.61, 774.591, 220.238, 786.309 ],
+    "font" : "Times-Roman",
+    "font size" : 10.5,
+    "text color" : "[0.463, 0.455, 0.467]",
+    "content" : "Office ofthe President"
+  }, {
+    "type" : "heading",
+    "id" : 9,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 119.93, 757.911, 471.872, 773.981 ],
+    "heading level" : 3,
+    "font" : "Times-Roman",
+    "font size" : 14.4,
+    "text color" : "[0.435, 0.565, 0.714]",
+    "content" : "HOUSING AND LAND USE REGULATORY BOARD"
+  }, {
+    "type" : "paragraph",
+    "id" : 10,
+    "page number" : 1,
+    "bounding box" : [ 120.36, 745.443, 381.474, 757.812 ],
+    "font" : "Helvetica-Oblique",
+    "font size" : 10.7,
+    "text color" : "[0.384, 0.372, 0.388]",
+    "content" : "Lupong Nangangasiwa sa Pabahay at Gamit ng Lupa"
+  }, {
+    "type" : "paragraph",
+    "id" : 11,
+    "page number" : 1,
+    "bounding box" : [ 218.63, 686.92, 394.956, 714.97 ],
+    "font" : "Helvetica",
+    "font size" : 11.6,
+    "text color" : "[0.384, 0.372, 0.388]",
+    "content" : "BOARD RESOLUTION NO. 973 Series of 2018"
+  }, {
+    "type" : "paragraph",
+    "id" : 12,
+    "page number" : 1,
+    "bounding box" : [ 78.21, 617.07, 535.43, 657.131 ],
+    "font" : "Helvetica",
+    "font size" : 11.6,
+    "text color" : "[0.384, 0.372, 0.388]",
+    "content" : "AMENDING PERTINENT PROVISIONS OF THE REVISED IMPLEMENTING RULES AND REGULATIONS FOR BATAS PAMBANSA BILANG 220"
+  }, {
+    "type" : "paragraph",
+    "id" : 13,
+    "page number" : 1,
+    "bounding box" : [ 73.077, 521.56, 541.114, 588.24 ],
+    "font" : "Helvetica",
+    "font size" : 11.6,
+    "text color" : "[0.384, 0.372, 0.388]",
+    "content" : "WHEREAS, Batas Pambansa Big. 220, Series of 1982, authorizes the Housing and Land Use Regulatory Board (HLURB) to establish and promulgate different levels of standards and technical requirements for the development of socialized housing projects in urban and rural areas from those provided in P.O. 957, P.O. 1216, P.O. 1096 and P.O. 1185;"
+  }, {
+    "type" : "paragraph",
+    "id" : 14,
+    "page number" : 1,
+    "bounding box" : [ 73.088, 454.596, 541.35, 508.33 ],
+    "font" : "Helvetica",
+    "font size" : 11.6,
+    "text color" : "[0.384, 0.372, 0.388]",
+    "content" : "WHEREAS the HLURB Board adopted, through Resolution No. 968, Series of 2018, the new tiered price ceiling for socialized subdivision projects as established and ordered in HUDCC Resolution No.1, Series of 2018 otherwise known as \"The Price Ceiling For Socialized Subdivision Projects\";"
+  }, {
+    "type" : "paragraph",
+    "id" : 15,
+    "page number" : 1,
+    "bounding box" : [ 73.102, 401.319, 540.373, 441.615 ],
+    "font" : "Helvetica",
+    "font size" : 11.6,
+    "text color" : "[0.384, 0.372, 0.388]",
+    "content" : "WHEREAS, the same HUDCC Resolution No.1, Series of 2018, directs the HLURB to formulate and issue the appropriate technical deSign and standards for socialized subdivision projects for the implementation of the new price ceilings;"
+  }, {
+    "type" : "paragraph",
+    "id" : 16,
+    "page number" : 1,
+    "bounding box" : [ 72.93, 336.985, 524.054, 379.21 ],
+    "font" : "Helvetica",
+    "font size" : 11.6,
+    "text color" : "[0.384, 0.372, 0.388]",
+    "content" : "WHEREFORE, BE IT RESOLVED, AS IT IS HEREBY RESOLVED, that the following amendments to the Revised Implementing Rules and Regulations (IRR) for B.P. 220, Series of 2001 be, as the same are hereby APPROVED."
+  }, {
+    "type" : "paragraph",
+    "id" : 17,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 92.06, 274.36, 541.108, 328.33 ],
+    "font" : "Helvetica",
+    "font size" : 11.6,
+    "text color" : "[0.384, 0.372, 0.388]",
+    "content" : "1. That, the minimum lot area and floor area requirements of various types of socialized housing described in Section S.C.2.b - Table 7. Minimum Lot Area and Section S.C.4.a respectively. which corresponds to the new price ceiling therefor, shall be amended as follows:"
+  }, {
+    "type" : "table",
+    "id" : 4,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 73.2, 133.92, 536.88, 252.24 ],
+    "number of rows" : 2,
+    "number of columns" : 4,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 73.68, 238.92, 172.62, 251.4 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 1,
+          "bounding box" : [ 79.12, 238.59, 164.914, 252.0 ],
+          "font" : "Helvetica",
+          "font size" : 10.8,
+          "text color" : "[0.384, 0.372, 0.388]",
+          "content" : "Type of Housing"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 172.62, 238.92, 366.78, 251.4 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 2,
+          "page number" : 1,
+          "bounding box" : [ 224.47, 239.02, 313.689, 251.505 ],
+          "font" : "Helvetica",
+          "font size" : 10.8,
+          "text color" : "[0.384, 0.372, 0.388]",
+          "content" : "Gross Floor Area"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 366.78, 238.92, 440.94, 251.4 ],
+        "row number" : 1,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "page number" : 1,
+          "bounding box" : [ 381.83, 239.5, 425.769, 251.985 ],
+          "font" : "Helvetica",
+          "font size" : 10.8,
+          "text color" : "[0.384, 0.372, 0.388]",
+          "content" : "Lot Area"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 440.94, 238.92, 536.52, 251.4 ],
+        "row number" : 1,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 1,
+          "bounding box" : [ 455.999, 239.738, 521.893, 252.225 ],
+          "font" : "Helvetica",
+          "font size" : 10.8,
+          "text color" : "[0.384, 0.372, 0.388]",
+          "content" : "Price Ceiling"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 73.68, 135.06, 172.62, 238.92 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 5,
+          "page number" : 1,
+          "bounding box" : [ 78.76, 225.805, 152.922, 237.134 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.8,
+          "text color" : "[0.384, 0.372, 0.388]",
+          "content" : "Single Detached"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 172.62, 135.06, 366.78, 238.92 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 1,
+          "bounding box" : [ 177.78, 212.957, 356.419, 238.099 ],
+          "font" : "Times-Roman",
+          "font size" : 10.7,
+          "text color" : "[0.384, 0.372, 0.388]",
+          "content" : "28 sq.m. with loft of at least 50% of the base structure; or"
+        }, {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 1,
+          "bounding box" : [ 177.942, 142.395, 358.946, 202.569 ],
+          "font" : "Times-Roman",
+          "font size" : 10.7,
+          "text color" : "[0.384, 0.372, 0.388]",
+          "content" : "32 sq.m. - one storey; or 32 sq.m. - 2 storey structure (16 square meter per floor structure with a dimension of4 meters x 4 meters)"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 366.78, 135.06, 440.94, 238.92 ],
+        "row number" : 2,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 8,
+          "page number" : 1,
+          "bounding box" : [ 380.29, 226.397, 427.329, 238.339 ],
+          "font" : "Times-Roman",
+          "font size" : 10.7,
+          "text color" : "[0.384, 0.372, 0.388]",
+          "content" : "72.8 sq.m."
+        }, {
+          "type" : "paragraph",
+          "id" : 9,
+          "page number" : 1,
+          "bounding box" : [ 380.29, 168.797, 427.332, 203.059 ],
+          "font" : "Times-Roman",
+          "font size" : 10.7,
+          "text color" : "[0.384, 0.372, 0.388]",
+          "content" : "79.2 sq.m. 60.0 sq.m."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 440.94, 135.06, 536.52, 238.92 ],
+        "row number" : 2,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 1,
+          "bounding box" : [ 460.026, 226.622, 518.378, 238.569 ],
+          "font" : "Times-Roman",
+          "font size" : 10.7,
+          "text color" : "[0.384, 0.372, 0.388]",
+          "content" : "P 580,000.00"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 3,
+    "page number" : 1,
+    "bounding box" : [ 539.76, 64.56, 571.44, 106.8 ],
+    "source" : "R-973 s. 2018_images/imageFile3.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 18,
+    "page number" : 1,
+    "bounding box" : [ 129.48, 34.45, 527.722, 56.022 ],
+    "font" : "Helvetica",
+    "font size" : 9.5,
+    "text color" : "[0.463, 0.455, 0.467]",
+    "content" : "Sunnymede IT Center, 1614 Quezon Ave., Brgy. South Triangle, Quezon City ~./ -/ 0./ /"
+  }, {
+    "type" : "paragraph",
+    "id" : 19,
+    "page number" : 1,
+    "bounding box" : [ 260.64, 24.023, 338.217, 35.005 ],
+    "font" : "Helvetica",
+    "font size" : 9.5,
+    "text color" : "[0.463, 0.455, 0.467]",
+    "content" : "www.hlurb.gov.ph"
+  }, {
+    "type" : "image",
+    "id" : 20,
+    "page number" : 2,
+    "bounding box" : [ -2.4, -1.68, 600.24, 822.48 ],
+    "source" : "R-973 s. 2018_images/imageFile4.png"
+  }, {
+    "type" : "list",
+    "id" : 23,
+    "level" : "4",
+    "page number" : 2,
+    "bounding box" : [ 77.82, 705.328, 343.39, 755.39 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "next list id" : 28,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 77.82, 705.328, 343.39, 755.39 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 10.1,
+      "text color" : "[0.388, 0.388, 0.408]",
+      "content" : "Page 2 HLURB Board Resolution No. 9735. of2018 Amending Pertinent Provisions of the Revised Implementing Rules & Regulationsfor Batas Pambansa Bilang 220",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "table",
+    "id" : 22,
+    "level" : "3",
+    "page number" : 2,
+    "bounding box" : [ 72.24, 106.32, 536.64, 678.72 ],
+    "number of rows" : 9,
+    "number of columns" : 4,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 72.78, 665.64, 171.42, 678.36 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 2,
+          "bounding box" : [ 78.17, 665.98, 163.954, 678.465 ],
+          "font" : "Helvetica",
+          "font size" : 10.8,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "Type of Housing"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 171.42, 665.64, 365.88, 678.36 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 2,
+          "page number" : 2,
+          "bounding box" : [ 223.51, 665.98, 312.729, 678.465 ],
+          "font" : "Helvetica",
+          "font size" : 10.8,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "Gross Floor Area"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 365.88, 665.64, 441.24, 678.36 ],
+        "row number" : 1,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "page number" : 2,
+          "bounding box" : [ 381.12, 665.98, 424.809, 678.465 ],
+          "font" : "Helvetica",
+          "font size" : 10.8,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "Lot Area"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 441.24, 665.64, 536.04, 678.36 ],
+        "row number" : 1,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 2,
+          "bounding box" : [ 455.039, 666.218, 521.173, 678.705 ],
+          "font" : "Helvetica",
+          "font size" : 10.8,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "Price Ceiling"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 72.78, 549.12, 171.42, 665.64 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 2,
+        "column span" : 1,
+        "kids" : [ ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 171.42, 607.32, 365.88, 665.64 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 5,
+          "page number" : 2,
+          "bounding box" : [ 177.06, 640.213, 355.459, 664.789 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "24 sq.m. with loft of at least 50% of the base structure; or"
+        }, {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 2,
+          "bounding box" : [ 177.06, 617.653, 274.699, 629.259 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "28 sq.m. - one storey"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 365.88, 607.32, 441.24, 665.64 ],
+        "row number" : 2,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 2,
+          "bounding box" : [ 379.55, 653.183, 426.388, 664.789 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "66.4sq.m."
+        }, {
+          "type" : "paragraph",
+          "id" : 8,
+          "page number" : 2,
+          "bounding box" : [ 379.81, 617.903, 426.36, 629.509 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "72.8 sq.m."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 441.24, 607.32, 536.04, 665.64 ],
+        "row number" : 2,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 9,
+          "page number" : 2,
+          "bounding box" : [ 459.31, 653.183, 517.653, 664.789 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "P 530,000.00"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 171.42, 549.12, 365.88, 607.32 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 2,
+          "bounding box" : [ 177.06, 581.653, 355.459, 606.229 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "22 sq.m. with loft of at least 50% of the base structure; or"
+        }, {
+          "type" : "paragraph",
+          "id" : 11,
+          "page number" : 2,
+          "bounding box" : [ 177.06, 559.343, 274.699, 570.949 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "24 sq.m. - one storey"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 365.88, 549.12, 441.24, 607.32 ],
+        "row number" : 3,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 12,
+          "page number" : 2,
+          "bounding box" : [ 379.55, 594.623, 426.388, 606.229 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "63.2sq.m."
+        }, {
+          "type" : "paragraph",
+          "id" : 13,
+          "page number" : 2,
+          "bounding box" : [ 379.78, 559.093, 426.7, 570.699 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "66.4sq.m."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 441.24, 549.12, 536.04, 607.32 ],
+        "row number" : 3,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 14,
+          "page number" : 2,
+          "bounding box" : [ 459.31, 594.623, 517.563, 606.229 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "P 480,000.00"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 72.78, 335.04, 171.42, 549.12 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 3,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 15,
+          "page number" : 2,
+          "bounding box" : [ 77.34, 523.473, 142.129, 547.645 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.5,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "Duplex/Single Attached"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 171.42, 451.68, 365.88, 549.12 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 16,
+          "page number" : 2,
+          "bounding box" : [ 176.82, 523.343, 355.459, 548.139 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "28 sq.m. with loft of at least 50% of the base structure; or"
+        }, {
+          "type" : "paragraph",
+          "id" : 17,
+          "page number" : 2,
+          "bounding box" : [ 176.78, 452.543, 357.746, 512.389 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "32 sq.m. - one storey; or 32 sq.m. - 2 storey structure (16 square meter per floor structure with a dimension of 4 meters x 4 meters)"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 365.88, 451.68, 441.24, 549.12 ],
+        "row number" : 4,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 18,
+          "page number" : 2,
+          "bounding box" : [ 376.905, 536.296, 429.009, 547.902 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "58.33 sq.m."
+        }, {
+          "type" : "paragraph",
+          "id" : 19,
+          "page number" : 2,
+          "bounding box" : [ 376.91, 478.453, 429.024, 512.389 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "63.67sq.m. 45.0 sq.m."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 441.24, 451.68, 536.04, 549.12 ],
+        "row number" : 4,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 20,
+          "page number" : 2,
+          "bounding box" : [ 459.314, 536.293, 517.656, 547.902 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "P 580,000.00"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 5,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 171.42, 393.24, 365.88, 451.68 ],
+        "row number" : 5,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 21,
+          "page number" : 2,
+          "bounding box" : [ 177.06, 426.133, 355.46, 450.949 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "24 sq.m. with loft of at least 50% of the base structure; or"
+        }, {
+          "type" : "paragraph",
+          "id" : 22,
+          "page number" : 2,
+          "bounding box" : [ 177.06, 403.343, 274.702, 414.949 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "28 sq.m. - one storey"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 365.88, 393.24, 441.24, 451.68 ],
+        "row number" : 5,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 23,
+          "page number" : 2,
+          "bounding box" : [ 379.77, 439.343, 426.229, 450.949 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "53.0sq.m."
+        }, {
+          "type" : "paragraph",
+          "id" : 24,
+          "page number" : 2,
+          "bounding box" : [ 377.14, 407.183, 429.005, 418.789 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "58.33 sq.m."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 441.24, 393.24, 536.04, 451.68 ],
+        "row number" : 5,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 25,
+          "page number" : 2,
+          "bounding box" : [ 459.31, 439.343, 517.413, 450.949 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "P 530,000.00"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 6,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 171.42, 335.04, 365.88, 393.24 ],
+        "row number" : 6,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 26,
+          "page number" : 2,
+          "bounding box" : [ 176.82, 367.573, 355.219, 392.149 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "22 sq.m. with loft of at least 50% of the base structure; or"
+        }, {
+          "type" : "paragraph",
+          "id" : 27,
+          "page number" : 2,
+          "bounding box" : [ 177.06, 345.263, 274.699, 356.869 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "24 sq.m. - one storey"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 365.88, 335.04, 441.24, 393.24 ],
+        "row number" : 6,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 28,
+          "page number" : 2,
+          "bounding box" : [ 376.9, 380.543, 429.003, 392.149 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "50.33 sq.m."
+        }, {
+          "type" : "paragraph",
+          "id" : 29,
+          "page number" : 2,
+          "bounding box" : [ 379.775, 345.503, 426.122, 357.112 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "53.0 sq.m."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 441.24, 335.04, 536.04, 393.24 ],
+        "row number" : 6,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 30,
+          "page number" : 2,
+          "bounding box" : [ 459.308, 380.782, 517.319, 392.389 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "P 480,000.00"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 7,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 72.78, 107.64, 171.42, 335.04 ],
+        "row number" : 7,
+        "column number" : 1,
+        "row span" : 3,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 31,
+          "page number" : 2,
+          "bounding box" : [ 78.11, 322.113, 132.876, 333.095 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.5,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "Row Houses"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 171.42, 228.42, 365.88, 335.04 ],
+        "row number" : 7,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 32,
+          "page number" : 2,
+          "bounding box" : [ 176.82, 309.263, 355.46, 333.829 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "28 sq.m. with loft of at least 50% of the base structure; or"
+        }, {
+          "type" : "paragraph",
+          "id" : 33,
+          "page number" : 2,
+          "bounding box" : [ 177.0, 238.453, 357.743, 298.059 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "32 sq.m. - one storey; or 32 sq.m. - 2 storey structure (16 square meters per floor structure with a dimension of 4 meters x 4 meters)"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 365.88, 228.42, 441.24, 335.04 ],
+        "row number" : 7,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 34,
+          "page number" : 2,
+          "bounding box" : [ 376.76, 322.453, 429.003, 334.059 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "40.25 sq.m."
+        }, {
+          "type" : "paragraph",
+          "id" : 35,
+          "page number" : 2,
+          "bounding box" : [ 376.76, 264.383, 428.999, 298.549 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "44.25 sq.m. 30.0sq.m."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 441.24, 228.42, 536.04, 335.04 ],
+        "row number" : 7,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 36,
+          "page number" : 2,
+          "bounding box" : [ 459.308, 322.453, 517.419, 334.059 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "P 580,000.00"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 8,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 171.42, 169.92, 365.88, 228.42 ],
+        "row number" : 8,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 37,
+          "page number" : 2,
+          "bounding box" : [ 177.3, 202.223, 355.7, 227.029 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "24 sq.m. with loft of at least 50% of the base structure; or"
+        }, {
+          "type" : "paragraph",
+          "id" : 38,
+          "page number" : 2,
+          "bounding box" : [ 177.3, 179.903, 274.697, 191.509 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "28 sq.m. - one storey"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 365.88, 169.92, 441.24, 228.42 ],
+        "row number" : 8,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 39,
+          "page number" : 2,
+          "bounding box" : [ 376.92, 215.903, 429.242, 227.509 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "36.25 sq.m."
+        }, {
+          "type" : "paragraph",
+          "id" : 40,
+          "page number" : 2,
+          "bounding box" : [ 376.755, 180.383, 429.243, 191.994 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "40.25 sq.m."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 441.24, 169.92, 536.04, 228.42 ],
+        "row number" : 8,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 41,
+          "page number" : 2,
+          "bounding box" : [ 459.548, 216.142, 517.659, 227.749 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "P 530,000.00"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 9,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 171.42, 107.64, 365.88, 169.92 ],
+        "row number" : 9,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 42,
+          "page number" : 2,
+          "bounding box" : [ 177.3, 142.943, 355.94, 167.749 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "22 sq.m. with loft of at least 50% of the base structure; or"
+        }, {
+          "type" : "paragraph",
+          "id" : 43,
+          "page number" : 2,
+          "bounding box" : [ 177.3, 120.863, 275.182, 132.469 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "24 sq.m. - one storey"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 365.88, 107.64, 441.24, 169.92 ],
+        "row number" : 9,
+        "column number" : 3,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 44,
+          "page number" : 2,
+          "bounding box" : [ 377.16, 156.619, 429.482, 168.225 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "34.25 sq.m."
+        }, {
+          "type" : "paragraph",
+          "id" : 45,
+          "page number" : 2,
+          "bounding box" : [ 377.15, 121.573, 429.639, 133.179 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "36.25sq.m."
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 441.24, 107.64, 536.04, 169.92 ],
+        "row number" : 9,
+        "column number" : 4,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 46,
+          "page number" : 2,
+          "bounding box" : [ 459.788, 156.858, 517.799, 168.469 ],
+          "font" : "Times-Roman",
+          "font size" : 10.4,
+          "text color" : "[0.388, 0.388, 0.408]",
+          "content" : "P 480,000.00"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 21,
+    "page number" : 2,
+    "bounding box" : [ 508.33, 73.68, 569.77, 105.36 ],
+    "source" : "R-973 s. 2018_images/imageFile5.png"
+  }, {
+    "type" : "image",
+    "id" : 24,
+    "page number" : 3,
+    "bounding box" : [ -4.08, -2.88, 607.44, 828.0 ],
+    "source" : "R-973 s. 2018_images/imageFile6.png"
+  }, {
+    "type" : "list",
+    "id" : 28,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 80.22, 707.572, 345.309, 757.13 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 23,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 80.22, 707.572, 345.309, 757.13 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 12.8,
+      "text color" : "[0.408, 0.404, 0.428]",
+      "content" : "Page 3 HLURB Board Resolution No. 973 s. of2018 Amending Pertinent Provisions of the Revised Implementing Rules & Regulationsfor Batas Pambansa Bilang 220",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 29,
+    "level" : "5",
+    "page number" : 3,
+    "bounding box" : [ 92.78, 452.916, 542.054, 666.72 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 92.78, 612.986, 541.77, 666.72 ],
+      "font" : "Helvetica",
+      "font size" : 11.6,
+      "text color" : "[0.408, 0.404, 0.428]",
+      "content" : "2. That, a loft shall mean a partial, intermediate floor in any storey or room of a residential unit in a subdivision project having an area of one-half of the area of the room or space in which it is constructed and shall have a clear ceiling height of not less than 1.80 meters above and below it;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 92.98, 559.716, 541.481, 600.01 ],
+      "font" : "Helvetica",
+      "font size" : 11.6,
+      "text color" : "[0.408, 0.404, 0.428]",
+      "content" : "3. That, the minimum ceiling height for habitable rooms shall be measured from the finished floor line to the ceiling line, if a ceiling is not provided, a minimum headroom clearance of 2.0 meters shall be provided;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 92.843, 492.746, 542.054, 546.252 ],
+      "font" : "Helvetica",
+      "font size" : 11.6,
+      "text color" : "[0.408, 0.404, 0.428]",
+      "content" : "4. That, saleable lots designated as dupleX/single-attached and/or row house lots shall be provided with housing components, and the price of saleable lots intended for Single-detached units shall not exceed 40% of the maximum selling price for house and lot package.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 93.23, 452.916, 541.232, 479.77 ],
+      "font" : "Helvetica",
+      "font size" : 11.6,
+      "text color" : "[0.408, 0.404, 0.428]",
+      "content" : "5. That, all provisions in the revised IRR for BP 220 affected and/or inconsistent with the above cited amendments be revised and/or renumbered accordingly.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 30,
+    "page number" : 3,
+    "bounding box" : [ 74.82, 328.593, 542.794, 443.351 ],
+    "font" : "Helvetica",
+    "font size" : 11.6,
+    "text color" : "[0.408, 0.404, 0.428]",
+    "content" : "RESOLVED FURTHER, that socialized housing projects already issued licenses to Sell with unsold and unconstructed units with measurements below the mandated minimum lot area and floor area requirements shall be sold at the existing price ceiling of Four Hundred Fifty Thousand Pesos (P 450,000.00). However, a developer may avail of the new price ceiling provided an approved alteration of plans that conforms with the mandated technical design standards and requirements is secured from the local government unit, and an amended/new license to Sell is issued in its favor by the HLURB;"
+  }, {
+    "type" : "image",
+    "id" : 25,
+    "page number" : 3,
+    "bounding box" : [ 208.09, 218.41, 409.69, 317.29 ],
+    "source" : "R-973 s. 2018_images/imageFile7.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "page number" : 3,
+    "bounding box" : [ 111.12, 302.714, 299.894, 316.161 ],
+    "font" : "Helvetica",
+    "font size" : 10.5,
+    "text color" : "[0.408, 0.404, 0.428]",
+    "content" : "APPROVED, 01 August 2018, Quezon"
+  }, {
+    "type" : "image",
+    "id" : 26,
+    "page number" : 3,
+    "bounding box" : [ 87.12, 186.73, 176.4, 225.13 ],
+    "source" : "R-973 s. 2018_images/imageFile8.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 34,
+    "page number" : 3,
+    "bounding box" : [ 325.43, 166.09, 499.116, 210.49 ],
+    "font" : "HiddenHorzOCR",
+    "font size" : 35.52,
+    "text color" : "[0.408, 0.404, 0.428]",
+    "content" : "LLOYDCHR~ERA.LAO"
+  }, {
+    "type" : "heading",
+    "id" : 32,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 75.84, 171.434, 219.801, 184.881 ],
+    "heading level" : 4,
+    "font" : "Helvetica-Bold",
+    "font size" : 11.3,
+    "text color" : "[0.408, 0.404, 0.428]",
+    "content" : "AUSTERE A. PANADERO"
+  }, {
+    "type" : "paragraph",
+    "id" : 35,
+    "page number" : 3,
+    "bounding box" : [ 326.23, 158.587, 539.186, 172.425 ],
+    "font" : "Helvetica",
+    "font size" : 11.6,
+    "text color" : "[0.408, 0.404, 0.428]",
+    "content" : "Chief Executive Officer &Commissioner"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 3,
+    "bounding box" : [ 76.29, 156.51, 199.185, 169.92 ],
+    "font" : "Helvetica",
+    "font size" : 11.6,
+    "text color" : "[0.408, 0.404, 0.428]",
+    "content" : "Undersecretary, D1LGO"
+  }, {
+    "type" : "image",
+    "id" : 36,
+    "page number" : 4,
+    "bounding box" : [ -0.72, -0.48, 592.08, 817.68 ],
+    "source" : "R-973 s. 2018_images/imageFile9.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 40,
+    "page number" : 4,
+    "bounding box" : [ 67.26, 704.445, 332.829, 754.18 ],
+    "font" : "Helvetica-Oblique",
+    "font size" : 9.4,
+    "text color" : "[0.404, 0.404, 0.428]",
+    "content" : "Page 4 HLURB Board Resolution No. 973 s. of2018 Amending Pertinent Provisions of the Revised Implementing Rules & Regulationsfor Batas Pambansa Bilang 220"
+  }, {
+    "type" : "heading",
+    "id" : 41,
+    "level" : "Doctitle",
+    "page number" : 4,
+    "bounding box" : [ 67.65, 588.48, 203.29, 641.29 ],
+    "heading level" : 1,
+    "font" : "HiddenHorzOCR",
+    "font size" : 21.12,
+    "text color" : "[0.404, 0.404, 0.428]",
+    "content" : "DIMASunders~~,~GUILONDP~"
+  }, {
+    "type" : "heading",
+    "id" : 43,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 318.47, 605.23, 526.321, 628.33 ],
+    "heading level" : 2,
+    "font" : "HiddenHorzOCR",
+    "font size" : 18.48,
+    "text color" : "[0.404, 0.404, 0.428]",
+    "content" : "RIA CORAZO~EZ-CABRERA"
+  }, {
+    "type" : "paragraph",
+    "id" : 44,
+    "page number" : 4,
+    "bounding box" : [ 319.75, 593.605, 395.895, 606.783 ],
+    "font" : "Helvetica",
+    "font size" : 11.4,
+    "text color" : "[0.404, 0.404, 0.428]",
+    "content" : "Commissioner"
+  }, {
+    "type" : "image",
+    "id" : 37,
+    "page number" : 4,
+    "bounding box" : [ 66.48, 457.69, 228.72, 588.25 ],
+    "source" : "R-973 s. 2018_images/imageFile10.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 45,
+    "page number" : 4,
+    "bounding box" : [ 332.98, 549.625, 396.939, 587.773 ],
+    "font" : "Helvetica-Oblique",
+    "font size" : 33.0,
+    "text color" : "[0.361, 0.361, 0.686]",
+    "content" : "5/P-.'"
+  }, {
+    "type" : "paragraph",
+    "id" : 46,
+    "page number" : 4,
+    "bounding box" : [ 321.12, 540.212, 437.958, 554.135 ],
+    "font" : "Helvetica-Bold",
+    "font size" : 11.7,
+    "text color" : "[0.404, 0.404, 0.428]",
+    "content" : "MELZAR P. ;,(UCIA"
+  }, {
+    "type" : "paragraph",
+    "id" : 47,
+    "page number" : 4,
+    "bounding box" : [ 321.67, 526.635, 397.815, 539.813 ],
+    "font" : "Helvetica",
+    "font size" : 11.4,
+    "text color" : "[0.404, 0.404, 0.428]",
+    "content" : "Commissioner"
+  }, {
+    "type" : "paragraph",
+    "id" : 42,
+    "level" : "6",
+    "page number" : 4,
+    "bounding box" : [ 125.99, 473.252, 210.747, 487.175 ],
+    "font" : "Helvetica-Bold",
+    "font size" : 11.7,
+    "text color" : "[0.404, 0.404, 0.428]",
+    "content" : ".BARRAMEDA"
+  }, {
+    "type" : "paragraph",
+    "id" : 48,
+    "page number" : 4,
+    "bounding box" : [ 289.03, 433.503, 336.472, 446.797 ],
+    "font" : "Helvetica-Oblique",
+    "font size" : 11.5,
+    "text color" : "[0.404, 0.404, 0.428]",
+    "content" : "Attested:"
+  }, {
+    "type" : "image",
+    "id" : 38,
+    "page number" : 4,
+    "bounding box" : [ 247.93, 339.6, 379.45, 431.76 ],
+    "source" : "R-973 s. 2018_images/imageFile11.png"
+  } ]
+}

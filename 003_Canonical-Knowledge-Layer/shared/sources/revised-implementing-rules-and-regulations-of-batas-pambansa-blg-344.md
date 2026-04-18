@@ -4,7 +4,7 @@ title: Revised Implementing Rules and Regulations of Batas Pambansa Blg. 344
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-16T15:25:00.036209+00:00
+last_canonicalized_utc: 2026-04-18T08:20:57.563904+00:00
 aliases:
   - BP 344
   - Batas Pambansa Blg. 344
@@ -69,7 +69,7 @@ Changes in level shall require a ramp except when served by a dropped sidewalk, 
 
 ## Key Points
 
-- (no key points extracted)
+- Republic of the Philippines  2651033 BP 344 IMPLEMENTING RULES AND REGULATIONS (IRR) AMENDMENTS 1.
 
 ## Referenced Concepts
 

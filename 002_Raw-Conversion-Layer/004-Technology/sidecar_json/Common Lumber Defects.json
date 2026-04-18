@@ -1,0 +1,252 @@
+{
+  "file name" : "Common Lumber Defects.pdf",
+  "number of pages" : 2,
+  "author" : " ",
+  "title" : "Common Lumber Defects",
+  "creation date" : "D:20090317160916-05'00'",
+  "modification date" : "D:20090317161014-05'00'",
+  "kids" : [ {
+    "type" : "paragraph",
+    "id" : 1,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 704.94, 226.735, 720.912 ],
+    "font" : "ArialMT",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.5020065903663635, 0.0]",
+    "content" : "Common Lumber Defects"
+  }, {
+    "type" : "heading",
+    "id" : 3,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 291.3, 675.096, 320.642, 691.092 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "BOW"
+  }, {
+    "type" : "image",
+    "id" : 7,
+    "page number" : 1,
+    "bounding box" : [ 354.24, 580.26, 509.22, 673.14 ],
+    "source" : "Common Lumber Defects_images/imageFile1.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 5,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 618.876, 306.247, 634.644 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Warp on the face of a board from end to end."
+  }, {
+    "type" : "heading",
+    "id" : 9,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 293.7, 562.416, 318.307, 578.412 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "CUP"
+  }, {
+    "type" : "image",
+    "id" : 13,
+    "page number" : 1,
+    "bounding box" : [ 354.18, 454.26, 501.0, 560.46 ],
+    "source" : "Common Lumber Defects_images/imageFile2.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 11,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 499.536, 254.25, 515.304 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Hollow across the face of a board."
+  }, {
+    "type" : "heading",
+    "id" : 15,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 283.32, 436.416, 328.675, 452.412 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "CROOK"
+  }, {
+    "type" : "image",
+    "id" : 19,
+    "page number" : 1,
+    "bounding box" : [ 354.18, 328.26, 505.68, 434.46 ],
+    "source" : "Common Lumber Defects_images/imageFile3.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 17,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 373.536, 320.891, 389.304 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Warp along the edge line; also known as crown."
+  }, {
+    "type" : "heading",
+    "id" : 21,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 244.68, 310.416, 367.337, 326.412 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "KNOT or KNOTHOLE"
+  }, {
+    "type" : "image",
+    "id" : 27,
+    "page number" : 1,
+    "bounding box" : [ 354.18, 205.74, 505.14, 308.46 ],
+    "source" : "Common Lumber Defects_images/imageFile4.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 23,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 235.476, 344.975, 278.844 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "A tight knot is usually not a problem; a loose or dead knot, surrounded by a dark ring, may fall out or may have already left a hole."
+  }, {
+    "type" : "heading",
+    "id" : 29,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 288.66, 187.836, 323.302, 203.832 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "SPLIT"
+  }, {
+    "type" : "image",
+    "id" : 34,
+    "page number" : 1,
+    "bounding box" : [ 354.18, 83.76, 505.68, 185.88 ],
+    "source" : "Common Lumber Defects_images/imageFile5.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "page number" : 1,
+    "bounding box" : [ 90.0, 120.096, 336.595, 149.664 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Crack going all the way through the piece of wood, commonly at the ends."
+  }, {
+    "type" : "heading",
+    "id" : 36,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 286.32, 703.656, 325.639, 719.652 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "TWIST"
+  }, {
+    "type" : "image",
+    "id" : 40,
+    "page number" : 2,
+    "bounding box" : [ 354.24, 596.04, 507.36, 701.76 ],
+    "source" : "Common Lumber Defects_images/imageFile6.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 641.016, 216.334, 656.784 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Multiple bends in a board."
+  }, {
+    "type" : "heading",
+    "id" : 42,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 283.98, 578.136, 327.931, 594.132 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "CHECK"
+  }, {
+    "type" : "image",
+    "id" : 47,
+    "page number" : 2,
+    "bounding box" : [ 354.18, 480.36, 521.94, 576.18 ],
+    "source" : "Common Lumber Defects_images/imageFile7.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 44,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 513.576, 325.308, 543.144 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Crack along the wood's annual growth rings, not passing through the entire thickness of the wood."
+  }, {
+    "type" : "heading",
+    "id" : 49,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 285.0, 462.576, 327.026, 478.572 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "SHAKE"
+  }, {
+    "type" : "image",
+    "id" : 55,
+    "page number" : 2,
+    "bounding box" : [ 354.18, 363.12, 516.18, 460.62 ],
+    "source" : "Common Lumber Defects_images/imageFile8.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 51,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 390.276, 337.303, 433.644 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Separation of grain between the growth rings, often extending along the board's face, and sometimes below its surface."
+  }, {
+    "type" : "heading",
+    "id" : 58,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 287.34, 345.276, 324.614, 361.272 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "WANE"
+  }, {
+    "type" : "image",
+    "id" : 63,
+    "page number" : 2,
+    "bounding box" : [ 354.18, 242.88, 519.66, 343.26 ],
+    "source" : "Common Lumber Defects_images/imageFile9.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 60,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 278.376, 337.306, 307.944 ],
+    "font" : "TimesNewRomanPSMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "Missing wood or untrimmed bark along the edge or corner of the piece."
+  } ]
+}

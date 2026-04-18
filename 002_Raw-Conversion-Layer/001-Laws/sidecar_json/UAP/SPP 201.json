@@ -1,0 +1,2863 @@
+{
+  "file name" : "SPP 201.pdf",
+  "number of pages" : 59,
+  "author" : "pedrosantosjr",
+  "title" : "Title layout",
+  "creation date" : "D:20151121212330+08'00'",
+  "modification date" : "D:20151121212330+08'00'",
+  "kids" : [ {
+    "type" : "image",
+    "id" : 39,
+    "page number" : 1,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile1.png"
+  }, {
+    "type" : "heading",
+    "id" : 40,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 55.2, 230.483, 423.254, 324.308 ],
+    "heading level" : 1,
+    "font" : "Roboto medium",
+    "font size" : 80.064,
+    "text color" : "[1.0]",
+    "content" : "SPP DOCS"
+  }, {
+    "type" : "paragraph",
+    "id" : 41,
+    "page number" : 1,
+    "bounding box" : [ 55.2, 191.358, 478.654, 224.152 ],
+    "font" : "Roboto light",
+    "font size" : 27.984,
+    "text color" : "[0.251]",
+    "content" : "Standards of Professional Practice"
+  }, {
+    "type" : "heading",
+    "id" : 43,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 312.02, 326.684, 911.637, 399.387 ],
+    "heading level" : 4,
+    "font" : "Roboto medium",
+    "font size" : 62.04,
+    "text color" : "[1.0]",
+    "content" : "Authorship + Disclaimer"
+  }, {
+    "type" : "paragraph",
+    "id" : 44,
+    "page number" : 2,
+    "bounding box" : [ 298.22, 288.168, 910.258, 325.715 ],
+    "font" : "Roboto light",
+    "font size" : 30.0,
+    "text color" : "[0.188]",
+    "content" : "This work is the property ofArch. Pedro Santos Jr."
+  }, {
+    "type" : "paragraph",
+    "id" : 45,
+    "page number" : 2,
+    "bounding box" : [ 254.3, 249.762, 910.201, 287.337 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.188]",
+    "content" : "Always check the contents of this document against"
+  }, {
+    "type" : "paragraph",
+    "id" : 46,
+    "page number" : 2,
+    "bounding box" : [ 272.9, 175.246, 911.0, 248.895 ],
+    "font" : "Roboto light",
+    "font size" : 30.0,
+    "text color" : "[0.188]",
+    "content" : "the original references.For questions or corrections, contact the author atarch.pedrosantosjr@gmail.com."
+  }, {
+    "type" : "image",
+    "id" : 47,
+    "page number" : 3,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile2.png"
+  }, {
+    "type" : "image",
+    "id" : 51,
+    "page number" : 3,
+    "bounding box" : [ 48.72, 335.16, 133.32, 419.88 ],
+    "source" : "SPP 201_images/imageFile3.png"
+  }, {
+    "type" : "image",
+    "id" : 52,
+    "page number" : 3,
+    "bounding box" : [ 133.32, 335.16, 218.04, 419.88 ],
+    "source" : "SPP 201_images/imageFile4.png"
+  }, {
+    "type" : "image",
+    "id" : 53,
+    "page number" : 3,
+    "bounding box" : [ 218.04, 335.16, 302.76, 419.88 ],
+    "source" : "SPP 201_images/imageFile5.png"
+  }, {
+    "type" : "image",
+    "id" : 54,
+    "page number" : 3,
+    "bounding box" : [ 302.76, 335.16, 387.36, 419.88 ],
+    "source" : "SPP 201_images/imageFile6.png"
+  }, {
+    "type" : "heading",
+    "id" : 48,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 55.896, 263.001, 473.123, 326.31 ],
+    "heading level" : 6,
+    "font" : "Roboto medium",
+    "font size" : 54.024,
+    "text color" : "[0.149]",
+    "content" : "Creative Commons"
+  }, {
+    "type" : "paragraph",
+    "id" : 49,
+    "page number" : 3,
+    "bounding box" : [ 55.896, 234.085, 480.508, 262.238 ],
+    "font" : "Roboto light",
+    "font size" : 24.024,
+    "text color" : "[0.188]",
+    "content" : "This presentation is licensed under the Creative"
+  }, {
+    "type" : "paragraph",
+    "id" : 50,
+    "page number" : 3,
+    "bounding box" : [ 55.896, 147.671, 556.32, 233.396 ],
+    "font" : "Roboto light",
+    "font size" : 24.0,
+    "text color" : "[0.188]",
+    "content" : "Commons Attribution-NonCommercial-ShareAlike4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/"
+  }, {
+    "type" : "image",
+    "id" : 56,
+    "page number" : 5,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile7.png"
+  }, {
+    "type" : "heading",
+    "id" : 57,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 55.2, 320.677, 241.188, 398.02 ],
+    "heading level" : 3,
+    "font" : "Roboto medium",
+    "font size" : 66.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "INTRO"
+  }, {
+    "type" : "paragraph",
+    "id" : 58,
+    "page number" : 5,
+    "bounding box" : [ 55.2, 274.968, 540.189, 312.515 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "Standards of Professional Practice"
+  }, {
+    "type" : "heading",
+    "id" : 60,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 429.72, 239.696, 910.512, 310.036 ],
+    "heading level" : 5,
+    "font" : "Roboto medium",
+    "font size" : 60.024,
+    "text color" : "[1.0]",
+    "content" : "General definitions"
+  }, {
+    "type" : "image",
+    "id" : 61,
+    "page number" : 7,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile8.png"
+  }, {
+    "type" : "heading",
+    "id" : 62,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 161.18, 336.561, 324.523, 413.933 ],
+    "heading level" : 2,
+    "font" : "Roboto medium",
+    "font size" : 66.024,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "“SPP”"
+  }, {
+    "type" : "list",
+    "id" : 63,
+    "level" : "1",
+    "page number" : 7,
+    "bounding box" : [ 161.18, 241.822, 838.607, 335.775 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "next list id" : 66,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 161.18, 298.228, 668.849, 335.775 ],
+      "font" : "Wingdings",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : " Standards of Professional Practice",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 161.18, 241.822, 838.607, 279.397 ],
+      "font" : "Wingdings",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : " A required document under Sec. 41 of RA 9266",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 64,
+    "page number" : 8,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile9.png"
+  }, {
+    "type" : "list",
+    "id" : 66,
+    "level" : "1",
+    "page number" : 8,
+    "bounding box" : [ 161.18, 126.592, 865.348, 413.933 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "previous list id" : 63,
+    "next list id" : 69,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 65,
+      "page number" : 8,
+      "bounding box" : [ 161.18, 336.561, 451.157, 413.933 ],
+      "font" : "Roboto medium",
+      "font size" : 66.024,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "“Architect”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 161.18, 298.228, 773.332, 335.775 ],
+      "font" : "Wingdings",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : " A Registered and Licensed Architect (RLA)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 161.18, 126.592, 865.348, 279.397 ],
+      "font" : "Wingdings",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : " A natural person under Philippine law with a valid certificate of registration and a valid professional identification card for the lawful practice of architecture.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 67,
+    "page number" : 9,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile10.png"
+  }, {
+    "type" : "list",
+    "id" : 69,
+    "level" : "1",
+    "page number" : 9,
+    "bounding box" : [ 161.18, 259.828, 838.794, 413.933 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 66,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 68,
+      "page number" : 9,
+      "bounding box" : [ 161.18, 336.561, 673.856, 413.933 ],
+      "font" : "Roboto medium",
+      "font size" : 66.024,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "“Architectural firm”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 161.18, 259.828, 838.794, 335.775 ],
+      "font" : "Wingdings",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : " A juridical person under Philippine law and jurisprudence authorized to practice architecture",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 70,
+    "level" : "2",
+    "page number" : 9,
+    "bounding box" : [ 193.58, 34.094, 867.162, 246.879 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "next list id" : 73,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 193.58, 146.914, 867.162, 246.879 ],
+      "font" : "Wingdings",
+      "font size" : 27.96,
+      "text color" : "[0.251]",
+      "content" : " For individual architectural practice, the architectural firm must be duly registered with the DTI as a sole proprietorship",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 193.58, 34.094, 850.515, 134.059 ],
+      "font" : "Wingdings",
+      "font size" : 27.96,
+      "text color" : "[0.251]",
+      "content" : " For group architectural practice, must be registered with the SEC and with the PRC as a professional partnership or as an architectural corporation",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 71,
+    "page number" : 10,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile11.png"
+  }, {
+    "type" : "list",
+    "id" : 73,
+    "level" : "2",
+    "page number" : 10,
+    "bounding box" : [ 161.18, 90.578, 857.238, 413.933 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "previous list id" : 70,
+    "list items" : [ {
+      "type" : "list item",
+      "id" : 72,
+      "page number" : 10,
+      "bounding box" : [ 161.18, 336.561, 767.214, 413.933 ],
+      "font" : "Roboto medium",
+      "font size" : 66.024,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "Interchangeable terms",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 161.18, 298.228, 592.69, 335.775 ],
+      "font" : "Wingdings",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : " Architect = Architectural Firm",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 161.18, 241.822, 673.221, 279.397 ],
+      "font" : "Wingdings",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : " Client = Owner = Project Proponent",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 161.18, 146.998, 857.238, 222.945 ],
+      "font" : "Wingdings",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : " Contractor = General Contractor = Constructor = Builder",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 161.18, 90.578, 359.984, 128.125 ],
+      "font" : "Wingdings",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : " Bid = Tender",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 75,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 648.86, 239.696, 910.445, 310.036 ],
+    "heading level" : 5,
+    "font" : "Roboto medium",
+    "font size" : 60.024,
+    "text color" : "[1.0]",
+    "content" : "Acronyms"
+  }, {
+    "type" : "image",
+    "id" : 77,
+    "page number" : 12,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile12.png"
+  }, {
+    "type" : "header",
+    "id" : 76,
+    "page number" : 12,
+    "bounding box" : [ 163.22, 411.861, 413.108, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 20,
+      "page number" : 12,
+      "bounding box" : [ 163.22, 411.861, 413.108, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "ACRONYMS"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 78,
+    "level" : "1",
+    "page number" : 12,
+    "bounding box" : [ 163.22, 45.134, 759.56, 382.742 ],
+    "numbering style" : "unordered",
+    "number of list items" : 7,
+    "next list id" : 81,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 163.22, 347.586, 700.58, 382.742 ],
+      "font" : "Arial",
+      "font size" : 30.0,
+      "text color" : "[0.251]",
+      "content" : "▪ ADR Alternative Dispute Resolution",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 163.22, 297.18, 542.128, 332.364 ],
+      "font" : "Arial",
+      "font size" : 30.024,
+      "text color" : "[0.251]",
+      "content" : "▪ AF Architectural Firm",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 163.22, 246.766, 740.27, 281.922 ],
+      "font" : "Arial",
+      "font size" : 30.0,
+      "text color" : "[0.251]",
+      "content" : "▪ ADC Architectural Design Competition",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 163.22, 196.366, 759.56, 231.522 ],
+      "font" : "Arial",
+      "font size" : 30.0,
+      "text color" : "[0.251]",
+      "content" : "▪ AICC Architect in charge of construction",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 163.22, 145.936, 553.51, 181.092 ],
+      "font" : "Arial",
+      "font size" : 30.0,
+      "text color" : "[0.251]",
+      "content" : "▪ AOR Architect-of-record",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 163.22, 95.536, 708.11, 130.692 ],
+      "font" : "Arial",
+      "font size" : 30.0,
+      "text color" : "[0.251]",
+      "content" : "▪ BPO Business Process Outsourcing",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 163.22, 45.134, 572.842, 80.318 ],
+      "font" : "Arial",
+      "font size" : 30.024,
+      "text color" : "[0.251]",
+      "content" : "▪ CA Consulting Architect",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 80,
+    "page number" : 13,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile13.png"
+  }, {
+    "type" : "header",
+    "id" : 79,
+    "page number" : 13,
+    "bounding box" : [ 163.22, 411.861, 413.108, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 21,
+      "page number" : 13,
+      "bounding box" : [ 163.22, 411.861, 413.108, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "ACRONYMS"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 81,
+    "level" : "1",
+    "page number" : 13,
+    "bounding box" : [ 163.22, 85.832, 876.86, 382.479 ],
+    "numbering style" : "unordered",
+    "number of list items" : 6,
+    "previous list id" : 78,
+    "next list id" : 84,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 163.22, 350.838, 677.654, 382.479 ],
+      "font" : "Arial",
+      "font size" : 27.0,
+      "text color" : "[0.251]",
+      "content" : "▪ CEC Codes of Ethical Conduct",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 163.22, 303.672, 831.821, 335.341 ],
+      "font" : "Arial",
+      "font size" : 27.024,
+      "text color" : "[0.251]",
+      "content" : "▪ DoLE Department of Labor and Employment",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 163.22, 256.498, 779.255, 288.139 ],
+      "font" : "Arial",
+      "font size" : 27.0,
+      "text color" : "[0.251]",
+      "content" : "▪ DTI Department of Trade and Industry",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 163.22, 209.338, 876.86, 240.979 ],
+      "font" : "Arial",
+      "font size" : 27.0,
+      "text color" : "[0.251]",
+      "content" : "▪ FPCA Filipino Professional Consulting Architects",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 163.22, 132.988, 840.275, 193.841 ],
+      "font" : "Arial",
+      "font size" : 27.024,
+      "text color" : "[0.251]",
+      "content" : "▪ IAPOA Integrated and Accredited Professional Organization of Architects",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 163.22, 85.832, 764.054, 117.473 ],
+      "font" : "Arial",
+      "font size" : 27.0,
+      "text color" : "[0.251]",
+      "content" : "▪ KPO Knowledge Process Outsourcing",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 83,
+    "page number" : 14,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile14.png"
+  }, {
+    "type" : "header",
+    "id" : 82,
+    "page number" : 14,
+    "bounding box" : [ 163.22, 411.861, 413.108, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 22,
+      "page number" : 14,
+      "bounding box" : [ 163.22, 411.861, 413.108, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "ACRONYMS"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 84,
+    "level" : "1",
+    "page number" : 14,
+    "bounding box" : [ 163.22, 45.657, 750.249, 384.403 ],
+    "numbering style" : "unordered",
+    "number of list items" : 9,
+    "previous list id" : 81,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 163.22, 358.669, 508.228, 384.403 ],
+      "font" : "Arial",
+      "font size" : 21.96,
+      "text color" : "[0.251]",
+      "content" : "▪ MoP Manual of Procedure",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 163.22, 319.549, 750.249, 345.283 ],
+      "font" : "Arial",
+      "font size" : 21.96,
+      "text color" : "[0.251]",
+      "content" : "▪ PACS Professional Architectural Consulting Services",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 163.22, 280.409, 627.361, 306.143 ],
+      "font" : "Arial",
+      "font size" : 21.96,
+      "text color" : "[0.251]",
+      "content" : "▪ PCA Professional Consulting Architect",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 163.22, 241.289, 662.804, 267.023 ],
+      "font" : "Arial",
+      "font size" : 21.96,
+      "text color" : "[0.251]",
+      "content" : "▪ PRC Professional Regulation Commission",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 163.22, 202.169, 746.318, 227.903 ],
+      "font" : "Arial",
+      "font size" : 21.96,
+      "text color" : "[0.251]",
+      "content" : "▪ PRBoA Professional Regulatory Board of Architecture",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 163.22, 163.043, 670.162, 188.805 ],
+      "font" : "Arial",
+      "font size" : 21.984,
+      "text color" : "[0.251]",
+      "content" : "▪ SEC Securities and Exchange Commission",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 163.22, 123.899, 634.783, 149.633 ],
+      "font" : "Arial",
+      "font size" : 21.96,
+      "text color" : "[0.251]",
+      "content" : "▪ RLA Registered and Licensed Architect",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 163.22, 84.783, 640.427, 110.517 ],
+      "font" : "Arial",
+      "font size" : 21.96,
+      "text color" : "[0.251]",
+      "content" : "▪ SPP Standards of Professional Practice",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 163.22, 45.657, 565.672, 71.419 ],
+      "font" : "Arial",
+      "font size" : 21.984,
+      "text color" : "[0.251]",
+      "content" : "▪ TSP Temporary/ Special Permit",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 86,
+    "page number" : 15,
+    "bounding box" : [ 616.46, 270.296, 910.458, 340.636 ],
+    "font" : "Roboto medium",
+    "font size" : 60.024,
+    "text color" : "[1.0]",
+    "content" : "Methods of"
+  }, {
+    "type" : "paragraph",
+    "id" : 87,
+    "page number" : 15,
+    "bounding box" : [ 677.78, 209.082, 910.34, 279.394 ],
+    "font" : "Roboto medium",
+    "font size" : 60.0,
+    "text color" : "[1.0]",
+    "content" : "selection"
+  }, {
+    "type" : "image",
+    "id" : 88,
+    "page number" : 16,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile15.png"
+  }, {
+    "type" : "heading",
+    "id" : 89,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 163.22, 411.861, 666.308, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "METHOD OF SELECTION"
+  }, {
+    "type" : "list",
+    "id" : 90,
+    "level" : "2",
+    "page number" : 16,
+    "bounding box" : [ 163.22, 228.868, 657.883, 379.235 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 163.22, 341.688, 419.73, 379.235 ],
+      "font" : "Roboto light",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "1. Direct selection",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 163.22, 285.282, 516.628, 322.857 ],
+      "font" : "Roboto light",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "2. Comparative selection",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 163.22, 228.868, 657.883, 266.415 ],
+      "font" : "Roboto light",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "3. Architectural design competition",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 91,
+    "page number" : 17,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile16.png"
+  }, {
+    "type" : "heading",
+    "id" : 92,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 163.22, 411.861, 565.172, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "DIRECT SELECTION"
+  }, {
+    "type" : "paragraph",
+    "id" : 93,
+    "level" : "3",
+    "page number" : 17,
+    "bounding box" : [ 163.22, 341.688, 877.418, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ Used when undertaking a relatively small project."
+  }, {
+    "type" : "paragraph",
+    "id" : 94,
+    "page number" : 17,
+    "bounding box" : [ 184.82, 303.282, 835.344, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "The Client selects his Architect on the basis of:"
+  }, {
+    "type" : "list",
+    "id" : 95,
+    "level" : "4",
+    "page number" : 17,
+    "bounding box" : [ 195.62, 87.158, 821.194, 290.349 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 195.62, 257.584, 350.477, 290.349 ],
+      "font" : "Arial",
+      "font size" : 27.96,
+      "text color" : "[0.251]",
+      "content" : "▪ Reputation",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 195.62, 178.378, 683.071, 244.749 ],
+      "font" : "Arial",
+      "font size" : 27.984,
+      "text color" : "[0.251]",
+      "content" : "▪ Personal or business acquaintance or recommendation of a friend",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 195.62, 132.754, 821.194, 165.519 ],
+      "font" : "Arial",
+      "font size" : 27.96,
+      "text color" : "[0.251]",
+      "content" : "▪ Recommendation of the Architect’s former Client",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 195.62, 87.158, 698.337, 119.923 ],
+      "font" : "Arial",
+      "font size" : 27.96,
+      "text color" : "[0.251]",
+      "content" : "▪ Recommendation of another Architect.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 97,
+    "page number" : 18,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile17.png"
+  }, {
+    "type" : "header",
+    "id" : 96,
+    "page number" : 18,
+    "bounding box" : [ 163.22, 411.861, 726.98, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 23,
+      "page number" : 18,
+      "bounding box" : [ 163.22, 411.861, 726.98, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "COMPARATIVE SELECTION"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 98,
+    "level" : "Subtitle",
+    "page number" : 18,
+    "bounding box" : [ 163.22, 271.966, 819.948, 379.142 ],
+    "heading level" : 10,
+    "font" : "Roboto light",
+    "font size" : 30.0,
+    "text color" : "[0.251]",
+    "content" : "▪ May be conducted by committees representinginstitutions, corporations or public agencies. Theselection process involves:"
+  }, {
+    "type" : "list",
+    "id" : 99,
+    "level" : "4",
+    "page number" : 18,
+    "bounding box" : [ 195.62, 41.541, 856.831, 259.288 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "next list id" : 102,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 195.62, 41.541, 856.831, 259.288 ],
+      "font" : "Arial",
+      "font size" : 26.064,
+      "text color" : "[0.251]",
+      "content" : "▪ Invitation. The Client issues an invitation which includes the Terms of Reference (ToR) for the project which is based on the Design Brief prepared by another Architect. The selection committee established by the Client may consist of representatives from other State-regulated professions and/or the construction industry, as well as persons with related expertise.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 101,
+    "page number" : 19,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile18.png"
+  }, {
+    "type" : "header",
+    "id" : 100,
+    "page number" : 19,
+    "bounding box" : [ 163.22, 411.861, 726.98, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 24,
+      "page number" : 19,
+      "bounding box" : [ 163.22, 411.861, 726.98, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "COMPARATIVE SELECTION"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 102,
+    "level" : "4",
+    "page number" : 19,
+    "bounding box" : [ 224.42, 104.801, 869.66, 379.336 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "previous list id" : 99,
+    "next list id" : 105,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 224.42, 293.605, 869.66, 379.336 ],
+      "font" : "Arial",
+      "font size" : 24.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Pre-qualification. Architects and/or PRC-registered Architectural Firms (AFs) submit information regarding their qualification and expertise.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 224.42, 199.151, 840.284, 284.876 ],
+      "font" : "Arial",
+      "font size" : 24.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Interview. The Architect explains his methodology in translating the plan/design requirements of the proposed project.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 224.42, 104.801, 839.429, 190.578 ],
+      "font" : "Arial",
+      "font size" : 24.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Verification. The selection committee may visit buildings designed by the Architects and check references such as former clients and financial institutions.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 104,
+    "page number" : 20,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile19.png"
+  }, {
+    "type" : "header",
+    "id" : 103,
+    "page number" : 20,
+    "bounding box" : [ 163.22, 411.861, 726.98, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 25,
+      "page number" : 20,
+      "bounding box" : [ 163.22, 411.861, 726.98, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "COMPARATIVE SELECTION"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 105,
+    "level" : "4",
+    "page number" : 20,
+    "bounding box" : [ 224.42, 199.151, 882.218, 379.336 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 102,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 224.42, 293.605, 877.606, 379.336 ],
+      "font" : "Arial",
+      "font size" : 24.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Evaluation and ranking. The selection committee may adopt its own procedure in evaluating the entries and recommending the most capable firm.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 224.42, 199.151, 882.218, 284.876 ],
+      "font" : "Arial",
+      "font size" : 24.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Negotiation. The Architect explains to the Client the Scope of Services and the Architect’s Fee as prescribed under the Architect’s Guidelines.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 107,
+    "page number" : 21,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile20.png"
+  }, {
+    "type" : "header",
+    "id" : 106,
+    "page number" : 21,
+    "bounding box" : [ 163.22, 411.861, 633.668, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 26,
+      "page number" : 21,
+      "bounding box" : [ 163.22, 411.861, 633.668, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "DESIGN COMPETITION"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 108,
+    "level" : "Subtitle",
+    "page number" : 21,
+    "bounding box" : [ 163.22, 178.378, 877.417, 379.169 ],
+    "heading level" : 11,
+    "font" : "Roboto light",
+    "font size" : 27.96,
+    "text color" : "[0.251]",
+    "content" : "▪ Used for civic or monumental projects. The competitionmay either be an idea competition, design or design buildcompetition. Various Architects or architectural firmssubmit plan/design solutions to a particular designproblem and are judged on the basis of comparativeexcellence."
+  }, {
+    "type" : "image",
+    "id" : 110,
+    "page number" : 22,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile21.png"
+  }, {
+    "type" : "header",
+    "id" : 109,
+    "page number" : 22,
+    "bounding box" : [ 163.22, 411.861, 633.668, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 27,
+      "page number" : 22,
+      "bounding box" : [ 163.22, 411.861, 633.668, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "DESIGN COMPETITION"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 111,
+    "level" : "1",
+    "page number" : 22,
+    "bounding box" : [ 163.22, 262.384, 816.641, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "next list id" : 114,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 22,
+      "bounding box" : [ 163.22, 341.688, 357.484, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "▪ Advantages:",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 22,
+      "bounding box" : [ 195.62, 262.384, 816.641, 328.792 ],
+      "font" : "Arial",
+      "font size" : 27.984,
+      "text color" : "[0.251]",
+      "content" : "▪ The Client/ Committee will have a wider range of options.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 113,
+    "page number" : 23,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile22.png"
+  }, {
+    "type" : "header",
+    "id" : 112,
+    "page number" : 23,
+    "bounding box" : [ 163.22, 411.861, 633.668, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 28,
+      "page number" : 23,
+      "bounding box" : [ 163.22, 411.861, 633.668, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "DESIGN COMPETITION"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 114,
+    "level" : "1",
+    "page number" : 23,
+    "bounding box" : [ 163.22, 103.954, 880.637, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "previous list id" : 111,
+    "next list id" : 120,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 23,
+      "bounding box" : [ 163.22, 341.688, 392.279, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "▪ Disadvantages",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 23,
+      "bounding box" : [ 195.62, 295.998, 597.858, 328.792 ],
+      "font" : "Arial",
+      "font size" : 27.984,
+      "text color" : "[0.251]",
+      "content" : "▪ Expensive and time consuming",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 23,
+      "bounding box" : [ 195.62, 216.784, 826.049, 283.149 ],
+      "font" : "Arial",
+      "font size" : 27.96,
+      "text color" : "[0.251]",
+      "content" : "▪ Time and effort required may discourage qualified firms",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 23,
+      "bounding box" : [ 195.62, 103.954, 880.637, 203.972 ],
+      "font" : "Arial",
+      "font size" : 27.984,
+      "text color" : "[0.251]",
+      "content" : "▪ Some potentially unscrupulous prospective Clients will seek free services under the guise of design competition",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 116,
+    "page number" : 24,
+    "bounding box" : [ 616.46, 270.296, 910.458, 340.636 ],
+    "font" : "Roboto medium",
+    "font size" : 60.024,
+    "text color" : "[1.0]",
+    "content" : "Methods of"
+  }, {
+    "type" : "paragraph",
+    "id" : 117,
+    "page number" : 24,
+    "bounding box" : [ 543.86, 209.082, 910.34, 279.394 ],
+    "font" : "Roboto medium",
+    "font size" : 60.0,
+    "text color" : "[1.0]",
+    "content" : "compensation"
+  }, {
+    "type" : "image",
+    "id" : 119,
+    "page number" : 25,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile23.png"
+  }, {
+    "type" : "header",
+    "id" : 118,
+    "page number" : 25,
+    "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 29,
+      "page number" : 25,
+      "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "MULTIPLE OF DIRECT PERSONNEL EXPENSES"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 120,
+    "level" : "1",
+    "page number" : 25,
+    "bounding box" : [ 163.22, 93.238, 884.349, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 114,
+    "next list id" : 123,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 25,
+      "bounding box" : [ 163.22, 226.468, 884.349, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ The computation is made by adding all costs of technical services (man hours x rate) and then multiplying it by a multiplier to cover overhead and profit.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 25,
+      "bounding box" : [ 163.22, 93.238, 853.656, 207.637 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ The multiplier ranges from 1.5 to 2.5 depending on the office set-up, overhead and experience of the Architect and the complexity of the Project.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 122,
+    "page number" : 26,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile24.png"
+  }, {
+    "type" : "header",
+    "id" : 121,
+    "page number" : 26,
+    "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 30,
+      "page number" : 26,
+      "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "MULTIPLE OF DIRECT PERSONNEL EXPENSES"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 123,
+    "level" : "1",
+    "page number" : 26,
+    "bounding box" : [ 163.22, 188.068, 886.432, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "previous list id" : 120,
+    "next list id" : 126,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 26,
+      "bounding box" : [ 163.22, 188.068, 886.432, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ Other items such as cost of transportation, living and housing allowances of foreign consultants, out-of-town living and housing allowances of the local consultants and the like, are all to be charged to the Client.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 125,
+    "page number" : 27,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile25.png"
+  }, {
+    "type" : "header",
+    "id" : 124,
+    "page number" : 27,
+    "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 31,
+      "page number" : 27,
+      "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "MULTIPLE OF DIRECT PERSONNEL EXPENSES"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 126,
+    "level" : "1",
+    "page number" : 27,
+    "bounding box" : [ 163.22, 95.638, 877.187, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "previous list id" : 123,
+    "next list id" : 129,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 27,
+      "bounding box" : [ 163.22, 341.688, 537.197, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "▪ A =Architect’s rate / hour",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 27,
+      "bounding box" : [ 163.22, 285.282, 567.897, 322.857 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ C =Consultant’s rate / hour",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 27,
+      "bounding box" : [ 163.22, 190.468, 877.187, 266.415 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "▪ T = Rate per hour of Technical Staff, Researchers and others involved in the Project",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 27,
+      "bounding box" : [ 163.22, 95.638, 843.897, 171.585 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "▪ AN, CN, TN = No. of hours spent by Architect, Consultants and Technical Staff",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 128,
+    "page number" : 28,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile26.png"
+  }, {
+    "type" : "header",
+    "id" : 127,
+    "page number" : 28,
+    "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 32,
+      "page number" : 28,
+      "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "MULTIPLE OF DIRECT PERSONNEL EXPENSES"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 129,
+    "level" : "1",
+    "page number" : 28,
+    "bounding box" : [ 163.22, 37.934, 885.65, 382.742 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 126,
+    "next list id" : 132,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 28,
+      "bounding box" : [ 163.22, 250.366, 885.65, 382.742 ],
+      "font" : "Arial",
+      "font size" : 30.024,
+      "text color" : "[0.251]",
+      "content" : "▪ M =Multiplier to account for overhead and reasonable profit. The value may range from 1.5 to 2.5 depending on the set-up of the Architect’s office and the complexity of the Project.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 28,
+      "bounding box" : [ 163.22, 37.934, 864.32, 235.122 ],
+      "font" : "Arial",
+      "font size" : 30.024,
+      "text color" : "[0.251]",
+      "content" : "▪ R = Reimbursable expenses such as transportation, housing and living allowance of Consultant, transportation, per diem, housing and living allowance of local consultants and technical staff if assigned to places over 100 km. from the area of operation of the Architect.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 131,
+    "page number" : 29,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile27.png"
+  }, {
+    "type" : "header",
+    "id" : 130,
+    "page number" : 29,
+    "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 33,
+      "page number" : 29,
+      "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "MULTIPLE OF DIRECT PERSONNEL EXPENSES"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 132,
+    "level" : "1",
+    "page number" : 29,
+    "bounding box" : [ 163.22, 228.868, 857.852, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "previous list id" : 129,
+    "next list id" : 135,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 29,
+      "bounding box" : [ 163.22, 341.688, 574.598, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "▪ Direct cost = AN + CN + TN",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 29,
+      "bounding box" : [ 163.22, 285.282, 482.919, 322.857 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ Fee = Direct Cost x M",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 29,
+      "bounding box" : [ 163.22, 228.868, 857.852, 266.415 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "▪ Total Cost of Service charged to Client = Fee + R",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 134,
+    "page number" : 30,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile28.png"
+  }, {
+    "type" : "header",
+    "id" : 133,
+    "page number" : 30,
+    "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 34,
+      "page number" : 30,
+      "bounding box" : [ 163.22, 411.861, 877.124, 517.071 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "MULTIPLE OF DIRECT PERSONNEL EXPENSES"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 135,
+    "level" : "1",
+    "page number" : 30,
+    "bounding box" : [ 163.22, 54.836, 878.486, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 132,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 30,
+      "bounding box" : [ 163.22, 264.868, 859.382, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ Applicable only to non-creative work such as accounting, secretarial, research, data gathering, preparation",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 30,
+      "bounding box" : [ 163.22, 54.836, 878.486, 246.015 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ Based on technical hours spent and does not account for creative work since the value of creative design cannot be measured by the length of time the designer has spent on his work. of reports and the like.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 136,
+    "page number" : 31,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile29.png"
+  }, {
+    "type" : "heading",
+    "id" : 137,
+    "level" : "Subtitle",
+    "page number" : 31,
+    "bounding box" : [ 163.22, 411.861, 845.396, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "PROFESSIONAL FEE + EXPENSES"
+  }, {
+    "type" : "list",
+    "id" : 138,
+    "level" : "1",
+    "page number" : 31,
+    "bounding box" : [ 163.22, 131.638, 862.204, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 31,
+      "bounding box" : [ 163.22, 264.868, 862.204, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ This method of compensation is frequently used where there is continuing relationship involving a series of Projects.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 31,
+      "bounding box" : [ 163.22, 131.638, 857.843, 246.015 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ It establishes a fixed sum over and above the reimbursement for the Architect’s technical time and overhead.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 139,
+    "page number" : 32,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile30.png"
+  }, {
+    "type" : "heading",
+    "id" : 140,
+    "level" : "Subtitle",
+    "page number" : 32,
+    "bounding box" : [ 163.22, 411.861, 645.572, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "LUMP SUM (FIXED FEE)"
+  }, {
+    "type" : "list",
+    "id" : 141,
+    "level" : "1",
+    "page number" : 32,
+    "bounding box" : [ 163.22, 264.868, 835.912, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "next list id" : 144,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 32,
+      "bounding box" : [ 163.22, 264.868, 835.912, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ This method may be applied to government projects since they entail more paper work and time-consuming efforts.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 143,
+    "page number" : 33,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile31.png"
+  }, {
+    "type" : "header",
+    "id" : 142,
+    "page number" : 33,
+    "bounding box" : [ 163.22, 411.861, 702.77, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 35,
+      "page number" : 33,
+      "bounding box" : [ 163.22, 411.861, 702.77, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "PER DIEM / HONORARIUM"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 144,
+    "level" : "1",
+    "page number" : 33,
+    "bounding box" : [ 163.22, 58.832, 884.574, 383.075 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "previous list id" : 141,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 33,
+      "bounding box" : [ 163.22, 276.388, 884.574, 383.075 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "▪ The architect may be paid on a per diem/honorarium basis for work which will require his personal time, such as:",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 33,
+      "bounding box" : [ 195.62, 203.824, 832.529, 266.829 ],
+      "font" : "Arial",
+      "font size" : 27.96,
+      "text color" : "[0.251]",
+      "content" : "▪ attending project-related meetings, conferences or trips;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 33,
+      "bounding box" : [ 195.62, 131.314, 878.57, 194.372 ],
+      "font" : "Arial",
+      "font size" : 27.984,
+      "text color" : "[0.251]",
+      "content" : "▪ conducting ocular inspection of possible project sites; and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 33,
+      "bounding box" : [ 195.62, 58.832, 764.099, 121.843 ],
+      "font" : "Arial",
+      "font size" : 27.984,
+      "text color" : "[0.251]",
+      "content" : "▪ conferring with others regarding prospective investments or ventures and the like.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 147,
+    "page number" : 34,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile32.png"
+  }, {
+    "type" : "header",
+    "id" : 146,
+    "page number" : 34,
+    "bounding box" : [ 163.22, 411.861, 702.77, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 36,
+      "page number" : 34,
+      "bounding box" : [ 163.22, 411.861, 702.77, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "PER DIEM / HONORARIUM"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 148,
+    "level" : "Subtitle",
+    "page number" : 34,
+    "bounding box" : [ 163.22, 226.468, 876.051, 379.235 ],
+    "heading level" : 9,
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ On top of the per diem/honorarium fee, the ownershall pay for the architect’s out-of-pocketexpenses such as, but not limited to, travel,accommodations and subsistence."
+  }, {
+    "type" : "image",
+    "id" : 149,
+    "page number" : 35,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile33.png"
+  }, {
+    "type" : "heading",
+    "id" : 150,
+    "level" : "Subtitle",
+    "page number" : 35,
+    "bounding box" : [ 163.22, 411.861, 888.74, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "MIXED COMPENSATION METHODS"
+  }, {
+    "type" : "paragraph",
+    "id" : 151,
+    "level" : "2",
+    "page number" : 35,
+    "bounding box" : [ 163.22, 341.688, 842.12, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ The SPP provides for more than one method of"
+  }, {
+    "type" : "paragraph",
+    "id" : 152,
+    "page number" : 35,
+    "bounding box" : [ 184.82, 303.282, 850.02, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "compensation on a project. Each project should"
+  }, {
+    "type" : "paragraph",
+    "id" : 153,
+    "page number" : 35,
+    "bounding box" : [ 184.82, 226.468, 849.842, 302.415 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "be examined to determine the most appropriate and equitable method of compensation."
+  }, {
+    "type" : "image",
+    "id" : 154,
+    "page number" : 36,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile34.png"
+  }, {
+    "type" : "heading",
+    "id" : 155,
+    "level" : "Doctitle",
+    "page number" : 36,
+    "bounding box" : [ 55.2, 230.483, 547.594, 324.308 ],
+    "heading level" : 1,
+    "font" : "Roboto medium",
+    "font size" : 80.064,
+    "text color" : "[1.0]",
+    "content" : "SPP DOC. 201"
+  }, {
+    "type" : "paragraph",
+    "id" : 156,
+    "page number" : 36,
+    "bounding box" : [ 55.2, 191.358, 516.376, 224.152 ],
+    "font" : "Roboto light",
+    "font size" : 27.984,
+    "text color" : "[0.251]",
+    "content" : "Standards of Professional Practice on"
+  }, {
+    "type" : "heading",
+    "id" : 157,
+    "level" : "Subtitle",
+    "page number" : 36,
+    "bounding box" : [ 55.2, 157.744, 304.877, 190.509 ],
+    "heading level" : 12,
+    "font" : "Roboto medium",
+    "font size" : 27.96,
+    "text color" : "[0.251]",
+    "content" : "Pre-design Services"
+  }, {
+    "type" : "image",
+    "id" : 158,
+    "page number" : 37,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile35.png"
+  }, {
+    "type" : "heading",
+    "id" : 159,
+    "level" : "Subtitle",
+    "page number" : 37,
+    "bounding box" : [ 55.2, 320.677, 268.776, 398.02 ],
+    "heading level" : 3,
+    "font" : "Roboto medium",
+    "font size" : 66.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "PART 1"
+  }, {
+    "type" : "paragraph",
+    "id" : 160,
+    "page number" : 37,
+    "bounding box" : [ 55.2, 274.968, 225.268, 312.515 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "Introduction"
+  }, {
+    "type" : "image",
+    "id" : 162,
+    "page number" : 38,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile36.png"
+  }, {
+    "type" : "header",
+    "id" : 161,
+    "page number" : 38,
+    "bounding box" : [ 163.22, 411.861, 622.868, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 37,
+      "page number" : 38,
+      "bounding box" : [ 163.22, 411.861, 622.868, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "PREDESIGN SERVICES"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 163,
+    "level" : "1",
+    "page number" : 38,
+    "bounding box" : [ 163.22, 43.941, 856.45, 382.742 ],
+    "numbering style" : "unordered",
+    "number of list items" : 6,
+    "next list id" : 167,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 163.22, 315.186, 829.97, 382.742 ],
+      "font" : "Arial",
+      "font size" : 30.0,
+      "text color" : "[0.251]",
+      "content" : "▪ The basic services provided by the Architect have remained relatively unchanged over the years.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 163.22, 232.366, 850.78, 299.922 ],
+      "font" : "Arial",
+      "font size" : 30.0,
+      "text color" : "[0.251]",
+      "content" : "▪ However, the Architect must expand his services in response to",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 195.62, 192.293, 694.898, 222.808 ],
+      "font" : "Arial",
+      "font size" : 26.04,
+      "text color" : "[0.251]",
+      "content" : "▪ the increasing demands of his/her Clients,",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 195.62, 124.103, 856.45, 182.698 ],
+      "font" : "Arial",
+      "font size" : 26.04,
+      "text color" : "[0.251]",
+      "content" : "▪ the evolution of new standards of regulated professional practice,",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 195.62, 84.027, 624.616, 114.542 ],
+      "font" : "Arial",
+      "font size" : 26.04,
+      "text color" : "[0.251]",
+      "content" : "▪ the advancement of technology and",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 195.62, 43.941, 530.327, 74.484 ],
+      "font" : "Arial",
+      "font size" : 26.064,
+      "text color" : "[0.251]",
+      "content" : "▪ the enactment of new laws.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 166,
+    "page number" : 39,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile37.png"
+  }, {
+    "type" : "header",
+    "id" : 165,
+    "page number" : 39,
+    "bounding box" : [ 163.22, 411.861, 622.868, 468.111 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 38,
+      "page number" : 39,
+      "bounding box" : [ 163.22, 411.861, 622.868, 468.111 ],
+      "heading level" : 7,
+      "font" : "Roboto medium",
+      "font size" : 48.0,
+      "text color" : "[0.106, 0.863, 1.0]",
+      "content" : "PREDESIGN SERVICES"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 167,
+    "level" : "1",
+    "page number" : 39,
+    "bounding box" : [ 163.22, 149.638, 878.838, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "previous list id" : 163,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 39,
+      "bounding box" : [ 163.22, 149.638, 878.838, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ Involving the Architect in the earliest stages of the project will be most advantageous to the Client since the Architect can provide the Client with objective project analysis, establishing parameters to optimize building needs vis-à-vis available resources and attendant constraints.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 168,
+    "page number" : 40,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile38.png"
+  }, {
+    "type" : "heading",
+    "id" : 169,
+    "level" : "Subtitle",
+    "page number" : 40,
+    "bounding box" : [ 55.2, 320.677, 653.754, 398.02 ],
+    "heading level" : 3,
+    "font" : "Roboto medium",
+    "font size" : 66.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "SCOPE OF SERVICES"
+  }, {
+    "type" : "paragraph",
+    "id" : 170,
+    "page number" : 40,
+    "bounding box" : [ 55.2, 274.968, 516.544, 312.515 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "Services Included in the Scope of"
+  }, {
+    "type" : "heading",
+    "id" : 171,
+    "level" : "Subtitle",
+    "page number" : 40,
+    "bounding box" : [ 55.2, 236.562, 330.181, 274.137 ],
+    "heading level" : 8,
+    "font" : "Roboto medium",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "Predesign Services"
+  }, {
+    "type" : "heading",
+    "id" : 173,
+    "level" : "Subtitle",
+    "page number" : 41,
+    "bounding box" : [ 457.68, 239.696, 910.501, 310.036 ],
+    "heading level" : 5,
+    "font" : "Roboto medium",
+    "font size" : 60.024,
+    "text color" : "[1.0]",
+    "content" : "Scope of services"
+  }, {
+    "type" : "image",
+    "id" : 174,
+    "page number" : 42,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile39.png"
+  }, {
+    "type" : "heading",
+    "id" : 175,
+    "level" : "Subtitle",
+    "page number" : 42,
+    "bounding box" : [ 163.22, 411.861, 549.38, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "1: CONSULTATION"
+  }, {
+    "type" : "paragraph",
+    "id" : 176,
+    "level" : "2",
+    "page number" : 42,
+    "bounding box" : [ 163.22, 341.688, 874.435, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ When a Client calls upon the Architect to give oral"
+  }, {
+    "type" : "paragraph",
+    "id" : 177,
+    "page number" : 42,
+    "bounding box" : [ 184.82, 303.282, 745.01, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "or written advice and direction, to attend"
+  }, {
+    "type" : "paragraph",
+    "id" : 178,
+    "page number" : 42,
+    "bounding box" : [ 184.82, 149.638, 865.734, 302.415 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "conferences, to make evaluations and appraisals regarding a contemplated project and similar activities, the Architect renders valuable inputs whether or not the Client pursues the project."
+  }, {
+    "type" : "image",
+    "id" : 179,
+    "page number" : 43,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile40.png"
+  }, {
+    "type" : "heading",
+    "id" : 180,
+    "level" : "Subtitle",
+    "page number" : 43,
+    "bounding box" : [ 163.22, 411.861, 752.714, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "2: PRE-FEASIBILITY STUDIES"
+  }, {
+    "type" : "list",
+    "id" : 181,
+    "level" : "1",
+    "page number" : 43,
+    "bounding box" : [ 163.22, 93.238, 869.718, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 43,
+      "bounding box" : [ 163.22, 226.468, 825.368, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ These preliminary studies involve the procurement, analysis and use of secondary information gathered for the project to aid the Client in early decision-making.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 43,
+      "bounding box" : [ 163.22, 93.238, 869.718, 207.637 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ They represent the Architect’s initial assessment of a project’s soundness, allowing the Client to promptly explore his options.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 182,
+    "page number" : 44,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile41.png"
+  }, {
+    "type" : "heading",
+    "id" : 183,
+    "level" : "Subtitle",
+    "page number" : 44,
+    "bounding box" : [ 163.22, 411.861, 655.316, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "3: FEASIBILITY STUDIES"
+  }, {
+    "type" : "paragraph",
+    "id" : 184,
+    "level" : "2",
+    "page number" : 44,
+    "bounding box" : [ 163.22, 341.688, 811.343, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ Detailed analysis of the project based on pre-"
+  }, {
+    "type" : "paragraph",
+    "id" : 185,
+    "page number" : 44,
+    "bounding box" : [ 184.82, 303.282, 856.465, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "feasibility studies that will determine the viability"
+  }, {
+    "type" : "paragraph",
+    "id" : 186,
+    "page number" : 44,
+    "bounding box" : [ 184.82, 264.868, 575.74, 302.415 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "of a proposed development."
+  }, {
+    "type" : "paragraph",
+    "id" : 187,
+    "level" : "2",
+    "page number" : 44,
+    "bounding box" : [ 163.22, 208.468, 832.797, 246.015 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ The studies will set the project against present"
+  }, {
+    "type" : "paragraph",
+    "id" : 188,
+    "page number" : 44,
+    "bounding box" : [ 184.82, 170.062, 851.27, 207.637 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "and future trends to forecast how it will perform"
+  }, {
+    "type" : "paragraph",
+    "id" : 189,
+    "page number" : 44,
+    "bounding box" : [ 184.82, 93.238, 845.092, 169.185 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "over time. This requires primary data gathering and analysis."
+  }, {
+    "type" : "image",
+    "id" : 190,
+    "page number" : 45,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile42.png"
+  }, {
+    "type" : "heading",
+    "id" : 191,
+    "level" : "Subtitle",
+    "page number" : 45,
+    "bounding box" : [ 163.22, 411.861, 878.708, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "4: SITE SELECTION AND ANALYSIS"
+  }, {
+    "type" : "paragraph",
+    "id" : 192,
+    "level" : "2",
+    "page number" : 45,
+    "bounding box" : [ 163.22, 341.688, 859.07, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ The formulation of site criteria, assistance to the"
+  }, {
+    "type" : "paragraph",
+    "id" : 193,
+    "page number" : 45,
+    "bounding box" : [ 184.82, 303.282, 810.389, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "client in site evaluation, as well as analysis to"
+  }, {
+    "type" : "paragraph",
+    "id" : 194,
+    "page number" : 45,
+    "bounding box" : [ 184.82, 264.868, 861.793, 302.415 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "determine the most appropriate site for a project"
+  }, {
+    "type" : "image",
+    "id" : 195,
+    "page number" : 46,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile43.png"
+  }, {
+    "type" : "heading",
+    "id" : 196,
+    "level" : "Subtitle",
+    "page number" : 46,
+    "bounding box" : [ 163.22, 411.861, 828.384, 517.071 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "5: SITE UTILIZATION AND LAND-USE STUDIES"
+  }, {
+    "type" : "list",
+    "id" : 197,
+    "level" : "1",
+    "page number" : 46,
+    "bounding box" : [ 163.22, 170.062, 875.346, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 46,
+      "bounding box" : [ 163.22, 303.282, 748.994, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ Detailed analysis of the site involving the identification of a site’s potentials",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 46,
+      "bounding box" : [ 163.22, 170.062, 875.346, 284.415 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ The analysis covers the context of the site as well as that of its surrounding environment and the development controls that apply to the site",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 198,
+    "page number" : 47,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile44.png"
+  }, {
+    "type" : "heading",
+    "id" : 199,
+    "level" : "Subtitle",
+    "page number" : 47,
+    "bounding box" : [ 163.22, 411.861, 808.436, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "6: ARCHITECTURAL RESEARCH"
+  }, {
+    "type" : "paragraph",
+    "id" : 200,
+    "level" : "2",
+    "page number" : 47,
+    "bounding box" : [ 163.22, 341.688, 724.79, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ The conduct of primary and secondary"
+  }, {
+    "type" : "paragraph",
+    "id" : 201,
+    "page number" : 47,
+    "bounding box" : [ 184.82, 303.282, 886.06, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "researches and assembled facts used as basis for"
+  }, {
+    "type" : "paragraph",
+    "id" : 202,
+    "page number" : 47,
+    "bounding box" : [ 184.82, 264.868, 344.86, 302.415 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "conclusion."
+  }, {
+    "type" : "image",
+    "id" : 203,
+    "page number" : 48,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile45.png"
+  }, {
+    "type" : "heading",
+    "id" : 204,
+    "level" : "Subtitle",
+    "page number" : 48,
+    "bounding box" : [ 163.22, 411.861, 569.204, 517.071 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "7: ARCHITECTURALPROGRAMMING"
+  }, {
+    "type" : "list",
+    "id" : 205,
+    "level" : "1",
+    "page number" : 48,
+    "bounding box" : [ 163.22, 93.238, 864.79, 379.235 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 48,
+      "bounding box" : [ 163.22, 226.468, 864.79, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ This analytical problem-seeking process will lead to the statement and identification of both horizontal and vertical requirements in offering a solution.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 48,
+      "bounding box" : [ 163.22, 93.238, 856.507, 207.637 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ It incorporates a space program with characterizations of the envisioned spaces such as ambiance, cost range, etc.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 206,
+    "page number" : 49,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile46.png"
+  }, {
+    "type" : "heading",
+    "id" : 207,
+    "level" : "Subtitle",
+    "page number" : 49,
+    "bounding box" : [ 163.22, 411.861, 590.036, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "8: SPACE PLANNING"
+  }, {
+    "type" : "paragraph",
+    "id" : 208,
+    "level" : "2",
+    "page number" : 49,
+    "bounding box" : [ 163.22, 341.688, 850.803, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ The Architect determines the adequate size and"
+  }, {
+    "type" : "paragraph",
+    "id" : 209,
+    "page number" : 49,
+    "bounding box" : [ 184.82, 303.282, 856.24, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "appropriate configuration for a proposed project"
+  }, {
+    "type" : "paragraph",
+    "id" : 210,
+    "page number" : 49,
+    "bounding box" : [ 184.82, 226.468, 764.167, 302.415 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "in consideration of the use, allocation and interface of spaces for given activities."
+  }, {
+    "type" : "image",
+    "id" : 211,
+    "page number" : 50,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile47.png"
+  }, {
+    "type" : "heading",
+    "id" : 212,
+    "level" : "Subtitle",
+    "page number" : 50,
+    "bounding box" : [ 163.22, 411.861, 542.516, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "SPACE PLANNING"
+  }, {
+    "type" : "paragraph",
+    "id" : 213,
+    "level" : "2",
+    "page number" : 50,
+    "bounding box" : [ 163.22, 341.688, 840.39, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ Space planning is done mainly through primary"
+  }, {
+    "type" : "paragraph",
+    "id" : 214,
+    "page number" : 50,
+    "bounding box" : [ 184.82, 303.282, 863.358, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "data gathering such as interviews, consultations,"
+  }, {
+    "type" : "paragraph",
+    "id" : 215,
+    "page number" : 50,
+    "bounding box" : [ 184.82, 226.468, 884.125, 302.415 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "interfaces, focus group discussions (FGDs), space planning surveys, space audits, and analysis"
+  }, {
+    "type" : "image",
+    "id" : 216,
+    "page number" : 51,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile48.png"
+  }, {
+    "type" : "heading",
+    "id" : 217,
+    "level" : "Subtitle",
+    "page number" : 51,
+    "bounding box" : [ 163.22, 411.861, 872.468, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "9: SPACE MANAGEMENT STUDIES"
+  }, {
+    "type" : "paragraph",
+    "id" : 218,
+    "level" : "2",
+    "page number" : 51,
+    "bounding box" : [ 163.22, 341.688, 806.652, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ An analysis of the space requirements of the"
+  }, {
+    "type" : "paragraph",
+    "id" : 219,
+    "page number" : 51,
+    "bounding box" : [ 184.82, 303.282, 818.533, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "project based on organizational structure and"
+  }, {
+    "type" : "paragraph",
+    "id" : 220,
+    "page number" : 51,
+    "bounding box" : [ 184.82, 264.868, 419.63, 302.415 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "functional set-up"
+  }, {
+    "type" : "paragraph",
+    "id" : 221,
+    "level" : "2",
+    "page number" : 51,
+    "bounding box" : [ 163.22, 208.468, 879.479, 246.015 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ This analysis pinpoints linkages and interaction of"
+  }, {
+    "type" : "paragraph",
+    "id" : 222,
+    "page number" : 51,
+    "bounding box" : [ 184.82, 170.062, 885.707, 207.637 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "spaces. The formulation of the space program will"
+  }, {
+    "type" : "paragraph",
+    "id" : 223,
+    "page number" : 51,
+    "bounding box" : [ 184.82, 93.238, 812.676, 169.185 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "serve as the basis for the development of the architectural plan/design."
+  }, {
+    "type" : "image",
+    "id" : 224,
+    "page number" : 52,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile49.png"
+  }, {
+    "type" : "heading",
+    "id" : 225,
+    "level" : "Subtitle",
+    "page number" : 52,
+    "bounding box" : [ 163.22, 411.861, 704.852, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "10: VALUE MANAGEMENT"
+  }, {
+    "type" : "paragraph",
+    "id" : 226,
+    "level" : "2",
+    "page number" : 52,
+    "bounding box" : [ 163.22, 341.688, 878.838, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ This technique is applied in the cost management"
+  }, {
+    "type" : "paragraph",
+    "id" : 227,
+    "page number" : 52,
+    "bounding box" : [ 184.82, 303.282, 857.459, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "process to minimize the negative effect of many"
+  }, {
+    "type" : "paragraph",
+    "id" : 228,
+    "page number" : 52,
+    "bounding box" : [ 184.82, 264.868, 539.471, 302.415 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "cost-reduction programs."
+  }, {
+    "type" : "paragraph",
+    "id" : 229,
+    "level" : "2",
+    "page number" : 52,
+    "bounding box" : [ 163.22, 208.468, 842.409, 246.015 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ The goal of value management is to achieve an"
+  }, {
+    "type" : "heading",
+    "id" : 230,
+    "level" : "Subtitle",
+    "page number" : 52,
+    "bounding box" : [ 184.82, 170.062, 843.125, 207.637 ],
+    "heading level" : 8,
+    "font" : "Roboto medium",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "unimpaired program at minimum cost. Thus, a"
+  }, {
+    "type" : "paragraph",
+    "id" : 231,
+    "page number" : 52,
+    "bounding box" : [ 184.82, 93.238, 877.557, 169.185 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "plan, design or system that has been successfully value-managed will still satisfy the same"
+  }, {
+    "type" : "paragraph",
+    "id" : 232,
+    "page number" : 52,
+    "bounding box" : [ 184.82, 54.836, 850.148, 92.411 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "performance criteria as the costlier alternatives."
+  }, {
+    "type" : "image",
+    "id" : 233,
+    "page number" : 53,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile50.png"
+  }, {
+    "type" : "heading",
+    "id" : 234,
+    "level" : "Subtitle",
+    "page number" : 53,
+    "bounding box" : [ 163.22, 411.861, 842.612, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "11: DESIGN BRIEF PREPARATION"
+  }, {
+    "type" : "paragraph",
+    "id" : 235,
+    "level" : "2",
+    "page number" : 53,
+    "bounding box" : [ 163.22, 341.688, 799.86, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ Under design brief preparation, the Architect"
+  }, {
+    "type" : "paragraph",
+    "id" : 236,
+    "page number" : 53,
+    "bounding box" : [ 184.82, 303.282, 780.113, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "states the project terms of reference (ToR)"
+  }, {
+    "type" : "paragraph",
+    "id" : 237,
+    "page number" : 53,
+    "bounding box" : [ 184.82, 188.068, 844.363, 302.415 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "including the concept, objectives and other necessary requirements to bid out architectural services (whether public or private)."
+  }, {
+    "type" : "image",
+    "id" : 238,
+    "page number" : 54,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile51.png"
+  }, {
+    "type" : "heading",
+    "id" : 239,
+    "level" : "Subtitle",
+    "page number" : 54,
+    "bounding box" : [ 163.22, 411.861, 774.404, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "12: PROMOTIONAL SERVICES"
+  }, {
+    "type" : "paragraph",
+    "id" : 240,
+    "level" : "2",
+    "page number" : 54,
+    "bounding box" : [ 163.22, 347.586, 886.22, 382.742 ],
+    "font" : "Roboto light",
+    "font size" : 30.0,
+    "text color" : "[0.251]",
+    "content" : "▪ Projects may require promotional activities in order to"
+  }, {
+    "type" : "paragraph",
+    "id" : 241,
+    "page number" : 54,
+    "bounding box" : [ 184.82, 315.186, 749.48, 350.342 ],
+    "font" : "Roboto light",
+    "font size" : 30.0,
+    "text color" : "[0.251]",
+    "content" : "develop and generate financial support and"
+  }, {
+    "type" : "paragraph",
+    "id" : 242,
+    "page number" : 54,
+    "bounding box" : [ 184.82, 282.78, 823.521, 317.964 ],
+    "font" : "Roboto light",
+    "font size" : 30.024,
+    "text color" : "[0.251]",
+    "content" : "acceptance from governing agencies or from the"
+  }, {
+    "type" : "paragraph",
+    "id" : 243,
+    "page number" : 54,
+    "bounding box" : [ 184.82, 250.366, 375.02, 285.522 ],
+    "font" : "Roboto light",
+    "font size" : 30.0,
+    "text color" : "[0.251]",
+    "content" : "general public."
+  }, {
+    "type" : "paragraph",
+    "id" : 244,
+    "level" : "2",
+    "page number" : 54,
+    "bounding box" : [ 163.22, 199.966, 851.66, 235.122 ],
+    "font" : "Roboto light",
+    "font size" : 30.0,
+    "text color" : "[0.251]",
+    "content" : "▪ In such cases, the Architect can act as the agent of"
+  }, {
+    "type" : "paragraph",
+    "id" : 245,
+    "page number" : 54,
+    "bounding box" : [ 184.82, 167.56, 773.26, 202.744 ],
+    "font" : "Roboto light",
+    "font size" : 30.024,
+    "text color" : "[0.251]",
+    "content" : "the Owner by producing and coordinating the"
+  }, {
+    "type" : "paragraph",
+    "id" : 246,
+    "page number" : 54,
+    "bounding box" : [ 184.82, 70.34, 886.31, 170.292 ],
+    "font" : "Roboto light",
+    "font size" : 30.0,
+    "text color" : "[0.251]",
+    "content" : "additional activities necessary to complete the services. In all such activities, the Architect must maintain his professional status as the representative"
+  }, {
+    "type" : "paragraph",
+    "id" : 247,
+    "page number" : 54,
+    "bounding box" : [ 184.82, 37.934, 359.62, 73.118 ],
+    "font" : "Roboto light",
+    "font size" : 30.024,
+    "text color" : "[0.251]",
+    "content" : "of the Owner."
+  }, {
+    "type" : "paragraph",
+    "id" : 249,
+    "page number" : 55,
+    "bounding box" : [ 646.78, 300.902, 910.3, 371.214 ],
+    "font" : "Roboto medium",
+    "font size" : 60.0,
+    "text color" : "[1.0]",
+    "content" : "Manner of"
+  }, {
+    "type" : "paragraph",
+    "id" : 250,
+    "page number" : 55,
+    "bounding box" : [ 672.22, 239.696, 910.455, 310.036 ],
+    "font" : "Roboto medium",
+    "font size" : 60.024,
+    "text color" : "[1.0]",
+    "content" : "providing"
+  }, {
+    "type" : "paragraph",
+    "id" : 251,
+    "page number" : 55,
+    "bounding box" : [ 697.3, 178.482, 910.3, 248.794 ],
+    "font" : "Roboto medium",
+    "font size" : 60.0,
+    "text color" : "[1.0]",
+    "content" : "services"
+  }, {
+    "type" : "image",
+    "id" : 252,
+    "page number" : 56,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile52.png"
+  }, {
+    "type" : "heading",
+    "id" : 253,
+    "level" : "Subtitle",
+    "page number" : 56,
+    "bounding box" : [ 163.22, 411.861, 885.188, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "MANNER OF PROVIDING SERVICES"
+  }, {
+    "type" : "list",
+    "id" : 254,
+    "level" : "3",
+    "page number" : 56,
+    "bounding box" : [ 163.22, 228.868, 775.349, 379.235 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 56,
+      "bounding box" : [ 163.22, 341.688, 403.493, 379.235 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "▪ As an individual",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 56,
+      "bounding box" : [ 163.22, 285.282, 472.338, 322.857 ],
+      "font" : "Arial",
+      "font size" : 32.064,
+      "text color" : "[0.251]",
+      "content" : "▪ Architect’s own staff",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 56,
+      "bounding box" : [ 163.22, 228.868, 775.349, 266.415 ],
+      "font" : "Arial",
+      "font size" : 32.04,
+      "text color" : "[0.251]",
+      "content" : "▪ By association, consultation or networking",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 256,
+    "page number" : 57,
+    "bounding box" : [ 616.46, 270.296, 910.458, 340.636 ],
+    "font" : "Roboto medium",
+    "font size" : 60.024,
+    "text color" : "[1.0]",
+    "content" : "Methods of"
+  }, {
+    "type" : "paragraph",
+    "id" : 257,
+    "page number" : 57,
+    "bounding box" : [ 543.86, 209.082, 910.34, 279.394 ],
+    "font" : "Roboto medium",
+    "font size" : 60.0,
+    "text color" : "[1.0]",
+    "content" : "compensation"
+  }, {
+    "type" : "image",
+    "id" : 258,
+    "page number" : 58,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile53.png"
+  }, {
+    "type" : "heading",
+    "id" : 259,
+    "level" : "Subtitle",
+    "page number" : 58,
+    "bounding box" : [ 163.22, 411.861, 808.148, 468.111 ],
+    "heading level" : 7,
+    "font" : "Roboto medium",
+    "font size" : 48.0,
+    "text color" : "[0.106, 0.863, 1.0]",
+    "content" : "METHODS OF COMPENSATION"
+  }, {
+    "type" : "paragraph",
+    "id" : 260,
+    "level" : "2",
+    "page number" : 58,
+    "bounding box" : [ 163.22, 341.688, 846.67, 379.235 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "▪ The computation is made by adding all costs of"
+  }, {
+    "type" : "paragraph",
+    "id" : 261,
+    "page number" : 58,
+    "bounding box" : [ 184.82, 303.282, 829.338, 340.857 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "technical services (man hours x rate) and then"
+  }, {
+    "type" : "paragraph",
+    "id" : 262,
+    "page number" : 58,
+    "bounding box" : [ 184.82, 226.468, 884.349, 302.415 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "multiplying it by a multiplier to cover overhead and profit."
+  }, {
+    "type" : "paragraph",
+    "id" : 263,
+    "level" : "2",
+    "page number" : 58,
+    "bounding box" : [ 163.22, 170.062, 846.717, 207.637 ],
+    "font" : "Roboto light",
+    "font size" : 32.064,
+    "text color" : "[0.251]",
+    "content" : "▪ The multiplier ranges from 1.5 to 2.5 depending"
+  }, {
+    "type" : "paragraph",
+    "id" : 264,
+    "page number" : 58,
+    "bounding box" : [ 184.82, 93.238, 853.656, 169.185 ],
+    "font" : "Roboto light",
+    "font size" : 32.04,
+    "text color" : "[0.251]",
+    "content" : "on the office set-up, overhead and experience of the Architect and the complexity of the Project."
+  }, {
+    "type" : "image",
+    "id" : 265,
+    "page number" : 59,
+    "bounding box" : [ 0.0, 0.0, 960.0, 540.0 ],
+    "source" : "SPP 201_images/imageFile54.png"
+  }, {
+    "type" : "heading",
+    "id" : 266,
+    "level" : "Doctitle",
+    "page number" : 59,
+    "bounding box" : [ 55.2, 230.483, 206.521, 324.308 ],
+    "heading level" : 1,
+    "font" : "Roboto medium",
+    "font size" : 80.064,
+    "text color" : "[1.0]",
+    "content" : "END"
+  } ]
+}

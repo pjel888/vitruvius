@@ -1,0 +1,4321 @@
+{
+  "file name" : "HOA MODULE 4 P1.pdf",
+  "number of pages" : 94,
+  "author" : "Danielle P. Ancheta",
+  "title" : "HOA",
+  "creation date" : "D:20151114122348+08'00'",
+  "modification date" : "D:20151114122348+08'00'",
+  "kids" : [ {
+    "type" : "image",
+    "id" : 9,
+    "page number" : 1,
+    "bounding box" : [ 0.0, 0.0, 178.56, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile1.png"
+  }, {
+    "type" : "heading",
+    "id" : 7,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 209.45, 177.545, 566.237, 233.847 ],
+    "heading level" : 1,
+    "font" : "Arial",
+    "font size" : 60.024,
+    "text color" : "[1.0]",
+    "content" : "MODULE 4.1"
+  }, {
+    "type" : "paragraph",
+    "id" : 8,
+    "page number" : 1,
+    "bounding box" : [ 209.45, 142.679, 475.205, 170.375 ],
+    "font" : "Roboto Thin",
+    "font size" : 21.0,
+    "text color" : "[0.6]",
+    "content" : "Architecture in the Philippines"
+  }, {
+    "type" : "heading",
+    "id" : 11,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 122.42, 311.93, 405.02, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Module 4 Overview"
+  }, {
+    "type" : "list",
+    "id" : 12,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 122.42, 94.134, 541.601, 277.078 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 7,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 122.42, 257.38, 421.592, 277.078 ],
+      "font" : "Arial,Bold",
+      "font size" : 21.0,
+      "text color" : "[0.498]",
+      "content" : "4.1 Early Philippine Shelters",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 122.42, 230.14, 534.65, 249.838 ],
+      "font" : "Arial,Bold",
+      "font size" : 21.0,
+      "text color" : "[0.498]",
+      "content" : "4.2 Pre-Colonial Vernacular Architecture",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 122.42, 202.875, 469.456, 222.595 ],
+      "font" : "Arial,Bold",
+      "font size" : 21.024,
+      "text color" : "[0.498]",
+      "content" : "4.3 Spanish Colonial Architecture",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 122.42, 175.76, 482.348, 195.458 ],
+      "font" : "Arial,Bold",
+      "font size" : 21.0,
+      "text color" : "[0.498]",
+      "content" : "4.4 American Colonial Architecture",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 122.42, 148.52, 500.9, 168.218 ],
+      "font" : "Arial,Bold",
+      "font size" : 21.0,
+      "text color" : "[0.498]",
+      "content" : "4.5 Post-war and the Republic Years",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 122.42, 121.245, 409.093, 140.965 ],
+      "font" : "Arial,Bold",
+      "font size" : 21.024,
+      "text color" : "[0.498]",
+      "content" : "4.6 Marcosian Architecture",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 122.42, 94.134, 541.601, 113.832 ],
+      "font" : "Arial,Bold",
+      "font size" : 21.0,
+      "text color" : "[0.498]",
+      "content" : "4.7 Contemporary Philippine Architecture",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 14,
+    "page number" : 3,
+    "bounding box" : [ 354.98, 203.26, 665.075, 245.47 ],
+    "font" : "Arial",
+    "font size" : 45.0,
+    "text color" : "[1.0]",
+    "content" : "Early Philippine"
+  }, {
+    "type" : "paragraph",
+    "id" : 15,
+    "page number" : 3,
+    "bounding box" : [ 499.97, 157.275, 665.118, 199.507 ],
+    "font" : "Arial",
+    "font size" : 45.024,
+    "text color" : "[1.0]",
+    "content" : "Shelters"
+  }, {
+    "type" : "image",
+    "id" : 22,
+    "page number" : 4,
+    "bounding box" : [ 0.0, 0.0, 359.57, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile2.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 18,
+    "page number" : 4,
+    "bounding box" : [ 392.64, 313.93, 572.49, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Tabon Cave"
+  }, {
+    "type" : "paragraph",
+    "id" : 19,
+    "page number" : 4,
+    "bounding box" : [ 392.64, 280.325, 522.92, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "Complex"
+  }, {
+    "type" : "heading",
+    "id" : 20,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 392.64, 251.27, 556.575, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Lipuun Point, Palawan."
+  }, {
+    "type" : "list",
+    "id" : 21,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 404.64, 137.83, 653.795, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 404.64, 202.65, 653.795, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Prehistoric cave shelters were the earliest form of human habitation.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 404.64, 137.83, 646.13, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ The Tabon cave was the site to first establish the presence of humans in the Philippines during the Pleistocene.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 29,
+    "page number" : 5,
+    "bounding box" : [ 0.0, 0.0, 359.63, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile3.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 25,
+    "page number" : 5,
+    "bounding box" : [ 392.64, 280.187, 542.922, 317.054 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Tau’t Batu"
+  }, {
+    "type" : "paragraph",
+    "id" : 26,
+    "level" : "3",
+    "page number" : 5,
+    "bounding box" : [ 404.64, 251.27, 619.28, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "■ Indigenous Filipinos who still"
+  }, {
+    "type" : "paragraph",
+    "id" : 27,
+    "page number" : 5,
+    "bounding box" : [ 428.66, 235.045, 644.921, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.851]",
+    "content" : "continue the primeval practice of"
+  }, {
+    "type" : "paragraph",
+    "id" : 28,
+    "page number" : 5,
+    "bounding box" : [ 428.66, 218.85, 599.9, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.851]",
+    "content" : "living in caves to his date."
+  }, {
+    "type" : "image",
+    "id" : 35,
+    "page number" : 6,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile4.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 6,
+    "bounding box" : [ 392.64, 280.25, 482.532, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Idjang"
+  }, {
+    "type" : "heading",
+    "id" : 33,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 392.64, 251.27, 451.095, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Batanes"
+  }, {
+    "type" : "paragraph",
+    "id" : 34,
+    "level" : "3",
+    "page number" : 6,
+    "bounding box" : [ 404.64, 218.85, 574.145, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "■ Rock-hewn fortresses"
+  }, {
+    "type" : "image",
+    "id" : 41,
+    "page number" : 7,
+    "bounding box" : [ 0.0, 0.0, 360.56, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile5.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 7,
+    "bounding box" : [ 392.64, 280.25, 568.761, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Pinanahang"
+  }, {
+    "type" : "list",
+    "id" : 39,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 404.64, 218.85, 652.262, 265.34 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 404.64, 251.27, 636.305, 265.34 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Lean-to of the Agta of Palanan.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 404.64, 218.85, 652.262, 249.137 ],
+      "font" : "Arial",
+      "font size" : 15.024,
+      "text color" : "[0.6]",
+      "content" : "■ Constructed along the principle of tripod.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 40,
+    "page number" : 7,
+    "bounding box" : [ 392.64, 154.05, 659.505, 200.52 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Hawong. Used by the Pinatubo Aeta; has no living platform; forms two sloping sides with one or both ends left open."
+  }, {
+    "type" : "image",
+    "id" : 46,
+    "page number" : 8,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile6.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 44,
+    "page number" : 8,
+    "bounding box" : [ 392.64, 313.93, 579.849, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Kalinga Tree"
+  }, {
+    "type" : "paragraph",
+    "id" : 45,
+    "page number" : 8,
+    "bounding box" : [ 392.64, 280.325, 488.079, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "House"
+  }, {
+    "type" : "paragraph",
+    "id" : 48,
+    "page number" : 9,
+    "bounding box" : [ 187.2, 203.26, 664.925, 245.47 ],
+    "font" : "Arial",
+    "font size" : 45.0,
+    "text color" : "[1.0]",
+    "content" : "Pre-Colonial Vernacular"
+  }, {
+    "type" : "paragraph",
+    "id" : 49,
+    "page number" : 9,
+    "bounding box" : [ 424.73, 157.275, 664.933, 199.507 ],
+    "font" : "Arial",
+    "font size" : 45.024,
+    "text color" : "[1.0]",
+    "content" : "Architecture"
+  }, {
+    "type" : "paragraph",
+    "id" : 51,
+    "page number" : 10,
+    "bounding box" : [ 122.42, 257.49, 525.992, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.251]",
+    "content" : "Vernacular architecture"
+  }, {
+    "type" : "paragraph",
+    "id" : 52,
+    "page number" : 10,
+    "bounding box" : [ 122.42, 222.987, 606.382, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.251]",
+    "content" : "Exemplifies the commonest building techniques"
+  }, {
+    "type" : "paragraph",
+    "id" : 53,
+    "page number" : 10,
+    "bounding box" : [ 122.42, 176.052, 608.518, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.549]",
+    "content" : "based on the forms and materials of a particular historical period, region, or group of people."
+  }, {
+    "type" : "heading",
+    "id" : 55,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 122.42, 311.93, 419.486, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Domestic Structures"
+  }, {
+    "type" : "paragraph",
+    "id" : 56,
+    "page number" : 11,
+    "bounding box" : [ 122.42, 237.22, 616.759, 279.598 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "Archetypal tropical characteristics of Southeast Asian domestic architecture:"
+  }, {
+    "type" : "list",
+    "id" : 57,
+    "level" : "3",
+    "page number" : 11,
+    "bounding box" : [ 129.98, 123.632, 419.303, 214.963 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 129.98, 191.708, 369.302, 214.963 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ An elevated living floor",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 129.98, 169.028, 419.303, 192.283 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Buoyant rectangular volume",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 129.98, 146.348, 365.669, 169.603 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Raised pile foundation",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 129.98, 123.632, 396.012, 146.915 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Voluminous thatched roof",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 63,
+    "page number" : 12,
+    "bounding box" : [ 0.0, 0.0, 366.0, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile7.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 60,
+    "page number" : 12,
+    "bounding box" : [ 392.64, 280.25, 506.358, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Binuron"
+  }, {
+    "type" : "heading",
+    "id" : 61,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 392.64, 251.27, 564.69, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Traditional Isneg house."
+  }, {
+    "type" : "list",
+    "id" : 62,
+    "level" : "2",
+    "page number" : 12,
+    "bounding box" : [ 404.64, 137.83, 650.87, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 404.64, 218.85, 635.06, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Roof suggests an inverted hull.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 404.64, 186.45, 617.945, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Exposed floor joists outside suggest the profile of a boat.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 404.64, 170.25, 650.87, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Datag or Xassaran, main section.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 404.64, 137.83, 648.995, 168.12 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Tamuyon, slightly raised platform on three sides.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 70,
+    "page number" : 13,
+    "bounding box" : [ 0.002, 42.335, 360.352, 362.665 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile8.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 67,
+    "page number" : 13,
+    "bounding box" : [ 392.64, 280.25, 506.358, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Binuron"
+  }, {
+    "type" : "heading",
+    "id" : 68,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 392.64, 251.27, 564.69, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Traditional Isneg house."
+  }, {
+    "type" : "list",
+    "id" : 69,
+    "level" : "2",
+    "page number" : 13,
+    "bounding box" : [ 404.64, 137.83, 650.87, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 404.64, 218.85, 635.06, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Roof suggests an inverted hull.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 404.64, 186.45, 617.945, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Exposed floor joists outside suggest the profile of a boat.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 404.64, 170.25, 650.87, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Datag or Xassaran, main section.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 404.64, 137.83, 648.995, 168.12 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Tamuyon, slightly raised platform on three sides.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 77,
+    "page number" : 14,
+    "bounding box" : [ 0.0, 67.391, 360.34, 337.611 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile9.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 73,
+    "page number" : 14,
+    "bounding box" : [ 392.64, 280.25, 511.869, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Binayon"
+  }, {
+    "type" : "heading",
+    "id" : 74,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 392.64, 251.27, 651.23, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Finaryon. Traditional Kalinga house."
+  }, {
+    "type" : "list",
+    "id" : 75,
+    "level" : "2",
+    "page number" : 14,
+    "bounding box" : [ 404.64, 170.25, 664.25, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 404.64, 202.65, 662.54, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Octagonal in plan; exterior features are not strongly defined.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 404.64, 186.45, 603.305, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Dataggon, central section.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 404.64, 170.25, 664.25, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Sipi, slightly elevated side sections.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 81,
+    "page number" : 15,
+    "bounding box" : [ 0.002, 75.162, 360.352, 329.842 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile10.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 82,
+    "page number" : 15,
+    "bounding box" : [ 392.64, 280.25, 511.869, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Binayon"
+  }, {
+    "type" : "heading",
+    "id" : 83,
+    "level" : "Subtitle",
+    "page number" : 15,
+    "bounding box" : [ 392.64, 251.27, 651.23, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Finaryon. Traditional Kalinga house."
+  }, {
+    "type" : "list",
+    "id" : 84,
+    "level" : "2",
+    "page number" : 15,
+    "bounding box" : [ 404.64, 170.25, 664.25, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 404.64, 202.65, 662.54, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Octagonal in plan; exterior features are not strongly defined.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 404.64, 186.45, 603.305, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Dataggon, central section.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 15,
+      "bounding box" : [ 404.64, 170.25, 664.25, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Sipi, slightly elevated side sections.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 91,
+    "page number" : 16,
+    "bounding box" : [ 0.0, 0.0, 359.57, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile11.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 87,
+    "page number" : 16,
+    "bounding box" : [ 392.64, 280.25, 477.128, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Fay-u"
+  }, {
+    "type" : "heading",
+    "id" : 88,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 392.64, 251.27, 623.96, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Traditional Bontoc house, for the"
+  }, {
+    "type" : "paragraph",
+    "id" : 89,
+    "page number" : 16,
+    "bounding box" : [ 392.64, 235.045, 446.276, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "affluent."
+  }, {
+    "type" : "list",
+    "id" : 90,
+    "level" : "2",
+    "page number" : 16,
+    "bounding box" : [ 404.64, 154.05, 658.115, 216.72 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 404.64, 202.65, 643.925, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Katyufong, dwelling for the poor.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 404.64, 154.05, 658.115, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Kol-lob, residence of widows or unmarried old women; can also be called katyufong.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 97,
+    "page number" : 17,
+    "bounding box" : [ 0.0, 54.236, 360.35, 350.766 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile12.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 95,
+    "page number" : 17,
+    "bounding box" : [ 392.64, 280.25, 557.739, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Inagamang"
+  }, {
+    "type" : "heading",
+    "id" : 96,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 392.64, 218.85, 652.005, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Traditional Bontoc house in Sagada. ■ Agamang, upper level granary."
+  }, {
+    "type" : "heading",
+    "id" : 99,
+    "level" : "Subtitle",
+    "page number" : 18,
+    "bounding box" : [ 122.42, 311.93, 416.054, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Other building types"
+  }, {
+    "type" : "list",
+    "id" : 100,
+    "level" : "2",
+    "page number" : 18,
+    "bounding box" : [ 129.98, 123.632, 659.588, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 129.98, 259.768, 382.304, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Afong, family residence.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 129.98, 214.515, 659.588, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Ato, council house and dormitory of the young and old unmarried males.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 129.98, 191.708, 444.977, 214.963 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Ulog or olog, female dormitory.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 129.98, 169.028, 599.951, 192.283 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Al-kang, storage for food, jewelry and wine jars.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 129.98, 146.348, 386.84, 169.603 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Akhamang, rice granary.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 18,
+      "bounding box" : [ 129.98, 123.632, 348.372, 146.915 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Falinto-og, pig pens.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 108,
+    "page number" : 19,
+    "bounding box" : [ 0.0, 67.372, 360.21, 337.632 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile13.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 104,
+    "page number" : 19,
+    "bounding box" : [ 392.64, 280.25, 458.673, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Bale"
+  }, {
+    "type" : "heading",
+    "id" : 105,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 392.64, 251.27, 655.52, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Fale. Traditional Ifugao house, for the"
+  }, {
+    "type" : "paragraph",
+    "id" : 106,
+    "page number" : 19,
+    "bounding box" : [ 392.64, 235.045, 446.276, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "affluent."
+  }, {
+    "type" : "list",
+    "id" : 107,
+    "level" : "2",
+    "page number" : 19,
+    "bounding box" : [ 404.64, 137.801, 638.39, 216.72 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 404.64, 202.65, 619.805, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Abong, dwelling for the poor.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 404.64, 170.25, 638.39, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Support system: four posts, two girders, three joists or beams.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 404.64, 154.05, 552.395, 168.12 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Halipan, rat guard.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 19,
+      "bounding box" : [ 404.64, 137.801, 590.285, 154.559 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ “The house as a womb.”",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 113,
+    "page number" : 20,
+    "bounding box" : [ 0.002, 46.51, 360.352, 358.49 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile14.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 112,
+    "page number" : 20,
+    "bounding box" : [ 392.64, 280.25, 458.673, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Bale"
+  }, {
+    "type" : "heading",
+    "id" : 114,
+    "level" : "Subtitle",
+    "page number" : 20,
+    "bounding box" : [ 392.64, 251.27, 655.52, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Fale. Traditional Ifugao house, for the"
+  }, {
+    "type" : "paragraph",
+    "id" : 115,
+    "page number" : 20,
+    "bounding box" : [ 392.64, 235.045, 446.276, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "affluent."
+  }, {
+    "type" : "list",
+    "id" : 116,
+    "level" : "2",
+    "page number" : 20,
+    "bounding box" : [ 404.64, 137.801, 638.39, 216.72 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 404.64, 202.65, 619.805, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Abong, dwelling for the poor.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 404.64, 170.25, 638.39, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Support system: four posts, two girders, three joists or beams.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 404.64, 154.05, 552.395, 168.12 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Halipan, rat guard.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 20,
+      "bounding box" : [ 404.64, 137.801, 590.285, 154.559 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ “The house as a womb.”",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 124,
+    "page number" : 21,
+    "bounding box" : [ 0.0, 31.569, 359.97, 373.429 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile15.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 120,
+    "page number" : 21,
+    "bounding box" : [ 392.64, 280.25, 555.891, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Binangiyan"
+  }, {
+    "type" : "heading",
+    "id" : 121,
+    "level" : "Subtitle",
+    "page number" : 21,
+    "bounding box" : [ 392.64, 251.27, 639.08, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Traditional Kankanai house, for the"
+  }, {
+    "type" : "paragraph",
+    "id" : 122,
+    "page number" : 21,
+    "bounding box" : [ 392.64, 235.045, 447.508, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "wealthy."
+  }, {
+    "type" : "list",
+    "id" : 123,
+    "level" : "2",
+    "page number" : 21,
+    "bounding box" : [ 404.64, 170.25, 646.535, 216.72 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 404.64, 186.45, 646.535, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Apa or inapa, for poorer families; temporary abode.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 21,
+      "bounding box" : [ 404.64, 170.25, 580.58, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Allao, more temporary.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 128,
+    "page number" : 22,
+    "bounding box" : [ 392.64, 280.25, 488.109, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Rakuh"
+  }, {
+    "type" : "image",
+    "id" : 133,
+    "page number" : 22,
+    "bounding box" : [ 0.0, 97.458, 360.34, 307.538 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile16.png"
+  }, {
+    "type" : "heading",
+    "id" : 129,
+    "level" : "Subtitle",
+    "page number" : 22,
+    "bounding box" : [ 392.64, 251.27, 568.995, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Traditional Ivatan house."
+  }, {
+    "type" : "paragraph",
+    "id" : 130,
+    "level" : "3",
+    "page number" : 22,
+    "bounding box" : [ 404.64, 218.85, 646.04, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "■ Thick thatch, walls mortared with"
+  }, {
+    "type" : "paragraph",
+    "id" : 131,
+    "page number" : 22,
+    "bounding box" : [ 404.64, 186.45, 655.445, 216.72 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "stone or plastered with white lime. ■ Wooden post and lintel framework"
+  }, {
+    "type" : "paragraph",
+    "id" : 132,
+    "page number" : 22,
+    "bounding box" : [ 428.66, 170.25, 591.29, 184.32 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "is implanted in the walls."
+  }, {
+    "type" : "image",
+    "id" : 142,
+    "page number" : 23,
+    "bounding box" : [ 0.0, 83.669, 359.57, 321.329 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile17.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 137,
+    "page number" : 23,
+    "bounding box" : [ 392.64, 280.25, 566.913, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Bahay kubo"
+  }, {
+    "type" : "heading",
+    "id" : 138,
+    "level" : "Subtitle",
+    "page number" : 23,
+    "bounding box" : [ 392.64, 251.27, 657.11, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Traditional lowland dwelling, northern"
+  }, {
+    "type" : "paragraph",
+    "id" : 139,
+    "page number" : 23,
+    "bounding box" : [ 392.64, 235.045, 524.656, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "and central regions."
+  }, {
+    "type" : "paragraph",
+    "id" : 140,
+    "level" : "3",
+    "page number" : 23,
+    "bounding box" : [ 404.64, 202.621, 629.195, 219.379 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "■ “The passively-cooled house.”"
+  }, {
+    "type" : "list",
+    "id" : 141,
+    "level" : "2",
+    "page number" : 23,
+    "bounding box" : [ 440.66, 137.83, 654.23, 200.52 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 23,
+      "bounding box" : [ 440.66, 186.45, 573.29, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Porous surfaces",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 23,
+      "bounding box" : [ 440.66, 170.25, 625.37, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Horizontality of windows",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 23,
+      "bounding box" : [ 440.66, 154.05, 654.23, 168.12 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Roof and window overhangs",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 23,
+      "bounding box" : [ 440.66, 137.83, 605.165, 151.9 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Surrounding gardens",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 144,
+    "level" : "Subtitle",
+    "page number" : 24,
+    "bounding box" : [ 122.42, 311.93, 344.345, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Interior Spaces"
+  }, {
+    "type" : "paragraph",
+    "id" : 145,
+    "page number" : 24,
+    "bounding box" : [ 122.42, 237.088, 267.047, 279.598 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.251]",
+    "content" : "Primary spaces ▪ Living room"
+  }, {
+    "type" : "paragraph",
+    "id" : 146,
+    "level" : "3",
+    "page number" : 24,
+    "bounding box" : [ 129.98, 214.382, 665.069, 237.665 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "▪ Kitchen and service area (dapogan, banggerahan, and"
+  }, {
+    "type" : "paragraph",
+    "id" : 147,
+    "page number" : 24,
+    "bounding box" : [ 122.42, 146.48, 294.914, 211.538 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.251]",
+    "content" : "batalan) Secondary spaces"
+  }, {
+    "type" : "list",
+    "id" : 148,
+    "level" : "2",
+    "page number" : 24,
+    "bounding box" : [ 129.98, 78.282, 325.034, 146.915 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 24,
+      "bounding box" : [ 129.98, 123.632, 217.897, 146.915 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Dining",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 24,
+      "bounding box" : [ 129.98, 100.958, 325.034, 124.213 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Silong and balkon",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 24,
+      "bounding box" : [ 129.98, 78.282, 253.991, 101.537 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Bedrooms",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 155,
+    "page number" : 25,
+    "bounding box" : [ 0.0, 54.9, 359.57, 350.1 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile18.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 152,
+    "page number" : 25,
+    "bounding box" : [ 392.64, 280.25, 466.068, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Lepa"
+  }, {
+    "type" : "heading",
+    "id" : 153,
+    "level" : "Subtitle",
+    "page number" : 25,
+    "bounding box" : [ 392.64, 251.27, 612.44, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Traditional Badjao boat-house."
+  }, {
+    "type" : "list",
+    "id" : 154,
+    "level" : "2",
+    "page number" : 25,
+    "bounding box" : [ 404.64, 121.63, 648.89, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 25,
+      "bounding box" : [ 404.64, 202.65, 643.01, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ No outriggers, roofed, loose and detachable structure.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 25,
+      "bounding box" : [ 404.64, 154.05, 646.7, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Djenging, has outriggers, roofed, walled in on all sides by wooden boards.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 25,
+      "bounding box" : [ 404.64, 121.63, 648.89, 151.9 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Dapang or Vinta, not roofed, only used for fishing and short trips.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 162,
+    "page number" : 26,
+    "bounding box" : [ 0.0, 39.92, 361.11, 365.08 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile19.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 159,
+    "page number" : 26,
+    "bounding box" : [ 392.64, 280.25, 475.173, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Luma"
+  }, {
+    "type" : "heading",
+    "id" : 160,
+    "level" : "Subtitle",
+    "page number" : 26,
+    "bounding box" : [ 392.64, 251.27, 606.45, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Traditional Badjao landhouse."
+  }, {
+    "type" : "paragraph",
+    "id" : 161,
+    "level" : "3",
+    "page number" : 26,
+    "bounding box" : [ 404.64, 202.65, 655.685, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "■ Harun, stairs where women often wash clothes and kitchen utensils."
+  }, {
+    "type" : "image",
+    "id" : 169,
+    "page number" : 27,
+    "bounding box" : [ 0.0, 85.081, 359.5, 319.921 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile20.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 166,
+    "page number" : 27,
+    "bounding box" : [ 392.64, 280.25, 543.054, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Bay Sinug"
+  }, {
+    "type" : "heading",
+    "id" : 167,
+    "level" : "Subtitle",
+    "page number" : 27,
+    "bounding box" : [ 392.64, 251.27, 578.835, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Traditional Tausug house."
+  }, {
+    "type" : "list",
+    "id" : 168,
+    "level" : "2",
+    "page number" : 27,
+    "bounding box" : [ 404.64, 170.25, 647.795, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 27,
+      "bounding box" : [ 404.64, 186.45, 647.795, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ House building can be construed as corresponding to the birth of a human.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 27,
+      "bounding box" : [ 404.64, 170.25, 574.13, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Tadjuk pasung finials.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 178,
+    "page number" : 28,
+    "bounding box" : [ 0.0, 84.696, 360.94, 320.306 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile21.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 173,
+    "page number" : 28,
+    "bounding box" : [ 392.64, 280.25, 515.532, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Torogan"
+  }, {
+    "type" : "heading",
+    "id" : 174,
+    "level" : "Subtitle",
+    "page number" : 28,
+    "bounding box" : [ 392.64, 251.27, 652.715, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Traditional Maranao house, ancestral"
+  }, {
+    "type" : "paragraph",
+    "id" : 175,
+    "page number" : 28,
+    "bounding box" : [ 392.64, 235.045, 651.233, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "residence of the datu and his extended"
+  }, {
+    "type" : "paragraph",
+    "id" : 176,
+    "page number" : 28,
+    "bounding box" : [ 392.64, 218.85, 435.915, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "family."
+  }, {
+    "type" : "list",
+    "id" : 177,
+    "level" : "2",
+    "page number" : 28,
+    "bounding box" : [ 404.64, 89.197, 648.14, 200.52 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 28,
+      "bounding box" : [ 404.64, 170.25, 625.025, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Mala-a-walai, traditional large house.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 28,
+      "bounding box" : [ 404.64, 154.05, 560.75, 168.12 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Lawig, small house.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 28,
+      "bounding box" : [ 404.64, 105.43, 648.14, 151.9 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ The panolong (decorative beam ends) are often with pako rabong and naga carvings.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 28,
+      "bounding box" : [ 404.64, 89.197, 627.995, 105.955 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Lamin, lady’s dormitory tower.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 180,
+    "level" : "Subtitle",
+    "page number" : 29,
+    "bounding box" : [ 122.42, 311.93, 643.358, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Features of Vernacular Architecture"
+  }, {
+    "type" : "list",
+    "id" : 181,
+    "level" : "2",
+    "page number" : 29,
+    "bounding box" : [ 129.98, 55.729, 651.49, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 29,
+      "bounding box" : [ 129.98, 237.22, 590.611, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ The builders are non-professional architects or engineers.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 29,
+      "bounding box" : [ 129.98, 191.84, 651.49, 237.665 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ There is constant adaptation, using natural materials, to the geographical environment.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 29,
+      "bounding box" : [ 129.98, 146.48, 636.532, 192.283 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ The actual process of construction involves intuitive thinking and is open to later modifications.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 29,
+      "bounding box" : [ 129.98, 101.09, 553.562, 146.915 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ There is balance between social/economic functionality and aesthetic features.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 29,
+      "bounding box" : [ 129.98, 55.729, 592.192, 101.537 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Styles are subject to the evolution of traditional patterns specific to an ethnic domain.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 183,
+    "page number" : 30,
+    "bounding box" : [ 327.5, 203.26, 665.09, 245.47 ],
+    "font" : "Arial",
+    "font size" : 45.0,
+    "text color" : "[1.0]",
+    "content" : "Spanish Colonial"
+  }, {
+    "type" : "paragraph",
+    "id" : 184,
+    "page number" : 30,
+    "bounding box" : [ 424.85, 157.275, 665.053, 199.507 ],
+    "font" : "Arial",
+    "font size" : 45.024,
+    "text color" : "[1.0]",
+    "content" : "Architecture"
+  }, {
+    "type" : "heading",
+    "id" : 186,
+    "level" : "Subtitle",
+    "page number" : 31,
+    "bounding box" : [ 122.42, 311.93, 481.823, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Instruments of Urbanism"
+  }, {
+    "type" : "list",
+    "id" : 187,
+    "level" : "3",
+    "page number" : 31,
+    "bounding box" : [ 129.98, 169.028, 406.903, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 31,
+      "bounding box" : [ 129.98, 259.768, 257.582, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Reducción",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 31,
+      "bounding box" : [ 129.98, 237.088, 347.294, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Encomienda system",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 31,
+      "bounding box" : [ 129.98, 214.382, 406.903, 237.665 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ System of cities and towns",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 31,
+      "bounding box" : [ 129.98, 191.708, 258.632, 214.963 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Cuadricula",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 31,
+      "bounding box" : [ 129.98, 169.028, 372.809, 192.283 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Colonial infrastructures",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 189,
+    "page number" : 32,
+    "bounding box" : [ 41.4, 243.837, 277.902, 290.797 ],
+    "font" : "Arial",
+    "font size" : 50.064,
+    "text color" : "[0.251]",
+    "content" : "Reducción"
+  }, {
+    "type" : "paragraph",
+    "id" : 190,
+    "page number" : 32,
+    "bounding box" : [ 41.4, 209.86, 394.494, 229.558 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.549]",
+    "content" : "Forced urbanization and resettlement."
+  }, {
+    "type" : "image",
+    "id" : 199,
+    "page number" : 33,
+    "bounding box" : [ 49.218, 0.0, 311.138, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile22.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 194,
+    "page number" : 33,
+    "bounding box" : [ 392.64, 280.25, 548.664, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Reducción"
+  }, {
+    "type" : "paragraph",
+    "id" : 195,
+    "page number" : 33,
+    "bounding box" : [ 392.64, 251.27, 653.555, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "The formerly scattered barangays were"
+  }, {
+    "type" : "paragraph",
+    "id" : 196,
+    "page number" : 33,
+    "bounding box" : [ 392.64, 235.045, 661.602, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "brought together and reduced in number"
+  }, {
+    "type" : "paragraph",
+    "id" : 197,
+    "page number" : 33,
+    "bounding box" : [ 392.64, 186.45, 620.43, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "and made into compact and larger communities to facilitate religious conversion and cultural change."
+  }, {
+    "type" : "paragraph",
+    "id" : 198,
+    "page number" : 33,
+    "bounding box" : [ 392.64, 137.83, 649.85, 168.12 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Bajo de las campana, under the sound of the bells."
+  }, {
+    "type" : "paragraph",
+    "id" : 201,
+    "page number" : 34,
+    "bounding box" : [ 41.4, 243.837, 319.455, 290.797 ],
+    "font" : "Arial",
+    "font size" : 50.064,
+    "text color" : "[0.251]",
+    "content" : "Encomienda"
+  }, {
+    "type" : "paragraph",
+    "id" : 202,
+    "page number" : 34,
+    "bounding box" : [ 41.4, 209.86, 502.602, 229.558 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.549]",
+    "content" : "The colony was divided into parcels assigned to a"
+  }, {
+    "type" : "paragraph",
+    "id" : 203,
+    "page number" : 34,
+    "bounding box" : [ 41.4, 187.155, 528.334, 206.875 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.549]",
+    "content" : "Spanish colonist (encomendero) who was mandated"
+  }, {
+    "type" : "paragraph",
+    "id" : 204,
+    "page number" : 34,
+    "bounding box" : [ 41.4, 141.8, 507.779, 187.901 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.549]",
+    "content" : "to “allocate, allot or distribute” the resources of the domain."
+  }, {
+    "type" : "paragraph",
+    "id" : 206,
+    "page number" : 35,
+    "bounding box" : [ 41.4, 294.872, 263.628, 341.809 ],
+    "font" : "Arial",
+    "font size" : 50.04,
+    "text color" : "[0.251]",
+    "content" : "System of"
+  }, {
+    "type" : "paragraph",
+    "id" : 207,
+    "page number" : 35,
+    "bounding box" : [ 41.4, 243.837, 424.94, 290.797 ],
+    "font" : "Arial",
+    "font size" : 50.064,
+    "text color" : "[0.251]",
+    "content" : "Cities and Towns"
+  }, {
+    "type" : "paragraph",
+    "id" : 208,
+    "page number" : 35,
+    "bounding box" : [ 41.4, 141.8, 491.43, 229.558 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.549]",
+    "content" : "The institution of a hierarchal settlement system. Cabecera (city) or poblacion (town), core of the municipality. Barrios, adjacent barangays."
+  }, {
+    "type" : "image",
+    "id" : 211,
+    "page number" : 36,
+    "bounding box" : [ 0.0, 34.788, 720.0, 404.998 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile23.png"
+  }, {
+    "type" : "heading",
+    "id" : 210,
+    "level" : "Subtitle",
+    "page number" : 36,
+    "bounding box" : [ 5.4, 15.32, 182.388, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Intramuros, The Walled City."
+  }, {
+    "type" : "image",
+    "id" : 216,
+    "page number" : 37,
+    "bounding box" : [ 0.0, 0.0, 359.57, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile24.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 214,
+    "page number" : 37,
+    "bounding box" : [ 392.64, 280.25, 550.347, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Intramuros"
+  }, {
+    "type" : "list",
+    "id" : 215,
+    "level" : "2",
+    "page number" : 37,
+    "bounding box" : [ 404.64, 202.65, 644.705, 265.34 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 37,
+      "bounding box" : [ 404.64, 235.045, 599.39, 265.34 ],
+      "font" : "Arial",
+      "font size" : 15.024,
+      "text color" : "[0.6]",
+      "content" : "■ Patterned after the walled fortresses of Europe",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 37,
+      "bounding box" : [ 404.64, 202.65, 644.705, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Reserved for the nobility and the clergy.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 218,
+    "level" : "Subtitle",
+    "page number" : 38,
+    "bounding box" : [ 122.42, 311.93, 291.116, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Extramuros"
+  }, {
+    "type" : "paragraph",
+    "id" : 219,
+    "page number" : 38,
+    "bounding box" : [ 122.42, 259.9, 344.915, 279.598 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "Living beyond the walls."
+  }, {
+    "type" : "list",
+    "id" : 220,
+    "level" : "3",
+    "page number" : 38,
+    "bounding box" : [ 129.98, 169.028, 631.609, 260.343 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 129.98, 237.088, 488.495, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Pueblos, villages outside the walls.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 129.98, 191.84, 631.609, 237.665 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Parian, a separate urban quarter designated to the Chinese community .",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 129.98, 169.028, 425.471, 192.283 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Dilao, Japanese community.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 222,
+    "page number" : 39,
+    "bounding box" : [ 41.4, 243.837, 280.656, 290.797 ],
+    "font" : "Arial",
+    "font size" : 50.064,
+    "text color" : "[0.251]",
+    "content" : "Cuadricula"
+  }, {
+    "type" : "paragraph",
+    "id" : 223,
+    "page number" : 39,
+    "bounding box" : [ 41.4, 209.86, 479.817, 229.558 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.549]",
+    "content" : "A system of streets and blocks laid out in a grid"
+  }, {
+    "type" : "paragraph",
+    "id" : 224,
+    "page number" : 39,
+    "bounding box" : [ 41.4, 187.155, 327.011, 206.875 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.549]",
+    "content" : "pattern, with uniform precision."
+  }, {
+    "type" : "heading",
+    "id" : 226,
+    "level" : "Subtitle",
+    "page number" : 40,
+    "bounding box" : [ 122.42, 311.93, 546.008, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "The Laws of the Indies, 1573"
+  }, {
+    "type" : "list",
+    "id" : 227,
+    "level" : "3",
+    "page number" : 40,
+    "bounding box" : [ 129.98, 101.09, 639.907, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 40,
+      "bounding box" : [ 129.98, 259.768, 303.11, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Characteristics:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 5,
+        "level" : "2",
+        "page number" : 40,
+        "bounding box" : [ 165.98, 146.48, 658.226, 260.343 ],
+        "numbering style" : "unordered",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 40,
+          "bounding box" : [ 165.98, 237.088, 351.794, 260.343 ],
+          "font" : "Times New Roman",
+          "font size" : 21.0,
+          "text color" : "[0.251]",
+          "content" : "▪ elevated location",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 40,
+          "bounding box" : [ 165.98, 214.382, 420.575, 237.665 ],
+          "font" : "Times New Roman",
+          "font size" : 21.024,
+          "text color" : "[0.251]",
+          "content" : "▪ an orderly grid of streets",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 40,
+          "bounding box" : [ 165.98, 146.48, 658.226, 214.963 ],
+          "font" : "Times New Roman",
+          "font size" : 21.0,
+          "text color" : "[0.251]",
+          "content" : "▪ a central plaza, a defensive wall, and zones for churches, shops, government buildings, hospitals, and slaughterhouses.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 40,
+      "bounding box" : [ 129.98, 101.09, 639.907, 146.915 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Encapsulates the classicist theories of urban design proposed by Vitruvius and Alberti.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 234,
+    "page number" : 41,
+    "bounding box" : [ 0.0, 0.0, 360.38, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile25.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 230,
+    "page number" : 41,
+    "bounding box" : [ 392.64, 280.25, 614.631, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Plaza Complex"
+  }, {
+    "type" : "paragraph",
+    "id" : 231,
+    "page number" : 41,
+    "bounding box" : [ 392.64, 251.27, 630.185, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.851]",
+    "content" : "Grid pattern of streets with the main"
+  }, {
+    "type" : "paragraph",
+    "id" : 232,
+    "page number" : 41,
+    "bounding box" : [ 392.64, 235.045, 641.313, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "plaza at the center surrounded by the"
+  }, {
+    "type" : "paragraph",
+    "id" : 233,
+    "page number" : 41,
+    "bounding box" : [ 392.64, 202.65, 646.08, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "church, the tribunal, other government buildings, and the marketplace."
+  }, {
+    "type" : "image",
+    "id" : 237,
+    "page number" : 42,
+    "bounding box" : [ 0.0, 34.795, 720.0, 404.995 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile26.png"
+  }, {
+    "type" : "heading",
+    "id" : 236,
+    "level" : "Subtitle",
+    "page number" : 42,
+    "bounding box" : [ 5.4, 15.32, 289.668, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Plaza de Roma. Plaza complex of Intramuros."
+  }, {
+    "type" : "paragraph",
+    "id" : 239,
+    "page number" : 43,
+    "bounding box" : [ 41.4, 294.872, 222.245, 341.809 ],
+    "font" : "Arial",
+    "font size" : 50.04,
+    "text color" : "[0.251]",
+    "content" : "Colonial"
+  }, {
+    "type" : "paragraph",
+    "id" : 240,
+    "page number" : 43,
+    "bounding box" : [ 41.4, 243.837, 361.009, 290.797 ],
+    "font" : "Arial",
+    "font size" : 50.064,
+    "text color" : "[0.251]",
+    "content" : "Infrastructures"
+  }, {
+    "type" : "paragraph",
+    "id" : 241,
+    "page number" : 43,
+    "bounding box" : [ 41.4, 209.86, 528.138, 229.558 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.549]",
+    "content" : "New building typologies and construction technology"
+  }, {
+    "type" : "paragraph",
+    "id" : 242,
+    "page number" : 43,
+    "bounding box" : [ 41.4, 187.155, 188.253, 206.875 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.549]",
+    "content" : "was introduced."
+  }, {
+    "type" : "paragraph",
+    "id" : 244,
+    "page number" : 44,
+    "bounding box" : [ 122.42, 257.49, 289.418, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.251]",
+    "content" : "Churches"
+  }, {
+    "type" : "paragraph",
+    "id" : 245,
+    "page number" : 44,
+    "bounding box" : [ 122.42, 222.987, 452.12, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.549]",
+    "content" : "Edifices for religious conversion."
+  }, {
+    "type" : "paragraph",
+    "id" : 247,
+    "page number" : 45,
+    "bounding box" : [ 122.42, 311.93, 379.16, 342.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Parts of a Church"
+  }, {
+    "type" : "list",
+    "id" : 248,
+    "level" : "3",
+    "page number" : 45,
+    "bounding box" : [ 129.98, 100.958, 636.401, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 7,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 45,
+      "bounding box" : [ 129.98, 259.768, 375.413, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Altar mayor, main altar.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 45,
+      "bounding box" : [ 129.98, 237.088, 353.051, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Sagrario, tabernacle.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 45,
+      "bounding box" : [ 129.98, 214.382, 290.157, 237.665 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Pulpito, pulpit.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 45,
+      "bounding box" : [ 129.98, 191.708, 583.706, 214.963 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Retablo, elaborately ornamented altar screen.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 45,
+      "bounding box" : [ 129.98, 146.48, 636.401, 192.283 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Sacristia, where the priest and his assistants put on their robes before the mass.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 45,
+      "bounding box" : [ 129.98, 123.632, 300.696, 146.915 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Coro, choir loft.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 45,
+      "bounding box" : [ 129.98, 100.958, 411.269, 124.213 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Tribunas, screened gallery.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 250,
+    "level" : "Subtitle",
+    "page number" : 46,
+    "bounding box" : [ 122.42, 311.93, 368.237, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Church Complex"
+  }, {
+    "type" : "list",
+    "id" : 251,
+    "level" : "3",
+    "page number" : 46,
+    "bounding box" : [ 129.98, 214.382, 480.098, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 46,
+      "bounding box" : [ 129.98, 259.768, 225.956, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Church",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 46,
+      "bounding box" : [ 129.98, 237.088, 480.098, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Convento, parish house or rectory.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 46,
+      "bounding box" : [ 129.98, 214.382, 400.695, 237.665 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Campanarios, bell towers.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 254,
+    "page number" : 47,
+    "bounding box" : [ 61.713, 34.787, 658.283, 404.997 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile27.png"
+  }, {
+    "type" : "heading",
+    "id" : 253,
+    "level" : "Subtitle",
+    "page number" : 47,
+    "bounding box" : [ 67.128, 15.32, 515.313, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Basilica Minore del Santo Niño; Cebu. (Oldest church in the Philippines.)"
+  }, {
+    "type" : "image",
+    "id" : 257,
+    "page number" : 48,
+    "bounding box" : [ 0.0, 34.787, 720.0, 404.997 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile28.png"
+  }, {
+    "type" : "heading",
+    "id" : 256,
+    "level" : "Subtitle",
+    "page number" : 48,
+    "bounding box" : [ 5.4, 15.32, 713.368, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Bantay Church (Shrine of Our Lady of Charity); Ilocos Sur. (Belfry served as a watchtower for pirates; Neo-Gothic.)"
+  }, {
+    "type" : "image",
+    "id" : 260,
+    "page number" : 49,
+    "bounding box" : [ 0.0, 34.787, 720.0, 404.997 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile29.png"
+  }, {
+    "type" : "heading",
+    "id" : 259,
+    "level" : "Subtitle",
+    "page number" : 49,
+    "bounding box" : [ 5.4, 15.32, 636.542, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Carcar Church (Church of Sta. Catalina de Alexandria); Cebu. (Minaret-like bell towers; Neo-Mudejar.)"
+  }, {
+    "type" : "image",
+    "id" : 262,
+    "page number" : 50,
+    "bounding box" : [ 60.0, 34.788, 660.0, 404.998 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile30.png"
+  }, {
+    "type" : "heading",
+    "id" : 263,
+    "level" : "Subtitle",
+    "page number" : 50,
+    "bounding box" : [ 65.4, 15.32, 604.416, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.251]",
+    "content" : "San Sebastian Church, Manila. (The first and only all-steel church in Asia; Neo-Gothic.)"
+  }, {
+    "type" : "image",
+    "id" : 266,
+    "page number" : 51,
+    "bounding box" : [ 55.134, 34.788, 664.864, 404.998 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile31.png"
+  }, {
+    "type" : "heading",
+    "id" : 265,
+    "level" : "Subtitle",
+    "page number" : 51,
+    "bounding box" : [ 60.552, 15.32, 623.195, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Manila Cathedral; Intramuros, Manila. (Restoration, Fernando Ocampo; Neo-Romanesque)"
+  }, {
+    "type" : "image",
+    "id" : 269,
+    "page number" : 52,
+    "bounding box" : [ 4.201, 225.75, 355.421, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile32.png"
+  }, {
+    "type" : "image",
+    "id" : 271,
+    "page number" : 52,
+    "bounding box" : [ 362.39, 225.75, 713.61, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile33.png"
+  }, {
+    "type" : "image",
+    "id" : 272,
+    "page number" : 52,
+    "bounding box" : [ 4.201, 34.787, 355.421, 217.817 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile34.png"
+  }, {
+    "type" : "image",
+    "id" : 270,
+    "page number" : 52,
+    "bounding box" : [ 362.45, 34.787, 716.57, 217.817 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile35.png"
+  }, {
+    "type" : "heading",
+    "id" : 268,
+    "level" : "Subtitle",
+    "page number" : 52,
+    "bounding box" : [ 5.4, 15.32, 435.665, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Baroque Churches of the Philippines, UNESCO World Heritage Sites."
+  }, {
+    "type" : "image",
+    "id" : 275,
+    "page number" : 53,
+    "bounding box" : [ 32.869, 34.788, 687.129, 404.998 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile36.png"
+  }, {
+    "type" : "heading",
+    "id" : 274,
+    "level" : "Subtitle",
+    "page number" : 53,
+    "bounding box" : [ 38.28, 15.32, 289.666, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "San Agustin Church; Intramuros, Manila."
+  }, {
+    "type" : "image",
+    "id" : 283,
+    "page number" : 54,
+    "bounding box" : [ 0.0, 194.94, 361.31, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile37.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 278,
+    "page number" : 54,
+    "bounding box" : [ 392.64, 313.93, 570.576, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "San Agustin"
+  }, {
+    "type" : "paragraph",
+    "id" : 279,
+    "page number" : 54,
+    "bounding box" : [ 392.64, 280.325, 499.175, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "Church"
+  }, {
+    "type" : "heading",
+    "id" : 280,
+    "level" : "Subtitle",
+    "page number" : 54,
+    "bounding box" : [ 392.64, 251.27, 530.145, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Intramuros, Manila."
+  }, {
+    "type" : "list",
+    "id" : 281,
+    "level" : "2",
+    "page number" : 54,
+    "bounding box" : [ 404.64, 89.226, 645.8, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 54,
+      "bounding box" : [ 404.64, 202.68, 630.47, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ The Church of the Immaculate Conception of San Agustín.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 54,
+      "bounding box" : [ 404.64, 186.45, 641.345, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ First church to be built in Luzon.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 54,
+      "bounding box" : [ 404.64, 154.05, 630.17, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Only structure in Intramuros to survive WWII.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 54,
+      "bounding box" : [ 404.64, 137.83, 609.98, 151.9 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ High Baroque style retablo.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 54,
+      "bounding box" : [ 404.64, 105.401, 631.025, 135.7 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Ceiling paintings in the trompe l’oeil style.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 54,
+      "bounding box" : [ 404.64, 89.226, 645.8, 103.296 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Chinese fu dogs at the entrance.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 282,
+    "page number" : 54,
+    "bounding box" : [ 0.0, 0.0, 361.31, 189.06 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile38.png"
+  }, {
+    "type" : "image",
+    "id" : 286,
+    "page number" : 55,
+    "bounding box" : [ 0.0, 34.788, 720.0, 404.998 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile39.png"
+  }, {
+    "type" : "heading",
+    "id" : 285,
+    "level" : "Subtitle",
+    "page number" : 55,
+    "bounding box" : [ 5.4, 15.32, 227.499, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Paoay Church, Paoay, Ilocos Norte."
+  }, {
+    "type" : "image",
+    "id" : 292,
+    "page number" : 56,
+    "bounding box" : [ 0.0, 0.0, 359.63, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile40.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 289,
+    "page number" : 56,
+    "bounding box" : [ 392.64, 280.25, 601.827, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Paoay Church"
+  }, {
+    "type" : "heading",
+    "id" : 290,
+    "level" : "Subtitle",
+    "page number" : 56,
+    "bounding box" : [ 392.64, 251.27, 535.77, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Paoay, Ilocos Norte."
+  }, {
+    "type" : "list",
+    "id" : 291,
+    "level" : "2",
+    "page number" : 56,
+    "bounding box" : [ 404.64, 105.43, 647.015, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 56,
+      "bounding box" : [ 404.64, 218.88, 590.57, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Saint Augustine Church.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 56,
+      "bounding box" : [ 404.64, 170.25, 644.705, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Most outstanding example in the Philippines of 'Earthquake Baroque'.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 56,
+      "bounding box" : [ 404.64, 121.63, 647.015, 168.12 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Volutes of contrafuertes (buttresses) and in the pyramidal finials of wall facades.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 56,
+      "bounding box" : [ 404.64, 105.43, 629.705, 119.5 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Massive coral stone belltower.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 295,
+    "page number" : 57,
+    "bounding box" : [ 0.0, 34.787, 720.0, 404.997 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile41.png"
+  }, {
+    "type" : "heading",
+    "id" : 294,
+    "level" : "Subtitle",
+    "page number" : 57,
+    "bounding box" : [ 5.4, 15.32, 203.329, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Miag-ao Church; Miag-ao, Iloilo."
+  }, {
+    "type" : "image",
+    "id" : 301,
+    "page number" : 58,
+    "bounding box" : [ 0.0, 0.0, 361.31, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile42.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 298,
+    "page number" : 58,
+    "bounding box" : [ 392.64, 280.25, 627.647, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Miag-ao Church"
+  }, {
+    "type" : "heading",
+    "id" : 299,
+    "level" : "Subtitle",
+    "page number" : 58,
+    "bounding box" : [ 392.64, 251.27, 496.745, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Miag-ao, Iloilo."
+  }, {
+    "type" : "list",
+    "id" : 300,
+    "level" : "2",
+    "page number" : 58,
+    "bounding box" : [ 404.64, 89.226, 657.8, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 58,
+      "bounding box" : [ 404.64, 218.88, 652.175, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Sto. Tomas de Villanueva Church",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 58,
+      "bounding box" : [ 404.64, 170.25, 629.855, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Stands on the highest point of Miag-ao, its towers serving as lookouts against Muslim raids.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 58,
+      "bounding box" : [ 404.64, 137.83, 657.8, 168.12 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ It is the finest surviving example of 'Fortress Baroque'.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 58,
+      "bounding box" : [ 404.64, 89.226, 656.315, 135.7 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ The facade epitomizes the Filipino transfiguration of western decorative elements.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 304,
+    "page number" : 59,
+    "bounding box" : [ 0.0, 34.788, 720.0, 404.998 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile43.png"
+  }, {
+    "type" : "heading",
+    "id" : 303,
+    "level" : "Subtitle",
+    "page number" : 59,
+    "bounding box" : [ 5.4, 15.32, 286.34, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Santa Maria Church; Santa Maria, Ilocos Sur."
+  }, {
+    "type" : "image",
+    "id" : 311,
+    "page number" : 60,
+    "bounding box" : [ 0.0, 0.0, 359.63, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile44.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 307,
+    "page number" : 60,
+    "bounding box" : [ 392.64, 313.93, 570.543, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Santa Maria"
+  }, {
+    "type" : "paragraph",
+    "id" : 308,
+    "page number" : 60,
+    "bounding box" : [ 392.64, 280.325, 499.175, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "Church"
+  }, {
+    "type" : "heading",
+    "id" : 309,
+    "level" : "Subtitle",
+    "page number" : 60,
+    "bounding box" : [ 392.64, 251.27, 561.555, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Santa Maria, Ilocos Sur."
+  }, {
+    "type" : "list",
+    "id" : 310,
+    "level" : "2",
+    "page number" : 60,
+    "bounding box" : [ 404.64, 73.026, 656.72, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 60,
+      "bounding box" : [ 404.64, 202.68, 639.68, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Church of Nuestra Señora de la Asunción.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 60,
+      "bounding box" : [ 404.64, 170.25, 652.205, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Situated on a hill surrounded by a defensive wall.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 60,
+      "bounding box" : [ 404.64, 137.83, 656.72, 168.12 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Separate pagoda-like bell tower at the midpoint of the nave wall.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 60,
+      "bounding box" : [ 404.64, 73.026, 650.63, 135.7 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ The brick walls are devoid of ornament but have delicately carved side entrances and strong buttresses.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 313,
+    "level" : "Subtitle",
+    "page number" : 61,
+    "bounding box" : [ 122.42, 311.93, 317.021, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Conservation"
+  }, {
+    "type" : "paragraph",
+    "id" : 314,
+    "page number" : 61,
+    "bounding box" : [ 122.42, 237.22, 605.924, 279.598 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "These legislations ensure their proper safeguarding, protection, conservation, management and use as"
+  }, {
+    "type" : "paragraph",
+    "id" : 315,
+    "page number" : 61,
+    "bounding box" : [ 122.42, 214.515, 592.21, 234.235 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "religious structures, as declared National Cultural"
+  }, {
+    "type" : "heading",
+    "id" : 316,
+    "level" : "Subtitle",
+    "page number" : 61,
+    "bounding box" : [ 122.42, 169.16, 611.212, 211.538 ],
+    "heading level" : 3,
+    "font" : "Arial,Bold",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "Treasures, National Historical Landmarks, and as World Heritage properties."
+  }, {
+    "type" : "list",
+    "id" : 317,
+    "level" : "3",
+    "page number" : 61,
+    "bounding box" : [ 129.98, 101.09, 613.878, 169.603 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 61,
+      "bounding box" : [ 129.98, 146.348, 478.673, 169.603 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ RA 10066 (National Heritage Law)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 61,
+      "bounding box" : [ 129.98, 101.09, 613.878, 146.915 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ RA 10086 (National Historical Commission of the Philippines Law)",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 319,
+    "page number" : 62,
+    "bounding box" : [ 122.42, 257.49, 306.734, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.251]",
+    "content" : "Fortresses"
+  }, {
+    "type" : "paragraph",
+    "id" : 320,
+    "page number" : 62,
+    "bounding box" : [ 122.42, 222.987, 661.057, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.549]",
+    "content" : "Characterized by heavy stone walls, moats, and grid"
+  }, {
+    "type" : "paragraph",
+    "id" : 321,
+    "page number" : 62,
+    "bounding box" : [ 122.42, 176.052, 663.537, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.549]",
+    "content" : "road layouts. Bastions, keeps, and watchtowers were also built to cover blind spots."
+  }, {
+    "type" : "image",
+    "id" : 326,
+    "page number" : 63,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile45.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 324,
+    "page number" : 63,
+    "bounding box" : [ 392.64, 280.25, 590.607, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Fort Santiago"
+  }, {
+    "type" : "heading",
+    "id" : 325,
+    "level" : "Subtitle",
+    "page number" : 63,
+    "bounding box" : [ 392.64, 251.27, 530.145, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Intramuros, Manila."
+  }, {
+    "type" : "heading",
+    "id" : 328,
+    "level" : "Subtitle",
+    "page number" : 64,
+    "bounding box" : [ 122.42, 311.93, 331.376, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Parts of a Fort"
+  }, {
+    "type" : "list",
+    "id" : 329,
+    "level" : "2",
+    "page number" : 64,
+    "bounding box" : [ 129.98, 146.48, 647.723, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 64,
+      "bounding box" : [ 129.98, 259.768, 444.098, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Cortinas, thick perimeter walls.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 64,
+      "bounding box" : [ 129.98, 214.515, 632.839, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Bastiones or baluartes, four-sided bulwarks skirting the cortinas on both ends.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 64,
+      "bounding box" : [ 129.98, 191.708, 269.291, 214.963 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Foso, moat.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 64,
+      "bounding box" : [ 129.98, 146.48, 647.723, 192.283 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Casamatas, stone embrasures where artilleries were propped up.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 331,
+    "page number" : 65,
+    "bounding box" : [ 0.0, 0.0, 720.0, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile46.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 333,
+    "page number" : 66,
+    "bounding box" : [ 122.42, 257.49, 489.254, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.251]",
+    "content" : "Institutional Buildings"
+  }, {
+    "type" : "paragraph",
+    "id" : 334,
+    "page number" : 66,
+    "bounding box" : [ 122.42, 222.987, 581.763, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.549]",
+    "content" : "Monumental civic architecture epitomized the"
+  }, {
+    "type" : "paragraph",
+    "id" : 335,
+    "page number" : 66,
+    "bounding box" : [ 122.42, 199.572, 640.705, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.549]",
+    "content" : "colonial institutions under the Spanish governance."
+  }, {
+    "type" : "image",
+    "id" : 341,
+    "page number" : 67,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile47.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 338,
+    "page number" : 67,
+    "bounding box" : [ 392.64, 280.25, 594.402, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Ayuntamiento"
+  }, {
+    "type" : "heading",
+    "id" : 339,
+    "level" : "Subtitle",
+    "page number" : 67,
+    "bounding box" : [ 392.64, 251.27, 530.145, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Intramuros, Manila."
+  }, {
+    "type" : "list",
+    "id" : 340,
+    "level" : "2",
+    "page number" : 67,
+    "bounding box" : [ 404.64, 137.83, 661.235, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 67,
+      "bounding box" : [ 404.64, 186.48, 647.39, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Also known as Casa del Ayuntamiento, Casa del Cabildo, Casa Consistorial, or Casa Real.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 67,
+      "bounding box" : [ 404.64, 137.83, 661.235, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ As a seat of colonial governance, it housed several administrative offices and archives.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 347,
+    "page number" : 68,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile48.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 344,
+    "page number" : 68,
+    "bounding box" : [ 392.64, 280.25, 578.001, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Palacio Real"
+  }, {
+    "type" : "heading",
+    "id" : 345,
+    "level" : "Subtitle",
+    "page number" : 68,
+    "bounding box" : [ 392.64, 251.27, 530.145, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Intramuros, Manila."
+  }, {
+    "type" : "list",
+    "id" : 346,
+    "level" : "2",
+    "page number" : 68,
+    "bounding box" : [ 404.64, 137.83, 663.92, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 68,
+      "bounding box" : [ 404.64, 202.68, 603.26, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Also known as Palacio del Gobernador General.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 68,
+      "bounding box" : [ 404.64, 170.25, 657.185, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Residence of the highest official of the land.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 68,
+      "bounding box" : [ 404.64, 137.83, 663.92, 168.12 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Malacañang Palace, the summer residence of the Governor General.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 349,
+    "page number" : 69,
+    "bounding box" : [ 122.42, 311.93, 417.605, 342.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Other civic buildings"
+  }, {
+    "type" : "list",
+    "id" : 350,
+    "level" : "3",
+    "page number" : 69,
+    "bounding box" : [ 129.98, 101.09, 661.813, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 129.98, 259.768, 514.957, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Real Audiencia, or Tribunal, trial court.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 129.98, 237.088, 389.282, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Aduana, customs house.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 129.98, 214.382, 414.623, 237.665 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Hacienda Publica, treasury.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 129.98, 169.16, 661.813, 214.963 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Municipio, Casa de Municipal, or Casa Real, a smaller version of the Ayuntamiento in the provincial towns.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 129.98, 101.09, 657.098, 169.603 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Casa Hacienda, expansive structures housing spaces for the administrators and his workers on a landed estate.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 352,
+    "page number" : 70,
+    "bounding box" : [ 122.42, 297.28, 402.44, 333.862 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.251]",
+    "content" : "Educational and"
+  }, {
+    "type" : "paragraph",
+    "id" : 353,
+    "page number" : 70,
+    "bounding box" : [ 122.42, 257.535, 447.724, 294.139 ],
+    "font" : "Arial",
+    "font size" : 39.024,
+    "text color" : "[0.251]",
+    "content" : "Scientific Buildings"
+  }, {
+    "type" : "paragraph",
+    "id" : 354,
+    "page number" : 70,
+    "bounding box" : [ 122.42, 222.987, 638.131, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.549]",
+    "content" : "The various religious orders fulfilled the missionary"
+  }, {
+    "type" : "paragraph",
+    "id" : 355,
+    "page number" : 70,
+    "bounding box" : [ 122.42, 176.052, 631.489, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.549]",
+    "content" : "tasks of bringing education, healthcare, and social welfare to the indigenous subjects."
+  }, {
+    "type" : "image",
+    "id" : 362,
+    "page number" : 71,
+    "bounding box" : [ 0.0, 0.0, 359.57, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile49.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 358,
+    "page number" : 71,
+    "bounding box" : [ 392.64, 280.25, 510.021, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Schools"
+  }, {
+    "type" : "heading",
+    "id" : 359,
+    "level" : "Subtitle",
+    "page number" : 71,
+    "bounding box" : [ 392.64, 251.27, 627.405, 265.34 ],
+    "heading level" : 4,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "University of Sto. Tomas, Manila."
+  }, {
+    "type" : "paragraph",
+    "id" : 360,
+    "page number" : 71,
+    "bounding box" : [ 392.64, 235.075, 636.975, 249.137 ],
+    "font" : "Arial,Italic",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "Oldest established university in Asia."
+  }, {
+    "type" : "list",
+    "id" : 361,
+    "level" : "4",
+    "page number" : 71,
+    "bounding box" : [ 404.64, 154.05, 665.105, 216.72 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 71,
+      "bounding box" : [ 404.64, 186.45, 665.105, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Colegio or universidad, found in the urban areas.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 71,
+      "bounding box" : [ 404.64, 154.05, 660.92, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Escuela primaria, found in different pueblos.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 364,
+    "level" : "Subtitle",
+    "page number" : 72,
+    "bounding box" : [ 122.42, 311.93, 258.215, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Hospitals"
+  }, {
+    "type" : "list",
+    "id" : 365,
+    "level" : "3",
+    "page number" : 72,
+    "bounding box" : [ 129.98, 191.708, 644.504, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 129.98, 237.22, 644.504, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Hospital Real, first hospital; built by the Franciscans; catered only to the Spaniards.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 129.98, 214.382, 644.366, 237.665 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Hospital de San Gabriel, for the Chinese in Binondo.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 129.98, 191.708, 516.256, 214.963 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Hospital de San Lazaro, for the lepers.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 367,
+    "page number" : 73,
+    "bounding box" : [ 122.42, 311.93, 327.911, 342.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Observatories"
+  }, {
+    "type" : "paragraph",
+    "id" : 368,
+    "level" : "4",
+    "page number" : 73,
+    "bounding box" : [ 129.98, 237.22, 657.318, 283.023 ],
+    "font" : "Arial,Italic",
+    "font size" : 21.0,
+    "text color" : "[0.251]",
+    "content" : "▪ Observatorio Astronomico y Meteorologico de Manila, or the Manila Observatory; established by the Jesuits"
+  }, {
+    "type" : "paragraph",
+    "id" : 369,
+    "page number" : 73,
+    "bounding box" : [ 158.42, 214.515, 462.574, 234.235 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "to assist in forecasting typhoons."
+  }, {
+    "type" : "paragraph",
+    "id" : 371,
+    "page number" : 74,
+    "bounding box" : [ 122.42, 257.49, 449.942, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.251]",
+    "content" : "Industrial Buildings"
+  }, {
+    "type" : "paragraph",
+    "id" : 372,
+    "page number" : 74,
+    "bounding box" : [ 122.42, 222.987, 591.957, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.549]",
+    "content" : "Because of the Hispanic urban program, living"
+  }, {
+    "type" : "paragraph",
+    "id" : 373,
+    "page number" : 74,
+    "bounding box" : [ 122.42, 176.052, 662.086, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.549]",
+    "content" : "standards were elevated through urban infrastructure and public works."
+  }, {
+    "type" : "image",
+    "id" : 380,
+    "page number" : 75,
+    "bounding box" : [ 0.0, 0.0, 361.31, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile50.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 376,
+    "page number" : 75,
+    "bounding box" : [ 392.64, 280.25, 504.51, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Bridges"
+  }, {
+    "type" : "paragraph",
+    "id" : 377,
+    "level" : "5",
+    "page number" : 75,
+    "bounding box" : [ 404.64, 251.27, 621.515, 265.34 ],
+    "font" : "Arial,Italic",
+    "font size" : 15.0,
+    "text color" : "[0.851]",
+    "content" : "■ Puente de España (Bridge of"
+  }, {
+    "type" : "paragraph",
+    "id" : 378,
+    "page number" : 75,
+    "bounding box" : [ 428.66, 235.045, 661.126, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "Spain), built after the destruction of"
+  }, {
+    "type" : "paragraph",
+    "id" : 379,
+    "page number" : 75,
+    "bounding box" : [ 428.66, 186.45, 661.325, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Puente Grande (first and only bridge crossing the Pasig River) in the 1863 earthquake."
+  }, {
+    "type" : "image",
+    "id" : 387,
+    "page number" : 76,
+    "bounding box" : [ 0.0, 1.321, 360.34, 405.001 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile51.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 383,
+    "page number" : 76,
+    "bounding box" : [ 392.64, 280.25, 596.085, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Train Stations"
+  }, {
+    "type" : "paragraph",
+    "id" : 384,
+    "level" : "5",
+    "page number" : 76,
+    "bounding box" : [ 404.64, 251.27, 659.885, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "■ The Tutuban Station of the Manila-"
+  }, {
+    "type" : "paragraph",
+    "id" : 385,
+    "page number" : 76,
+    "bounding box" : [ 428.66, 235.045, 641.58, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "Dagupan railway line; served as"
+  }, {
+    "type" : "paragraph",
+    "id" : 386,
+    "page number" : 76,
+    "bounding box" : [ 428.66, 202.65, 664.835, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "the main terminal for all northbound destinations."
+  }, {
+    "type" : "image",
+    "id" : 394,
+    "page number" : 77,
+    "bounding box" : [ 0.0, 0.0, 359.57, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile52.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 390,
+    "page number" : 77,
+    "bounding box" : [ 392.64, 280.25, 570.576, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Lighthouses"
+  }, {
+    "type" : "paragraph",
+    "id" : 391,
+    "level" : "5",
+    "page number" : 77,
+    "bounding box" : [ 404.64, 251.27, 616.46, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.851]",
+    "content" : "■ The Pasig Farola, the oldest"
+  }, {
+    "type" : "paragraph",
+    "id" : 392,
+    "page number" : 77,
+    "bounding box" : [ 428.66, 235.045, 650.775, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "lighthouse in the Philippines; also"
+  }, {
+    "type" : "paragraph",
+    "id" : 393,
+    "page number" : 77,
+    "bounding box" : [ 428.66, 202.65, 601.325, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "known as the San Nicolas lighthouse."
+  }, {
+    "type" : "image",
+    "id" : 401,
+    "page number" : 78,
+    "bounding box" : [ 0.0, 0.0, 358.8, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile53.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 397,
+    "page number" : 78,
+    "bounding box" : [ 392.64, 280.25, 599.748, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Water System"
+  }, {
+    "type" : "paragraph",
+    "id" : 398,
+    "level" : "5",
+    "page number" : 78,
+    "bounding box" : [ 404.64, 251.27, 659.195, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.851]",
+    "content" : "■ The Carriedo Waterworks installed"
+  }, {
+    "type" : "paragraph",
+    "id" : 399,
+    "page number" : 78,
+    "bounding box" : [ 428.66, 235.045, 633.841, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "the piped-in water system. The"
+  }, {
+    "type" : "paragraph",
+    "id" : 400,
+    "page number" : 78,
+    "bounding box" : [ 428.66, 202.65, 662.06, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "water was offered to the public free of charge."
+  }, {
+    "type" : "paragraph",
+    "id" : 403,
+    "page number" : 79,
+    "bounding box" : [ 122.42, 257.49, 499.706, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.251]",
+    "content" : "Commercial Buildings"
+  }, {
+    "type" : "paragraph",
+    "id" : 404,
+    "page number" : 79,
+    "bounding box" : [ 122.42, 222.987, 661.103, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.549]",
+    "content" : "Spain attempted to establish an Asian trading empire"
+  }, {
+    "type" : "paragraph",
+    "id" : 405,
+    "page number" : 79,
+    "bounding box" : [ 122.42, 176.052, 644.161, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.549]",
+    "content" : "to be based in Manila. Soon the city became one of the major colonial port cities in Southeast Asia."
+  }, {
+    "type" : "image",
+    "id" : 410,
+    "page number" : 80,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile54.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 408,
+    "page number" : 80,
+    "bounding box" : [ 392.64, 280.25, 486.195, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Shops"
+  }, {
+    "type" : "list",
+    "id" : 409,
+    "level" : "2",
+    "page number" : 80,
+    "bounding box" : [ 404.64, 73.026, 663.68, 265.34 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 80,
+      "bounding box" : [ 404.64, 186.45, 663.68, 265.34 ],
+      "font" : "Arial",
+      "font size" : 15.024,
+      "text color" : "[0.6]",
+      "content" : "■ Alcaiceria de San Fernando, very first large commercial structure; silk market in Binondo; housed stores for Chinese merchants and government offices.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 80,
+      "bounding box" : [ 404.64, 137.83, 638.195, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Tabacaleras, tobacco and cigar factories; Cigarreras, female workers.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 80,
+      "bounding box" : [ 404.64, 89.226, 617.975, 135.7 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ The bahay na bato was later retrofitted to have room for commercial function.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 80,
+      "bounding box" : [ 404.64, 73.026, 633.455, 87.096 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Sari-sari store and carinderias.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 415,
+    "page number" : 81,
+    "bounding box" : [ 0.0, 0.0, 360.34, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile55.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 413,
+    "page number" : 81,
+    "bounding box" : [ 392.64, 280.25, 486.162, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Hotels"
+  }, {
+    "type" : "list",
+    "id" : 414,
+    "level" : "2",
+    "page number" : 81,
+    "bounding box" : [ 404.64, 186.45, 651.71, 265.34 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 81,
+      "bounding box" : [ 404.64, 218.85, 651.71, 265.34 ],
+      "font" : "Arial",
+      "font size" : 15.024,
+      "text color" : "[0.6]",
+      "content" : "■ Hotel la Palma de Mallorca, Hotel de Paris, and Hotel de Espana, foremost hotels in Intramuros.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 81,
+      "bounding box" : [ 404.64, 186.45, 648.26, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Casas de huespedes, boarding houses; less expensive lodgings.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 423,
+    "page number" : 82,
+    "bounding box" : [ 0.0, 85.851, 358.92, 319.151 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile56.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 419,
+    "page number" : 82,
+    "bounding box" : [ 392.64, 280.25, 484.347, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Banks"
+  }, {
+    "type" : "paragraph",
+    "id" : 420,
+    "level" : "3",
+    "page number" : 82,
+    "bounding box" : [ 404.64, 251.27, 664.34, 265.34 ],
+    "font" : "Arial,Italic",
+    "font size" : 15.0,
+    "text color" : "[0.851]",
+    "content" : "■ Banco Español-Filipino de Isabel II,"
+  }, {
+    "type" : "paragraph",
+    "id" : 421,
+    "page number" : 82,
+    "bounding box" : [ 428.66, 235.045, 643.804, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "first bank built; initially housed in"
+  }, {
+    "type" : "paragraph",
+    "id" : 422,
+    "page number" : 82,
+    "bounding box" : [ 428.66, 218.85, 509.645, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "the Aduana."
+  }, {
+    "type" : "paragraph",
+    "id" : 425,
+    "page number" : 83,
+    "bounding box" : [ 122.42, 257.49, 473.615, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.251]",
+    "content" : "Domestic Structures"
+  }, {
+    "type" : "paragraph",
+    "id" : 426,
+    "page number" : 83,
+    "bounding box" : [ 122.42, 222.987, 631.788, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.549]",
+    "content" : "Dwellings reflecting the differences in social class."
+  }, {
+    "type" : "image",
+    "id" : 432,
+    "page number" : 84,
+    "bounding box" : [ 0.0, 68.957, 360.34, 336.047 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile57.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 430,
+    "page number" : 84,
+    "bounding box" : [ 392.64, 280.25, 554.109, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Accesorias"
+  }, {
+    "type" : "list",
+    "id" : 431,
+    "level" : "2",
+    "page number" : 84,
+    "bounding box" : [ 404.64, 170.25, 658.295, 265.34 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 84,
+      "bounding box" : [ 404.64, 251.27, 563.69, 265.34 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Apartment dwellings",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 84,
+      "bounding box" : [ 404.64, 202.65, 649.678, 249.137 ],
+      "font" : "Arial",
+      "font size" : 15.024,
+      "text color" : "[0.6]",
+      "content" : "■ Evolved from the need of migrant laborers for cheap housing in commercial and industrial areas.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 84,
+      "bounding box" : [ 404.64, 170.25, 658.295, 200.52 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Vivienda, each unit; has a zaguan, sala and sleeping quarters.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 434,
+    "page number" : 85,
+    "bounding box" : [ 122.42, 257.49, 374.243, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.251]",
+    "content" : "Bahay na bato"
+  }, {
+    "type" : "paragraph",
+    "id" : 435,
+    "page number" : 85,
+    "bounding box" : [ 122.42, 222.987, 661.017, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.549]",
+    "content" : "A housing prototype which combined elements of the"
+  }, {
+    "type" : "paragraph",
+    "id" : 436,
+    "page number" : 85,
+    "bounding box" : [ 122.42, 152.652, 647.847, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.549]",
+    "content" : "indigenous and Hispanic building traditions to prevent the dangers posed by fire, earthquakes and cyclones."
+  }, {
+    "type" : "image",
+    "id" : 439,
+    "page number" : 86,
+    "bounding box" : [ 0.0, 34.788, 720.0, 404.998 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile58.png"
+  }, {
+    "type" : "heading",
+    "id" : 438,
+    "level" : "Subtitle",
+    "page number" : 86,
+    "bounding box" : [ 5.4, 15.32, 348.664, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Bahay na Bato; Las Casas Filipinas de Acuzar, Bataan."
+  }, {
+    "type" : "heading",
+    "id" : 441,
+    "level" : "Subtitle",
+    "page number" : 87,
+    "bounding box" : [ 122.42, 311.93, 423.182, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Arquitectura Mestiza"
+  }, {
+    "type" : "paragraph",
+    "id" : 442,
+    "level" : "3",
+    "page number" : 87,
+    "bounding box" : [ 129.98, 237.22, 631.676, 283.023 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "▪ A new hybrid-type of construction, coined by Jesuit Francisco Ignacio Alcina, which refers to structures"
+  }, {
+    "type" : "paragraph",
+    "id" : 443,
+    "page number" : 87,
+    "bounding box" : [ 158.42, 214.515, 517.625, 234.235 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.251]",
+    "content" : "built partly of wood and partly of stone."
+  }, {
+    "type" : "heading",
+    "id" : 445,
+    "level" : "Subtitle",
+    "page number" : 88,
+    "bounding box" : [ 122.42, 311.93, 626.858, 342.884 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.251]",
+    "content" : "Characteristics of a Bahay na bato"
+  }, {
+    "type" : "list",
+    "id" : 446,
+    "level" : "4",
+    "page number" : 88,
+    "bounding box" : [ 129.98, 123.765, 663.05, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 88,
+      "bounding box" : [ 129.98, 259.768, 544.438, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Generally has two storeys, at times three.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 88,
+      "bounding box" : [ 129.98, 214.515, 621.526, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ The ground floor is made of cut stone or brick, the upper of wood.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 88,
+      "bounding box" : [ 129.98, 169.16, 663.05, 214.963 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Windows: ground floor, grillworks; second floor, sliding shutters with capiz shells or glass panels.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 88,
+      "bounding box" : [ 129.98, 123.765, 618.523, 169.603 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Capped by a high hip roof with a 45-degree-angle pitch.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 450,
+    "page number" : 89,
+    "bounding box" : [ -0.002, 34.788, 78.541, 404.988 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile59.png"
+  }, {
+    "type" : "image",
+    "id" : 451,
+    "page number" : 89,
+    "bounding box" : [ 59.327, 34.788, 660.677, 404.988 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile60.png"
+  }, {
+    "type" : "image",
+    "id" : 449,
+    "page number" : 89,
+    "bounding box" : [ 641.46, 34.788, 720.003, 404.988 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile61.png"
+  }, {
+    "type" : "heading",
+    "id" : 448,
+    "level" : "Subtitle",
+    "page number" : 89,
+    "bounding box" : [ 5.4, 15.32, 289.471, 28.461 ],
+    "heading level" : 5,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Bahay na Bato, ground and second floor plan."
+  }, {
+    "type" : "image",
+    "id" : 457,
+    "page number" : 90,
+    "bounding box" : [ 0.0, -0.004, 359.57, 404.996 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile62.png"
+  }, {
+    "type" : "header",
+    "id" : 452,
+    "page number" : 90,
+    "bounding box" : [ 392.64, 280.25, 469.662, 311.204 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 3,
+      "page number" : 90,
+      "bounding box" : [ 392.64, 280.25, 469.662, 311.204 ],
+      "heading level" : 2,
+      "font" : "Arial",
+      "font size" : 33.0,
+      "text color" : "[1.0]",
+      "content" : "Parts"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 455,
+    "page number" : 90,
+    "bounding box" : [ 392.64, 251.27, 476.21, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Ground floor"
+  }, {
+    "type" : "list",
+    "id" : 456,
+    "level" : "2",
+    "page number" : 90,
+    "bounding box" : [ 404.64, 121.63, 641.45, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 90,
+      "bounding box" : [ 404.64, 218.85, 625.865, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Cochera, driveway or garage.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 90,
+      "bounding box" : [ 404.64, 186.45, 623.33, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Zaguan, vestibule or storage; usually for the caroza.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 90,
+      "bounding box" : [ 404.64, 154.021, 641.45, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Entresuelo, mezzanine area, for offices or servants’ quarters.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 90,
+      "bounding box" : [ 404.64, 137.83, 579.935, 151.9 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Cuadra, horse stables.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 90,
+      "bounding box" : [ 404.64, 121.63, 535.7, 135.7 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Cocina, kitchen.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 462,
+    "page number" : 91,
+    "bounding box" : [ 0.0, 0.0, 360.33, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile63.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 460,
+    "page number" : 91,
+    "bounding box" : [ 392.64, 280.25, 469.662, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Parts"
+  }, {
+    "type" : "paragraph",
+    "id" : 461,
+    "level" : "4",
+    "page number" : 91,
+    "bounding box" : [ 404.64, 251.27, 616.73, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "■ Escalera, wooden staircase."
+  }, {
+    "type" : "image",
+    "id" : 468,
+    "page number" : 92,
+    "bounding box" : [ 0.0, -0.004, 359.57, 404.996 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile64.png"
+  }, {
+    "type" : "header",
+    "id" : 463,
+    "page number" : 92,
+    "bounding box" : [ 392.64, 280.25, 469.662, 311.204 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 4,
+      "page number" : 92,
+      "bounding box" : [ 392.64, 280.25, 469.662, 311.204 ],
+      "heading level" : 2,
+      "font" : "Arial",
+      "font size" : 33.0,
+      "text color" : "[1.0]",
+      "content" : "Parts"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 466,
+    "page number" : 92,
+    "bounding box" : [ 392.64, 251.27, 477.05, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Second floor"
+  }, {
+    "type" : "list",
+    "id" : 467,
+    "level" : "2",
+    "page number" : 92,
+    "bounding box" : [ 404.64, 40.602, 642.23, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 8,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 92,
+      "bounding box" : [ 404.64, 186.45, 639.74, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Caida or ante-sala, interior overhanging veranda; most immediate room from the stairs.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 92,
+      "bounding box" : [ 404.64, 170.25, 543.995, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Sala, living room.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 92,
+      "bounding box" : [ 404.64, 154.05, 539.81, 168.12 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Baño, bathroom.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 92,
+      "bounding box" : [ 404.64, 137.83, 518.915, 151.9 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Latrina, toilet.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 92,
+      "bounding box" : [ 404.64, 121.63, 535.7, 135.7 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Cocina, kitchen.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 92,
+      "bounding box" : [ 404.64, 105.43, 577.445, 119.5 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Comedor, dining area.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 92,
+      "bounding box" : [ 404.64, 56.802, 642.23, 103.296 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Azotea, outdoor terrace, located beside a balon or over an aljibe (water cistern).",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 92,
+      "bounding box" : [ 404.64, 40.602, 545.69, 54.672 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Cuarto, bedroom.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 473,
+    "page number" : 93,
+    "bounding box" : [ 0.0, 194.81, 359.57, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile65.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 471,
+    "page number" : 93,
+    "bounding box" : [ 392.64, 280.25, 469.662, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Parts"
+  }, {
+    "type" : "list",
+    "id" : 472,
+    "level" : "2",
+    "page number" : 93,
+    "bounding box" : [ 404.64, 186.45, 660.62, 265.34 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 93,
+      "bounding box" : [ 404.64, 235.045, 646.52, 265.34 ],
+      "font" : "Arial",
+      "font size" : 15.024,
+      "text color" : "[0.6]",
+      "content" : "■ Galeria volada or corredor, flying wooden gallery.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 93,
+      "bounding box" : [ 404.64, 218.85, 579.005, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Oratorio, praying area.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 93,
+      "bounding box" : [ 404.64, 186.45, 660.62, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Callado, wooden fretwork on top of partitions.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 474,
+    "page number" : 93,
+    "bounding box" : [ 0.0, 0.0, 359.57, 190.18 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile66.png"
+  }, {
+    "type" : "image",
+    "id" : 481,
+    "page number" : 94,
+    "bounding box" : [ 0.0, 0.0, 359.57, 405.0 ],
+    "source" : "HOA MODULE 4 P1_images/imageFile67.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 477,
+    "page number" : 94,
+    "bounding box" : [ 392.64, 280.25, 469.662, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Parts"
+  }, {
+    "type" : "list",
+    "id" : 478,
+    "level" : "3",
+    "page number" : 94,
+    "bounding box" : [ 404.64, 235.045, 629.836, 265.34 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 94,
+      "bounding box" : [ 404.64, 251.27, 584.87, 265.34 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Pasamano, window sill.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 94,
+      "bounding box" : [ 404.64, 235.045, 629.836, 249.137 ],
+      "font" : "Arial",
+      "font size" : 15.024,
+      "text color" : "[0.6]",
+      "content" : "■ Ventanillas, vents beneath the",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 479,
+    "page number" : 94,
+    "bounding box" : [ 428.66, 218.85, 663.965, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "window sill which reach to the floor."
+  }, {
+    "type" : "paragraph",
+    "id" : 480,
+    "level" : "4",
+    "page number" : 94,
+    "bounding box" : [ 404.64, 202.65, 633.665, 216.72 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "■ Barandillas, wooden balusters."
+  } ]
+}

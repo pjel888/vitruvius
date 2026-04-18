@@ -4,7 +4,7 @@ title: Quotes (1)
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T20:44:33.353787+00:00
+last_canonicalized_utc: 2026-04-18T08:21:10.532511+00:00
 aliases:
   - Quotes (1)
 ---
@@ -82,4 +82,4 @@ aliases:
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-less-is-more

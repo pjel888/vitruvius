@@ -1,0 +1,4002 @@
+{
+  "file name" : "Building Tech Illustrated.pdf",
+  "number of pages" : 53,
+  "author" : null,
+  "title" : null,
+  "creation date" : "D:20130801101610+08'00'",
+  "modification date" : "D:20130801101624+08'00'",
+  "kids" : [ {
+    "type" : "paragraph",
+    "id" : 117,
+    "page number" : 1,
+    "bounding box" : [ 393.056, 114.861, 402.304, 304.668 ],
+    "font" : "HelveticaLTStd-Roman",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 0.0]",
+    "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS"
+  }, {
+    "type" : "heading",
+    "id" : 115,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 414.72, 237.379, 519.284, 272.719 ],
+    "heading level" : 1,
+    "font" : "HelveticaLTStd-Roman",
+    "font size" : 15.0,
+    "text color" : "[0.0, 0.0, 0.0, 0.0]",
+    "content" : "BUILDING TECHNOLOGY"
+  }, {
+    "type" : "paragraph",
+    "id" : 116,
+    "page number" : 1,
+    "bounding box" : [ 414.72, 219.032, 513.609, 230.592 ],
+    "font" : "HelveticaLTStd-Roman",
+    "font size" : 10.0,
+    "text color" : "[0.0, 0.0, 0.0, 0.0]",
+    "content" : "FULLY ILLUSTRATED"
+  }, {
+    "type" : "image",
+    "id" : 128,
+    "page number" : 4,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile1.png"
+  }, {
+    "type" : "image",
+    "id" : 130,
+    "page number" : 4,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile2.png"
+  }, {
+    "type" : "image",
+    "id" : 126,
+    "page number" : 4,
+    "bounding box" : [ 36.142, 224.877, 180.142, 366.147 ],
+    "source" : "Building Tech Illustrated_images/imageFile3.png"
+  }, {
+    "type" : "heading",
+    "id" : 132,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 36.0, 198.412, 101.232, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Aggregates"
+  }, {
+    "type" : "heading",
+    "id" : 135,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 225.496, 198.412, 527.74, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Batter Pile Beam & Girder Slab"
+  }, {
+    "type" : "paragraph",
+    "id" : 133,
+    "page number" : 4,
+    "bounding box" : [ 36.0, 132.623, 180.496, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Materials used in construction, including sand, gravel, crushed stone, slag, or recycled crushed concrete"
+  }, {
+    "type" : "paragraph",
+    "id" : 134,
+    "page number" : 4,
+    "bounding box" : [ 225.138, 132.623, 554.467, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A pile driven at an angle to the vertical. A one-way slab supported by secondary beams which in tune are supported by primary beams or girders"
+  }, {
+    "type" : "footer",
+    "id" : 136,
+    "page number" : 4,
+    "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 57,
+      "page number" : 4,
+      "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 1"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 146,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 36.142, 359.176, 159.514, 373.456 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Beam & Beam Details"
+  }, {
+    "type" : "paragraph",
+    "id" : 145,
+    "page number" : 5,
+    "bounding box" : [ 36.142, 293.22, 556.442, 322.252 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Horizontal or inclined structural member spanning a distance between one or more supports, and carrying vertical loads across (transverse to) its longitudinal axis, as a girder, joist, purlin, or rafter. Three basic types of beams are: Simple span, supported at both ends, Continuous, supported at more than two points, and Cantilever, supported at one end with the other end overhanging and free."
+  }, {
+    "type" : "paragraph",
+    "id" : 159,
+    "page number" : 5,
+    "bounding box" : [ 36.142, 219.35, 96.514, 276.836 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Concrete Cover in reinforced concrete, the thickness of protective concrete between a reinforcing bar and the exterior surface of the concrete."
+  }, {
+    "type" : "image",
+    "id" : 143,
+    "page number" : 5,
+    "bounding box" : [ 117.281, 109.94, 450.959, 276.479 ],
+    "source" : "Building Tech Illustrated_images/imageFile4.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 151,
+    "page number" : 5,
+    "bounding box" : [ 163.593, 264.606, 205.833, 271.98 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Concrete Cover"
+  }, {
+    "type" : "paragraph",
+    "id" : 148,
+    "page number" : 5,
+    "bounding box" : [ 163.593, 248.984, 196.935, 263.995 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Bar Spacing Depth"
+  }, {
+    "type" : "paragraph",
+    "id" : 155,
+    "page number" : 5,
+    "bounding box" : [ 251.513, 256.621, 389.03, 263.995 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Embedement Length Top Bar"
+  }, {
+    "type" : "paragraph",
+    "id" : 154,
+    "page number" : 5,
+    "bounding box" : [ 277.316, 232.282, 353.905, 239.656 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Longitudinal Reinforcements"
+  }, {
+    "type" : "paragraph",
+    "id" : 152,
+    "page number" : 5,
+    "bounding box" : [ 71.504, 204.134, 491.899, 211.508 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Bent Bar Bent Bar"
+  }, {
+    "type" : "paragraph",
+    "id" : 160,
+    "page number" : 5,
+    "bounding box" : [ 36.142, 190.28, 68.824, 197.216 ],
+    "font" : "HelveticaLTStd-Roman",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Bar Spacing"
+  }, {
+    "type" : "paragraph",
+    "id" : 153,
+    "page number" : 5,
+    "bounding box" : [ 479.808, 188.517, 521.826, 195.891 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "End Anchorage"
+  }, {
+    "type" : "paragraph",
+    "id" : 161,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 36.142, 146.93, 98.164, 190.304 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "- The center-tocenter distance (perpendicular to the longitudinal axis) between parallel reinforcing bars."
+  }, {
+    "type" : "paragraph",
+    "id" : 150,
+    "page number" : 5,
+    "bounding box" : [ 258.845, 152.927, 306.965, 160.301 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Span Of Supports"
+  }, {
+    "type" : "paragraph",
+    "id" : 149,
+    "page number" : 5,
+    "bounding box" : [ 169.114, 146.395, 183.118, 153.769 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Hook"
+  }, {
+    "type" : "paragraph",
+    "id" : 157,
+    "page number" : 5,
+    "bounding box" : [ 240.153, 129.006, 318.626, 136.38 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Stirrups / Web Reinforcement"
+  }, {
+    "type" : "paragraph",
+    "id" : 156,
+    "page number" : 5,
+    "bounding box" : [ 313.587, 111.075, 388.424, 126.891 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Development Length Bottom Bar"
+  }, {
+    "type" : "paragraph",
+    "id" : 162,
+    "page number" : 5,
+    "bounding box" : [ 36.142, 94.798, 59.488, 101.734 ],
+    "font" : "HelveticaLTStd-Roman",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Bent Bar"
+  }, {
+    "type" : "paragraph",
+    "id" : 164,
+    "page number" : 5,
+    "bounding box" : [ 110.154, 42.555, 173.292, 100.041 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Hook in reinforced concrete, a reinforcing bar whose end has been bent back on itself around a thick pin in order to provide anchorage."
+  }, {
+    "type" : "paragraph",
+    "id" : 165,
+    "page number" : 5,
+    "bounding box" : [ 182.255, 42.555, 304.871, 100.041 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Stirrup A bent rod, usually U-shaped or W-shaped; used in reinforced brick or concrete construction. A reinforcing device to resist shear and diagonal tension stresses in a beam. A metal seat, attached to a wall beam or post or hung from a girder, to receive and support a beam or joist."
+  }, {
+    "type" : "paragraph",
+    "id" : 166,
+    "page number" : 5,
+    "bounding box" : [ 322.262, 64.155, 452.108, 100.041 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Anchorage a metal fixing for connecting a structural member or secondary component firmly to a main structure or to fix something firmly in place; often called an anchorage"
+  }, {
+    "type" : "paragraph",
+    "id" : 163,
+    "page number" : 5,
+    "bounding box" : [ 36.142, 51.448, 97.846, 94.822 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A longitudinal reinforcing bar which is bent to pass from one face of a structural member to the other face."
+  }, {
+    "type" : "footer",
+    "id" : 167,
+    "page number" : 5,
+    "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 58,
+      "page number" : 5,
+      "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 2"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 175,
+    "page number" : 6,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile5.png"
+  }, {
+    "type" : "image",
+    "id" : 177,
+    "page number" : 6,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile6.png"
+  }, {
+    "type" : "image",
+    "id" : 173,
+    "page number" : 6,
+    "bounding box" : [ 36.142, 224.874, 180.142, 366.138 ],
+    "source" : "Building Tech Illustrated_images/imageFile7.png"
+  }, {
+    "type" : "heading",
+    "id" : 179,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 36.0, 198.412, 456.436, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Beam Bleeding - Laitance Bolster"
+  }, {
+    "type" : "paragraph",
+    "id" : 180,
+    "page number" : 6,
+    "bounding box" : [ 36.0, 132.623, 169.968, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A rigid structural member designed to carry and transfer transverse loads across space to supporting elements"
+  }, {
+    "type" : "paragraph",
+    "id" : 181,
+    "page number" : 6,
+    "bounding box" : [ 225.138, 123.023, 368.769, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The emergence of excess mixing water on the surface of newly placed concrete caused Dy settlement of solids within the mass."
+  }, {
+    "type" : "paragraph",
+    "id" : 182,
+    "page number" : 6,
+    "bounding box" : [ 414.276, 132.623, 556.404, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A cold chisel having a broad blade splayed towards the cutting edge, used for cutting stone slabs, etc"
+  }, {
+    "type" : "footer",
+    "id" : 183,
+    "page number" : 6,
+    "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 59,
+      "page number" : 6,
+      "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 3"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 191,
+    "page number" : 7,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile8.png"
+  }, {
+    "type" : "image",
+    "id" : 193,
+    "page number" : 7,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile9.png"
+  }, {
+    "type" : "image",
+    "id" : 189,
+    "page number" : 7,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile10.png"
+  }, {
+    "type" : "heading",
+    "id" : 195,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 36.142, 198.412, 509.029, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Braced Cofferdam Caisson Cantilever Beam"
+  }, {
+    "type" : "paragraph",
+    "id" : 196,
+    "page number" : 7,
+    "bounding box" : [ 36.0, 132.623, 172.031, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A temporary braced damlike structure constructed around an excavation to exclude water."
+  }, {
+    "type" : "paragraph",
+    "id" : 197,
+    "page number" : 7,
+    "bounding box" : [ 225.138, 123.023, 368.601, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A watertight retaining structure used, for example, to work on the foundations of a bridge pier, for the construction of a concrete dam, or for the repair of ships."
+  }, {
+    "type" : "paragraph",
+    "id" : 198,
+    "page number" : 7,
+    "bounding box" : [ 414.276, 142.223, 554.027, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A beam which is supported only at one end."
+  }, {
+    "type" : "footer",
+    "id" : 199,
+    "page number" : 7,
+    "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 60,
+      "page number" : 7,
+      "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 4"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 207,
+    "page number" : 8,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile11.png"
+  }, {
+    "type" : "image",
+    "id" : 209,
+    "page number" : 8,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile12.png"
+  }, {
+    "type" : "image",
+    "id" : 205,
+    "page number" : 8,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile13.png"
+  }, {
+    "type" : "heading",
+    "id" : 211,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 36.0, 184.012, 491.296, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Cantilever Footing Cased Pile Cast-In-Place Concrete"
+  }, {
+    "type" : "paragraph",
+    "id" : 212,
+    "page number" : 8,
+    "bounding box" : [ 36.0, 123.023, 173.848, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A footing having a tie beam to another footing to balance a structural load not symmetrically located with respect to the footing."
+  }, {
+    "type" : "paragraph",
+    "id" : 213,
+    "page number" : 8,
+    "bounding box" : [ 225.138, 132.623, 358.386, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A concrete pile made by casting concrete within a steel casing placed into the ground; a cast-in-place pile."
+  }, {
+    "type" : "paragraph",
+    "id" : 214,
+    "page number" : 8,
+    "bounding box" : [ 414.276, 123.023, 551.228, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Concrete which is deposited in the place where it is required to harden as part of the structure, as opposed to precast concrete."
+  }, {
+    "type" : "footer",
+    "id" : 215,
+    "page number" : 8,
+    "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 61,
+      "page number" : 8,
+      "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 5"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 223,
+    "page number" : 9,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile14.png"
+  }, {
+    "type" : "image",
+    "id" : 225,
+    "page number" : 9,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile15.png"
+  }, {
+    "type" : "image",
+    "id" : 221,
+    "page number" : 9,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile16.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 227,
+    "page number" : 9,
+    "bounding box" : [ 36.142, 184.012, 112.162, 212.692 ],
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Cast-In-Place Pile"
+  }, {
+    "type" : "paragraph",
+    "id" : 228,
+    "page number" : 9,
+    "bounding box" : [ 225.638, 184.012, 554.508, 212.692 ],
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Cellular Cofferdam Cellular Diaphragm Type Cofferdam"
+  }, {
+    "type" : "paragraph",
+    "id" : 229,
+    "page number" : 9,
+    "bounding box" : [ 36.0, 123.023, 180.208, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A concrete pile which is concreted either with a casing or without a casing at its permanent location, as opposed to a precast concrete pile."
+  }, {
+    "type" : "paragraph",
+    "id" : 230,
+    "page number" : 9,
+    "bounding box" : [ 225.138, 132.623, 361.337, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A self-sustaining cofferdam fabricated of interlocking steel sheet piling; has separate inside and outside walls."
+  }, {
+    "type" : "paragraph",
+    "id" : 231,
+    "page number" : 9,
+    "bounding box" : [ 414.276, 113.423, 555.667, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A cofferdam slab, metal wall panel, roof panel, or the like, having a sufficiently large in-plane shear stiffness and sufficient strength to transmit horizontal forces to resisting systems."
+  }, {
+    "type" : "footer",
+    "id" : 232,
+    "page number" : 9,
+    "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 62,
+      "page number" : 9,
+      "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 6"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 240,
+    "page number" : 10,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile17.png"
+  }, {
+    "type" : "image",
+    "id" : 242,
+    "page number" : 10,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile18.png"
+  }, {
+    "type" : "image",
+    "id" : 238,
+    "page number" : 10,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile19.png"
+  }, {
+    "type" : "heading",
+    "id" : 244,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 36.0, 198.412, 516.628, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Cellular Mat Cement Chair / High Chair"
+  }, {
+    "type" : "paragraph",
+    "id" : 245,
+    "page number" : 10,
+    "bounding box" : [ 36.0, 132.623, 165.824, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Any material that contains many cells (either open or closed, or both) dispersed throughout the mass."
+  }, {
+    "type" : "paragraph",
+    "id" : 246,
+    "page number" : 10,
+    "bounding box" : [ 225.138, 94.223, 369.81, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A material or a mixture of materials (without aggregate) which, when in a plastic state, possesses adhesive and cohesive properties and hardens in place. Frequently, the term is used incorrectly for concrete, e.g., a “cement” block for concrete block"
+  }, {
+    "type" : "paragraph",
+    "id" : 247,
+    "page number" : 10,
+    "bounding box" : [ 414.276, 123.023, 556.707, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A horizontal strip usually of wood, affixed to a plaster wall at a height which prevents the backs of chairs from damaging the wall surface."
+  }, {
+    "type" : "footer",
+    "id" : 248,
+    "page number" : 10,
+    "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 63,
+      "page number" : 10,
+      "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 7"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 256,
+    "page number" : 11,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile20.png"
+  }, {
+    "type" : "image",
+    "id" : 258,
+    "page number" : 11,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile21.png"
+  }, {
+    "type" : "image",
+    "id" : 254,
+    "page number" : 11,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile22.png"
+  }, {
+    "type" : "heading",
+    "id" : 260,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 36.142, 198.412, 521.052, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Cofferdam Column Combined Footing"
+  }, {
+    "type" : "paragraph",
+    "id" : 261,
+    "page number" : 11,
+    "bounding box" : [ 36.0, 84.623, 174.72, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A temporary watertight enclosure around an area of water or waterbearing soil, in which construction is to take place, bearing on a stable stratum at or above the foundation level of new construction. The water is pumped from within to permit free access to the area."
+  }, {
+    "type" : "paragraph",
+    "id" : 262,
+    "page number" : 11,
+    "bounding box" : [ 225.138, 113.423, 370.158, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "In structures, a relatively long, slender structural compression member such as a post, pillar, or strut; usually vertical, supporting a load which acts in (or near) the direction of its longitudinal axis."
+  }, {
+    "type" : "paragraph",
+    "id" : 263,
+    "page number" : 11,
+    "bounding box" : [ 414.276, 142.223, 557.003, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A footing which supports more than one column load."
+  }, {
+    "type" : "footer",
+    "id" : 264,
+    "page number" : 11,
+    "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 64,
+      "page number" : 11,
+      "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 8"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 272,
+    "page number" : 12,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile23.png"
+  }, {
+    "type" : "image",
+    "id" : 274,
+    "page number" : 12,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile24.png"
+  }, {
+    "type" : "image",
+    "id" : 270,
+    "page number" : 12,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile25.png"
+  }, {
+    "type" : "heading",
+    "id" : 276,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 36.0, 198.412, 528.782, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Composite Pile Continuous Beam Continuous Footing"
+  }, {
+    "type" : "paragraph",
+    "id" : 277,
+    "page number" : 12,
+    "bounding box" : [ 36.0, 113.423, 178.583, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A pile comprised of different materials, e.g., concrete and wood. A pile comprised of steel members which are fastened together, end-to-end, to form a single pile."
+  }, {
+    "type" : "paragraph",
+    "id" : 278,
+    "page number" : 12,
+    "bounding box" : [ 225.138, 113.423, 354.41, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A beam which extends over three or more supports, joined together so that, for a given load on one span, the effect on the other spans can be calculated."
+  }, {
+    "type" : "paragraph",
+    "id" : 279,
+    "page number" : 12,
+    "bounding box" : [ 414.276, 132.623, 556.251, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A combined footing, of prismatic or truncated shape, which supports two or more columns in a row."
+  }, {
+    "type" : "footer",
+    "id" : 280,
+    "page number" : 12,
+    "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 65,
+      "page number" : 12,
+      "bounding box" : [ 44.476, 20.536, 541.312, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 9"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 288,
+    "page number" : 13,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile26.png"
+  }, {
+    "type" : "image",
+    "id" : 290,
+    "page number" : 13,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile27.png"
+  }, {
+    "type" : "image",
+    "id" : 286,
+    "page number" : 13,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile28.png"
+  }, {
+    "type" : "heading",
+    "id" : 292,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 36.142, 198.412, 501.601, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Continuous Slab Corner Footing Damp-Proofing"
+  }, {
+    "type" : "paragraph",
+    "id" : 293,
+    "page number" : 13,
+    "bounding box" : [ 36.0, 132.623, 162.72, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A slab which extends as a unit over three or more supports in a given direction."
+  }, {
+    "type" : "paragraph",
+    "id" : 294,
+    "page number" : 13,
+    "bounding box" : [ 225.138, 84.623, 368.153, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A corner portion of the foundation of a structure which transmits loads directly to the soil; may be the widened part of a wall or column, the spreading courses under a foundation wall, a foundation of a column, etc.; used to spread the load over a greater area to prevent or reduce settling."
+  }, {
+    "type" : "paragraph",
+    "id" : 295,
+    "page number" : 13,
+    "bounding box" : [ 414.276, 94.223, 555.068, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Damp proofing in construction is a type of waterproofing applied to building foundation walls to prevent moisture from passing through the walls into interior spaces. Damp problems are one of the most frequent problems encountered in homes."
+  }, {
+    "type" : "footer",
+    "id" : 296,
+    "page number" : 13,
+    "bounding box" : [ 44.476, 20.536, 543.316, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 66,
+      "page number" : 13,
+      "bounding box" : [ 44.476, 20.536, 543.316, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 10"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 304,
+    "page number" : 14,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile29.png"
+  }, {
+    "type" : "image",
+    "id" : 306,
+    "page number" : 14,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile30.png"
+  }, {
+    "type" : "image",
+    "id" : 302,
+    "page number" : 14,
+    "bounding box" : [ 36.142, 224.892, 180.142, 366.197 ],
+    "source" : "Building Tech Illustrated_images/imageFile31.png"
+  }, {
+    "type" : "heading",
+    "id" : 308,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 36.0, 198.412, 477.916, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Deformed Bar Direct Placement Double Tee"
+  }, {
+    "type" : "paragraph",
+    "id" : 309,
+    "page number" : 14,
+    "bounding box" : [ 36.0, 123.023, 177.975, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A steel reinforcing bar which is manufacturedwith surface deformations to provide a locking anchorage with surrounding concrete."
+  }, {
+    "type" : "paragraph",
+    "id" : 310,
+    "page number" : 14,
+    "bounding box" : [ 225.138, 142.223, 342.082, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The placing and consolidation of concrete."
+  }, {
+    "type" : "paragraph",
+    "id" : 311,
+    "page number" : 14,
+    "bounding box" : [ 414.276, 142.223, 541.892, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A piece of lumber cut thicker than a board that is shaped like two “T” ‘s."
+  }, {
+    "type" : "footer",
+    "id" : 312,
+    "page number" : 14,
+    "bounding box" : [ 44.476, 20.536, 543.076, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 67,
+      "page number" : 14,
+      "bounding box" : [ 44.476, 20.536, 543.076, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 11"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 320,
+    "page number" : 15,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile32.png"
+  }, {
+    "type" : "image",
+    "id" : 322,
+    "page number" : 15,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile33.png"
+  }, {
+    "type" : "image",
+    "id" : 318,
+    "page number" : 15,
+    "bounding box" : [ 36.5, 224.919, 180.5, 366.288 ],
+    "source" : "Building Tech Illustrated_images/imageFile34.png"
+  }, {
+    "type" : "heading",
+    "id" : 324,
+    "level" : "Subtitle",
+    "page number" : 15,
+    "bounding box" : [ 36.142, 198.412, 494.521, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Double Wales Double Wall Cofferdam Drop Hammer"
+  }, {
+    "type" : "paragraph",
+    "id" : 325,
+    "page number" : 15,
+    "bounding box" : [ 36.0, 123.023, 175.176, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A timber placed horizontally across a structure to strengthen it. A Horizontal bracing used to stiffen concrete form construction and to hold studs in place"
+  }, {
+    "type" : "paragraph",
+    "id" : 326,
+    "page number" : 15,
+    "bounding box" : [ 225.138, 123.023, 360.306, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A cofferdam formed by a double wall of sheeting (such as interlocking steel sections) and backfilled with soil or crushed stone."
+  }, {
+    "type" : "paragraph",
+    "id" : 327,
+    "page number" : 15,
+    "bounding box" : [ 414.276, 132.623, 557.436, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A heavy weight for driving a pile into the ground; dropped by gravity along a set of guide rails onto the head of the pile."
+  }, {
+    "type" : "footer",
+    "id" : 328,
+    "page number" : 15,
+    "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 68,
+      "page number" : 15,
+      "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 12"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 336,
+    "page number" : 16,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile35.png"
+  }, {
+    "type" : "image",
+    "id" : 338,
+    "page number" : 16,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile36.png"
+  }, {
+    "type" : "image",
+    "id" : 334,
+    "page number" : 16,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile37.png"
+  }, {
+    "type" : "heading",
+    "id" : 340,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 36.0, 184.012, 509.908, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Earth Embankment End Bearing Pole Environmental & Dead Loads"
+  }, {
+    "type" : "paragraph",
+    "id" : 341,
+    "page number" : 16,
+    "bounding box" : [ 36.0, 142.223, 173.096, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A mound of earth or stone built to hold back water or to support a roadway."
+  }, {
+    "type" : "paragraph",
+    "id" : 342,
+    "page number" : 16,
+    "bounding box" : [ 225.138, 142.223, 366.522, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A pole used to gauge height (in stories) during masonry construction."
+  }, {
+    "type" : "paragraph",
+    "id" : 343,
+    "page number" : 16,
+    "bounding box" : [ 414.276, 151.823, 489.268, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Environmental Loads"
+  }, {
+    "type" : "paragraph",
+    "id" : 344,
+    "page number" : 16,
+    "bounding box" : [ 414.276, 123.023, 554.788, 152.055 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "These are loads that act as a result of weather, topography and other natural phenomena."
+  }, {
+    "type" : "paragraph",
+    "id" : 345,
+    "page number" : 16,
+    "bounding box" : [ 414.276, 103.823, 454.292, 113.655 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Dead Load"
+  }, {
+    "type" : "paragraph",
+    "id" : 346,
+    "page number" : 16,
+    "bounding box" : [ 414.276, 55.823, 549.596, 104.054 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The dead load includes loads that are relatively constant over time, including the weight of the structure. Dead loads are also known as Permanent loads."
+  }, {
+    "type" : "footer",
+    "id" : 347,
+    "page number" : 16,
+    "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 69,
+      "page number" : 16,
+      "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 13"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 355,
+    "page number" : 17,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile38.png"
+  }, {
+    "type" : "image",
+    "id" : 357,
+    "page number" : 17,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile39.png"
+  }, {
+    "type" : "image",
+    "id" : 353,
+    "page number" : 17,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile40.png"
+  }, {
+    "type" : "heading",
+    "id" : 359,
+    "level" : "Subtitle",
+    "page number" : 17,
+    "bounding box" : [ 36.142, 198.412, 468.589, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Fender Pile Ferrocement Flat Plate"
+  }, {
+    "type" : "paragraph",
+    "id" : 360,
+    "page number" : 17,
+    "bounding box" : [ 36.0, 123.023, 173.831, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "An upright, usually freestanding, pile driven into the sea bed or a riverbed beside a berth to protect the dock wall or wharf from the impact of vessels"
+  }, {
+    "type" : "paragraph",
+    "id" : 361,
+    "page number" : 17,
+    "bounding box" : [ 225.138, 75.023, 369.482, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A composite material consisting of a number of layers of wire mesh embedded and interlayered with a cement,sand mortar; provides a relatively thin, flexible, tough membrane; has been used in experimental structures and in fabricating complicated formwork for repetitive concrete pours."
+  }, {
+    "type" : "paragraph",
+    "id" : 362,
+    "page number" : 17,
+    "bounding box" : [ 414.276, 142.223, 549.308, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A flat concrete slab having no column capitals or drop panels."
+  }, {
+    "type" : "footer",
+    "id" : 363,
+    "page number" : 17,
+    "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 70,
+      "page number" : 17,
+      "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 14"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 371,
+    "page number" : 18,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile41.png"
+  }, {
+    "type" : "image",
+    "id" : 373,
+    "page number" : 18,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile42.png"
+  }, {
+    "type" : "image",
+    "id" : 369,
+    "page number" : 18,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile43.png"
+  }, {
+    "type" : "heading",
+    "id" : 375,
+    "level" : "Subtitle",
+    "page number" : 18,
+    "bounding box" : [ 36.0, 198.412, 514.396, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Flat Slab Floating Foundation Footing Tie Beam"
+  }, {
+    "type" : "paragraph",
+    "id" : 376,
+    "page number" : 18,
+    "bounding box" : [ 36.0, 123.023, 179.456, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A concrete slab which is reinforced in two or more directions, usually without beams or girders to transfer the loads to supporting members."
+  }, {
+    "type" : "paragraph",
+    "id" : 377,
+    "page number" : 18,
+    "bounding box" : [ 225.138, 103.823, 367.562, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A reinforced concrete slab used to support and distribute the concentrated load from columns in a soil having low bearing capacity; also called a raft foundation or mat foundation."
+  }, {
+    "type" : "paragraph",
+    "id" : 378,
+    "page number" : 18,
+    "bounding box" : [ 414.276, 113.423, 556.412, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "On individual pile caps or spread footings which are eccentrically loaded, a beam (usually of reinforced concrete) used to distribute horizontal forces to other pile caps or footings."
+  }, {
+    "type" : "footer",
+    "id" : 379,
+    "page number" : 18,
+    "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 71,
+      "page number" : 18,
+      "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 15"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 387,
+    "page number" : 19,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile44.png"
+  }, {
+    "type" : "image",
+    "id" : 389,
+    "page number" : 19,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile45.png"
+  }, {
+    "type" : "image",
+    "id" : 385,
+    "page number" : 19,
+    "bounding box" : [ 36.5, 224.919, 180.5, 366.288 ],
+    "source" : "Building Tech Illustrated_images/imageFile46.png"
+  }, {
+    "type" : "heading",
+    "id" : 391,
+    "level" : "Subtitle",
+    "page number" : 19,
+    "bounding box" : [ 36.142, 198.412, 486.781, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Formworks Foundation Friction Pole"
+  }, {
+    "type" : "paragraph",
+    "id" : 392,
+    "page number" : 19,
+    "bounding box" : [ 36.0, 132.623, 180.959, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A temporary construction to contain wet concrete in the required shape while it is cast and setting."
+  }, {
+    "type" : "paragraph",
+    "id" : 393,
+    "page number" : 19,
+    "bounding box" : [ 225.138, 123.023, 357.785, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Any part of a structure that serves to transmit the load to the earth or rock, usually below ground level; the entire masonry substructure."
+  }, {
+    "type" : "paragraph",
+    "id" : 394,
+    "page number" : 19,
+    "bounding box" : [ 414.276, 132.623, 547.515, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A long slender usually round piece of wood, metal, or other material that is used for friction purposes."
+  }, {
+    "type" : "footer",
+    "id" : 395,
+    "page number" : 19,
+    "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 72,
+      "page number" : 19,
+      "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 16"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 403,
+    "page number" : 20,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile47.png"
+  }, {
+    "type" : "image",
+    "id" : 405,
+    "page number" : 20,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile48.png"
+  }, {
+    "type" : "image",
+    "id" : 401,
+    "page number" : 20,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile49.png"
+  }, {
+    "type" : "heading",
+    "id" : 407,
+    "level" : "Subtitle",
+    "page number" : 20,
+    "bounding box" : [ 36.0, 198.412, 473.968, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Grade Beam Grillage Guide Pile"
+  }, {
+    "type" : "paragraph",
+    "id" : 408,
+    "page number" : 20,
+    "bounding box" : [ 36.0, 84.623, 174.576, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "That part of a foundation system (usually in a building without a basement) which supports the exterior wall of the superstructure; commonly designed as a beam which bears directly on the column footings, or may be self-supporting, as a long strap footing."
+  }, {
+    "type" : "paragraph",
+    "id" : 409,
+    "page number" : 20,
+    "bounding box" : [ 225.138, 65.423, 361.489, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A framework of heavy timbers, steel, or reinforced concrete beams laid longitudinally and crossed by similar members laid upon them to spread a heavy load over a larger area, esp. for use where the ground is not firm. A series of steel beams, bolted together and placed over a footing; used to distribute a concentrated column load over the top of the footing."
+  }, {
+    "type" : "paragraph",
+    "id" : 410,
+    "page number" : 20,
+    "bounding box" : [ 414.276, 132.623, 541.411, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A heavy, square timber which is driven vertically downward to guide steel sheetpiling."
+  }, {
+    "type" : "footer",
+    "id" : 411,
+    "page number" : 20,
+    "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 73,
+      "page number" : 20,
+      "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 17"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 419,
+    "page number" : 21,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile50.png"
+  }, {
+    "type" : "image",
+    "id" : 421,
+    "page number" : 21,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile51.png"
+  }, {
+    "type" : "image",
+    "id" : 417,
+    "page number" : 21,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile52.png"
+  }, {
+    "type" : "heading",
+    "id" : 423,
+    "level" : "Subtitle",
+    "page number" : 21,
+    "bounding box" : [ 36.142, 198.412, 513.685, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "H Pile H Section Pile Hollow Core Slab"
+  }, {
+    "type" : "paragraph",
+    "id" : 424,
+    "page number" : 21,
+    "bounding box" : [ 36.0, 142.223, 172.496, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Any steel H-section used as a bearing pile. A steel H-beam used as a pile."
+  }, {
+    "type" : "paragraph",
+    "id" : 425,
+    "page number" : 21,
+    "bounding box" : [ 225.138, 132.623, 364.306, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The basic plan of a building having the shape of a capital letter H, with two open courtyards."
+  }, {
+    "type" : "paragraph",
+    "id" : 426,
+    "page number" : 21,
+    "bounding box" : [ 414.276, 55.823, 557.699, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A hollow core slab, also known as a voided slab or hollow core plank, is a precast slab of prestressed concrete typically used in the construction of floors in multi-story apartment buildings. The slab has been especially popular in countries where the emphasis of home construction has been on precast concrete, including Northern Europe and socialist countries of Eastern Europe."
+  }, {
+    "type" : "footer",
+    "id" : 427,
+    "page number" : 21,
+    "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 74,
+      "page number" : 21,
+      "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 18"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 435,
+    "page number" : 22,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile53.png"
+  }, {
+    "type" : "image",
+    "id" : 437,
+    "page number" : 22,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile54.png"
+  }, {
+    "type" : "image",
+    "id" : 433,
+    "page number" : 22,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile55.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 439,
+    "page number" : 22,
+    "bounding box" : [ 36.0, 184.012, 116.112, 212.692 ],
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Inverted Tee & Ledger Beam"
+  }, {
+    "type" : "paragraph",
+    "id" : 440,
+    "page number" : 22,
+    "bounding box" : [ 225.496, 198.412, 458.62, 212.692 ],
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Isolated Footing L Beam"
+  }, {
+    "type" : "paragraph",
+    "id" : 441,
+    "page number" : 22,
+    "bounding box" : [ 36.0, 132.623, 178.423, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A reinforced-concrete beam having projecting ledges for receiving the ends of joists or the like."
+  }, {
+    "type" : "paragraph",
+    "id" : 442,
+    "page number" : 22,
+    "bounding box" : [ 225.138, 142.223, 346.826, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A concrete slab or block under an individual load or column."
+  }, {
+    "type" : "paragraph",
+    "id" : 443,
+    "page number" : 22,
+    "bounding box" : [ 414.276, 123.023, 554.036, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A beam whose section has the form of an inverted L; usually placed so that its top flange forms part of the edge of a floor."
+  }, {
+    "type" : "footer",
+    "id" : 444,
+    "page number" : 22,
+    "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 75,
+      "page number" : 22,
+      "bounding box" : [ 44.476, 20.536, 543.376, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 19"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 452,
+    "page number" : 23,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile56.png"
+  }, {
+    "type" : "image",
+    "id" : 454,
+    "page number" : 23,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile57.png"
+  }, {
+    "type" : "image",
+    "id" : 450,
+    "page number" : 23,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile58.png"
+  }, {
+    "type" : "heading",
+    "id" : 456,
+    "level" : "Subtitle",
+    "page number" : 23,
+    "bounding box" : [ 36.142, 198.412, 483.049, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Live Load Major Excavation Mat Footing"
+  }, {
+    "type" : "paragraph",
+    "id" : 457,
+    "page number" : 23,
+    "bounding box" : [ 36.0, 113.423, 178.736, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The moving or movable external load on a structure; includes the weight of furnishings of a building, of the people, of equipment, etc., but does not include wind load."
+  }, {
+    "type" : "paragraph",
+    "id" : 458,
+    "page number" : 23,
+    "bounding box" : [ 225.138, 142.223, 345.761, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A major cavity formed by cutting, digging, or scooping"
+  }, {
+    "type" : "paragraph",
+    "id" : 459,
+    "page number" : 23,
+    "bounding box" : [ 414.276, 113.423, 557.731, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A large, thick, usually reinforced concrete mat which transfers loads from a number of columns, or columns and walls, to the underlying rock or soil. Also known as raft foundation."
+  }, {
+    "type" : "footer",
+    "id" : 460,
+    "page number" : 23,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 76,
+      "page number" : 23,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 20"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 468,
+    "page number" : 24,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile59.png"
+  }, {
+    "type" : "image",
+    "id" : 470,
+    "page number" : 24,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile60.png"
+  }, {
+    "type" : "image",
+    "id" : 466,
+    "page number" : 24,
+    "bounding box" : [ 36.142, 224.892, 180.142, 366.197 ],
+    "source" : "Building Tech Illustrated_images/imageFile61.png"
+  }, {
+    "type" : "heading",
+    "id" : 472,
+    "level" : "Subtitle",
+    "page number" : 24,
+    "bounding box" : [ 36.0, 198.412, 553.264, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Metal Rebar Hook Minor Excavation Non-Prestressed Beams"
+  }, {
+    "type" : "paragraph",
+    "id" : 473,
+    "page number" : 24,
+    "bounding box" : [ 36.0, 55.823, 177.407, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A rebar (short for reinforcing bar) is a common steel bar that is commonly used as a tensioning device in reinforced concrete and reinforced masonry structures, to strengthen and hold the concrete in compression. It is usually in the form of carbon steel bars or wires, and the surfaces may be deformed for a better bond with the concrete. It is also known as reinforcing steel and reinforcement steel."
+  }, {
+    "type" : "paragraph",
+    "id" : 474,
+    "page number" : 24,
+    "bounding box" : [ 225.138, 142.223, 345.761, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A minor cavity formed by cutting, digging, or scooping"
+  }, {
+    "type" : "paragraph",
+    "id" : 475,
+    "page number" : 24,
+    "bounding box" : [ 414.276, 113.423, 550.764, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "To remove internal stresses into (as a structural beam) to counteract the stresses that will result from applied load (as in incorporating cables under tension in concrete)"
+  }, {
+    "type" : "footer",
+    "id" : 476,
+    "page number" : 24,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 77,
+      "page number" : 24,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 21"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 484,
+    "page number" : 25,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile62.png"
+  }, {
+    "type" : "image",
+    "id" : 486,
+    "page number" : 25,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile63.png"
+  }, {
+    "type" : "image",
+    "id" : 482,
+    "page number" : 25,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile64.png"
+  }, {
+    "type" : "heading",
+    "id" : 488,
+    "level" : "Subtitle",
+    "page number" : 25,
+    "bounding box" : [ 36.142, 198.412, 438.097, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "One Way Slab Open Caisson Pier"
+  }, {
+    "type" : "paragraph",
+    "id" : 489,
+    "page number" : 25,
+    "bounding box" : [ 36.0, 113.423, 179.624, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A rectangular reinforced concrete slab which spans a distance very much greater in one direction than the other; under these conditions, most of the load is carried on the shorter span."
+  }, {
+    "type" : "paragraph",
+    "id" : 490,
+    "page number" : 25,
+    "bounding box" : [ 225.138, 103.823, 369.194, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "An open watertight structure or chamber, within which work is carried on in building foundations or structures below water level. A sunken panel, esp. in a vaulted ceiling or the inside of a cupola; a coffer."
+  }, {
+    "type" : "paragraph",
+    "id" : 491,
+    "page number" : 25,
+    "bounding box" : [ 414.276, 94.223, 555.651, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A column designed to support concentrated load. A member, usually in the form of a thickened section, which forms an integral part of a wall; usually placed at intervals along the wall to provide lateral support or to take concentrated vertical loads."
+  }, {
+    "type" : "footer",
+    "id" : 492,
+    "page number" : 25,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 78,
+      "page number" : 25,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 22"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 500,
+    "page number" : 26,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile65.png"
+  }, {
+    "type" : "image",
+    "id" : 502,
+    "page number" : 26,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile66.png"
+  }, {
+    "type" : "image",
+    "id" : 498,
+    "page number" : 26,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile67.png"
+  }, {
+    "type" : "heading",
+    "id" : 504,
+    "level" : "Subtitle",
+    "page number" : 26,
+    "bounding box" : [ 36.0, 198.412, 504.928, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Pile Cap Pile Driver Pile Foundation"
+  }, {
+    "type" : "paragraph",
+    "id" : 505,
+    "page number" : 26,
+    "bounding box" : [ 36.0, 84.623, 180.512, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A slab or connecting beam which covers the heads of a group of piles, tying them together so that the structural load is distributed and they act as a single unit. A metal cap which is placed, as temporary protection, over the head of a precast pile while it is being driven"
+  }, {
+    "type" : "paragraph",
+    "id" : 506,
+    "page number" : 26,
+    "bounding box" : [ 225.138, 94.223, 365.913, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A machine for delivering repeated blows to the top of a pile for driving it into the ground; consists of a frame which supports and guides a hammer weight, together with a mechanism for raising and dropping the hammer or for driving the hammer by air or steam."
+  }, {
+    "type" : "paragraph",
+    "id" : 507,
+    "page number" : 26,
+    "bounding box" : [ 414.276, 123.023, 555.204, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A system of piles, pile caps, and straps (if required) that transfers the structural load to the bearing stratum into which the piles are driven."
+  }, {
+    "type" : "footer",
+    "id" : 508,
+    "page number" : 26,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 79,
+      "page number" : 26,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 23"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 516,
+    "page number" : 27,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile68.png"
+  }, {
+    "type" : "image",
+    "id" : 518,
+    "page number" : 27,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile69.png"
+  }, {
+    "type" : "image",
+    "id" : 514,
+    "page number" : 27,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile70.png"
+  }, {
+    "type" : "heading",
+    "id" : 520,
+    "level" : "Subtitle",
+    "page number" : 27,
+    "bounding box" : [ 36.142, 198.412, 543.888, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Pipe Pile Pneumatic Caisson Pre-Cast Concrete Pile"
+  }, {
+    "type" : "paragraph",
+    "id" : 521,
+    "page number" : 27,
+    "bounding box" : [ 36.0, 94.223, 180.488, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A pipe section heavy enough to be driven without a mandrel, 1 having its lower end either open or closed; after the pipe is driven to its final position, it is filled with concrete. A pipe (either closeended or open-ended) which serves as a pile."
+  }, {
+    "type" : "paragraph",
+    "id" : 522,
+    "page number" : 27,
+    "bounding box" : [ 225.138, 103.823, 369.194, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A pneumatic watertight structure or chamber, within which work is carried on in building foundations or structures below water level. A sunken panel, esp. in a vaulted ceiling or the inside of a cupola; a coffer."
+  }, {
+    "type" : "paragraph",
+    "id" : 523,
+    "page number" : 27,
+    "bounding box" : [ 414.276, 113.423, 553.907, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A slender, precast concrete- reinforced member that is embedded in the soil by driving, jetting, or insertion into a predrilled hole. May or may not be prestressed."
+  }, {
+    "type" : "footer",
+    "id" : 524,
+    "page number" : 27,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 80,
+      "page number" : 27,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 24"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 532,
+    "page number" : 28,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile71.png"
+  }, {
+    "type" : "image",
+    "id" : 534,
+    "page number" : 28,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile72.png"
+  }, {
+    "type" : "image",
+    "id" : 530,
+    "page number" : 28,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile73.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 536,
+    "page number" : 28,
+    "bounding box" : [ 36.0, 184.012, 316.564, 212.692 ],
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Pre-Cast Pile Pre-Cast Socket Foundation"
+  }, {
+    "type" : "paragraph",
+    "id" : 537,
+    "page number" : 28,
+    "bounding box" : [ 415.276, 198.412, 506.488, 212.692 ],
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Raft Foundation"
+  }, {
+    "type" : "paragraph",
+    "id" : 538,
+    "page number" : 28,
+    "bounding box" : [ 36.0, 142.223, 168.064, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Any reinforced concrete pile which is not cast in its final position."
+  }, {
+    "type" : "paragraph",
+    "id" : 539,
+    "page number" : 28,
+    "bounding box" : [ 225.138, 123.023, 359.137, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A pre-cast foundation in which the structure on which the base of a machine rests or to which the feet are fastened."
+  }, {
+    "type" : "paragraph",
+    "id" : 540,
+    "page number" : 28,
+    "bounding box" : [ 414.276, 132.623, 555.652, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A large, thick concrete slab that sustains the load imposed by a number of columns and/or walls."
+  }, {
+    "type" : "footer",
+    "id" : 541,
+    "page number" : 28,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 81,
+      "page number" : 28,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 25"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 551,
+    "page number" : 29,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile74.png"
+  }, {
+    "type" : "image",
+    "id" : 549,
+    "page number" : 29,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile75.png"
+  }, {
+    "type" : "image",
+    "id" : 547,
+    "page number" : 29,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile76.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 553,
+    "page number" : 29,
+    "bounding box" : [ 36.142, 184.012, 342.517, 212.692 ],
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Rectangular Footing Reinforced Concrete Column"
+  }, {
+    "type" : "paragraph",
+    "id" : 554,
+    "page number" : 29,
+    "bounding box" : [ 415.417, 198.412, 532.296, 212.692 ],
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Reinforced Concrete"
+  }, {
+    "type" : "paragraph",
+    "id" : 555,
+    "page number" : 29,
+    "bounding box" : [ 36.0, 84.623, 179.015, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "That portion of the foundation of a structure which transmits loads directly to the soil; may be the widened part of a wall or column, the spreading courses under a foundation wall, a foundation of a column, etc.; used to spread the load over a greater area to prevent or reduce settling."
+  }, {
+    "type" : "paragraph",
+    "id" : 556,
+    "page number" : 29,
+    "bounding box" : [ 225.138, 123.023, 350.554, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A column containing reinforcement designed on the assumption that the concrete and reinforcement act together in resisting forces."
+  }, {
+    "type" : "paragraph",
+    "id" : 557,
+    "page number" : 29,
+    "bounding box" : [ 414.276, 123.023, 558.364, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Concrete containing reinforcement designed on the assumption that the concrete and reinforcement act together in resisting forces."
+  }, {
+    "type" : "footer",
+    "id" : 558,
+    "page number" : 29,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 82,
+      "page number" : 29,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 26"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 566,
+    "page number" : 30,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile77.png"
+  }, {
+    "type" : "image",
+    "id" : 568,
+    "page number" : 30,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile78.png"
+  }, {
+    "type" : "image",
+    "id" : 564,
+    "page number" : 30,
+    "bounding box" : [ 36.142, 224.892, 180.142, 366.197 ],
+    "source" : "Building Tech Illustrated_images/imageFile79.png"
+  }, {
+    "type" : "heading",
+    "id" : 570,
+    "level" : "Subtitle",
+    "page number" : 30,
+    "bounding box" : [ 36.0, 198.412, 494.152, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Reinforcement Ribbed Mat Foundation Rock Caisson"
+  }, {
+    "type" : "paragraph",
+    "id" : 571,
+    "page number" : 30,
+    "bounding box" : [ 36.0, 103.823, 177.967, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Metal bars, rods, wires, or other slender members which are embedded in concrete in such a manner that the metal and the concrete act together in resisting forces. Material added to provide additional strength."
+  }, {
+    "type" : "paragraph",
+    "id" : 572,
+    "page number" : 30,
+    "bounding box" : [ 225.138, 132.623, 362.842, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "In batching concrete, the loading of all the solid ingredients (and sometimes water) into the mixer at the same time"
+  }, {
+    "type" : "paragraph",
+    "id" : 573,
+    "page number" : 30,
+    "bounding box" : [ 414.276, 123.023, 557.731, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A watertight structure or chamber, within which work is carried on in building foundations or structures below water levelthat is made out of rock."
+  }, {
+    "type" : "footer",
+    "id" : 574,
+    "page number" : 30,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 83,
+      "page number" : 30,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 27"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 582,
+    "page number" : 31,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile80.png"
+  }, {
+    "type" : "image",
+    "id" : 584,
+    "page number" : 31,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile81.png"
+  }, {
+    "type" : "image",
+    "id" : 580,
+    "page number" : 31,
+    "bounding box" : [ 36.5, 224.919, 180.5, 366.288 ],
+    "source" : "Building Tech Illustrated_images/imageFile82.png"
+  }, {
+    "type" : "heading",
+    "id" : 586,
+    "level" : "Subtitle",
+    "page number" : 31,
+    "bounding box" : [ 36.142, 198.412, 550.644, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Scaffolding Segregation Semi-Continuous Beam"
+  }, {
+    "type" : "paragraph",
+    "id" : 587,
+    "page number" : 31,
+    "bounding box" : [ 36.0, 113.423, 165.248, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A temporary metal or wooden framework that is used to support workmen and materials during the erection, repair, etc., of a building or other construction"
+  }, {
+    "type" : "paragraph",
+    "id" : 588,
+    "page number" : 31,
+    "bounding box" : [ 225.138, 142.223, 351.721, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The differential concentration of the components of mixed concrete."
+  }, {
+    "type" : "paragraph",
+    "id" : 589,
+    "page number" : 31,
+    "bounding box" : [ 414.276, 113.423, 554.18, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A beam which partially extends over three or more supports, joined together so that, for a given load on one span, the effect on the other spans can be calculated."
+  }, {
+    "type" : "footer",
+    "id" : 590,
+    "page number" : 31,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 84,
+      "page number" : 31,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 28"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 598,
+    "page number" : 32,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile83.png"
+  }, {
+    "type" : "image",
+    "id" : 600,
+    "page number" : 32,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile84.png"
+  }, {
+    "type" : "image",
+    "id" : 596,
+    "page number" : 32,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile85.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 602,
+    "page number" : 32,
+    "bounding box" : [ 36.0, 184.012, 125.844, 212.692 ],
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Shallow & Deep Foundation"
+  }, {
+    "type" : "paragraph",
+    "id" : 603,
+    "page number" : 32,
+    "bounding box" : [ 225.496, 198.412, 511.792, 212.692 ],
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Sheet Pile Sheeted Caisson"
+  }, {
+    "type" : "paragraph",
+    "id" : 604,
+    "page number" : 32,
+    "bounding box" : [ 36.0, 84.623, 169.999, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Any part of a structure that serves to transmit the load to the earth or rock, usually below ground level; the entire masonry substructure. The soil or rock upon which the structure rests. The structure on which the base of a machine rests or to which the feet are fastened."
+  }, {
+    "type" : "paragraph",
+    "id" : 605,
+    "page number" : 32,
+    "bounding box" : [ 225.138, 123.023, 367.266, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "One of a number of piles, interlocked or meshed with similar units, to form a barrier to retain soil or to keep water out of a foundation."
+  }, {
+    "type" : "paragraph",
+    "id" : 606,
+    "page number" : 32,
+    "bounding box" : [ 414.276, 123.023, 553.739, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A sheeted watertight structure or chamber, within which work is carried on in building foundations or structures below water level."
+  }, {
+    "type" : "footer",
+    "id" : 607,
+    "page number" : 32,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 85,
+      "page number" : 32,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 29"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 615,
+    "page number" : 33,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile86.png"
+  }, {
+    "type" : "image",
+    "id" : 617,
+    "page number" : 33,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile87.png"
+  }, {
+    "type" : "image",
+    "id" : 613,
+    "page number" : 33,
+    "bounding box" : [ 36.5, 224.919, 180.5, 366.288 ],
+    "source" : "Building Tech Illustrated_images/imageFile88.png"
+  }, {
+    "type" : "heading",
+    "id" : 619,
+    "level" : "Subtitle",
+    "page number" : 33,
+    "bounding box" : [ 36.142, 198.412, 473.521, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Shoring Simplex Pile Single Tee"
+  }, {
+    "type" : "paragraph",
+    "id" : 620,
+    "page number" : 33,
+    "bounding box" : [ 36.0, 123.023, 178.414, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "installed during construction, to support a member or a portion of the structure; removed prior to the completion of construction. temporary stress In"
+  }, {
+    "type" : "paragraph",
+    "id" : 621,
+    "page number" : 33,
+    "bounding box" : [ 225.138, 123.023, 366.641, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A bearing pile formed by driving a steel shell with a specially designed point into the ground and filling the hole with concrete as the shell is withdrawn"
+  }, {
+    "type" : "paragraph",
+    "id" : 622,
+    "page number" : 33,
+    "bounding box" : [ 414.276, 142.223, 541.892, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A piece of lumber cut thicker than a board that is shaped like one “T”."
+  }, {
+    "type" : "footer",
+    "id" : 623,
+    "page number" : 33,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 86,
+      "page number" : 33,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 30"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 631,
+    "page number" : 34,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile89.png"
+  }, {
+    "type" : "image",
+    "id" : 633,
+    "page number" : 34,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile90.png"
+  }, {
+    "type" : "image",
+    "id" : 629,
+    "page number" : 34,
+    "bounding box" : [ 36.142, 224.919, 180.142, 366.288 ],
+    "source" : "Building Tech Illustrated_images/imageFile91.png"
+  }, {
+    "type" : "heading",
+    "id" : 635,
+    "level" : "Subtitle",
+    "page number" : 34,
+    "bounding box" : [ 36.0, 198.412, 542.642, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Slurry Wall Socketed Caisson Soldier Pile & Lagging"
+  }, {
+    "type" : "paragraph",
+    "id" : 636,
+    "page number" : 34,
+    "bounding box" : [ 36.0, 84.623, 180.632, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A slurry wall is a technique used to build reinforced concrete walls in areas of soft earth close to open water or with a high ground water table. This technique is typically used to build diaphragm (water-blocking) walls surrounding tunnels and open cuts, and to lay foundations."
+  }, {
+    "type" : "paragraph",
+    "id" : 637,
+    "page number" : 34,
+    "bounding box" : [ 225.138, 94.223, 554.763, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A caisson that is socketed into rock. In excavation work, a vertical member which takes the side thrust from horizontal sheeting or from walings and which is supported by struts across the excavation. A vertical member used to prevent the movement of formwork; is held in place by struts, bolts, or wires."
+  }, {
+    "type" : "footer",
+    "id" : 638,
+    "page number" : 34,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 87,
+      "page number" : 34,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 31"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 646,
+    "page number" : 35,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile92.png"
+  }, {
+    "type" : "image",
+    "id" : 648,
+    "page number" : 35,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile93.png"
+  }, {
+    "type" : "image",
+    "id" : 644,
+    "page number" : 35,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile94.png"
+  }, {
+    "type" : "heading",
+    "id" : 650,
+    "level" : "Subtitle",
+    "page number" : 35,
+    "bounding box" : [ 36.142, 198.412, 546.168, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Solid Flat Slab Spiral Reinforcement Square Sloped Footing"
+  }, {
+    "type" : "paragraph",
+    "id" : 651,
+    "page number" : 35,
+    "bounding box" : [ 36.0, 123.023, 179.456, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A concrete slab which is reinforced in two or more directions, usually without beams or girders to transfer the loads to supporting members."
+  }, {
+    "type" : "paragraph",
+    "id" : 652,
+    "page number" : 35,
+    "bounding box" : [ 225.138, 132.623, 352.593, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A column whose vertical reinforcing bars are enveloped by spiral reinforcement."
+  }, {
+    "type" : "paragraph",
+    "id" : 653,
+    "page number" : 35,
+    "bounding box" : [ 414.276, 142.223, 553.436, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A footing which has sloping top or side faces."
+  }, {
+    "type" : "footer",
+    "id" : 654,
+    "page number" : 35,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 88,
+      "page number" : 35,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 32"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 662,
+    "page number" : 36,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile95.png"
+  }, {
+    "type" : "image",
+    "id" : 664,
+    "page number" : 36,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile96.png"
+  }, {
+    "type" : "image",
+    "id" : 660,
+    "page number" : 36,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile97.png"
+  }, {
+    "type" : "heading",
+    "id" : 666,
+    "level" : "Subtitle",
+    "page number" : 36,
+    "bounding box" : [ 36.0, 198.412, 488.38, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Steel Pipe Pile Stepped Footing Stratification"
+  }, {
+    "type" : "paragraph",
+    "id" : 667,
+    "page number" : 36,
+    "bounding box" : [ 36.0, 94.223, 180.072, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A steel pipe section heavy enough to be driven without a mandrel, having its lower end either open or closed; after the pipe is driven to its final position, it is filled with concrete. A pipe (either close-ended or open-ended) which serves as a pile."
+  }, {
+    "type" : "paragraph",
+    "id" : 668,
+    "page number" : 36,
+    "bounding box" : [ 225.138, 113.423, 369.617, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A footing consisting of a series of concrete prisms of progressively smaller lateral dimensions, one above the other, to distribute the load of a wall or column to the subgrade."
+  }, {
+    "type" : "paragraph",
+    "id" : 669,
+    "page number" : 36,
+    "bounding box" : [ 414.276, 65.423, 552.379, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The separation of overwet or overvibrated concrete into horizontal layers with increasingly lighter material toward the top; water, laitance, mortar, and coarse aggregate tend to occupy successively lower positions in that order. A layered structure in concrete resulting from the placement of successive batches that differ in appearance."
+  }, {
+    "type" : "footer",
+    "id" : 670,
+    "page number" : 36,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 89,
+      "page number" : 36,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 33"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 678,
+    "page number" : 37,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile98.png"
+  }, {
+    "type" : "image",
+    "id" : 680,
+    "page number" : 37,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile99.png"
+  }, {
+    "type" : "image",
+    "id" : 676,
+    "page number" : 37,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile100.png"
+  }, {
+    "type" : "heading",
+    "id" : 682,
+    "level" : "Subtitle",
+    "page number" : 37,
+    "bounding box" : [ 36.142, 184.012, 512.532, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Strip Footing Substratum Superstructure & Substructure"
+  }, {
+    "type" : "paragraph",
+    "id" : 683,
+    "page number" : 37,
+    "bounding box" : [ 36.0, 142.223, 164.512, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A continuous foundation in which all loads occur in a straight line."
+  }, {
+    "type" : "paragraph",
+    "id" : 684,
+    "page number" : 37,
+    "bounding box" : [ 225.138, 142.223, 364.457, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A underlying layer of earth beneath the surface soil; subsoil."
+  }, {
+    "type" : "paragraph",
+    "id" : 685,
+    "page number" : 37,
+    "bounding box" : [ 414.276, 142.223, 548.979, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The foundation or understructure of a building; supports the superstructure."
+  }, {
+    "type" : "footer",
+    "id" : 686,
+    "page number" : 37,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 90,
+      "page number" : 37,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 34"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 694,
+    "page number" : 38,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile101.png"
+  }, {
+    "type" : "image",
+    "id" : 696,
+    "page number" : 38,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile102.png"
+  }, {
+    "type" : "image",
+    "id" : 692,
+    "page number" : 38,
+    "bounding box" : [ 36.142, 224.892, 180.142, 366.197 ],
+    "source" : "Building Tech Illustrated_images/imageFile103.png"
+  }, {
+    "type" : "heading",
+    "id" : 698,
+    "level" : "Subtitle",
+    "page number" : 38,
+    "bounding box" : [ 36.0, 184.012, 552.338, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "T-Beam Tapered Flute Pile Tension & Compression Reinforcement"
+  }, {
+    "type" : "paragraph",
+    "id" : 699,
+    "page number" : 38,
+    "bounding box" : [ 36.0, 123.023, 167.471, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A reinforced concrete beam or rolled metal shape having a cross section resembling the letter T."
+  }, {
+    "type" : "paragraph",
+    "id" : 700,
+    "page number" : 38,
+    "bounding box" : [ 225.138, 94.223, 361.481, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A pipe section heavy enough to be driven without a mandrel, 1 having its lower end either open or closed; after the pipe is driven to its final position, it is filled with concrete. A pipe (either close-ended or open ended) which serves as a pile."
+  }, {
+    "type" : "paragraph",
+    "id" : 701,
+    "page number" : 38,
+    "bounding box" : [ 414.276, 142.223, 544.108, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Tension reinforcement On the top face of a beam"
+  }, {
+    "type" : "paragraph",
+    "id" : 702,
+    "page number" : 38,
+    "bounding box" : [ 414.276, 123.023, 549.163, 142.455 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "or slab, the tension reinforcement that resists the negative bending moment."
+  }, {
+    "type" : "paragraph",
+    "id" : 703,
+    "page number" : 38,
+    "bounding box" : [ 414.276, 103.823, 512.979, 113.655 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Compression reinforcement"
+  }, {
+    "type" : "paragraph",
+    "id" : 704,
+    "page number" : 38,
+    "bounding box" : [ 414.276, 75.023, 558.915, 104.054 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Structural reinforcement which is designed to carry compressive stresses."
+  }, {
+    "type" : "footer",
+    "id" : 705,
+    "page number" : 38,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 91,
+      "page number" : 38,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 35"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 713,
+    "page number" : 39,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile104.png"
+  }, {
+    "type" : "image",
+    "id" : 715,
+    "page number" : 39,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile105.png"
+  }, {
+    "type" : "image",
+    "id" : 711,
+    "page number" : 39,
+    "bounding box" : [ 36.5, 224.89, 180.5, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile106.png"
+  }, {
+    "type" : "heading",
+    "id" : 717,
+    "level" : "Subtitle",
+    "page number" : 39,
+    "bounding box" : [ 36.142, 198.412, 483.625, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Tie Beam Tiebacks Timber Pole"
+  }, {
+    "type" : "paragraph",
+    "id" : 718,
+    "page number" : 39,
+    "bounding box" : [ 36.0, 75.023, 178.136, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "On individual pile caps or spread footings which are eccentrically loaded, a beam (usually of reinforced concrete) used to distribute horizontal forces to other pile caps or footings; a strap In roof framing, a horizontal timber connecting two opposite rafters at their lower ends to prevent them from spreading; also see collar beam."
+  }, {
+    "type" : "paragraph",
+    "id" : 719,
+    "page number" : 39,
+    "bounding box" : [ 225.138, 142.223, 354.097, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A tension element used to resist the lateral force on a retaining structure."
+  }, {
+    "type" : "paragraph",
+    "id" : 720,
+    "page number" : 39,
+    "bounding box" : [ 414.276, 142.223, 557.147, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A long, slender, tapering piece of wood; a pale, prop, stake, or stay."
+  }, {
+    "type" : "footer",
+    "id" : 721,
+    "page number" : 39,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 92,
+      "page number" : 39,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 36"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 729,
+    "page number" : 40,
+    "bounding box" : [ 225.638, 226.028, 369.638, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile107.png"
+  }, {
+    "type" : "image",
+    "id" : 731,
+    "page number" : 40,
+    "bounding box" : [ 415.417, 226.028, 559.417, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile108.png"
+  }, {
+    "type" : "image",
+    "id" : 727,
+    "page number" : 40,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile109.png"
+  }, {
+    "type" : "heading",
+    "id" : 733,
+    "level" : "Subtitle",
+    "page number" : 40,
+    "bounding box" : [ 36.0, 198.412, 489.976, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Trapezoidal Footing Two Way Slab Uncased Pile"
+  }, {
+    "type" : "paragraph",
+    "id" : 734,
+    "page number" : 40,
+    "bounding box" : [ 36.0, 84.623, 175.904, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A trapezoidal portion of the foundation of a structure which transmits loads directly to the soil; may be the widened part of a wall or column, the spreading courses under a foundation wall, a foundation of a column, etc.; used to spread the load over a greater area to prevent or reduce settling."
+  }, {
+    "type" : "paragraph",
+    "id" : 735,
+    "page number" : 40,
+    "bounding box" : [ 225.138, 103.823, 363.722, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A concrete floor slab in which the main reinforcement runs in two directions. A rectangular, reinforced concrete slab having a span on the long side that is less than twice the span on the short side."
+  }, {
+    "type" : "paragraph",
+    "id" : 736,
+    "page number" : 40,
+    "bounding box" : [ 414.276, 132.623, 547.524, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A concrete pile made by pre-casting concrete within a steel casing placed into the ground; a pre-cast pile."
+  }, {
+    "type" : "footer",
+    "id" : 737,
+    "page number" : 40,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 93,
+      "page number" : 40,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 37"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 745,
+    "page number" : 41,
+    "bounding box" : [ 225.996, 226.028, 369.996, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile110.png"
+  }, {
+    "type" : "image",
+    "id" : 747,
+    "page number" : 41,
+    "bounding box" : [ 415.776, 226.028, 559.776, 370.028 ],
+    "source" : "Building Tech Illustrated_images/imageFile111.png"
+  }, {
+    "type" : "image",
+    "id" : 743,
+    "page number" : 41,
+    "bounding box" : [ 36.5, 224.919, 180.5, 366.288 ],
+    "source" : "Building Tech Illustrated_images/imageFile112.png"
+  }, {
+    "type" : "heading",
+    "id" : 749,
+    "level" : "Subtitle",
+    "page number" : 41,
+    "bounding box" : [ 36.142, 198.412, 442.945, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Underpinning Waffle Slab Wale"
+  }, {
+    "type" : "paragraph",
+    "id" : 750,
+    "page number" : 41,
+    "bounding box" : [ 36.0, 94.223, 177.654, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The rebuilding or deepening of the foundation of an existing building to provide additional or improved support, e.g., additional support required as a result of a new excavation in adjoining property which is deeper than the existing foundation."
+  }, {
+    "type" : "paragraph",
+    "id" : 751,
+    "page number" : 41,
+    "bounding box" : [ 225.138, 123.023, 350.977, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A concrete slab which is reinforced by ribs in two directions, forming a waffle-like pattern."
+  }, {
+    "type" : "paragraph",
+    "id" : 752,
+    "page number" : 41,
+    "bounding box" : [ 414.276, 132.623, 556.115, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A horizontal timber or beam used to brace or support an upright member, as sheeting, formwork for concrete, etc."
+  }, {
+    "type" : "footer",
+    "id" : 753,
+    "page number" : 41,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 94,
+      "page number" : 41,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 38"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 763,
+    "page number" : 42,
+    "bounding box" : [ 227.356, 225.653, 371.356, 369.653 ],
+    "source" : "Building Tech Illustrated_images/imageFile113.png"
+  }, {
+    "type" : "image",
+    "id" : 759,
+    "page number" : 42,
+    "bounding box" : [ 36.142, 224.89, 180.142, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile114.png"
+  }, {
+    "type" : "image",
+    "id" : 761,
+    "page number" : 42,
+    "bounding box" : [ 414.776, 224.89, 558.776, 366.192 ],
+    "source" : "Building Tech Illustrated_images/imageFile115.png"
+  }, {
+    "type" : "heading",
+    "id" : 765,
+    "level" : "Subtitle",
+    "page number" : 42,
+    "bounding box" : [ 36.0, 198.037, 471.705, 212.692 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Wall Footing Water Wood Pile"
+  }, {
+    "type" : "paragraph",
+    "id" : 766,
+    "page number" : 42,
+    "bounding box" : [ 36.0, 113.423, 176.815, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A wall footing or strip footing is a continuous strip of concrete that serves to spread the weight of a load-bearing wall across an area of soil. It is the component of a shallow foundation."
+  }, {
+    "type" : "paragraph",
+    "id" : 767,
+    "page number" : 42,
+    "bounding box" : [ 414.276, 94.223, 555.93, 161.654 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The rebuilding or deepening of the foundation of an existing building to provide additional or improved support, e.g., additional support required as a result of a new excavation in adjoining property which is deeper than the existing foundation."
+  }, {
+    "type" : "paragraph",
+    "id" : 768,
+    "page number" : 42,
+    "bounding box" : [ 226.856, 103.448, 370.912, 161.279 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Water is a chemical compound consisting of two hydrogen atoms and one oxygen. The name water typically refers to the liquid state of the compound. The solid phase is known as ice and gas phase is called steam."
+  }, {
+    "type" : "footer",
+    "id" : 769,
+    "page number" : 42,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 95,
+      "page number" : 42,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 39"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 777,
+    "level" : "Subtitle",
+    "page number" : 43,
+    "bounding box" : [ 36.142, 359.176, 165.141, 373.456 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Wood Formwork Detail"
+  }, {
+    "type" : "paragraph",
+    "id" : 779,
+    "page number" : 43,
+    "bounding box" : [ 405.638, 318.635, 430.532, 326.009 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Spreader"
+  }, {
+    "type" : "paragraph",
+    "id" : 786,
+    "page number" : 43,
+    "bounding box" : [ 417.224, 283.675, 558.931, 312.649 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "a rubber or plastic hand-held implement with a bevelled edge, used by a painter and decorator for applying and spreading glue and filler, smoothing and shaping etc."
+  }, {
+    "type" : "image",
+    "id" : 775,
+    "page number" : 43,
+    "bounding box" : [ 190.138, 82.528, 405.138, 297.528 ],
+    "source" : "Building Tech Illustrated_images/imageFile116.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 784,
+    "page number" : 43,
+    "bounding box" : [ 129.85, 271.795, 158.632, 279.169 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Form Liner"
+  }, {
+    "type" : "paragraph",
+    "id" : 787,
+    "page number" : 43,
+    "bounding box" : [ 63.36, 264.13, 185.735, 271.504 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A board or a sheet of wood used in formwork."
+  }, {
+    "type" : "paragraph",
+    "id" : 780,
+    "page number" : 43,
+    "bounding box" : [ 444.6, 213.941, 459.714, 221.314 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Waler"
+  }, {
+    "type" : "paragraph",
+    "id" : 793,
+    "page number" : 43,
+    "bounding box" : [ 417.224, 191.385, 553.022, 213.159 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "in timber construction and formwork, a horizontal timber member which binds together vertical boards or sheet material."
+  }, {
+    "type" : "paragraph",
+    "id" : 783,
+    "page number" : 43,
+    "bounding box" : [ 130.5, 198.709, 158.508, 206.083 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Bulk Head"
+  }, {
+    "type" : "paragraph",
+    "id" : 788,
+    "page number" : 43,
+    "bounding box" : [ 44.892, 183.406, 185.736, 197.98 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A structure on the roof of a building covering a water tank, shaft, or service equipment. A structure, as"
+  }, {
+    "type" : "paragraph",
+    "id" : 789,
+    "page number" : 43,
+    "bounding box" : [ 50.118, 169.006, 185.736, 183.58 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "on a roof, covering a stairwell or other opening, to provide adequate headroom. A retaining structure"
+  }, {
+    "type" : "paragraph",
+    "id" : 781,
+    "page number" : 43,
+    "bounding box" : [ 444.6, 162.355, 475.5, 169.729 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Strongback"
+  }, {
+    "type" : "paragraph",
+    "id" : 790,
+    "page number" : 43,
+    "bounding box" : [ 57.234, 161.806, 185.735, 169.18 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "to prevent earth movement into a dredged area."
+  }, {
+    "type" : "paragraph",
+    "id" : 794,
+    "page number" : 43,
+    "bounding box" : [ 417.224, 146.999, 543.818, 161.573 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "a structural member used as a spreader beam, soldier or as waling in formwork."
+  }, {
+    "type" : "paragraph",
+    "id" : 782,
+    "page number" : 43,
+    "bounding box" : [ 135.36, 114.829, 156.366, 122.203 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Keyway"
+  }, {
+    "type" : "paragraph",
+    "id" : 791,
+    "page number" : 43,
+    "bounding box" : [ 53.454, 100.197, 185.736, 114.771 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The aperture in a lock cylinder which receives the key and closely engages with it throughout its"
+  }, {
+    "type" : "paragraph",
+    "id" : 792,
+    "page number" : 43,
+    "bounding box" : [ 55.578, 85.797, 185.736, 100.371 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "length. A slot used to interlock slabs of masonry walls built at different times."
+  }, {
+    "type" : "footer",
+    "id" : 795,
+    "page number" : 43,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 96,
+      "page number" : 43,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 40"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 796,
+    "page number" : 44,
+    "bounding box" : [ 36.142, 359.176, 130.834, 373.456 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 105,
+      "page number" : 44,
+      "bounding box" : [ 36.142, 359.176, 130.834, 373.456 ],
+      "heading level" : 2,
+      "font" : "HelveticaLTStd-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0, 1.0]",
+      "content" : "Slope Protection"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 804,
+    "page number" : 44,
+    "bounding box" : [ 310.771, 210.264, 488.831, 317.264 ],
+    "source" : "Building Tech Illustrated_images/imageFile117.png"
+  }, {
+    "type" : "image",
+    "id" : 802,
+    "page number" : 44,
+    "bounding box" : [ 48.992, 209.97, 227.052, 316.97 ],
+    "source" : "Building Tech Illustrated_images/imageFile118.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 806,
+    "page number" : 44,
+    "bounding box" : [ 36.142, 156.091, 233.405, 204.323 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Sloped that are subject to erosion from the runoff of surface water require some means of stabilization. The need for stabilization can be reduced by diverting the runoff at the top of the slop, or by creating a series of terraces to reduce the velocity of the runoff."
+  }, {
+    "type" : "paragraph",
+    "id" : 807,
+    "page number" : 44,
+    "bounding box" : [ 360.862, 117.691, 552.502, 204.323 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "The principal mechanical means of protecting an embankment against erosion is a revetment of riprap or gabions A Riprap is a layer of irregularly broken and random sized stones placed on the slop of an embankment to prevent erosion Depth of layer should be greater than the maximum size of stone Filter fabric or graded sand and gravel for drainage"
+  }, {
+    "type" : "footer",
+    "id" : 809,
+    "page number" : 44,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 97,
+      "page number" : 44,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 41"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 810,
+    "page number" : 45,
+    "bounding box" : [ 36.142, 359.176, 130.834, 373.456 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 106,
+      "page number" : 45,
+      "bounding box" : [ 36.142, 359.176, 130.834, 373.456 ],
+      "heading level" : 2,
+      "font" : "HelveticaLTStd-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0, 1.0]",
+      "content" : "Slope Protection"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 818,
+    "page number" : 45,
+    "bounding box" : [ 49.134, 209.97, 227.194, 316.97 ],
+    "source" : "Building Tech Illustrated_images/imageFile119.png"
+  }, {
+    "type" : "image",
+    "id" : 816,
+    "page number" : 45,
+    "bounding box" : [ 368.224, 209.97, 546.284, 316.97 ],
+    "source" : "Building Tech Illustrated_images/imageFile120.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 823,
+    "page number" : 45,
+    "bounding box" : [ 79.724, 165.691, 287.035, 204.323 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Gabions are galvanized or PVC-Coated wire baskets filled with stones and stacked to form an abutment or retaining structure, or as riprap to stabilize and embankment Filter fabric or graded sand and gravel for drainage"
+  }, {
+    "type" : "paragraph",
+    "id" : 824,
+    "page number" : 45,
+    "bounding box" : [ 355.09, 156.091, 556.922, 204.323 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Natural means of stabilization includes soil binders-plant materials that inhibit or prevent erosion by providing a ground cover that inhibit or prevent erosion by providing a ground cover and forming a dense network of roots that bind the soil."
+  }, {
+    "type" : "image",
+    "id" : 820,
+    "page number" : 45,
+    "bounding box" : [ 49.275, 36.357, 227.335, 143.357 ],
+    "source" : "Building Tech Illustrated_images/imageFile121.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 822,
+    "page number" : 45,
+    "bounding box" : [ 249.239, 41.14, 554.069, 89.372 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Cribbing or bin walls may also be used to hold back and protect steep embankments Cribbing is a cellular framework of squared steel, concrete, or timber members, assembled in layers at right angles, and filled with earth or stones. A bin wall is a type of gravity retaining wall formed by stacking modular, interlocking precast concrete units and filling the voids with crushed stone or gravel."
+  }, {
+    "type" : "footer",
+    "id" : 826,
+    "page number" : 45,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 98,
+      "page number" : 45,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 42"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 827,
+    "page number" : 46,
+    "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 107,
+      "page number" : 46,
+      "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+      "heading level" : 2,
+      "font" : "HelveticaLTStd-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0, 1.0]",
+      "content" : "Retaining Wall"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 835,
+    "page number" : 46,
+    "bounding box" : [ 368.082, 210.264, 546.142, 317.264 ],
+    "source" : "Building Tech Illustrated_images/imageFile122.png"
+  }, {
+    "type" : "image",
+    "id" : 833,
+    "page number" : 46,
+    "bounding box" : [ 48.992, 209.97, 227.052, 316.97 ],
+    "source" : "Building Tech Illustrated_images/imageFile123.png"
+  }, {
+    "type" : "heading",
+    "id" : 838,
+    "level" : "Subtitle",
+    "page number" : 46,
+    "bounding box" : [ 60.52, 185.095, 452.183, 199.375 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "T-Type Cantilevered Wall Gravity Wall"
+  }, {
+    "type" : "paragraph",
+    "id" : 839,
+    "page number" : 46,
+    "bounding box" : [ 60.52, 109.705, 203.848, 148.337 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Cantilevered wall of reinforced concrete are used for retaining walls up to 20 feet high. Above this height, counterfort walls are employed"
+  }, {
+    "type" : "paragraph",
+    "id" : 840,
+    "page number" : 46,
+    "bounding box" : [ 384.541, 100.105, 525.764, 148.337 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A gravity retaining wall resists overturning and sliding by the sheer weight and volume of it’s mass. Gravity walls may be used for retaining structures less than 10 feet."
+  }, {
+    "type" : "footer",
+    "id" : 841,
+    "page number" : 46,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 99,
+      "page number" : 46,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 43"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 842,
+    "page number" : 47,
+    "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 108,
+      "page number" : 47,
+      "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+      "heading level" : 2,
+      "font" : "HelveticaLTStd-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0, 1.0]",
+      "content" : "Retaining Wall"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 850,
+    "page number" : 47,
+    "bounding box" : [ 367.94, 210.264, 546.0, 317.264 ],
+    "source" : "Building Tech Illustrated_images/imageFile124.png"
+  }, {
+    "type" : "image",
+    "id" : 848,
+    "page number" : 47,
+    "bounding box" : [ 48.85, 209.97, 226.91, 316.97 ],
+    "source" : "Building Tech Illustrated_images/imageFile125.png"
+  }, {
+    "type" : "heading",
+    "id" : 853,
+    "level" : "Subtitle",
+    "page number" : 47,
+    "bounding box" : [ 65.38, 185.095, 523.525, 199.375 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Counterfort Wall L-Type Cantilevered Wall"
+  }, {
+    "type" : "paragraph",
+    "id" : 854,
+    "page number" : 47,
+    "bounding box" : [ 65.38, 90.505, 207.955, 148.337 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "A counterfort wall utilized triangulatshaped cross walls to stiffen the vertical slab and add weight to the base. The counterforts are spaced at regular intervals equal to one half the wall height"
+  }, {
+    "type" : "paragraph",
+    "id" : 855,
+    "page number" : 47,
+    "bounding box" : [ 384.4, 119.305, 524.304, 148.337 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "This type of retaining wall is used when the wall abuts a property line or other obstruction"
+  }, {
+    "type" : "footer",
+    "id" : 856,
+    "page number" : 47,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 100,
+      "page number" : 47,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 44"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 857,
+    "page number" : 48,
+    "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 109,
+      "page number" : 48,
+      "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+      "heading level" : 2,
+      "font" : "HelveticaLTStd-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0, 1.0]",
+      "content" : "Retaining Wall"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 865,
+    "page number" : 48,
+    "bounding box" : [ 342.0, 299.171, 422.814, 335.345 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Batter refers to the backwards sloping face of a wall as it rises, which can offset the illusion of the face leaning forward."
+  }, {
+    "type" : "paragraph",
+    "id" : 870,
+    "page number" : 48,
+    "bounding box" : [ 453.076, 264.965, 550.881, 286.739 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Drainage system may be required to relieve the buildup of water pressure behind the wall."
+  }, {
+    "type" : "image",
+    "id" : 863,
+    "page number" : 48,
+    "bounding box" : [ 171.809, 134.15, 423.467, 285.377 ],
+    "source" : "Building Tech Illustrated_images/imageFile126.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 866,
+    "page number" : 48,
+    "bounding box" : [ 219.923, 242.297, 298.733, 256.871 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Temperature steel for wall are more than 10inches thick."
+  }, {
+    "type" : "paragraph",
+    "id" : 872,
+    "page number" : 48,
+    "bounding box" : [ 453.076, 227.177, 552.657, 241.751 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Drainage mat w/filter fabric or porous gravel backfill"
+  }, {
+    "type" : "paragraph",
+    "id" : 867,
+    "page number" : 48,
+    "bounding box" : [ 220.253, 227.228, 298.732, 234.602 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Structural steel reinforcement"
+  }, {
+    "type" : "list",
+    "id" : 873,
+    "level" : "2",
+    "page number" : 48,
+    "bounding box" : [ 453.076, 164.165, 553.918, 218.464 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 48,
+      "bounding box" : [ 453.076, 211.09, 553.918, 218.464 ],
+      "font" : "HelveticaLTStd-Light",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 1.0]",
+      "content" : "2 inch diameter weepholes @ 4-6 feet",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 113,
+        "level" : "3",
+        "page number" : 48,
+        "bounding box" : [ 453.076, 196.69, 555.55, 211.264 ],
+        "numbering style" : "unordered",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 48,
+          "bounding box" : [ 453.076, 203.89, 555.55, 211.264 ],
+          "font" : "HelveticaLTStd-Light",
+          "font size" : 6.0,
+          "text color" : "[0.0, 0.0, 0.0, 1.0]",
+          "content" : "o.c., or perforated drainpipe sloped to",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 48,
+          "bounding box" : [ 453.076, 196.69, 508.984, 204.064 ],
+          "font" : "HelveticaLTStd-Light",
+          "font size" : 6.0,
+          "text color" : "[0.0, 0.0, 0.0, 1.0]",
+          "content" : "outlet away from wall",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 48,
+      "bounding box" : [ 453.076, 164.165, 501.754, 171.539 ],
+      "font" : "HelveticaLTStd-Light",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 1.0]",
+      "content" : "3 inches minimum",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 871,
+    "page number" : 48,
+    "bounding box" : [ 453.076, 184.028, 501.754, 191.402 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "2 inches minimum"
+  }, {
+    "type" : "paragraph",
+    "id" : 868,
+    "page number" : 48,
+    "bounding box" : [ 180.783, 152.297, 258.147, 181.271 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Footing should extend below frostline or 2 feet below the lower grade level, whichever is greater"
+  }, {
+    "type" : "paragraph",
+    "id" : 869,
+    "page number" : 48,
+    "bounding box" : [ 312.874, 105.848, 439.953, 127.622 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Provide vertical control joints @ 25 feet o.c. and vertical expansion joints every fourth control joint."
+  }, {
+    "type" : "footer",
+    "id" : 875,
+    "page number" : 48,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 101,
+      "page number" : 48,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 45"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 876,
+    "page number" : 49,
+    "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 110,
+      "page number" : 49,
+      "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+      "heading level" : 2,
+      "font" : "HelveticaLTStd-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0, 1.0]",
+      "content" : "Retaining Wall"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 884,
+    "page number" : 49,
+    "bounding box" : [ 153.638, 300.122, 251.234, 321.896 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Timber and concrete, brick, or stone masonry be used for relatively low retaining walls."
+  }, {
+    "type" : "image",
+    "id" : 882,
+    "page number" : 49,
+    "bounding box" : [ 171.809, 134.15, 423.467, 285.377 ],
+    "source" : "Building Tech Illustrated_images/imageFile127.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 887,
+    "page number" : 49,
+    "bounding box" : [ 190.646, 273.458, 228.656, 280.832 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Horizontal Tile"
+  }, {
+    "type" : "paragraph",
+    "id" : 885,
+    "page number" : 49,
+    "bounding box" : [ 447.214, 240.497, 545.566, 269.471 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "4x6 or 6x6 pressure-treated timbers laid w/ overlapping joints and spiked together or ties w/ galvanized steel rods @ 4feet o.c."
+  }, {
+    "type" : "paragraph",
+    "id" : 886,
+    "page number" : 49,
+    "bounding box" : [ 201.96, 182.356, 304.344, 211.33 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Deadman is a timber, stone, or concrete mass buried in the ground as an anchor; used for wall over 3 feet high and placed 6 feet - 0 inches o.c."
+  }, {
+    "type" : "paragraph",
+    "id" : 889,
+    "page number" : 49,
+    "bounding box" : [ 168.536, 146.177, 228.655, 153.551 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Horizontal Timber Wall"
+  }, {
+    "type" : "paragraph",
+    "id" : 888,
+    "page number" : 49,
+    "bounding box" : [ 324.0, 137.177, 421.032, 144.551 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Gravel drain for wall over 2 feet high"
+  }, {
+    "type" : "footer",
+    "id" : 891,
+    "page number" : 49,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 102,
+      "page number" : 49,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 46"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 892,
+    "page number" : 50,
+    "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 111,
+      "page number" : 50,
+      "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+      "heading level" : 2,
+      "font" : "HelveticaLTStd-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0, 1.0]",
+      "content" : "Retaining Wall"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 898,
+    "page number" : 50,
+    "bounding box" : [ 171.809, 134.15, 423.467, 285.377 ],
+    "source" : "Building Tech Illustrated_images/imageFile128.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 901,
+    "level" : "4",
+    "page number" : 50,
+    "bounding box" : [ 456.442, 262.585, 513.796, 269.959 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Brick or stone coping"
+  }, {
+    "type" : "paragraph",
+    "id" : 902,
+    "page number" : 50,
+    "bounding box" : [ 456.442, 215.528, 511.12, 230.92 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Galvanized wall tiles 4 Inch brick veneer"
+  }, {
+    "type" : "paragraph",
+    "id" : 908,
+    "page number" : 50,
+    "bounding box" : [ 167.596, 216.031, 214.306, 230.605 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Weepholes @ 4-6 feet o.c."
+  }, {
+    "type" : "paragraph",
+    "id" : 907,
+    "page number" : 50,
+    "bounding box" : [ 167.596, 191.71, 226.048, 213.484 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Perforated drainpipes sloped to outlet away from wall"
+  }, {
+    "type" : "paragraph",
+    "id" : 903,
+    "page number" : 50,
+    "bounding box" : [ 456.442, 194.22, 537.484, 201.594 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "8 Inch concrete masonry units"
+  }, {
+    "type" : "paragraph",
+    "id" : 904,
+    "page number" : 50,
+    "bounding box" : [ 456.442, 178.179, 540.82, 185.553 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "12 Inch concrete masonry units"
+  }, {
+    "type" : "paragraph",
+    "id" : 906,
+    "page number" : 50,
+    "bounding box" : [ 167.596, 169.705, 190.162, 177.079 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Frostline"
+  }, {
+    "type" : "paragraph",
+    "id" : 905,
+    "page number" : 50,
+    "bounding box" : [ 456.442, 162.138, 501.022, 169.512 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Concrete footing"
+  }, {
+    "type" : "paragraph",
+    "id" : 909,
+    "page number" : 50,
+    "bounding box" : [ 167.596, 142.705, 214.39, 150.079 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Brick Veneer Wall"
+  }, {
+    "type" : "footer",
+    "id" : 911,
+    "page number" : 50,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 103,
+      "page number" : 50,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "BUILDING TECHNOLOGY FULLY ILLUSTRATED 47"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 912,
+    "page number" : 51,
+    "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 112,
+      "page number" : 51,
+      "bounding box" : [ 36.142, 359.176, 117.142, 373.456 ],
+      "heading level" : 2,
+      "font" : "HelveticaLTStd-Bold",
+      "font size" : 12.0,
+      "text color" : "[0.0, 0.0, 0.0, 1.0]",
+      "content" : "Retaining Wall"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 918,
+    "page number" : 51,
+    "bounding box" : [ 171.809, 134.15, 423.467, 285.377 ],
+    "source" : "Building Tech Illustrated_images/imageFile129.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 920,
+    "page number" : 51,
+    "bounding box" : [ 460.8, 255.226, 476.808, 262.6 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Batter"
+  }, {
+    "type" : "paragraph",
+    "id" : 921,
+    "page number" : 51,
+    "bounding box" : [ 460.8, 222.466, 546.162, 229.84 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Tilt stones into slope for stability"
+  }, {
+    "type" : "paragraph",
+    "id" : 922,
+    "page number" : 51,
+    "bounding box" : [ 180.739, 168.826, 272.983, 190.6 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Provide a well-drained compacted granular subbase; base need not extend frostline."
+  }, {
+    "type" : "paragraph",
+    "id" : 923,
+    "page number" : 51,
+    "bounding box" : [ 276.84, 168.02, 359.868, 182.594 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Bottom of mortared stone walls should extend below frostline."
+  }, {
+    "type" : "paragraph",
+    "id" : 924,
+    "page number" : 51,
+    "bounding box" : [ 170.148, 142.705, 209.376, 150.079 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Dry Stone Wall"
+  }, {
+    "type" : "footer",
+    "id" : 926,
+    "page number" : 51,
+    "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 104,
+      "page number" : 51,
+      "bounding box" : [ 44.476, 20.536, 543.536, 29.784 ],
+      "heading level" : 3,
+      "font" : "HelveticaLTStd-Roman",
+      "font size" : 6.0,
+      "text color" : "[0.0, 0.0, 0.0, 0.0]",
+      "content" : "CENTENO | CHOI | GUANZON | HORNILLA | LEWIS 48"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 928,
+    "level" : "Subtitle",
+    "page number" : 52,
+    "bounding box" : [ 287.972, 202.72, 307.304, 217.0 ],
+    "heading level" : 2,
+    "font" : "HelveticaLTStd-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "FIN"
+  }, {
+    "type" : "paragraph",
+    "id" : 930,
+    "page number" : 53,
+    "bounding box" : [ 250.654, 224.383, 344.621, 272.615 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 8.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "This book si submitted to Architect Clarissa Lorenzo In partial fulfillment of the course BT4 by the following:"
+  }, {
+    "type" : "paragraph",
+    "id" : 931,
+    "page number" : 53,
+    "bounding box" : [ 274.967, 182.42, 320.308, 218.594 ],
+    "font" : "HelveticaLTStd-Light",
+    "font size" : 6.0,
+    "text color" : "[0.0, 0.0, 0.0, 1.0]",
+    "content" : "Centeno , Mikele Choi , Edward Guanzon , Paolo Hornilla , Jerome Lewis , Philip"
+  } ]
+}

@@ -1,0 +1,2509 @@
+{
+  "file name" : "Theory Lecture.pdf",
+  "number of pages" : 15,
+  "author" : "RICO",
+  "title" : "Slide 1",
+  "creation date" : "D:20260413100614+08'00'",
+  "modification date" : "D:20260413100614+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 84,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 39.456, 475.015, 322.048, 508.764 ],
+    "heading level" : 1,
+    "font" : "Tahoma-Bold",
+    "font size" : 27.96,
+    "text color" : "[0.0]",
+    "content" : "THEORY OF DESIGN"
+  }, {
+    "type" : "heading",
+    "id" : 85,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 19.2, 419.046, 312.078, 439.155 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• RESEARCH OF ARCHITECTURE"
+  }, {
+    "type" : "paragraph",
+    "id" : 86,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 163.22, 397.44, 513.999, 417.577 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "– Research contributes to Design Theory"
+  }, {
+    "type" : "heading",
+    "id" : 87,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 19.2, 366.216, 292.386, 386.325 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• NATURE OF DESIGN THEORY"
+  }, {
+    "type" : "paragraph",
+    "id" : 88,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 163.22, 323.016, 409.202, 364.725 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "– Design Theory states facts -- Design Theory aids design"
+  }, {
+    "type" : "heading",
+    "id" : 89,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 19.2, 291.81, 354.01, 311.947 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• SCOPE OF ARCHITECTURE THEORY"
+  }, {
+    "type" : "paragraph",
+    "id" : 90,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 91.224, 270.196, 620.882, 290.305 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- Includes all that is presented in the handbooks of architects"
+  }, {
+    "type" : "paragraph",
+    "id" : 91,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 91.224, 248.596, 638.018, 268.705 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- Includes legislation, norms and standards, rules and methods"
+  }, {
+    "type" : "paragraph",
+    "id" : 92,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 91.224, 226.996, 553.004, 247.105 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- Includes miscellaneous and “unscientific” elements"
+  }, {
+    "type" : "heading",
+    "id" : 93,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 19.2, 195.796, 241.374, 215.905 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• WHY DESIGN THEORY?"
+  }, {
+    "type" : "paragraph",
+    "id" : 94,
+    "level" : "3",
+    "page number" : 1,
+    "bounding box" : [ 91.224, 174.19, 580.828, 194.327 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "– To aid the work of the architect and improve its product"
+  }, {
+    "type" : "paragraph",
+    "id" : 95,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 91.224, 130.966, 675.188, 172.675 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- Proven theory helps designers do work better and more efficiently -- “Skill without knowledge is nothing” (architect Jean Mignot, 1400 AD)"
+  }, {
+    "type" : "heading",
+    "id" : 96,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 19.2, 99.766, 345.416, 119.875 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• UNDERSTANDING DESIGN THEORY"
+  }, {
+    "type" : "paragraph",
+    "id" : 97,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 91.224, 78.164, 514.265, 98.301 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "– Theory does NOT necessarily PRECEDE design"
+  }, {
+    "type" : "paragraph",
+    "id" : 98,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 91.224, 56.546, 568.154, 76.655 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- PARADIGM = every new or established theory applied"
+  }, {
+    "type" : "heading",
+    "id" : 99,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 208.166, 34.946, 281.798, 55.055 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "= STYLE"
+  }, {
+    "type" : "heading",
+    "id" : 102,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 39.456, 475.015, 342.85, 508.764 ],
+    "heading level" : 1,
+    "font" : "Tahoma-Bold",
+    "font size" : 27.96,
+    "text color" : "[0.0]",
+    "content" : "THEMATIC THEORIES"
+  }, {
+    "type" : "list",
+    "id" : 103,
+    "level" : "3",
+    "page number" : 2,
+    "bounding box" : [ 39.696, 33.746, 400.674, 445.155 ],
+    "numbering style" : "unordered",
+    "number of list items" : 9,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 39.696, 425.046, 158.34, 445.155 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• CLASSICAL",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 57,
+        "level" : "4",
+        "page number" : 2,
+        "bounding box" : [ 111.72, 403.446, 325.44, 423.555 ],
+        "font" : "Arial-BoldMT",
+        "font size" : 18.0,
+        "text color" : "[0.0]",
+        "content" : "– Marcus Vitruvius Pollio"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 39.696, 372.216, 179.724, 392.325 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• MIDDLE AGES",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 58,
+        "level" : "4",
+        "page number" : 2,
+        "bounding box" : [ 111.72, 350.616, 659.052, 370.725 ],
+        "font" : "Arial-BoldMT",
+        "font size" : 18.0,
+        "text color" : "[0.0]",
+        "content" : "– Medieval (read: Dark Age) anonymous tradition of trade guilds"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 39.696, 319.416, 186.384, 339.525 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• RENAISSANCE",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 59,
+        "level" : "5",
+        "page number" : 2,
+        "bounding box" : [ 111.72, 297.816, 379.518, 317.925 ],
+        "font" : "Arial-BoldMT",
+        "font size" : 18.0,
+        "text color" : "[0.0]",
+        "content" : "-- Alberti, Vignola, Palladio, etc."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 39.696, 266.596, 400.674, 286.705 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• STRUCTURALIST (Construction Theory)",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 60,
+        "level" : "4",
+        "page number" : 2,
+        "bounding box" : [ 111.72, 244.996, 414.612, 265.105 ],
+        "font" : "Arial-BoldMT",
+        "font size" : 18.0,
+        "text color" : "[0.0]",
+        "content" : "– Galileo Galilei, Robert Hooke, etc."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 39.696, 213.796, 337.992, 233.905 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• ART NOUVEAU (Personal Styles)",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 61,
+        "level" : "4",
+        "page number" : 2,
+        "bounding box" : [ 111.72, 192.196, 569.39, 212.305 ],
+        "font" : "Arial-BoldMT",
+        "font size" : 18.0,
+        "text color" : "[0.0]",
+        "content" : "– Eugene Emmanuel Violett-le-Duc, Le Corbusier, etc."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 39.696, 160.966, 204.42, 181.075 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• FUNCTIONALISM",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 62,
+        "level" : "4",
+        "page number" : 2,
+        "bounding box" : [ 111.72, 139.366, 427.878, 159.475 ],
+        "font" : "Arial-BoldMT",
+        "font size" : 18.0,
+        "text color" : "[0.0]",
+        "content" : "– Walter Gropius, Louis Sullivan, etc."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 39.696, 108.166, 216.912, 128.275 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• POSTMODERNISM",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 63,
+        "level" : "4",
+        "page number" : 2,
+        "bounding box" : [ 111.72, 86.57, 250.758, 106.679 ],
+        "font" : "Arial-BoldMT",
+        "font size" : 18.0,
+        "text color" : "[0.0]",
+        "content" : "– Robert Venturi"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 39.696, 55.346, 296.652, 75.455 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• SYMBOLIC ARCHITECTURE",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 39.696, 33.746, 321.348, 53.855 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• ECOLOGICAL ARCHITECTURE",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 106,
+    "level" : "Doctitle",
+    "page number" : 3,
+    "bounding box" : [ 39.456, 499.015, 350.287, 532.764 ],
+    "heading level" : 1,
+    "font" : "Tahoma-Bold",
+    "font size" : 27.96,
+    "text color" : "[0.0]",
+    "content" : "CLASSICAL THEORIES"
+  }, {
+    "type" : "heading",
+    "id" : 107,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 39.696, 461.046, 308.028, 481.155 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• MARCUS VITRUVIUS POLLIO"
+  }, {
+    "type" : "paragraph",
+    "id" : 108,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 439.446, 509.49, 459.555 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "– author of the oldest research on architecture"
+  }, {
+    "type" : "paragraph",
+    "id" : 109,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 417.846, 654.69, 437.955 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- wrote an extensive summary of all the theory on construction"
+  }, {
+    "type" : "paragraph",
+    "id" : 110,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 396.24, 672.021, 416.377 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "-- had a thorough knowledge of earlier Greek and Roman writings"
+  }, {
+    "type" : "heading",
+    "id" : 111,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 39.696, 365.016, 358.698, 385.125 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• “TEN BOOKS ON ARCHITECTURE”"
+  }, {
+    "type" : "paragraph",
+    "id" : 112,
+    "level" : "5",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 343.416, 357.606, 363.525 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "– De architectura libri decem"
+  }, {
+    "type" : "paragraph",
+    "id" : 113,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 321.816, 692.574, 341.925 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- consists mostly of normative theory of design (based on practice)"
+  }, {
+    "type" : "paragraph",
+    "id" : 114,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 300.216, 529.98, 320.325 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- a collection of thematic theories of design with"
+  }, {
+    "type" : "paragraph",
+    "id" : 115,
+    "page number" : 3,
+    "bounding box" : [ 183.72, 278.61, 582.465, 298.747 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "no method of combining them into a synthesis"
+  }, {
+    "type" : "paragraph",
+    "id" : 116,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 256.996, 629.898, 277.105 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- presents a classification of requirements set for buildings:"
+  }, {
+    "type" : "paragraph",
+    "id" : 117,
+    "level" : "5",
+    "page number" : 3,
+    "bounding box" : [ 183.72, 237.748, 367.993, 255.578 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 15.96,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "-- DURABILITY (firmitas)"
+  }, {
+    "type" : "paragraph",
+    "id" : 118,
+    "level" : "5",
+    "page number" : 3,
+    "bounding box" : [ 183.72, 218.548, 522.489, 236.378 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 15.96,
+    "text color" : "[0.0]",
+    "content" : "-- PRACTICALITY or “Convenience” (utilitas)"
+  }, {
+    "type" : "paragraph",
+    "id" : 119,
+    "level" : "5",
+    "page number" : 3,
+    "bounding box" : [ 183.72, 199.348, 412.309, 217.178 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 15.96,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "-- PLEASANTNESS (venustas)"
+  }, {
+    "type" : "heading",
+    "id" : 120,
+    "level" : "Subtitle",
+    "page number" : 3,
+    "bounding box" : [ 39.696, 168.166, 413.184, 188.275 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• VITRUVIAN RULES OF AESTHETIC FORM"
+  }, {
+    "type" : "paragraph",
+    "id" : 121,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 146.566, 480.606, 166.675 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- based on Greek traditions of architecture"
+  }, {
+    "type" : "paragraph",
+    "id" : 122,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 124.966, 641.094, 145.075 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- teachings of Pythagoras = applying proportions of numbers"
+  }, {
+    "type" : "paragraph",
+    "id" : 123,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 103.366, 511.584, 123.475 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- observations of tuned strings of instruments"
+  }, {
+    "type" : "paragraph",
+    "id" : 124,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 81.764, 363.793, 101.901 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "-- proportions of human body"
+  }, {
+    "type" : "paragraph",
+    "id" : 125,
+    "level" : "4",
+    "page number" : 3,
+    "bounding box" : [ 111.72, 60.146, 534.102, 80.255 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- PLEASANTNESS = in accordance of good taste"
+  }, {
+    "type" : "paragraph",
+    "id" : 126,
+    "level" : "5",
+    "page number" : 3,
+    "bounding box" : [ 280.76, 38.546, 503.342, 58.655 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "= parts follow proportions"
+  }, {
+    "type" : "paragraph",
+    "id" : 127,
+    "level" : "5",
+    "page number" : 3,
+    "bounding box" : [ 280.76, 16.946, 492.056, 37.055 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "= symmetry of measures"
+  }, {
+    "type" : "heading",
+    "id" : 130,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 39.456, 475.015, 480.162, 508.764 ],
+    "heading level" : 1,
+    "font" : "Tahoma-Bold",
+    "font size" : 27.96,
+    "text color" : "[0.0]",
+    "content" : "THEORIES in the MIDDLE AGES"
+  }, {
+    "type" : "heading",
+    "id" : 131,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 37.704, 391.776, 286.068, 411.885 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• MONASTERY INSTITUTION"
+  }, {
+    "type" : "paragraph",
+    "id" : 132,
+    "level" : "6",
+    "page number" : 4,
+    "bounding box" : [ 109.73, 370.176, 536.426, 390.285 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "– most documents retrieved from the Middle Ages"
+  }, {
+    "type" : "paragraph",
+    "id" : 133,
+    "level" : "4",
+    "page number" : 4,
+    "bounding box" : [ 109.73, 348.576, 646.808, 368.685 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- however, archives contain only few descriptions of buildings"
+  }, {
+    "type" : "paragraph",
+    "id" : 134,
+    "level" : "4",
+    "page number" : 4,
+    "bounding box" : [ 109.73, 326.97, 591.645, 347.107 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "-- described only as “according to the traditional model”"
+  }, {
+    "type" : "paragraph",
+    "id" : 135,
+    "level" : "4",
+    "page number" : 4,
+    "bounding box" : [ 109.73, 305.356, 612.986, 325.465 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- “There’s no accounting for tastes” was the rule of thumb"
+  }, {
+    "type" : "heading",
+    "id" : 136,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 37.704, 262.156, 375.888, 282.265 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• DEVELOPMENT OF BUILDING STYLE"
+  }, {
+    "type" : "paragraph",
+    "id" : 137,
+    "level" : "5",
+    "page number" : 4,
+    "bounding box" : [ 109.73, 240.556, 484.478, 260.665 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "– with hardly or no literary research present"
+  }, {
+    "type" : "paragraph",
+    "id" : 138,
+    "level" : "4",
+    "page number" : 4,
+    "bounding box" : [ 109.73, 218.95, 516.521, 239.087 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "-- Villard de Honnecourt’s “sketchbook” in 1235"
+  }, {
+    "type" : "paragraph",
+    "id" : 139,
+    "level" : "4",
+    "page number" : 4,
+    "bounding box" : [ 109.73, 197.326, 619.592, 217.435 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- Roritzer’s “Booklet on the right way of making pinnacles”"
+  }, {
+    "type" : "paragraph",
+    "id" : 140,
+    "level" : "4",
+    "page number" : 4,
+    "bounding box" : [ 109.73, 175.726, 448.502, 195.835 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- only through guidance of old masters"
+  }, {
+    "type" : "paragraph",
+    "id" : 141,
+    "level" : "4",
+    "page number" : 4,
+    "bounding box" : [ 109.73, 154.126, 611.636, 174.235 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- tradition binding and precise in closed guilds of builders"
+  }, {
+    "type" : "header",
+    "id" : 142,
+    "page number" : 5,
+    "bounding box" : [ 39.456, 499.015, 397.624, 532.764 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 9,
+      "page number" : 5,
+      "bounding box" : [ 39.456, 499.015, 397.624, 532.764 ],
+      "heading level" : 1,
+      "font" : "Tahoma-Bold",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "RENAISSANCE THEORIES"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 145,
+    "level" : "5",
+    "page number" : 5,
+    "bounding box" : [ 31.2, 209.546, 628.88, 452.905 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 31.2, 432.796, 628.88, 452.905 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• 1418 – a copy of Vitruve manuscripts found at St. Gallen monastery",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 31.2, 401.59, 358.252, 421.727 ],
+      "font" : "ArialMT",
+      "font size" : 18.024,
+      "text color" : "[0.0]",
+      "content" : "• LEON BATTISTA ALBERTI (1404-72)",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 37,
+        "level" : "6",
+        "page number" : 5,
+        "bounding box" : [ 81.15, 379.966, 573.156, 400.075 ],
+        "font" : "Arial-BoldMT",
+        "font size" : 18.0,
+        "text color" : "[0.0]",
+        "content" : "– person in charge of constructions commanded by Pope"
+      }, {
+        "type" : "paragraph",
+        "id" : 38,
+        "level" : "7",
+        "page number" : 5,
+        "bounding box" : [ 81.15, 358.366, 394.7, 378.475 ],
+        "font" : "Arial-BoldItalicMT",
+        "font size" : 18.0,
+        "text color" : "[1.0, 0.0, 0.0]",
+        "content" : "-- “On Building” = De re aedificatoria"
+      }, {
+        "type" : "paragraph",
+        "id" : 39,
+        "level" : "8",
+        "page number" : 5,
+        "bounding box" : [ 133.22, 336.766, 612.014, 356.875 ],
+        "font" : "Arial-BoldMT",
+        "font size" : 18.0,
+        "text color" : "[0.0]",
+        "content" : "-- one of the greatest works of the theory of architecture"
+      }, {
+        "type" : "paragraph",
+        "id" : 40,
+        "level" : "8",
+        "page number" : 5,
+        "bounding box" : [ 133.19, 315.166, 467.096, 335.275 ],
+        "font" : "Arial-BoldMT",
+        "font size" : 18.0,
+        "text color" : "[0.0]",
+        "content" : "-- completed in 1452, published in 1485"
+      }, {
+        "type" : "paragraph",
+        "id" : 41,
+        "level" : "8",
+        "page number" : 5,
+        "bounding box" : [ 133.176, 293.56, 584.044, 313.697 ],
+        "font" : "Arial-BoldMT",
+        "font size" : 18.024,
+        "text color" : "[0.0]",
+        "content" : "-- more emphasis on decoration of building exteriors"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 31.2, 262.346, 237.39, 282.455 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• SEBASTIANO SERLIO",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 42,
+        "level" : "9",
+        "page number" : 5,
+        "bounding box" : [ 103.22, 240.746, 401.024, 260.855 ],
+        "font" : "Arial-BoldItalicMT",
+        "font size" : 18.0,
+        "text color" : "[1.0, 0.0, 0.0]",
+        "content" : "-- “Regole generali di architectura”"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 31.2, 209.546, 337.686, 229.655 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "• GIACOMO BAROZZI DA VIGNOLA",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 146,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 76.134, 187.94, 335.326, 208.077 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 18.024,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "-- “Regola delle cinque ordini”"
+  }, {
+    "type" : "paragraph",
+    "id" : 147,
+    "level" : "7",
+    "page number" : 5,
+    "bounding box" : [ 76.224, 166.326, 670.776, 186.435 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- concise, fast and easily applicable rules of the five column systems"
+  }, {
+    "type" : "paragraph",
+    "id" : 148,
+    "level" : "7",
+    "page number" : 5,
+    "bounding box" : [ 76.146, 144.726, 479.238, 164.835 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- based his design instructions on four things:"
+  }, {
+    "type" : "paragraph",
+    "id" : 149,
+    "level" : "8",
+    "page number" : 5,
+    "bounding box" : [ 103.22, 123.126, 686.054, 143.235 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- idea of Pythagoras (proportions of small numbers meant harmony"
+  }, {
+    "type" : "paragraph",
+    "id" : 150,
+    "level" : "8",
+    "page number" : 5,
+    "bounding box" : [ 103.22, 101.526, 604.496, 121.635 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- proportions and other instructions provided by Vitruvius"
+  }, {
+    "type" : "heading",
+    "id" : 151,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 103.22, 79.916, 393.432, 100.053 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "-- example set by earlier buildings"
+  }, {
+    "type" : "paragraph",
+    "id" : 152,
+    "level" : "8",
+    "page number" : 5,
+    "bounding box" : [ 103.22, 58.298, 298.1, 78.407 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- “general good taste”"
+  }, {
+    "type" : "header",
+    "id" : 153,
+    "page number" : 6,
+    "bounding box" : [ 39.456, 499.015, 397.624, 532.764 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 10,
+      "page number" : 6,
+      "bounding box" : [ 39.456, 499.015, 397.624, 532.764 ],
+      "heading level" : 1,
+      "font" : "Tahoma-Bold",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "RENAISSANCE THEORIES"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 156,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 25.2, 425.046, 295.61, 445.155 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• ANDREA PALLADIO (1508-80)"
+  }, {
+    "type" : "paragraph",
+    "id" : 157,
+    "level" : "9",
+    "page number" : 6,
+    "bounding box" : [ 97.224, 403.446, 389.186, 423.555 ],
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "– “I quattro libri dell’architectura”"
+  }, {
+    "type" : "paragraph",
+    "id" : 158,
+    "level" : "10",
+    "page number" : 6,
+    "bounding box" : [ 97.224, 381.84, 547.088, 401.977 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "-- the father of modern picture books of architecture"
+  }, {
+    "type" : "heading",
+    "id" : 159,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 25.2, 350.616, 240.588, 370.725 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• PHILIBERT DE L’ORME"
+  }, {
+    "type" : "paragraph",
+    "id" : 160,
+    "level" : "11",
+    "page number" : 6,
+    "bounding box" : [ 75.15, 329.016, 520.128, 349.125 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "– one of French theorists who are critical of Italians"
+  }, {
+    "type" : "paragraph",
+    "id" : 161,
+    "level" : "12",
+    "page number" : 6,
+    "bounding box" : [ 75.15, 307.416, 700.584, 327.525 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- proved that Pantheon’s Corinthian columns had 3 different proportions"
+  }, {
+    "type" : "paragraph",
+    "id" : 162,
+    "level" : "12",
+    "page number" : 6,
+    "bounding box" : [ 75.145, 285.81, 591.99, 305.947 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "-- thus, rejected the doctrine of absolute beauty of measures"
+  }, {
+    "type" : "heading",
+    "id" : 163,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 25.2, 254.596, 412.146, 274.705 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• WORKS PRINTED BY FRENCH THEORISTS"
+  }, {
+    "type" : "paragraph",
+    "id" : 164,
+    "level" : "10",
+    "page number" : 6,
+    "bounding box" : [ 75.15, 232.996, 551.11, 253.105 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- Francois Nicolas Blondel: Cours d’architecture (1675)"
+  }, {
+    "type" : "paragraph",
+    "id" : 165,
+    "level" : "12",
+    "page number" : 6,
+    "bounding box" : [ 75.15, 211.396, 663.1, 231.505 ],
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- Claude Perrault: Ordonnance des cinq especes de colonnes (1683)"
+  }, {
+    "type" : "paragraph",
+    "id" : 166,
+    "level" : "12",
+    "page number" : 6,
+    "bounding box" : [ 75.15, 189.796, 692.14, 209.905 ],
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- Jean Louis de Cordemoy: Nouveau traite de toute l’architecture (1706)"
+  }, {
+    "type" : "paragraph",
+    "id" : 167,
+    "level" : "10",
+    "page number" : 6,
+    "bounding box" : [ 75.15, 168.166, 543.07, 188.275 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- Marc-Antoine Laugier: Essai sur l’architecture (1753)"
+  }, {
+    "type" : "paragraph",
+    "id" : 168,
+    "level" : "12",
+    "page number" : 6,
+    "bounding box" : [ 75.15, 146.566, 560.218, 166.675 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- Jacques-Francois Blondel: Cours d’architecture (1770)"
+  }, {
+    "type" : "paragraph",
+    "id" : 169,
+    "level" : "12",
+    "page number" : 6,
+    "bounding box" : [ 75.15, 124.966, 441.832, 145.075 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- J-N-L Durand: Precis des lecons (1802-5)"
+  }, {
+    "type" : "paragraph",
+    "id" : 170,
+    "level" : "12",
+    "page number" : 6,
+    "bounding box" : [ 75.15, 103.366, 599.14, 123.475 ],
+    "font" : "Arial-BoldItalicMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-- Julien Guadet: Elements et theories de l’architecture (1902)"
+  }, {
+    "type" : "heading",
+    "id" : 171,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 25.2, 72.164, 483.348, 92.301 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "• No method for systematically inspecting the results"
+  }, {
+    "type" : "header",
+    "id" : 172,
+    "page number" : 7,
+    "bounding box" : [ 39.456, 499.015, 394.157, 532.764 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 11,
+      "page number" : 7,
+      "bounding box" : [ 39.456, 499.015, 394.157, 532.764 ],
+      "heading level" : 1,
+      "font" : "Tahoma-Bold",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "CONSTRUCTION THEORY"
+    } ]
+  }, {
+    "type" : "table",
+    "id" : 175,
+    "level" : "13",
+    "page number" : 7,
+    "bounding box" : [ 100.875, 292.935, 583.125, 469.125 ],
+    "number of rows" : 4,
+    "number of columns" : 2,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 7,
+        "bounding box" : [ 102.003, 438.0, 342.0, 467.998 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 7,
+          "bounding box" : [ 163.03, 443.598, 280.863, 461.428 ],
+          "font" : "ArialMT",
+          "font size" : 15.96,
+          "text color" : "[1.0, 0.0, 0.0]",
+          "content" : "Building Material"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 7,
+        "bounding box" : [ 342.0, 438.0, 581.998, 467.998 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 2,
+          "page number" : 7,
+          "bounding box" : [ 396.72, 443.598, 527.225, 461.428 ],
+          "font" : "ArialMT",
+          "font size" : 15.96,
+          "text color" : "[1.0, 0.0, 0.0]",
+          "content" : "Architectural Form"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 7,
+        "bounding box" : [ 102.003, 388.56, 342.0, 438.0 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "page number" : 7,
+          "bounding box" : [ 155.35, 415.398, 288.6, 433.228 ],
+          "font" : "ArialMT",
+          "font size" : 15.96,
+          "text color" : "[0.0]",
+          "content" : "Amorphic material:"
+        }, {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 7,
+          "bounding box" : [ 164.11, 392.353, 279.866, 410.21 ],
+          "font" : "ArialMT",
+          "font size" : 15.984,
+          "text color" : "[0.0]",
+          "content" : "soft stone; snow"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 7,
+        "bounding box" : [ 342.0, 388.56, 581.998, 438.0 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 5,
+          "page number" : 7,
+          "bounding box" : [ 355.44, 403.878, 568.554, 421.708 ],
+          "font" : "ArialMT",
+          "font size" : 15.96,
+          "text color" : "[0.0]",
+          "content" : "Spherical vaulted construction"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 7,
+        "bounding box" : [ 102.003, 342.06, 342.0, 388.56 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 7,
+          "bounding box" : [ 139.27, 355.893, 304.64, 373.75 ],
+          "font" : "ArialMT",
+          "font size" : 15.984,
+          "text color" : "[0.0]",
+          "content" : "Sheets of skin or textile"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 7,
+        "bounding box" : [ 342.0, 342.06, 581.998, 388.56 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 7,
+          "bounding box" : [ 353.04, 355.893, 570.913, 373.75 ],
+          "font" : "ArialMT",
+          "font size" : 15.984,
+          "text color" : "[0.0]",
+          "content" : "Cone-shaped tent construction"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 7,
+        "bounding box" : [ 102.003, 294.063, 342.0, 342.06 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 8,
+          "page number" : 7,
+          "bounding box" : [ 174.43, 308.618, 269.408, 326.448 ],
+          "font" : "ArialMT",
+          "font size" : 15.96,
+          "text color" : "[0.0]",
+          "content" : "Logs of wood"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 7,
+        "bounding box" : [ 342.0, 294.063, 581.998, 342.06 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 9,
+          "page number" : 7,
+          "bounding box" : [ 374.04, 308.618, 550.009, 326.448 ],
+          "font" : "ArialMT",
+          "font size" : 15.96,
+          "text color" : "[0.0]",
+          "content" : "Box-shaped construction"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 176,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 43.2, 250.996, 450.72, 271.105 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• BEFORE WRITTEN CONSTRUCTION THEORY"
+  }, {
+    "type" : "list",
+    "id" : 177,
+    "level" : "14",
+    "page number" : 7,
+    "bounding box" : [ 115.22, 164.566, 595.07, 249.505 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 115.22, 229.396, 595.07, 249.505 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Architecture created without the help of architects or theory",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 115.22, 186.19, 587.024, 227.905 ],
+      "font" : "ArialMT",
+      "font size" : 18.024,
+      "text color" : "[0.0]",
+      "content" : "- Builders used a model instead of mathematical algorithms now used in modern construction.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 115.22, 164.566, 331.154, 184.675 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Inverted “catenary” model",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 178,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 43.2, 133.366, 461.414, 153.475 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• SEMI-CIRCULAR VAULT: THEORY BY VITRUVE"
+  }, {
+    "type" : "paragraph",
+    "id" : 179,
+    "page number" : 7,
+    "bounding box" : [ 135.236, 102.166, 620.054, 122.275 ],
+    "font" : "ArialMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "“When there are arches… the outermost piers must be made"
+  }, {
+    "type" : "paragraph",
+    "id" : 180,
+    "page number" : 7,
+    "bounding box" : [ 115.22, 80.564, 661.143, 100.701 ],
+    "font" : "ArialMT",
+    "font size" : 18.024,
+    "text color" : "[0.0]",
+    "content" : "broader than the others, so that they may have the strength to resist"
+  }, {
+    "type" : "paragraph",
+    "id" : 181,
+    "page number" : 7,
+    "bounding box" : [ 115.22, 37.346, 654.014, 79.055 ],
+    "font" : "ArialMT",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "when the wedges, under the pressure of the load of the walls, begin to thrust out the abutments.”"
+  }, {
+    "type" : "header",
+    "id" : 182,
+    "page number" : 8,
+    "bounding box" : [ 39.456, 499.015, 394.157, 532.764 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 12,
+      "page number" : 8,
+      "bounding box" : [ 39.456, 499.015, 394.157, 532.764 ],
+      "heading level" : 1,
+      "font" : "Tahoma-Bold",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "CONSTRUCTION THEORY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 185,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 43.2, 434.42, 259.376, 454.557 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• DURING MIDDLE AGES"
+  }, {
+    "type" : "list",
+    "id" : 186,
+    "level" : "14",
+    "page number" : 8,
+    "bounding box" : [ 115.22, 328.758, 599.04, 423.388 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 115.22, 386.358, 599.04, 423.388 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- No written document survived about theories or models to describe the magnificent vaults of medieval cathedrals",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 115.22, 367.158, 500.104, 384.988 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- Shapes of gothic vaults resemble inverted catenaries",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 115.22, 328.758, 577.548, 365.788 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- Architects design not only the layout and decoration but also the construction and stability of buildings",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 187,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 43.2, 287.976, 265.788, 308.085 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• DURING RENAISSANCE"
+  }, {
+    "type" : "paragraph",
+    "id" : 188,
+    "level" : "4",
+    "page number" : 8,
+    "bounding box" : [ 115.22, 239.928, 688.127, 276.958 ],
+    "font" : "ArialMT",
+    "font size" : 15.96,
+    "text color" : "[0.0]",
+    "content" : "- From Alberti onwards, architects began specializing. Thus, the mechanics of materials & construction started to become a field of study of"
+  }, {
+    "type" : "paragraph",
+    "id" : 189,
+    "page number" : 8,
+    "bounding box" : [ 43.2, 220.723, 97.306, 238.58 ],
+    "font" : "ArialMT",
+    "font size" : 15.984,
+    "text color" : "[0.0]",
+    "content" : "its own."
+  }, {
+    "type" : "list",
+    "id" : 190,
+    "level" : "10",
+    "page number" : 8,
+    "bounding box" : [ 115.22, 67.082, 668.592, 219.338 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 115.22, 201.508, 542.977, 219.338 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- Mathematical models by Francis Bacon and Galileo Galilei.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 115.22, 163.108, 665.155, 200.138 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- 1675: Marquis de Vauban founded a building department in the French army called “Corps des ingenieurs”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 115.22, 124.708, 668.592, 161.738 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- 1747: Ecole des Ponts et Chaussees, special school founded in Paris where new profession specializing in construction was organized",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 115.22, 86.282, 568.632, 123.36 ],
+      "font" : "ArialMT",
+      "font size" : 15.984,
+      "text color" : "[0.0]",
+      "content" : "- Other figures who developed mathematical construction theory Robert Hooke; Jakob Bernoulli; Leonard Euler",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 115.22, 67.082, 576.967, 84.912 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- From Euler onwards, theory of elasticity of structures developed",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 191,
+    "page number" : 9,
+    "bounding box" : [ 39.456, 499.015, 304.153, 532.764 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 13,
+      "page number" : 9,
+      "bounding box" : [ 39.456, 499.015, 304.153, 532.764 ],
+      "heading level" : 1,
+      "font" : "Tahoma-Bold",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "PERSONAL STYLES"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 194,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 43.2, 440.286, 301.32, 460.395 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• COPYING FROM ANTIQUITY"
+  }, {
+    "type" : "list",
+    "id" : 195,
+    "level" : "10",
+    "page number" : 9,
+    "bounding box" : [ 115.22, 370.638, 686.409, 429.195 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 115.22, 409.086, 518.541, 429.195 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Architecture from antiquity came to a point of perfection",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 115.22, 370.638, 686.409, 407.688 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- Eugene Viollet-le-Duc (1863): the 1st theorist who set out to create a totally new system of architectural forms independent of antiquity",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 196,
+    "page number" : 9,
+    "bounding box" : [ 130.761, 344.28, 630.542, 359.992 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 14.064,
+    "text color" : "[0.0]",
+    "content" : "“What we call taste is but an involuntary process of reasoning whose steps"
+  }, {
+    "type" : "paragraph",
+    "id" : 197,
+    "page number" : 9,
+    "bounding box" : [ 43.2, 308.615, 636.64, 343.14 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 14.04,
+    "text color" : "[0.0]",
+    "content" : "elude our observation. Authority has no value if its grounds are not explained.”"
+  }, {
+    "type" : "list",
+    "id" : 198,
+    "level" : "10",
+    "page number" : 9,
+    "bounding box" : [ 115.22, 241.003, 685.687, 297.238 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 115.22, 279.408, 400.385, 297.238 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- The foundation of modern architecture.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 115.22, 241.003, 685.687, 278.038 ],
+      "font" : "ArialMT",
+      "font size" : 15.984,
+      "text color" : "[0.0]",
+      "content" : "- Although Viollet-le-Duc did not create a timeless architectural style himself, he showed others the philosophical foundation and method that",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 199,
+    "page number" : 9,
+    "bounding box" : [ 43.2, 221.788, 660.883, 239.618 ],
+    "font" : "ArialMT",
+    "font size" : 15.96,
+    "text color" : "[0.0]",
+    "content" : "they could use to develop even radically new form languages."
+  }, {
+    "type" : "paragraph",
+    "id" : 200,
+    "level" : "4",
+    "page number" : 9,
+    "bounding box" : [ 115.22, 202.588, 580.254, 220.418 ],
+    "font" : "ArialMT",
+    "font size" : 15.96,
+    "text color" : "[0.0]",
+    "content" : "- Owen Jones: used forms inspired from nature, especially plants."
+  }, {
+    "type" : "heading",
+    "id" : 201,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 43.2, 164.236, 190.836, 184.345 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• ART NOUVEAU"
+  }, {
+    "type" : "list",
+    "id" : 202,
+    "level" : "8",
+    "page number" : 9,
+    "bounding box" : [ 115.22, 77.762, 651.795, 153.24 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 115.22, 116.158, 646.384, 153.24 ],
+      "font" : "ArialMT",
+      "font size" : 15.984,
+      "text color" : "[0.0]",
+      "content" : "- The 1st architectural style independent of the tradition of antiquity after the Gothic style",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 115.22, 77.762, 651.795, 114.788 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- The example set by Art Nouveau encouraged some of the most skillful architects of the 20th century to create their private form",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 203,
+    "page number" : 9,
+    "bounding box" : [ 43.2, 58.562, 121.404, 76.392 ],
+    "font" : "ArialMT",
+    "font size" : 15.96,
+    "text color" : "[0.0]",
+    "content" : "languages."
+  }, {
+    "type" : "paragraph",
+    "id" : 204,
+    "level" : "4",
+    "page number" : 9,
+    "bounding box" : [ 115.22, 39.362, 586.317, 57.192 ],
+    "font" : "ArialMT",
+    "font size" : 15.96,
+    "text color" : "[0.0]",
+    "content" : "- Le Corbusier: architecture psychology, as natural forms of plants,"
+  }, {
+    "type" : "paragraph",
+    "id" : 205,
+    "page number" : 9,
+    "bounding box" : [ 187.22, 20.157, 387.995, 38.014 ],
+    "font" : "ArialMT",
+    "font size" : 15.984,
+    "text color" : "[0.0]",
+    "content" : "buildings as giant sculptures"
+  }, {
+    "type" : "header",
+    "id" : 206,
+    "page number" : 10,
+    "bounding box" : [ 39.456, 499.015, 304.153, 532.764 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 14,
+      "page number" : 10,
+      "bounding box" : [ 39.456, 499.015, 304.153, 532.764 ],
+      "heading level" : 1,
+      "font" : "Tahoma-Bold",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "PERSONAL STYLES"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 209,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 43.2, 434.42, 291.423, 454.557 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• THEORETICAL TREATISES"
+  }, {
+    "type" : "list",
+    "id" : 210,
+    "level" : "7",
+    "page number" : 10,
+    "bounding box" : [ 115.22, 259.128, 462.17, 411.388 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 115.22, 393.558, 462.17, 411.388 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- Five Points of Architecture (1926, Le Corbusier)",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 18,
+        "level" : "8",
+        "page number" : 10,
+        "bounding box" : [ 187.22, 287.928, 442.915, 382.588 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 5,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 10,
+          "bounding box" : [ 187.22, 364.758, 246.017, 382.588 ],
+          "font" : "ArialMT",
+          "font size" : 15.96,
+          "text color" : "[0.0]",
+          "content" : "1. pilotis",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 10,
+          "bounding box" : [ 187.22, 345.558, 267.435, 363.388 ],
+          "font" : "ArialMT",
+          "font size" : 15.96,
+          "text color" : "[0.0]",
+          "content" : "2. free plan",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 10,
+          "bounding box" : [ 187.22, 326.353, 285.218, 344.21 ],
+          "font" : "ArialMT",
+          "font size" : 15.984,
+          "text color" : "[0.0]",
+          "content" : "3. free façade",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 10,
+          "bounding box" : [ 187.22, 307.128, 442.915, 324.958 ],
+          "font" : "ArialMT",
+          "font size" : 15.96,
+          "text color" : "[0.0]",
+          "content" : "4. the long horizontal sliding window",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 10,
+          "bounding box" : [ 187.22, 287.928, 313.655, 305.758 ],
+          "font" : "ArialMT",
+          "font size" : 15.96,
+          "text color" : "[0.0]",
+          "content" : "5. the roof garden",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 115.22, 259.128, 373.262, 276.958 ],
+      "font" : "ArialMT",
+      "font size" : 15.96,
+      "text color" : "[0.0]",
+      "content" : "- Architecture as Space (Bruno Zevi)",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 211,
+    "page number" : 10,
+    "bounding box" : [ 151.05, 230.328, 629.988, 248.158 ],
+    "font" : "ArialMT",
+    "font size" : 15.96,
+    "text color" : "[0.0]",
+    "content" : "“the crux of architecture is not the sculptural pattern, but instead the"
+  }, {
+    "type" : "paragraph",
+    "id" : 212,
+    "page number" : 10,
+    "bounding box" : [ 187.22, 211.123, 662.52, 228.98 ],
+    "font" : "ArialMT",
+    "font size" : 15.984,
+    "text color" : "[0.0]",
+    "content" : "building interiors. These can be seen as “negative solids,” as voids"
+  }, {
+    "type" : "paragraph",
+    "id" : 213,
+    "page number" : 10,
+    "bounding box" : [ 43.2, 172.708, 677.926, 209.738 ],
+    "font" : "ArialMT",
+    "font size" : 15.96,
+    "text color" : "[0.0]",
+    "content" : "which the artist divides, combines, repeats and emphasizes in the same way as the sculptor treats his “positive” lumps of substance.”"
+  }, {
+    "type" : "paragraph",
+    "id" : 214,
+    "level" : "4",
+    "page number" : 10,
+    "bounding box" : [ 115.22, 134.308, 677.85, 152.138 ],
+    "font" : "ArialMT",
+    "font size" : 15.96,
+    "text color" : "[0.0]",
+    "content" : "- The “personal styles” of architects are not necessarily based on laws of nature"
+  }, {
+    "type" : "paragraph",
+    "id" : 215,
+    "page number" : 10,
+    "bounding box" : [ 259.25, 115.103, 687.046, 132.96 ],
+    "font" : "ArialMT",
+    "font size" : 15.984,
+    "text color" : "[0.0]",
+    "content" : "or on logical reasoning. More important is that they exhibit a"
+  }, {
+    "type" : "paragraph",
+    "id" : 216,
+    "page number" : 10,
+    "bounding box" : [ 43.2, 57.482, 667.111, 113.712 ],
+    "font" : "ArialMT",
+    "font size" : 15.96,
+    "text color" : "[0.0]",
+    "content" : "coherent application of an idea which also must be clear that the public can find it out. An advantage is also if the style includes symbolical undertones."
+  }, {
+    "type" : "heading",
+    "id" : 219,
+    "level" : "Doctitle",
+    "page number" : 11,
+    "bounding box" : [ 39.456, 499.015, 281.701, 532.764 ],
+    "heading level" : 1,
+    "font" : "Tahoma-Bold",
+    "font size" : 27.96,
+    "text color" : "[0.0]",
+    "content" : "FUNCTIONALISM"
+  }, {
+    "type" : "heading",
+    "id" : 220,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 85.224, 409.92, 541.836, 430.057 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• PRECONDITIONS IN FUNCTIONAL ARCHITECTURE"
+  }, {
+    "type" : "list",
+    "id" : 221,
+    "level" : "7",
+    "page number" : 11,
+    "bounding box" : [ 157.22, 313.89, 598.838, 398.805 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 378.696, 598.838, 398.805 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Function is one of the cornerstones of Vitruvian theory",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 357.096, 594.158, 377.205 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Did not receive as much attention in Renaissance era",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 335.496, 331.016, 355.605 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Industrial Revolution",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 313.89, 341.589, 334.027 ],
+      "font" : "ArialMT",
+      "font size" : 18.024,
+      "text color" : "[0.0]",
+      "content" : "- Eugene Viollet-le-Duc",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 222,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 85.224, 270.676, 369.602, 290.785 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• 20th CENTURY ARCHITECTURE"
+  }, {
+    "type" : "list",
+    "id" : 223,
+    "level" : "7",
+    "page number" : 11,
+    "bounding box" : [ 157.22, 66.626, 562.346, 259.585 ],
+    "numbering style" : "unordered",
+    "number of list items" : 9,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 239.476, 329.774, 259.585 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- The Chicago School",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 217.876, 562.346, 237.985 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Louis Sullivan: Ornament in Architecture (1892)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 196.27, 350.048, 216.407 ],
+      "font" : "ArialMT",
+      "font size" : 18.024,
+      "text color" : "[0.0]",
+      "content" : "- “Form follows function”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 174.646, 539.804, 194.755 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Frank Lloyd Wright “Form and function as one”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 153.046, 510.74, 173.155 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Otto Wagner: Moderne Arckitektur (1895)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 131.446, 408.344, 151.555 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Bauhaus and Walther Gropius",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 109.846, 520.034, 129.955 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Architecture supported by “mother sciences”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 88.244, 548.588, 108.381 ],
+      "font" : "ArialMT",
+      "font size" : 18.024,
+      "text color" : "[0.0]",
+      "content" : "- Construction Economy “matchbox architecture”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 157.22, 66.626, 500.206, 86.735 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Ludwig Mies van der Rohe “Less is more”",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 226,
+    "level" : "Doctitle",
+    "page number" : 12,
+    "bounding box" : [ 39.456, 499.015, 297.079, 532.764 ],
+    "heading level" : 1,
+    "font" : "Tahoma-Bold",
+    "font size" : 27.96,
+    "text color" : "[0.0]",
+    "content" : "POSTMODERNISM"
+  }, {
+    "type" : "heading",
+    "id" : 227,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 85.224, 409.92, 541.836, 430.057 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.024,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• PRECONDITIONS IN FUNCTIONAL ARCHITECTURE"
+  }, {
+    "type" : "list",
+    "id" : 228,
+    "level" : "8",
+    "page number" : 12,
+    "bounding box" : [ 157.22, 313.89, 598.838, 398.805 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 378.696, 598.838, 398.805 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Function is one of the cornerstones of Vitruvian theory",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 357.096, 594.158, 377.205 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Did not receive as much attention in Renaissance era",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 335.496, 331.016, 355.605 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Industrial Revolution",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 313.89, 341.589, 334.027 ],
+      "font" : "ArialMT",
+      "font size" : 18.024,
+      "text color" : "[0.0]",
+      "content" : "- Eugene Viollet-le-Duc",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 229,
+    "level" : "Subtitle",
+    "page number" : 12,
+    "bounding box" : [ 85.224, 270.676, 369.602, 290.785 ],
+    "heading level" : 5,
+    "font" : "Arial-BoldMT",
+    "font size" : 18.0,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• 20th CENTURY ARCHITECTURE"
+  }, {
+    "type" : "list",
+    "id" : 230,
+    "level" : "7",
+    "page number" : 12,
+    "bounding box" : [ 157.22, 88.244, 562.346, 259.585 ],
+    "numbering style" : "unordered",
+    "number of list items" : 8,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 239.476, 562.346, 259.585 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Louis Sullivan: Ornament in Architecture (1892)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 217.876, 350.048, 237.985 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- “Form follows function”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 196.27, 539.803, 216.407 ],
+      "font" : "ArialMT",
+      "font size" : 18.024,
+      "text color" : "[0.0]",
+      "content" : "- Frank Lloyd Wright “Form and function as one”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 174.646, 510.74, 194.755 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Otto Wagner: Moderne Arckitektur (1895)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 153.046, 408.344, 173.155 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Bauhaus and Walther Gropius",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 131.446, 520.034, 151.555 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Architecture supported by “mother sciences”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 109.846, 548.534, 129.955 ],
+      "font" : "ArialMT",
+      "font size" : 18.0,
+      "text color" : "[0.0]",
+      "content" : "- Construction Economy “matchbox architecture”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 157.22, 88.244, 500.196, 108.381 ],
+      "font" : "ArialMT",
+      "font size" : 18.024,
+      "text color" : "[0.0]",
+      "content" : "- Ludwig Mies van der Rohe “Less is more”",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 231,
+    "page number" : 13,
+    "bounding box" : [ 39.456, 499.015, 419.516, 532.764 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 15,
+      "page number" : 13,
+      "bounding box" : [ 39.456, 499.015, 419.516, 532.764 ],
+      "heading level" : 1,
+      "font" : "Tahoma-Bold",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "SYMBOLIC ARCHITECTURE"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 234,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 25.2, 446.813, 306.245, 469.202 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• MATHEMATICAL ANALOGY"
+  }, {
+    "type" : "paragraph",
+    "id" : 235,
+    "level" : "8",
+    "page number" : 13,
+    "bounding box" : [ 97.224, 422.813, 219.491, 445.202 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "– Pure forms"
+  }, {
+    "type" : "paragraph",
+    "id" : 236,
+    "level" : "2",
+    "page number" : 13,
+    "bounding box" : [ 97.224, 398.813, 262.733, 421.202 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "-- Golden Section"
+  }, {
+    "type" : "heading",
+    "id" : 237,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 25.2, 365.208, 273.394, 387.623 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• BIOLOGICAL ANALOGY"
+  }, {
+    "type" : "paragraph",
+    "id" : 238,
+    "level" : "6",
+    "page number" : 13,
+    "bounding box" : [ 97.224, 317.183, 606.664, 363.572 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "– ORGANIC: relationship between parts of building or between the building and its settings"
+  }, {
+    "type" : "paragraph",
+    "id" : 239,
+    "level" : "2",
+    "page number" : 13,
+    "bounding box" : [ 97.224, 293.183, 686.759, 315.572 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "-- BIOMORPHIC: focuses on growth processes and movement"
+  }, {
+    "type" : "paragraph",
+    "id" : 240,
+    "page number" : 13,
+    "bounding box" : [ 169.22, 269.178, 539.02, 291.593 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[0.0]",
+    "content" : "capabilities associated with organisms"
+  }, {
+    "type" : "heading",
+    "id" : 241,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 25.2, 235.563, 256.065, 257.952 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• ROMANTIC ANALOGY"
+  }, {
+    "type" : "paragraph",
+    "id" : 242,
+    "level" : "2",
+    "page number" : 13,
+    "bounding box" : [ 97.224, 211.563, 474.796, 233.952 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "-- BY ASSOCIATION: making references"
+  }, {
+    "type" : "paragraph",
+    "id" : 243,
+    "level" : "2",
+    "page number" : 13,
+    "bounding box" : [ 97.224, 187.563, 688.603, 209.952 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "-- BY EXAGGERATION: use of contrast, excessive stimulation,"
+  }, {
+    "type" : "paragraph",
+    "id" : 244,
+    "page number" : 13,
+    "bounding box" : [ 169.22, 163.558, 528.687, 185.973 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[0.0]",
+    "content" : "unfamiliar scale, and unfamiliar forms"
+  }, {
+    "type" : "heading",
+    "id" : 245,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 25.2, 129.933, 261.596, 152.322 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• LINGUISTIC ANALOGY"
+  }, {
+    "type" : "paragraph",
+    "id" : 246,
+    "level" : "3",
+    "page number" : 13,
+    "bounding box" : [ 97.224, 105.933, 695.1, 128.322 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "– GRAMMATICAL MODEL: elements (words) & rules (grammar)"
+  }, {
+    "type" : "paragraph",
+    "id" : 247,
+    "level" : "2",
+    "page number" : 13,
+    "bounding box" : [ 97.224, 81.937, 600.427, 104.326 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "-- EXPRESSIONIST MODEL: buildings as vehicles for"
+  }, {
+    "type" : "heading",
+    "id" : 248,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 169.22, 57.932, 556.386, 80.347 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[0.0]",
+    "content" : "expressing an attitude towards a project"
+  }, {
+    "type" : "paragraph",
+    "id" : 249,
+    "level" : "2",
+    "page number" : 13,
+    "bounding box" : [ 97.224, 33.913, 518.023, 56.302 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "-- SEMIOTIC MODEL: using symbols literally"
+  }, {
+    "type" : "header",
+    "id" : 250,
+    "page number" : 14,
+    "bounding box" : [ 39.456, 499.015, 419.516, 532.764 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 16,
+      "page number" : 14,
+      "bounding box" : [ 39.456, 499.015, 419.516, 532.764 ],
+      "heading level" : 1,
+      "font" : "Tahoma-Bold",
+      "font size" : 27.96,
+      "text color" : "[0.0]",
+      "content" : "SYMBOLIC ARCHITECTURE"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 253,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 31.2, 426.433, 288.578, 448.822 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• MECHANICAL ANALOGY"
+  }, {
+    "type" : "paragraph",
+    "id" : 254,
+    "level" : "3",
+    "page number" : 14,
+    "bounding box" : [ 103.22, 402.433, 412.426, 424.822 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "– A machine is a house for living"
+  }, {
+    "type" : "paragraph",
+    "id" : 255,
+    "level" : "4",
+    "page number" : 14,
+    "bounding box" : [ 103.22, 378.433, 507.47, 400.822 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "-- Beauty assumes the promise of function"
+  }, {
+    "type" : "heading",
+    "id" : 256,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 31.2, 344.813, 347.786, 367.202 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• PROBLEM-SOLVING ANALOGY"
+  }, {
+    "type" : "paragraph",
+    "id" : 257,
+    "level" : "3",
+    "page number" : 14,
+    "bounding box" : [ 103.22, 320.813, 554.908, 343.202 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "– RATIONALIST: analysis, synthesis, evaluation"
+  }, {
+    "type" : "paragraph",
+    "id" : 258,
+    "level" : "2",
+    "page number" : 14,
+    "bounding box" : [ 103.22, 296.813, 569.754, 319.202 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "-- Logical, Systematic, or Parametric in Approach"
+  }, {
+    "type" : "heading",
+    "id" : 259,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 31.2, 263.208, 258.129, 285.623 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• ADHOCIST ANALOGY"
+  }, {
+    "type" : "paragraph",
+    "id" : 260,
+    "level" : "3",
+    "page number" : 14,
+    "bounding box" : [ 103.22, 215.183, 606.347, 261.572 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "-- Responding to the immediate need using materials immediately available"
+  }, {
+    "type" : "heading",
+    "id" : 261,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 31.2, 181.583, 366.113, 203.972 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0, 0.2, 0.0]",
+    "content" : "• PATTERN LANGUAGE ANALOGY"
+  }, {
+    "type" : "paragraph",
+    "id" : 262,
+    "level" : "4",
+    "page number" : 14,
+    "bounding box" : [ 103.22, 157.578, 673.151, 179.993 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 20.064,
+    "text color" : "[0.0]",
+    "content" : "– Observing patterns of environment-behavior relationships"
+  }, {
+    "type" : "heading",
+    "id" : 263,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 31.2, 123.963, 330.461, 146.352 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[1.0, 0.0, 0.0]",
+    "content" : "• DRAMATURGICAL ANALOGY"
+  }, {
+    "type" : "heading",
+    "id" : 264,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 103.22, 99.963, 335.452, 122.352 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "– All the world is a stage"
+  }, {
+    "type" : "heading",
+    "id" : 265,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 103.22, 75.961, 354.204, 98.35 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "-- The architect as director"
+  }, {
+    "type" : "heading",
+    "id" : 268,
+    "level" : "Doctitle",
+    "page number" : 15,
+    "bounding box" : [ 39.456, 499.015, 452.257, 532.764 ],
+    "heading level" : 1,
+    "font" : "Tahoma-Bold",
+    "font size" : 27.96,
+    "text color" : "[0.0]",
+    "content" : "ECOLOGICAL ARCHITECTURE"
+  } ]
+}

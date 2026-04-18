@@ -1,0 +1,1247 @@
+{
+  "file name" : "Hindu Architecture.pdf",
+  "number of pages" : 12,
+  "author" : "Shining Star",
+  "title" : "Hindu Architecture",
+  "creation date" : "D:20260413091520+08'00'",
+  "modification date" : "D:20260413091522+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 28,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 190.73, 288.605, 529.116, 332.645 ],
+    "heading level" : 1,
+    "font" : "Calibri",
+    "font size" : 44.04,
+    "text color" : "[0.0]",
+    "content" : "Hindu Architecture"
+  }, {
+    "type" : "paragraph",
+    "id" : 29,
+    "page number" : 1,
+    "bounding box" : [ 200.93, 192.39, 519.062, 224.43 ],
+    "font" : "Calibri",
+    "font size" : 32.04,
+    "text color" : "[0.537]",
+    "content" : "History of Architecture 3"
+  }, {
+    "type" : "heading",
+    "id" : 31,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 196.61, 447.605, 523.321, 491.645 ],
+    "heading level" : 1,
+    "font" : "Calibri",
+    "font size" : 44.04,
+    "text color" : "[0.0]",
+    "content" : "Religion as Drivers"
+  }, {
+    "type" : "heading",
+    "id" : 32,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 43.2, 384.21, 174.05, 415.402 ],
+    "heading level" : 3,
+    "font" : "Calibri",
+    "font size" : 27.0,
+    "text color" : "[0.0]",
+    "content" : "• Hinduism"
+  }, {
+    "type" : "image",
+    "id" : 34,
+    "page number" : 2,
+    "bounding box" : [ 360.0, 168.0, 701.122, 412.764 ],
+    "source" : "Hindu Architecture_images/imageFile1.png"
+  }, {
+    "type" : "list",
+    "id" : 33,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 79.2, 69.84, 336.79, 383.167 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 79.2, 355.44, 248.038, 383.167 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[0.0]",
+      "content" : "– Oldest Religion",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 79.2, 326.64, 313.992, 354.367 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[0.0]",
+      "content" : "– Perceived Polytheistic",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 79.2, 297.84, 336.79, 325.567 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[0.0]",
+      "content" : "– Acclaimed Monotheistic",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 79.2, 269.04, 258.672, 296.767 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[0.0]",
+      "content" : "– One Great Deity",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 25,
+        "level" : "2",
+        "page number" : 2,
+        "bounding box" : [ 115.2, 159.87, 304.031, 268.222 ],
+        "numbering style" : "unordered",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 115.2, 245.07, 290.945, 268.222 ],
+          "font" : "ArialMT",
+          "font size" : 20.04,
+          "text color" : "[0.0]",
+          "content" : "• Three Devas (Male)",
+          "kids" : [ {
+            "type" : "list",
+            "id" : 24,
+            "level" : "3",
+            "page number" : 2,
+            "bounding box" : [ 151.2, 183.9, 288.966, 244.386 ],
+            "numbering style" : "unordered",
+            "number of list items" : 3,
+            "list items" : [ {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 151.2, 224.7, 288.966, 244.386 ],
+              "font" : "ArialMT",
+              "font size" : 17.04,
+              "text color" : "[0.0]",
+              "content" : "– Brahma (Creator)",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 151.2, 204.3, 288.954, 223.986 ],
+              "font" : "ArialMT",
+              "font size" : 17.04,
+              "text color" : "[0.0]",
+              "content" : "– Vishnu (Restorer)",
+              "kids" : [ ]
+            }, {
+              "type" : "list item",
+              "page number" : 2,
+              "bounding box" : [ 151.2, 183.9, 287.144, 203.586 ],
+              "font" : "ArialMT",
+              "font size" : 17.04,
+              "text color" : "[0.0]",
+              "content" : "– Shiva (Destroyer)",
+              "kids" : [ ]
+            } ]
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 115.2, 159.87, 304.031, 183.022 ],
+          "font" : "ArialMT",
+          "font size" : 20.04,
+          "text color" : "[0.0]",
+          "content" : "• Three Devis (Female)",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "list",
+        "id" : 26,
+        "level" : "1",
+        "page number" : 2,
+        "bounding box" : [ 151.2, 98.7, 343.449, 159.186 ],
+        "numbering style" : "unordered",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 151.2, 139.5, 343.449, 159.186 ],
+          "font" : "ArialMT",
+          "font size" : 17.04,
+          "text color" : "[0.0]",
+          "content" : "– Saraswhathi (Knowledge)",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 151.2, 119.1, 289.174, 138.786 ],
+          "font" : "ArialMT",
+          "font size" : 17.04,
+          "text color" : "[0.0]",
+          "content" : "– Lakshmi (Wealth)",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 151.2, 98.7, 269.387, 118.386 ],
+          "font" : "ArialMT",
+          "font size" : 17.04,
+          "text color" : "[0.0]",
+          "content" : "– Shakti (Power)",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 79.2, 69.84, 330.43, 97.567 ],
+      "font" : "ArialMT",
+      "font size" : 24.0,
+      "text color" : "[0.0]",
+      "content" : "– Vedas: Sacred Scripture",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 35,
+    "page number" : 2,
+    "bounding box" : [ 360.0, 18.0, 701.122, 163.859 ],
+    "source" : "Hindu Architecture_images/imageFile2.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 37,
+    "page number" : 3,
+    "bounding box" : [ 187.97, 447.605, 531.936, 491.645 ],
+    "font" : "Calibri",
+    "font size" : 44.04,
+    "text color" : "[0.0]",
+    "content" : "Religions as Drivers"
+  }, {
+    "type" : "image",
+    "id" : 40,
+    "page number" : 3,
+    "bounding box" : [ 34.705, 284.254, 340.705, 414.0 ],
+    "source" : "Hindu Architecture_images/imageFile3.png"
+  }, {
+    "type" : "list",
+    "id" : 38,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 367.2, 137.22, 646.617, 413.078 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "next list id" : 44,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 367.2, 313.62, 634.893, 413.078 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Architecture concentrated on Religious Structures",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 367.2, 241.62, 646.617, 308.678 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Styles vary of Geography and Time",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 367.2, 137.22, 643.143, 236.678 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Considerations were taken in designing Hindu Temples:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 41,
+    "page number" : 3,
+    "bounding box" : [ 53.08, 11.454, 322.33, 280.704 ],
+    "source" : "Hindu Architecture_images/imageFile4.png"
+  }, {
+    "type" : "list",
+    "id" : 39,
+    "level" : "1",
+    "page number" : 3,
+    "bounding box" : [ 403.2, 68.49, 496.17, 132.893 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 403.2, 102.81, 465.237, 132.893 ],
+      "font" : "ArialMT",
+      "font size" : 26.04,
+      "text color" : "[0.0]",
+      "content" : "– Site",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 403.2, 68.49, 496.17, 98.573 ],
+      "font" : "ArialMT",
+      "font size" : 26.04,
+      "text color" : "[0.0]",
+      "content" : "– Layout",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 42,
+    "page number" : 4,
+    "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 9,
+      "page number" : 4,
+      "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+      "heading level" : 1,
+      "font" : "Calibri",
+      "font size" : 44.04,
+      "text color" : "[0.0]",
+      "content" : "Design Considerations"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 47,
+    "page number" : 4,
+    "bounding box" : [ 34.705, 284.254, 340.705, 414.0 ],
+    "source" : "Hindu Architecture_images/imageFile5.png"
+  }, {
+    "type" : "list",
+    "id" : 44,
+    "level" : "1",
+    "page number" : 4,
+    "bounding box" : [ 367.2, 376.23, 569.161, 413.245 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "previous list id" : 38,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 367.2, 376.23, 569.161, 413.245 ],
+      "font" : "ArialMT",
+      "font size" : 32.04,
+      "text color" : "[0.0]",
+      "content" : "• Site Selection",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 45,
+    "page number" : 4,
+    "bounding box" : [ 419.524, 97.308, 664.794, 367.29 ],
+    "font" : "Calibri",
+    "font size" : 27.96,
+    "text color" : "[0.0]",
+    "content" : "“near water and gardens, where lotus and flowers bloom, where swans, ducks and other birds are heard, where animals rest without fear of injury or harm where the Gods play”"
+  }, {
+    "type" : "image",
+    "id" : 48,
+    "page number" : 4,
+    "bounding box" : [ 53.08, 11.454, 322.33, 280.704 ],
+    "source" : "Hindu Architecture_images/imageFile6.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 46,
+    "level" : "2",
+    "page number" : 4,
+    "bounding box" : [ 520.68, 73.5, 676.718, 91.5 ],
+    "font" : "Calibri-Italic",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "-Ancient Sanskrit Text"
+  }, {
+    "type" : "header",
+    "id" : 49,
+    "page number" : 5,
+    "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 10,
+      "page number" : 5,
+      "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+      "heading level" : 1,
+      "font" : "Calibri",
+      "font size" : 44.04,
+      "text color" : "[0.0]",
+      "content" : "Design Considerations"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 51,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 367.2, 381.3, 557.787, 415.958 ],
+    "heading level" : 2,
+    "font" : "Calibri",
+    "font size" : 30.0,
+    "text color" : "[0.0]",
+    "content" : "• Site Selection"
+  }, {
+    "type" : "image",
+    "id" : 53,
+    "page number" : 5,
+    "bounding box" : [ 34.705, 284.254, 340.705, 414.0 ],
+    "source" : "Hindu Architecture_images/imageFile7.png"
+  }, {
+    "type" : "list",
+    "id" : 52,
+    "level" : "1",
+    "page number" : 5,
+    "bounding box" : [ 439.2, 61.23, 675.171, 380.36 ],
+    "numbering style" : "unordered",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 439.2, 354.99, 585.457, 380.36 ],
+      "font" : "ArialMT",
+      "font size" : 21.96,
+      "text color" : "[0.0]",
+      "content" : "• Body of Water",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 22,
+        "level" : "1",
+        "page number" : 5,
+        "bounding box" : [ 475.2, 263.82, 638.173, 354.124 ],
+        "numbering style" : "unordered",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 475.2, 332.22, 577.162, 354.124 ],
+          "font" : "ArialMT",
+          "font size" : 18.96,
+          "text color" : "[0.0]",
+          "content" : "– Riverbanks",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 475.2, 309.42, 535.174, 331.324 ],
+          "font" : "ArialMT",
+          "font size" : 18.96,
+          "text color" : "[0.0]",
+          "content" : "– Lakes",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 475.2, 286.62, 571.173, 308.524 ],
+          "font" : "ArialMT",
+          "font size" : 18.96,
+          "text color" : "[0.0]",
+          "content" : "– Seashores",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 5,
+          "bounding box" : [ 475.2, 263.82, 638.173, 285.724 ],
+          "font" : "ArialMT",
+          "font size" : 18.96,
+          "text color" : "[0.0]",
+          "content" : "– Artificial Pond(Areas",
+          "kids" : [ ]
+        } ]
+      }, {
+        "type" : "paragraph",
+        "id" : 23,
+        "page number" : 5,
+        "bounding box" : [ 493.201, 251.401, 573.683, 264.361 ],
+        "font" : "Calibri-Italic",
+        "font size" : 12.96,
+        "text color" : "[0.0]",
+        "content" : "without Water)"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 439.2, 224.91, 612.503, 250.28 ],
+      "font" : "ArialMT",
+      "font size" : 21.96,
+      "text color" : "[0.0]",
+      "content" : "• Lush Landscaping",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 439.2, 135.133, 653.211, 223.88 ],
+      "font" : "ArialMT",
+      "font size" : 21.96,
+      "text color" : "[0.0]",
+      "content" : "• Inside caves or carved stones similar to Chaityas (Rock-cut Temples in Buddhism)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 439.2, 87.624, 675.171, 134.12 ],
+      "font" : "ArialMT",
+      "font size" : 21.96,
+      "text color" : "[0.0]",
+      "content" : "• Hilltops and Mountain Slopes with Serene Vista",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 439.2, 61.23, 579.405, 86.6 ],
+      "font" : "ArialMT",
+      "font size" : 21.96,
+      "text color" : "[0.0]",
+      "content" : "• Inside Forests",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 54,
+    "page number" : 5,
+    "bounding box" : [ 53.08, 11.454, 322.33, 280.704 ],
+    "source" : "Hindu Architecture_images/imageFile8.png"
+  }, {
+    "type" : "header",
+    "id" : 55,
+    "page number" : 6,
+    "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 11,
+      "page number" : 6,
+      "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+      "heading level" : 1,
+      "font" : "Calibri",
+      "font size" : 44.04,
+      "text color" : "[0.0]",
+      "content" : "Design Considerations"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 61,
+    "page number" : 6,
+    "bounding box" : [ 14.636, 68.636, 360.0, 414.0 ],
+    "source" : "Hindu Architecture_images/imageFile9.png"
+  }, {
+    "type" : "heading",
+    "id" : 57,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 367.2, 378.42, 640.473, 413.078 ],
+    "heading level" : 2,
+    "font" : "Calibri",
+    "font size" : 30.0,
+    "text color" : "[0.0]",
+    "content" : "• Planning and Design"
+  }, {
+    "type" : "heading",
+    "id" : 58,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 403.2, 287.868, 652.852, 374.093 ],
+    "heading level" : 4,
+    "font" : "Calibri",
+    "font size" : 26.04,
+    "text color" : "[0.0]",
+    "content" : "– Manduka Mandala or Vastu-purushamandala"
+  }, {
+    "type" : "list",
+    "id" : 59,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 439.2, 176.91, 632.665, 284.12 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 439.2, 234.989, 605.9, 284.12 ],
+      "font" : "ArialMT",
+      "font size" : 21.96,
+      "text color" : "[0.0]",
+      "content" : "• Used in Planning Temples",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 439.2, 205.95, 632.665, 231.32 ],
+      "font" : "ArialMT",
+      "font size" : 21.96,
+      "text color" : "[0.0]",
+      "content" : "• In concentric layout",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 439.2, 176.91, 611.225, 202.28 ],
+      "font" : "ArialMT",
+      "font size" : 21.96,
+      "text color" : "[0.0]",
+      "content" : "• Four major zones",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 60,
+    "level" : "1",
+    "page number" : 6,
+    "bounding box" : [ 475.2, 76.62, 621.811, 173.764 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 475.2, 151.86, 602.495, 173.764 ],
+      "font" : "ArialMT",
+      "font size" : 18.96,
+      "text color" : "[0.0]",
+      "content" : "– Brahma Padas",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 475.2, 126.78, 594.092, 148.684 ],
+      "font" : "ArialMT",
+      "font size" : 18.96,
+      "text color" : "[0.0]",
+      "content" : "– Devika Padas",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 475.2, 101.7, 614.379, 123.604 ],
+      "font" : "ArialMT",
+      "font size" : 18.96,
+      "text color" : "[0.0]",
+      "content" : "– Manusha Padas",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 475.2, 76.62, 621.811, 98.524 ],
+      "font" : "ArialMT",
+      "font size" : 18.96,
+      "text color" : "[0.0]",
+      "content" : "– Paisachika Padas",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 62,
+    "page number" : 7,
+    "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 12,
+      "page number" : 7,
+      "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+      "heading level" : 1,
+      "font" : "Calibri",
+      "font size" : 44.04,
+      "text color" : "[0.0]",
+      "content" : "Design Considerations"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 64,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 367.2, 389.07, 497.561, 414.44 ],
+    "heading level" : 6,
+    "font" : "Calibri",
+    "font size" : 21.96,
+    "text color" : "[0.0]",
+    "content" : "• Padas: Foot"
+  }, {
+    "type" : "image",
+    "id" : 73,
+    "page number" : 7,
+    "bounding box" : [ 14.636, 68.636, 360.0, 414.0 ],
+    "source" : "Hindu Architecture_images/imageFile10.png"
+  }, {
+    "type" : "heading",
+    "id" : 65,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 403.2, 365.07, 540.88, 388.222 ],
+    "heading level" : 7,
+    "font" : "Calibri",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "– Brahma Padas"
+  }, {
+    "type" : "paragraph",
+    "id" : 66,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 439.2, 328.376, 667.579, 364.386 ],
+    "font" : "Calibri",
+    "font size" : 17.04,
+    "text color" : "[0.0]",
+    "content" : "• where the main and/or largest idol of the temple resides"
+  }, {
+    "type" : "heading",
+    "id" : 67,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 403.2, 304.35, 536.43, 327.502 ],
+    "heading level" : 7,
+    "font" : "Calibri",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "– Devika Padas"
+  }, {
+    "type" : "paragraph",
+    "id" : 68,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 439.2, 267.656, 654.561, 303.666 ],
+    "font" : "Calibri",
+    "font size" : 17.04,
+    "text color" : "[0.0]",
+    "content" : "• the zone where gods (devas) reside"
+  }, {
+    "type" : "heading",
+    "id" : 69,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 403.2, 243.63, 553.473, 266.782 ],
+    "heading level" : 7,
+    "font" : "Calibri",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "– Manusha Padas"
+  }, {
+    "type" : "paragraph",
+    "id" : 70,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 439.2, 190.611, 666.141, 242.946 ],
+    "font" : "Calibri",
+    "font size" : 17.04,
+    "text color" : "[0.0]",
+    "content" : "• zone where human beings live and symbolically make choice between good and evil"
+  }, {
+    "type" : "heading",
+    "id" : 71,
+    "level" : "Subtitle",
+    "page number" : 7,
+    "bounding box" : [ 403.2, 166.59, 561.389, 189.742 ],
+    "heading level" : 7,
+    "font" : "Calibri",
+    "font size" : 20.04,
+    "text color" : "[0.0]",
+    "content" : "– Paisachika Padas"
+  }, {
+    "type" : "paragraph",
+    "id" : 72,
+    "level" : "2",
+    "page number" : 7,
+    "bounding box" : [ 439.2, 80.923, 669.863, 165.906 ],
+    "font" : "Calibri",
+    "font size" : 17.04,
+    "text color" : "[0.0]",
+    "content" : "• zone of demons, fears, doubts, suffering. On the east edge are always Surya (Sun) and Indra present, who rythmically bring light and hope everyday"
+  }, {
+    "type" : "header",
+    "id" : 74,
+    "page number" : 8,
+    "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 13,
+      "page number" : 8,
+      "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+      "heading level" : 1,
+      "font" : "Calibri",
+      "font size" : 44.04,
+      "text color" : "[0.0]",
+      "content" : "Design Considerations"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 76,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 367.2, 384.21, 615.692, 415.402 ],
+    "heading level" : 3,
+    "font" : "Calibri",
+    "font size" : 27.0,
+    "text color" : "[0.0]",
+    "content" : "• Planning and Design"
+  }, {
+    "type" : "image",
+    "id" : 79,
+    "page number" : 8,
+    "bounding box" : [ 34.705, 284.254, 340.705, 414.0 ],
+    "source" : "Hindu Architecture_images/imageFile11.png"
+  }, {
+    "type" : "heading",
+    "id" : 77,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 403.2, 355.44, 556.416, 383.167 ],
+    "heading level" : 5,
+    "font" : "Calibri",
+    "font size" : 24.0,
+    "text color" : "[0.0]",
+    "content" : "– Vastu Shastra"
+  }, {
+    "type" : "list",
+    "id" : 78,
+    "level" : "1",
+    "page number" : 8,
+    "bounding box" : [ 439.2, 65.072, 668.84, 354.622 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 439.2, 293.073, 603.244, 354.622 ],
+      "font" : "ArialMT",
+      "font size" : 20.04,
+      "text color" : "[0.0]",
+      "content" : "• ancient science of architecture and construction:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 18,
+        "level" : "1",
+        "page number" : 8,
+        "bounding box" : [ 475.2, 170.7, 660.49, 292.386 ],
+        "numbering style" : "unordered",
+        "number of list items" : 6,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 475.2, 272.7, 626.807, 292.386 ],
+          "font" : "ArialMT",
+          "font size" : 17.04,
+          "text color" : "[0.0]",
+          "content" : "– principles of design",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 475.2, 252.3, 536.098, 271.986 ],
+          "font" : "ArialMT",
+          "font size" : 17.04,
+          "text color" : "[0.0]",
+          "content" : "– layout",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 475.2, 231.9, 596.703, 251.586 ],
+          "font" : "ArialMT",
+          "font size" : 17.04,
+          "text color" : "[0.0]",
+          "content" : "– measurements",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 475.2, 211.5, 627.763, 231.186 ],
+          "font" : "ArialMT",
+          "font size" : 17.04,
+          "text color" : "[0.0]",
+          "content" : "– ground preparation",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 475.2, 191.1, 660.49, 210.786 ],
+          "font" : "ArialMT",
+          "font size" : 17.04,
+          "text color" : "[0.0]",
+          "content" : "– space arrangement and;",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 8,
+          "bounding box" : [ 475.2, 170.7, 609.132, 190.386 ],
+          "font" : "ArialMT",
+          "font size" : 17.04,
+          "text color" : "[0.0]",
+          "content" : "– spatial geometry",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 439.2, 108.273, 661.043, 169.822 ],
+      "font" : "ArialMT",
+      "font size" : 20.04,
+      "text color" : "[0.0]",
+      "content" : "• The designs are intended to integrate architecture with nature",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 439.2, 65.072, 668.84, 107.422 ],
+      "font" : "ArialMT",
+      "font size" : 20.04,
+      "text color" : "[0.0]",
+      "content" : "• Similar Concept with Feng Shui",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 80,
+    "page number" : 8,
+    "bounding box" : [ 101.523, 24.909, 340.705, 267.888 ],
+    "source" : "Hindu Architecture_images/imageFile12.png"
+  }, {
+    "type" : "header",
+    "id" : 81,
+    "page number" : 9,
+    "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 14,
+      "page number" : 9,
+      "bounding box" : [ 161.69, 447.605, 558.107, 491.645 ],
+      "heading level" : 1,
+      "font" : "Calibri",
+      "font size" : 44.04,
+      "text color" : "[0.0]",
+      "content" : "Design Considerations"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 83,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 367.2, 392.94, 542.354, 413.735 ],
+    "heading level" : 8,
+    "font" : "Calibri",
+    "font size" : 18.0,
+    "text color" : "[0.0]",
+    "content" : "• Planning and Design"
+  }, {
+    "type" : "image",
+    "id" : 86,
+    "page number" : 9,
+    "bounding box" : [ 36.0, 86.171, 357.275, 412.546 ],
+    "source" : "Hindu Architecture_images/imageFile13.png"
+  }, {
+    "type" : "heading",
+    "id" : 84,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 403.2, 374.97, 507.345, 392.299 ],
+    "heading level" : 9,
+    "font" : "Calibri",
+    "font size" : 15.0,
+    "text color" : "[0.0]",
+    "content" : "– Vastu Shastra"
+  }, {
+    "type" : "list",
+    "id" : 85,
+    "level" : "1",
+    "page number" : 9,
+    "bounding box" : [ 439.2, 121.799, 672.787, 374.372 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 439.2, 334.439, 670.73, 374.372 ],
+      "font" : "ArialMT",
+      "font size" : 12.96,
+      "text color" : "[0.0]",
+      "content" : "• These nature laws are to maintain equilibrium between human life and the nature",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 439.2, 281.399, 672.787, 333.812 ],
+      "font" : "ArialMT",
+      "font size" : 12.96,
+      "text color" : "[0.0]",
+      "content" : "• Vastu Shastra considers the five basic elements called the “Panch Maha Bhoota” of which the world is comprised of, They are:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 17,
+        "level" : "1",
+        "page number" : 9,
+        "bounding box" : [ 475.2, 215.4, 521.414, 280.954 ],
+        "numbering style" : "unordered",
+        "number of list items" : 5,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 475.2, 268.2, 517.235, 280.954 ],
+          "font" : "ArialMT",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "– Earth",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 475.2, 255.0, 521.414, 267.754 ],
+          "font" : "ArialMT",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "– Water",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 475.2, 241.8, 505.932, 254.554 ],
+          "font" : "ArialMT",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "– Air",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 475.2, 228.6, 510.097, 241.354 ],
+          "font" : "ArialMT",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "– Fire",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 9,
+          "bounding box" : [ 475.2, 215.4, 519.458, 228.154 ],
+          "font" : "ArialMT",
+          "font size" : 11.04,
+          "text color" : "[0.0]",
+          "content" : "– Space",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 439.2, 174.839, 664.206, 214.772 ],
+      "font" : "ArialMT",
+      "font size" : 12.96,
+      "text color" : "[0.0]",
+      "content" : "• Each element has its own energy and it radiates this energy at its own specific frequencies.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 439.2, 121.799, 662.678, 174.212 ],
+      "font" : "ArialMT",
+      "font size" : 12.96,
+      "text color" : "[0.0]",
+      "content" : "• This energy can be positive or it can be negative. Vastu Shastra acts a bridge which makes a way for all the positive energies to enter into our life.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 87,
+    "page number" : 10,
+    "bounding box" : [ 94.97, 447.605, 624.859, 491.645 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 15,
+      "page number" : 10,
+      "bounding box" : [ 94.97, 447.605, 624.859, 491.645 ],
+      "heading level" : 1,
+      "font" : "Calibri",
+      "font size" : 44.04,
+      "text color" : "[0.0]",
+      "content" : "Styles and Hindu Architecture"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 89,
+    "level" : "2",
+    "page number" : 10,
+    "bounding box" : [ 43.2, 93.3, 226.17, 415.958 ],
+    "numbering style" : "unordered",
+    "number of list items" : 9,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 43.2, 381.3, 156.09, 415.958 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Nagara",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 43.2, 345.3, 185.553, 379.958 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Dravidian",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 43.2, 309.3, 179.973, 343.958 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Chalukya",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 43.2, 273.3, 147.81, 307.958 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Gadag",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 43.2, 237.3, 157.05, 271.958 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Kalinga",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 43.2, 201.3, 226.17, 235.958 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Maru-Gujara",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 43.2, 165.3, 204.393, 199.958 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Indonesian",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 43.2, 129.3, 150.87, 163.958 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Khmer",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 43.2, 93.3, 170.37, 127.958 ],
+      "font" : "ArialMT",
+      "font size" : 30.0,
+      "text color" : "[0.0]",
+      "content" : "• Champa",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 90,
+    "page number" : 10,
+    "bounding box" : [ 324.0, 164.297, 494.179, 414.0 ],
+    "source" : "Hindu Architecture_images/imageFile14.png"
+  }, {
+    "type" : "image",
+    "id" : 91,
+    "page number" : 10,
+    "bounding box" : [ 496.474, 164.25, 683.974, 414.0 ],
+    "source" : "Hindu Architecture_images/imageFile15.png"
+  }, {
+    "type" : "header",
+    "id" : 92,
+    "page number" : 11,
+    "bounding box" : [ 94.97, 447.605, 624.859, 491.645 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 16,
+      "page number" : 11,
+      "bounding box" : [ 94.97, 447.605, 624.859, 491.645 ],
+      "heading level" : 1,
+      "font" : "Calibri",
+      "font size" : 44.04,
+      "text color" : "[0.0]",
+      "content" : "Styles and Hindu Architecture"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 96,
+    "page number" : 11,
+    "bounding box" : [ 438.0, 234.0, 608.066, 426.111 ],
+    "source" : "Hindu Architecture_images/imageFile16.png"
+  }, {
+    "type" : "heading",
+    "id" : 94,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 43.2, 389.07, 248.423, 414.44 ],
+    "heading level" : 6,
+    "font" : "Calibri",
+    "font size" : 21.96,
+    "text color" : "[0.0]",
+    "content" : "• Nagara Architecture"
+  }, {
+    "type" : "list",
+    "id" : 95,
+    "level" : "1",
+    "page number" : 11,
+    "bounding box" : [ 79.2, 125.077, 349.593, 388.222 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 79.2, 345.872, 329.138, 388.222 ],
+      "font" : "ArialMT",
+      "font size" : 20.04,
+      "text color" : "[0.0]",
+      "content" : "– Also known as the Northern Style",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 79.2, 225.878, 346.841, 345.022 ],
+      "font" : "ArialMT",
+      "font size" : 20.04,
+      "text color" : "[0.0]",
+      "content" : "– In plan, the temple is a square with a number of graduated projections in the middle of each side giving a cruciform shape with a number of reentrant angles on each side.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 79.2, 125.077, 349.593, 225.022 ],
+      "font" : "ArialMT",
+      "font size" : 20.04,
+      "text color" : "[0.0]",
+      "content" : "– The projections in the plan are also carried upwards to the top of the Sikhara and, thus, there is strong emphasis on vertical lines in elevation.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 97,
+    "page number" : 11,
+    "bounding box" : [ 438.0, 54.464, 608.066, 228.0 ],
+    "source" : "Hindu Architecture_images/imageFile17.png"
+  }, {
+    "type" : "image",
+    "id" : 99,
+    "page number" : 12,
+    "bounding box" : [ 0.0, 30.509, 720.0, 509.01 ],
+    "source" : "Hindu Architecture_images/imageFile18.png"
+  } ]
+}

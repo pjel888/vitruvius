@@ -4,7 +4,7 @@ title: 20Th Century Architects 2
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T20:30:36.646787+00:00
+last_canonicalized_utc: 2026-04-18T08:21:07.753640+00:00
 aliases:
   - 20th Century Architects 2
 ---
@@ -13,22 +13,25 @@ aliases:
 
 ## Overview
 
-Migrated to the US and taught at the Harvard School of Architecture
+American inventor of the Geodesic Dome and the principle of “Synergetics, ”who influenced High Tech leaders, especially Norman Foster
 
 ## Coverage
 
-- Mies van der Rohe,
-- Illinois, 1946-51
-- Frank Lloyd Wright, GUGGENHEIM MUSEUM, New York, 1956-59
-- Louis Kahn, RICHARDS MEDICAL RESEARCH BUILDING University of Pennsylvania, 1957-61
-- Texas, 1966-72
-- Louis Kahn, SALK INSTITUTE FOR BIOLOGICAL STUDIES California, 1959-65
+- “ The only cardinal sin in building is boredom.”
+- Philip Johnson,
+- and detailing help communicate a building’s purpose.”
+- Michael Graves,
+- Michael Graves, WORLD TRADE EXCHANGE BLDG., Binondo, Manila
+- Miami, Florida
+- Arquitectonica,
+- Arquitectonica,
+- Fort Bonifacio Global City, Philippines
 
 ## Key Points
 
-- Simple geometry, often rectangular - •Use of modern materials like steel and glass - •Smooth surfaces - •Primary colors - •Linear and horizontal elements Walter Gropius (w/ Adolf Meyer), WERKBUND PAVILION, Walter Gropius, The BAUHAUS BUILDING, Dessau, Germany, 1926 Ludwig Mies van der Rohe (1886- 19.
-- Simple rectangular forms - • Open, flexible plans and multi-functional spaces - • Widespread use of glass to bring the outside in - • Mastered steel and glass construction - • Exposed and very refined structural details Mies van der Rohe, New York, 1958 Mies van der Rohe, LAKE SHORE DRIVE Mies van d.
+- Philip Johnson, (above) THE GLASS HOUSE, (left) THE SEAGRAM BUILDING, New York, 1958 (with Mies van der Rohe) AT&T HEADQUARTERS, New York, 1979 Michael Graves (1934- ) - • one of the New York Five or The Five Whites, together with Richard Meier, Peter Eisenman, Charles Gwathmey and John Hejduk, know.
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-international style
+- concept-modernism

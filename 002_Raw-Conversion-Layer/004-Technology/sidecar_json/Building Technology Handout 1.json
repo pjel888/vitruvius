@@ -1,0 +1,2887 @@
+{
+  "file name" : "Building Technology Handout 1.pdf",
+  "number of pages" : 17,
+  "author" : "mar",
+  "title" : "Building Tech",
+  "creation date" : "D:20260413100648+08'00'",
+  "modification date" : "D:20260413100648+08'00'",
+  "kids" : [ {
+    "type" : "header",
+    "id" : 103,
+    "page number" : 1,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 52,
+      "page number" : 1,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 115,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 221.33, 771.203, 393.583, 786.751 ],
+    "heading level" : 1,
+    "font" : "TimesNewRomanPS-BoldMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "BUILDING CONSTRUCTION"
+  }, {
+    "type" : "heading",
+    "id" : 108,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 72.024, 752.717, 306.072, 766.123 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "1. PREPARATION FOR CONSTRUCTION"
+  }, {
+    "type" : "heading",
+    "id" : 109,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 90.024, 705.629, 324.871, 740.894 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "1.1. STAKING-OUT THE BUILDING (Mercado)Methods in staking-out the building:"
+  }, {
+    "type" : "list",
+    "id" : 110,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 135.02, 521.639, 558.974, 693.837 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 135.02, 671.189, 558.974, 693.837 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1.Measure the required setback from the front corner monuments and drive two stakes and stretch a line between them to represent the front building line.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 135.02, 648.149, 558.874, 659.277 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2.Measure the required side setback from one of the side lot lines along the line established in",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 100,
+        "level" : "2",
+        "page number" : 1,
+        "bounding box" : [ 153.02, 613.679, 558.98, 647.757 ],
+        "font" : "ArialMT",
+        "font size" : 9.96,
+        "text color" : "[0.0]",
+        "content" : "(1) and drive a stake A which will represent the first corner of the building. Then from Stake A, measure the width of the building and mark with a stake B to obtain the other front corner."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 135.02, 567.599, 558.974, 601.767 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3.Estimate right angles from stakes A and B and measure the length of the building. In those two points, drive two temporary stakes C and D which will mark the rear corners of the building. C-D should be equal to A-B.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 135.02, 544.679, 486.312, 555.807 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4.Draw lines along the diagonals A-D and B-C and ensure that these are equal.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 135.02, 521.639, 333.937, 532.767 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5.Transfer the building lines to batter boards.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 105,
+    "page number" : 1,
+    "bounding box" : [ 157.5, 368.58, 298.8, 518.58 ],
+    "source" : "Building Technology Handout 1_images/imageFile1.png"
+  }, {
+    "type" : "image",
+    "id" : 106,
+    "page number" : 1,
+    "bounding box" : [ 327.5, 364.13, 473.4, 517.13 ],
+    "source" : "Building Technology Handout 1_images/imageFile2.png"
+  }, {
+    "type" : "heading",
+    "id" : 111,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 90.024, 347.99, 329.42, 360.324 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "1.2. LAYING THE BATTERBOARDS (Mercado)"
+  }, {
+    "type" : "paragraph",
+    "id" : 112,
+    "page number" : 1,
+    "bounding box" : [ 135.02, 290.469, 559.29, 336.187 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "After staking out, transfer the building lines to batter boards. Batter boards are horizontal boards used to establish the height of the finish foundation and to support the guidelines for the excavation of footing trenches. They should be carefully leveled with a carpenter’s level or a transit and the height must be a little higher that the top of the finished foundation."
+  }, {
+    "type" : "image",
+    "id" : 117,
+    "page number" : 1,
+    "bounding box" : [ 145.5, 167.68, 311.7, 279.28 ],
+    "source" : "Building Technology Handout 1_images/imageFile3.png"
+  }, {
+    "type" : "image",
+    "id" : 107,
+    "page number" : 1,
+    "bounding box" : [ 331.15, 167.78, 498.4, 279.28 ],
+    "source" : "Building Technology Handout 1_images/imageFile4.png"
+  }, {
+    "type" : "heading",
+    "id" : 113,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 90.024, 139.74, 260.151, 152.074 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "1.3. FORMWORK AND SHORING"
+  }, {
+    "type" : "paragraph",
+    "id" : 114,
+    "page number" : 1,
+    "bounding box" : [ 135.02, 82.369, 552.39, 127.937 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Fresh concrete must be shaped and supported by formwork until it cures and can support itself. To support beam and slab forms while concrete is being poured and cured, temporary supports called shoring are used. Materials for forms and shoring construction are (1) Lumber and (2) Steel."
+  }, {
+    "type" : "footer",
+    "id" : 118,
+    "page number" : 1,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 35,
+      "page number" : 1,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 1"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 119,
+    "page number" : 2,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 53,
+      "page number" : 2,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 121,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 135.02, 771.289, 284.106, 782.417 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "1. Lumber Forms and Shoring"
+  }, {
+    "type" : "paragraph",
+    "id" : 122,
+    "page number" : 2,
+    "bounding box" : [ 135.02, 736.709, 554.953, 759.357 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Lumber used in form construction should only be partially seasoned and to some extent slightly wetted in order to prevent swelling and distortion of the forms."
+  }, {
+    "type" : "paragraph",
+    "id" : 123,
+    "page number" : 2,
+    "bounding box" : [ 135.02, 690.749, 553.521, 724.797 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Sheet lumber are dressed at least one side and both edges even for non-exposed surfaces, as the removal and cleaning of the forms are greatly facilitated thereby. In face work, where smooth and true surface is quite important, the lumber should be dressed on all four sides."
+  }, {
+    "type" : "paragraph",
+    "id" : 124,
+    "page number" : 2,
+    "bounding box" : [ 135.02, 644.669, 543.48, 678.837 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "In floor and wall panels, tight joints between boards may be obtained by using tongue-and grooved stock. Joints in forms for columns, beams, and girders are sometimes made tight by simply dressing the lumber true to edge, forming square of butt joints."
+  }, {
+    "type" : "paragraph",
+    "id" : 125,
+    "page number" : 2,
+    "bounding box" : [ 135.02, 598.679, 553.161, 632.877 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Sizes of lumber frequently used are: 2-in.stock for columns, beams and girder bottoms; 1-in. stock for floor panels and beam and girder sides; 2x4s for struts, posts, shores, and uprights; 1 or 2-inch stock for cleats."
+  }, {
+    "type" : "paragraph",
+    "id" : 126,
+    "page number" : 2,
+    "bounding box" : [ 135.02, 529.679, 557.155, 586.767 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Crude oil and petroline are used to prevent concrete from adhering to the wood and preserve the forms against damage by alternate wetting and drying. The forms should preferably be oiled before they are set in place. Oil should not be used, however, on forms against surfaces which are to be plastered, as oil prevents adhesion of the plaster. Wetting with water in such cases will be sufficient."
+  }, {
+    "type" : "paragraph",
+    "id" : 127,
+    "page number" : 2,
+    "bounding box" : [ 135.02, 472.199, 558.579, 517.887 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "To hold wall forms together, wire ties or bolts and rods may be used. The latter are preferred and should be arranged that upon removal of the forms, no metal shall be within one inch of any surface. Wire ties should be used only on light and unimportant work where discoloring will not be objectionable."
+  }, {
+    "type" : "paragraph",
+    "id" : 128,
+    "page number" : 2,
+    "bounding box" : [ 135.02, 437.739, 546.026, 460.267 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Plywood Forms. These are used where a smooth surface is required. The plywood should be waterproof, Grade “A” and at least ½” thick."
+  }, {
+    "type" : "image",
+    "id" : 130,
+    "page number" : 2,
+    "bounding box" : [ 90.0, 114.83, 541.3, 426.23 ],
+    "source" : "Building Technology Handout 1_images/imageFile5.png"
+  }, {
+    "type" : "footer",
+    "id" : 131,
+    "page number" : 2,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 36,
+      "page number" : 2,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 2"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 132,
+    "page number" : 3,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 54,
+      "page number" : 3,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 134,
+    "page number" : 3,
+    "bounding box" : [ 102.7, 405.38, 528.7, 794.18 ],
+    "source" : "Building Technology Handout 1_images/imageFile6.png"
+  }, {
+    "type" : "image",
+    "id" : 135,
+    "page number" : 3,
+    "bounding box" : [ 156.0, 92.18, 475.3, 405.38 ],
+    "source" : "Building Technology Handout 1_images/imageFile7.png"
+  }, {
+    "type" : "footer",
+    "id" : 136,
+    "page number" : 3,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 37,
+      "page number" : 3,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 3"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 137,
+    "page number" : 4,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 55,
+      "page number" : 4,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 139,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 135.02, 771.289, 271.205, 782.417 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "2. Steel Forms and Shoring"
+  }, {
+    "type" : "paragraph",
+    "id" : 140,
+    "page number" : 4,
+    "bounding box" : [ 135.02, 725.189, 439.388, 759.357 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Steel forms may be in the form of pans for concrete joist construction or steel decking or corrugated steel for concrete slabs and slab-andjoist construction."
+  }, {
+    "type" : "paragraph",
+    "id" : 145,
+    "page number" : 4,
+    "bounding box" : [ 135.02, 690.749, 393.173, 701.877 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "The major components of metal shoring or scaffolding are:"
+  }, {
+    "type" : "list",
+    "id" : 146,
+    "level" : "3",
+    "page number" : 4,
+    "bounding box" : [ 144.02, 621.749, 412.251, 678.837 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 144.02, 667.709, 311.067, 678.837 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "a) The ledger or the horizontal brace.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 144.02, 644.669, 412.251, 667.317 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "b) The brace or the diagonal. This component may be of the adjustable and the fixed type.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 144.02, 633.269, 334.471, 644.397 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "c) The standard or the vertical component.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 144.02, 621.749, 324.971, 632.877 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "d) Accessories: heads, jacks and bases.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 147,
+    "page number" : 4,
+    "bounding box" : [ 458.2, 644.28, 556.7, 770.93 ],
+    "source" : "Building Technology Handout 1_images/imageFile8.png"
+  }, {
+    "type" : "image",
+    "id" : 150,
+    "page number" : 4,
+    "bounding box" : [ 135.0, 488.68, 336.0, 610.18 ],
+    "source" : "Building Technology Handout 1_images/imageFile9.png"
+  }, {
+    "type" : "image",
+    "id" : 148,
+    "page number" : 4,
+    "bounding box" : [ 339.0, 380.43, 476.25, 609.93 ],
+    "source" : "Building Technology Handout 1_images/imageFile10.png"
+  }, {
+    "type" : "text block",
+    "id" : 149,
+    "page number" : 4,
+    "bounding box" : [ 342.075, 589.455, 471.725, 609.655 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 4,
+      "bounding box" : [ 352.51, 593.759, 461.253, 604.887 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 9.96,
+      "text color" : "[1.0]",
+      "content" : "STANDARD/VERTICAL"
+    } ]
+  }, {
+    "type" : "text block",
+    "id" : 151,
+    "page number" : 4,
+    "bounding box" : [ 204.375, 491.755, 333.375, 511.955 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 2,
+      "page number" : 4,
+      "bounding box" : [ 214.01, 496.079, 323.809, 507.207 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 9.96,
+      "text color" : "[1.0]",
+      "content" : "LEDGER/HORIZONTAL"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 152,
+    "page number" : 4,
+    "bounding box" : [ 251.21, 484.559, 286.653, 495.687 ],
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[1.0]",
+    "content" : "BRACE"
+  }, {
+    "type" : "image",
+    "id" : 153,
+    "page number" : 4,
+    "bounding box" : [ 135.75, 381.18, 336.0, 487.68 ],
+    "source" : "Building Technology Handout 1_images/imageFile11.png"
+  }, {
+    "type" : "text block",
+    "id" : 154,
+    "page number" : 4,
+    "bounding box" : [ 214.125, 385.205, 331.125, 405.455 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 3,
+      "page number" : 4,
+      "bounding box" : [ 226.85, 389.499, 318.323, 400.627 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 9.96,
+      "text color" : "[1.0]",
+      "content" : "BRACE/DIAGONAL"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 157,
+    "page number" : 4,
+    "bounding box" : [ 385.35, 110.13, 474.75, 362.38 ],
+    "source" : "Building Technology Handout 1_images/imageFile12.png"
+  }, {
+    "type" : "image",
+    "id" : 156,
+    "page number" : 4,
+    "bounding box" : [ 135.05, 249.93, 383.8, 361.68 ],
+    "source" : "Building Technology Handout 1_images/imageFile13.png"
+  }, {
+    "type" : "image",
+    "id" : 155,
+    "page number" : 4,
+    "bounding box" : [ 133.5, 110.48, 383.6, 248.48 ],
+    "source" : "Building Technology Handout 1_images/imageFile14.png"
+  }, {
+    "type" : "footer",
+    "id" : 158,
+    "page number" : 4,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 38,
+      "page number" : 4,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 4"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 159,
+    "page number" : 5,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 56,
+      "page number" : 5,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 169,
+    "level" : "4",
+    "page number" : 5,
+    "bounding box" : [ 90.024, 747.029, 516.548, 782.314 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "next list id" : 329,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 90.024, 747.029, 516.548, 782.314 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "1.4. CONSTRUCTION TOOLS & EQUIPMENT Tools and equipment employed in construction are grouped into four major categories:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 170,
+    "level" : "5",
+    "page number" : 5,
+    "bounding box" : [ 144.02, 724.109, 456.952, 735.237 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "next list id" : 227,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 144.02, 724.109, 456.952, 735.237 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. HAND TOOLS are the tools that use power delivered by man only.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 161,
+    "page number" : 5,
+    "bounding box" : [ 423.55, 654.03, 555.3, 720.83 ],
+    "source" : "Building Technology Handout 1_images/imageFile15.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 171,
+    "page number" : 5,
+    "bounding box" : [ 162.02, 689.549, 414.394, 712.197 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "A pry bar is used to force open boards used in forming concrete."
+  }, {
+    "type" : "heading",
+    "id" : 173,
+    "level" : "Subtitle",
+    "page number" : 5,
+    "bounding box" : [ 162.02, 632.069, 384.127, 643.197 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Measurement and layout tools are the following:"
+  }, {
+    "type" : "list",
+    "id" : 175,
+    "level" : "6",
+    "page number" : 5,
+    "bounding box" : [ 162.02, 241.029, 559.307, 620.127 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 162.02, 597.599, 559.307, 620.127 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Folding rule and tape measure are the most common tools for measuring boards, pipe, wire, etc.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 162.02, 459.579, 380.558, 493.647 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Digital rule is used to measure relatively long distances such as those in highway construction.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 162.02, 333.099, 457.857, 378.667 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(c) Framing square is a layout tool that is used to measure 90degree angles at the corners of framework and joints. They can also be employed to determine cutting angles on dimension lumber.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 162.02, 286.989, 457.984, 321.157 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(d) Level is a long, straight tool that contains one or more vials of liquid and used to determine if the horizontal or vertical is exact.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 162.02, 241.029, 393.787, 252.157 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(e) Chalk line or chalk box is used for marking lines.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 163,
+    "page number" : 5,
+    "bounding box" : [ 358.3, 505.03, 486.55, 608.53 ],
+    "source" : "Building Technology Handout 1_images/imageFile16.png"
+  }, {
+    "type" : "image",
+    "id" : 162,
+    "page number" : 5,
+    "bounding box" : [ 223.5, 498.53, 346.6, 607.03 ],
+    "source" : "Building Technology Handout 1_images/imageFile17.png"
+  }, {
+    "type" : "image",
+    "id" : 164,
+    "page number" : 5,
+    "bounding box" : [ 290.8, 405.58, 406.7, 496.58 ],
+    "source" : "Building Technology Handout 1_images/imageFile18.png"
+  }, {
+    "type" : "image",
+    "id" : 165,
+    "page number" : 5,
+    "bounding box" : [ 466.95, 328.68, 556.2, 457.68 ],
+    "source" : "Building Technology Handout 1_images/imageFile19.png"
+  }, {
+    "type" : "image",
+    "id" : 167,
+    "page number" : 5,
+    "bounding box" : [ 460.5, 176.88, 540.0, 328.38 ],
+    "source" : "Building Technology Handout 1_images/imageFile20.png"
+  }, {
+    "type" : "image",
+    "id" : 166,
+    "page number" : 5,
+    "bounding box" : [ 301.7, 171.03, 413.25, 232.23 ],
+    "source" : "Building Technology Handout 1_images/imageFile21.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 178,
+    "page number" : 5,
+    "bounding box" : [ 162.02, 137.569, 325.807, 148.697 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Types of hammers are the following:"
+  }, {
+    "type" : "list",
+    "id" : 180,
+    "level" : "6",
+    "page number" : 5,
+    "bounding box" : [ 162.02, 103.009, 396.918, 125.657 ],
+    "numbering style" : "english letters",
+    "number of list items" : 1,
+    "next list id" : 192,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 5,
+      "bounding box" : [ 162.02, 103.009, 396.918, 125.657 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Claw hammer is an ordinary hammer used to drive or remove nails.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 168,
+    "page number" : 5,
+    "bounding box" : [ 406.85, 76.43, 553.85, 155.93 ],
+    "source" : "Building Technology Handout 1_images/imageFile22.png"
+  }, {
+    "type" : "footer",
+    "id" : 182,
+    "page number" : 5,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 39,
+      "page number" : 5,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 5"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 183,
+    "page number" : 6,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 57,
+      "page number" : 6,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 192,
+    "level" : "6",
+    "page number" : 6,
+    "bounding box" : [ 162.02, 748.229, 350.115, 782.417 ],
+    "numbering style" : "english letters",
+    "number of list items" : 1,
+    "previous list id" : 180,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 162.02, 748.229, 350.115, 782.417 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Sledgehammer is a heavy hammer used to drive stakes into the ground and to break up concrete and stone.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 188,
+    "page number" : 6,
+    "bounding box" : [ 360.0, 682.18, 504.75, 778.93 ],
+    "source" : "Building Technology Handout 1_images/imageFile23.png"
+  }, {
+    "type" : "heading",
+    "id" : 194,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 162.02, 667.709, 284.931, 678.837 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Types of screwdrivers are:"
+  }, {
+    "type" : "image",
+    "id" : 185,
+    "page number" : 6,
+    "bounding box" : [ 382.55, 590.08, 556.75, 662.88 ],
+    "source" : "Building Technology Handout 1_images/imageFile24.png"
+  }, {
+    "type" : "list",
+    "id" : 196,
+    "level" : "6",
+    "page number" : 6,
+    "bounding box" : [ 162.02, 457.899, 527.411, 655.797 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 162.02, 633.269, 475.305, 655.797 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Standard screwdriver has a flat tip and is designed to fit a standard slotted screw.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 162.02, 564.239, 527.411, 586.767 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Phillips screwdriver has an X-shaped tip and is used to turn Phillips-head screws only.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 162.02, 457.899, 371.156, 492.087 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(c) Spiral ratchet screwdriver is that which relies on a pushing force rater than a twisting force.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 186,
+    "page number" : 6,
+    "bounding box" : [ 369.4, 504.18, 555.7, 583.18 ],
+    "source" : "Building Technology Handout 1_images/imageFile25.png"
+  }, {
+    "type" : "image",
+    "id" : 187,
+    "page number" : 6,
+    "bounding box" : [ 380.25, 424.18, 561.05, 498.13 ],
+    "source" : "Building Technology Handout 1_images/imageFile26.png"
+  }, {
+    "type" : "image",
+    "id" : 189,
+    "page number" : 6,
+    "bounding box" : [ 303.75, 354.13, 525.05, 425.18 ],
+    "source" : "Building Technology Handout 1_images/imageFile27.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 198,
+    "page number" : 6,
+    "bounding box" : [ 162.02, 400.419, 294.781, 423.067 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Types of saws are the following:"
+  }, {
+    "type" : "list",
+    "id" : 200,
+    "level" : "6",
+    "page number" : 6,
+    "bounding box" : [ 162.02, 204.909, 412.575, 342.547 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "next list id" : 208,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 162.02, 319.899, 412.575, 342.547 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Ripsaw has chisel-like teeth designed for ripping or cutting with the grain of wood.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 162.02, 204.909, 386.928, 227.557 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Crosscut saw is used to cut across the grain of wood.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 190,
+    "page number" : 6,
+    "bounding box" : [ 391.5, 235.43, 533.05, 337.78 ],
+    "source" : "Building Technology Handout 1_images/imageFile28.png"
+  }, {
+    "type" : "image",
+    "id" : 191,
+    "page number" : 6,
+    "bounding box" : [ 366.7, 118.73, 516.4, 219.93 ],
+    "source" : "Building Technology Handout 1_images/imageFile29.png"
+  }, {
+    "type" : "footer",
+    "id" : 202,
+    "page number" : 6,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 40,
+      "page number" : 6,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 6"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 203,
+    "page number" : 7,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 58,
+      "page number" : 7,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 208,
+    "level" : "6",
+    "page number" : 7,
+    "bounding box" : [ 162.02, 656.189, 559.046, 782.417 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "previous list id" : 200,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 162.02, 759.749, 559.046, 782.417 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(c) Backsaw is a special type of handsaw that has a very thin blade and makes very straight cuts such as those on trims and mouldings.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 162.02, 656.189, 317.133, 667.317 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(d) Hacksaw is used to cut metals.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 205,
+    "page number" : 7,
+    "bounding box" : [ 260.0, 688.43, 425.25, 753.58 ],
+    "source" : "Building Technology Handout 1_images/imageFile30.png"
+  }, {
+    "type" : "image",
+    "id" : 221,
+    "page number" : 7,
+    "bounding box" : [ 266.1, 594.53, 418.75, 653.03 ],
+    "source" : "Building Technology Handout 1_images/imageFile31.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 210,
+    "page number" : 7,
+    "bounding box" : [ 162.02, 575.639, 241.379, 586.767 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Types of Chisels:"
+  }, {
+    "type" : "list",
+    "id" : 212,
+    "level" : "6",
+    "page number" : 7,
+    "bounding box" : [ 162.02, 483.719, 344.115, 563.847 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 162.02, 529.679, 344.115, 563.847 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Wood chisel is used to trim wood and clear away excess material from wood joints.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 162.02, 483.719, 328.889, 494.847 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Cold chisel is used to trim metals.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 207,
+    "page number" : 7,
+    "bounding box" : [ 354.0, 506.23, 502.5, 578.23 ],
+    "source" : "Building Technology Handout 1_images/imageFile32.png"
+  }, {
+    "type" : "image",
+    "id" : 206,
+    "page number" : 7,
+    "bounding box" : [ 377.05, 434.83, 546.1, 495.33 ],
+    "source" : "Building Technology Handout 1_images/imageFile33.png"
+  }, {
+    "type" : "caption",
+    "id" : 214,
+    "page number" : 7,
+    "bounding box" : [ 162.02, 403.179, 379.606, 414.307 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Types of specialized hand tools are the following:"
+  }, {
+    "type" : "image",
+    "id" : 219,
+    "page number" : 7,
+    "bounding box" : [ 356.1, 266.43, 492.7, 403.23 ],
+    "source" : "Building Technology Handout 1_images/imageFile34.png"
+  }, {
+    "type" : "image",
+    "id" : 217,
+    "page number" : 7,
+    "bounding box" : [ 162.0, 329.98, 334.9, 401.28 ],
+    "source" : "Building Technology Handout 1_images/imageFile35.png"
+  }, {
+    "type" : "image",
+    "id" : 218,
+    "page number" : 7,
+    "bounding box" : [ 162.0, 153.98, 295.2, 331.33 ],
+    "source" : "Building Technology Handout 1_images/imageFile36.png"
+  }, {
+    "type" : "image",
+    "id" : 220,
+    "page number" : 7,
+    "bounding box" : [ 347.85, 153.98, 492.7, 248.48 ],
+    "source" : "Building Technology Handout 1_images/imageFile37.png"
+  }, {
+    "type" : "list",
+    "id" : 215,
+    "level" : "6",
+    "page number" : 7,
+    "bounding box" : [ 162.02, 84.889, 555.975, 141.977 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 162.02, 130.849, 555.975, 141.977 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Nail set is used to drive finishing nails below the surface of a wooden trim or molding.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 162.02, 119.329, 410.387, 130.457 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Pipe wrench is used to turn round objects like pipes.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 162.02, 107.929, 530.561, 119.057 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(c) Brick trowel is used to place and trim mortar between bricks or concrete blocks.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 162.02, 96.409, 452.62, 107.537 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(d) Bull float is used to smoothen out the surface of wet concrete.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 7,
+      "bounding box" : [ 162.02, 84.889, 447.678, 96.017 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(e) Blind riveter is used to fasten pieces of sheet metal together.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 222,
+    "page number" : 7,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 41,
+      "page number" : 7,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 7"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 223,
+    "page number" : 8,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 59,
+      "page number" : 8,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 227,
+    "level" : "5",
+    "page number" : 8,
+    "bounding box" : [ 144.02, 759.749, 559.132, 782.417 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 170,
+    "next list id" : 254,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 144.02, 759.749, 559.132, 782.417 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. POWER TOOLS are those that employ power supplied by forces other than that coming from humans.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 225,
+    "page number" : 8,
+    "bounding box" : [ 170.25, 635.48, 292.65, 745.18 ],
+    "source" : "Building Technology Handout 1_images/imageFile38.png"
+  }, {
+    "type" : "image",
+    "id" : 226,
+    "page number" : 8,
+    "bounding box" : [ 313.7, 636.53, 460.2, 745.18 ],
+    "source" : "Building Technology Handout 1_images/imageFile39.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 242,
+    "page number" : 8,
+    "bounding box" : [ 204.05, 624.676, 458.089, 633.658 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "POWER DRILL POWER SCREWDRIVER/SCREWGUN"
+  }, {
+    "type" : "paragraph",
+    "id" : 228,
+    "page number" : 8,
+    "bounding box" : [ 162.02, 552.719, 467.514, 609.807 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Power drill is used to drill holes in wood, metal and concrete. Power screwdriver or screwgun is used to install and remove screws. Types of power saws are the following:"
+  }, {
+    "type" : "image",
+    "id" : 236,
+    "page number" : 8,
+    "bounding box" : [ 259.8, 414.78, 363.7, 552.63 ],
+    "source" : "Building Technology Handout 1_images/imageFile40.png"
+  }, {
+    "type" : "image",
+    "id" : 235,
+    "page number" : 8,
+    "bounding box" : [ 145.5, 416.03, 249.25, 551.43 ],
+    "source" : "Building Technology Handout 1_images/imageFile41.png"
+  }, {
+    "type" : "image",
+    "id" : 237,
+    "page number" : 8,
+    "bounding box" : [ 374.25, 419.43, 505.2, 548.08 ],
+    "source" : "Building Technology Handout 1_images/imageFile42.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 240,
+    "page number" : 8,
+    "bounding box" : [ 172.34, 405.026, 481.522, 414.008 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "RADIAL ARM TABLE PORTABLE CIRCULAR"
+  }, {
+    "type" : "image",
+    "id" : 238,
+    "page number" : 8,
+    "bounding box" : [ 255.0, 278.63, 375.95, 396.63 ],
+    "source" : "Building Technology Handout 1_images/imageFile43.png"
+  }, {
+    "type" : "image",
+    "id" : 239,
+    "page number" : 8,
+    "bounding box" : [ 384.25, 280.08, 505.2, 391.68 ],
+    "source" : "Building Technology Handout 1_images/imageFile44.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 241,
+    "page number" : 8,
+    "bounding box" : [ 282.17, 267.116, 460.422, 276.098 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "POWER MITER SABER"
+  }, {
+    "type" : "list",
+    "id" : 233,
+    "level" : "6",
+    "page number" : 8,
+    "bounding box" : [ 162.02, 101.449, 559.521, 262.117 ],
+    "numbering style" : "english letters",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 162.02, 239.469, 559.521, 262.117 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Radial arm saw is used for crosscutting wood and consists of a motor-driven saw blade that is hung on an arm over a table.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 162.02, 204.909, 559.215, 227.557 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Table saw is used for cutting large sheets of wood and wood composites and consists of a blade mounted on an electric motor beneath a table-like surface.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 162.02, 170.469, 559.152, 193.117 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(c) Portable circular saw is used for cutting materials that are difficult to cut with stationary tools.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 162.02, 135.889, 559.073, 158.537 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(d) Power miter saw is a circular saw mounted over a small table used to cut various angles in wood.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 8,
+      "bounding box" : [ 162.02, 101.449, 559.01, 124.097 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(e) Saber saw is used to cut curves or holes in floors and roofs for pipes and has a small knife-shaped blade that moves up and down.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 243,
+    "page number" : 8,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 42,
+      "page number" : 8,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 8"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 244,
+    "page number" : 9,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 60,
+      "page number" : 9,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 246,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 162.02, 771.289, 294.891, 782.417 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Type of power hammers are:"
+  }, {
+    "type" : "image",
+    "id" : 259,
+    "page number" : 9,
+    "bounding box" : [ 165.05, 578.08, 292.5, 758.03 ],
+    "source" : "Building Technology Handout 1_images/imageFile45.png"
+  }, {
+    "type" : "image",
+    "id" : 260,
+    "page number" : 9,
+    "bounding box" : [ 306.75, 622.58, 491.8, 758.03 ],
+    "source" : "Building Technology Handout 1_images/imageFile46.png"
+  }, {
+    "type" : "text block",
+    "id" : 258,
+    "page number" : 9,
+    "bounding box" : [ 353.525, 606.305, 445.025, 624.305 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 2,
+      "page number" : 9,
+      "bounding box" : [ 363.79, 610.606, 435.081, 619.588 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "ROTARY HAMMER"
+    } ]
+  }, {
+    "type" : "text block",
+    "id" : 257,
+    "page number" : 9,
+    "bounding box" : [ 162.375, 562.055, 295.125, 580.055 ],
+    "kids" : [ {
+      "type" : "paragraph",
+      "id" : 1,
+      "page number" : 9,
+      "bounding box" : [ 176.18, 566.326, 281.641, 575.308 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "PNEUMATIC/JACKHAMMER"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 248,
+    "level" : "6",
+    "page number" : 9,
+    "bounding box" : [ 162.02, 527.279, 559.053, 561.327 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 162.02, 550.199, 545.647, 561.327 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Pneumatic hammer or jackhammer is used to break up concrete or asphalt paving.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 162.02, 527.279, 559.053, 549.807 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Rotary hammer is like an electric drill that operates with both rotating and reciprocating actions and is used to drill holes in concrete.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 250,
+    "level" : "Subtitle",
+    "page number" : 9,
+    "bounding box" : [ 162.02, 504.239, 402.617, 515.367 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Type of power nailers and staplers are the following:"
+  }, {
+    "type" : "image",
+    "id" : 263,
+    "page number" : 9,
+    "bounding box" : [ 281.9, 412.93, 371.6, 502.68 ],
+    "source" : "Building Technology Handout 1_images/imageFile47.png"
+  }, {
+    "type" : "image",
+    "id" : 261,
+    "page number" : 9,
+    "bounding box" : [ 377.4, 412.93, 499.75, 495.13 ],
+    "source" : "Building Technology Handout 1_images/imageFile48.png"
+  }, {
+    "type" : "image",
+    "id" : 262,
+    "page number" : 9,
+    "bounding box" : [ 162.0, 412.93, 275.7, 494.93 ],
+    "source" : "Building Technology Handout 1_images/imageFile49.png"
+  }, {
+    "type" : "caption",
+    "id" : 264,
+    "page number" : 9,
+    "bounding box" : [ 179.06, 401.666, 458.14, 410.648 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "NAILERS/NAIL GUN STUD DRIVER STAPLER"
+  }, {
+    "type" : "list",
+    "id" : 252,
+    "level" : "6",
+    "page number" : 9,
+    "bounding box" : [ 162.02, 328.299, 559.284, 396.907 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 162.02, 374.259, 559.054, 396.907 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Nailers or nail guns fasten materials together by shooting nails into the building material.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 162.02, 351.339, 559.08, 373.867 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Powder-actuated stud driver is a kind of nailer that is powered by gunpowder and is used to drive long pins into wood, steel or concrete.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 162.02, 328.299, 559.284, 350.947 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(c) Staplers are like nailers but are loaded with u-shaped staples instead of nails for fastening.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 254,
+    "level" : "5",
+    "page number" : 9,
+    "bounding box" : [ 144.02, 293.709, 556.851, 316.357 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 227,
+    "next list id" : 298,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 144.02, 293.709, 556.851, 316.357 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. CONSTRUCTION EQUIPMENT is a term that refers to large, complex tools and machines that is designed to do a particular job.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 255,
+    "page number" : 9,
+    "bounding box" : [ 144.02, 270.789, 440.472, 281.917 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Conveyor is an equipment which moves materials other than fluids."
+  }, {
+    "type" : "image",
+    "id" : 265,
+    "page number" : 9,
+    "bounding box" : [ 165.0, 82.63, 422.05, 267.23 ],
+    "source" : "Building Technology Handout 1_images/imageFile50.png"
+  }, {
+    "type" : "footer",
+    "id" : 266,
+    "page number" : 9,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 43,
+      "page number" : 9,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 9"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 267,
+    "page number" : 10,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 61,
+      "page number" : 10,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 269,
+    "level" : "Subtitle",
+    "page number" : 10,
+    "bounding box" : [ 144.02, 771.289, 288.539, 782.417 ],
+    "heading level" : 4,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Types of surveying equipment:"
+  }, {
+    "type" : "image",
+    "id" : 282,
+    "page number" : 10,
+    "bounding box" : [ 368.35, 643.28, 468.35, 759.63 ],
+    "source" : "Building Technology Handout 1_images/imageFile51.png"
+  }, {
+    "type" : "image",
+    "id" : 280,
+    "page number" : 10,
+    "bounding box" : [ 147.95, 643.28, 219.65, 758.83 ],
+    "source" : "Building Technology Handout 1_images/imageFile52.png"
+  }, {
+    "type" : "image",
+    "id" : 281,
+    "page number" : 10,
+    "bounding box" : [ 232.55, 643.28, 357.3, 739.68 ],
+    "source" : "Building Technology Handout 1_images/imageFile53.png"
+  }, {
+    "type" : "caption",
+    "id" : 283,
+    "page number" : 10,
+    "bounding box" : [ 165.5, 631.996, 465.805, 640.978 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "TRANSIT SURVEYOR’S LEVEL CONSTRUCTION LASER"
+  }, {
+    "type" : "list",
+    "id" : 271,
+    "level" : "6",
+    "page number" : 10,
+    "bounding box" : [ 144.02, 569.399, 559.193, 626.487 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 144.02, 603.839, 559.193, 626.487 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Transit is an equipment used by surveyors to measure horizontal and vertical angles to obtain land elevation.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 144.02, 592.319, 544.14, 603.447 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Surveyor’s level is that which to determine an unidentified elevation from a known one.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 144.02, 569.399, 559.175, 591.927 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(c) Construction laser is flashes a narrow, accurate beam of light to make a baseline for additional measurements and is used as a level or as an alignment tool.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 273,
+    "page number" : 10,
+    "bounding box" : [ 144.02, 546.359, 237.911, 557.487 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Types of pumps are:"
+  }, {
+    "type" : "image",
+    "id" : 284,
+    "page number" : 10,
+    "bounding box" : [ 144.8, 364.78, 266.5, 545.38 ],
+    "source" : "Building Technology Handout 1_images/imageFile54.png"
+  }, {
+    "type" : "image",
+    "id" : 285,
+    "page number" : 10,
+    "bounding box" : [ 273.25, 419.53, 470.55, 544.78 ],
+    "source" : "Building Technology Handout 1_images/imageFile55.png"
+  }, {
+    "type" : "caption",
+    "id" : 286,
+    "page number" : 10,
+    "bounding box" : [ 336.79, 407.186, 407.052, 416.168 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "CONCRETE PUMP"
+  }, {
+    "type" : "paragraph",
+    "id" : 287,
+    "page number" : 10,
+    "bounding box" : [ 272.57, 369.146, 326.84, 378.128 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "WATER PUMP"
+  }, {
+    "type" : "list",
+    "id" : 275,
+    "level" : "6",
+    "page number" : 10,
+    "bounding box" : [ 144.02, 295.629, 558.912, 364.267 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 144.02, 341.619, 558.912, 364.267 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Water pump is used to pump water out of holes in the ground so that construction work can commence.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 144.02, 295.629, 546.332, 329.827 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Concrete pump is used to move concrete from the concrete mixer to the concrete form. Types of welding machines are the following:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 288,
+    "page number" : 10,
+    "bounding box" : [ 144.2, 116.18, 267.25, 295.68 ],
+    "source" : "Building Technology Handout 1_images/imageFile56.png"
+  }, {
+    "type" : "image",
+    "id" : 289,
+    "page number" : 10,
+    "bounding box" : [ 276.35, 180.38, 461.2, 295.68 ],
+    "source" : "Building Technology Handout 1_images/imageFile57.png"
+  }, {
+    "type" : "caption",
+    "id" : 290,
+    "page number" : 10,
+    "bounding box" : [ 320.11, 155.976, 417.547, 174.218 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "WELD MADE BY A LASER POWERED LASER"
+  }, {
+    "type" : "paragraph",
+    "id" : 291,
+    "page number" : 10,
+    "bounding box" : [ 268.85, 120.456, 364.389, 129.438 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "ARC WELDING MACHINE"
+  }, {
+    "type" : "list",
+    "id" : 278,
+    "level" : "6",
+    "page number" : 10,
+    "bounding box" : [ 144.02, 93.169, 542.49, 115.817 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 144.02, 104.689, 510.811, 115.817 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Arc welding machine is used to weld materials by melting portions of the metal.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 10,
+      "bounding box" : [ 144.02, 93.169, 542.49, 104.297 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Laser-powered welder is used to weld material by employing a laser to heat the metal.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 292,
+    "page number" : 10,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 44,
+      "page number" : 10,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 10"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 293,
+    "page number" : 11,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 62,
+      "page number" : 11,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 295,
+    "page number" : 11,
+    "bounding box" : [ 412.05, 663.13, 559.25, 791.68 ],
+    "source" : "Building Technology Handout 1_images/imageFile58.png"
+  }, {
+    "type" : "list",
+    "id" : 298,
+    "level" : "5",
+    "page number" : 11,
+    "bounding box" : [ 144.02, 734.429, 402.154, 780.017 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 254,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 144.02, 734.429, 402.154, 780.017 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. HEAVY EQUIPMENT is equipment which is very large and very powerful. Bulldozer is a tractor with a pushing blade which moves earth and clears land of bushes and trees.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 300,
+    "page number" : 11,
+    "bounding box" : [ 144.02, 683.789, 402.105, 706.437 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Cranes are machines that lift large and heavy materials. The types of cranes are:"
+  }, {
+    "type" : "paragraph",
+    "id" : 302,
+    "page number" : 11,
+    "bounding box" : [ 144.02, 637.829, 432.421, 683.397 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "640-foot crane (a) Crawler crane is a crane mounted on metal treads so that it can move over rough terrain."
+  }, {
+    "type" : "image",
+    "id" : 312,
+    "page number" : 11,
+    "bounding box" : [ 441.7, 472.23, 558.65, 656.08 ],
+    "source" : "Building Technology Handout 1_images/imageFile59.png"
+  }, {
+    "type" : "image",
+    "id" : 297,
+    "page number" : 11,
+    "bounding box" : [ 168.0, 461.38, 410.25, 630.13 ],
+    "source" : "Building Technology Handout 1_images/imageFile60.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 304,
+    "page number" : 11,
+    "bounding box" : [ 144.02, 419.259, 536.206, 453.427 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "(b) Truck crane is mounted on a truck frame so that it can be driven in the site. Tower crane or climbing crane is used in the construction of tall building because it has a built-in jack that raises the crane from floor to floor as the building is constructed."
+  }, {
+    "type" : "image",
+    "id" : 296,
+    "page number" : 11,
+    "bounding box" : [ 364.85, 305.98, 557.2, 416.53 ],
+    "source" : "Building Technology Handout 1_images/imageFile61.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 308,
+    "page number" : 11,
+    "bounding box" : [ 144.02, 373.299, 353.389, 407.467 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Excavator is a machine used for digging or scooping earth from a place and depositing it in another. Types of excavators are:"
+  }, {
+    "type" : "list",
+    "id" : 310,
+    "level" : "6",
+    "page number" : 11,
+    "bounding box" : [ 144.02, 251.349, 355.306, 361.387 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "next list id" : 318,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 144.02, 327.339, 354.737, 361.387 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(a) Backhoe is used for general digging which is usually mounted on either a crawler or truck frame.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 11,
+      "bounding box" : [ 144.02, 251.349, 355.306, 285.517 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(b) Trencher is a special kind which digs trenches or long, narrow ditches for pipelines or cables.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 313,
+    "page number" : 11,
+    "bounding box" : [ 364.7, 168.78, 555.65, 300.43 ],
+    "source" : "Building Technology Handout 1_images/imageFile62.png"
+  }, {
+    "type" : "footer",
+    "id" : 314,
+    "page number" : 11,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 45,
+      "page number" : 11,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 11"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 315,
+    "page number" : 12,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 63,
+      "page number" : 12,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 318,
+    "level" : "6",
+    "page number" : 12,
+    "bounding box" : [ 144.02, 745.949, 359.741, 780.017 ],
+    "numbering style" : "english letters",
+    "number of list items" : 1,
+    "previous list id" : 310,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 144.02, 745.949, 359.741, 780.017 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "(c) Front-end loader is a large shoveling machine that can scoop or deposit a large amount of material.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 334,
+    "page number" : 12,
+    "bounding box" : [ 368.9, 668.98, 559.9, 780.18 ],
+    "source" : "Building Technology Handout 1_images/imageFile63.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 320,
+    "page number" : 12,
+    "bounding box" : [ 144.02, 651.629, 308.28, 662.757 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Highway construction equipment are:"
+  }, {
+    "type" : "paragraph",
+    "id" : 321,
+    "page number" : 12,
+    "bounding box" : [ 144.02, 594.119, 313.381, 628.197 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Scraper is a machine that loads, hauls and dumps soil over medium to long distances."
+  }, {
+    "type" : "image",
+    "id" : 317,
+    "page number" : 12,
+    "bounding box" : [ 337.05, 561.83, 559.25, 656.98 ],
+    "source" : "Building Technology Handout 1_images/imageFile64.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 323,
+    "page number" : 12,
+    "bounding box" : [ 144.02, 502.079, 352.2, 524.727 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Grader is an earthworking machine that grades or levels the ground."
+  }, {
+    "type" : "image",
+    "id" : 335,
+    "page number" : 12,
+    "bounding box" : [ 363.25, 432.18, 559.35, 547.98 ],
+    "source" : "Building Technology Handout 1_images/imageFile65.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 325,
+    "page number" : 12,
+    "bounding box" : [ 144.02, 391.659, 538.252, 425.827 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Compactor or roller is a machine that compacts soil to prepare for road paving. Paver is a machine that places, spreads and finishes concrete or asphalt paving material."
+  }, {
+    "type" : "list",
+    "id" : 329,
+    "level" : "4",
+    "page number" : 12,
+    "bounding box" : [ 90.024, 353.019, 291.631, 379.764 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 169,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 90.024, 353.019, 291.631, 379.764 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "1.5. FOUNDATION BED The word “foundation” is applied to:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 330,
+    "level" : "1",
+    "page number" : 12,
+    "bounding box" : [ 135.02, 286.509, 558.894, 349.627 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 135.02, 326.979, 558.894, 349.627 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1.Construction below grade, such as footing courses, basement walls, etc., forming the lower section of a structure;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 135.02, 312.579, 554.88, 323.707 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2.The natural material, the particular part of the earth’s surface on which the construction rests;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 135.02, 286.509, 558.824, 309.157 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3.Special construction such as piling or piers used to transmit the loads of the building to firm substrata.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 331,
+    "page number" : 12,
+    "bounding box" : [ 135.02, 237.549, 559.007, 283.117 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Foundation bed is the natural material on which the construction rests. Walls, piers and columns below grade are called, in general, foundation walls, piers and columns to distinguish them from similar construction above grade. The lower portions of walls, piers or columns which are spread to provide a safe base are called footing courses."
+  }, {
+    "type" : "list",
+    "id" : 332,
+    "level" : "4",
+    "page number" : 12,
+    "bounding box" : [ 117.02, 192.909, 338.224, 219.654 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 117.02, 192.909, 338.224, 219.654 ],
+      "font" : "ArialMT",
+      "font size" : 11.04,
+      "text color" : "[0.0]",
+      "content" : "1.5.1. TYPES OF FOUNDATION BEDS Foundation beds may be classified as follows:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 333,
+    "level" : "1",
+    "page number" : 12,
+    "bounding box" : [ 135.02, 80.329, 559.139, 189.517 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "next list id" : 339,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 135.02, 132.289, 559.139, 189.517 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. Rock (solid rock, bedrock or ledge). Undisturbed rock masses forming an undisturbed part of the original rock-formation. Some examples of harder rocks are granite, slate, sandstone, and limestone which are all capable of carrying the load of any ordinary structure. Examples of softer rocks are shale, shaley slates and certain marley limestone and clay stones.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 135.02, 94.849, 558.93, 129.017 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. Decayed rock (rotten rock). Sand, clays and other materials resulting from the disintegration of rock masses, lacking the coherent qualities but occupying the space formerly occupied by the original rock.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 135.02, 80.329, 548.95, 91.457 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. Loose rock. Rock masses detached from the ledge of which they originally formed a part.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 336,
+    "page number" : 12,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 46,
+      "page number" : 12,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 12"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 337,
+    "page number" : 13,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 64,
+      "page number" : 13,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 339,
+    "level" : "1",
+    "page number" : 13,
+    "bounding box" : [ 135.02, 534.119, 559.221, 793.817 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 11,
+    "previous list id" : 333,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 135.02, 771.169, 559.221, 793.817 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. Gravel. Detached rock particles, generally water-worn, rounded and intermediate in size between sand particles and boulders.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 135.02, 733.709, 559.019, 767.877 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5. Boulders. Detached rock masses larger than gravel, generally rounded and worn as a result of having been transported by water a considerable distance from the ledges of which they originally formed a part.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 135.02, 719.189, 486.206, 730.317 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "6. Sand. Non-coherent rock particles smaller than ¼” in maximum dimension.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 135.02, 681.749, 559.089, 715.797 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "7. Clay. A plastic material resulting from the decomposition and hydration of feldspathic rocks, being hydrated silicate of alumina, generally mixed with powdered feldspar, quartz and other materials.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 135.02, 655.709, 559.119, 678.357 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "8. Hard-pan. Any strong coherent mixture of clay or other cementing material with sand, gravel and boulders.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 135.02, 641.189, 446.213, 652.317 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "9. Silt. A finely divided earthy material deposited from running water.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 135.02, 615.119, 559.079, 637.797 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "10. Mud. Finely divided earthy material generally containing vegetable matter and deposited from still or slowly moving water.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 135.02, 600.719, 520.654, 611.847 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "11. Mould. Earthy material containing a large proportion of humus or vegetable matter.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 135.02, 586.199, 448.942, 597.327 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "12. Loam. Earthy material containing a proportion of vegetable matter.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 135.02, 571.679, 426.661, 582.807 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "13. Peat. Compressed and partially carbonized vegetable matter.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 135.02, 534.119, 558.95, 568.287 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "14. Filled Ground. All artificial fills and some natural fills are liable to a more or less uniform but continuous settlement or shrinkage due to the gradual consolidation of the material of which the fill is composed.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 340,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 117.02, 504.01, 394.266, 516.344 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "1.5.2. ALLOWABLE LOADS ON FOUNDATION BEDS"
+  }, {
+    "type" : "paragraph",
+    "id" : 341,
+    "page number" : 13,
+    "bounding box" : [ 135.02, 420.459, 559.047, 500.727 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Because there are variations in the materials and conditions affecting such materials, thorough investigation is required before one can determine the allowable unit load on the foundation bed. In cases wherein the material and conditions are uniform over the entire site of the building, a uniform unit load may be used. In cases wherein entirely different conditions exist under different portions of the same building, the unit load on the foundation bed must be reduced as much as possible so as to reduce the differences in settlements between the two sections of the building to a minimum."
+  }, {
+    "type" : "heading",
+    "id" : 342,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 90.024, 390.35, 224.78, 402.684 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "1.6. SITE INVESTIGATION"
+  }, {
+    "type" : "paragraph",
+    "id" : 343,
+    "page number" : 13,
+    "bounding box" : [ 135.02, 352.899, 559.037, 387.067 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Before any design is made, the architect is required to get as much valuable data about site excavation and building erection at the project location in order to be able to determine the character of the materials which will be encountered at the level of a foundation bed."
+  }, {
+    "type" : "heading",
+    "id" : 344,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 117.02, 322.67, 309.015, 335.004 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "1.6.1. METHODS OF EXPLORATION"
+  }, {
+    "type" : "list",
+    "id" : 345,
+    "level" : "1",
+    "page number" : 13,
+    "bounding box" : [ 126.02, 270.669, 559.029, 319.357 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 126.02, 296.709, 559.029, 319.357 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. Test pits. For shallow work, an open pit is the most suitable method since it calls for an actual inspection of the undisturbed material over a considerable area.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 13,
+      "bounding box" : [ 126.02, 270.669, 558.9, 293.317 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. Test borings. For excavations that are carried no deeper than the proposed level, the underlying material may be investigated by test boring.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 346,
+    "page number" : 13,
+    "bounding box" : [ 144.7, 127.13, 300.2, 267.08 ],
+    "source" : "Building Technology Handout 1_images/imageFile66.png"
+  }, {
+    "type" : "image",
+    "id" : 348,
+    "page number" : 13,
+    "bounding box" : [ 309.3, 127.23, 495.7, 267.08 ],
+    "source" : "Building Technology Handout 1_images/imageFile67.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 347,
+    "page number" : 13,
+    "bounding box" : [ 193.61, 115.056, 418.208, 124.158 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "SOIL BORING RIG SPT SAMPLE"
+  }, {
+    "type" : "footer",
+    "id" : 349,
+    "page number" : 13,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 47,
+      "page number" : 13,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 13"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 350,
+    "page number" : 14,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 65,
+      "page number" : 14,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 355,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 117.02, 769.98, 242.323, 782.314 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "1.6.2. LOADING TESTS"
+  }, {
+    "type" : "paragraph",
+    "id" : 356,
+    "page number" : 14,
+    "bounding box" : [ 135.02, 735.509, 558.938, 758.157 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Loading tests of the materials forming the foundation bed are made to assist in determining its safe bearing capacity."
+  }, {
+    "type" : "heading",
+    "id" : 357,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 90.024, 688.469, 305.979, 723.734 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "1.7. EXCAVATION AND EARTHWORKINGThese processes entail the following:"
+  }, {
+    "type" : "image",
+    "id" : 352,
+    "page number" : 14,
+    "bounding box" : [ 426.2, 592.43, 559.9, 694.63 ],
+    "source" : "Building Technology Handout 1_images/imageFile68.png"
+  }, {
+    "type" : "list",
+    "id" : 358,
+    "level" : "1",
+    "page number" : 14,
+    "bounding box" : [ 126.02, 247.389, 559.36, 653.517 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 126.02, 630.869, 416.038, 653.517 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. Excavating is the process of digging the earth to provide a place for the foundation of the building.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 126.02, 534.959, 405.908, 569.007 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. Leveling and Grading are processes that change land elevation and slope by filling in low spots and shaving off high spots.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 126.02, 465.959, 528.854, 477.087 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. Stabilizing the Soil is the process of compacting the soil on which the structure will rest.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 126.02, 408.459, 432.242, 442.507 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. The protection of adjoining structure is a law that provides that any person making an excavation is responsible for resulting damage to adjoining property.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 14,
+      "bounding box" : [ 126.02, 247.389, 559.36, 385.027 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5. Shoring is a process of transferring a portion of the load of the wall to temporary footings and done when the excavation does not go much below the adjoining footings and when the material is fairly solid. It consists of either 1) sheet piles, which are timber, steel, or pre-cast planks driven side by side to retain earth and prevent water from seeping into the exaction and 2) wales or continuous horizontal beams which tie the sheet piles in place or 3) soldier piles, which are steel H-sections driven vertically into the ground to support 4) lagging or heavy timber planks joined together horizontally to retain the face of an excavation. Crossbracing or rakers are diagonals which support the wales and soldier piles bearing on heel blocks or footings. Tiebacks secured to rock or soil anchors are resorted to when crossbracing or rakers would interfere with the excavation procedure.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 353,
+    "page number" : 14,
+    "bounding box" : [ 415.95, 487.53, 559.3, 585.88 ],
+    "source" : "Building Technology Handout 1_images/imageFile69.png"
+  }, {
+    "type" : "image",
+    "id" : 354,
+    "page number" : 14,
+    "bounding box" : [ 442.3, 308.38, 558.0, 460.73 ],
+    "source" : "Building Technology Handout 1_images/imageFile70.png"
+  }, {
+    "type" : "image",
+    "id" : 359,
+    "page number" : 14,
+    "bounding box" : [ 181.75, 76.33, 392.3, 234.28 ],
+    "source" : "Building Technology Handout 1_images/imageFile71.png"
+  }, {
+    "type" : "image",
+    "id" : 360,
+    "page number" : 14,
+    "bounding box" : [ 411.55, 78.38, 513.4, 234.28 ],
+    "source" : "Building Technology Handout 1_images/imageFile72.png"
+  }, {
+    "type" : "footer",
+    "id" : 361,
+    "page number" : 14,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 48,
+      "page number" : 14,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 14"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 362,
+    "page number" : 15,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 66,
+      "page number" : 15,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 364,
+    "page number" : 15,
+    "bounding box" : [ 156.0, 641.98, 475.45, 782.63 ],
+    "source" : "Building Technology Handout 1_images/imageFile73.png"
+  }, {
+    "type" : "image",
+    "id" : 365,
+    "page number" : 15,
+    "bounding box" : [ 158.15, 497.18, 473.3, 630.48 ],
+    "source" : "Building Technology Handout 1_images/imageFile74.png"
+  }, {
+    "type" : "heading",
+    "id" : 366,
+    "level" : "Subtitle",
+    "page number" : 15,
+    "bounding box" : [ 126.02, 451.059, 559.063, 485.247 ],
+    "heading level" : 5,
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "6. Needling and underpinning is a process where needles or girders are used in cases wherepart or all of the weight of the wall has to be carried, as when the old footing is removed andthe wall underpinned or carried down to a new footing at a greater depth."
+  }, {
+    "type" : "image",
+    "id" : 367,
+    "page number" : 15,
+    "bounding box" : [ 156.35, 262.93, 528.95, 451.08 ],
+    "source" : "Building Technology Handout 1_images/imageFile75.png"
+  }, {
+    "type" : "heading",
+    "id" : 368,
+    "level" : "Subtitle",
+    "page number" : 15,
+    "bounding box" : [ 126.02, 228.429, 559.526, 262.597 ],
+    "heading level" : 5,
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "7. Dewatering refers to the process of lowering a water table or preventing an excavation fromfilling with ground water. It is accomplished by driving perforated tubes called well-points intothe ground to collect water from the surrounding area so it can be pumped away."
+  }, {
+    "type" : "image",
+    "id" : 369,
+    "page number" : 15,
+    "bounding box" : [ 222.25, 94.78, 463.2, 228.48 ],
+    "source" : "Building Technology Handout 1_images/imageFile76.png"
+  }, {
+    "type" : "footer",
+    "id" : 370,
+    "page number" : 15,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 49,
+      "page number" : 15,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 15"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 371,
+    "page number" : 16,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 67,
+      "page number" : 16,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 377,
+    "level" : "Subtitle",
+    "page number" : 16,
+    "bounding box" : [ 90.024, 769.98, 388.503, 782.314 ],
+    "heading level" : 3,
+    "font" : "Arial-BoldMT",
+    "font size" : 11.04,
+    "text color" : "[0.0]",
+    "content" : "1.8. SLOPE PROTECTION and RETAINING STRUCTURES"
+  }, {
+    "type" : "paragraph",
+    "id" : 378,
+    "page number" : 16,
+    "bounding box" : [ 135.02, 735.509, 532.026, 758.157 ],
+    "font" : "ArialMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "Ground slopes over 25% are subject to erosion and may be difficult to build on. In order to protect the soil from eroding, the following slope protection systems may be done:"
+  }, {
+    "type" : "image",
+    "id" : 373,
+    "page number" : 16,
+    "bounding box" : [ 410.8, 647.33, 557.4, 731.73 ],
+    "source" : "Building Technology Handout 1_images/imageFile77.png"
+  }, {
+    "type" : "list",
+    "id" : 379,
+    "level" : "1",
+    "page number" : 16,
+    "bounding box" : [ 135.02, 85.609, 549.204, 723.717 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 7,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 135.02, 678.029, 401.203, 723.717 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "1. The need for stabilizing a sloping ground can be reduced by diverting the runoff at the top of the slope or by creating a series of terraces to reduce the velocity of the runoff.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 135.02, 589.559, 367.339, 635.157 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "2. Natural means of stabilization include soil binders --- plant materials that inhibit or prevent erosion by providing a ground cover and forming a dense network of roots that bind the soil.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 135.02, 487.439, 250.638, 544.527 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "3. Riprap is a layer of irregularly broken and random-sized stones placed on the slope of an embankment.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 135.02, 383.979, 321.732, 429.547 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "4. Cribbing is a cellular framework of squared steel, concrete, or timber members, assembled in layers at right angles, and filled with earth or stones.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 135.02, 307.989, 521.249, 342.187 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "5. A Bin Wall is a type of gravity retaining wall formed by stacking modular, interlocking pre-cast concrete units and filling the voids with crushed stone or gravel.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 135.02, 273.549, 549.204, 296.077 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "6. Gabions are galvanized or PVC coated wire baskets filled with stones and stacked to form an abutment or retaining structure.",
+      "kids" : [ {
+        "type" : "image",
+        "id" : 70,
+        "page number" : 16,
+        "bounding box" : [ 142.45, 131.63, 451.9, 262.08 ],
+        "source" : "Building Technology Handout 1_images/imageFile78.png"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 16,
+      "bounding box" : [ 135.02, 85.609, 459.237, 131.177 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "7. Retaining Structures. When a desired change in ground elevation exceeds the angle of repose of the soil, a retaining wall becomes necessary to hold the mass of earth on the uphill side of the grade change. The types of RC retaining walls are as follows:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 374,
+    "page number" : 16,
+    "bounding box" : [ 381.9, 572.58, 559.95, 645.93 ],
+    "source" : "Building Technology Handout 1_images/imageFile79.png"
+  }, {
+    "type" : "image",
+    "id" : 380,
+    "page number" : 16,
+    "bounding box" : [ 273.2, 458.43, 558.0, 563.43 ],
+    "source" : "Building Technology Handout 1_images/imageFile80.png"
+  }, {
+    "type" : "image",
+    "id" : 376,
+    "page number" : 16,
+    "bounding box" : [ 342.65, 324.68, 553.5, 457.13 ],
+    "source" : "Building Technology Handout 1_images/imageFile81.png"
+  }, {
+    "type" : "image",
+    "id" : 375,
+    "page number" : 16,
+    "bounding box" : [ 469.25, 86.48, 559.9, 186.13 ],
+    "source" : "Building Technology Handout 1_images/imageFile82.png"
+  }, {
+    "type" : "footer",
+    "id" : 381,
+    "page number" : 16,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 50,
+      "page number" : 16,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 16"
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 382,
+    "page number" : 17,
+    "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 68,
+      "page number" : 17,
+      "bounding box" : [ 254.57, 794.166, 375.893, 805.195 ],
+      "heading level" : 4,
+      "font" : "TimesNewRomanPS-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "BUILDING TECHNOLOGY"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 385,
+    "level" : "2",
+    "page number" : 17,
+    "bounding box" : [ 153.02, 353.499, 559.241, 782.417 ],
+    "numbering style" : "english letters",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 153.02, 759.749, 529.272, 782.417 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "a) Gravity Retaining Wall – resists overturning and sliding by the sheer weight and volume of its mass.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 153.02, 713.669, 559.241, 736.317 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "b) T-type Cantilevered Retaining Wall – limited to a height of 20’ (6 M); beyond this height a counterfort wall is employed.",
+      "kids" : [ {
+        "type" : "image",
+        "id" : 69,
+        "page number" : 17,
+        "bounding box" : [ 166.3, 525.98, 555.0, 713.63 ],
+        "source" : "Building Technology Handout 1_images/imageFile83.png"
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 153.02, 434.019, 381.385, 491.127 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "c) Counterfort Retaining Wall – utilizes triangular-shaped cross walls to stiffen the vertical slab and add weight to the base. The counterforts are spaced at equal intervals equal to one-half the wall height.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 17,
+      "bounding box" : [ 153.02, 353.499, 536.607, 376.147 ],
+      "font" : "ArialMT",
+      "font size" : 9.96,
+      "text color" : "[0.0]",
+      "content" : "d) L-type Cantilevered Retaining Wall – used when the wall abuts a property line or other obstruction.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 384,
+    "page number" : 17,
+    "bounding box" : [ 396.6, 391.58, 552.8, 516.28 ],
+    "source" : "Building Technology Handout 1_images/imageFile84.png"
+  }, {
+    "type" : "image",
+    "id" : 386,
+    "page number" : 17,
+    "bounding box" : [ 199.1, 201.73, 495.35, 341.98 ],
+    "source" : "Building Technology Handout 1_images/imageFile85.png"
+  }, {
+    "type" : "footer",
+    "id" : 387,
+    "page number" : 17,
+    "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 51,
+      "page number" : 17,
+      "bounding box" : [ 72.024, 53.856, 504.13, 62.838 ],
+      "heading level" : 6,
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "August-November 2004 VII - 17"
+    } ]
+  } ]
+}

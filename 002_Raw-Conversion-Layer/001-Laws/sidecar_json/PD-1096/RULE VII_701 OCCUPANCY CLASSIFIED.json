@@ -1,0 +1,516 @@
+{
+  "file name" : "RULE VII_701 OCCUPANCY CLASSIFIED.pdf",
+  "number of pages" : 3,
+  "author" : "Owner",
+  "title" : "Microsoft Word - RULE VII_CLASSIFICATION & GENERAL REQUIREMENTS_PART 1.doc",
+  "creation date" : "D:20071227125232",
+  "modification date" : "D:20071227125232",
+  "kids" : [ {
+    "type" : "paragraph",
+    "id" : 14,
+    "page number" : 1,
+    "bounding box" : [ 210.0, 716.266, 489.844, 736.069 ],
+    "font" : "Helvetica-Bold",
+    "font size" : 9.379,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "RULE VII - CLASSIFICATION AND GENERAL REQUIREMENTS OF ALL BUILDINGS BY USE OR OCCUPANCY"
+  }, {
+    "type" : "paragraph",
+    "id" : 15,
+    "page number" : 1,
+    "bounding box" : [ 144.479, 683.866, 315.439, 692.869 ],
+    "font" : "Helvetica-Bold",
+    "font size" : 9.379,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "SECTION 701. Occupancy Classified"
+  }, {
+    "type" : "paragraph",
+    "id" : 16,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 144.479, 640.315, 535.726, 671.029 ],
+    "font" : "Helvetica",
+    "font size" : 9.379,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "1. There are 10 Groups of Occupancies sub-divided into 25 Divisions. The accompanying matrix shows the Groupings and Divisions and the corresponding uses. The final column indicates the Zoning Classification."
+  }, {
+    "type" : "paragraph",
+    "id" : 17,
+    "page number" : 1,
+    "bounding box" : [ 161.4, 607.915, 535.604, 627.709 ],
+    "font" : "Helvetica",
+    "font size" : 9.379,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "a. Buildings proposed for construction shall be identified according to their use or the character of its occupancy and shall be classified as follows:"
+  }, {
+    "type" : "list",
+    "id" : 18,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 178.32, 142.195, 401.521, 595.189 ],
+    "numbering style" : "roman numbers",
+    "number of list items" : 4,
+    "next list id" : 22,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 178.32, 564.595, 353.603, 595.189 ],
+      "font" : "Helvetica",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "i. Group A – Residential Dwellings Group A Occupancies shall include:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 7,
+        "level" : "3",
+        "page number" : 1,
+        "bounding box" : [ 203.76, 326.275, 535.725, 551.869 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 203.76, 445.555, 535.681, 551.869 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Division 1- Residential building/structure for exclusive use of single family occupants including school or company staff housing; single (nuclear) family dwellings; churches or similar places of worship; church rectories; community facilities and social centers; parks, playgrounds, pocket parks, parkways, promenades and play lots; clubhouses and recreational uses such as golf courses, tennis courts, basketball courts, swimming pools and similar uses operated by the government or private individuals as membership organizations for the benefit of their members, families, and guests and not operated primarily for gain.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 1,
+          "bounding box" : [ 203.76, 326.275, 535.725, 432.829 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Division 2- Residential building for the exclusive use of non-leasing occupants not exceeding 10 persons including single-attached or duplex or townhouses, each privately-owned; school dormitories (on campus); convents and monasteries; military or police barracks/dormitories; pre-schools, elementary and high schools, provided that they do not exceed 16 classrooms; outpatient clinics, family planning clinics, lying-in clinics, diagnostics clinics, medical and clinical laboratories; branch library and museums; steam/dry cleaning outlets; party needs and accessories (leasing of tables and chairs, etc.).",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 178.32, 304.675, 401.521, 313.67 ],
+      "font" : "Helvetica",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "ii. Group B – Residentials, Hotels and Apartments",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 8,
+        "page number" : 1,
+        "bounding box" : [ 203.76, 250.555, 535.643, 292.07 ],
+        "font" : "Helvetica",
+        "font size" : 9.379,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Group B Occupancies shall be multiple dwelling units including boarding or lodging houses, hotels, apartment buildings, row houses, convents, monasteries and other similar building each of which accommodates more than 10 persons."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 178.32, 228.955, 358.125, 237.95 ],
+      "font" : "Helvetica",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "iii. Group C – Education and Recreation",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 9,
+        "page number" : 1,
+        "bounding box" : [ 203.761, 185.635, 535.606, 216.23 ],
+        "font" : "Helvetica",
+        "font size" : 9.379,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Group C Occupancies shall be buildings used for school or day-care purposes, involving assemblage for instruction, education, or recreation, and not classified in Group I or in Division 1 and 2 or Group H Occupancies."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 178.321, 142.195, 353.243, 172.91 ],
+      "font" : "Helvetica",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "iv. Group D – Institutional Group D Occupancies shall include:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 19,
+    "level" : "3",
+    "page number" : 1,
+    "bounding box" : [ 203.761, 66.475, 535.644, 129.59 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "next list id" : 21,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 203.761, 109.795, 535.605, 129.59 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Division 1 - Mental hospitals, mental sanitaria, jails, prisons, reformatories, and buildings were personal liberties of inmates are similarly restrained.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 203.761, 66.475, 535.644, 97.07 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Division 2 - Nurseries for full-time care of children under kindergarten age, hospitals, sanitaria, nursing homes with non-ambulatory patients, and similar buildings each accommodating more than five persons.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 20,
+    "page number" : 1,
+    "bounding box" : [ 525.12, 33.466, 535.604, 42.47 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 4,
+      "page number" : 1,
+      "bounding box" : [ 525.12, 33.466, 535.604, 42.47 ],
+      "heading level" : 1,
+      "font" : "Helvetica-Bold",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "41"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 21,
+    "level" : "3",
+    "page number" : 2,
+    "bounding box" : [ 203.76, 694.555, 535.642, 735.949 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 19,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 203.76, 694.555, 535.642, 735.949 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Division 3 - Nursing homes for ambulatory patients, homes for children of kindergarten age or over, each accommodating more than five persons: Provided, that Group D Occupancies shall not include buildings used only for private or family group dwelling purposes.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 22,
+    "level" : "2",
+    "page number" : 2,
+    "bounding box" : [ 178.319, 163.915, 375.322, 681.829 ],
+    "numbering style" : "roman numbers",
+    "number of list items" : 4,
+    "previous list id" : 18,
+    "next list id" : 26,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 178.319, 651.235, 352.884, 681.829 ],
+      "font" : "Helvetica",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "v. Group E - Business and Mercantile Group E Occupancies shall include:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 10,
+        "level" : "3",
+        "page number" : 2,
+        "bounding box" : [ 203.759, 488.755, 535.606, 638.629 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 3,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 203.759, 597.115, 535.56, 638.629 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Division 1- Gasoline filling and service stations, storage garages and boat storage structures where no work is done except exchange of parts and maintenance requiring no open flame, welding, or the use of highly flammable liquids.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 203.76, 532.075, 535.606, 584.389 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Division 2- Wholesale and retail stores, office buildings, drinking and dining establishments having an occupant load of less than one hundred persons, printing plants, police and fire stations, factories and workshops using not highly flammable or combustible materials and paint stores without bulk handlings.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 203.76, 488.755, 535.605, 519.349 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Division 3- Aircraft hangars and open parking garages where no repair work is done except exchange of parts and maintenance requiring no open flame, welding or the use of highly flammable liquids.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 178.32, 467.155, 284.798, 476.149 ],
+      "font" : "Helvetica",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "vi. Group F - Industrial",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 11,
+        "page number" : 2,
+        "bounding box" : [ 203.76, 413.035, 535.643, 454.549 ],
+        "font" : "Helvetica",
+        "font size" : 9.379,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Group F Occupancies shall include: ice plants, power plants, pumping plants, cold storage, and creameries, factories and workshops using incombustible and non-explosive materials, and storage and sales rooms for incombustible and non-explosive materials."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 178.32, 369.715, 358.644, 400.309 ],
+      "font" : "Helvetica",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "vii. Group G - Storage and Hazardous Groups G Occupancies shall include:",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 12,
+        "level" : "3",
+        "page number" : 2,
+        "bounding box" : [ 203.759, 207.235, 535.723, 356.989 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 5,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 203.76, 347.995, 531.443, 356.989 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Division 1- Storage and handling of hazardous and highly flammable material.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 203.76, 304.675, 535.561, 335.269 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Division 2- Storage and handling of flammable materials, dry cleaning plants using flammable liquids; paint stores with bulk handling, paint shops and spray painting rooms.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 203.76, 250.555, 535.723, 292.07 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Division 3- Wood working establishments, planning mills and box factories, shops, factories where loose combustible fibers or dust are manufactured, processed or generated; warehouses where highly combustible materials is stored.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 203.759, 228.955, 322.521, 237.95 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Division 4- Repair garages.",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 2,
+          "bounding box" : [ 203.759, 207.235, 351.201, 216.23 ],
+          "font" : "Helvetica-Oblique",
+          "font size" : 9.379,
+          "text color" : "[0.0, 0.0, 0.0]",
+          "content" : "Division 5- Aircraft repair hangars.",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 178.319, 163.915, 375.322, 194.63 ],
+      "font" : "Helvetica",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "viii. Group H - Assembly Other Than Group I Group H Occupancies shall include:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 23,
+    "level" : "3",
+    "page number" : 2,
+    "bounding box" : [ 203.759, 66.475, 535.724, 151.19 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "next list id" : 25,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 203.759, 131.515, 535.56, 151.19 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Division 1- Any assembly building with a stage and an occupant load of less than 1000 in the building.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 203.759, 98.995, 535.724, 118.79 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Division 2- Any assembly building without stage and having an occupant load of 300 or more in the building.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 203.759, 66.475, 535.642, 86.27 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Division 3- Any assembly building without a stage and having an occupant load of less than 300 in the building.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 24,
+    "page number" : 2,
+    "bounding box" : [ 525.12, 33.466, 535.604, 42.47 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 5,
+      "page number" : 2,
+      "bounding box" : [ 525.12, 33.466, 535.604, 42.47 ],
+      "heading level" : 1,
+      "font" : "Helvetica-Bold",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "42"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 25,
+    "level" : "3",
+    "page number" : 3,
+    "bounding box" : [ 203.76, 716.155, 535.604, 735.949 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 1,
+    "previous list id" : 23,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 203.76, 716.155, 535.604, 735.949 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Division 4- Stadia, reviewing stands, amusement park structures not included within Group I or in Division 1, 2, and 3 of this Group.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 26,
+    "level" : "2",
+    "page number" : 3,
+    "bounding box" : [ 178.319, 618.715, 411.525, 703.549 ],
+    "numbering style" : "roman numbers",
+    "number of list items" : 2,
+    "previous list id" : 22,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 178.319, 694.555, 411.525, 703.549 ],
+      "font" : "Helvetica",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "ix. Group I – Assembly Occupant Load 1000 or More",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 13,
+        "page number" : 3,
+        "bounding box" : [ 203.76, 662.035, 535.724, 681.829 ],
+        "font" : "Helvetica",
+        "font size" : 9.379,
+        "text color" : "[0.0, 0.0, 0.0]",
+        "content" : "Group I Occupancies shall be any assembly building with a stage and an occupant load of 1000 or more in the building."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 178.32, 618.715, 351.204, 649.309 ],
+      "font" : "Helvetica",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "x. Group J - Accessory Group J Occupancies shall include:",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 27,
+    "level" : "3",
+    "page number" : 3,
+    "bounding box" : [ 203.76, 521.275, 525.202, 606.109 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 203.76, 597.115, 348.204, 606.109 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Division 1- Agricultural structures.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 203.76, 564.595, 516.803, 584.389 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Division 2- Private garages, carports, fences over 1.80 meters high, tanks, swimming pools and towers.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 3,
+      "bounding box" : [ 203.88, 521.275, 525.202, 551.869 ],
+      "font" : "Helvetica-Oblique",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "Division 3- Stages, platforms, pelota, tennis, badminton or basketball courts, tombs, mausoleums, niches, aviaries, aquariums, zoo structures, banks and record vaults",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 28,
+    "page number" : 3,
+    "bounding box" : [ 203.76, 477.955, 535.605, 519.349 ],
+    "font" : "Helvetica",
+    "font size" : 9.379,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "Other subgroupings or divisions within Groups A to J may be determined by the Secretary. Any other occupancy not mentioned specifically in this Section, or about which there is any question, shall be included in the Group which it most nearly resembles based on the existing or proposed life and fire hazard."
+  }, {
+    "type" : "footer",
+    "id" : 29,
+    "page number" : 3,
+    "bounding box" : [ 525.12, 33.466, 535.604, 42.47 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 6,
+      "page number" : 3,
+      "bounding box" : [ 525.12, 33.466, 535.604, 42.47 ],
+      "heading level" : 1,
+      "font" : "Helvetica-Bold",
+      "font size" : 9.379,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "43"
+    } ]
+  } ]
+}

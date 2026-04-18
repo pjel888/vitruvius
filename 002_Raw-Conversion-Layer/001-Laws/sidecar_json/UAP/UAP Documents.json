@@ -1,0 +1,527 @@
+{
+  "file name" : "UAP Documents.pdf",
+  "number of pages" : 1,
+  "author" : "Marianne Ponce",
+  "title" : "A",
+  "creation date" : "D:20260413100537+08'00'",
+  "modification date" : "D:20260413100537+08'00'",
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 1,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 108.02, 706.157, 214.028, 719.563 ],
+    "heading level" : 1,
+    "font" : "Arial-BoldMT",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "UAP DOCUMENTS"
+  }, {
+    "type" : "paragraph",
+    "id" : 3,
+    "page number" : 1,
+    "bounding box" : [ 108.02, 648.436, 296.461, 694.258 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "5 days - immediately 7 days - from receipt of NOTICE TO PROCEED 10 days -notice to stop, resume before beginning or"
+  }, {
+    "type" : "paragraph",
+    "id" : 4,
+    "page number" : 1,
+    "bounding box" : [ 144.02, 639.316, 222.346, 648.298 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "suspending, resuming"
+  }, {
+    "type" : "paragraph",
+    "id" : 5,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 108.02, 611.716, 302.84, 639.058 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "- request on drwn & matrls from date needed 15 days - request for payment by contractor"
+  }, {
+    "type" : "list",
+    "id" : 6,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 144.02, 547.246, 297.801, 611.458 ],
+    "numbering style" : "unordered",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 144.02, 602.476, 204.979, 611.458 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- change of order",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 144.02, 593.236, 281.351, 602.218 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- certificate of payment by the architect",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 144.02, 574.846, 275.522, 593.098 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- for owner to pay the contractor from issuance of certificate of payment",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 144.02, 565.606, 297.801, 574.588 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- reqst of extension frm occurrence of delay",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 144.02, 556.486, 290.331, 565.468 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- notice of termination upon written notice",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 144.02, 547.246, 245.846, 556.228 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "- contract sum & breakdown",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 7,
+    "page number" : 1,
+    "bounding box" : [ 108.02, 528.886, 184.597, 537.868 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "30 days - arbitration"
+  }, {
+    "type" : "paragraph",
+    "id" : 8,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 144.02, 519.646, 232.443, 528.628 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "- certificate of occupancy"
+  }, {
+    "type" : "paragraph",
+    "id" : 9,
+    "page number" : 1,
+    "bounding box" : [ 108.02, 482.806, 300.535, 510.268 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "60 days - to make good of known defects after issuance of certificate of completion (expiration of performance & payment bond)"
+  }, {
+    "type" : "paragraph",
+    "id" : 10,
+    "page number" : 1,
+    "bounding box" : [ 108.02, 464.446, 274.67, 473.428 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "90 days - work stoppage ordered by the court"
+  }, {
+    "type" : "paragraph",
+    "id" : 11,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 144.02, 446.086, 288.096, 464.188 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "- retention (3 months after acceptance of work)"
+  }, {
+    "type" : "paragraph",
+    "id" : 12,
+    "page number" : 1,
+    "bounding box" : [ 108.02, 409.226, 240.508, 436.568 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "120 days - building permit validity 365 days - guarantee bond effectivity"
+  }, {
+    "type" : "paragraph",
+    "id" : 13,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 144.02, 390.866, 281.946, 408.968 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "- building permit validity if there was no Construction"
+  }, {
+    "type" : "paragraph",
+    "id" : 15,
+    "page number" : 1,
+    "bounding box" : [ 108.02, 351.506, 271.235, 369.728 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Performance Bond- 15 % of contract amount Payment Bond- 15% of Contract amount"
+  }, {
+    "type" : "paragraph",
+    "id" : 16,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 144.02, 333.146, 290.483, 351.368 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "- valid until replacement of Guarantee Bond"
+  }, {
+    "type" : "paragraph",
+    "id" : 17,
+    "page number" : 1,
+    "bounding box" : [ 108.02, 323.906, 259.72, 332.888 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Guarantee Bond- 30% of contract amount"
+  }, {
+    "type" : "paragraph",
+    "id" : 18,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 144.02, 314.751, 302.077, 323.768 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "- valid up to 1 yr from date of acceptance"
+  }, {
+    "type" : "paragraph",
+    "id" : 20,
+    "page number" : 1,
+    "bounding box" : [ 108.02, 266.156, 291.169, 293.618 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "After 65% completion of work, the contractor should present certificate of non financial obligation"
+  }, {
+    "type" : "paragraph",
+    "id" : 21,
+    "page number" : 1,
+    "bounding box" : [ 108.02, 211.076, 301.165, 266.018 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "After 98% substantial completion of contract work, the architect shall inspect the project & issue certificate of completion after certification, the contractor will finish outstanding work during period of making good of all known defects of 60 days."
+  }, {
+    "type" : "heading",
+    "id" : 23,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 108.02, 178.749, 224.462, 189.877 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "SUSPENSION OF WORK"
+  }, {
+    "type" : "paragraph",
+    "id" : 24,
+    "page number" : 1,
+    "bounding box" : [ 108.02, 160.196, 214.309, 169.178 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Contractor can suspend work:"
+  }, {
+    "type" : "list",
+    "id" : 25,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 126.02, 141.816, 303.083, 160.058 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 126.02, 151.076, 270.374, 160.058 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "1. non- payment after 15 days request",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 126.02, 141.816, 303.083, 150.798 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "2. order of government to stop work for 90 days",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 26,
+    "page number" : 1,
+    "bounding box" : [ 108.02, 132.576, 200.536, 141.558 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Owner can suspend work:"
+  }, {
+    "type" : "list",
+    "id" : 27,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 126.02, 95.856, 265.504, 132.438 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 126.02, 123.456, 245.071, 132.438 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "1. bankruptcy- declared by BIR",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 126.02, 114.216, 198.403, 123.198 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "2. insubordination",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 126.02, 104.976, 258.743, 113.958 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "3. non payment of contractors debt",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 126.02, 95.856, 265.504, 104.838 ],
+      "font" : "ArialMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "4. non superintendence of contractor",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 28,
+    "page number" : 1,
+    "bounding box" : [ 342.07, 673.996, 531.806, 719.698 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "UAP DOCUMENTS Sole power of interpreting the provisions of the code: National Board of Directors of the United Architects of the Philippines Board of Professional Regulation Commission"
+  }, {
+    "type" : "list",
+    "id" : 29,
+    "level" : "3",
+    "page number" : 1,
+    "bounding box" : [ 342.07, 499.126, 533.705, 664.498 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 9,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 342.07, 655.516, 487.887, 664.498 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "Doc 201 Pre- design Services",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 342.07, 637.156, 470.591, 646.138 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "Doc 202 Design services",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 342.07, 618.796, 509.69, 627.778 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "Doc 203 Specialized Allied Services",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 342.07, 600.316, 491.825, 609.298 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "Doc 204 Construction Services",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 342.07, 581.956, 512.841, 590.938 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "Doc 205 Post- Construction Services",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 342.07, 554.326, 516.789, 572.548 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "Doc 206 Comprehensive Architectural Services",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 342.07, 545.086, 494.602, 554.068 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "Doc 207 Design- Build Services",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 342.07, 517.486, 533.705, 535.708 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "Doc 208 Selection of Architects & Methods of Compensation",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 1,
+      "bounding box" : [ 342.07, 499.126, 478.141, 508.108 ],
+      "font" : "Arial-BoldMT",
+      "font size" : 8.04,
+      "text color" : "[0.0]",
+      "content" : "Doc 209 Competition Code",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 31,
+    "page number" : 1,
+    "bounding box" : [ 342.07, 441.406, 528.407, 477.988 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Architectural- Building Code Plumbing- National Plumbing Code Electrical- Philippine Electrical Engineering Law RA185"
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 1,
+    "bounding box" : [ 342.07, 432.266, 536.455, 441.248 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Mechanical- Philippine Mechanical Engineering"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 1,
+    "bounding box" : [ 342.07, 413.786, 531.4, 432.008 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Law CW294 Structural Phil Structural Code for Buildings"
+  }, {
+    "type" : "heading",
+    "id" : 35,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 342.07, 379.179, 371.382, 390.307 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "LAWS"
+  }, {
+    "type" : "paragraph",
+    "id" : 36,
+    "page number" : 1,
+    "bounding box" : [ 342.07, 342.386, 516.331, 369.728 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "PD 1185 Fire Code PD 1096 Building Code PD 957 Condominium & Subdivision,"
+  }, {
+    "type" : "paragraph",
+    "id" : 37,
+    "page number" : 1,
+    "bounding box" : [ 342.07, 314.786, 507.519, 342.128 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Bridges Protective Law PD 23 Law that Created the PRC PD 49 Intellectual Property Law"
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 1,
+    "bounding box" : [ 342.07, 277.916, 536.342, 305.288 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "RA 545 The Architects Law BP 344 The Law Enhancing the Mobility of"
+  }, {
+    "type" : "paragraph",
+    "id" : 39,
+    "page number" : 1,
+    "bounding box" : [ 342.07, 259.556, 515.077, 277.658 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Disabled BP 220 The Socialized Housing Law"
+  }, {
+    "type" : "heading",
+    "id" : 41,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 342.07, 227.229, 428.602, 238.357 ],
+    "heading level" : 2,
+    "font" : "Arial-BoldMT",
+    "font size" : 9.96,
+    "text color" : "[0.0]",
+    "content" : "ARCHITECTS FEE"
+  }, {
+    "type" : "paragraph",
+    "id" : 42,
+    "page number" : 1,
+    "bounding box" : [ 342.07, 135.096, 506.993, 226.898 ],
+    "font" : "ArialMT",
+    "font size" : 8.04,
+    "text color" : "[0.0]",
+    "content" : "Simple 6% Moderate 7% Exceptional 8% Residential 10% Monumental MBF + 50% Repetitive 80%, 60%, 40% Housing 60%, 30% Extensive Detailing 15% Alteration and Renovation 150% Consultation P200"
+  } ]
+}

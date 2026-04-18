@@ -4,7 +4,7 @@ title: Amended Implementing Rules and Regulations of the Water Code of the Phili
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T11:02:37.283710+00:00
+last_canonicalized_utc: 2026-04-18T08:21:00.039317+00:00
 aliases:
   - PD 1067 IRR
   - Water Code IRR
@@ -72,3 +72,4 @@ WATER CODE OF THE PHILIPPINES Amended Implementing Rules and Regulations
 - concept-water-right
 - concept-water-permit
 - concept-groundwater-drilling
+- concept-arbitration

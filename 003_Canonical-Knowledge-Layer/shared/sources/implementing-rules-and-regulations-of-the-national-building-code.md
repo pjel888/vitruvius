@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the National Building Code
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T02:02:40.943380+00:00
+last_canonicalized_utc: 2026-04-18T08:21:00.387323+00:00
 aliases:
   - PD 1096 IRR
   - National Building Code IRR
@@ -167,10 +167,6 @@ Automated summary withheld for Implementing Rules and Regulations of the Nationa
 - 1. Bases of assessment
 - Section 201 and 205 of the National Building Code (P.D. No. 1096) provide: “SECTION 201. Responsibility for Administration and Enforcement
 - Section 477 of the Local Government Code of 1991 is cited to support the view that the appellate jurisdiction over decisions of building officials has been devolved to the city/municipal mayor. But Section 477 which reads:
-- SECTION 2. Definition of Terms. – (a) The practice of civil engineering within the meaning and intent of this Act shall embrace shall embrace services in the form of consultation, design preparation of consultation, design, preparation of plans, specifications, estimates, erection, installation and supervision of the construction of streets, bridges, highways, railroads, airports and
-- SECTION 23. Preparation of plans and supervision of construction by registered civil engineer. – It shall be unlawful for any person to order or otherwise cause the construction, reconstruction, or alteration of any building or structure intended for public gathering or assembly such as theaters, cinematographs, stadia, churches or structures of like nature, and any other engineering structures mentioned in section two of this Act unless the designs, plans, and specifications of the same have been prepared under the responsible charge of, and signed and sealed by a registered civil engineer, and unless the construction, reconstruction and/or alteration thereof are executed under the responsible charge and direct supervision of a civil engineer. Plans and designs of structures must be approved by law or ordinance of a city or province or municipality where the said structure is to be constructed.4
-- SECTION 14. Definition of Terms. – xxx
-- SECTION 30. Prohibitions in the practice of architecture. – Any person who shall practice or offer to practice architecture in the Philippines without being registered or exempted from registration in accordance with the provisions of this Act, xxx6
 - SECTION 101. Title
 - SECTION 103. Scope and Application (a) The provisions of this Code shall apply to the design, location, siting, construction, alteration,
 - SECTION 206. Qualifications of Building Officials
@@ -204,7 +200,6 @@ Automated summary withheld for Implementing Rules and Regulations of the Nationa
 - SECTION 6. Fees and compensation of Board. – The Board of Examiners for Civil Engineers shall charge for each application for examination the sum of forty pesos payable to the collecting and disbursing officer of the Bureau of Civil Service, Board of Examiners PRC upon filing of said application for examination, and for each certificate of registration, twenty pesos. Each member of the Board shall receive a compensation of five pesos for each applicant examined. A civil engineer in the service of the Government of the Republic of the Philippines appointed as member of the Board shall receive the compensation as herein provided, in addition to his salary in the government. All authorized expenses of the Board, including the compensation provided for herein, shall be paid by the collecting and disbursing officer of the Bureau of Civil Service out of such appropriation as may be made for the purpose.
 - SECTION 23. Preparation of plans and supervision of construction by registered civil engineer. – It shall be unlawful for any person to order or otherwise cause the construction, reconstruction, or alteration of any building or structure intended for public gathering or assembly such as theaters, cinematographs, stadia, churches or structures of like nature, and any other engineering structures mentioned in section two of this Act unless the designs, plans, and specifications of same have been prepared under the responsible charge of, and signed and sealed by a registered civil engineer, and unless the construction, reconstruction and/or alteration thereof are executed under the responsible charge and direct supervision of a civil engineer. Plans and designs of structures must be approved as provided by law or ordinance of a city or province or municipality where the said structure is to be constructed.
 - SECTION 1. Short Title. – This act shall be known as “The Architecture Act of 2004”.
-- SECTION 38. Coverage of Temporary/Special Permits. – Foreign nationals who have gained entry in the Philippines to perform professional services as architects or consultants in foreignfunded or assisted projects of the government or employed or engaged by Filipino or foreign contractors or private firms, shall, before assuming the duties, functions and responsibilities as architects or consultants, secure a special/temporary permit from the Board subject to approval of the Commission, to practice his/her profession in connection with the project to which he/she was commissioned: Provided, That the foreign national of foreign firm, whose name or company name, with the title architect, architectural consultant, design consultant, consultant or designer appears on architectural plans, specifications and other related construction documents, for securing building permits, licenses and government authority clearances for actual building project construction in the Philippines and advertisements and billboards for marketing purposes, shall be deemed practicing architecture in the Philippines, whether the contract for professional services is consummated in the Philippines or in a foreign country: Provided, further, That the following conditions are satisfied as follows:
 
 ## Key Points
 
@@ -223,6 +218,7 @@ Automated summary withheld for Implementing Rules and Regulations of the Nationa
 - concept-occupancy-classification
 - concept-fire-resistive-construction
 - concept-yards
+- concept-master-plumber
 - concept-accessible-ramps
 - concept-architectural-interiors
 - concept-zoning-ordinance
@@ -235,5 +231,6 @@ Automated summary withheld for Implementing Rules and Regulations of the Nationa
 - concept-means-of-egress
 - concept-code-of-ethics
 - concept-general-conditions-of-contract
+- concept-arbitration
 - concept-standards-of-professional-practice
 - concept-temporary-special-permit

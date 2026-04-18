@@ -1,0 +1,5380 @@
+{
+  "file name" : "HOA MODULE 1.pdf",
+  "number of pages" : 122,
+  "author" : "Danielle P. Ancheta",
+  "title" : "HOA",
+  "creation date" : "D:20151114122138+08'00'",
+  "modification date" : "D:20151114122138+08'00'",
+  "kids" : [ {
+    "type" : "image",
+    "id" : 27,
+    "page number" : 1,
+    "bounding box" : [ 0.0, 0.0, 181.44, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile1.png"
+  }, {
+    "type" : "image",
+    "id" : 28,
+    "page number" : 1,
+    "bounding box" : [ 181.44, 0.0, 360.0, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile2.png"
+  }, {
+    "type" : "image",
+    "id" : 29,
+    "page number" : 1,
+    "bounding box" : [ 360.0, 0.0, 541.44, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile3.png"
+  }, {
+    "type" : "image",
+    "id" : 30,
+    "page number" : 1,
+    "bounding box" : [ 541.44, 0.0, 720.0, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile4.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 32,
+    "page number" : 1,
+    "bounding box" : [ 169.49, 221.935, 550.521, 272.609 ],
+    "font" : "Arial",
+    "font size" : 54.024,
+    "text color" : "[1.0]",
+    "content" : "A HISTORY OF"
+  }, {
+    "type" : "paragraph",
+    "id" : 33,
+    "page number" : 1,
+    "bounding box" : [ 27.384, 120.493, 693.064, 200.208 ],
+    "font" : "Arial",
+    "font size" : 84.984,
+    "text color" : "[1.0]",
+    "content" : "ARCHITECTURE"
+  }, {
+    "type" : "heading",
+    "id" : 35,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 122.42, 311.93, 538.561, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "EXAM SUBJECT WEIGHTS"
+  }, {
+    "type" : "list",
+    "id" : 36,
+    "level" : "1",
+    "page number" : 2,
+    "bounding box" : [ 131.42, 140.948, 630.934, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 131.42, 237.22, 630.934, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.549]",
+      "content" : "▪ 30%: History and theory of architecture; principles of planning; architectural practice",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 131.42, 177.8, 571.107, 223.625 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.549]",
+      "content" : "▪ 30%: Structural design; building materials and construction; utilities",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 2,
+      "bounding box" : [ 131.42, 140.948, 546.854, 164.203 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.549]",
+      "content" : "▪ 40%: Architectural design and site planning",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 38,
+    "page number" : 3,
+    "bounding box" : [ 122.42, 257.49, 243.749, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "History"
+  }, {
+    "type" : "paragraph",
+    "id" : 39,
+    "page number" : 3,
+    "bounding box" : [ 122.42, 222.987, 579.375, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.251]",
+    "content" : "A systematic, often chronological narrative of"
+  }, {
+    "type" : "paragraph",
+    "id" : 40,
+    "page number" : 3,
+    "bounding box" : [ 122.42, 152.652, 642.663, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.498]",
+    "content" : "significant events as relating to a particular people, country, or period, often including an explanation of their causes."
+  }, {
+    "type" : "heading",
+    "id" : 42,
+    "level" : "Subtitle",
+    "page number" : 4,
+    "bounding box" : [ 122.42, 311.93, 342.596, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Course Outline"
+  }, {
+    "type" : "list",
+    "id" : 43,
+    "level" : "1",
+    "page number" : 4,
+    "bounding box" : [ 129.98, 146.348, 638.711, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 129.98, 259.768, 610.865, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ MODULE 1: Prehistoric and Ancient Architecture",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 129.98, 214.515, 638.711, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ MODULE 2: Classical Architecture and the Western Succession",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 129.98, 169.16, 601.562, 214.963 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ MODULE 3: Architecture in Asia and the Pacific Region",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 4,
+      "bounding box" : [ 129.98, 146.348, 553.787, 169.603 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ MODULE 4: Architecture in the Philippines",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 45,
+    "page number" : 5,
+    "bounding box" : [ 0.0, 0.0, 181.44, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile5.png"
+  }, {
+    "type" : "heading",
+    "id" : 46,
+    "level" : "Doctitle",
+    "page number" : 5,
+    "bounding box" : [ 197.42, 177.545, 504.263, 233.847 ],
+    "heading level" : 1,
+    "font" : "Arial",
+    "font size" : 60.024,
+    "text color" : "[1.0]",
+    "content" : "MODULE 1"
+  }, {
+    "type" : "paragraph",
+    "id" : 47,
+    "page number" : 5,
+    "bounding box" : [ 197.42, 142.679, 520.022, 170.375 ],
+    "font" : "Roboto Thin",
+    "font size" : 21.0,
+    "text color" : "[1.0]",
+    "content" : "Prehistoric and Ancient Architecture"
+  }, {
+    "type" : "heading",
+    "id" : 49,
+    "level" : "Subtitle",
+    "page number" : 6,
+    "bounding box" : [ 122.42, 311.93, 405.02, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Module 1 Overview"
+  }, {
+    "type" : "list",
+    "id" : 50,
+    "level" : "2",
+    "page number" : 6,
+    "bounding box" : [ 122.42, 66.894, 449.807, 277.078 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 122.42, 257.38, 411.407, 277.078 ],
+      "font" : "Arial,Bold",
+      "font size" : 21.0,
+      "text color" : "[0.498]",
+      "content" : "1.1 Prehistoric Architecture",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 122.42, 230.14, 449.807, 249.838 ],
+      "font" : "Arial,Bold",
+      "font size" : 21.0,
+      "text color" : "[0.498]",
+      "content" : "1.2 Mesopotamian Architecture",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 25,
+        "level" : "3",
+        "page number" : 6,
+        "bounding box" : [ 201.98, 121.112, 334.169, 226.025 ],
+        "numbering style" : "unordered",
+        "number of list items" : 4,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 201.98, 202.742, 320.244, 226.025 ],
+          "font" : "Times New Roman",
+          "font size" : 21.024,
+          "text color" : "[0.251]",
+          "content" : "▪ Sumerian",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 201.98, 175.628, 334.169, 198.883 ],
+          "font" : "Times New Roman",
+          "font size" : 21.0,
+          "text color" : "[0.251]",
+          "content" : "▪ Babylonian",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 201.98, 148.388, 311.027, 171.643 ],
+          "font" : "Times New Roman",
+          "font size" : 21.0,
+          "text color" : "[0.251]",
+          "content" : "▪ Assyrian",
+          "kids" : [ ]
+        }, {
+          "type" : "list item",
+          "page number" : 6,
+          "bounding box" : [ 201.98, 121.112, 301.658, 144.395 ],
+          "font" : "Times New Roman",
+          "font size" : 21.024,
+          "text color" : "[0.251]",
+          "content" : "▪ Persian",
+          "kids" : [ ]
+        } ]
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 122.42, 94.134, 393.887, 113.832 ],
+      "font" : "Arial,Bold",
+      "font size" : 21.0,
+      "text color" : "[0.498]",
+      "content" : "1.3 Egyptian Architecture",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 6,
+      "bounding box" : [ 122.42, 66.894, 381.047, 86.592 ],
+      "font" : "Arial,Bold",
+      "font size" : 21.0,
+      "text color" : "[0.498]",
+      "content" : "1.4 Minoan Architecture",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 52,
+    "page number" : 7,
+    "bounding box" : [ 452.45, 203.26, 665.075, 245.47 ],
+    "font" : "Arial",
+    "font size" : 45.0,
+    "text color" : "[1.0]",
+    "content" : "Prehistoric"
+  }, {
+    "type" : "paragraph",
+    "id" : 53,
+    "page number" : 7,
+    "bounding box" : [ 424.85, 157.275, 665.053, 199.507 ],
+    "font" : "Arial",
+    "font size" : 45.024,
+    "text color" : "[1.0]",
+    "content" : "Architecture"
+  }, {
+    "type" : "image",
+    "id" : 55,
+    "page number" : 8,
+    "bounding box" : [ 0.0, 33.288, 720.0, 371.718 ],
+    "source" : "HOA MODULE 1_images/imageFile6.png"
+  }, {
+    "type" : "heading",
+    "id" : 56,
+    "level" : "Subtitle",
+    "page number" : 8,
+    "bounding box" : [ 5.4, 15.32, 214.343, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "A map of early human migrations."
+  }, {
+    "type" : "paragraph",
+    "id" : 58,
+    "page number" : 9,
+    "bounding box" : [ 41.4, 243.837, 383.387, 290.797 ],
+    "font" : "Arial",
+    "font size" : 50.064,
+    "text color" : "[0.188]",
+    "content" : "Early Dwellings"
+  }, {
+    "type" : "list",
+    "id" : 59,
+    "level" : "4",
+    "page number" : 9,
+    "bounding box" : [ 52.44, 119.12, 528.311, 229.558 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 52.44, 187.155, 521.72, 229.558 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "■ Shift from nomadic, hunter-gatherer system to a combination of farming and hunting.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 52.44, 164.48, 420.077, 184.178 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "■ Domestication of animals and plants.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 9,
+      "bounding box" : [ 52.44, 119.12, 528.311, 161.498 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "■ Created societies of villages near caves or along shores and streams.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 61,
+    "page number" : 10,
+    "bounding box" : [ 122.42, 257.49, 324.089, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Rock caves"
+  }, {
+    "type" : "paragraph",
+    "id" : 62,
+    "page number" : 10,
+    "bounding box" : [ 122.42, 222.987, 472.232, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "Earliest form of human settlement."
+  }, {
+    "type" : "image",
+    "id" : 68,
+    "page number" : 11,
+    "bounding box" : [ 0.0, 0.0, 365.66, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile7.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 65,
+    "page number" : 11,
+    "bounding box" : [ 392.64, 280.25, 601.827, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Lascaux Cave"
+  }, {
+    "type" : "heading",
+    "id" : 66,
+    "level" : "Subtitle",
+    "page number" : 11,
+    "bounding box" : [ 392.64, 251.27, 514.395, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Lascaux, France."
+  }, {
+    "type" : "paragraph",
+    "id" : 67,
+    "page number" : 11,
+    "bounding box" : [ 392.64, 170.25, 655.685, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A cave in France containing wall paintings and engravings of Paleolithic humans thought to date from c. 13,0008,500 BCE."
+  }, {
+    "type" : "paragraph",
+    "id" : 70,
+    "page number" : 12,
+    "bounding box" : [ 122.42, 257.49, 326.234, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Built shelter"
+  }, {
+    "type" : "list",
+    "id" : 71,
+    "level" : "1",
+    "page number" : 12,
+    "bounding box" : [ 132.38, 129.097, 649.702, 244.621 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 132.38, 222.987, 476.801, 244.621 ],
+      "font" : "Times New Roman",
+      "font size" : 23.064,
+      "text color" : "[0.251]",
+      "content" : "■ Primitive lifestyle was nomadic.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 132.38, 152.652, 649.702, 221.183 ],
+      "font" : "Times New Roman",
+      "font size" : 23.04,
+      "text color" : "[0.251]",
+      "content" : "■ Temporary shelter were designed in direct response to climate, local materials, and hunting patterns.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 12,
+      "bounding box" : [ 132.38, 129.097, 642.533, 150.731 ],
+      "font" : "Times New Roman",
+      "font size" : 23.064,
+      "text color" : "[0.251]",
+      "content" : "■ Built with limited investment in time and energy.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 76,
+    "page number" : 13,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile8.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 74,
+    "page number" : 13,
+    "bounding box" : [ 392.64, 280.25, 445.803, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Tipi"
+  }, {
+    "type" : "heading",
+    "id" : 75,
+    "level" : "Subtitle",
+    "page number" : 13,
+    "bounding box" : [ 392.64, 251.27, 572.475, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,BoldItalic",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A portable Indian shelter."
+  }, {
+    "type" : "image",
+    "id" : 82,
+    "page number" : 14,
+    "bounding box" : [ 0.0, 0.0, 366.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile9.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 79,
+    "page number" : 14,
+    "bounding box" : [ 392.64, 280.25, 567.012, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Beehive hut"
+  }, {
+    "type" : "heading",
+    "id" : 80,
+    "level" : "Subtitle",
+    "page number" : 14,
+    "bounding box" : [ 392.64, 251.27, 493.68, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Kerry, Ireland."
+  }, {
+    "type" : "paragraph",
+    "id" : 81,
+    "page number" : 14,
+    "bounding box" : [ 392.64, 186.45, 663.26, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A clochán is a stone beehive-shaped hut with a corbelled roof, commonly associated with the Irish coastline."
+  }, {
+    "type" : "image",
+    "id" : 88,
+    "page number" : 15,
+    "bounding box" : [ 0.0, 0.0, 359.63, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile10.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 85,
+    "page number" : 15,
+    "bounding box" : [ 392.64, 280.25, 475.14, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Trullo"
+  }, {
+    "type" : "heading",
+    "id" : 86,
+    "level" : "Subtitle",
+    "page number" : 15,
+    "bounding box" : [ 396.81, 251.27, 587.955, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Alberobello, Bari Province."
+  }, {
+    "type" : "paragraph",
+    "id" : 87,
+    "page number" : 15,
+    "bounding box" : [ 392.64, 170.25, 651.315, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A traditional rendered stone dwelling in Apulia, southern Italy, in which square chambers are roofed with conical vaulted roofs."
+  }, {
+    "type" : "image",
+    "id" : 95,
+    "page number" : 16,
+    "bounding box" : [ 0.0, 0.0, 360.34, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile11.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 91,
+    "page number" : 16,
+    "bounding box" : [ 392.64, 280.25, 519.195, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Wigwam"
+  }, {
+    "type" : "paragraph",
+    "id" : 92,
+    "page number" : 16,
+    "bounding box" : [ 392.64, 251.27, 653.88, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "An American Indian dwelling, usually of"
+  }, {
+    "type" : "paragraph",
+    "id" : 93,
+    "page number" : 16,
+    "bounding box" : [ 392.64, 235.045, 637.308, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.851]",
+    "content" : "round or oval shape, formed of poles"
+  }, {
+    "type" : "paragraph",
+    "id" : 94,
+    "page number" : 16,
+    "bounding box" : [ 392.64, 202.65, 653.565, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "overlaid with bark, rush mats, or animal skins."
+  }, {
+    "type" : "image",
+    "id" : 103,
+    "page number" : 17,
+    "bounding box" : [ 0.0, 73.916, 360.15, 331.086 ],
+    "source" : "HOA MODULE 1_images/imageFile12.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 99,
+    "page number" : 17,
+    "bounding box" : [ 392.64, 280.25, 489.858, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Hogan"
+  }, {
+    "type" : "paragraph",
+    "id" : 100,
+    "page number" : 17,
+    "bounding box" : [ 392.64, 251.27, 644.115, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A Navaho Indian dwelling constructed"
+  }, {
+    "type" : "paragraph",
+    "id" : 101,
+    "page number" : 17,
+    "bounding box" : [ 392.64, 235.045, 642.085, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.851]",
+    "content" : "usually of earth and logs and covered"
+  }, {
+    "type" : "paragraph",
+    "id" : 102,
+    "page number" : 17,
+    "bounding box" : [ 392.64, 218.85, 514.5, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.851]",
+    "content" : "with mud and sod."
+  }, {
+    "type" : "image",
+    "id" : 110,
+    "page number" : 18,
+    "bounding box" : [ 0.0, 0.0, 365.66, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile13.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 106,
+    "page number" : 18,
+    "bounding box" : [ 392.64, 280.25, 464.184, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Igloo"
+  }, {
+    "type" : "paragraph",
+    "id" : 107,
+    "page number" : 18,
+    "bounding box" : [ 392.64, 251.27, 659.61, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "An Eskimo house, usually built of blocks"
+  }, {
+    "type" : "paragraph",
+    "id" : 108,
+    "page number" : 18,
+    "bounding box" : [ 392.64, 235.045, 634.532, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "of hard snow or ice in the shape of a"
+  }, {
+    "type" : "paragraph",
+    "id" : 109,
+    "page number" : 18,
+    "bounding box" : [ 392.64, 202.65, 621.18, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "dome, or when permanent, of sod, wood, or stone."
+  }, {
+    "type" : "paragraph",
+    "id" : 112,
+    "page number" : 19,
+    "bounding box" : [ 41.4, 243.837, 488.922, 290.797 ],
+    "font" : "Arial",
+    "font size" : 50.064,
+    "text color" : "[0.188]",
+    "content" : "Religious Structures"
+  }, {
+    "type" : "paragraph",
+    "id" : 113,
+    "page number" : 19,
+    "bounding box" : [ 41.4, 209.86, 495.735, 229.558 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "Villages were connected by shared mortuary and"
+  }, {
+    "type" : "paragraph",
+    "id" : 114,
+    "page number" : 19,
+    "bounding box" : [ 41.4, 187.155, 252.313, 206.875 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "goddess ritual centers."
+  }, {
+    "type" : "image",
+    "id" : 121,
+    "page number" : 20,
+    "bounding box" : [ 0.0, 0.0, 359.63, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile14.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 117,
+    "page number" : 20,
+    "bounding box" : [ 392.64, 280.25, 533.847, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Megaliths"
+  }, {
+    "type" : "heading",
+    "id" : 118,
+    "level" : "Subtitle",
+    "page number" : 20,
+    "bounding box" : [ 392.64, 251.27, 584.88, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,BoldItalic",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Ancient stone monuments."
+  }, {
+    "type" : "paragraph",
+    "id" : 119,
+    "page number" : 20,
+    "bounding box" : [ 392.64, 170.25, 656.085, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "After people started sharing community life, they began turning their attention to architecture that celebrated the spiritual and the sacred."
+  }, {
+    "type" : "paragraph",
+    "id" : 120,
+    "page number" : 20,
+    "bounding box" : [ 392.64, 105.43, 661.155, 151.9 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Their tombs and temples imitated nature in gigantic forms resembling mountains and other landscape formations."
+  }, {
+    "type" : "paragraph",
+    "id" : 123,
+    "page number" : 21,
+    "bounding box" : [ 122.42, 257.49, 241.721, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Menhir"
+  }, {
+    "type" : "paragraph",
+    "id" : 124,
+    "page number" : 21,
+    "bounding box" : [ 122.42, 222.987, 598.323, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "Monolith; A prehistoric monument consisting of"
+  }, {
+    "type" : "paragraph",
+    "id" : 125,
+    "page number" : 21,
+    "bounding box" : [ 122.42, 152.652, 574.211, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.498]",
+    "content" : "an upright stone, usually standing alone but sometimes aligned with others in parallel rows."
+  }, {
+    "type" : "image",
+    "id" : 130,
+    "page number" : 22,
+    "bounding box" : [ 0.0, 0.0, 360.37, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile15.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 128,
+    "page number" : 22,
+    "bounding box" : [ 392.64, 280.25, 614.532, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Kerloas Menhir"
+  }, {
+    "type" : "heading",
+    "id" : 129,
+    "level" : "Subtitle",
+    "page number" : 22,
+    "bounding box" : [ 392.64, 251.27, 511.065, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Brittany, France."
+  }, {
+    "type" : "paragraph",
+    "id" : 132,
+    "page number" : 23,
+    "bounding box" : [ 122.42, 257.49, 256.853, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Dolmen"
+  }, {
+    "type" : "paragraph",
+    "id" : 133,
+    "page number" : 23,
+    "bounding box" : [ 122.42, 222.987, 644.058, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "From the words daul, a table, and maen, a stone; A"
+  }, {
+    "type" : "paragraph",
+    "id" : 134,
+    "page number" : 23,
+    "bounding box" : [ 122.42, 152.652, 662.22, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.498]",
+    "content" : "prehistoric monument consisting of two or more large upright stones supporting a horizontal stone slab or capstone, and usually regarded as a tomb."
+  }, {
+    "type" : "image",
+    "id" : 140,
+    "page number" : 24,
+    "bounding box" : [ 0.0, 0.0, 366.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile16.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 137,
+    "page number" : 24,
+    "bounding box" : [ 392.64, 280.25, 543.021, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Kilclooney"
+  }, {
+    "type" : "heading",
+    "id" : 138,
+    "level" : "Subtitle",
+    "page number" : 24,
+    "bounding box" : [ 392.64, 251.27, 569.145, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "County Donegal, Ireland."
+  }, {
+    "type" : "paragraph",
+    "id" : 139,
+    "page number" : 24,
+    "bounding box" : [ 392.64, 154.05, 645.42, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "It utilizes trabeation, the most basic construction system for structures. It consists of vertical supports called posts that hold up horizontal elements called lintels."
+  }, {
+    "type" : "image",
+    "id" : 146,
+    "page number" : 25,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile17.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 143,
+    "page number" : 25,
+    "bounding box" : [ 392.64, 280.25, 506.358, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Goindol"
+  }, {
+    "type" : "heading",
+    "id" : 144,
+    "level" : "Subtitle",
+    "page number" : 25,
+    "bounding box" : [ 392.64, 251.27, 558.975, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Gochang, South Korea."
+  }, {
+    "type" : "paragraph",
+    "id" : 145,
+    "page number" : 25,
+    "bounding box" : [ 392.64, 154.05, 660.345, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "The Gochang, Hwasun and Ganghwa Dolmen Sites are the location of hundreds of stone dolmen in Korea. The sites were designated as a World Heritage Site by UNESCO in 2000."
+  }, {
+    "type" : "paragraph",
+    "id" : 150,
+    "page number" : 26,
+    "bounding box" : [ 122.42, 311.93, 269.138, 342.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Variations"
+  }, {
+    "type" : "heading",
+    "id" : 151,
+    "level" : "Subtitle",
+    "page number" : 26,
+    "bounding box" : [ 122.42, 270.32, 173.702, 290.018 ],
+    "heading level" : 5,
+    "font" : "Arial,Bold",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "Cove"
+  }, {
+    "type" : "heading",
+    "id" : 154,
+    "level" : "Subtitle",
+    "page number" : 26,
+    "bounding box" : [ 405.96, 270.32, 490.023, 290.018 ],
+    "heading level" : 5,
+    "font" : "Arial,Bold",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "Trilithon"
+  }, {
+    "type" : "paragraph",
+    "id" : 152,
+    "page number" : 26,
+    "bounding box" : [ 131.42, 206.36, 371.438, 248.738 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "Three standing stones, two on the sides and one"
+  }, {
+    "type" : "paragraph",
+    "id" : 155,
+    "page number" : 26,
+    "bounding box" : [ 414.96, 206.36, 638.799, 248.738 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "A structure consisting of two upright stones"
+  }, {
+    "type" : "paragraph",
+    "id" : 153,
+    "page number" : 26,
+    "bounding box" : [ 138.38, 183.645, 246.927, 203.365 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "at the back."
+  }, {
+    "type" : "paragraph",
+    "id" : 156,
+    "page number" : 26,
+    "bounding box" : [ 421.92, 183.645, 633.968, 203.365 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "supporting a horizontal"
+  }, {
+    "type" : "image",
+    "id" : 149,
+    "page number" : 26,
+    "bounding box" : [ 162.68, 4.62, 355.42, 203.06 ],
+    "source" : "HOA MODULE 1_images/imageFile18.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 157,
+    "page number" : 26,
+    "bounding box" : [ 421.92, 160.97, 470.934, 180.668 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "lintel."
+  }, {
+    "type" : "image",
+    "id" : 148,
+    "page number" : 26,
+    "bounding box" : [ 468.9, 23.341, 602.1, 172.501 ],
+    "source" : "HOA MODULE 1_images/imageFile19.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 159,
+    "page number" : 27,
+    "bounding box" : [ 122.42, 257.49, 289.379, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Cromlech"
+  }, {
+    "type" : "paragraph",
+    "id" : 160,
+    "page number" : 27,
+    "bounding box" : [ 122.42, 222.987, 607.284, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "A circular arrangement of megaliths enclosing a"
+  }, {
+    "type" : "paragraph",
+    "id" : 161,
+    "page number" : 27,
+    "bounding box" : [ 122.42, 199.572, 370.031, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.498]",
+    "content" : "dolmen or burial mound."
+  }, {
+    "type" : "image",
+    "id" : 168,
+    "page number" : 28,
+    "bounding box" : [ 0.0, 0.0, 365.66, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile20.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 164,
+    "page number" : 28,
+    "bounding box" : [ 392.64, 280.25, 572.391, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Stone Circle"
+  }, {
+    "type" : "heading",
+    "id" : 165,
+    "level" : "Subtitle",
+    "page number" : 28,
+    "bounding box" : [ 392.64, 251.27, 520.065, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Avebury, England"
+  }, {
+    "type" : "paragraph",
+    "id" : 166,
+    "page number" : 28,
+    "bounding box" : [ 392.64, 202.65, 634.77, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "These stone circles were associated with burials, others with cremation."
+  }, {
+    "type" : "paragraph",
+    "id" : 167,
+    "page number" : 28,
+    "bounding box" : [ 392.64, 105.43, 653.9, 184.32 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "They also worked as celestial observatories that were meant to follow the movements of the moon and stars, as would have been typical for early agrarian-based societies."
+  }, {
+    "type" : "image",
+    "id" : 174,
+    "page number" : 29,
+    "bounding box" : [ 0.0, 0.0, 360.34, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile21.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 171,
+    "page number" : 29,
+    "bounding box" : [ 392.64, 280.25, 570.51, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Stonehenge"
+  }, {
+    "type" : "heading",
+    "id" : 172,
+    "level" : "Subtitle",
+    "page number" : 29,
+    "bounding box" : [ 392.64, 251.27, 656.085, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Salisbury Plain in Wiltshire, England."
+  }, {
+    "type" : "paragraph",
+    "id" : 173,
+    "page number" : 29,
+    "bounding box" : [ 392.64, 154.05, 664.485, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A megalithic monument consisting of four concentric rings of trilithons and menhirs centered around an altar stone. It is believed to have been used by a sun cult or for astronomical observations."
+  }, {
+    "type" : "image",
+    "id" : 177,
+    "page number" : 30,
+    "bounding box" : [ 0.0, 39.337, 720.0, 404.997 ],
+    "source" : "HOA MODULE 1_images/imageFile22.png"
+  }, {
+    "type" : "heading",
+    "id" : 176,
+    "level" : "Subtitle",
+    "page number" : 30,
+    "bounding box" : [ 5.4, 15.32, 259.356, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "A solstice celebration at the Stonehenge."
+  }, {
+    "type" : "paragraph",
+    "id" : 179,
+    "page number" : 31,
+    "bounding box" : [ 122.42, 257.49, 272.024, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Tumulus"
+  }, {
+    "type" : "paragraph",
+    "id" : 180,
+    "page number" : 31,
+    "bounding box" : [ 122.42, 222.987, 649.363, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "An artificial mound of earth or stone, especially over"
+  }, {
+    "type" : "paragraph",
+    "id" : 181,
+    "page number" : 31,
+    "bounding box" : [ 122.42, 199.572, 499.225, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.498]",
+    "content" : "an ancient grave. Also called barrow."
+  }, {
+    "type" : "image",
+    "id" : 184,
+    "page number" : 32,
+    "bounding box" : [ 0.0, 34.787, 362.15, 404.997 ],
+    "source" : "HOA MODULE 1_images/imageFile23.png"
+  }, {
+    "type" : "image",
+    "id" : 185,
+    "page number" : 32,
+    "bounding box" : [ 369.31, 34.787, 720.0, 404.997 ],
+    "source" : "HOA MODULE 1_images/imageFile24.png"
+  }, {
+    "type" : "heading",
+    "id" : 183,
+    "level" : "Subtitle",
+    "page number" : 32,
+    "bounding box" : [ 5.4, 15.32, 299.777, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Etruscan necropolis of Banditaccia at Cerveteri."
+  }, {
+    "type" : "paragraph",
+    "id" : 187,
+    "page number" : 33,
+    "bounding box" : [ 41.4, 243.837, 294.373, 290.797 ],
+    "font" : "Arial",
+    "font size" : 50.064,
+    "text color" : "[0.188]",
+    "content" : "Early Cities"
+  }, {
+    "type" : "paragraph",
+    "id" : 188,
+    "level" : "3",
+    "page number" : 33,
+    "bounding box" : [ 52.44, 209.82, 518.235, 233.281 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "■ Ice Age to the Neolithic Age; the earth’s climate"
+  }, {
+    "type" : "paragraph",
+    "id" : 189,
+    "page number" : 33,
+    "bounding box" : [ 77.424, 187.155, 187.001, 206.875 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "warmed up."
+  }, {
+    "type" : "list",
+    "id" : 190,
+    "level" : "4",
+    "page number" : 33,
+    "bounding box" : [ 52.44, 119.12, 542.237, 184.178 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 33,
+      "bounding box" : [ 52.44, 141.8, 536.815, 184.178 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "■ As settlements became more permanent, hunters started farming communities.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 33,
+      "bounding box" : [ 52.44, 119.12, 542.237, 138.818 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "■ New architecture was also developed to represent",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 191,
+    "page number" : 33,
+    "bounding box" : [ 77.424, 96.405, 365.179, 116.125 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "communal and spiritual values."
+  }, {
+    "type" : "image",
+    "id" : 193,
+    "page number" : 34,
+    "bounding box" : [ 0.0, 58.518, 719.97, 378.188 ],
+    "source" : "HOA MODULE 1_images/imageFile25.png"
+  }, {
+    "type" : "heading",
+    "id" : 195,
+    "level" : "Subtitle",
+    "page number" : 34,
+    "bounding box" : [ 5.4, 15.32, 394.294, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Fertile Crescent: An early, dense network of cities and villages."
+  }, {
+    "type" : "image",
+    "id" : 202,
+    "page number" : 35,
+    "bounding box" : [ 0.0, 0.0, 366.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile26.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 198,
+    "page number" : 35,
+    "bounding box" : [ 392.64, 280.25, 499.098, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Jericho"
+  }, {
+    "type" : "paragraph",
+    "id" : 199,
+    "page number" : 35,
+    "bounding box" : [ 392.64, 251.27, 651.285, 265.34 ],
+    "font" : "Arial,BoldItalic",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Aerial view showing the ruins of Tell"
+  }, {
+    "type" : "heading",
+    "id" : 200,
+    "level" : "Subtitle",
+    "page number" : 35,
+    "bounding box" : [ 392.64, 235.045, 522.617, 249.137 ],
+    "heading level" : 6,
+    "font" : "Arial,BoldItalic",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "es-Sultan. Jordan."
+  }, {
+    "type" : "list",
+    "id" : 201,
+    "level" : "5",
+    "page number" : 35,
+    "bounding box" : [ 405.6, 121.63, 658.925, 216.72 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 35,
+      "bounding box" : [ 405.6, 186.45, 596.66, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ One of the world's oldest continually-inhabited city.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 35,
+      "bounding box" : [ 405.6, 121.63, 658.925, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ A hilltop city; citizens lived in stone houses with plaster floors, surrounded by high walls and towers.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 208,
+    "page number" : 36,
+    "bounding box" : [ 0.0, 73.916, 358.2, 331.086 ],
+    "source" : "HOA MODULE 1_images/imageFile27.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 205,
+    "page number" : 36,
+    "bounding box" : [ 392.64, 280.25, 528.336, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Khirokitia"
+  }, {
+    "type" : "heading",
+    "id" : 206,
+    "level" : "Subtitle",
+    "page number" : 36,
+    "bounding box" : [ 392.64, 251.27, 447.9, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Cyprus."
+  }, {
+    "type" : "list",
+    "id" : 207,
+    "level" : "5",
+    "page number" : 36,
+    "bounding box" : [ 405.6, 154.05, 663.815, 232.92 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 36,
+      "bounding box" : [ 405.6, 218.85, 663.815, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ One of the earliest Neolithic village.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 36,
+      "bounding box" : [ 405.6, 154.05, 644.105, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Utilized a complex architectural system built according to a preconceived plan, suggesting a structured social organisation.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 215,
+    "page number" : 37,
+    "bounding box" : [ 0.0, 0.0, 361.88, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile28.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 211,
+    "page number" : 37,
+    "bounding box" : [ 392.64, 280.25, 528.336, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Khirokitia"
+  }, {
+    "type" : "paragraph",
+    "id" : 212,
+    "page number" : 37,
+    "bounding box" : [ 392.64, 251.27, 655.76, 265.34 ],
+    "font" : "Arial,BoldItalic",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Partial modern-day reconstruction of"
+  }, {
+    "type" : "heading",
+    "id" : 213,
+    "level" : "Subtitle",
+    "page number" : 37,
+    "bounding box" : [ 392.64, 235.045, 525.843, 249.137 ],
+    "heading level" : 6,
+    "font" : "Arial,BoldItalic",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "Khirokitia, Cyprus."
+  }, {
+    "type" : "paragraph",
+    "id" : 214,
+    "page number" : 37,
+    "bounding box" : [ 392.64, 170.25, 662.57, 216.72 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Houses, built in limestone, had a circular plan, the exterior diameter of which varied from about 2 to 9 meters."
+  }, {
+    "type" : "image",
+    "id" : 220,
+    "page number" : 38,
+    "bounding box" : [ 0.0, 0.0, 365.66, 406.2 ],
+    "source" : "HOA MODULE 1_images/imageFile29.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 218,
+    "page number" : 38,
+    "bounding box" : [ 392.64, 280.25, 572.457, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Çatal Hüyük"
+  }, {
+    "type" : "list",
+    "id" : 219,
+    "level" : "5",
+    "page number" : 38,
+    "bounding box" : [ 405.12, 170.25, 663.59, 265.34 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 405.12, 235.045, 646.475, 265.34 ],
+      "font" : "Arial",
+      "font size" : 15.024,
+      "text color" : "[0.6]",
+      "content" : "■ Largest and most well-preserved Neolithic village.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 405.12, 186.45, 663.59, 232.92 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Consisted of rectangular flat-roofed houses packed together into a single architectural mass",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 38,
+      "bounding box" : [ 405.12, 170.25, 613.76, 184.32 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ No streets or passageways.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 223,
+    "page number" : 39,
+    "bounding box" : [ 0.0, 53.128, 720.0, 360.788 ],
+    "source" : "HOA MODULE 1_images/imageFile30.png"
+  }, {
+    "type" : "heading",
+    "id" : 222,
+    "level" : "Subtitle",
+    "page number" : 39,
+    "bounding box" : [ 5.4, 15.32, 332.111, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Typical house and reconstructed shine, Catal Hüyük."
+  }, {
+    "type" : "paragraph",
+    "id" : 225,
+    "page number" : 40,
+    "bounding box" : [ 369.86, 203.26, 665.15, 245.47 ],
+    "font" : "Arial",
+    "font size" : 45.0,
+    "text color" : "[1.0]",
+    "content" : "Mesopotamian"
+  }, {
+    "type" : "paragraph",
+    "id" : 226,
+    "page number" : 40,
+    "bounding box" : [ 424.85, 157.275, 665.053, 199.507 ],
+    "font" : "Arial",
+    "font size" : 45.024,
+    "text color" : "[1.0]",
+    "content" : "Architecture"
+  }, {
+    "type" : "image",
+    "id" : 228,
+    "page number" : 41,
+    "bounding box" : [ 0.0, -1.5, 720.0, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile31.png"
+  }, {
+    "type" : "image",
+    "id" : 234,
+    "page number" : 42,
+    "bounding box" : [ 0.0, 55.437, 358.99, 349.567 ],
+    "source" : "HOA MODULE 1_images/imageFile32.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 232,
+    "page number" : 42,
+    "bounding box" : [ 392.64, 280.25, 590.772, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Mesopotamia"
+  }, {
+    "type" : "list",
+    "id" : 233,
+    "level" : "5",
+    "page number" : 42,
+    "bounding box" : [ 405.12, 186.45, 655.82, 265.34 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 42,
+      "bounding box" : [ 405.12, 251.27, 655.82, 265.34 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Fertile Crescent; present day Iraq;",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 42,
+      "bounding box" : [ 405.12, 218.821, 655.563, 249.137 ],
+      "font" : "Arial",
+      "font size" : 15.024,
+      "text color" : "[0.6]",
+      "content" : "■ From the Greek words mesos and potamas, meaning “middle river.”",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 42,
+      "bounding box" : [ 405.12, 186.45, 652.145, 216.72 ],
+      "font" : "Arial",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "■ Refers to the fertile plain between the Tigris and Euphrates rivers.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 236,
+    "level" : "Subtitle",
+    "page number" : 43,
+    "bounding box" : [ 122.42, 311.93, 526.177, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Sumerian (5000-2000 B.C.)"
+  }, {
+    "type" : "list",
+    "id" : 237,
+    "level" : "1",
+    "page number" : 43,
+    "bounding box" : [ 129.98, 191.84, 653.784, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 43,
+      "bounding box" : [ 129.98, 259.768, 547.55, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Architecture developed by the Sumerians.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 43,
+      "bounding box" : [ 129.98, 191.84, 653.784, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Characterized by monumental temples of sun-dried brick faced with burnt or glazed brick, often built upon the ruins of their predecessors.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 239,
+    "page number" : 44,
+    "bounding box" : [ 122.42, 257.49, 265.589, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Ziggurat"
+  }, {
+    "type" : "paragraph",
+    "id" : 240,
+    "page number" : 44,
+    "bounding box" : [ 122.42, 222.987, 568.079, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "Stepped structures constructed with outside"
+  }, {
+    "type" : "paragraph",
+    "id" : 241,
+    "page number" : 44,
+    "bounding box" : [ 122.42, 176.052, 595.592, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.498]",
+    "content" : "staircases and a temple or shrine at the top for worshipping the gods of nature."
+  }, {
+    "type" : "paragraph",
+    "id" : 244,
+    "page number" : 45,
+    "bounding box" : [ 392.64, 280.25, 513.684, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Ziggurat"
+  }, {
+    "type" : "list",
+    "id" : 245,
+    "level" : "4",
+    "page number" : 45,
+    "bounding box" : [ 403.2, 85.626, 661.355, 267.787 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 45,
+      "bounding box" : [ 403.2, 186.45, 661.355, 267.787 ],
+      "font" : "Times New Roman",
+      "font size" : 15.024,
+      "text color" : "[0.6]",
+      "content" : "▪ Ziggurats were built of mud bricks made of dirt mixed with water and straw. The mud was poured into wooden molds and left to dry in the sun (or baked in kilns).",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 45,
+      "bounding box" : [ 403.2, 136.03, 623.975, 168.747 ],
+      "font" : "Times New Roman",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "▪ Its four corners were oriented towards the cardinal points.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 45,
+      "bounding box" : [ 403.2, 85.626, 654.515, 118.347 ],
+      "font" : "Times New Roman",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "▪ Priests conduct ceremonies at the fire altar on top.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 246,
+    "page number" : 45,
+    "bounding box" : [ 0.0, 0.0, 359.58, 215.59 ],
+    "source" : "HOA MODULE 1_images/imageFile33.png"
+  }, {
+    "type" : "image",
+    "id" : 252,
+    "page number" : 46,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile34.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 249,
+    "page number" : 46,
+    "bounding box" : [ 392.64, 280.25, 594.369, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Ziggurat of Ur"
+  }, {
+    "type" : "heading",
+    "id" : 250,
+    "level" : "Subtitle",
+    "page number" : 46,
+    "bounding box" : [ 392.64, 251.27, 550.1, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Tell el-Muqayyar, Iraq."
+  }, {
+    "type" : "paragraph",
+    "id" : 251,
+    "page number" : 46,
+    "bounding box" : [ 392.64, 186.45, 653.015, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A temple dedicated to the moon god built by the Sumerian ruler, Ur Nammu, and his successors around 2125 B.C."
+  }, {
+    "type" : "heading",
+    "id" : 254,
+    "level" : "Subtitle",
+    "page number" : 47,
+    "bounding box" : [ 122.42, 311.93, 548.311, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Babylonian (2000-1600 B.C.)"
+  }, {
+    "type" : "list",
+    "id" : 255,
+    "level" : "1",
+    "page number" : 47,
+    "bounding box" : [ 129.98, 123.765, 652.885, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 47,
+      "bounding box" : [ 129.98, 237.22, 596.761, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ The last great Mesopotamian city-empire of the ancient age.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 47,
+      "bounding box" : [ 129.98, 169.16, 652.885, 237.665 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Architecture characterized by mud-brick construction, had walls articulated by pilasters and recesses, sometimes faced with burnt and glazed brick.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 47,
+      "bounding box" : [ 129.98, 123.765, 644.323, 169.603 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Palaces and temples were decorated with enameled brick friezes of bulls and lions.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 262,
+    "page number" : 48,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile35.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 258,
+    "page number" : 48,
+    "bounding box" : [ 392.64, 280.25, 614.499, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Tower of Babel"
+  }, {
+    "type" : "heading",
+    "id" : 259,
+    "level" : "Subtitle",
+    "page number" : 48,
+    "bounding box" : [ 396.81, 251.27, 618.465, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,BoldItalic",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Lucas van Valckenborch, 1594."
+  }, {
+    "type" : "paragraph",
+    "id" : 260,
+    "page number" : 48,
+    "bounding box" : [ 392.64, 170.221, 652.305, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "As described in the Bible, this structure may have been built in Babylon around 600 B.C. by King Nebuchadnezzar II to “rival heaven.”"
+  }, {
+    "type" : "paragraph",
+    "id" : 261,
+    "page number" : 48,
+    "bounding box" : [ 392.64, 56.802, 656.57, 151.9 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Herodotus recorded that the ziggurat had 7 tiers covered in glazed tiles. The tower may have risen to a height of 300 feet and may have been used as a temple for worshipping Marduk, the god of the city of Babylon."
+  }, {
+    "type" : "text block",
+    "id" : 264,
+    "page number" : 49,
+    "bounding box" : [ -0.75, -0.754, 360.32, 405.746 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 49,
+      "bounding box" : [ 0.0, 48.508, 359.57, 356.488 ],
+      "source" : "HOA MODULE 1_images/imageFile36.png"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 265,
+    "page number" : 49,
+    "bounding box" : [ 392.64, 280.25, 651.426, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Hanging Gardens"
+  }, {
+    "type" : "paragraph",
+    "id" : 266,
+    "page number" : 49,
+    "bounding box" : [ 392.64, 251.241, 620.195, 267.999 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.851]",
+    "content" : "One of the “Seven Wonders of the"
+  }, {
+    "type" : "paragraph",
+    "id" : 267,
+    "page number" : 49,
+    "bounding box" : [ 392.64, 235.016, 495.703, 251.801 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.851]",
+    "content" : "Ancient World.”"
+  }, {
+    "type" : "paragraph",
+    "id" : 268,
+    "page number" : 49,
+    "bounding box" : [ 392.64, 105.43, 662.04, 216.72 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A royal palace constructed of mud brick walls were covered with glazed, colored tiles decorated with animal reliefs. Legend says that the sumptuous palace was terraced with lush gardens that were irrigated by water pumped from the Euphrates."
+  }, {
+    "type" : "image",
+    "id" : 275,
+    "page number" : 50,
+    "bounding box" : [ 0.0, 0.0, 361.11, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile37.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 271,
+    "page number" : 50,
+    "bounding box" : [ 392.64, 280.25, 555.891, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Ishtar Gate"
+  }, {
+    "type" : "paragraph",
+    "id" : 272,
+    "page number" : 50,
+    "bounding box" : [ 392.64, 251.27, 648.315, 265.34 ],
+    "font" : "Arial,BoldItalic",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Reconstructed. Pergamon Museum,"
+  }, {
+    "type" : "heading",
+    "id" : 273,
+    "level" : "Subtitle",
+    "page number" : 50,
+    "bounding box" : [ 392.64, 235.045, 439.425, 249.137 ],
+    "heading level" : 6,
+    "font" : "Arial,BoldItalic",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "Berlin."
+  }, {
+    "type" : "paragraph",
+    "id" : 274,
+    "page number" : 50,
+    "bounding box" : [ 392.64, 137.83, 657.765, 216.72 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Large, four-storey portal dominating the processional avenue through the city. It was covered in glazed bricks, colorful tiles, and decorative figures of bulls and dragons."
+  }, {
+    "type" : "heading",
+    "id" : 277,
+    "level" : "Subtitle",
+    "page number" : 51,
+    "bounding box" : [ 122.42, 311.93, 474.59, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Assyrian (900-700 B.C.)"
+  }, {
+    "type" : "list",
+    "id" : 278,
+    "level" : "1",
+    "page number" : 51,
+    "bounding box" : [ 129.98, 123.632, 654.923, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 51,
+      "bounding box" : [ 129.98, 259.768, 618.614, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Palaces took precedence over religious buildings.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 51,
+      "bounding box" : [ 129.98, 191.84, 622.276, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Architecture was characterized by mud-brick buildings. Stone was used for carved monumental decorative sculptures.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 51,
+      "bounding box" : [ 129.98, 146.48, 654.923, 192.283 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ External walls were plainly treated, but ornamented with carved relief sculpture or with polychrome bricks.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 51,
+      "bounding box" : [ 129.98, 123.632, 645.519, 146.915 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Interior courts were all large, and filled with columns.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 285,
+    "page number" : 52,
+    "bounding box" : [ 5.392, 4.27, 351.722, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile38.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 281,
+    "page number" : 52,
+    "bounding box" : [ 392.64, 280.25, 598.286, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Dur-Sharrukin"
+  }, {
+    "type" : "paragraph",
+    "id" : 282,
+    "page number" : 52,
+    "bounding box" : [ 392.64, 251.27, 640.82, 265.34 ],
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Palace of Sargon. Khorsabad, Iraq."
+  }, {
+    "type" : "heading",
+    "id" : 283,
+    "level" : "Subtitle",
+    "page number" : 52,
+    "bounding box" : [ 392.64, 235.045, 460.954, 249.137 ],
+    "heading level" : 6,
+    "font" : "Arial,Bold",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "Sargon II."
+  }, {
+    "type" : "paragraph",
+    "id" : 284,
+    "page number" : 52,
+    "bounding box" : [ 392.64, 105.43, 658.25, 216.72 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Squarish parallelogram city, with the palace, temples, and government buildings compressed within the walls. Palace, public reception rooms, inner court, and harem. Temple with 7-staged ziggurat. Stables, kitchen, bakery, and wine cellar."
+  }, {
+    "type" : "image",
+    "id" : 289,
+    "page number" : 53,
+    "bounding box" : [ 13.129, 62.436, 500.479, 342.566 ],
+    "source" : "HOA MODULE 1_images/imageFile39.png"
+  }, {
+    "type" : "heading",
+    "id" : 290,
+    "level" : "Subtitle",
+    "page number" : 53,
+    "bounding box" : [ 531.17, 230.932, 645.329, 269.321 ],
+    "heading level" : 9,
+    "font" : "Arial,Bold",
+    "font size" : 14.04,
+    "text color" : "[0.251]",
+    "content" : "Apartments in an Assyrian Palace"
+  }, {
+    "type" : "table",
+    "id" : 288,
+    "level" : "2",
+    "page number" : 53,
+    "bounding box" : [ 655.26, 66.228, 720.752, 210.948 ],
+    "number of rows" : 1,
+    "number of columns" : 1,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 53,
+        "bounding box" : [ 656.01, 66.978, 720.002, 210.198 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 291,
+    "page number" : 53,
+    "bounding box" : [ 531.17, 130.112, 682.818, 193.701 ],
+    "font" : "Arial",
+    "font size" : 14.04,
+    "text color" : "[0.251]",
+    "content" : "Seraglio, palace proper Haram, private chamber Khan, service chamber"
+  }, {
+    "type" : "paragraph",
+    "id" : 287,
+    "page number" : 53,
+    "bounding box" : [ 5.4, 15.32, 356.482, 28.461 ],
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "View of palace compound of Dur-Sharrukin (Khorsabad)."
+  }, {
+    "type" : "heading",
+    "id" : 293,
+    "level" : "Subtitle",
+    "page number" : 54,
+    "bounding box" : [ 122.42, 311.93, 450.875, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Persian (500-331 B.C)"
+  }, {
+    "type" : "paragraph",
+    "id" : 294,
+    "level" : "3",
+    "page number" : 54,
+    "bounding box" : [ 129.98, 237.22, 661.865, 283.023 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "▪ Characterized by a synthesis of architectural elements of surrounding countries, such as Assyria, Egypt, and"
+  }, {
+    "type" : "paragraph",
+    "id" : 295,
+    "page number" : 54,
+    "bounding box" : [ 158.42, 214.515, 295.896, 234.235 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "Ionian Greece."
+  }, {
+    "type" : "text block",
+    "id" : 297,
+    "page number" : 55,
+    "bounding box" : [ -0.75, -0.754, 360.32, 405.746 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 55,
+      "bounding box" : [ 0.0, 47.301, 359.57, 357.701 ],
+      "source" : "HOA MODULE 1_images/imageFile40.png"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 298,
+    "page number" : 55,
+    "bounding box" : [ 392.64, 280.25, 546.75, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Persepolis"
+  }, {
+    "type" : "paragraph",
+    "id" : 299,
+    "page number" : 55,
+    "bounding box" : [ 392.64, 154.05, 664.38, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Fars Province, Iran. Darius. Darius designed his own capital city, Persepolis—“the city of the Persians,” as the Greeks called it—located 10 kilometers to the southwest and closer to the fertile lands along the coast."
+  }, {
+    "type" : "image",
+    "id" : 302,
+    "page number" : 56,
+    "bounding box" : [ 260.0, 34.788, 667.13, 404.998 ],
+    "source" : "HOA MODULE 1_images/imageFile41.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 303,
+    "page number" : 56,
+    "bounding box" : [ 49.8, 316.352, 238.244, 329.521 ],
+    "font" : "Arial",
+    "font size" : 14.04,
+    "text color" : "[0.251]",
+    "content" : "Apadana, great audience hall."
+  }, {
+    "type" : "heading",
+    "id" : 304,
+    "level" : "Subtitle",
+    "page number" : 56,
+    "bounding box" : [ 49.8, 291.09, 199.591, 306.802 ],
+    "heading level" : 8,
+    "font" : "Arial,Bold",
+    "font size" : 14.064,
+    "text color" : "[0.251]",
+    "content" : "Throne room, “Hall of a"
+  }, {
+    "type" : "paragraph",
+    "id" : 305,
+    "page number" : 56,
+    "bounding box" : [ 49.8, 240.722, 252.257, 281.58 ],
+    "font" : "Arial,Bold",
+    "font size" : 14.04,
+    "text color" : "[0.251]",
+    "content" : "Hundred Columns.” Palaces of Darius and Xerxes I"
+  }, {
+    "type" : "heading",
+    "id" : 306,
+    "level" : "Subtitle",
+    "page number" : 56,
+    "bounding box" : [ 49.8, 215.497, 93.497, 228.689 ],
+    "heading level" : 8,
+    "font" : "Arial,Bold",
+    "font size" : 14.064,
+    "text color" : "[0.251]",
+    "content" : "Harem"
+  }, {
+    "type" : "paragraph",
+    "id" : 307,
+    "page number" : 56,
+    "bounding box" : [ 49.8, 89.504, 233.022, 203.471 ],
+    "font" : "Arial,Bold",
+    "font size" : 14.04,
+    "text color" : "[0.251]",
+    "content" : "Council hall Store rooms Hillside tombs No shrine or temple has been identified."
+  }, {
+    "type" : "paragraph",
+    "id" : 301,
+    "page number" : 56,
+    "bounding box" : [ 5.4, 15.32, 224.635, 28.461 ],
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Plan: Palace complex at Persepolis"
+  }, {
+    "type" : "image",
+    "id" : 311,
+    "page number" : 57,
+    "bounding box" : [ 359.57, 75.375, 719.14, 329.625 ],
+    "source" : "HOA MODULE 1_images/imageFile42.png"
+  }, {
+    "type" : "image",
+    "id" : 310,
+    "page number" : 57,
+    "bounding box" : [ 0.0, 75.375, 359.57, 301.035 ],
+    "source" : "HOA MODULE 1_images/imageFile43.png"
+  }, {
+    "type" : "heading",
+    "id" : 309,
+    "level" : "Subtitle",
+    "page number" : 57,
+    "bounding box" : [ 5.4, 15.32, 357.874, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "1) Staircase at Persepolis; 2) Part of the palace complex."
+  }, {
+    "type" : "paragraph",
+    "id" : 313,
+    "page number" : 58,
+    "bounding box" : [ 489.89, 203.26, 665.12, 245.47 ],
+    "font" : "Arial",
+    "font size" : 45.0,
+    "text color" : "[1.0]",
+    "content" : "Egyptian"
+  }, {
+    "type" : "paragraph",
+    "id" : 314,
+    "page number" : 58,
+    "bounding box" : [ 424.85, 157.275, 665.053, 199.507 ],
+    "font" : "Arial",
+    "font size" : 45.024,
+    "text color" : "[1.0]",
+    "content" : "Architecture"
+  }, {
+    "type" : "image",
+    "id" : 316,
+    "page number" : 59,
+    "bounding box" : [ 0.0, -1.5, 720.0, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile44.png"
+  }, {
+    "type" : "heading",
+    "id" : 320,
+    "level" : "Subtitle",
+    "page number" : 60,
+    "bounding box" : [ 122.42, 311.93, 568.189, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Egyptian (3000 B.C.-200 A.D.)"
+  }, {
+    "type" : "list",
+    "id" : 321,
+    "level" : "1",
+    "page number" : 60,
+    "bounding box" : [ 129.98, 101.09, 660.541, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 60,
+      "bounding box" : [ 129.98, 169.16, 660.541, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Characterized by the axial planning of massive masonry tombs and temples, the use of trabeated construction with precise stonework, and the decoration of battered walls with pictographic carvings in relief.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 60,
+      "bounding box" : [ 129.98, 101.09, 647.859, 169.603 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ A preoccupation with eternity and the afterlife dominated the building of these funerary monuments and temples.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 329,
+    "page number" : 61,
+    "bounding box" : [ 0.0, 48.508, 358.81, 356.488 ],
+    "source" : "HOA MODULE 1_images/imageFile45.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 324,
+    "page number" : 61,
+    "bounding box" : [ 392.64, 313.93, 596.118, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Egypt, ca. 3rd"
+  }, {
+    "type" : "paragraph",
+    "id" : 325,
+    "page number" : 61,
+    "bounding box" : [ 392.64, 280.325, 574.107, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "century B.C."
+  }, {
+    "type" : "paragraph",
+    "id" : 326,
+    "page number" : 61,
+    "bounding box" : [ 392.64, 251.241, 640.535, 267.999 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Egypt’s possession of the Nile was of"
+  }, {
+    "type" : "paragraph",
+    "id" : 327,
+    "page number" : 61,
+    "bounding box" : [ 392.64, 235.045, 609.526, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "immense advantage, not only on"
+  }, {
+    "type" : "paragraph",
+    "id" : 328,
+    "page number" : 61,
+    "bounding box" : [ 392.64, 154.05, 663.42, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "account of its value as a trade route, and as a means of communication, but also because its waters were the fertilizing agents that made desert sands into fruitful fields."
+  }, {
+    "type" : "heading",
+    "id" : 331,
+    "level" : "Subtitle",
+    "page number" : 62,
+    "bounding box" : [ 41.4, 243.837, 488.922, 290.797 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 50.064,
+    "text color" : "[0.188]",
+    "content" : "Religious Structures"
+  }, {
+    "type" : "image",
+    "id" : 334,
+    "page number" : 63,
+    "bounding box" : [ 0.0, 34.787, 720.0, 404.997 ],
+    "source" : "HOA MODULE 1_images/imageFile46.png"
+  }, {
+    "type" : "heading",
+    "id" : 333,
+    "level" : "Subtitle",
+    "page number" : 63,
+    "bounding box" : [ 5.4, 15.32, 105.72, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Saqqara, Egypt."
+  }, {
+    "type" : "paragraph",
+    "id" : 336,
+    "page number" : 64,
+    "bounding box" : [ 122.42, 257.49, 272.063, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Mastaba"
+  }, {
+    "type" : "paragraph",
+    "id" : 337,
+    "page number" : 64,
+    "bounding box" : [ 122.42, 222.987, 593.282, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "A tomb for the nobility or members of the royal"
+  }, {
+    "type" : "paragraph",
+    "id" : 338,
+    "page number" : 64,
+    "bounding box" : [ 122.42, 152.652, 662.18, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.251]",
+    "content" : "family. Made of mud brick, rectangular in plan with a flat roof"
+  }, {
+    "type" : "paragraph",
+    "id" : 339,
+    "page number" : 64,
+    "bounding box" : [ 122.42, 129.097, 585.628, 150.731 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "and sloping sides, from which a shaft leads to"
+  }, {
+    "type" : "paragraph",
+    "id" : 340,
+    "page number" : 64,
+    "bounding box" : [ 122.42, 105.702, 556.102, 127.313 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.498]",
+    "content" : "underground burial and offering chambers."
+  }, {
+    "type" : "image",
+    "id" : 343,
+    "page number" : 65,
+    "bounding box" : [ 40.037, 66.691, 448.207, 338.311 ],
+    "source" : "HOA MODULE 1_images/imageFile47.png"
+  }, {
+    "type" : "list",
+    "id" : 344,
+    "level" : "3",
+    "page number" : 65,
+    "bounding box" : [ 488.26, 90.532, 621.192, 305.351 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 9,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 488.26, 292.182, 575.449, 305.351 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "1 stone facing",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 488.26, 266.982, 602.589, 280.151 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "2 sacrificial chapel",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 488.26, 241.752, 621.192, 254.921 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "3 tombstone (serdab)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 488.26, 216.552, 513.196, 229.721 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "4 fill",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 488.26, 191.352, 530.409, 204.521 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "5 shaft",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 488.26, 166.152, 583.045, 179.321 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "6 masonry seal",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 488.26, 140.932, 563.698, 154.101 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "7 stone slab",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 488.26, 115.732, 592.522, 128.901 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "8 burial chamber",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 65,
+      "bounding box" : [ 488.26, 90.532, 580.082, 103.701 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "9 sarcophagus",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 342,
+    "page number" : 65,
+    "bounding box" : [ 5.4, 15.32, 178.626, 28.461 ],
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Cross section of a mastaba."
+  }, {
+    "type" : "image",
+    "id" : 347,
+    "page number" : 66,
+    "bounding box" : [ 0.0, 34.787, 720.0, 404.997 ],
+    "source" : "HOA MODULE 1_images/imageFile48.png"
+  }, {
+    "type" : "heading",
+    "id" : 346,
+    "level" : "Subtitle",
+    "page number" : 66,
+    "bounding box" : [ 5.4, 15.32, 87.843, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Luxor, Egypt."
+  }, {
+    "type" : "paragraph",
+    "id" : 349,
+    "page number" : 67,
+    "bounding box" : [ 122.42, 257.49, 272.024, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Temples"
+  }, {
+    "type" : "paragraph",
+    "id" : 350,
+    "page number" : 67,
+    "bounding box" : [ 122.42, 222.987, 593.323, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "An edifice or place dedicated to the worship or"
+  }, {
+    "type" : "paragraph",
+    "id" : 351,
+    "page number" : 67,
+    "bounding box" : [ 122.42, 199.572, 322.868, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.251]",
+    "content" : "presence of a deity."
+  }, {
+    "type" : "paragraph",
+    "id" : 353,
+    "page number" : 68,
+    "bounding box" : [ 122.42, 311.93, 360.812, 342.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Kinds of Temple"
+  }, {
+    "type" : "heading",
+    "id" : 354,
+    "level" : "Subtitle",
+    "page number" : 68,
+    "bounding box" : [ 122.42, 270.32, 242.792, 290.018 ],
+    "heading level" : 5,
+    "font" : "Arial,Bold",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "Cult Temple"
+  }, {
+    "type" : "heading",
+    "id" : 357,
+    "level" : "Subtitle",
+    "page number" : 68,
+    "bounding box" : [ 405.96, 270.32, 575.178, 290.018 ],
+    "heading level" : 5,
+    "font" : "Arial,Bold",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "Mortuary Temple"
+  }, {
+    "type" : "paragraph",
+    "id" : 355,
+    "page number" : 68,
+    "bounding box" : [ 131.42, 206.36, 368.057, 248.738 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "An ancient Egyptian temple for the worship of"
+  }, {
+    "type" : "paragraph",
+    "id" : 358,
+    "page number" : 68,
+    "bounding box" : [ 414.96, 206.36, 642.273, 248.738 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "An ancient Egyptian temple for offerings and"
+  }, {
+    "type" : "paragraph",
+    "id" : 356,
+    "page number" : 68,
+    "bounding box" : [ 138.38, 183.645, 206.025, 203.365 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.251]",
+    "content" : "a deity."
+  }, {
+    "type" : "paragraph",
+    "id" : 359,
+    "page number" : 68,
+    "bounding box" : [ 421.92, 183.645, 631.915, 203.365 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "worship of a deceased"
+  }, {
+    "type" : "paragraph",
+    "id" : 360,
+    "page number" : 68,
+    "bounding box" : [ 421.92, 138.29, 648.098, 180.668 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "person, usually a deified king."
+  }, {
+    "type" : "image",
+    "id" : 363,
+    "page number" : 69,
+    "bounding box" : [ 0.0, 39.829, 512.03, 365.169 ],
+    "source" : "HOA MODULE 1_images/imageFile49.png"
+  }, {
+    "type" : "list",
+    "id" : 364,
+    "level" : "4",
+    "page number" : 69,
+    "bounding box" : [ 517.51, 102.817, 702.304, 348.133 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 13,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 334.727, 600.28, 348.133 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.188]",
+      "content" : "1 RA, RE – sun",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 318.142, 674.289, 331.575 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.024,
+      "text color" : "[0.188]",
+      "content" : "2 OSIRIS – death, judgement",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 301.587, 686.926, 314.993 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.188]",
+      "content" : "3 ISIS – motherhood, protection",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 285.027, 658.012, 298.433 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.188]",
+      "content" : "4 HORUS – falcon, royalty",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 268.467, 702.304, 281.873 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.188]",
+      "content" : "5 SETH, SET – storms, chaos, evil",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 235.335, 699.652, 265.313 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.024,
+      "text color" : "[0.188]",
+      "content" : "6 ATUM, TUM – sun, creator of all things",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 218.757, 597.646, 232.163 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.188]",
+      "content" : "7 MIN – fertility",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 202.197, 602.362, 215.603 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.188]",
+      "content" : "8 MAAT – order",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 169.1, 679.36, 199.043 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.188]",
+      "content" : "9 AMUN, AMEN, AMON – 'the unseen one'",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 152.492, 674.239, 165.925 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.024,
+      "text color" : "[0.188]",
+      "content" : "10 MUT – mistress of heaven",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 135.937, 699.172, 149.343 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.188]",
+      "content" : "11 KHONSU – moon 'the traveller'",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 119.377, 662.422, 132.783 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.188]",
+      "content" : "12 HAPI – the Nile's fertility",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 69,
+      "bounding box" : [ 517.51, 102.817, 645.682, 116.223 ],
+      "font" : "Arial,Bold",
+      "font size" : 12.0,
+      "text color" : "[0.188]",
+      "content" : "13 NUT – the firmament",
+      "kids" : [ {
+        "type" : "list",
+        "id" : 24,
+        "level" : "4",
+        "page number" : 69,
+        "bounding box" : [ 517.51, 53.113, 703.648, 99.663 ],
+        "numbering style" : "arabic numbers",
+        "number of list items" : 2,
+        "list items" : [ {
+          "type" : "list item",
+          "page number" : 69,
+          "bounding box" : [ 517.51, 86.257, 586.078, 99.663 ],
+          "font" : "Arial,Bold",
+          "font size" : 12.0,
+          "text color" : "[0.188]",
+          "content" : "15 SHU – air",
+          "kids" : [ {
+            "type" : "paragraph",
+            "id" : 23,
+            "page number" : 69,
+            "bounding box" : [ 517.51, 69.668, 600.245, 83.101 ],
+            "font" : "Arial",
+            "font size" : 12.024,
+            "text color" : "[0.188]",
+            "content" : "14 GEB – earth"
+          } ]
+        }, {
+          "type" : "list item",
+          "page number" : 69,
+          "bounding box" : [ 517.51, 53.113, 703.648, 66.519 ],
+          "font" : "Arial,Bold",
+          "font size" : 12.0,
+          "text color" : "[0.188]",
+          "content" : "16 PTAH – creation, craftsmanship",
+          "kids" : [ ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "caption",
+    "id" : 362,
+    "page number" : 69,
+    "bounding box" : [ 5.4, 15.32, 97.91, 28.461 ],
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Egyptian gods."
+  }, {
+    "type" : "paragraph",
+    "id" : 367,
+    "page number" : 70,
+    "bounding box" : [ 392.64, 313.93, 616.38, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Karnak Temple"
+  }, {
+    "type" : "image",
+    "id" : 371,
+    "page number" : 70,
+    "bounding box" : [ 0.0, 64.677, 360.35, 340.327 ],
+    "source" : "HOA MODULE 1_images/imageFile50.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 368,
+    "page number" : 70,
+    "bounding box" : [ 392.64, 280.325, 522.92, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "Complex"
+  }, {
+    "type" : "heading",
+    "id" : 369,
+    "level" : "Subtitle",
+    "page number" : 70,
+    "bounding box" : [ 392.64, 251.27, 487.695, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Luxor, Egypt."
+  }, {
+    "type" : "paragraph",
+    "id" : 370,
+    "page number" : 70,
+    "bounding box" : [ 392.64, 105.43, 662.835, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "When Amun-Re, the god of the sun and the heaven became the national deity during the period of the New Kingdom, at least a dozen temples were built in his honor. One of the main components of this political/religious landscape was the temple complex of Karnak."
+  }, {
+    "type" : "image",
+    "id" : 374,
+    "page number" : 71,
+    "bounding box" : [ 0.0, 34.788, 720.0, 404.998 ],
+    "source" : "HOA MODULE 1_images/imageFile51.png"
+  }, {
+    "type" : "heading",
+    "id" : 373,
+    "level" : "Subtitle",
+    "page number" : 71,
+    "bounding box" : [ 5.4, 15.32, 394.055, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Karnak Temple Complex. Luxor, Egypt. (Reconstructed model)"
+  }, {
+    "type" : "list",
+    "id" : 378,
+    "level" : "5",
+    "page number" : 72,
+    "bounding box" : [ 499.8, 183.192, 707.884, 370.291 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 10,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 357.122, 639.457, 370.291 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "1 1st pylons, c.320 BC",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 337.802, 566.8, 350.971 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "2 forecourt",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 318.457, 644.134, 331.649 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.064,
+      "text color" : "[0.188]",
+      "content" : "3 birth house, mammisi",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 299.142, 543.507, 312.311 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "4 kiosk",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 279.822, 590.766, 292.991 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "5 pylon temple",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 260.502, 651.854, 273.671 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "6 2nd pylons, c.1320 BC",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 241.12, 707.884, 256.832 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.064,
+      "text color" : "[0.188]",
+      "content" : "7 hypostyle hall, c.1290–1250 BC",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 221.832, 575.827, 235.001 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "8 3rd pylons",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 202.512, 562.223, 215.681 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "9 obelisks",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 183.192, 582.791, 196.361 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "10 4th pylons",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 377,
+    "page number" : 72,
+    "bounding box" : [ 0.0, 93.7, 488.16, 311.3 ],
+    "source" : "HOA MODULE 1_images/imageFile52.png"
+  }, {
+    "type" : "list",
+    "id" : 379,
+    "level" : "5",
+    "page number" : 72,
+    "bounding box" : [ 499.8, 28.588, 709.376, 177.041 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 7,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 163.872, 582.791, 177.041 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "12 5th pylons",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 144.532, 582.791, 157.701 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "13 6th pylons",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 125.212, 608.527, 138.381 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "14 barque temple",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 105.892, 709.376, 119.061 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "15 temple court (Middle Kingdom)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 86.572, 588.323, 99.741 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "16 festival hall",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 67.223, 624.08, 80.415 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.064,
+      "text color" : "[0.188]",
+      "content" : "17 holy of the holies",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 72,
+      "bounding box" : [ 499.8, 28.588, 614.175, 61.077 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "18 ambulatory `Botanical garden´",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 376,
+    "page number" : 72,
+    "bounding box" : [ 5.4, 15.265, 331.318, 30.95 ],
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Cult Temple of Amon (Amun), Karnak; 2000–300 BC"
+  }, {
+    "type" : "image",
+    "id" : 387,
+    "page number" : 73,
+    "bounding box" : [ 0.0, 0.0, 365.66, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile53.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 382,
+    "page number" : 73,
+    "bounding box" : [ 392.64, 313.93, 541.239, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Avenue of"
+  }, {
+    "type" : "paragraph",
+    "id" : 383,
+    "page number" : 73,
+    "bounding box" : [ 392.64, 280.325, 528.468, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "Sphinxes"
+  }, {
+    "type" : "paragraph",
+    "id" : 384,
+    "page number" : 73,
+    "bounding box" : [ 392.64, 251.27, 619.425, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Leads to a tall portal guarded by a"
+  }, {
+    "type" : "paragraph",
+    "id" : 385,
+    "page number" : 73,
+    "bounding box" : [ 392.64, 235.045, 493.541, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "towering pylon."
+  }, {
+    "type" : "paragraph",
+    "id" : 386,
+    "page number" : 73,
+    "bounding box" : [ 392.64, 154.05, 658.575, 216.72 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Sphinx A figure of an imaginary creature having the body of a lion and the head of a man, ram, or hawk."
+  }, {
+    "type" : "image",
+    "id" : 390,
+    "page number" : 74,
+    "bounding box" : [ 116.8, 34.788, 296.69, 404.998 ],
+    "source" : "HOA MODULE 1_images/imageFile54.png"
+  }, {
+    "type" : "list",
+    "id" : 391,
+    "level" : "6",
+    "page number" : 74,
+    "bounding box" : [ 407.11, 115.537, 691.134, 283.321 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 5,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 74,
+      "bounding box" : [ 407.11, 250.832, 691.134, 283.321 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "7 androsphinx: human-headed sphinx Vatican Museum, Rome",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 74,
+      "bounding box" : [ 407.11, 212.192, 645.916, 244.681 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "8 androsphinx: human-headed sphinx Amenemhet III, 12.dynasty, c.1800 BC",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 74,
+      "bounding box" : [ 407.11, 154.202, 662.705, 206.029 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.064,
+      "text color" : "[0.188]",
+      "content" : "9 androsphinx: human-headed sphinx Thutmosis III, 18th dynasty, Rek-minh-re, Thebes, Egypt",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 74,
+      "bounding box" : [ 407.11, 134.882, 616.709, 148.051 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "10 criosphinx: ram-headed sphinx",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 74,
+      "bounding box" : [ 407.11, 115.537, 653.317, 128.729 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.064,
+      "text color" : "[0.188]",
+      "content" : "11 hieracosphinx: falcon-headed sphinx",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 389,
+    "page number" : 74,
+    "bounding box" : [ 5.4, 15.32, 122.985, 28.461 ],
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Egyptian sphinxes."
+  }, {
+    "type" : "image",
+    "id" : 398,
+    "page number" : 75,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile55.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 394,
+    "page number" : 75,
+    "bounding box" : [ 392.64, 280.25, 502.662, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Obelisk"
+  }, {
+    "type" : "paragraph",
+    "id" : 395,
+    "page number" : 75,
+    "bounding box" : [ 392.64, 251.27, 616.745, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "An Egyptian monolithic four-sided"
+  }, {
+    "type" : "paragraph",
+    "id" : 396,
+    "page number" : 75,
+    "bounding box" : [ 392.64, 235.045, 662.05, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "standing stone, tapering to a pyramidical"
+  }, {
+    "type" : "paragraph",
+    "id" : 397,
+    "page number" : 75,
+    "bounding box" : [ 392.64, 202.65, 664.755, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "cap (a pyramidion), often inscribed with hieroglyphs and erected as a monument."
+  }, {
+    "type" : "image",
+    "id" : 405,
+    "page number" : 76,
+    "bounding box" : [ 0.0, -8.831, 360.47, 404.999 ],
+    "source" : "HOA MODULE 1_images/imageFile56.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 401,
+    "page number" : 76,
+    "bounding box" : [ 392.64, 280.25, 475.173, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Pylon"
+  }, {
+    "type" : "paragraph",
+    "id" : 402,
+    "page number" : 76,
+    "bounding box" : [ 392.64, 251.27, 643.92, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A gateway guarding a sacred precinct"
+  }, {
+    "type" : "paragraph",
+    "id" : 403,
+    "page number" : 76,
+    "bounding box" : [ 392.64, 235.045, 599.415, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "consisting of either a pair of tall"
+  }, {
+    "type" : "paragraph",
+    "id" : 404,
+    "page number" : 76,
+    "bounding box" : [ 392.64, 186.45, 630.015, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "truncated pyramids and a doorway between them, often decorated with painted reliefs."
+  }, {
+    "type" : "image",
+    "id" : 412,
+    "page number" : 77,
+    "bounding box" : [ 0.0, 0.0, 360.52, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile57.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 408,
+    "page number" : 77,
+    "bounding box" : [ 392.64, 280.25, 603.576, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Hypostyle Hall"
+  }, {
+    "type" : "paragraph",
+    "id" : 409,
+    "page number" : 77,
+    "bounding box" : [ 392.64, 251.27, 632.865, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A large hall having many columns in"
+  }, {
+    "type" : "paragraph",
+    "id" : 410,
+    "page number" : 77,
+    "bounding box" : [ 392.64, 235.045, 598.499, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "rows supporting a flat roof, and"
+  }, {
+    "type" : "paragraph",
+    "id" : 411,
+    "page number" : 77,
+    "bounding box" : [ 392.64, 218.85, 551.19, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "sometimes a clerestory."
+  }, {
+    "type" : "image",
+    "id" : 419,
+    "page number" : 78,
+    "bounding box" : [ 0.0, 0.0, 359.74, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile58.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 415,
+    "page number" : 78,
+    "bounding box" : [ 392.64, 280.25, 583.38, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Pylon temple"
+  }, {
+    "type" : "paragraph",
+    "id" : 416,
+    "page number" : 78,
+    "bounding box" : [ 392.64, 251.27, 585.945, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "An Egyptian temple type with"
+  }, {
+    "type" : "paragraph",
+    "id" : 417,
+    "page number" : 78,
+    "bounding box" : [ 392.64, 235.045, 617.865, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "monumental gateways, formed by"
+  }, {
+    "type" : "paragraph",
+    "id" : 418,
+    "page number" : 78,
+    "bounding box" : [ 392.64, 218.85, 487.785, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "twined pylons."
+  }, {
+    "type" : "image",
+    "id" : 426,
+    "page number" : 79,
+    "bounding box" : [ 0.0, 0.451, 359.81, 405.451 ],
+    "source" : "HOA MODULE 1_images/imageFile59.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 422,
+    "page number" : 79,
+    "bounding box" : [ 392.64, 280.25, 473.325, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Kiosk"
+  }, {
+    "type" : "paragraph",
+    "id" : 423,
+    "page number" : 79,
+    "bounding box" : [ 392.64, 251.27, 645.54, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A freestanding stone canopy structure"
+  }, {
+    "type" : "paragraph",
+    "id" : 424,
+    "page number" : 79,
+    "bounding box" : [ 392.64, 235.045, 617.82, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "supported by columns in Egyptian"
+  }, {
+    "type" : "paragraph",
+    "id" : 425,
+    "page number" : 79,
+    "bounding box" : [ 392.64, 186.48, 640.2, 232.92 ],
+    "font" : "Arial,Italic",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "architecture. (Hypaethral, classical temple that is wholly or partly open to the sky.)"
+  }, {
+    "type" : "image",
+    "id" : 433,
+    "page number" : 80,
+    "bounding box" : [ 0.0, 0.0, 360.52, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile60.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 429,
+    "page number" : 80,
+    "bounding box" : [ 392.64, 280.25, 524.607, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Mammisi"
+  }, {
+    "type" : "paragraph",
+    "id" : 430,
+    "page number" : 80,
+    "bounding box" : [ 392.64, 251.27, 649.245, 265.34 ],
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Dendera Temple Complex. Dendera,"
+  }, {
+    "type" : "heading",
+    "id" : 431,
+    "level" : "Subtitle",
+    "page number" : 80,
+    "bounding box" : [ 392.64, 235.045, 437.817, 249.137 ],
+    "heading level" : 6,
+    "font" : "Arial,Bold",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "Egypt."
+  }, {
+    "type" : "paragraph",
+    "id" : 432,
+    "page number" : 80,
+    "bounding box" : [ 392.64, 137.83, 655.53, 216.72 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Birth-house; a small Egyptian side temple, kiosk or tent shrine to celebrate the place where the god of the main temple was born, or where the goddess bore her children."
+  }, {
+    "type" : "text block",
+    "id" : 435,
+    "page number" : 81,
+    "bounding box" : [ -0.75, -0.756, 361.22, 405.744 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 81,
+      "bounding box" : [ 0.0, 78.375, 360.47, 326.625 ],
+      "source" : "HOA MODULE 1_images/imageFile61.png"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 436,
+    "page number" : 81,
+    "bounding box" : [ 392.64, 280.25, 618.294, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Barque Temple"
+  }, {
+    "type" : "paragraph",
+    "id" : 437,
+    "page number" : 81,
+    "bounding box" : [ 392.64, 251.27, 659.655, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A room or building in which the image of"
+  }, {
+    "type" : "paragraph",
+    "id" : 438,
+    "page number" : 81,
+    "bounding box" : [ 392.64, 235.045, 617.835, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "the Pharaoh or deity was revered."
+  }, {
+    "type" : "image",
+    "id" : 441,
+    "page number" : 82,
+    "bounding box" : [ -1.821, 34.788, 721.819, 404.998 ],
+    "source" : "HOA MODULE 1_images/imageFile62.png"
+  }, {
+    "type" : "heading",
+    "id" : 440,
+    "level" : "Subtitle",
+    "page number" : 82,
+    "bounding box" : [ 5.4, 15.32, 448.264, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Mortuary temple of Queen Hatshepsut and Shrine of Anubis, c.1470 BC"
+  }, {
+    "type" : "image",
+    "id" : 447,
+    "page number" : 83,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile63.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 444,
+    "page number" : 83,
+    "bounding box" : [ 392.64, 280.33, 641.955, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Mortuary Temple of Hatshepsut"
+  }, {
+    "type" : "heading",
+    "id" : 445,
+    "level" : "Subtitle",
+    "page number" : 83,
+    "bounding box" : [ 396.81, 251.27, 610.575, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Deir el Bahari, Egypt. Senmut."
+  }, {
+    "type" : "paragraph",
+    "id" : 446,
+    "page number" : 83,
+    "bounding box" : [ 392.64, 105.43, 664.425, 235.579 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Queen Hatshepsut’s mortuary temple played a key role in the processional events as the temporary resting place for the barque during the Beautiful Feast of the Valley. Located in the Valley of the Kings, which was to become the main burial place for the Egyptian royalty."
+  }, {
+    "type" : "paragraph",
+    "id" : 449,
+    "page number" : 84,
+    "bounding box" : [ 122.42, 257.49, 387.08, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Rock-cut Tomb"
+  }, {
+    "type" : "paragraph",
+    "id" : 450,
+    "page number" : 84,
+    "bounding box" : [ 122.42, 222.987, 637.933, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "A tomb hewn out of native rock, presenting only an"
+  }, {
+    "type" : "paragraph",
+    "id" : 451,
+    "page number" : 84,
+    "bounding box" : [ 122.42, 152.652, 662.155, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.498]",
+    "content" : "architectural front with dark interior chambers, of which the sections are supported by masses of stone left in the form of solid pillars."
+  }, {
+    "type" : "list",
+    "id" : 455,
+    "level" : "5",
+    "page number" : 85,
+    "bounding box" : [ 499.8, 55.948, 684.553, 342.211 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 14,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 329.042, 585.993, 342.211 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "20 outer court",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 308.022, 574.367, 321.191 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "21 sphinxes",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 287.022, 558.067, 300.191 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "22 ramps",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 266.022, 637.182, 279.191 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "23 colonnades (lower)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 244.992, 609.088, 258.161 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "24 terrace (lower)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 223.992, 608.513, 237.161 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "25 ramp to shrine",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 202.992, 684.553, 216.161 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "26 shrine (of goddess Hathor)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 181.992, 639.71, 195.161 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "27 colonnades (upper)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 160.972, 676.845, 174.141 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "28 chapel (chapel of Anubis)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 139.972, 595.47, 153.141 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "29 Osiris pillars",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 118.972, 659.927, 132.141 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "30 chapel (of Hatshepsut)",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 97.972, 622.482, 111.141 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "31 ceremonial court",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 76.948, 587.621, 90.117 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "32 sun temple",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 85,
+      "bounding box" : [ 499.8, 55.948, 614.887, 69.117 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.188]",
+      "content" : "33 inner sanctuary",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 454,
+    "page number" : 85,
+    "bounding box" : [ 0.0, 69.75, 489.08, 331.69 ],
+    "source" : "HOA MODULE 1_images/imageFile64.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 453,
+    "page number" : 85,
+    "bounding box" : [ 5.4, 15.32, 673.741, 28.461 ],
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Mortuary temple of Queen Hatshepsut and Shrine of Anubis, Deir el-Bahari; c.1470 BC, architect Senenmut."
+  }, {
+    "type" : "image",
+    "id" : 458,
+    "page number" : 86,
+    "bounding box" : [ 0.0, 34.788, 720.0, 404.998 ],
+    "source" : "HOA MODULE 1_images/imageFile65.png"
+  }, {
+    "type" : "heading",
+    "id" : 457,
+    "level" : "Subtitle",
+    "page number" : 86,
+    "bounding box" : [ 5.4, 15.32, 268.804, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Temple at Abu Simbel, near Philae, Egypt."
+  }, {
+    "type" : "image",
+    "id" : 465,
+    "page number" : 87,
+    "bounding box" : [ 0.0, 6.545, 358.8, 398.455 ],
+    "source" : "HOA MODULE 1_images/imageFile66.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 461,
+    "page number" : 87,
+    "bounding box" : [ 392.64, 280.25, 561.369, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Abu Simbel"
+  }, {
+    "type" : "paragraph",
+    "id" : 462,
+    "page number" : 87,
+    "bounding box" : [ 392.64, 251.27, 626.055, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "The facade, carved directly into the"
+  }, {
+    "type" : "paragraph",
+    "id" : 463,
+    "page number" : 87,
+    "bounding box" : [ 392.64, 235.045, 660.713, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "sandstone cliff, takes the form of a pylon"
+  }, {
+    "type" : "paragraph",
+    "id" : 464,
+    "page number" : 87,
+    "bounding box" : [ 392.64, 186.45, 664.74, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "and is dominated by four colossal seated figures, 22 meters tall, all portrayals of Ramesses."
+  }, {
+    "type" : "paragraph",
+    "id" : 467,
+    "page number" : 88,
+    "bounding box" : [ 122.42, 257.49, 265.511, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Pyramid"
+  }, {
+    "type" : "paragraph",
+    "id" : 468,
+    "page number" : 88,
+    "bounding box" : [ 122.42, 222.987, 633.271, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "A massive masonry structure having a rectangular"
+  }, {
+    "type" : "paragraph",
+    "id" : 469,
+    "page number" : 88,
+    "bounding box" : [ 122.42, 176.052, 636.851, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.498]",
+    "content" : "base and four smooth, steeply sloping sides facing the cardinal points and meeting at an apex."
+  }, {
+    "type" : "paragraph",
+    "id" : 470,
+    "page number" : 88,
+    "bounding box" : [ 122.42, 129.097, 659.788, 150.731 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "Used in ancient Egypt as a tomb to contain the burial"
+  }, {
+    "type" : "paragraph",
+    "id" : 471,
+    "page number" : 88,
+    "bounding box" : [ 122.42, 105.702, 543.476, 127.313 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.498]",
+    "content" : "chamber and the mummy of the pharaoh."
+  }, {
+    "type" : "text block",
+    "id" : 473,
+    "page number" : 89,
+    "bounding box" : [ -0.75, -0.754, 360.32, 405.746 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 89,
+      "bounding box" : [ 35.275, 0.0, 324.305, 405.0 ],
+      "source" : "HOA MODULE 1_images/imageFile67.png"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 474,
+    "page number" : 89,
+    "bounding box" : [ 392.64, 280.25, 511.869, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Imhotep"
+  }, {
+    "type" : "list",
+    "id" : 475,
+    "level" : "6",
+    "page number" : 89,
+    "bounding box" : [ 403.2, 168.45, 638.24, 267.787 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 89,
+      "bounding box" : [ 403.2, 235.045, 622.73, 267.787 ],
+      "font" : "Times New Roman",
+      "font size" : 15.024,
+      "text color" : "[0.6]",
+      "content" : "▪ The first architect recorded in history.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 89,
+      "bounding box" : [ 403.2, 168.45, 638.24, 217.367 ],
+      "font" : "Times New Roman",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "▪ Designed the Saqqara complex and the Stepped Pyramid of Djoser.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 483,
+    "page number" : 90,
+    "bounding box" : [ 0.0, 0.0, 366.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile68.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 478,
+    "page number" : 90,
+    "bounding box" : [ 392.64, 280.25, 513.651, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Pyramid"
+  }, {
+    "type" : "paragraph",
+    "id" : 479,
+    "page number" : 90,
+    "bounding box" : [ 392.64, 251.27, 638.085, 265.34 ],
+    "font" : "Arial,BoldItalic",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "The Egyptian pyramids of the Giza"
+  }, {
+    "type" : "heading",
+    "id" : 480,
+    "level" : "Subtitle",
+    "page number" : 90,
+    "bounding box" : [ 392.64, 235.045, 474.386, 249.137 ],
+    "heading level" : 6,
+    "font" : "Arial,BoldItalic",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "Necropolis."
+  }, {
+    "type" : "paragraph",
+    "id" : 481,
+    "page number" : 90,
+    "bounding box" : [ 392.64, 137.83, 656.415, 216.72 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "The ancient Egyptians built more than 80 pyramids along the banks of the Nile near modern-day Cairo from 2700 to 1640 B.C. The pyramids were designed according to three forms:"
+  }, {
+    "type" : "list",
+    "id" : 482,
+    "level" : "1",
+    "page number" : 90,
+    "bounding box" : [ 403.2, 35.107, 629.675, 120.147 ],
+    "numbering style" : "unordered",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 90,
+      "bounding box" : [ 403.2, 103.535, 516.965, 120.147 ],
+      "font" : "Times New Roman",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "▪ Step pyramid",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 90,
+      "bounding box" : [ 403.2, 69.307, 516.965, 85.919 ],
+      "font" : "Times New Roman",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "▪ Bent pyramid",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 90,
+      "bounding box" : [ 403.2, 35.107, 629.675, 51.719 ],
+      "font" : "Times New Roman",
+      "font size" : 15.0,
+      "text color" : "[0.6]",
+      "content" : "▪ Straight-sided/Sloped pyramid",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 485,
+    "level" : "Subtitle",
+    "page number" : 91,
+    "bounding box" : [ 122.42, 311.93, 320.453, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Step Pyramid"
+  }, {
+    "type" : "paragraph",
+    "id" : 486,
+    "page number" : 91,
+    "bounding box" : [ 131.42, 237.22, 659.449, 279.598 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "A pyramid-type whose sides are stepped with tiers rather than smooth, in Egypt predating the true pyramids; the"
+  }, {
+    "type" : "paragraph",
+    "id" : 487,
+    "page number" : 91,
+    "bounding box" : [ 138.38, 214.515, 657.07, 234.235 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "primary existing Egyptian example is that of King Djoser"
+  }, {
+    "type" : "paragraph",
+    "id" : 488,
+    "page number" : 91,
+    "bounding box" : [ 138.38, 191.84, 389.039, 211.538 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "at Saqqara, south of Cairo."
+  }, {
+    "type" : "image",
+    "id" : 494,
+    "page number" : 92,
+    "bounding box" : [ 0.0, 0.0, 363.13, 404.25 ],
+    "source" : "HOA MODULE 1_images/imageFile69.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 491,
+    "page number" : 92,
+    "bounding box" : [ 392.64, 280.25, 655.016, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Pyramid of Djoser"
+  }, {
+    "type" : "heading",
+    "id" : 492,
+    "level" : "Subtitle",
+    "page number" : 92,
+    "bounding box" : [ 392.64, 251.27, 505.29, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Saqqara, Egypt."
+  }, {
+    "type" : "paragraph",
+    "id" : 493,
+    "page number" : 92,
+    "bounding box" : [ 392.64, 154.05, 653.84, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Built by Imhotep, architect to King Zoser; begun as a mastaba-tomb then successively enlarged; made of limestone; and set within a complex of buildings."
+  }, {
+    "type" : "table",
+    "id" : 503,
+    "level" : "4",
+    "page number" : 93,
+    "bounding box" : [ 278.02, 27.598, 309.243, 405.748 ],
+    "number of rows" : 1,
+    "number of columns" : 1,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 93,
+        "bounding box" : [ 278.77, 28.348, 308.493, 404.998 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 502,
+    "page number" : 93,
+    "bounding box" : [ 72.564, 0.005, 308.494, 404.995 ],
+    "source" : "HOA MODULE 1_images/imageFile70.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 497,
+    "page number" : 93,
+    "bounding box" : [ 392.64, 313.93, 662.118, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Mortuary Complex"
+  }, {
+    "type" : "paragraph",
+    "id" : 498,
+    "page number" : 93,
+    "bounding box" : [ 392.64, 280.325, 524.666, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "of Djoser"
+  }, {
+    "type" : "paragraph",
+    "id" : 499,
+    "page number" : 93,
+    "bounding box" : [ 392.64, 251.27, 613.94, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "The Mortuary Complex of Djoser,"
+  }, {
+    "type" : "paragraph",
+    "id" : 500,
+    "page number" : 93,
+    "bounding box" : [ 392.64, 235.045, 652.916, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "located on a slight hill west of Memphis"
+  }, {
+    "type" : "paragraph",
+    "id" : 501,
+    "page number" : 93,
+    "bounding box" : [ 392.64, 170.25, 655.41, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "and just to the north of Saqqâra, was enclosed by a 277-by-544 meter wall laid out in precise orientation to the four cardinal points."
+  }, {
+    "type" : "image",
+    "id" : 506,
+    "page number" : 94,
+    "bounding box" : [ 16.329, 47.335, 703.669, 388.775 ],
+    "source" : "HOA MODULE 1_images/imageFile71.png"
+  }, {
+    "type" : "heading",
+    "id" : 505,
+    "level" : "Subtitle",
+    "page number" : 94,
+    "bounding box" : [ 5.4, 15.32, 312.833, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Section through step pyramid and tomb of Djoser."
+  }, {
+    "type" : "image",
+    "id" : 515,
+    "page number" : 95,
+    "bounding box" : [ 0.0, 0.0, 360.34, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile72.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 509,
+    "page number" : 95,
+    "bounding box" : [ 392.64, 313.93, 568.695, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Ka statue of"
+  }, {
+    "type" : "paragraph",
+    "id" : 510,
+    "page number" : 95,
+    "bounding box" : [ 392.64, 280.325, 488.046, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "Djoser"
+  }, {
+    "type" : "paragraph",
+    "id" : 511,
+    "page number" : 95,
+    "bounding box" : [ 392.64, 251.27, 655.5, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "In a small chapel positioned against the"
+  }, {
+    "type" : "paragraph",
+    "id" : 512,
+    "page number" : 95,
+    "bounding box" : [ 392.64, 235.045, 656.613, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "north side of the pyramid was a life-size"
+  }, {
+    "type" : "paragraph",
+    "id" : 513,
+    "page number" : 95,
+    "bounding box" : [ 392.64, 186.45, 655.41, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "statue of Zoser, showing him wearing a priest’s Sed festival cloak, a ceremonial beard, and a ritual headdress."
+  }, {
+    "type" : "paragraph",
+    "id" : 514,
+    "page number" : 95,
+    "bounding box" : [ 392.64, 89.226, 657.995, 168.12 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Sitting in the dark chamber, he could gaze through two small holes in the wall placed at the statue’s eye level, through which he could watch the ceremonies taking place in the court."
+  }, {
+    "type" : "heading",
+    "id" : 517,
+    "level" : "Subtitle",
+    "page number" : 96,
+    "bounding box" : [ 122.42, 311.93, 320.486, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Bent Pyramid"
+  }, {
+    "type" : "paragraph",
+    "id" : 518,
+    "page number" : 96,
+    "bounding box" : [ 131.42, 237.22, 662.851, 279.598 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "An Egyptian pyramid-type in which each triangular planar surface changes direction as it approaches the top, as in"
+  }, {
+    "type" : "paragraph",
+    "id" : 519,
+    "page number" : 96,
+    "bounding box" : [ 138.38, 214.515, 640.925, 234.235 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "a mansard roof; sometimes also called a blunt or false"
+  }, {
+    "type" : "paragraph",
+    "id" : 520,
+    "page number" : 96,
+    "bounding box" : [ 138.38, 191.84, 218.726, 211.538 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.251]",
+    "content" : "pyramid."
+  }, {
+    "type" : "image",
+    "id" : 528,
+    "page number" : 97,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile73.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 523,
+    "page number" : 97,
+    "bounding box" : [ 392.64, 313.93, 550.347, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Pyramid of"
+  }, {
+    "type" : "paragraph",
+    "id" : 524,
+    "page number" : 97,
+    "bounding box" : [ 392.64, 280.325, 508.158, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "Sneferu"
+  }, {
+    "type" : "heading",
+    "id" : 525,
+    "level" : "Subtitle",
+    "page number" : 97,
+    "bounding box" : [ 392.64, 251.27, 506.895, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Dahshur, Egypt."
+  }, {
+    "type" : "paragraph",
+    "id" : 526,
+    "page number" : 97,
+    "bounding box" : [ 392.64, 202.65, 658.79, 235.579 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Built by Sneferu (2613–2589 BCE), who ruled during the Fourth Dynasty."
+  }, {
+    "type" : "paragraph",
+    "id" : 527,
+    "page number" : 97,
+    "bounding box" : [ 392.64, 73.026, 658.68, 184.32 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Originally planned to be a towering 150 meters high, it was too bold, and the ground gave way under part of it. In an effort to save the building, the designers added a kink or bend to reduce the weight and angle of the slope (from 52 to 43.5 degrees)."
+  }, {
+    "type" : "heading",
+    "id" : 530,
+    "level" : "Subtitle",
+    "page number" : 98,
+    "bounding box" : [ 122.42, 311.93, 355.433, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Sloped Pyramid"
+  }, {
+    "type" : "paragraph",
+    "id" : 531,
+    "page number" : 98,
+    "bounding box" : [ 131.42, 237.22, 660.388, 279.598 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "An Egyptian pyramid-type in which four sloping triangular sides, with a fixed angle, culminate at an apex. Also,"
+  }, {
+    "type" : "paragraph",
+    "id" : 532,
+    "page number" : 98,
+    "bounding box" : [ 138.38, 214.515, 260.775, 234.235 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.251]",
+    "content" : "true pyramid."
+  }, {
+    "type" : "image",
+    "id" : 539,
+    "page number" : 99,
+    "bounding box" : [ -2.528, 0.0, 360.002, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile74.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 535,
+    "page number" : 99,
+    "bounding box" : [ 392.64, 313.93, 640.292, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "North Pyramid of"
+  }, {
+    "type" : "paragraph",
+    "id" : 536,
+    "page number" : 99,
+    "bounding box" : [ 392.64, 280.325, 517.438, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "Dahshur"
+  }, {
+    "type" : "heading",
+    "id" : 537,
+    "level" : "Subtitle",
+    "page number" : 99,
+    "bounding box" : [ 392.64, 251.27, 506.99, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Dahshur, Egypt."
+  }, {
+    "type" : "paragraph",
+    "id" : 538,
+    "page number" : 99,
+    "bounding box" : [ 392.64, 186.45, 630.41, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "The first true pyramid completed in Egypt; built by King Snefru between 2575-2551 BCE."
+  }, {
+    "type" : "image",
+    "id" : 545,
+    "page number" : 100,
+    "bounding box" : [ 0.0, 0.0, 366.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile75.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 542,
+    "page number" : 100,
+    "bounding box" : [ 392.64, 280.25, 643.803, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Pyramids of Giza"
+  }, {
+    "type" : "heading",
+    "id" : 543,
+    "level" : "Subtitle",
+    "page number" : 100,
+    "bounding box" : [ 392.64, 251.27, 477.615, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Giza, Egypt."
+  }, {
+    "type" : "paragraph",
+    "id" : 544,
+    "page number" : 100,
+    "bounding box" : [ 392.64, 154.05, 659.175, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Erected on the west bank of Nile River; built of local stone on a core of rock with casing blocks of limestone; 480 feet tall with a square base measuring 756 feet on a side."
+  }, {
+    "type" : "image",
+    "id" : 548,
+    "page number" : 101,
+    "bounding box" : [ 0.0, 35.656, 720.0, 404.996 ],
+    "source" : "HOA MODULE 1_images/imageFile76.png"
+  }, {
+    "type" : "heading",
+    "id" : 547,
+    "level" : "Subtitle",
+    "page number" : 101,
+    "bounding box" : [ 5.4, 15.32, 578.541, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "The sides of the Great Pyramid rise at 51 degrees and are aligned to the four cardinal points."
+  }, {
+    "type" : "image",
+    "id" : 553,
+    "page number" : 102,
+    "bounding box" : [ 447.27, 194.77, 692.87, 388.03 ],
+    "source" : "HOA MODULE 1_images/imageFile77.png"
+  }, {
+    "type" : "image",
+    "id" : 551,
+    "page number" : 102,
+    "bounding box" : [ 27.122, 44.626, 517.472, 351.066 ],
+    "source" : "HOA MODULE 1_images/imageFile78.png"
+  }, {
+    "type" : "heading",
+    "id" : 550,
+    "level" : "Subtitle",
+    "page number" : 102,
+    "bounding box" : [ 5.4, 15.265, 312.132, 30.95 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Section: Great pyramid of Khufu; King’s chamber."
+  }, {
+    "type" : "image",
+    "id" : 557,
+    "page number" : 103,
+    "bounding box" : [ 0.0, 36.0, 720.0, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile79.png"
+  }, {
+    "type" : "heading",
+    "id" : 556,
+    "level" : "Subtitle",
+    "page number" : 103,
+    "bounding box" : [ 5.4, 15.32, 395.74, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "The Grand Gallery leading to the burial chamber of King Khufu."
+  }, {
+    "type" : "paragraph",
+    "id" : 559,
+    "page number" : 104,
+    "bounding box" : [ 122.42, 257.49, 430.286, 294.072 ],
+    "font" : "Arial",
+    "font size" : 39.0,
+    "text color" : "[0.188]",
+    "content" : "Pyramid Complex"
+  }, {
+    "type" : "paragraph",
+    "id" : 560,
+    "page number" : 104,
+    "bounding box" : [ 122.42, 222.987, 607.41, 244.621 ],
+    "font" : "Arial",
+    "font size" : 23.064,
+    "text color" : "[0.498]",
+    "content" : "The ceremonial area of buildings and structures"
+  }, {
+    "type" : "paragraph",
+    "id" : 561,
+    "page number" : 104,
+    "bounding box" : [ 122.42, 199.572, 546.241, 221.183 ],
+    "font" : "Arial",
+    "font size" : 23.04,
+    "text color" : "[0.498]",
+    "content" : "surrounding an ancient Egyptian pyramid."
+  }, {
+    "type" : "header",
+    "id" : 562,
+    "page number" : 105,
+    "bounding box" : [ 122.42, 311.93, 533.171, 342.884 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 16,
+      "page number" : 105,
+      "bounding box" : [ 122.42, 311.93, 533.171, 342.884 ],
+      "heading level" : 4,
+      "font" : "Arial",
+      "font size" : 33.0,
+      "text color" : "[0.188]",
+      "content" : "Parts of a Pyramid Complex"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 564,
+    "level" : "1",
+    "page number" : 105,
+    "bounding box" : [ 129.98, 237.22, 646.55, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "next list id" : 574,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 105,
+      "bounding box" : [ 129.98, 237.22, 646.55, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Mortuary temple In ancient Egyptian architecture, a place of worship of a",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 565,
+    "page number" : 105,
+    "bounding box" : [ 138.38, 214.515, 613.249, 234.235 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "deceased king or queen, especially one adjoining a"
+  }, {
+    "type" : "paragraph",
+    "id" : 566,
+    "page number" : 105,
+    "bounding box" : [ 138.38, 169.16, 653.594, 211.538 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "pyramid or rock cut tomb, in which offerings of food and objects were made; also called a funerary temple."
+  }, {
+    "type" : "image",
+    "id" : 569,
+    "page number" : 106,
+    "bounding box" : [ 9.282, 40.038, 440.032, 397.298 ],
+    "source" : "HOA MODULE 1_images/imageFile80.png"
+  }, {
+    "type" : "header",
+    "id" : 567,
+    "page number" : 106,
+    "bounding box" : [ 451.85, 281.352, 591.112, 319.739 ],
+    "kids" : [ {
+      "type" : "list",
+      "id" : 17,
+      "page number" : 106,
+      "bounding box" : [ 451.85, 281.352, 591.112, 319.739 ],
+      "numbering style" : "unknown style",
+      "number of list items" : 2,
+      "list items" : [ {
+        "type" : "list item",
+        "page number" : 106,
+        "bounding box" : [ 451.85, 306.547, 591.112, 319.739 ],
+        "font" : "Arial",
+        "font size" : 14.064,
+        "text color" : "[0.251]",
+        "content" : "11 Western necropolis",
+        "kids" : [ ]
+      }, {
+        "type" : "list item",
+        "page number" : 106,
+        "bounding box" : [ 451.85, 281.352, 590.635, 294.521 ],
+        "font" : "Arial",
+        "font size" : 14.04,
+        "text color" : "[0.251]",
+        "content" : "12 boat grave, boat pit",
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 570,
+    "level" : "3",
+    "page number" : 106,
+    "bounding box" : [ 451.85, 130.085, 675.254, 269.321 ],
+    "numbering style" : "arabic numbers",
+    "number of list items" : 6,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 106,
+      "bounding box" : [ 451.85, 256.152, 587.224, 269.321 ],
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "13 Eastern necropolis",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 106,
+      "bounding box" : [ 451.85, 230.927, 520.876, 244.119 ],
+      "font" : "Arial",
+      "font size" : 14.064,
+      "text color" : "[0.251]",
+      "content" : "14 pyramid",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 106,
+      "bounding box" : [ 451.85, 205.732, 675.254, 218.901 ],
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "15 mortuary temple, pyramid temple",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 106,
+      "bounding box" : [ 451.85, 180.532, 586.999, 193.701 ],
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "16 pyramid causeway",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 106,
+      "bounding box" : [ 451.85, 155.332, 552.994, 168.501 ],
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "17 valley temple",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 106,
+      "bounding box" : [ 451.85, 130.085, 573.661, 145.77 ],
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "18 queen’s pyramid",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 571,
+    "page number" : 106,
+    "bounding box" : [ 5.4, 15.32, 706.164, 118.081 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 10,
+      "page number" : 106,
+      "bounding box" : [ 451.85, 79.708, 557.557, 118.081 ],
+      "heading level" : 10,
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "19 sphinx 20 sphinx temple"
+    }, {
+      "type" : "paragraph",
+      "id" : 11,
+      "page number" : 106,
+      "bounding box" : [ 5.4, 15.32, 706.164, 28.461 ],
+      "font" : "Arial,Italic",
+      "font size" : 14.04,
+      "text color" : "[0.498]",
+      "content" : "Great Pyramid of Khufu (Cheops); pyramid of Khafre (Chefren); pyramid of Menkaure (Mycerinus), after 2472 BC."
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 572,
+    "page number" : 107,
+    "bounding box" : [ 122.42, 311.93, 533.171, 342.884 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 18,
+      "page number" : 107,
+      "bounding box" : [ 122.42, 311.93, 533.171, 342.884 ],
+      "heading level" : 4,
+      "font" : "Arial",
+      "font size" : 33.0,
+      "text color" : "[0.188]",
+      "content" : "Parts of a Pyramid Complex"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 574,
+    "level" : "1",
+    "page number" : 107,
+    "bounding box" : [ 129.98, 237.22, 583.319, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 1,
+    "previous list id" : 564,
+    "next list id" : 584,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 107,
+      "bounding box" : [ 129.98, 237.22, 583.319, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Valley temple A temple pavilion in an ancient Egyptian pyramid",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 575,
+    "page number" : 107,
+    "bounding box" : [ 138.38, 214.515, 595.105, 234.235 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "complex, connected via a covered causeway to a"
+  }, {
+    "type" : "paragraph",
+    "id" : 576,
+    "page number" : 107,
+    "bounding box" : [ 138.38, 169.16, 597.839, 211.538 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "mortuary temple at the foot of a pyramid; used for preparing the Pharaoh for his final journey."
+  }, {
+    "type" : "image",
+    "id" : 579,
+    "page number" : 108,
+    "bounding box" : [ 9.282, 40.038, 440.032, 397.298 ],
+    "source" : "HOA MODULE 1_images/imageFile81.png"
+  }, {
+    "type" : "header",
+    "id" : 577,
+    "page number" : 108,
+    "bounding box" : [ 451.85, 281.352, 591.112, 319.739 ],
+    "kids" : [ {
+      "type" : "list",
+      "id" : 19,
+      "page number" : 108,
+      "bounding box" : [ 451.85, 281.352, 591.112, 319.739 ],
+      "numbering style" : "unknown style",
+      "number of list items" : 2,
+      "list items" : [ {
+        "type" : "list item",
+        "page number" : 108,
+        "bounding box" : [ 451.85, 306.547, 591.112, 319.739 ],
+        "font" : "Arial",
+        "font size" : 14.064,
+        "text color" : "[0.251]",
+        "content" : "11 Western necropolis",
+        "kids" : [ ]
+      }, {
+        "type" : "list item",
+        "page number" : 108,
+        "bounding box" : [ 451.85, 281.352, 590.635, 294.521 ],
+        "font" : "Arial",
+        "font size" : 14.04,
+        "text color" : "[0.251]",
+        "content" : "12 boat grave, boat pit",
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 580,
+    "level" : "3",
+    "page number" : 108,
+    "bounding box" : [ 451.85, 130.085, 675.254, 269.321 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 108,
+      "bounding box" : [ 451.85, 256.152, 587.224, 269.321 ],
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "13 Eastern necropolis",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 108,
+      "bounding box" : [ 451.85, 230.927, 520.876, 244.119 ],
+      "font" : "Arial",
+      "font size" : 14.064,
+      "text color" : "[0.251]",
+      "content" : "14 pyramid",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 108,
+      "bounding box" : [ 451.85, 130.085, 675.254, 218.901 ],
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "15 mortuary temple, pyramid temple 16 pyramid causeway 17 valley temple 18 queen’s pyramid",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 581,
+    "page number" : 108,
+    "bounding box" : [ 5.4, 15.32, 706.164, 118.081 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 12,
+      "page number" : 108,
+      "bounding box" : [ 451.85, 79.708, 557.557, 118.081 ],
+      "heading level" : 10,
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "19 sphinx 20 sphinx temple"
+    }, {
+      "type" : "paragraph",
+      "id" : 13,
+      "page number" : 108,
+      "bounding box" : [ 5.4, 15.32, 706.164, 28.461 ],
+      "font" : "Arial,Italic",
+      "font size" : 14.04,
+      "text color" : "[0.498]",
+      "content" : "Great Pyramid of Khufu (Cheops); pyramid of Khafre (Chefren); pyramid of Menkaure (Mycerinus), after 2472 BC."
+    } ]
+  }, {
+    "type" : "header",
+    "id" : 582,
+    "page number" : 109,
+    "bounding box" : [ 122.42, 311.93, 533.171, 342.884 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 20,
+      "page number" : 109,
+      "bounding box" : [ 122.42, 311.93, 533.171, 342.884 ],
+      "heading level" : 4,
+      "font" : "Arial",
+      "font size" : 33.0,
+      "text color" : "[0.188]",
+      "content" : "Parts of a Pyramid Complex"
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 584,
+    "level" : "1",
+    "page number" : 109,
+    "bounding box" : [ 129.98, 169.16, 663.938, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 2,
+    "previous list id" : 574,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 109,
+      "bounding box" : [ 129.98, 237.22, 663.938, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Pyramid temple A mortuary temple connected specifically to a pyramid, or",
+      "kids" : [ {
+        "type" : "paragraph",
+        "id" : 22,
+        "page number" : 109,
+        "bounding box" : [ 138.38, 214.515, 484.561, 234.235 ],
+        "font" : "Arial",
+        "font size" : 21.024,
+        "text color" : "[0.498]",
+        "content" : "part of an Egyptian pyramid complex."
+      } ]
+    }, {
+      "type" : "list item",
+      "page number" : 109,
+      "bounding box" : [ 129.98, 169.16, 627.755, 214.963 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Pyramid causeway A covered ceremonial route or corridor leading from a",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 585,
+    "page number" : 109,
+    "bounding box" : [ 138.38, 146.48, 599.036, 166.178 ],
+    "font" : "Arial",
+    "font size" : 21.0,
+    "text color" : "[0.498]",
+    "content" : "valley temple to a mortuary temple at the foot of a"
+  }, {
+    "type" : "paragraph",
+    "id" : 586,
+    "page number" : 109,
+    "bounding box" : [ 138.38, 123.765, 620.986, 143.485 ],
+    "font" : "Arial",
+    "font size" : 21.024,
+    "text color" : "[0.498]",
+    "content" : "pyramid, notably at sites of the Nile valley pyramids."
+  }, {
+    "type" : "image",
+    "id" : 589,
+    "page number" : 110,
+    "bounding box" : [ 9.282, 40.038, 440.032, 397.298 ],
+    "source" : "HOA MODULE 1_images/imageFile82.png"
+  }, {
+    "type" : "header",
+    "id" : 587,
+    "page number" : 110,
+    "bounding box" : [ 451.85, 281.352, 591.112, 319.739 ],
+    "kids" : [ {
+      "type" : "list",
+      "id" : 21,
+      "page number" : 110,
+      "bounding box" : [ 451.85, 281.352, 591.112, 319.739 ],
+      "numbering style" : "unknown style",
+      "number of list items" : 2,
+      "list items" : [ {
+        "type" : "list item",
+        "page number" : 110,
+        "bounding box" : [ 451.85, 306.547, 591.112, 319.739 ],
+        "font" : "Arial",
+        "font size" : 14.064,
+        "text color" : "[0.251]",
+        "content" : "11 Western necropolis",
+        "kids" : [ ]
+      }, {
+        "type" : "list item",
+        "page number" : 110,
+        "bounding box" : [ 451.85, 281.352, 590.635, 294.521 ],
+        "font" : "Arial",
+        "font size" : 14.04,
+        "text color" : "[0.251]",
+        "content" : "12 boat grave, boat pit",
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 590,
+    "level" : "3",
+    "page number" : 110,
+    "bounding box" : [ 451.85, 130.085, 675.254, 269.321 ],
+    "numbering style" : "unknown style",
+    "number of list items" : 3,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 110,
+      "bounding box" : [ 451.85, 256.152, 587.224, 269.321 ],
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "13 Eastern necropolis",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 110,
+      "bounding box" : [ 451.85, 230.927, 520.876, 244.119 ],
+      "font" : "Arial",
+      "font size" : 14.064,
+      "text color" : "[0.251]",
+      "content" : "14 pyramid",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 110,
+      "bounding box" : [ 451.85, 130.085, 675.254, 218.901 ],
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "15 mortuary temple, pyramid temple 16 pyramid causeway 17 valley temple 18 queen’s pyramid",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 591,
+    "page number" : 110,
+    "bounding box" : [ 5.4, 15.32, 706.164, 118.081 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 14,
+      "page number" : 110,
+      "bounding box" : [ 451.85, 79.708, 557.557, 118.081 ],
+      "heading level" : 10,
+      "font" : "Arial",
+      "font size" : 14.04,
+      "text color" : "[0.251]",
+      "content" : "19 sphinx 20 sphinx temple"
+    }, {
+      "type" : "paragraph",
+      "id" : 15,
+      "page number" : 110,
+      "bounding box" : [ 5.4, 15.32, 706.164, 28.461 ],
+      "font" : "Arial,Italic",
+      "font size" : 14.04,
+      "text color" : "[0.498]",
+      "content" : "Great Pyramid of Khufu (Cheops); pyramid of Khafre (Chefren); pyramid of Menkaure (Mycerinus), after 2472 BC."
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 594,
+    "page number" : 111,
+    "bounding box" : [ 0.0, 77.867, 720.0, 327.137 ],
+    "source" : "HOA MODULE 1_images/imageFile83.png"
+  }, {
+    "type" : "heading",
+    "id" : 593,
+    "level" : "Subtitle",
+    "page number" : 111,
+    "bounding box" : [ 5.4, 15.32, 323.897, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Plan: Mortuary and valley temples of Khafre at Giza"
+  }, {
+    "type" : "text block",
+    "id" : 596,
+    "page number" : 112,
+    "bounding box" : [ -1.591, -0.75, 360.289, 405.75 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 112,
+      "bounding box" : [ 0.0, 76.691, 360.37, 328.311 ],
+      "source" : "HOA MODULE 1_images/imageFile84.png"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 597,
+    "page number" : 112,
+    "bounding box" : [ 392.64, 280.25, 467.748, 311.204 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Stela"
+  }, {
+    "type" : "paragraph",
+    "id" : 598,
+    "page number" : 112,
+    "bounding box" : [ 392.64, 251.27, 657.825, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "A slab stela shows a royal personage at"
+  }, {
+    "type" : "paragraph",
+    "id" : 599,
+    "page number" : 112,
+    "bounding box" : [ 392.64, 235.045, 619.379, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "a funerary repast sitting next to an"
+  }, {
+    "type" : "paragraph",
+    "id" : 600,
+    "page number" : 112,
+    "bounding box" : [ 392.64, 154.05, 656.97, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "offering table covered with the loaves of bread that have been brought to him. Next to him on the floor, on small platforms, are containers holding incense, ointments, figs, and wine."
+  }, {
+    "type" : "image",
+    "id" : 603,
+    "page number" : 113,
+    "bounding box" : [ 0.0, 68.111, 720.0, 336.891 ],
+    "source" : "HOA MODULE 1_images/imageFile85.png"
+  }, {
+    "type" : "heading",
+    "id" : 602,
+    "level" : "Subtitle",
+    "page number" : 113,
+    "bounding box" : [ 5.4, 15.32, 270.307, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "A scalar comparison of Egyptian pyramids."
+  }, {
+    "type" : "image",
+    "id" : 611,
+    "page number" : 114,
+    "bounding box" : [ 0.0, 0.0, 360.47, 405.0 ],
+    "source" : "HOA MODULE 1_images/imageFile86.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 606,
+    "page number" : 114,
+    "bounding box" : [ 392.64, 313.93, 614.499, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Why a tapering"
+  }, {
+    "type" : "paragraph",
+    "id" : 607,
+    "page number" : 114,
+    "bounding box" : [ 392.64, 280.325, 500.959, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "shape?"
+  }, {
+    "type" : "paragraph",
+    "id" : 608,
+    "page number" : 114,
+    "bounding box" : [ 392.64, 251.27, 615.755, 265.34 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Ancient rulers liked these artificial"
+  }, {
+    "type" : "paragraph",
+    "id" : 609,
+    "page number" : 114,
+    "bounding box" : [ 392.64, 235.045, 663.846, 249.137 ],
+    "font" : "Arial",
+    "font size" : 15.024,
+    "text color" : "[0.549]",
+    "content" : "mountains for their great height (allowing"
+  }, {
+    "type" : "paragraph",
+    "id" : 610,
+    "page number" : 114,
+    "bounding box" : [ 392.64, 105.43, 652.74, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "them to commune with the gods) and commanding visual presence over flat river valleys. On a practical level, a pyramid concentrates most of its building on the lower half, so fewer stones have to be hauled to the top."
+  }, {
+    "type" : "heading",
+    "id" : 613,
+    "level" : "Subtitle",
+    "page number" : 115,
+    "bounding box" : [ 41.4, 243.837, 430.447, 290.797 ],
+    "heading level" : 2,
+    "font" : "Arial",
+    "font size" : 50.064,
+    "text color" : "[0.188]",
+    "content" : "Egyptian Capitals"
+  }, {
+    "type" : "image",
+    "id" : 615,
+    "page number" : 116,
+    "bounding box" : [ 0.0, 161.25, 720.0, 371.63 ],
+    "source" : "HOA MODULE 1_images/imageFile87.png"
+  }, {
+    "type" : "paragraph",
+    "id" : 616,
+    "page number" : 116,
+    "bounding box" : [ 26.352, 109.177, 279.536, 122.369 ],
+    "font" : "Arial",
+    "font size" : 14.064,
+    "text color" : "[0.498]",
+    "content" : "C palm capital, palmiform (plume capital)"
+  }, {
+    "type" : "list",
+    "id" : 618,
+    "level" : "4",
+    "page number" : 116,
+    "bounding box" : [ 367.78, 56.26, 677.411, 119.849 ],
+    "numbering style" : "english letters",
+    "number of list items" : 3,
+    "previous list id" : 617,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 116,
+      "bounding box" : [ 367.78, 89.86, 677.411, 119.849 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.064,
+      "text color" : "[0.498]",
+      "content" : "F bell capital, blossom capital, campaniform, open capital",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 116,
+      "bounding box" : [ 367.78, 73.06, 578.342, 86.229 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.498]",
+      "content" : "G lotus capital, lotiform, lily capital",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 116,
+      "bounding box" : [ 367.78, 56.26, 480.557, 69.429 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.498]",
+      "content" : "H tent-pole capital",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "list",
+    "id" : 617,
+    "level" : "4",
+    "page number" : 116,
+    "bounding box" : [ 26.352, 80.62, 319.102, 108.069 ],
+    "numbering style" : "english letters",
+    "number of list items" : 2,
+    "next list id" : 618,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 116,
+      "bounding box" : [ 26.352, 94.9, 208.128, 108.069 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.498]",
+      "content" : "D papyrus capital, papyriform",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 116,
+      "bounding box" : [ 26.352, 80.62, 319.102, 93.789 ],
+      "font" : "Arial,Bold",
+      "font size" : 14.04,
+      "text color" : "[0.498]",
+      "content" : "E bud capital, closed bud capital, closed capital",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 619,
+    "page number" : 116,
+    "bounding box" : [ 5.4, 12.155, 119.208, 30.672 ],
+    "font" : "Roboto",
+    "font size" : 14.04,
+    "text color" : "[0.251]",
+    "content" : "Egyptian Capitals."
+  }, {
+    "type" : "image",
+    "id" : 622,
+    "page number" : 117,
+    "bounding box" : [ 0.0, 39.28, 720.0, 386.63 ],
+    "source" : "HOA MODULE 1_images/imageFile88.png"
+  }, {
+    "type" : "table",
+    "id" : 624,
+    "level" : "6",
+    "page number" : 117,
+    "bounding box" : [ 181.23, 353.15, 214.478, 374.776 ],
+    "number of rows" : 1,
+    "number of columns" : 1,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 117,
+        "bounding box" : [ 181.98, 353.9, 213.728, 374.026 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "table",
+    "id" : 623,
+    "level" : "5",
+    "page number" : 117,
+    "bounding box" : [ 92.175, 273.39, 109.951, 291.142 ],
+    "number of rows" : 1,
+    "number of columns" : 1,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 117,
+        "bounding box" : [ 92.925, 274.14, 109.201, 290.392 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ ]
+      } ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 621,
+    "level" : "Subtitle",
+    "page number" : 117,
+    "bounding box" : [ 5.4, 15.32, 651.437, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "1) Composite column (Hathor capital); 2) Hathor column; 3) Hathor column; 4) Osiris column, Osiris pillar"
+  }, {
+    "type" : "paragraph",
+    "id" : 626,
+    "page number" : 118,
+    "bounding box" : [ 517.49, 203.26, 665.045, 245.47 ],
+    "font" : "Arial",
+    "font size" : 45.0,
+    "text color" : "[1.0]",
+    "content" : "Minoan"
+  }, {
+    "type" : "paragraph",
+    "id" : 627,
+    "page number" : 118,
+    "bounding box" : [ 424.85, 157.275, 665.053, 199.507 ],
+    "font" : "Arial",
+    "font size" : 45.024,
+    "text color" : "[1.0]",
+    "content" : "Architecture"
+  }, {
+    "type" : "heading",
+    "id" : 629,
+    "level" : "Subtitle",
+    "page number" : 119,
+    "bounding box" : [ 122.42, 311.93, 493.157, 342.884 ],
+    "heading level" : 4,
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[0.188]",
+    "content" : "Minoan (1800-1300 B.C.)"
+  }, {
+    "type" : "list",
+    "id" : 630,
+    "level" : "1",
+    "page number" : 119,
+    "bounding box" : [ 129.98, 146.48, 659.291, 283.023 ],
+    "numbering style" : "unordered",
+    "number of list items" : 4,
+    "list items" : [ {
+      "type" : "list item",
+      "page number" : 119,
+      "bounding box" : [ 129.98, 259.768, 570.692, 283.023 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ A Bronze Age civilization flourished in Crete.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 119,
+      "bounding box" : [ 129.98, 237.088, 498.956, 260.343 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Named after King Minos of Knossos.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 119,
+      "bounding box" : [ 129.98, 191.84, 645.376, 237.665 ],
+      "font" : "Times New Roman",
+      "font size" : 21.024,
+      "text color" : "[0.251]",
+      "content" : "▪ Gate buildings with multi-columnar porches provided access to unfortified compounds.",
+      "kids" : [ ]
+    }, {
+      "type" : "list item",
+      "page number" : 119,
+      "bounding box" : [ 129.98, 146.48, 659.291, 192.283 ],
+      "font" : "Times New Roman",
+      "font size" : 21.0,
+      "text color" : "[0.251]",
+      "content" : "▪ Foundation walls, piers and lintels were stone with the upper walls in timber framework.",
+      "kids" : [ ]
+    } ]
+  }, {
+    "type" : "image",
+    "id" : 634,
+    "page number" : 120,
+    "bounding box" : [ 431.89, 64.012, 720.0, 345.552 ],
+    "source" : "HOA MODULE 1_images/imageFile89.png"
+  }, {
+    "type" : "image",
+    "id" : 633,
+    "page number" : 120,
+    "bounding box" : [ 0.0, 99.76, 422.71, 309.8 ],
+    "source" : "HOA MODULE 1_images/imageFile90.png"
+  }, {
+    "type" : "heading",
+    "id" : 632,
+    "level" : "Subtitle",
+    "page number" : 120,
+    "bounding box" : [ 5.4, 15.32, 460.858, 28.461 ],
+    "heading level" : 10,
+    "font" : "Arial,Italic",
+    "font size" : 14.04,
+    "text color" : "[0.498]",
+    "content" : "Palace at Knossos, Crete, Greece. (Largest palace built by the Minoans.)"
+  }, {
+    "type" : "text block",
+    "id" : 636,
+    "page number" : 121,
+    "bounding box" : [ -1.591, -0.75, 360.289, 405.75 ],
+    "kids" : [ {
+      "type" : "image",
+      "id" : 1,
+      "page number" : 121,
+      "bounding box" : [ 0.0, 70.067, 359.57, 334.937 ],
+      "source" : "HOA MODULE 1_images/imageFile91.png"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 637,
+    "page number" : 121,
+    "bounding box" : [ 392.64, 313.93, 530.283, 344.884 ],
+    "font" : "Arial",
+    "font size" : 33.0,
+    "text color" : "[1.0]",
+    "content" : "Palace at"
+  }, {
+    "type" : "paragraph",
+    "id" : 638,
+    "page number" : 121,
+    "bounding box" : [ 392.64, 280.325, 519.287, 311.301 ],
+    "font" : "Arial",
+    "font size" : 33.024,
+    "text color" : "[1.0]",
+    "content" : "Knossos"
+  }, {
+    "type" : "heading",
+    "id" : 639,
+    "level" : "Subtitle",
+    "page number" : 121,
+    "bounding box" : [ 396.81, 251.27, 498.72, 265.34 ],
+    "heading level" : 7,
+    "font" : "Arial,Bold",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "Crete, Greece."
+  }, {
+    "type" : "paragraph",
+    "id" : 640,
+    "page number" : 121,
+    "bounding box" : [ 392.64, 170.25, 635.415, 232.92 ],
+    "font" : "Arial",
+    "font size" : 15.0,
+    "text color" : "[0.549]",
+    "content" : "The palace contained residences, kitchens, storage rooms, bathrooms, ceremonial rooms, workshops, and sanctuaries."
+  }, {
+    "type" : "heading",
+    "id" : 642,
+    "level" : "Subtitle",
+    "page number" : 122,
+    "bounding box" : [ 337.58, 180.285, 665.174, 222.517 ],
+    "heading level" : 3,
+    "font" : "Arial",
+    "font size" : 45.024,
+    "text color" : "[0.0]",
+    "content" : "End of Module 1"
+  } ]
+}
