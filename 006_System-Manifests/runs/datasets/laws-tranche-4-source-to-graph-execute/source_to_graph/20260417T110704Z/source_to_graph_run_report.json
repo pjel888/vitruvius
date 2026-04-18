@@ -230,7 +230,7 @@
         "title": "Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990",
         "trust_level": "primary"
       },
-      "extract_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-execute/source_to_graph/20260417T110704Z/ra-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990_extract.json",
+      "extract_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-execute/source_to_graph/20260417T110704Z/ra-6969/RA-6969-Toxic-Substances-and-Hazardouse-Nuclear-Wastes-Contr-6ddc46.json",
       "graph_admitted_relationships": 0,
       "graph_filtered_relationships": 0,
       "high_conf_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-execute/source_to_graph/20260417T110704Z/ra-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990_high_conf.json",
@@ -264,7 +264,7 @@
         "status": "balanced",
         "structural_heading_count": 0
       },
-      "review_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-execute/source_to_graph/20260417T110704Z/ra-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990_review.json",
+      "review_json": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-execute/source_to_graph/20260417T110704Z/ra-6969/RA-6969-Toxic-Substances-and-Hazardouse-Nuclear-Wastes-Contr-bca20e.json",
       "source_id": "law-toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990",
       "source_quality": {
         "benchmark_source_hints": [],
@@ -312,7 +312,7 @@
         "useful_text_line_count": 82,
         "useful_text_ratio": 1.0
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-execute/source_to_graph/20260417T110704Z/source_quality/ra-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-4-source-to-graph-execute/source_to_graph/20260417T110704Z/source_quality/ra-6969/RA-6969-Toxic-Substances-and-Hazardouse-Nuclear-Wastes-Contr-b9e0dc.json"
     },
     {
       "admitted_canonical_source_anchor": {

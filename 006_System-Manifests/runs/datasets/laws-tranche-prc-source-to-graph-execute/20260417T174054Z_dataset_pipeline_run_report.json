@@ -89,37 +89,37 @@
           },
           {
             "mtime_ns": 1776447541497997257,
-            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-governs-concept-architectural-firm-registration.md",
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-i-46e1ca.md",
             "sha256": "4921b062f2553f42e42d9f1c3faf8df56973d37387f85480128262a33a9bf26f",
             "size_bytes": 1148
           },
           {
             "mtime_ns": 1776447541493969065,
-            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-foreign-architects-governs-concept-temporary-special-permit.md",
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-f-6e6ff6.md",
             "sha256": "519c1662c670e0e7abea474913fc4c0ed3ba2ddd4158afb250d84a255f776703",
             "size_bytes": 1219
           },
           {
             "mtime_ns": 1776447541499732976,
-            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-architecture-governs-concept-illegal-practice-of-architecture.md",
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-archit-0fc193.md",
             "sha256": "1fb063d0b9ee373013b166cced9ecd43239cb17adcb557035652d00b8ebac556",
             "size_bytes": 1235
           },
           {
             "mtime_ns": 1776447541495998786,
-            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-architectural-interiors.md",
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-architectural-and-architectural-interior-design--e6845b.md",
             "sha256": "4443fd000c31935ed1cb5ab622f403fb5ca814016ce4a93cd8510de8de217446",
             "size_bytes": 1355
           },
           {
             "mtime_ns": 1776447648055510735,
-            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-execute/source_to_graph/20260417T174047Z/promoted_relationships/prc/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-building-permit.md",
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-execute/source_to_graph/20260417T174047Z/promoted_relationships/prc/rel-handout-architectural-and-architectural-interior-design--b54330.md",
             "sha256": "dc0b4d1d08297ce2160718eb949ef0905cf5affe2aeca2dd08b98aa1f86688e6",
             "size_bytes": 2377
           },
           {
             "mtime_ns": 1776447648052216006,
-            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-execute/source_to_graph/20260417T174047Z/promoted_relationships/prc/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-standards-of-professional-practice.md",
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-execute/source_to_graph/20260417T174047Z/promoted_relationships/prc/rel-handout-architectural-and-architectural-interior-design--d72dae.md",
             "sha256": "88fb5b18cd12260ddf04029df43e7a928ee03b355841061f09257e75e6b64b85",
             "size_bytes": 2628
           }
@@ -136,10 +136,10 @@
             "003_Canonical-Knowledge-Layer/shared/concepts/standards-of-professional-practice.md"
           ],
           "admitted_relationship_paths": [
-            "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-foreign-architects-governs-concept-temporary-special-permit.md",
-            "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-architectural-interiors.md",
-            "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-governs-concept-architectural-firm-registration.md",
-            "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-architecture-governs-concept-illegal-practice-of-architecture.md"
+            "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-f-6e6ff6.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-architectural-and-architectural-interior-design--e6845b.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-i-46e1ca.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-archit-0fc193.md"
           ],
           "admitted_source_paths": [
             "003_Canonical-Knowledge-Layer/shared/sources/statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice.md",
@@ -220,12 +220,12 @@
           "003_Canonical-Knowledge-Layer/shared/sources/clarification-on-prboa-resolution-05-2007-rule-ii-registration.md"
         ],
         "relationship_inputs": [
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-foreign-architects-governs-concept-temporary-special-permit.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-architectural-interiors.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-governs-concept-architectural-firm-registration.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-architecture-governs-concept-illegal-practice-of-architecture.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-execute/source_to_graph/20260417T174047Z/promoted_relationships/prc/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-building-permit.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-execute/source_to_graph/20260417T174047Z/promoted_relationships/prc/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-standards-of-professional-practice.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-f-6e6ff6.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-architectural-and-architectural-interior-design--e6845b.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-i-46e1ca.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-archit-0fc193.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-execute/source_to_graph/20260417T174047Z/promoted_relationships/prc/rel-handout-architectural-and-architectural-interior-design--b54330.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-execute/source_to_graph/20260417T174047Z/promoted_relationships/prc/rel-handout-architectural-and-architectural-interior-design--d72dae.md"
         ]
       }
     },
@@ -288,10 +288,10 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/standards-of-professional-practice.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-foreign-architects-governs-concept-temporary-special-permit.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-architectural-interiors.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-governs-concept-architectural-firm-registration.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-architecture-governs-concept-illegal-practice-of-architecture.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-f-6e6ff6.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-architectural-and-architectural-interior-design--e6845b.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-i-46e1ca.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-archit-0fc193.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice.md",

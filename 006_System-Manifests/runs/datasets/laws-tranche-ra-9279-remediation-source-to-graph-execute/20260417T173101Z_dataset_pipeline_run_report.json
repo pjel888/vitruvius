@@ -41,13 +41,13 @@
           },
           {
             "mtime_ns": 1776446973905265112,
-            "path": "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-balanced-housing-development.md",
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-04f7a7.md",
             "sha256": "6747696f257f90d82d1f74a92a272568be9fabafb2283ecc345094ca08a94309",
             "size_bytes": 1263
           },
           {
             "mtime_ns": 1776446973907138164,
-            "path": "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-project-area.md",
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-40c360.md",
             "sha256": "a426871749b9db6e1e0f34145b57f7d3968de5fd0de31fcd6520052da94580e7",
             "size_bytes": 1274
           }
@@ -61,8 +61,8 @@
             "003_Canonical-Knowledge-Layer/shared/concepts/socialized-housing-projects.md"
           ],
           "admitted_relationship_paths": [
-            "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-balanced-housing-development.md",
-            "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-project-area.md"
+            "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-04f7a7.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-40c360.md"
           ],
           "admitted_source_paths": [
             "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279.md"
@@ -115,8 +115,8 @@
           "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279.md"
         ],
         "relationship_inputs": [
-          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-balanced-housing-development.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-project-area.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-04f7a7.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-40c360.md"
         ]
       }
     },
@@ -168,8 +168,8 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/socialized-housing-projects.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-balanced-housing-development.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-project-area.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-04f7a7.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-40c360.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279.md"

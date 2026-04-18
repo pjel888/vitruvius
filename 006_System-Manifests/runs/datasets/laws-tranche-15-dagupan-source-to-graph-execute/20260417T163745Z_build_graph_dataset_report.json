@@ -57,13 +57,13 @@
         },
         {
           "mtime_ns": 1776443810724954565,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-99ab0a.md",
           "sha256": "ecaf852cb1eecef430576b149696deeb95df5866ca0dc8991341e6b4ed4086b7",
           "size_bytes": 1190
         },
         {
           "mtime_ns": 1776443810726730701,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-b16166.md",
           "sha256": "38c40904988d46c746b3924255d0f178da17f883cde08c88b41b5cde8b5f0450",
           "size_bytes": 1274
         },
@@ -81,19 +81,19 @@
         },
         {
           "mtime_ns": 1776443865636093921,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-building-height.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-0147f9.md",
           "sha256": "20785aecb4ecf42502fef42c4e8b7c36db60762639f89b1b93b2e188b84f2bfa",
           "size_bytes": 2125
         },
         {
           "mtime_ns": 1776443865635148207,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-99ab0a.md",
           "sha256": "66d61217b2ffb6375ff8bfdffffe37ac6f8b1527dd87cdf0d75f9ce775b8f81f",
           "size_bytes": 1865
         },
         {
           "mtime_ns": 1776443865636865467,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-dd7c75.md",
           "sha256": "194ec7cc49d7b1fb3c1381187d691ee44c46953b512a489b66c4316aeaf559ef",
           "size_bytes": 1722
         }
@@ -112,8 +112,8 @@
         "admitted_relationship_paths": [
           "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
           "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-99ab0a.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-b16166.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-dagupan-city.md"
@@ -171,11 +171,11 @@
       "relationship_inputs": [
         "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-building-height.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md"
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-99ab0a.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-b16166.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-0147f9.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-99ab0a.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan-source-to-graph-execute/source_to_graph/20260417T163721Z/promoted_relationships/lgu/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-dd7c75.md"
       ]
     }
   },
@@ -263,8 +263,8 @@
       "admitted_relationship_paths": [
         "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md"
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-99ab0a.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-b16166.md"
       ],
       "admitted_source_paths": [
         "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-dagupan-city.md"

@@ -213,7 +213,7 @@
         "useful_text_line_count": 528,
         "useful_text_ratio": 0.97417
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-dry-run/source_to_graph/20260417T174006Z/source_quality/prc/RES_Architecture and AR Interiors are Exclusive_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-dry-run/source_to_graph/20260417T174006Z/source_quality/prc/RES_Architecture-and-AR-Interiors-are-Exclusive_source_quali-3c1c68.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -307,7 +307,7 @@
         "useful_text_line_count": 6,
         "useful_text_ratio": 0.214286
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-dry-run/source_to_graph/20260417T174006Z/source_quality/prc/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-dry-run/source_to_graph/20260417T174006Z/source_quality/prc/PRBoaRes,s08-Effectivity-Dates-of-PRBOA-Resolutions_source_q-3c705e.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -387,7 +387,7 @@
         "useful_text_line_count": 257,
         "useful_text_ratio": 1.0
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-dry-run/source_to_graph/20260417T174006Z/source_quality/prc/PRBoAres03,s08_temporary Permits for Foreign Architects_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-dry-run/source_to_graph/20260417T174006Z/source_quality/prc/PRBoAres03,s08_temporary-Permits-for-Foreign-Architects_sour-23951b.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -647,7 +647,7 @@
         "useful_text_line_count": 58,
         "useful_text_ratio": 0.95082
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-dry-run/source_to_graph/20260417T174006Z/source_quality/prc/RES_Clarification of PD-9266 Rule II Registration_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-prc-source-to-graph-dry-run/source_to_graph/20260417T174006Z/source_quality/prc/RES_Clarification-of-PD-9266-Rule-II-Registration_source_qua-ce275f.json"
     }
   ]
 }

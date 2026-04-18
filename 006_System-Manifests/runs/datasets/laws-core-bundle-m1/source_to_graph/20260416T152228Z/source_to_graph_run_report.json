@@ -94,8 +94,8 @@
       "source_id": "irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines"
     },
     {
-      "extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_extract.json",
-      "high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_high_conf.json",
+      "extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-344/2024-Revised-bp-Blg.-344-National-Council-on-Disability-Affa-c61f30.json",
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-344/2024-Revised-bp-Blg.-344-National-Council-on-Disability-Affa-fe1cba.json",
       "law_id": "bp-344",
       "normalized_refined_markdown_path": "001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
       "promote_result": {
@@ -113,7 +113,7 @@
       },
       "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/promoted_relationships/bp-344",
       "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
-      "review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_review.json",
+      "review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T152228Z/bp-344/2024-Revised-bp-Blg.-344-National-Council-on-Disability-Affa-ab6a67.json",
       "source_id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344"
     },
     {

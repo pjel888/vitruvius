@@ -38,61 +38,61 @@
         },
         {
           "mtime_ns": 1776318108670924228,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-certificate-of-occupancy.md",
           "sha256": "38b3edba83c4794d9bed5150f729d4028dcb772badd32e24aef973e6b0a9f39c",
           "size_bytes": 2305
         },
         {
           "mtime_ns": 1776318108672632241,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-means-of-egress.md",
           "sha256": "e8160d886e5e2b4d5d264b6b507e81408c5104f96cfe558579e270b025f6a956",
           "size_bytes": 2262
         },
         {
           "mtime_ns": 1776338822249352680,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-building-permit.md",
           "sha256": "9b27415fb0504ee753d045f09ade40c2fbd162bad844cf14d7bd12c4728247ef",
           "size_bytes": 2171
         },
         {
           "mtime_ns": 1776438156183631918,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-height.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-building-height.md",
           "sha256": "7f47cc10405242833e59330eca4620dce2c27d715ba0862b839ec2ca7bc11c38",
           "size_bytes": 1875
         },
         {
           "mtime_ns": 1776438156181198071,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-exit-width.md",
           "sha256": "6204097044514b17c7896da7b3415a4826b7145b98af83a9b08faee11a08de31",
           "size_bytes": 1882
         },
         {
           "mtime_ns": 1776438156178778933,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-floor-area.md",
           "sha256": "e3939f350ec9c28ed97ce9afb12e729592fe86c270bd58ca60cd907b46ad556f",
           "size_bytes": 2274
         },
         {
           "mtime_ns": 1776438156182837330,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-light-and-ventilation.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-light-and-ventilation.md",
           "sha256": "81f70f45c495dd3a96dd8d51d14399b4cc10fcb17004be4ce6ec5928dcf6e02c",
           "size_bytes": 2309
         },
         {
           "mtime_ns": 1776438156177708927,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-means-of-egress.md",
           "sha256": "d60adebbc07fcebf2f64d1c4a267b28c65496c22f53f9ec5f8ab2d0e950f29ed",
           "size_bytes": 1853
         },
         {
           "mtime_ns": 1776438156179603938,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-stairs.md",
           "sha256": "49054eb2ce888f8f0f59bd1d5c94b968016da6c9da34594d53fabd4895a704c7",
           "size_bytes": 1836
         },
         {
           "mtime_ns": 1776438156180405692,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-yards.md",
           "sha256": "ee26e8fc0b4fa4db1727793e975ee2eeed8db5264699bca1b1aa504d0f9cda08",
           "size_bytes": 1975
         }
@@ -106,9 +106,9 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/certificate-of-occupancy.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
-          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
-          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md"
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-building-permit.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-means-of-egress.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-certificate-of-occupancy.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-fire-code-of-the-philippines.md"
@@ -159,16 +159,16 @@
         "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-fire-code-of-the-philippines.md"
       ],
       "relationship_inputs": [
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-height.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-light-and-ventilation.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards.md"
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-building-permit.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-means-of-egress.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-certificate-of-occupancy.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-building-height.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-exit-width.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-light-and-ventilation.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-means-of-egress.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-stairs.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-11-source-to-graph-execute/source_to_graph/20260417T150205Z/promoted_relationships/pd-9514/rel-irr-fcp-governs-concept-yards.md"
       ]
     }
   },

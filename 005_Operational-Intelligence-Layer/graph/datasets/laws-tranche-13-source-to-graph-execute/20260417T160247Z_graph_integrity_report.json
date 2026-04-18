@@ -76,7 +76,7 @@
         },
         {
           "mtime_ns": 1776439090514948125,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-professional-practice-governs-concept-standards-of-professional-practice.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-pp-governs-concept-sta-b565d2.md",
           "sha256": "311be50c60c37183dc1151d2c2cb35f082751b4198fc5a0e1c79bcb277c544f2",
           "size_bytes": 1136
         }
@@ -142,7 +142,7 @@
         ],
         "admitted_relationship_paths": [
           "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-code-of-ethics-governs-concept-code-of-ethics.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-professional-practice-governs-concept-standards-of-professional-practice.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-pp-governs-concept-sta-b565d2.md",
           "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-301-general-conditions-governs-concept-general-conditions-of-contract.md"
         ],
         "admitted_source_paths": [
@@ -229,7 +229,7 @@
       ],
       "relationship_inputs": [
         "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-code-of-ethics-governs-concept-code-of-ethics.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-professional-practice-governs-concept-standards-of-professional-practice.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-pp-governs-concept-sta-b565d2.md",
         "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-301-general-conditions-governs-concept-general-conditions-of-contract.md"
       ]
     }

@@ -385,10 +385,10 @@
         "title": "Revised Implementing Rules and Regulations of Batas Pambansa Blg. 344",
         "trust_level": "primary"
       },
-      "extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T193242Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_extract.json",
+      "extract_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T193242Z/bp-344/2024-Revised-bp-Blg.-344-National-Council-on-Disability-Affa-c61f30.json",
       "graph_admitted_relationships": 2,
       "graph_filtered_relationships": 0,
-      "high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T193242Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_high_conf.json",
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T193242Z/bp-344/2024-Revised-bp-Blg.-344-National-Council-on-Disability-Affa-fe1cba.json",
       "law_id": "bp-344",
       "normalized_refined_markdown_path": "001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
       "promote_result": {
@@ -406,7 +406,7 @@
       },
       "promoted_relationship_dir": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T193242Z/promoted_relationships/bp-344",
       "refined_markdown_path": "002_Raw-Conversion-Layer/001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
-      "review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T193242Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_review.json",
+      "review_json": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T193242Z/bp-344/2024-Revised-bp-Blg.-344-National-Council-on-Disability-Affa-ab6a67.json",
       "source_id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
       "source_quality": {
         "benchmark_source_hints": [
@@ -442,7 +442,7 @@
         "useful_text_line_count": 919,
         "useful_text_ratio": 0.927346
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T193242Z/source_quality/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/source_to_graph/20260416T193242Z/source_quality/bp-344/2024-Revised-bp-Blg.-344-National-Council-on-Disability-Affa-bb805a.json"
     },
     {
       "admitted_canonical_source_anchor": {

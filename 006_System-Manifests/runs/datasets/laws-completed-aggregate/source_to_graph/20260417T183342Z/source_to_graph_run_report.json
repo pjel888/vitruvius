@@ -1014,10 +1014,10 @@
         "title": "Revised Implementing Rules and Regulations of Batas Pambansa Blg. 344",
         "trust_level": "primary"
       },
-      "extract_json": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_extract.json",
+      "extract_json": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/bp-344/2024-Revised-bp-Blg.-344-National-Council-on-Disability-Affa-c61f30.json",
       "graph_admitted_relationships": 2,
       "graph_filtered_relationships": 0,
-      "high_conf_json": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_high_conf.json",
+      "high_conf_json": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/bp-344/2024-Revised-bp-Blg.-344-National-Council-on-Disability-Affa-fe1cba.json",
       "law_id": "bp-344",
       "normalized_refined_markdown_path": "001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md",
       "promote_result": {
@@ -1054,7 +1054,7 @@
         "status": "shallow_representation",
         "structural_heading_count": 75
       },
-      "review_json": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_review.json",
+      "review_json": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/bp-344/2024-Revised-bp-Blg.-344-National-Council-on-Disability-Affa-ab6a67.json",
       "source_id": "irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344",
       "source_quality": {
         "benchmark_source_hints": [
@@ -1123,7 +1123,7 @@
         "useful_text_line_count": 919,
         "useful_text_ratio": 0.927346
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/bp-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/bp-344/2024-Revised-bp-Blg.-344-National-Council-on-Disability-Affa-bb805a.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -2373,7 +2373,7 @@
         "useful_text_line_count": 82,
         "useful_text_ratio": 1.0
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/4-2/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/4-2/RA-6969-Toxic-Substances-and-Hazardouse-Nuclear-Wastes-Contr-b9e0dc.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -3941,7 +3941,7 @@
         "useful_text_line_count": 1018,
         "useful_text_ratio": 0.793453
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/9-2/DOE Guidelines on Energy Conserving Design on Buildings v2008_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/9-2/DOE-Guidelines-on-Energy-Conserving-Design-on-Buildings-v200-a110af.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -4425,7 +4425,7 @@
         "useful_text_line_count": 95,
         "useful_text_ratio": 1.0
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/12-1/EO 648 Chapter of the Human Settlements Regulatory Commissio_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/12-1/EO-648-Chapter-of-the-Human-Settlements-Regulatory-Commissio-efb8b9.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -4849,7 +4849,7 @@
         "useful_text_line_count": 1532,
         "useful_text_ratio": 0.964128
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/13-1/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/13-1/CHED-CMO-61-Series-2017-BS-Architecture-Curriculum-Standards-84c062.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -6684,7 +6684,7 @@
         "useful_text_line_count": 805,
         "useful_text_ratio": 0.995056
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/15-meycauayan/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-completed-aggregate/source_to_graph/20260417T183342Z/source_quality/15-meycauayan/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan_sou-1caea2.json"
     },
     {
       "admitted_canonical_source_anchor": {

@@ -206,13 +206,13 @@
         },
         {
           "mtime_ns": 1776411424732420625,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T073704Z/promoted_relationships/pd-957/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T073704Z/promoted_relationships/pd-957/rel-irr-revised-for-pd-957-governs-concept-floor-area.md",
           "sha256": "68f07d9159f8f0da15f42ec99ee0976b7771d153c7d81b22864a12716549321c",
           "size_bytes": 1768
         },
         {
           "mtime_ns": 1776411424731457556,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T073704Z/promoted_relationships/pd-957/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-yards.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T073704Z/promoted_relationships/pd-957/rel-irr-revised-for-pd-957-governs-concept-yards.md",
           "sha256": "a4d4712b55fa9484aab84f16a2adbc7ec420b11e7224d5fb0624fd3710f93442",
           "size_bytes": 1831
         }
@@ -360,8 +360,8 @@
         "006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd1185/relationships/rel-law-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
         "006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd1185/relationships/rel-law-fire-code-of-the-philippines-governs-concept-building-permit.md",
         "006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd1185/relationships/rel-law-fire-code-of-the-philippines-governs-concept-yards.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T073704Z/promoted_relationships/pd-957/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T073704Z/promoted_relationships/pd-957/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-yards.md"
+        "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T073704Z/promoted_relationships/pd-957/rel-irr-revised-for-pd-957-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T073704Z/promoted_relationships/pd-957/rel-irr-revised-for-pd-957-governs-concept-yards.md"
       ]
     }
   },

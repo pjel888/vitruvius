@@ -228,7 +228,7 @@
         "useful_text_line_count": 95,
         "useful_text_ratio": 1.0
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-dry-run/source_to_graph/20260417T151027Z/source_quality/eo/EO 648 Chapter of the Human Settlements Regulatory Commissio_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-dry-run/source_to_graph/20260417T151027Z/source_quality/eo/EO-648-Chapter-of-the-Human-Settlements-Regulatory-Commissio-efb8b9.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -499,7 +499,7 @@
         "useful_text_line_count": 1219,
         "useful_text_ratio": 0.601678
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-dry-run/source_to_graph/20260417T151027Z/source_quality/hlurb-dhsud/Resilient Urban Design and Development Guidelines_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-dry-run/source_to_graph/20260417T151027Z/source_quality/hlurb-dhsud/Resilient-Urban-Design-and-Development-Guidelines_source_qua-a990bc.json"
     }
   ]
 }

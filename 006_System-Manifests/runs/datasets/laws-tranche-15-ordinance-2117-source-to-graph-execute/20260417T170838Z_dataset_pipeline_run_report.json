@@ -35,13 +35,13 @@
           },
           {
             "mtime_ns": 1776445650149648391,
-            "path": "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-central-business-district.md",
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-9829e6.md",
             "sha256": "992d357748bcd567c7bbe93fc372d039b0ec4868d78d47591678ecc1557c66a3",
             "size_bytes": 1244
           },
           {
             "mtime_ns": 1776445650146038332,
-            "path": "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-zoning-ordinance.md",
+            "path": "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-4c8195.md",
             "sha256": "e2da18c8fdfafb31f96f64f01f0013f643f56f31f11adf1fb8c5530e6b667199",
             "size_bytes": 1145
           }
@@ -54,8 +54,8 @@
             "003_Canonical-Knowledge-Layer/shared/concepts/central-business-district.md"
           ],
           "admitted_relationship_paths": [
-            "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-zoning-ordinance.md",
-            "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-central-business-district.md"
+            "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-4c8195.md",
+            "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-9829e6.md"
           ],
           "admitted_source_paths": [
             "003_Canonical-Knowledge-Layer/shared/sources/quezon-city-central-business-district-zoning-ordinance.md"
@@ -107,8 +107,8 @@
           "003_Canonical-Knowledge-Layer/shared/sources/quezon-city-central-business-district-zoning-ordinance.md"
         ],
         "relationship_inputs": [
-          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-zoning-ordinance.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-central-business-district.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-4c8195.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-9829e6.md"
         ]
       }
     },
@@ -150,8 +150,8 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/central-business-district.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-zoning-ordinance.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-central-business-district.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-4c8195.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-9829e6.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/quezon-city-central-business-district-zoning-ordinance.md"

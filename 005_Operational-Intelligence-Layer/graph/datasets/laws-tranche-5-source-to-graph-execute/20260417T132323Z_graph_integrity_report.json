@@ -94,19 +94,19 @@
         },
         {
           "mtime_ns": 1776432165821474657,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-514e23.md",
           "sha256": "2b44e47191e26481343017346a5bf397563978abc7b3fb77add0ca2f81dc284c",
           "size_bytes": 1409
         },
         {
           "mtime_ns": 1776432165816820258,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-5f8e9a.md",
           "sha256": "43e5edb43f40ea2e5c278b3db754f9ed3fc4671317a964c75bf985707c35f24f",
           "size_bytes": 1506
         },
         {
           "mtime_ns": 1776432165819312521,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-d56e5d.md",
           "sha256": "9e799721be25d666fd0e77309609882b348c24cdce8fd47e5daaa72e00c4435a",
           "size_bytes": 1544
         },
@@ -148,43 +148,43 @@
         },
         {
           "mtime_ns": 1776432196452069195,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-514e23.md",
           "sha256": "520a1e2cdecaf551ac017e572ed2edcac1fbcba8b5ec84831182b54220b2ec50",
           "size_bytes": 2003
         },
         {
           "mtime_ns": 1776432196450173311,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-5f8e9a.md",
           "sha256": "76e844b924a928746e548cee89bfa078c6478fe4817d82f94b8cf5dbbbccad52",
           "size_bytes": 2469
         },
         {
           "mtime_ns": 1776432196451223775,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-d56e5d.md",
           "sha256": "9abe761799c3650a9ed01763464f79493aa865fda88c72f32a10b979ab9c8320",
           "size_bytes": 2155
         },
         {
           "mtime_ns": 1776432196213140944,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-law-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-law-code-on-sanitation-of-the-philippines-governs-concep-e2bf78.md",
           "sha256": "462e3a818104e247aff1da71b5be7d644c53e06899820c290ff97146225dc7cf",
           "size_bytes": 1646
         },
         {
           "mtime_ns": 1776432196213978407,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-law-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-law-code-on-sanitation-of-the-philippines-governs-concep-fd9444.md",
           "sha256": "93e096864f71a358e4af76987547202b62ddfcc0a0e41ac803801cc1b95adf54",
           "size_bytes": 1678
         },
         {
           "mtime_ns": 1776432196850987589,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/ra-7160/rel-law-local-government-code-of-1991-governs-concept-comprehensive-land-use-plan.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/ra-7160/rel-law-local-government-code-of-1991-governs-concept-compre-643467.md",
           "sha256": "6d79ede7093393a725ce25275754bf4c2792d5d4de32237106b0fed16b8c78d1",
           "size_bytes": 1767
         },
         {
           "mtime_ns": 1776432196850101085,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/ra-7160/rel-law-local-government-code-of-1991-governs-concept-local-autonomy.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/ra-7160/rel-law-local-government-code-of-1991-governs-concept-local--9901b4.md",
           "sha256": "98632393d8263fc30a9edd7d6b0cc22fed15adc7c085670b47aeb6f066ec2bc1",
           "size_bytes": 1718
         }
@@ -198,9 +198,9 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/local-health-authority.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-514e23.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-5f8e9a.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-d56e5d.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/code-on-sanitation-of-the-philippines.md",
@@ -338,22 +338,22 @@
         "003_Canonical-Knowledge-Layer/shared/sources/philippine-clean-water-act-of-2004.md"
       ],
       "relationship_inputs": [
-        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-514e23.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-5f8e9a.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-d56e5d.md",
         "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra7160/relationships/rel-law-local-government-code-of-1991-governs-concept-local-autonomy.md",
         "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra7160/relationships/rel-law-local-government-code-of-1991-governs-concept-prior-consultations.md",
         "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra7160/relationships/rel-law-local-government-code-of-1991-governs-concept-comprehensive-land-use-plan.md",
         "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra9257/relationships/rel-law-philippine-clean-water-act-of-2004-governs-concept-water-quality-management-area.md",
         "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra9257/relationships/rel-law-philippine-clean-water-act-of-2004-governs-concept-wastewater-charge-system.md",
         "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra9257/relationships/rel-law-philippine-clean-water-act-of-2004-governs-concept-discharge-permit.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-law-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-law-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/ra-7160/rel-law-local-government-code-of-1991-governs-concept-comprehensive-land-use-plan.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/ra-7160/rel-law-local-government-code-of-1991-governs-concept-local-autonomy.md"
+        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-law-code-on-sanitation-of-the-philippines-governs-concep-e2bf78.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-law-code-on-sanitation-of-the-philippines-governs-concep-fd9444.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-514e23.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-5f8e9a.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/pd-856/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-d56e5d.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/ra-7160/rel-law-local-government-code-of-1991-governs-concept-compre-643467.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5-source-to-graph-execute/source_to_graph/20260417T132315Z/promoted_relationships/ra-7160/rel-law-local-government-code-of-1991-governs-concept-local--9901b4.md"
       ]
     }
   },

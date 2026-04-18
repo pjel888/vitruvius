@@ -229,7 +229,7 @@
         "useful_text_line_count": 450,
         "useful_text_ratio": 1.0
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-dry-run/source_to_graph/20260417T103853Z/source_quality/pd-1067/PD 1067 IRR - Water Code Implementing Rules_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-dry-run/source_to_graph/20260417T103853Z/source_quality/pd-1067/PD-1067-IRR-Water-Code-Implementing-Rules_source_quality.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -469,7 +469,7 @@
         "useful_text_line_count": 511,
         "useful_text_ratio": 1.0
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-dry-run/source_to_graph/20260417T103853Z/source_quality/ra-9003/RA 9003 Ecological Solid Waste Management Act 2000_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-3-source-to-graph-dry-run/source_to_graph/20260417T103853Z/source_quality/ra-9003/RA-9003-Ecological-Solid-Waste-Management-Act-2000_source_qu-729e14.json"
     }
   ]
 }

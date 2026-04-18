@@ -4386,115 +4386,115 @@
         },
         {
           "mtime_ns": 1776321640679497142,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp220/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp220/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-socialized-hou-328897.md",
           "sha256": "377a357f1e63869a8702c530466d43b6075b72b0283a148d7f7f08a1ff9ff8ce",
           "size_bytes": 2200
         },
         {
           "mtime_ns": 1776321640592518978,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp344/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp344/relationships/rel-irr-revised-of-bp-blg-344-governs-concept-accessible-ram-dd1905.md",
           "sha256": "8c8c716612015c815481e53f5156b163d088e7d9d3b7ad9e83898804e9b9a59a",
           "size_bytes": 2245
         },
         {
           "mtime_ns": 1776318108670924228,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-certificate-of-occupancy.md",
           "sha256": "38b3edba83c4794d9bed5150f729d4028dcb772badd32e24aef973e6b0a9f39c",
           "size_bytes": 2305
         },
         {
           "mtime_ns": 1776318108670924228,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-certificate-of-occupancy.md",
           "sha256": "38b3edba83c4794d9bed5150f729d4028dcb772badd32e24aef973e6b0a9f39c",
           "size_bytes": 2305
         },
         {
           "mtime_ns": 1776318108672632241,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-means-of-egress.md",
           "sha256": "e8160d886e5e2b4d5d264b6b507e81408c5104f96cfe558579e270b025f6a956",
           "size_bytes": 2262
         },
         {
           "mtime_ns": 1776318108672632241,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-means-of-egress.md",
           "sha256": "e8160d886e5e2b4d5d264b6b507e81408c5104f96cfe558579e270b025f6a956",
           "size_bytes": 2262
         },
         {
           "mtime_ns": 1776338822249352680,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-building-permit.md",
           "sha256": "9b27415fb0504ee753d045f09ade40c2fbd162bad844cf14d7bd12c4728247ef",
           "size_bytes": 2171
         },
         {
           "mtime_ns": 1776338822249352680,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-building-permit.md",
           "sha256": "9b27415fb0504ee753d045f09ade40c2fbd162bad844cf14d7bd12c4728247ef",
           "size_bytes": 2171
         },
         {
           "mtime_ns": 1776338822249542389,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-exit-width.md",
           "sha256": "3280ff1ef16d845d645ca7933c4b1e626d5759f8320f707976ef0f3a936201c3",
           "size_bytes": 1882
         },
         {
           "mtime_ns": 1776338822249248471,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-fire-resistive-construction.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-fire-resistive-construction.md",
           "sha256": "4906fb7577ebd87ff139c28a22346a0e533aff3f72be88f31b1d0056aa573535",
           "size_bytes": 2237
         },
         {
           "mtime_ns": 1776338822249444264,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-floor-area.md",
           "sha256": "4e6c93c1a5b1751384cd3bf7c3ca20262b213d093be71dad23acec56569f69d7",
           "size_bytes": 2046
         },
         {
           "mtime_ns": 1776338822249110470,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-stairs.md",
           "sha256": "a7e022821e323c2099b981b7576919bb8a2ddc846702eb890e1145ef4984123a",
           "size_bytes": 1830
         },
         {
           "mtime_ns": 1776336611326393904,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-floor-area.md",
           "sha256": "748b224766642be7b2266a4dab19df16173bdea9bb7741145565b5dd73ca4cb9",
           "size_bytes": 1932
         },
         {
           "mtime_ns": 1776336611326493905,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-light-and-ventilation.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-light-and-vent-5345f0.md",
           "sha256": "0a2808066372f41b0b0594cd382f344fa3757e0c97b9199a2362832cc0b2558d",
           "size_bytes": 1991
         },
         {
           "mtime_ns": 1776336611326741323,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-means-of-egress.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-means-of-egres-a14d33.md",
           "sha256": "8910d2f3b627b348dc8a944675c5ace0bf6d17b88bbb02b7e7cff4e361681550",
           "size_bytes": 1921
         },
         {
           "mtime_ns": 1776336611326661406,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-setbacks.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-setbacks.md",
           "sha256": "3fcf1564f8a8b590280947ff89618a2baf0ade69169d40628974233fb6fed1e5",
           "size_bytes": 1810
         },
         {
           "mtime_ns": 1776336611326577155,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-stairs.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-stairs.md",
           "sha256": "c1744964ac69030c27ecf47d91ed9fe75bf957e74ba378a0974b5fb83c1e3f0a",
           "size_bytes": 1912
         },
         {
           "mtime_ns": 1776336611326261528,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-yards.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-yards.md",
           "sha256": "64dc64071230d393752e21e7094e8e1e0c2d207ae7a7690970d784de0c8dc3ea",
           "size_bytes": 1927
         },
         {
           "mtime_ns": 1776336611325964359,
-          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-stairs.md",
+          "path": "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-344-governs-concept-stairs.md",
           "sha256": "43c32fc0616ef31abe93fa7797d444907def91b774a6b1176adfc5eec2281ba5",
           "size_bytes": 1732
         },
@@ -4536,19 +4536,19 @@
         },
         {
           "mtime_ns": 1776438628633208130,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settle-457472.md",
           "sha256": "fc6ec63bc0f3f2206380092c42f93efe0c5a1e0acd7a5d34c2c80ccdb8578f72",
           "size_bytes": 2210
         },
         {
           "mtime_ns": 1776438628785159475,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plan-e875dc.md",
           "sha256": "0654f6aaa2166d2d97127667f90ca4185790c794dd68ad68c5521c7f7c823c70",
           "size_bytes": 1996
         },
         {
           "mtime_ns": 1776438628480558114,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-progra-58da2e.md",
           "sha256": "560a7dd2b48fbaaaa1825ca12fe524bb85de4343d6cd3923469050c077b30c58",
           "size_bytes": 1996
         },
@@ -4566,7 +4566,7 @@
         },
         {
           "mtime_ns": 1776439090514948125,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-professional-practice-governs-concept-standards-of-professional-practice.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-pp-governs-concept-sta-b565d2.md",
           "sha256": "311be50c60c37183dc1151d2c2cb35f082751b4198fc5a0e1c79bcb277c544f2",
           "size_bytes": 1136
         },
@@ -4608,13 +4608,13 @@
         },
         {
           "mtime_ns": 1776443810724954565,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-99ab0a.md",
           "sha256": "ecaf852cb1eecef430576b149696deeb95df5866ca0dc8991341e6b4ed4086b7",
           "size_bytes": 1190
         },
         {
           "mtime_ns": 1776443810726730701,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-b16166.md",
           "sha256": "38c40904988d46c746b3924255d0f178da17f883cde08c88b41b5cde8b5f0450",
           "size_bytes": 1274
         },
@@ -4662,31 +4662,31 @@
         },
         {
           "mtime_ns": 1776444520913437666,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-comprehensive-land-use-plan.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-a38874.md",
           "sha256": "b107f76fecc0dedd42da5cb387411385f55ec41a40b7f92379d74819b9510b94",
           "size_bytes": 1258
         },
         {
           "mtime_ns": 1776444520915295676,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-floor-area-ratio.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-c5330d.md",
           "sha256": "636d257e1f90a0e65cbfe0612bccb307e994f533437311079eb4ac4397ba24a3",
           "size_bytes": 1209
         },
         {
           "mtime_ns": 1776444520911434489,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-zoning-ordinance.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-bdade7.md",
           "sha256": "8e2771454961bb2ad54e558afcd46ef3a212865f41d40c907f3f5a2b41d6ff9f",
           "size_bytes": 1261
         },
         {
           "mtime_ns": 1776445650149648391,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-central-business-district.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-9829e6.md",
           "sha256": "992d357748bcd567c7bbe93fc372d039b0ec4868d78d47591678ecc1557c66a3",
           "size_bytes": 1244
         },
         {
           "mtime_ns": 1776445650146038332,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-zoning-ordinance.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-4c8195.md",
           "sha256": "e2da18c8fdfafb31f96f64f01f0013f643f56f31f11adf1fb8c5530e6b667199",
           "size_bytes": 1145
         },
@@ -4716,25 +4716,25 @@
         },
         {
           "mtime_ns": 1776443291685768374,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-handout-san-mateo-comprehensive-land-use-plan-2021-2031-governs-concept-comprehensive-land-use-plan.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-handout-san-mateo-comprehensive-land-use-plan-2021-2031--89fa7f.md",
           "sha256": "e2effe25f05b7dc702ecbbf91794ecc6b813f312d7e5d5ab553b63fff5ca735c",
           "size_bytes": 1128
         },
         {
           "mtime_ns": 1776443291684094909,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-floor-area-ratio.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-34463d.md",
           "sha256": "f42f8e5cda32d859bcc729ee263f5b8a8bce3af64fe693d5136163d83a3f3675",
           "size_bytes": 1229
         },
         {
           "mtime_ns": 1776443291682333444,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-zoning-ordinance.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-66341a.md",
           "sha256": "68713ed9aee20d18be4420a618f1dc624a627cef760f61001024871f906efa79",
           "size_bytes": 1200
         },
         {
           "mtime_ns": 1776445211488122515,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-comprehensive-land-use-plan.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-1e0b93.md",
           "sha256": "90ae525e16f4f7923158399da4adb96ce90460a06d368c35139d988dd241f01f",
           "size_bytes": 1199
         },
@@ -4770,13 +4770,13 @@
         },
         {
           "mtime_ns": 1776423736290598954,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-groundwater-drilling.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-water-code-of-the-philippines-governs-concep-398ce0.md",
           "sha256": "2c6a23c9ed41bb69a130b5f9bedc57efe428cea11e609cab405331493b3e111c",
           "size_bytes": 2069
         },
         {
           "mtime_ns": 1776423736288644436,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-water-code-of-the-philippines-governs-concep-2bebc9.md",
           "sha256": "f8d01a92a20f5c369fb16b24a99c46eaf85393c7c92eea1b11f8bd914cc0cf6c",
           "size_bytes": 2020
         },
@@ -4818,19 +4818,19 @@
         },
         {
           "mtime_ns": 1776432165821474657,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-514e23.md",
           "sha256": "2b44e47191e26481343017346a5bf397563978abc7b3fb77add0ca2f81dc284c",
           "size_bytes": 1409
         },
         {
           "mtime_ns": 1776432165816820258,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-5f8e9a.md",
           "sha256": "43e5edb43f40ea2e5c278b3db754f9ed3fc4671317a964c75bf985707c35f24f",
           "size_bytes": 1506
         },
         {
           "mtime_ns": 1776432165819312521,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-d56e5d.md",
           "sha256": "9e799721be25d666fd0e77309609882b348c24cdce8fd47e5daaa72e00c4435a",
           "size_bytes": 1544
         },
@@ -4890,7 +4890,7 @@
         },
         {
           "mtime_ns": 1776433827788905948,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act-governs-concept-local-shelter-plan.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-irr-department-of-human-settlements-and-urban-developmen-e09a47.md",
           "sha256": "597921a5c345bd17aa3c1815ccab959f34aae2748ffc3afb4499039d66a5cecd",
           "size_bytes": 1458
         },
@@ -4902,7 +4902,7 @@
         },
         {
           "mtime_ns": 1776433827778625979,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-urban-development-planning.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-developmen-e1a531.md",
           "sha256": "c3f1ba4c1995fd48e4363b57ca09df46a7aa76a3190d1f77a8582a1f50e8b637",
           "size_bytes": 1348
         },
@@ -4926,193 +4926,193 @@
         },
         {
           "mtime_ns": 1776447541497997257,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-governs-concept-architectural-firm-registration.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-i-46e1ca.md",
           "sha256": "4921b062f2553f42e42d9f1c3faf8df56973d37387f85480128262a33a9bf26f",
           "size_bytes": 1148
         },
         {
           "mtime_ns": 1776447541493969065,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-foreign-architects-governs-concept-temporary-special-permit.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-f-6e6ff6.md",
           "sha256": "519c1662c670e0e7abea474913fc4c0ed3ba2ddd4158afb250d84a255f776703",
           "size_bytes": 1219
         },
         {
           "mtime_ns": 1776447541499732976,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-architecture-governs-concept-illegal-practice-of-architecture.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-archit-0fc193.md",
           "sha256": "1fb063d0b9ee373013b166cced9ecd43239cb17adcb557035652d00b8ebac556",
           "size_bytes": 1235
         },
         {
           "mtime_ns": 1776447541495998786,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-architectural-interiors.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-architectural-and-architectural-interior-design--e6845b.md",
           "sha256": "4443fd000c31935ed1cb5ab622f403fb5ca814016ce4a93cd8510de8de217446",
           "size_bytes": 1355
         },
         {
           "mtime_ns": 1776446973905265112,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-balanced-housing-development.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-04f7a7.md",
           "sha256": "6747696f257f90d82d1f74a92a272568be9fabafb2283ecc345094ca08a94309",
           "size_bytes": 1263
         },
         {
           "mtime_ns": 1776446973907138164,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-project-area.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-40c360.md",
           "sha256": "a426871749b9db6e1e0f34145b57f7d3968de5fd0de31fcd6520052da94580e7",
           "size_bytes": 1274
         },
         {
           "mtime_ns": 1776461784180211920,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/1-1/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/1-1/rel-irr-revised-for-pd-957-governs-concept-floor-area.md",
           "sha256": "989e3a9da27b0afd8af89a44d68e1f72bd330a9da14e29662a90416a5012dbb4",
           "size_bytes": 1752
         },
         {
           "mtime_ns": 1776461784178957070,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/1-1/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-yards.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/1-1/rel-irr-revised-for-pd-957-governs-concept-yards.md",
           "sha256": "7076122ee6f2d51fcb52da4840e7103cd4b99e3708feebaf8faf027571cc64a9",
           "size_bytes": 1815
         },
         {
           "mtime_ns": 1776461821889153808,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/10/rel-irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004-governs-concept-standards-of-professional-practice.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/10/rel-irr-architecture-act-of-2004-governs-concept-standards-o-b3ede9.md",
           "sha256": "1e8e9134b66c0c86071092d50327012e44ea872f7bbdc18b940bf0febd171994",
           "size_bytes": 2337
         },
         {
           "mtime_ns": 1776461858929421689,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-height.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-building-height.md",
           "sha256": "9f625b2bd9c9f95bc4dee9dab6ffeca63edfe505906dffc24737be98abc7ca8d",
           "size_bytes": 1858
         },
         {
           "mtime_ns": 1776461858927179994,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-exit-width.md",
           "sha256": "0483ca1e011bcf61a5fe3c89348fc8c446ada2bf9e829beb884cb6b01a8700ee",
           "size_bytes": 1865
         },
         {
           "mtime_ns": 1776461858924988300,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-floor-area.md",
           "sha256": "51809920141982c17e78028b69f8c7d892b296800729ecd2b6330d5abf9c4448",
           "size_bytes": 2257
         },
         {
           "mtime_ns": 1776461858928665262,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-light-and-ventilation.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-light-and-ventilation.md",
           "sha256": "043c7ae14f8dda65e6da9ab68b6cf02c716ab1d4046d793dd346495c1e2604e2",
           "size_bytes": 2292
         },
         {
           "mtime_ns": 1776461858923943495,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-means-of-egress.md",
           "sha256": "68d44e9041d2be399afa4217929db04f2a3b814accfda0f8bf5b87705f8615dc",
           "size_bytes": 1836
         },
         {
           "mtime_ns": 1776461858925706309,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-stairs.md",
           "sha256": "fdb751636d55333a7ec4880ec2aa79fd80f1115a2fe5fa3cccb32a6aa0211775",
           "size_bytes": 1819
         },
         {
           "mtime_ns": 1776461858926456401,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-yards.md",
           "sha256": "d525a94c0a65298992be4e3e2233d8f8e316ffa88993059c81c8cce6ad7cc86c",
           "size_bytes": 1958
         },
         {
           "mtime_ns": 1776461859350370085,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-648-reorganizing-the-human-settle-457472.md",
           "sha256": "cadca3de79d3c45a36375ad0a90342631ecb9ca6318552b9a5b281e6e33b7854",
           "size_bytes": 2193
         },
         {
           "mtime_ns": 1776461859351151553,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-zoning-ordinance.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-648-reorganizing-the-human-settle-2a0de4.md",
           "sha256": "39a5d965214608081129af3399c508961ba9503e6f62280f4adc07aafa45b62b",
           "size_bytes": 2144
         },
         {
           "mtime_ns": 1776461859141052755,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-90-on-the-national-shelter-progra-58da2e.md",
           "sha256": "ae044ad3708d03f7e2464fcd37389abb96f53d9c0455923f1105c6e95064e27a",
           "size_bytes": 1979
         },
         {
           "mtime_ns": 1776461942532228367,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-building-height.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-0147f9.md",
           "sha256": "2bd1295fb9ec9c10477c1ab438cb20dff6dcefd2acc94e3bd7b99fd3f894350e",
           "size_bytes": 2100
         },
         {
           "mtime_ns": 1776461942531169604,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-99ab0a.md",
           "sha256": "1b8510d76b60d53632f6e102d78ba505dabca3bf46c2d8ac2ce93867d0da8463",
           "size_bytes": 1840
         },
         {
           "mtime_ns": 1776461942532972709,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-dd7c75.md",
           "sha256": "d84ac7fa2e45f91cf5de97d9aa37fbe0a047cd66e67a5444fccd93d3b89723da",
           "size_bytes": 1697
         },
         {
           "mtime_ns": 1776461984988380340,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-malolos/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-concept-building-height.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-malolos/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-conc-7a6ceb.md",
           "sha256": "0e843f5a6664c229bcefd1139f21d02e8c6647907b497394203619bc45c9d455",
           "size_bytes": 2053
         },
         {
           "mtime_ns": 1776461984989336643,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-malolos/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-concept-zoning-ordinance.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-malolos/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-conc-a7084f.md",
           "sha256": "819499e6ecc7771ff3ced1e9ac979227d6050d23c97472528f23d27645d95cf1",
           "size_bytes": 1856
         },
         {
           "mtime_ns": 1776461997275582522,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-meycauayan/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-meycauayan/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-a7f5f0.md",
           "sha256": "102212e1d2bf85f7f2d118cd802b32b29c0ae5a9bb6f2c73821bc275712ed595",
           "size_bytes": 2203
         },
         {
           "mtime_ns": 1776461997274683969,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-meycauayan/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-zoning-ordinance.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-meycauayan/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-bdade7.md",
           "sha256": "2a547ff75e398f7a6b23cbc75db0d8157e375aa083698bb39d1e13b9d8bfe575",
           "size_bytes": 2231
         },
         {
           "mtime_ns": 1776462046528422428,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-pasay/rel-law-pasay-city-zoning-ordinance-of-2003-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-pasay/rel-law-pasay-city-zoning-ordinance-of-2003-governs-concept--7b8bd1.md",
           "sha256": "ac240d2aa8f45bb7a4c74439f769da4044ad5911d4ecdfe97639db55c9f44f7a",
           "size_bytes": 1962
         },
         {
           "mtime_ns": 1776461918139242355,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-central-business-district.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-190239.md",
           "sha256": "88a3a7fd7dc5b008204c0a87f474cb286a3b31e597e663f0aee137b0245a7563",
           "size_bytes": 1921
         },
         {
           "mtime_ns": 1776461918138302385,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-2b2ada.md",
           "sha256": "b362746c2f89a714cad88e1281f5f7527c57db4236cef8ef0221f4b931f2a276",
           "size_bytes": 1664
         },
         {
           "mtime_ns": 1776461918139980864,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-waste-disposal.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-54e176.md",
           "sha256": "f678175a404c1a634846a11c8194e539ddf85dd1e77262fc00f698c2cbe39eb0",
           "size_bytes": 1782
         },
         {
           "mtime_ns": 1776462015785198366,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-tarlac/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-tarlac/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-328077.md",
           "sha256": "47b90aa8b0ce7285e78356677a4e455ad6c05c269d77b12a43e45f74547b1eb7",
           "size_bytes": 2121
         },
         {
           "mtime_ns": 1776462015784103394,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-tarlac/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-zoning-ordinance.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-tarlac/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-4fbd5a.md",
           "sha256": "cdfd894c47988235e0c5c75e80ac8260b3f208c9db20b2d739a1272fbaad0f15",
           "size_bytes": 2147
         },
@@ -5124,61 +5124,61 @@
         },
         {
           "mtime_ns": 1776461791581577059,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/3-1/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/3-1/rel-irr-amended-water-code-of-the-philippines-governs-concep-2bebc9.md",
           "sha256": "9399538e54f45d1dfb6e6ba2f312d79d0f14f5c7caab0f8059f2f1ea9d639264",
           "size_bytes": 2316
         },
         {
           "mtime_ns": 1776461792884062688,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/4-3/rel-law-national-cultural-heritage-act-of-2009-governs-concept-built-heritage.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/4-3/rel-law-national-cultural-heritage-act-of-2009-governs-conce-a1eda7.md",
           "sha256": "8cc88c7db6aedfc1cb63448690618e1ed8ec8a16c07fce5c32511b22993e35e8",
           "size_bytes": 1993
         },
         {
           "mtime_ns": 1776461799578013786,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-514e23.md",
           "sha256": "b575eae05f52af798be7aa54874ff0c24c64163a56b911e3b3189bcaeac908e0",
           "size_bytes": 1987
         },
         {
           "mtime_ns": 1776461799576222763,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-5f8e9a.md",
           "sha256": "c7fe0fbe75231c2dbcc8d83fe43ae4b3e518231e03c24031bd34290f47443ee6",
           "size_bytes": 2453
         },
         {
           "mtime_ns": 1776461799577082857,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-d56e5d.md",
           "sha256": "fb628d728d88fdc8d436afc069cde19b5d4d95c6100ef9cd4e16b13ed936aebc",
           "size_bytes": 2139
         },
         {
           "mtime_ns": 1776461799212695206,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-law-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-law-code-on-sanitation-of-the-philippines-governs-concep-e2bf78.md",
           "sha256": "6efce05df1d64efd9b7853fbf9fad0ae1c8e02700dc80ccc19fe1ff8c5209aed",
           "size_bytes": 1630
         },
         {
           "mtime_ns": 1776461799213543050,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-law-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-law-code-on-sanitation-of-the-philippines-governs-concep-fd9444.md",
           "sha256": "4c5a1d2a81223cb25bbfc510224afcad0f0bb49d76518bc4c1ecb9b0455e8f2b",
           "size_bytes": 1662
         },
         {
           "mtime_ns": 1776461800124040213,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-bids-and-awards-committee.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-bids-a-b1211c.md",
           "sha256": "15bfe45e0b69eaf9120e8ad929e750a18621a3fa5251e318bdf34f549431fcd7",
           "size_bytes": 2035
         },
         {
           "mtime_ns": 1776461800124751639,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-comprehensive-land-use-plan.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-compre-643467.md",
           "sha256": "53765f26a94d02e6bf83fc776a1371bf03e39b333e7572c66055dbff50ce8b36",
           "size_bytes": 1751
         },
         {
           "mtime_ns": 1776461800123254912,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-human-settlements.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-human--c8cf98.md",
           "sha256": "f3549dfeeaa9a69bb8b139096162018caf299d8caea759c1dc2a121bc619eb0d",
           "size_bytes": 1721
         },
@@ -5190,223 +5190,223 @@
         },
         {
           "mtime_ns": 1776461813822575895,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act-governs-concept-approved-budget-for-the-contract.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-irr-updated-2016-revised-government-procurement-reform-a-ccdcd3.md",
           "sha256": "0fd989edf8355a7a2ec95d0d20ac6db60713ad9403ae9c44395ff3d12b671f49",
           "size_bytes": 2371
         },
         {
           "mtime_ns": 1776461813821473340,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act-governs-concept-competitive-bidding.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-irr-updated-2016-revised-government-procurement-reform-a-475f3a.md",
           "sha256": "ab6f3f658210a62be5f3b0a9546b6f17a5719b698a9504e988f4e4097d3495ca",
           "size_bytes": 2342
         },
         {
           "mtime_ns": 1776461807058780117,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-law-government-procurement-reform-act-governs-concept-competitive-bidding.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-law-government-procurement-reform-act-governs-concept-co-7287e3.md",
           "sha256": "fa4738ab7216f8e65e21a60c8448de5bfdf9d01cf263b79d8e283c41cc1ce0e6",
           "size_bytes": 2031
         },
         {
           "mtime_ns": 1776461771816958008,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-of-bp-blg-220-governs-concept-floor-area.md",
           "sha256": "f041b3335d726f9abfdd0d828a35d1326dc645912ac85d6560e879af7525c879",
           "size_bytes": 1935
         },
         {
           "mtime_ns": 1776461771814411101,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-of-bp-blg-220-governs-concept-socialized-hou-328897.md",
           "sha256": "dc4f7e95b6043ec9fd09567c186f2254fe215c3afc15ab3d283b66ac1dd2a9dc",
           "size_bytes": 2034
         },
         {
           "mtime_ns": 1776461771817785643,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-stairs.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-of-bp-blg-220-governs-concept-stairs.md",
           "sha256": "692e957065231bb17cae23bc3a98687308236aac4dedcc876974ca78ff0c265d",
           "size_bytes": 2211
         },
         {
           "mtime_ns": 1776461771816195456,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-yards.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-of-bp-blg-220-governs-concept-yards.md",
           "sha256": "3f442bc61f0abd23a0d9881c3bb5075094c07efb11cc2589c2aeace20ee4a500",
           "size_bytes": 1930
         },
         {
           "mtime_ns": 1776461771815432030,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-zoning-ordinance.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-of-bp-blg-220-governs-concept-zoning-ordinan-e4a35c.md",
           "sha256": "2b412a4a6e999eced991258d1b0ea7cac4cf87d85ae1c008a20d9ac9322e6fb7",
           "size_bytes": 1985
         },
         {
           "mtime_ns": 1776461735398529715,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-344/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-344/rel-irr-revised-of-bp-blg-344-governs-concept-accessible-ram-dd1905.md",
           "sha256": "8d54bbb0151c53aa2ecc3fd88140a0e1b403cc4a27883e0e79115f32aec1b55a",
           "size_bytes": 1927
         },
         {
           "mtime_ns": 1776461735399292892,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-344/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-stairs.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-344/rel-irr-revised-of-bp-blg-344-governs-concept-stairs.md",
           "sha256": "5ea8e7c6222bbfce589fc8c887b0b2f164a09e3ffa8950da71d058a26284025e",
           "size_bytes": 1735
         },
         {
           "mtime_ns": 1776461667580403315,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-permit.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-building-permit.md",
           "sha256": "d98f98e75f85666955976c6dc974d09ede9db386157eff1eb3eef6dc0bb420eb",
           "size_bytes": 1858
         },
         {
           "mtime_ns": 1776461667581395287,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-certificate-of-occupancy.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-certificate-of-occupancy.md",
           "sha256": "2d6983d08c073b774441d365715ac211e15749e1946a411509f88e4aa5c0513c",
           "size_bytes": 2277
         },
         {
           "mtime_ns": 1776461667588088085,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-exit-width.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-exit-width.md",
           "sha256": "36f4d19c2f3406bb449883d09839da1350bcfe8ff436aff7ce54a6b0abde13fc",
           "size_bytes": 2079
         },
         {
           "mtime_ns": 1776461667583108060,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-floor-area.md",
           "sha256": "a79d98541e29f14e5506a250b17ea166aecc9ef2539819cb6a6797c2fbabee9c",
           "size_bytes": 2075
         },
         {
           "mtime_ns": 1776461667587232407,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-light-and-ventilation.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-light-and-ventilation.md",
           "sha256": "96d1ad5a8329c76081421007c7e08696d16b534fa2eebda483705674567e6caa",
           "size_bytes": 2260
         },
         {
           "mtime_ns": 1776461667588908097,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-means-of-egress.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-means-of-egress.md",
           "sha256": "374dc253f7d084a8459e2f369ecbdc458d8ceacde2f35eb36fa9ce8cbecdc351",
           "size_bytes": 2100
         },
         {
           "mtime_ns": 1776461667583892654,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-mixed-occupancy.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-mixed-occupancy.md",
           "sha256": "a0588edae5ccc2d35665b9d8698e8ef9c22f05485776f63ce1a32e4c2a07e981",
           "size_bytes": 2088
         },
         {
           "mtime_ns": 1776461667584687998,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-classification.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-occupancy-classification.md",
           "sha256": "b4ce3f07a5ebac25c40fa8802bc61c6964f5e192a085607beca3ec02161f2850",
           "size_bytes": 2199
         },
         {
           "mtime_ns": 1776461667585492967,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-separation.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-occupancy-separation.md",
           "sha256": "9bd81c9c20cee427650d3fc5fd40f24b751e31238b13a25c970a77e92475b54c",
           "size_bytes": 2001
         },
         {
           "mtime_ns": 1776461667582264923,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-stairs.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-stairs.md",
           "sha256": "7ef6e58fb3acaddcc019b9cb1fd6fbd7c351c0fbfeaa73ae8b1abf05bc53d010",
           "size_bytes": 1969
         },
         {
           "mtime_ns": 1776461667586297936,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-yards.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-yards.md",
           "sha256": "4f8eee2fa419fe8cddd8699b29f5a2bb938b1a321d9c66743ef50a78da0e6eb0",
           "size_bytes": 2180
         },
         {
           "mtime_ns": 1776461600566954839,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-exit-width.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-nbcp-of-the-philippines-governs-concept-exit-width.md",
           "sha256": "c9dd6622ec34f684bb4ed19590242a5a48c50b26a6677c5df85803e2c78840bb",
           "size_bytes": 1918
         },
         {
           "mtime_ns": 1776461600566232360,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-nbcp-of-the-philippines-governs-concept-floor-area.md",
           "sha256": "4142de250393c44a4c4134b8c40974133aa12ab6417e398b2fff465799571562",
           "size_bytes": 2044
         },
         {
           "mtime_ns": 1776461600564701562,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-occupancy-separation.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-nbcp-of-the-philippines-governs-concept-occupancy-se-892167.md",
           "sha256": "3d2db184476f3431bc8da938effc4892fc3ffed8d0ebefadffa0936e5ca2acf2",
           "size_bytes": 1740
         },
         {
           "mtime_ns": 1776461600563901952,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-stairs.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-nbcp-of-the-philippines-governs-concept-stairs.md",
           "sha256": "1b2af043845a69d8846e147cdfb43975f00421181a83ebe4df8ea575896ca9b4",
           "size_bytes": 2024
         },
         {
           "mtime_ns": 1776461600565464336,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-yards.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-nbcp-of-the-philippines-governs-concept-yards.md",
           "sha256": "438d81cd534566329973c25ef3f818a57a2e73740bbe7079b5baec259f3f588f",
           "size_bytes": 2019
         },
         {
           "mtime_ns": 1776461880253297693,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/prc/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-building-permit.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/prc/rel-handout-architectural-and-architectural-interior-design--b54330.md",
           "sha256": "6fcccc258c90148fd732e03860d08e181d474f970695dbf9d7424899ed8dfc53",
           "size_bytes": 2359
         },
         {
           "mtime_ns": 1776461880252407557,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/prc/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-standards-of-professional-practice.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/prc/rel-handout-architectural-and-architectural-interior-design--d72dae.md",
           "sha256": "745e0bb022ddc1522ddbaf0acfcc476f193aa2c7ed11f4ccb611f6429850c088",
           "size_bytes": 2610
         },
         {
           "mtime_ns": 1776461729071089938,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-building-permit.md",
           "sha256": "a07f2fea80e804ef855255301807e587bf95717cbf1a901bf7964b5af91392c8",
           "size_bytes": 2198
         },
         {
           "mtime_ns": 1776461729070233760,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-certificate-of-occupancy.md",
           "sha256": "f920e9ad43ac0935614ebfc9cc33d7ab271061f305cb902655bc01464f0b5f0b",
           "size_bytes": 2081
         },
         {
           "mtime_ns": 1776461729075001076,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-exit-width.md",
           "sha256": "269abed71ef9414644ea025d084141dbd59aa0437812c109f7001d0c1ae04e3d",
           "size_bytes": 1871
         },
         {
           "mtime_ns": 1776461729069219038,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-floor-area.md",
           "sha256": "f846eccafc77e7d6ff9d889ef910856c59bd39b7781be5393db8f471aa57a90f",
           "size_bytes": 2141
         },
         {
           "mtime_ns": 1776461729075860046,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-light-and-ventilation.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-light-and-ventilation.md",
           "sha256": "a92bdaf3cfe83470951c675700fd211294c9d40fbeed55f1b99a94fab481eda3",
           "size_bytes": 2292
         },
         {
           "mtime_ns": 1776461729071921825,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-occupancy-classification.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-occupancy-classification.md",
           "sha256": "01d12326866a7ac7fe5ca7a43b080838f6361413ba0c2969ba0d7f3bd810a1a4",
           "size_bytes": 2327
         },
         {
           "mtime_ns": 1776461729072736211,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-stairs.md",
           "sha256": "d6389e5a1bc829e7af404e5eddf78e23d9d406ec4b6615dbd2955840e95ad55f",
           "size_bytes": 1819
         },
         {
           "mtime_ns": 1776461729077377942,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-waste-disposal.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-waste-disposal.md",
           "sha256": "89a89e7589ed0a32f72abaca771dc673aec724129648eb034a7a34c5cd901ce7",
           "size_bytes": 1843
         },
         {
           "mtime_ns": 1776461729076647932,
-          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards.md",
+          "path": "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-yards.md",
           "sha256": "9164ffb070d642b7e94256eabfa9cd8bff8166b2bfe01b00d14a5a59a7933ed0",
           "size_bytes": 2108
         }
@@ -5535,8 +5535,8 @@
       {
         "admitted_concept_paths": [],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
-          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md"
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-certificate-of-occupancy.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-means-of-egress.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-fire-code-of-the-philippines.md"
@@ -5567,7 +5567,7 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/accessible-ramps.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp344/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps.md"
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp344/relationships/rel-irr-revised-of-bp-blg-344-governs-concept-accessible-ram-dd1905.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344.md"
@@ -5603,7 +5603,7 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/socialized-housing-projects.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp220/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects.md"
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp220/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-socialized-hou-328897.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220.md"
@@ -5840,8 +5840,8 @@
           "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-permit.md",
           "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-right.md",
           "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-groundwater-drilling.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-groundwater-drilling.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-water-code-of-the-philippines-governs-concep-2bebc9.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-water-code-of-the-philippines-governs-concep-398ce0.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines.md",
@@ -6024,9 +6024,9 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/local-health-authority.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-514e23.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-5f8e9a.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-d56e5d.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/code-on-sanitation-of-the-philippines.md",
@@ -6295,8 +6295,8 @@
         ],
         "admitted_relationship_paths": [
           "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-human-settlements.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-urban-development-planning.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act-governs-concept-local-shelter-plan.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-developmen-e1a531.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-irr-department-of-human-settlements-and-urban-developmen-e09a47.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/department-of-human-settlements-and-urban-development-act.md",
@@ -6489,9 +6489,9 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/yards.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
-          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
-          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md"
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-building-permit.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-means-of-egress.md",
+          "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-certificate-of-occupancy.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-of-the-fire-code-of-the-philippines.md"
@@ -6522,9 +6522,9 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/comprehensive-land-use-plan.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-progra-58da2e.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settle-457472.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plan-e875dc.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/executive-order-no-90-on-the-national-shelter-program.md",
@@ -6673,7 +6673,7 @@
         ],
         "admitted_relationship_paths": [
           "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-code-of-ethics-governs-concept-code-of-ethics.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-professional-practice-governs-concept-standards-of-professional-practice.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-pp-governs-concept-sta-b565d2.md",
           "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-301-general-conditions-governs-concept-general-conditions-of-contract.md"
         ],
         "admitted_source_paths": [
@@ -6817,10 +6817,10 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/standards-of-professional-practice.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-foreign-architects-governs-concept-temporary-special-permit.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-architectural-interiors.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-governs-concept-architectural-firm-registration.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-architecture-governs-concept-illegal-practice-of-architecture.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-f-6e6ff6.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-architectural-and-architectural-interior-design--e6845b.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-i-46e1ca.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-archit-0fc193.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice.md",
@@ -6874,8 +6874,8 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/socialized-housing-projects.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-balanced-housing-development.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-project-area.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-04f7a7.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-40c360.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279.md"
@@ -6911,9 +6911,9 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/waste-disposal.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-zoning-ordinance.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-floor-area-ratio.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-handout-san-mateo-comprehensive-land-use-plan-2021-2031-governs-concept-comprehensive-land-use-plan.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-66341a.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-34463d.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-handout-san-mateo-comprehensive-land-use-plan-2021-2031--89fa7f.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/san-mateo-comprehensive-land-use-plan-2021-2031.md",
@@ -6957,8 +6957,8 @@
         "admitted_relationship_paths": [
           "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
           "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-99ab0a.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-b16166.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-dagupan-city.md"
@@ -7029,9 +7029,9 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/floor-area.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-zoning-ordinance.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-comprehensive-land-use-plan.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-floor-area-ratio.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-bdade7.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-a38874.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-c5330d.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan.md"
@@ -7101,7 +7101,7 @@
         ],
         "admitted_relationship_paths": [
           "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-zoning-ordinance.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-comprehensive-land-use-plan.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-1e0b93.md",
           "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-floor-area-ratio.md"
         ],
         "admitted_source_paths": [
@@ -7135,8 +7135,8 @@
           "003_Canonical-Knowledge-Layer/shared/concepts/central-business-district.md"
         ],
         "admitted_relationship_paths": [
-          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-zoning-ordinance.md",
-          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-central-business-district.md"
+          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-4c8195.md",
+          "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-9829e6.md"
         ],
         "admitted_source_paths": [
           "003_Canonical-Knowledge-Layer/shared/sources/quezon-city-central-business-district-zoning-ordinance.md"
@@ -7534,22 +7534,22 @@
         "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-stairs.md",
         "003_Canonical-Knowledge-Layer/shared/relationships/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-yards.md",
         "003_Canonical-Knowledge-Layer/shared/relationships/rel-law-national-building-code-of-the-philippines-governs-concept-building-permit.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp344/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp220/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-stairs.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-yards.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-light-and-ventilation.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-stairs.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-setbacks.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-means-of-egress.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-fire-resistive-construction.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-certificate-of-occupancy.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-means-of-egress.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp344/relationships/rel-irr-revised-of-bp-blg-344-governs-concept-accessible-ram-dd1905.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/concept-slice-bp220/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-socialized-hou-328897.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-344-governs-concept-stairs.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-yards.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-light-and-vent-5345f0.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-stairs.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-setbacks.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-revised-of-bp-blg-220-governs-concept-means-of-egres-a14d33.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-stairs.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-fire-resistive-construction.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-building-permit.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-exit-width.md",
         "006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd957/relationships/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-floor-area.md",
         "006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd957/relationships/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-setbacks.md",
         "006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd957/relationships/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-yards.md",
@@ -7562,14 +7562,14 @@
         "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-permit.md",
         "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-water-right.md",
         "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-law-water-code-of-the-philippines-governs-concept-groundwater-drilling.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-groundwater-drilling.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-water-code-of-the-philippines-governs-concep-2bebc9.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-3/concept-slice-pd1067/relationships/rel-irr-amended-water-code-of-the-philippines-governs-concep-398ce0.md",
         "006_System-Manifests/runs/datasets/laws-tranche-4/concept-slice-ra10066/relationships/rel-law-national-cultural-heritage-act-of-2009-governs-concept-adaptive-reuse.md",
         "006_System-Manifests/runs/datasets/laws-tranche-4/concept-slice-ra10066/relationships/rel-law-national-cultural-heritage-act-of-2009-governs-concept-built-heritage.md",
         "006_System-Manifests/runs/datasets/laws-tranche-4/concept-slice-ra10066/relationships/rel-law-national-cultural-heritage-act-of-2009-governs-concept-heritage-zone.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-514e23.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-5f8e9a.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-pd856/relationships/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-d56e5d.md",
         "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra7160/relationships/rel-law-local-government-code-of-1991-governs-concept-local-autonomy.md",
         "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra7160/relationships/rel-law-local-government-code-of-1991-governs-concept-prior-consultations.md",
         "006_System-Manifests/runs/datasets/laws-tranche-5/concept-slice-ra7160/relationships/rel-law-local-government-code-of-1991-governs-concept-comprehensive-land-use-plan.md",
@@ -7580,19 +7580,19 @@
         "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-bids-and-awards-committee.md",
         "006_System-Manifests/runs/datasets/laws-tranche-6/concept-slice-ra9184/relationships/rel-law-government-procurement-reform-act-governs-concept-competitive-bidding.md",
         "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-human-settlements.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-development-act-governs-concept-urban-development-planning.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act-governs-concept-local-shelter-plan.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-law-department-of-human-settlements-and-urban-developmen-e1a531.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-7/concept-slice-ra11201/relationships/rel-irr-department-of-human-settlements-and-urban-developmen-e09a47.md",
         "006_System-Manifests/runs/datasets/laws-tranche-8/concept-slice-ra11285/relationships/rel-law-energy-efficiency-and-conservation-act-governs-concept-energy-audit.md",
         "006_System-Manifests/runs/datasets/laws-tranche-8/concept-slice-ra11285/relationships/rel-law-energy-efficiency-and-conservation-act-governs-concept-designated-establishment.md",
         "006_System-Manifests/runs/datasets/laws-tranche-8/concept-slice-ra11285/relationships/rel-law-energy-efficiency-and-conservation-act-governs-concept-minimum-energy-performance.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
-        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plans-governs-concept-comprehensive-land-use-plan.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/quality-correction-20260416/relationships/rel-irr-fcp-governs-concept-building-permit.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-means-of-egress.md",
+        "006_System-Manifests/runs/datasets/laws-core-bundle-m1/m2b-ra9514-v2/relationships/rel-irr-fcp-governs-concept-certificate-of-occupancy.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-90-on-the-national-shelter-progra-58da2e.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-648-reorganizing-the-human-settle-457472.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-12-source-to-graph-execute/source_to_graph/20260417T151028Z/promoted_relationships/eo/rel-law-executive-order-no-72-on-comprehensive-land-use-plan-e875dc.md",
         "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-code-of-ethics-governs-concept-code-of-ethics.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-professional-practice-governs-concept-standards-of-professional-practice.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-standards-of-pp-governs-concept-sta-b565d2.md",
         "006_System-Manifests/runs/datasets/laws-tranche-13/concept-slice-uap/relationships/rel-handout-uap-document-301-general-conditions-governs-concept-general-conditions-of-contract.md",
         "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-patient-movement.md",
         "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-doh-guidelines-for-health-facilities-governs-concept-waste-disposal.md",
@@ -7600,32 +7600,32 @@
         "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-disaster-risk-reduction.md",
         "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-continuity-of-instruction.md",
         "006_System-Manifests/runs/datasets/laws-tranche-14/concept-slice-guidance/relationships/rel-handout-deped-disaster-risk-reduction-resource-manual-governs-concept-school-safety.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-foreign-architects-governs-concept-temporary-special-permit.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-architectural-interiors.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-governs-concept-architectural-firm-registration.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-architecture-governs-concept-illegal-practice-of-architecture.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-balanced-housing-development.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-governs-concept-project-area.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-zoning-ordinance.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-floor-area-ratio.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-handout-san-mateo-comprehensive-land-use-plan-2021-2031-governs-concept-comprehensive-land-use-plan.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-guidelines-on-temporary-or-special-permits-for-f-6e6ff6.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-architectural-and-architectural-interior-design--e6845b.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-clarification-on-prboa-resolution-05-2007-rule-i-46e1ca.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-prc/concept-slice-prc/relationships/rel-handout-prboa-comments-on-the-illegal-practice-of-archit-0fc193.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-04f7a7.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-ra-9279-remediation/concept-slice-ra7279s18/relationships/rel-handout-to-govern-section-18-of-ra-no-7279-governs-conce-40c360.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-66341a.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-34463d.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-san-mateo/concept-slice-san-mateo/relationships/rel-handout-san-mateo-comprehensive-land-use-plan-2021-2031--89fa7f.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-floor-area-ratio.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-disaster-risk-reduction.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-99ab0a.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-dagupan/concept-slice-dagupan/relationships/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-b16166.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-malolos/concept-slice-malolos/relationships/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-concept-zoning-ordinance.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-malolos/concept-slice-malolos/relationships/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-concept-comprehensive-land-use-plan.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-malolos/concept-slice-malolos/relationships/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-concept-building-height.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-zoning-ordinance.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-comprehensive-land-use-plan.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-floor-area-ratio.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-bdade7.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-a38874.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-meycauayan/concept-slice-meycauayan/relationships/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-c5330d.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-davao/concept-slice-davao/relationships/rel-handout-davao-city-comprehensive-land-use-plan-governs-concept-comprehensive-land-use-plan.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-davao/concept-slice-davao/relationships/rel-handout-davao-city-comprehensive-land-use-plan-governs-concept-disaster-risk-reduction.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-zoning-ordinance.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-comprehensive-land-use-plan.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-1e0b93.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-tarlac/concept-slice-tarlac/relationships/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-floor-area-ratio.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-zoning-ordinance.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinance-governs-concept-central-business-district.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-4c8195.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-15-ordinance-2117/concept-slice-qccbd/relationships/rel-law-quezon-city-central-business-district-zoning-ordinan-9829e6.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-pasay/concept-slice-pasay/relationships/rel-law-pasay-city-zoning-ordinance-of-2003-governs-concept-zoning-ordinance.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-pasay/concept-slice-pasay/relationships/rel-law-pasay-city-zoning-ordinance-of-2003-governs-concept-comprehensive-land-use-plan.md",
         "006_System-Manifests/runs/datasets/laws-tranche-15-pasay/concept-slice-pasay/relationships/rel-law-pasay-city-zoning-ordinance-of-2003-governs-concept-floor-area-ratio.md",
@@ -7634,81 +7634,81 @@
         "003_Canonical-Knowledge-Layer/shared/relationships/rel-handout-architectural-cost-estimates-by-max-fajardo-covers-concept-construction-estimating.md",
         "003_Canonical-Knowledge-Layer/shared/relationships/rel-handout-quotes-1-covers-concept-architectural-theory.md",
         "003_Canonical-Knowledge-Layer/shared/relationships/rel-handout-arc-building-utilities-terms-covers-concept-building-utilities.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-exit-width.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-occupancy-separation.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-stairs.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-national-building-code-of-the-philippines-governs-concept-yards.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-building-permit.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-certificate-of-occupancy.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-exit-width.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-light-and-ventilation.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-means-of-egress.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-mixed-occupancy.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-classification.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-occupancy-separation.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-stairs.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-yards.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-permit.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-certificate-of-occupancy.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-light-and-ventilation.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-occupancy-classification.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-waste-disposal.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-344/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-accessible-ramps.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-344/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-governs-concept-stairs.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-socialized-housing-projects.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-stairs.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-yards.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-governs-concept-zoning-ordinance.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/1-1/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/1-1/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-yards.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-nbcp-of-the-philippines-governs-concept-exit-width.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-nbcp-of-the-philippines-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-nbcp-of-the-philippines-governs-concept-occupancy-se-892167.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-nbcp-of-the-philippines-governs-concept-stairs.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-law-nbcp-of-the-philippines-governs-concept-yards.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-building-permit.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-certificate-of-occupancy.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-exit-width.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-light-and-ventilation.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-means-of-egress.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-mixed-occupancy.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-occupancy-classification.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-occupancy-separation.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-stairs.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/pd-1096/rel-irr-nbcp-governs-concept-yards.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-building-permit.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-certificate-of-occupancy.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-exit-width.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-light-and-ventilation.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-occupancy-classification.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-stairs.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-waste-disposal.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/ra-9514/rel-irr-fcp-governs-concept-yards.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-344/rel-irr-revised-of-bp-blg-344-governs-concept-accessible-ram-dd1905.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-344/rel-irr-revised-of-bp-blg-344-governs-concept-stairs.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-of-bp-blg-220-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-of-bp-blg-220-governs-concept-socialized-hou-328897.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-of-bp-blg-220-governs-concept-stairs.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-of-bp-blg-220-governs-concept-yards.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/bp-220/rel-irr-revised-of-bp-blg-220-governs-concept-zoning-ordinan-e4a35c.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/1-1/rel-irr-revised-for-pd-957-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/1-1/rel-irr-revised-for-pd-957-governs-concept-yards.md",
         "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/2-2/rel-law-condominium-act-governs-concept-common-areas.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/3-1/rel-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-governs-concept-water-permit.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/4-3/rel-law-national-cultural-heritage-act-of-2009-governs-concept-built-heritage.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-law-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-law-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-food-establishment.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-governs-concept-local-health-authority.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-bids-and-awards-committee.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-comprehensive-land-use-plan.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-human-settlements.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/3-1/rel-irr-amended-water-code-of-the-philippines-governs-concep-2bebc9.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/4-3/rel-law-national-cultural-heritage-act-of-2009-governs-conce-a1eda7.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-law-code-on-sanitation-of-the-philippines-governs-concep-e2bf78.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-law-code-on-sanitation-of-the-philippines-governs-concep-fd9444.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-514e23.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-5f8e9a.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-1/rel-irr-of-chapter-iii-of-the-code-on-sanitation-of-the-phil-d56e5d.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-bids-a-b1211c.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-compre-643467.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-human--c8cf98.md",
         "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/5-2/rel-law-local-government-code-of-1991-governs-concept-local-autonomy.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-law-government-procurement-reform-act-governs-concept-competitive-bidding.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act-governs-concept-approved-budget-for-the-contract.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act-governs-concept-competitive-bidding.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/10/rel-irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004-governs-concept-standards-of-professional-practice.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-building-height.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-exit-width.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-light-and-ventilation.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-means-of-egress.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-stairs.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-governs-concept-yards.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-90-on-the-national-shelter-program-governs-concept-human-settlements.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-human-settlements.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-governs-concept-zoning-ordinance.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/prc/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-building-permit.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/prc/rel-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-governs-concept-standards-of-professional-practice.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-central-business-district.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-governs-concept-waste-disposal.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-building-height.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-comprehensive-land-use-plan.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-governs-concept-zoning-ordinance.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-malolos/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-concept-building-height.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-malolos/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-concept-zoning-ordinance.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-meycauayan/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-meycauayan/rel-law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-governs-concept-zoning-ordinance.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-tarlac/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-tarlac/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-governs-concept-zoning-ordinance.md",
-        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-pasay/rel-law-pasay-city-zoning-ordinance-of-2003-governs-concept-floor-area.md"
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-law-government-procurement-reform-act-governs-concept-co-7287e3.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-irr-updated-2016-revised-government-procurement-reform-a-ccdcd3.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/6-3/rel-irr-updated-2016-revised-government-procurement-reform-a-475f3a.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/10/rel-irr-architecture-act-of-2004-governs-concept-standards-o-b3ede9.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-building-height.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-exit-width.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-light-and-ventilation.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-means-of-egress.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-stairs.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/11/rel-irr-fcp-governs-concept-yards.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-90-on-the-national-shelter-progra-58da2e.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-648-reorganizing-the-human-settle-457472.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/12-1/rel-law-executive-order-no-648-reorganizing-the-human-settle-2a0de4.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/prc/rel-handout-architectural-and-architectural-interior-design--b54330.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/prc/rel-handout-architectural-and-architectural-interior-design--d72dae.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-190239.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-2b2ada.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-san-mateo/rel-law-zoning-ordinance-of-the-municipality-of-san-mateo-go-54e176.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-0147f9.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-99ab0a.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-dagupan/rel-law-comprehensive-zoning-ordinance-of-dagupan-city-gover-dd7c75.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-malolos/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-conc-7a6ceb.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-malolos/rel-law-zoning-ordinance-of-the-city-of-malolos-governs-conc-a7084f.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-meycauayan/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-a7f5f0.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-meycauayan/rel-law-comprehensive-zoning-ordinance-of-the-municipality-o-bdade7.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-tarlac/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-328077.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-tarlac/rel-law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-4fbd5a.md",
+        "006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260417T213237Z/promoted_relationships/15-pasay/rel-law-pasay-city-zoning-ordinance-of-2003-governs-concept--7b8bd1.md"
       ]
     }
   },

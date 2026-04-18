@@ -180,7 +180,7 @@
         "useful_text_line_count": 804,
         "useful_text_ratio": 0.946996
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-dry-run/source_to_graph/20260417T060651Z/source_quality/pd-957/PD 957 IRR - Subdivision and Condominium IRR_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-dry-run/source_to_graph/20260417T060651Z/source_quality/pd-957/PD-957-IRR-Subdivision-and-Condominium-IRR_source_quality.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -246,7 +246,7 @@
         "useful_text_line_count": 151,
         "useful_text_ratio": 1.0
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-dry-run/source_to_graph/20260417T060651Z/source_quality/pd-1185/PD 1185 - Fire Code of the Philippines 1977_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-dry-run/source_to_graph/20260417T060651Z/source_quality/pd-1185/PD-1185-fcp-1977_source_quality.json"
     }
   ]
 }

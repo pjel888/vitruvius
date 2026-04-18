@@ -193,7 +193,7 @@
         "useful_text_line_count": 249,
         "useful_text_ratio": 0.976471
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-9-source-to-graph-execute/source_to_graph/20260417T145116Z/source_quality/denr/DENR DAO 2003-30 - EIS System Implementing Rules_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-9-source-to-graph-execute/source_to_graph/20260417T145116Z/source_quality/denr/DENR-DAO-2003-30-EIS-System-Implementing-Rules_source_qualit-38ad2a.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -296,7 +296,7 @@
         "useful_text_line_count": 1018,
         "useful_text_ratio": 0.793453
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-9-source-to-graph-execute/source_to_graph/20260417T145116Z/source_quality/doe/DOE Guidelines on Energy Conserving Design on Buildings v2008_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-9-source-to-graph-execute/source_to_graph/20260417T145116Z/source_quality/doe/DOE-Guidelines-on-Energy-Conserving-Design-on-Buildings-v200-a110af.json"
     },
     {
       "admitted_canonical_source_anchor": {
@@ -402,7 +402,7 @@
         "useful_text_line_count": 247,
         "useful_text_ratio": 0.939163
       },
-      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-9-source-to-graph-execute/source_to_graph/20260417T145116Z/source_quality/dpwh/DPWH DO037 Enforcement of BP344 along National Roads_source_quality.json"
+      "source_quality_path": "006_System-Manifests/runs/datasets/laws-tranche-9-source-to-graph-execute/source_to_graph/20260417T145116Z/source_quality/dpwh/DPWH-DO037-Enforcement-of-BP344-along-National-Roads_source_-74cb9f.json"
     }
   ],
   "visualization": null

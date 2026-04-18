@@ -134,13 +134,13 @@
         },
         {
           "mtime_ns": 1776410274660152127,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T071754Z/promoted_relationships/pd-957/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-floor-area.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T071754Z/promoted_relationships/pd-957/rel-irr-revised-for-pd-957-governs-concept-floor-area.md",
           "sha256": "eadd9d29c17f55e45027c9965f3817f66632191f5d98ecbe3da4abe132f19029",
           "size_bytes": 1768
         },
         {
           "mtime_ns": 1776410274659333330,
-          "path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T071754Z/promoted_relationships/pd-957/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-yards.md",
+          "path": "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T071754Z/promoted_relationships/pd-957/rel-irr-revised-for-pd-957-governs-concept-yards.md",
           "sha256": "dde90591a6c275916ba2ec1ff1162344a1e0bc457b8c47a77057f342ad5b7fbf",
           "size_bytes": 1831
         }
@@ -272,8 +272,8 @@
         "006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd957/relationships/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-floor-area.md",
         "006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd957/relationships/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-setbacks.md",
         "006_System-Manifests/runs/datasets/laws-tranche-1/concept-slice-pd957/relationships/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-yards.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T071754Z/promoted_relationships/pd-957/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-floor-area.md",
-        "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T071754Z/promoted_relationships/pd-957/rel-irr-revised-implementing-rules-and-regulations-for-pd-957-governs-concept-yards.md"
+        "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T071754Z/promoted_relationships/pd-957/rel-irr-revised-for-pd-957-governs-concept-floor-area.md",
+        "006_System-Manifests/runs/datasets/laws-tranche-1-source-to-graph-execute/source_to_graph/20260417T071754Z/promoted_relationships/pd-957/rel-irr-revised-for-pd-957-governs-concept-yards.md"
       ]
     }
   },
