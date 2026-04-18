@@ -1,7 +1,7 @@
 dataset_id: laws-completed-aggregate
 dataset_kind: laws-aggregate
 scope_notes:
-- Aggregate graph input for all completed executable and remediation laws-wave lanes.
+- Aggregate graph input for all completed executable/remediation laws-wave lanes.
 - Explicitly excludes deferred residual folders from laws-remaining-dispositions.yaml.
 - Preserves raw storage folder truth while keeping completed lane law-units distinct.
 raw_slice_anchors:
@@ -2206,6 +2206,30 @@ canonical_input_manifest:
     edition_or_source_note: laws-completed-aggregate aggregate concept from laws-tranche-3.
     include_in_m1: true
     reason: 'Aggregate completed-laws graph lane: laws-tranche-3'
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/chemical-substance.md
+    folder_name: RA-6969
+    entry_role: derived
+    authority_tier: derived
+    variant_family: laws-tranche-4-concept
+    edition_or_source_note: laws-completed-aggregate aggregate concept from laws-tranche-4.
+    include_in_m1: true
+    reason: 'Aggregate completed-laws graph lane: laws-tranche-4'
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/chemical-mixture.md
+    folder_name: RA-6969
+    entry_role: derived
+    authority_tier: derived
+    variant_family: laws-tranche-4-concept
+    edition_or_source_note: laws-completed-aggregate aggregate concept from laws-tranche-4.
+    include_in_m1: true
+    reason: 'Aggregate completed-laws graph lane: laws-tranche-4'
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/hazardous-wastes.md
+    folder_name: RA-6969
+    entry_role: derived
+    authority_tier: derived
+    variant_family: laws-tranche-4-concept
+    edition_or_source_note: laws-completed-aggregate aggregate concept from laws-tranche-4.
+    include_in_m1: true
+    reason: 'Aggregate completed-laws graph lane: laws-tranche-4'
   - path: 003_Canonical-Knowledge-Layer/shared/concepts/adaptive-reuse.md
     folder_name: RA-10066
     entry_role: derived
@@ -2326,6 +2350,38 @@ canonical_input_manifest:
     edition_or_source_note: laws-completed-aggregate aggregate concept from laws-tranche-6.
     include_in_m1: true
     reason: 'Aggregate completed-laws graph lane: laws-tranche-6'
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/master-plumber.md
+    folder_name: RA-1378
+    entry_role: derived
+    authority_tier: derived
+    variant_family: laws-tranche-7-concept
+    edition_or_source_note: laws-completed-aggregate aggregate concept from laws-tranche-7.
+    include_in_m1: true
+    reason: 'Aggregate completed-laws graph lane: laws-tranche-7'
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/arbitration.md
+    folder_name: RA-9285
+    entry_role: derived
+    authority_tier: derived
+    variant_family: laws-tranche-7-concept
+    edition_or_source_note: laws-completed-aggregate aggregate concept from laws-tranche-7.
+    include_in_m1: true
+    reason: 'Aggregate completed-laws graph lane: laws-tranche-7'
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/mediation.md
+    folder_name: RA-9285
+    entry_role: derived
+    authority_tier: derived
+    variant_family: laws-tranche-7-concept
+    edition_or_source_note: laws-completed-aggregate aggregate concept from laws-tranche-7.
+    include_in_m1: true
+    reason: 'Aggregate completed-laws graph lane: laws-tranche-7'
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/mediator.md
+    folder_name: RA-9285
+    entry_role: derived
+    authority_tier: derived
+    variant_family: laws-tranche-7-concept
+    edition_or_source_note: laws-completed-aggregate aggregate concept from laws-tranche-7.
+    include_in_m1: true
+    reason: 'Aggregate completed-laws graph lane: laws-tranche-7'
   - path: 003_Canonical-Knowledge-Layer/shared/concepts/human-settlements.md
     folder_name: RA-11201
     entry_role: derived
@@ -3749,7 +3805,7 @@ pilot_gate:
   require_manifest_validation: true
   source_to_graph_execute_ready: false
   derived_from_tranche_id: laws-completed-aggregate-aggregate
-  derived_run_id: '20260417'
+  derived_run_id: '20260418'
 law_units:
 - law_id: pd-1096
   folder_name: PD-1096
@@ -4200,7 +4256,10 @@ law_units:
   excluded_variant_paths: []
   admitted_source_paths:
   - 003_Canonical-Knowledge-Layer/shared/sources/toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990.md
-  admitted_concept_paths: []
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/chemical-substance.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/chemical-mixture.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/hazardous-wastes.md
   admitted_relationship_paths: []
   verification_checks:
   - source admission executed for the selected authoritative prepared variants
@@ -4431,7 +4490,8 @@ law_units:
   - 001_Raw-Source-Layer/001-Laws/RA-1378/Board of Master Plumber.doc
   admitted_source_paths:
   - 003_Canonical-Knowledge-Layer/shared/sources/plumbing-law.md
-  admitted_concept_paths: []
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/master-plumber.md
   admitted_relationship_paths: []
   verification_checks:
   - source admission executed for the selected authoritative prepared variants
@@ -4452,7 +4512,10 @@ law_units:
   excluded_variant_paths: []
   admitted_source_paths:
   - 003_Canonical-Knowledge-Layer/shared/sources/alternative-dispute-resolution-act-of-2004.md
-  admitted_concept_paths: []
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/arbitration.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/mediation.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/mediator.md
   admitted_relationship_paths: []
   verification_checks:
   - source admission executed for the selected authoritative prepared variants

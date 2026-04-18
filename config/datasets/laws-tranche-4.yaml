@@ -49,6 +49,10 @@ candidate_law_folders:
   scope_notes:
   - Source admission is intentionally conservative and admits only selected authoritative
     prepared variants.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/chemical-substance.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/chemical-mixture.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/hazardous-wastes.md
 - folder_name: RA-10066
   reason: Cultural-heritage and built-environment adjacency with a compact single-law
     surface.
@@ -90,3 +94,32 @@ source_admission:
   - RA-10066
   mixed_readiness_law_folders: []
   blocked_law_folders: []
+canonical_input_manifest:
+  concepts:
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/chemical-substance.md
+    folder_name: RA-6969
+    entry_role: derived
+    authority_tier: derived
+    variant_family: ra-6969-admitted-concept
+    edition_or_source_note: Concept admitted into dataset manifest by operator concept-admission
+      step.
+    include_in_m1: true
+    reason: Admitted concept path for dataset manifest concept coverage.
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/chemical-mixture.md
+    folder_name: RA-6969
+    entry_role: derived
+    authority_tier: derived
+    variant_family: ra-6969-admitted-concept
+    edition_or_source_note: Concept admitted into dataset manifest by operator concept-admission
+      step.
+    include_in_m1: true
+    reason: Admitted concept path for dataset manifest concept coverage.
+  - path: 003_Canonical-Knowledge-Layer/shared/concepts/hazardous-wastes.md
+    folder_name: RA-6969
+    entry_role: derived
+    authority_tier: derived
+    variant_family: ra-6969-admitted-concept
+    edition_or_source_note: Concept admitted into dataset manifest by operator concept-admission
+      step.
+    include_in_m1: true
+    reason: Admitted concept path for dataset manifest concept coverage.

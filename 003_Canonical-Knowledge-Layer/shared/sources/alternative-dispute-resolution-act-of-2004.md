@@ -4,7 +4,7 @@ title: Alternative Dispute Resolution Act of 2004
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T13:43:22.502941+00:00
+last_canonicalized_utc: 2026-04-18T02:33:15.406504+00:00
 aliases:
   - RA 9285
   - Republic Act No. 9285
@@ -32,4 +32,6 @@ Republic of the Philippines Congress of the Philippines Metro Manila
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-mediation
+- concept-arbitration
+- concept-mediator

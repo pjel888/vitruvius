@@ -455,6 +455,11 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_lane_concept_scaffold_parser = add_command_parser(subparsers, "scaffold-completed-aggregate-lane-concepts")
     generic_aggregate_lane_concept_scaffold_parser.add_argument("--manifest", required=True)
     generic_aggregate_lane_concept_scaffold_parser.add_argument("--output-dir", default=None)
+    generic_aggregate_manifest_concept_admit_parser = add_command_parser(subparsers, "admit-concepts-to-manifest")
+    generic_aggregate_manifest_concept_admit_parser.add_argument("--manifest", required=True)
+    generic_aggregate_manifest_concept_admit_parser.add_argument("--folder-name", required=True)
+    generic_aggregate_manifest_concept_admit_parser.add_argument("--concept-path", action="append", required=True,
+                                                                 help="Repeatable concept markdown path to admit into the manifest.")
     generic_aggregate_lane_relationship_scaffold_parser = add_command_parser(subparsers, "scaffold-completed-aggregate-lane-relationships")
     generic_aggregate_lane_relationship_scaffold_parser.add_argument("--manifest", required=True)
     generic_aggregate_lane_relationship_scaffold_parser.add_argument("--predicate", default="covers")
@@ -1475,6 +1480,23 @@ def main() -> int:
             }, indent=2))
             return 0
         return _run("scaffold-completed-aggregate-lane-concepts", _run_scaffold_generic_lane_concepts)
+
+    if args.command == "admit-concepts-to-manifest":
+        from vitruvius.aggregate_manifest import admit_concepts_to_manifest
+        def _run_admit_concepts_to_manifest():
+            repo_root = Path.cwd().resolve()
+            summary = admit_concepts_to_manifest(
+                repo_root=repo_root,
+                manifest_path=Path(args.manifest),
+                folder_name=args.folder_name,
+                concept_paths=[Path(path) for path in (args.concept_path or [])],
+            )
+            print(json.dumps({
+                "action": "admit-concepts-to-manifest",
+                **summary,
+            }, indent=2))
+            return 0
+        return _run("admit-concepts-to-manifest", _run_admit_concepts_to_manifest)
 
     if args.command == "scaffold-completed-aggregate-lane-relationships":
         from vitruvius.aggregate_manifest import scaffold_completed_aggregate_lane_relationships

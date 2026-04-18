@@ -4,7 +4,7 @@ title: Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T11:07:04.421676+00:00
+last_canonicalized_utc: 2026-04-18T02:33:15.560817+00:00
 aliases:
   - RA 6969
   - Republic Act No. 6969
@@ -27,4 +27,6 @@ Republic of the Philippines Congress of the Philippines Metro Manila REPUBLIC AC
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-chemical-substance
+- concept-chemical-mixture
+- concept-hazardous-wastes

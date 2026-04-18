@@ -4,7 +4,7 @@ title: Plumbing Law
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T13:43:22.462504+00:00
+last_canonicalized_utc: 2026-04-18T02:33:15.733698+00:00
 aliases:
   - RA 1378
   - Republic Act No. 1378
@@ -27,4 +27,4 @@ Be it enacted by the Senate and House of Representatives of the Philippines in C
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-master-plumber

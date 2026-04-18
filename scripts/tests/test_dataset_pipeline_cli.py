@@ -2875,6 +2875,43 @@ def test_scaffold_completed_aggregate_lane_relationships_writes_relationship_fil
     assert updated_manifest['relationship_input_manifest']['relationships'][0]['path'].endswith('rel-handout-chinese-architecture-covers-concept-architectural-history.md')
 
 
+def test_admit_concepts_to_manifest_updates_manifest_and_law_unit(tmp_path: Path) -> None:
+    from vitruvius.aggregate_manifest import admit_concepts_to_manifest
+
+    manifest_path = tmp_path / 'config' / 'datasets' / 'demo-manifest.yaml'
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'demo',
+                'dataset_kind': 'demo',
+                'raw_slice_anchors': [{'folder_name': 'RA-9285'}],
+                'candidate_law_folders': [{'folder_name': 'RA-9285', 'admitted_concept_paths': []}],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {'relationships': []},
+                'law_units': [{'law_id': '7-2', 'folder_name': 'RA-9285', 'admitted_concept_paths': []}],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    concept_path = tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'concepts' / 'arbitration.md'
+    concept_path.parent.mkdir(parents=True, exist_ok=True)
+    concept_path.write_text('---\nid: concept-arbitration\n---\n', encoding='utf-8')
+
+    summary = admit_concepts_to_manifest(
+        repo_root=tmp_path,
+        manifest_path=manifest_path,
+        folder_name='RA-9285',
+        concept_paths=[concept_path],
+    )
+    assert summary['concept_count'] == 1
+    updated = yaml.safe_load(manifest_path.read_text(encoding='utf-8'))
+    assert updated['canonical_input_manifest']['concepts'][0]['path'] == '003_Canonical-Knowledge-Layer/shared/concepts/arbitration.md'
+    assert updated['candidate_law_folders'][0]['admitted_concept_paths'] == ['003_Canonical-Knowledge-Layer/shared/concepts/arbitration.md']
+    assert updated['law_units'][0]['admitted_concept_paths'] == ['003_Canonical-Knowledge-Layer/shared/concepts/arbitration.md']
+
+
 def test_promote_completed_aggregate_lane_relationships_updates_status(tmp_path: Path) -> None:
     from vitruvius.aggregate_manifest import promote_completed_aggregate_lane_relationships
 
@@ -4286,6 +4323,52 @@ def test_pipeline_cli_scaffold_completed_aggregate_lane_concepts_reports_summary
     assert rc == 0
     stdout_payload = json.loads(capsys.readouterr().out)
     assert stdout_payload['action'] == 'scaffold-completed-aggregate-lane-concepts'
+    assert stdout_payload['concept_count'] == 1
+
+
+def test_pipeline_cli_admit_concepts_to_manifest_reports_summary(
+    tmp_path: Path,
+    monkeypatch,
+    capsys,
+) -> None:
+    import pipeline_cli
+
+    manifest_path = tmp_path / 'config' / 'datasets' / 'demo-manifest.yaml'
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(
+        yaml.safe_dump(
+            {
+                'dataset_id': 'demo',
+                'dataset_kind': 'demo',
+                'raw_slice_anchors': [{'folder_name': 'RA-9285'}],
+                'canonical_input_manifest': {'sources': [], 'concepts': []},
+                'relationship_input_manifest': {'relationships': []},
+                'law_units': [{'law_id': '7-2', 'folder_name': 'RA-9285', 'admitted_concept_paths': []}],
+            },
+            sort_keys=False,
+        ),
+        encoding='utf-8',
+    )
+    concept_path = tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'concepts' / 'arbitration.md'
+    concept_path.parent.mkdir(parents=True, exist_ok=True)
+    concept_path.write_text('---\nid: concept-arbitration\n---\n', encoding='utf-8')
+
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        'argv',
+        [
+            'pipeline_cli.py',
+            'admit-concepts-to-manifest',
+            '--manifest', 'config/datasets/demo-manifest.yaml',
+            '--folder-name', 'RA-9285',
+            '--concept-path', '003_Canonical-Knowledge-Layer/shared/concepts/arbitration.md',
+        ],
+    )
+    rc = pipeline_cli.main()
+    assert rc == 0
+    stdout_payload = json.loads(capsys.readouterr().out)
+    assert stdout_payload['action'] == 'admit-concepts-to-manifest'
     assert stdout_payload['concept_count'] == 1
 
 

@@ -1749,6 +1749,87 @@ def scaffold_completed_aggregate_lane_concepts(
     }
 
 
+def admit_concepts_to_manifest(
+    *,
+    repo_root: Path,
+    manifest_path: Path,
+    folder_name: str,
+    concept_paths: list[Path],
+) -> dict[str, Any]:
+    resolved_manifest_path = manifest_path if manifest_path.is_absolute() else repo_root / manifest_path
+    payload = load_yaml_payload(resolved_manifest_path)
+
+    canonical_section = payload.setdefault('canonical_input_manifest', {})
+    concept_entries = canonical_section.setdefault('concepts', [])
+    if not isinstance(concept_entries, list):
+        concept_entries = []
+        canonical_section['concepts'] = concept_entries
+
+    existing_concept_paths = {
+        str(item.get('path') or '')
+        for item in concept_entries
+        if isinstance(item, dict)
+    }
+
+    written_paths: list[str] = []
+    for concept_path in concept_paths:
+        resolved_concept_path = concept_path if concept_path.is_absolute() else repo_root / concept_path
+        relative_concept_path = _relative(resolved_concept_path, repo_root)
+        written_paths.append(relative_concept_path)
+        if relative_concept_path not in existing_concept_paths:
+            concept_entries.append({
+                'path': relative_concept_path,
+                'folder_name': folder_name,
+                'entry_role': 'derived',
+                'authority_tier': 'derived',
+                'variant_family': f"{folder_name.lower()}-admitted-concept",
+                'edition_or_source_note': 'Concept admitted into dataset manifest by operator concept-admission step.',
+                'include_in_m1': True,
+                'reason': 'Admitted concept path for dataset manifest concept coverage.',
+            })
+            existing_concept_paths.add(relative_concept_path)
+
+    updated_candidate_folders = 0
+    candidate_folders = payload.get('candidate_law_folders')
+    if isinstance(candidate_folders, list):
+        for item in candidate_folders:
+            if not isinstance(item, dict):
+                continue
+            if str(item.get('folder_name') or '') != folder_name:
+                continue
+            admitted_concepts = [str(path) for path in item.get('admitted_concept_paths') or [] if isinstance(path, str)]
+            for concept_path in written_paths:
+                if concept_path not in admitted_concepts:
+                    admitted_concepts.append(concept_path)
+            item['admitted_concept_paths'] = admitted_concepts
+            updated_candidate_folders += 1
+
+    updated_law_units = 0
+    law_units = payload.get('law_units')
+    if isinstance(law_units, list):
+        for law_unit in law_units:
+            if not isinstance(law_unit, dict):
+                continue
+            if str(law_unit.get('folder_name') or '') != folder_name:
+                continue
+            admitted_concepts = [str(path) for path in law_unit.get('admitted_concept_paths') or [] if isinstance(path, str)]
+            for concept_path in written_paths:
+                if concept_path not in admitted_concepts:
+                    admitted_concepts.append(concept_path)
+            law_unit['admitted_concept_paths'] = admitted_concepts
+            updated_law_units += 1
+
+    write_yaml_payload(resolved_manifest_path, payload)
+    return {
+        'manifest_path': _relative(resolved_manifest_path, repo_root),
+        'folder_name': folder_name,
+        'concept_count': len(written_paths),
+        'written_paths': written_paths,
+        'updated_candidate_folder_count': updated_candidate_folders,
+        'updated_law_unit_count': updated_law_units,
+    }
+
+
 def scaffold_completed_aggregate_lane_relationships(
     *,
     repo_root: Path,
