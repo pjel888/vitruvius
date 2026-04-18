@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 001-Laws/EO/EO 72 Comprehensive Land use.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/EO/EO 72 Comprehensive Land use.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/EO/EO 72 Comprehensive Land use.json
-
-STATUS: converted

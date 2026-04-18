@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 001-Laws/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.json
-
-STATUS: converted

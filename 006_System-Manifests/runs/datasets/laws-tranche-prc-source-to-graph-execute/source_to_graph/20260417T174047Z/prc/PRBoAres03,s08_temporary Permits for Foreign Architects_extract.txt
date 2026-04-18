@@ -1,6 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 31
-Unique relationships: 1
-
-handout-guidelines-on-temporary-or-special-permits-for-foreign-architects -> governs -> concept-temporary-special-permit (x11) sections=['section-2', 'section-14', 'section-30']

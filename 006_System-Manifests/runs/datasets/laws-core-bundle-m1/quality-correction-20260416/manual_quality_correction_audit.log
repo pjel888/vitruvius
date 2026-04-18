@@ -1,8 +1,0 @@
-2026-04-16T10:45:00Z manual bounded quality correction admission
-- admitted source->concept governs edges after corrected concept matching and source attribution
-- scope: BP-344 stairs; BP-220 yards, floor-area, light-and-ventilation, stairs, setbacks, means-of-egress
-- rationale: direct textual evidence in refined source plus bounded graph correction lane
-2026-04-16T11:35:00Z manual RA-9514 bounded quality correction admission
-- admitted additional RA-9514 source->concept governs edges after corrected extraction audit
-- scope: stairs, fire-resistive-construction, building-permit, floor-area, exit-width
-- rationale: direct Fire Code RIRR source text and repeated section evidence

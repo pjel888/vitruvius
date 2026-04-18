@@ -1,8 +1,0 @@
-Vitruvius OCR Needed Report
-
-OCR required files: 1
-
-OCR REQUIRED ITEMS:
-  ---
-  source: 001-Laws/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.pdf
-  route: OCR_FIRST_THEN_OPENDATALOADER

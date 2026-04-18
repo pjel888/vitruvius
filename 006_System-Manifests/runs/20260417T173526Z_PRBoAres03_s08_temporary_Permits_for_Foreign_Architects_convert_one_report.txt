@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 001-Laws/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.json
-
-STATUS: converted

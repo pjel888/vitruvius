@@ -1,8 +1,0 @@
-Ollama Relationship Review Report
-
-Model: qwen2.5:7b
-Source: 001-Laws/refined_markdown/RA-4726/RA 4726 Condominium Act.md
-Candidates reviewed: 0
-Keep: 0
-Review Further: 0
-Reject: 0

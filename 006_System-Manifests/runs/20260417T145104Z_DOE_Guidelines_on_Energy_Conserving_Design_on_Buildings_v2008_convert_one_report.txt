@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 001-Laws/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.json
-
-STATUS: converted

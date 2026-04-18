@@ -1,6 +1,0 @@
-Vitruvius OCR Needed Report
-
-OCR required files: 0
-
-OCR REQUIRED ITEMS:
-  None

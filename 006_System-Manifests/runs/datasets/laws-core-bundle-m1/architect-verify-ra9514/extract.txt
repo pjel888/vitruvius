@@ -1,7 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 3
-Unique relationships: 2
-
-concept-stairs -> requires -> concept-fire-resistive-construction (x2) sections=['section-10'] alt=['depends_on', 'affects']
-concept-stairs -> requires -> concept-building-permit (x2) sections=['section-10'] alt=['depends_on', 'affects']

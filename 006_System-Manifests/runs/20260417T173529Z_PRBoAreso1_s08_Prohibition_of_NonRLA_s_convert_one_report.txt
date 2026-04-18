@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 001-Laws/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.json
-
-STATUS: converted

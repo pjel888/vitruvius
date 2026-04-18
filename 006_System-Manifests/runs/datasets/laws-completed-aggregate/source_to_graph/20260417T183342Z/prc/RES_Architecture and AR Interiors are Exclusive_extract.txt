@@ -1,8 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 17
-Unique relationships: 3
-
-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice -> governs -> concept-standards-of-professional-practice (x3) sections=['section-29', 'section-23']
-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice -> governs -> concept-building-permit (x10) sections=['section-37', 'section-301', 'section-302']
-handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice -> governs -> concept-waste-disposal (x2) sections=['section-37']

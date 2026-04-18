@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 002-History/20th Century Architects 2.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/002-History/raw_markdown/20th Century Architects 2.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/002-History/sidecar_json/20th Century Architects 2.json
-
-STATUS: converted

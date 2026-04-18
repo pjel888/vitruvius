@@ -1,8 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 47
-Unique relationships: 3
-
-concept-setbacks -> requires -> concept-yards (x1) sections=['section-5'] alt=['depends_on']
-concept-light-and-ventilation -> requires -> concept-setbacks (x1) sections=['section-6'] alt=['affects']
-concept-means-of-egress -> defines -> concept-stairs (x2) sections=['section-25']

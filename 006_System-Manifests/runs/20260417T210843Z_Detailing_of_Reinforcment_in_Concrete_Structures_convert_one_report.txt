@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 006 -Structural/Detailing of Reinforcment in Concrete Structures.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/006 -Structural/raw_markdown/Detailing of Reinforcment in Concrete Structures.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/006 -Structural/sidecar_json/Detailing of Reinforcment in Concrete Structures.json
-
-STATUS: converted

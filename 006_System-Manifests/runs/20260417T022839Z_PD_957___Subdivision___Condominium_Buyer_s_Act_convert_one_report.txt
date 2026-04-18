@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 001-Laws/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.json
-
-STATUS: converted

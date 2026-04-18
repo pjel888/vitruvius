@@ -1,8 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 31
-Unique relationships: 3
-
-handout-guidelines-on-temporary-or-special-permits-for-foreign-architects -> governs -> concept-temporary-special-permit (x17) sections=['section-2', 'section-14', 'section-30']
-handout-guidelines-on-temporary-or-special-permits-for-foreign-architects -> governs -> concept-building-permit (x1) sections=['section-2']
-concept-temporary-special-permit -> depends_on -> concept-building-permit (x1) sections=['section-2']

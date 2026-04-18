@@ -1,8 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 1
-Unique relationships: 3
-
-handout-uap-document-301-general-conditions -> governs -> concept-general-conditions-of-contract (x8) sections=['section-1']
-handout-uap-document-301-general-conditions -> governs -> concept-floor-area-ratio (x5) sections=['section-1']
-handout-uap-document-301-general-conditions -> governs -> concept-stairs (x1) sections=['section-1']

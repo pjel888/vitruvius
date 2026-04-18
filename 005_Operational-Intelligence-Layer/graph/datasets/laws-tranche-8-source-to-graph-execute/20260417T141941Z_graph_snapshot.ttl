@@ -1,9 +1,0 @@
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix vitruvius: <https://vitruvius.ai/ontology/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-vitruvius:law-energy-efficiency-and-conservation-act a vitruvius:source ;
-    rdfs:label "energy-efficiency-and-conservation-act (law-energy-efficiency-and-conservation-act)" ;
-    vitruvius:last_updated_utc "2026-04-17T14:19:40Z"^^xsd:string ;
-    vitruvius:trust_level "primary"^^xsd:string .
-

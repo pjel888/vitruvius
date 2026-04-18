@@ -1,7 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 3
-Unique relationships: 2
-
-concept-building-height -> requires -> concept-certificate-of-occupancy (x2) sections=['section-10'] alt=['depends_on', 'affects']
-concept-certificate-of-occupancy -> requires -> concept-means-of-egress (x2) sections=['section-10'] alt=['depends_on', 'affects']

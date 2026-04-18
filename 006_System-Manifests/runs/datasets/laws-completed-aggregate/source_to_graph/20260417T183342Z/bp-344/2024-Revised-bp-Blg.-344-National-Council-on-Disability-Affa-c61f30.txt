@@ -1,8 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 5
-Unique relationships: 3
-
-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344 -> governs -> concept-accessible-ramps (x9) sections=['section-1']
-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344 -> governs -> concept-stairs (x17) sections=['section-1']
-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344 -> governs -> concept-means-of-egress (x2) sections=['section-1']

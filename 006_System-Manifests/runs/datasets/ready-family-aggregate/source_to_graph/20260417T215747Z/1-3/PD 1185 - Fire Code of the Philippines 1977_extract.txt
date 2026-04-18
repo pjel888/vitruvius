@@ -1,6 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 17
-Unique relationships: 1
-
-law-fire-code-of-the-philippines -> governs -> concept-yards (x1) sections=['section-9']

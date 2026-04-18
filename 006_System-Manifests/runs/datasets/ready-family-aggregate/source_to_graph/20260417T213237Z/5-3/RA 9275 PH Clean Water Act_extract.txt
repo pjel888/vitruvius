@@ -1,7 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 35
-Unique relationships: 2
-
-law-philippine-clean-water-act-of-2004 -> governs -> concept-water-quality-management-area (x12) sections=['section-5', 'section-10', 'section-19', 'section-20']
-law-philippine-clean-water-act-of-2004 -> governs -> concept-wastewater-charge-system (x2) sections=['section-5', 'section-13']

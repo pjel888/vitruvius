@@ -1,7 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 39
-Unique relationships: 2
-
-handout-cmo-61-series-2017-bs-architecture-curriculum-standards -> governs -> concept-occupancy-load (x2) sections=['section-19']
-handout-cmo-61-series-2017-bs-architecture-curriculum-standards -> governs -> concept-building-permit (x2) sections=['section-35']

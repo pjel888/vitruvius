@@ -1,6 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 47
-Unique relationships: 1
-
-irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-socialized-housing-projects (x17) sections=['section-1', 'section-3', 'section-4', 'section-5', 'section-6', 'section-8', 'section-13', 'section-19', 'section-2']

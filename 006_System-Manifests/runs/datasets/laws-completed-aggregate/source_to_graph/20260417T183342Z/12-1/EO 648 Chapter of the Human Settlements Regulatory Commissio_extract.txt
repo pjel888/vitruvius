@@ -1,7 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 5
-Unique relationships: 2
-
-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission -> governs -> concept-human-settlements (x4) sections=['section-4', 'section-5', 'section-6']
-law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission -> governs -> concept-zoning-ordinance (x3) sections=['section-5']

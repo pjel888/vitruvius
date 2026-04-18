@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 001-Laws/RA-9285/RA_9285.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/RA-9285/RA_9285.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/RA-9285/RA_9285.json
-
-STATUS: converted

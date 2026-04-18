@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 001-Laws/UAP/UAP Document Standards of Professional Practice.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/UAP/UAP Document Standards of Professional Practice.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/UAP/UAP Document Standards of Professional Practice.json
-
-STATUS: converted

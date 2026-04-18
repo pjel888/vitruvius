@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 001-Laws/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.json
-
-STATUS: converted

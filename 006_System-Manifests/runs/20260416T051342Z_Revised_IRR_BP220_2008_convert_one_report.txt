@@ -1,9 +1,0 @@
-Vitruvius Convert One Report
-
-Source: 001-Laws/BP-220/Revised_IRR_BP220_2008.pdf
-Detection result: TEXT_PDF
-Recommended route: OPENDATALOADER_DIRECT
-Markdown output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/raw_markdown/BP-220/Revised_IRR_BP220_2008.md
-JSON output: /Users/philiplewis/vitruvius/002_Raw-Conversion-Layer/001-Laws/sidecar_json/BP-220/Revised_IRR_BP220_2008.json
-
-STATUS: converted

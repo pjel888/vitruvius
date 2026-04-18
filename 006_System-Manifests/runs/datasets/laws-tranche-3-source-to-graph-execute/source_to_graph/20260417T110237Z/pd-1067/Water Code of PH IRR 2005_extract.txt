@@ -1,7 +1,0 @@
-Section-Aware Relationship Extraction
-
-Sections: 94
-Unique relationships: 2
-
-concept-water-right -> affects -> concept-water-permit (x1) sections=['section-2']
-irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines -> governs -> concept-water-permit (x14) sections=['section-4', 'section-10', 'section-15', 'section-19', 'section-27', 'section-46', 'section-81', 'section-82']

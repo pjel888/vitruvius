@@ -1,9 +1,0 @@
-Vitruvius Canonicalization Plan (One)
-
-Source: 001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code.md
-Type: law
-Trust Level: primary
-Title: PD 1096 - National Building Code
-
-PROPOSED OUTPUTS:
-- source → 003_Canonical-Knowledge-Layer/shared/sources/pd-1096-national-building-code.md
