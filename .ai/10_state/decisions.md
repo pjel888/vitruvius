@@ -1556,3 +1556,34 @@ Phase 4 — Cross-file verification (all PASS as of 2026-04-15 21:xx):
 - Active index: `.ai/03_plans/INDEX.md`
 
 ---
+
+
+## AD-043 — Operational Databases as Layer 5 Indexes (2026-04-18)
+
+**Status:** Accepted
+
+**Context.** AD-001 (Filesystem-as-Database) established that Layers 1–4 use structured directories and CSV/JSON registries, with Principle P1 enforcing "No hidden SQLite, Postgres, or pickle state for core lineage." The Knowledge Graph Transition (Sprint KG) requires Neo4j and PostgreSQL to support the taxonomy-centered canonical graph, evidence graph, and review queue. A literal interpretation of AD-001 would block the transition entirely.
+
+**Decision.** AD-001 is **not superseded**; it is **refined** with explicit scope boundaries:
+
+1. **Layers 1–4 remain file-native and git-tracked.** Raw sources, conversions, canonical knowledge, and derived content continue to use the filesystem as the sole source of truth. No operational database may write to these layers.
+2. **Layer 5 (Operational Intelligence) may use live databases as materialized indexes.** These databases are queryable replicas rebuilt from file-native manifests, not independent sources of truth.
+   - **Neo4j** = canonical graph index (nodes, edges, assertions, evidence spans).
+   - **PostgreSQL** = job/audit/registry index (document versions, ingestion runs, review queue, audit events).
+   - **Qdrant** (optional, decision deferred) = vector retrieval index.
+3. **Rebuild contract.** Every database state must be reconstructible from file-native snapshots in `005_Operational-Intelligence-Layer/graph/kg-v2/`. The JSON snapshot is the source of truth; the database is a performance optimization.
+4. **Feature-flag gating.** All DB-dependent code is behind `kg_transition.*` flags. When flags are off, the system uses file-native JSON snapshots exclusively.
+5. **Graph contract version.** `GraphSnapshot.schema_version` accepts `"2.0.0-alpha"` alongside `"1.0.0"`. Legacy v1 snapshot builds remain the default until `kg_transition.legacy_snapshot_mode` is set to `false`.
+
+**Consequences.**
+- Principle P1 is preserved for Layers 1–4. Operational databases are permitted only in Layer 5.
+- The knowledge graph transition can proceed without an architectural contradiction.
+- Operators can run entirely file-native (no DBs installed) by keeping `kg_transition.enabled: false`.
+- When DBs are provisioned, they must be treated as disposable caches — the JSON snapshot is the authoritative backup.
+
+**References.**
+- Readiness plan: `/.ai/03_plans/2026-04-18_knowledge_graph_transition_readiness_plan.md`
+- Execution plan: `/.ai/03_plans/2026-04-18_knowledge_graph_transition_execution_plan.md`
+- Graph contract: `scripts/vitruvius/graph/contract.py`
+
+---

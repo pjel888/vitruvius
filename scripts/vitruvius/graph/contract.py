@@ -70,6 +70,14 @@ class GraphSnapshot:
     metadata: dict[str, Any] | None = None
 
 
+# Sprint KG — v2.0.0-alpha schema version marker.
+# The legacy v1.0.0 snapshot format is preserved for backward compatibility.
+# When kg_transition.legacy_snapshot_mode is false, the system may emit
+# v2-aware snapshots or bypass JSON snapshots entirely in favour of Neo4j.
+GRAPH_SNAPSHOT_SCHEMA_VERSION_V1 = "1.0.0"
+GRAPH_SNAPSHOT_SCHEMA_VERSION_V2 = "2.0.0-alpha"
+
+
 class ContractViolation(ValueError):
     pass
 

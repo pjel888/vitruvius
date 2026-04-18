@@ -305,3 +305,21 @@ features:
   p1b_hallucination_trap: false
   # Stream C4 — Phase 5E LLM-Assisted Extraction
   p5e_llm_extraction: false
+
+# Sprint KG — Knowledge Graph Transition
+# Master kill-switch and sub-feature gates for the document-primary →
+# taxonomy-centered canonical knowledge graph migration.
+# Every flag defaults false. Flipping kg_transition.enabled to true
+# activates the new pipeline paths; flipping back restores legacy
+# behaviour with no code rollback required.
+kg_transition:
+  enabled: false                    # Master kill-switch
+  legacy_snapshot_mode: true        # Keep building v1 JSON snapshots
+  neo4j_backend: false              # Enable Neo4j writes
+  postgres_registry: false          # Enable PostgreSQL registry
+  evidence_graph: false             # Enable document→version→section→chunk→span pipeline
+  assertion_layer: false            # Enable reified assertions
+  taxonomy_seeding: false           # Allow AI to propose taxonomy placements
+  structured_extraction: false      # Require JSON-schema-constrained LLM output
+  incremental_updates: false        # Enable subgraph delta updates
+  qdrant_retrieval: false           # Enable Qdrant hybrid search (Sprint 3+)

@@ -171,3 +171,57 @@ def get_confidence_threshold() -> float:
 def get_audit_log_name() -> str:
     cfg = load_config()
     return cfg.get("promotion", {}).get("audit_log_name", "latest_promotion_audit.log")
+
+
+# ---------------------------------------------------------------------------
+# Sprint KG — Knowledge Graph transition flag helpers
+# ---------------------------------------------------------------------------
+
+def _kg_block() -> dict:
+    cfg = load_config()
+    block = cfg.get("kg_transition", {})
+    return block if isinstance(block, dict) else {}
+
+
+def is_kg_enabled() -> bool:
+    return bool(_kg_block().get("enabled", False))
+
+
+def is_kg_legacy_snapshot_mode() -> bool:
+    return bool(_kg_block().get("legacy_snapshot_mode", True))
+
+
+def is_kg_neo4j_backend() -> bool:
+    return bool(_kg_block().get("neo4j_backend", False))
+
+
+def is_kg_postgres_registry() -> bool:
+    return bool(_kg_block().get("postgres_registry", False))
+
+
+def is_kg_evidence_graph() -> bool:
+    return bool(_kg_block().get("evidence_graph", False))
+
+
+def is_kg_assertion_layer() -> bool:
+    return bool(_kg_block().get("assertion_layer", False))
+
+
+def is_kg_structured_extraction() -> bool:
+    return bool(_kg_block().get("structured_extraction", False))
+
+
+def get_kg_neo4j_uri() -> str:
+    return str(_kg_block().get("neo4j_uri", "bolt://localhost:7687"))
+
+
+def get_kg_neo4j_user() -> str:
+    return str(_kg_block().get("neo4j_user", "neo4j"))
+
+
+def get_kg_neo4j_password() -> str:
+    return str(_kg_block().get("neo4j_password", "password"))
+
+
+def get_kg_postgres_conninfo() -> str:
+    return str(_kg_block().get("postgres_conninfo", "dbname=vitruvius user=postgres password=password host=localhost port=5432"))

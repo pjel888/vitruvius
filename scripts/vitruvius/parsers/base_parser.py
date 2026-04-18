@@ -28,6 +28,27 @@ class ParserTelemetry:
 
 
 @dataclass(kw_only=True)
+class SectionBlock:
+    """Structural section extracted from a document."""
+    title: str
+    level: int = 2
+    line_start: int | None = None
+    line_end: int | None = None
+    char_start: int | None = None
+    char_end: int | None = None
+
+
+@dataclass(kw_only=True)
+class ChunkBlock:
+    """Semantic chunk extracted from a document."""
+    text: str
+    section_id: str = ""
+    char_start: int = 0
+    char_end: int = 0
+    token_count: int | None = None
+
+
+@dataclass(kw_only=True)
 class ParseResult:
     markdown_text: str
     telemetry: ParserTelemetry
@@ -37,6 +58,10 @@ class ParseResult:
     # ``p1b_page_isolation`` flag opts RustPdfParser into surfacing the
     # page numbers lopdf could not decode.
     failed_pages: list[int] = field(default_factory=list)
+    # Sprint KG — structural annotation for evidence graph ingestion.
+    # Optional so existing parsers continue to work without modification.
+    section_map: list[SectionBlock] | None = None
+    chunk_map: list[ChunkBlock] | None = None
 
 
 class BaseParser(abc.ABC):

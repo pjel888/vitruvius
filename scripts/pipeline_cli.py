@@ -622,6 +622,27 @@ def build_parser() -> argparse.ArgumentParser:
 
     add_command_parser(subparsers, "ingest-spatial")
 
+    # Sprint KG — evidence graph ingestion
+    kg_ingest_evidence_parser = add_command_parser(subparsers, "kg-ingest-evidence")
+    kg_ingest_evidence_parser.add_argument(
+        "source_path",
+        help="Path to raw source document (PDF or Markdown)",
+    )
+    kg_ingest_evidence_parser.add_argument(
+        "--parser-id",
+        default="unknown",
+        help="Parser identifier for provenance",
+    )
+    kg_ingest_evidence_parser.add_argument(
+        "--parser-version",
+        default=None,
+        help="Parser version for provenance",
+    )
+
+    # Sprint KG — file-native bulk materialization (no DB required)
+    add_command_parser(subparsers, "kg-backfill-evidence")
+    add_command_parser(subparsers, "kg-seed-taxonomy")
+
     evaluate_spatial_parser = add_command_parser(subparsers, "evaluate-spatial")
     evaluate_spatial_parser.add_argument(
         "--concepts",
@@ -1821,6 +1842,50 @@ def main() -> int:
         from vitruvius.spatial.cli import run_ingest_spatial
         return _run("ingest-spatial", run_ingest_spatial)
 
+    if args.command == "kg-ingest-evidence":
+        from vitruvius.config import (
+            get_kg_neo4j_uri,
+            get_kg_neo4j_user,
+            get_kg_neo4j_password,
+            get_kg_postgres_conninfo,
+            is_kg_enabled,
+        )
+        from vitruvius.kg.evidence_ingestor import EvidenceIngestor
+        from vitruvius.kg.neo4j_client import Neo4jClient
+        from vitruvius.kg.postgres_client import PostgresClient
+        from vitruvius.paths import get_repo_root
+
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
+
+        neo4j = Neo4jClient(
+            uri=get_kg_neo4j_uri(),
+            user=get_kg_neo4j_user(),
+            password=get_kg_neo4j_password(),
+        )
+        postgres = PostgresClient(conninfo=get_kg_postgres_conninfo())
+        ingestor = EvidenceIngestor(
+            neo4j=neo4j,
+            postgres=postgres,
+            raw_source_root=get_repo_root() / "001_Raw-Source-Layer",
+        )
+        neo4j.init_schema()
+        try:
+            doc_version = ingestor.ingest(
+                source_path=Path(args.source_path),
+                parser_id=args.parser_id,
+                parser_version=args.parser_version,
+            )
+            print(f"Ingested document version: {doc_version.id}")
+            return 0
+        except Exception as exc:
+            print(f"ERROR: {exc}")
+            return 1
+        finally:
+            neo4j.close()
+            postgres.close()
+
     if args.command == "evaluate-spatial":
         from vitruvius.spatial.cli import run_evaluate_spatial
         return _run(
@@ -1878,6 +1943,36 @@ def main() -> int:
             snapshot_path=args.snapshot_path,
             ),
         )
+
+    if args.command == "kg-backfill-evidence":
+        from vitruvius.kg.evidence_materializer import EvidenceMaterializer
+        from vitruvius.paths import get_repo_root
+
+        materializer = EvidenceMaterializer(get_repo_root())
+        snapshot = materializer.materialize_all()
+        path = materializer.write_snapshot()
+        print(f"Wrote evidence snapshot: {path}")
+        print(json.dumps(snapshot.entity_counts(), indent=2))
+        if materializer._warnings:
+            print(f"Warnings ({len(materializer._warnings)}):")
+            for w in materializer._warnings[:10]:
+                print(f"  - {w}")
+        return 0
+
+    if args.command == "kg-seed-taxonomy":
+        from vitruvius.kg.evidence_materializer import TaxonomyLoader
+        from vitruvius.paths import get_repo_root
+
+        loader = TaxonomyLoader(get_repo_root())
+        snapshot = loader.load_all()
+        path = loader.write_snapshot()
+        print(f"Wrote taxonomy snapshot: {path}")
+        print(json.dumps(snapshot.entity_counts(), indent=2))
+        if loader._warnings:
+            print(f"Warnings ({len(loader._warnings)}):")
+            for w in loader._warnings[:10]:
+                print(f"  - {w}")
+        return 0
 
     parser.print_help()
     return 1

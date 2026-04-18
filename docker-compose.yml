@@ -1,0 +1,53 @@
+# Vitruvius — Local Development Services (Neo4j + PostgreSQL)
+# Sprint KG Phase 0 (Readiness)
+#
+# Usage:
+#   docker compose up -d
+#   docker compose down
+#
+# Neo4j Browser: http://localhost:7474  (user: neo4j / pass: vitruvius)
+# PostgreSQL:    localhost:5432         (user: vitruvius / pass: vitruvius / db: vitruvius)
+
+services:
+  neo4j:
+    image: neo4j:5.26-community
+    container_name: vitruvius-neo4j
+    ports:
+      - "7474:7474"   # HTTP browser
+      - "7687:7687"   # Bolt protocol
+    environment:
+      NEO4J_AUTH: neo4j/vitruvius
+      NEO4J_PLUGINS: '[]'
+      NEO4J_dbms_memory_heap_initial__size: 512m
+      NEO4J_dbms_memory_heap_max__size: 1G
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:7474"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: vitruvius-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: vitruvius
+      POSTGRES_PASSWORD: vitruvius
+      POSTGRES_DB: vitruvius
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/vitruvius/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vitruvius -d vitruvius"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  neo4j_data:
+  neo4j_logs:
+  postgres_data:
