@@ -1,5 +1,20 @@
 # Vitruvius
 
+## 🚀 Quick Start (Build the Full 341-PDF Graph)
+
+To build your expansive, interconnected knowledge graph locally using Llama 3.1:8b:
+
+```powershell
+# 1. Provision Identities (Human-readable titles & IDs)
+$env:PYTHONPATH="scripts"; python scripts/vitruvius/identity_provisioner.py --limit 400 --execute
+
+# 2. Master Build (Convert, Extract, Weave, and Visualize)
+$env:PYTHONPATH="scripts"; python scripts/vitruvius/discovery_weaver.py --limit 400 --model "llama3.1:8b" --execute
+```
+
+The resulting interactive graph will be saved to:
+`004_Derived-Content-Layer/graph-visualizations/expansive-brain-mvp.html`
+
 ```
  ██╗   ██╗██╗████████╗██████╗ ██╗   ██╗██╗   ██╗██╗██╗   ██╗███████╗
  ██║   ██║██║╚══██╔══╝██╔══██╗██║   ██║██║   ██║██║██║   ██║██╔════╝
@@ -14,6 +29,21 @@
                     Firmitas · Utilitas · Venustas
    ─────────────────────────────────────────────────────────────────
 ```
+
+## 🚀 Quick Start (Build the Full 341-PDF Graph)
+
+To build your expansive, interconnected knowledge graph locally using Llama 3.1:8b:
+
+```powershell
+# 1. Provision Identities (Human-readable titles & IDs)
+$env:PYTHONPATH="scripts"; python scripts/vitruvius/identity_provisioner.py --limit 400 --execute
+
+# 2. Master Build (Convert, Extract, Weave, and Visualize)
+$env:PYTHONPATH="scripts"; python scripts/vitruvius/discovery_weaver.py --limit 400 --model "llama3.1:8b" --execute
+```
+
+The resulting interactive graph will be saved to:
+`004_Derived-Content-Layer/graph-visualizations/expansive-brain-mvp.html`
 
 **Vitruvius is, today, an auditable document-to-knowledge pipeline for complex
 technical and regulatory corpora** — with the built environment as its primary
