@@ -187,14 +187,41 @@ generated_at: {utc_now_stamp()}
             out_path.write_text(content, encoding="utf-8")
             print(f"    💾 SAVED RELATIONSHIP: {rel_id}")
 
+    def autogenerate_visualization(self):
+        """Automatically builds and renders the interactive knowledge graph."""
+        print(f"\n🎨 Autogenerating Knowledge Graph Visualization...")
+        try:
+            # 1. Build the graph snapshot
+            subprocess.run([sys.executable, str(self.repo_root / "scripts" / "pipeline_cli.py"), "build-graph"], check=True)
+            
+            # 2. Render the HTML
+            snapshot_path = self.repo_root / "005_Operational-Intelligence-Layer" / "graph" / "latest_graph_snapshot.json"
+            out_path = self.repo_root / "004_Derived-Content-Layer" / "graph-visualizations" / "expansive-brain-mvp.html"
+            
+            subprocess.run([
+                sys.executable, 
+                str(self.repo_root / "scripts" / "pipeline_cli.py"), 
+                "visualize-graph", 
+                "--snapshot", str(snapshot_path),
+                "--out", str(out_path)
+            ], check=True)
+            
+            print(f"✨ GRAPH UPDATED: {out_path}")
+        except Exception as e:
+            print(f"⚠️ Visualization Error: {e}")
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Vitruvius Ultimate Discovery Weaver")
     parser.add_argument("--execute", action="store_true")
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument("--model", type=str, default="llama3.1:8b")
     parser.add_argument("--families", nargs="+")
+    parser.add_argument("--no-viz", action="store_true", help="Skip autogenerating visualization")
     args = parser.parse_args()
     
     weaver = DiscoveryWeaver(model=args.model, dry_run=not args.execute)
     targets = args.families or ["001-Laws", "002-History", "003-Theory", "004-Technology"]
     for t in targets: weaver.build_entire_graph(t, limit=args.limit)
+    
+    if not args.no_viz:
+        weaver.autogenerate_visualization()

@@ -108,3 +108,18 @@ Thumbs.db
 .ai/scheduled_tasks.lock
 .ai/ralph/state.json
 .omx/
+
+# Vitruvius Generated Artifacts
+/002_Raw-Conversion-Layer/
+/004_Derived-Content-Layer/
+/005_Operational-Intelligence-Layer/
+/006_System-Manifests/runs/
+/006_System-Manifests/logs/
+/006_System-Manifests/tree-snapshots/
+/006_System-Manifests/checksums/
+/006_System-Manifests/conversions/
+/006_System-Manifests/duplicates/
+/006_System-Manifests/lineage/
+
+# Registry CSVs (Temporaries)
+/006_System-Manifests/registries/*.csv
