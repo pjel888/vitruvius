@@ -13,11 +13,13 @@ scope: All code, schema, plan, roadmap, decision, and canonical-document edits i
 
 ## Purpose
 
-Defines the mandatory workflow every engineering task MUST clear before any byte is written to this repository. The loop is **tailor-made for vitruvius** — it enforces the six-layer filesystem pipeline, the non-breaking feature-flag contract, the MCP-tool-first exploration rule, the append-only architectural decision ledger, and the sprint-closure protocol.
+Defines the mandatory workflow every engineering task MUST clear before any byte is written to this repository. The loop is **tailor-made for vitruvius** — it enforces the six-layer filesystem pipeline, the explicit contract-preservation rules, the MCP-tool-first exploration rule, the append-only architectural decision ledger, and the sprint-closure protocol.
 
 It exists because first answers are wrong often enough that the loop is cheaper than the rework. The audit pack in `.ai/02_audits/` and the 42-entry ledger in `.ai/10_state/decisions.md` are the receipts.
 
 > **Authority.** If anything in this file conflicts with any *other* document in the repo, **this file wins for process** and `.ai/01_roadmap/master-roadmap.md` wins for *phase status*. The governing plan (`.ai/03_plans/00-governing-implementation-plan.md`) wins for *execution order*. Conflicts between those three documents are resolved via Phase 06 critique.
+
+> **Pre-launch posture.** Vitruvius is still **pre-launch**. This loop protects explicit authoritative contracts; it does **not** require preserving every undocumented historical behavior or stale internal shape. When truthfulness, clarity, and MVP quality conflict with accidental legacy behavior, the default bias is to improve the MVP and then update docs/state/tests so the new behavior becomes the documented contract.
 
 ---
 
@@ -30,6 +32,7 @@ Before doing anything, the executor MUST be able to answer these five questions 
 3. **What language is the core?** Python. Rust crates live under `scripts/vitruvius/engine_rs/` and `scripts/vitruvius/datalog_rs/` (pyo3 bridges). TypeScript lives **only** under `spatial-daemon/`. Bash is glue.
 4. **Where do feature flags live?** Under `features:` in `config/vitruvius.yaml`, loaded by `scripts/vitruvius/features.py` into a frozen `Features` dataclass. **Every flag defaults `false`.** Exception list: `hp_rocksdb_event_store`, `hp_rocksdb_verdict_cache`, `rust_mig_spatial_kernels`, `rust_mig_stats_kernels` (flipped to `true` per AD-029 / AD-038 after sprint exit gates cleared).
 5. **How do I run the pipeline?** From repo root: `python3 scripts/pipeline_cli.py <subcommand>`. Subcommands are defined in `scripts/pipeline_cli.py::build_parser()`. The `run` composite stages are `scan → status → lint`; `run-with-review` additionally runs `convert → refine → review-relationships-ollama`. Idempotency is enforced via registry checks in `006_System-Manifests/registries/`.
+6. **What must be preserved vs. what may be replaced?** Preserve explicit authoritative contracts (raw-layer immutability, canonical ID stability, manifest/report truth, documented schemas, declared flag behavior). Do **not** assume undocumented historical behavior, transitional wrappers, or stale internal helper paths are load-bearing just because they already exist.
 
 ---
 
@@ -184,7 +187,7 @@ status: {DRAFT | REVIEW | ACCEPTED | SUPERSEDED | CLOSED | ABORTED}
 
 ## Phase 00 — Trigger & Scope
 
-**Objective.** Define the task in one sentence, draw the scope boundary, classify risk, check the identity-lock tripwire, and confirm the non-breaking flag contract.
+**Objective.** Define the task in one sentence, draw the scope boundary, classify risk, check the identity-lock tripwire, and confirm which explicit contracts must be preserved.
 
 **Requirements**
 
@@ -196,7 +199,7 @@ status: {DRAFT | REVIEW | ACCEPTED | SUPERSEDED | CLOSED | ABORTED}
   - **S** — single Python file under `scripts/vitruvius/`, reversible by `git revert`, no flag change
   - **M** — multi-file but same sprint surface (e.g. a new parser + its tests + one flag addition)
   - **L** — schema change, new CLI subcommand, new pip dependency, new `config/vitruvius.yaml` top-level key, new AD, new flag whose default might eventually flip
-  - **XL** — breaks the non-breaking flag contract, modifies `001_Raw-Source-Layer/` write paths, adds an external database, renames a layer directory, edits an existing AD entry, touches identity-locked files
+  - **XL** — breaks an explicit authoritative contract, modifies `001_Raw-Source-Layer/` write paths, adds an external database, renames a layer directory, edits an existing AD entry, touches identity-locked files
 - Role assignments (PLANNER, AUDITOR, IMPLEMENTER, REVIEWER, STEWARD)
 - Linked prior artifacts (if continuing earlier work)
 - **MCP precheck:** which `code-review-graph` queries and `gitnexus_impact` calls the plan will need in Phase 03/05

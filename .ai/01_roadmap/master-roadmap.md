@@ -25,6 +25,16 @@
 ### 1.1 Long-Term Vision
 Vitruvius is a **local-first, governance-first, domain-agnostic knowledge engine** that converts heterogeneous professional-domain sources (statutes, codes, technical standards, clinical guidelines, engineering specs, reference material) into a **validated, queryable knowledge graph**. It is not a RAG wrapper. It enforces a hard boundary between *raw text*, *candidate signals*, and *canonical truth*, and treats every transformation as auditable.
 
+### 1.1A Current Delivery Posture
+Vitruvius is **pre-launch**. The present objective is to create the best, most effective, most accurate, and most truthful MVP, not to optimize for broad backwards compatibility with every historical internal code path or intermediate artifact shape created during development.
+
+Operational implication:
+
+- future work should minimize unnecessary legacy accommodation pressure
+- internal behavior should be improved when that yields a clearer and truer MVP
+- only explicit documented contracts should be treated as preservation-critical
+- undocumented historical behavior should not be granted automatic compatibility status just because it already exists in the tree
+
 **Positioning.** Vitruvius is optimized as a **professional-domain specialist** — a tool for fields where precision matters more than coverage. Target domains include architecture & the built environment, engineering (civil / structural / mechanical / electrical), medicine & clinical practice, law & regulatory compliance, and science & academia. The core pipeline is corpus-agnostic: porting to a new domain is a matter of swapping the contents of `001_Raw-Source-Layer/`, the rules under `scripts/vitruvius/rules/`, and the concept vocabulary under `003_Canonical-Knowledge-Layer/shared/concepts/`.
 
 **Active reference corpus.** **Philippine building laws and regulations** (PD 1096 and its IRR). PD 1096 is the benchmark the tests, audits, and per-sprint decision-log numbers are measured against — not the product scope. The README's "Adapting Vitruvius to a new professional domain" section is the operating recipe for a second-domain port.
@@ -68,6 +78,7 @@ These are enforced in code review, by `run_lint`, and in the audits. They are re
 | P8 | **Local-first AI.** Cloud LLMs are opt-in only. Review must run air-gapped. | `ollama_review.py` default |
 | P9 | **No soft output.** Any extracted candidate without a `source_section_id` is rejected at the validation boundary. | Schema validation (Phase 7) |
 | P10 | **No schema-less growth.** A new corpus (a second jurisdiction's building code, a new medical specialty's guidelines, a new code of practice) is not ingested until the Promotion Layer is validating existing reference-corpus data. | Project policy, Section 8 gate |
+| P11 | **Pre-launch MVP truth over legacy accommodation.** Optimize for the strongest truthful MVP; preserve only explicit authoritative contracts, not undocumented historical behavior. | Architecture review, roadmap/state reconciliation, PR review |
 
 Full text and rationale: `/.ai/00_system/principles.md`.
 

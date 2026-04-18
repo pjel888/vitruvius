@@ -22,6 +22,12 @@ into machine-readable text, refines and canonicalizes that text into structured
 knowledge, and builds governed relationships, graph artifacts, and traceable
 query surfaces on top of it.
 
+> **Current product posture:** Vitruvius is still **pre-launch**. The goal
+> right now is not to accommodate every historical internal code path or stale
+> intermediate artifact shape. The goal is to build the most effective,
+> accurate, and truthful MVP. Explicit documented contracts still matter;
+> accidental legacy behavior does not automatically deserve preservation.
+
 **Vitruvius is also building toward a Multi-Objective Constraint Solver for the
 built environment** — a headless, deterministic engine for Architecture,
 Engineering, and Construction that treats physics, building code, and cost as

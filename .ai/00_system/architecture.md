@@ -3,6 +3,21 @@
 ## Purpose and Scope
 Vitruvius is a structured knowledge extraction engine designed for processing Philippine building laws and regulations. It transforms raw sources (PDFs, Office documents, spreadsheets) into a canonical knowledge graph consisting of concepts and inter-document relationships.
 
+## Pre-Launch Architecture Posture
+Vitruvius is still **pre-launch**. The architecture should be optimized for the strongest truthful MVP, not for preserving every historical internal interface or convenience path that appeared during development.
+
+This means:
+
+- prefer the cleanest current architecture over compatibility with undocumented legacy behavior
+- preserve only the contracts that are explicitly authoritative:
+  - raw-layer immutability
+  - canonical ID stability
+  - manifest/report truth
+  - documented schema/contracts in `.ai/`
+- treat legacy helpers, transitional wrappers, and stale internal shapes as replaceable unless they are explicitly declared load-bearing
+
+The repo should therefore be read as an evolving pre-launch system, not as a launched platform with broad backwards-compatibility obligations to past internal code.
+
 ## Current Architecture Summary
 The system is built as a **layered, filesystem-centric pipeline**. It prioritizes file-system traceability over database persistence, using structured directories (001-006) to represent the lifecycle of a document from raw ingestion to canonical knowledge.
 

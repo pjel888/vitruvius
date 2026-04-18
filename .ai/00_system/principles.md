@@ -65,6 +65,12 @@ Every new structured artifact type (relationship predicates, canonical ID prefix
 - **Enforcement:** New relationship predicates require a schema bump in `.ai/06_specs/relationship-schema.md` AND an AD. New canonical ID prefixes require an update to `naming-conventions.md` AND an AD. New feature flags require a `EXPECTED_FLAGS` entry in `scripts/tests/test_features.py` before merging (CI-enforced). See I3 and I4 in EXECUTION_LOOP.md.
 - **Consequence:** Unregistered schema additions break graph lineage, cause test failures in `test_features.py`, and defeat the audit trail maintained by the AD ledger.
 
+### 11. Pre-Launch MVP Truth Over Legacy Accommodation
+Vitruvius is currently a **pre-launch** system. The primary objective is to produce the most effective, accurate, and truthful MVP, not to preserve accidental compatibility with every historical code path, artifact shape, or intermediate helper that accumulated before launch.
+- **Enforcement:** When design quality, correctness, or truthfulness conflicts with preserving legacy behavior, the default bias is to improve the MVP architecture and update internal docs/tests/artifacts accordingly. Agents MUST NOT assume that undocumented historical behavior is load-bearing just because it already exists in the tree.
+- **What still must be preserved:** explicit architectural contracts, canonical IDs, raw-layer immutability, manifest/report truth, and any behavior that is already declared authoritative in roadmap/spec/state documents.
+- **Consequence:** Treating the repo as if it already has broad external backwards-compatibility obligations causes unnecessary design drag, defensive complexity, and preservation of weak internal patterns that should instead be replaced before launch.
+
 ## System Integrity Rules
 
 ### Allowed Patterns
@@ -79,6 +85,7 @@ Every new structured artifact type (relationship predicates, canonical ID prefix
 
 ### Conditional Patterns
 - **Manual Overrides:** Users can manually edit Canonical Markdown files in `003_Canonical-Knowledge-Layer`. However, if they break the YAML frontmatter schema, the `lint` stage must catch and flag it.
+- **Pre-launch cleanup and replacement:** Replacing weak internal interfaces, transitional helpers, or pre-launch artifact shapes is allowed when the resulting MVP is clearer and truer. Such changes must update the authoritative docs and state artifacts instead of preserving old behavior by default.
 
 ## Operational Invariants (from EXECUTION_LOOP.md v3.0)
 
