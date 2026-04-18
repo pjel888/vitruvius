@@ -24,6 +24,7 @@ from pathlib import Path
 from typing import Any
 
 from vitruvius.parsers.base_parser import BaseParser, ParseResult, ParserTelemetry
+from vitruvius.parsers.section_extractor import post_process_parse_result
 # Sprint CLEANUP-1 C3.1 — imported as a module-level attribute so the
 # page-isolation parity test can ``monkeypatch.setattr`` it on this
 # module (same pattern as the spatial fast-path callers in
@@ -140,12 +141,12 @@ class RustPdfParser(BaseParser):
             "page_count": pages_total,
             "bytes_in": len(pdf_bytes),
         }
-        return ParseResult(
+        return post_process_parse_result(ParseResult(
             markdown_text=markdown,
             telemetry=telemetry,
             sidecar_metadata=sidecar,
             failed_pages=failed_pages,
-        )
+        ))
 
     def _failure(self, *, duration_ms: int, error: str) -> ParseResult:
         return ParseResult(

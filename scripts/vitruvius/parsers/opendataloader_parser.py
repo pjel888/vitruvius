@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from .base_parser import BaseParser, ParseResult, ParserTelemetry
+from .section_extractor import post_process_parse_result
 
 
 class OpenDataLoaderParser(BaseParser):
@@ -133,7 +134,7 @@ class OpenDataLoaderParser(BaseParser):
         sidecar_json = json.loads(json_path.read_text(encoding="utf-8"))
         duration_ms = int((time.monotonic() - start) * 1000)
 
-        return ParseResult(
+        return post_process_parse_result(ParseResult(
             markdown_text=markdown_text,
             telemetry=self._build_success_telemetry(
                 duration_ms=duration_ms,
@@ -144,4 +145,4 @@ class OpenDataLoaderParser(BaseParser):
                 "file_type": source_path.suffix.lstrip(".").lower(),
                 "raw_sidecar": sidecar_json,
             },
-        )
+        ))

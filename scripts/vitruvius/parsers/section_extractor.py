@@ -16,11 +16,26 @@ Usage::
 from __future__ import annotations
 
 import re
+from typing import TYPE_CHECKING
 
 from .base_parser import SectionBlock
 
+if TYPE_CHECKING:
+    from .base_parser import ParseResult
+
 
 _HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
+
+
+def post_process_parse_result(result: "ParseResult") -> "ParseResult":
+    """Populate ``section_map`` on a ``ParseResult`` if it is unset.
+
+    This is the recommended hook for every concrete parser to call right
+    before returning its ``ParseResult``.
+    """
+    if result.section_map is None and result.markdown_text:
+        result.section_map = derive_section_map(result.markdown_text)
+    return result
 
 
 def derive_section_map(markdown_text: str) -> list[SectionBlock]:

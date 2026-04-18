@@ -17,6 +17,7 @@ from pathlib import Path
 from typing import Any
 
 from vitruvius.parsers.base_parser import BaseParser, ParseResult, ParserTelemetry
+from vitruvius.parsers.section_extractor import post_process_parse_result
 from vitruvius.wiki.docling_parser import convert_pdf_to_markdown
 
 
@@ -83,8 +84,8 @@ class DoclingParser(BaseParser):
             "table_count": wiki_result.table_count,
         }
 
-        return ParseResult(
+        return post_process_parse_result(ParseResult(
             markdown_text=markdown,
             telemetry=telemetry,
             sidecar_metadata=sidecar,
-        )
+        ))

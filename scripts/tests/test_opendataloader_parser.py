@@ -270,3 +270,33 @@ def test_parse_sidecar_metadata_includes_file_type(tmp_path):
     with patch(_PATCH_TARGET, side_effect=side_effect):
         result = parser.parse(Path("/tmp/foo.pdf"), tmp_path)
     assert result.sidecar_metadata["file_type"] == "pdf"
+
+
+# ---------------------------------------------------------------------------
+# 19. section_map populated from markdown headings
+# ---------------------------------------------------------------------------
+
+def test_parse_populates_section_map_from_headings(tmp_path):
+    parser = OpenDataLoaderParser()
+    md = "# Title\n\nBody.\n\n## Section A\n\nMore body.\n"
+    sidecar = {"pages_total": 1}
+    side_effect = partial(_fake_convert, md_content=md, sidecar_content=sidecar)
+    with patch(_PATCH_TARGET, side_effect=side_effect):
+        result = parser.parse(Path("/tmp/doc.pdf"), tmp_path)
+    assert result.section_map is not None
+    assert len(result.section_map) == 2
+    assert result.section_map[0].title == "Title"
+    assert result.section_map[0].level == 1
+    assert result.section_map[1].title == "Section A"
+    assert result.section_map[1].level == 2
+
+
+def test_parse_section_map_empty_when_no_headings(tmp_path):
+    parser = OpenDataLoaderParser()
+    md = "Just plain text. No headings.\n"
+    sidecar = {"pages_total": 1}
+    side_effect = partial(_fake_convert, md_content=md, sidecar_content=sidecar)
+    with patch(_PATCH_TARGET, side_effect=side_effect):
+        result = parser.parse(Path("/tmp/doc.pdf"), tmp_path)
+    assert result.section_map is not None
+    assert result.section_map == []

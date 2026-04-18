@@ -89,3 +89,29 @@ def test_docling_parser_wraps_wiki_error(tmp_path: Path) -> None:
     assert result.telemetry.valid is False
     assert "Docling internal failure" in (result.telemetry.error or "")
     assert result.markdown_text == ""
+
+
+def test_docling_parser_populates_section_map(tmp_path: Path) -> None:
+    from vitruvius.wiki.docling_parser import DoclingParseResult as WikiResult
+
+    parser = DoclingParser()
+    pdf = tmp_path / "doc.pdf"
+    pdf.write_bytes(b"%PDF-1.4\n")
+
+    fake_result = WikiResult(
+        markdown="# Title\n\nBody.\n\n## Section A\n\nMore body.\n",
+        heading_count=2,
+        table_count=0,
+        error=None,
+    )
+
+    with patch(
+        "vitruvius.parsers.docling_parser.convert_pdf_to_markdown",
+        return_value=fake_result,
+    ):
+        result = parser.parse(pdf, tmp_path)
+
+    assert result.section_map is not None
+    assert len(result.section_map) == 2
+    assert result.section_map[0].title == "Title"
+    assert result.section_map[1].title == "Section A"
