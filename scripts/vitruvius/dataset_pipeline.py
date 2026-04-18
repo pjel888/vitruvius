@@ -294,35 +294,46 @@ def _relationship_record_is_graph_admissible(path: Path) -> bool:
     return from_entity.startswith(source_prefixes) and to_entity.startswith("concept-") and rel_type == "governs"
 
 
+def _relationship_record_evidence_id(path: Path) -> str | None:
+    fm = _load_frontmatter(path)
+    evidence_id = fm.get("id")
+    if not isinstance(evidence_id, str) or not evidence_id.startswith("rel-"):
+        return None
+    return evidence_id
+
+
 
 def _dedupe_generated_relationship_paths(paths: list[tuple[str, str]], *, repo_root: Path) -> list[tuple[str, str]]:
-    try:
-        from .promotion import _load_existing_record, merge_evidence
-    except Exception:
-        return paths
-
     deduped: dict[str, tuple[str, str]] = {}
+    evidence_ids: set[str] = set()
     for rel_path, folder_name in paths:
-        abs_path = repo_root / rel_path
-        existing = deduped.get(rel_path)
-        if existing is None:
-            deduped[rel_path] = (rel_path, folder_name)
+        evidence_id = _relationship_record_evidence_id(repo_root / rel_path)
+        if evidence_id is not None and evidence_id in evidence_ids:
             continue
-        # same path already recorded; keep once
+        if evidence_id is not None:
+            evidence_ids.add(evidence_id)
         deduped[rel_path] = (rel_path, folder_name)
     return list(deduped.values())
 
 def _append_generated_relationships_to_manifest(
     manifest_path: Path,
     *,
+    repo_root: Path,
     generated_relationship_paths: list[tuple[str, str]],
     out_path: Path,
 ) -> None:
     payload = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
     rels = payload["relationship_input_manifest"]["relationships"]
     existing = {entry["path"] for entry in rels}
+    existing_evidence_ids = {
+        evidence_id
+        for entry in rels
+        for evidence_id in [_relationship_record_evidence_id(repo_root / entry["path"])]
+        if evidence_id is not None
+    }
     for rel_path, folder_name in generated_relationship_paths:
-        if rel_path in existing:
+        evidence_id = _relationship_record_evidence_id(repo_root / rel_path)
+        if rel_path in existing or (evidence_id is not None and evidence_id in existing_evidence_ids):
             continue
         rels.append(
             {
@@ -336,6 +347,9 @@ def _append_generated_relationships_to_manifest(
                 "reason": "Bounded source-to-graph automation admitted this dataset-local relationship for the scoped graph run.",
             }
         )
+        existing.add(rel_path)
+        if evidence_id is not None:
+            existing_evidence_ids.add(evidence_id)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(yaml.safe_dump(payload, sort_keys=False, allow_unicode=True), encoding="utf-8")
 
@@ -1145,6 +1159,7 @@ def run_dataset_source_to_graph_pipeline(
     generated_relationship_paths = _dedupe_generated_relationship_paths(generated_relationship_paths, repo_root=repo_root)
     _append_generated_relationships_to_manifest(
         manifest_path,
+        repo_root=repo_root,
         generated_relationship_paths=generated_relationship_paths,
         out_path=paths["derived_manifest"],
     )
