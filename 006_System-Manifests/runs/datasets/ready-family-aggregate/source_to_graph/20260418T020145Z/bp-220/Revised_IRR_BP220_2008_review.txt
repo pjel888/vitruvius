@@ -1,0 +1,52 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md
+Candidates reviewed: 11
+Keep: 5
+Review Further: 6
+Reject: 0
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-socialized-housing-projects
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-zoning-ordinance
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-yards
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-floor-area
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-stairs
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-project-area
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-light-and-ventilation
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-setbacks
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-common-areas
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-means-of-egress
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.
+
+irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220 -> governs -> concept-human-settlements
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.

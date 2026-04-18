@@ -1,0 +1,76 @@
+{
+  "benchmark_source_hints": [
+    {
+      "label": "DPWH PD 1096 IRR reference page",
+      "note": "Official DPWH-hosted IRR reference page useful for cross-checking difficult OCR/layout cases.",
+      "url": "https://www.dpwh.gov.ph/DPWH/references/laws_codes_orders/PD1096"
+    }
+  ],
+  "canonical_summary_action": "withhold_auto_summary",
+  "extraction_trust_level": "review_required",
+  "extraction_trust_reasons": [
+    "high extraction difficulty: require manual review before trusting unattended summaries",
+    "front matter includes a table of contents before operative text",
+    "front matter includes preface/message prose that can pollute source summaries",
+    "front matter includes circular or title-page material ahead of operative rules",
+    "source quality severity is high enough to require manual review before trusting automated summaries",
+    "spot-review the flagged OCR-sensitive regions before trusting summary prose",
+    "benchmark authoritative references before promoting summary claims"
+  ],
+  "front_matter_suspicious_ocr_line_count": 7,
+  "image_line_count": 627,
+  "manual_review_recommended": true,
+  "markdown_heading_count": 273,
+  "noise_line_count": 1,
+  "non_empty_line_count": 6192,
+  "recommendations": [
+    "high image-line count: verify OCR quality or alternate source availability",
+    "high table-line count: verify layout-sensitive extraction and summary hygiene",
+    "low useful-text ratio: review source-summary trust before relying on canonical summaries",
+    "manual review required: OCR/layout instability is too high for unattended source-summary use"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 20,
+    "admitted_relationship_count": 31,
+    "folder_name": "PD-1096",
+    "law_id": "pd-1096",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 13.35,
+    "section_to_relationship_ratio": 8.612903,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 267
+  },
+  "severity": "high",
+  "source_acceptance_reasons": [
+    "source quality severity is high enough to require manual review before trusting automated summaries"
+  ],
+  "source_acceptance_status": "manual_review_required",
+  "spot_review_focus": [
+    "title/header lines and the first operative section",
+    "section numbering and other numeric provisions"
+  ],
+  "spot_review_required": true,
+  "structural_heading_count": 267,
+  "summary_auto_withheld": true,
+  "summary_hygiene_flags": [
+    "table_of_contents_front_matter",
+    "preface_or_message_front_matter",
+    "administrative_front_matter"
+  ],
+  "suspicious_ocr_examples": [
+    "- 216 Other Remedies……………………………………………….………………. 16 Procedure in Enforcing Administrative Sanctions 17 - 18 Procedure for Abatement/Demolition",
+    "of Dangerous/Ruinous Buildings/Structures……………………………. 19",
+    "- 504 Temporary Buildings/Structures…………………….…….…………………... 39",
+    "Streets/Road Right-of-Way (RROW), Sidewalks, Arcades, Basements, Lots, and Public Buildings/Structures……….…. 130 - 157",
+    "###### RULE XI - PROTECTION OF PEDESTRIANS DURINGCONSTRUCTION OR DEMOLITION"
+  ],
+  "suspicious_ocr_line_count": 966,
+  "suspicious_ocr_line_ratio": 0.156008,
+  "table_line_count": 620,
+  "total_line_count": 10099,
+  "useful_text_line_count": 4944,
+  "useful_text_ratio": 0.79845
+}

@@ -1,0 +1,41 @@
+---
+id: rel-irr-implementing-rules-and-regulations-of-the-national-building-code-governs-concept-exit-width
+title: irr-implementing-rules-and-regulations-of-the-national-building-code governs concept-exit-width
+page_type: relationship
+relationship_type: governs
+from_entity: irr-implementing-rules-and-regulations-of-the-national-building-code
+to_entity: concept-exit-width
+trust_level: primary
+canonical_status: promoted
+confidence_score: 0.95
+promotion_batch_id: 20260418T020359Z_6c3588f6
+promotion_audit_log_ref: 006_System-Manifests/runs/datasets/ready-family-aggregate/source_to_graph/20260418T020145Z/promotion_audit.log
+last_promoted_utc: 20260418T020359Z
+evidence:
+- source_id: irr-implementing-rules-and-regulations-of-the-national-building-code
+  source_section_id: section-1207
+  evidence_snippet: 'The total exit width required from any storey of a building shall be determined by using the occupant load of that storey plus the percentage of the occupant loads of floors which exits through the level under consideration as follows:'
+  review_decision: keep
+  reviewer_model: gemma4:31b
+  reviewer_confidence: 0.95
+  reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
+  extracted_at_utc: 20260418T020359Z
+  reviewed_at_utc: 20260418T020359Z
+---
+
+# irr-implementing-rules-and-regulations-of-the-national-building-code governs concept-exit-width
+
+## Relationship Summary
+
+Promoted relationship of type `governs` from `irr-implementing-rules-and-regulations-of-the-national-building-code` to `concept-exit-width`.
+
+## Evidence
+
+### Evidence 1 - `irr-implementing-rules-and-regulations-of-the-national-building-code` §section-1207
+
+> The total exit width required from any storey of a building shall be determined by using the occupant load of that storey plus the percentage of the occupant loads of floors which exits through the level under consideration as follows:
+
+- Reviewer: `gemma4:31b` · Decision: `keep` · Confidence: `0.95`
+- Reviewed: 20260418T020359Z
+- Batch: `20260418T020359Z_6c3588f6`
+

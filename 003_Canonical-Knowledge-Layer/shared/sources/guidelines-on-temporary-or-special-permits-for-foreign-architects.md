@@ -4,7 +4,7 @@ title: Guidelines on Temporary or Special Permits for Foreign Architects
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T17:40:24.896497+00:00
+last_canonicalized_utc: 2026-04-18T02:08:04.798914+00:00
 aliases:
   - Temporary Permits for Foreign Architects
   - PRBoA Resolution No. 03 Series of 2008
@@ -35,4 +35,5 @@ BOARD OF ARCHITECTURE Board Resolution No. 03 Series of 2008
 - concept-architectural-interiors
 - concept-stairs
 - concept-standards-of-professional-practice
+- concept-building-permit
 - concept-urban-development-planning

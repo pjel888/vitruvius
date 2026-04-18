@@ -1,0 +1,57 @@
+{
+  "generated_at": "20260418T020658Z",
+  "source": "001-Laws/refined_markdown/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.md",
+  "total_candidates": 2,
+  "auto_accept_count": 0,
+  "auto_reject_count": 1,
+  "needs_review_count": 1,
+  "buckets": {
+    "auto_accept": [],
+    "auto_reject": [
+      {
+        "from": "law-energy-efficiency-and-conservation-act",
+        "type": "governs",
+        "to": "concept-minimum-energy-performance",
+        "occurrences": 1,
+        "sections": [
+          "section-16"
+        ],
+        "examples": [
+          "All manufacturers, importers, distributors, and retailers of energy-consuming products shall comply with the MEP, subject their energy-consuming products to energy performance"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['minimum energy performance'] appear in the evidence text"
+          ]
+        }
+      }
+    ],
+    "needs_review": [
+      {
+        "from": "law-energy-efficiency-and-conservation-act",
+        "type": "governs",
+        "to": "concept-designated-establishment",
+        "occurrences": 2,
+        "sections": [
+          "section-2",
+          "section-19"
+        ],
+        "examples": [
+          "demonstrating high levelsofexperience, competence, proficiency, and ethical fitness in the energy management profession, and who shall be chosen by Type 2 designated establishments to plan, lead, manage, coordinate, monitor, and evaluate the",
+          "The thresholds for determining Type 1 or Type 2 designated establishments shall be periodically reviewed and adjusted, if deemed necessary, by the DOE."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      }
+    ]
+  }
+}

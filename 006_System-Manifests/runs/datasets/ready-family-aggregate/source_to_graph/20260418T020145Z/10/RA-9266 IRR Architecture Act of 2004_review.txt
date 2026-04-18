@@ -1,0 +1,20 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/RA-9266/RA-9266 IRR Architecture Act of 2004.md
+Candidates reviewed: 3
+Keep: 2
+Review Further: 0
+Reject: 1
+
+irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004 -> governs -> concept-standards-of-professional-practice
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004 -> governs -> concept-building-permit
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004 -> governs -> concept-temporary-special-permit
+  decision=reject confidence=0.85
+  reason=pre_review_filter: endpoint_not_in_evidence: none of ['temporary special permit'] appear in the evidence text

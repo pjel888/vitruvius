@@ -18,6 +18,25 @@ def normalize_match_text(text: str) -> str:
     return normalized
 
 
+def _pluralize_last_token(term: str) -> str | None:
+    tokens = term.split()
+    if not tokens:
+        return None
+    last = tokens[-1]
+    if len(last) <= 1:
+        return None
+    if last.endswith(("s", "x", "z", "ch", "sh")):
+        plural = f"{last}es"
+    elif last.endswith("y") and len(last) > 1 and last[-2] not in "aeiou":
+        plural = f"{last[:-1]}ies"
+    else:
+        plural = f"{last}s"
+    candidate = " ".join([*tokens[:-1], plural]).strip()
+    if not candidate or candidate == term:
+        return None
+    return candidate
+
+
 def _load_frontmatter(path: Path) -> dict:
     try:
         text = path.read_text(encoding="utf-8")
@@ -64,9 +83,14 @@ def load_concept_term_map(
         slug = file.stem
         concept_id = f"concept-{slug}"
         for raw_term in _candidate_terms(file):
-            normalized = normalize_match_text(raw_term)
-            if normalized:
-                term_map[normalized] = concept_id
+            raw_candidates = [raw_term]
+            plural_candidate = _pluralize_last_token(normalize_match_text(raw_term))
+            if plural_candidate is not None:
+                raw_candidates.append(plural_candidate)
+            for candidate in raw_candidates:
+                normalized = normalize_match_text(candidate)
+                if normalized:
+                    term_map[normalized] = concept_id
     return term_map
 
 

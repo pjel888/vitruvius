@@ -1,0 +1,38 @@
+{
+  "generated_at": "20260418T020742Z",
+  "source": "001-Laws/refined_markdown/EO/EO 90 NGO for Shelter Program.md",
+  "total_candidates": 1,
+  "auto_accept_count": 1,
+  "auto_reject_count": 0,
+  "needs_review_count": 0,
+  "buckets": {
+    "auto_accept": [
+      {
+        "from": "law-executive-order-no-90-on-the-national-shelter-program",
+        "type": "governs",
+        "to": "concept-human-settlements",
+        "occurrences": 6,
+        "sections": [
+          "section-1",
+          "section-8",
+          "section-14"
+        ],
+        "examples": [
+          "Human Settlements Regulatory Commission – The Human Settlements Regulatory Commission, renamed as the Housing and Land Use Regulatory Board, shall be the sole regulatory body for housing and land development.",
+          "- above the lowest 30% may be continued provided that funds generated thereon are utilized for the attainment of its primary mandate. - b. National Home Mortgage Finance Corporation – The National Home Mortgage Finance Corporation shall be the major government home mortgage institution. Its initial ",
+          "the Secretariat, the appropriated funds of the Ministry of Human Settlements for the Shelter Secretariat shall be utilized together with proportionate contributions of the key government housing agencies which is set at TEN MILLION PESOS (P 10,000,000.00)."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      }
+    ],
+    "auto_reject": [],
+    "needs_review": []
+  }
+}

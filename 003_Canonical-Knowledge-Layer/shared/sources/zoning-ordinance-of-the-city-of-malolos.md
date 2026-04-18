@@ -4,7 +4,7 @@ title: Zoning Ordinance of the City of Malolos
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:40:30.988402+00:00
+last_canonicalized_utc: 2026-04-18T02:09:07.599168+00:00
 aliases:
   - Malolos City Zoning Ordinance
   - Zoning Regulations of the City of Malolos
@@ -38,6 +38,7 @@ TITLE OF THE ORDINANCE SECTION 1 . Title of the Ordinance
 - concept-building-height
 - concept-socialized-housing-projects
 - concept-human-settlements
+- concept-heritage-zone
 - concept-disaster-risk-reduction
 - concept-setbacks
 - concept-water-permit

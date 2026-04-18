@@ -1,0 +1,37 @@
+{
+  "generated_at": "20260418T020749Z",
+  "source": "001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md",
+  "total_candidates": 1,
+  "auto_accept_count": 1,
+  "auto_reject_count": 0,
+  "needs_review_count": 0,
+  "buckets": {
+    "auto_accept": [
+      {
+        "from": "law-executive-order-no-72-on-comprehensive-land-use-plans",
+        "type": "governs",
+        "to": "concept-comprehensive-land-use-plan",
+        "occurrences": 9,
+        "sections": [
+          "section-1",
+          "section-2"
+        ],
+        "examples": [
+          "- (b) The comprehensive land use plans of component cities and municipalities shall be formulated, adopted, or modified in accordance with the approved provincial comprehensive land use plans.",
+          "- (b) The comprehensive land use plans of component cities and municipalities shall be formulated, adopted, or modified in accordance with the approved provincial comprehensive land use plans. - (c) Cities and municipalities of Metropolitan Manila shall continue to formulate or update their respecti",
+          "The comprehensive land use plan prepared by the PDC shall be submitted to the sangguniang panlalawigan for enactment into an ordinance."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      }
+    ],
+    "auto_reject": [],
+    "needs_review": []
+  }
+}

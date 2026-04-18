@@ -1,0 +1,270 @@
+{
+  "generated_at": "20260418T020907Z",
+  "source": "001-Laws/refined_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md",
+  "total_candidates": 11,
+  "auto_accept_count": 2,
+  "auto_reject_count": 2,
+  "needs_review_count": 7,
+  "buckets": {
+    "auto_accept": [
+      {
+        "from": "law-zoning-ordinance-of-the-city-of-malolos",
+        "type": "governs",
+        "to": "concept-zoning-ordinance",
+        "occurrences": 8,
+        "sections": [
+          "section-66",
+          "section-5",
+          "section-13.2",
+          "section-13.3",
+          "section-23",
+          "section-38"
+        ],
+        "examples": [
+          "WHEREAS, the Local Government Code authorizes local government units to enact zoning ordinances subject to and in accordance with existing laws;",
+          "Non-Conforming Use - existing uses/establishments in an area allowed to operate despite non-conformity to the provisions of the Ordinance subject to the conditions stipulated in this Zoning Ordinance.",
+          "- o It shall be classified as non-pollutive/non-hazardous as provided in this Zoning Ordinance;"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-city-of-malolos",
+        "type": "governs",
+        "to": "concept-building-height",
+        "occurrences": 13,
+        "sections": [
+          "section-5",
+          "section-13.1.1",
+          "section-13.8",
+          "section-13.9",
+          "section-13.10",
+          "section-13.11",
+          "section-13.12",
+          "section-13.13",
+          "section-13.14",
+          "section-13.15",
+          "section-13.16",
+          "section-14.1"
+        ],
+        "examples": [
+          "- eee. Locational Clearance (Exception) (LC-E) - a clearance issued by the LZBA to a project that is allowed under the Mitigating Device/Exception provision of this Ordinance. - fff. Lot - a parcel of land on which a principal building and its accessories are or may be placed. - ggg. Mangrove Sub-Zo",
+          "- ▪ When allowed, buildings and structures shall be designed, constructed and operated in accordance with the requirements of the NBC and with the provisions of this Ordinance. - ▪ The Building Height Limit is 15.00 meters above established grade as provided in the NBC.",
+          "- ▪ Per the relevant provisions of the NBC and this Ordinance. - ▪ The number of allowable storeys/floors above established grade is three (3) as provided in the NBC. - ▪ The Building Height Limit is 10.00 meters above highest grade as provided in the NBC. - ▪ Subject to national locational guidelin"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      }
+    ],
+    "auto_reject": [
+      {
+        "from": "law-zoning-ordinance-of-the-city-of-malolos",
+        "type": "governs",
+        "to": "concept-comprehensive-land-use-plan",
+        "occurrences": 4,
+        "sections": [
+          "section-4",
+          "section-5",
+          "section-61"
+        ],
+        "examples": [
+          "- a. The Ordinance reflects the city’s vision as stated in the CLUP; - b. The City Government of Malolos recognizes that any land use is a use by right but provides however that the exercise of such right shall be subject to the review standards of this Ordinance; - c. The Ordinance gives the free m",
+          "- a. The Ordinance reflects the city’s vision as stated in the CLUP; - b. The City Government of Malolos recognizes that any land use is a use by right but provides however that the exercise of such right shall be subject to the review standards of this Ordinance; - c. The Ordinance gives the free m",
+          "Reclassification of Agricultural Lands - “the act of specifying how agricultural lands shall be utilized for non-agricultural uses such as residential, industrial, and commercial as embodied in the CLUP” (LGC and MC 54) - zzz."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['comprehensive land use plan'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "concept-floor-area",
+        "type": "limits",
+        "to": "concept-zoning-ordinance",
+        "occurrences": 2,
+        "sections": [
+          "section-13.2",
+          "section-13.3"
+        ],
+        "examples": [
+          "- o Such home industry shall not occupy more than thirty percent (30%) of the floor area of the dwelling unit. There shall be no change or alteration in the outside appearance of the dwelling unit and shall not be a hazard or nuisance; - o It shall be classified as non-pollutive/non-hazardous as pro",
+          "- o Such home industry shall not occupy more than thirty percent (30%) of the floor area of the dwelling unit. There shall be no change or alteration in the outside appearance of the dwelling unit and shall not be a hazard or nuisance; - o It shall be classified as non-pollutive/non-hazardous as pro"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 1.0,
+          "reasons": [
+            "registry_incompatible: (concept, concept) not valid for 'limits'"
+          ]
+        }
+      }
+    ],
+    "needs_review": [
+      {
+        "from": "concept-floor-area-ratio",
+        "type": "affects",
+        "to": "concept-floor-area",
+        "occurrences": 1,
+        "sections": [
+          "section-5"
+        ],
+        "examples": [
+          "Floor Area Ratio (FAR) - the ratio between the gross floor area of a building and the area of the lot, on which it stands, determined by dividing the gross floor area of the building and the area of the lot."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-zoning-ordinance",
+        "type": "affects",
+        "to": "concept-floor-area-ratio",
+        "occurrences": 1,
+        "sections": [
+          "section-5"
+        ],
+        "examples": [
+          "- mm. Exception - a device which grants a property owner relief from certain provisions of the Zoning Ordinance where because the specific use would result in a particular hardship upon the owner, as distinguished from a mere inconvenience or a desire to make more money. - nn. Fire/Security Station "
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-zoning-ordinance",
+        "type": "affects",
+        "to": "concept-comprehensive-land-use-plan",
+        "occurrences": 2,
+        "sections": [
+          "section-58",
+          "section-5"
+        ],
+        "examples": [
+          "Determine amendments or revisions necessary in the Zoning Ordinance because of changes that might have been introduced in the Comprehensive Land Use Plan.",
+          "- 1. Determine amendments or revisions necessary in the Zoning Ordinance because of changes that might have been introduced in the Comprehensive Land Use Plan. - 2. Recommend changes to be introduced in the Comprehensive Land Use Plan and the Zoning Ordinance in the light of permits granted such as ",
+          "- ppp. Non-Conforming Use - existing uses/establishments in an area allowed to operate despite non-conformity to the provisions of the Ordinance subject to the conditions stipulated in this Zoning Ordinance. - qqq. Notice of Non-Conformance - notice issued to owners of all uses existing prior to the"
+        ],
+        "alternate_predicates": [
+          "depends_on"
+        ],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-city-of-malolos",
+        "type": "governs",
+        "to": "concept-floor-area",
+        "occurrences": 2,
+        "sections": [
+          "section-13.1",
+          "section-13.1.1"
+        ],
+        "examples": [
+          "- o Such home industry shall not occupy more than thirty percent of the floor area of the dwelling unit. - o There shall be no change or alteration in the outside appearance of the dwelling unit and shall not be a hazard or nuisance; - o Such shall consider the provisions pertaining to customary acc",
+          "- o Such home industry shall not occupy more than thirty percent of the floor area of the dwelling unit. - o There shall be no change or alteration in the outside appearance of the dwelling unit and shall not be a hazard or nuisance; and - o Such shall consider the provisions pertaining to customary"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-city-of-malolos",
+        "type": "governs",
+        "to": "concept-water-permit",
+        "occurrences": 1,
+        "sections": [
+          "section-25"
+        ],
+        "examples": [
+          "- a. Views shall be preserved for public enjoyment especially in sites with high scenic quality by closely considering building orientation, height, bulk, fencing and landscaping. - b. Deep wells shall not be allowed unless a Water Permit is obtained from the National Water Resources Board. - c. Lan"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-city-of-malolos",
+        "type": "governs",
+        "to": "concept-light-and-ventilation",
+        "occurrences": 2,
+        "sections": [
+          "section-28"
+        ],
+        "examples": [
+          "The height and bulk of buildings and structures shall be so designed that it does not impair the entry of light and ventilation, cause the loss of privacy and/or create nuisances, hazards or inconveniences to adjacent developments;",
+          "- a. The height and bulk of buildings and structures shall be so designed that it does not impair the entry of light and ventilation, cause the loss of privacy and/or create nuisances, hazards or inconveniences to adjacent developments; - b. Abutments to adjacent properties shall not be allowed with"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-city-of-malolos",
+        "type": "governs",
+        "to": "concept-building-permit",
+        "occurrences": 1,
+        "sections": [
+          "section-35"
+        ],
+        "examples": [
+          "A surcharge of fifty (50%) percent based and added to the corresponding processing fee plus interest of fourteen (14%) percent per annum shall be imposed on all structures/operations without any locational clearance, certificate of conformance/non-conformance, building permit, license or permit to o"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      }
+    ]
+  }
+}

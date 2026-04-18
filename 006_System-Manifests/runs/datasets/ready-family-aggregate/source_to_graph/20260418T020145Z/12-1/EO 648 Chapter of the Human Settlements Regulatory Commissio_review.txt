@@ -1,0 +1,20 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md
+Candidates reviewed: 3
+Keep: 2
+Review Further: 1
+Reject: 0
+
+law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission -> governs -> concept-human-settlements
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission -> governs -> concept-zoning-ordinance
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language
+
+concept-zoning-ordinance -> depends_on -> concept-human-settlements
+  decision=review_further confidence=0.00
+  reason=Ollama review failed after retries: Failed to reach Ollama at http://127.0.0.1:11434/api/generate. Make sure Ollama is running and the model is available.

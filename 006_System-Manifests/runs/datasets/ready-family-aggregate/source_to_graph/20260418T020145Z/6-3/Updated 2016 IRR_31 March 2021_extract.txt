@@ -1,0 +1,13 @@
+Section-Aware Relationship Extraction
+
+Sections: 151
+Unique relationships: 8
+
+irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act -> governs -> concept-competitive-bidding (x58) sections=['section-2', 'section-3', 'section-5', 'section-8', 'section-10', 'section-23', 'section-44', 'section-46', 'section-49', 'section-53', 'section-62', 'section-14', 'section-1', 'section-4', 'section-9']
+irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act -> governs -> concept-approved-budget-for-the-contract (x50) sections=['section-5', 'section-7', 'section-20', 'section-23', 'section-31', 'section-32', 'section-33', 'section-78', 'section-4', 'section-8', 'section-9', 'section-11', 'section-14', 'section-10', 'section-6', 'section-12']
+irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act -> governs -> concept-bids-and-awards-committee (x253) sections=['section-7', 'section-8', 'section-9', 'section-11', 'section-12', 'section-13', 'section-14', 'section-15', 'section-20', 'section-22', 'section-23', 'section-24', 'section-25', 'section-26', 'section-27', 'section-29', 'section-30', 'section-32', 'section-33', 'section-34', 'section-35', 'section-37', 'section-38', 'section-40', 'section-41', 'section-43', 'section-47', 'section-55', 'section-56', 'section-58', 'section-65', 'section-70', 'section-72', 'section-73', 'section-78', 'section-1', 'section-3', 'section-4', 'section-10', 'section-5', 'section-6']
+concept-approved-budget-for-the-contract -> depends_on -> concept-bids-and-awards-committee (x1) sections=['section-22', 'section-30'] alt=['affects']
+concept-bids-and-awards-committee -> depends_on -> concept-approved-budget-for-the-contract (x5) sections=['section-35', 'section-14', 'section-1', 'section-30', 'section-11', 'section-10', 'section-4', 'section-32', 'section-33'] alt=['affects', 'requires']
+concept-competitive-bidding -> depends_on -> concept-bids-and-awards-committee (x2) sections=['section-48', 'section-7'] alt=['affects']
+concept-bids-and-awards-committee -> depends_on -> concept-competitive-bidding (x2) sections=['section-69', 'section-9']
+irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act -> governs -> concept-floor-area-ratio (x2) sections=['section-10']

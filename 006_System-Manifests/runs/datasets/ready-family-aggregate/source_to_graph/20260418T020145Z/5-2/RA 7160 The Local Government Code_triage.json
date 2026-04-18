@@ -1,0 +1,236 @@
+{
+  "generated_at": "20260418T020618Z",
+  "source": "001-Laws/refined_markdown/RA-7160/RA 7160 The Local Government Code.md",
+  "total_candidates": 10,
+  "auto_accept_count": 3,
+  "auto_reject_count": 4,
+  "needs_review_count": 3,
+  "buckets": {
+    "auto_accept": [
+      {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-local-autonomy",
+        "occurrences": 6,
+        "sections": [
+          "section-3"
+        ],
+        "examples": [
+          "- (h) There shall be a continuing mechanism to enhance local autonomy not only by legislative enabling acts but also by administrative and organizational reforms;",
+          "- (k) The realization of local autonomy shall be facilitated through improved coordination of national government policies and",
+          "- (c) Subject to civil service law, rules and regulations, local officials and employees paid wholly or mainly from local funds shall be appointed or removed, according to merit and fitness, by the appropriate appointing authority; - (d) The vesting of duty, responsibility, and accountability in loc"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-human-settlements",
+        "occurrences": 3,
+        "sections": [
+          "section-20",
+          "section-383"
+        ],
+        "examples": [
+          "Provided, That the requirements for food production, human settlements, and industrial expansion shall be taken into consideration in the preparation of such plans.",
+          "- dominant bases for the future use of land resources: Provided, That the requirements for food production, human settlements, and industrial expansion shall be taken into consideration in the preparation of such plans. - (d) Where approval by a national agency is required for reclassification, such",
+          "- (i) Adopt measures and safeguards against pollution and for the preservation of the natural ecosystem in the province, in consonance with approved standards on human settlements and environmental sanitation; - (ii) Subject to applicable laws, facilitate or provide for the establishment and mainten"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-bids-and-awards-committee",
+        "occurrences": 3,
+        "sections": [
+          "section-37",
+          "section-38"
+        ],
+        "examples": [
+          "- (a) There is hereby created a local prequalification, bids and awards committee in every province, city, and municipality, which shall be primarily responsible for the conduct of prequalification of contractors, bidding, evaluation of bids, and the recommendation of awards concerning local infrast",
+          "- (a) There is hereby created a local prequalification, bids and awards committee in every province, city, and municipality, which shall be primarily responsible for the conduct of prequalification of contractors, bidding, evaluation of bids, and the recommendation of awards concerning local infrast",
+          "(b) The chairman of the local technical committee shall be designated by the local prequalification, bids and awards committee and shall attend its meeting in order to present the reports and recommendations of the local technical committee."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      }
+    ],
+    "auto_reject": [
+      {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-waste-disposal",
+        "occurrences": 2,
+        "sections": [
+          "section-17",
+          "section-383"
+        ],
+        "examples": [
+          "- (iii) Subject to the provisions of Title Five, Book I of this Code, health services which include the implementation of programs and projects on primary health care, maternal and child care, and communicable and non-communicable disease control services; access to secondary and tertiary health ser",
+          "- SECTION. 490. Qualifications, Powers and Duties. - (a) No person shall be appointed general services officer unless he is a citizen of the Philippines, a resident of the local government unit concerned, of good moral character, a holder of a college degree on public administration, business admini"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['waste disposal'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-competitive-bidding",
+        "occurrences": 3,
+        "sections": [
+          "section-149",
+          "section-302"
+        ],
+        "examples": [
+          "- (1) Grant fishery privileges to erect fish corrals, oyster, mussels or other aquatic beds or bangus fry areas, within a definite zone of the municipal waters, as determined by it: Provided, however, That duly registered organizations and cooperatives of marginal fishermen shall have the preferenti",
+          "The conduct of public bidding and award of contracts for local government projects under this Section shall be in accordance with this Code and other applicable laws, rules and regulations.",
+          "- (1) The provincial, city, or municipal engineer, as the case may be, upon formal request in writing by the local chief executive, shall prepare the plans and specifications for the proposed project, which shall be submitted to the Sanggunian for approval. - (2) Upon approval by the Sanggunian of t"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['competitive bidding'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-floor-area-ratio",
+        "occurrences": 7,
+        "sections": [
+          "section-305",
+          "section-383"
+        ],
+        "examples": [
+          "- (e) Trust funds in the local treasury shall not be paid out except in fulfillment of the purpose for which the trust was created or the funds received; - (f) Every officer of the local government unit whose duties permit or require the possession or custody of local funds shall be properly bonded,",
+          "- (i) Ensure that the construction and repair of roads and highways funded by the national government shall be, as far as practicable, carried out in a spatially contiguous manner and in coordination with the construction and repair of the roads and bridges of the municipality and the province;",
+          "- (i) Ensure that the construction and repair of roads and highways funded by the national government shall be, as far as practicable, carried out in a spatially contiguous manner and in coordination with the construction and repair of the roads and bridges of the municipality and the province; and "
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['floor area ratio'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-urban-development-planning",
+        "occurrences": 2,
+        "sections": [
+          "section-383"
+        ],
+        "examples": [
+          "- (a) No person shall be appointed planning and development coordinator unless he is a citizen of the Philippines, a resident of the local government unit concerned, of good moral character, a holder of a college degree preferably in urban planning, development studies, economics, public administrat",
+          "- SECTION. 476. Qualifications, Powers and Duties. - (a) No person shall be appointed planning and development coordinator unless he is a citizen of the Philippines, a resident of the local government unit concerned, of good moral character, a holder of a college degree preferably in urban planning,"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['urban development planning'] appear in the evidence text"
+          ]
+        }
+      }
+    ],
+    "needs_review": [
+      {
+        "from": "law-local-government-code-of-1991",
+        "type": "governs",
+        "to": "concept-comprehensive-land-use-plan",
+        "occurrences": 2,
+        "sections": [
+          "section-383"
+        ],
+        "examples": [
+          "Provided, That the formulation, adoption, or modification of said plan shall be in coordination with the approved provincial comprehensive land use plan;",
+          "Provided, That in the case of component cities, the formulation, adoption or modification of said plan shall be in coordination with the approved provincial comprehensive land use plan;"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-zoning-ordinance",
+        "type": "depends_on",
+        "to": "concept-comprehensive-land-use-plan",
+        "occurrences": 1,
+        "sections": [
+          "section-383"
+        ],
+        "examples": [
+          "- (ix) Enact integrated zoning ordinances in consonance with the approved comprehensive land use plan, subject to existing laws, rules and regulations;"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "concept-comprehensive-land-use-plan",
+        "type": "depends_on",
+        "to": "concept-zoning-ordinance",
+        "occurrences": 4,
+        "sections": [
+          "section-383"
+        ],
+        "examples": [
+          "- the municipality, or for other purposes not contrary to law, in order to promote the general welfare of the municipality and its inhabitants; - (ii) Subject to the provisions of Book II of this Code and applicable laws and upon the majority vote of all the members of the Sangguniang Bayan, enact o",
+          "- prescribing the rates thereof for general and specific purposes, and granting tax exemptions, incentives or reliefs; - (iii) Subject to the provisions of Book II of this Code and upon the majority vote of all the members of the Sangguniang Panlungsod, authorize the city mayor to negotiate and cont",
+          "- (vii) Review the comprehensive land use plans and zoning ordinances of component cities and municipalities and adopt a comprehensive provincial land use plan, subject to existing laws:"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -68,3 +68,23 @@ def test_load_concept_term_map_uses_aliases(tmp_path: Path) -> None:
         concept_map,
     )
     assert found == ["concept-socialized-housing-projects"]
+
+
+def test_load_concept_term_map_matches_pluralized_aliases(tmp_path: Path) -> None:
+    concepts_dir = tmp_path / "concepts"
+    _write(
+        concepts_dir / "temporary-special-permit.md",
+        (
+            "---\n"
+            "title: Temporary or Special Permit\n"
+            "aliases:\n"
+            "  - temporary special permit\n"
+            "---\n"
+        ),
+    )
+    concept_map = load_concept_term_map(concepts_dir)
+    found = find_concepts_in_text(
+        "The rules govern temporary special permits for foreign architects.",
+        concept_map,
+    )
+    assert found == ["concept-temporary-special-permit"]

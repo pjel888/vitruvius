@@ -4,7 +4,7 @@ title: Resolution Restricting Practice of Architecture by Non-Registered and Lic
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T17:40:26.495667+00:00
+last_canonicalized_utc: 2026-04-18T02:08:11.368279+00:00
 aliases:
   - Prohibition of NonRLAs
   - PRBoA Resolution No. 01 Series of 2008
@@ -26,5 +26,6 @@ Republic of the Philippines Professional Regulation Commission Manila Board of A
 
 ## Referenced Concepts
 
+- concept-temporary-special-permit
 - concept-standards-of-professional-practice
 - concept-illegal-practice-of-architecture

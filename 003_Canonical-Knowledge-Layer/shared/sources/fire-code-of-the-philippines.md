@@ -4,7 +4,7 @@ title: Fire Code of the Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:37:25.126865+00:00
+last_canonicalized_utc: 2026-04-18T02:06:03.161716+00:00
 aliases:
   - PD 1185
   - Presidential Decree No. 1185
@@ -28,6 +28,7 @@ PRESIDENTIAL DECREE No. 1185 FIRE CODE OF THE PHILIPPINES
 ## Referenced Concepts
 
 - concept-means-of-egress
+- concept-competitive-bidding
 - concept-waste-disposal
 - concept-yards
 - concept-building-permit

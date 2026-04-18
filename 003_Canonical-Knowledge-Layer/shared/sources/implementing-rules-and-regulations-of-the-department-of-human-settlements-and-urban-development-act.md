@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the Department of Human Settlements
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:37:54.972499+00:00
+last_canonicalized_utc: 2026-04-18T02:06:52.018820+00:00
 aliases:
   - RA 11201 IRR
   - DHSUD Act IRR
@@ -41,6 +41,7 @@ Pursuant to Section 29 of Republic Act No. 11201, otherwise known as the "Depart
 - concept-zoning-ordinance
 - concept-balanced-housing-development
 - concept-urban-development-planning
+- concept-building-height
 - concept-disaster-risk-reduction
 - concept-common-areas
 - concept-code-of-ethics

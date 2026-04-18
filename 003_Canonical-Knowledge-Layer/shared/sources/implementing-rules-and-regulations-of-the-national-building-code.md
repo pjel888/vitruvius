@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the National Building Code
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:34:27.762887+00:00
+last_canonicalized_utc: 2026-04-18T02:02:40.943380+00:00
 aliases:
   - PD 1096 IRR
   - National Building Code IRR
@@ -212,12 +212,12 @@ Automated summary withheld for Implementing Rules and Regulations of the Nationa
 
 ## Referenced Concepts
 
+- concept-building-permit
 - concept-certificate-of-occupancy
 - concept-mixed-occupancy
 - concept-floor-area
 - concept-light-and-ventilation
 - concept-stairs
-- concept-building-permit
 - concept-socialized-housing-projects
 - concept-building-height
 - concept-occupancy-classification

@@ -1,0 +1,8 @@
+Section-Aware Relationship Extraction
+
+Sections: 46
+Unique relationships: 3
+
+irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004 -> governs -> concept-standards-of-professional-practice (x5) sections=['section-29', 'section-41']
+irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004 -> governs -> concept-building-permit (x3) sections=['section-38']
+irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004 -> governs -> concept-temporary-special-permit (x4) sections=['section-38']

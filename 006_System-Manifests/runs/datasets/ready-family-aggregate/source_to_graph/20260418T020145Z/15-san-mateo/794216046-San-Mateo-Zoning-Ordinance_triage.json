@@ -1,0 +1,264 @@
+{
+  "generated_at": "20260418T020824Z",
+  "source": "001-Laws/refined_markdown/LGU/794216046-San-Mateo-Zoning-Ordinance.md",
+  "total_candidates": 11,
+  "auto_accept_count": 4,
+  "auto_reject_count": 4,
+  "needs_review_count": 3,
+  "buckets": {
+    "auto_accept": [
+      {
+        "from": "law-zoning-ordinance-of-the-municipality-of-san-mateo",
+        "type": "governs",
+        "to": "concept-floor-area",
+        "occurrences": 8,
+        "sections": [
+          "section-1",
+          "section-2",
+          "section-16"
+        ],
+        "examples": [
+          "determined by dividing the Gross Floor Area of the building and the area of the lot.",
+          "- 3) The use of dwelling unit for home occupation shall be clearly incidental and subordinate to its use for residential purpose by its occupants and for the conduct of the home occupation, not more than twenty-five percent (25) of the floor area of the dwelling unit shall be used;",
+          "- 1) Only members of the family residing within the premises shall be engaged in such home occupations; - 2) The number of persons engaged in such business/industry shall not exceed five, inclusive of the owner; - 3) The use of dwelling unit for home occupation shall be clearly incidental and subord"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-municipality-of-san-mateo",
+        "type": "governs",
+        "to": "concept-zoning-ordinance",
+        "occurrences": 11,
+        "sections": [
+          "section-1",
+          "section-8",
+          "section-4",
+          "section-9",
+          "section-16"
+        ],
+        "examples": [
+          "- 55) Non-Conforming Use:Existing non-conforming use establishments in an area allowed to operate in spite of the non-conformity to the provisions of the Ordinance, subject to the conditions stipulated in this Zoning Ordinance.",
+          "- 44) Hospital: An institution providing health service, primarily for in-patients, and medical or physical care of the sick or the injured, including, as integral parts thereof, such related facilities as laboratories, out-patient department, training facilities, and staff offices. - 45) Hotel: A b",
+          "1096) as amended thereto relevant to traffic generators, advertising and business signs, erection of more than one principal structure, dwelling or rear lots, access yard requirements and dwelling groups, which are not in conflict with the provisions of the Zoning Ordinance, shall be observed."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-municipality-of-san-mateo",
+        "type": "governs",
+        "to": "concept-central-business-district",
+        "occurrences": 4,
+        "sections": [
+          "section-5",
+          "section-7"
+        ],
+        "examples": [
+          "- A C-1-MUZ zone shall be for quasi-trade, business activities and service industries performing complementary/supplementary functions to the Central Business District (CBD).",
+          "- A C-1-MUZ zone shall be for quasi-trade, business activities and service industries performing complementary/supplementary functions to the Central Business District (CBD). Also allowed are residential uses, mainly high density. Within the C-1-MUZ zone, the following uses are allowed:",
+          "A C-2 district or the Central Business District (CBD), shall be for commercial uses such as retail and wholesale trade, as well as professional, financial, recreational and personal services."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-municipality-of-san-mateo",
+        "type": "governs",
+        "to": "concept-waste-disposal",
+        "occurrences": 3,
+        "sections": [
+          "section-8"
+        ],
+        "examples": [
+          "- 1) The Waste Disposal Facility shall be located within a reasonable distance from residential, commercial and institutional zones.",
+          "- 4) A site inspection shall be conducted to ensure that the proposed waste disposal facility is not inconsistent with the adjacent land uses and will not pose a hazard to the safety of the community in general.",
+          "- 1) The Waste Disposal Facility shall be located within a reasonable distance from residential, commercial and institutional zones. - 2) Requirements set by Republic Act 8749 (CLEAN AIR ACT), Republic Act 9003 (ECOLOGICAL WASTE MANAGEMENT ACT), and others set by the DENREMB must be complied with. -"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_accept",
+          "confidence": 0.95,
+          "reasons": [
+            "structural_governs_pattern: source->concept, occ>=3, characteristic language"
+          ]
+        }
+      }
+    ],
+    "auto_reject": [
+      {
+        "from": "concept-yards",
+        "type": "affects",
+        "to": "concept-zoning-ordinance",
+        "occurrences": 1,
+        "sections": [
+          "section-1"
+        ],
+        "examples": [
+          "- 27) Dwelling, One-family Semi-detached: A one-family dwelling as defined above except that it is provided with one side yard. - 28) Dwelling, Two-family, Detached: A house or structure divided into two separate and independent living quarters by a wall extending from the floor to the ceiling and p"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['yards', 'zoning ordinance'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-municipality-of-san-mateo",
+        "type": "governs",
+        "to": "concept-floor-area-ratio",
+        "occurrences": 3,
+        "sections": [
+          "section-2"
+        ],
+        "examples": [
+          "The words and terms employed in this Ordinance shall be interpreted and understood liberally in he generic sense unless otherwise indicated and shall, as far as practicable, be construed in favor of applicants seeking to comply with the provisions hereof.",
+          "The words and terms employed in this Ordinance shall be interpreted and understood liberally in he generic sense unless otherwise indicated and shall, as far as practicable, be construed in favor of applicants seeking to comply with the provisions hereof. The listing of uses shall, unless otherwise ",
+          "The FAR of an R-3-MU zone shall be based on the density of development intended for the zone."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['floor area ratio'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "concept-food-establishment",
+        "type": "affects",
+        "to": "concept-waste-disposal",
+        "occurrences": 1,
+        "sections": [
+          "section-9"
+        ],
+        "examples": [
+          "- 1) The Site and Location of slaughterhouse/abattoir shall be at least 200 meters from residential areas, schools, churches and other places of assembly courts or public office. It should be accessible to transportation. - 2) Abattoirs/slaughterhouses should be at least 25 meters from markets and o"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['food establishment', 'waste disposal'] appear in the evidence text"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-municipality-of-san-mateo",
+        "type": "governs",
+        "to": "concept-socialized-housing-projects",
+        "occurrences": 1,
+        "sections": [
+          "section-3"
+        ],
+        "examples": [
+          "shall, in addition to securing a Locational Clearance under Section 1, Article XI of this Ordinance, be required to secure a Development Permit pursuant to provisions of P.D. 957 and its implementing rules and regulations or B.P. 220 and its implementing rules and regulations in the case of socializ"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "auto_reject",
+          "confidence": 0.85,
+          "reasons": [
+            "endpoint_not_in_evidence: none of ['socialized housing projects'] appear in the evidence text"
+          ]
+        }
+      }
+    ],
+    "needs_review": [
+      {
+        "from": "concept-zoning-ordinance",
+        "type": "depends_on",
+        "to": "concept-comprehensive-land-use-plan",
+        "occurrences": 2,
+        "sections": [
+          "section-1",
+          "section-15"
+        ],
+        "examples": [
+          "7160, otherwise known as the Local Government Code of 1991, authorizing cities and municipalities to adopt an Integrated Zoning Ordinance subject to the approval of the Sangguniang Bayan and Executive Orders 72 and 648 authorizing cities and municipalities to prepare their respective comprehensive l",
+          "R.A. 7160, otherwise known as the Local Government Code of 1991, authorizing cities and municipalities to adopt an Integrated Zoning Ordinance subject to the approval of the Sangguniang Bayan and Executive Orders 72 and 648 authorizing cities and municipalities to prepare their respective comprehens",
+          "- 1) Determined amendments or revisions necessary in the Zoning Ordinance because of the changes that might have been introduced in the Comprehensive Land Use Plan.",
+          "- 1) Determined amendments or revisions necessary in the Zoning Ordinance because of the changes that might have been introduced in the Comprehensive Land Use Plan. - 2) Determine changes to be introduced in the Comprehensive Land Use Plan in the light of permits given, and exceptions and variances "
+        ],
+        "alternate_predicates": [
+          "affects"
+        ],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-municipality-of-san-mateo",
+        "type": "governs",
+        "to": "concept-local-shelter-plan",
+        "occurrences": 4,
+        "sections": [
+          "section-3",
+          "section-21"
+        ],
+        "examples": [
+          "be used principally for socialized housing/dwelling purposes for the underprivileged and homeless as defined in RA 7279 and in the Local Shelter Plan.",
+          "be used principally for socialized housing/dwelling purposes for the underprivileged and homeless as defined in RA 7279 and in the Local Shelter Plan. The following uses are allowed:",
+          "Principally used for socialized housing/dwelling purposes for the underprivileged and homeless as defined in RA 7279 and in the Local Shelter Plan."
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      },
+      {
+        "from": "law-zoning-ordinance-of-the-municipality-of-san-mateo",
+        "type": "governs",
+        "to": "concept-comprehensive-land-use-plan",
+        "occurrences": 2,
+        "sections": [
+          "section-15",
+          "section-18"
+        ],
+        "examples": [
+          "- 2) Determine changes to be introduced in the Comprehensive Land Use Plan in the light of permits given, and exceptions and variances granted.",
+          "Ordinance shall be without prejudice to the applications of other laws, presidential decrees, letter of instructions and other executive or administrative orders vesting national agencies with jurisdiction over specific land areas, which shall remain in force and effect, provided that land use decis"
+        ],
+        "alternate_predicates": [],
+        "triage": {
+          "decision": "needs_review",
+          "confidence": 0.5,
+          "reasons": [
+            "no_deterministic_rule_matched"
+          ]
+        }
+      }
+    ]
+  }
+}

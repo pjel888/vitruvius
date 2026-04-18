@@ -1,0 +1,12 @@
+Ollama Relationship Review Report
+
+Model: qwen2.5:7b
+Source: 001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md
+Candidates reviewed: 1
+Keep: 1
+Review Further: 0
+Reject: 0
+
+law-executive-order-no-72-on-comprehensive-land-use-plans -> governs -> concept-comprehensive-land-use-plan
+  decision=keep confidence=0.95
+  reason=pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language

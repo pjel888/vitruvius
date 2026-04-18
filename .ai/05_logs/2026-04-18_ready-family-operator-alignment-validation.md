@@ -1,7 +1,7 @@
 ---
 task: ready-family-operator-alignment
 created: 2026-04-18
-status: in_progress
+status: complete
 ---
 
 # Validation — ready-family operator alignment
@@ -34,6 +34,38 @@ Align the full one-command ready-family source-to-graph operator path with the c
   - run-folder file count: 69
   - run-folder size: ~592K
 
-## Pending
-- wait for the full operator rerun to complete
-- compare resulting warning counts with the hardened build-path baseline (`warning_count = 5`, `duplicate_edge = 0`)
+## Final end-to-end rerun result
+- rerun output artifacts landed:
+  - `006_System-Manifests/runs/datasets/ready-family-aggregate/20260418T021054Z_dataset_pipeline_run_report.json`
+  - `006_System-Manifests/runs/datasets/ready-family-aggregate/20260418T021054Z_build_graph_dataset_report.json`
+  - `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260418T021054Z_graph_snapshot.json`
+- final build-report summary:
+  - `node_count = 136`
+  - `edge_count = 270`
+  - `warning_count = 4`
+  - `duplicate_edge = 0`
+  - `orphan_node = 4`
+  - `covered_folder_count = 42`
+  - `partial_folder_count = 4`
+
+## Comparison
+### Bad pre-fix operator rerun (`20260418T014600Z`)
+- `edge_count = 313`
+- `warning_count = 49`
+- `duplicate_edge = 44`
+- `orphan_node = 5`
+
+### Hardened build-path baseline (`20260418T013024Z`)
+- `edge_count = 256`
+- `warning_count = 5`
+- `duplicate_edge = 0`
+- `orphan_node = 5`
+
+### Post-fix full operator rerun (`20260418T021054Z`)
+- `edge_count = 270`
+- `warning_count = 4`
+- `duplicate_edge = 0`
+- `orphan_node = 4`
+
+## Outcome
+The one-command ready-family operator path no longer reintroduces the duplicate-edge regression. The full source-to-graph rerun is now aligned with the hardened build path on the critical metric (`duplicate_edge = 0`) and improved the remaining orphan count from 5 to 4.

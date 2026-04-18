@@ -1,0 +1,50 @@
+{
+  "benchmark_source_hints": [],
+  "canonical_summary_action": "allow_auto_summary",
+  "extraction_trust_level": "trusted",
+  "extraction_trust_reasons": [],
+  "front_matter_suspicious_ocr_line_count": 5,
+  "image_line_count": 0,
+  "manual_review_recommended": false,
+  "markdown_heading_count": 2,
+  "noise_line_count": 0,
+  "non_empty_line_count": 202,
+  "recommendations": [
+    "low structural-heading count: verify section detection and source structure fidelity"
+  ],
+  "refined_markdown_path": "001-Laws/refined_markdown/RA-7279/RA 7279 Urban Development and Housing Act 2009.md",
+  "representation_guardrail": {
+    "admitted_concept_count": 1,
+    "admitted_relationship_count": 1,
+    "folder_name": "RA-7279",
+    "law_id": "2-1",
+    "reasons": [],
+    "recommendations": [],
+    "section_to_concept_ratio": 2.0,
+    "section_to_relationship_ratio": 2.0,
+    "severity": "low",
+    "status": "balanced",
+    "structural_heading_count": 2
+  },
+  "severity": "low",
+  "source_acceptance_reasons": [],
+  "source_acceptance_status": "accepted",
+  "spot_review_focus": [],
+  "spot_review_required": false,
+  "structural_heading_count": 2,
+  "summary_auto_withheld": false,
+  "summary_hygiene_flags": [],
+  "suspicious_ocr_examples": [
+    "- (e) Encourage more effective people’s participation in the urban development process; and",
+    "- (d) “Consultation” refers to the constitutionally mandated process whereby the public, on their own or through people’s organizations, is provided an opportunity to be heard and to participate in the decision-making process on matters involving the protection and promotion of its legitimate collective interests, which shall include appropriate documentation and feedback mechanisms;",
+    "- (u) “Unregistered or abandoned lands” refers to lands in urban and urbanizable areas which are not registered with the Register of Deeds, or with the city or municipal assessor’s office concerned, or which are uninhabited by the owner and have not been developed or devoted for any useful purpose, or appears unutilized for a period of three (3) consecutive years immediately prior to the issuance and receipt or publication of notice of acquisition by the government as provided under this Act. It does not include land which has been abandoned by reason of force majeure or any other fortuitous event: Provided, That prior to such event, such land was previously used for some useful or economic purpose;",
+    "- (5) Donor’s tax for lands certified by the local government units to have been donated for socialized housing purposes.",
+    "- (b) Liberalized terms on credit facilities and housing loans and one hundred percent (100%) deduction from every homebuyer’s gross income tax of all interest payments made on documented loans incurred for the construction or purchase of the homebuyer’s house;"
+  ],
+  "suspicious_ocr_line_count": 5,
+  "suspicious_ocr_line_ratio": 0.024752,
+  "table_line_count": 0,
+  "total_line_count": 404,
+  "useful_text_line_count": 202,
+  "useful_text_ratio": 1.0
+}

@@ -1,0 +1,7 @@
+Section-Aware Relationship Extraction
+
+Sections: 40
+Unique relationships: 2
+
+law-energy-efficiency-and-conservation-act -> governs -> concept-designated-establishment (x2) sections=['section-2', 'section-19']
+law-energy-efficiency-and-conservation-act -> governs -> concept-minimum-energy-performance (x1) sections=['section-16']

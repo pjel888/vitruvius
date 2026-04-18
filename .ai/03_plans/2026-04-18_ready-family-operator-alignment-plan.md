@@ -1,7 +1,7 @@
 ---
 task: ready-family-operator-alignment
 created: 2026-04-18
-status: in_progress
+status: complete
 ---
 
 # Plan — ready-family operator alignment
