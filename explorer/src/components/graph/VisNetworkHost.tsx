@@ -307,15 +307,22 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
     setFilters(nodeTypes, edgeTypes) {
       if (!nodesRef.current || !edgesRef.current) return;
+
+      // Update node visibility
       const nodeUpdates = rawNodesRef.current.map(n => ({
         id: n.id,
         hidden: !nodeTypes.has(n.type),
       }));
+      nodesRef.current.update(nodeUpdates);
+
+      // Edges are visible only if: edge type is enabled AND both endpoints are visible
+      const visibleNodeIds = new Set(
+        rawNodesRef.current.filter(n => nodeTypes.has(n.type)).map(n => n.id)
+      );
       const edgeUpdates = rawEdgesRef.current.map((e, i) => ({
         id: `edge-${i}`,
-        hidden: !edgeTypes.has(e.type),
+        hidden: !edgeTypes.has(e.type) || !visibleNodeIds.has(e.source) || !visibleNodeIds.has(e.target),
       }));
-      nodesRef.current.update(nodeUpdates);
       edgesRef.current.update(edgeUpdates);
     },
 
