@@ -61,6 +61,7 @@ Raw docs → Parse / OCR → Normalize → Canonicalize → Extract → Review �
 - **Dataset automation** — Manifest-backed, tranche-by-tranche laws-wave pipeline with duplicate detection, OCR-first preparation, and concept-fit admission
 - **Spatial intelligence** — TypeScript spatial daemon (GJK/AABB), Z3 constraint solver, IFC/OWL ontology export
 - **Compound AI** — Adversarial swarm, differential dataflow, neuro-symbolic Datalog bridge, DSPy prompt compiler
+- **Interactive Graph Explorer** — React 19 + vis-network browser app with search, path tracing, Cypher query panel, edge inspection, and neighbor expansion. Code-split main bundle (~294 KB).
 - **High-performance backends** — RocksDB event store (18.7× faster than SQLite), GraphSAGE product quantization (32× compression), MinHash LSH fuzzy dedup
 
 ---
@@ -732,6 +733,8 @@ What happens:
 
 **Step 2 — Visualize**
 
+**Option A: Static HTML visualization (no server needed)**
+
 ```bash
 # Auto-detects snapshot version (v1 or v2) and renders appropriate viewer
 python scripts/pipeline_cli.py visualize-graph
@@ -743,16 +746,31 @@ python scripts/pipeline_cli.py visualize-graph \
   --out 004_Derived-Content-Layer/graph-visualizations/kg-v2.html
 ```
 
-What happens:
-- Reads the latest snapshot (or the one you specify)
-- Auto-detects v1 (`nodes`/`edges`) vs v2 (`canonical_nodes`/`fast_edges`) format
-- Generates an interactive HTML force-directed graph with:
-  - **Node click panel**: Evidence spans, neighborhood subgraph, reasoning summary
-  - **Edge click panel**: Inference-type badge, reasoning text, evidence citations
-  - **Search bar**: Live node label search
-  - **Type colors**: taxonomy/topic/subtopic/concept/rule/definition/procedure/exception
-  - **Confidence sizing**: Node size proportional to assertion confidence
-- Output: `004_Derived-Content-Layer/graph-visualizations/graph.html` (or your custom path)
+Opens a self-contained HTML file in your browser.
+
+**Option B: Interactive Graph Explorer (full-featured React app)**
+
+```bash
+# 1. Start the Graph API (serves data from Neo4j)
+cd api && bun run index.ts
+
+# 2. In another terminal, start the explorer dev server
+cd explorer && bun run dev --host
+
+# 3. Open http://localhost:5173
+```
+
+The explorer provides:
+- **Live search** — fuzzy node search with keyboard navigation
+- **Node inspector** — evidence spans, taxonomy path, incoming/outgoing relationships
+- **Edge inspector** — click any edge to see confidence, reasoning, and source/target
+- **Path tracer** — select two nodes and find the shortest path between them
+- **Cypher query panel** — run custom read-only Cypher queries against Neo4j
+- **Context menu** — right-click to expand neighbors, focus subgraph, hide nodes
+- **Perspectives** — switch between All Knowledge, Concepts Only, Taxonomy Browser, Regulatory Rules, Evidence Map
+- **Layouts** — ForceAtlas2, circular, random, clustered by taxonomy, timeline
+
+See [`explorer/README.md`](explorer/README.md) for full details.
 
 **Step 3 — Query by node ID**
 
