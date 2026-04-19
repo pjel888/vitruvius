@@ -22,7 +22,16 @@ async function runQuery<T = any>(query: string, params?: Record<string, any>): P
       const obj: any = {};
       r.keys.forEach(k => {
         const v = r.get(k);
-        obj[k] = v && typeof v === 'object' && 'properties' in v ? v.properties : v;
+        if (v && typeof v === 'object' && 'properties' in v) {
+          const props = { ...v.properties };
+          // Neo4j Relationship has `type` metadata (not a property); Node has `labels`
+          if ('type' in v && !('labels' in v)) {
+            props.type = v.type;
+          }
+          obj[k] = props;
+        } else {
+          obj[k] = v;
+        }
       });
       return obj;
     });
