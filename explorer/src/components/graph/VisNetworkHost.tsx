@@ -1,5 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef, useEffect } from 'react';
 import { Network, DataSet } from 'vis-network/standalone';
+import { useSceneStore } from '../../stores/useSceneStore';
 import type { GraphNode, GraphEdge } from '../../types';
 
 export interface GraphController {
@@ -233,6 +234,21 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         networkRef.current.on('blurNode', () => {
           hoveredNodeRef.current = null;
           applyHover();
+        });
+
+        networkRef.current.on('click', (params: any) => {
+          const store = useSceneStore.getState();
+          if (params.nodes && params.nodes.length > 0) {
+            store.setSelectedNode(params.nodes[0]);
+            store.openInspector();
+          } else if (params.edges && params.edges.length > 0) {
+            // Edge selection — no API endpoint yet, so just clear for now
+            store.setSelectedNode(null);
+            store.setSelectedEdge(null);
+          } else {
+            store.setSelectedNode(null);
+            store.setSelectedEdge(null);
+          }
         });
       }
 

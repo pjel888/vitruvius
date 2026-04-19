@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, Pin, Focus, Maximize2, ArrowRight, FileText, ExternalLink } from 'lucide-react';
+import { X, Pin, Focus, PanelRightOpen, PanelRightClose, ArrowRight, FileText, ExternalLink } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import { getNode, getEdgeDetail } from '../api/graphApi';
 import type { NodeDetail, EdgeDetail } from '../types';
@@ -18,6 +18,7 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
   const { node, taxonomyPath, incoming, outgoing, evidence } = detail;
   const [activeTab, setActiveTab] = useState<'summary' | 'evidence' | 'incoming' | 'outgoing'>('summary');
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
+  const closeInspector = useSceneStore(s => s.closeInspector);
   const openBottom = useSceneStore(s => s.openBottom);
 
   return (
@@ -35,7 +36,18 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
             <button className="p-1 rounded hover:bg-panel-hover text-text-dim" title="Focus 1-hop">
               <Focus size={14} />
             </button>
-            <button className="p-1 rounded hover:bg-panel-hover text-text-dim" onClick={() => setSelectedNode(null)} title="Close">
+            <button
+              className="p-1 rounded hover:bg-panel-hover text-text-dim"
+              onClick={closeInspector}
+              title="Minimize"
+            >
+              <PanelRightClose size={14} />
+            </button>
+            <button
+              className="p-1 rounded hover:bg-panel-hover text-text-dim"
+              onClick={() => { setSelectedNode(null); closeInspector(); }}
+              title="Close"
+            >
               <X size={14} />
             </button>
           </div>
@@ -169,14 +181,20 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
 function EdgeInspector({ detail }: { detail: EdgeDetail }) {
   const { edge, source, target } = detail;
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
+  const closeInspector = useSceneStore(s => s.closeInspector);
 
   return (
     <div className="flex flex-col h-full p-4 space-y-4">
       <div className="flex items-start justify-between">
         <h2 className="text-sm font-semibold text-accent">{edge.type}</h2>
-        <button className="p-1 rounded hover:bg-panel-hover text-text-dim" onClick={() => {}} title="Close">
-          <X size={14} />
-        </button>
+        <div className="flex items-center gap-1">
+          <button className="p-1 rounded hover:bg-panel-hover text-text-dim" onClick={closeInspector} title="Minimize">
+            <PanelRightClose size={14} />
+          </button>
+          <button className="p-1 rounded hover:bg-panel-hover text-text-dim" onClick={() => {}} title="Close">
+            <X size={14} />
+          </button>
+        </div>
       </div>
       <div>
         <div className="text-xs uppercase tracking-wider text-text-dim mb-1">From</div>
@@ -216,7 +234,7 @@ export default function InspectorRail() {
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
   const selectedEdgeId = useSceneStore(s => s.selectedEdgeId);
   const inspectorOpen = useSceneStore(s => s.inspectorOpen);
-  const toggleInspector = useSceneStore(s => s.toggleInspector);
+  const openInspector = useSceneStore(s => s.openInspector);
 
   const [nodeDetail, setNodeDetail] = useState<NodeDetail | null>(null);
   const [edgeDetail, setEdgeDetail] = useState<EdgeDetail | null>(null);
@@ -237,23 +255,25 @@ export default function InspectorRail() {
     }
   }, [selectedEdgeId]);
 
-  if (!inspectorOpen && !selectedNodeId && !selectedEdgeId) {
+  // Collapsed state — thin expand button
+  if (!inspectorOpen) {
     return (
       <button
         className="w-8 bg-panel border-l border-border flex items-center justify-center hover:bg-panel-hover transition-colors shrink-0"
-        onClick={toggleInspector}
+        onClick={openInspector}
         title="Open inspector"
       >
-        <Maximize2 size={14} className="text-text-dim" />
+        <PanelRightOpen size={14} className="text-text-dim" />
       </button>
     );
   }
 
+  // Expanded state
   return (
     <div className="w-96 bg-panel border-l border-border flex flex-col shrink-0 overflow-hidden">
       {!selectedNodeId && !selectedEdgeId ? (
         <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
-          <div className="text-sm text-text-dim mb-2">Select a node or edge to see details.</div>
+          <div className="text-sm text-text-dim mb-2">Select a node to see details.</div>
           <div className="text-xs text-text-dim">Click empty space to clear.</div>
         </div>
       ) : selectedNodeId && nodeDetail ? (

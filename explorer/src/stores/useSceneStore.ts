@@ -30,6 +30,8 @@ interface SceneStore {
   inspectorOpen: boolean;
   toggleExplorer: () => void;
   toggleInspector: () => void;
+  openInspector: () => void;
+  closeInspector: () => void;
 
   // Bottom drawer
   bottomOpen: boolean;
@@ -79,6 +81,8 @@ export const useSceneStore = create<SceneStore>((set) => ({
   inspectorOpen: false,
   toggleExplorer: () => set(s => ({ explorerOpen: !s.explorerOpen })),
   toggleInspector: () => set(s => ({ inspectorOpen: !s.inspectorOpen })),
+  openInspector: () => set({ inspectorOpen: true }),
+  closeInspector: () => set({ inspectorOpen: false }),
 
   bottomOpen: false,
   bottomContent: null,
