@@ -603,6 +603,24 @@ python scripts/pipeline_cli.py run-kg-pipeline --skip-review
 
 This bypasses the Ollama review step and promotes all extracted relationships. Useful for testing the pipeline end-to-end, but not recommended for production truth.
 
+**Reset and re-run from scratch**
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline --reset --force-reset
+```
+
+This deletes all machine-derived artifacts from previous runs:
+- `002_Raw-Conversion-Layer/` — converted/refined markdown
+- `003_Canonical-Knowledge-Layer/shared/sources/` — canonical source pages
+- `003_Canonical-Knowledge-Layer/shared/relationships/` — promoted relationships
+- `005_Operational-Intelligence-Layer/graph/kg-v2/` — old snapshots
+- `006_System-Manifests/runs/` — run reports
+- `006_System-Manifests/registries/` — scan registries
+
+Then it runs the full pipeline fresh. This is how you test new extraction algorithms or review models against the same raw PDFs.
+
+⚠️ `--force-reset` is required because this is destructive. Original PDFs in `001/`, taxonomy files, and concepts are preserved.
+
 **Customize review settings**
 
 ```bash
