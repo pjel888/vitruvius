@@ -155,6 +155,156 @@ This is the one-shot operator path: scan, status, lint, convert, refine, canonic
 
 ---
 
+## Running the App
+
+This section tells you exactly how to run Vitruvius on your machines, with copy-paste commands for each.
+
+### Your Machines
+
+| Machine | Specs | Best For |
+|---------|-------|----------|
+| **Desktop** | Intel i9, 64GB RAM, RTX 4070 12GB | Full production runs, high-quality LLM review, parallelism |
+| **MacBook Pro** | Apple M2, 8GB unified RAM | Development, iteration, lightweight review, single-subject tests |
+
+> The bottleneck is always **Phase 3 — LLM Review**. Everything else (PDF conversion, canonicalization, snapshot building) runs on CPU and is merely slow. Review loads a multi-billion-parameter model into memory.
+
+### One-Command: Raw Data → Knowledge Graph
+
+After dropping PDFs into `001_Raw-Source-Layer/`, this single command runs the full pipeline:
+
+**Desktop (recommended — best quality):**
+
+```bash
+# Full corpus with high-quality review (gemma4:31b, 4 parallel workers)
+python scripts/pipeline_cli.py run-kg-pipeline --all \
+  --review-model-preset high-quality \
+  --review-parallel 4
+
+# Or with the default model (llama3.1:8b) — still excellent, faster
+python scripts/pipeline_cli.py run-kg-pipeline --all
+```
+
+**MacBook Pro M2 8GB:**
+
+```bash
+# Single subject with lightweight review (qwen2.5:3b, fits in 8GB)
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws --tier lightweight
+
+# Or skip AI review entirely for fast pipeline testing
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws --skip-review
+
+# Heavy tier with default model (llama3.1:8b, ~4.9GB — close all other apps first)
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws --tier heavy
+```
+
+### What Happens
+
+| Phase | Step | Time (Desktop) | Time (MacBook) |
+|-------|------|----------------|----------------|
+| 1 | Scan → Convert → Refine | 2–4 hrs | 8–12 hrs |
+| 2 | Canonicalize | minutes | minutes |
+| 3 | Extract → LLM Review | 2–4 hrs (31B, p=4) | 3–6 hrs (3B) or 4–8 hrs (8B) |
+| 4 | Promote → Build KG v2 snapshot | minutes | minutes |
+| | **Total** | **~4–8 hrs** | **~11–20 hrs** |
+
+> MacBook thermal-throttles during long conversion runs. Expect it to get hot and slow after the first hour. Close all other apps before running review.
+
+### Changing the AI Model for Better Results
+
+The `--review-model-preset` flag bundles model + timeout + parallelism. Pick one:
+
+| Preset | Model | Size | Min RAM | Quality | Best For |
+|--------|-------|------|---------|---------|----------|
+| `high-quality` | `gemma4:31b` | ~16–20GB | 24GB+ | **Highest** | Desktop production runs |
+| `default` | `llama3.1:8b` | ~4.9GB | 8GB | Very Good | Desktop or MacBook |
+| `8gb-safe` | `llama3.1:8b` | ~4.9GB | 8GB | Very Good | MacBook (longer timeout) |
+| `ultra-light` | `qwen2.5:3b` | ~1.9GB | 4GB | Okay | MacBook fast iteration |
+
+**Examples:**
+
+```bash
+# Desktop — absolute best quality (recommended for production truth)
+python scripts/pipeline_cli.py run-kg-pipeline --all \
+  --review-model-preset high-quality \
+  --review-parallel 4
+
+# Desktop — good quality, single worker (if doing other things)
+python scripts/pipeline_cli.py run-kg-pipeline --all \
+  --review-model-preset default
+
+# MacBook — safest option, guaranteed to fit in RAM
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws \
+  --review-model-preset ultra-light
+
+# MacBook — better quality, but close every other app first
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws \
+  --review-model-preset 8gb-safe
+```
+
+**Fine-grained control** (override any preset):
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline --all \
+  --review-model llama3.1:8b \
+  --review-timeout-seconds 900 \
+  --review-parallel 2
+```
+
+### Dry-Run First (Recommended)
+
+See what would happen without actually doing it:
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline --dry-run
+
+# Or dry-run with your chosen model preset
+python scripts/pipeline_cli.py run-kg-pipeline --dry-run \
+  --review-model-preset high-quality
+```
+
+### After the Run
+
+Your outputs will be in:
+
+| Artifact | Location |
+|----------|----------|
+| KG v2 snapshot | `005_Operational-Intelligence-Layer/graph/kg-v2/snapshot.json` |
+| Visualization | `004_Derived-Content-Layer/graph-visualizations/kg-v2.html` |
+| Canonical sources | `003_Canonical-Knowledge-Layer/shared/sources/` |
+| Canonical relationships | `003_Canonical-Knowledge-Layer/shared/relationships/` |
+| Run report | `006_System-Manifests/runs/kg_pipeline_report_*.json` |
+
+Open the visualization:
+
+```bash
+open 004_Derived-Content-Layer/graph-visualizations/kg-v2.html
+```
+
+### Quick Iteration Loop (Development)
+
+Use this on your MacBook when tuning extraction or testing pipeline changes:
+
+```bash
+# 1. Reset derived artifacts for a clean run
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws \
+  --reset --force-reset
+
+# 2. Run with lightweight review
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws \
+  --tier lightweight
+
+# 3. Inspect the snapshot
+python scripts/pipeline_cli.py kg-validate-assertions
+python scripts/pipeline_cli.py kg-detect-contradictions
+
+# 4. Re-visualize after fixes
+python scripts/pipeline_cli.py visualize-graph \
+  --snapshot 005_Operational-Intelligence-Layer/graph/kg-v2/snapshot.json \
+  --version v2
+```
+
+---
+
 ## Common Workflows
 
 This section walks through the day-to-day tasks an operator performs with Vitruvius. Each workflow is a sequence of commands with explanations of what happens at each step and what files are produced.
@@ -391,15 +541,26 @@ What happens:
 **Step 2 — Visualize**
 
 ```bash
+# Auto-detects snapshot version (v1 or v2) and renders appropriate viewer
 python scripts/pipeline_cli.py visualize-graph
+
+# Force v2 viewer for KG v2 snapshots
+python scripts/pipeline_cli.py visualize-graph \
+  --snapshot 005_Operational-Intelligence-Layer/graph/kg-v2/snapshot_repaired.json \
+  --version v2 \
+  --out 004_Derived-Content-Layer/graph-visualizations/kg-v2.html
 ```
 
 What happens:
-- Reads the latest snapshot
-- Generates an interactive HTML force-directed graph
-- Nodes are color-coded by type (source, concept, relationship)
-- Click a node to see its properties and connections
-- Output: `004_Derived-Content-Layer/graph-visualizations/graph.html`
+- Reads the latest snapshot (or the one you specify)
+- Auto-detects v1 (`nodes`/`edges`) vs v2 (`canonical_nodes`/`fast_edges`) format
+- Generates an interactive HTML force-directed graph with:
+  - **Node click panel**: Evidence spans, neighborhood subgraph, reasoning summary
+  - **Edge click panel**: Inference-type badge, reasoning text, evidence citations
+  - **Search bar**: Live node label search
+  - **Type colors**: taxonomy/topic/subtopic/concept/rule/definition/procedure/exception
+  - **Confidence sizing**: Node size proportional to assertion confidence
+- Output: `004_Derived-Content-Layer/graph-visualizations/graph.html` (or your custom path)
 
 **Step 3 — Query by node ID**
 
@@ -1012,7 +1173,7 @@ Use `--output-mode operator` for human-friendly framing around command output. T
 | `kg-canonicalize-candidates` | Deduplicate, normalize, place into taxonomy |
 | `kg-materialize-canonical` | Validate assertions and materialize fast edges |
 | `kg-build-unified` | Build unified v2 snapshot from canonical content |
-| `kg-validate-assertions` | Run `AssertionValidator` (R1–R14) on a snapshot |
+| `kg-validate-assertions` | Run `AssertionValidator` (R1–R15) on a snapshot |
 | `kg-detect-contradictions` | Run `ContradictionDetector` on relationship assertions |
 | `kg-query-nodes <query>` | Case-insensitive label search over canonical nodes |
 | `kg-query-neighborhood <node_id>` | Explore related nodes with assertion detail |
@@ -1096,10 +1257,15 @@ Vitruvius ships a **taxonomy-centered canonical knowledge graph** that separates
 - **Evidence layer** — `DocumentVersion → Section → Chunk → EvidenceSpan` with resolvable selectors (`PdfBboxSelector`, `MarkdownRangeSelector`, `TextRangeSelector`)
 - **Canonical layer** — `Taxonomy → Topic → Subtopic → Concept / Rule / Definition / Procedure / Exception`
 - **Assertion layer** — Reified `RelationshipAssertion`, `PlacementAssertion`, `MergeAssertion`
-- **Safety gates** — `ExtractionValidator` (E1–E9), `AssertionValidator` (R1–R14), `ContradictionDetector` (4 patterns)
+- **Safety gates** — `ExtractionValidator` (E1–E10), `AssertionValidator` (R1–R15), `ContradictionDetector` (4 patterns)
+  - E10: Evidence span existence validation (prevents phantom citations)
+  - R14/R15: Review-state and self-referential guards (prevents circular placements)
 - **Persistence** — File-native JSONL sidecars by default; optional Neo4j/PostgreSQL as Layer 5 indexes (AD-043)
+- **Visualization** — Dual-mode HTML viewer (v1/v2 auto-detect) with interactive evidence panels, inference-type badges, and confidence-proportional sizing
 
-**Status:** Implementation complete (2026-04-19). 232+ KG-specific tests passing. Independent verification audit passed.
+**Status:** Implementation complete (2026-04-19). 281+ KG-specific tests passing. Snapshot integrity validated (0 orphaned edges, 0 dangling placements, 0 missing source nodes).
+
+**Current snapshot:** `005_Operational-Intelligence-Layer/graph/kg-v2/snapshot_repaired.json` (178 canonical nodes, all references validated).
 
 **Authoritative artifacts:**
 - Post-implementation audit: `.ai/02_audits/2026-04-19_knowledge_graph_transition_post_implementation_audit.md`
@@ -1165,7 +1331,7 @@ python -m pytest scripts/tests/ \
   --ignore=scripts/tests/test_wiring_e2e.py
 ```
 
-**Current baseline:** 2048 passed, 17 skipped, 7 pre-existing unrelated failures.
+**Current baseline:** 2048+ passed, 17 skipped, 7 pre-existing unrelated failures. (KG v2 adds 281+ dedicated tests.)
 
 ---
 
