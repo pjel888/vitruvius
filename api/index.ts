@@ -44,6 +44,8 @@ function normalizeNode(node: any) {
     confidence: node.confidence != null ? Number(node.confidence) : undefined,
     aliases: node.aliases,
     taxonomy_path: node.taxonomy_path,
+    createdAt: node.created_at,
+    updatedAt: node.updated_at,
     radius: node.type === 'taxonomy' ? 12 : node.type === 'topic' ? 10 : node.type === 'subtopic' ? 9 : node.type === 'rule' ? 9 : 8,
   };
 }

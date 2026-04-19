@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
-import { ZoomIn, ZoomOut, Maximize, Shrink, Map, LayoutGrid, MousePointerClick, FolderTree } from 'lucide-react';
+import { ZoomIn, ZoomOut, Maximize, Shrink, Map, LayoutGrid, MousePointerClick, FolderTree, Calendar } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import { getNodesForPerspective, expandNode } from '../api/graphApi';
 import SigmaHost, { type GraphController } from './graph/SigmaHost';
@@ -7,7 +7,7 @@ import Minimap from './graph/Minimap';
 
 export default function GraphScene() {
   const controllerRef = useRef<GraphController>(null);
-  const [layout, setLayout] = useState<'forceatlas2' | 'circular' | 'random' | 'clustered'>('forceatlas2');
+  const [layout, setLayout] = useState<'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time'>('forceatlas2');
   const [showMinimap, setShowMinimap] = useState(false);
   const [multiSelect, setMultiSelect] = useState(false);
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number; nodeId: string } | null>(null);
@@ -49,7 +49,7 @@ export default function GraphScene() {
     controllerRef.current?.selectNode(selectedNodeId);
   }, [selectedNodeId]);
 
-  const switchLayout = useCallback((type: 'forceatlas2' | 'circular' | 'random' | 'clustered') => {
+  const switchLayout = useCallback((type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => {
     setLayout(type);
     controllerRef.current?.setLayout(type);
   }, []);
@@ -144,6 +144,9 @@ export default function GraphScene() {
           </button>
           <button onClick={() => switchLayout('clustered')} className={`p-1.5 rounded ${layout === 'clustered' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Clustered by Taxonomy">
             <FolderTree size={14} />
+          </button>
+          <button onClick={() => switchLayout('time')} className={`p-1.5 rounded ${layout === 'time' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Timeline by Creation Date">
+            <Calendar size={14} />
           </button>
         </div>
       </div>

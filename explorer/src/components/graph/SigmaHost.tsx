@@ -9,7 +9,7 @@ export interface GraphController {
   loadPerspective: (nodes: GraphNode[], edges: GraphEdge[]) => void;
   selectNode: (id: string | null) => void;
   expandNode: (id: string, neighbors: { nodes: GraphNode[]; edges: GraphEdge[] }) => void;
-  setLayout: (type: 'forceatlas2' | 'circular' | 'random' | 'clustered') => void;
+  setLayout: (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => void;
   zoomIn: () => void;
   zoomOut: () => void;
   fitView: () => void;
@@ -79,7 +79,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
   const controllerRef = useRef<GraphController | null>(null);
   const selectedNodeRef = useRef<string | null>(null);
   const hoveredNodeRef = useRef<string | null>(null);
-  const layoutTypeRef = useRef<'forceatlas2' | 'circular' | 'random' | 'clustered'>('forceatlas2');
+  const layoutTypeRef = useRef<'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time'>('forceatlas2');
   const visibleNodeTypesRef = useRef<Set<string>>(new Set());
   const visibleEdgeTypesRef = useRef<Set<string>>(new Set());
   const colorSchemeRef = useRef<string>('default');
@@ -285,6 +285,31 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
               g.setNodeAttribute(nodeId, 'y', cy + Math.sin(angle) * 120);
             });
           });
+        } else if (type === 'time') {
+          // Position nodes horizontally by createdAt date
+          const nodesWithDate: { id: string; date: number }[] = [];
+          g.forEachNode((nodeId) => {
+            const attrs = g.getNodeAttributes(nodeId);
+            const dateStr = attrs.createdAt as string | undefined;
+            if (dateStr) {
+              nodesWithDate.push({ id: nodeId, date: new Date(dateStr).getTime() });
+            }
+          });
+          if (nodesWithDate.length > 1) {
+            nodesWithDate.sort((a, b) => a.date - b.date);
+            const min = nodesWithDate[0].date;
+            const max = nodesWithDate[nodesWithDate.length - 1].date;
+            const range = Math.max(max - min, 1);
+            const groupMap = new Map<number, number>();
+            nodesWithDate.forEach(({ id, date }) => {
+              const x = ((date - min) / range) * 1200 - 600;
+              const day = Math.floor(date / 86400000);
+              const yOffset = (groupMap.get(day) || 0) * 35;
+              groupMap.set(day, (groupMap.get(day) || 0) + 1);
+              g.setNodeAttribute(id, 'x', x);
+              g.setNodeAttribute(id, 'y', yOffset - 150);
+            });
+          }
         }
         sigmaRef.current?.refresh();
       },

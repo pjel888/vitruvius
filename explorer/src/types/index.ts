@@ -9,6 +9,8 @@ export interface GraphNode {
   confidence?: number;
   aliases?: string[];
   taxonomy_path?: string[];
+  createdAt?: string;
+  updatedAt?: string;
   radius?: number;
 }
 
