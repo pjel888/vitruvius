@@ -78,7 +78,7 @@ def _strip_volatile_frontmatter(text: str) -> str:
     return cleaned_header + rest
 
 
-def should_overwrite(path: Path, new_body: str) -> WriteDecision:
+def should_overwrite(path: Path, new_body: str, force: bool = False) -> WriteDecision:
     if not path.exists():
         return WriteDecision(allowed=True, reason="new_file")
 
@@ -86,7 +86,7 @@ def should_overwrite(path: Path, new_body: str) -> WriteDecision:
 
     # Compare with volatile fields stripped so timestamp-only diffs don't
     # cause a rewrite (AD-012-equivalent pattern for the canonical layer).
-    if _strip_volatile_frontmatter(existing) == _strip_volatile_frontmatter(new_body):
+    if not force and _strip_volatile_frontmatter(existing) == _strip_volatile_frontmatter(new_body):
         return WriteDecision(allowed=False, reason="unchanged")
 
     fm = _parse_frontmatter(existing)

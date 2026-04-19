@@ -460,12 +460,14 @@ def run_extract_relationships_sections_one_inner(
     txt_output_path: Path | None = None,
     source_id_override: str | None = None,
     concept_paths: Iterable[Path] | None = None,
+    source_path: Path | None = None,
 ) -> int:
-    source_path = (
-        repo_root
-        / "002_Raw-Conversion-Layer"
-        / relative_markdown_path
-    )
+    if source_path is None:
+        source_path = (
+            repo_root
+            / "002_Raw-Conversion-Layer"
+            / relative_markdown_path
+        )
 
     if not source_path.exists():
         print(f"ERROR: Source not found: {source_path}")

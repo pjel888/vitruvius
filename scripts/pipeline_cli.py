@@ -163,6 +163,16 @@ def _source_matches_subjects(source_md: Path, subject_set: set[str], repo_root: 
             rel = found.relative_to(raw_root).as_posix()
             if any(rel.startswith(s + "/") for s in subject_set):
                 return True
+
+    # Fallback: check if a refined markdown with the same stem exists under
+    # any of the requested subjects in 002_Raw-Conversion-Layer.
+    conversion_root = repo_root / "002_Raw-Conversion-Layer"
+    if conversion_root.exists():
+        for subj in subject_set:
+            refined_dir = conversion_root / subj / "refined_markdown"
+            if refined_dir.exists():
+                for found in refined_dir.rglob(f"{source_md.stem}.md"):
+                    return True
     return False
 
 
@@ -180,8 +190,10 @@ def run_kg_pipeline(
     all_subjects: bool = False,
     subjects: list[str] | None = None,
     tier: str | None = None,
+    force: bool = False,
+    ensure_neo4j: bool = False,
 ) -> int:
-    """Unified orchestrator: raw sources → canonical layer → KG v2 snapshot.
+    """Unified orchestrator: raw sources -> canonical layer -> KG v2 snapshot.
 
     Phase 1: scan + convert + refine
     Phase 2: canonicalize refined sources
@@ -270,7 +282,7 @@ def run_kg_pipeline(
     # Phase 1 — Ingest & Convert
     # ------------------------------------------------------------------
     print("=" * 60)
-    print("Phase 1/4 — Scan, Convert, Refine")
+    print("Phase 1/5 — Scan, Convert, Refine")
     print("=" * 60)
 
     from vitruvius.conversion import run_convert, run_convert_one
@@ -284,20 +296,32 @@ def run_kg_pipeline(
                 report["error"] = "scan/status/lint failed"
                 return rc
 
-            status_report_path = (
-                repo_root / "006_System-Manifests" / "runs" / "latest_status_report.json"
-            )
-            if status_report_path.exists():
-                status_report = json.loads(status_report_path.read_text(encoding="utf-8"))
-                candidates = sorted(
-                    set(status_report.get("new_files", []))
-                    | set(status_report.get("changed_files", []))
-                )
+            if force:
+                # Developer mode: enumerate ALL raw PDFs under the requested subjects
+                raw_root = repo_root / "001_Raw-Source-Layer"
+                filtered: list[str] = []
+                for subj in subject_set:
+                    subj_dir = raw_root / subj
+                    if subj_dir.exists():
+                        for pdf_path in sorted(subj_dir.rglob("*.pdf")):
+                            rel = pdf_path.relative_to(raw_root).as_posix()
+                            filtered.append(rel)
+                print(f"Phase 1 scoped (force): {len(filtered)} PDF(s) found in subject filter")
             else:
-                candidates = []
+                status_report_path = (
+                    repo_root / "006_System-Manifests" / "runs" / "latest_status_report.json"
+                )
+                if status_report_path.exists():
+                    status_report = json.loads(status_report_path.read_text(encoding="utf-8"))
+                    candidates = sorted(
+                        set(status_report.get("new_files", []))
+                        | set(status_report.get("changed_files", []))
+                    )
+                else:
+                    candidates = []
 
-            filtered = [p for p in candidates if any(p.startswith(s + "/") for s in subject_set)]
-            print(f"Phase 1 scoped: {len(filtered)} file(s) match subject filter (out of {len(candidates)})")
+                filtered = [p for p in candidates if any(p.startswith(s + "/") for s in subject_set)]
+                print(f"Phase 1 scoped: {len(filtered)} file(s) match subject filter (out of {len(candidates)})")
 
             converted = 0
             refined = 0
@@ -310,9 +334,10 @@ def run_kg_pipeline(
                 # Derive expected refined path: 002/<subject>/.../raw_markdown/<basename>.md
                 # The conversion layer mirrors the raw layer structure.
                 raw_basename = Path(rel_path).stem
-                refined_candidates = list(
-                    (repo_root / "002_Raw-Conversion-Layer").rglob(f"{raw_basename}.md")
-                )
+                refined_candidates = [
+                    p for p in (repo_root / "002_Raw-Conversion-Layer").rglob(f"{raw_basename}.md")
+                    if "raw_markdown" in p.parts
+                ]
                 if refined_candidates:
                     rel_refined = refined_candidates[0].relative_to(
                         repo_root / "002_Raw-Conversion-Layer"
@@ -322,6 +347,21 @@ def run_kg_pipeline(
                         refined += 1
                 else:
                     print(f"  WARN: no refined markdown found for {rel_path}")
+
+            # In force mode, also refine any existing raw_markdown in the subject scope
+            # that may not have been touched above (e.g. from prior conversions).
+            if force:
+                conversion_root = repo_root / "002_Raw-Conversion-Layer"
+                if conversion_root.exists():
+                    for md_path in sorted(conversion_root.rglob("*.md")):
+                        if "raw_markdown" not in md_path.parts:
+                            continue
+                        rel = md_path.relative_to(conversion_root).as_posix()
+                        if any(rel.startswith(s + "/") for s in subject_set):
+                            rc = run_refine_one(relative_markdown_path=rel)
+                            if rc == 0:
+                                refined += 1
+
             print(f"Phase 1 complete: {converted} converted, {refined} refined")
         else:
             # Full run: use batch convert + refine
@@ -339,9 +379,9 @@ def run_kg_pipeline(
                 return rc
     else:
         if subject_set:
-            print(f"[DRY-RUN] Would scan → filter to {sorted(subject_set)} → convert-one → refine-one")
+            print(f"[DRY-RUN] Would scan -> filter to {sorted(subject_set)} -> convert-one -> refine-one")
         else:
-            print("[DRY-RUN] Would run: scan → convert → refine")
+            print("[DRY-RUN] Would run: scan -> convert -> refine")
 
     report["phases"].append({"phase": 1, "name": "ingest_convert", "status": "ok"})
 
@@ -349,7 +389,7 @@ def run_kg_pipeline(
     # Phase 2 — Canonicalize
     # ------------------------------------------------------------------
     print("\n" + "=" * 60)
-    print("Phase 2/4 — Canonicalize refined sources")
+    print("Phase 2/5 — Canonicalize refined sources")
     print("=" * 60)
 
     from vitruvius.canonicalize import run_canonicalize, run_canonicalize_one
@@ -359,6 +399,7 @@ def run_kg_pipeline(
             conversion_root = repo_root / "002_Raw-Conversion-Layer"
             if conversion_root.exists():
                 all_md = sorted(conversion_root.rglob("*.md"))
+                all_md = [p for p in all_md if "refined_markdown" in p.parts]
                 filtered_md = [
                     p for p in all_md
                     if any(
@@ -370,7 +411,7 @@ def run_kg_pipeline(
                 canonicalized = 0
                 for md_path in filtered_md:
                     rel = md_path.relative_to(conversion_root).as_posix()
-                    rc = run_canonicalize_one(relative_markdown_path=rel)
+                    rc = run_canonicalize_one(relative_markdown_path=rel, force=force)
                     if rc == 0:
                         canonicalized += 1
                 print(f"Phase 2 complete: {canonicalized} canonicalized")
@@ -393,7 +434,7 @@ def run_kg_pipeline(
     # Phase 3 — Extract, Review & Promote
     # ------------------------------------------------------------------
     print("\n" + "=" * 60)
-    print("Phase 3/4 — Extract, Review & Promote relationships")
+    print("Phase 3/5 — Extract, Review & Promote relationships")
     print("=" * 60)
 
     from vitruvius.ollama_review import run_review_relationships_ollama
@@ -423,23 +464,6 @@ def run_kg_pipeline(
 
     for source_md in canonical_sources:
         source_id = source_md.stem
-        # Determine the input path for relationship extraction.
-        # Prefer refined markdown in 002/; fall back to canonical source in 003/.
-        refined_candidates = list(
-            (repo_root / "002_Raw-Conversion-Layer").rglob(f"{source_md.name}")
-        )
-        if not refined_candidates:
-            refined_candidates = list(
-                (repo_root / "002_Raw-Conversion-Layer").rglob(f"{source_md.stem}.md")
-            )
-        if refined_candidates:
-            input_path = refined_candidates[0]
-            rel_input = input_path.relative_to(repo_root / "002_Raw-Conversion-Layer").as_posix()
-        else:
-            # Fallback: use canonical source directly
-            input_path = source_md
-            rel_input = input_path.relative_to(repo_root).as_posix()
-            print(f"  NOTE {source_id}: using canonical source (no refined markdown)")
         source_run_dir = phase3_runs_dir / source_id
         source_run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -450,19 +474,48 @@ def run_kg_pipeline(
         triage_json = source_run_dir / "triage.json"
         high_conf_json = source_run_dir / "high_conf.json"
 
+        # Determine the input path for relationship extraction.
+        # Prefer refined markdown in 002/; fall back to canonical source in 003/.
+        refined_candidates = [
+            p for p in (repo_root / "002_Raw-Conversion-Layer").rglob(f"{source_md.name}")
+            if "refined_markdown" in p.parts
+        ]
+        if not refined_candidates:
+            refined_candidates = [
+                p for p in (repo_root / "002_Raw-Conversion-Layer").rglob(f"{source_md.stem}.md")
+                if "refined_markdown" in p.parts
+            ]
+        if refined_candidates:
+            input_path = refined_candidates[0]
+            rel_input = input_path.relative_to(repo_root / "002_Raw-Conversion-Layer").as_posix()
+            extract_kwargs: dict[str, object] = {
+                "repo_root": repo_root,
+                "relative_markdown_path": rel_input,
+                "json_output_path": extract_json,
+                "txt_output_path": extract_txt,
+                "source_id_override": source_id,
+            }
+        else:
+            # Fallback: use canonical source directly
+            input_path = source_md
+            rel_input = input_path.relative_to(repo_root).as_posix()
+            print(f"  NOTE {source_id}: using canonical source (no refined markdown)")
+            extract_kwargs = {
+                "repo_root": repo_root,
+                "relative_markdown_path": rel_input,
+                "json_output_path": extract_json,
+                "txt_output_path": extract_txt,
+                "source_id_override": source_id,
+                "source_path": input_path,
+            }
+
         if dry_run:
-            print(f"  [DRY-RUN] {source_id}: extract → review → promote")
+            print(f"  [DRY-RUN] {source_id}: extract -> review -> promote")
             extracted_count += 1
             continue
 
         # Extract
-        rc = run_extract_relationships_sections_one_inner(
-            repo_root=repo_root,
-            relative_markdown_path=rel_input,
-            json_output_path=extract_json,
-            txt_output_path=extract_txt,
-            source_id_override=source_id,
-        )
+        rc = run_extract_relationships_sections_one_inner(**extract_kwargs)
         if rc != 0:
             print(f"  WARN {source_id}: extraction failed (rc={rc})")
             skipped_count += 1
@@ -523,11 +576,12 @@ def run_kg_pipeline(
     # Phase 4 — Build KG v2 Snapshot
     # ------------------------------------------------------------------
     print("\n" + "=" * 60)
-    print("Phase 4/4 — Build unified KG v2 snapshot")
+    print("Phase 4/5 — Build unified KG v2 snapshot")
     print("=" * 60)
 
     from vitruvius.kg.unified_snapshot_builder import UnifiedSnapshotBuilder
 
+    snapshot = None
     if dry_run:
         print("[DRY-RUN] Would run: UnifiedSnapshotBuilder.build()")
         report["phases"].append({"phase": 4, "name": "build_snapshot", "status": "dry_run"})
@@ -556,6 +610,149 @@ def run_kg_pipeline(
                 "warnings": builder._warnings,
             }
         )
+
+    # ------------------------------------------------------------------
+    # Phase 5 — Load into Neo4j
+    # ------------------------------------------------------------------
+    print("\n" + "=" * 60)
+    print("Phase 5/5 — Load into Neo4j")
+    print("=" * 60)
+
+    from vitruvius.config import (
+        is_kg_neo4j_backend,
+        get_kg_neo4j_uri,
+        get_kg_neo4j_user,
+        get_kg_neo4j_password,
+    )
+
+    if dry_run:
+        print("[DRY-RUN] Would load snapshot into Neo4j if kg_transition.neo4j_backend=true")
+        report["phases"].append({"phase": 5, "name": "neo4j_load", "status": "dry_run"})
+    elif not is_kg_neo4j_backend():
+        print("Neo4j backend disabled (kg_transition.neo4j_backend=false). Skipping.")
+        print("To enable: set neo4j_backend: true in config/vitruvius.yaml")
+        report["phases"].append(
+            {
+                "phase": 5,
+                "name": "neo4j_load",
+                "status": "skipped",
+                "reason": "kg_transition.neo4j_backend=false",
+            }
+        )
+    elif snapshot is None:
+        print("No snapshot built. Skipping Neo4j load.")
+        report["phases"].append(
+            {
+                "phase": 5,
+                "name": "neo4j_load",
+                "status": "skipped",
+                "reason": "no_snapshot",
+            }
+        )
+    else:
+        from vitruvius.kg.neo4j_loader import Neo4jLoader
+        from vitruvius.kg.neo4j_client import Neo4jClient
+
+        neo4j_uri = get_kg_neo4j_uri()
+        neo4j_user = get_kg_neo4j_user()
+        neo4j_password = get_kg_neo4j_password()
+
+        print(f"Connecting to Neo4j at {neo4j_uri} ...")
+        neo4j = Neo4jClient(
+            uri=neo4j_uri,
+            user=neo4j_user,
+            password=neo4j_password,
+        )
+
+        if not neo4j.verify_connectivity():
+            if ensure_neo4j:
+                print("Neo4j is not reachable. Auto-starting (--ensure-neo4j) ...")
+                from vitruvius.kg.neo4j_manager import ensure_neo4j_running
+                try:
+                    ready = ensure_neo4j_running(wait_seconds=90)
+                except Exception as exc:
+                    print(f"ERROR: Failed to auto-start Neo4j: {exc}")
+                    ready = False
+                if not ready:
+                    report["phases"].append(
+                        {
+                            "phase": 5,
+                            "name": "neo4j_load",
+                            "status": "error",
+                            "reason": "neo4j_auto_start_failed",
+                        }
+                    )
+                    neo4j.close()
+                    report_path = runs_dir / f"kg_pipeline_report_{run_id}.json"
+                    report_path.write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")
+                    print(f"\nPipeline report: {report_path.relative_to(repo_root)}")
+                    print(json.dumps(report, indent=2, default=str))
+                    return 1
+                # Re-create client after auto-start
+                neo4j.close()
+                neo4j = Neo4jClient(
+                    uri=neo4j_uri,
+                    user=neo4j_user,
+                    password=neo4j_password,
+                )
+            else:
+                print("ERROR: Neo4j is not reachable.")
+                print("  Start it manually, or re-run with --ensure-neo4j to auto-start:")
+                print("    python scripts/pipeline_cli.py run-kg-pipeline ... --ensure-neo4j")
+                report["phases"].append(
+                    {
+                        "phase": 5,
+                        "name": "neo4j_load",
+                        "status": "error",
+                        "reason": "neo4j_unreachable",
+                    }
+                )
+                neo4j.close()
+                report_path = runs_dir / f"kg_pipeline_report_{run_id}.json"
+                report_path.write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")
+                print(f"\nPipeline report: {report_path.relative_to(repo_root)}")
+                print(json.dumps(report, indent=2, default=str))
+                return 1
+
+        loader = Neo4jLoader(snapshot)
+        neo4j.init_schema()
+        result = loader.load(client=neo4j)
+        executed = result.get("executed", False)
+        statement_count = result.get("statement_count", 0)
+        errors = result.get("errors", [])
+
+        if executed:
+            print(f"Loaded {statement_count} Cypher statements into Neo4j.")
+        else:
+            print(f"Neo4j load returned without execution. Statements: {statement_count}")
+
+        if errors:
+            print(f"Errors ({len(errors)}):")
+            for err in errors[:5]:
+                print(f"  - {err}")
+
+        # Print browser URL
+        browser_url = neo4j_uri.replace("bolt://", "http://").replace("neo4j://", "http://")
+        if ":" in browser_url:
+            host = browser_url.rsplit(":", 1)[0]
+            browser_url = f"{host}:7474"
+        else:
+            browser_url = f"{browser_url}:7474"
+        print(f"\nNeo4j Browser: {browser_url}")
+        print(f"  User: {neo4j_user}")
+        print(f"  Password: {'*' * len(neo4j_password)}")
+
+        report["phases"].append(
+            {
+                "phase": 5,
+                "name": "neo4j_load",
+                "status": "ok" if executed and not errors else "partial",
+                "statements": statement_count,
+                "errors": len(errors),
+            }
+        )
+
+        neo4j.close()
 
     # ------------------------------------------------------------------
     # Report
@@ -715,8 +912,8 @@ def build_parser() -> argparse.ArgumentParser:
     kg_pipeline_parser.add_argument("--tier", default=None,
                                     choices=["lightweight", "heavy"],
                                     help=(
-                                        "High-level model tier. lightweight → qwen2.5:3b review + nomic-embed-text embeddings. "
-                                        "heavy → llama3.1:8b (or gemma4:31b with high-quality preset). "
+                                        "High-level model tier. lightweight -> qwen2.5:3b review + nomic-embed-text embeddings. "
+                                        "heavy -> llama3.1:8b (or gemma4:31b with high-quality preset). "
                                         "Maps to an appropriate --review-model-preset unless one is explicitly provided."
                                     ))
     kg_pipeline_parser.add_argument("--review-timeout-seconds", type=int, default=None,
@@ -736,6 +933,16 @@ def build_parser() -> argparse.ArgumentParser:
                                         "Restrict to a specific subject folder under 001_Raw-Source-Layer/ "
                                         "(e.g. 001-Laws). Repeatable for multiple subjects."
                                     ))
+    kg_pipeline_parser.add_argument("--force", action="store_true",
+                                    help="Force reprocessing of all files in scope, bypassing incremental guards (new/changed filters and canonical diff).")
+    kg_pipeline_parser.add_argument("--ensure-neo4j", action="store_true",
+                                    help="Automatically download and start Neo4j if it is not running before Phase 5.")
+
+    neo4j_start_parser = add_command_parser(subparsers, "neo4j-start")
+    neo4j_start_parser.add_argument("--wait-seconds", type=int, default=90,
+                                    help="Seconds to wait for Neo4j to become ready")
+
+    neo4j_stop_parser = add_command_parser(subparsers, "neo4j-stop")
 
     dataset_graph_parser = add_command_parser(subparsers, "run-dataset-graph")
     dataset_graph_parser.add_argument("--dataset-manifest", required=True,
@@ -1696,8 +1903,24 @@ def main() -> int:
                 all_subjects=args.all,
                 subjects=args.subject,
                 tier=args.tier,
+                force=args.force,
+                ensure_neo4j=args.ensure_neo4j,
             ),
         )
+
+    if args.command == "neo4j-start":
+        from vitruvius.kg.neo4j_manager import ensure_neo4j_running
+        def _run_neo4j_start():
+            ok = ensure_neo4j_running(wait_seconds=args.wait_seconds)
+            return 0 if ok else 1
+        return _run("neo4j-start", _run_neo4j_start)
+
+    if args.command == "neo4j-stop":
+        from vitruvius.kg.neo4j_manager import stop_neo4j
+        def _run_neo4j_stop():
+            stop_neo4j()
+            return 0
+        return _run("neo4j-stop", _run_neo4j_stop)
 
     if args.command == "run-dataset-graph":
         from vitruvius.dataset_pipeline import (
@@ -3219,7 +3442,7 @@ def main() -> int:
             return 1
 
         snap.write(Path(snap_path))
-        print(f"Updated {args.assertion_id} → {args.action}")
+        print(f"Updated {args.assertion_id} -> {args.action}")
         return 0
 
     if args.command == "kg-inspect-node":
@@ -3259,13 +3482,13 @@ def main() -> int:
         if placements:
             print(f"\n  Placements ({len(placements)}):")
             for p in placements:
-                print(f"    → {p.parent_node_id} ({p.validation_status.value}, conf={p.confidence})")
+                print(f"    -> {p.parent_node_id} ({p.validation_status.value}, conf={p.confidence})")
 
         neighbors = engine.get_node_neighborhood(node.id)
         if neighbors:
             print(f"\n  Related nodes ({len(neighbors)}):")
             for other, assertion in neighbors:
-                print(f"    → {other.id} [{assertion.edge_type.value if hasattr(assertion, 'edge_type') else 'BELONGS_TO'}] {assertion.reasoning_summary[:60]}")
+                print(f"    -> {other.id} [{assertion.edge_type.value if hasattr(assertion, 'edge_type') else 'BELONGS_TO'}] {assertion.reasoning_summary[:60]}")
 
         evidence = engine.get_evidence_for_node(node.id)
         if evidence:
@@ -3287,7 +3510,7 @@ def main() -> int:
         if merges:
             print(f"\n  Merge proposals ({len(merges)}):")
             for m in merges:
-                direction = "→" if m.from_node_id == node.id else "←"
+                direction = "->" if m.from_node_id == node.id else "<-"
                 other = m.to_node_id if m.from_node_id == node.id else m.from_node_id
                 print(f"    {direction} {other} ({m.validation_status.value})")
         return 0
@@ -3325,7 +3548,7 @@ def main() -> int:
             print(f"  Edge type: {assertion.edge_type.value}")
         if hasattr(assertion, "inference_type"):
             print(f"  Inference type: {assertion.inference_type.value}")
-            print(f"    → {'Direct citation' if assertion.inference_type.value == 'direct_citation' else 'Multi-hop inference' if assertion.inference_type.value == 'multi_hop_inference' else 'Human authored' if assertion.inference_type.value == 'human_authored' else assertion.inference_type.value}")
+            print(f"    -> {'Direct citation' if assertion.inference_type.value == 'direct_citation' else 'Multi-hop inference' if assertion.inference_type.value == 'multi_hop_inference' else 'Human authored' if assertion.inference_type.value == 'human_authored' else assertion.inference_type.value}")
         if hasattr(assertion, "from_node_id"):
             print(f"  From: {assertion.from_node_id}")
         if hasattr(assertion, "to_node_id"):
@@ -3424,7 +3647,7 @@ def main() -> int:
 
         print(f"Neighborhood of {args.node_id}:")
         for node, assertion in neighbors:
-            print(f"  → {node.id} [{node.type.value}] {node.label}")
+            print(f"  -> {node.id} [{node.type.value}] {node.label}")
             print(f"    Assertion: {assertion.id} ({assertion.edge_type.value})")
             print(f"    Reason: {assertion.reasoning_summary[:120]}...")
         return 0

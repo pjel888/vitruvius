@@ -630,7 +630,7 @@ def build_structured_source_file(
     return target_file, "\n".join(lines)
 
 
-def run_canonicalize_one(*, relative_markdown_path: str) -> int:
+def run_canonicalize_one(*, relative_markdown_path: str, force: bool = False) -> int:
     from .canonical_diff import should_overwrite
 
     repo_root = get_repo_root()
@@ -643,7 +643,7 @@ def run_canonicalize_one(*, relative_markdown_path: str) -> int:
         print(f"ERROR: {exc}")
         return 1
 
-    decision = should_overwrite(target_file, content)
+    decision = should_overwrite(target_file, content, force=force)
     if not decision.allowed:
         print(f"SKIP ({decision.reason}): {target_file}")
         return 0
