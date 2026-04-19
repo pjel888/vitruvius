@@ -6,6 +6,9 @@ export interface GraphController {
   loadPerspective: (nodes: GraphNode[], edges: GraphEdge[]) => void;
   selectNode: (id: string | null) => void;
   fitView: () => void;
+  zoomIn: () => void;
+  zoomOut: () => void;
+  setLayout: (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => void;
 }
 
 const NODE_COLORS: Record<string, string> = {
@@ -24,6 +27,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const networkRef = useRef<Network | null>(null);
   const nodesRef = useRef<DataSet<any> | null>(null);
   const edgesRef = useRef<DataSet<any> | null>(null);
+  const rawNodesRef = useRef<GraphNode[]>([]);
+  const scaleRef = useRef(1);
 
   useImperativeHandle(ref, () => ({
     loadPerspective(nodes, edges) {
@@ -33,6 +38,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       const nodeMap = new Map<string, GraphNode>();
       nodes.forEach(n => { if (!nodeMap.has(n.id)) nodeMap.set(n.id, n); });
       const uniqueNodes = Array.from(nodeMap.values());
+      rawNodesRef.current = uniqueNodes;
 
       const visNodes = uniqueNodes.map((n) => ({
         id: n.id,
@@ -107,6 +113,11 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
             },
           }
         );
+
+        // Track scale for zoom buttons
+        networkRef.current.on('zoom', (params: any) => {
+          if (params.scale) scaleRef.current = params.scale;
+        });
       }
     },
 
@@ -120,6 +131,96 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
     fitView() {
       networkRef.current?.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
+    },
+
+    zoomIn() {
+      if (!networkRef.current) return;
+      scaleRef.current *= 1.5;
+      networkRef.current.moveTo({ scale: scaleRef.current, animation: { duration: 200, easingFunction: 'easeInOutQuad' } });
+    },
+
+    zoomOut() {
+      if (!networkRef.current) return;
+      scaleRef.current /= 1.5;
+      networkRef.current.moveTo({ scale: scaleRef.current, animation: { duration: 200, easingFunction: 'easeInOutQuad' } });
+    },
+
+    setLayout(type) {
+      if (!networkRef.current || !nodesRef.current) return;
+      const net = networkRef.current;
+      const ds = nodesRef.current;
+      const nodes = rawNodesRef.current;
+
+      if (type === 'forceatlas2') {
+        net.setOptions({ physics: { enabled: true } });
+        return;
+      }
+
+      // For non-physics layouts, disable physics first
+      net.setOptions({ physics: { enabled: false } });
+
+      const updates: any[] = [];
+
+      if (type === 'circular') {
+        nodes.forEach((n, i) => {
+          const angle = (i / Math.max(nodes.length, 1)) * Math.PI * 2;
+          updates.push({ id: n.id, x: Math.cos(angle) * 300, y: Math.sin(angle) * 300 });
+        });
+      } else if (type === 'random') {
+        nodes.forEach((n) => {
+          updates.push({ id: n.id, x: (Math.random() - 0.5) * 800, y: (Math.random() - 0.5) * 800 });
+        });
+      } else if (type === 'clustered') {
+        const groups = new Map<string, GraphNode[]>();
+        nodes.forEach((n) => {
+          const root = n.taxonomy_path?.[0] || 'uncategorized';
+          if (!groups.has(root)) groups.set(root, []);
+          groups.get(root)!.push(n);
+        });
+        const groupKeys = [...groups.keys()];
+        const groupRadius = 400;
+        groupKeys.forEach((groupKey, gi) => {
+          const members = groups.get(groupKey)!;
+          const cx = Math.cos((gi / Math.max(groupKeys.length, 1)) * Math.PI * 2) * groupRadius;
+          const cy = Math.sin((gi / Math.max(groupKeys.length, 1)) * Math.PI * 2) * groupRadius;
+          members.forEach((n, mi) => {
+            const angle = (mi / Math.max(members.length, 1)) * Math.PI * 2;
+            updates.push({ id: n.id, x: cx + Math.cos(angle) * 140, y: cy + Math.sin(angle) * 140 });
+          });
+        });
+      } else if (type === 'time') {
+        const nodesWithDate: { id: string; date: number }[] = [];
+        nodes.forEach((n) => {
+          if (n.createdAt) nodesWithDate.push({ id: n.id, date: new Date(n.createdAt).getTime() });
+        });
+        if (nodesWithDate.length > 1) {
+          nodesWithDate.sort((a, b) => a.date - b.date);
+          const min = nodesWithDate[0].date;
+          const max = nodesWithDate[nodesWithDate.length - 1].date;
+          const range = Math.max(max - min, 1);
+          const dayMap = new Map<number, number>();
+          nodesWithDate.forEach(({ id, date }) => {
+            const x = ((date - min) / range) * 1400 - 700;
+            const day = Math.floor(date / 86400000);
+            const yOffset = (dayMap.get(day) || 0) * 40;
+            dayMap.set(day, (dayMap.get(day) || 0) + 1);
+            updates.push({ id, x, y: yOffset - 200 });
+          });
+        }
+        // Nodes without dates: place them below
+        let noDateY = 0;
+        nodes.forEach((n) => {
+          if (!n.createdAt) {
+            updates.push({ id: n.id, x: 0, y: noDateY });
+            noDateY += 40;
+          }
+        });
+      }
+
+      if (updates.length > 0) {
+        ds.update(updates);
+        net.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
+      }
     },
   }));
 

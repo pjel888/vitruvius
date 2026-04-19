@@ -1,11 +1,12 @@
-import { useRef, useEffect } from 'react';
-import { Maximize } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
+import { ZoomIn, ZoomOut, Maximize, Shrink, Map, LayoutGrid, FolderTree, Calendar } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import { getNodesForPerspective } from '../api/graphApi';
 import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
 
 export default function GraphScene() {
   const controllerRef = useRef<GraphController>(null);
+  const [layout, setLayout] = useState<'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time'>('forceatlas2');
 
   const perspectiveId = useSceneStore(s => s.perspectiveId);
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
@@ -39,6 +40,11 @@ export default function GraphScene() {
     controllerRef.current?.selectNode(selectedNodeId);
   }, [selectedNodeId]);
 
+  const switchLayout = (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => {
+    setLayout(type);
+    controllerRef.current?.setLayout(type);
+  };
+
   return (
     <div className="flex-1 relative bg-bg overflow-hidden">
       <VisNetworkHost ref={controllerRef} />
@@ -55,13 +61,36 @@ export default function GraphScene() {
 
       {/* Zoom controls */}
       <div className="absolute bottom-4 left-4 flex flex-col gap-1 z-20">
-        <button
-          onClick={() => controllerRef.current?.fitView()}
-          className="p-2 bg-panel border border-border rounded-md hover:border-accent text-text-dim hover:text-text transition-colors"
-          title="Fit to view"
-        >
+        <button onClick={() => controllerRef.current?.zoomIn()} className="p-2 bg-panel border border-border rounded-md hover:border-accent text-text-dim hover:text-text transition-colors" title="Zoom in">
+          <ZoomIn size={16} />
+        </button>
+        <button onClick={() => controllerRef.current?.zoomOut()} className="p-2 bg-panel border border-border rounded-md hover:border-accent text-text-dim hover:text-text transition-colors" title="Zoom out">
+          <ZoomOut size={16} />
+        </button>
+        <button onClick={() => controllerRef.current?.fitView()} className="p-2 bg-panel border border-border rounded-md hover:border-accent text-text-dim hover:text-text transition-colors" title="Fit to view">
           <Maximize size={16} />
         </button>
+      </div>
+
+      {/* Layout switcher */}
+      <div className="absolute top-4 left-4 z-20">
+        <div className="flex items-center gap-1 bg-panel border border-border rounded-md p-1">
+          <button onClick={() => switchLayout('forceatlas2')} className={`p-1.5 rounded ${layout === 'forceatlas2' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="ForceAtlas2">
+            <LayoutGrid size={14} />
+          </button>
+          <button onClick={() => switchLayout('circular')} className={`p-1.5 rounded ${layout === 'circular' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Circular">
+            <Shrink size={14} />
+          </button>
+          <button onClick={() => switchLayout('random')} className={`p-1.5 rounded ${layout === 'random' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Random">
+            <Map size={14} />
+          </button>
+          <button onClick={() => switchLayout('clustered')} className={`p-1.5 rounded ${layout === 'clustered' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Clustered by Taxonomy">
+            <FolderTree size={14} />
+          </button>
+          <button onClick={() => switchLayout('time')} className={`p-1.5 rounded ${layout === 'time' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Timeline by Creation Date">
+            <Calendar size={14} />
+          </button>
+        </div>
       </div>
     </div>
   );
