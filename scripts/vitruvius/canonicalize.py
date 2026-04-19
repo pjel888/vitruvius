@@ -102,11 +102,49 @@ def find_rule(rules: dict, path: str):
 # NORMALIZATION
 # --------------------------------------------------
 
+def _clean_filename_stem(stem: str) -> str:
+    """Turn '413839175-Taguig-CLUP-pdf' into 'Taguig CLUP'."""
+    # Strip leading numeric tokens and common suffixes
+    cleaned = re.sub(r"^\d+[-_]", "", stem)
+    cleaned = re.sub(r"[-_](pdf|md|docx?|txt)$", "", cleaned, flags=re.IGNORECASE)
+    # Replace remaining hyphens/underscores with spaces
+    cleaned = cleaned.replace("-", " ").replace("_", " ")
+    # Title-case each word
+    return cleaned.title()
+
+
+def extract_title_from_content(text: str, fallback: str) -> str:
+    """Extract the document title from the first meaningful heading.
+
+    Prefers H1, falls back to H2, then H3.  If no heading is found,
+    returns the cleaned-up *fallback* stem.
+    """
+    # Look for ATX headings in the first 150 lines
+    lines = text.splitlines()[:150]
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+        # H1: # Title
+        m = re.match(r"^#\s+(.+)$", line)
+        if m:
+            return m.group(1).strip()
+        # H2: ## Title
+        m = re.match(r"^##\s+(.+)$", line)
+        if m:
+            return m.group(1).strip()
+        # H3: ### Title
+        m = re.match(r"^###\s+(.+)$", line)
+        if m:
+            return m.group(1).strip()
+    return _clean_filename_stem(fallback)
+
+
 def normalize_title(path: str, rule: dict | None) -> str:
     if rule and "canonical" in rule and "title" in rule["canonical"]:
         return rule["canonical"]["title"]
 
-    return Path(path).stem
+    return _clean_filename_stem(Path(path).stem)
 
 
 def map_source_type_to_prefix(source_type: str) -> str:
@@ -562,6 +600,10 @@ def build_structured_source_file(
 
     refined_text = source_path.read_text(encoding="utf-8")
     plan = build_plan(relative_markdown_path)
+
+    # Override the filename-derived title with an actual heading from the
+    # document content whenever possible.
+    plan["title"] = extract_title_from_content(refined_text, plan["title"])
 
     headers = extract_section_headers(refined_text)
     structural_headers = [h for h in headers if _is_structural_heading(h["title"])]
