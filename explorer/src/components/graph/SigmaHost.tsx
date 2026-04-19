@@ -43,6 +43,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
   const graphRef = useRef<Graph | null>(null);
   const controllerRef = useRef<GraphController | null>(null);
   const selectedNodeRef = useRef<string | null>(null);
+  const hoveredNodeRef = useRef<string | null>(null);
   const layoutTypeRef = useRef<'forceatlas2' | 'circular' | 'random'>('forceatlas2');
 
   useImperativeHandle(ref, () => controllerRef.current!);
@@ -65,9 +66,9 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
 
     const sigma = new Sigma(graph, containerRef.current, {
       defaultEdgeType: 'arrow',
-      labelDensity: 0.07,
-      labelGridCellSize: 60,
-      labelRenderedSizeThreshold: 6,
+      labelDensity: 1,
+      labelGridCellSize: 40,
+      labelRenderedSizeThreshold: 1,
       labelFont: 'system-ui, sans-serif',
       labelColor: { color: '#e2e8f0' },
       zIndex: true,
@@ -77,6 +78,16 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
     sigmaRef.current = sigma;
 
     console.log('[SigmaHost] Sigma created, canvas count:', sigma.getCanvases ? Object.keys(sigma.getCanvases()).length : 'N/A');
+
+    // Hover state
+    sigma.on('enterNode', (e) => {
+      hoveredNodeRef.current = e.node;
+      sigma.refresh({ skipIndexation: true });
+    });
+    sigma.on('leaveNode', () => {
+      hoveredNodeRef.current = null;
+      sigma.refresh({ skipIndexation: true });
+    });
 
     // Register click events
     sigma.on('clickNode', (e) => {
@@ -90,6 +101,27 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
     sigma.on('clickEdge', (e) => {
       const edge = graph.getEdgeAttributes(e.edge);
       console.log('Edge clicked:', edge);
+    });
+
+    // Node reducer: dim non-hovered nodes, highlight hovered
+    sigma.setSetting('nodeReducer', (node, data) => {
+      const hovered = hoveredNodeRef.current;
+      if (!hovered) return data;
+      if (node === hovered) return { ...data, zIndex: 1 };
+      const isNeighbor = graph.hasEdge(hovered, node) || graph.hasEdge(node, hovered);
+      if (isNeighbor) return data;
+      return { ...data, color: '#334155', zIndex: 0 };
+    });
+
+    // Edge reducer: highlight edges connected to hovered node
+    sigma.setSetting('edgeReducer', (edge, data) => {
+      const hovered = hoveredNodeRef.current;
+      if (!hovered) return data;
+      const ext = graph.extremities(edge);
+      if (ext[0] === hovered || ext[1] === hovered) {
+        return { ...data, color: '#e2e8f0', size: 3, zIndex: 1 };
+      }
+      return { ...data, color: '#1e293b', hidden: true };
     });
 
     // Expose controller API
@@ -121,7 +153,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
           if (!g.hasNode(e.source) || !g.hasNode(e.target)) return;
           const edgeId = e.id || `${e.source}-${e.type}-${e.target}`;
           g.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
-            size: 1.5,
+            size: 2.5,
             color: EDGE_COLORS[e.type] || '#6b7280',
             edgeType: e.type,
           });
@@ -162,7 +194,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
           const edgeId = e.id || `${e.source}-${e.type}-${e.target}`;
           if (!g.hasEdge(edgeId)) {
             g.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
-              size: 1.5,
+              size: 2.5,
               color: EDGE_COLORS[e.type] || '#6b7280',
               edgeType: e.type,
             });
@@ -185,7 +217,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
           });
         } else if (type === 'forceatlas2') {
           try {
-            forceAtlas2.assign(g, { iterations: 100 });
+            forceAtlas2.assign(g, { iterations: 300, settings: { gravity: 0.05, scalingRatio: 10 } });
           } catch (e) {
             console.error('ForceAtlas2 failed:', e);
           }
