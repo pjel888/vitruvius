@@ -1,8 +1,8 @@
 import { forwardRef, useImperativeHandle, useRef, useEffect } from 'react';
 import { SigmaContainer, useLoadGraph, useRegisterEvents, useSigma } from '@react-sigma/core';
-import { LayoutForceAtlas2Control, useLayoutForceAtlas2 } from '@react-sigma/layout-forceatlas2';
 import Graph from 'graphology';
 import { circular } from 'graphology-layout';
+import forceAtlas2 from 'graphology-layout-forceatlas2';
 import type { GraphNode, GraphEdge } from '../../types';
 
 export interface GraphController {
@@ -38,19 +38,26 @@ const EDGE_COLORS: Record<string, string> = {
 
 function SigmaInner({ controllerRef }: { controllerRef: React.RefObject<GraphController | null> }) {
   const loadGraph = useLoadGraph();
-  const { assign } = useLayoutForceAtlas2();
   const sigma = useSigma();
   const registerEvents = useRegisterEvents();
 
   const graphRef = useRef<Graph | null>(null);
   const selectedNodeRef = useRef<string | null>(null);
   const layoutTypeRef = useRef<'forceatlas2' | 'circular' | 'random'>('forceatlas2');
+  const sigmaRef = useRef(sigma);
+  sigmaRef.current = sigma;
 
   // Initialize graph once
   useEffect(() => {
     const graph = new Graph({ multi: true });
     graphRef.current = graph;
     loadGraph(graph);
+    console.log('[SigmaHost] loadGraph called, graph nodes:', graph.nodes().length);
+    // Force Sigma to recognize the graph
+    setTimeout(() => {
+      sigmaRef.current?.refresh();
+      console.log('[SigmaHost] Initial refresh done, sigma exists:', !!sigmaRef.current);
+    }, 50);
 
     // Expose controller API
     const controller: GraphController = {
@@ -115,16 +122,18 @@ function SigmaInner({ controllerRef }: { controllerRef: React.RefObject<GraphCon
 
         // Apply layout
         controller.setLayout(layoutTypeRef.current);
-        sigma?.refresh();
+        sigmaRef.current?.refresh();
+        console.log('[SigmaHost] expandNode done, nodes:', graphRef.current?.nodes().length);
+        setTimeout(() => controller.fitView(), 100);
       },
 
       selectNode(id) {
         selectedNodeRef.current = id;
-        if (!graphRef.current || !sigma) return;
+        if (!graphRef.current || !sigmaRef.current) return;
         graphRef.current.forEachNode((nodeId) => {
           graphRef.current!.setNodeAttribute(nodeId, 'highlighted', nodeId === id);
         });
-        sigma.refresh();
+        sigmaRef.current.refresh();
       },
 
       expandNode(_id, { nodes: newNodes, edges: newEdges }) {
@@ -152,7 +161,7 @@ function SigmaInner({ controllerRef }: { controllerRef: React.RefObject<GraphCon
           }
         });
         controller.setLayout(layoutTypeRef.current);
-        sigma?.refresh();
+        sigmaRef.current?.refresh();
       },
 
       setLayout(type) {
@@ -167,23 +176,27 @@ function SigmaInner({ controllerRef }: { controllerRef: React.RefObject<GraphCon
             g.setNodeAttribute(node, 'y', (Math.random() - 0.5) * 600);
           });
         } else if (type === 'forceatlas2') {
-          assign();
+          try {
+            forceAtlas2.assign(g, { iterations: 100 });
+          } catch (e) {
+            console.error('ForceAtlas2 failed:', e);
+          }
         }
-        sigma?.refresh();
+        sigmaRef.current?.refresh();
       },
 
       zoomIn() {
-        const cam = sigma?.getCamera();
+        const cam = sigmaRef.current?.getCamera();
         if (cam) cam.animate({ ratio: cam.ratio / 1.5 }, { duration: 200 });
       },
 
       zoomOut() {
-        const cam = sigma?.getCamera();
+        const cam = sigmaRef.current?.getCamera();
         if (cam) cam.animate({ ratio: cam.ratio * 1.5 }, { duration: 200 });
       },
 
       fitView() {
-        sigma?.getCamera().animatedReset({ duration: 600 });
+        sigmaRef.current?.getCamera().animatedReset({ duration: 600 });
       },
     };
 
@@ -202,14 +215,16 @@ function SigmaInner({ controllerRef }: { controllerRef: React.RefObject<GraphCon
       },
     });
 
+    console.log('[SigmaHost] Controller initialized, graph ready');
+
     return () => {
       if (controllerRef) {
         (controllerRef as React.MutableRefObject<GraphController | null>).current = null;
       }
     };
-  }, [loadGraph, assign, sigma, registerEvents, controllerRef]);
+  }, [loadGraph, registerEvents, controllerRef]);
 
-  return <LayoutForceAtlas2Control />;
+  return null;
 }
 
 const SigmaHost = forwardRef<GraphController>((_, ref) => {

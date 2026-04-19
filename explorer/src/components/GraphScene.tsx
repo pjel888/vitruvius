@@ -24,8 +24,22 @@ export default function GraphScene() {
       setLoading(true);
       const { nodes, edges } = await getNodesForPerspective(perspectiveId);
       setGraphData(nodes, edges);
-      controllerRef.current?.loadPerspective(nodes, edges);
-      setLoading(false);
+
+      // Wait for Sigma controller to be ready (it initializes in a child useEffect)
+      let attempts = 0;
+      const tryLoad = () => {
+        if (controllerRef.current) {
+          controllerRef.current.loadPerspective(nodes, edges);
+          setLoading(false);
+        } else if (attempts < 50) {
+          attempts++;
+          setTimeout(tryLoad, 100);
+        } else {
+          setLoading(false);
+          console.error('Graph controller never became ready');
+        }
+      };
+      tryLoad();
     }
     load();
   }, [perspectiveId, setLoading, setGraphData]);
@@ -49,6 +63,21 @@ export default function GraphScene() {
   }, [setLoading]);
 
   const loading = useSceneStore(s => s.loading);
+  const nodes = useSceneStore(s => s.nodes);
+  const edges = useSceneStore(s => s.edges);
+  const [debugInfo, setDebugInfo] = useState({ nodes: 0, edges: 0, controllerReady: false });
+
+  // Debug info polling
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDebugInfo({
+        nodes: nodes.length,
+        edges: edges.length,
+        controllerReady: !!controllerRef.current,
+      });
+    }, 500);
+    return () => clearInterval(interval);
+  }, [nodes, edges]);
 
   return (
     <div className="flex-1 relative bg-bg overflow-hidden">
@@ -90,6 +119,23 @@ export default function GraphScene() {
             <Map size={14} />
           </button>
         </div>
+      </div>
+
+      {/* Debug overlay */}
+      <div className="absolute top-4 right-4 z-20 bg-panel/90 border border-border rounded-md px-3 py-2 text-xs font-mono space-y-1">
+        <div>Nodes: {debugInfo.nodes}</div>
+        <div>Edges: {debugInfo.edges}</div>
+        <div>Controller: {debugInfo.controllerReady ? '✓' : '✗'}</div>
+        <button
+          className="mt-1 px-2 py-1 bg-accent/20 text-accent rounded hover:bg-accent/30 transition-colors"
+          onClick={() => {
+            console.log('Manual refresh triggered');
+            controllerRef.current?.setLayout('circular');
+            controllerRef.current?.fitView();
+          }}
+        >
+          Force Render
+        </button>
       </div>
 
       {/* Multi-select toggle */}
