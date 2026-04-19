@@ -1,0 +1,26 @@
+Audit the entire Vitruvius repository using the attached taxonomy research files and the attached `vitruvius_codebase_ai_brief.md` as the target architectural brief.
+
+Your job is to:
+1. inspect the whole repo,
+2. map the current architecture and taxonomy implementation,
+3. assess readiness for a governed global AEC taxonomy with jurisdictional overlays,
+4. produce these documents before any major code changes:
+   - `docs/plans/taxonomy-governance/01_codebase_audit.md`
+   - `docs/plans/taxonomy-governance/02_readiness_plan.md`
+   - `docs/plans/taxonomy-governance/03_implementation_plan.md`
+   - `docs/plans/taxonomy-governance/04_gap_matrix.md`
+   - `docs/plans/taxonomy-governance/05_pr_sequence.md`
+   - `docs/plans/taxonomy-governance/06_risk_register.md`
+
+Non-negotiables:
+- Do not invent a different ontology.
+- Treat the attached research files as the target architecture.
+- Keep the canonical taxonomy backbone global and human-authored.
+- Handle laws, standards, codes, annexes, amendments, and local rules as jurisdictional/regulatory overlays, not taxonomy forks.
+- Do not mix subject domain, lifecycle, asset scope, systems, work results, materials, roles, jurisdiction, and standards mappings in one hierarchy.
+- Do not use external standards codes as canonical Vitruvius IDs.
+- Every substantive claim must cite repo evidence: file paths, symbols, schemas, routes, config keys, migrations, or components.
+- If something is inferred instead of confirmed, label it as inference.
+- Do not start major refactors until the audit, readiness plan, and implementation plan are complete.
+
+Use the long-form brief for the exact required questions, deliverables, workstreams, and output quality bar.
