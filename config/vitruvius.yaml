@@ -113,6 +113,13 @@ features:
   h_spectral: false
   h_community: false
   h_mcmc: false
+  # Stream K — Taxonomy Governance + Vitruvian Context
+  k_taxonomy_v2: false
+  k_jurisdictional_overrides: false
+  k_standards_mapping: false
+  k_vitruvian_context: false
+  k_shadow_read: false
+  k_backbone_validation: false
   h_tda: false
   h_wasserstein: false
   h_causal_dag: false
