@@ -100,27 +100,41 @@ Vitruvius is built as a **layered, filesystem-centric pipeline**. The filesystem
 
 ## Setup & Installation
 
-One-time setup before you can run any pipeline commands.
+One-time setup before you can run any pipeline commands. Instructions are provided for both platforms.
 
 ### 1. Clone or navigate to the repository
 
+**macOS:**
 ```bash
 cd /Users/philiplewis/vitruvius
 ```
 
+**Windows:**
+```powershell
+cd C:\Users\philiplewis\vitruvius
+```
+
 ### 2. Create and activate a Python virtual environment
 
+**macOS:**
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+```
+
+**Windows:**
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
 ```
 
 > `.venv/` is already in `.gitignore` — it will never be committed.
 
 ### 3. Install Python dependencies
 
+**Both platforms:**
 ```bash
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 This installs:
@@ -133,14 +147,16 @@ This installs:
 
 ### 4. Download the spaCy language model
 
+**Both platforms:**
 ```bash
-python3 -m spacy download en_core_web_sm
+python -m spacy download en_core_web_sm
 ```
 
 Required for SVO (subject-verb-object) extraction in relationship detection.
 
 ### 5. Verify the installation
 
+**Both platforms:**
 ```bash
 python scripts/pipeline_cli.py --help
 ```
@@ -149,48 +165,86 @@ You should see the full list of available commands.
 
 ### 6. (Optional) Install backend services
 
-**Neo4j** — for KG v2 graph indexing:
+#### Neo4j — for KG v2 graph indexing
+
+**macOS (Homebrew):**
 ```bash
-# macOS with Homebrew
 brew install neo4j
 brew services start neo4j
-
-# Verify at http://localhost:7474 (default user: neo4j, password: password)
 ```
 
-**PostgreSQL** — for KG v2 relational registry:
+**Windows:**
+```powershell
+# Option A: Download Neo4j Desktop from https://neo4j.com/download/ and run the installer
+# Option B: Use Docker
+docker run -p 7474:7474 -p 7687:7687 -e NEO4J_AUTH=neo4j/password neo4j:latest
+```
+
+Verify at http://localhost:7474 (default user: `neo4j`, password: `password`)
+
+#### PostgreSQL — for KG v2 relational registry
+
+**macOS (Homebrew):**
 ```bash
-# macOS with Homebrew
 brew install postgresql@15
 brew services start postgresql@15
-
-# Create the database and role
 createdb vitruvius
 psql -d vitruvius -c "CREATE ROLE postgres WITH LOGIN PASSWORD 'password';"
 ```
 
-**Ollama** — for local LLM review:
+**Windows:**
+```powershell
+# Option A: Download installer from https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+# Option B: Use Chocolatey
+choco install postgresql15
+
+# Option C: Use Docker
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_DB=vitruvium postgres:15
+```
+
+#### Ollama — for local LLM review
+
+**macOS:**
 ```bash
-# macOS
 brew install ollama
 ollama serve
+```
 
-# Pull the default review model
+**Windows:**
+```powershell
+# Download and install from https://ollama.com/download/windows
+# Then in a new terminal:
+ollama serve
+```
+
+**Pull review models (both platforms):**
+```bash
+# Default — runs on both machines
 ollama pull llama3.1:8b
 
-# (Optional) Pull high-quality model for desktop
+# High-quality — desktop only (64GB RAM)
 ollama pull gemma4:31b
 
-# (Optional) Pull lightweight model for MacBook
+# Lightweight — MacBook fast iteration (8GB RAM)
 ollama pull qwen2.5:3b
 ```
 
 ### 7. (Optional) Rust toolchain
 
 Only needed if you want to build the Rust compute modules (`engine_rs/`):
+
+**macOS:**
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source ~/.cargo/env
+```
+
+**Windows:**
+```powershell
+# Download and run rustup-init.exe from https://rustup.rs/
+# Or in PowerShell:
+Invoke-WebRequest -Uri https://win.rustup.rs/x86_64 -OutFile rustup-init.exe
+.\rustup-init.exe
 ```
 
 ---
