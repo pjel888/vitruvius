@@ -69,6 +69,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
       labelGridCellSize: 60,
       labelRenderedSizeThreshold: 6,
       labelFont: 'system-ui, sans-serif',
+      labelColor: { color: '#e2e8f0' },
       zIndex: true,
       enableEdgeEvents: true,
       allowInvalidContainer: true,
@@ -107,7 +108,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
           if (g.hasNode(n.id)) return;
           g.addNode(n.id, {
             label: n.label,
-            size: n.radius ?? 8,
+            size: (n.radius ?? 8) * 0.6,
             color: NODE_COLORS[n.type] || '#a78bfa',
             nodeType: n.type,
             x: Math.cos((i / Math.max(nodes.length, 1)) * Math.PI * 2) * 200,
@@ -150,7 +151,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
           if (!g.hasNode(n.id)) {
             g.addNode(n.id, {
               label: n.label,
-              size: n.radius ?? 8,
+              size: (n.radius ?? 8) * 0.6,
               color: NODE_COLORS[n.type] || '#a78bfa',
               nodeType: n.type,
             });
