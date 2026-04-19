@@ -1,0 +1,314 @@
+---
+id: source-buidling-construction-handbook-7th-ed-by-chudley-greeno
+title: Buidling Construction Handbook 7Th Ed By Chudley   Greeno
+page_type: source
+trust_level: unknown
+canonical_status: draft
+last_canonicalized_utc: 2026-04-19T16:42:57.335017+00:00
+---
+
+# Buidling Construction Handbook 7Th Ed By Chudley   Greeno
+
+## Overview
+
+Automated summary withheld for Buidling Construction Handbook 7Th Ed By Chudley   Greeno because the refined source includes table-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
+
+## Coverage
+
+- viii
+- The Structure---Basic Types
+- Superstructure and Primary Elements
+- Internal Separation and Compartmentation
+- Construction Activities---The Documents
+- Drawings Used in the Construction Process
+- Drawings---Sketches
+- Communicating Information---Orthographic Projections
+- Communicating Information---Isometric Projections
+- Communicating Information---Perspective Projections
+- Communicating Information---Floor Plans and Elevations
+- Communicating Information---Block and Site Plans
+- Communicating Information---Building Survey
+- Communicating Information---Survey Preliminaries
+- Communicating Information---Survey Order (Exterior)
+- Communicating Information---Survey Order (Interior)
+- Communicating Information -- HIPS
+- Communicating Information---Bar Chart Programme
+- Typical Weights of Building Materials
+- Typical Weights of Building Materials and Densities
+- Drawings---Using Hatchings and Symbols
+- Planning Application
+- Planning Application---Householder
+- Planning Application---Certificates
+- Modular Coordination
+- Construction (Design & Management) Regulations
+- Building Regulations Exemptions
+- Building Regulations---Full Plans
+- Code for Sustainable Homes
+- British Standards
+- European Standards
+- Construction Products Directive (CPD)
+- Product and Practice Accreditation
+- CPI System of Coding
+- CI/SfB System of Coding
+- Site Survey
+- Site Investigations
+- Trial Pits and Hand Auger Holes
+- Bore Hole Data
+- Site Layout Considerations
+- Site Security
+- Hoardings
+- Site Lighting
+- Electrical Supply to Building Sites
+- Site Office Accommodation
+- Site Storage
+- Materials Testing---Concrete
+- Protection Orders for Trees and Structures
+- Locating Public Utility Services
+- Setting Out---Levelling
+- Setting Out---Angles
+- Roads---Footpaths
+- Demolition -- Relevant Acts
+- Demolition -- Notice
+- Demolition
+- Demolition -- Methods
+- Builders Plant
+- Bulldozers
+- Scrapers
+- Graders
+- Rubble Chutes and Skips
+- Foundations---Functions
+- Foundations---Defect Observation
+- Foundations---Materials
+- Foundation Types
+- Foundations---Basic Sizing
+- Guide to Strip Foundation Width
+- Foundations---Calculated Sizing
+- Short Bored Pile Foundations
+- Simple RC Raft Foundations
+- Retaining Walls---Reinforced Masonry
+- Post-Tensioned Retaining Wall
+- Retaining Walls---Cribs
+- Soil Nailing
+- Gabions and Mattresses
+- Retaining Walls---Coulomb’s Wedge Theory
+- Basement Construction
+- Insulation on Basements
+- Excavations
+- Excavations up to 2.5 m deep---Processes
+- Concrete Production---Materials
+- Concrete Production---Volume Batching
+- Concrete Production---Weight Batching
+- Concrete Production---Specification
+- Concrete Production---Supply
+- Cofferdams
+- Caissons
+- Dewater Principles
+- Reclamation of Waste Land
+- Physical Treatment of Contaminated Sub-soil
+- Biological, Chemical and Thermal Treatment of Contaminated Sub-soil
+- External Envelope---Choice of Materials
+- Brick Bonding---Principles
+- Brick Bonding---English Bond
+- Brick Bonding---Flemish Bond
+- Brick Bonding---Special Bonds
+- Brick Bonding---Stack Bond
+- Brick Bonding---Attached Piers
+- Small Non-Residential Buildings or Annexes
+- Brickwork---Jointing and Pointing
+- Special Bricks
+- Purpose-Made Special Bricks
+- Special Bricks---Plinths
+- Special Bricks---Corbels, Dentils and Dog Toothing
+- Solid Block Walls
+- Cavity Walls
+- Masonry Fin Walls
+- Masonry Diaphragm Walls
+- Damp-proof Courses and Membranes
+- Bridging of Damp-Proof Courses
+- Insulating Damp-Proof Course
+- Gas Resistant Membranes
+- Gas Resistant Construction
+- Principles of Calculated Brickwork
+- Alternative Arch Cavity Tray
+- Opening Details---Heads
+- Opening Details---Jambs
+- Opening Details---Sills
+- Opening Details---Checked Head, Jamb and Sill
+- Windows---Performance Requirements
+- Windows---Conventional Types
+- Timber Casement Windows
+- Metal Casement Windows
+- Casement Windows---Ironmongery
+- Pivot Windows
+- Window Notation
+- Glass and Glazing
+- Double Glazing
+- Low Emissivity Glass
+- Aluminium Hollow Profile Casement Windows
+- Multiple Glazing
+- Triple glazing
+- Glazing---Location
+- Glazing---Manifestation
+- Glass Block Walling---1
+- Glass Block Walling---2
+- Door Types
+- Door Ironmongery
+- Crosswall Construction
+- Timber Frame Construction
+- Steel Frame Construction (1)
+- Steel Frame Construction (2)
+- Roofs---Performance Requirements
+- Basic Roof Forms
+- Timber Pitched Roofs up to 7.5 m Span
+- Gambrel or Mansard Roof
+- Roof Underlays
+- Double Lap Tiling
+- Pitched Roof---Insulation Above Rafters
+- Eaves and Ridge---Alternative Treatment
+- Single Lap Tiling
+- Roof Slating
+- Roof Slating---Applications
+- Roof Thatching
+- Timber Flat Roofs up to 4 m Span
+- Timber Flat Roofs---1
+- Timber Flat Roofs---Thermal Insulation
+- Typical Timber Flat Roof Coverings
+- Ventilation of Roof Spaces---2
+- Timber Pitched Roofs
+- Timber Roofs---Preservation
+- Wood Rot---Types
+- Wood Rot---Causes, Treatment and Preservation
+- Green Roofs
+- Green Roofs -- Types
+- Thermal Insulation, Surface and Air Space Resistances
+- Thermal Insulation, Methods for Determining U-Values
+- Thermal Insulation Energy Efficiency of New Dwellings
+- Thermal Insulation, Elements of Construction
+- Thermal Insulation, U-Value Objectives for New Dwellings
+- Thermal Insulation, Window Energy Rating
+- Thermal Insulation, Carbon Emissions
+- Thermal Insulation, Dwelling Roof Space
+- Thermal Bridging
+- Thermal Insulation---Draught Proofing
+- Access for the Disabled---Dwellings
+- Access for the Disabled---Buildings Other Than Dwellings
+- Metal Section (MetSec) Decking
+- In-situ RC Framed Structures -- Beams
+- Simply Reinforced Concrete Beam and Slab Design (1)
+- Simple Reinforced Concrete Beam and Slab Design (2)
+- Grip Length of Reinforcement
+- Spacing of Reinforcement Bars
+- Types of Reinforcement---Steel Bars
+- Types of Reinforcement---Steel Mesh
+- Concrete Cover to Reinforcing Steel
+- Reinforced Concrete -- Fire Protection
+- Basic Formwork---Details
+- Formwork---Beams
+- Formwork---Column Clamps and Yokes
+- Structural Steelwork---Standard Cold Rolled Sections
+- Structural Steelwork---Standard Hot Rolled Sections
+- Structural Steelwork---Open Web Beams
+- Structural Steelwork---Lattice Beams
+- Structural Steelwork---Connections
+- Structural Steelwork -- Column Base Connections
+- Structural Steelwork---Welded Connections
+- Structural Steelwork -- Bolted Connections
+- Structural Steelwork---Column Design
+- Composite Timber Beams
+- Steel Web Lattice Joist
+- Membrane Roof Structures
+- Non-load Bearing Brick Panel Walls
+- Brickwork Cladding Support System
+- Structural Sealant Glazed Cladding
+- Structural Glazing
+- Curtain Walling
+- Curtain Wall---Over-cladding in Glass
+- Concrete Claddings
+- Concrete Surface Finishes
+- Concrete -- Surface Defects
+- Internal Elements
+- Construction Joints
+- Reinforced Bed Joints
+- Internal Masonry Walls -- Fire Protection
+- Internal Party Walls
+- Internal Party/Separating Walls
+- Partitions
+- Stud Partitions -- Fire Protection
+- Plasters
+- Plaster Finish to Internal Walls
+- Plasterboard
+- Wall Tiling
+- Domestic Solid Ground Floors
+- Domestic Suspended Concrete Ground Floors
+- Domestic Suspended Concrete and EPS Ground Floors
+- Domestic Floor Finishes
+- Large Cast In-situ Ground Floors
+- Concrete Floor Screeds
+- Lateral Restraint---Retro-ties
+- Timber Suspended Upper Floors---Joist Sizes
+- Timber Beam Design
+- Timber Upper Floors---Fire Protection
+- Precast Concrete Floors
+- Sound Insulation
+- Sound Insulation---Walls
+- Sound Insulation---Floors
+- Domestic Straight Flight Stairs---Critical Dimensions
+- Timber Open Riser Stairs
+- Alternating Tread Stairs
+- Timber Stairs with Landings
+- Metal Stairs
+- Public and General Use Stairs
+- Spiral Stairs and Tapered Treads
+- Doors and Door Linings
+- Internal Door Frames
+- Fire Doorsets and Fire Door Assemblies
+- 30 Minute Flush Fire Doors
+- Fire Resisting Doors
+- Fire Doors -- Vision Panels
+- Glazed Double Swing Doors
+- Plasterboard Ceilings
+- Paints and Painting
+- Painting---Preparation
+- Painting---Defects
+- Plastics in Building
+- Subsoil Drainage
+- Surface Water Removal---Roofs
+- Surface Water Removal---Paved Areas
+- Road Drainage
+- Rainwater Installation Details
+- Rainwater Drainage---Soakaways
+- Simple Domestic Drainage
+- Drainage Systems
+- Simple Drainage---Access Location
+- Simple Drainage---Drain Laying
+- Drainage Systems---Testing
+- Drainage---Pipe Sizes and Gradients
+- Cold Water Installations
+- Hot and Cold Water Installations---Flow Controls
+- Hot and Cold Water Installations---Cisterns
+- Indirect Hot Water Cylinders
+- Water Installations---Pipework Joints
+- Sanitary Fittings---Sinks and Basins
+- Sanitary Fittings---Baths and Showers
+- Sanitary Fittings---Water Closets and Cisterns
+- Sanitation Systems---Testing
+- Electrical Supply---Consumer Unit
+- Open Fireplaces and Flues
+- Open Fireplace and Flues
+- Services---Fire Stops and Seals
+
+## Key Points
+
+- (automated key points withheld because source-summary trust is low; review operative sections directly)
+
+## Referenced Concepts
+
+- concept-stairs
+- concept-floor-area
+- concept-waste-disposal
+- concept-floor-area-ratio
+- concept-building-height
+- concept-yards
+- concept-approved-budget-for-the-contract
+- concept-light-and-ventilation
+- concept-area-method

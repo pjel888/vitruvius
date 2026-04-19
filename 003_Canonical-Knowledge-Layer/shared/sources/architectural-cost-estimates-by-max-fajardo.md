@@ -4,7 +4,7 @@ title: Architectural Cost Estimates By Max Fajardo
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T21:02:38.975644+00:00
+last_canonicalized_utc: 2026-04-19T16:42:57.033830+00:00
 aliases:
   - Architectural Cost Estimates By Max Fajardo
 ---
@@ -58,6 +58,9 @@ Automated summary withheld for Architectural Cost Estimates By Max Fajardo becau
 
 ## Referenced Concepts
 
+- concept-simplified-construction-estimate
+- concept-volume-method
+- concept-area-method
 - concept-stairs
 - concept-floor-area
 - concept-floor-area-ratio
