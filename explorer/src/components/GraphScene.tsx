@@ -74,6 +74,7 @@ function GraphRenderer() {
 
     const graph = new Graph();
     nodes.forEach((n, i) => {
+      if (graph.hasNode(n.id)) return;
       graph.addNode(n.id, {
         label: n.label,
         size: n.radius ?? 8,
@@ -83,14 +84,15 @@ function GraphRenderer() {
         y: Math.sin((i / nodes.length) * Math.PI * 2) * 200,
       });
     });
-    edges.forEach((e, i) => {
-      if (graph.hasNode(e.source) && graph.hasNode(e.target)) {
-        graph.addDirectedEdgeWithKey(e.id || `e${i}`, e.source, e.target, {
-          size: 1.5,
-          color: EDGE_COLORS[e.type] || '#6b7280',
-          type: e.type,
-        });
-      }
+    edges.forEach((e) => {
+      if (!graph.hasNode(e.source) || !graph.hasNode(e.target)) return;
+      const edgeId = e.id || `e${e.source}-${e.type}-${e.target}`;
+      if (graph.hasEdge(edgeId)) return;
+      graph.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
+        size: 1.5,
+        color: EDGE_COLORS[e.type] || '#6b7280',
+        type: e.type,
+      });
     });
 
     graphRef.current = graph;
