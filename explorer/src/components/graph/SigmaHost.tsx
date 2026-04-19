@@ -104,11 +104,12 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
 
         // Add nodes
         nodes.forEach((n, i) => {
+          if (g.hasNode(n.id)) return;
           g.addNode(n.id, {
             label: n.label,
             size: n.radius ?? 8,
             color: NODE_COLORS[n.type] || '#a78bfa',
-            type: n.type,
+            nodeType: n.type,
             x: Math.cos((i / Math.max(nodes.length, 1)) * Math.PI * 2) * 200,
             y: Math.sin((i / Math.max(nodes.length, 1)) * Math.PI * 2) * 200,
           });
@@ -121,7 +122,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
           g.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
             size: 1.5,
             color: EDGE_COLORS[e.type] || '#6b7280',
-            type: e.type,
+            edgeType: e.type,
           });
         });
 
@@ -151,7 +152,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
               label: n.label,
               size: n.radius ?? 8,
               color: NODE_COLORS[n.type] || '#a78bfa',
-              type: n.type,
+              nodeType: n.type,
             });
           }
         });
@@ -162,7 +163,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
             g.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
               size: 1.5,
               color: EDGE_COLORS[e.type] || '#6b7280',
-              type: e.type,
+              edgeType: e.type,
             });
           }
         });
