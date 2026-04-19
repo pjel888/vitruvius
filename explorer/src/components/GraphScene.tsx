@@ -1,12 +1,16 @@
-import { useRef, useState, useEffect } from 'react';
-import { ZoomIn, ZoomOut, Maximize, Shrink, Map, LayoutGrid, FolderTree, Calendar } from 'lucide-react';
+import { useRef, useState, useEffect, useCallback } from 'react';
+import { ZoomIn, ZoomOut, Maximize, Shrink, Map, LayoutGrid, FolderTree, Calendar, Terminal } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import { getNodesForPerspective } from '../api/graphApi';
 import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
+import NodeSearch from './graph/NodeSearch';
+import NodeContextMenu from './graph/NodeContextMenu';
+import QueryPanel from './graph/QueryPanel';
 
 export default function GraphScene() {
   const controllerRef = useRef<GraphController>(null);
   const [layout, setLayout] = useState<'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time'>('forceatlas2');
+  const [queryOpen, setQueryOpen] = useState(false);
 
   const perspectiveId = useSceneStore(s => s.perspectiveId);
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
@@ -18,6 +22,8 @@ export default function GraphScene() {
   const edges = useSceneStore(s => s.edges);
   const visibleNodeTypes = useSceneStore(s => s.visibleNodeTypes);
   const visibleEdgeTypes = useSceneStore(s => s.visibleEdgeTypes);
+  const contextMenuNodeId = useSceneStore(s => s.contextMenuNodeId);
+  const highlightedPath = useSceneStore(s => s.highlightedPath);
 
   // Load perspective data when it changes
   useEffect(() => {
@@ -61,10 +67,26 @@ export default function GraphScene() {
     controllerRef.current?.setSizeBy(sizeBy);
   }, [sizeBy]);
 
+  // Sync path highlighting
+  useEffect(() => {
+    if (highlightedPath) {
+      controllerRef.current?.highlightPath(highlightedPath.nodeIds, highlightedPath.edgeIds);
+    } else {
+      controllerRef.current?.clearPathHighlight();
+    }
+  }, [highlightedPath]);
+
   const switchLayout = (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => {
     setLayout(type);
     controllerRef.current?.setLayout(type);
   };
+
+  const handleSearchSelect = useCallback((id: string) => {
+    controllerRef.current?.focusNode(id);
+    const store = useSceneStore.getState();
+    store.setSelectedNode(id);
+    store.openInspector();
+  }, []);
 
   return (
     <div className="flex-1 relative bg-bg overflow-hidden">
@@ -80,6 +102,11 @@ export default function GraphScene() {
         </div>
       )}
 
+      {/* Search */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
+        <NodeSearch nodes={nodes} onSelect={handleSearchSelect} />
+      </div>
+
       {/* Zoom controls */}
       <div className="absolute bottom-4 left-4 flex flex-col gap-1 z-20">
         <button onClick={() => controllerRef.current?.zoomIn()} className="p-2 bg-panel border border-border rounded-md hover:border-accent text-text-dim hover:text-text transition-colors" title="Zoom in">
@@ -92,6 +119,16 @@ export default function GraphScene() {
           <Maximize size={16} />
         </button>
       </div>
+
+      {/* Context menu */}
+      {contextMenuNodeId && (
+        <NodeContextMenu controllerRef={controllerRef} />
+      )}
+
+      {/* Query panel */}
+      {queryOpen && (
+        <QueryPanel controllerRef={controllerRef} onClose={() => setQueryOpen(false)} />
+      )}
 
       {/* Layout switcher */}
       <div className="absolute top-4 left-4 z-20">
@@ -110,6 +147,14 @@ export default function GraphScene() {
           </button>
           <button onClick={() => switchLayout('time')} className={`p-1.5 rounded ${layout === 'time' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Timeline by Creation Date">
             <Calendar size={14} />
+          </button>
+          <div className="w-px h-4 bg-border mx-1" />
+          <button
+            onClick={() => setQueryOpen(o => !o)}
+            className={`p-1.5 rounded ${queryOpen ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`}
+            title="Cypher Query"
+          >
+            <Terminal size={14} />
           </button>
         </div>
       </div>

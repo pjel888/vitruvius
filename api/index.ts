@@ -61,7 +61,7 @@ function normalizeNode(node: any) {
 
 function normalizeEdge(rel: any, sourceId: string, targetId: string) {
   return {
-    id: rel.assertion_id || `${sourceId}-${rel.type}-${targetId}`,
+    id: rel.assertion_id || `${sourceId}|${rel.type}|${targetId}`,
     source: sourceId,
     target: targetId,
     type: rel.type,
@@ -112,7 +112,7 @@ app.get('/search', async (c) => {
       ${typeFilter}
     RETURN c.id AS id, c.label AS label, c.type AS type, c.kind AS kind
     LIMIT $limit
-  `, { q: q.toLowerCase(), limit });
+  `, { q: q.toLowerCase(), limit: neo4j.int(limit) });
 
   const results = records.map(r => ({
     kind: 'node' as const,
@@ -187,6 +187,97 @@ app.get('/node/:id', async (c) => {
   return c.json({ node, taxonomyPath, incoming, outgoing, evidence });
 });
 
+// GET /edge/:id
+app.get('/edge/:id', async (c) => {
+  const id = c.req.param('id');
+
+  // Try assertion_id first
+  let records = await runQuery(`
+    MATCH (a)-[r]->(b)
+    WHERE r.assertion_id = $id
+    RETURN r, a, b
+  `, { id });
+
+  // Fallback: parse as source|type|target
+  if (!records.length && id.includes('|')) {
+    const [sourceId, type, targetId] = id.split('|');
+    records = await runQuery(`
+      MATCH (a)-[r]->(b)
+      WHERE a.id = $sourceId AND type(r) = $type AND b.id = $targetId
+      RETURN r, a, b
+    `, { sourceId, type, targetId });
+  }
+
+  if (!records.length) {
+    return c.json({ error: { code: 'EDGE_NOT_FOUND', message: `Edge '${id}' not found` } }, 404);
+  }
+
+  const rec = records[0];
+  return c.json({
+    edge: normalizeEdge(rec.r, rec.a.id, rec.b.id),
+    source: normalizeNode(rec.a),
+    target: normalizeNode(rec.b),
+    evidence: [],
+  });
+});
+
+// POST /query
+app.post('/query', async (c) => {
+  const body = await c.req.json();
+  const cypher = (body.cypher || '').trim();
+
+  if (!cypher) {
+    return c.json({ error: { code: 'BAD_REQUEST', message: 'cypher query is required' } }, 400);
+  }
+
+  function extractValue(value: any, nodeMap: Map<string, any>, edgeMap: Map<string, any>) {
+    if (neo4j.isNode(value)) {
+      const n = normalizeNode(value.properties);
+      if (n) nodeMap.set(n.id, n);
+    } else if (neo4j.isPath(value)) {
+      value.segments.forEach((seg: any) => {
+        const start = normalizeNode(seg.start.properties);
+        const end = normalizeNode(seg.end.properties);
+        if (start) nodeMap.set(start.id, start);
+        if (end) nodeMap.set(end.id, end);
+        if (start && end) {
+          const rel = normalizeEdge(
+            { ...seg.relationship.properties, type: seg.relationship.type },
+            start.id,
+            end.id
+          );
+          edgeMap.set(rel.id, rel);
+        }
+      });
+    } else if (Array.isArray(value)) {
+      value.forEach(v => extractValue(v, nodeMap, edgeMap));
+    }
+  }
+
+  const session = driver.session({ defaultAccessMode: neo4j.session.READ });
+  try {
+    const result = await session.run(cypher);
+    const nodeMap = new Map<string, any>();
+    const edgeMap = new Map<string, any>();
+
+    result.records.forEach((record: any) => {
+      record.keys.forEach((key: string) => {
+        extractValue(record.get(key), nodeMap, edgeMap);
+      });
+    });
+
+    return c.json({
+      nodes: Array.from(nodeMap.values()),
+      edges: Array.from(edgeMap.values()),
+      recordCount: result.records.length,
+    });
+  } catch (err: any) {
+    return c.json({ error: { code: 'QUERY_ERROR', message: err.message } }, 400);
+  } finally {
+    await session.close();
+  }
+});
+
 // GET /expand
 app.get('/expand', async (c) => {
   const nodeId = c.req.query('nodeId');
@@ -225,7 +316,7 @@ app.get('/expand', async (c) => {
     `;
   }
 
-  const records = await runQuery(query, { nodeId, relTypes: relTypes || [], limit });
+  const records = await runQuery(query, { nodeId, relTypes: relTypes || [], limit: neo4j.int(limit) });
 
   const nodeIds = new Set([nodeId]);
   const edgeSet = new Map<string, any>();
@@ -274,7 +365,7 @@ app.get('/path', async (c) => {
     WHERE a.id = $from AND b.id = $to
     RETURN path
     LIMIT $limit
-  `, { from, to, limit });
+  `, { from, to, limit: neo4j.int(limit) });
 
   if (!records.length) {
     return c.json({ error: { code: 'PATH_NOT_FOUND', message: `No path found between '${from}' and '${to}' within ${maxHops} hops` } }, 404);
@@ -282,9 +373,13 @@ app.get('/path', async (c) => {
 
   const paths = records.map((rec: any) => {
     const path = rec.path;
-    const nodes = path.segments.map((s: any) => normalizeNode(s.start)).filter(Boolean);
-    nodes.push(normalizeNode(path.end));
-    const edges = path.segments.map((s: any) => normalizeEdge(s.relationship, s.start.id, s.end.id));
+    const nodes = path.segments.map((s: any) => normalizeNode(s.start.properties)).filter(Boolean);
+    nodes.push(normalizeNode(path.end.properties));
+    const edges = path.segments.map((s: any) => normalizeEdge(
+      { ...s.relationship.properties, type: s.relationship.type },
+      s.start.properties.id,
+      s.end.properties.id
+    ));
     return { length: edges.length, nodes, edges };
   });
 

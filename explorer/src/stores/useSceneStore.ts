@@ -43,6 +43,21 @@ interface SceneStore {
   searchQuery: string;
   setSearchQuery: (q: string) => void;
 
+  // Context menu
+  contextMenuNodeId: string | null;
+  contextMenuPos: { x: number; y: number } | null;
+  openContextMenu: (nodeId: string, pos: { x: number; y: number }) => void;
+  closeContextMenu: () => void;
+
+  // Path tracing
+  pathSourceId: string | null;
+  pathTargetId: string | null;
+  highlightedPath: { nodeIds: string[]; edgeIds: string[] } | null;
+  setPathSource: (id: string | null) => void;
+  setPathTarget: (id: string | null) => void;
+  setHighlightedPath: (path: { nodeIds: string[]; edgeIds: string[] } | null) => void;
+  clearPath: () => void;
+
   // Camera (for Sigma)
   camera: { x: number; y: number; ratio: number };
   setCamera: (c: { x: number; y: number; ratio: number }) => void;
@@ -91,6 +106,19 @@ export const useSceneStore = create<SceneStore>((set) => ({
 
   searchQuery: '',
   setSearchQuery: (q) => set({ searchQuery: q }),
+
+  contextMenuNodeId: null,
+  contextMenuPos: null,
+  openContextMenu: (nodeId, pos) => set({ contextMenuNodeId: nodeId, contextMenuPos: pos }),
+  closeContextMenu: () => set({ contextMenuNodeId: null, contextMenuPos: null }),
+
+  pathSourceId: null,
+  pathTargetId: null,
+  highlightedPath: null,
+  setPathSource: (id) => set({ pathSourceId: id }),
+  setPathTarget: (id) => set({ pathTargetId: id }),
+  setHighlightedPath: (path) => set({ highlightedPath: path }),
+  clearPath: () => set({ pathSourceId: null, pathTargetId: null, highlightedPath: null }),
 
   camera: { x: 0, y: 0, ratio: 1 },
   setCamera: (c) => set({ camera: c }),

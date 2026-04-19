@@ -68,3 +68,10 @@ export async function expandNode(nodeId: string, relTypes?: string[]): Promise<{
 export async function tracePath(from: string, to: string): Promise<{ paths: { length: number; nodes: GraphNode[]; edges: GraphEdge[] }[] }> {
   return api(`/path?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`);
 }
+
+export async function runCypherQuery(cypher: string): Promise<{ nodes: GraphNode[]; edges: GraphEdge[]; recordCount: number }> {
+  return api('/query', {
+    method: 'POST',
+    body: JSON.stringify({ cypher }),
+  });
+}

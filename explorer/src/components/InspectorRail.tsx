@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { X, Pin, Focus, PanelRightOpen, PanelRightClose, ArrowRight, FileText, ExternalLink } from 'lucide-react';
+import { X, Pin, Focus, PanelRightOpen, PanelRightClose, ArrowRight, FileText, ExternalLink, Route, MapPin, Flag, Trash2, CheckCircle2 } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
-import { getNode, getEdgeDetail } from '../api/graphApi';
+import { getNode, getEdgeDetail, tracePath } from '../api/graphApi';
 import type { NodeDetail, EdgeDetail } from '../types';
 
 const EDGE_COLORS: Record<string, string> = {
@@ -19,6 +19,12 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
   const [activeTab, setActiveTab] = useState<'summary' | 'evidence' | 'incoming' | 'outgoing'>('summary');
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
   const openBottom = useSceneStore(s => s.openBottom);
+  const pathSourceId = useSceneStore(s => s.pathSourceId);
+  const pathTargetId = useSceneStore(s => s.pathTargetId);
+  const highlightedPath = useSceneStore(s => s.highlightedPath);
+  const setPathSource = useSceneStore(s => s.setPathSource);
+  const setPathTarget = useSceneStore(s => s.setPathTarget);
+  const clearPath = useSceneStore(s => s.clearPath);
 
   return (
     <div className="flex flex-col h-full">
@@ -90,6 +96,71 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
                 <div className="text-sm">{(node.confidence * 100).toFixed(0)}%</div>
               </div>
             )}
+
+            {/* Path Tracing */}
+            <div className="border-t border-border pt-3">
+              <div className="text-xs uppercase tracking-wider text-text-dim mb-2 flex items-center gap-1">
+                <Route size={12} />
+                Path Tracing
+              </div>
+              {highlightedPath ? (
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm text-emerald-400">
+                    <CheckCircle2 size={14} />
+                    Path highlighted ({highlightedPath.nodeIds.length} nodes, {highlightedPath.edgeIds.length} edges)
+                  </div>
+                  <button
+                    onClick={clearPath}
+                    className="flex items-center gap-1.5 text-xs text-text-dim hover:text-text transition-colors"
+                  >
+                    <Trash2 size={12} />
+                    Clear path
+                  </button>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-1.5">
+                  {pathSourceId === null && (
+                    <button
+                      onClick={() => setPathSource(node.id)}
+                      className="flex items-center gap-2 text-sm text-text hover:text-accent transition-colors"
+                    >
+                      <MapPin size={14} />
+                      Set as path start
+                    </button>
+                  )}
+                  {pathSourceId === node.id && (
+                    <div className="flex items-center gap-2 text-sm text-amber-400">
+                      <MapPin size={14} />
+                      Path start selected
+                    </div>
+                  )}
+                  {pathSourceId && pathSourceId !== node.id && pathTargetId === null && (
+                    <button
+                      onClick={() => setPathTarget(node.id)}
+                      className="flex items-center gap-2 text-sm text-text hover:text-accent transition-colors"
+                    >
+                      <Flag size={14} />
+                      Set as path end
+                    </button>
+                  )}
+                  {pathTargetId === node.id && (
+                    <div className="flex items-center gap-2 text-sm text-amber-400">
+                      <Flag size={14} />
+                      Path end selected
+                    </div>
+                  )}
+                  {(pathSourceId || pathTargetId) && (
+                    <button
+                      onClick={clearPath}
+                      className="flex items-center gap-1.5 text-xs text-text-dim hover:text-text transition-colors mt-1"
+                    >
+                      <Trash2 size={12} />
+                      Clear selection
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
           </>
         )}
 
@@ -224,6 +295,10 @@ export default function InspectorRail() {
   const inspectorOpen = useSceneStore(s => s.inspectorOpen);
   const openInspector = useSceneStore(s => s.openInspector);
   const closeInspector = useSceneStore(s => s.closeInspector);
+  const pathSourceId = useSceneStore(s => s.pathSourceId);
+  const pathTargetId = useSceneStore(s => s.pathTargetId);
+  const highlightedPath = useSceneStore(s => s.highlightedPath);
+  const setHighlightedPath = useSceneStore(s => s.setHighlightedPath);
 
   const [nodeDetail, setNodeDetail] = useState<NodeDetail | null>(null);
   const [edgeDetail, setEdgeDetail] = useState<EdgeDetail | null>(null);
@@ -243,6 +318,23 @@ export default function InspectorRail() {
       setEdgeDetail(null);
     }
   }, [selectedEdgeId]);
+
+  // Auto-find path when both source and target are set
+  useEffect(() => {
+    if (pathSourceId && pathTargetId && !highlightedPath) {
+      tracePath(pathSourceId, pathTargetId).then(data => {
+        if (data.paths && data.paths.length > 0) {
+          const path = data.paths[0];
+          setHighlightedPath({
+            nodeIds: path.nodes.map((n: any) => n.id),
+            edgeIds: path.edges.map((e: any) => e.id),
+          });
+        }
+      }).catch(() => {
+        // Path not found — leave highlightedPath null
+      });
+    }
+  }, [pathSourceId, pathTargetId, highlightedPath, setHighlightedPath]);
 
   // Collapsed state — thin expand button
   if (!inspectorOpen) {
