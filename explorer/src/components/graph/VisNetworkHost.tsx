@@ -65,8 +65,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       label: n.label,
       color: {
         background: color,
-        border: '#ffffff',
-        highlight: { background: color, border: '#ffffff' },
+        border: color,
+        highlight: { background: color, border: '#e2e8f0' },
       },
       size,
       group: n.type,
@@ -80,14 +80,17 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     const net = networkRef.current;
     if (!hovered || !net) {
       // Reset all to normal
-      const updates = rawNodesRef.current.map(n => ({
-        id: n.id,
-        color: {
-          background: getNodeColor(colorSchemeRef.current, n.type),
-          border: '#ffffff',
-          highlight: { background: getNodeColor(colorSchemeRef.current, n.type), border: '#ffffff' },
-        },
-      }));
+      const updates = rawNodesRef.current.map(n => {
+        const c = getNodeColor(colorSchemeRef.current, n.type);
+        return {
+          id: n.id,
+          color: {
+            background: c,
+            border: c,
+            highlight: { background: c, border: '#e2e8f0' },
+          },
+        };
+      });
       nodesRef.current.update(updates);
       return;
     }
@@ -100,8 +103,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         id: n.id,
         color: {
           background: isActive ? baseColor : '#334155',
-          border: isActive ? '#ffffff' : '#475569',
-          highlight: { background: baseColor, border: '#ffffff' },
+          border: isActive ? baseColor : '#475569',
+          highlight: { background: baseColor, border: '#e2e8f0' },
         },
       };
     });
@@ -351,8 +354,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           id: n.id,
           color: {
             background: color,
-            border: '#ffffff',
-            highlight: { background: color, border: '#ffffff' },
+            border: color,
+            highlight: { background: color, border: '#e2e8f0' },
           },
         };
       });
