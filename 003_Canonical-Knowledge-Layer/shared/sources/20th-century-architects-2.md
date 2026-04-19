@@ -4,7 +4,7 @@ title: 20Th Century Architects 2
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:07.753640+00:00
+last_canonicalized_utc: 2026-04-19T13:27:53.026242+00:00
 aliases:
   - 20th Century Architects 2
 ---
@@ -13,25 +13,40 @@ aliases:
 
 ## Overview
 
-American inventor of the Geodesic Dome and the principle of “Synergetics, ”who influenced High Tech leaders, especially Norman Foster
+one of the New York Five or The Five Whites, together with Richard Meier, Michael Graves, Charles Gwathmey and John Hejduk
 
 ## Coverage
 
-- “ The only cardinal sin in building is boredom.”
-- Philip Johnson,
-- and detailing help communicate a building’s purpose.”
-- Michael Graves,
-- Michael Graves, WORLD TRADE EXCHANGE BLDG., Binondo, Manila
-- Miami, Florida
-- Arquitectonica,
-- Arquitectonica,
-- Fort Bonifacio Global City, Philippines
+- the subject, to oblige the subject to reconceptualize
+- architecture.”
+- Peter Eisenman,
+- 1992
+- Bilbao, Spain, 1991-97
+- Tadao Ando, CHURCH OF THE LIGHT,
+- Tadao Ando,
+- John Pawson,
+- Richard Meier,
+- Cleveland, Ohio, 1993-95
+- Richard Rogers (1933- )
+- Norman Foster (1935- )
+- Richard Rogers, THE LLOYD’S BUILDING, London, 1978-86
+- Norman Foster,
+- Essex, 1980-91
+- Hongkong, 1979-85
+- Renzo Piano (1937- )
+- Ken Yeang (1948- )
+- Houston, Texas, 1981-86
+- (1887-1965)
+- (1887-1965)
+- Le Corbusier, Unité d’ Habitation,
+- “ Economic, technical and cultural conditions have changed radically.”
+- “Form is not the aim of our work, only the result.”
 
 ## Key Points
 
-- Philip Johnson, (above) THE GLASS HOUSE, (left) THE SEAGRAM BUILDING, New York, 1958 (with Mies van der Rohe) AT&T HEADQUARTERS, New York, 1979 Michael Graves (1934- ) - • one of the New York Five or The Five Whites, together with Richard Meier, Peter Eisenman, Charles Gwathmey and John Hejduk, know.
+- (no key points extracted)
 
 ## Referenced Concepts
 
-- concept-international style
-- concept-modernism
+- concept-urban-development-planning
+- concept-international-style

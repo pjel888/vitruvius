@@ -760,6 +760,22 @@ cd explorer && bun run dev --host
 # 3. Open http://localhost:5173
 ```
 
+**Option C: One-command startup script**
+
+If you prefer to launch both the API and the explorer from a single terminal, use the provided script:
+
+```bash
+./start-explorer.sh
+```
+
+This script will:
+1. Check Neo4j is running
+2. Start the API on port 3000 (in the background)
+3. Wait for it to be ready
+4. Start the explorer on port 5173
+
+When you quit the explorer (Ctrl+C), it automatically shuts down the API too.
+
 The explorer provides:
 - **Live search** — fuzzy node search with keyboard navigation
 - **Node inspector** — evidence spans, taxonomy path, incoming/outgoing relationships

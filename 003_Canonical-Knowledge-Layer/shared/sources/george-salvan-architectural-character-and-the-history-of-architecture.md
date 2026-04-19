@@ -1,17 +1,17 @@
 ---
 id: source-george-salvan-architectural-character-and-the-history-of-architecture
-title: George Salvan Architectural Character and the History of Architecture
+title: George Salvan Architectural Character And The History Of Architecture
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:08.925055+00:00
+last_canonicalized_utc: 2026-04-19T13:27:54.414747+00:00
 ---
 
-# George Salvan Architectural Character and the History of Architecture
+# George Salvan Architectural Character And The History Of Architecture
 
 ## Overview
 
-Automated summary withheld for George Salvan Architectural Character and the History of Architecture because the refined source includes image-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
+Automated summary withheld for George Salvan Architectural Character And The History Of Architecture because the refined source includes image-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
 
 ## Coverage
 

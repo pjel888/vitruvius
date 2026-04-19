@@ -1,17 +1,17 @@
 ---
 id: source-the-value-of-an-architect
-title: The Value of an Architect
+title: THE VALUE OF AN ARCHITECT
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:10.287853+00:00
+last_canonicalized_utc: 2026-04-19T13:27:55.770844+00:00
 ---
 
-# The Value of an Architect
+# THE VALUE OF AN ARCHITECT
 
 ## Overview
 
-Automated summary withheld for The Value of an Architect because the refined source includes image-heavy extraction, table-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
+Automated summary withheld for THE VALUE OF AN ARCHITECT because the refined source includes image-heavy extraction, table-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
 
 ## Coverage
 

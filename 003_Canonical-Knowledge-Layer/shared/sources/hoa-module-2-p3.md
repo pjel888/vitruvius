@@ -1,13 +1,13 @@
 ---
 id: source-hoa-module-2-p3
-title: HOA MODULE 2 P3
+title: Hoa Module 2 P3
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:09.442538+00:00
+last_canonicalized_utc: 2026-04-19T13:27:54.728760+00:00
 ---
 
-# HOA MODULE 2 P3
+# Hoa Module 2 P3
 
 ## Overview
 
@@ -52,6 +52,7 @@ last_canonicalized_utc: 2026-04-18T08:21:09.442538+00:00
 ## Referenced Concepts
 
 - concept-urban-development-planning
-- concept-international style
+- concept-organic-architecture
+- concept-international-style
 - concept-less-is-more
 - concept-modernism

@@ -1,17 +1,17 @@
 ---
 id: source-concepts-philosophies
-title: Concepts _ Philosophies
+title: Concepts   Philosophies
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:08.522148+00:00
+last_canonicalized_utc: 2026-04-19T13:27:53.978797+00:00
 ---
 
-# Concepts _ Philosophies
+# Concepts   Philosophies
 
 ## Overview
 
-Automated summary withheld for Concepts _ Philosophies because the refined source includes image-heavy extraction, table-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
+Automated summary withheld for Concepts   Philosophies because the refined source includes image-heavy extraction, table-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
 
 ## Coverage
 
@@ -51,6 +51,7 @@ Automated summary withheld for Concepts _ Philosophies because the refined sourc
 ## Referenced Concepts
 
 - concept-less-is-more
+- concept-organic-architecture
 - concept-urban-development-planning
 - concept-modernism
 - concept-floor-area-ratio

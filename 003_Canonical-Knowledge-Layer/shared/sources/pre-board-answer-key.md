@@ -1,17 +1,17 @@
 ---
 id: source-pre-board-answer-key
-title: PRE-BOARD ANSWER KEY
+title: Pre Board Answer Key
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:10.144352+00:00
+last_canonicalized_utc: 2026-04-19T13:27:55.619612+00:00
 ---
 
-# PRE-BOARD ANSWER KEY
+# Pre Board Answer Key
 
 ## Overview
 
-Automated summary withheld for PRE-BOARD ANSWER KEY because the refined source includes image-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
+Automated summary withheld for Pre Board Answer Key because the refined source includes image-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
 
 ## Coverage
 

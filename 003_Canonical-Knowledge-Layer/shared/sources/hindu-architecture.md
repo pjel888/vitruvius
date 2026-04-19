@@ -4,7 +4,7 @@ title: Hindu Architecture
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:08.996287+00:00
+last_canonicalized_utc: 2026-04-19T13:27:55.029335+00:00
 ---
 
 # Hindu Architecture
