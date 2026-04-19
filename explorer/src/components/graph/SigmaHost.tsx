@@ -9,7 +9,7 @@ export interface GraphController {
   loadPerspective: (nodes: GraphNode[], edges: GraphEdge[]) => void;
   selectNode: (id: string | null) => void;
   expandNode: (id: string, neighbors: { nodes: GraphNode[]; edges: GraphEdge[] }) => void;
-  setLayout: (type: 'forceatlas2' | 'circular' | 'random') => void;
+  setLayout: (type: 'forceatlas2' | 'circular' | 'random' | 'clustered') => void;
   zoomIn: () => void;
   zoomOut: () => void;
   fitView: () => void;
@@ -79,7 +79,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
   const controllerRef = useRef<GraphController | null>(null);
   const selectedNodeRef = useRef<string | null>(null);
   const hoveredNodeRef = useRef<string | null>(null);
-  const layoutTypeRef = useRef<'forceatlas2' | 'circular' | 'random'>('forceatlas2');
+  const layoutTypeRef = useRef<'forceatlas2' | 'circular' | 'random' | 'clustered'>('forceatlas2');
   const visibleNodeTypesRef = useRef<Set<string>>(new Set());
   const visibleEdgeTypesRef = useRef<Set<string>>(new Set());
   const colorSchemeRef = useRef<string>('default');
@@ -183,6 +183,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
             size: getNodeSize(n, g),
             color: getNodeColor(n.type),
             nodeType: n.type,
+            taxonomyPath: n.taxonomy_path || [],
             x: Math.cos((i / Math.max(nodes.length, 1)) * Math.PI * 2) * 200,
             y: Math.sin((i / Math.max(nodes.length, 1)) * Math.PI * 2) * 200,
           });
@@ -225,6 +226,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
               size: getNodeSize(n, g),
               color: getNodeColor(n.type),
               nodeType: n.type,
+              taxonomyPath: n.taxonomy_path || [],
             });
           }
         });
@@ -261,6 +263,28 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
           } catch (e) {
             console.error('ForceAtlas2 failed:', e);
           }
+        } else if (type === 'clustered') {
+          // Group nodes by taxonomy root, place each group in its own circle
+          const groups = new Map<string, string[]>();
+          g.forEachNode((nodeId) => {
+            const attrs = g.getNodeAttributes(nodeId);
+            const path = (attrs.taxonomyPath as string[]) || [];
+            const root = path[0] || 'uncategorized';
+            if (!groups.has(root)) groups.set(root, []);
+            groups.get(root)!.push(nodeId);
+          });
+          const groupKeys = [...groups.keys()];
+          const groupRadius = 350;
+          groupKeys.forEach((groupKey, gi) => {
+            const members = groups.get(groupKey)!;
+            const cx = Math.cos((gi / Math.max(groupKeys.length, 1)) * Math.PI * 2) * groupRadius;
+            const cy = Math.sin((gi / Math.max(groupKeys.length, 1)) * Math.PI * 2) * groupRadius;
+            members.forEach((nodeId, mi) => {
+              const angle = (mi / Math.max(members.length, 1)) * Math.PI * 2;
+              g.setNodeAttribute(nodeId, 'x', cx + Math.cos(angle) * 120);
+              g.setNodeAttribute(nodeId, 'y', cy + Math.sin(angle) * 120);
+            });
+          });
         }
         sigmaRef.current?.refresh();
       },
