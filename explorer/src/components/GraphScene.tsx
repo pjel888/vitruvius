@@ -16,6 +16,8 @@ export default function GraphScene() {
   const loading = useSceneStore(s => s.loading);
   const nodes = useSceneStore(s => s.nodes);
   const edges = useSceneStore(s => s.edges);
+  const visibleNodeTypes = useSceneStore(s => s.visibleNodeTypes);
+  const visibleEdgeTypes = useSceneStore(s => s.visibleEdgeTypes);
 
   // Load perspective data when it changes
   useEffect(() => {
@@ -32,6 +34,8 @@ export default function GraphScene() {
   useEffect(() => {
     if (nodes.length > 0) {
       controllerRef.current?.loadPerspective(nodes, edges);
+      // Re-apply current filters after loading new perspective data
+      controllerRef.current?.setFilters(visibleNodeTypes, visibleEdgeTypes);
     }
   }, [nodes, edges]);
 
@@ -40,9 +44,7 @@ export default function GraphScene() {
     controllerRef.current?.selectNode(selectedNodeId);
   }, [selectedNodeId]);
 
-  // Sync filters
-  const visibleNodeTypes = useSceneStore(s => s.visibleNodeTypes);
-  const visibleEdgeTypes = useSceneStore(s => s.visibleEdgeTypes);
+  // Sync filters (when user toggles checkboxes)
   useEffect(() => {
     controllerRef.current?.setFilters(visibleNodeTypes, visibleEdgeTypes);
   }, [visibleNodeTypes, visibleEdgeTypes]);
