@@ -246,6 +246,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
         edges.forEach((e) => {
           if (!g.hasNode(e.source) || !g.hasNode(e.target)) return;
           const edgeId = e.id || `${e.source}-${e.type}-${e.target}`;
+          if (g.hasEdge(edgeId)) return;
           g.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
             size: 2.5,
             color: EDGE_COLORS[e.type] || '#94a3b8',
@@ -288,13 +289,12 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
         newEdges.forEach((e) => {
           if (!g.hasNode(e.source) || !g.hasNode(e.target)) return;
           const edgeId = e.id || `${e.source}-${e.type}-${e.target}`;
-          if (!g.hasEdge(edgeId)) {
-            g.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
-              size: 2.5,
-              color: EDGE_COLORS[e.type] || '#94a3b8',
-              edgeType: e.type,
-            });
-          }
+          if (g.hasEdge(edgeId)) return;
+          g.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
+            size: 2.5,
+            color: EDGE_COLORS[e.type] || '#94a3b8',
+            edgeType: e.type,
+          });
         });
         applyNodeVisuals(g);
         controller.setLayout(layoutTypeRef.current);
