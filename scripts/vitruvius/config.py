@@ -79,7 +79,7 @@ def get_review_presets() -> dict[str, dict[str, int | str | bool]]:
     if "m2-8gb-safe" not in normalized:
         normalized["m2-8gb-safe"] = {
             "name": "m2-8gb-safe",
-            "model": "qwen2.5:7b",
+            "model": "llama3.1:8b",
             "timeout_seconds": 900,
             "parallelism": 1,
             "num_ctx_cap": 4096,
@@ -138,8 +138,11 @@ def get_ollama_8gb_safe_model() -> str:
 def resolve_review_model(*, explicit_model: str | None = None, preset: str | None = None) -> str:
     if isinstance(explicit_model, str) and explicit_model.strip():
         return explicit_model.strip()
-    if preset == "8gb-safe":
-        return get_ollama_8gb_safe_model()
+    preset_cfg = resolve_review_preset(preset)
+    if isinstance(preset_cfg, dict):
+        model = preset_cfg.get("model")
+        if isinstance(model, str) and model.strip():
+            return model.strip()
     return get_ollama_default_model()
 
 
@@ -209,6 +212,18 @@ def is_kg_assertion_layer() -> bool:
 
 def is_kg_structured_extraction() -> bool:
     return bool(_kg_block().get("structured_extraction", False))
+
+
+def is_kg_taxonomy_seeding() -> bool:
+    return bool(_kg_block().get("taxonomy_seeding", False))
+
+
+def is_kg_incremental_updates() -> bool:
+    return bool(_kg_block().get("incremental_updates", False))
+
+
+def is_kg_qdrant_retrieval() -> bool:
+    return bool(_kg_block().get("qdrant_retrieval", False))
 
 
 def get_kg_neo4j_uri() -> str:

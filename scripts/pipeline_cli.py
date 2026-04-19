@@ -37,7 +37,7 @@ def _add_review_model_args(parser: argparse.ArgumentParser) -> None:
     )
     parser.add_argument(
         "--review-model-preset",
-        choices=["default", "8gb-safe"],
+        choices=["default", "8gb-safe", "ultra-light", "high-quality"],
         default="default",
         help="Named review-model preset to use when --review-model is not set.",
     )
@@ -121,16 +121,65 @@ def _reset_derived_artifacts(repo_root: Path, force: bool = False) -> bool:
     return True
 
 
+def _source_matches_subjects(source_md: Path, subject_set: set[str], repo_root: Path) -> bool:
+    """Check whether a canonical source belongs to any of the requested subjects.
+
+    Reads the frontmatter and looks for original_file / source_documents entries,
+    then checks if the referenced PDF exists under 001_Raw-Source-Layer/<subject>/.
+    Returns True if no subject filter is applied or if a match is found.
+    """
+    if not subject_set:
+        return True
+    try:
+        text = source_md.read_text(encoding="utf-8")
+    except OSError:
+        return False
+    if not text.startswith("---"):
+        return False
+    end = text.find("\n---", 3)
+    if end == -1:
+        return False
+    try:
+        import yaml
+        fm = yaml.safe_load(text[3:end].strip())
+    except Exception:
+        return False
+    if not isinstance(fm, dict):
+        return False
+
+    pdf_names: list[str] = []
+    orig = fm.get("original_file", "")
+    if isinstance(orig, str) and orig.lower().endswith(".pdf"):
+        pdf_names.append(Path(orig).name)
+    docs = fm.get("source_documents", [])
+    if isinstance(docs, list):
+        for doc in docs:
+            if isinstance(doc, str) and doc.lower().endswith(".pdf"):
+                pdf_names.append(Path(doc).name)
+
+    raw_root = repo_root / "001_Raw-Source-Layer"
+    for basename in pdf_names:
+        for found in raw_root.rglob(basename):
+            rel = found.relative_to(raw_root).as_posix()
+            if any(rel.startswith(s + "/") for s in subject_set):
+                return True
+    return False
+
+
 def run_kg_pipeline(
     *,
     dry_run: bool = False,
     skip_review: bool = False,
     review_model: str | None = None,
+    review_model_preset: str | None = None,
     review_timeout_seconds: int | None = None,
     review_parallelism: int | None = None,
     snapshot_out_path: str | None = None,
     reset: bool = False,
     force_reset: bool = False,
+    all_subjects: bool = False,
+    subjects: list[str] | None = None,
+    tier: str | None = None,
 ) -> int:
     """Unified orchestrator: raw sources → canonical layer → KG v2 snapshot.
 
@@ -148,6 +197,8 @@ def run_kg_pipeline(
         get_ollama_default_parallelism,
         get_ollama_default_timeout,
         is_kg_enabled,
+        resolve_review_model,
+        resolve_review_preset,
     )
     from vitruvius.paths import get_repo_root
 
@@ -160,6 +211,16 @@ def run_kg_pipeline(
         print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
         return 1
 
+    # --all implies full reset so previous outputs don't pollute the run
+    if all_subjects:
+        reset = True
+        force_reset = True
+        print("[--all] Processing all subjects with derived-artifact reset.")
+
+    subject_set = set(subjects) if subjects else None
+    if subject_set:
+        print(f"[--subject] Restricting to: {sorted(subject_set)}")
+
     if reset:
         if dry_run:
             print("[DRY-RUN] Would reset derived artifacts")
@@ -167,14 +228,41 @@ def run_kg_pipeline(
             if not _reset_derived_artifacts(repo_root, force=force_reset):
                 return 1
 
-    model = review_model or get_ollama_default_model()
-    timeout = review_timeout_seconds or get_ollama_default_timeout()
-    parallelism = review_parallelism or get_ollama_default_parallelism()
+    # --tier maps to an appropriate review-model preset for convenience
+    effective_preset = review_model_preset
+    if tier:
+        tier_map = {
+            "lightweight": "ultra-light",
+            "heavy": "default",
+        }
+        mapped = tier_map.get(tier)
+        if mapped and not review_model_preset:
+            effective_preset = mapped
+            print(f"[--tier {tier}] Mapped to review-model preset '{mapped}'")
+
+    # Resolve model / timeout / parallelism with preset awareness
+    model = resolve_review_model(
+        explicit_model=review_model,
+        preset=effective_preset,
+    )
+    preset_cfg = resolve_review_preset(effective_preset)
+    timeout = (
+        review_timeout_seconds
+        or (preset_cfg.get("timeout_seconds") if preset_cfg else None)
+        or get_ollama_default_timeout()
+    )
+    parallelism = (
+        review_parallelism
+        or (preset_cfg.get("parallelism") if preset_cfg else None)
+        or get_ollama_default_parallelism()
+    )
+    print(f"Review config: model={model}, timeout={timeout}s, parallelism={parallelism}")
 
     report: dict[str, object] = {
         "action": "run-kg-pipeline",
         "run_id": run_id,
         "dry_run": dry_run,
+        "subjects": sorted(subject_set) if subject_set else None,
         "phases": [],
     }
 
@@ -185,24 +273,75 @@ def run_kg_pipeline(
     print("Phase 1/4 — Scan, Convert, Refine")
     print("=" * 60)
 
-    from vitruvius.conversion import run_convert
-    from vitruvius.normalization.refine import run_refine
+    from vitruvius.conversion import run_convert, run_convert_one
+    from vitruvius.normalization.refine import run_refine, run_refine_one
 
     if not dry_run:
-        rc = run_pipeline()
-        if rc != 0:
-            report["error"] = "scan/status/lint failed"
-            return rc
-        rc = run_convert()
-        if rc != 0:
-            report["error"] = "convert failed"
-            return rc
-        rc = run_refine()
-        if rc != 0:
-            report["error"] = "refine failed"
-            return rc
+        if subject_set:
+            # Scoped run: scan/status first, then filter and convert one-by-one
+            rc = run_pipeline()
+            if rc != 0:
+                report["error"] = "scan/status/lint failed"
+                return rc
+
+            status_report_path = (
+                repo_root / "006_System-Manifests" / "runs" / "latest_status_report.json"
+            )
+            if status_report_path.exists():
+                status_report = json.loads(status_report_path.read_text(encoding="utf-8"))
+                candidates = sorted(
+                    set(status_report.get("new_files", []))
+                    | set(status_report.get("changed_files", []))
+                )
+            else:
+                candidates = []
+
+            filtered = [p for p in candidates if any(p.startswith(s + "/") for s in subject_set)]
+            print(f"Phase 1 scoped: {len(filtered)} file(s) match subject filter (out of {len(candidates)})")
+
+            converted = 0
+            refined = 0
+            for rel_path in filtered:
+                if Path(rel_path).suffix.lower() != ".pdf":
+                    continue
+                rc = run_convert_one(rel_path)
+                if rc == 0:
+                    converted += 1
+                # Derive expected refined path: 002/<subject>/.../raw_markdown/<basename>.md
+                # The conversion layer mirrors the raw layer structure.
+                raw_basename = Path(rel_path).stem
+                refined_candidates = list(
+                    (repo_root / "002_Raw-Conversion-Layer").rglob(f"{raw_basename}.md")
+                )
+                if refined_candidates:
+                    rel_refined = refined_candidates[0].relative_to(
+                        repo_root / "002_Raw-Conversion-Layer"
+                    ).as_posix()
+                    rc = run_refine_one(relative_markdown_path=rel_refined)
+                    if rc == 0:
+                        refined += 1
+                else:
+                    print(f"  WARN: no refined markdown found for {rel_path}")
+            print(f"Phase 1 complete: {converted} converted, {refined} refined")
+        else:
+            # Full run: use batch convert + refine
+            rc = run_pipeline()
+            if rc != 0:
+                report["error"] = "scan/status/lint failed"
+                return rc
+            rc = run_convert()
+            if rc != 0:
+                report["error"] = "convert failed"
+                return rc
+            rc = run_refine()
+            if rc != 0:
+                report["error"] = "refine failed"
+                return rc
     else:
-        print("[DRY-RUN] Would run: scan → convert → refine")
+        if subject_set:
+            print(f"[DRY-RUN] Would scan → filter to {sorted(subject_set)} → convert-one → refine-one")
+        else:
+            print("[DRY-RUN] Would run: scan → convert → refine")
 
     report["phases"].append({"phase": 1, "name": "ingest_convert", "status": "ok"})
 
@@ -213,15 +352,40 @@ def run_kg_pipeline(
     print("Phase 2/4 — Canonicalize refined sources")
     print("=" * 60)
 
-    from vitruvius.canonicalize import run_canonicalize
+    from vitruvius.canonicalize import run_canonicalize, run_canonicalize_one
 
     if not dry_run:
-        rc = run_canonicalize()
-        if rc != 0:
-            report["error"] = "canonicalize failed"
-            return rc
+        if subject_set:
+            conversion_root = repo_root / "002_Raw-Conversion-Layer"
+            if conversion_root.exists():
+                all_md = sorted(conversion_root.rglob("*.md"))
+                filtered_md = [
+                    p for p in all_md
+                    if any(
+                        p.relative_to(conversion_root).as_posix().startswith(s + "/")
+                        for s in subject_set
+                    )
+                ]
+                print(f"Phase 2 scoped: {len(filtered_md)} refined markdown(s) match subject filter")
+                canonicalized = 0
+                for md_path in filtered_md:
+                    rel = md_path.relative_to(conversion_root).as_posix()
+                    rc = run_canonicalize_one(relative_markdown_path=rel)
+                    if rc == 0:
+                        canonicalized += 1
+                print(f"Phase 2 complete: {canonicalized} canonicalized")
+            else:
+                print("Phase 2: conversion layer empty")
+        else:
+            rc = run_canonicalize()
+            if rc != 0:
+                report["error"] = "canonicalize failed"
+                return rc
     else:
-        print("[DRY-RUN] Would run: canonicalize (batch)")
+        if subject_set:
+            print(f"[DRY-RUN] Would canonicalize refined markdown under {sorted(subject_set)}")
+        else:
+            print("[DRY-RUN] Would run: canonicalize (batch)")
 
     report["phases"].append({"phase": 2, "name": "canonicalize", "status": "ok"})
 
@@ -243,7 +407,14 @@ def run_kg_pipeline(
     phase3_runs_dir.mkdir(parents=True, exist_ok=True)
 
     canonical_sources = sorted(sources_dir.glob("*.md")) if sources_dir.exists() else []
-    print(f"Found {len(canonical_sources)} canonical source(s)")
+    if subject_set:
+        canonical_sources = [
+            s for s in canonical_sources
+            if _source_matches_subjects(s, subject_set, repo_root)
+        ]
+        print(f"Found {len(canonical_sources)} canonical source(s) after subject filter")
+    else:
+        print(f"Found {len(canonical_sources)} canonical source(s)")
 
     extracted_count = 0
     reviewed_count = 0
@@ -538,6 +709,16 @@ def build_parser() -> argparse.ArgumentParser:
                                     help="Skip LLM review and promote all extracted relationships")
     kg_pipeline_parser.add_argument("--review-model", default=None,
                                     help="Tier-1 review model override")
+    kg_pipeline_parser.add_argument("--review-model-preset", default=None,
+                                    choices=["default", "8gb-safe", "ultra-light", "high-quality"],
+                                    help="Named review model preset (default, 8gb-safe, ultra-light, high-quality). When set, overrides --review-model unless explicitly provided.")
+    kg_pipeline_parser.add_argument("--tier", default=None,
+                                    choices=["lightweight", "heavy"],
+                                    help=(
+                                        "High-level model tier. lightweight → qwen2.5:3b review + nomic-embed-text embeddings. "
+                                        "heavy → llama3.1:8b (or gemma4:31b with high-quality preset). "
+                                        "Maps to an appropriate --review-model-preset unless one is explicitly provided."
+                                    ))
     kg_pipeline_parser.add_argument("--review-timeout-seconds", type=int, default=None,
                                     help="Tier-1 review timeout seconds")
     kg_pipeline_parser.add_argument("--review-parallel", type=int, default=None,
@@ -548,6 +729,13 @@ def build_parser() -> argparse.ArgumentParser:
                                     help="Delete all derived artifacts (002, 003/sources, 003/relationships, 005/kg-v2, 006/runs, 006/registries) before running")
     kg_pipeline_parser.add_argument("--force-reset", action="store_true",
                                     help="Confirm destructive reset (required with --reset)")
+    kg_pipeline_parser.add_argument("--all", action="store_true",
+                                    help="Process all subjects. Automatically resets derived artifacts before running.")
+    kg_pipeline_parser.add_argument("--subject", action="append", default=None,
+                                    help=(
+                                        "Restrict to a specific subject folder under 001_Raw-Source-Layer/ "
+                                        "(e.g. 001-Laws). Repeatable for multiple subjects."
+                                    ))
 
     dataset_graph_parser = add_command_parser(subparsers, "run-dataset-graph")
     dataset_graph_parser.add_argument("--dataset-manifest", required=True,
@@ -1047,6 +1235,23 @@ def build_parser() -> argparse.ArgumentParser:
         help="Path to a kg-v2 snapshot JSON (defaults to latest in kg-v2/)",
     )
 
+    # Phase 4d — dematerialize edge (rollback helper)
+    kg_dematerialize_parser = add_command_parser(subparsers, "kg-dematerialize-edge")
+    kg_dematerialize_parser.add_argument(
+        "assertion_id",
+        help="Assertion ID whose fast edge should be removed",
+    )
+    kg_dematerialize_parser.add_argument(
+        "--snapshot",
+        default=None,
+        help="Path to a kg-v2 snapshot JSON (defaults to latest in kg-v2/)",
+    )
+    kg_dematerialize_parser.add_argument(
+        "--out-path",
+        default=None,
+        help="Output path for modified snapshot (defaults to overwrite original)",
+    )
+
     # Phase 5/9 — build unified snapshot from all canonical sources
     kg_unified_parser = add_command_parser(subparsers, "kg-build-unified")
     kg_unified_parser.add_argument(
@@ -1475,11 +1680,15 @@ def main() -> int:
                 dry_run=args.dry_run,
                 skip_review=args.skip_review,
                 review_model=args.review_model,
+                review_model_preset=args.review_model_preset,
                 review_timeout_seconds=args.review_timeout_seconds,
                 review_parallelism=args.review_parallel,
                 snapshot_out_path=args.snapshot_out,
                 reset=args.reset,
                 force_reset=args.force_reset,
+                all_subjects=args.all,
+                subjects=args.subject,
+                tier=args.tier,
             ),
         )
 
@@ -2373,6 +2582,10 @@ def main() -> int:
         if not is_kg_enabled():
             print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
             return 1
+        from vitruvius.config import is_kg_evidence_graph
+        if not is_kg_evidence_graph():
+            print("ERROR: kg_transition.evidence_graph is false. Set it to true to ingest evidence.")
+            return 1
 
         neo4j = Neo4jClient(
             uri=get_kg_neo4j_uri(),
@@ -2460,6 +2673,13 @@ def main() -> int:
         )
 
     if args.command == "kg-backfill-evidence":
+        from vitruvius.config import is_kg_assertion_layer, is_kg_enabled
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
+        if not is_kg_assertion_layer():
+            print("ERROR: kg_transition.assertion_layer is false. Set it to true in config/vitruvius.yaml")
+            return 1
         from vitruvius.kg.evidence_materializer import EvidenceMaterializer
         from vitruvius.paths import get_repo_root
 
@@ -2475,6 +2695,13 @@ def main() -> int:
         return 0
 
     if args.command == "kg-seed-taxonomy":
+        from vitruvius.config import is_kg_enabled, is_kg_taxonomy_seeding
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
+        if not is_kg_taxonomy_seeding():
+            print("ERROR: kg_transition.taxonomy_seeding is false. Set it to true in config/vitruvius.yaml")
+            return 1
         from vitruvius.kg.evidence_materializer import TaxonomyLoader
         from vitruvius.paths import get_repo_root
 
@@ -2500,6 +2727,10 @@ def main() -> int:
 
         if not is_kg_enabled():
             print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
+        from vitruvius.config import is_kg_structured_extraction
+        if not is_kg_structured_extraction():
+            print("ERROR: kg_transition.structured_extraction is false. Set it to true to extract candidates.")
             return 1
 
         snap_path = args.snapshot
@@ -2612,7 +2843,13 @@ def main() -> int:
                         parent_id = tn.id
                         break
                 if parent_id is None:
-                    parent_id = path  # fallback to path string as parent id
+                    print(f"WARN: Could not resolve taxonomy parent for node {node.id} path '{path}' — skipping placement")
+                    continue
+                # Propagate node evidence into placement assertion
+                node_evidence = [
+                    eid for eid in (node.primary_assertion_id or "").split(",")
+                    if eid
+                ] or []
                 placements.append(
                     PlacementAssertion(
                         id=f"assert-placement-{node.id}-to-{parent_id}",
@@ -2621,7 +2858,7 @@ def main() -> int:
                         reasoning_summary=f"Placed via {'rule' if node.type in placement_engine.RULE_PATHS else 'embedding'} strategy",
                         confidence=node.confidence,
                         validation_status=ValidationState.CANDIDATE,
-                        evidence_ids=[],
+                        evidence_ids=node_evidence,
                         created_at=datetime.now(timezone.utc).isoformat(),
                         version=1,
                     )
@@ -2647,6 +2884,10 @@ def main() -> int:
 
         if not is_kg_enabled():
             print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
+        from vitruvius.config import is_kg_assertion_layer
+        if not is_kg_assertion_layer():
+            print("ERROR: kg_transition.assertion_layer is false. Set it to true to materialize canonical graph.")
             return 1
 
         # Resolve taxonomy snapshot
@@ -2685,7 +2926,49 @@ def main() -> int:
                 print(f"  - {w}")
         return 0
 
+    if args.command == "kg-dematerialize-edge":
+        from vitruvius.config import is_kg_assertion_layer, is_kg_enabled
+        from vitruvius.kg.json_evidence_store import KgV2Snapshot
+        from vitruvius.paths import get_repo_root
+
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false.")
+            return 1
+        if not is_kg_assertion_layer():
+            print("ERROR: kg_transition.assertion_layer is false.")
+            return 1
+
+        snap_path = args.snapshot
+        if snap_path is None:
+            snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+            candidates = sorted(snap_dir.glob("*_kg_v2_*.json"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No snapshot found in {snap_dir}")
+                return 1
+            snap_path = candidates[0]
+
+        snapshot = KgV2Snapshot.read(Path(snap_path))
+        original_count = len(snapshot.fast_edges)
+        snapshot.fast_edges = [
+            e for e in snapshot.fast_edges
+            if e.get("assertion_id") != args.assertion_id
+        ]
+        removed = original_count - len(snapshot.fast_edges)
+
+        out_path = Path(args.out_path) if args.out_path else Path(snap_path)
+        snapshot.write(out_path)
+        print(f"Dematerialized {removed} edge(s) for assertion {args.assertion_id}")
+        print(f"Wrote snapshot ({len(snapshot.fast_edges)} edges) to {out_path}")
+        return 0
+
     if args.command == "kg-validate-assertions":
+        from vitruvius.config import is_kg_assertion_layer, is_kg_enabled
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
+        if not is_kg_assertion_layer():
+            print("ERROR: kg_transition.assertion_layer is false. Set it to true in config/vitruvius.yaml")
+            return 1
         from vitruvius.kg.assertion_validator import AssertionValidator
         from vitruvius.kg.json_evidence_store import KgV2Snapshot
         from vitruvius.paths import get_repo_root
@@ -2751,6 +3034,13 @@ def main() -> int:
         return 0
 
     if args.command == "kg-detect-contradictions":
+        from vitruvius.config import is_kg_assertion_layer, is_kg_enabled
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
+        if not is_kg_assertion_layer():
+            print("ERROR: kg_transition.assertion_layer is false. Set it to true in config/vitruvius.yaml")
+            return 1
         from vitruvius.kg.contradiction_detector import ContradictionDetector
         from vitruvius.kg.json_evidence_store import KgV2Snapshot
         from vitruvius.paths import get_repo_root
@@ -2807,6 +3097,10 @@ def main() -> int:
         return 0
 
     if args.command == "kg-review-queue":
+        from vitruvius.config import is_kg_enabled
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
         from vitruvius.kg.query_engine import QueryEngine
         from vitruvius.paths import get_repo_root
 
@@ -2870,6 +3164,10 @@ def main() -> int:
         return 0
 
     if args.command == "kg-review-action":
+        from vitruvius.config import is_kg_enabled
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
         from vitruvius.kg.enums import ValidationState
         from vitruvius.kg.json_evidence_store import KgV2Snapshot
         from vitruvius.paths import get_repo_root
@@ -2913,6 +3211,10 @@ def main() -> int:
         return 0
 
     if args.command == "kg-inspect-node":
+        from vitruvius.config import is_kg_enabled
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
         from vitruvius.kg.query_engine import QueryEngine
         from vitruvius.paths import get_repo_root
 
@@ -2979,6 +3281,10 @@ def main() -> int:
         return 0
 
     if args.command == "kg-inspect-assertion":
+        from vitruvius.config import is_kg_enabled
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
         from vitruvius.kg.query_engine import QueryEngine
         from vitruvius.paths import get_repo_root
 
@@ -3053,6 +3359,10 @@ def main() -> int:
         return 0
 
     if args.command == "kg-query-nodes":
+        from vitruvius.config import is_kg_enabled
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
         from vitruvius.kg.query_engine import QueryEngine
         from vitruvius.paths import get_repo_root
 
@@ -3078,6 +3388,10 @@ def main() -> int:
         return 0
 
     if args.command == "kg-query-neighborhood":
+        from vitruvius.config import is_kg_enabled
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
         from vitruvius.kg.query_engine import QueryEngine
         from vitruvius.paths import get_repo_root
 

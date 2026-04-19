@@ -73,7 +73,7 @@ class ExtractionEngine:
     ) -> None:
         self.llm = llm
         self.embedder = embedder
-        self.validator = validator or ExtractionValidator(strict_traceability=False)
+        self.validator = validator or ExtractionValidator(strict_traceability=True)
         self.min_chunk_chars = min_chunk_chars
         self.max_chunk_chars = max_chunk_chars
         self._prompts: dict[str, str] = {}
@@ -90,14 +90,15 @@ class ExtractionEngine:
         run_id: str = "",
         span_ids: list[str] | None = None,
     ) -> ExtractionResult:
+        if not run_id:
+            run_id = f"auto-{uuid.uuid4().hex[:8]}"
         """Extract one unit type from a single chunk.
 
         Parameters
         ----------
         span_ids:
-            Evidence span IDs supporting this chunk.  If ``None``, a
-            traceability placeholder ``span-<chunk_suffix>`` is generated
-            so that candidates are never created without evidence links.
+            Evidence span IDs supporting this chunk.  Must be provided;
+            synthetic placeholders are no longer generated.
         """
         if len(chunk.text) < self.min_chunk_chars:
             return ExtractionResult(
@@ -106,10 +107,8 @@ class ExtractionEngine:
                 error="chunk_too_short",
             )
 
-        # Default traceability: derive a span ID from the chunk ID
         if span_ids is None:
-            chunk_suffix = chunk.id.replace("chk-", "")
-            span_ids = [f"span-{chunk_suffix}"]
+            span_ids = []
 
         prompt = self._build_prompt(chunk, unit_type, run_id)
         start_ms = int(time.time() * 1000)

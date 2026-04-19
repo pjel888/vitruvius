@@ -146,6 +146,24 @@ class TestTraceability:
         result = v.validate_candidate(cand)
         assert any("E9" in e for e in result.errors)
 
+    def test_unknown_span_id_fails_when_evidence_index_provided(self) -> None:
+        v = ExtractionValidator(evidence_index={"span-001", "span-002"})
+        cand = _make_candidate(span_ids=["span-999"])  # Not in index
+        result = v.validate_candidate(cand)
+        assert any("E10" in e for e in result.errors)
+
+    def test_known_span_id_passes_when_evidence_index_provided(self) -> None:
+        v = ExtractionValidator(evidence_index={"span-001", "span-002"})
+        cand = _make_candidate(span_ids=["span-001"])
+        result = v.validate_candidate(cand)
+        assert result.passed is True
+
+    def test_span_id_skipped_when_no_evidence_index(self) -> None:
+        v = ExtractionValidator()  # No evidence_index
+        cand = _make_candidate(span_ids=["span-999"])
+        result = v.validate_candidate(cand)
+        assert result.passed is True  # E10 only checked when index is provided
+
 
 class TestResultValidation:
     def test_validate_result_returns_one_per_candidate(self) -> None:

@@ -24,6 +24,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from .assertion_validator import AssertionValidator
 from .canonical_store import CanonicalStore
 from .canonicalizer import Canonicalizer
 from .edge_materializer import EdgeMaterializer
@@ -117,7 +118,17 @@ class CanonicalGraphBuilder:
                 paths = placement_engine.place(node)
                 for path in paths:
                     parent_id = self._resolve_parent_id(path)
+                    if parent_id is None:
+                        self._warnings.append(
+                            f"Could not resolve taxonomy parent for node {node.id} path '{path}'"
+                        )
+                        continue
                     safe_parent = parent_id.replace("/", "-")
+                    # Propagate node's evidence into the placement assertion
+                    node_evidence = [
+                        eid for eid in (node.primary_assertion_id,)
+                        if eid
+                    ] or []
                     self._placements.append(
                         PlacementAssertion(
                             id=f"assert-placement-{node.id}-to-{safe_parent}",
@@ -126,7 +137,7 @@ class CanonicalGraphBuilder:
                             reasoning_summary=f"Placed under '{path}'",
                             confidence=node.confidence,
                             validation_status=ValidationState.CANDIDATE,
-                            evidence_ids=[],
+                            evidence_ids=node_evidence,
                             created_at=datetime.now(timezone.utc).isoformat(),
                             version=1,
                         )
@@ -140,6 +151,9 @@ class CanonicalGraphBuilder:
             self._merges = merge_adjudicator.propose(self.snapshot.canonical_nodes)
 
         self.snapshot.merge_assertions = self._merges
+
+        # Validate assertions before materialization — filter out invalid ones
+        self._validate_assertions()
 
         # Materialize fast edges
         if materialize_edges:
@@ -180,9 +194,81 @@ class CanonicalGraphBuilder:
 
     # -- internal ------------------------------------------------------------
 
-    def _resolve_parent_id(self, path: str) -> str:
+    def _validate_assertions(self) -> None:
+        """Run AssertionValidator over all assertions and filter out invalid ones."""
+        canonical_index = {
+            n.id: {"type": n.type.value, "status": n.status}
+            for n in self.snapshot.canonical_nodes
+        }
+        evidence_index = {e.id: e for e in self.snapshot.evidence_spans}
+        all_placement_index = {
+            p.node_id: p.parent_node_id for p in self.snapshot.placement_assertions
+        }
+        all_merge_index = {
+            m.from_node_id: m.to_node_id for m in self.snapshot.merge_assertions
+        }
+
+        valid_placements: list[PlacementAssertion] = []
+        for p in self.snapshot.placement_assertions:
+            # Exclude current placement from conflict index
+            placement_index = dict(all_placement_index)
+            placement_index.pop(p.node_id, None)
+            validator = AssertionValidator(
+                canonical_index=canonical_index,
+                evidence_index=evidence_index,
+                placement_index=placement_index,
+                merge_index=all_merge_index,
+            )
+            result = validator.validate_placement(p)
+            if result.passed:
+                valid_placements.append(p)
+            else:
+                self._warnings.append(
+                    f"Placement {p.id} rejected: {'; '.join(result.errors)}"
+                )
+        self.snapshot.placement_assertions = valid_placements
+
+        valid_merges = []
+        for m in self.snapshot.merge_assertions:
+            # Exclude current merge from duplicate index
+            merge_index = dict(all_merge_index)
+            merge_index.pop(m.from_node_id, None)
+            merge_index.pop(m.to_node_id, None)
+            validator = AssertionValidator(
+                canonical_index=canonical_index,
+                evidence_index=evidence_index,
+                placement_index=all_placement_index,
+                merge_index=merge_index,
+            )
+            result = validator.validate_merge(m)
+            if result.passed:
+                valid_merges.append(m)
+            else:
+                self._warnings.append(
+                    f"Merge {m.id} rejected: {'; '.join(result.errors)}"
+                )
+        self.snapshot.merge_assertions = valid_merges
+
+        valid_relationships = []
+        for r in self.snapshot.relationship_assertions:
+            validator = AssertionValidator(
+                canonical_index=canonical_index,
+                evidence_index=evidence_index,
+                placement_index=all_placement_index,
+                merge_index=all_merge_index,
+            )
+            result = validator.validate_relationship(r)
+            if result.passed:
+                valid_relationships.append(r)
+            else:
+                self._warnings.append(
+                    f"Relationship {r.id} rejected: {'; '.join(result.errors)}"
+                )
+        self.snapshot.relationship_assertions = valid_relationships
+
+    def _resolve_parent_id(self, path: str) -> str | None:
         """Resolve a taxonomy path string to a parent node ID."""
         for tn in self._taxonomy_nodes:
             if "/".join(tn.path) == path:
                 return tn.id
-        return path
+        return None

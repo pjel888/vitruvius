@@ -23,7 +23,7 @@ paths:
 review:
   ollama:
     url: "http://127.0.0.1:11434"
-    default_model: "gemma4:31b"
+    default_model: "llama3.1:8b"
     default_timeout_seconds: 600
     max_retries_per_candidate: 3
     retry_backoff_seconds: 2
@@ -31,23 +31,38 @@ review:
     # NEW — Stream W1.2 Ollama num_ctx hard cap (tokens).
     # Enforced only when features.w_llm_num_ctx_enforcement is true.
     num_ctx_cap: 8192
-    # NEW — Stream W1.1 model pool for 8GB survival mode.
+    # NEW — Stream W1.1 model pool for tiered memory hosts.
     # Read only when features.w_llm_model_pool is true.
     model_pool:
-      tier_0_draft: phi3:mini            # ~2.3 GB quantized
-      tier_1_default: qwen2.5:7b         # ~4.4 GB quantized (8GB survival)
+      tier_0_draft: qwen2.5:3b           # ~1.9 GB quantized (ultra-light)
+      tier_1_default: llama3.1:8b        # ~4.9 GB quantized (default, 8GB-safe)
       tier_2_heavy: gemma4:31b           # ~18 GB — only on >=32 GB hosts
     presets:
+      default:
+        model: llama3.1:8b
+        timeout_seconds: 600
+        parallelism: 1
+        num_ctx_cap: 8192
       8gb-safe:
-        model: qwen2.5:7b
+        model: llama3.1:8b
         timeout_seconds: 900
         parallelism: 1
         num_ctx_cap: 4096
       m2-8gb-safe:
-        model: qwen2.5:7b
+        model: llama3.1:8b
         timeout_seconds: 900
         parallelism: 1
         num_ctx_cap: 4096
+      ultra-light:
+        model: qwen2.5:3b
+        timeout_seconds: 600
+        parallelism: 1
+        num_ctx_cap: 2048
+      high-quality:
+        model: gemma4:31b
+        timeout_seconds: 1200
+        parallelism: 1
+        num_ctx_cap: 8192
 
 promotion:
   confidence_threshold: 0.90
@@ -315,14 +330,19 @@ features:
 kg_transition:
   enabled: true                     # Master kill-switch — unified pipeline active
   legacy_snapshot_mode: true        # Keep building v1 JSON snapshots
-  neo4j_backend: false              # Enable Neo4j writes
-  postgres_registry: false          # Enable PostgreSQL registry
-  evidence_graph: false             # Enable document→version→section→chunk→span pipeline
-  assertion_layer: false            # Enable reified assertions
+  neo4j_backend: true               # Enable Neo4j writes
+  postgres_registry: true           # Enable PostgreSQL registry
+  evidence_graph: true              # Enable document→version→section→chunk→span pipeline
+  assertion_layer: true             # Enable reified assertions
   taxonomy_seeding: false           # Allow AI to propose taxonomy placements
-  structured_extraction: false      # Require JSON-schema-constrained LLM output
+  structured_extraction: true       # Require JSON-schema-constrained LLM output
   incremental_updates: false        # Enable subgraph delta updates
   qdrant_retrieval: false           # Enable Qdrant hybrid search (Sprint 3+)
+
+  # Connection credentials (local dev defaults)
+  neo4j_user: neo4j
+  neo4j_password: password
+  postgres_conninfo: "dbname=vitruvius user=postgres password=password host=localhost port=5432"
 
   # 8GB M2 Model Assignment Policy (2026-04-19)
   # Lightweight tier (default, RAM-safe):

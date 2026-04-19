@@ -33,6 +33,17 @@ def _make_taxonomy_snapshot(tmp_path: Path) -> Path:
     )
     snap.canonical_nodes.append(
         CanonicalNode(
+            id="taxonomy-rules",
+            type=NodeType.TAXONOMY,
+            label="Rules",
+            slug="rules",
+            taxonomy_path=["rules"],
+            status=ValidationState.VALIDATED,
+            confidence=1.0,
+        )
+    )
+    snap.canonical_nodes.append(
+        CanonicalNode(
             id="concept-existing",
             type=NodeType.CONCEPT,
             label="Existing Concept",
@@ -66,6 +77,7 @@ def _make_canonical_jsonl(tmp_path: Path) -> Path:
             reasoning_summary="Placed",
             confidence=0.85,
             validation_status=ValidationState.CANDIDATE,
+            evidence_ids=["span-test-001"],
         )
     ]
     path = store.save(nodes, placements, [], run_id="test")
@@ -77,8 +89,8 @@ class TestLoadSources:
         builder = CanonicalGraphBuilder()
         tax_path = _make_taxonomy_snapshot(tmp_path)
         builder.load_taxonomy_snapshot(tax_path)
-        assert len(builder._canonical_nodes) == 2
-        assert len(builder._taxonomy_nodes) == 1
+        assert len(builder._canonical_nodes) == 3
+        assert len(builder._taxonomy_nodes) == 2
 
     def test_load_canonical_jsonl(self, tmp_path: Path) -> None:
         builder = CanonicalGraphBuilder()
@@ -95,7 +107,7 @@ class TestBuild:
         builder.load_canonical_jsonl(_make_canonical_jsonl(tmp_path))
         snapshot = builder.build(run_placement=False, run_merge_adjudication=False)
         ids = {n.id for n in snapshot.canonical_nodes}
-        assert ids == {"taxonomy-building-code", "concept-existing", "concept-new"}
+        assert ids == {"taxonomy-building-code", "taxonomy-rules", "concept-existing", "concept-new"}
 
     def test_deduplicates_by_id(self, tmp_path: Path) -> None:
         builder = CanonicalGraphBuilder()
@@ -122,6 +134,7 @@ class TestBuild:
 
     def test_preserves_loaded_placements(self, tmp_path: Path) -> None:
         builder = CanonicalGraphBuilder()
+        builder.load_taxonomy_snapshot(_make_taxonomy_snapshot(tmp_path))
         builder.load_canonical_jsonl(_make_canonical_jsonl(tmp_path))
         snapshot = builder.build(run_placement=False, run_merge_adjudication=False)
         assert len(snapshot.placement_assertions) == 1
@@ -129,6 +142,7 @@ class TestBuild:
 
     def test_materializes_edges(self, tmp_path: Path) -> None:
         builder = CanonicalGraphBuilder()
+        builder.load_taxonomy_snapshot(_make_taxonomy_snapshot(tmp_path))
         builder.load_canonical_jsonl(_make_canonical_jsonl(tmp_path))
         snapshot = builder.build(run_placement=False, run_merge_adjudication=False)
         assert len(snapshot.fast_edges) == 1
@@ -143,6 +157,7 @@ class TestBuild:
                 type=NodeType.RULE,
                 label="Rule X",
                 slug="rule-x",
+                primary_assertion_id="assert-rule-001",
             )
         )
         snapshot = builder.build(run_placement=True, run_merge_adjudication=False)
@@ -158,12 +173,14 @@ class TestBuild:
                     type=NodeType.CONCEPT,
                     label="Same",
                     slug="same",
+                    primary_assertion_id="assert-a-001",
                 ),
                 CanonicalNode(
                     id="concept-b",
                     type=NodeType.CONCEPT,
                     label="same",
                     slug="same",
+                    primary_assertion_id="assert-b-001",
                 ),
             ]
         )

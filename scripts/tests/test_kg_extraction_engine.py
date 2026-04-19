@@ -70,7 +70,7 @@ class TestExtractFromChunk:
         llm = FakeLLMClient(responses=[FakeResponse()])
         engine = ExtractionEngine(llm=llm)
         chunk = _make_chunk("A building permit is required for all construction projects in the city.")
-        result = engine.extract_from_chunk(chunk, "concept")
+        result = engine.extract_from_chunk(chunk, "concept", run_id="run-test-001", span_ids=["span-test-001"])
 
         assert result.error is None
         assert len(result.candidates) == 1
@@ -97,7 +97,7 @@ class TestExtractFromChunk:
         llm = FakeLLMClient(responses=[FakeResponse()])
         engine = ExtractionEngine(llm=llm)
         chunk = _make_chunk("Some chunk text here for extraction purposes with sufficient length.")
-        result = engine.extract_from_chunk(chunk, "rule")
+        result = engine.extract_from_chunk(chunk, "rule", run_id="run-test-002", span_ids=["span-test-002"])
 
         assert len(result.candidates) == 1
         assert result.candidates[0].label == "Valid"
@@ -106,7 +106,7 @@ class TestExtractFromChunk:
         llm = FakeLLMClient(responses=[None])
         engine = ExtractionEngine(llm=llm)
         chunk = _make_chunk("Unique marker XYZ123 for prompt verification and sufficient length here.")
-        engine.extract_from_chunk(chunk, "definition")
+        engine.extract_from_chunk(chunk, "definition", run_id="run-test-003", span_ids=["span-test-003"])
 
         assert len(llm.calls) == 1
         prompt, _ = llm.calls[0]

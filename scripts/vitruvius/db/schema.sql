@@ -95,6 +95,7 @@ CREATE TABLE IF NOT EXISTS review_queue (
     updated_at      TIMESTAMPTZ DEFAULT NOW()
 );
 
+CREATE UNIQUE INDEX IF NOT EXISTS idx_review_queue_item_id ON review_queue(item_id);
 CREATE INDEX IF NOT EXISTS idx_review_queue_status ON review_queue(status);
 CREATE INDEX IF NOT EXISTS idx_review_queue_type ON review_queue(item_type);
 

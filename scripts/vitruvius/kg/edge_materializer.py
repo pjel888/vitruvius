@@ -52,6 +52,12 @@ class EdgeMaterializer:
 
     # -- public API ---------------------------------------------------------
 
+    def _node_exists(self, node_id: str) -> bool:
+        """Check whether a node ID exists in the snapshot's canonical nodes."""
+        if not self.snapshot.canonical_nodes:
+            return True  # No snapshot provided — skip validation
+        return any(n.id == node_id for n in self.snapshot.canonical_nodes)
+
     def materialize(
         self,
         assertions: list[RelationshipAssertion],
@@ -61,6 +67,10 @@ class EdgeMaterializer:
         """Convert relationship assertions to fast edges, appending to internal state."""
         for assertion in assertions:
             if skip_unvalidated and assertion.validation_status != ValidationState.VALIDATED:
+                continue
+            if not self._node_exists(assertion.from_node_id):
+                continue
+            if not self._node_exists(assertion.to_node_id):
                 continue
             edge = self._to_fast_edge(assertion)
             self._edges.append(edge)
@@ -75,6 +85,10 @@ class EdgeMaterializer:
         """Convert placement assertions to BELONGS_TO fast edges."""
         for placement in placements:
             if skip_unvalidated and placement.validation_status != ValidationState.VALIDATED:
+                continue
+            if not self._node_exists(placement.node_id):
+                continue
+            if not self._node_exists(placement.parent_node_id):
                 continue
             edge = FastEdge(
                 id=f"edge-{placement.id}",

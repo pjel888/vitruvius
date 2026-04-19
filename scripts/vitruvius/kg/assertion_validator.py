@@ -20,6 +20,7 @@ R11 (Placement) node must not already be placed under a different parent
 R12 (Merge)     from_node and to_node must share a compatible type
 R13 (Merge)     nodes must not already be merged / superseded
 R14 review_state must not be "rejected"
+R15 self-referential assertions are forbidden (node cannot point to itself)
 """
 
 from __future__ import annotations
@@ -79,6 +80,10 @@ class AssertionValidator:
         if assertion.review_state == "rejected":
             errors.append("R14: review_state is 'rejected'")
 
+        # R15 self-referential
+        if getattr(assertion, "from_node_id", None) == getattr(assertion, "to_node_id", None):
+            errors.append("R15: self-referential assertion (from_node_id == to_node_id)")
+
         return self._build_result(assertion, errors)
 
     def validate_placement(
@@ -88,9 +93,13 @@ class AssertionValidator:
         errors: list[str] = []
         errors.extend(self._check_common(assertion))
 
-        # R10 parent must be a taxonomy container
+        # R10 parent must exist and be a taxonomy container
         parent = self.canonical_index.get(assertion.parent_node_id)
-        if parent:
+        if parent is None:
+            errors.append(
+                f"R10: parent_node_id '{assertion.parent_node_id}' not found in canonical index"
+            )
+        else:
             ptype = parent.get("type", "")
             if ptype not in ("taxonomy", "topic", "subtopic"):
                 errors.append(
@@ -105,6 +114,10 @@ class AssertionValidator:
                 f"R11: node '{assertion.node_id}' already placed under "
                 f"'{existing_parent}'"
             )
+
+        # R15 self-referential placement
+        if assertion.node_id == assertion.parent_node_id:
+            errors.append("R15: self-referential placement (node_id == parent_node_id)")
 
         return self._build_result(assertion, errors)
 
@@ -139,6 +152,10 @@ class AssertionValidator:
             node = self.canonical_index.get(nid)
             if node and node.get("status") == ValidationState.SUPERSEDED:
                 errors.append(f"R13: node '{nid}' is superseded")
+
+        # R15 self-referential
+        if assertion.from_node_id == assertion.to_node_id:
+            errors.append("R15: self-referential merge (from_node_id == to_node_id)")
 
         return self._build_result(assertion, errors)
 
@@ -184,10 +201,11 @@ class AssertionValidator:
         if not ev_ids:
             errors.append("R8: evidence_ids is empty")
 
-        # R9 evidence resolution
-        for eid in ev_ids:
-            if eid not in self.evidence_index:
-                errors.append(f"R9: evidence_id '{eid}' not in evidence index")
+        # R9 evidence resolution (only when evidence_index is populated)
+        if self.evidence_index:
+            for eid in ev_ids:
+                if eid not in self.evidence_index:
+                    errors.append(f"R9: evidence_id '{eid}' not in evidence index")
 
         return errors
 

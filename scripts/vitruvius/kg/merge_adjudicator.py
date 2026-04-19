@@ -53,7 +53,8 @@ class MergeAdjudicator:
             for i in range(len(group)):
                 for j in range(i + 1, len(group)):
                     merge = self._build_assertion(group[i], group[j])
-                    merges.append(merge)
+                    if merge is not None:
+                        merges.append(merge)
         return merges
 
     # ------------------------------------------------------------------
@@ -64,9 +65,22 @@ class MergeAdjudicator:
         self,
         node_a: CanonicalNode,
         node_b: CanonicalNode,
-    ) -> MergeAssertion:
-        """Construct a MergeAssertion for two duplicate nodes."""
+    ) -> MergeAssertion | None:
+        """Construct a MergeAssertion for two duplicate nodes.
+
+        Returns ``None`` if neither node carries evidence, because an
+        evidence-less merge assertion would violate the architectural
+        invariant that every assertion must be backed by evidence.
+        """
         ts = datetime.now(timezone.utc).isoformat()
+        # Merge evidence from both nodes
+        merged_evidence = list(dict.fromkeys(
+            (node_a.primary_assertion_id or "").split(",") +
+            (node_b.primary_assertion_id or "").split(",")
+        ))
+        merged_evidence = [e for e in merged_evidence if e]
+        if not merged_evidence:
+            return None
         return MergeAssertion(
             id=f"assert-merge-{node_a.id}-into-{node_b.id}",
             from_node_id=node_a.id,
@@ -74,7 +88,7 @@ class MergeAdjudicator:
             reasoning_summary=f"Identical type={node_a.type.value} and normalized label='{self._normalize(node_a.label)}'",
             confidence=1.0,
             validation_status=ValidationState.REVIEW_REQUIRED,
-            evidence_ids=[],
+            evidence_ids=merged_evidence,
             created_at=ts,
             version=1,
         )

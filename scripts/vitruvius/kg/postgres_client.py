@@ -114,13 +114,15 @@ class PostgresClient:
 
     def get_document_version_by_sha256(self, sha256: str) -> dict[str, Any] | None:
         with self.connection() as conn:
-            cur = conn.execute(
-                "SELECT * FROM document_version WHERE sha256 = %s LIMIT 1", (sha256,)
-            )
-            row = cur.fetchone()
-            if row is None:
-                return None
-            return dict(row)
+            from psycopg.rows import dict_row
+            with conn.cursor(row_factory=dict_row) as cur:
+                cur.execute(
+                    "SELECT * FROM document_version WHERE sha256 = %s LIMIT 1", (sha256,)
+                )
+                row = cur.fetchone()
+                if row is None:
+                    return None
+                return dict(row)
 
     # ------------------------------------------------------------------
     # Review queue helpers
@@ -143,22 +145,25 @@ class PostgresClient:
                     status = 'pending',
                     escalation_reason = EXCLUDED.escalation_reason,
                     updated_at = NOW()
+                WHERE review_queue.item_id = EXCLUDED.item_id
                 """,
                 (item_type, item_id, confidence, escalation_reason),
             )
 
     def dequeue_pending_review(self, item_type: str | None = None) -> list[dict[str, Any]]:
         with self.connection() as conn:
-            if item_type:
-                cur = conn.execute(
-                    "SELECT * FROM review_queue WHERE status = 'pending' AND item_type = %s ORDER BY created_at",
-                    (item_type,),
-                )
-            else:
-                cur = conn.execute(
-                    "SELECT * FROM review_queue WHERE status = 'pending' ORDER BY created_at"
-                )
-            return [dict(row) for row in cur.fetchall()]
+            from psycopg.rows import dict_row
+            with conn.cursor(row_factory=dict_row) as cur:
+                if item_type:
+                    cur.execute(
+                        "SELECT * FROM review_queue WHERE status = 'pending' AND item_type = %s ORDER BY created_at",
+                        (item_type,),
+                    )
+                else:
+                    cur.execute(
+                        "SELECT * FROM review_queue WHERE status = 'pending' ORDER BY created_at"
+                    )
+                return [dict(row) for row in cur.fetchall()]
 
     def resolve_review(self, item_id: str, decision: str, actor: str) -> None:
         with self.connection() as conn:

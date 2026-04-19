@@ -39,9 +39,10 @@ class ExtractionValidationResult:
 class ExtractionValidator:
     """Validate extracted candidates before canonical promotion."""
 
-    def __init__(self, min_confidence: float = 0.0, strict_traceability: bool = True) -> None:
+    def __init__(self, min_confidence: float = 0.0, strict_traceability: bool = True, evidence_index: set[str] | None = None) -> None:
         self.min_confidence = min_confidence
         self.strict_traceability = strict_traceability
+        self.evidence_index = evidence_index or set()
 
     # -- public API ----------------------------------------------------------
 
@@ -98,6 +99,12 @@ class ExtractionValidator:
         # E9 extraction_run_id (optional unless strict_traceability)
         if self.strict_traceability and not candidate.extraction_run_id:
             errors.append("E9: extraction_run_id is empty")
+
+        # E10 span_ids must resolve to known evidence (optional unless strict_traceability)
+        if self.strict_traceability and self.evidence_index:
+            for sid in candidate.span_ids or []:
+                if sid not in self.evidence_index:
+                    errors.append(f"E10: span_id '{sid}' not found in evidence index")
 
         passed = not errors
         return ExtractionValidationResult(

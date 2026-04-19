@@ -81,7 +81,7 @@ class TestGeneratePlacements:
         placements = builder._generate_placements(nodes)
         assert len(placements) == 0
 
-    def test_uses_path_as_parent_when_no_taxonomy_match(self) -> None:
+    def test_skips_placement_when_no_taxonomy_match(self) -> None:
         builder = UnifiedSnapshotBuilder(Path("."))
         nodes = [
             CanonicalNode(
@@ -95,8 +95,7 @@ class TestGeneratePlacements:
             ),
         ]
         placements = builder._generate_placements(nodes)
-        assert len(placements) == 1
-        assert placements[0].parent_node_id == "nonexistent/path"
+        assert len(placements) == 0
 
 
 class TestBuildIntegration:

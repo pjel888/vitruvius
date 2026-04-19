@@ -13,6 +13,7 @@ def _make_node(
     node_type: NodeType = NodeType.CONCEPT,
     label: str = "Test",
     node_id: str | None = None,
+    primary_assertion_id: str | None = "assert-test-001",
 ) -> CanonicalNode:
     slug = label.lower().replace(" ", "-")
     return CanonicalNode(
@@ -28,6 +29,7 @@ def _make_node(
         version=1,
         created_at="2026-01-01T00:00:00Z",
         updated_at="2026-01-01T00:00:00Z",
+        primary_assertion_id=primary_assertion_id,
     )
 
 

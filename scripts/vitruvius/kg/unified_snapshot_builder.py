@@ -143,10 +143,14 @@ class UnifiedSnapshotBuilder:
                         break
 
             if parent_id is None:
-                # No matching taxonomy node found — use path as parent id
-                parent_id = full_path
+                # No matching taxonomy node found — skip placement
+                continue
 
             safe_parent = parent_id.replace("/", "-")
+            node_evidence = [
+                eid for eid in (node.primary_assertion_id or "").split(",")
+                if eid
+            ] or []
             placements.append(
                 PlacementAssertion(
                     id=f"assert-placement-{node.id}-to-{safe_parent}",
@@ -155,7 +159,7 @@ class UnifiedSnapshotBuilder:
                     reasoning_summary=f"Backfilled from taxonomy_path: {full_path}",
                     confidence=node.confidence,
                     validation_status=node.status,
-                    evidence_ids=[],
+                    evidence_ids=node_evidence,
                     created_at=ts,
                     version=1,
                 )

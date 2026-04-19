@@ -364,7 +364,7 @@ def test_run_laws_pilot_dry_run_applies_8gb_review_preset(tmp_path: Path) -> Non
     )
     assert result.returncode == 0, result.stderr
     payload = json.loads(result.stdout)
-    assert payload['review_runtime']['model'] == 'qwen2.5:7b'
+    assert payload['review_runtime']['model'] == 'llama3.1:8b'
     assert payload['review_runtime']['parallelism'] == 1
     assert payload['review_runtime']['preset']['name'] == 'm2-8gb-safe'
 

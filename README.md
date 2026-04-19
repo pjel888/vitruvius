@@ -87,7 +87,7 @@ Vitruvius is built as a **layered, filesystem-centric pipeline**. The filesystem
 | Requirement | Version | Purpose |
 |---|---|---|
 | Python | 3.12+ | Core runtime |
-| Ollama | Latest | Local LLM review (default: `gemma4:31b`) |
+| Ollama | Latest | Local LLM review (default: `llama3.1:8b`) |
 | Java | OpenJDK 21+ | PDF-to-Markdown conversion (docling/OpenDataLoader) |
 | Node.js | 25+ | `spatial-daemon/` TypeScript subproject |
 
@@ -329,7 +329,7 @@ python scripts/pipeline_cli.py review-relationships-ollama \
   --input-report my-extraction.json \
   --review-json-out my-review.json \
   --review-txt-out my-review.txt \
-  --model gemma4:31b
+  --model llama3.1:8b
 ```
 
 What happens:
@@ -621,14 +621,83 @@ Then it runs the full pipeline fresh. This is how you test new extraction algori
 
 ⚠️ `--force-reset` is required because this is destructive. Original PDFs in `001/`, taxonomy files, and concepts are preserved.
 
+**Process all subjects (with automatic reset)**
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline --all
+```
+
+Same as a full run, but automatically resets derived artifacts first so you start clean. This is the fastest way to do a true end-to-end run when you want everything rebuilt from the raw PDFs.
+
+**Process only specific subject(s)**
+
+```bash
+# One subject
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws
+
+# Multiple subjects
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws --subject 002-History
+```
+
+This restricts every phase to files under the specified `001_Raw-Source-Layer/<subject>/` folders:
+- **Phase 1** — Only converts/refines PDFs in the selected subject(s)
+- **Phase 2** — Only canonicalizes refined markdown from the selected subject(s)
+- **Phase 3** — Only extracts relationships from canonical sources whose original PDF is traced to the selected subject(s)
+- **Phase 4** — Builds the snapshot from the filtered results
+
+Useful for testing pipeline changes on a small corpus before running all 341 PDFs, or for iterating on extraction algorithms for a specific domain.
+
+**Combine reset with subject filter**
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws --reset --force-reset
+```
+
+This resets all derived artifacts, then re-runs only the laws subject. Other subjects' canonical sources that may exist from prior runs are removed by the reset.
+
 **Customize review settings**
 
 ```bash
 python scripts/pipeline_cli.py run-kg-pipeline \
-  --review-model gemma4:31b \
+  --review-model llama3.1:8b \
   --review-timeout-seconds 300 \
   --review-parallel 4
 ```
+
+**Use a tier (simplest mental model)**
+
+```bash
+# Lightweight tier: qwen2.5:3b for review, nomic-embed-text for embeddings
+python scripts/pipeline_cli.py run-kg-pipeline --tier lightweight
+
+# Heavy tier: llama3.1:8b for review (default)
+python scripts/pipeline_cli.py run-kg-pipeline --tier heavy
+
+# Heavy tier with the best quality model
+python scripts/pipeline_cli.py run-kg-pipeline --tier heavy --review-model-preset high-quality
+```
+
+The `--tier` flag is the easiest way to choose your model architecture:
+- **`lightweight`** → review uses `qwen2.5:3b`. KG v2 already uses `qwen2.5:3b` + `nomic-embed-text`. Total RAM: ~2.5 GB.
+- **`heavy`** → review uses `llama3.1:8b` (or `gemma4:31b` if you also pass `--review-model-preset high-quality`). Total RAM: ~5–20 GB.
+
+**Use a preset (finer control)**
+
+```bash
+# Default preset: llama3.1:8b, parallelism=1, timeout=600s
+python scripts/pipeline_cli.py run-kg-pipeline --review-model-preset default
+
+# 8GB-safe preset: llama3.1:8b, parallelism=1, timeout=900s (same model, longer timeout)
+python scripts/pipeline_cli.py run-kg-pipeline --review-model-preset 8gb-safe
+
+# Ultra-light preset: qwen2.5:3b, parallelism=1, timeout=600s, num_ctx=2048
+python scripts/pipeline_cli.py run-kg-pipeline --review-model-preset ultra-light
+
+# High-quality preset: gemma4:31b, parallelism=1, timeout=1200s
+python scripts/pipeline_cli.py run-kg-pipeline --review-model-preset high-quality
+```
+
+Presets bundle model + timeout + parallelism + context size into one flag. `--tier lightweight` is simply an alias for `--review-model-preset ultra-light`. `--tier heavy` is an alias for `--review-model-preset default`.
 
 **How this differs from other commands:**
 
@@ -644,6 +713,136 @@ python scripts/pipeline_cli.py run-kg-pipeline \
 - `006_System-Manifests/runs/kg_pipeline_report_*.json` — structured summary
 - `005_Operational-Intelligence-Layer/graph/kg-v2/snapshot.json` — the final KG v2 snapshot
 - `003_Canonical-Knowledge-Layer/shared/relationships/rel-*.md` — promoted canonical relationships
+
+---
+
+### Hardware Guide: Which Machine Should Run What?
+
+Your two machines have very different capabilities. This section tells you exactly what each can handle, what will fail, and how to work around it.
+
+**Your machines:**
+- **Machine A:** MacBook Pro M2, 8GB unified RAM
+- **Machine B:** Desktop — Intel i9, 64GB RAM, RTX 4070 12GB VRAM
+
+**The bottleneck is always Phase 3 — LLM Review.** Everything else (PDF conversion, canonicalization, snapshot building) runs on CPU and is merely slow. The AI review step loads a multi-billion-parameter model into memory and runs inference on every extracted relationship candidate.
+
+#### Model Sizes vs RAM Requirements
+
+| Model | Parameters | Quantized Size | Minimum RAM | Quality | Notes |
+|-------|-----------|----------------|-------------|---------|-------|
+| `llama3.1:8b` (default) | 8B | ~4.9GB | 8GB | Good | New default. Excellent instruction-following. Fits on Machine A. |
+| `gemma4:31b` | 31B | ~16–20GB | 24GB+ | Best | Highest quality. Use `--review-model-preset high-quality`. |
+| `gemma4:e4b` | ~9B | 9.6GB | 16GB+ | Very Good | You have this installed. Still too big for 8GB. |
+| `qwen2.5:7b` | 7B | ~4–5GB | 8GB | Good | Previously the 8GB-safe preset. Now superseded by `llama3.1:8b`. |
+| `qwen2.5:3b` | 3B | 1.9GB | 4GB | Okay | You have this installed. Fits easily on Machine A. More false positives. |
+
+> **Rule of thumb:** A quantized model needs roughly 0.5–0.7GB RAM per billion parameters. Your 8GB Mac needs ~2–3GB just for macOS, leaving ~5GB for the model. That caps you at roughly 7B parameters *if you quit every other app*.
+
+#### What Each Phase Actually Needs
+
+| Phase | CPU | RAM | GPU | Network | Where it runs |
+|-------|-----|-----|-----|---------|---------------|
+| 1 — Scan | Low | ~500MB | No | No | Anywhere |
+| 1 — Convert 341 PDFs | **High** (hours) | ~1GB | No | No | Anywhere |
+| 1 — Refine | Medium | ~500MB | No | No | Anywhere |
+| 2 — Canonicalize | Low | ~500MB | No | No | Anywhere |
+| 3 — Extract | Low | ~500MB | No | No | Anywhere |
+| 3 — **LLM Review** | Medium | **4–20GB** | Optional (Ollama) | No | **This is the constraint** |
+| 4 — Build snapshot | Low | ~1GB | No | No | Anywhere |
+
+#### Time Estimates (Full Corpus: 341 PDFs, ~5.8GB)
+
+| Config | Phase 1 (Convert) | Phase 3 Review | Total | Machine |
+|--------|-------------------|----------------|-------|---------|
+| `--skip-review` (no AI) | 8–12 hrs | 0 | **8–12 hrs** | Either |
+| `--tier lightweight` (qwen2.5:3b, parallelism=1) | 8–12 hrs | 3–6 hrs | **11–18 hrs** | Machine A (8GB) |
+| `--tier heavy` (llama3.1:8b, parallelism=1) | 8–12 hrs | 4–8 hrs | **12–20 hrs** | Machine A (8GB) |
+| `--review-model-preset high-quality` (gemma4:31b, parallelism=4) | 8–12 hrs | 2–4 hrs | **10–16 hrs** | **Machine B (64GB)** |
+
+> These are wall-clock estimates with the machine dedicated to the task. The 7B/3B models on Machine A run at parallelism=1 because 8GB cannot hold multiple model instances. Machine B can run parallelism=4 with the 31B model because 64GB has headroom.
+
+#### Machine A — MacBook Pro M2, 8GB
+
+**What it can do:**
+- ✅ Run the full mechanical pipeline (`--skip-review`)
+- ✅ Run review with `llama3.1:8b` (4.9GB, already installed) — the new default
+- ✅ Run review with `qwen2.5:3b` (1.9GB, already installed) — use `--review-model-preset ultra-light`
+- ⚠️ Run review with `gemma4:e4b` (9.6GB) — too big, will swap to death
+- ❌ Run review with `gemma4:31b` (~16-20GB) — will not load
+
+**Recommended commands:**
+
+```bash
+# Test the pipeline mechanics on a small subject (no AI, ~3-4 hours)
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws --skip-review
+
+# Test review with the lightweight tier (qwen2.5:3b, ~3-5 hours for laws)
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws --tier lightweight
+
+# Test review with the heavy tier (llama3.1:8b, ~4-6 hours for laws)
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws --tier heavy
+```
+
+**⚠️ Important for Machine A:**
+- Close **all** other apps before running review. Even Safari with a few tabs can push you into swap.
+- The machine will thermal-throttle during long conversion runs. Expect it to get hot and slow down after the first hour.
+- Do **not** run `--all` with review on this machine. It is a 20+ hour continuous load that will leave the machine barely usable and risk thermal issues.
+
+#### Machine B — i9, 64GB RAM, RTX 4070 12GB
+
+**What it can do:**
+- ✅ Everything Machine A can do, faster
+- ✅ Run review with `llama3.1:8b` (the default) at higher parallelism
+- ✅ Run review with `gemma4:31b` via `--review-model-preset high-quality` (best quality)
+- ✅ Run review with parallelism=4 (64GB has room for multiple model instances)
+- ✅ GPU-accelerated Ollama inference (RTX 4070 will significantly speed up larger models vs CPU-only)
+
+**Recommended commands:**
+
+```bash
+# Full rebuild with the default model (llama3.1:8b)
+python scripts/pipeline_cli.py run-kg-pipeline --all
+
+# Or with the high-quality preset for best results
+python scripts/pipeline_cli.py run-kg-pipeline --all \
+  --review-model-preset high-quality \
+  --review-parallel 4
+
+# If you want to test a subject first
+python scripts/pipeline_cli.py run-kg-pipeline --subject 001-Laws
+```
+
+**Why this machine is better for review:**
+- 64GB RAM means any model loads comfortably. `llama3.1:8b` (~4.9GB) is trivial. `gemma4:31b` (~16-20GB) also fits with headroom.
+- RTX 4070 12GB VRAM means Ollama can offload layers to the GPU. `llama3.1:8b` fits entirely in VRAM. The 31B model won't fit entirely, but even partial GPU offload makes inference 3–5× faster than CPU-only on the M2.
+- Parallelism=4 is realistic because 64GB can hold multiple model contexts simultaneously.
+
+#### Two-Machine Workflow (Recommended)
+
+Use both machines strategically:
+
+1. **Machine A (M2 8GB)** — Development & iteration
+   - Iterate on extraction regexes, test canonicalization, validate snapshot structure
+   - Use `--skip-review` to get fast feedback loops
+   - Use `--subject` to test on small slices
+   - Use `--tier lightweight` for fast, RAM-safe review with `qwen2.5:3b`
+
+2. **Machine B (i9 + RTX 4070)** — Production runs
+   - Run `--all --tier heavy` for good-quality output fast
+   - Run `--all --tier heavy --review-model-preset high-quality` for the absolute best quality
+   - Let it run overnight — 10–16 hours for the full corpus
+   - Copy the resulting `003/` and `005/` back to Machine A for analysis
+
+#### Model Quality: What You Sacrifice at Each Tier
+
+| Model | Relationship Accuracy | False Positive Rate | Best For |
+|-------|----------------------|---------------------|----------|
+| `gemma4:31b` (high-quality preset) | Highest | Lowest | Production truth on Machine B — best reasoning quality |
+| `llama3.1:8b` (default) | Very Good | Low | Great balance of quality and accessibility. Runs on both machines. |
+| `qwen2.5:3b` (ultra-light preset) | Okay | Higher | Quick testing on Machine A — expect to manually triage more |
+| `--skip-review` | N/A (all extracted) | Highest | Pipeline testing only — never use for production truth |
+
+> **Bottom line:** The new default is `llama3.1:8b` — it runs well on both machines and delivers very good quality. If you need the absolute best reasoning, use `--review-model-preset high-quality` (gemma4:31b) on Machine B. Use `--skip-review` or `--review-model-preset ultra-light` on Machine A for fast iteration.
 
 ---
 
@@ -773,6 +972,8 @@ Use `--output-mode operator` for human-friendly framing around command output. T
 | `canonicalize-concept-one <name>` | Create a canonical concept page scaffold |
 | `reconcile` | Detect missing sources and stale derived outputs |
 | `rotate-registries` | Prune old timestamped registry snapshots |
+| `run-with-review` | Full pipeline: scan → convert → refine → LLM review |
+| `run-kg-pipeline` | **Unified 4-phase orchestrator** (raw → canonical → extract → review → promote → KG v2 snapshot). Use `--tier lightweight` for qwen+nomic or `--tier heavy` for llama/gemma4. |
 
 ### Extraction & Review
 
@@ -780,11 +981,15 @@ Use `--output-mode operator` for human-friendly framing around command output. T
 |---|---|
 | `extract-relationships-one <path>` | Regex-based relationship extraction from one file |
 | `extract-relationships-sections-one <path>` | Section-aware extraction with `source_section_id` |
-| `review-relationships-ollama` | Tier-1 local LLM review (`gemma4:31b` default) |
+| `review-relationships-ollama` | Tier-1 local LLM review (`llama3.1:8b` default) |
 | `review-relationships-ollama-second-pass` | Tier-2 adjudication on uncertain Tier-1 results |
 | `promote` | Move approved reviews into canonical relationship records |
+| `promote-generated-canonical-rules` | Promote LLM-generated rules into canonical rule records |
+| `promote-scaffolded-concepts` | Promote scaffolded concept pages into canonical concepts |
+| `promote-scaffolded-relationships` | Promote scaffolded relationships into canonical records |
 | `enrich-concept-one <name>` | Enrich one concept with deterministic definition data |
 | `enrich-concepts` | Batch-enrich concept pages |
+| `suggest-concept-candidates-from-refined` | Suggest concept candidates from definition-style text in refined markdown |
 
 ### Graph & Query
 
@@ -837,6 +1042,36 @@ Use `--output-mode operator` for human-friendly framing around command output. T
 | `run-dataset-graph` | Run manifest-defined dataset graph pipeline |
 | `run-dataset-source-to-graph` | Bounded dataset pipeline through graph creation |
 | `summarize-dataset-build-report` | Summarize the latest dataset build report |
+
+### Completed Aggregate Automation (Advanced)
+
+These commands manage the **completed-aggregate** workflow: a batched pipeline for families of sources that have already been converted, refined, and reviewed. Used when processing large corpora in lanes that complete at different times and need to be aggregated into unified datasets.
+
+| Command | Description |
+|---|---|
+| `run-completed-aggregate` | Run the full aggregate pipeline for a completed ledger |
+| `run-completed-aggregate-family` | Run aggregate pipeline for a single family within a ledger |
+| `run-completed-aggregate-from-catalog` | Run aggregate from a catalog profile |
+| `run-completed-aggregate-from-profile` | Run aggregate from an explicit YAML profile |
+| `build-completed-aggregate-manifest` | Generate an aggregate manifest from a completed ledger |
+| `build-completed-aggregate-from-catalog` | Build aggregate from a catalog definition |
+| `build-completed-aggregate-from-profile` | Build aggregate from a profile YAML |
+| `admit-completed-aggregate-manifest` | Admit an aggregate manifest into the canonical layer |
+| `admit-concepts-to-manifest` | Admit scaffolded concepts into an aggregate manifest |
+| `bootstrap-completed-aggregate-family-lane` | Bootstrap a new family lane (directories + manifest scaffold) |
+| `check-completed-aggregate-family` | Validate a family lane for readiness |
+| `inspect-completed-aggregate-lane-sources` | Inspect which sources are in a lane and their status |
+| `prepare-completed-aggregate-lane-sources` | Prepare (convert + refine) all sources in a lane |
+| `register-completed-aggregate-family` | Register a family as ready in the completed ledger |
+| `scaffold-completed-aggregate-family` | Scaffold canonical artifacts for a family from templates |
+| `scaffold-completed-aggregate-lane-manifest` | Scaffold a lane manifest for a family |
+| `scaffold-completed-aggregate-lane-concepts` | Scaffold concept pages for a lane |
+| `scaffold-completed-aggregate-lane-relationships` | Scaffold relationship records for a lane |
+| `scaffold-completed-aggregate-lane-canonical-rules` | Scaffold canonical rule pages for a lane |
+| `promote-completed-aggregate-lane-relationships` | Promote reviewed relationships for a lane into canonical records |
+| `source-admit-completed-aggregate-lane` | Admit prepared lane sources into canonical pages |
+| `source-admit-completed-aggregate-lane-dry-run` | Dry-run source admission for a lane |
+| `suggest-completed-aggregate-family-candidates` | Suggest candidate sources for a family lane |
 
 ### Maintenance & Utilities
 
