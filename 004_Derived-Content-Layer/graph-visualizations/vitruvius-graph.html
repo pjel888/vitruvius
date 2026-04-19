@@ -493,7 +493,7 @@ function showFullGraphView() {
     nodes: allNodes.map(n => ({ ...n })),
     links: allLinks.map(l => ({ ...l })),
   };
-  renderGraph({ directed: true, layout: 'force' });
+  renderGraph({ directed: true, layout: 'force', autoFit: true });
   updateLegend([
     { color: NODE_COLORS.taxonomy, label: 'Taxonomy' },
     { color: NODE_COLORS.topic, label: 'Topic' },
@@ -517,7 +517,7 @@ function showTaxonomyView() {
   const nodes = allNodes.map(n => ({ ...n }));
   const links = [...taxoHierarchyLinks, ...belongsToLinks].map(l => ({ ...l }));
   graphData = { nodes, links };
-  renderGraph({ directed: true, layout: 'tree' });
+  renderGraph({ directed: true, layout: 'tree', autoFit: true });
   updateLegend([
     { color: NODE_COLORS.taxonomy, label: 'Taxonomy' },
     { color: NODE_COLORS.topic, label: 'Topic' },
@@ -544,7 +544,7 @@ function showConceptView() {
     ...belongsToLinks.filter(l => conceptIds.has(l.source)).map(l => ({ ...l })),
   ];
   graphData = { nodes, links };
-  renderGraph({ directed: true, layout: 'force' });
+  renderGraph({ directed: true, layout: 'force', autoFit: true });
   updateLegend([
     { color: NODE_COLORS.concept, label: 'Concept' },
     { color: NODE_COLORS.rule, label: 'Rule' },
@@ -594,7 +594,7 @@ function showConceptsUnderTaxonomy(taxoId) {
   }
 
   graphData = { nodes, links };
-  renderGraph({ directed: true, layout: 'force' });
+  renderGraph({ directed: true, layout: 'force', autoFit: true });
   updateLegend([
     { color: NODE_COLORS.subtopic, label: 'Subtopic' },
     { color: NODE_COLORS.concept, label: 'Concept' },
@@ -641,7 +641,7 @@ function zoomToFit(svg, g, duration = 600) {
 // D3 Rendering
 // ---------------------------------------------------------------------------
 function renderGraph(opts = {}) {
-  const { layout } = opts;
+  const { layout, autoFit = false } = opts;
   const svg = d3.select('#graph-svg');
 
   if (simulation) {
@@ -672,13 +672,13 @@ function renderGraph(opts = {}) {
   const links = graphData.links.map(l => ({ ...l }));
 
   if (layout === 'tree') {
-    renderTreeLayout(g, nodes, links, width, height, svg);
+    renderTreeLayout(g, nodes, links, width, height, svg, autoFit);
   } else {
-    renderForceLayout(g, nodes, links, width, height, svg);
+    renderForceLayout(g, nodes, links, width, height, svg, autoFit);
   }
 }
 
-function renderTreeLayout(g, nodes, links, width, height, svg) {
+function renderTreeLayout(g, nodes, links, width, height, svg, autoFit) {
   const nodeMap = new Map(nodes.map(n => [n.id, n]));
   const childrenMap = new Map();
   const parentMap = new Map();
@@ -737,10 +737,10 @@ function renderTreeLayout(g, nodes, links, width, height, svg) {
     .attr('dy', 4)
     .text(d => d.data.label);
 
-  zoomToFit(svg, g, 500);
+  if (autoFit) zoomToFit(svg, g, 500);
 }
 
-function renderForceLayout(g, nodes, links, width, height, svg) {
+function renderForceLayout(g, nodes, links, width, height, svg, autoFit) {
   const defs = g.append('defs');
   const edgeTypes = [...new Set(links.map(l => l.type))];
   edgeTypes.forEach(type => {
@@ -822,9 +822,11 @@ function renderForceLayout(g, nodes, links, width, height, svg) {
     node.attr('transform', d => `translate(${d.x},${d.y})`);
   });
 
-  simulation.on('end', () => {
-    zoomToFit(svg, g, 600);
-  });
+  if (autoFit) {
+    simulation.on('end', () => {
+      zoomToFit(svg, g, 600);
+    });
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -837,9 +839,9 @@ async function onNodeClick(nodeId) {
   detail.innerHTML = '<button id="detail-close" onclick="clearSelection()" title="Close">&times;</button><div class="empty">Loading...</div>';
 
   const nodes = await runQuery(`
-    MATCH (c:CanonicalNode {id: $id})
+    MATCH (c) WHERE c.id = $id
     OPTIONAL MATCH (c)-[:SUPPORTED_BY]->(e:EvidenceSpan)
-    OPTIONAL MATCH (c)-[r]->(other:CanonicalNode)
+    OPTIONAL MATCH (c)-[r]->(other)
     WHERE type(r) <> 'BELONGS_TO'
     OPTIONAL MATCH (in)<-[rin]-(c)
     WHERE type(rin) <> 'BELONGS_TO'
@@ -865,7 +867,7 @@ async function onNodeClick(nodeId) {
   html += `<button onclick="focusNodeOneHop('${nodeId}')">Focus 1-hop</button>`;
   html += `<button onclick="showFullGraphView()">Show All</button>`;
   html += `</div>`;
-  html += `<h3>${escapeHtml(n.label)} <span style="color:var(--text-dim);font-size:11px;font-weight:400;">(${n.type})</span></h3>`;
+  html += `<h3>${escapeHtml(n.label)} <span style="color:var(--text-dim);font-size:11px;font-weight:400;">(${n.type || n.kind || 'node'})</span></h3>`;
 
   if (n.summary) {
     html += `<div class="field"><div class="field-label">Definition</div><div class="field-value">${escapeHtml(n.summary)}</div></div>`;
