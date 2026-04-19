@@ -4,7 +4,7 @@ title: Davao City Comprehensive Land Use Plan
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:20:58.885000+00:00
+last_canonicalized_utc: 2026-04-19T04:06:07.093094+00:00
 aliases:
   - Davao City CLUP
   - Davao City Comprehensive Land Use Plan
@@ -19,14 +19,14 @@ Automated summary withheld for Davao City Comprehensive Land Use Plan because th
 ## Coverage
 
 - Bunawan Sub-Urban Center
--  Economic – IT and Tourism Growth
--  Environment – environmental consciousness on water
--  Social – growing population
--  Transportation – increasing congested areas
--  Environment – Watersheds
--  Transportation
--  Identified engines for economic growth – Agri, IT and Tourism
--  Restrictions
+- Economic – IT and Tourism Growth
+- Environment – environmental consciousness on water
+- Social – growing population
+- Transportation – increasing congested areas
+- Environment – Watersheds
+- Transportation
+- Identified engines for economic growth – Agri, IT and Tourism
+- Restrictions
 
 ## Key Points
 

@@ -4,7 +4,7 @@ title: CMO 61 Series 2017 BS Architecture Curriculum Standards
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:07.003422+00:00
+last_canonicalized_utc: 2026-04-19T04:06:13.969795+00:00
 aliases:
   - CHED CMO 61 Series 2017
   - BS Architecture Curriculum Standards

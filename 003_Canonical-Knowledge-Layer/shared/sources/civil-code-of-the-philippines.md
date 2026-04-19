@@ -4,7 +4,7 @@ title: Civil Code of the Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:04.820024+00:00
+last_canonicalized_utc: 2026-04-19T04:06:11.650693+00:00
 aliases:
   - RA 386
   - Republic Act No. 386
