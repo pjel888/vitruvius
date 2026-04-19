@@ -1587,3 +1587,39 @@ Phase 4 — Cross-file verification (all PASS as of 2026-04-15 21:xx):
 - Graph contract: `scripts/vitruvius/graph/contract.py`
 
 ---
+
+---
+
+## AD-047 — Graph Explorer UI: Phases 5-10 (2026-04-19)
+
+**Status:** Implemented
+
+**Context.** The Vitruvius knowledge graph existed as JSON snapshots and static HTML visualizations (`visualize-graph` CLI). There was no interactive, browser-based way to explore the graph, search nodes, trace paths, or run ad-hoc Cypher queries. The legacy `vitruvius-graph.html` was a renderer-first prototype that loaded all nodes and asked users to survive the complexity.
+
+**Decision.** Build a user-first, search-driven, perspective-bound interactive graph explorer as a separate React 19 frontend in `explorer/`:
+
+1. **Renderer choice:** vis-network over Sigma.js. vis-network is Canvas-based (no WebGL shader crashes), has built-in physics/drag/hover/zoom, and its React integration is simpler via imperative `useEffect` mounting. Trade-off: slightly lower performance for 1000+ nodes, which is acceptable for the current ~200-node graph.
+2. **Architecture:** Imperative controller pattern via `forwardRef` + `useImperativeHandle`. `VisNetworkHost` exposes a `GraphController` interface that `GraphScene` calls into. This avoids vis-network ↔ React state sync impedance mismatch.
+3. **State management:** Zustand for client state (selection, filters, camera, context menu, path tracing). URL-synced query params for shareability (`?perspective=concepts&node=concept-floor-area`).
+4. **API BFF:** Hono + Bun backend in `api/` proxies Neo4j queries into typed JSON. The browser never connects directly to Neo4j. All endpoints are read-only except `POST /query` which uses `neo4j.session.READ` driver-level enforcement.
+5. **Edge IDs:** Changed from synthetic `edge-${i}` to actual `GraphEdge.id` (assertion_id or pipe-delimited `source|type|target`). This enables reliable edge click → API lookup.
+6. **Code splitting:** vis-network is dynamically imported on first mount. Main bundle shrinks from ~939 KB to ~294 KB (68% reduction). The vis-network chunk (~650 KB) loads lazily.
+
+**Phases delivered:**
+- Phase 5 — Node Search & Focus
+- Phase 6 — Context Menu & Neighbor Expansion
+- Phase 7 — Edge Inspector
+- Phase 8 — Cypher Query Panel
+- Phase 9 — Path Tracer UI
+- Phase 10 — Code Optimization (dynamic import)
+
+**Consequences.**
+- The graph is now explorable interactively in a browser, not just via static HTML or CLI.
+- Path tracing, edge inspection, and Cypher queries lower the barrier for domain experts to validate graph structure.
+- The bundle split keeps initial page load fast while deferring the heavy graph renderer.
+- Future work: save/restore scenes, evidence deep-links, mobile responsiveness, larger graph optimization.
+
+**References.**
+- Explorer docs: `explorer/README.md`
+- Implementation commits: `b20799b` (phases 5-10), `3a01204` (README updates)
+- Plan: `/.ai/03_plans/vitruvius-explorer-phase-1-foundation.md`

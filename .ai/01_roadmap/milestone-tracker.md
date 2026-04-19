@@ -279,6 +279,54 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
 
 ---
 
+## Graph Explorer UI ✅ COMPLETE (Phases 5–10, 2026-04-19)
+
+> These are frontend-facing explorer phases, separate from the roadmap Phase 5–12 numbering above.
+
+### Phase 5 — Node Search & Focus ✅ COMPLETE
+- [x] `NodeSearch.tsx` with label/type/alias/slug fuzzy filtering
+- [x] Keyboard navigation (↑↓↵Esc) and mouse selection
+- [x] 10-result cap with match quality ranking
+- [x] `focusNode()` camera pan + select in `GraphController`
+- [x] Search bar centered top of graph canvas
+
+### Phase 6 — Context Menu & Neighbor Expansion ✅ COMPLETE
+- [x] Right-click `oncontext` handler → `NodeContextMenu`
+- [x] Expand neighbors via `GET /expand` (1-hop, relationship-type filtered)
+- [x] Focus subgraph (isolates 1-hop neighborhood)
+- [x] Hide node + Show all (composes with type filters)
+- [x] `mergeNodesEdges()` upserts new data into existing scene
+- [x] Fix Neo4j `LIMIT` float→integer bug with `neo4j.int()`
+
+### Phase 7 — Edge Inspector ✅ COMPLETE
+- [x] Edge `click` event wiring → `selectedEdgeId` state
+- [x] `EdgeInspector` in `InspectorRail`
+- [x] `GET /edge/:id` two-tier lookup (assertion_id first, then `source|type|target`)
+- [x] Edge IDs changed from synthetic `edge-${i}` to actual `GraphEdge.id`
+
+### Phase 8 — Cypher Query Panel ✅ COMPLETE
+- [x] `POST /query` with read-only session enforcement (`neo4j.session.READ`)
+- [x] Recursive node/path/array extraction from query results
+- [x] `QueryPanel.tsx` with examples, Ctrl+Enter run, error/result display
+- [x] Terminal icon toggle in layout toolbar
+
+### Phase 9 — Path Tracer UI ✅ COMPLETE
+- [x] `pathFromId` / `pathToId` state + `pathHighlightNodeIds` / `pathHighlightEdgeIds`
+- [x] `highlightPath()` / `clearPathHighlight()` in `GraphController`
+- [x] InspectorRail tab: Set source/target, Find Path, result list, Clear
+- [x] Path nodes highlighted in gold; non-path dimmed
+- [x] Fix `/path` endpoint bug: `normalizeNode()` now handles raw Neo4j Node objects (with `.properties`)
+
+### Phase 10 — Code Optimization ✅ COMPLETE
+- [x] Dynamic `import('vis-network/standalone')` with module-level caching
+- [x] Main bundle: ~939 KB → ~294 KB (68% reduction)
+- [x] vis-network chunk: ~650 KB, lazy-loaded on first graph mount
+- [x] Loading spinner while graph engine loads
+
+**Stack:** Bun 1.3 + Vite 8 + React 19 + TypeScript 6 + Tailwind CSS 4 + vis-network 10 + Zustand + React Router 6
+
+---
+
 ## Knowledge Graph Transition (Cross-Cutting) ✅ COMPLETE (2026-04-19)
 
 > This is not a sequential roadmap phase. It is a parallel architecture initiative that created the taxonomy-centered canonical knowledge graph system underneath Phases 5–12.

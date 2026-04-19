@@ -1,11 +1,12 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-18
-> **Live branch:** `ralph/laws-dataset-phases`
-> **Most recent completed work:** laws-wave saturated end-state + ready-family aggregate residual hardening (`/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`, `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md`)
+> **Updated:** 2026-04-19
+> **Live branch:** `main`
+> **Most recent completed work:** Graph Explorer UI Phases 5-10 (commit `b20799b`) + README updates (commit `3a01204`)
 
 ## Live Repo Truth
 
+- **Graph Explorer UI** (Phases 5-10) is now complete on `main`. This is a React 19 + vis-network frontend that provides interactive graph exploration, search, path tracing, Cypher queries, and edge inspection. See `explorer/README.md` for full documentation.
 - The current parent objective is the bounded laws-wave/operatorization effort, not the old 4-law pilot by itself.
 - The laws-wave is now truthfully at a saturated end-state under the present authority and source-quality rules:
   - `status = saturated_truth_complete`
@@ -30,6 +31,16 @@
   - `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
   - `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`
 - Generic Phase 11 expansion is still gated. The accepted exception remains bounded, manifest-backed laws-wave execution only.
+
+## Graph Explorer Validation Snapshot
+
+- **Dev servers:** API on `localhost:3000`, frontend Vite on `localhost:5173`
+- **Build:** `bun run build` passes; production bundle splits vis-network into lazy chunk
+- **API health:** `GET /health` returns `{status: "ok", neo4j: "connected"}`
+- **Path API verified:** `Floor Area → Stairs` (1 hop), `Floor Area → Fire-Resistive Construction` (2 hops)
+- **Neo4j LIMIT bug:** fixed with `neo4j.int()` wrapper
+- **Path normalization bug:** fixed — `normalizeNode()` now handles raw Neo4j Node objects (with `.properties`)
+- **Bundle:** main chunk 294 KB / 90 KB gzip; vis-network chunk 650 KB / 157 KB gzip (lazy)
 
 ## Current Validation Snapshot
 

@@ -75,6 +75,21 @@ If a future Codex session needs the current task immediately, resume from this g
   - aggregate rebuild + graph rebuild + warning-summary verification
 - do **not** jump to broader Phase 11 work or invent stronger relationship claims just to remove the final residual
 
+## Recently Completed Work (2026-04-19)
+
+### Graph Explorer UI — Phases 5-10 ✅ COMPLETE
+A separate frontend execution burst delivered the interactive knowledge graph explorer:
+- **Phase 5** — Node Search & Focus: fuzzy search with keyboard nav
+- **Phase 6** — Context Menu & Neighbor Expansion: right-click expand, hide, focus subgraph
+- **Phase 7** — Edge Inspector: click edges for confidence, reasoning, source/target
+- **Phase 8** — Cypher Query Panel: read-only Cypher runner against Neo4j
+- **Phase 9** — Path Tracer: two-node shortest-path selection with graph highlight
+- **Phase 10** — Code Optimization: dynamic import splits vis-network into lazy chunk (68% main bundle reduction)
+- **Commit:** `b20799b` on `main`
+- **Docs:** `explorer/README.md` updated with full feature reference
+
+---
+
 ## Active Planning / Governance Tracks
 
 ### Recent Completed Governance Work (archived)

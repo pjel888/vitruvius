@@ -65,6 +65,18 @@ The codebase follows a standard Python package structure, but keeps its core log
     - `datalog_rs/`: Hand-rolled Rust Datalog evaluator (`evaluate_datalog(facts, rules)`).
     - `paths.py`, `constants.py`: Filesystem contract enforcement.
 
+### 3. Frontend / Runtime Components
+- `explorer/`: React 19 + TypeScript + Vite + Tailwind CSS interactive graph explorer. Communicates with the Graph API BFF (not directly to Neo4j).
+  - `VisNetworkHost`: Imperative vis-network wrapper with physics, layouts, filters, hover dimming, path highlighting.
+  - `GraphScene`: Data loading orchestrator + UI overlays (search, zoom, layout switcher, query panel).
+  - `InspectorRail`: Node inspector, edge inspector, path tracer.
+  - `ExplorerRail`: Taxonomy tree, type filters.
+  - `CommandBar`: Perspective switcher + search.
+  - Code-split: vis-network loaded dynamically (~294 KB main bundle, ~650 KB lazy chunk).
+- `api/`: Hono + Bun Graph API BFF. Proxies Neo4j queries into typed JSON for the explorer.
+  - Endpoints: `/perspective/:id/nodes`, `/search`, `/node/:id`, `/edge/:id`, `/expand`, `/path`, `/taxonomy`, `/query` (read-only Cypher).
+- `spatial-daemon/`: TypeScript subproject for spatial geometry (GJK, AABB, contract writer).
+
 ## Runtime Entry Points
 The system is invoked primarily through `scripts/pipeline_cli.py`.
 
