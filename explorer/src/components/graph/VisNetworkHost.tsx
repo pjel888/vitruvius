@@ -29,7 +29,12 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     loadPerspective(nodes, edges) {
       if (!containerRef.current) return;
 
-      const visNodes = nodes.map((n) => ({
+      // Deduplicate nodes by id
+      const nodeMap = new Map<string, GraphNode>();
+      nodes.forEach(n => { if (!nodeMap.has(n.id)) nodeMap.set(n.id, n); });
+      const uniqueNodes = Array.from(nodeMap.values());
+
+      const visNodes = uniqueNodes.map((n) => ({
         id: n.id,
         label: n.label,
         color: {
@@ -42,7 +47,15 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         title: `<b>${n.label}</b><br/>${n.type}`,
       }));
 
-      const visEdges = edges.map((e) => ({
+      // Deduplicate edges by id
+      const edgeMap = new Map<string, GraphEdge>();
+      edges.forEach(e => {
+        const key = e.id || `${e.source}-${e.type}-${e.target}`;
+        if (!edgeMap.has(key)) edgeMap.set(key, e);
+      });
+      const uniqueEdges = Array.from(edgeMap.values());
+
+      const visEdges = uniqueEdges.map((e) => ({
         from: e.source,
         to: e.target,
         label: e.type,
