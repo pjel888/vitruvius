@@ -72,6 +72,7 @@ Thumbs.db
 # Vitruvius Generated Artifacts
 /002_Raw-Conversion-Layer/
 /004_Derived-Content-Layer/
+!/004_Derived-Content-Layer/graph-visualizations/vitruvius-graph.html
 /005_Operational-Intelligence-Layer/
 /006_System-Manifests/runs/
 /006_System-Manifests/logs/
