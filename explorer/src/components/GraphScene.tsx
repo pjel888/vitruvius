@@ -72,7 +72,7 @@ function GraphRenderer() {
     const { nodes, edges } = await getNodesForPerspective(perspectiveId);
     setGraphData(nodes, edges);
 
-    const graph = new Graph();
+    const graph = new Graph({ multi: true });
     nodes.forEach((n, i) => {
       if (graph.hasNode(n.id)) return;
       graph.addNode(n.id, {
