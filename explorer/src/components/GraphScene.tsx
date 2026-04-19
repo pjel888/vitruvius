@@ -65,15 +65,20 @@ export default function GraphScene() {
   const loading = useSceneStore(s => s.loading);
   const nodes = useSceneStore(s => s.nodes);
   const edges = useSceneStore(s => s.edges);
-  const [debugInfo, setDebugInfo] = useState({ nodes: 0, edges: 0, controllerReady: false });
+  const [debugInfo, setDebugInfo] = useState({ nodes: 0, edges: 0, controllerReady: false, canvasW: 0, canvasH: 0, containerW: 0, containerH: 0 });
 
   // Debug info polling
   useEffect(() => {
     const interval = setInterval(() => {
+      const info = controllerRef.current?.getDebugInfo?.() ?? {};
       setDebugInfo({
         nodes: nodes.length,
         edges: edges.length,
         controllerReady: !!controllerRef.current,
+        canvasW: info.canvasWidth ?? 0,
+        canvasH: info.canvasHeight ?? 0,
+        containerW: info.containerWidth ?? 0,
+        containerH: info.containerHeight ?? 0,
       });
     }, 500);
     return () => clearInterval(interval);
@@ -122,14 +127,18 @@ export default function GraphScene() {
       </div>
 
       {/* Debug overlay */}
-      <div className="absolute top-4 right-4 z-20 bg-panel/90 border border-border rounded-md px-3 py-2 text-xs font-mono space-y-1">
+      <div className="absolute top-4 right-4 z-20 bg-panel/90 border border-border rounded-md px-3 py-2 text-xs font-mono space-y-1 max-w-[200px]">
         <div>Nodes: {debugInfo.nodes}</div>
         <div>Edges: {debugInfo.edges}</div>
         <div>Controller: {debugInfo.controllerReady ? '✓' : '✗'}</div>
+        <div>Container: {debugInfo.containerW}x{debugInfo.containerH}</div>
+        <div>Canvas: {debugInfo.canvasW}x{debugInfo.canvasH}</div>
         <button
-          className="mt-1 px-2 py-1 bg-accent/20 text-accent rounded hover:bg-accent/30 transition-colors"
+          className="mt-1 px-2 py-1 bg-accent/20 text-accent rounded hover:bg-accent/30 transition-colors w-full"
           onClick={() => {
             console.log('Manual refresh triggered');
+            const info = controllerRef.current?.getDebugInfo?.();
+            console.log('Debug info:', info);
             controllerRef.current?.setLayout('circular');
             controllerRef.current?.fitView();
           }}

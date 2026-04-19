@@ -1,5 +1,5 @@
 import { forwardRef, useImperativeHandle, useRef, useEffect } from 'react';
-import { SigmaContainer, useLoadGraph, useRegisterEvents, useSigma } from '@react-sigma/core';
+import Sigma from 'sigma';
 import Graph from 'graphology';
 import { circular } from 'graphology-layout';
 import forceAtlas2 from 'graphology-layout-forceatlas2';
@@ -13,6 +13,7 @@ export interface GraphController {
   zoomIn: () => void;
   zoomOut: () => void;
   fitView: () => void;
+  getDebugInfo: () => Record<string, any>;
 }
 
 const NODE_COLORS: Record<string, string> = {
@@ -36,28 +37,59 @@ const EDGE_COLORS: Record<string, string> = {
   SUPPORTED_BY: '#94a3b8',
 };
 
-function SigmaInner({ controllerRef }: { controllerRef: React.RefObject<GraphController | null> }) {
-  const loadGraph = useLoadGraph();
-  const sigma = useSigma();
-  const registerEvents = useRegisterEvents();
-
+const SigmaHost = forwardRef<GraphController>((_, ref) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sigmaRef = useRef<Sigma | null>(null);
   const graphRef = useRef<Graph | null>(null);
+  const controllerRef = useRef<GraphController | null>(null);
   const selectedNodeRef = useRef<string | null>(null);
   const layoutTypeRef = useRef<'forceatlas2' | 'circular' | 'random'>('forceatlas2');
-  const sigmaRef = useRef(sigma);
-  sigmaRef.current = sigma;
 
-  // Initialize graph once
+  useImperativeHandle(ref, () => controllerRef.current!);
+
   useEffect(() => {
+    if (!containerRef.current) {
+      console.error('[SigmaHost] Container ref is null');
+      return;
+    }
+
+    const rect = containerRef.current.getBoundingClientRect();
+    console.log('[SigmaHost] Container dimensions:', rect.width, 'x', rect.height);
+
+    if (rect.width === 0 || rect.height === 0) {
+      console.error('[SigmaHost] Container has zero dimensions!');
+    }
+
     const graph = new Graph({ multi: true });
     graphRef.current = graph;
-    loadGraph(graph);
-    console.log('[SigmaHost] loadGraph called, graph nodes:', graph.nodes().length);
-    // Force Sigma to recognize the graph
-    setTimeout(() => {
-      sigmaRef.current?.refresh();
-      console.log('[SigmaHost] Initial refresh done, sigma exists:', !!sigmaRef.current);
-    }, 50);
+
+    const sigma = new Sigma(graph, containerRef.current, {
+      defaultEdgeType: 'arrow',
+      labelDensity: 0.07,
+      labelGridCellSize: 60,
+      labelRenderedSizeThreshold: 6,
+      labelFont: 'system-ui, sans-serif',
+      zIndex: true,
+      enableEdgeEvents: true,
+      allowInvalidContainer: true,
+    });
+    sigmaRef.current = sigma;
+
+    console.log('[SigmaHost] Sigma created, canvas count:', sigma.getCanvases ? Object.keys(sigma.getCanvases()).length : 'N/A');
+
+    // Register click events
+    sigma.on('clickNode', (e) => {
+      if (e.node) {
+        controller.selectNode(e.node);
+      }
+    });
+    sigma.on('clickStage', () => {
+      controller.selectNode(null);
+    });
+    sigma.on('clickEdge', (e) => {
+      const edge = graph.getEdgeAttributes(e.edge);
+      console.log('Edge clicked:', edge);
+    });
 
     // Expose controller API
     const controller: GraphController = {
@@ -65,65 +97,39 @@ function SigmaInner({ controllerRef }: { controllerRef: React.RefObject<GraphCon
         if (!graphRef.current) return;
         const g = graphRef.current;
 
-        // Build sets for diff
-        const newNodeIds = new Set(nodes.map(n => n.id));
-        const newEdgeIds = new Set(edges.map(e => e.id || `${e.source}-${e.type}-${e.target}`));
+        console.log('[SigmaHost] loadPerspective called with', nodes.length, 'nodes,', edges.length, 'edges');
 
-        // Remove old nodes not in new set
-        g.forEachNode((id) => {
-          if (!newNodeIds.has(id)) {
-            g.dropNode(id);
-          }
-        });
+        // Clear existing
+        g.clear();
 
-        // Remove old edges not in new set
-        g.forEachEdge((_id, attr, source, target) => {
-          const edgeId = attr.id || `${source}-${attr.type}-${target}`;
-          if (!newEdgeIds.has(edgeId)) {
-            g.dropEdge(_id);
-          }
-        });
-
-        // Add/update nodes
+        // Add nodes
         nodes.forEach((n, i) => {
-          if (g.hasNode(n.id)) {
-            g.setNodeAttribute(n.id, 'label', n.label);
-            g.setNodeAttribute(n.id, 'size', n.radius ?? 8);
-            g.setNodeAttribute(n.id, 'color', NODE_COLORS[n.type] || '#a78bfa');
-            g.setNodeAttribute(n.id, 'type', n.type);
-          } else {
-            g.addNode(n.id, {
-              label: n.label,
-              size: n.radius ?? 8,
-              color: NODE_COLORS[n.type] || '#a78bfa',
-              type: n.type,
-              x: Math.cos((i / Math.max(nodes.length, 1)) * Math.PI * 2) * 200,
-              y: Math.sin((i / Math.max(nodes.length, 1)) * Math.PI * 2) * 200,
-            });
-          }
+          g.addNode(n.id, {
+            label: n.label,
+            size: n.radius ?? 8,
+            color: NODE_COLORS[n.type] || '#a78bfa',
+            type: n.type,
+            x: Math.cos((i / Math.max(nodes.length, 1)) * Math.PI * 2) * 200,
+            y: Math.sin((i / Math.max(nodes.length, 1)) * Math.PI * 2) * 200,
+          });
         });
 
-        // Add/update edges
+        // Add edges
         edges.forEach((e) => {
           if (!g.hasNode(e.source) || !g.hasNode(e.target)) return;
           const edgeId = e.id || `${e.source}-${e.type}-${e.target}`;
-          if (g.hasEdge(edgeId)) {
-            g.setEdgeAttribute(edgeId, 'size', 1.5);
-            g.setEdgeAttribute(edgeId, 'color', EDGE_COLORS[e.type] || '#6b7280');
-            g.setEdgeAttribute(edgeId, 'type', e.type);
-          } else {
-            g.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
-              size: 1.5,
-              color: EDGE_COLORS[e.type] || '#6b7280',
-              type: e.type,
-            });
-          }
+          g.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
+            size: 1.5,
+            color: EDGE_COLORS[e.type] || '#6b7280',
+            type: e.type,
+          });
         });
+
+        console.log('[SigmaHost] Graph now has', g.nodes().length, 'nodes,', g.edges().length, 'edges');
 
         // Apply layout
         controller.setLayout(layoutTypeRef.current);
         sigmaRef.current?.refresh();
-        console.log('[SigmaHost] expandNode done, nodes:', graphRef.current?.nodes().length);
         setTimeout(() => controller.fitView(), 100);
       },
 
@@ -198,55 +204,39 @@ function SigmaInner({ controllerRef }: { controllerRef: React.RefObject<GraphCon
       fitView() {
         sigmaRef.current?.getCamera().animatedReset({ duration: 600 });
       },
+
+      getDebugInfo() {
+        const canvas = containerRef.current?.querySelector('canvas');
+        return {
+          graphNodes: graphRef.current?.nodes().length ?? 0,
+          graphEdges: graphRef.current?.edges().length ?? 0,
+          sigmaExists: !!sigmaRef.current,
+          containerExists: !!containerRef.current,
+          canvasExists: !!canvas,
+          canvasWidth: canvas?.width ?? 0,
+          canvasHeight: canvas?.height ?? 0,
+          containerWidth: containerRef.current?.clientWidth ?? 0,
+          containerHeight: containerRef.current?.clientHeight ?? 0,
+        };
+      },
     };
 
-    // Assign to ref
-    if (controllerRef) {
-      (controllerRef as React.MutableRefObject<GraphController>).current = controller;
-    }
+    controllerRef.current = controller;
 
-    // Register events
-    registerEvents({
-      clickNode: (e) => {
-        if (e.node) controller.selectNode(e.node);
-      },
-      clickStage: () => {
-        controller.selectNode(null);
-      },
-    });
-
-    console.log('[SigmaHost] Controller initialized, graph ready');
+    console.log('[SigmaHost] Raw Sigma initialized');
 
     return () => {
-      if (controllerRef) {
-        (controllerRef as React.MutableRefObject<GraphController | null>).current = null;
-      }
+      sigma.kill();
+      sigmaRef.current = null;
+      controllerRef.current = null;
     };
-  }, [loadGraph, registerEvents, controllerRef]);
-
-  return null;
-}
-
-const SigmaHost = forwardRef<GraphController>((_, ref) => {
-  const controllerRef = useRef<GraphController | null>(null);
-  useImperativeHandle(ref, () => controllerRef.current!);
+  }, []);
 
   return (
-    <SigmaContainer
-      style={{ position: 'absolute', inset: 0 }}
-      settings={{
-        defaultEdgeType: 'arrow',
-        labelDensity: 0.07,
-        labelGridCellSize: 60,
-        labelRenderedSizeThreshold: 6,
-        labelFont: 'system-ui, sans-serif',
-        zIndex: true,
-        enableEdgeEvents: true,
-        allowInvalidContainer: true,
-      }}
-    >
-      <SigmaInner controllerRef={controllerRef} />
-    </SigmaContainer>
+    <div
+      ref={containerRef}
+      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+    />
   );
 });
 
