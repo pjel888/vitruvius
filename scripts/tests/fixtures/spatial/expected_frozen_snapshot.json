@@ -18,14 +18,16 @@
       "last_updated_utc": "2026-04-01T00:00:00Z",
       "slug": "building-permit",
       "trust_level": "derived",
-      "type": "concept"
+      "type": "concept",
+      "title": "Building Permit"
     },
     {
       "id": "law-pd-1096",
       "last_updated_utc": "2026-04-01T00:00:00Z",
       "slug": "pd-1096",
       "trust_level": "primary",
-      "type": "source"
+      "type": "source",
+      "title": "Pd 1096"
     }
   ],
   "schema_version": "1.0.0"

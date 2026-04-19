@@ -140,6 +140,8 @@ class Neo4jLoader:
 
     def _merge_evidence_spans(self) -> None:
         for span in self.snapshot.evidence_spans:
+            selector_dict = span.selector.model_dump(mode="json") if span.selector else {}
+            selector_kind = selector_dict.get("kind", "unknown")
             props = _escape_props({
                 "id": span.id,
                 "document_id": span.document_id,
@@ -152,6 +154,8 @@ class Neo4jLoader:
                 "ingestion_run_id": span.ingestion_run_id,
                 "checksum": span.checksum,
                 "created_at": span.created_at,
+                "selector_kind": selector_kind,
+                "selector": selector_dict,
             })
             self._statements.append(
                 f"MERGE (e:EvidenceSpan {{id: '{_esc(span.id)}'}})"

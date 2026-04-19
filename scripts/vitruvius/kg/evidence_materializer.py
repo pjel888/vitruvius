@@ -17,6 +17,7 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+from pydantic import ValidationError as PydanticValidationError
 
 from vitruvius.normalization.ast_chunker import split_into_chunks
 
@@ -24,12 +25,17 @@ from .assertion_validator import AssertionValidator
 from .edge_materializer import EdgeMaterializer
 from .enums import EdgeType, InferenceType, ValidationState
 from .json_evidence_store import KgV2Snapshot
+from .pdf_evidence_locator import PdfEvidenceLocator
 from .schemas import (
     CanonicalNode,
     Chunk,
     CreatedBy,
     DocumentVersion,
     EvidenceSpan,
+    MarkdownRangeSelector,
+    PdfBboxSelector,
+    PdfPageSelector,
+    PlacementAssertion,
     RelationshipAssertion,
     Section,
     TextRangeSelector,
@@ -56,6 +62,21 @@ def _sha256_text(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
+def _serialize_yaml_dates(obj: Any) -> Any:
+    """Recursively convert datetime objects to ISO-8601 strings."""
+    from datetime import date, datetime
+
+    if isinstance(obj, datetime):
+        return obj.isoformat()
+    if isinstance(obj, date):
+        return obj.isoformat()
+    if isinstance(obj, dict):
+        return {k: _serialize_yaml_dates(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_serialize_yaml_dates(v) for v in obj]
+    return obj
+
+
 def _load_frontmatter(path: Path) -> dict[str, Any] | None:
     try:
         text = path.read_text(encoding="utf-8")
@@ -72,7 +93,7 @@ def _load_frontmatter(path: Path) -> dict[str, Any] | None:
         return None
     if not isinstance(data, dict):
         return None
-    return data
+    return _serialize_yaml_dates(data)
 
 
 def _load_markdown_body(path: Path) -> str:
@@ -87,7 +108,7 @@ def _load_markdown_body(path: Path) -> str:
 
 def _slug_from_id(entity_id: str) -> str:
     """Strip known prefixes to produce a slug."""
-    for prefix in ("law-", "irr-", "source-", "handout-", "concept-", "rel-"):
+    for prefix in ("law-", "irr-", "source-", "handout-", "concept-", "rel-", "taxonomy-"):
         if entity_id.startswith(prefix):
             return entity_id[len(prefix) :]
     return entity_id
@@ -111,8 +132,32 @@ def _edge_type_from_string(value: str) -> EdgeType:
     return mapping.get(value.lower(), EdgeType.RELATED_TO)
 
 
+def _infer_inference_type(rel_type: str, evidence_list: list[dict]) -> InferenceType:
+    """Classify how an assertion was derived from its relationship type and evidence."""
+    rel = rel_type.lower()
+    # Direct definitional language → direct citation
+    if rel == "defines":
+        return InferenceType.DIRECT_CITATION
+    # Governance/requirement language with explicit section anchors → direct citation
+    if rel in ("governs", "requires", "limits") and evidence_list:
+        for ev in evidence_list:
+            snippet = ev.get("evidence_snippet", "")
+            if any(keyword in snippet.lower() for keyword in ("shall", "must", "shall not", "required")):
+                return InferenceType.DIRECT_CITATION
+    # Taxonomic hierarchy → taxonomy placement
+    if rel in ("depends_on", "part_of"):
+        return InferenceType.TAXONOMY_PLACEMENT
+    # Multi-hop or inferred relationships
+    if rel == "affects":
+        return InferenceType.MULTI_HOP_INFERENCE
+    # Default: if it came through the promotion pipeline with reviewer evidence, treat as human authored
+    if evidence_list:
+        return InferenceType.HUMAN_AUTHORED
+    return InferenceType.RULE_BASED_DERIVATION
+
+
 def _validation_state_from_string(value: str | None) -> ValidationState:
-    if value == "verified":
+    if value in ("verified", "validated"):
         return ValidationState.VALIDATED
     if value == "promoted":
         return ValidationState.CANDIDATE
@@ -135,6 +180,7 @@ class EvidenceMaterializer:
         self.canonical_root = self.repo_root / "003_Canonical-Knowledge-Layer" / "shared"
         self.snapshot = KgV2Snapshot()
         self._warnings: list[str] = []
+        self._pdf_locator = PdfEvidenceLocator(self.repo_root)
 
     # -- public API ---------------------------------------------------------
 
@@ -299,20 +345,58 @@ class EvidenceMaterializer:
                 span_id = f"span-{rel_id}-{ev_idx:03d}"
                 evidence_span_ids.append(span_id)
 
+                # Build selector: try PDF bbox first, then PDF page only,
+                # then MarkdownRangeSelector, then fall back to TextRangeSelector.
+                section_id = ev.get("source_section_id", "")
+                pdf_bbox = self._pdf_locator.find_bbox_with_fallback(
+                    source_slug, snippet, section_id
+                )
+                if pdf_bbox is not None:
+                    page_num, bbox = pdf_bbox
+                    selector = PdfBboxSelector(
+                        kind="pdf_bbox",
+                        page=page_num,
+                        bbox=bbox,
+                        quote=snippet,
+                    )
+                    deep_link = f"/viewer/{source_slug}?page={page_num}&bbox={','.join(str(c) for c in bbox)}"
+                else:
+                    pdf_page = self._pdf_locator.find_page_with_fallback(
+                        source_slug, snippet, section_id
+                    )
+                    if pdf_page is not None:
+                        selector = PdfPageSelector(
+                            kind="pdf_page",
+                            page=pdf_page,
+                            quote=snippet,
+                        )
+                        deep_link = f"/viewer/{source_slug}?page={pdf_page}"
+                    elif section_id:
+                        selector = MarkdownRangeSelector(
+                            kind="markdown_range",
+                            heading_path=[section_id],
+                            char_start=0,
+                            char_end=len(snippet),
+                        )
+                        deep_link = f"/viewer/{source_slug}?section={section_id}"
+                    else:
+                        selector = TextRangeSelector(
+                            kind="text_range",
+                            quote=snippet,
+                            char_start=0,
+                            char_end=len(snippet),
+                        )
+                        deep_link = f"/viewer/{source_slug}"
+
                 self.snapshot.evidence_spans.append(
                     EvidenceSpan(
                         id=span_id,
                         document_id=f"doc-{source_slug}",
                         document_version_id=f"docv-{source_slug}-v1",
-                        selector=TextRangeSelector(
-                            kind="text_range",
-                            quote=snippet,
-                            char_start=0,
-                            char_end=len(snippet),
-                        ),
+                        selector=selector,
                         quote=snippet,
                         normalized_text=snippet,
-                        deep_link="",
+                        deep_link=deep_link,
                         parser="legacy_promotion_pipeline",
                         parser_version="1.0.0",
                         ingestion_run_id=None,
@@ -337,9 +421,10 @@ class EvidenceMaterializer:
                     from_node_id=from_entity,
                     to_node_id=to_entity,
                     reasoning_summary=fm.get("reviewer_reason", "")
-                    or (primary_ev.get("reviewer_reason", "") if primary_ev else ""),
+                    or (primary_ev.get("reviewer_reason", "") if primary_ev else "")
+                    or "Legacy promotion pipeline assertion",
                     reasoning_detail=[],
-                    inference_type=InferenceType.HUMAN_AUTHORED,
+                    inference_type=_infer_inference_type(rel_type, evidence_list),
                     confidence=confidence,
                     validation_status=_validation_state_from_string(status),
                     created_by=CreatedBy(
@@ -420,11 +505,23 @@ class TaxonomyLoader:
         self._warnings: list[str] = []
 
     def load_all(self) -> KgV2Snapshot:
-        """Walk concepts and create CanonicalNode records."""
+        """Walk concepts and taxonomy roots and create CanonicalNode records."""
+        self._load_concepts()
+        self._load_taxonomy_roots()
+
+        self.snapshot.metadata = {
+            "generator": "taxonomy_loader",
+            "version": "2.0.0-alpha",
+            "warnings": self._warnings,
+            "entity_counts": self.snapshot.entity_counts(),
+        }
+        return self.snapshot
+
+    def _load_concepts(self) -> None:
         concepts_dir = self.canonical_root / "concepts"
         if not concepts_dir.exists():
             self._warnings.append(f"Concepts directory not found: {concepts_dir}")
-            return self.snapshot
+            return
 
         for md_path in sorted(concepts_dir.rglob("*.md")):
             fm = _load_frontmatter(md_path)
@@ -437,16 +534,21 @@ class TaxonomyLoader:
                 self._warnings.append(f"Missing id: {md_path}")
                 continue
 
-            # Derive taxonomy path from topic_tags / category
+            # Derive taxonomy path: prefer explicit taxonomy_path field,
+            # then fall back to legacy topic_tags / category for backward compatibility.
             taxonomy_path: list[str] = []
-            topic_tags = fm.get("topic_tags", [])
-            if isinstance(topic_tags, list):
-                taxonomy_path.extend(str(t) for t in topic_tags)
-            category = fm.get("category", "")
-            if category and str(category) not in taxonomy_path:
-                taxonomy_path.insert(0, str(category))
-            if not taxonomy_path:
-                taxonomy_path = ["concepts"]
+            explicit_path = fm.get("taxonomy_path", [])
+            if isinstance(explicit_path, list) and explicit_path:
+                taxonomy_path = [str(t) for t in explicit_path]
+            else:
+                topic_tags = fm.get("topic_tags", [])
+                if isinstance(topic_tags, list):
+                    taxonomy_path.extend(str(t) for t in topic_tags)
+                category = fm.get("category", "")
+                if category and str(category) not in taxonomy_path:
+                    taxonomy_path.insert(0, str(category))
+                if not taxonomy_path:
+                    taxonomy_path = ["concepts"]
 
             # Aliases
             aliases = fm.get("aliases", [])
@@ -462,30 +564,65 @@ class TaxonomyLoader:
             if not summary:
                 summary = fm.get("definition", "")
 
-            self.snapshot.canonical_nodes.append(
-                CanonicalNode(
-                    id=entity_id,
-                    type="concept",
-                    label=fm.get("title", entity_id.replace("concept-", "").replace("-", " ").title()),
-                    slug=_slug_from_id(entity_id),
-                    summary=summary,
-                    taxonomy_path=taxonomy_path,
-                    aliases=[str(a) for a in aliases],
-                    status=_validation_state_from_string(fm.get("canonical_status")),
-                    confidence=float(fm.get("confidence_score", 0.0)),
-                    version=1,
-                    created_at=fm.get("last_canonicalized_utc", _now_utc()),
-                    updated_at=fm.get("enriched_at_utc", _now_utc()),
+            try:
+                self.snapshot.canonical_nodes.append(
+                    CanonicalNode(
+                        id=entity_id,
+                        type="concept",
+                        label=fm.get("title", entity_id.replace("concept-", "").replace("-", " ").title()),
+                        slug=_slug_from_id(entity_id),
+                        summary=summary,
+                        taxonomy_path=taxonomy_path,
+                        aliases=[str(a) for a in aliases],
+                        status=_validation_state_from_string(fm.get("canonical_status")),
+                        confidence=float(fm.get("confidence_score", 0.0)),
+                        version=1,
+                        created_at=fm.get("last_canonicalized_utc", _now_utc()),
+                        updated_at=fm.get("enriched_at_utc", _now_utc()),
+                    )
                 )
-            )
+            except PydanticValidationError as exc:
+                self._warnings.append(f"Invalid concept {entity_id}: {exc}")
 
-        self.snapshot.metadata = {
-            "generator": "taxonomy_loader",
-            "version": "2.0.0-alpha",
-            "warnings": self._warnings,
-            "entity_counts": self.snapshot.entity_counts(),
-        }
-        return self.snapshot
+    def _load_taxonomy_roots(self) -> None:
+        taxonomy_dir = self.canonical_root / "taxonomy"
+        if not taxonomy_dir.exists():
+            self._warnings.append(f"Taxonomy directory not found: {taxonomy_dir}")
+            return
+
+        for md_path in sorted(taxonomy_dir.rglob("*.md")):
+            fm = _load_frontmatter(md_path)
+            if not fm:
+                self._warnings.append(f"No frontmatter: {md_path}")
+                continue
+
+            entity_id = fm.get("id")
+            if not entity_id:
+                self._warnings.append(f"Missing id: {md_path}")
+                continue
+
+            # Taxonomy roots are their own path
+            taxonomy_path = [entity_id.replace("taxonomy-", "")]
+
+            try:
+                self.snapshot.canonical_nodes.append(
+                    CanonicalNode(
+                        id=entity_id,
+                        type="taxonomy",
+                        label=fm.get("title", entity_id.replace("taxonomy-", "").replace("-", " ").title()),
+                        slug=_slug_from_id(entity_id),
+                        summary=fm.get("title", ""),
+                        taxonomy_path=taxonomy_path,
+                        aliases=[],
+                        status=_validation_state_from_string(fm.get("canonical_status")),
+                        confidence=1.0,
+                        version=1,
+                        created_at=_now_utc(),
+                        updated_at=_now_utc(),
+                    )
+                )
+            except PydanticValidationError as exc:
+                self._warnings.append(f"Invalid taxonomy {entity_id}: {exc}")
 
     def write_snapshot(self, out_dir: Path | None = None) -> Path:
         if out_dir is None:

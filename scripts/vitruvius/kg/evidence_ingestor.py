@@ -179,17 +179,35 @@ class EvidenceIngestor:
         ingestion_run_id: str | None,
     ) -> list[EvidenceSpan]:
         spans: list[EvidenceSpan] = []
+
+        # Build heading index for markdown files to produce richer selectors
+        heading_index: dict[str, tuple[list[str], int]] = {}
+        if doc_version.mime_type in ("text/markdown", "text/x-markdown"):
+            heading_index = self._index_markdown_headings(source_path)
+
+        # For PDFs, pre-build a page-text index so we can map chunks to pages
+        pdf_page_index: dict[str, int] = {}
+        if doc_version.mime_type == "application/pdf":
+            pdf_page_index = self._index_pdf_pages(source_path)
+
         for chunk in chunks:
             span_id = f"span-{chunk.id.replace('chk-', '')}"
 
             # Choose selector based on file type
             if doc_version.mime_type == "application/pdf":
-                selector = PdfPageSelector(page=1)  # Fallback; real implementation needs page map
+                page = pdf_page_index.get(chunk.text[:200].strip(), 1)
+                selector = PdfPageSelector(page=page, quote=chunk.text[:200])
             else:
+                # Try to resolve a heading path for this chunk
+                heading_path, line_start = self._resolve_chunk_position(
+                    chunk, heading_index
+                )
+                line_end = line_start + chunk.text.count("\n")
                 selector = MarkdownRangeSelector(
-                    heading_path=[],
-                    line_start=1,
-                    line_end=chunk.text.count("\n") + 1,
+                    heading_path=heading_path,
+                    line_start=max(1, line_start),
+                    line_end=max(1, line_end),
+                    quote=chunk.text[:200],
                 )
 
             spans.append(
@@ -295,6 +313,92 @@ class EvidenceIngestor:
                 selector_kind=selector_dict.get("kind"),
                 chunk_id=span.id.replace("span-", "chk-"),
             )
+
+    # ------------------------------------------------------------------
+    # Selector helpers
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def _index_markdown_headings(path: Path) -> dict[str, tuple[list[str], int]]:
+        """Return a map of heading text → (heading_path, line_number)."""
+        index: dict[str, tuple[list[str], int]] = {}
+        try:
+            lines = path.read_text(encoding="utf-8").splitlines()
+        except OSError:
+            return index
+
+        current_path: list[str] = []
+        current_levels: list[int] = []
+
+        for line_no, line in enumerate(lines, start=1):
+            match = __import__("re").match(r"^(#{1,6})\s+(.*)", line)
+            if not match:
+                continue
+            level = len(match.group(1))
+            title = match.group(2).strip()
+
+            # Pop higher or equal levels
+            while current_levels and current_levels[-1] >= level:
+                current_path.pop()
+                current_levels.pop()
+            current_path.append(title)
+            current_levels.append(level)
+
+            index[title.lower()] = (list(current_path), line_no)
+
+        return index
+
+    @staticmethod
+    def _resolve_chunk_position(
+        chunk: Chunk,
+        heading_index: dict[str, tuple[list[str], int]],
+    ) -> tuple[list[str], int]:
+        """Try to find the best heading path and line start for a chunk."""
+        # Heuristic: if chunk text starts with a known heading, use it
+        first_line = chunk.text.splitlines()[0] if chunk.text else ""
+        first_line_stripped = first_line.lstrip("# ").strip().lower()
+        if first_line_stripped in heading_index:
+            path, line_no = heading_index[first_line_stripped]
+            return path, line_no
+
+        # Fallback: empty heading path, line 1
+        return [], 1
+
+    @staticmethod
+    def _index_pdf_pages(path: Path) -> dict[str, int]:
+        """Return a map of page text → 1-based page number for a PDF.
+
+        Uses pdfplumber when available; falls back to PyMuPDF.
+        """
+        index: dict[str, int] = {}
+        # Try pdfplumber first
+        try:
+            import pdfplumber
+
+            with pdfplumber.open(str(path)) as pdf:
+                for idx, page in enumerate(pdf.pages):
+                    text = (page.extract_text() or "").strip()
+                    if text:
+                        index[text] = idx + 1  # 1-based
+            return index
+        except Exception:
+            pass
+
+        # Fallback to PyMuPDF
+        try:
+            import fitz
+
+            doc = fitz.open(str(path))
+            for idx in range(len(doc)):
+                text = doc[idx].get_text().strip()
+                if text:
+                    index[text] = idx + 1
+            doc.close()
+            return index
+        except Exception:
+            pass
+
+        return index
 
     # ------------------------------------------------------------------
     # Utilities

@@ -172,6 +172,36 @@ class TestToCypher:
         merge = [s for s in statements if "MERGE (e:EvidenceSpan" in s]
         assert len(merge) == 1
         assert "span-001" in merge[0]
+        assert "selector_kind" in merge[0]
+        assert "text_range" in merge[0]
+        assert "selector" in merge[0]
+
+    def test_generates_evidence_span_merge_with_pdf_bbox(self) -> None:
+        from vitruvius.kg.schemas import PdfBboxSelector
+
+        snap = _make_snapshot()
+        snap.evidence_spans.append(
+            EvidenceSpan(
+                id="span-pdf-002",
+                document_id="doc-pd-1096",
+                document_version_id="docv-pd-1096-v1",
+                selector=PdfBboxSelector(
+                    kind="pdf_bbox", page=3, bbox=[10.0, 20.0, 30.0, 40.0], quote="hello"
+                ),
+                quote="hello",
+                normalized_text="hello",
+                parser="test",
+                checksum="b" * 64,
+                created_at="2026-01-01T00:00:00Z",
+            )
+        )
+        loader = Neo4jLoader(snap)
+        statements = loader.to_cypher()
+        merge = [s for s in statements if "MERGE (e:EvidenceSpan" in s and "span-pdf-002" in s]
+        assert len(merge) == 1
+        assert "selector_kind" in merge[0]
+        assert "pdf_bbox" in merge[0]
+        assert "bbox" in merge[0]
 
     def test_generates_assertion_merge(self) -> None:
         loader = Neo4jLoader(_make_snapshot())
