@@ -54,6 +54,7 @@ Raw docs → Parse / OCR → Normalize → Canonicalize → Extract → Review �
 - **LLM review (Tier 1/2)** — Local Ollama review with `keep`/`review_further`/`reject` decisions, confidence scoring, second-pass adjudication
 - **Promotion governance** — 17-rule validator, audit log, dry-run default, rollback support
 - **Graph building** — JSON snapshot graph with integrity checks (orphan detection, dangling edge detection)
+- **Unified KG pipeline** — Single command `run-kg-pipeline` goes from raw PDFs → refined markdown → canonical sources → extracted relationships → LLM review → promotion → KG v2 snapshot
 
 **Cross-cutting systems (feature-flagged):**
 - **Knowledge Graph v2** — Taxonomy-centered canonical graph with separate evidence layer, reified assertions, deterministic validation gates
@@ -559,7 +560,76 @@ What happens:
 
 ---
 
-### Workflow E: "I want to run dataset automation (laws wave)"
+### Workflow E: "I want to run the full pipeline from raw sources to KG v2"
+
+**Goal:** Take everything in `001_Raw-Source-Layer/` and produce a validated KG v2 snapshot in one command.
+
+**Prerequisites:**
+- `kg_transition.enabled: true` in `config/vitruvius.yaml` (already set)
+- Ollama running locally (for relationship review)
+
+**Run the unified pipeline**
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline
+```
+
+**What happens (4 phases):**
+
+| Phase | Step | Output layer |
+|-------|------|-------------|
+| 1 | **Scan** → SHA-256 hash every file in `001/` | `006_System-Manifests/registries/` |
+| 1 | **Convert** → PDFs → raw markdown | `002_Raw-Conversion-Layer/raw_markdown/` |
+| 1 | **Refine** → Clean markdown (NFC, headings, sections) | `002_Raw-Conversion-Layer/refined_markdown/` |
+| 2 | **Canonicalize** → Structured source pages with YAML frontmatter | `003_Canonical-Knowledge-Layer/shared/sources/` |
+| 3 | **Extract** → Regex-based relationship candidates per source | `006_System-Manifests/runs/kg_pipeline_*/` |
+| 3 | **Review** → Ollama LLM classifies keep / review_further / reject | Same run directory |
+| 3 | **Promote** → Approved relationships → canonical records | `003_Canonical-Knowledge-Layer/shared/relationships/` |
+| 4 | **Build snapshot** → `UnifiedSnapshotBuilder` merges all layers | `005_Operational-Intelligence-Layer/graph/kg-v2/` |
+
+**Dry-run first (recommended)**
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline --dry-run
+```
+
+This plans all 4 phases without writing anything, so you can see which sources will be processed and how many relationships are expected.
+
+**Skip LLM review (faster, less accurate)**
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline --skip-review
+```
+
+This bypasses the Ollama review step and promotes all extracted relationships. Useful for testing the pipeline end-to-end, but not recommended for production truth.
+
+**Customize review settings**
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline \
+  --review-model gemma4:31b \
+  --review-timeout-seconds 300 \
+  --review-parallel 4
+```
+
+**How this differs from other commands:**
+
+| Command | Scope | Graph version |
+|---------|-------|---------------|
+| `run-with-review` | Scan → Convert → Refine → Review | Stops at review reports |
+| `build-graph` | Reads `003/` → v1 snapshot | Legacy v1 |
+| `run-laws-pilot` | Manifest-bound laws tranche | Legacy v1 |
+| `kg-build-unified` | Reads `003/` → v2 snapshot | KG v2, but requires `003/` already populated |
+| **`run-kg-pipeline`** | **001 → 002 → 003 → KG v2** | **Full path, KG v2** |
+
+**Artifacts produced:**
+- `006_System-Manifests/runs/kg_pipeline_report_*.json` — structured summary
+- `005_Operational-Intelligence-Layer/graph/kg-v2/snapshot.json` — the final KG v2 snapshot
+- `003_Canonical-Knowledge-Layer/shared/relationships/rel-*.md` — promoted canonical relationships
+
+---
+
+### Workflow F: "I want to run dataset automation (laws wave)"
 
 **Goal:** Process a bounded tranche of laws through the full pipeline with manifest-backed guardrails.
 

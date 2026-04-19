@@ -86,6 +86,272 @@ def run_pipeline_with_review() -> int:
     )
 
 
+def run_kg_pipeline(
+    *,
+    dry_run: bool = False,
+    skip_review: bool = False,
+    review_model: str | None = None,
+    review_timeout_seconds: int | None = None,
+    review_parallelism: int | None = None,
+    snapshot_out_path: str | None = None,
+) -> int:
+    """Unified orchestrator: raw sources → canonical layer → KG v2 snapshot.
+
+    Phase 1: scan + convert + refine
+    Phase 2: canonicalize refined sources
+    Phase 3: extract + review + promote relationships
+    Phase 4: build unified KG v2 snapshot
+    """
+    import json
+    from datetime import datetime, timezone
+    from pathlib import Path
+
+    from vitruvius.config import (
+        get_ollama_default_model,
+        get_ollama_default_parallelism,
+        get_ollama_default_timeout,
+        is_kg_enabled,
+    )
+    from vitruvius.paths import get_repo_root
+
+    repo_root = get_repo_root()
+    runs_dir = repo_root / "006_System-Manifests" / "runs"
+    runs_dir.mkdir(parents=True, exist_ok=True)
+    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+    if not is_kg_enabled():
+        print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+        return 1
+
+    model = review_model or get_ollama_default_model()
+    timeout = review_timeout_seconds or get_ollama_default_timeout()
+    parallelism = review_parallelism or get_ollama_default_parallelism()
+
+    report: dict[str, object] = {
+        "action": "run-kg-pipeline",
+        "run_id": run_id,
+        "dry_run": dry_run,
+        "phases": [],
+    }
+
+    # ------------------------------------------------------------------
+    # Phase 1 — Ingest & Convert
+    # ------------------------------------------------------------------
+    print("=" * 60)
+    print("Phase 1/4 — Scan, Convert, Refine")
+    print("=" * 60)
+
+    from vitruvius.conversion import run_convert
+    from vitruvius.normalization.refine import run_refine
+
+    if not dry_run:
+        rc = run_pipeline()
+        if rc != 0:
+            report["error"] = "scan/status/lint failed"
+            return rc
+        rc = run_convert()
+        if rc != 0:
+            report["error"] = "convert failed"
+            return rc
+        rc = run_refine()
+        if rc != 0:
+            report["error"] = "refine failed"
+            return rc
+    else:
+        print("[DRY-RUN] Would run: scan → convert → refine")
+
+    report["phases"].append({"phase": 1, "name": "ingest_convert", "status": "ok"})
+
+    # ------------------------------------------------------------------
+    # Phase 2 — Canonicalize
+    # ------------------------------------------------------------------
+    print("\n" + "=" * 60)
+    print("Phase 2/4 — Canonicalize refined sources")
+    print("=" * 60)
+
+    from vitruvius.canonicalize import run_canonicalize
+
+    if not dry_run:
+        rc = run_canonicalize()
+        if rc != 0:
+            report["error"] = "canonicalize failed"
+            return rc
+    else:
+        print("[DRY-RUN] Would run: canonicalize (batch)")
+
+    report["phases"].append({"phase": 2, "name": "canonicalize", "status": "ok"})
+
+    # ------------------------------------------------------------------
+    # Phase 3 — Extract, Review & Promote
+    # ------------------------------------------------------------------
+    print("\n" + "=" * 60)
+    print("Phase 3/4 — Extract, Review & Promote relationships")
+    print("=" * 60)
+
+    from vitruvius.ollama_review import run_review_relationships_ollama
+    from vitruvius.promotion import run_promote_inner
+    from vitruvius.relationships_sections import run_extract_relationships_sections_one_inner
+
+    sources_dir = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "sources"
+    relationships_dir = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "relationships"
+    relationships_dir.mkdir(parents=True, exist_ok=True)
+    phase3_runs_dir = runs_dir / f"kg_pipeline_{run_id}"
+    phase3_runs_dir.mkdir(parents=True, exist_ok=True)
+
+    canonical_sources = sorted(sources_dir.glob("*.md")) if sources_dir.exists() else []
+    print(f"Found {len(canonical_sources)} canonical source(s)")
+
+    extracted_count = 0
+    reviewed_count = 0
+    promoted_count = 0
+    skipped_count = 0
+
+    for source_md in canonical_sources:
+        source_id = source_md.stem
+        # Determine the corresponding refined markdown path
+        # Heuristic: look in 002_Raw-Conversion-Layer for a matching filename
+        refined_candidates = list(
+            (repo_root / "002_Raw-Conversion-Layer").rglob(f"{source_md.name}")
+        )
+        if not refined_candidates:
+            # Fallback: try stem match
+            refined_candidates = list(
+                (repo_root / "002_Raw-Conversion-Layer").rglob(f"{source_md.stem}.md")
+            )
+        if not refined_candidates:
+            print(f"  SKIP {source_id}: no refined markdown found")
+            skipped_count += 1
+            continue
+
+        refined_path = refined_candidates[0]
+        rel_refined = refined_path.relative_to(repo_root / "002_Raw-Conversion-Layer").as_posix()
+        source_run_dir = phase3_runs_dir / source_id
+        source_run_dir.mkdir(parents=True, exist_ok=True)
+
+        extract_json = source_run_dir / "extract.json"
+        extract_txt = source_run_dir / "extract.txt"
+        review_json = source_run_dir / "review.json"
+        review_txt = source_run_dir / "review.txt"
+        triage_json = source_run_dir / "triage.json"
+        high_conf_json = source_run_dir / "high_conf.json"
+
+        if dry_run:
+            print(f"  [DRY-RUN] {source_id}: extract → review → promote")
+            extracted_count += 1
+            continue
+
+        # Extract
+        rc = run_extract_relationships_sections_one_inner(
+            repo_root=repo_root,
+            relative_markdown_path=rel_refined,
+            json_output_path=extract_json,
+            txt_output_path=extract_txt,
+            source_id_override=source_id,
+        )
+        if rc != 0:
+            print(f"  WARN {source_id}: extraction failed (rc={rc})")
+            skipped_count += 1
+            continue
+        extracted_count += 1
+
+        if skip_review:
+            # Copy extract JSON directly as high-confidence input
+            import shutil
+
+            shutil.copy2(str(extract_json), str(high_conf_json))
+        else:
+            # Review
+            rc = run_review_relationships_ollama(
+                model=str(model),
+                timeout_seconds=int(timeout),
+                parallelism=int(parallelism),
+                extraction_report_path=extract_json,
+                review_json_path=review_json,
+                review_txt_path=review_txt,
+                triage_report_path=triage_json,
+                high_confidence_output_path=high_conf_json,
+            )
+            if rc != 0:
+                print(f"  WARN {source_id}: review failed (rc={rc})")
+                skipped_count += 1
+                continue
+            reviewed_count += 1
+
+        # Promote
+        promote_result = run_promote_inner(
+            repo_root=repo_root,
+            execute=True,
+            rollback_batch_id=None,
+            high_confidence_input_path=high_conf_json,
+            relationships_output_dir=relationships_dir,
+            audit_log_path=phase3_runs_dir / "promotion_audit.log",
+        )
+        if promote_result.get("rejected") or promote_result.get("errors"):
+            print(f"  WARN {source_id}: promote had errors")
+        else:
+            promoted_count += 1
+
+    report["phases"].append(
+        {
+            "phase": 3,
+            "name": "extract_review_promote",
+            "status": "ok",
+            "sources_total": len(canonical_sources),
+            "extracted": extracted_count,
+            "reviewed": reviewed_count,
+            "promoted": promoted_count,
+            "skipped": skipped_count,
+        }
+    )
+
+    # ------------------------------------------------------------------
+    # Phase 4 — Build KG v2 Snapshot
+    # ------------------------------------------------------------------
+    print("\n" + "=" * 60)
+    print("Phase 4/4 — Build unified KG v2 snapshot")
+    print("=" * 60)
+
+    from vitruvius.kg.unified_snapshot_builder import UnifiedSnapshotBuilder
+
+    if dry_run:
+        print("[DRY-RUN] Would run: UnifiedSnapshotBuilder.build()")
+        report["phases"].append({"phase": 4, "name": "build_snapshot", "status": "dry_run"})
+    else:
+        builder = UnifiedSnapshotBuilder(repo_root=repo_root)
+        snapshot = builder.build()
+        out_path = builder.write_snapshot(
+            snapshot=snapshot,
+            out_path=Path(snapshot_out_path) if snapshot_out_path else None,
+        )
+        counts = snapshot.entity_counts()
+        print(f"Wrote unified snapshot to {out_path}")
+        for key, count in counts.items():
+            print(f"  {key}: {count}")
+        if builder._warnings:
+            print(f"Warnings ({len(builder._warnings)}):")
+            for w in builder._warnings[:10]:
+                print(f"  - {w}")
+        report["phases"].append(
+            {
+                "phase": 4,
+                "name": "build_snapshot",
+                "status": "ok",
+                "snapshot_path": str(out_path.relative_to(repo_root)),
+                "counts": counts,
+                "warnings": builder._warnings,
+            }
+        )
+
+    # ------------------------------------------------------------------
+    # Report
+    # ------------------------------------------------------------------
+    report_path = runs_dir / f"kg_pipeline_report_{run_id}.json"
+    report_path.write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")
+    print(f"\nPipeline report: {report_path.relative_to(repo_root)}")
+    print(json.dumps(report, indent=2, default=str))
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=ROOT_PARSER_DESCRIPTION,
@@ -220,6 +486,21 @@ def build_parser() -> argparse.ArgumentParser:
     add_command_parser(subparsers, "canonicalize")
     add_command_parser(subparsers, "refine")
     add_command_parser(subparsers, "run-with-review")
+
+    kg_pipeline_parser = add_command_parser(subparsers, "run-kg-pipeline")
+    kg_pipeline_parser.add_argument("--dry-run", action="store_true",
+                                    help="Plan stages without executing writes")
+    kg_pipeline_parser.add_argument("--skip-review", action="store_true",
+                                    help="Skip LLM review and promote all extracted relationships")
+    kg_pipeline_parser.add_argument("--review-model", default=None,
+                                    help="Tier-1 review model override")
+    kg_pipeline_parser.add_argument("--review-timeout-seconds", type=int, default=None,
+                                    help="Tier-1 review timeout seconds")
+    kg_pipeline_parser.add_argument("--review-parallel", type=int, default=None,
+                                    help="Tier-1 review parallelism override")
+    kg_pipeline_parser.add_argument("--snapshot-out", default=None,
+                                    help="Optional output path for the KG v2 snapshot JSON")
+
     dataset_graph_parser = add_command_parser(subparsers, "run-dataset-graph")
     dataset_graph_parser.add_argument("--dataset-manifest", required=True,
                                       help="Dataset manifest to orchestrate")
@@ -1138,6 +1419,19 @@ def main() -> int:
 
     if args.command == "run-with-review":
         return _run("run-with-review", run_pipeline_with_review)
+
+    if args.command == "run-kg-pipeline":
+        return _run(
+            "run-kg-pipeline",
+            lambda: run_kg_pipeline(
+                dry_run=args.dry_run,
+                skip_review=args.skip_review,
+                review_model=args.review_model,
+                review_timeout_seconds=args.review_timeout_seconds,
+                review_parallelism=args.review_parallel,
+                snapshot_out_path=args.snapshot_out,
+            ),
+        )
 
     if args.command == "run-dataset-graph":
         from vitruvius.dataset_pipeline import (
