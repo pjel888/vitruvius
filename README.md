@@ -98,6 +98,103 @@ Vitruvius is built as a **layered, filesystem-centric pipeline**. The filesystem
 
 ---
 
+## Setup & Installation
+
+One-time setup before you can run any pipeline commands.
+
+### 1. Clone or navigate to the repository
+
+```bash
+cd /Users/philiplewis/vitruvius
+```
+
+### 2. Create and activate a Python virtual environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+> `.venv/` is already in `.gitignore` — it will never be committed.
+
+### 3. Install Python dependencies
+
+```bash
+pip3 install -r requirements.txt
+```
+
+This installs:
+- `pypdf`, `opendataloader-pdf`, `ocrmypdf` — PDF processing
+- `PyYAML`, `openpyxl` — config and spreadsheet handling
+- `numpy`, `scipy`, `scikit-learn`, `networkx` — scientific stack
+- `spacy`, `sentence-transformers` — NLP and embeddings
+- `neo4j`, `psycopg[binary]`, `pydantic` — KG v2 backends and schemas
+- `rocksdict` — high-performance KV store
+
+### 4. Download the spaCy language model
+
+```bash
+python3 -m spacy download en_core_web_sm
+```
+
+Required for SVO (subject-verb-object) extraction in relationship detection.
+
+### 5. Verify the installation
+
+```bash
+python scripts/pipeline_cli.py --help
+```
+
+You should see the full list of available commands.
+
+### 6. (Optional) Install backend services
+
+**Neo4j** — for KG v2 graph indexing:
+```bash
+# macOS with Homebrew
+brew install neo4j
+brew services start neo4j
+
+# Verify at http://localhost:7474 (default user: neo4j, password: password)
+```
+
+**PostgreSQL** — for KG v2 relational registry:
+```bash
+# macOS with Homebrew
+brew install postgresql@15
+brew services start postgresql@15
+
+# Create the database and role
+createdb vitruvius
+psql -d vitruvius -c "CREATE ROLE postgres WITH LOGIN PASSWORD 'password';"
+```
+
+**Ollama** — for local LLM review:
+```bash
+# macOS
+brew install ollama
+ollama serve
+
+# Pull the default review model
+ollama pull llama3.1:8b
+
+# (Optional) Pull high-quality model for desktop
+ollama pull gemma4:31b
+
+# (Optional) Pull lightweight model for MacBook
+ollama pull qwen2.5:3b
+```
+
+### 7. (Optional) Rust toolchain
+
+Only needed if you want to build the Rust compute modules (`engine_rs/`):
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source ~/.cargo/env
+```
+
+---
+
 ## Quick Start
 
 This section gives you the six most common commands to go from raw documents to a working knowledge graph. Each step is explained below in more detail in [Common Workflows](#common-workflows).
