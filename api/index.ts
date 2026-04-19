@@ -1,0 +1,439 @@
+import { Hono } from 'hono';
+import { serveStatic } from 'hono/bun';
+import { cors } from 'hono/cors';
+import neo4j from 'neo4j-driver';
+
+// ---------------------------------------------------------------------------
+// Neo4j connection
+// ---------------------------------------------------------------------------
+const driver = neo4j.driver(
+  process.env.NEO4J_URI || 'bolt://localhost:7687',
+  neo4j.auth.basic(
+    process.env.NEO4J_USER || 'neo4j',
+    process.env.NEO4J_PASS || 'vitruvius'
+  )
+);
+
+async function runQuery<T = any>(query: string, params?: Record<string, any>): Promise<T[]> {
+  const session = driver.session();
+  try {
+    const result = await session.run(query, params);
+    return result.records.map(r => {
+      const obj: any = {};
+      r.keys.forEach(k => {
+        const v = r.get(k);
+        obj[k] = v && typeof v === 'object' && 'properties' in v ? v.properties : v;
+      });
+      return obj;
+    });
+  } finally {
+    await session.close();
+  }
+}
+
+function normalizeNode(node: any) {
+  if (!node) return null;
+  return {
+    id: node.id,
+    label: node.label,
+    type: node.type || node.kind || 'unknown',
+    kind: node.kind,
+    summary: node.summary,
+    slug: node.slug,
+    status: node.status,
+    confidence: node.confidence != null ? Number(node.confidence) : undefined,
+    aliases: node.aliases,
+    taxonomy_path: node.taxonomy_path,
+    radius: node.type === 'taxonomy' ? 12 : node.type === 'topic' ? 10 : node.type === 'subtopic' ? 9 : node.type === 'rule' ? 9 : 8,
+  };
+}
+
+function normalizeEdge(rel: any, sourceId: string, targetId: string) {
+  return {
+    id: rel.assertion_id || `${sourceId}-${rel.type}-${targetId}`,
+    source: sourceId,
+    target: targetId,
+    type: rel.type,
+    reasoning: rel.reasoning_summary,
+    confidence: rel.confidence != null ? Number(rel.confidence) : undefined,
+    assertionId: rel.assertion_id,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// App
+// ---------------------------------------------------------------------------
+const app = new Hono();
+
+app.use(cors({ origin: '*' }));
+
+// Health check
+app.get('/health', async (c) => {
+  try {
+    await driver.verifyConnectivity();
+    return c.json({ status: 'ok', neo4j: 'connected' });
+  } catch (e: any) {
+    return c.json({ status: 'error', neo4j: e.message }, 500);
+  }
+});
+
+// GET /search
+app.get('/search', async (c) => {
+  const q = c.req.query('q') || '';
+  const perspective = c.req.query('perspective');
+  const limit = Math.min(parseInt(c.req.query('limit') || '20'), 100);
+
+  if (!q.trim() || q.length < 2) return c.json({ results: [] });
+
+  let typeFilter = '';
+  if (perspective === 'concepts') {
+    typeFilter = 'AND c.type IN ["concept", "rule", "definition", "procedure", "exception"]';
+  } else if (perspective === 'taxonomy') {
+    typeFilter = 'AND (c:Taxonomy OR c:Topic OR c:Subtopic)';
+  } else if (perspective === 'regulatory') {
+    typeFilter = 'AND c.type IN ["rule", "concept"]';
+  }
+
+  const records = await runQuery(`
+    MATCH (c)
+    WHERE (c:CanonicalNode OR c:Taxonomy OR c:Topic OR c:Subtopic)
+      AND (c.label CONTAINS $q OR c.id CONTAINS $q)
+      ${typeFilter}
+    RETURN c.id AS id, c.label AS label, c.type AS type, c.kind AS kind
+    LIMIT $limit
+  `, { q: q.toLowerCase(), limit });
+
+  const results = records.map(r => ({
+    kind: 'node' as const,
+    id: r.id,
+    label: r.label,
+    type: r.type || r.kind || 'unknown',
+    matchType: r.label.toLowerCase().includes(q.toLowerCase()) ? 'label' : 'id',
+    matchedField: r.label.toLowerCase().includes(q.toLowerCase()) ? 'label' : 'id',
+  }));
+
+  return c.json({ results });
+});
+
+// GET /node/:id
+app.get('/node/:id', async (c) => {
+  const id = c.req.param('id');
+
+  const nodes = await runQuery(`
+    MATCH (c) WHERE c.id = $id
+    OPTIONAL MATCH (c)-[:SUPPORTED_BY]->(e:EvidenceSpan)
+    OPTIONAL MATCH (c)-[r]->(other)
+    WHERE type(r) <> 'BELONGS_TO' AND type(r) <> 'HAS_CHILD'
+    OPTIONAL MATCH (in)<-[rin]-(c)
+    WHERE type(rin) <> 'BELONGS_TO' AND type(rin) <> 'HAS_CHILD'
+    RETURN c,
+           collect(DISTINCT e) AS evidence,
+           collect(DISTINCT {rel: type(r), other: other, reasoning: r.reasoning_summary, confidence: r.confidence, assertionId: r.assertion_id}) AS outgoing,
+           collect(DISTINCT {rel: type(rin), other: in, reasoning: rin.reasoning_summary, confidence: rin.confidence, assertionId: rin.assertion_id}) AS incoming
+  `, { id });
+
+  if (!nodes.length) return c.json({ error: { code: 'NODE_NOT_FOUND', message: `Node '${id}' not found` } }, 404);
+
+  const n = nodes[0];
+  const node = normalizeNode(n.c);
+
+  // Build taxonomy path
+  const taxonomyPath: any[] = [];
+  if (node?.taxonomy_path && Array.isArray(node.taxonomy_path)) {
+    for (const taxoId of node.taxonomy_path) {
+      const taxo = await runQuery('MATCH (t) WHERE t.id = $id RETURN t.label AS label, t.kind AS kind', { id: taxoId });
+      if (taxo.length) {
+        taxonomyPath.push({ id: taxoId, label: taxo[0].label, kind: taxo[0].kind });
+      }
+    }
+  }
+
+  const evidence = (n.evidence || []).filter(Boolean).map((e: any) => ({
+    id: e.id,
+    quote: e.quote || e.normalized_text || 'No quote',
+    document_id: e.document_id,
+    document_title: e.document_id,
+    deep_link: e.deep_link,
+    confidence: e.confidence != null ? Number(e.confidence) : undefined,
+  }));
+
+  const incoming = (n.incoming || []).filter((r: any) => r.rel && r.other).map((r: any) => ({
+    relType: r.rel,
+    other: normalizeNode(r.other),
+    reasoning: r.reasoning,
+    confidence: r.confidence != null ? Number(r.confidence) : undefined,
+    assertionId: r.assertionId,
+  }));
+
+  const outgoing = (n.outgoing || []).filter((r: any) => r.rel && r.other).map((r: any) => ({
+    relType: r.rel,
+    other: normalizeNode(r.other),
+    reasoning: r.reasoning,
+    confidence: r.confidence != null ? Number(r.confidence) : undefined,
+    assertionId: r.assertionId,
+  }));
+
+  return c.json({ node, taxonomyPath, incoming, outgoing, evidence });
+});
+
+// GET /expand
+app.get('/expand', async (c) => {
+  const nodeId = c.req.query('nodeId');
+  const relTypes = c.req.query('relTypes')?.split(',').filter(Boolean);
+  const direction = c.req.query('direction') || 'both';
+  const limit = Math.min(parseInt(c.req.query('limit') || '50'), 200);
+
+  if (!nodeId) return c.json({ error: { code: 'BAD_REQUEST', message: 'nodeId is required' } }, 400);
+
+  let relFilter = '';
+  if (relTypes && relTypes.length) {
+    relFilter = 'AND type(r) IN $relTypes';
+  }
+
+  let query = '';
+  if (direction === 'out') {
+    query = `
+      MATCH (c)-[r]->(other)
+      WHERE c.id = $nodeId ${relFilter}
+      RETURN c.id AS source, other, r
+      LIMIT $limit
+    `;
+  } else if (direction === 'in') {
+    query = `
+      MATCH (other)-[r]->(c)
+      WHERE c.id = $nodeId ${relFilter}
+      RETURN other AS source, c AS other, r
+      LIMIT $limit
+    `;
+  } else {
+    query = `
+      MATCH (c)-[r]-(other)
+      WHERE c.id = $nodeId ${relFilter}
+      RETURN c.id AS source, other, r
+      LIMIT $limit
+    `;
+  }
+
+  const records = await runQuery(query, { nodeId, relTypes: relTypes || [], limit });
+
+  const nodeIds = new Set([nodeId]);
+  const edgeSet = new Map<string, any>();
+
+  records.forEach((rec: any) => {
+    const other = normalizeNode(rec.other);
+    if (other) nodeIds.add(other.id);
+
+    const sourceId = rec.source || nodeId;
+    const targetId = rec.other?.id || rec.other?.properties?.id;
+    if (targetId) {
+      const edge = normalizeEdge(rec.r, sourceId, targetId);
+      edgeSet.set(edge.id, edge);
+    }
+  });
+
+  // Fetch all nodes
+  const allNodes = await runQuery(`
+    MATCH (n) WHERE n.id IN $ids
+    RETURN n
+  `, { ids: Array.from(nodeIds) });
+
+  return c.json({
+    nodeId,
+    neighbors: records.map((rec: any) => ({
+      node: normalizeNode(rec.other),
+      relType: rec.r?.type,
+      direction: direction,
+    })).filter((n: any) => n.node),
+    nodes: allNodes.map((r: any) => normalizeNode(r.n)).filter(Boolean),
+    edges: Array.from(edgeSet.values()),
+  });
+});
+
+// GET /path
+app.get('/path', async (c) => {
+  const from = c.req.query('from');
+  const to = c.req.query('to');
+  const maxHops = Math.min(parseInt(c.req.query('maxHops') || '6'), 12);
+  const limit = Math.min(parseInt(c.req.query('limit') || '5'), 20);
+
+  if (!from || !to) return c.json({ error: { code: 'BAD_REQUEST', message: 'from and to are required' } }, 400);
+
+  const records = await runQuery(`
+    MATCH path = shortestPath((a)-[*1..${maxHops}]-(b))
+    WHERE a.id = $from AND b.id = $to
+    RETURN path
+    LIMIT $limit
+  `, { from, to, limit });
+
+  if (!records.length) {
+    return c.json({ error: { code: 'PATH_NOT_FOUND', message: `No path found between '${from}' and '${to}' within ${maxHops} hops` } }, 404);
+  }
+
+  const paths = records.map((rec: any) => {
+    const path = rec.path;
+    const nodes = path.segments.map((s: any) => normalizeNode(s.start)).filter(Boolean);
+    nodes.push(normalizeNode(path.end));
+    const edges = path.segments.map((s: any) => normalizeEdge(s.relationship, s.start.id, s.end.id));
+    return { length: edges.length, nodes, edges };
+  });
+
+  return c.json({ paths });
+});
+
+// GET /taxonomy
+app.get('/taxonomy', async (c) => {
+  const records = await runQuery(`
+    MATCH (t:Taxonomy)
+    OPTIONAL MATCH (t)-[:HAS_CHILD*]->(child)
+    OPTIONAL MATCH (c:CanonicalNode)-[:BELONGS_TO]->(taxo)
+    WHERE taxo = t OR taxo = child
+    RETURN t.id AS id, t.label AS label, t.kind AS kind,
+           count(DISTINCT c) AS conceptCount
+    ORDER BY label
+  `);
+
+  const rootRecords = await runQuery(`
+    MATCH (t:Taxonomy)
+    RETURN t.id AS id, t.label AS label, t.kind AS kind
+    ORDER BY label
+  `);
+
+  async function buildTree(parentId: string): Promise<any[]> {
+    const children = await runQuery(`
+      MATCH (parent)-[:HAS_CHILD]->(child)
+      WHERE parent.id = $parentId
+      OPTIONAL MATCH (c:CanonicalNode)-[:BELONGS_TO]->(child)
+      RETURN child.id AS id, child.label AS label, child.kind AS kind,
+             count(DISTINCT c) AS conceptCount
+      ORDER BY label
+    `, { parentId });
+
+    return Promise.all(children.map(async (child: any) => ({
+      id: child.id,
+      label: child.label,
+      kind: child.kind,
+      conceptCount: Number(child.conceptCount) || 0,
+      children: await buildTree(child.id),
+    })));
+  }
+
+  const roots = await Promise.all(rootRecords.map(async (r: any) => ({
+    id: r.id,
+    label: r.label,
+    kind: r.kind,
+    conceptCount: Number(records.find((rec: any) => rec.id === r.id)?.conceptCount) || 0,
+    children: await buildTree(r.id),
+  })));
+
+  return c.json({ roots });
+});
+
+// GET /perspectives
+app.get('/perspectives', async (c) => {
+  const perspectives = [
+    { id: 'default', name: 'All Knowledge', description: 'Everything', nodeCount: 205 },
+    { id: 'concepts', name: 'Concepts Only', description: 'Domain concepts and relationships', nodeCount: 108 },
+    { id: 'taxonomy', name: 'Taxonomy Browser', description: 'Hierarchy and classification', nodeCount: 86 },
+    { id: 'regulatory', name: 'Regulatory Rules', description: 'Rules and dependencies', nodeCount: 40 },
+  ];
+  return c.json({ perspectives });
+});
+
+// GET /perspective/:id/nodes
+app.get('/perspective/:id/nodes', async (c) => {
+  const id = c.req.param('id');
+
+  let nodeQuery = '';
+  let edgeQuery = '';
+
+  if (id === 'concepts') {
+    nodeQuery = `
+      MATCH (c:CanonicalNode)
+      WHERE c.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
+      RETURN c
+    `;
+    edgeQuery = `
+      MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
+      WHERE a.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
+        AND b.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
+        AND type(r) IN ['RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES']
+      RETURN r, a.id AS source, b.id AS target
+    `;
+  } else if (id === 'taxonomy') {
+    nodeQuery = `
+      MATCH (n) WHERE n:Taxonomy OR n:Topic OR n:Subtopic OR (n:CanonicalNode AND n.type = 'taxonomy')
+      RETURN n
+      UNION
+      MATCH (c:CanonicalNode) WHERE c.type <> 'taxonomy'
+      RETURN c AS n
+      LIMIT 50
+    `;
+    edgeQuery = `
+      MATCH (a)-[r:HAS_CHILD|BELONGS_TO]->(b)
+      RETURN r, a.id AS source, b.id AS target
+    `;
+  } else if (id === 'regulatory') {
+    nodeQuery = `
+      MATCH (c:CanonicalNode) WHERE c.type IN ['rule', 'concept']
+      RETURN c
+    `;
+    edgeQuery = `
+      MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
+      WHERE a.type IN ['rule', 'concept'] AND b.type IN ['rule', 'concept']
+        AND type(r) IN ['REQUIRES', 'DEPENDS_ON', 'DEFINED_BY']
+      RETURN r, a.id AS source, b.id AS target
+    `;
+  } else {
+    // default: all knowledge
+    nodeQuery = `
+      MATCH (n) WHERE n:CanonicalNode OR n:Taxonomy OR n:Topic OR n:Subtopic
+      RETURN n
+    `;
+    edgeQuery = `
+      MATCH (a)-[r]->(b)
+      WHERE type(r) IN ['HAS_CHILD', 'BELONGS_TO', 'RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES', 'SUPPORTED_BY']
+      RETURN r, a.id AS source, b.id AS target
+    `;
+  }
+
+  const nodes = await runQuery(nodeQuery);
+  const edges = await runQuery(edgeQuery);
+
+  return c.json({
+    nodes: nodes.map((r: any) => normalizeNode(r.n || r.c)).filter(Boolean),
+    edges: edges.map((r: any) => normalizeEdge(r.r, r.source, r.target)),
+  });
+});
+
+// Scene storage (in-memory for now)
+const scenes = new Map<string, any>();
+
+// POST /scene/save
+app.post('/scene/save', async (c) => {
+  const body = await c.req.json();
+  const id = crypto.randomUUID();
+  scenes.set(id, { ...body, id, savedAt: new Date().toISOString() });
+  return c.json({ sceneId: id, url: `/explore?scene=${id}` });
+});
+
+// GET /scene/:id
+app.get('/scene/:id', async (c) => {
+  const id = c.req.param('id');
+  const scene = scenes.get(id);
+  if (!scene) return c.json({ error: { code: 'NOT_FOUND', message: 'Scene not found' } }, 404);
+  return c.json(scene);
+});
+
+// Serve static frontend build
+app.use('/*', serveStatic({ root: '../explorer/dist' }));
+
+// ---------------------------------------------------------------------------
+// Start
+// ---------------------------------------------------------------------------
+const port = parseInt(process.env.PORT || '3000');
+console.log(`Vitruvius Graph API starting on http://localhost:${port}`);
+
+export default {
+  port,
+  fetch: app.fetch,
+};

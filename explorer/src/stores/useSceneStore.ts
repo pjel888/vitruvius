@@ -1,6 +1,14 @@
 import { create } from 'zustand';
 import type { GraphNode, GraphEdge } from '../types';
 
+interface BottomContent {
+  type: 'source' | 'table' | 'query';
+  title: string;
+  documentId?: string;
+  quote?: string;
+  deepLink?: string;
+}
+
 interface SceneStore {
   // View state
   perspectiveId: string;
@@ -22,6 +30,12 @@ interface SceneStore {
   inspectorOpen: boolean;
   toggleExplorer: () => void;
   toggleInspector: () => void;
+
+  // Bottom drawer
+  bottomOpen: boolean;
+  bottomContent: BottomContent | null;
+  openBottom: (content: BottomContent) => void;
+  closeBottom: () => void;
 
   // Search
   searchQuery: string;
@@ -53,6 +67,11 @@ export const useSceneStore = create<SceneStore>((set) => ({
   inspectorOpen: false,
   toggleExplorer: () => set(s => ({ explorerOpen: !s.explorerOpen })),
   toggleInspector: () => set(s => ({ inspectorOpen: !s.inspectorOpen })),
+
+  bottomOpen: false,
+  bottomContent: null,
+  openBottom: (content) => set({ bottomOpen: true, bottomContent: content }),
+  closeBottom: () => set({ bottomOpen: false, bottomContent: null }),
 
   searchQuery: '',
   setSearchQuery: (q) => set({ searchQuery: q }),

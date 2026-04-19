@@ -109,6 +109,7 @@ export default function CommandBar() {
         <div className="flex items-center gap-2 bg-bg border border-border rounded-md px-3 py-1.5 focus-within:border-accent transition-colors">
           <Search size={14} className="text-text-dim shrink-0" />
           <input
+            id="command-search-input"
             ref={inputRef}
             type="text"
             className="flex-1 bg-transparent outline-none text-sm placeholder:text-text-dim"

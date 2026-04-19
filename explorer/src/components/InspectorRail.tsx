@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, Pin, Focus, Maximize2, ArrowRight, FileText } from 'lucide-react';
+import { X, Pin, Focus, Maximize2, ArrowRight, FileText, ExternalLink } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import { getNode, getEdgeDetail } from '../api/graphApi';
 import type { NodeDetail, EdgeDetail } from '../types';
@@ -18,6 +18,7 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
   const { node, taxonomyPath, incoming, outgoing, evidence } = detail;
   const [activeTab, setActiveTab] = useState<'summary' | 'evidence' | 'incoming' | 'outgoing'>('summary');
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
+  const openBottom = useSceneStore(s => s.openBottom);
 
   return (
     <div className="flex flex-col h-full">
@@ -101,9 +102,18 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
                   </div>
                 )}
                 {e.deep_link && (
-                  <a href={e.deep_link} target="_blank" rel="noreferrer" className="text-xs text-accent hover:underline mt-1 inline-block">
-                    Open source →
-                  </a>
+                  <button
+                    onClick={() => openBottom({
+                      type: 'source',
+                      title: e.document_title || 'Source Document',
+                      documentId: e.document_id,
+                      quote: e.quote,
+                      deepLink: e.deep_link,
+                    })}
+                    className="text-xs text-accent hover:underline mt-1 inline-flex items-center gap-1"
+                  >
+                    Open source <ExternalLink size={10} />
+                  </button>
                 )}
               </div>
             ))}
