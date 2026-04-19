@@ -4,7 +4,7 @@ title: Revised National Plumbing Code Of The Philippines
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:45.889383+00:00
+last_canonicalized_utc: 2026-04-19T17:02:17.065119+00:00
 ---
 
 # Revised National Plumbing Code Of The Philippines
