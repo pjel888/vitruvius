@@ -25,9 +25,9 @@
     --node-subtopic: #c084fc;
     --edge-related: #6b7280;
     --edge-depends: #f59e0b;
-    --edge-contradicts: #ef4444;
     --edge-supports: #10b981;
     --edge-same: #8b5cf6;
+    --edge-requires: #8b5cf6;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
@@ -41,7 +41,7 @@
   #header button { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; transition: all 0.15s; }
   #header button:hover { border-color: var(--accent); color: var(--accent); }
   #header button.active { background: var(--accent); color: #000; border-color: var(--accent); }
-  #conn-status { font-size: 12px; color: var(--text-dim); }
+  #conn-status { font-size: 12px; color: var(--text-dim); white-space: nowrap; }
   #conn-status.connected { color: var(--node-definition); }
   #conn-status.error { color: var(--node-rule); }
 
@@ -63,7 +63,7 @@
   .tree-item { display: flex; align-items: center; padding: 5px 14px; cursor: pointer; font-size: 13px; gap: 6px; user-select: none; transition: background 0.1s; }
   .tree-item:hover { background: rgba(79, 193, 233, 0.06); }
   .tree-item.selected { background: rgba(79, 193, 233, 0.12); }
-  .tree-item .toggle { width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--text-dim); flex-shrink: 0; }
+  .tree-item .toggle { width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--text-dim); flex-shrink: 0; cursor: pointer; }
   .tree-item .toggle.leaf { visibility: hidden; }
   .tree-item .icon { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
   .tree-item .label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -72,18 +72,19 @@
   .tree-children.open { display: block; }
 
   /* SVG */
-  svg { width: 100%; height: 100%; }
+  svg { width: 100%; height: 100%; cursor: grab; }
+  svg:active { cursor: grabbing; }
   .link { fill: none; stroke-opacity: 0.5; stroke-width: 1.5px; transition: stroke-opacity 0.2s; }
   .link:hover { stroke-opacity: 1; stroke-width: 2.5px; }
   .node circle { stroke: var(--bg); stroke-width: 2px; cursor: pointer; transition: all 0.2s; }
   .node circle:hover { stroke: var(--accent); stroke-width: 3px; }
   .node text { font-size: 11px; fill: var(--text); pointer-events: none; text-shadow: 0 1px 3px var(--bg); }
-  .node.dimmed { opacity: 0.15; }
-  .link.dimmed { opacity: 0.05; }
+  .node.dimmed { opacity: 0.12; }
+  .link.dimmed { opacity: 0.04; }
   .node.highlight circle { stroke: var(--accent); stroke-width: 3px; }
 
   /* Legend */
-  #legend { position: absolute; bottom: 12px; right: 12px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 11px; }
+  #legend { position: absolute; bottom: 12px; right: 12px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 11px; max-height: 320px; overflow-y: auto; }
   #legend .legend-row { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
   #legend .legend-row:last-child { margin-bottom: 0; }
   #legend .dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -100,8 +101,9 @@
   <h1>Vitruvius Knowledge Graph</h1>
   <span id="conn-status">Connecting...</span>
   <div class="spacer"></div>
-  <input type="text" id="search" placeholder="Search concepts..." autocomplete="off">
-  <button id="btn-taxonomy" class="active" onclick="setMode('taxonomy')">Taxonomy</button>
+  <input type="text" id="search" placeholder="Search nodes..." autocomplete="off">
+  <button id="btn-full" class="active" onclick="setMode('full')">Full Graph</button>
+  <button id="btn-taxonomy" onclick="setMode('taxonomy')">Taxonomy</button>
   <button id="btn-concepts" onclick="setMode('concepts')">Concept Web</button>
   <button id="btn-reset" onclick="resetView()">Reset</button>
 </div>
@@ -136,41 +138,53 @@ const NEO4J_PASS = 'vitruvius';
 // State
 // ---------------------------------------------------------------------------
 let driver = null;
-let session = null;
-let mode = 'taxonomy'; // 'taxonomy' | 'concepts'
+let mode = 'full'; // 'full' | 'taxonomy' | 'concepts'
 let graphData = { nodes: [], links: [] };
-let taxonomyData = { nodes: [], links: [], tree: null };
-let conceptData = { nodes: [], links: [] };
+
+// Global cached data
+let allTaxonomyNodes = [];
+let allConceptNodes = [];
+let allNodes = [];
+let taxoHierarchyLinks = [];
+let belongsToLinks = [];
+let conceptRelLinks = [];
+let allLinks = [];
+let taxonomyTreeRoots = [];
+let taxonomyNodeMap = new Map();
+
 let selectedNodeId = null;
 let simulation = null;
-let zoom = null;
+let zoomBehavior = null;
 
-// Node color map
+// ---------------------------------------------------------------------------
+// Color Maps
+// ---------------------------------------------------------------------------
 const NODE_COLORS = {
-  taxonomy:  'var(--node-taxonomy)',
-  topic:     'var(--node-topic)',
-  subtopic:  'var(--node-subtopic)',
-  concept:   'var(--node-concept)',
-  rule:      'var(--node-rule)',
-  definition:'var(--node-definition)',
-  procedure: 'var(--node-procedure)',
-  exception: 'var(--node-exception)',
-  term:      'var(--node-concept)',
-  constraint:'var(--node-rule)',
+  taxonomy:   'var(--node-taxonomy)',
+  topic:      'var(--node-topic)',
+  subtopic:   'var(--node-subtopic)',
+  concept:    'var(--node-concept)',
+  rule:       'var(--node-rule)',
+  definition: 'var(--node-definition)',
+  procedure:  'var(--node-procedure)',
+  exception:  'var(--node-exception)',
+  term:       'var(--node-concept)',
+  constraint: 'var(--node-rule)',
 };
 
 const EDGE_COLORS = {
-  RELATED_TO: 'var(--edge-related)',
-  DEPENDS_ON: 'var(--edge-depends)',
-  CONTRADICTS:'var(--edge-contradicts)',
-  OVERRIDES:  'var(--edge-contradicts)',
-  SUPPORTED_BY:'var(--edge-supports)',
-  SAME_AS:    'var(--edge-same)',
-  HAS_CHILD:  'var(--edge-related)',
-  BELONGS_TO: 'var(--edge-related)',
-  DEFINED_BY: 'var(--edge-supports)',
-  CITED_IN:   'var(--edge-related)',
-  APPLIES_TO: 'var(--edge-depends)',
+  HAS_CHILD:    'var(--edge-related)',
+  BELONGS_TO:   'var(--edge-related)',
+  RELATED_TO:   'var(--edge-related)',
+  DEPENDS_ON:   'var(--edge-depends)',
+  DEFINED_BY:   'var(--edge-supports)',
+  REQUIRES:     'var(--edge-requires)',
+  SUPPORTED_BY: 'var(--edge-supports)',
+  SAME_AS:      'var(--edge-same)',
+  CONTRADICTS:  'var(--node-rule)',
+  OVERRIDES:    'var(--node-rule)',
+  CITED_IN:     'var(--edge-related)',
+  APPLIES_TO:   'var(--edge-depends)',
 };
 
 // ---------------------------------------------------------------------------
@@ -214,84 +228,93 @@ async function runQuery(query, params = {}) {
 // ---------------------------------------------------------------------------
 async function loadData() {
   // 1. Taxonomy nodes
-  const taxoNodes = await runQuery(`
+  allTaxonomyNodes = await runQuery(`
     MATCH (n) WHERE n:Taxonomy OR n:Topic OR n:Subtopic
     RETURN n.id AS id, n.label AS label, n.kind AS kind
   `);
 
-  // 2. Taxonomy hierarchy edges
-  const taxoEdges = await runQuery(`
+  // 2. Concept nodes
+  allConceptNodes = await runQuery(`
+    MATCH (c:CanonicalNode) WHERE c.type <> 'taxonomy'
+    RETURN c.id AS id, c.label AS label, c.type AS type, c.summary AS summary, c.slug AS slug
+  `);
+
+  // 3. Taxonomy hierarchy edges
+  taxoHierarchyLinks = await runQuery(`
     MATCH (a)-[:HAS_CHILD]->(b)
     WHERE a:Taxonomy OR a:Topic OR a:Subtopic
     RETURN a.id AS source, b.id AS target
   `);
 
-  // 3. Concept nodes (non-taxonomy canonical nodes)
-  const conceptNodes = await runQuery(`
-    MATCH (c:CanonicalNode) WHERE c.type <> 'taxonomy'
-    RETURN c.id AS id, c.label AS label, c.type AS type, c.summary AS summary, c.slug AS slug
-  `);
-
-  // 4. Concept -> taxonomy links
-  const belongsEdges = await runQuery(`
+  // 4. Concept -> taxonomy edges
+  belongsToLinks = await runQuery(`
     MATCH (c:CanonicalNode)-[:BELONGS_TO]->(t)
     WHERE c.type <> 'taxonomy'
     RETURN c.id AS source, t.id AS target
   `);
 
-  // 5. Concept relationships
-  const relEdges = await runQuery(`
+  // 5. Inter-concept edges (all types, including SAME_AS)
+  conceptRelLinks = await runQuery(`
     MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
-    WHERE type(r) <> 'BELONGS_TO' AND type(r) <> 'SAME_AS'
+    WHERE type(r) <> 'BELONGS_TO'
     RETURN a.id AS source, b.id AS target, type(r) AS relType,
            r.reasoning_summary AS reasoning, r.confidence AS confidence,
            r.assertion_id AS assertionId
   `);
 
-  // Build taxonomy tree structure
-  const taxoNodeMap = new Map();
-  taxoNodes.forEach(n => taxoNodeMap.set(n.id, { ...n, children: [], conceptCount: 0 }));
+  // Normalize node objects
+  allTaxonomyNodes = allTaxonomyNodes.map(n => ({
+    id: n.id,
+    label: n.label,
+    kind: n.kind || 'taxonomy',
+    type: n.kind || 'taxonomy',
+    radius: n.kind === 'taxonomy' ? 10 : n.kind === 'topic' ? 9 : 7,
+  }));
 
-  // Count concepts per subtopic
-  belongsEdges.forEach(e => {
-    const target = taxoNodeMap.get(e.target);
+  allConceptNodes = allConceptNodes.map(n => ({
+    id: n.id,
+    label: n.label,
+    kind: n.type || 'concept',
+    type: n.type || 'concept',
+    summary: n.summary,
+    slug: n.slug,
+    radius: 8,
+  }));
+
+  allNodes = [...allTaxonomyNodes, ...allConceptNodes];
+
+  // Build taxonomy tree structure for sidebar
+  taxonomyNodeMap = new Map(allTaxonomyNodes.map(n => [n.id, { ...n, children: [], conceptCount: 0 }]));
+
+  belongsToLinks.forEach(e => {
+    const target = taxonomyNodeMap.get(e.target);
     if (target) target.conceptCount++;
   });
 
-  taxoEdges.forEach(e => {
-    const parent = taxoNodeMap.get(e.source);
-    const child = taxoNodeMap.get(e.target);
+  taxoHierarchyLinks.forEach(e => {
+    const parent = taxonomyNodeMap.get(e.source);
+    const child = taxonomyNodeMap.get(e.target);
     if (parent && child) parent.children.push(child);
   });
 
-  // Build concept graph
-  const allConceptIds = new Set(conceptNodes.map(n => n.id));
-  const conceptLinks = relEdges
-    .filter(e => allConceptIds.has(e.source) && allConceptIds.has(e.target))
-    .map(e => ({
-      source: e.source,
-      target: e.target,
-      type: e.relType,
-      reasoning: e.reasoning || '',
-      confidence: e.confidence != null ? e.confidence : null,
-      assertionId: e.assertionId || '',
-    }));
+  taxonomyTreeRoots = Array.from(taxonomyNodeMap.values()).filter(n => !taxoHierarchyLinks.some(e => e.target === n.id));
 
-  taxonomyData = {
-    nodes: taxoNodes,
-    links: taxoEdges,
-    tree: Array.from(taxoNodeMap.values()).filter(n => !taxoEdges.some(e => e.target === n.id)),
-    conceptMap: taxoNodeMap,
-  };
+  // Normalize links
+  taxoHierarchyLinks = taxoHierarchyLinks.map(e => ({ source: e.source, target: e.target, type: 'HAS_CHILD' }));
+  belongsToLinks = belongsToLinks.map(e => ({ source: e.source, target: e.target, type: 'BELONGS_TO' }));
+  conceptRelLinks = conceptRelLinks.map(e => ({
+    source: e.source,
+    target: e.target,
+    type: e.relType,
+    reasoning: e.reasoning || '',
+    confidence: e.confidence != null ? e.confidence : null,
+    assertionId: e.assertionId || '',
+  }));
 
-  conceptData = {
-    nodes: conceptNodes.map(n => ({ ...n, radius: 8 })),
-    links: conceptLinks,
-  };
+  allLinks = [...taxoHierarchyLinks, ...belongsToLinks, ...conceptRelLinks];
 
   renderTaxonomySidebar();
-  if (mode === 'taxonomy') showTaxonomyView();
-  else showConceptView();
+  showFullGraphView();
 }
 
 // ---------------------------------------------------------------------------
@@ -352,23 +375,20 @@ function renderTaxonomySidebar() {
     }
   }
 
-  taxonomyData.tree.forEach(root => renderNode(root));
+  taxonomyTreeRoots.forEach(root => renderNode(root));
 }
 
 function onTaxonomyClick(taxoId) {
-  // Highlight in sidebar
   document.querySelectorAll('.tree-item').forEach(el => el.classList.remove('selected'));
   const el = document.querySelector(`.tree-item[data-id="${CSS.escape(taxoId)}"]`);
   if (el) el.classList.add('selected');
 
-  // Show concepts under this taxonomy branch
   showConceptsUnderTaxonomy(taxoId);
 }
 
 function getDescendantIds(taxoId) {
   const ids = new Set([taxoId]);
-  const map = taxonomyData.conceptMap;
-  const node = map.get(taxoId);
+  const node = taxonomyNodeMap.get(taxoId);
   if (!node) return ids;
 
   function walk(n) {
@@ -386,81 +406,43 @@ function getDescendantIds(taxoId) {
 // ---------------------------------------------------------------------------
 function setMode(m) {
   mode = m;
+  document.getElementById('btn-full').classList.toggle('active', m === 'full');
   document.getElementById('btn-taxonomy').classList.toggle('active', m === 'taxonomy');
   document.getElementById('btn-concepts').classList.toggle('active', m === 'concepts');
-  if (m === 'taxonomy') showTaxonomyView();
+
+  if (m === 'full') showFullGraphView();
+  else if (m === 'taxonomy') showTaxonomyView();
   else showConceptView();
 }
 
-function showTaxonomyView() {
-  // Combine taxonomy tree + concept leaves into a single hierarchy
-  const nodes = [];
-  const links = [];
-  const seen = new Set();
-
-  function addNode(n, kind) {
-    if (seen.has(n.id)) return;
-    seen.add(n.id);
-    nodes.push({ id: n.id, label: n.label, kind: kind || n.kind, type: n.kind });
-  }
-
-  // Add taxonomy nodes and hierarchy edges
-  taxonomyData.nodes.forEach(n => addNode(n, n.kind));
-  taxonomyData.links.forEach(e => {
-    links.push({ source: e.source, target: e.target, type: 'HAS_CHILD' });
-  });
-
-  // Add concept nodes linked to their leaf taxonomy nodes
-  conceptData.nodes.forEach(n => {
-    addNode({ id: n.id, label: n.label, kind: 'concept' }, 'concept');
-  });
-
-  // Find which taxonomy each concept belongs to
-  const belongsMap = new Map();
-  // We don't have direct access to belongs edges here, so let's query or rebuild
-  // Instead, let's just show the taxonomy tree as a collapsible tree layout
-  // and concepts as separate nodes connected to their subtopics
-
-  // Re-fetch belongs edges from loaded data... actually we have them in loadData
-  // but didn't store globally. Let's use a simpler approach:
-  // Just render the taxonomy tree as a D3 tree.
-
-  // Actually, for the taxonomy view, let's render the taxonomy tree + connected concepts
-  renderTreeWithConcepts();
+function showFullGraphView() {
+  graphData = {
+    nodes: allNodes.map(n => ({ ...n })),
+    links: allLinks.map(l => ({ ...l })),
+  };
+  renderGraph({ directed: true, layout: 'force' });
+  updateLegend([
+    { color: NODE_COLORS.taxonomy, label: 'Taxonomy' },
+    { color: NODE_COLORS.topic, label: 'Topic' },
+    { color: NODE_COLORS.subtopic, label: 'Subtopic' },
+    { color: NODE_COLORS.concept, label: 'Concept' },
+    { color: NODE_COLORS.rule, label: 'Rule' },
+    { color: NODE_COLORS.definition, label: 'Definition' },
+    { color: NODE_COLORS.procedure, label: 'Procedure' },
+    { color: NODE_COLORS.exception, label: 'Exception' },
+    { color: EDGE_COLORS.HAS_CHILD, label: 'HAS_CHILD / BELONGS_TO', line: true },
+    { color: EDGE_COLORS.RELATED_TO, label: 'RELATED_TO', line: true },
+    { color: EDGE_COLORS.DEPENDS_ON, label: 'DEPENDS_ON', line: true },
+    { color: EDGE_COLORS.DEFINED_BY, label: 'DEFINED_BY', line: true },
+    { color: EDGE_COLORS.REQUIRES, label: 'REQUIRES', line: true },
+    { color: EDGE_COLORS.SUPPORTED_BY, label: 'SUPPORTED_BY', line: true },
+    { color: EDGE_COLORS.SAME_AS, label: 'SAME_AS', line: true },
+  ]);
 }
 
-async function renderTreeWithConcepts() {
-  // Fetch concept-taxonomy links
-  const belongs = await runQuery(`
-    MATCH (c:CanonicalNode)-[:BELONGS_TO]->(t)
-    WHERE c.type <> 'taxonomy'
-    RETURN c.id AS cid, c.label AS clabel, c.type AS ctype, t.id AS tid
-  `);
-
-  const nodes = [];
-  const links = [];
-  const seen = new Set();
-
-  taxonomyData.nodes.forEach(n => {
-    if (!seen.has(n.id)) {
-      seen.add(n.id);
-      nodes.push({ id: n.id, label: n.label, kind: n.kind, type: n.kind });
-    }
-  });
-
-  taxonomyData.links.forEach(e => {
-    links.push({ source: e.source, target: e.target, type: 'HAS_CHILD' });
-  });
-
-  belongs.forEach(b => {
-    if (!seen.has(b.cid)) {
-      seen.add(b.cid);
-      nodes.push({ id: b.cid, label: b.clabel, kind: 'concept', type: b.ctype || 'concept' });
-    }
-    // Reverse direction for tree layout: taxonomy -> concept (concept is leaf)
-    links.push({ source: b.tid, target: b.cid, type: 'BELONGS_TO' });
-  });
-
+function showTaxonomyView() {
+  const nodes = allNodes.map(n => ({ ...n }));
+  const links = [...taxoHierarchyLinks, ...belongsToLinks].map(l => ({ ...l }));
   graphData = { nodes, links };
   renderGraph({ directed: true, layout: 'tree' });
   updateLegend([
@@ -468,14 +450,27 @@ async function renderTreeWithConcepts() {
     { color: NODE_COLORS.topic, label: 'Topic' },
     { color: NODE_COLORS.subtopic, label: 'Subtopic' },
     { color: NODE_COLORS.concept, label: 'Concept' },
+    { color: EDGE_COLORS.HAS_CHILD, label: 'HAS_CHILD', line: true },
+    { color: EDGE_COLORS.BELONGS_TO, label: 'BELONGS_TO', line: true },
   ]);
 }
 
 function showConceptView() {
-  graphData = {
-    nodes: conceptData.nodes.map(n => ({ ...n, kind: n.type || 'concept' })),
-    links: conceptData.links,
-  };
+  const conceptIds = new Set(allConceptNodes.map(n => n.id));
+  const connectedTaxoIds = new Set();
+  belongsToLinks.forEach(l => {
+    if (conceptIds.has(l.source)) connectedTaxoIds.add(l.target);
+  });
+
+  const nodes = [
+    ...allConceptNodes.map(n => ({ ...n })),
+    ...allTaxonomyNodes.filter(n => connectedTaxoIds.has(n.id)).map(n => ({ ...n })),
+  ];
+  const links = [
+    ...conceptRelLinks.map(l => ({ ...l })),
+    ...belongsToLinks.filter(l => conceptIds.has(l.source)).map(l => ({ ...l })),
+  ];
+  graphData = { nodes, links };
   renderGraph({ directed: true, layout: 'force' });
   updateLegend([
     { color: NODE_COLORS.concept, label: 'Concept' },
@@ -483,64 +478,84 @@ function showConceptView() {
     { color: NODE_COLORS.definition, label: 'Definition' },
     { color: NODE_COLORS.procedure, label: 'Procedure' },
     { color: NODE_COLORS.exception, label: 'Exception' },
-    { color: EDGE_COLORS.RELATED_TO, label: 'Related To', line: true },
-    { color: EDGE_COLORS.DEPENDS_ON, label: 'Depends On', line: true },
-    { color: EDGE_COLORS.CONTRADICTS, label: 'Contradicts', line: true },
+    { color: NODE_COLORS.taxonomy, label: 'Taxonomy (context)' },
+    { color: NODE_COLORS.subtopic, label: 'Subtopic (context)' },
+    { color: EDGE_COLORS.RELATED_TO, label: 'RELATED_TO', line: true },
+    { color: EDGE_COLORS.DEPENDS_ON, label: 'DEPENDS_ON', line: true },
+    { color: EDGE_COLORS.DEFINED_BY, label: 'DEFINED_BY', line: true },
+    { color: EDGE_COLORS.REQUIRES, label: 'REQUIRES', line: true },
+    { color: EDGE_COLORS.SUPPORTED_BY, label: 'SUPPORTED_BY', line: true },
+    { color: EDGE_COLORS.SAME_AS, label: 'SAME_AS', line: true },
   ]);
 }
 
 function showConceptsUnderTaxonomy(taxoId) {
   const descendantIds = getDescendantIds(taxoId);
-
-  // Filter concepts that belong to any of these taxonomy nodes
-  // Need belongs edges — let's query
-  runQuery(`
-    MATCH (c:CanonicalNode)-[:BELONGS_TO]->(t)
-    WHERE c.type <> 'taxonomy' AND t.id IN $ids
-    RETURN c.id AS id, c.label AS label, c.type AS type, c.summary AS summary
-  `, { ids: Array.from(descendantIds) }).then(concepts => {
-    const conceptIds = new Set(concepts.map(c => c.id));
-
-    // Also get relationships between these concepts
-    return runQuery(`
-      MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
-      WHERE a.id IN $ids AND b.id IN $ids AND type(r) <> 'BELONGS_TO'
-      RETURN a.id AS source, b.id AS target, type(r) AS relType,
-             r.reasoning_summary AS reasoning, r.confidence AS confidence,
-             r.assertion_id AS assertionId
-    `, { ids: Array.from(conceptIds) }).then(rels => {
-      graphData = {
-        nodes: concepts.map(n => ({ ...n, kind: n.type || 'concept', radius: 10 })),
-        links: rels.map(e => ({
-          source: e.source,
-          target: e.target,
-          type: e.relType,
-          reasoning: e.reasoning || '',
-          confidence: e.confidence != null ? e.confidence : null,
-          assertionId: e.assertionId || '',
-        })),
-      };
-      renderGraph({ directed: true, layout: 'force' });
-      updateLegend([
-        { color: NODE_COLORS.concept, label: 'Concept' },
-        { color: NODE_COLORS.rule, label: 'Rule' },
-        { color: NODE_COLORS.definition, label: 'Definition' },
-        { color: NODE_COLORS.procedure, label: 'Procedure' },
-        { color: NODE_COLORS.exception, label: 'Exception' },
-        { color: EDGE_COLORS.RELATED_TO, label: 'Related To', line: true },
-        { color: EDGE_COLORS.DEPENDS_ON, label: 'Depends On', line: true },
-        { color: EDGE_COLORS.CONTRADICTS, label: 'Contradicts', line: true },
-      ]);
-    });
+  const relevantConcepts = allConceptNodes.filter(n => {
+    return belongsToLinks.some(l => l.source === n.id && descendantIds.has(l.target));
   });
+  const relevantConceptIds = new Set(relevantConcepts.map(n => n.id));
+
+  const contextTaxoNodes = allTaxonomyNodes.filter(n => descendantIds.has(n.id));
+
+  const rels = conceptRelLinks.filter(l =>
+    relevantConceptIds.has(l.source) && relevantConceptIds.has(l.target)
+  );
+
+  const belongs = belongsToLinks.filter(l =>
+    relevantConceptIds.has(l.source) && descendantIds.has(l.target)
+  );
+
+  const nodes = [
+    ...contextTaxoNodes.map(n => ({ ...n })),
+    ...relevantConcepts.map(n => ({ ...n })),
+  ];
+  const links = [...rels, ...belongs];
+
+  graphData = { nodes, links };
+  renderGraph({ directed: true, layout: 'force' });
+  updateLegend([
+    { color: NODE_COLORS.subtopic, label: 'Subtopic' },
+    { color: NODE_COLORS.concept, label: 'Concept' },
+    { color: NODE_COLORS.rule, label: 'Rule' },
+    { color: NODE_COLORS.definition, label: 'Definition' },
+    { color: NODE_COLORS.procedure, label: 'Procedure' },
+    { color: NODE_COLORS.exception, label: 'Exception' },
+    { color: EDGE_COLORS.RELATED_TO, label: 'RELATED_TO', line: true },
+    { color: EDGE_COLORS.DEPENDS_ON, label: 'DEPENDS_ON', line: true },
+    { color: EDGE_COLORS.DEFINED_BY, label: 'DEFINED_BY', line: true },
+    { color: EDGE_COLORS.REQUIRES, label: 'REQUIRES', line: true },
+  ]);
 }
 
 function resetView() {
   selectedNodeId = null;
   document.getElementById('search').value = '';
   document.querySelectorAll('.tree-item').forEach(el => el.classList.remove('selected'));
-  if (mode === 'taxonomy') showTaxonomyView();
+  if (mode === 'full') showFullGraphView();
+  else if (mode === 'taxonomy') showTaxonomyView();
   else showConceptView();
+}
+
+// ---------------------------------------------------------------------------
+// Zoom to Fit
+// ---------------------------------------------------------------------------
+function zoomToFit(svg, g, duration = 600) {
+  requestAnimationFrame(() => {
+    const bounds = g.node().getBBox();
+    if (!bounds.width || !bounds.height) return;
+    const parent = svg.node().parentElement;
+    const width = parent.clientWidth;
+    const height = parent.clientHeight;
+    const midX = bounds.x + bounds.width / 2;
+    const midY = bounds.y + bounds.height / 2;
+    const scale = 0.92 / Math.max(bounds.width / width, bounds.height / height);
+    const translate = [width / 2 - scale * midX, height / 2 - scale * midY];
+    svg.transition().duration(duration).call(
+      zoomBehavior.transform,
+      d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
+    );
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -549,6 +564,11 @@ function resetView() {
 function renderGraph(opts = {}) {
   const { layout } = opts;
   const svg = d3.select('#graph-svg');
+
+  if (simulation) {
+    simulation.stop();
+    simulation = null;
+  }
   svg.selectAll('*').remove();
 
   const container = document.getElementById('viz');
@@ -557,43 +577,33 @@ function renderGraph(opts = {}) {
 
   const g = svg.append('g');
 
-  zoom = d3.zoom()
-    .scaleExtent([0.1, 4])
+  zoomBehavior = d3.zoom()
+    .scaleExtent([0.05, 4])
     .on('zoom', (e) => g.attr('transform', e.transform));
-  svg.call(zoom);
+  svg.call(zoomBehavior);
 
-  // Build node/link arrays for D3
   const nodes = graphData.nodes.map(n => ({ ...n }));
   const links = graphData.links.map(l => ({ ...l }));
 
-  // Node radius
-  nodes.forEach(n => {
-    n.radius = n.radius || (n.kind === 'concept' ? 8 : n.kind === 'subtopic' ? 7 : n.kind === 'topic' ? 8 : 10);
-  });
-
   if (layout === 'tree') {
-    renderTreeLayout(g, nodes, links, width, height);
+    renderTreeLayout(g, nodes, links, width, height, svg);
   } else {
-    renderForceLayout(g, nodes, links, width, height);
+    renderForceLayout(g, nodes, links, width, height, svg);
   }
 }
 
-function renderTreeLayout(g, nodes, links, width, height) {
-  // Build hierarchy from links
+function renderTreeLayout(g, nodes, links, width, height, svg) {
   const nodeMap = new Map(nodes.map(n => [n.id, n]));
-  const rootIds = new Set(nodes.map(n => n.id));
-  links.forEach(l => rootIds.delete(l.target));
-
-  // Pick first root or create dummy
-  let rootId = rootIds.values().next().value;
-  if (!rootId && nodes.length) rootId = nodes[0].id;
-
-  // Build simple hierarchy
   const childrenMap = new Map();
+  const parentMap = new Map();
+
   links.forEach(l => {
     if (!childrenMap.has(l.source)) childrenMap.set(l.source, []);
     childrenMap.get(l.source).push(l.target);
+    parentMap.set(l.target, l.source);
   });
+
+  const rootIds = nodes.map(n => n.id).filter(id => !parentMap.has(id));
 
   function buildTree(id) {
     const n = nodeMap.get(id);
@@ -602,34 +612,35 @@ function renderTreeLayout(g, nodes, links, width, height) {
     return { ...n, children: kids };
   }
 
-  const root = buildTree(rootId);
-  if (!root) return;
+  const dummyRootData = {
+    id: '__ROOT__',
+    label: '',
+    kind: 'root',
+    children: rootIds.map(buildTree).filter(Boolean),
+  };
 
-  const treeLayout = d3.tree().size([height - 60, width - 200]);
-  const hierarchy = d3.hierarchy(root);
+  const hierarchy = d3.hierarchy(dummyRootData);
+  const treeLayout = d3.tree().nodeSize([24, 150]);
   treeLayout(hierarchy);
 
-  // Links
   g.selectAll('.link')
-    .data(hierarchy.links())
+    .data(hierarchy.links().filter(d => d.source.data.id !== '__ROOT__'))
     .enter()
     .append('path')
     .attr('class', 'link')
-    .attr('d', d3.linkHorizontal().x(d => d.y + 30).y(d => d.x + 30))
-    .attr('stroke', d => {
-      const child = d.target.data;
-      return child.kind === 'concept' ? EDGE_COLORS.BELONGS_TO : EDGE_COLORS.HAS_CHILD;
-    })
+    .attr('d', d3.linkHorizontal().x(d => d.y).y(d => d.x))
+    .attr('stroke', d => d.target.data.kind === 'concept' ? EDGE_COLORS.BELONGS_TO : EDGE_COLORS.HAS_CHILD)
     .attr('stroke-dasharray', d => d.target.data.kind === 'concept' ? '3,3' : null);
 
-  // Nodes
   const nodeGroup = g.selectAll('.node')
-    .data(hierarchy.descendants())
+    .data(hierarchy.descendants().filter(d => d.data.id !== '__ROOT__'))
     .enter()
     .append('g')
     .attr('class', 'node')
-    .attr('transform', d => `translate(${d.y + 30},${d.x + 30})`)
-    .on('click', (e, d) => onNodeClick(d.data.id));
+    .attr('transform', d => `translate(${d.y},${d.x})`)
+    .on('click', (e, d) => onNodeClick(d.data.id))
+    .on('mouseover', (e, d) => showTooltip(e, d.data.label))
+    .on('mouseout', hideTooltip);
 
   nodeGroup.append('circle')
     .attr('r', d => d.data.radius)
@@ -639,16 +650,11 @@ function renderTreeLayout(g, nodes, links, width, height) {
     .attr('dx', d => d.data.radius + 6)
     .attr('dy', 4)
     .text(d => d.data.label);
+
+  zoomToFit(svg, g, 500);
 }
 
-function renderForceLayout(g, nodes, links, width, height) {
-  simulation = d3.forceSimulation(nodes)
-    .force('link', d3.forceLink(links).id(d => d.id).distance(120))
-    .force('charge', d3.forceManyBody().strength(-400))
-    .force('center', d3.forceCenter(width / 2, height / 2))
-    .force('collide', d3.forceCollide().radius(d => d.radius + 10));
-
-  // Arrow markers
+function renderForceLayout(g, nodes, links, width, height, svg) {
   const defs = g.append('defs');
   const edgeTypes = [...new Set(links.map(l => l.type))];
   edgeTypes.forEach(type => {
@@ -656,7 +662,7 @@ function renderForceLayout(g, nodes, links, width, height) {
     defs.append('marker')
       .attr('id', `arrow-${type}`)
       .attr('viewBox', '0 -5 10 10')
-      .attr('refX', 22)
+      .attr('refX', 20)
       .attr('refY', 0)
       .attr('markerWidth', 6)
       .attr('markerHeight', 6)
@@ -666,7 +672,17 @@ function renderForceLayout(g, nodes, links, width, height) {
       .attr('fill', color);
   });
 
-  // Links
+  simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(d => d.id).distance(d => {
+      if (d.type === 'HAS_CHILD' || d.type === 'BELONGS_TO') return 120;
+      return 150;
+    }))
+    .force('charge', d3.forceManyBody().strength(-600))
+    .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('collide', d3.forceCollide().radius(d => d.radius + 10).iterations(2))
+    .force('x', d3.forceX(width / 2).strength(0.04))
+    .force('y', d3.forceY(height / 2).strength(0.04));
+
   const link = g.append('g')
     .selectAll('line')
     .data(links)
@@ -679,7 +695,6 @@ function renderForceLayout(g, nodes, links, width, height) {
     .on('mouseover', (e, d) => showTooltip(e, `${d.type}${d.confidence != null ? ' (conf: ' + d.confidence + ')' : ''}`))
     .on('mouseout', hideTooltip);
 
-  // Nodes
   const node = g.append('g')
     .selectAll('.node')
     .data(nodes)
@@ -713,6 +728,10 @@ function renderForceLayout(g, nodes, links, width, height) {
       .attr('y2', d => d.target.y);
     node.attr('transform', d => `translate(${d.x},${d.y})`);
   });
+
+  simulation.on('end', () => {
+    zoomToFit(svg, g, 600);
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -721,12 +740,10 @@ function renderForceLayout(g, nodes, links, width, height) {
 async function onNodeClick(nodeId) {
   selectedNodeId = nodeId;
 
-  // Highlight in graph
   d3.selectAll('.node').classed('highlight', d => d.id === nodeId);
   d3.selectAll('.node').classed('dimmed', d => d.id !== nodeId);
   d3.selectAll('.link').classed('dimmed', d => d.source.id !== nodeId && d.target.id !== nodeId);
 
-  // Fetch details
   const detail = document.getElementById('detail-panel');
   detail.innerHTML = '<div class="empty">Loading...</div>';
 
@@ -872,7 +889,8 @@ function escapeHtml(text) {
 connectNeo4j();
 
 window.addEventListener('resize', () => {
-  if (mode === 'taxonomy') showTaxonomyView();
+  if (mode === 'full') showFullGraphView();
+  else if (mode === 'taxonomy') showTaxonomyView();
   else showConceptView();
 });
 </script>
