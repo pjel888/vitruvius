@@ -308,22 +308,38 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     setFilters(nodeTypes, edgeTypes) {
       if (!nodesRef.current || !edgesRef.current) return;
 
-      // Update node visibility
-      const nodeUpdates = rawNodesRef.current.map(n => ({
-        id: n.id,
-        hidden: !nodeTypes.has(n.type),
-      }));
-      nodesRef.current.update(nodeUpdates);
+      // Save current positions before clearing
+      const positions = new Map<string, { x?: number; y?: number }>();
+      nodesRef.current.forEach((n: any) => {
+        positions.set(n.id, { x: n.x, y: n.y });
+      });
 
-      // Edges are visible only if: edge type is enabled AND both endpoints are visible
-      const visibleNodeIds = new Set(
-        rawNodesRef.current.filter(n => nodeTypes.has(n.type)).map(n => n.id)
-      );
-      const edgeUpdates = rawEdgesRef.current.map((e, i) => ({
-        id: `edge-${i}`,
-        hidden: !edgeTypes.has(e.type) || !visibleNodeIds.has(e.source) || !visibleNodeIds.has(e.target),
-      }));
-      edgesRef.current.update(edgeUpdates);
+      // Rebuild visible nodes with preserved positions
+      const visibleNodes = rawNodesRef.current
+        .filter(n => nodeTypes.has(n.type))
+        .map(n => {
+          const pos = positions.get(n.id);
+          return { ...buildVisNode(n), x: pos?.x, y: pos?.y };
+        });
+
+      // Rebuild visible edges
+      const visibleNodeIds = new Set(visibleNodes.map((n: any) => n.id));
+      const visibleEdges = rawEdgesRef.current
+        .filter(e => edgeTypes.has(e.type) && visibleNodeIds.has(e.source) && visibleNodeIds.has(e.target))
+        .map((e, i) => ({
+          id: `edge-${i}`,
+          from: e.source,
+          to: e.target,
+          label: e.type,
+          arrows: 'to',
+          color: { color: '#94a3b8', opacity: 0.6 },
+          font: { color: '#7a7f8a', size: 10 },
+        }));
+
+      nodesRef.current.clear();
+      nodesRef.current.add(visibleNodes);
+      edgesRef.current.clear();
+      edgesRef.current.add(visibleEdges);
     },
 
     setColorScheme(scheme) {
