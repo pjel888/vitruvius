@@ -666,7 +666,13 @@ def build_structured_source_file(
 
     target = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "sources"
     target.mkdir(parents=True, exist_ok=True)
-    filename = f"{slugify(plan['title'])}.md"
+    stem = slugify(plan["title"])
+    # Windows MAX_PATH is 260; truncate aggressively to stay well under it
+    # even when nested under long repo paths.
+    MAX_FILENAME_LEN = 160
+    if len(stem) > MAX_FILENAME_LEN - 3:
+        stem = stem[: MAX_FILENAME_LEN - 3].rstrip("-")
+    filename = f"{stem}.md"
     target_file = target / filename
     assert_windows_safe_path(target_file, what="canonical source output path")
     return target_file, "\n".join(lines)
