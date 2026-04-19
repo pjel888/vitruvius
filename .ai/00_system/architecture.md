@@ -213,6 +213,45 @@ Vitruvius now ships three pyo3 Rust crate families built via `maturin develop --
 
 Both crates are optional dependencies. Pure-Python paths remain intact and are exercised by the test suite when the Rust extension isn't built.
 
+### Knowledge Graph v2 Subsystem (Cross-Cutting, 2026-04-19)
+
+A taxonomy-centered canonical knowledge graph that separates **evidence** from **canonical truth** and **assertions** from **fast edges**. Gated by `kg_transition.enabled` in `config/vitruvius.yaml`.
+
+**Core modules (`scripts/vitruvius/kg/`):**
+- `schemas.py` + `enums.py` — Pydantic v2 models for `CanonicalNode`, `Assertion`, `EvidenceSpan`, `Selector`, `DocumentVersion`
+- `evidence_ingestor.py` — `EvidenceIngestor`: document → version → section → chunk → span pipeline with idempotent SHA-256 checks
+- `evidence_materializer.py` — `EvidenceMaterializer`: generates evidence spans from relationship evidence
+- `neo4j_evidence_writer.py` + `neo4j_client.py` + `neo4j_loader.py` — Neo4j persistence layer with idempotent MERGE patterns
+- `postgres_client.py` — PostgreSQL registry client
+- `selector_resolver.py` — Resolves `PdfBboxSelector`, `MarkdownRangeSelector`, `TextRangeSelector` to verifiable quotes
+- `extraction_engine.py` — `ExtractionEngine`: chunk → prompt → LLM → `ExtractionValidator` → `KnowledgeUnitCandidate`
+- `extraction_validator.py` — `ExtractionValidator`: E1–E9 deterministic validation gates
+- `candidate_store.py` — JSONL persistence for extracted candidates
+- `canonicalizer.py` — Deterministic deduplication + stable ID generation
+- `placement_engine.py` — 3-tier placement (rule → embedding → ambiguity)
+- `merge_adjudicator.py` — Exact-match merge proposals
+- `canonical_store.py` — JSONL persistence for canonical nodes
+- `canonical_graph_builder.py` — Unifies taxonomy + canonical nodes into queryable graph
+- `unified_snapshot_builder.py` — Backfills v1 `concepts/` + `relationships/` into v2 snapshot
+- `assertion_validator.py` — `AssertionValidator`: R1–R14 rules for promotion gating
+- `edge_materializer.py` — Derives `FAST_EDGE` relationships from validated `PlacementAssertion`s
+- `contradiction_detector.py` — `ContradictionDetector`: 4-pattern deterministic contradiction detection
+- `query_engine.py` — `QueryEngine` v2: node lookup, assertion retrieval, neighborhood traversal, taxonomy tree search
+- `quiz_generator.py` — Generates quiz questions from canonical nodes
+- `parity_checker.py` — Coverage parity comparison between v1 and v2 snapshots
+- `json_evidence_store.py` — File-native JSONL sidecar persistence for v2 snapshots
+- `backfill_document_versions.py` — One-time backfill for existing canonical sources
+- `prompts/` — 5 LLM prompt templates (concept, definition, rule, procedure, exception)
+
+**CLI commands:** `kg-ingest-evidence`, `kg-extract-candidates`, `kg-canonicalize-candidates`, `kg-materialize-canonical`, `kg-build-unified`, `kg-validate-assertions`, `kg-detect-contradictions`, `kg-query-nodes`, `kg-query-neighborhood`, `kg-inspect-node`, `kg-inspect-assertion`, `kg-review-queue`, `kg-review-action`, `kg-seed-taxonomy`, `kg-backfill-evidence`
+
+**Test coverage:** 25+ `test_kg_*.py` files, 232+ passing tests.
+
+**Operational posture:**
+- File-native JSONL sidecars are the default persistence (`005_Operational-Intelligence-Layer/graph/kg-v2/`).
+- Neo4j/PostgreSQL are optional Layer 5 indexes (AD-043).
+- Legacy v1 snapshot pipeline remains the default until `kg_transition.legacy_snapshot_mode: false`.
+
 ### TypeScript sibling subproject
 
 - `spatial-daemon/` — Node.js 25 + vitest sibling subproject (not inside `scripts/vitruvius/`). Implements GJK collision detection, AABB overlap, and a filesystem contract writer that the Python side consumes. Entry point: `spatial-daemon/src/cli.ts`. 20/20 vitest tests. Used for 3D spatial verification when ingesting building geometries.

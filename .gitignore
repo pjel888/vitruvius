@@ -83,3 +83,6 @@ Thumbs.db
 
 # Registry CSVs (Temporaries)
 /006_System-Manifests/registries/*.csv
+
+
+~/.antigravity

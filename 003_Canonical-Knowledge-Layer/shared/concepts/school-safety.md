@@ -9,13 +9,18 @@ enriched_at_utc: '2026-04-18T00:15:00Z'
 regulatory_basis:
 - source_id: handout-deped-disaster-risk-reduction-resource-manual
   section_id: section-introduction
-  evidence_snippet: 'This manual significantly provides valuable information for the school community’s safety amidst the impending threats of natural and manmade hazards and disasters.'
+  evidence_snippet: This manual significantly provides valuable information for the
+    school community’s safety amidst the impending threats of natural and manmade
+    hazards and disasters.
 stringency_vector: qualitative
 aliases:
 - school safety
 - safer schools
+taxonomy_path:
+- taxonomy-fire-life-safety
+- topic-life-safety
+- subtopic-educational
 ---
-
 # School Safety
 
 ## Definition

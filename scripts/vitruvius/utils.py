@@ -5,7 +5,24 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
+import re
+
+
 WINDOWS_FORBIDDEN_PATH_CHARS = frozenset('<>:"/\\|?*')
+
+
+# Compiled once at module load for all slugify callers.
+_SLUG_NON_ALNUM = re.compile(r"[^a-z0-9]+")
+_SLUG_MULTI_HYPHEN = re.compile(r"-+")
+
+
+def slugify(value: str) -> str:
+    """Return a URL-safe slug: lowercased, non-alphanumerics → hyphens, collapsed."""
+    slug = value.lower()
+    slug = _SLUG_NON_ALNUM.sub("-", slug)
+    slug = _SLUG_MULTI_HYPHEN.sub("-", slug)
+    slug = slug.strip("-")
+    return slug
 
 
 def utc_now_stamp() -> str:

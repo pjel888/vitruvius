@@ -9,10 +9,14 @@ enriched_at_utc: '2026-04-14T05:59:56.166509+00:00'
 regulatory_basis:
 - source_id: law-national-building-code-of-the-philippines
   section_id: sec-1215
-  evidence_snippet: 'requirements and the type of construction of building. ### ELECTRICAL AND MECHANICAL REGULATIONS'
+  evidence_snippet: 'requirements and the type of construction of building. ### ELECTRICAL
+    AND MECHANICAL REGULATIONS'
 stringency_vector: maximize
+taxonomy_path:
+- taxonomy-fire-life-safety
+- topic-fire-protection
+- subtopic-construction
 ---
-
 # Fire-Resistive Construction
 
 ## Definition

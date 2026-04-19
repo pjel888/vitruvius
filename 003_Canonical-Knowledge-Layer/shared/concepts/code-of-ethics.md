@@ -9,13 +9,16 @@ enriched_at_utc: '2026-04-17T15:16:00Z'
 regulatory_basis:
 - source_id: handout-uap-document-code-of-ethics
   section_id: section-code-of-ethical-conduct
-  evidence_snippet: "THE ARCHITECT'S CODE OF ETHICS"
+  evidence_snippet: THE ARCHITECT'S CODE OF ETHICS
 stringency_vector: qualitative
 aliases:
 - code of ethics
 - architect's code of ethics
+taxonomy_path:
+- taxonomy-project-practice
+- topic-professional-practice
+- subtopic-ethics
 ---
-
 # Code of Ethics
 
 ## Definition

@@ -9,13 +9,17 @@ enriched_at_utc: '2026-04-17T09:35:00Z'
 regulatory_basis:
 - source_id: law-condominium-act
   section_id: section-2
-  evidence_snippet: '"Common areas" means the entire project excepting all units separately granted or held or reserved.'
+  evidence_snippet: '"Common areas" means the entire project excepting all units separately
+    granted or held or reserved.'
 stringency_vector: qualitative
 aliases:
 - common areas
 - condominium common areas
+taxonomy_path:
+- taxonomy-spaces-occupancy
+- topic-shared-spaces
+- subtopic-shared-spaces
 ---
-
 # Common Areas
 
 ## Definition

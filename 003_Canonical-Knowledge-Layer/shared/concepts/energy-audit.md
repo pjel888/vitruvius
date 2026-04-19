@@ -9,12 +9,16 @@ enriched_at_utc: '2026-04-17T14:25:00Z'
 regulatory_basis:
 - source_id: law-energy-efficiency-and-conservation-act
   section_id: section-4-g
-  evidence_snippet: 'Energy audit refers to the evaluation of energy consumption and review of current energy cost.'
+  evidence_snippet: Energy audit refers to the evaluation of energy consumption and
+    review of current energy cost.
 stringency_vector: qualitative
 aliases:
 - energy audit
+taxonomy_path:
+- taxonomy-energy-sustainability
+- topic-energy
+- subtopic-compliance
 ---
-
 # Energy Audit
 
 ## Definition

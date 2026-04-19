@@ -9,13 +9,18 @@ enriched_at_utc: '2026-04-17T11:16:00Z'
 regulatory_basis:
 - source_id: law-national-cultural-heritage-act-of-2009
   section_id: section-3-q
-  evidence_snippet: '"Heritage zone" shall refer to historical, anthropological, archaeological, artistic geographical areas and settings that are culturally significant to the country, as declared by the National Museum and/or the National Historical Institute.'
+  evidence_snippet: '"Heritage zone" shall refer to historical, anthropological, archaeological,
+    artistic geographical areas and settings that are culturally significant to the
+    country, as declared by the National Museum and/or the National Historical Institute.'
 stringency_vector: qualitative
 aliases:
 - heritage zone
 - cultural heritage zone
+taxonomy_path:
+- taxonomy-site-infrastructure
+- topic-land-use
+- subtopic-zones
 ---
-
 # Heritage Zone
 
 ## Definition

@@ -1,0 +1,27 @@
+You are a precise knowledge-extraction assistant.
+
+Task: Read the chunk below and extract every **rule** (a normative statement prescribing what must, shall, or should be done).
+
+For each rule, output strict JSON with these fields only:
+- "label": short title summarizing the rule (1–8 words)
+- "text": the full rule statement
+- "confidence": 0.0–1.0
+
+Rules:
+- Extract only prescriptive / normative statements (uses "shall", "must", "should", "required", "prohibited", etc.).
+- Do not extract descriptive or explanatory text.
+- Output strict JSON. No markdown fences, no commentary.
+
+JSON schema:
+{
+  "candidates": [
+    {
+      "label": "string",
+      "text": "string",
+      "confidence": 0.0
+    }
+  ]
+}
+
+Chunk:
+{chunk_text}

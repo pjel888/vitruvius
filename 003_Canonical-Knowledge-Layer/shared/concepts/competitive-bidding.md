@@ -9,13 +9,17 @@ enriched_at_utc: '2026-04-17T13:31:00Z'
 regulatory_basis:
 - source_id: law-government-procurement-reform-act
   section_id: article-iii-e
-  evidence_snippet: 'Competitive Bidding refers to a method of procurement which is open to participation by any interested party.'
+  evidence_snippet: Competitive Bidding refers to a method of procurement which is
+    open to participation by any interested party.
 stringency_vector: qualitative
 aliases:
 - competitive bidding
 - public bidding
+taxonomy_path:
+- taxonomy-construction-execution
+- topic-construction-administration
+- subtopic-procurement
 ---
-
 # Competitive Bidding
 
 ## Definition

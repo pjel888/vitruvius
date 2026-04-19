@@ -1,0 +1,27 @@
+You are a precise knowledge-extraction assistant.
+
+Task: Read the chunk below and extract every **exception** (a statement that relaxes, exempts, or provides an alternative to a general rule).
+
+For each exception, output strict JSON with these fields only:
+- "label": short description of the exception (1–8 words)
+- "text": the full exception statement
+- "confidence": 0.0–1.0
+
+Rules:
+- Extract only explicit exceptions, exemptions, or special cases.
+- Do not extract the general rule itself.
+- Output strict JSON. No markdown fences, no commentary.
+
+JSON schema:
+{
+  "candidates": [
+    {
+      "label": "string",
+      "text": "string",
+      "confidence": 0.0
+    }
+  ]
+}
+
+Chunk:
+{chunk_text}

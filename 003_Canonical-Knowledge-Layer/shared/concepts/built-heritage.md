@@ -9,14 +9,20 @@ enriched_at_utc: '2026-04-17T11:16:00Z'
 regulatory_basis:
 - source_id: law-national-cultural-heritage-act-of-2009
   section_id: section-3-f
-  evidence_snippet: '"Built heritage" shall refer to architectural and engineering structures such as, but not limited to, bridges, government buildings, houses of ancestry, traditional dwellings, quartels, train stations, lighthouses, small ports, educational, technological and industrial complexes, and their settings, and landscapes with notable historical and cultural significance.'
+  evidence_snippet: '"Built heritage" shall refer to architectural and engineering structures such as, but not limited to,
+    bridges, government buildings, houses of ancestry, traditional dwellings, quartels, train stations, lighthouses, small
+    ports, educational, technological and industrial complexes, and their settings, and landscapes with notable historical
+    and cultural significance.'
 stringency_vector: qualitative
 aliases:
 - built heritage
 - architectural heritage
 - engineering heritage
+taxonomy_path:
+- taxonomy-architecture
+- topic-history
+- subtopic-preservation
 ---
-
 # Built Heritage
 
 ## Definition

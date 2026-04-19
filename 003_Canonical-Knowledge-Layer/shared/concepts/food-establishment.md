@@ -9,13 +9,18 @@ enriched_at_utc: '2026-04-17T13:20:00Z'
 regulatory_basis:
 - source_id: irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines
   section_id: section-2
-  evidence_snippet: 'FOOD ESTABLISHMENT - an establishment where food or drinks are manufactured, processed, stored, sold or served, including those that are located in vessels.'
+  evidence_snippet: FOOD ESTABLISHMENT - an establishment where food or drinks are
+    manufactured, processed, stored, sold or served, including those that are located
+    in vessels.
 stringency_vector: qualitative
 aliases:
 - food establishment
 - food establishments
+taxonomy_path:
+- taxonomy-project-practice
+- topic-healthcare
+- subtopic-sanitation
 ---
-
 # Food Establishment
 
 ## Definition

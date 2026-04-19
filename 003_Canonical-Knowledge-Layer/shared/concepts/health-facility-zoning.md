@@ -9,13 +9,17 @@ enriched_at_utc: '2026-04-18T00:15:00Z'
 regulatory_basis:
 - source_id: handout-doh-guidelines-for-health-facilities
   section_id: section-zoning
-  evidence_snippet: 'Zoning: The different areas of a hospital shall be grouped according to zones as follows:'
+  evidence_snippet: 'Zoning: The different areas of a hospital shall be grouped according
+    to zones as follows:'
 stringency_vector: qualitative
 aliases:
 - health facility zoning
 - hospital zoning
+taxonomy_path:
+- taxonomy-site-infrastructure
+- topic-land-use
+- subtopic-zones
 ---
-
 # Health Facility Zoning
 
 ## Definition

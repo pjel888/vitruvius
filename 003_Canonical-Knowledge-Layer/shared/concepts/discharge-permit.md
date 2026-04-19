@@ -9,13 +9,17 @@ enriched_at_utc: '2026-04-17T13:20:00Z'
 regulatory_basis:
 - source_id: law-philippine-clean-water-act-of-2004
   section_id: section-14
-  evidence_snippet: 'The discharge permit shall be the legal authorization granted by the Department to discharge wastewater.'
+  evidence_snippet: The discharge permit shall be the legal authorization granted
+    by the Department to discharge wastewater.
 stringency_vector: qualitative
 aliases:
 - discharge permit
 - wastewater discharge permit
+taxonomy_path:
+- taxonomy-regulatory-permits
+- topic-administrative
+- subtopic-environmental
 ---
-
 # Discharge Permit
 
 ## Definition

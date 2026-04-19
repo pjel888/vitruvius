@@ -281,6 +281,56 @@ Adds `convert-parsers-one` to `pipeline_cli.py` as a parallel conversion command
 
 When `w_lsh_dedup` is `true`, `extract-relationships-sections-one` calls `dedupe_by_endpoints_lsh` instead of the baseline exact-endpoint dedup. Zero false positives on disjoint pairs measured; probabilistic collapse of near-duplicate pairs. Flag defaults `false` until a full PD 1096 operator run validates real-corpus behavior.
 
+### Knowledge Graph Transition (kg_transition.*, 2026-04-19)
+
+A cross-cutting architecture initiative that added a **taxonomy-centered canonical knowledge graph** alongside the legacy v1 snapshot pipeline. All KG commands are gated by `kg_transition.enabled` and default to file-native JSONL sidecars.
+
+**New KG pipeline stages (optional, feature-flagged):**
+
+1. **Evidence Ingestion (`kg-ingest-evidence`):**
+   - `EvidenceIngestor` creates `DocumentVersion → Section → Chunk → EvidenceSpan` chains.
+   - Selectors are resolvable (`PdfBboxSelector`, `MarkdownRangeSelector`, `TextRangeSelector`).
+   - Idempotent via SHA-256 check in PostgreSQL.
+   - Output: evidence nodes in Neo4j (optional) + JSONL sidecars.
+
+2. **Atomic Extraction (`kg-extract-candidates`):**
+   - `ExtractionEngine` sends chunks through schema-constrained LLM prompts.
+   - `ExtractionValidator` (E1–E9) gates every candidate before promotion.
+   - Evidence `span_ids` are derived from chunk IDs for traceability.
+   - Output: `KnowledgeUnitCandidate` objects in `CandidateStore` (JSONL).
+
+3. **Canonicalization & Placement (`kg-canonicalize-candidates`):**
+   - `Canonicalizer` deduplicates deterministically and assigns stable IDs.
+   - `PlacementEngine` places nodes into the taxonomy (rule match → embedding similarity → ambiguity queue).
+   - `MergeAdjudicator` proposes exact-match merges.
+   - Output: `CanonicalNode` objects in `CanonicalStore` (JSONL).
+
+4. **Assertion Validation & Edge Materialization (`kg-materialize-canonical`):**
+   - `AssertionValidator` (R1–R14) validates all assertion types.
+   - `EdgeMaterializer` derives `FAST_EDGE` relationships from `PlacementAssertion`s.
+   - `ContradictionDetector` scans for 4 deterministic contradiction patterns.
+   - Output: validated assertions + fast edges in unified snapshot.
+
+5. **Query & Retrieval (`kg-query-nodes`, `kg-query-neighborhood`):**
+   - `QueryEngine` v2 loads unified snapshots into memory indexes.
+   - Supports node lookup, bidirectional assertion/edge traversal, label search, taxonomy tree queries.
+   - Output: source-cited, confidence-aware query results.
+
+6. **Review Queue (`kg-review-queue`, `kg-review-action`):**
+   - Lists assertions pending review with formatted tables.
+   - `approve`/`reject`/`escalate` actions mutate assertion state atomically.
+
+**Backward compatibility:**
+- When `kg_transition.enabled: false`, none of the above stages run.
+- `kg_transition.legacy_snapshot_mode: true` (default) preserves the v1 `build-graph` → `latest_graph_snapshot.json` path.
+- v2 snapshots are written to `005_Operational-Intelligence-Layer/graph/kg-v2/` without touching v1 artifacts.
+
+**Test coverage:** 25+ `test_kg_*.py` files, 232+ passing tests.
+
+**Authoritative post-implementation artifacts:**
+- Audit: `/.ai/02_audits/2026-04-19_knowledge_graph_transition_post_implementation_audit.md`
+- Rectification plan: `/.ai/03_plans/2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan.md`
+
 ## Changelog
 - **2026-04-13:** Initial Pipeline Overview document created from codebase audit. Traced all `run_` commands and artifact flows.
 - **2026-04-15:** Added **Post-Sprint-D Pipeline Additions** section covering all 21 closed sprints (Q, R, PHYS, H, GEOM, WIKI, GT, HP, Z, HP.3-R, 1B-M1, 1B-M2, RUST-PDF-1, 1B-M3, DISTILL-1, RUST-MIG-1, AUDIT-1, PIPELINE-CLI, PQ-1, LSH-1, Meta) and their feature flags. Baseline flow documented above is unchanged. Promotion and Storage (Graph) stage status rows updated from NOT IMPLEMENTED to IMPLEMENTED — both shipped in Sprint Q / WIKI / HP / HP.3-R. Missing Stages section replaced with Externally-Gated Stages (Sprint D Streams J + K only).

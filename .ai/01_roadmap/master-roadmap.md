@@ -272,6 +272,38 @@ The earlier version of this document claimed several phases were "COMPLETE" that
 
 **Where to read the per-sprint ledger:** `.ai/10_state/decisions.md` AD-024 through AD-042 (plus AD-038a) have the full commit SHAs, test counts, and exit gates for every sprint closed this session.
 
+### Knowledge Graph Transition (Cross-Cutting) — ✅ COMPLETE (2026-04-19)
+
+A separate, parallel architecture initiative transitioned Vitruvius from a document-primary JSON snapshot graph to a **taxonomy-centered, evidence-backed canonical knowledge graph**. This is not a roadmap phase; it is a cross-cutting system that layers underneath Phases 5–12.
+
+**Status:** Implementation complete; independent verification audit passed; rectification complete.
+
+**What shipped:**
+- **Phase 0 (Readiness):** AD-043 merged (operational DBs as Layer 5 indexes); Pydantic schemas frozen; taxonomy roots seeded (10 files); structured LLM client operational.
+- **Phase 1 (Evidence Graph):** `EvidenceIngestor`, `Neo4jEvidenceWriter`, selector resolver with 12 resolvable evidence spans.
+- **Phase 2 (Atomic Extraction):** `ExtractionEngine`, `CandidateStore`, embeddings, 5 prompt templates, `kg-extract-candidates` CLI, `ExtractionValidator` (E1–E9).
+- **Phase 3 (Canonicalize & Place):** `Canonicalizer` (deterministic dedupe + stable IDs), `PlacementEngine` (3-tier), `MergeAdjudicator`, `CanonicalStore` (JSONL persistence).
+- **Phase 4 (Assertion Layer):** `AssertionValidator` (R1–R14), `EdgeMaterializer` (materializes `BELONGS_TO` from `PlacementAssertion`), `ContradictionDetector` (4 patterns), `kg-validate-assertions`, `kg-detect-contradictions` CLI.
+- **Phase 5 (Query & Retrieval):** `QueryEngine` v2 (placements/merges/evidence/neighborhood/taxonomy tree), `CanonicalGraphBuilder`, `UnifiedSnapshotBuilder`, `kg-query-nodes`, `kg-query-neighborhood`, `kg-review-queue`, `kg-review-action`.
+- **Phase 6 (Deterministic Validation):** `ExtractionValidator` gates all LLM output before canonical promotion.
+- **Phase 7 (Retrieval & Inspection):** `kg-inspect-node`, `kg-inspect-assertion`, review queue and action commands.
+- **Phase 9 (Backfill & Unified Snapshots):** `UnifiedSnapshotBuilder` backfills existing `concepts/` + `relationships/` into unified v2 snapshots.
+- **Phase 10 (Safety Gates):** Serialization contract tests, evidence-link failure logging, QueryEngine performance benchmarks.
+- **Post-audit rectification:** Critical `span_ids=[]` bug fixed; prompts simplified to match `_RawCandidate` schema; `contradiction_detector.py`, `quiz_generator.py`, `parity_checker.py` created; 4 new CLI commands added; richer markdown selectors in `EvidenceIngestor`.
+
+**Test coverage:** 232+ KG-specific tests passing (part of 2048 total suite).
+
+**Authoritative post-implementation artifacts:**
+- Audit: `/.ai/02_audits/2026-04-19_knowledge_graph_transition_post_implementation_audit.md`
+- Rectification plan: `/.ai/03_plans/2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan.md`
+- Pre-implementation plans (archived): `/.ai/09_archive/plans/vitruvius_knowledge_graph_transition_implementation_plan.md`, `/.ai/09_archive/plans/2026-04-18_knowledge_graph_transition_execution_plan.md`, `/.ai/09_archive/plans/2026-04-18_knowledge_graph_transition_readiness_plan.md`
+- Pre-implementation audit (archived): `/.ai/09_archive/audits/2026-04-18_knowledge_graph_transition_codebase_audit.md`
+
+**Operational notes:**
+- Feature-flag gated: `kg_transition.enabled` in `config/vitruvius.yaml`.
+- Default persistence is file-native JSONL sidecars; Neo4j/PostgreSQL are optional Layer 5 indexes.
+- Legacy v1 snapshot pipeline remains the default until `kg_transition.legacy_snapshot_mode` is set to `false`.
+
 ---
 
 ## 6. Phase Contracts

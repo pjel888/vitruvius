@@ -70,7 +70,7 @@ class AssertionValidator:
         errors.extend(self._check_common(assertion))
 
         # R7 inference_type
-        if assertion.inference_type not in InferenceType:
+        if not isinstance(assertion.inference_type, InferenceType):
             errors.append(
                 f"R7: inference_type '{assertion.inference_type}' not in {list(InferenceType)}"
             )
@@ -153,7 +153,7 @@ class AssertionValidator:
 
         # R2 edge_type must be registered (only for RelationshipAssertion)
         if isinstance(assertion, RelationshipAssertion):
-            if assertion.edge_type not in EdgeType:
+            if not isinstance(assertion.edge_type, EdgeType):
                 errors.append(
                     f"R2: edge_type '{assertion.edge_type}' is not a registered EdgeType"
                 )

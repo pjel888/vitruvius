@@ -36,6 +36,12 @@ VOLATILE_FIELDS = (
     "promotion_audit_log_ref",
 )
 
+# Compiled once — used by _strip_volatile_frontmatter.
+_VOLATILE_FIELD_PATTERNS = [
+    re.compile(rf"^{re.escape(field)}:.*$", re.MULTILINE)
+    for field in VOLATILE_FIELDS
+]
+
 
 def _parse_frontmatter(text: str) -> dict:
     if not text.startswith("---"):
@@ -63,9 +69,8 @@ def _strip_volatile_frontmatter(text: str) -> str:
     header = text[:end]
     rest = text[end:]
 
-    patterns = [re.compile(rf"^{re.escape(field)}:.*$", re.MULTILINE) for field in VOLATILE_FIELDS]
     cleaned_header = header
-    for pattern in patterns:
+    for pattern in _VOLATILE_FIELD_PATTERNS:
         cleaned_header = pattern.sub("", cleaned_header)
 
     # Collapse any blank lines that the stripping left behind.

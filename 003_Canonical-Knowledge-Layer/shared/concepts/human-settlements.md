@@ -9,12 +9,16 @@ enriched_at_utc: '2026-04-17T13:50:00Z'
 regulatory_basis:
 - source_id: law-department-of-human-settlements-and-urban-development-act
   section_id: section-3-d
-  evidence_snippet: 'Human Settlements comprise of physical elements and services for the satisfaction of human needs and aspirations.'
+  evidence_snippet: Human Settlements comprise of physical elements and services for
+    the satisfaction of human needs and aspirations.
 stringency_vector: qualitative
 aliases:
 - human settlements
+taxonomy_path:
+- taxonomy-site-infrastructure
+- topic-land-use
+- subtopic-planning
 ---
-
 # Human Settlements
 
 ## Definition

@@ -9,13 +9,16 @@ enriched_at_utc: '2026-04-17T15:16:00Z'
 regulatory_basis:
 - source_id: handout-uap-document-standards-of-professional-practice
   section_id: section-title
-  evidence_snippet: 'THE 2010 STANDARDS OF PROFESSIONAL PRACTICE (SPP)'
+  evidence_snippet: THE 2010 STANDARDS OF PROFESSIONAL PRACTICE (SPP)
 stringency_vector: qualitative
 aliases:
 - standards of professional practice
 - SPP
+taxonomy_path:
+- taxonomy-project-practice
+- topic-professional-practice
+- subtopic-standards
 ---
-
 # Standards of Professional Practice
 
 ## Definition

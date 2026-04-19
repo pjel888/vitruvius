@@ -6,8 +6,11 @@ trust_level: derived
 canonical_status: enriched
 aliases:
 - construction estimating
+taxonomy_path:
+- taxonomy-construction-execution
+- topic-construction-administration
+- subtopic-cost-control
 ---
-
 # construction estimating
 
 ## Draft Concept Summary

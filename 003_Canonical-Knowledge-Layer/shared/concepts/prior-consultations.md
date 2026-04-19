@@ -9,13 +9,18 @@ enriched_at_utc: '2026-04-17T13:20:00Z'
 regulatory_basis:
 - source_id: law-local-government-code-of-1991
   section_id: section-27
-  evidence_snippet: 'No project or program shall be implemented by government authorities unless the consultations mentioned in Sections 2(c) and 26 hereof are complied with, and prior approval of the Sanggunian concerned is obtained.'
+  evidence_snippet: No project or program shall be implemented by government authorities
+    unless the consultations mentioned in Sections 2(c) and 26 hereof are complied
+    with, and prior approval of the Sanggunian concerned is obtained.
 stringency_vector: qualitative
 aliases:
 - prior consultations
 - prior consultation requirement
+taxonomy_path:
+- taxonomy-construction-execution
+- topic-construction-administration
+- subtopic-contracts
 ---
-
 # Prior Consultations
 
 ## Definition

@@ -9,13 +9,18 @@ enriched_at_utc: '2026-04-16T06:40:00Z'
 regulatory_basis:
 - source_id: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220
   section_id: section-1
-  evidence_snippet: These rules and standards shall apply to the development of economic and socialized housing projects in urban and rural areas as defined in Section 2 of BP Blg. 220.
+  evidence_snippet: These rules and standards shall apply to the development of economic
+    and socialized housing projects in urban and rural areas as defined in Section
+    2 of BP Blg. 220.
 stringency_vector: qualitative
 aliases:
 - socialized housing projects
 - economic and socialized housing projects
+taxonomy_path:
+- taxonomy-site-infrastructure
+- topic-housing
+- subtopic-programs
 ---
-
 # Socialized Housing Projects
 
 ## Definition

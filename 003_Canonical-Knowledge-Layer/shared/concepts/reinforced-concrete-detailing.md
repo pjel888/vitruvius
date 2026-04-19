@@ -6,8 +6,11 @@ trust_level: derived
 canonical_status: enriched
 aliases:
 - reinforced concrete detailing
+taxonomy_path:
+- taxonomy-building-systems
+- topic-concrete
+- subtopic-detailing
 ---
-
 # reinforced concrete detailing
 
 ## Draft Concept Summary

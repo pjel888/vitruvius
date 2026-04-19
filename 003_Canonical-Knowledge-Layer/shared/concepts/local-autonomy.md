@@ -9,12 +9,16 @@ enriched_at_utc: '2026-04-17T13:20:00Z'
 regulatory_basis:
 - source_id: law-local-government-code-of-1991
   section_id: section-2-a
-  evidence_snippet: 'The territorial and political subdivisions of the State shall enjoy genuine and meaningful local autonomy.'
+  evidence_snippet: The territorial and political subdivisions of the State shall
+    enjoy genuine and meaningful local autonomy.
 stringency_vector: qualitative
 aliases:
 - local autonomy
+taxonomy_path:
+- taxonomy-project-practice
+- topic-governance
+- subtopic-local
 ---
-
 # Local Autonomy
 
 ## Definition

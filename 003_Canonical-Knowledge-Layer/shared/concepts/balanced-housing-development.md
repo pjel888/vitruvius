@@ -9,13 +9,16 @@ enriched_at_utc: '2026-04-18T01:45:00Z'
 regulatory_basis:
 - source_id: handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279
   section_id: section-title
-  evidence_snippet: 'Balanced Housing Development of RA 7279'
+  evidence_snippet: Balanced Housing Development of RA 7279
 stringency_vector: qualitative
 aliases:
 - balanced housing development
 - section 18 RA 7279 compliance
+taxonomy_path:
+- taxonomy-site-infrastructure
+- topic-housing
+- subtopic-policy
 ---
-
 # Balanced Housing Development
 
 ## Definition

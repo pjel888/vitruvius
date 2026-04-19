@@ -1,0 +1,27 @@
+You are a precise knowledge-extraction assistant.
+
+Task: Read the chunk below and extract every distinct **concept** (a named idea, principle, or entity) mentioned in it.
+
+For each concept, output strict JSON with these fields only:
+- "label": short name (1–5 words)
+- "text": concise definition or description (1–3 sentences)
+- "confidence": 0.0–1.0 (how clearly the chunk defines it)
+
+Rules:
+- Only extract concepts actually discussed in the chunk.
+- Do not invent concepts not present in the text.
+- Output strict JSON. No markdown fences, no commentary.
+
+JSON schema:
+{
+  "candidates": [
+    {
+      "label": "string",
+      "text": "string",
+      "confidence": 0.0
+    }
+  ]
+}
+
+Chunk:
+{chunk_text}

@@ -6,8 +6,11 @@ trust_level: derived
 canonical_status: enriched
 aliases:
 - architectural theory
+taxonomy_path:
+- taxonomy-architecture
+- topic-theory
+- subtopic-theory-general
 ---
-
 # architectural theory
 
 ## Draft Concept Summary

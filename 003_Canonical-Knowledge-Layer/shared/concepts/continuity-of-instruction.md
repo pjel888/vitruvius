@@ -9,13 +9,16 @@ enriched_at_utc: '2026-04-18T00:15:00Z'
 regulatory_basis:
 - source_id: handout-deped-disaster-risk-reduction-resource-manual
   section_id: section-chapter-6
-  evidence_snippet: 'Ensuring Continuity of Instruction'
+  evidence_snippet: Ensuring Continuity of Instruction
 stringency_vector: qualitative
 aliases:
 - continuity of instruction
 - instructional continuity
+taxonomy_path:
+- taxonomy-construction-execution
+- topic-construction-administration
+- subtopic-contracts
 ---
-
 # Continuity of Instruction
 
 ## Definition

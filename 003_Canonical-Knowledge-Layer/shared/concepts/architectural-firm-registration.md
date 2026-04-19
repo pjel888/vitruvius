@@ -9,13 +9,16 @@ enriched_at_utc: '2026-04-18T01:55:00Z'
 regulatory_basis:
 - source_id: handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration
   section_id: subject
-  evidence_snippet: 'CLARIFICATION RE PRBOA RESOLUTION 05-2007'
+  evidence_snippet: CLARIFICATION RE PRBOA RESOLUTION 05-2007
 stringency_vector: qualitative
 aliases:
 - architectural firm registration
 - prboa rule ii registration
+taxonomy_path:
+- taxonomy-project-practice
+- topic-professional-practice
+- subtopic-registration
 ---
-
 # Architectural Firm Registration
 
 ## Definition

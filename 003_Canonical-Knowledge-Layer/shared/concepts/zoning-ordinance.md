@@ -9,13 +9,17 @@ enriched_at_utc: '2026-04-18T00:25:00Z'
 regulatory_basis:
 - source_id: law-zoning-ordinance-of-the-municipality-of-san-mateo
   section_id: section-title-of-the-ordinance
-  evidence_snippet: 'This ordinance shall be known as the Zoning Ordinance of the Municipality of San Mateo, Province of Rizal and shall be referred to as the Ordinance.'
+  evidence_snippet: This ordinance shall be known as the Zoning Ordinance of the Municipality
+    of San Mateo, Province of Rizal and shall be referred to as the Ordinance.
 stringency_vector: qualitative
 aliases:
 - zoning ordinance
 - local zoning ordinance
+taxonomy_path:
+- taxonomy-site-infrastructure
+- topic-land-use
+- subtopic-regulation
 ---
-
 # Zoning Ordinance
 
 ## Definition

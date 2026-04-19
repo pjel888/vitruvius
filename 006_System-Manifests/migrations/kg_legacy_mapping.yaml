@@ -1,0 +1,31 @@
+# Vitruvius Knowledge Graph — Legacy → v2 Mapping
+# ---------------------------------------------------------------------------
+# This file catalogs the correspondence between legacy v1 snapshot IDs
+# and new v2 canonical / evidence IDs.  It is used during Phase 6
+# deprecation to ensure no node or edge is lost.
+#
+# Generated: 2026-04-19
+# Status:    scaffold — populate after running kg-build-unified
+# ---------------------------------------------------------------------------
+
+mappings:
+  nodes: []
+  # Example entry (populated by operator):
+  #   - legacy_id: law-pd-1096
+  #     new_ids: [docv-pd1096-v1]
+  #     note: "Became DocumentVersion, not CanonicalNode"
+  #   - legacy_id: concept-building-permit
+  #     new_ids: [concept-building-permit]
+  #     note: "Type unchanged; enriched with taxonomy_path and summary"
+
+  edges: []
+  # Example entry:
+  #   - legacy_id: rel-concept-floor-area-affects-concept-building-height
+  #     new_assertion_id: assert-concept-floor-area-affects-concept-building-height-0001
+  #     edge_type: RELATED_TO
+
+metadata:
+  schema_version: "1.0.0"
+  last_updated: "2026-04-19T00:00:00Z"
+  generated_by: "parity_checker"
+  coverage_pct: 0.0

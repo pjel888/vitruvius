@@ -9,13 +9,17 @@ enriched_at_utc: '2026-04-18T00:15:00Z'
 regulatory_basis:
 - source_id: handout-doh-guidelines-for-health-facilities
   section_id: section-patient-movement
-  evidence_snippet: 'Patient Movement: Spaces shall be wide enough for free movement of patients, whether they are on beds, stretchers, or wheelchairs.'
+  evidence_snippet: 'Patient Movement: Spaces shall be wide enough for free movement
+    of patients, whether they are on beds, stretchers, or wheelchairs.'
 stringency_vector: qualitative
 aliases:
 - patient movement
 - patient circulation
+taxonomy_path:
+- taxonomy-project-practice
+- topic-healthcare
+- subtopic-operations
 ---
-
 # Patient Movement
 
 ## Definition

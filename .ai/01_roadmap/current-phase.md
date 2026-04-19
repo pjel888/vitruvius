@@ -80,6 +80,7 @@ If a future Codex session needs the current task immediately, resume from this g
 ### Recent Completed Governance Work (archived)
 - PASS 2 stabilization plan archived to `/.ai/09_archive/plans/2026-04-16_master-audit-implementation-plan.md`
 - Duplicate canonical source ID remediation archived to `/.ai/09_archive/plans/2026-04-16_duplicate-canonical-source-id-remediation-plan.md`
+- **Knowledge Graph Transition** — implementation complete (2026-04-19); pre-implementation plans and audit archived to `/.ai/09_archive/plans/` and `/.ai/09_archive/audits/`; post-implementation audit and rectification plan remain active at `/.ai/02_audits/2026-04-19_knowledge_graph_transition_post_implementation_audit.md` and `/.ai/03_plans/2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan.md`
 - These are complete historical references, not active dispatcher plans.
 
 ### 1. Whole-Codebase Plan Layer Rewrite

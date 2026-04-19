@@ -9,13 +9,18 @@ enriched_at_utc: '2026-04-17T13:20:00Z'
 regulatory_basis:
 - source_id: law-philippine-clean-water-act-of-2004
   section_id: section-5
-  evidence_snippet: 'The Department shall designate certain areas as water quality management areas using appropriate physiographic units such as watershed, river basins or water resources regions.'
+  evidence_snippet: The Department shall designate certain areas as water quality
+    management areas using appropriate physiographic units such as watershed, river
+    basins or water resources regions.
 stringency_vector: qualitative
 aliases:
 - water quality management area
 - management area
+taxonomy_path:
+- taxonomy-site-infrastructure
+- topic-water-resources
+- subtopic-quality
 ---
-
 # Water Quality Management Area
 
 ## Definition

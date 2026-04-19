@@ -9,13 +9,18 @@ enriched_at_utc: '2026-04-17T13:50:00Z'
 regulatory_basis:
 - source_id: irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act
   section_id: section-3-22
-  evidence_snippet: 'Local Shelter Plan (LSP) refers to a document which provides information on the analysis of the present local housing situation and contains the main shelter strategies and a corresponding implementation plan.'
+  evidence_snippet: Local Shelter Plan (LSP) refers to a document which provides information
+    on the analysis of the present local housing situation and contains the main shelter
+    strategies and a corresponding implementation plan.
 stringency_vector: qualitative
 aliases:
 - local shelter plan
 - LSP
+taxonomy_path:
+- taxonomy-fire-life-safety
+- topic-life-safety
+- subtopic-emergency
 ---
-
 # Local Shelter Plan
 
 ## Definition

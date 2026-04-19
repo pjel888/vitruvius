@@ -1,0 +1,27 @@
+You are a precise knowledge-extraction assistant.
+
+Task: Read the chunk below and extract every **procedure** (a step-by-step process or method).
+
+For each procedure, output strict JSON with these fields only:
+- "label": short name of the procedure (1–8 words)
+- "text": the procedure description or steps
+- "confidence": 0.0–1.0
+
+Rules:
+- Extract only explicit procedural statements.
+- Do not extract general principles or rules unless they describe a process.
+- Output strict JSON. No markdown fences, no commentary.
+
+JSON schema:
+{
+  "candidates": [
+    {
+      "label": "string",
+      "text": "string",
+      "confidence": 0.0
+    }
+  ]
+}
+
+Chunk:
+{chunk_text}

@@ -1,29 +1,12 @@
 # Vitruvius
 
-## 🚀 Quick Start (Clean Build: 341 Sources)
-
-To build your expansive, interconnected knowledge graph locally using Llama 3.1:8b with our **Clean UX** (no terminal spam):
-
-```powershell
-# 1. Provision Identities (Distills 341 PDFs into Beautiful Titles & IDs)
-$env:PYTHONPATH="scripts"; python scripts/vitruvius/identity_provisioner.py --limit 400 --execute
-
-# 2. Master Clean Build (Convert, Extract, Weave, and Visualize)
-$env:PYTHONPATH="scripts"; python scripts/vitruvius/discovery_weaver.py --limit 400 --model "llama3.1:8b" --execute
-```
-
-The resulting interactive graph will be saved to:
-`004_Derived-Content-Layer/graph-visualizations/expansive-brain-mvp.html`
-
----
-
 ```
  ██╗   ██╗██╗████████╗██████╗ ██╗   ██╗██╗   ██╗██╗██╗   ██╗███████╗
  ██║   ██║██║╚══██╔══╝██╔══██╗██║   ██║██║   ██║██║██║   ██║██╔════╝
  ██║   ██║██║   ██║   ██████╔╝██║   ██║██║   ██║██║██║   ██║███████╗
- ╚██╗ ██╔╝██║   ██║   ██╔══██╗██║   ██║╚██╗ ██╔╝██║██║   ██║╚════██║
-  ╚████╔╝ ██║   ██║   ██║  ██║╚██████╔╝ ╚████╔╝ ██║╚██████╔╝███████║
-   ╚═══╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═╝ ╚═════╝ ╚══════╝
+╚██╗ ██╔╝██║   ██║   ██╔══██╗██║   ██║╚██╗ ██╔╝██║██║   ██║╚════██║
+ ╚████╔╝ ██║   ██║   █║  ██║╚██████╔╝ ╚████╔╝ ██║╚██████╔╝███████║
+  ╚═══╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚═╝ ╚═════╝ ╚══════╝
 
    ─────────────────────────────────────────────────────────────────
      An auditable document-to-knowledge engine for technical rule systems.
@@ -32,50 +15,877 @@ The resulting interactive graph will be saved to:
    ─────────────────────────────────────────────────────────────────
 ```
 
-### 🧠 The "Clean Build" Intelligence System
-The Vitruvius build process is designed for a **Professional-Grade UX**, separating high-level progress from technical engine noise.
+**Vitruvius is a local-first, governance-first knowledge pipeline** that converts messy professional-domain source documents — statutes, codes, technical standards, scanned references — into a validated, queryable, evidence-backed knowledge graph.
 
-- **Silenced Engine Noise:** All Java, Unicode, and PDF parser warnings are automatically redirected to `006_System-Manifests/logs/engine_trace.log`.
-- **Live Dashboard:** Your terminal only shows high-level, numbered progress (e.g., `[5/341] Processing "The Architecture Act"...`).
-- **Automated Visualization:** The interactive HTML graph is automatically updated at the end of every run.
-- **Audit Ledger:** A detailed JSON record of every document's success or failure is saved to `006_System-Manifests/runs/` for audit checks.
+> **Current product posture:** Pre-launch MVP. The goal is the most effective, accurate, and truthful knowledge foundation possible, not broad backwards compatibility with every intermediate artifact shape created during development.
 
 ---
 
-**Vitruvius is, today, an auditable document-to-knowledge pipeline for complex
-technical and regulatory corpora** — with the built environment as its primary
-target domain in this repository. It ingests messy source material, converts it
-into machine-readable text, refines and canonicalizes that text into structured
-knowledge, and builds governed relationships, graph artifacts, and traceable
-query surfaces on top of it.
+## Table of Contents
 
-> **Current product posture:** Vitruvius is still **pre-launch**. The goal
-> right now is to build the most effective, accurate, and truthful MVP.
-
-### Local-First Operation (No Cloud AI Required)
-Vitruvius is a **self-contained intelligence system**. Once the orchestration scripts are written, it runs entirely on your local hardware using your GPU (RTX 4070) and does not require Cloud AI (like Gemini/OpenAI).
-
-#### Prerequisites for Local Build
-- **Ollama:** Installed and running locally (`llama3.1:8b`).
-- **Java:** OpenJDK 21+ (Required for PDF-to-Markdown conversion).
-
-### Knowledge Graph Persistence
-All discovered knowledge is **hardcoded** into the `003_Canonical-Knowledge-Layer/` as permanent Markdown files. This ensures your "Digital Brain" is stable, auditable, and yours to keep forever without monthly API bills.
+- [What Vitruvius Does Today](#what-vitruvius-does-today)
+- [Architecture Overview](#architecture-overview)
+- [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
+- [Common Workflows](#common-workflows)
+- [CLI Reference](#cli-reference)
+- [Knowledge Graph v2](#knowledge-graph-v2)
+- [Dataset Automation (Laws Wave)](#dataset-automation-laws-wave)
+- [Testing](#testing)
+- [Current Status](#current-status)
+- [Documentation](#documentation)
 
 ---
 
-## Filesystem layers
+## What Vitruvius Does Today
+
+Vitruvius ingests heterogeneous source material and progressively hardens it through deterministic, auditable stages:
+
+```
+Raw docs → Parse / OCR → Normalize → Canonicalize → Extract → Review → Promote → Graph
+```
+
+**Core pipeline (operational):**
+- **Scan & registry** — SHA-256 hashing, CSV registries, tree snapshots
+- **Multi-route conversion** — text PDFs via OpenDataLoader, scanned PDFs via OCRmyPDF, Office via LibreOffice, spreadsheets via openpyxl
+- **Normalization (Tier A/B)** — Unicode NFC, whitespace collapse, Setext→ATX heading conversion, section identifier normalization
+- **Canonicalization** — Rules-driven ID assignment (`law-national-building-code`), YAML frontmatter, structured sections
+- **Relationship extraction** — Regex-based, concept-aware, section-anchored with `source_section_id`
+- **LLM review (Tier 1/2)** — Local Ollama review with `keep`/`review_further`/`reject` decisions, confidence scoring, second-pass adjudication
+- **Promotion governance** — 17-rule validator, audit log, dry-run default, rollback support
+- **Graph building** — JSON snapshot graph with integrity checks (orphan detection, dangling edge detection)
+
+**Cross-cutting systems (feature-flagged):**
+- **Knowledge Graph v2** — Taxonomy-centered canonical graph with separate evidence layer, reified assertions, deterministic validation gates
+- **Dataset automation** — Manifest-backed, tranche-by-tranche laws-wave pipeline with duplicate detection, OCR-first preparation, and concept-fit admission
+- **Spatial intelligence** — TypeScript spatial daemon (GJK/AABB), Z3 constraint solver, IFC/OWL ontology export
+- **Compound AI** — Adversarial swarm, differential dataflow, neuro-symbolic Datalog bridge, DSPy prompt compiler
+- **High-performance backends** — RocksDB event store (18.7× faster than SQLite), GraphSAGE product quantization (32× compression), MinHash LSH fuzzy dedup
+
+---
+
+## Architecture Overview
+
+Vitruvius is built as a **layered, filesystem-centric pipeline**. The filesystem is the database for document lineage; operational indexes (RocksDB, optional Neo4j/PostgreSQL) are queryable replicas.
 
 | Layer | Folder | Role |
 |---|---|---|
-| 1 | `001_Raw-Source-Layer/` | Immutable input. Original PDFs, Office docs. |
-| 2 | `002_Raw-Conversion-Layer/` | Machine extracts. (Git-ignored) |
+| 1 | `001_Raw-Source-Layer/` | Immutable input. Original PDFs, Office docs, scans. |
+| 2 | `002_Raw-Conversion-Layer/` | Machine extracts. Markdown + JSON sidecars. (Git-ignored) |
 | 3 | `003_Canonical-Knowledge-Layer/` | **The Brain.** Hardcoded trusted knowledge. |
-| 4 | `004_Derived-Content-Layer/` | HTML Visualizations. (Git-ignored) |
-| 5 | `005_Operational-Intelligence-Layer/` | Graph Snapshots. (Git-ignored) |
-| 6 | `006_System-Manifests/` | Registries, Identities, and Audit Logs. |
+| 4 | `004_Derived-Content-Layer/` | HTML visualizations, articles, summaries. (Git-ignored) |
+| 5 | `005_Operational-Intelligence-Layer/` | Graph snapshots, embeddings, chunks. (Git-ignored) |
+| 6 | `006_System-Manifests/` | Registries, run reports, audit logs. |
+
+**Content trust order:** Canonical > Raw Conversion > Raw Source.
 
 ---
 
-## License & attribution
+## Prerequisites
+
+| Requirement | Version | Purpose |
+|---|---|---|
+| Python | 3.12+ | Core runtime |
+| Ollama | Latest | Local LLM review (default: `gemma4:31b`) |
+| Java | OpenJDK 21+ | PDF-to-Markdown conversion (docling/OpenDataLoader) |
+| Node.js | 25+ | `spatial-daemon/` TypeScript subproject |
+
+**Optional:**
+- Neo4j Community/Enterprise — canonical graph index (KG v2)
+- PostgreSQL 15+ — relational registry (KG v2)
+- Rust toolchain — `engine_rs` pyo3 workspace (spatial kernels, stats kernels, PDF parser)
+
+---
+
+## Quick Start
+
+This section gives you the six most common commands to go from raw documents to a working knowledge graph. Each step is explained below in more detail in [Common Workflows](#common-workflows).
+
+### 1. Baseline pipeline (scan → status → lint)
+
+```bash
+python scripts/pipeline_cli.py run
+```
+
+This inventories every file in `001_Raw-Source-Layer/`, writes SHA-256 registries to `006_System-Manifests/registries/`, compares them to the previous run, and reports hygiene issues (non-PDF files, suspicious duplicates). Think of it as `git status` for your document corpus.
+
+### 2. Convert raw documents
+
+```bash
+python scripts/pipeline_cli.py convert
+```
+
+This finds every new or changed file since the last run and sends it through the correct converter: text PDFs through OpenDataLoader, scanned PDFs through OCRmyPDF, spreadsheets through openpyxl, and Office documents through LibreOffice. Outputs land in `002_Raw-Conversion-Layer/`.
+
+### 3. Refine and canonicalize
+
+```bash
+python scripts/pipeline_cli.py refine
+python scripts/pipeline_cli.py canonicalize
+```
+
+`refine` batch-cleans the raw conversion markdown (collapses whitespace, normalizes section identifiers, converts Setext headings to ATX). `canonicalize` writes the cleaned files into `003_Canonical-Knowledge-Layer/` with stable IDs, YAML frontmatter, and structured sections.
+
+### 4. Extract and review relationships
+
+```bash
+python scripts/pipeline_cli.py extract-relationships-sections-one "001-Laws/PD-1096/PD 1096.md"
+python scripts/pipeline_cli.py review-relationships-ollama
+```
+
+The first command extracts candidate relationships from a single canonical file with section anchors. The second sends those candidates through a local Ollama model for keep/reject/review-further decisions.
+
+### 5. Build the graph
+
+```bash
+python scripts/pipeline_cli.py build-graph
+python scripts/pipeline_cli.py visualize-graph
+```
+
+`build-graph` reads every canonical node and relationship in Layer 3, validates integrity (no orphans, no dangling edges), and writes a JSON snapshot to Layer 5. `visualize-graph` renders an interactive HTML page in Layer 4.
+
+### 6. Run the full composite path
+
+```bash
+python scripts/pipeline_cli.py run-with-review
+```
+
+This is the one-shot operator path: scan, status, lint, convert, refine, canonicalize, extract, review. Use it when you want the pipeline to handle everything after you drop new files into `001_Raw-Source-Layer/`.
+
+---
+
+## Common Workflows
+
+This section walks through the day-to-day tasks an operator performs with Vitruvius. Each workflow is a sequence of commands with explanations of what happens at each step and what files are produced.
+
+---
+
+### Workflow A: "I have a new PDF to add"
+
+**Goal:** Ingest one new document and make it queryable in the graph.
+
+**Step 1 — Drop the file into the raw layer**
+
+Copy your PDF into the appropriate folder under `001_Raw-Source-Layer/`:
+
+```bash
+cp "my-document.pdf" "001_Raw-Source-Layer/001-Laws/My-Family/my-document.pdf"
+```
+
+**Step 2 — Scan and check status**
+
+```bash
+python scripts/pipeline_cli.py run
+```
+
+What happens:
+- Every file in `001_Raw-Source-Layer/` gets SHA-256 hashed
+- A new registry CSV is written to `006_System-Manifests/registries/`
+- The CLI compares the new registry to the previous one and reports:
+  - New files (your PDF)
+  - Changed files (if any were modified)
+  - Missing files (if any were removed)
+- The linter checks for non-PDF files and suspicious duplicate filenames
+
+**Step 3 — Detect if the PDF needs OCR**
+
+```bash
+python scripts/pipeline_cli.py detect-one "001_Raw-Source-Layer/001-Laws/My-Family/my-document.pdf"
+```
+
+What happens:
+- The CLI samples pages from the PDF and checks for extractable text
+- If the PDF is text-usable, it will be converted directly
+- If it is scan-like (image-based), it will be queued for OCR
+
+**Step 4 — Convert the document**
+
+```bash
+python scripts/pipeline_cli.py convert
+```
+
+What happens:
+- New and changed files are sent through the appropriate converter
+- Text PDFs → OpenDataLoader → Markdown
+- Scan-like PDFs → OCRmyPDF → text PDF → Markdown
+- Office docs → LibreOffice → Markdown
+- Spreadsheets → openpyxl → CSV + JSON
+- Outputs land in `002_Raw-Conversion-Layer/`
+
+If your PDF was scan-like and needs OCR:
+
+```bash
+python scripts/pipeline_cli.py ocr-queue
+python scripts/pipeline_cli.py ocr-execute
+```
+
+**Step 5 — Refine the conversion output**
+
+```bash
+python scripts/pipeline_cli.py refine
+```
+
+What happens:
+- Markdown from `002_Raw-Conversion-Layer/` is batch-cleaned
+- Unicode NFC normalization, whitespace collapse
+- Setext headings converted to ATX (`## Heading`)
+- Section identifiers normalized (`Sec. 101` → `Section 101`)
+- Refined outputs overwrite the conversion layer files
+
+**Step 6 — Canonicalize**
+
+```bash
+python scripts/pipeline_cli.py canonicalize
+```
+
+What happens:
+- Each refined file gets a stable canonical ID (`law-my-document`)
+- YAML frontmatter is generated (id, title, page_type, canonical_status)
+- The file is written to `003_Canonical-Knowledge-Layer/shared/sources/`
+- If a file with the same ID already exists, the canonicalizer compares content and either skips (unchanged) or rejects (protected status)
+
+**Step 7 — Extract relationships**
+
+```bash
+python scripts/pipeline_cli.py extract-relationships-sections-one \
+  "003_Canonical-Knowledge-Layer/shared/sources/my-document.md"
+```
+
+What happens:
+- Regex patterns scan the canonical file for relationship language
+  - `governs`, `defines`, `requires`, `limits`, `supersedes`, etc.
+- Each candidate is anchored to a section ID (`source_section_id`)
+- A pre-review filter auto-accepts obvious matches and auto-rejects junk
+- Candidates are written to `006_System-Manifests/runs/.../extraction_report.json`
+
+**Step 8 — Review with Ollama**
+
+```bash
+python scripts/pipeline_cli.py review-relationships-ollama
+```
+
+What happens:
+- Each candidate not filtered in Step 7 is sent to a local LLM
+- The LLM returns `keep`, `review_further`, or `reject` with confidence
+- Results are written to `006_System-Manifests/runs/.../review_report.json`
+- You can inspect the JSON or the companion `.txt` summary
+
+**Step 9 — Promote approved relationships**
+
+```bash
+python scripts/pipeline_cli.py promote --execute
+```
+
+What happens:
+- High-confidence `keep` decisions are validated against 17 governance rules
+- Valid relationships are written to `003_Canonical-Knowledge-Layer/shared/relationships/`
+- An audit log entry is appended to the promotion batch log
+- Without `--execute`, this runs in dry-run mode (recommended first time)
+
+**Step 10 — Build the graph**
+
+```bash
+python scripts/pipeline_cli.py build-graph
+python scripts/pipeline_cli.py visualize-graph
+```
+
+What happens:
+- All canonical nodes (sources, concepts, relationships) are loaded
+- Integrity checks run (orphan detection, dangling edge detection)
+- A JSON snapshot is written to `005_Operational-Intelligence-Layer/graph/`
+- An interactive HTML visualization is written to `004_Derived-Content-Layer/graph-visualizations/`
+
+Open the HTML file in a browser to explore your graph.
+
+---
+
+### Workflow B: "I want to review extracted relationships"
+
+**Goal:** Understand what the pipeline found and decide what to promote.
+
+**Step 1 — Run extraction**
+
+```bash
+python scripts/pipeline_cli.py extract-relationships-sections-one \
+  "003_Canonical-Knowledge-Layer/shared/sources/my-document.md" \
+  --json-out my-extraction.json \
+  --txt-out my-extraction.txt
+```
+
+The `--json-out` and `--txt-out` flags let you specify explicit output paths instead of the default `006_System-Manifests/runs/` location.
+
+**Step 2 — Inspect extraction output**
+
+Open `my-extraction.txt` in your editor. You will see:
+- Auto-accepted candidates (structural patterns, high occurrence count)
+- Auto-rejected candidates (too short, self-reference, endpoint not in evidence)
+- Candidates marked `needs_review` (these go to the LLM)
+
+**Step 3 — Run Tier-1 review**
+
+```bash
+python scripts/pipeline_cli.py review-relationships-ollama \
+  --input-report my-extraction.json \
+  --review-json-out my-review.json \
+  --review-txt-out my-review.txt \
+  --model gemma4:31b
+```
+
+What happens:
+- Every `needs_review` candidate is sent to the specified Ollama model
+- The model evaluates the evidence text and returns a decision
+- You get a JSON report and a human-readable `.txt` summary
+
+**Step 4 — Inspect review output**
+
+Open `my-review.txt`. Each entry shows:
+- The candidate (`from` → `to`, predicate)
+- The LLM decision (`keep`, `reject`, `review_further`)
+- Confidence score and reasoning
+
+**Step 5 — Run Tier-2 adjudication (optional)**
+
+If you have many `review_further` results and want a second opinion:
+
+```bash
+python scripts/pipeline_cli.py review-relationships-ollama-second-pass \
+  --input-review-report my-review.json \
+  --merged-out my-merged-review.json \
+  --worklist-out my-human-worklist.txt
+```
+
+What happens:
+- A different model (default: `qwen3:30b`) re-evaluates uncertain Tier-1 results
+- Tier-1 `keep` results are preserved
+- Tier-2 upgrades some `review_further` to `keep` or downgrades to `reject`
+- Anything still uncertain is written to a human worklist
+
+**Step 6 — Promote**
+
+```bash
+python scripts/pipeline_cli.py promote --execute \
+  --input-report my-merged-review.json
+```
+
+---
+
+### Workflow C: "I want to build and query the graph"
+
+**Goal:** Turn canonical knowledge into a queryable graph and explore it.
+
+**Step 1 — Build the snapshot**
+
+```bash
+python scripts/pipeline_cli.py build-graph
+```
+
+What happens:
+- Reads all canonical nodes from `003_Canonical-Knowledge-Layer/shared/`
+- Loads sources, concepts, relationships
+- Validates integrity:
+  - Every edge endpoint must exist (no dangling edges)
+  - Every node must have at least one edge or be flagged as an orphan
+- Writes a timestamped JSON snapshot to `005_Operational-Intelligence-Layer/graph/`
+
+**Step 2 — Visualize**
+
+```bash
+python scripts/pipeline_cli.py visualize-graph
+```
+
+What happens:
+- Reads the latest snapshot
+- Generates an interactive HTML force-directed graph
+- Nodes are color-coded by type (source, concept, relationship)
+- Click a node to see its properties and connections
+- Output: `004_Derived-Content-Layer/graph-visualizations/graph.html`
+
+**Step 3 — Query by node ID**
+
+```bash
+python scripts/pipeline_cli.py query-graph law-pd-1096 concept-building-permit
+```
+
+What happens:
+- Finds a path between the two nodes in the graph
+- Prints the shortest path through intermediate nodes and edges
+
+**Step 4 — Natural-language query**
+
+```bash
+python scripts/pipeline_cli.py query "What governs building permits?"
+```
+
+What happens:
+- Parses the question into a structured graph query
+- Searches for nodes and edges matching the intent
+- Returns ranked results with evidence snippets
+
+**Step 5 — Structured query**
+
+```bash
+python scripts/pipeline_cli.py query-structured get_sources_for_concept \
+  --arg concept_id=concept-building-permit
+```
+
+What happens:
+- Runs a predefined query function against the snapshot
+- Returns machine-parseable JSON
+
+---
+
+### Workflow D: "I want to activate and use KG v2"
+
+**Goal:** Enable the taxonomy-centered knowledge graph and build a unified snapshot.
+
+**Step 1 — Enable the feature flag**
+
+Edit `config/vitruvius.yaml` and set:
+
+```yaml
+kg_transition:
+  enabled: true
+```
+
+KG v2 is gated behind this master kill-switch. When `enabled: false`, all KG v2 commands refuse to run and the legacy v1 graph builder remains active.
+
+**Step 2 — Seed taxonomy roots**
+
+```bash
+python scripts/pipeline_cli.py kg-seed-taxonomy
+```
+
+What happens:
+- Creates taxonomy root nodes in the canonical layer
+- Example roots: `taxonomy-building-codes`, `taxonomy-structural-design`
+- These are the anchor points that concepts will be placed under
+
+**Step 3 — Ingest evidence**
+
+```bash
+python scripts/pipeline_cli.py kg-ingest-evidence \
+  "003_Canonical-Knowledge-Layer/shared/sources/pd-1096.md"
+```
+
+What happens:
+- Parses the source document into `DocumentVersion → Section → Chunk → EvidenceSpan`
+- Evidence spans carry resolvable selectors (markdown ranges, text ranges, PDF bounding boxes)
+- Writes JSONL sidecars to `005_Operational-Intelligence-Layer/graph/kg-v2/`
+
+**Step 4 — Extract candidates**
+
+```bash
+python scripts/pipeline_cli.py kg-extract-candidates
+```
+
+What happens:
+- Runs structured LLM extraction over canonical sources
+- Produces `RelationshipAssertion` candidates with validator gating (E1–E9)
+- Candidates are stored as JSONL records
+
+**Step 5 — Canonicalize candidates**
+
+```bash
+python scripts/pipeline_cli.py kg-canonicalize-candidates
+```
+
+What happens:
+- Deduplicates candidates by `(from, predicate, to)`
+- Normalizes node labels
+- Places concepts into the taxonomy if a path is inferable
+
+**Step 6 — Materialize canonical assertions**
+
+```bash
+python scripts/pipeline_cli.py kg-materialize-canonical
+```
+
+What happens:
+- Runs `AssertionValidator` (R1–R14) on all assertions
+- Validates endpoint existence, predicate registry compatibility, type consistency
+- Materializes fast edges from validated assertions
+
+**Step 7 — Build the unified snapshot**
+
+```bash
+python scripts/pipeline_cli.py kg-build-unified
+```
+
+What happens:
+- Loads taxonomy, concepts, evidence graph, and assertions
+- Merges everything into a single `KgV2Snapshot`
+- Generates placement assertions for concepts with taxonomy paths
+- Materializes fast edges from all assertion types
+- Writes a timestamped JSON snapshot to `005_Operational-Intelligence-Layer/graph/kg-v2/`
+
+**Step 8 — Validate and inspect**
+
+```bash
+python scripts/pipeline_cli.py kg-validate-assertions
+python scripts/pipeline_cli.py kg-detect-contradictions
+```
+
+What happens:
+- `kg-validate-assertions` runs R1–R14 validation on the unified snapshot
+- `kg-detect-contradictions` scans for 4 deterministic contradiction patterns:
+  - `OVERRIDES` vs `APPLIES_TO`
+  - `REQUIRES` vs `EXCLUDES`
+  - Semantic shadowing
+  - Weak bidirectional `DEPENDS_ON`
+
+**Step 9 — Query the graph**
+
+```bash
+python scripts/pipeline_cli.py kg-query-nodes "building permit"
+python scripts/pipeline_cli.py kg-query-neighborhood concept-building-permit
+python scripts/pipeline_cli.py kg-inspect-node law-pd-1096
+```
+
+What happens:
+- `kg-query-nodes` searches canonical nodes by label (case-insensitive)
+- `kg-query-neighborhood` shows related nodes with assertion detail
+- `kg-inspect-node` prints the full node record and its evidence
+
+**Step 10 — Review queue**
+
+```bash
+python scripts/pipeline_cli.py kg-review-queue --status REVIEW_REQUIRED
+python scripts/pipeline_cli.py kg-review-action assert-rel-001 --action approve
+```
+
+What happens:
+- `kg-review-queue` lists assertions needing human review
+- `kg-review-action` updates the assertion state (`approve`, `reject`, `escalate`)
+
+---
+
+### Workflow E: "I want to run dataset automation (laws wave)"
+
+**Goal:** Process a bounded tranche of laws through the full pipeline with manifest-backed guardrails.
+
+**Step 1 — Dry-run the full corpus**
+
+```bash
+python scripts/pipeline_cli.py run-laws-all-dry-run
+```
+
+What happens:
+- Scans all raw folders without executing
+- Reports readiness status for each family
+- Identifies blocked families (missing OCR, missing concepts, etc.)
+
+**Step 2 — Check for duplicates before widening**
+
+```bash
+python scripts/pipeline_cli.py run-laws-duplicate-dry-run
+```
+
+What happens:
+- Hashes every raw PDF
+- Surfaces exact-duplicate clusters
+- Prevents wasted work on identical files
+
+**Step 3 — Select a tranche and dry-run**
+
+```bash
+python scripts/pipeline_cli.py run-laws-tranche-dry-run --manifest config/datasets/my-tranche.yaml
+```
+
+What happens:
+- Reads the tranche manifest (a bounded list of source families)
+- Reports what would be processed, what is blocked, and why
+- Validates that every family in the manifest exists in the raw layer
+
+**Step 4 — Prepare sources (conversion + refinement)**
+
+```bash
+python scripts/pipeline_cli.py run-laws-tranche-source-prep \
+  --manifest config/datasets/my-tranche.yaml
+```
+
+What happens:
+- Converts every source in the tranche
+- Runs OCR on scan-like documents
+- Refines all conversion outputs
+- Writes intermediate files to `002_Raw-Conversion-Layer/`
+
+**Step 5 — Admit sources into canonical layer**
+
+```bash
+python scripts/pipeline_cli.py run-laws-tranche-source-admission-dry-run \
+  --manifest config/datasets/my-tranche.yaml
+python scripts/pipeline_cli.py run-laws-tranche-source-admission \
+  --manifest config/datasets/my-tranche.yaml
+```
+
+What happens:
+- Dry-run classifies every refined file as `ready` or `blocked`
+- Blocked reasons: shallow representation, missing frontmatter, OCR quality too low
+- The execute version copies `ready` files into `003_Canonical-Knowledge-Layer/`
+
+**Step 6 — Build the tranche graph**
+
+```bash
+python scripts/pipeline_cli.py run-laws-tranche-source-to-graph-dry-run \
+  --manifest config/datasets/my-tranche.yaml
+python scripts/pipeline_cli.py run-laws-tranche-source-to-graph \
+  --manifest config/datasets/my-tranche.yaml
+```
+
+What happens:
+- Extracts relationships from all admitted canonical files
+- Runs pre-review filter and Tier-1 Ollama review
+- Promotes approved relationships
+- Builds the graph snapshot and HTML visualization
+
+**Step 7 — Aggregate all completed lanes**
+
+```bash
+python scripts/pipeline_cli.py run-laws-completed-aggregate
+```
+
+What happens:
+- Reads `config/datasets/laws-completed-lanes.yaml`
+- Builds a combined graph from all completed tranches
+- Writes aggregate snapshot and visualization
+- Reports residual families that still need work
+
+---
+
+## CLI Reference
+
+All commands are exposed through a single entrypoint:
+
+```bash
+python scripts/pipeline_cli.py <command> [options]
+```
+
+Use `--output-mode operator` for human-friendly framing around command output. This mode explains what the command is about to do, shows progress, and summarizes results in plain English.
+
+### Core Pipeline
+
+| Command | Description |
+|---|---|
+| `run` | Baseline pipeline: scan → status → lint |
+| `scan` | Inventory raw sources into registries and tree snapshots |
+| `status` | Compare registries and report new/changed/missing files |
+| `lint` | Hygiene check: non-PDF files, duplicate-like filenames |
+| `convert` | Batch convert new/changed PDFs/Office/Spreadsheets |
+| `convert-one <path>` | Convert a single source through the legacy path |
+| `convert-parsers-one <path>` | Convert through the Phase 1B parser orchestrator |
+| `convert-spreadsheet-one <path>` | Convert one spreadsheet to CSV/JSON |
+| `detect-one <path>` | Classify a PDF as text-usable or scan-like |
+| `ocr-queue` | Build the queue of files likely needing OCR |
+| `ocr-execute` | Run OCR on queued files |
+| `refine` | Batch-clean raw conversion markdown (Tier A/B normalization) |
+| `refine-one <path>` | Refine a single markdown file |
+| `canonicalize` | Batch-write refined sources into canonical pages |
+| `canonicalize-one <path>` | Canonicalize a single refined markdown file |
+| `canonicalize-plan-one <path>` | Preview canonicalization without writing |
+| `canonicalize-concept-one <name>` | Create a canonical concept page scaffold |
+| `reconcile` | Detect missing sources and stale derived outputs |
+| `rotate-registries` | Prune old timestamped registry snapshots |
+
+### Extraction & Review
+
+| Command | Description |
+|---|---|
+| `extract-relationships-one <path>` | Regex-based relationship extraction from one file |
+| `extract-relationships-sections-one <path>` | Section-aware extraction with `source_section_id` |
+| `review-relationships-ollama` | Tier-1 local LLM review (`gemma4:31b` default) |
+| `review-relationships-ollama-second-pass` | Tier-2 adjudication on uncertain Tier-1 results |
+| `promote` | Move approved reviews into canonical relationship records |
+| `enrich-concept-one <name>` | Enrich one concept with deterministic definition data |
+| `enrich-concepts` | Batch-enrich concept pages |
+
+### Graph & Query
+
+| Command | Description |
+|---|---|
+| `build-graph` | Build the filesystem graph snapshot from canonical knowledge |
+| `query-graph <from> <to>` | Return a path between two node IDs |
+| `query "<question>"` | Natural-language query against the latest graph snapshot |
+| `query-structured <function>` | Structured query function against the latest graph snapshot |
+| `export-graph-snapshot` | Print the latest snapshot in a structured export format |
+| `export-graph-owl` | Export the latest snapshot as RDF Turtle |
+| `visualize-graph` | Render a browser-friendly HTML visualization |
+
+### Knowledge Graph v2 (gated by `kg_transition.enabled`)
+
+| Command | Description |
+|---|---|
+| `kg-ingest-evidence <source_path>` | Ingest document → version → section → chunk → evidence span |
+| `kg-extract-candidates` | Structured LLM extraction with validator gating |
+| `kg-canonicalize-candidates` | Deduplicate, normalize, place into taxonomy |
+| `kg-materialize-canonical` | Validate assertions and materialize fast edges |
+| `kg-build-unified` | Build unified v2 snapshot from canonical content |
+| `kg-validate-assertions` | Run `AssertionValidator` (R1–R14) on a snapshot |
+| `kg-detect-contradictions` | Run `ContradictionDetector` on relationship assertions |
+| `kg-query-nodes <query>` | Case-insensitive label search over canonical nodes |
+| `kg-query-neighborhood <node_id>` | Explore related nodes with assertion detail |
+| `kg-inspect-node <node_id>` | Inspect a canonical node and its evidence |
+| `kg-inspect-assertion <assertion_id>` | Inspect an assertion and its provenance |
+| `kg-review-queue` | List assertions pending review |
+| `kg-review-action <id> --action {approve,reject,escalate}` | Mutate assertion state |
+| `kg-seed-taxonomy` | Seed taxonomy roots into the canonical layer |
+| `kg-backfill-evidence` | Backfill evidence for existing canonical sources |
+
+### Dataset Automation (Laws Wave)
+
+| Command | Description |
+|---|---|
+| `run-laws-pilot` | One-command bounded 4-law pilot → graph + visualization |
+| `run-laws-all-dry-run` | Inspect all-laws readiness without execution |
+| `run-laws-tranche-dry-run` | Inspect a bounded tranche manifest with guardrails |
+| `run-laws-duplicate-dry-run` | Report exact duplicate raw PDFs before widening |
+| `run-laws-tranche-source-prep-dry-run` | Inventory tranche inputs before conversion |
+| `run-laws-tranche-source-prep` | Run tranche conversion/refinement |
+| `run-laws-tranche-source-admission-dry-run` | Classify tranche outputs into ready-vs-blocked |
+| `run-laws-tranche-source-admission` | Admit selected tranche outputs into canonical pages |
+| `run-laws-tranche-source-to-graph-dry-run` | Stage admitted tranche members in dry-run mode |
+| `run-laws-tranche-source-to-graph` | Execute tranche source-to-graph wrapper |
+| `run-laws-completed-aggregate` | One-command aggregate graph for all completed lanes |
+| `build-laws-completed-aggregate-manifest` | Generate aggregate manifest from completed lanes |
+| `run-dataset-graph` | Run manifest-defined dataset graph pipeline |
+| `run-dataset-source-to-graph` | Bounded dataset pipeline through graph creation |
+| `summarize-dataset-build-report` | Summarize the latest dataset build report |
+
+### Maintenance & Utilities
+
+| Command | Description |
+|---|---|
+| `migrate-ids-plan` | Plan a canonical ID migration without applying |
+| `migrate-ids-apply` | Apply a previously planned ID migration |
+| `ple-kv-migrate` | Migrate SQLite ↔ RocksDB event/registry stores |
+| `ple-registry-purge` | Purge old rows from the stateful review registry |
+| `ple-cotrace-dump` | Summarize Chain-of-Thought audit directory |
+| `ple-vision-probe` | Check RAM headroom and Ollama model availability |
+| `ingest-spatial` | Ingest spatial artifacts into the spatial subsystem |
+| `evaluate-spatial` | Evaluate spatial rules against supplied observations |
+
+---
+
+## Knowledge Graph v2
+
+Vitruvius ships a **taxonomy-centered canonical knowledge graph** that separates evidence from canonical truth, and assertions from fast edges. Gated by `kg_transition.enabled`.
+
+**Architecture:**
+- **Evidence layer** — `DocumentVersion → Section → Chunk → EvidenceSpan` with resolvable selectors (`PdfBboxSelector`, `MarkdownRangeSelector`, `TextRangeSelector`)
+- **Canonical layer** — `Taxonomy → Topic → Subtopic → Concept / Rule / Definition / Procedure / Exception`
+- **Assertion layer** — Reified `RelationshipAssertion`, `PlacementAssertion`, `MergeAssertion`
+- **Safety gates** — `ExtractionValidator` (E1–E9), `AssertionValidator` (R1–R14), `ContradictionDetector` (4 patterns)
+- **Persistence** — File-native JSONL sidecars by default; optional Neo4j/PostgreSQL as Layer 5 indexes (AD-043)
+
+**Status:** Implementation complete (2026-04-19). 232+ KG-specific tests passing. Independent verification audit passed.
+
+**Authoritative artifacts:**
+- Post-implementation audit: `.ai/02_audits/2026-04-19_knowledge_graph_transition_post_implementation_audit.md`
+- Rectification plan: `.ai/03_plans/2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan.md`
+
+### Activating KG v2
+
+1. Edit `config/vitruvius.yaml`
+2. Set `kg_transition.enabled: true`
+3. Run `python scripts/pipeline_cli.py kg-seed-taxonomy`
+4. Ingest your first source: `python scripts/pipeline_cli.py kg-ingest-evidence <path>`
+5. Build the unified snapshot: `python scripts/pipeline_cli.py kg-build-unified`
+
+See [Workflow D](#workflow-d-i-want-to-activate-and-use-kg-v2) for the full step-by-step path.
+
+---
+
+## Dataset Automation (Laws Wave)
+
+Vitruvius has a **bounded, manifest-backed dataset automation system** proven on Philippine building laws. It operates tranche-by-tranche with explicit guardrails:
+
+- **Duplicate detection** — Exact-duplicate raw PDF clusters surfaced before widening
+- **OCR-first preparation** — Scanned documents prepared before admission
+- **Source admission** — Conservative ready-vs-blocked classification
+- **Concept-fit admission** — Minimal concept slices to clear shallow-representation guardrails
+- **Aggregate hardening** — Combined graph of all completed lanes with residual tracking
+
+**Current state:** 25 completed lanes, 41/47 raw folders covered, `saturated_truth_complete` status.
+
+**Artifact stack:**
+- `config/datasets/laws-completed-lanes.yaml`
+- `config/datasets/laws-remaining-dispositions.yaml`
+- `config/datasets/laws-source-provenance.yaml`
+- `config/datasets/laws-manifest-index.yaml`
+- `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
+
+### Running a tranche
+
+1. Create a tranche manifest YAML listing the families to process
+2. Dry-run: `python scripts/pipeline_cli.py run-laws-tranche-dry-run --manifest <path>`
+3. Prep sources: `python scripts/pipeline_cli.py run-laws-tranche-source-prep --manifest <path>`
+4. Admit: `python scripts/pipeline_cli.py run-laws-tranche-source-admission --manifest <path>`
+5. Build graph: `python scripts/pipeline_cli.py run-laws-tranche-source-to-graph --manifest <path>`
+
+See [Workflow E](#workflow-e-i-want-to-run-dataset-automation-laws-wave) for the full step-by-step path.
+
+---
+
+## Testing
+
+```bash
+# Full test suite
+python -m pytest scripts/tests/
+
+# KG-specific tests only
+python -m pytest scripts/tests/test_kg_*.py
+
+# Skip known pre-existing failures
+python -m pytest scripts/tests/ \
+  --ignore=scripts/tests/test_3d_upgrade_backcompat.py \
+  --ignore=scripts/tests/test_concept_stringency_migration.py \
+  --ignore=scripts/tests/test_wiring_backcompat.py \
+  --ignore=scripts/tests/test_wiring_e2e.py
+```
+
+**Current baseline:** 2048 passed, 17 skipped, 7 pre-existing unrelated failures.
+
+---
+
+## Current Status
+
+| System | Status |
+|---|---|
+| Core pipeline (scan → convert → refine → canonicalize → extract → review → promote → graph) | ✅ Operational |
+| Multi-parser integration (Phase 1B) | ✅ Complete (Docling, LibreOffice, OCR, Rust PDF parser) |
+| Normalization (Tier A/B) | ✅ Complete |
+| Concept layer (20 PD 1096 concepts) | ✅ 16/20 enriched, deterministic |
+| Relationship extraction | ✅ Regex-based, section-aware, 78% LLM savings via pre-review filter |
+| LLM review (Tier 1/2) | ✅ Complete with resume, retry, parallelization |
+| Promotion governance | ✅ Complete with audit log, rollback, dry-run |
+| Graph building (v1) | ✅ Complete |
+| Knowledge Graph v2 | ✅ Complete (2026-04-19) |
+| Dataset automation (laws wave) | ✅ 25 lanes complete, aggregate hardening active |
+| Spatial intelligence | ✅ Complete (TypeScript daemon, Z3 solver, IFC/OWL) |
+| Compound AI | ✅ Complete (adversarial swarm, Datalog bridge, DSPy compiler) |
+| High-performance backends | ✅ RocksDB (default), GraphSAGE PQ, MinHash LSH |
+
+**Active bounded lane:** `ready-family-aggregate` residual hardening (`143 nodes / 266 edges / 1 warning`).
+
+---
+
+## Documentation
+
+| Path | Purpose |
+|---|---|
+| `AGENTS.md` | Root operating contract for all AI agents |
+| `.ai/01_roadmap/master-roadmap.md` | Strategic roadmap, phase contracts, sprint ledger |
+| `.ai/01_roadmap/current-phase.md` | Live execution state and next valid gates |
+| `.ai/01_roadmap/milestone-tracker.md` | Completion truth for every phase |
+| `.ai/00_system/architecture.md` | Subsystem breakdown and runtime entry points |
+| `.ai/00_system/pipeline-overview.md` | Stage-by-stage execution flow |
+| `.ai/00_system/principles.md` | Non-negotiable architectural principles |
+| `.ai/02_audits/` | Independent verification audits |
+| `.ai/03_plans/` | Active implementation plans |
+| `.ai/05_logs/` | Validation and execution logs |
+| `.ai/10_state/decisions.md` | Architecture decision log (AD-001+) |
+
+---
+
+## License & Attribution
+
 Vitruvius is a **headless, mathematically rigorous AEC physics and compliance engine**. Public-domain Philippine law (PD 1096, etc.) serves as the reference development corpus. Vertical specialization into AEC is deliberate: it lets every line of optimization work target spatial geometry, clash detection, and building code compliance.

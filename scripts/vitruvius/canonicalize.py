@@ -10,7 +10,7 @@ import yaml
 from .concept_matching import find_concepts_in_text, load_concept_term_map
 from .constants import CONVERSION_LAYER_NAME
 from .paths import get_repo_root
-from .utils import assert_windows_safe_path
+from .utils import assert_windows_safe_path, slugify
 
 
 # --------------------------------------------------
@@ -28,14 +28,6 @@ VALID_PREFIXES = {
     "law-section",
     "source",
 }
-
-
-def slugify(value: str) -> str:
-    slug = value.lower()
-    slug = re.sub(r"[^a-z0-9]+", "-", slug)
-    slug = re.sub(r"-+", "-", slug)
-    slug = slug.strip("-")
-    return slug
 
 
 def validate_prefix(prefix: str):
@@ -332,13 +324,18 @@ def _clean_heading_title(title: str) -> str:
     return cleaned
 
 
+# Compiled once — used by extract_section_headers for plain-text heading detection.
+_PLAIN_HEADER_PATTERN_1 = re.compile(
+    r"^(RULE|SECTION|CHAPTER|DIVISION|APPENDIX|ANNEX|PART)\b[ .:-]*(.*)$",
+    re.IGNORECASE,
+)
+_PLAIN_HEADER_PATTERN_2 = re.compile(r"^(\d+)\.\s+(.+)$")
+
+
 def extract_section_headers(markdown_text: str) -> list[dict]:
     headers = []
     seen = set()
-    plain_patterns = [
-        re.compile(r"^(RULE|SECTION|CHAPTER|DIVISION|APPENDIX|ANNEX|PART)\b[ .:-]*(.*)$", re.IGNORECASE),
-        re.compile(r"^(\d+)\.\s+(.+)$"),
-    ]
+    plain_patterns = [_PLAIN_HEADER_PATTERN_1, _PLAIN_HEADER_PATTERN_2]
     for line in markdown_text.splitlines():
         stripped = line.strip()
         title = None

@@ -9,13 +9,18 @@ enriched_at_utc: '2026-04-17T11:16:00Z'
 regulatory_basis:
 - source_id: law-national-cultural-heritage-act-of-2009
   section_id: section-3-a
-  evidence_snippet: '"Adaptive reuse" shall refer to the utilization of buildings, other built-structures and sites of value for purposes other than that for which they were intended originally, in order to conserve the site, their engineering integrity and authenticity of design.'
+  evidence_snippet: '"Adaptive reuse" shall refer to the utilization of buildings, other built-structures and sites of value
+    for purposes other than that for which they were intended originally, in order to conserve the site, their engineering
+    integrity and authenticity of design.'
 stringency_vector: qualitative
 aliases:
 - adaptive reuse
 - heritage adaptive reuse
+taxonomy_path:
+- taxonomy-architecture
+- topic-history
+- subtopic-preservation
 ---
-
 # Adaptive Reuse
 
 ## Definition

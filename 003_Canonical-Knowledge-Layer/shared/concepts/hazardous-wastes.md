@@ -4,9 +4,12 @@ title: Hazardous Wastes
 page_type: concept
 canonical_status: placeholder
 concept_status: placeholder
-last_canonicalized_utc: 2026-04-18T02:33:03.153773+00:00
+last_canonicalized_utc: 2026-04-18 02:33:03.153773+00:00
+taxonomy_path:
+- taxonomy-site-infrastructure
+- topic-environmental
+- subtopic-waste
 ---
-
 # Hazardous Wastes
 
 ## Definition

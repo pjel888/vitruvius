@@ -279,6 +279,98 @@ Base work shipped inside Sprint D Stream I. No follow-up sprint has extended thi
 
 ---
 
+## Knowledge Graph Transition (Cross-Cutting) ✅ COMPLETE (2026-04-19)
+
+> This is not a sequential roadmap phase. It is a parallel architecture initiative that created the taxonomy-centered canonical knowledge graph system underneath Phases 5–12.
+
+### Phase 0 — Readiness ✅ COMPLETE
+- [x] AD-043 merged — operational DBs permitted as Layer 5 indexes
+- [x] Graph contract bumped to `2.0.0-alpha` (backward-compatible with `1.0.0`)
+- [x] Pydantic v2 models frozen in `scripts/vitruvius/kg/schemas.py` + `enums.py`
+- [x] Neo4j Cypher schema idempotent (`scripts/vitruvius/kg/neo4j_schema.cypher`)
+- [x] PostgreSQL DDL created (`scripts/vitruvius/db/schema.sql`)
+- [x] Taxonomy roots seeded (10 files in `003_Canonical-Knowledge-Layer/shared/taxonomy/`)
+- [x] Document version backfill script (`scripts/vitruvius/kg/backfill_document_versions.py`)
+- [x] Feature flags added (`kg_transition.*` block in `config/vitruvius.yaml`)
+- [x] Structured LLM client implemented (`scripts/vitruvius/llm/structured_client.py`)
+
+### Phase 1 — Evidence Graph ✅ COMPLETE
+- [x] `EvidenceIngestor` — document → version → section → chunk → span pipeline
+- [x] `EvidenceMaterializer` — generates evidence spans for relationship evidence
+- [x] `Neo4jEvidenceWriter` — writes evidence chain to Neo4j with MERGE patterns
+- [x] `SelectorResolver` — resolves selectors to text; validates quotes
+- [x] 12 evidence spans, 100% resolvable
+- [x] `kg-ingest-evidence` CLI command
+
+### Phase 2 — Atomic Extraction ✅ COMPLETE
+- [x] `ExtractionEngine` — chunk → prompt → LLM → validator → candidate
+- [x] `CandidateStore` — JSONL persistence with deterministic IDs
+- [x] Embeddings computed post-validation when embedder available
+- [x] 5 prompt templates (concept, definition, rule, procedure, exception)
+- [x] `kg-extract-candidates` CLI command
+- [x] `ExtractionValidator` (E1–E9 rules) wired into engine
+- [x] Evidence links derived from chunk IDs (critical bug fixed post-audit)
+
+### Phase 3 — Canonicalization & Placement ✅ COMPLETE
+- [x] `Canonicalizer` — deterministic dedupe + stable IDs
+- [x] `PlacementEngine` — 3-tier placement (rule → embedding → ambiguity)
+- [x] `MergeAdjudicator` — exact-match proposals
+- [x] `CanonicalStore` — JSONL persistence
+- [x] `kg-canonicalize-candidates` CLI command
+
+### Phase 4 — Assertion Layer ✅ COMPLETE
+- [x] `AssertionValidator` — R1–R14 rules
+- [x] `EdgeMaterializer` — materializes `BELONGS_TO` from `PlacementAssertion`
+- [x] `ContradictionDetector` — 4 deterministic patterns (new, post-audit)
+- [x] `kg-validate-assertions` CLI command (new, post-audit)
+- [x] `kg-detect-contradictions` CLI command (new, post-audit)
+
+### Phase 5 — Query & Retrieval ✅ COMPLETE
+- [x] `QueryEngine` v2 — placements, merges, evidence, neighborhood, taxonomy tree
+- [x] `CanonicalGraphBuilder` — unifies taxonomy + canonical nodes
+- [x] `UnifiedSnapshotBuilder` — backfills v1 `concepts/` + `relationships/` into v2 snapshot
+- [x] `kg-query-nodes` CLI command (new, post-audit)
+- [x] `kg-query-neighborhood` CLI command (new, post-audit)
+- [x] `kg-inspect-node` CLI command
+- [x] `kg-inspect-assertion` CLI command
+
+### Phase 6 — Deterministic Validation ✅ COMPLETE
+- [x] `ExtractionValidator` gates LLM output before canonical promotion
+- [x] `unit_type`, `label`, `text`, `confidence`, `traceability` rules enforced
+
+### Phase 7 — Retrieval & Inspection ✅ COMPLETE
+- [x] `kg-review-queue` CLI command
+- [x] `kg-review-action` CLI command
+- [x] Review queue filters by status; action mutates assertion state atomically
+
+### Phase 9 — Backfill & Unified Snapshots ✅ COMPLETE
+- [x] `UnifiedSnapshotBuilder` backfills existing canonical content
+- [x] Dual-write path exists for v1 → v2 migration
+
+### Phase 10 — Safety Gates ✅ COMPLETE
+- [x] Serialization contract tests (`test_kg_serialization_contract.py`)
+- [x] Evidence-link failure logging in `SelectorResolver`
+- [x] QueryEngine performance benchmarks (`test_kg_query_engine_perf.py`)
+
+### Post-Audit Rectification (2026-04-19) ✅ COMPLETE
+- [x] Critical `span_ids=[]` bug fixed in `ExtractionEngine`
+- [x] Prompt templates simplified to match `_RawCandidate` schema
+- [x] `contradiction_detector.py` created with 4-pattern detection
+- [x] `quiz_generator.py` created for canonical-node quiz generation
+- [x] `parity_checker.py` created for v1 vs v2 coverage comparison
+- [x] 4 new CLI commands: `kg-validate-assertions`, `kg-detect-contradictions`, `kg-query-nodes`, `kg-query-neighborhood`
+- [x] `evidence_ingestor.py` updated with richer markdown selectors (heading-path index)
+
+**Test totals:** 232+ KG tests passing (part of 2048 total suite, 7 pre-existing unrelated failures).
+
+**Authoritative post-implementation artifacts:**
+- Audit: `/.ai/02_audits/2026-04-19_knowledge_graph_transition_post_implementation_audit.md`
+- Rectification plan: `/.ai/03_plans/2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan.md`
+- Pre-implementation plans (archived): `/.ai/09_archive/plans/vitruvius_knowledge_graph_transition_implementation_plan.md`
+- Pre-implementation audit (archived): `/.ai/09_archive/audits/2026-04-18_knowledge_graph_transition_codebase_audit.md`
+
+---
+
 ## Cross-Phase Technical Debt
 See `/.ai/10_state/known_issues.md` for the risk register (RI-001…RI-011).
 

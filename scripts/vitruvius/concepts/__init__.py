@@ -10,21 +10,13 @@ continues to work byte-for-byte.
 
 from __future__ import annotations
 
-import re
 from datetime import datetime, timezone
 
 from ..paths import get_repo_root
+from ..utils import slugify
 
 
 VALID_PREFIX = "concept"
-
-
-def slugify(value: str) -> str:
-    slug = value.lower()
-    slug = re.sub(r"[^a-z0-9]+", "-", slug)
-    slug = re.sub(r"-+", "-", slug)
-    slug = slug.strip("-")
-    return slug
 
 
 def build_id(name: str) -> str:

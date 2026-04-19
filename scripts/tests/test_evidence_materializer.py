@@ -96,6 +96,21 @@ def fake_repo(tmp_path: Path) -> Path:
         "# Draft relationship\n"
     )
 
+    # Taxonomy root file
+    taxonomy_dir = canonical / "taxonomy"
+    taxonomy_dir.mkdir(parents=True)
+    (taxonomy_dir / "taxonomy-building-code.md").write_text(
+        "---\n"
+        "id: taxonomy-building-code\n"
+        "title: Building Code\n"
+        "page_type: taxonomy\n"
+        "canonical_status: validated\n"
+        "trust_level: primary\n"
+        "---\n\n"
+        "# Building Code\n\n"
+        "Top-level taxonomy node for building codes.\n"
+    )
+
     return repo
 
 
@@ -207,8 +222,9 @@ class TestTaxonomyLoader:
         loader = TaxonomyLoader(fake_repo)
         snapshot = loader.load_all()
 
-        assert len(snapshot.canonical_nodes) == 1
-        node = snapshot.canonical_nodes[0]
+        concepts = [n for n in snapshot.canonical_nodes if n.type == "concept"]
+        assert len(concepts) == 1
+        node = concepts[0]
         assert node.id == "concept-building-permit"
         assert node.type == "concept"
         assert node.label == "Building Permit"
@@ -247,7 +263,7 @@ class TestTaxonomyLoader:
         assert path.exists()
         data = json.loads(path.read_text(encoding="utf-8"))
         assert data["schema_version"] == SCHEMA_VERSION
-        assert len(data["canonical_nodes"]) == 1
+        assert len(data["canonical_nodes"]) == 2
 
     def test_missing_concepts_dir_warns(self, tmp_path: Path) -> None:
         repo = tmp_path / "empty_repo"
@@ -256,6 +272,28 @@ class TestTaxonomyLoader:
         snapshot = loader.load_all()
         assert len(snapshot.canonical_nodes) == 0
         assert any("Concepts directory not found" in w for w in loader._warnings)
+
+    def test_load_all_includes_taxonomy_roots(self, fake_repo: Path) -> None:
+        loader = TaxonomyLoader(fake_repo)
+        snapshot = loader.load_all()
+
+        taxonomy_nodes = [n for n in snapshot.canonical_nodes if n.type == "taxonomy"]
+        assert len(taxonomy_nodes) == 1
+        node = taxonomy_nodes[0]
+        assert node.id == "taxonomy-building-code"
+        assert node.label == "Building Code"
+        assert node.slug == "building-code"
+        assert node.status == ValidationState.VALIDATED
+        assert node.taxonomy_path == ["building-code"]
+
+    def test_concepts_and_taxonomy_both_loaded(self, fake_repo: Path) -> None:
+        loader = TaxonomyLoader(fake_repo)
+        snapshot = loader.load_all()
+
+        concepts = [n for n in snapshot.canonical_nodes if n.type == "concept"]
+        taxonomies = [n for n in snapshot.canonical_nodes if n.type == "taxonomy"]
+        assert len(concepts) == 1
+        assert len(taxonomies) == 1
 
 
 # ---------------------------------------------------------------------------

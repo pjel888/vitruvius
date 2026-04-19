@@ -643,6 +643,89 @@ def build_parser() -> argparse.ArgumentParser:
     add_command_parser(subparsers, "kg-backfill-evidence")
     add_command_parser(subparsers, "kg-seed-taxonomy")
 
+    # Phase 2 — atomic knowledge extraction
+    kg_extract_parser = add_command_parser(subparsers, "kg-extract-candidates")
+    kg_extract_parser.add_argument(
+        "--snapshot",
+        default=None,
+        help="Path to a kg-v2 snapshot JSON (defaults to latest in 005_Operational-Intelligence-Layer/graph/kg-v2/)",
+    )
+    kg_extract_parser.add_argument(
+        "--out-dir",
+        default=None,
+        help="Output directory for candidate JSONL (defaults to 006_System-Manifests/runs/kg_candidates/)",
+    )
+    kg_extract_parser.add_argument(
+        "--unit-types",
+        default="concept,definition,rule,procedure,exception",
+        help="Comma-separated list of unit types to extract",
+    )
+    kg_extract_parser.add_argument(
+        "--run-id",
+        default=None,
+        help="Extraction run ID (defaults to ISO timestamp)",
+    )
+
+    # Phase 3 — canonicalize and place
+    kg_canonical_parser = add_command_parser(subparsers, "kg-canonicalize-candidates")
+    kg_canonical_parser.add_argument(
+        "--candidates",
+        default=None,
+        help="Path to candidate JSONL from kg-extract-candidates (defaults to latest in 006_System-Manifests/runs/kg_candidates/)",
+    )
+    kg_canonical_parser.add_argument(
+        "--out-dir",
+        default=None,
+        help="Output directory for canonical JSONL (defaults to 006_System-Manifests/runs/kg_canonical/)",
+    )
+    kg_canonical_parser.add_argument(
+        "--run-id",
+        default=None,
+        help="Canonicalization run ID (defaults to ISO timestamp)",
+    )
+
+    # Phase 4 — materialize canonical graph
+    kg_materialize_parser = add_command_parser(subparsers, "kg-materialize-canonical")
+    kg_materialize_parser.add_argument(
+        "--taxonomy-snapshot",
+        default=None,
+        help="Path to taxonomy snapshot JSON (defaults to latest kg-v2 taxonomy)",
+    )
+    kg_materialize_parser.add_argument(
+        "--canonical-jsonl",
+        default=None,
+        help="Path to Phase 3 canonical JSONL (defaults to latest in kg_canonical/)",
+    )
+    kg_materialize_parser.add_argument(
+        "--out-path",
+        default=None,
+        help="Output path for unified canonical snapshot",
+    )
+
+    # Phase 4b — assertion validation
+    kg_validate_parser = add_command_parser(subparsers, "kg-validate-assertions")
+    kg_validate_parser.add_argument(
+        "--snapshot",
+        default=None,
+        help="Path to a kg-v2 snapshot JSON (defaults to latest in kg-v2/)",
+    )
+
+    # Phase 4c — contradiction detection
+    kg_contra_parser = add_command_parser(subparsers, "kg-detect-contradictions")
+    kg_contra_parser.add_argument(
+        "--snapshot",
+        default=None,
+        help="Path to a kg-v2 snapshot JSON (defaults to latest in kg-v2/)",
+    )
+
+    # Phase 5/9 — build unified snapshot from all canonical sources
+    kg_unified_parser = add_command_parser(subparsers, "kg-build-unified")
+    kg_unified_parser.add_argument(
+        "--out-path",
+        default=None,
+        help="Output path for unified snapshot (defaults to kg-v2/)",
+    )
+
     # Sprint KG — review queue (Gate 6)
     kg_review_queue_parser = add_command_parser(subparsers, "kg-review-queue")
     kg_review_queue_parser.add_argument(
@@ -677,6 +760,58 @@ def build_parser() -> argparse.ArgumentParser:
         "--snapshot",
         default=None,
         help="Path to a kg-v2 snapshot JSON (defaults to latest in 005_Operational-Intelligence-Layer/graph/kg-v2/)",
+    )
+
+    # Phase 7 — canonical graph inspection
+    kg_inspect_node_parser = add_command_parser(subparsers, "kg-inspect-node")
+    kg_inspect_node_parser.add_argument(
+        "node_id",
+        help="Canonical node ID to inspect",
+    )
+    kg_inspect_node_parser.add_argument(
+        "--snapshot",
+        default=None,
+        help="Path to a kg-v2 snapshot JSON (defaults to latest in kg-v2/)",
+    )
+
+    kg_inspect_assertion_parser = add_command_parser(subparsers, "kg-inspect-assertion")
+    kg_inspect_assertion_parser.add_argument(
+        "assertion_id",
+        help="Assertion ID to inspect",
+    )
+    kg_inspect_assertion_parser.add_argument(
+        "--snapshot",
+        default=None,
+        help="Path to a kg-v2 snapshot JSON (defaults to latest in kg-v2/)",
+    )
+
+    # Phase 5 — canonical-first query commands
+    kg_query_nodes_parser = add_command_parser(subparsers, "kg-query-nodes")
+    kg_query_nodes_parser.add_argument(
+        "query",
+        help="Label substring to search for",
+    )
+    kg_query_nodes_parser.add_argument(
+        "--snapshot",
+        default=None,
+        help="Path to a kg-v2 snapshot JSON (defaults to latest in kg-v2/)",
+    )
+    kg_query_nodes_parser.add_argument(
+        "--limit",
+        type=int,
+        default=10,
+        help="Maximum results to return",
+    )
+
+    kg_query_neighborhood_parser = add_command_parser(subparsers, "kg-query-neighborhood")
+    kg_query_neighborhood_parser.add_argument(
+        "node_id",
+        help="Canonical node ID to explore",
+    )
+    kg_query_neighborhood_parser.add_argument(
+        "--snapshot",
+        default=None,
+        help="Path to a kg-v2 snapshot JSON (defaults to latest in kg-v2/)",
     )
 
     evaluate_spatial_parser = add_command_parser(subparsers, "evaluate-spatial")
@@ -2010,9 +2145,18 @@ def main() -> int:
                 print(f"  - {w}")
         return 0
 
-    if args.command == "kg-review-queue":
+    if args.command == "kg-extract-candidates":
+        from vitruvius.config import is_kg_enabled
+        from vitruvius.kg.candidate_store import CandidateStore
+        from vitruvius.kg.extraction_engine import ExtractionEngine
+        from vitruvius.kg.json_evidence_store import KgV2Snapshot
         from vitruvius.kg.query_engine import QueryEngine
+        from vitruvius.llm.structured_client import StructuredLLMClient
         from vitruvius.paths import get_repo_root
+
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
 
         snap_path = args.snapshot
         if snap_path is None:
@@ -2023,10 +2167,344 @@ def main() -> int:
                 return 1
             snap_path = candidates[0]
 
+        snapshot = KgV2Snapshot.read(Path(snap_path))
+        unit_types = [t.strip() for t in args.unit_types.split(",") if t.strip()]
+        run_id = args.run_id or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+        llm = StructuredLLMClient(
+            backend="ollama",
+            ollama_model="qwen2.5:3b",
+            max_retries=2,
+            timeout_seconds=120,
+        )
+        engine = ExtractionEngine(llm=llm)
+        results = engine.extract_from_snapshot(
+            snapshot=snapshot,
+            unit_types=unit_types,
+            run_id=run_id,
+        )
+
+        store = CandidateStore(
+            base_dir=Path(args.out_dir) if args.out_dir else None
+        )
+        path = store.save(results, run_id=run_id)
+        print(f"Wrote {len(results)} extraction results to {path}")
+        total_candidates = sum(len(r.candidates) for r in results)
+        print(f"Total candidates extracted: {total_candidates}")
+        return 0
+
+    if args.command == "kg-canonicalize-candidates":
+        from vitruvius.config import is_kg_enabled
+        from vitruvius.kg.canonical_store import CanonicalStore
+        from vitruvius.kg.canonicalizer import Canonicalizer
+        from vitruvius.kg.candidate_store import CandidateStore
+        from vitruvius.kg.merge_adjudicator import MergeAdjudicator
+        from vitruvius.kg.placement_engine import PlacementEngine
+        from vitruvius.paths import get_repo_root
+
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
+
+        cand_path = args.candidates
+        if cand_path is None:
+            cand_dir = get_repo_root() / "006_System-Manifests" / "runs" / "kg_candidates"
+            candidates = sorted(cand_dir.glob("*_kg_candidates.jsonl"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No candidate file found in {cand_dir}")
+                return 1
+            cand_path = candidates[0]
+
+        run_id = args.run_id or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+        # Load all candidates
+        cand_store = CandidateStore()
+        all_results = cand_store.load(Path(cand_path))
+        all_candidates = []
+        for result in all_results:
+            all_candidates.extend(result.candidates)
+
+        if not all_candidates:
+            print("WARNING: No candidates found in input file.")
+            return 0
+
+        # Phase 3a: Canonicalize
+        canonicalizer = Canonicalizer()
+        nodes = canonicalizer.canonicalize(all_candidates)
+        print(f"Canonicalized {len(all_candidates)} candidates into {len(nodes)} nodes")
+
+        # Phase 3b: Placement
+        # Build taxonomy nodes from existing snapshot (if available)
+        from vitruvius.kg.json_evidence_store import KgV2Snapshot
+        from vitruvius.kg.schemas import TaxonomyNode
+
+        tax_nodes: list[TaxonomyNode] = []
+        snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+        snap_candidates = sorted(snap_dir.glob("*_kg_v2_taxonomy.json"), reverse=True)
+        if snap_candidates:
+            tax_snapshot = KgV2Snapshot.read(snap_candidates[0])
+            for cn in tax_snapshot.canonical_nodes:
+                if cn.type.value == "taxonomy":
+                    tax_nodes.append(
+                        TaxonomyNode(
+                            id=cn.id,
+                            path=cn.taxonomy_path or [cn.slug],
+                            label=cn.label,
+                            embedding=None,
+                        )
+                    )
+
+        placement_engine = PlacementEngine(tax_nodes)
+        placements: list[PlacementAssertion] = []
+        from vitruvius.kg.schemas import PlacementAssertion
+        from vitruvius.kg.enums import ValidationState
+
+        for node in nodes:
+            paths = placement_engine.place(node)
+            for path in paths:
+                parent_id = None
+                for tn in tax_nodes:
+                    if "/".join(tn.path) == path:
+                        parent_id = tn.id
+                        break
+                if parent_id is None:
+                    parent_id = path  # fallback to path string as parent id
+                placements.append(
+                    PlacementAssertion(
+                        id=f"assert-placement-{node.id}-to-{parent_id}",
+                        node_id=node.id,
+                        parent_node_id=parent_id,
+                        reasoning_summary=f"Placed via {'rule' if node.type in placement_engine.RULE_PATHS else 'embedding'} strategy",
+                        confidence=node.confidence,
+                        validation_status=ValidationState.CANDIDATE,
+                        evidence_ids=[],
+                        created_at=datetime.now(timezone.utc).isoformat(),
+                        version=1,
+                    )
+                )
+
+        # Phase 3c: Merge adjudication
+        merge_adjudicator = MergeAdjudicator()
+        merges = merge_adjudicator.propose(nodes)
+        print(f"Proposed {len(merges)} merge assertions")
+
+        # Write output
+        canonical_store = CanonicalStore(
+            base_dir=Path(args.out_dir) if args.out_dir else None
+        )
+        out_path = canonical_store.save(nodes, placements, merges, run_id=run_id)
+        print(f"Wrote canonicalization artifacts to {out_path}")
+        return 0
+
+    if args.command == "kg-materialize-canonical":
+        from vitruvius.config import is_kg_enabled
+        from vitruvius.kg.canonical_graph_builder import CanonicalGraphBuilder
+        from vitruvius.paths import get_repo_root
+
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
+
+        # Resolve taxonomy snapshot
+        tax_path = args.taxonomy_snapshot
+        if tax_path is None:
+            tax_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+            tax_candidates = sorted(tax_dir.glob("*_kg_v2_taxonomy.json"), reverse=True)
+            if not tax_candidates:
+                print(f"ERROR: No taxonomy snapshot found in {tax_dir}")
+                return 1
+            tax_path = tax_candidates[0]
+
+        # Resolve canonical JSONL
+        canonical_path = args.canonical_jsonl
+        if canonical_path is None:
+            canonical_dir = get_repo_root() / "006_System-Manifests" / "runs" / "kg_canonical"
+            canonical_candidates = sorted(canonical_dir.glob("*_kg_canonical.jsonl"), reverse=True)
+            if not canonical_candidates:
+                print(f"ERROR: No canonical JSONL found in {canonical_dir}")
+                return 1
+            canonical_path = canonical_candidates[0]
+
+        builder = CanonicalGraphBuilder()
+        builder.load_taxonomy_snapshot(Path(tax_path))
+        builder.load_canonical_jsonl(Path(canonical_path))
+        snapshot = builder.build()
+
+        out_path = builder.write_snapshot(Path(args.out_path) if args.out_path else None)
+        print(f"Wrote unified canonical snapshot to {out_path}")
+        counts = snapshot.entity_counts()
+        for key, count in counts.items():
+            print(f"  {key}: {count}")
+        if builder._warnings:
+            print(f"Warnings ({len(builder._warnings)}):")
+            for w in builder._warnings[:10]:
+                print(f"  - {w}")
+        return 0
+
+    if args.command == "kg-validate-assertions":
+        from vitruvius.kg.assertion_validator import AssertionValidator
+        from vitruvius.kg.json_evidence_store import KgV2Snapshot
+        from vitruvius.paths import get_repo_root
+
+        snap_path = args.snapshot
+        if snap_path is None:
+            snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+            candidates = sorted(snap_dir.glob("*_kg_v2_*.json"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No snapshot found in {snap_dir}")
+                return 1
+            snap_path = candidates[0]
+
+        snap = KgV2Snapshot.read(Path(snap_path))
+
+        # Build indexes for validation
+        canonical_index = {
+            n.id: {"type": n.type.value, "status": n.status.value}
+            for n in snap.canonical_nodes
+        }
+        evidence_index = {e.id: {"id": e.id} for e in snap.evidence_spans}
+        placement_index = {
+            p.node_id: p.parent_node_id for p in snap.placement_assertions
+        }
+        merge_index = {
+            m.from_node_id: m.to_node_id for m in snap.merge_assertions
+        }
+
+        validator = AssertionValidator(
+            canonical_index=canonical_index,
+            evidence_index=evidence_index,
+            placement_index=placement_index,
+            merge_index=merge_index,
+        )
+
+        total = 0
+        passed = 0
+        for assertion in snap.relationship_assertions:
+            result = validator.validate_relationship(assertion)
+            total += 1
+            if result.passed:
+                passed += 1
+            else:
+                print(f"FAIL {assertion.id}: {'; '.join(result.errors)}")
+
+        for assertion in snap.placement_assertions:
+            result = validator.validate_placement(assertion)
+            total += 1
+            if result.passed:
+                passed += 1
+            else:
+                print(f"FAIL {assertion.id}: {'; '.join(result.errors)}")
+
+        for assertion in snap.merge_assertions:
+            result = validator.validate_merge(assertion)
+            total += 1
+            if result.passed:
+                passed += 1
+            else:
+                print(f"FAIL {assertion.id}: {'; '.join(result.errors)}")
+
+        print(f"Validated {total} assertions: {passed} passed, {total - passed} failed")
+        return 0
+
+    if args.command == "kg-detect-contradictions":
+        from vitruvius.kg.contradiction_detector import ContradictionDetector
+        from vitruvius.kg.json_evidence_store import KgV2Snapshot
+        from vitruvius.paths import get_repo_root
+
+        snap_path = args.snapshot
+        if snap_path is None:
+            snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+            candidates = sorted(snap_dir.glob("*_kg_v2_*.json"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No snapshot found in {snap_dir}")
+                return 1
+            snap_path = candidates[0]
+
+        snap = KgV2Snapshot.read(Path(snap_path))
+        detector = ContradictionDetector()
+        issues = detector.detect(snap.relationship_assertions)
+
+        if not issues:
+            print("No contradictions detected.")
+            return 0
+
+        critical = sum(1 for i in issues if i.severity == "critical")
+        warning = sum(1 for i in issues if i.severity == "warning")
+        print(f"Detected {len(issues)} issues ({critical} critical, {warning} warning):")
+        for issue in issues:
+            print(f"  [{issue.severity.upper()}] {issue.pattern}: {issue.description}")
+            print(f"    Assertions: {', '.join(issue.assertion_ids)}")
+            print(f"    Suggested action: {issue.suggested_action}")
+        return 0
+
+    if args.command == "kg-build-unified":
+        from vitruvius.config import is_kg_enabled
+        from vitruvius.kg.unified_snapshot_builder import UnifiedSnapshotBuilder
+        from vitruvius.paths import get_repo_root
+
+        if not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
+            return 1
+
+        builder = UnifiedSnapshotBuilder(repo_root=get_repo_root())
+        snapshot = builder.build()
+        out_path = builder.write_snapshot(
+            snapshot=snapshot,
+            out_path=Path(args.out_path) if args.out_path else None,
+        )
+        print(f"Wrote unified snapshot to {out_path}")
+        counts = snapshot.entity_counts()
+        for key, count in counts.items():
+            print(f"  {key}: {count}")
+        if builder._warnings:
+            print(f"Warnings ({len(builder._warnings)}):")
+            for w in builder._warnings[:10]:
+                print(f"  - {w}")
+        return 0
+
+    if args.command == "kg-review-queue":
+        from vitruvius.kg.query_engine import QueryEngine
+        from vitruvius.paths import get_repo_root
+
+        snap_path = args.snapshot
+        if snap_path is None:
+            snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+            candidates = sorted(snap_dir.glob("*_kg_v2_*.json"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No snapshot found in {snap_dir}")
+                return 1
+            snap_path = candidates[0]
+
         engine = QueryEngine.from_path(snap_path)
         target_status = args.status.lower()
         rows: list[tuple[str, str, str, float, str]] = []
+
+        # Relationship assertions
         for assertion in engine.snapshot.relationship_assertions:
+            if assertion.validation_status.value.lower() == target_status:
+                rows.append(
+                    (
+                        assertion.id,
+                        assertion.from_node_id,
+                        assertion.to_node_id,
+                        assertion.confidence,
+                        assertion.reasoning_summary.replace("\n", " ")[:60],
+                    )
+                )
+        # Placement assertions
+        for assertion in engine.snapshot.placement_assertions:
+            if assertion.validation_status.value.lower() == target_status:
+                rows.append(
+                    (
+                        assertion.id,
+                        assertion.node_id,
+                        assertion.parent_node_id,
+                        assertion.confidence,
+                        assertion.reasoning_summary.replace("\n", " ")[:60],
+                    )
+                )
+        # Merge assertions
+        for assertion in engine.snapshot.merge_assertions:
             if assertion.validation_status.value.lower() == target_status:
                 rows.append(
                     (
@@ -2040,7 +2518,7 @@ def main() -> int:
         if not rows:
             print(f"No assertions with status '{args.status}'.")
             return 0
-        print(f"{'ID':<40} {'From':<30} {'To':<30} {'Conf':>6} {'Reasoning'}")
+        print(f"{'ID':<40} {'From/Node':<30} {'To/Parent':<30} {'Conf':>6} {'Reasoning'}")
         print("-" * 130)
         for rid, from_n, to_n, conf, reason in rows:
             print(f"{rid:<40} {from_n:<30} {to_n:<30} {conf:>6.2f} {reason}")
@@ -2055,7 +2533,7 @@ def main() -> int:
         snap_path = args.snapshot
         if snap_path is None:
             snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
-            candidates = sorted(snap_dir.glob("*_kg_v2_snapshot.json"), reverse=True)
+            candidates = sorted(snap_dir.glob("*_kg_v2_*.json"), reverse=True)
             if not candidates:
                 print(f"ERROR: No snapshot found in {snap_dir}")
                 return 1
@@ -2063,19 +2541,22 @@ def main() -> int:
 
         snap = KgV2Snapshot.read(Path(snap_path))
         matched = False
-        for assertion in snap.relationship_assertions:
+        all_assertions = (
+            snap.relationship_assertions
+            + snap.placement_assertions
+            + snap.merge_assertions
+        )
+        for assertion in all_assertions:
             if assertion.id == args.assertion_id:
                 matched = True
                 if args.action == "approve":
                     assertion.validation_status = ValidationState.VALIDATED
-                    assertion.review_state = "approved"
                 elif args.action == "reject":
                     assertion.validation_status = ValidationState.REJECTED
-                    assertion.review_state = "rejected"
                 else:  # escalate
                     assertion.validation_status = ValidationState.REVIEW_REQUIRED
-                    assertion.review_state = "escalated"
-                if args.reason:
+                # Add reasoning detail if RelationshipAssertion supports it
+                if hasattr(assertion, "reasoning_detail") and args.reason:
                     assertion.reasoning_detail.append(f"[{args.action}] {args.reason}")
                 break
 
@@ -2085,6 +2566,197 @@ def main() -> int:
 
         snap.write(Path(snap_path))
         print(f"Updated {args.assertion_id} → {args.action}")
+        return 0
+
+    if args.command == "kg-inspect-node":
+        from vitruvius.kg.query_engine import QueryEngine
+        from vitruvius.paths import get_repo_root
+
+        snap_path = args.snapshot
+        if snap_path is None:
+            snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+            candidates = sorted(snap_dir.glob("*_kg_v2_*.json"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No snapshot found in {snap_dir}")
+                return 1
+            snap_path = candidates[0]
+
+        engine = QueryEngine.from_path(snap_path)
+        node = engine.get_node_by_id(args.node_id)
+        if node is None:
+            print(f"ERROR: Node '{args.node_id}' not found.")
+            return 1
+
+        print(f"Node: {node.id}")
+        print(f"  Type: {node.type.value}")
+        print(f"  Label: {node.label}")
+        print(f"  Slug: {node.slug}")
+        print(f"  Summary: {node.summary[:200]}..." if len(node.summary) > 200 else f"  Summary: {node.summary}")
+        print(f"  Taxonomy path: {' / '.join(node.taxonomy_path) if node.taxonomy_path else '(none)'}")
+        print(f"  Status: {node.status.value}")
+        print(f"  Confidence: {node.confidence}")
+        print(f"  Aliases: {', '.join(node.aliases) if node.aliases else '(none)'}")
+
+        placements = engine.get_placement_for_node(node.id)
+        if placements:
+            print(f"\n  Placements ({len(placements)}):")
+            for p in placements:
+                print(f"    → {p.parent_node_id} ({p.validation_status.value}, conf={p.confidence})")
+
+        neighbors = engine.get_node_neighborhood(node.id)
+        if neighbors:
+            print(f"\n  Related nodes ({len(neighbors)}):")
+            for other, assertion in neighbors:
+                print(f"    → {other.id} [{assertion.edge_type.value if hasattr(assertion, 'edge_type') else 'BELONGS_TO'}] {assertion.reasoning_summary[:60]}")
+
+        evidence = engine.get_evidence_for_node(node.id)
+        if evidence:
+            print(f"\n  Evidence spans ({len(evidence)}):")
+            for span in evidence:
+                print(f"\n    ── [{span.id}] ──")
+                print(f"       Document: {span.document_id}")
+                print(f"       Quote:    {span.quote[:100]}...")
+                print(f"       Deep link: {span.deep_link or '(none)'}")
+                sel = span.selector
+                if hasattr(sel, "kind"):
+                    print(f"       Selector: {sel.kind}")
+                    if sel.kind == "markdown_range" and hasattr(sel, "heading_path"):
+                        print(f"         Heading path: {' > '.join(sel.heading_path)}")
+                    if sel.kind == "pdf_page" and hasattr(sel, "page"):
+                        print(f"         Page: {sel.page}")
+
+        merges = engine.get_merge_assertions_for_node(node.id)
+        if merges:
+            print(f"\n  Merge proposals ({len(merges)}):")
+            for m in merges:
+                direction = "→" if m.from_node_id == node.id else "←"
+                other = m.to_node_id if m.from_node_id == node.id else m.from_node_id
+                print(f"    {direction} {other} ({m.validation_status.value})")
+        return 0
+
+    if args.command == "kg-inspect-assertion":
+        from vitruvius.kg.query_engine import QueryEngine
+        from vitruvius.paths import get_repo_root
+
+        snap_path = args.snapshot
+        if snap_path is None:
+            snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+            candidates = sorted(snap_dir.glob("*_kg_v2_*.json"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No snapshot found in {snap_dir}")
+                return 1
+            snap_path = candidates[0]
+
+        engine = QueryEngine.from_path(snap_path)
+        assertion = engine.get_assertion_by_id(args.assertion_id)
+        if assertion is None:
+            print(f"ERROR: Assertion '{args.assertion_id}' not found.")
+            return 1
+
+        print(f"Assertion: {assertion.id}")
+        print(f"  Type: {type(assertion).__name__}")
+        print(f"  Confidence: {assertion.confidence}")
+        print(f"  Status: {assertion.validation_status.value}")
+        print(f"  Reasoning: {assertion.reasoning_summary}")
+
+        if hasattr(assertion, "edge_type"):
+            print(f"  Edge type: {assertion.edge_type.value}")
+        if hasattr(assertion, "inference_type"):
+            print(f"  Inference type: {assertion.inference_type.value}")
+            print(f"    → {'Direct citation' if assertion.inference_type.value == 'direct_citation' else 'Multi-hop inference' if assertion.inference_type.value == 'multi_hop_inference' else 'Human authored' if assertion.inference_type.value == 'human_authored' else assertion.inference_type.value}")
+        if hasattr(assertion, "from_node_id"):
+            print(f"  From: {assertion.from_node_id}")
+        if hasattr(assertion, "to_node_id"):
+            print(f"  To: {assertion.to_node_id}")
+        if hasattr(assertion, "node_id"):
+            print(f"  Node: {assertion.node_id}")
+        if hasattr(assertion, "parent_node_id"):
+            print(f"  Parent: {assertion.parent_node_id}")
+        if hasattr(assertion, "created_by"):
+            cb = assertion.created_by
+            print(f"  Created by:")
+            print(f"    Mode: {cb.mode}")
+            print(f"    Model: {cb.model or '(none)'}")
+            print(f"    Pipeline stage: {cb.pipeline_stage}")
+            print(f"    Run ID: {cb.run_id or '(none)'}")
+        if hasattr(assertion, "review_state"):
+            print(f"  Review state: {assertion.review_state}")
+
+        evidence = engine.get_evidence_for_assertion(assertion.id)
+        if evidence:
+            print(f"\n  Evidence spans ({len(evidence)}):")
+            for span in evidence:
+                print(f"\n    ── [{span.id}] ──")
+                print(f"       Document: {span.document_id}")
+                print(f"       Version:  {span.document_version_id}")
+                print(f"       Quote:    {span.quote[:120]}...")
+                print(f"       Deep link: {span.deep_link or '(none)'}")
+                print(f"       Parser:   {span.parser} {span.parser_version or ''}")
+                print(f"       Checksum: {span.checksum[:16]}...")
+                sel = span.selector
+                if hasattr(sel, "kind"):
+                    print(f"       Selector: {sel.kind}")
+                    if sel.kind == "markdown_range" and hasattr(sel, "heading_path"):
+                        print(f"         Heading path: {' > '.join(sel.heading_path)}")
+                    if sel.kind == "pdf_page" and hasattr(sel, "page"):
+                        print(f"         Page: {sel.page}")
+                    if sel.kind == "pdf_bbox" and hasattr(sel, "page"):
+                        print(f"         Page: {sel.page}, BBox: {sel.bbox}")
+                    if hasattr(sel, "char_start"):
+                        print(f"         Char range: {sel.char_start}-{sel.char_end}")
+        else:
+            print("\n  Evidence spans: none")
+        return 0
+
+    if args.command == "kg-query-nodes":
+        from vitruvius.kg.query_engine import QueryEngine
+        from vitruvius.paths import get_repo_root
+
+        snap_path = args.snapshot
+        if snap_path is None:
+            snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+            candidates = sorted(snap_dir.glob("*_kg_v2_*.json"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No snapshot found in {snap_dir}")
+                return 1
+            snap_path = candidates[0]
+
+        engine = QueryEngine.from_path(snap_path)
+        results = engine.search_nodes_by_label(args.query, limit=args.limit)
+        if not results:
+            print(f"No nodes matching '{args.query}'")
+            return 0
+
+        for node in results:
+            print(f"{node.id} [{node.type.value}] {node.label}")
+            if node.summary:
+                print(f"  Summary: {node.summary[:120]}...")
+        return 0
+
+    if args.command == "kg-query-neighborhood":
+        from vitruvius.kg.query_engine import QueryEngine
+        from vitruvius.paths import get_repo_root
+
+        snap_path = args.snapshot
+        if snap_path is None:
+            snap_dir = get_repo_root() / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2"
+            candidates = sorted(snap_dir.glob("*_kg_v2_*.json"), reverse=True)
+            if not candidates:
+                print(f"ERROR: No snapshot found in {snap_dir}")
+                return 1
+            snap_path = candidates[0]
+
+        engine = QueryEngine.from_path(snap_path)
+        neighbors = engine.get_node_neighborhood(args.node_id)
+        if not neighbors:
+            print(f"No neighbors found for '{args.node_id}'")
+            return 0
+
+        print(f"Neighborhood of {args.node_id}:")
+        for node, assertion in neighbors:
+            print(f"  → {node.id} [{node.type.value}] {node.label}")
+            print(f"    Assertion: {assertion.id} ({assertion.edge_type.value})")
+            print(f"    Reason: {assertion.reasoning_summary[:120]}...")
         return 0
 
     parser.print_help()

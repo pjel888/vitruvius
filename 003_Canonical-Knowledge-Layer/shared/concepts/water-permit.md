@@ -9,16 +9,22 @@ enriched_at_utc: '2026-04-17T10:52:00Z'
 regulatory_basis:
 - source_id: law-water-code-of-the-philippines
   section_id: article-13
-  evidence_snippet: 'No person shall appropriate water without a water right, which shall be evidenced by a document known as a water permit.'
+  evidence_snippet: No person shall appropriate water without a water right, which
+    shall be evidenced by a document known as a water permit.
 - source_id: irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines
   section_id: section-45
-  evidence_snippet: 'No person shall drill any well for the extraction of groundwater or make any alteration to any existing well without securing a permit from the Board.'
+  evidence_snippet: No person shall drill any well for the extraction of groundwater
+    or make any alteration to any existing well without securing a permit from the
+    Board.
 stringency_vector: qualitative
 aliases:
 - water permit
 - permit to use water
+taxonomy_path:
+- taxonomy-regulatory-permits
+- topic-administrative
+- subtopic-environmental
 ---
-
 # Water Permit
 
 ## Definition

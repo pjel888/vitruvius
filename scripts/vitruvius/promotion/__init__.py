@@ -37,14 +37,7 @@ def append_audit_entry(log_path: Path, entry: AuditEntry) -> None:
         f.write(line)
 
 
-_SLUG_NON_ALNUM = re.compile(r"[^a-z0-9]+")
-
-
-def slugify(value: str) -> str:
-    value = value.lower()
-    value = _SLUG_NON_ALNUM.sub("-", value)
-    value = re.sub(r"-+", "-", value)
-    return value.strip("-")
+from ..utils import slugify
 
 
 def short_hash(value: str) -> str:

@@ -6,8 +6,11 @@ trust_level: derived
 canonical_status: enriched
 aliases:
 - architectural history
+taxonomy_path:
+- taxonomy-architecture
+- topic-history
+- subtopic-general
 ---
-
 # architectural history
 
 ## Draft Concept Summary

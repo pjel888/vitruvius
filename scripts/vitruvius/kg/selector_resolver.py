@@ -39,7 +39,15 @@ class SelectorResolver:
         quote does not match.
         """
         selector = span.selector
-        source_path = self._locate_source(span.document_version_id)
+        try:
+            source_path = self._locate_source(span.document_version_id)
+        except FileNotFoundError as exc:
+            logger.warning(
+                "Evidence-link failure: cannot locate source for %s: %s",
+                span.document_version_id,
+                exc,
+            )
+            raise
 
         if isinstance(selector, PdfBboxSelector):
             resolved = self._resolve_pdf_bbox(source_path, selector)
@@ -50,10 +58,22 @@ class SelectorResolver:
         elif isinstance(selector, TextRangeSelector):
             resolved = self._resolve_text_range(source_path, selector)
         else:
+            logger.warning(
+                "Evidence-link failure: unsupported selector kind %r for span %s",
+                selector.kind,
+                span.id,
+            )
             raise ValueError(f"Unsupported selector kind: {selector.kind}")
 
         # Verify quote matches (fuzzy — allow whitespace differences)
         if span.quote and not self._quotes_match(span.quote, resolved):
+            logger.warning(
+                "Evidence-link failure: quote mismatch for span %s "
+                "(expected %r, got %r)",
+                span.id,
+                span.quote[:80],
+                resolved[:80],
+            )
             raise ValueError(
                 f"Quote mismatch for span {span.id}: "
                 f"expected {span.quote[:80]!r}, got {resolved[:80]!r}"

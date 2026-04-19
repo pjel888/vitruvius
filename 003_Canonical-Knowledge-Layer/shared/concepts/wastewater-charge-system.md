@@ -9,13 +9,17 @@ enriched_at_utc: '2026-04-17T13:20:00Z'
 regulatory_basis:
 - source_id: law-philippine-clean-water-act-of-2004
   section_id: section-13
-  evidence_snippet: 'The Department shall implement a wastewater charge system in all management areas through the collection of wastewater charges/fees.'
+  evidence_snippet: The Department shall implement a wastewater charge system in all
+    management areas through the collection of wastewater charges/fees.
 stringency_vector: qualitative
 aliases:
 - wastewater charge system
 - wastewater charges
+taxonomy_path:
+- taxonomy-site-infrastructure
+- topic-water-resources
+- subtopic-economics
 ---
-
 # Wastewater Charge System
 
 ## Definition

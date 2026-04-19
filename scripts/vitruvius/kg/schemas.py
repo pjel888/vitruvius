@@ -176,6 +176,15 @@ class CanonicalNode(BaseModel):
     primary_assertion_id: str | None = None
 
 
+class TaxonomyNode(BaseModel):
+    """A lightweight taxonomy parent node for placement decisions."""
+
+    id: str = Field(..., min_length=1)
+    path: list[str] = Field(default_factory=list)
+    label: str = Field(..., min_length=1)
+    embedding: list[float] | None = None
+
+
 # ---------------------------------------------------------------------------
 # Assertion layer — reified edges
 # ---------------------------------------------------------------------------
@@ -236,3 +245,35 @@ class MergeAssertion(BaseModel):
     evidence_ids: list[str] = Field(default_factory=list)
     created_at: str = Field(default="", description="ISO-8601 UTC")
     version: int = Field(default=1, ge=1)
+
+
+# ---------------------------------------------------------------------------
+# Phase 2 — Atomic knowledge extraction candidates
+# ---------------------------------------------------------------------------
+
+class KnowledgeUnitCandidate(BaseModel):
+    """A pre-canonical knowledge unit extracted from a chunk by an LLM."""
+
+    id: str = Field(..., pattern=r"^cand-[a-z0-9-]+$")
+    unit_type: Literal["concept", "definition", "rule", "procedure", "exception"]
+    label: str = Field(..., min_length=1, description="Short name or term")
+    text: str = Field(..., min_length=1, description="Full extracted text / definition / rule statement")
+    span_ids: list[str] = Field(default_factory=list, description="EvidenceSpan IDs supporting this candidate")
+    chunk_id: str = Field(..., description="Source chunk ID")
+    confidence: float = Field(default=0.0, ge=0.0, le=1.0)
+    extraction_run_id: str = Field(default="", description="Traceable run ID")
+    embedding: list[float] | None = Field(default=None, description="Vector embedding for deduplication")
+    created_at: str = Field(default="", description="ISO-8601 UTC")
+
+
+class ExtractionResult(BaseModel):
+    """Output of one extraction call over a single chunk for one unit type."""
+
+    unit_type: Literal["concept", "definition", "rule", "procedure", "exception"]
+    candidates: list[KnowledgeUnitCandidate] = Field(default_factory=list)
+    chunk_id: str = Field(..., description="Source chunk ID")
+    model: str = Field(default="", description="LLM model used")
+    prompt_tokens: int | None = Field(default=None)
+    response_tokens: int | None = Field(default=None)
+    duration_ms: int = Field(default=0)
+    error: str | None = Field(default=None)

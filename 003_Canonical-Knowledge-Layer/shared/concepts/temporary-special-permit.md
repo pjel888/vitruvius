@@ -9,13 +9,17 @@ enriched_at_utc: '2026-04-18T01:55:00Z'
 regulatory_basis:
 - source_id: handout-guidelines-on-temporary-or-special-permits-for-foreign-architects
   section_id: guideline-i-definition-of-terms
-  evidence_snippet: 'Temporary/ Special Permit refers to a permit issued by the Commission through the Board, to a foreign architect'
+  evidence_snippet: Temporary/ Special Permit refers to a permit issued by the Commission
+    through the Board, to a foreign architect
 stringency_vector: qualitative
 aliases:
 - temporary/special permit
 - temporary special permit
+taxonomy_path:
+- taxonomy-regulatory-permits
+- topic-administrative
+- subtopic-special
 ---
-
 # Temporary or Special Permit
 
 ## Definition

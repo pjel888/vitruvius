@@ -9,13 +9,18 @@ enriched_at_utc: '2026-04-17T13:20:00Z'
 regulatory_basis:
 - source_id: law-local-government-code-of-1991
   section_id: section-20-c
-  evidence_snippet: 'The local government units shall continue to prepare their respective comprehensive land use plans enacted through zoning ordinances which shall be the primary and dominant bases for the future use of land resources.'
+  evidence_snippet: The local government units shall continue to prepare their respective
+    comprehensive land use plans enacted through zoning ordinances which shall be
+    the primary and dominant bases for the future use of land resources.
 stringency_vector: qualitative
 aliases:
 - comprehensive land use plan
 - CLUP
+taxonomy_path:
+- taxonomy-site-infrastructure
+- topic-land-use
+- subtopic-planning
 ---
-
 # Comprehensive Land Use Plan
 
 ## Definition

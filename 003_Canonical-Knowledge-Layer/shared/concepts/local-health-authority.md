@@ -9,13 +9,17 @@ enriched_at_utc: '2026-04-17T13:20:00Z'
 regulatory_basis:
 - source_id: irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines
   section_id: section-2
-  evidence_snippet: 'LOCAL HEALTH AUTHORITY (LHA) - an official or employee responsible for the application of a prescribed health measure in a local political subdivision.'
+  evidence_snippet: LOCAL HEALTH AUTHORITY (LHA) - an official or employee responsible
+    for the application of a prescribed health measure in a local political subdivision.
 stringency_vector: qualitative
 aliases:
 - local health authority
 - LHA
+taxonomy_path:
+- taxonomy-project-practice
+- topic-governance
+- subtopic-health
 ---
-
 # Local Health Authority
 
 ## Definition

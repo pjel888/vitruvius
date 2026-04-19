@@ -323,3 +323,22 @@ kg_transition:
   structured_extraction: false      # Require JSON-schema-constrained LLM output
   incremental_updates: false        # Enable subgraph delta updates
   qdrant_retrieval: false           # Enable Qdrant hybrid search (Sprint 3+)
+
+  # 8GB M2 Model Assignment Policy (2026-04-19)
+  # Lightweight tier (default, RAM-safe):
+  #   nomic-embed-text  ~0.5 GB peak  → embeddings, similarity, retrieval
+  #   qwen2.5:3b        ~1.8 GB peak  → classification, JSON extraction, reasoning
+  # Heavy tier (sparing use only — may trigger swap on 8 GB):
+  #   llama3.1:8b       ~5.0 GB peak  → complex inference, multi-hop reasoning, tier-2 adjudication
+  #   gemma4:e4b        ~6.5 GB peak  → highest-quality synthesis, contradiction detection
+  models:
+    embedding: "nomic-embed-text"
+    retrieval: "nomic-embed-text"
+    node_classifier: "qwen2.5:3b"
+    edge_classifier: "qwen2.5:3b"
+    reasoner: "qwen2.5:3b"
+    inference_decider: "qwen2.5:3b"
+    json_extractor: "qwen2.5:3b"
+    # Heavy models — gate behind explicit flag or complexity score threshold
+    heavy_reasoner: "llama3.1:8b"
+    heavy_synthesizer: "gemma4:e4b"

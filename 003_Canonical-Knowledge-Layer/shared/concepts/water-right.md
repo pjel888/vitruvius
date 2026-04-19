@@ -9,13 +9,17 @@ enriched_at_utc: '2026-04-17T10:52:00Z'
 regulatory_basis:
 - source_id: law-water-code-of-the-philippines
   section_id: article-13
-  evidence_snippet: 'Water right is the privilege granted by the government to appropriate and use water.'
+  evidence_snippet: Water right is the privilege granted by the government to appropriate
+    and use water.
 stringency_vector: qualitative
 aliases:
 - water right
 - right to appropriate and use water
+taxonomy_path:
+- taxonomy-site-infrastructure
+- topic-water-resources
+- subtopic-rights
 ---
-
 # Water Right
 
 ## Definition

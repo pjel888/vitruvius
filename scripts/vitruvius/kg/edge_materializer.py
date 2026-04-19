@@ -17,7 +17,7 @@ from typing import Any
 
 from .enums import EdgeType, ValidationState
 from .json_evidence_store import KgV2Snapshot
-from .schemas import RelationshipAssertion
+from .schemas import PlacementAssertion, RelationshipAssertion
 
 
 # ---------------------------------------------------------------------------
@@ -58,11 +58,35 @@ class EdgeMaterializer:
         *,
         skip_unvalidated: bool = True,
     ) -> list[FastEdge]:
-        """Convert assertions to fast edges, appending to internal state."""
+        """Convert relationship assertions to fast edges, appending to internal state."""
         for assertion in assertions:
             if skip_unvalidated and assertion.validation_status != ValidationState.VALIDATED:
                 continue
             edge = self._to_fast_edge(assertion)
+            self._edges.append(edge)
+        return list(self._edges)
+
+    def materialize_placements(
+        self,
+        placements: list[PlacementAssertion],
+        *,
+        skip_unvalidated: bool = True,
+    ) -> list[FastEdge]:
+        """Convert placement assertions to BELONGS_TO fast edges."""
+        for placement in placements:
+            if skip_unvalidated and placement.validation_status != ValidationState.VALIDATED:
+                continue
+            edge = FastEdge(
+                id=f"edge-{placement.id}",
+                edge_type=EdgeType.BELONGS_TO,
+                from_node_id=placement.node_id,
+                to_node_id=placement.parent_node_id,
+                assertion_id=placement.id,
+                confidence=placement.confidence,
+                validation_status=placement.validation_status,
+                evidence_span_count=len(placement.evidence_ids),
+                document_version_count=0,
+            )
             self._edges.append(edge)
         return list(self._edges)
 

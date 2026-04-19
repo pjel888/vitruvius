@@ -9,13 +9,16 @@ enriched_at_utc: '2026-04-18T00:15:00Z'
 regulatory_basis:
 - source_id: handout-deped-disaster-risk-reduction-resource-manual
   section_id: section-title
-  evidence_snippet: 'Disaster Risk Reduction Resource Manual'
+  evidence_snippet: Disaster Risk Reduction Resource Manual
 stringency_vector: qualitative
 aliases:
 - disaster risk reduction
 - DRR
+taxonomy_path:
+- taxonomy-fire-life-safety
+- topic-life-safety
+- subtopic-emergency
 ---
-
 # Disaster Risk Reduction
 
 ## Definition

@@ -1,0 +1,27 @@
+You are a precise knowledge-extraction assistant.
+
+Task: Read the chunk below and extract every explicit **definition** (a statement that explains the meaning of a term).
+
+For each definition, output strict JSON with these fields only:
+- "label": the term being defined (1–5 words)
+- "text": the definitional statement itself
+- "confidence": 0.0–1.0
+
+Rules:
+- Only extract definitions that are explicitly stated in the chunk.
+- Ignore vague or implied meanings.
+- Output strict JSON. No markdown fences, no commentary.
+
+JSON schema:
+{
+  "candidates": [
+    {
+      "label": "string",
+      "text": "string",
+      "confidence": 0.0
+    }
+  ]
+}
+
+Chunk:
+{chunk_text}

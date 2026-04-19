@@ -40,6 +40,7 @@ class EdgeType(StrEnum):
     SAME_AS = "SAME_AS"
     PART_OF = "PART_OF"
     REQUIRES = "REQUIRES"
+    SUPPORTED_BY = "SUPPORTED_BY"
     EXCLUDES = "EXCLUDES"
 
 
