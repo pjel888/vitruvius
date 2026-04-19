@@ -9,18 +9,34 @@ export interface GraphController {
   zoomIn: () => void;
   zoomOut: () => void;
   setLayout: (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => void;
+  setFilters: (nodeTypes: Set<string>, edgeTypes: Set<string>) => void;
+  setColorScheme: (scheme: string) => void;
+  setSizeBy: (metric: 'uniform' | 'confidence' | 'degree') => void;
 }
 
-const NODE_COLORS: Record<string, string> = {
-  taxonomy: '#60a5fa',
-  topic: '#818cf8',
-  subtopic: '#c084fc',
-  concept: '#a78bfa',
-  rule: '#f87171',
-  definition: '#34d399',
-  procedure: '#fbbf24',
-  exception: '#f472b6',
+const COLOR_SCHEMES: Record<string, Record<string, string>> = {
+  default: {
+    taxonomy: '#60a5fa', topic: '#818cf8', subtopic: '#c084fc', concept: '#a78bfa',
+    rule: '#f87171', definition: '#34d399', procedure: '#fbbf24', exception: '#f472b6',
+  },
+  pastel: {
+    taxonomy: '#93c5fd', topic: '#a5b4fc', subtopic: '#d8b4fe', concept: '#c4b5fd',
+    rule: '#fca5a5', definition: '#6ee7b7', procedure: '#fcd34d', exception: '#f9a8d4',
+  },
+  vibrant: {
+    taxonomy: '#3b82f6', topic: '#6366f1', subtopic: '#a855f7', concept: '#8b5cf6',
+    rule: '#ef4444', definition: '#10b981', procedure: '#f59e0b', exception: '#ec4899',
+  },
+  monochrome: {
+    taxonomy: '#e2e8f0', topic: '#cbd5e1', subtopic: '#94a3b8', concept: '#64748b',
+    rule: '#475569', definition: '#334155', procedure: '#1e293b', exception: '#0f172a',
+  },
 };
+
+function getNodeColor(schemeName: string, nodeType: string) {
+  const scheme = COLOR_SCHEMES[schemeName] || COLOR_SCHEMES.default;
+  return scheme[nodeType] || '#a78bfa';
+}
 
 const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,40 +44,100 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const nodesRef = useRef<DataSet<any> | null>(null);
   const edgesRef = useRef<DataSet<any> | null>(null);
   const rawNodesRef = useRef<GraphNode[]>([]);
+  const rawEdgesRef = useRef<GraphEdge[]>([]);
   const scaleRef = useRef(1);
+  const colorSchemeRef = useRef('default');
+  const sizeByRef = useRef<'uniform' | 'confidence' | 'degree'>('uniform');
+  const degreeMapRef = useRef<Map<string, number>>(new Map());
+  const hoveredNodeRef = useRef<string | null>(null);
+
+  function buildVisNode(n: GraphNode) {
+    const color = getNodeColor(colorSchemeRef.current, n.type);
+    const baseSize = n.radius ?? 8;
+    let size = baseSize;
+    if (sizeByRef.current === 'confidence' && n.confidence != null) {
+      size = Math.max(4, Math.min(18, n.confidence * 14));
+    } else if (sizeByRef.current === 'degree') {
+      size = Math.max(4, Math.min(18, baseSize + (degreeMapRef.current.get(n.id) ?? 0) * 0.8));
+    }
+    return {
+      id: n.id,
+      label: n.label,
+      color: {
+        background: color,
+        border: '#ffffff',
+        highlight: { background: color, border: '#ffffff' },
+      },
+      size,
+      group: n.type,
+      title: `<b>${n.label}</b><br/>${n.type}`,
+    };
+  }
+
+  function applyHover() {
+    if (!nodesRef.current) return;
+    const hovered = hoveredNodeRef.current;
+    const net = networkRef.current;
+    if (!hovered || !net) {
+      // Reset all to normal
+      const updates = rawNodesRef.current.map(n => ({
+        id: n.id,
+        color: {
+          background: getNodeColor(colorSchemeRef.current, n.type),
+          border: '#ffffff',
+          highlight: { background: getNodeColor(colorSchemeRef.current, n.type), border: '#ffffff' },
+        },
+      }));
+      nodesRef.current.update(updates);
+      return;
+    }
+    const connected = new Set(net.getConnectedNodes(hovered) as string[]);
+    connected.add(hovered);
+    const updates = rawNodesRef.current.map(n => {
+      const isActive = connected.has(n.id);
+      const baseColor = getNodeColor(colorSchemeRef.current, n.type);
+      return {
+        id: n.id,
+        color: {
+          background: isActive ? baseColor : '#334155',
+          border: isActive ? '#ffffff' : '#475569',
+          highlight: { background: baseColor, border: '#ffffff' },
+        },
+      };
+    });
+    nodesRef.current.update(updates);
+  }
 
   useImperativeHandle(ref, () => ({
     loadPerspective(nodes, edges) {
       if (!containerRef.current) return;
 
-      // Deduplicate nodes by id
+      // Deduplicate
       const nodeMap = new Map<string, GraphNode>();
       nodes.forEach(n => { if (!nodeMap.has(n.id)) nodeMap.set(n.id, n); });
       const uniqueNodes = Array.from(nodeMap.values());
       rawNodesRef.current = uniqueNodes;
 
-      const visNodes = uniqueNodes.map((n) => ({
-        id: n.id,
-        label: n.label,
-        color: {
-          background: NODE_COLORS[n.type] || '#a78bfa',
-          border: '#ffffff',
-          highlight: { background: NODE_COLORS[n.type] || '#a78bfa', border: '#ffffff' },
-        },
-        size: n.radius ?? 8,
-        group: n.type,
-        title: `<b>${n.label}</b><br/>${n.type}`,
-      }));
-
-      // Deduplicate edges by id
       const edgeMap = new Map<string, GraphEdge>();
       edges.forEach(e => {
         const key = e.id || `${e.source}-${e.type}-${e.target}`;
         if (!edgeMap.has(key)) edgeMap.set(key, e);
       });
       const uniqueEdges = Array.from(edgeMap.values());
+      rawEdgesRef.current = uniqueEdges;
 
-      const visEdges = uniqueEdges.map((e) => ({
+      // Compute degrees
+      const degMap = new Map<string, number>();
+      uniqueNodes.forEach(n => degMap.set(n.id, 0));
+      uniqueEdges.forEach(e => {
+        degMap.set(e.source, (degMap.get(e.source) ?? 0) + 1);
+        degMap.set(e.target, (degMap.get(e.target) ?? 0) + 1);
+      });
+      degreeMapRef.current = degMap;
+
+      const visNodes = uniqueNodes.map(buildVisNode);
+      const visEdges = uniqueEdges.map((e, i) => ({
+        id: `edge-${i}`,
         from: e.source,
         to: e.target,
         label: e.type,
@@ -114,9 +190,18 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           }
         );
 
-        // Track scale for zoom buttons
         networkRef.current.on('zoom', (params: any) => {
           if (params.scale) scaleRef.current = params.scale;
+        });
+
+        networkRef.current.on('hoverNode', (params: any) => {
+          hoveredNodeRef.current = params.node;
+          applyHover();
+        });
+
+        networkRef.current.on('blurNode', () => {
+          hoveredNodeRef.current = null;
+          applyHover();
         });
       }
     },
@@ -156,9 +241,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         return;
       }
 
-      // For non-physics layouts, disable physics first
       net.setOptions({ physics: { enabled: false } });
-
       const updates: any[] = [];
 
       if (type === 'circular') {
@@ -207,7 +290,6 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
             updates.push({ id, x, y: yOffset - 200 });
           });
         }
-        // Nodes without dates: place them below
         let noDateY = 0;
         nodes.forEach((n) => {
           if (!n.createdAt) {
@@ -221,6 +303,53 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         ds.update(updates);
         net.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
       }
+    },
+
+    setFilters(nodeTypes, edgeTypes) {
+      if (!nodesRef.current || !edgesRef.current) return;
+      const nodeUpdates = rawNodesRef.current.map(n => ({
+        id: n.id,
+        hidden: !nodeTypes.has(n.type),
+      }));
+      const edgeUpdates = rawEdgesRef.current.map((e, i) => ({
+        id: `edge-${i}`,
+        hidden: !edgeTypes.has(e.type),
+      }));
+      nodesRef.current.update(nodeUpdates);
+      edgesRef.current.update(edgeUpdates);
+    },
+
+    setColorScheme(scheme) {
+      colorSchemeRef.current = scheme;
+      if (!nodesRef.current) return;
+      const updates = rawNodesRef.current.map(n => {
+        const color = getNodeColor(scheme, n.type);
+        return {
+          id: n.id,
+          color: {
+            background: color,
+            border: '#ffffff',
+            highlight: { background: color, border: '#ffffff' },
+          },
+        };
+      });
+      nodesRef.current.update(updates);
+    },
+
+    setSizeBy(metric) {
+      sizeByRef.current = metric;
+      if (!nodesRef.current) return;
+      const updates = rawNodesRef.current.map(n => {
+        const baseSize = n.radius ?? 8;
+        let size = baseSize;
+        if (metric === 'confidence' && n.confidence != null) {
+          size = Math.max(4, Math.min(18, n.confidence * 14));
+        } else if (metric === 'degree') {
+          size = Math.max(4, Math.min(18, baseSize + (degreeMapRef.current.get(n.id) ?? 0) * 0.8));
+        }
+        return { id: n.id, size };
+      });
+      nodesRef.current.update(updates);
     },
   }));
 

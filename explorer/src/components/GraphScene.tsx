@@ -40,6 +40,25 @@ export default function GraphScene() {
     controllerRef.current?.selectNode(selectedNodeId);
   }, [selectedNodeId]);
 
+  // Sync filters
+  const visibleNodeTypes = useSceneStore(s => s.visibleNodeTypes);
+  const visibleEdgeTypes = useSceneStore(s => s.visibleEdgeTypes);
+  useEffect(() => {
+    controllerRef.current?.setFilters(visibleNodeTypes, visibleEdgeTypes);
+  }, [visibleNodeTypes, visibleEdgeTypes]);
+
+  // Sync color scheme
+  const colorScheme = useSceneStore(s => s.colorScheme);
+  useEffect(() => {
+    controllerRef.current?.setColorScheme(colorScheme);
+  }, [colorScheme]);
+
+  // Sync size metric
+  const sizeBy = useSceneStore(s => s.sizeBy);
+  useEffect(() => {
+    controllerRef.current?.setSizeBy(sizeBy);
+  }, [sizeBy]);
+
   const switchLayout = (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => {
     setLayout(type);
     controllerRef.current?.setLayout(type);
