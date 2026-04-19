@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronRight, ChevronDown, FolderTree, Filter } from 'lucide-react';
+import { ChevronRight, ChevronDown, FolderTree, Filter, Palette, CircleDot } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import { getTaxonomy } from '../api/graphApi';
 import type { TaxonomyNode } from '../types';
@@ -67,49 +67,53 @@ const EDGE_TYPES = [
   { key: 'SUPPORTED_BY', label: 'SUPPORTED_BY' },
 ];
 
+const COLOR_SCHEMES = [
+  { key: 'default', label: 'Default' },
+  { key: 'pastel', label: 'Pastel' },
+  { key: 'vibrant', label: 'Vibrant' },
+  { key: 'monochrome', label: 'Monochrome' },
+];
+
+const SIZE_OPTIONS = [
+  { key: 'uniform', label: 'Uniform' },
+  { key: 'confidence', label: 'By Confidence' },
+  { key: 'degree', label: 'By Connectivity' },
+];
+
 export default function ExplorerRail() {
   const [roots, setRoots] = useState<TaxonomyNode[]>([]);
   const [showFilters, setShowFilters] = useState(false);
   const open = useSceneStore(s => s.explorerOpen);
 
-  const [visibleNodeTypes, setVisibleNodeTypes] = useState<Set<string>>(new Set(NODE_TYPES.map(n => n.key)));
-  const [visibleEdgeTypes, setVisibleEdgeTypes] = useState<Set<string>>(new Set(EDGE_TYPES.map(e => e.key)));
-
-  const nodes = useSceneStore(s => s.nodes);
-  const edges = useSceneStore(s => s.edges);
+  const visibleNodeTypes = useSceneStore(s => s.visibleNodeTypes);
+  const visibleEdgeTypes = useSceneStore(s => s.visibleEdgeTypes);
+  const setVisibleNodeTypes = useSceneStore(s => s.setVisibleNodeTypes);
+  const setVisibleEdgeTypes = useSceneStore(s => s.setVisibleEdgeTypes);
+  const colorScheme = useSceneStore(s => s.colorScheme);
+  const setColorScheme = useSceneStore(s => s.setColorScheme);
+  const sizeBy = useSceneStore(s => s.sizeBy);
+  const setSizeBy = useSceneStore(s => s.setSizeBy);
 
   useEffect(() => {
     getTaxonomy().then(setRoots);
   }, []);
 
-  // Apply filters to graph data
-  useEffect(() => {
-    const filteredNodes = nodes.filter(n => visibleNodeTypes.has(n.type));
-    const nodeIds = new Set(filteredNodes.map(n => n.id));
-    edges.filter(e => visibleEdgeTypes.has(e.type) && nodeIds.has(e.source) && nodeIds.has(e.target));
-    // We don't call setGraphData here to avoid infinite loop; filters are visual only for now
-    // In full implementation, we'd re-render the graph with filtered data
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visibleNodeTypes, visibleEdgeTypes, nodes, edges]);
-
   if (!open) return null;
 
   function toggleNodeType(key: string) {
-    setVisibleNodeTypes(prev => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      return next;
-    });
+    setVisibleNodeTypes(new Set(
+      visibleNodeTypes.has(key)
+        ? [...visibleNodeTypes].filter(k => k !== key)
+        : [...visibleNodeTypes, key]
+    ));
   }
 
   function toggleEdgeType(key: string) {
-    setVisibleEdgeTypes(prev => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      return next;
-    });
+    setVisibleEdgeTypes(new Set(
+      visibleEdgeTypes.has(key)
+        ? [...visibleEdgeTypes].filter(k => k !== key)
+        : [...visibleEdgeTypes, key]
+    ));
   }
 
   return (
@@ -129,7 +133,54 @@ export default function ExplorerRail() {
       </div>
 
       {showFilters && (
-        <div className="px-3 py-2 border-b border-border space-y-3 max-h-64 overflow-y-auto">
+        <div className="px-3 py-2 border-b border-border space-y-4 max-h-[60vh] overflow-y-auto">
+          {/* Color scheme */}
+          <div>
+            <div className="flex items-center gap-1.5 text-xs font-medium text-text-dim mb-1.5">
+              <Palette size={12} />
+              Color Scheme
+            </div>
+            <div className="grid grid-cols-2 gap-1">
+              {COLOR_SCHEMES.map(scheme => (
+                <button
+                  key={scheme.key}
+                  onClick={() => setColorScheme(scheme.key)}
+                  className={`px-2 py-1 text-xs rounded border transition-colors ${
+                    colorScheme === scheme.key
+                      ? 'bg-accent/20 border-accent text-accent'
+                      : 'border-border text-text-dim hover:text-text hover:border-text-dim'
+                  }`}
+                >
+                  {scheme.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Size by */}
+          <div>
+            <div className="flex items-center gap-1.5 text-xs font-medium text-text-dim mb-1.5">
+              <CircleDot size={12} />
+              Node Size
+            </div>
+            <div className="grid grid-cols-3 gap-1">
+              {SIZE_OPTIONS.map(opt => (
+                <button
+                  key={opt.key}
+                  onClick={() => setSizeBy(opt.key as any)}
+                  className={`px-2 py-1 text-xs rounded border transition-colors ${
+                    sizeBy === opt.key
+                      ? 'bg-accent/20 border-accent text-accent'
+                      : 'border-border text-text-dim hover:text-text hover:border-text-dim'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Node type filters */}
           <div>
             <div className="text-xs font-medium text-text-dim mb-1.5">Node types</div>
             <div className="space-y-1">
@@ -147,6 +198,8 @@ export default function ExplorerRail() {
               ))}
             </div>
           </div>
+
+          {/* Edge type filters */}
           <div>
             <div className="text-xs font-medium text-text-dim mb-1.5">Edge types</div>
             <div className="space-y-1">

@@ -48,6 +48,18 @@ interface SceneStore {
   // Loading
   loading: boolean;
   setLoading: (v: boolean) => void;
+
+  // Filters
+  visibleNodeTypes: Set<string>;
+  visibleEdgeTypes: Set<string>;
+  setVisibleNodeTypes: (types: Set<string>) => void;
+  setVisibleEdgeTypes: (types: Set<string>) => void;
+
+  // Visual settings
+  colorScheme: string;
+  setColorScheme: (scheme: string) => void;
+  sizeBy: 'uniform' | 'confidence' | 'degree';
+  setSizeBy: (metric: 'uniform' | 'confidence' | 'degree') => void;
 }
 
 export const useSceneStore = create<SceneStore>((set) => ({
@@ -81,4 +93,14 @@ export const useSceneStore = create<SceneStore>((set) => ({
 
   loading: false,
   setLoading: (v) => set({ loading: v }),
+
+  visibleNodeTypes: new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception']),
+  visibleEdgeTypes: new Set(['HAS_CHILD', 'BELONGS_TO', 'RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES', 'SUPPORTED_BY']),
+  setVisibleNodeTypes: (types) => set({ visibleNodeTypes: types }),
+  setVisibleEdgeTypes: (types) => set({ visibleEdgeTypes: types }),
+
+  colorScheme: 'default',
+  setColorScheme: (scheme) => set({ colorScheme: scheme }),
+  sizeBy: 'uniform',
+  setSizeBy: (metric) => set({ sizeBy: metric }),
 }));

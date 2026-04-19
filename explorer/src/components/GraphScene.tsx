@@ -67,6 +67,25 @@ export default function GraphScene() {
   const edges = useSceneStore(s => s.edges);
   const [debugInfo, setDebugInfo] = useState({ nodes: 0, edges: 0, controllerReady: false, canvasW: 0, canvasH: 0, containerW: 0, containerH: 0 });
 
+  // Sync filters to graph
+  const visibleNodeTypes = useSceneStore(s => s.visibleNodeTypes);
+  const visibleEdgeTypes = useSceneStore(s => s.visibleEdgeTypes);
+  useEffect(() => {
+    controllerRef.current?.setFilters(visibleNodeTypes, visibleEdgeTypes);
+  }, [visibleNodeTypes, visibleEdgeTypes]);
+
+  // Sync color scheme
+  const colorScheme = useSceneStore(s => s.colorScheme);
+  useEffect(() => {
+    controllerRef.current?.setColorScheme(colorScheme);
+  }, [colorScheme]);
+
+  // Sync size metric
+  const sizeBy = useSceneStore(s => s.sizeBy);
+  useEffect(() => {
+    controllerRef.current?.setSizeBy(sizeBy);
+  }, [sizeBy]);
+
   // Debug info polling
   useEffect(() => {
     const interval = setInterval(() => {
