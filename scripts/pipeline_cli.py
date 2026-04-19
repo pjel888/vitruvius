@@ -1136,6 +1136,13 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Optional output HTML path",
     )
+    visualize_graph_parser.add_argument(
+        "--version",
+        dest="vis_version",
+        default="auto",
+        choices=["auto", "v1", "v2"],
+        help="Snapshot format version (default: auto-detect)",
+    )
 
     add_command_parser(subparsers, "ingest-spatial")
 
@@ -2553,12 +2560,17 @@ def main() -> int:
         )
 
     if args.command == "visualize-graph":
+        from vitruvius.config import is_kg_enabled
         from vitruvius.graph.visualize import run_visualize_graph
+        if args.vis_version == "v2" and not is_kg_enabled():
+            print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml to visualize v2 snapshots.")
+            return 1
         return _run(
             "visualize-graph",
             lambda: run_visualize_graph(
                 snapshot_path=args.snapshot_path,
                 out_path=args.out_path,
+                version=args.vis_version,
             ),
         )
 
