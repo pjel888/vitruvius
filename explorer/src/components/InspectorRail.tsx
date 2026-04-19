@@ -18,7 +18,6 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
   const { node, taxonomyPath, incoming, outgoing, evidence } = detail;
   const [activeTab, setActiveTab] = useState<'summary' | 'evidence' | 'incoming' | 'outgoing'>('summary');
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
-  const closeInspector = useSceneStore(s => s.closeInspector);
   const openBottom = useSceneStore(s => s.openBottom);
 
   return (
@@ -38,14 +37,7 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
             </button>
             <button
               className="p-1 rounded hover:bg-panel-hover text-text-dim"
-              onClick={closeInspector}
-              title="Minimize"
-            >
-              <PanelRightClose size={14} />
-            </button>
-            <button
-              className="p-1 rounded hover:bg-panel-hover text-text-dim"
-              onClick={() => { setSelectedNode(null); closeInspector(); }}
+              onClick={() => setSelectedNode(null)}
               title="Close"
             >
               <X size={14} />
@@ -181,16 +173,12 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
 function EdgeInspector({ detail }: { detail: EdgeDetail }) {
   const { edge, source, target } = detail;
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
-  const closeInspector = useSceneStore(s => s.closeInspector);
 
   return (
     <div className="flex flex-col h-full p-4 space-y-4">
       <div className="flex items-start justify-between">
         <h2 className="text-sm font-semibold text-accent">{edge.type}</h2>
         <div className="flex items-center gap-1">
-          <button className="p-1 rounded hover:bg-panel-hover text-text-dim" onClick={closeInspector} title="Minimize">
-            <PanelRightClose size={14} />
-          </button>
           <button className="p-1 rounded hover:bg-panel-hover text-text-dim" onClick={() => {}} title="Close">
             <X size={14} />
           </button>
@@ -235,6 +223,7 @@ export default function InspectorRail() {
   const selectedEdgeId = useSceneStore(s => s.selectedEdgeId);
   const inspectorOpen = useSceneStore(s => s.inspectorOpen);
   const openInspector = useSceneStore(s => s.openInspector);
+  const closeInspector = useSceneStore(s => s.closeInspector);
 
   const [nodeDetail, setNodeDetail] = useState<NodeDetail | null>(null);
   const [edgeDetail, setEdgeDetail] = useState<EdgeDetail | null>(null);
@@ -271,20 +260,40 @@ export default function InspectorRail() {
   // Expanded state
   return (
     <div className="w-96 bg-panel border-l border-border flex flex-col shrink-0 overflow-hidden">
-      {!selectedNodeId && !selectedEdgeId ? (
-        <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
-          <div className="text-sm text-text-dim mb-2">Select a node to see details.</div>
-          <div className="text-xs text-text-dim">Click empty space to clear.</div>
-        </div>
-      ) : selectedNodeId && nodeDetail ? (
-        <NodeInspector detail={nodeDetail} />
-      ) : selectedEdgeId && edgeDetail ? (
-        <EdgeInspector detail={edgeDetail} />
-      ) : (
-        <div className="flex-1 flex items-center justify-center">
-          <div className="w-6 h-6 border-2 border-border border-t-accent rounded-full animate-spin" />
-        </div>
-      )}
+      {/* Persistent panel header — minimize button always visible */}
+      <div className="px-3 py-2 border-b border-border flex items-center justify-between shrink-0">
+        <span className="text-xs font-semibold uppercase tracking-wider text-text-dim">
+          {selectedNodeId && nodeDetail
+            ? nodeDetail.node.label
+            : selectedEdgeId && edgeDetail
+            ? edgeDetail.edge.type
+            : 'Inspector'}
+        </span>
+        <button
+          className="p-1 rounded hover:bg-panel-hover text-text-dim"
+          onClick={closeInspector}
+          title="Minimize"
+        >
+          <PanelRightClose size={14} />
+        </button>
+      </div>
+
+      <div className="flex-1 overflow-hidden">
+        {!selectedNodeId && !selectedEdgeId ? (
+          <div className="h-full flex flex-col items-center justify-center p-6 text-center">
+            <div className="text-sm text-text-dim mb-2">Select a node to see details.</div>
+            <div className="text-xs text-text-dim">Click empty space to clear.</div>
+          </div>
+        ) : selectedNodeId && nodeDetail ? (
+          <NodeInspector detail={nodeDetail} />
+        ) : selectedEdgeId && edgeDetail ? (
+          <EdgeInspector detail={edgeDetail} />
+        ) : (
+          <div className="h-full flex items-center justify-center">
+            <div className="w-6 h-6 border-2 border-border border-t-accent rounded-full animate-spin" />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
