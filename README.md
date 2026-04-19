@@ -413,6 +413,47 @@ python scripts/pipeline_cli.py run-kg-pipeline --dry-run \
   --review-model-preset high-quality
 ```
 
+### Full Pipeline: Raw PDFs → Knowledge Graph (with Neo4j)
+
+Run everything from raw sources through to the Neo4j graph in one command:
+
+```bash
+python scripts/pipeline_cli.py run-kg-pipeline \
+  --subject 001-Laws \
+  --force \
+  --ensure-neo4j \
+  --review-model-preset high-quality \
+  --review-parallel 4
+```
+
+**What will happen:**
+
+1. **Phase 1** — Converts all Laws PDFs to markdown, then refines them
+2. **Phase 2** — Canonicalizes all refined markdown into `003_Canonical-Knowledge-Layer`
+3. **Phase 3** — Extracts relationships, runs LLM review, promotes valid ones
+4. **Phase 4** — Builds the unified KG v2 JSON snapshot
+5. **Phase 5** — Loads everything into Neo4j automatically
+
+**Heads up:** This will take a while. 182 PDF conversions alone can run for hours depending on file sizes. The pipeline prints progress after each phase.
+
+**While it runs:** Keep http://localhost:7474/browser/ open. After Phase 5 completes, refresh the browser and run:
+
+```cypher
+MATCH (n) RETURN count(n)
+```
+
+To see how many nodes were loaded.
+
+**Neo4j lifecycle commands:**
+
+```bash
+# Start Neo4j (auto-downloads Community edition if missing)
+python scripts/pipeline_cli.py neo4j-start
+
+# Stop Neo4j
+python scripts/pipeline_cli.py neo4j-stop
+```
+
 ### After the Run
 
 Your outputs will be in:
