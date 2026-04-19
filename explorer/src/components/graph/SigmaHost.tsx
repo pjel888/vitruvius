@@ -63,12 +63,12 @@ const COLOR_SCHEMES: Record<string, Record<string, string>> = {
 };
 
 const EDGE_COLORS: Record<string, string> = {
-  HAS_CHILD: '#6b7280',
-  BELONGS_TO: '#6b7280',
-  RELATED_TO: '#6b7280',
-  DEPENDS_ON: '#f59e0b',
-  DEFINED_BY: '#10b981',
-  REQUIRES: '#8b5cf6',
+  HAS_CHILD: '#94a3b8',
+  BELONGS_TO: '#94a3b8',
+  RELATED_TO: '#94a3b8',
+  DEPENDS_ON: '#fbbf24',
+  DEFINED_BY: '#34d399',
+  REQUIRES: '#a78bfa',
   SUPPORTED_BY: '#94a3b8',
 };
 
@@ -85,6 +85,10 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
   const colorSchemeRef = useRef<string>('default');
   const sizeByRef = useRef<'uniform' | 'confidence' | 'degree'>('uniform');
   const rawNodesRef = useRef<GraphNode[]>([]);
+
+  // Drag state
+  const dragNodeRef = useRef<string | null>(null);
+  const isDraggingRef = useRef(false);
 
   useImperativeHandle(ref, () => controllerRef.current!);
 
@@ -135,10 +139,12 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
 
         if (!hovered) return data;
         const ext = graph.extremities(edge);
-        if (ext[0] === hovered || ext[1] === hovered) {
-          return { ...data, color: '#e2e8f0', size: 3, zIndex: 1 };
+        const connected = ext[0] === hovered || ext[1] === hovered;
+        if (connected) {
+          return { ...data, color: '#e2e8f0', size: 4, zIndex: 1 };
         }
-        return { ...data, color: '#1e293b', hidden: true };
+        // Dim unconnected edges instead of hiding them
+        return { ...data, color: '#1e293b60', size: 0.5, zIndex: 0 };
       },
     };
   }
@@ -162,8 +168,55 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
       zIndex: true,
       enableEdgeEvents: true,
       allowInvalidContainer: true,
+      // Make edges more visible by default
+      defaultEdgeColor: '#94a3b8',
+      minEdgeThickness: 1.5,
     });
     sigmaRef.current = sigma;
+
+    // Drag implementation
+    const container = containerRef.current;
+
+    const onMouseDown = (e: MouseEvent) => {
+      const mouseGraphCoords = sigma.viewportToGraph({ x: e.offsetX, y: e.offsetY });
+      // Find nearest node within grab radius
+      let nearest: string | null = null;
+      let nearestDist = Infinity;
+      graph.forEachNode((node, attrs) => {
+        const dx = (attrs.x as number) - mouseGraphCoords.x;
+        const dy = (attrs.y as number) - mouseGraphCoords.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const grabRadius = (attrs.size as number || 8) + 4;
+        if (dist < grabRadius && dist < nearestDist) {
+          nearest = node;
+          nearestDist = dist;
+        }
+      });
+      if (nearest) {
+        dragNodeRef.current = nearest;
+        isDraggingRef.current = true;
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDraggingRef.current || !dragNodeRef.current) return;
+      const coords = sigma.viewportToGraph({ x: e.offsetX, y: e.offsetY });
+      graph.setNodeAttribute(dragNodeRef.current, 'x', coords.x);
+      graph.setNodeAttribute(dragNodeRef.current, 'y', coords.y);
+      sigma.refresh({ skipIndexation: true });
+    };
+
+    const onMouseUp = () => {
+      dragNodeRef.current = null;
+      isDraggingRef.current = false;
+    };
+
+    container.addEventListener('mousedown', onMouseDown);
+    container.addEventListener('mousemove', onMouseMove);
+    container.addEventListener('mouseup', onMouseUp);
+    container.addEventListener('mouseleave', onMouseUp);
 
     // Expose controller API
     const controller: GraphController = {
@@ -184,6 +237,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
             color: getNodeColor(n.type),
             nodeType: n.type,
             taxonomyPath: n.taxonomy_path || [],
+            createdAt: n.createdAt,
             x: Math.cos((i / Math.max(nodes.length, 1)) * Math.PI * 2) * 200,
             y: Math.sin((i / Math.max(nodes.length, 1)) * Math.PI * 2) * 200,
           });
@@ -194,7 +248,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
           const edgeId = e.id || `${e.source}-${e.type}-${e.target}`;
           g.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
             size: 2.5,
-            color: EDGE_COLORS[e.type] || '#6b7280',
+            color: EDGE_COLORS[e.type] || '#94a3b8',
             edgeType: e.type,
           });
         });
@@ -227,6 +281,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
               color: getNodeColor(n.type),
               nodeType: n.type,
               taxonomyPath: n.taxonomy_path || [],
+              createdAt: n.createdAt,
             });
           }
         });
@@ -236,7 +291,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
           if (!g.hasEdge(edgeId)) {
             g.addDirectedEdgeWithKey(edgeId, e.source, e.target, {
               size: 2.5,
-              color: EDGE_COLORS[e.type] || '#6b7280',
+              color: EDGE_COLORS[e.type] || '#94a3b8',
               edgeType: e.type,
             });
           }
@@ -264,7 +319,6 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
             console.error('ForceAtlas2 failed:', e);
           }
         } else if (type === 'clustered') {
-          // Group nodes by taxonomy root, place each group in its own circle
           const groups = new Map<string, string[]>();
           g.forEachNode((nodeId) => {
             const attrs = g.getNodeAttributes(nodeId);
@@ -286,7 +340,6 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
             });
           });
         } else if (type === 'time') {
-          // Position nodes horizontally by createdAt date
           const nodesWithDate: { id: string; date: number }[] = [];
           g.forEachNode((nodeId) => {
             const attrs = g.getNodeAttributes(nodeId);
@@ -389,9 +442,13 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
     sigma.setSetting('nodeReducer', reducers.nodeReducer);
     sigma.setSetting('edgeReducer', reducers.edgeReducer);
 
-    console.log('[SigmaHost] Raw Sigma initialized with reducers');
+    console.log('[SigmaHost] Raw Sigma initialized with drag + reducers');
 
     return () => {
+      container.removeEventListener('mousedown', onMouseDown);
+      container.removeEventListener('mousemove', onMouseMove);
+      container.removeEventListener('mouseup', onMouseUp);
+      container.removeEventListener('mouseleave', onMouseUp);
       sigma.kill();
       sigmaRef.current = null;
       controllerRef.current = null;
@@ -401,7 +458,7 @@ const SigmaHost = forwardRef<GraphController>((_, ref) => {
   return (
     <div
       ref={containerRef}
-      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', cursor: 'grab' }}
     />
   );
 });
