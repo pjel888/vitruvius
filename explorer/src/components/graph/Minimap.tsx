@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import type { GraphController } from './SigmaHost';
+import type { GraphController } from './VisNetworkHost';
 
 interface MinimapProps {
   controllerRef: React.RefObject<GraphController | null>;
