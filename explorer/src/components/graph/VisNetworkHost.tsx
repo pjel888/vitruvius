@@ -172,9 +172,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         from: e.source,
         to: e.target,
         label: e.type,
-        arrows: 'to',
         color: { color: '#94a3b8', opacity: 0.6 },
-        font: { color: '#7a7f8a', size: 10 },
       }));
 
       if (networkRef.current && nodesRef.current && edgesRef.current) {
@@ -200,6 +198,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
             edges: {
               width: 1,
               smooth: { enabled: true, type: 'continuous', roundness: 0.5 },
+              font: { size: 8, color: '#7a7f8a', strokeWidth: 0, face: 'system-ui, sans-serif' },
+              arrows: { to: { enabled: true, scaleFactor: 0.4 } },
             },
             physics: {
               forceAtlas2Based: {
