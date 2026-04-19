@@ -407,7 +407,7 @@ export default function GraphScene() {
   return (
     <div className="flex-1 relative bg-bg overflow-hidden">
       <SigmaContainer
-        style={{ width: '100%', height: '100%' }}
+        style={{ position: 'absolute', inset: 0 }}
         settings={{
           defaultEdgeType: 'arrow',
           labelDensity: 0.07,
@@ -416,6 +416,7 @@ export default function GraphScene() {
           labelFont: 'system-ui, sans-serif',
           zIndex: true,
           enableEdgeEvents: true,
+          allowInvalidContainer: true,
         }}
       >
         <GraphRenderer />
