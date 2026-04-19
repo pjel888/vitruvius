@@ -86,6 +86,41 @@ def run_pipeline_with_review() -> int:
     )
 
 
+def _reset_derived_artifacts(repo_root: Path, force: bool = False) -> bool:
+    """Delete all machine-derived pipeline outputs. Return True if reset occurred."""
+    targets: list[Path] = [
+        repo_root / "002_Raw-Conversion-Layer",
+        repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "sources",
+        repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "relationships",
+        repo_root / "005_Operational-Intelligence-Layer" / "graph" / "kg-v2",
+        repo_root / "006_System-Manifests" / "runs",
+        repo_root / "006_System-Manifests" / "registries",
+    ]
+
+    print("The following derived artifacts will be DELETED:")
+    for t in targets:
+        if t.exists():
+            print(f"  {t.relative_to(repo_root)}")
+
+    if not force:
+        print("\nThis is destructive. Re-run with --force-reset to confirm.")
+        return False
+
+    import shutil
+
+    deleted = 0
+    for t in targets:
+        if t.exists():
+            if t.is_dir():
+                shutil.rmtree(str(t))
+            else:
+                t.unlink()
+            deleted += 1
+            print(f"  DELETED {t.relative_to(repo_root)}")
+    print(f"\nReset complete. {deleted} artifact tree(s) removed.")
+    return True
+
+
 def run_kg_pipeline(
     *,
     dry_run: bool = False,
@@ -94,6 +129,8 @@ def run_kg_pipeline(
     review_timeout_seconds: int | None = None,
     review_parallelism: int | None = None,
     snapshot_out_path: str | None = None,
+    reset: bool = False,
+    force_reset: bool = False,
 ) -> int:
     """Unified orchestrator: raw sources → canonical layer → KG v2 snapshot.
 
@@ -122,6 +159,13 @@ def run_kg_pipeline(
     if not is_kg_enabled():
         print("ERROR: kg_transition.enabled is false. Set it to true in config/vitruvius.yaml")
         return 1
+
+    if reset:
+        if dry_run:
+            print("[DRY-RUN] Would reset derived artifacts")
+        else:
+            if not _reset_derived_artifacts(repo_root, force=force_reset):
+                return 1
 
     model = review_model or get_ollama_default_model()
     timeout = review_timeout_seconds or get_ollama_default_timeout()
@@ -208,23 +252,23 @@ def run_kg_pipeline(
 
     for source_md in canonical_sources:
         source_id = source_md.stem
-        # Determine the corresponding refined markdown path
-        # Heuristic: look in 002_Raw-Conversion-Layer for a matching filename
+        # Determine the input path for relationship extraction.
+        # Prefer refined markdown in 002/; fall back to canonical source in 003/.
         refined_candidates = list(
             (repo_root / "002_Raw-Conversion-Layer").rglob(f"{source_md.name}")
         )
         if not refined_candidates:
-            # Fallback: try stem match
             refined_candidates = list(
                 (repo_root / "002_Raw-Conversion-Layer").rglob(f"{source_md.stem}.md")
             )
-        if not refined_candidates:
-            print(f"  SKIP {source_id}: no refined markdown found")
-            skipped_count += 1
-            continue
-
-        refined_path = refined_candidates[0]
-        rel_refined = refined_path.relative_to(repo_root / "002_Raw-Conversion-Layer").as_posix()
+        if refined_candidates:
+            input_path = refined_candidates[0]
+            rel_input = input_path.relative_to(repo_root / "002_Raw-Conversion-Layer").as_posix()
+        else:
+            # Fallback: use canonical source directly
+            input_path = source_md
+            rel_input = input_path.relative_to(repo_root).as_posix()
+            print(f"  NOTE {source_id}: using canonical source (no refined markdown)")
         source_run_dir = phase3_runs_dir / source_id
         source_run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -243,7 +287,7 @@ def run_kg_pipeline(
         # Extract
         rc = run_extract_relationships_sections_one_inner(
             repo_root=repo_root,
-            relative_markdown_path=rel_refined,
+            relative_markdown_path=rel_input,
             json_output_path=extract_json,
             txt_output_path=extract_txt,
             source_id_override=source_id,
@@ -500,6 +544,10 @@ def build_parser() -> argparse.ArgumentParser:
                                     help="Tier-1 review parallelism override")
     kg_pipeline_parser.add_argument("--snapshot-out", default=None,
                                     help="Optional output path for the KG v2 snapshot JSON")
+    kg_pipeline_parser.add_argument("--reset", action="store_true",
+                                    help="Delete all derived artifacts (002, 003/sources, 003/relationships, 005/kg-v2, 006/runs, 006/registries) before running")
+    kg_pipeline_parser.add_argument("--force-reset", action="store_true",
+                                    help="Confirm destructive reset (required with --reset)")
 
     dataset_graph_parser = add_command_parser(subparsers, "run-dataset-graph")
     dataset_graph_parser.add_argument("--dataset-manifest", required=True,
@@ -1430,6 +1478,8 @@ def main() -> int:
                 review_timeout_seconds=args.review_timeout_seconds,
                 review_parallelism=args.review_parallel,
                 snapshot_out_path=args.snapshot_out,
+                reset=args.reset,
+                force_reset=args.force_reset,
             ),
         )
 
