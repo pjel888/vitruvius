@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the National Building Code
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:08.744452+00:00
+last_canonicalized_utc: 2026-04-19T04:50:36.718603+00:00
 aliases:
   - PD 1096 IRR
   - National Building Code IRR

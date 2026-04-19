@@ -1,17 +1,17 @@
 ---
 id: law-energy-efficiency-and-conservation-act
-title: Energy Efficiency and Conservation Act
+title: Energy Efficiency And Conservation Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:11.014974+00:00
+last_canonicalized_utc: 2026-04-19T06:34:45.616118+00:00
 aliases:
   - RA 11285
   - Republic Act No. 11285
   - Energy Efficiency and Conservation Act
 ---
 
-# Energy Efficiency and Conservation Act
+# Energy Efficiency And Conservation Act
 
 ## Overview
 

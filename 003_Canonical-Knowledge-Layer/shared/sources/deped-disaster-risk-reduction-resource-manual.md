@@ -4,7 +4,7 @@ title: DepEd Disaster Risk Reduction Resource Manual
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:39:13.333312+00:00
+last_canonicalized_utc: 2026-04-19T04:50:25.758555+00:00
 aliases:
   - Disaster Risk Reduction Resource Manual
   - Safer Schools Resource Manual

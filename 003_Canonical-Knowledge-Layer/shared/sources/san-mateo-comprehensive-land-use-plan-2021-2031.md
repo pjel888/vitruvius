@@ -4,7 +4,7 @@ title: San Mateo Comprehensive Land Use Plan 2021-2031
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T02:08:24.101422+00:00
+last_canonicalized_utc: 2026-04-19T04:50:33.925528+00:00
 aliases:
   - San Mateo CLUP 2021-2031
   - Comprehensive Land Use Plan 2021-2031

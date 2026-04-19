@@ -4,7 +4,7 @@ title: PD 957 - Subdivision and Condominium Buyers Protective Decree
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:09.855015+00:00
+last_canonicalized_utc: 2026-04-19T04:50:38.152210+00:00
 ---
 
 # PD 957 - Subdivision and Condominium Buyers Protective Decree

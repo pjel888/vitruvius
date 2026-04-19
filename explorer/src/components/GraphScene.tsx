@@ -73,14 +73,14 @@ function GraphRenderer() {
     setGraphData(nodes, edges);
 
     const graph = new Graph();
-    nodes.forEach(n => {
+    nodes.forEach((n, i) => {
       graph.addNode(n.id, {
         label: n.label,
         size: n.radius ?? 8,
         color: NODE_COLORS[n.type] || '#a78bfa',
         type: n.type,
-        x: 0,
-        y: 0,
+        x: Math.cos((i / nodes.length) * Math.PI * 2) * 200,
+        y: Math.sin((i / nodes.length) * Math.PI * 2) * 200,
       });
     });
     edges.forEach((e, i) => {

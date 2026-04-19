@@ -4,7 +4,7 @@ title: PD 957 - Subdivision _ Condominium Buyer_s Act
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:09.743600+00:00
+last_canonicalized_utc: 2026-04-19T04:50:38.046138+00:00
 ---
 
 # PD 957 - Subdivision _ Condominium Buyer_s Act

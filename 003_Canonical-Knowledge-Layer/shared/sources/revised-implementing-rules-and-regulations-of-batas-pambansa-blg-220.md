@@ -4,7 +4,7 @@ title: Revised Implementing Rules and Regulations of Batas Pambansa Blg. 220
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:36:36.286348+00:00
+last_canonicalized_utc: 2026-04-19T04:50:24.899244+00:00
 aliases:
   - BP 220
   - Batas Pambansa Blg. 220

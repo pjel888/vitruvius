@@ -1,17 +1,17 @@
 ---
 id: law-fire-code-of-the-philippines
-title: Fire Code of the Philippines
+title: Fire Code Of The Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T02:06:03.161716+00:00
+last_canonicalized_utc: 2026-04-19T06:34:43.568485+00:00
 aliases:
   - PD 1185
   - Presidential Decree No. 1185
   - Fire Code of the Philippines 1977
 ---
 
-# Fire Code of the Philippines
+# Fire Code Of The Philippines
 
 ## Overview
 

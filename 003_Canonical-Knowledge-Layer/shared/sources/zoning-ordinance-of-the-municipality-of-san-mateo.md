@@ -4,7 +4,7 @@ title: Zoning Ordinance of the Municipality of San Mateo
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:39:41.777644+00:00
+last_canonicalized_utc: 2026-04-19T04:50:33.505569+00:00
 aliases:
   - San Mateo Zoning Ordinance
   - Zoning Ordinance for the Municipality of San Mateo

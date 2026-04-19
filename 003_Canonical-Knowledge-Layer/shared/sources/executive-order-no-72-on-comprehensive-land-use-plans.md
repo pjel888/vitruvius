@@ -1,16 +1,16 @@
 ---
 id: law-executive-order-no-72-on-comprehensive-land-use-plans
-title: Executive Order No. 72 on Comprehensive Land Use Plans
+title: Executive Order No. 72 On Comprehensive Land Use Plans
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T02:07:49.373295+00:00
+last_canonicalized_utc: 2026-04-19T06:34:32.754992+00:00
 aliases:
   - EO 72
   - Executive Order No. 72
 ---
 
-# Executive Order No. 72 on Comprehensive Land Use Plans
+# Executive Order No. 72 On Comprehensive Land Use Plans
 
 ## Overview
 

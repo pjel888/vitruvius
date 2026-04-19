@@ -1,20 +1,20 @@
 ---
 id: handout-doh-guidelines-for-health-facilities
-title: DOH Guidelines for Health Facilities
+title: Doh Guidelines For Health Facilities
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T02:08:03.667821+00:00
+last_canonicalized_utc: 2026-04-19T06:34:32.134219+00:00
 aliases:
   - Guidelines for Health Facilities
   - DOH Health Facilities Guidelines
 ---
 
-# DOH Guidelines for Health Facilities
+# Doh Guidelines For Health Facilities
 
 ## Overview
 
-Automated summary withheld for DOH Guidelines for Health Facilities because the refined source includes table-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
+Automated summary withheld for Doh Guidelines For Health Facilities because the refined source includes table-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
 
 ## Coverage
 

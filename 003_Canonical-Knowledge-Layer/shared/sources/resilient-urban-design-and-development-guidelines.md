@@ -4,7 +4,7 @@ title: Resilient Urban Design and Development Guidelines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:38:53.906676+00:00
+last_canonicalized_utc: 2026-04-19T04:50:28.933824+00:00
 aliases:
   - DHSUD Resilient Urban Design and Development Guidelines
 ---

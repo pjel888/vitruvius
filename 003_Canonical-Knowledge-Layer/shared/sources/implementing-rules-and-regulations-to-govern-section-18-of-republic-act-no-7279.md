@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations to Govern Section 18 of Republic Act N
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T17:29:55.244927+00:00
+last_canonicalized_utc: 2026-04-19T04:50:41.568663+00:00
 aliases:
   - RA 7279 Section 18 IRR
   - Balanced Housing Development IRR

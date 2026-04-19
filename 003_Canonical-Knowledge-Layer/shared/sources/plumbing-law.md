@@ -4,7 +4,7 @@ title: Plumbing Law
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T02:33:15.733698+00:00
+last_canonicalized_utc: 2026-04-19T04:50:39.655850+00:00
 aliases:
   - RA 1378
   - Republic Act No. 1378

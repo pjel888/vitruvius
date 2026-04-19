@@ -4,7 +4,7 @@ title: Urban Development and Housing Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:12.221859+00:00
+last_canonicalized_utc: 2026-04-19T04:50:40.477550+00:00
 aliases:
   - RA 7279
   - Republic Act No. 7279

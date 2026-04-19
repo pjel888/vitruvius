@@ -4,7 +4,7 @@ title: Condominium Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T10:14:43.146243+00:00
+last_canonicalized_utc: 2026-04-19T06:34:46.551509+00:00
 aliases:
   - RA 4726
   - Republic Act No. 4726

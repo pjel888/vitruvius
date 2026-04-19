@@ -4,7 +4,7 @@ title: PD 1067 IRR - Water Code Implementing Rules
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:20:59.945949+00:00
+last_canonicalized_utc: 2026-04-19T04:50:34.863649+00:00
 ---
 
 # PD 1067 IRR - Water Code Implementing Rules

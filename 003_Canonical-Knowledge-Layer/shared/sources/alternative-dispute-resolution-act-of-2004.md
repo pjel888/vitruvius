@@ -4,7 +4,7 @@ title: Alternative Dispute Resolution Act of 2004
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:13.343419+00:00
+last_canonicalized_utc: 2026-04-19T04:50:41.657552+00:00
 aliases:
   - RA 9285
   - Republic Act No. 9285

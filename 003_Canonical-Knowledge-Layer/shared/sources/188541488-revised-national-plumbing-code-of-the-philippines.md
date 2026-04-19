@@ -4,7 +4,7 @@ title: 188541488-Revised-National-Plumbing-Code-of-the-Philippines
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:04.392919+00:00
+last_canonicalized_utc: 2026-04-19T04:50:39.484243+00:00
 ---
 
 # 188541488-Revised-National-Plumbing-Code-of-the-Philippines

@@ -4,7 +4,7 @@ title: Clarification on PRBoA Resolution 05-2007 Rule II Registration
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T17:37:26.278781+00:00
+last_canonicalized_utc: 2026-04-19T04:50:38.773546+00:00
 aliases:
   - Clarification of PD-9266 Rule II Registration
   - PRBoA Resolution 05-2007 Clarification

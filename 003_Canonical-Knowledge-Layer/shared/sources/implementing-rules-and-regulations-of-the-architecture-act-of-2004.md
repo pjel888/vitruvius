@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the Architecture Act of 2004
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:13.160637+00:00
+last_canonicalized_utc: 2026-04-19T04:50:41.481253+00:00
 aliases:
   - RA 9266
   - RA 9266 IRR

@@ -4,7 +4,7 @@ title: Local Government Code of 1991
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:05.268023+00:00
+last_canonicalized_utc: 2026-04-19T04:50:40.383679+00:00
 aliases:
   - RA 7160
   - Republic Act No. 7160

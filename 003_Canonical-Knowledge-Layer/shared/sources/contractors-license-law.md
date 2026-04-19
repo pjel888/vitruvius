@@ -4,7 +4,7 @@ title: Contractors' License Law
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:37:46.913198+00:00
+last_canonicalized_utc: 2026-04-19T06:34:46.452808+00:00
 aliases:
   - RA 4566
   - Republic Act No. 4566

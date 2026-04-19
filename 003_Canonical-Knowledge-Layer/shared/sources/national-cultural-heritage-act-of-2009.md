@@ -4,7 +4,7 @@ title: National Cultural Heritage Act of 2009
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:10.711661+00:00
+last_canonicalized_utc: 2026-04-19T04:50:38.945937+00:00
 aliases:
   - RA 10066
   - Republic Act No. 10066

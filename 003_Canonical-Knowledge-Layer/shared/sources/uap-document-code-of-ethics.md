@@ -4,7 +4,7 @@ title: UAP Document Code of Ethics
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:07.388532+00:00
+last_canonicalized_utc: 2026-04-19T04:50:43.409250+00:00
 aliases:
   - UAP Code of Ethics
   - Architect's Code of Ethics

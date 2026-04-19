@@ -4,7 +4,7 @@ title: Revised Implementing Rules and Regulations of Batas Pambansa Blg. 344
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:05.678552+00:00
+last_canonicalized_utc: 2026-04-19T04:50:25.000408+00:00
 aliases:
   - BP 344
   - Batas Pambansa Blg. 344

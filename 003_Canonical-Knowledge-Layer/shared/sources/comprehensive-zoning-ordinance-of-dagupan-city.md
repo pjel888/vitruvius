@@ -4,7 +4,7 @@ title: Comprehensive Zoning Ordinance of Dagupan City
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T02:08:42.917172+00:00
+last_canonicalized_utc: 2026-04-19T04:50:33.296151+00:00
 aliases:
   - Dagupan City Ordinance No. 2061-2016
   - Comprehensive Zoning Ordinance of Dagupan City (2015-2025)

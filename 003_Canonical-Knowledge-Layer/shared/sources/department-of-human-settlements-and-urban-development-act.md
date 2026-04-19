@@ -4,7 +4,7 @@ title: Department of Human Settlements and Urban Development Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:10.816608+00:00
+last_canonicalized_utc: 2026-04-19T04:50:39.031877+00:00
 aliases:
   - RA 11201
   - Republic Act No. 11201

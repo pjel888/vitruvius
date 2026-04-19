@@ -4,7 +4,7 @@ title: Code on Sanitation of the Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:09.352718+00:00
+last_canonicalized_utc: 2026-04-19T04:50:37.661958+00:00
 aliases:
   - PD 856
   - Presidential Decree No. 856

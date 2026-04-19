@@ -1,17 +1,17 @@
 ---
 id: law-philippine-clean-water-act-of-2004
-title: Philippine Clean Water Act of 2004
+title: Philippine Clean Water Act Of 2004
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:13.063844+00:00
+last_canonicalized_utc: 2026-04-19T06:34:47.792858+00:00
 aliases:
   - RA 9275
   - Republic Act No. 9275
   - Philippine Clean Water Act of 2004
 ---
 
-# Philippine Clean Water Act of 2004
+# Philippine Clean Water Act Of 2004
 
 ## Overview
 

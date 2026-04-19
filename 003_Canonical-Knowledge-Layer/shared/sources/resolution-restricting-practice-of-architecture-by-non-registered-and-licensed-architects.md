@@ -4,7 +4,7 @@ title: Resolution Restricting Practice of Architecture by Non-Registered and Lic
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T02:08:11.368279+00:00
+last_canonicalized_utc: 2026-04-19T04:50:38.594150+00:00
 aliases:
   - Prohibition of NonRLAs
   - PRBoA Resolution No. 01 Series of 2008

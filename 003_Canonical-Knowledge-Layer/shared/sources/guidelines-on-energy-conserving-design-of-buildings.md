@@ -4,7 +4,7 @@ title: Guidelines on Energy Conserving Design of Buildings
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T14:51:15.775593+00:00
+last_canonicalized_utc: 2026-04-19T04:50:25.870683+00:00
 aliases:
   - DOE Guidelines on Energy Conserving Design on Buildings
   - Energy Conserving Design of Buildings Guidelines

@@ -4,7 +4,7 @@ title: Executive Order No. 648 Reorganizing the Human Settlements Regulatory Com
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:38:42.393239+00:00
+last_canonicalized_utc: 2026-04-19T04:50:26.655837+00:00
 aliases:
   - EO 648
   - Executive Order No. 648

@@ -4,7 +4,7 @@ title: Philippine Environmental Policy
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:37:32.407237+00:00
+last_canonicalized_utc: 2026-04-19T04:50:37.169251+00:00
 aliases:
   - PD 1151
   - Presidential Decree No. 1151

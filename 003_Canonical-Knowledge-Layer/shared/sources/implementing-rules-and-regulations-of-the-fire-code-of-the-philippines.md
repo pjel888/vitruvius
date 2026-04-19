@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the Fire Code of the Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:13.673365+00:00
+last_canonicalized_utc: 2026-04-19T04:50:41.985963+00:00
 aliases:
   - RA 9514
   - Republic Act No. 9514

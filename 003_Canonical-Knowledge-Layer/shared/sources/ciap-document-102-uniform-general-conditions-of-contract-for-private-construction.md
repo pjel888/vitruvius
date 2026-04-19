@@ -1,16 +1,16 @@
 ---
 id: handout-ciap-document-102-uniform-general-conditions-of-contract-for-private-construction
-title: CIAP Document 102 Uniform General Conditions of Contract for Private Construction
+title: CIAP DOCUMENT 102 UNIFORM GENERAL CONDITIONS OF CONTRACT FOR PRIVATE CONSTRUCTION
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:20:57.764638+00:00
+last_canonicalized_utc: 2026-04-19T06:34:31.282407+00:00
 aliases:
   - CIAP Document 102
   - Uniform General Conditions of Contract for Private Construction
 ---
 
-# CIAP Document 102 Uniform General Conditions of Contract for Private Construction
+# CIAP DOCUMENT 102 UNIFORM GENERAL CONDITIONS OF CONTRACT FOR PRIVATE CONSTRUCTION
 
 ## Overview
 

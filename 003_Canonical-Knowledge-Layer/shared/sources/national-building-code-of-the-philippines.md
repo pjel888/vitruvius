@@ -1,17 +1,17 @@
 ---
 id: law-national-building-code-of-the-philippines
-title: National Building Code of the Philippines
+title: NATIONAL BUILDING CODE OF THE PHILIPPINES
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:33:44.694523+00:00
+last_canonicalized_utc: 2026-04-19T06:34:42.045514+00:00
 aliases:
   - PD 1096
   - Presidential Decree No. 1096
   - National Building Code
 ---
 
-# National Building Code of the Philippines
+# NATIONAL BUILDING CODE OF THE PHILIPPINES
 
 ## Overview
 

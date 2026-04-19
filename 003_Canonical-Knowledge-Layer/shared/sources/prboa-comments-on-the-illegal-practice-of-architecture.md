@@ -4,7 +4,7 @@ title: PRBoA Comments on the Illegal Practice of Architecture
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T17:40:25.452966+00:00
+last_canonicalized_utc: 2026-04-19T04:50:38.852906+00:00
 aliases:
   - Illegal Practice of AR
   - Illegal Practice of Architecture Comments

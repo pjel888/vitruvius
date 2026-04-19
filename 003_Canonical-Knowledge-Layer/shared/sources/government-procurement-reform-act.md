@@ -4,7 +4,7 @@ title: Government Procurement Reform Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:12.638287+00:00
+last_canonicalized_utc: 2026-04-19T04:50:40.875151+00:00
 aliases:
   - RA 9184
   - Republic Act No. 9184

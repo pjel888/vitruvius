@@ -1,25 +1,224 @@
 ---
 id: law-civil-code-of-the-philippines
-title: Civil Code of the Philippines
+title: Civil Code Of The Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:11.650693+00:00
+last_canonicalized_utc: 2026-04-19T06:34:46.266382+00:00
 aliases:
   - RA 386
   - Republic Act No. 386
   - Civil Code of the Philippines
 ---
 
-# Civil Code of the Philippines
+# Civil Code Of The Philippines
 
 ## Overview
 
-Republic Act 386 Civil Code of the Philippines
+Article 1. This Act shall be known as the "Civil Code of the Philippines." (n)
 
 ## Coverage
 
-- (no headers detected in refined source)
+- CHAPTER 1 Effect and Application of Laws
+- CHAPTER 2 Human Relations (n)
+- CHAPTER 1 General Provisions
+- CHAPTER 2 Natural Persons
+- CHAPTER 3 Juridical Persons
+- CHAPTER 1 Requisites of Marriage
+- CHAPTER 2 Marriages of Exceptional Character
+- CHAPTER 3 Void and Voidable Marriages
+- CHAPTER 4 Authority to Solemnize Marriages
+- CHAPTER 2 Donations by Reason of Marriage
+- CHAPTER 3 Paraphernal Property
+- CHAPTER 4 Conjugal Partnership of Gains
+- SECTION 1 General Provisions
+- SECTION 2 Exclusive Property of Each Spouse
+- SECTION 3 Conjugal Partnership Property
+- SECTION 4 Charges Upon and Obligation of the Conjugal Partnership
+- SECTION 5 Administration of the Conjugal Partnership
+- SECTION 6 Dissolution of the Conjugal Partnership
+- SECTION 7 Liquidation of the Conjugal Partnership
+- CHAPTER 5 Separation of Property of the Spouses and Administration of Property by the Wife During the Marriage
+- CHAPTER 6 System of Absolute Community
+- CHAPTER 7 System of Complete Separation of Property
+- CHAPTER 1 The Family as an Institution
+- CHAPTER 2 The Family Home (n)
+- SECTION 2 Judicial Constitution of the Family Home
+- SECTION 3 Extra-judicial Creation of the Family Home
+- CHAPTER 3 The Family Council (n)
+- CHAPTER 1 Legitimate Children
+- CHAPTER 2 Proof of Filiation of Legitimate Children
+- CHAPTER 3 Legitimated Children
+- CHAPTER 4 Illegitimate Children
+- SECTION 1 Recognition of Natural Children
+- CHAPTER 2 Effect of Parental Authority Upon the Persons of the Children
+- CHAPTER 3 Effect of Parental Authority on the Property of the Children
+- CHAPTER 4 Extinguishment of Parental Authority
+- CHAPTER 5 Adoption
+- CHAPTER 6 Substitute Parental Authority (n)
+- CHAPTER 1 Provisional Measures in Case of Absence
+- CHAPTER 2 Declaration of Absence
+- CHAPTER 3 Administration of the Property of the Absentee
+- CHAPTER 4 Presumption of Death
+- CHAPTER 5 Effect of Absence Upon the Contingent Rights of the Absentee
+- CHAPTER 1 Emancipation
+- CHAPTER 2 Age of Majority
+- CHAPTER 1 Immovable Property
+- CHAPTER 2 Movable Property
+- CHAPTER 3 Property in Relation to the Person to Whom It Belongs
+- CHAPTER 1 Ownership in General
+- CHAPTER 2 Right of Accession
+- SECTION 1 Right of Accession with Respect to What is Produced by Property
+- SECTION 2 Right of Accession with Respect to Immovable Property
+- SECTION 3 Right of Accession with Respect to Movable Property
+- CHAPTER 3 Quieting of Title (n)
+- CHAPTER 4 Ruinous Buildings and Trees in Danger of Falling
+- CHAPTER 1 Waters
+- SECTION 1 Ownership of Waters
+- SECTION 2 The Use of Public Waters
+- SECTION 3 The Use of Waters of Private Ownership
+- SECTION 4 Subterranean Waters
+- SECTION 5 General Provisions
+- CHAPTER 2 Minerals
+- CHAPTER 3 Trade-marks and Trade-names
+- CHAPTER 1 Possession and the Kinds Thereof
+- CHAPTER 2 Acquisition of Possession
+- CHAPTER 3 Effects of Possession
+- CHAPTER 1 Usufruct in General
+- CHAPTER 2 Rights of the Usufructuary
+- CHAPTER 3 Obligations of the Usufructuary
+- CHAPTER 4 Extinguishment of Usufruct
+- CHAPTER 1 Easements in General
+- SECTION 1 Different Kinds of Easements
+- SECTION 2 Modes of Acquiring Easements
+- SECTION 3 Rights and Obligations of the Owners of the Dominant and Servient Estates
+- SECTION 4 Modes of Extinguishment of Easements
+- CHAPTER 2 Legal Easements
+- SECTION 2 Easements Relating to Waters
+- SECTION 3 Easement of Right of Way
+- SECTION 4 Easement of Party Wall
+- SECTION 5 Easement of Light and View
+- SECTION 6 Drainage of Buildings
+- SECTION 7 Intermediate Distances and Works for Certain Constructions and Plantings
+- SECTION 8 Easement Against Nuisance (n)
+- CHAPTER 3 Voluntary Easements
+- CHAPTER 1 Nature of Donations
+- CHAPTER 2 Persons Who May Give or Receive a Donation
+- CHAPTER 3 Effect of Donations and Limitations Thereon
+- CHAPTER 4 Revocation and Reduction of Donations
+- SECTION 1 Wills
+- SECTION 2 Institution of Heir
+- SECTION 3 Substitution of Heirs
+- SECTION 4 Conditional Testamentary Dispositions and Testamentary Dispositions With a Term
+- SECTION 5 Legitime
+- SECTION 6 Disinheritance
+- SECTION 7 Legacies and Devises
+- CHAPTER 3 Legal or Intestate Succession
+- SECTION 2 Order of Intestate Succession
+- CHAPTER 4 Provisions Common to Testate and Intestate Successions
+- SECTION 1 Right of Accretion
+- SECTION 2 Capacity to Succeed by Will or by Intestacy
+- SECTION 3 Acceptance and Repudiation of the Inheritance
+- SECTION 4 Executors and Administrators
+- SECTION 5 Collation
+- SECTION 6 Partition and Distribution of the Estate
+- CHAPTER 2 Prescription of Ownership and Other Real Rights
+- CHAPTER 3 Prescription of Actions
+- CHAPTER 3 Different Kinds of Obligations
+- SECTION 1 Pure and Conditional Obligations
+- SECTION 2 Obligations with a Period
+- SECTION 3 Alternative Obligations
+- SECTION 4 Joint and Solidary Obligations
+- SECTION 5 Divisible and Indivisible Obligations
+- SECTION 6 Obligations with a Penal Clause
+- CHAPTER 4 Extinguishment of Obligations
+- SECTION 1 Payment or Performance
+- SECTION 2 Loss of the Thing Due
+- SECTION 3 Condonation or Remission of the Debt
+- SECTION 4 Confusion or Merger of Rights
+- SECTION 5 Compensation
+- SECTION 6 Novation
+- CHAPTER 2 Essential Requisites of Contracts
+- SECTION 1 Consent
+- SECTION 2 Object of Contracts
+- SECTION 3 Cause of Contracts
+- CHAPTER 3 Form of Contracts
+- CHAPTER 4 Reformation of Instruments (n)
+- CHAPTER 5 Interpretation of Contracts
+- CHAPTER 6 Rescissible Contracts
+- CHAPTER 7 Voidable Contracts
+- CHAPTER 8 Unenforceable Contracts (n)
+- CHAPTER 9 Void and Inexistent Contracts
+- CHAPTER 2 Express Trusts
+- CHAPTER 3 Implied Trusts
+- CHAPTER 1 Nature and Form of the Contract
+- CHAPTER 2 Capacity to Buy or Sell
+- CHAPTER 3 Effects of the Contract When the Thing Sold Has Been Lost
+- CHAPTER 4 Obligations of the Vendor
+- SECTION 2 Delivery of the Thing Sold
+- SECTION 3 Conditions and Warranties
+- CHAPTER 5 Obligations of the Vendee
+- CHAPTER 6 Actions for Breach of Contract of Sale of Goods
+- CHAPTER 7 Extinguishment of Sale
+- SECTION 1 Conventional Redemption
+- SECTION 2 Legal Redemption
+- CHAPTER 8 Assignment of Credits and Other Incorporeal Rights
+- 1475. (n)
+- CHAPTER 9 General Provisions
+- SECTION 2 Rights and Obligations of the Lessor and the Lessee
+- SECTION 3 Special Provisions for Leases of Rural Lands
+- SECTION 4 Special Provisions for the Lease of Urban Lands
+- CHAPTER 3 Work and Labor
+- SECTION 1 Household Service (n)
+- SECTION 2 Contract of Labor (n)
+- SECTION 3 Contract for a Piece of Work
+- SECTION 4 Common Carriers (n)
+- CHAPTER 2 Obligations of the Partners
+- SECTION 1 Obligations of the Partners Among Themselves
+- SECTION 2 Property Rights of a Partner
+- SECTION 3 Obligations of the Partners with Regard to Third Persons
+- CHAPTER 3 Dissolution and Winding Up
+- CHAPTER 4 Limited Partnership (n)
+- CHAPTER 1 Nature, Form and Kinds of Agency
+- CHAPTER 2 Obligations of the Agent
+- CHAPTER 3 Obligations of the Principal
+- CHAPTER 4 Modes of Extinguishment of Agency
+- CHAPTER 1 Commodatum
+- SECTION 1 Nature of Commodatum
+- SECTION 2 Obligations of the Bailee
+- SECTION 3 Obligations of the Bailor
+- CHAPTER 2 Simple Loan or Mutuum
+- CHAPTER 1 Deposit in General and its Different Kinds
+- CHAPTER 2 Voluntary Deposit
+- SECTION 2 Obligations of the Depositary
+- SECTION 3 Obligations of the Depositor
+- CHAPTER 3 Necessary Deposit
+- CHAPTER 1 Insurance
+- CHAPTER 2 Gambling
+- CHAPTER 3 Life Annuity
+- CHAPTER 1 Compromises
+- CHAPTER 2 Arbitrations
+- CHAPTER 1 Nature and Extent of Guaranty
+- CHAPTER 2 Effects of Guaranty
+- SECTION 1 Effects of Guaranty Between the Guarantor and the Creditor
+- SECTION 2 Effects of Guaranty Between the Debtor and the Guarantor
+- SECTION 3. Effects of Guaranty as Between Co-Guarantors
+- CHAPTER 4 Legal and Judicial Bonds
+- CHAPTER 1 Provisions Common to Pledge and Mortgage
+- CHAPTER 2 Pledge
+- CHAPTER 3 Mortgage
+- CHAPTER 4 Antichresis
+- CHAPTER 5 Chattel Mortgage
+- CHAPTER 1 Quasi-contracts
+- SECTION 3 Other Quasi-Contracts *
+- CHAPTER 2 Actual or Compensatory Damages
+- CHAPTER 3 Other Kinds of Damages
+- SECTION 1 Moral Damages
+- SECTION 2 Nominal Damages
+- SECTION 3 Temperate or Moderate Damages
+- SECTION 5 Exemplary or Corrective Damages
+- CHAPTER 2 Classification of Credits
+- CHAPTER 3 Order of Preference of Credits
 
 ## Key Points
 
@@ -27,4 +226,8 @@ Republic Act 386 Civil Code of the Philippines
 
 ## Referenced Concepts
 
-- (none resolved against shared/concepts)
+- concept-floor-area-ratio
+- concept-stairs
+- concept-yards
+- concept-mediation
+- concept-arbitration

@@ -4,7 +4,7 @@ title: PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:03.246488+00:00
+last_canonicalized_utc: 2026-04-19T04:50:38.231284+00:00
 ---
 
 # PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)

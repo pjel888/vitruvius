@@ -4,7 +4,7 @@ title: Building Technology Lecture - Siteworks
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:06.910789+00:00
+last_canonicalized_utc: 2026-04-19T04:50:42.262377+00:00
 ---
 
 # Building Technology Lecture - Siteworks

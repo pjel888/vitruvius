@@ -4,7 +4,7 @@ title: Zoning Ordinance of the City of Malolos
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T02:09:07.599168+00:00
+last_canonicalized_utc: 2026-04-19T04:50:32.612117+00:00
 aliases:
   - Malolos City Zoning Ordinance
   - Zoning Regulations of the City of Malolos

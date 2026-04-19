@@ -1,17 +1,17 @@
 ---
 id: irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act
-title: Implementing Rules and Regulations of the Department of Human Settlements and Urban Development Act
+title: Implementing Rules And Regulations Of The Department Of Human Settlements And Urban Development Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T02:06:52.018820+00:00
+last_canonicalized_utc: 2026-04-19T06:34:45.515521+00:00
 aliases:
   - RA 11201 IRR
   - DHSUD Act IRR
   - Implementing Rules and Regulations of the Department of Human Settlements and Urban Development Act
 ---
 
-# Implementing Rules and Regulations of the Department of Human Settlements and Urban Development Act
+# Implementing Rules And Regulations Of The Department Of Human Settlements And Urban Development Act
 
 ## Overview
 

@@ -4,7 +4,7 @@ title: Updated 2016 Revised Implementing Rules and Regulations of the Government
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:06.057235+00:00
+last_canonicalized_utc: 2026-04-19T04:50:41.201461+00:00
 aliases:
   - RA 9184 IRR
   - Government Procurement Reform Act IRR

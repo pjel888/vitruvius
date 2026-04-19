@@ -4,7 +4,7 @@ title: Statement that Architectural and Architectural Interior Design are Exclus
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:10.436474+00:00
+last_canonicalized_utc: 2026-04-19T04:50:38.690381+00:00
 aliases:
   - Architecture and AR Interiors are Exclusive
   - Architectural Interior Design Exclusive

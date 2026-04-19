@@ -1,16 +1,16 @@
 ---
 id: handout-cmo-61-series-2017-bs-architecture-curriculum-standards
-title: CMO 61 Series 2017 BS Architecture Curriculum Standards
+title: Cmo 61 Series 2017 Bs Architecture Curriculum Standards
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:13.969795+00:00
+last_canonicalized_utc: 2026-04-19T06:34:48.886564+00:00
 aliases:
   - CHED CMO 61 Series 2017
   - BS Architecture Curriculum Standards
 ---
 
-# CMO 61 Series 2017 BS Architecture Curriculum Standards
+# Cmo 61 Series 2017 Bs Architecture Curriculum Standards
 
 ## Overview
 

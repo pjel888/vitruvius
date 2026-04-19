@@ -4,7 +4,7 @@ title: Executive Order No. 90 on the National Shelter Program
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T15:10:27.305319+00:00
+last_canonicalized_utc: 2026-04-19T04:50:26.826770+00:00
 aliases:
   - EO 90
   - Executive Order No. 90

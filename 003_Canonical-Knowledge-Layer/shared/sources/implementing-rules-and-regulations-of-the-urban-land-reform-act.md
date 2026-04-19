@@ -4,7 +4,7 @@ title: Implementing Rules and Regulations of the Urban Land Reform Act
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:37:32.853718+00:00
+last_canonicalized_utc: 2026-04-19T04:50:37.430580+00:00
 aliases:
   - PD 1517
   - Presidential Decree No. 1517

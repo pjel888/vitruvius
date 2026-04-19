@@ -4,7 +4,7 @@ title: Quezon City Central Business District Zoning Ordinance
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T17:07:56.931747+00:00
+last_canonicalized_utc: 2026-04-19T04:50:30.345526+00:00
 aliases:
   - QC-CBD Zoning Ordinance
   - Ordinance No. SP-2117, S-2011

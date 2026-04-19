@@ -4,7 +4,7 @@ title: Comprehensive Zoning Ordinance of the City of Tarlac
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-17T18:41:25.919998+00:00
+last_canonicalized_utc: 2026-04-19T04:50:29.444261+00:00
 aliases:
   - Tarlac City Zoning Ordinance
   - Zoning Regulations for the City of Tarlac

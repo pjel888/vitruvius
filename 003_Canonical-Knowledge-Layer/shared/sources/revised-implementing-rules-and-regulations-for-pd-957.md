@@ -1,10 +1,10 @@
 ---
 id: irr-revised-implementing-rules-and-regulations-for-pd-957
-title: Revised Implementing Rules and Regulations for PD 957
+title: REVISED IMPLEMENTING RULES AND REGULATIONS FOR PD 957
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T04:06:10.061520+00:00
+last_canonicalized_utc: 2026-04-19T06:34:44.696502+00:00
 aliases:
   - PD 957 IRR
   - Presidential Decree No. 957 IRR
@@ -12,7 +12,7 @@ aliases:
   - Revised Implementing Rules and Regulations for PD 957
 ---
 
-# Revised Implementing Rules and Regulations for PD 957
+# REVISED IMPLEMENTING RULES AND REGULATIONS FOR PD 957
 
 ## Overview
 
