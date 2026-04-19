@@ -1,4 +1,4 @@
-"""Neo4j loader — snapshot → Cypher for the KG v2 transition.
+"""Neo4j loader — snapshot -> Cypher for the KG v2 transition.
 
 Reads a ``KgV2Snapshot`` (and optionally a separate edge-snapshot JSON)
 and produces idempotent ``MERGE`` statements suitable for Neo4j.
@@ -6,6 +6,16 @@ and produces idempotent ``MERGE`` statements suitable for Neo4j.
 When ``kg_transition.neo4j_backend`` is enabled and a ``Neo4jClient`` is
 provided, statements are executed directly; otherwise they are returned
 as a list or written to a ``.cypher`` file.
+
+Taxonomy-centered graph model
+-----------------------------
+* Taxonomy/Topic/Subtopic nodes are virtualised from ``taxonomy_path`` arrays.
+* ``RelationshipAssertion`` objects become **typed edges** between
+  ``CanonicalNode`` vertices (not standalone nodes).
+* ``PlacementAssertion`` and ``MergeAssertion`` become ``BELONGS_TO`` and
+  ``SAME_AS`` edges respectively.
+* Evidence linkage is explicit: ``SUPPORTED_BY`` edges connect canonical
+  concepts to ``EvidenceSpan`` nodes.
 """
 
 from __future__ import annotations
@@ -15,7 +25,12 @@ from typing import Any
 
 from vitruvius.config import is_kg_neo4j_backend
 from .json_evidence_store import KgV2Snapshot
-from .schemas import CanonicalNode, RelationshipAssertion
+from .schemas import (
+    CanonicalNode,
+    MergeAssertion,
+    PlacementAssertion,
+    RelationshipAssertion,
+)
 
 
 class Neo4jLoader:
@@ -38,11 +53,17 @@ class Neo4jLoader:
         """Generate idempotent MERGE statements for the whole snapshot."""
         self._statements = []
         self._merge_canonical_nodes()
+        self._merge_taxonomy_nodes()
+        self._merge_taxonomy_edges()
         self._merge_document_versions()
         self._merge_sections()
         self._merge_chunks()
         self._merge_evidence_spans()
-        self._merge_assertions()
+        self._merge_assertion_edges()
+        self._merge_placement_assertion_edges()
+        self._merge_merge_assertion_edges()
+        self._merge_support_edges()
+        self._merge_evidence_relationships()
         self._merge_fast_edges()
         return list(self._statements)
 
@@ -91,6 +112,65 @@ class Neo4jLoader:
     def _merge_canonical_nodes(self) -> None:
         for node in self.snapshot.canonical_nodes:
             self._statements.append(_canonical_node_merge(node))
+
+    def _merge_taxonomy_nodes(self) -> None:
+        """Create Taxonomy, Topic, Subtopic nodes from taxonomy_path arrays."""
+        segments = _extract_taxonomy_segments(self.snapshot.canonical_nodes)
+        for seg_id, (kind, label) in segments.items():
+            label_cypher = {
+                "taxonomy": "Taxonomy",
+                "topic": "Topic",
+                "subtopic": "Subtopic",
+            }[kind]
+            props = _escape_props({
+                "id": seg_id,
+                "label": label,
+                "kind": kind,
+            })
+            self._statements.append(
+                f"MERGE (n:{label_cypher} {{id: '{_esc(seg_id)}'}})"
+                f" SET n += {props}"
+            )
+
+    def _merge_taxonomy_edges(self) -> None:
+        """Link taxonomy hierarchy and connect canonical nodes to taxonomy."""
+        # Build unique parent->child pairs
+        has_child: set[tuple[str, str]] = set()
+        belongs_to: set[tuple[str, str]] = set()
+
+        for node in self.snapshot.canonical_nodes:
+            tp = node.taxonomy_path
+            if not tp:
+                continue
+
+            # Normalise paths that use the old short-root format
+            tp = _normalise_taxonomy_path(tp)
+
+            # Hierarchy edges
+            for i in range(len(tp) - 1):
+                has_child.add((tp[i], tp[i + 1]))
+
+            # Canonical node -> leaf taxonomy node
+            # Skip taxonomy-root canonical nodes (they ARE the taxonomy,
+            # they don't belong to it).
+            if node.type.value == "taxonomy":
+                continue
+            leaf = tp[-1]
+            belongs_to.add((node.id, leaf))
+
+        for parent_id, child_id in sorted(has_child):
+            self._statements.append(
+                f"MATCH (p {{id: '{_esc(parent_id)}'}}),"
+                f" (c {{id: '{_esc(child_id)}'}})"
+                f" MERGE (p)-[:HAS_CHILD]->(c)"
+            )
+
+        for node_id, taxo_id in sorted(belongs_to):
+            self._statements.append(
+                f"MATCH (cn:CanonicalNode {{id: '{_esc(node_id)}'}}),"
+                f" (tx {{id: '{_esc(taxo_id)}'}})"
+                f" MERGE (cn)-[:BELONGS_TO]->(tx)"
+            )
 
     def _merge_document_versions(self) -> None:
         for dv in self.snapshot.document_versions:
@@ -162,30 +242,109 @@ class Neo4jLoader:
                 f" SET e += {props}"
             )
 
-    def _merge_assertions(self) -> None:
+    def _merge_assertion_edges(self) -> None:
+        """Convert RelationshipAssertion objects into typed edges.
+
+        Skips "orphan" assertions whose endpoints are not present in the
+        canonical node set.
+        """
+        canonical_ids = {n.id for n in self.snapshot.canonical_nodes}
         for assertion in self.snapshot.relationship_assertions:
+            if assertion.from_node_id not in canonical_ids:
+                continue
+            if assertion.to_node_id not in canonical_ids:
+                continue
+            self._statements.append(
+                _assertion_edge_cypher(assertion)
+            )
+
+    def _merge_placement_assertion_edges(self) -> None:
+        """Convert PlacementAssertion objects into BELONGS_TO edges."""
+        canonical_ids = {n.id for n in self.snapshot.canonical_nodes}
+        for pa in self.snapshot.placement_assertions:
+            if pa.node_id not in canonical_ids or pa.parent_node_id not in canonical_ids:
+                continue
             props = _escape_props({
-                "id": assertion.id,
-                "edge_type": assertion.edge_type.value,
-                "from_node_id": assertion.from_node_id,
-                "to_node_id": assertion.to_node_id,
-                "reasoning_summary": assertion.reasoning_summary,
-                "inference_type": assertion.inference_type.value,
-                "confidence": assertion.confidence,
-                "validation_status": assertion.validation_status.value,
-                "review_state": assertion.review_state,
-                "evidence_ids": assertion.evidence_ids,
-                "document_version_ids": assertion.document_version_ids,
-                "created_at": assertion.created_at,
-                "updated_at": assertion.updated_at,
-                "version": assertion.version,
+                "assertion_id": pa.id,
+                "reasoning_summary": pa.reasoning_summary,
+                "confidence": pa.confidence,
+                "validation_status": pa.validation_status.value,
             })
             self._statements.append(
-                f"MERGE (a:Assertion {{id: '{_esc(assertion.id)}'}})"
-                f" SET a += {props}"
+                f"MATCH (a:CanonicalNode {{id: '{_esc(pa.node_id)}'}}),"
+                f" (b:CanonicalNode {{id: '{_esc(pa.parent_node_id)}'}})"
+                f" MERGE (a)-[r:BELONGS_TO {props}]->(b)"
+            )
+
+    def _merge_merge_assertion_edges(self) -> None:
+        """Convert MergeAssertion objects into SAME_AS edges."""
+        canonical_ids = {n.id for n in self.snapshot.canonical_nodes}
+        for ma in self.snapshot.merge_assertions:
+            if ma.from_node_id not in canonical_ids or ma.to_node_id not in canonical_ids:
+                continue
+            props = _escape_props({
+                "assertion_id": ma.id,
+                "reasoning_summary": ma.reasoning_summary,
+                "confidence": ma.confidence,
+                "validation_status": ma.validation_status.value,
+            })
+            self._statements.append(
+                f"MATCH (a:CanonicalNode {{id: '{_esc(ma.from_node_id)}'}}),"
+                f" (b:CanonicalNode {{id: '{_esc(ma.to_node_id)}'}})"
+                f" MERGE (a)-[r:SAME_AS {props}]->(b)"
+            )
+
+    def _merge_support_edges(self) -> None:
+        """Create SUPPORTED_BY edges from canonical nodes to EvidenceSpans.
+
+        Uses the evidence_ids field on each assertion.  One canonical node
+        may be supported by many spans via many assertions.
+        """
+        canonical_ids = {n.id for n in self.snapshot.canonical_nodes}
+        evidence_ids = {e.id for e in self.snapshot.evidence_spans}
+
+        for assertion in self.snapshot.relationship_assertions:
+            if assertion.from_node_id not in canonical_ids:
+                continue
+            for span_id in assertion.evidence_ids:
+                if span_id not in evidence_ids:
+                    continue
+                self._statements.append(
+                    f"MATCH (c:CanonicalNode {{id: '{_esc(assertion.from_node_id)}'}}),"
+                    f" (e:EvidenceSpan {{id: '{_esc(span_id)}'}})"
+                    f" MERGE (c)-[r:SUPPORTED_BY {{assertion_id: '{_esc(assertion.id)}'}}]->(e)"
+                )
+
+    def _merge_evidence_relationships(self) -> None:
+        """Create DocumentVersion -> Section -> Chunk evidence chain edges."""
+        for sec in self.snapshot.sections:
+            self._statements.append(
+                f"MATCH (dv:DocumentVersion {{id: '{_esc(sec.document_version_id)}'}}),"
+                f" (s:Section {{id: '{_esc(sec.id)}'}})"
+                f" MERGE (dv)-[:HAS_SECTION]->(s)"
+            )
+        for chunk in self.snapshot.chunks:
+            self._statements.append(
+                f"MATCH (s:Section {{id: '{_esc(chunk.section_id)}'}}),"
+                f" (c:Chunk {{id: '{_esc(chunk.id)}'}})"
+                f" MERGE (s)-[:HAS_CHUNK]->(c)"
+            )
+        for span in self.snapshot.evidence_spans:
+            self._statements.append(
+                f"MATCH (dv:DocumentVersion {{id: '{_esc(span.document_version_id)}'}}),"
+                f" (e:EvidenceSpan {{id: '{_esc(span.id)}'}})"
+                f" MERGE (dv)-[:HAS_SPAN]->(e)"
             )
 
     def _merge_fast_edges(self) -> None:
+        """Load supplemental fast edges that have no corresponding assertion.
+
+        Edges whose ``assertion_id`` matches a ``RelationshipAssertion`` in
+        the snapshot are skipped because the assertion already produces a
+        richer typed edge via ``_merge_assertion_edges``.
+        """
+        known_assertion_ids = {a.id for a in self.snapshot.relationship_assertions}
+
         edges = list(self.snapshot.fast_edges)
         if self.edge_snapshot_path and self.edge_snapshot_path.exists():
             import json
@@ -194,11 +353,13 @@ class Neo4jLoader:
             edges.extend(data.get("edges", []))
 
         for edge in edges:
+            aid = edge.get("assertion_id", "")
+            if aid and aid in known_assertion_ids:
+                continue  # already handled as a rich assertion edge
             eid = edge.get("id", "")
             etype = edge.get("edge_type", "RELATED_TO")
             from_id = edge.get("from_node_id", "")
             to_id = edge.get("to_node_id", "")
-            aid = edge.get("assertion_id", "")
             conf = edge.get("confidence", 0.0)
             self._statements.append(
                 f"MATCH (from_node {{id: '{_esc(from_id)}'}}),"
@@ -265,4 +426,82 @@ def _canonical_node_merge(node: CanonicalNode) -> str:
     return (
         f"MERGE (n:CanonicalNode {{id: '{_esc(node.id)}'}})"
         f" SET n += {props}"
+    )
+
+
+def _extract_taxonomy_segments(
+    canonical_nodes: list[CanonicalNode],
+) -> dict[str, tuple[str, str]]:
+    """Return a map of segment_id -> (kind, human_label).
+
+    Scans every ``taxonomy_path`` on canonical nodes and extracts the
+    unique Taxonomy / Topic / Subtopic segments.
+    """
+    segments: dict[str, tuple[str, str]] = {}
+    for node in canonical_nodes:
+        tp = node.taxonomy_path
+        if not tp:
+            continue
+        tp = _normalise_taxonomy_path(tp)
+        for seg in tp:
+            kind = _taxonomy_segment_kind(seg)
+            label = _taxonomy_segment_label(seg)
+            segments[seg] = (kind, label)
+    return segments
+
+
+def _normalise_taxonomy_path(path: list[str]) -> list[str]:
+    """Ensure taxonomy paths use the prefixed format.
+
+    Old-format single-element roots like ``['architecture']`` are left
+    as-is because they correspond to the taxonomy root canonical nodes.
+    Three-element paths are already in the correct format.
+    """
+    if len(path) == 1 and not path[0].startswith("taxonomy-"):
+        # Legacy short root — prepend taxonomy- prefix for consistency
+        return [f"taxonomy-{path[0]}"]
+    return list(path)
+
+
+def _taxonomy_segment_kind(seg: str) -> str:
+    if seg.startswith("taxonomy-"):
+        return "taxonomy"
+    if seg.startswith("topic-"):
+        return "topic"
+    if seg.startswith("subtopic-"):
+        return "subtopic"
+    return "taxonomy"
+
+
+def _taxonomy_segment_label(seg: str) -> str:
+    """Derive a human-readable label from a taxonomy segment slug."""
+    # Strip known prefixes
+    for prefix in ("taxonomy-", "topic-", "subtopic-"):
+        if seg.startswith(prefix):
+            seg = seg[len(prefix):]
+            break
+    # Replace hyphens with spaces and title-case
+    return seg.replace("-", " ").title()
+
+
+def _assertion_edge_cypher(assertion: RelationshipAssertion) -> str:
+    """Build a MERGE statement for a rich assertion edge."""
+    etype = assertion.edge_type.value
+    props = _escape_props({
+        "assertion_id": assertion.id,
+        "reasoning_summary": assertion.reasoning_summary,
+        "inference_type": assertion.inference_type.value,
+        "confidence": assertion.confidence,
+        "validation_status": assertion.validation_status.value,
+        "review_state": assertion.review_state,
+        "evidence_ids": assertion.evidence_ids,
+        "document_version_ids": assertion.document_version_ids,
+        "created_at": assertion.created_at,
+        "updated_at": assertion.updated_at,
+        "version": assertion.version,
+    })
+    return (
+        f"MATCH (a:CanonicalNode {{id: '{_esc(assertion.from_node_id)}'}}),"
+        f" (b:CanonicalNode {{id: '{_esc(assertion.to_node_id)}'}})"
+        f" MERGE (a)-[r:{_esc(etype)} {props}]->(b)"
     )

@@ -15,6 +15,8 @@ from vitruvius.kg.schemas import (
     Chunk,
     DocumentVersion,
     EvidenceSpan,
+    MergeAssertion,
+    PlacementAssertion,
     RelationshipAssertion,
     Section,
     TextRangeSelector,
@@ -29,10 +31,29 @@ def _make_snapshot() -> KgV2Snapshot:
     snap = KgV2Snapshot()
     snap.canonical_nodes.append(
         CanonicalNode(
+            id="taxonomy-spaces-occupancy",
+            type="taxonomy",
+            label="Spaces & Occupancy",
+            slug="spaces-occupancy",
+            taxonomy_path=["spaces-occupancy"],
+        )
+    )
+    snap.canonical_nodes.append(
+        CanonicalNode(
             id="concept-floor-area",
             type="concept",
             label="Floor Area",
             slug="floor-area",
+            taxonomy_path=["taxonomy-spaces-occupancy", "topic-building-planning", "subtopic-dimensions"],
+        )
+    )
+    snap.canonical_nodes.append(
+        CanonicalNode(
+            id="concept-building-height",
+            type="concept",
+            label="Building Height",
+            slug="building-height",
+            taxonomy_path=["taxonomy-spaces-occupancy", "topic-building-planning", "subtopic-dimensions"],
         )
     )
     snap.document_versions.append(
@@ -81,20 +102,44 @@ def _make_snapshot() -> KgV2Snapshot:
             id="assert-rel-001",
             edge_type=EdgeType.RELATED_TO,
             from_node_id="concept-floor-area",
-            to_node_id="concept-floor-area",
-            reasoning_summary="Self-reference for testing.",
+            to_node_id="concept-building-height",
+            reasoning_summary="Floor area and height are spatial dimensions.",
             inference_type=InferenceType.HUMAN_AUTHORED,
             confidence=0.99,
             validation_status=ValidationState.VALIDATED,
             evidence_ids=["span-001"],
         )
     )
+    # Orphan assertion — endpoint not in canonical_nodes
+    snap.relationship_assertions.append(
+        RelationshipAssertion(
+            id="assert-rel-orphan",
+            edge_type=EdgeType.SUPPORTED_BY,
+            from_node_id="concept-floor-area",
+            to_node_id="handout-missing",
+            reasoning_summary="Missing endpoint.",
+            inference_type=InferenceType.HUMAN_AUTHORED,
+            confidence=0.5,
+            validation_status=ValidationState.CANDIDATE,
+        )
+    )
+    # Fast edge without assertion_id — should be preserved
+    snap.fast_edges.append(
+        {
+            "id": "edge-standalone-001",
+            "edge_type": "RELATED_TO",
+            "from_node_id": "concept-floor-area",
+            "to_node_id": "concept-building-height",
+            "confidence": 0.75,
+        }
+    )
+    # Fast edge WITH assertion_id matching a RelationshipAssertion — skipped
     snap.fast_edges.append(
         {
             "id": "edge-assert-rel-001",
             "edge_type": "RELATED_TO",
             "from_node_id": "concept-floor-area",
-            "to_node_id": "concept-floor-area",
+            "to_node_id": "concept-building-height",
             "assertion_id": "assert-rel-001",
             "confidence": 0.99,
             "validation_status": "validated",
@@ -142,8 +187,43 @@ class TestToCypher:
         loader = Neo4jLoader(_make_snapshot())
         statements = loader.to_cypher()
         merge = [s for s in statements if "MERGE (n:CanonicalNode" in s]
-        assert len(merge) == 1
-        assert "concept-floor-area" in merge[0]
+        assert len(merge) == 3
+        ids = ["taxonomy-spaces-occupancy", "concept-floor-area", "concept-building-height"]
+        for node_id in ids:
+            assert any(node_id in s for s in merge)
+
+    def test_generates_taxonomy_nodes(self) -> None:
+        loader = Neo4jLoader(_make_snapshot())
+        statements = loader.to_cypher()
+
+        tax = [s for s in statements if "MERGE (n:Taxonomy" in s]
+        assert len(tax) == 1
+        assert "taxonomy-spaces-occupancy" in tax[0]
+
+        topics = [s for s in statements if "MERGE (n:Topic" in s]
+        assert len(topics) == 1
+        assert "topic-building-planning" in topics[0]
+
+        subtopics = [s for s in statements if "MERGE (n:Subtopic" in s]
+        assert len(subtopics) == 1
+        assert "subtopic-dimensions" in subtopics[0]
+
+    def test_generates_taxonomy_hierarchy_edges(self) -> None:
+        loader = Neo4jLoader(_make_snapshot())
+        statements = loader.to_cypher()
+        has_child = [s for s in statements if "HAS_CHILD" in s]
+        # taxonomy -> topic -> subtopic  (2 edges)
+        assert len(has_child) == 2
+        assert any("taxonomy-spaces-occupancy" in s and "topic-building-planning" in s for s in has_child)
+        assert any("topic-building-planning" in s and "subtopic-dimensions" in s for s in has_child)
+
+    def test_generates_belongs_to_edges(self) -> None:
+        loader = Neo4jLoader(_make_snapshot())
+        statements = loader.to_cypher()
+        belongs = [s for s in statements if "BELONGS_TO" in s]
+        # Both concepts point to the same subtopic leaf
+        assert len(belongs) == 2
+        assert all("subtopic-dimensions" in s for s in belongs)
 
     def test_generates_document_version_merge(self) -> None:
         loader = Neo4jLoader(_make_snapshot())
@@ -203,28 +283,60 @@ class TestToCypher:
         assert "pdf_bbox" in merge[0]
         assert "bbox" in merge[0]
 
-    def test_generates_assertion_merge(self) -> None:
+    def test_generates_assertion_edge_not_node(self) -> None:
+        """Assertions become typed edges, not standalone Assertion nodes."""
         loader = Neo4jLoader(_make_snapshot())
         statements = loader.to_cypher()
-        merge = [s for s in statements if "MERGE (a:Assertion" in s]
-        assert len(merge) == 1
-        assert "assert-rel-001" in merge[0]
+
+        # No Assertion nodes should be created
+        assertion_nodes = [s for s in statements if "MERGE (a:Assertion" in s]
+        assert len(assertion_nodes) == 0
+
+        # But a RELATED_TO edge should exist with rich properties
+        edges = [s for s in statements if "RELATED_TO" in s and "assert-rel-001" in s]
+        assert len(edges) >= 1
+        edge = edges[0]
+        assert "concept-floor-area" in edge
+        assert "concept-building-height" in edge
+        assert "reasoning_summary" in edge
+        assert "confidence" in edge
+
+    def test_skips_orphan_assertions(self) -> None:
+        """Assertions with missing endpoints must not produce Cypher."""
+        loader = Neo4jLoader(_make_snapshot())
+        statements = loader.to_cypher()
+        orphan_edges = [s for s in statements if "assert-rel-orphan" in s]
+        assert len(orphan_edges) == 0
+
+    def test_generates_support_edges(self) -> None:
+        """SUPPORTED_BY edges link canonical nodes to EvidenceSpans."""
+        loader = Neo4jLoader(_make_snapshot())
+        statements = loader.to_cypher()
+        support = [s for s in statements if "SUPPORTED_BY" in s]
+        assert len(support) == 1
+        assert "concept-floor-area" in support[0]
+        assert "span-001" in support[0]
+        assert "assert-rel-001" in support[0]
 
     def test_generates_fast_edge_relationship(self) -> None:
         loader = Neo4jLoader(_make_snapshot())
         statements = loader.to_cypher()
         rel = [s for s in statements if "MERGE (from_node)-[r:RELATED_TO" in s]
+        # Only the standalone fast edge is emitted; the one with a matching
+        # assertion_id is suppressed because the rich assertion edge already
+        # carries the same information.
         assert len(rel) == 1
-        assert "edge-assert-rel-001" in rel[0]
+        assert "edge-standalone-001" in rel[0]
 
     def test_reads_external_edge_snapshot(self, tmp_path: Path) -> None:
         snap = _make_snapshot()
         snap.fast_edges = []
         edge_file = tmp_path / "edges.json"
+        # External edge with no matching assertion — should be loaded
         edge_file.write_text(
             '{"edges": [{"id": "edge-x", "edge_type": "DEPENDS_ON", '
-            '"from_node_id": "concept-floor-area", "to_node_id": "concept-floor-area", '
-            '"assertion_id": "assert-rel-001", "confidence": 0.5}]}',
+            '"from_node_id": "concept-floor-area", "to_node_id": "concept-building-height", '
+            '"assertion_id": "assert-external-999", "confidence": 0.5}]}',
             encoding="utf-8",
         )
         loader = Neo4jLoader(snap, edge_snapshot_path=edge_file)
@@ -232,6 +344,44 @@ class TestToCypher:
         rel = [s for s in statements if "MERGE (from_node)-[r:DEPENDS_ON" in s]
         assert len(rel) == 1
         assert "edge-x" in rel[0]
+
+    def test_generates_placement_assertion_edges(self) -> None:
+        snap = _make_snapshot()
+        snap.placement_assertions.append(
+            PlacementAssertion(
+                id="assert-placement-001",
+                node_id="concept-floor-area",
+                parent_node_id="taxonomy-spaces-occupancy",
+                reasoning_summary="Floor area belongs under spaces.",
+                confidence=0.95,
+                validation_status=ValidationState.VALIDATED,
+            )
+        )
+        loader = Neo4jLoader(snap)
+        statements = loader.to_cypher()
+        edges = [s for s in statements if "BELONGS_TO" in s and "assert-placement-001" in s]
+        assert len(edges) == 1
+        assert "concept-floor-area" in edges[0]
+        assert "taxonomy-spaces-occupancy" in edges[0]
+
+    def test_generates_merge_assertion_edges(self) -> None:
+        snap = _make_snapshot()
+        snap.merge_assertions.append(
+            MergeAssertion(
+                id="assert-merge-001",
+                from_node_id="concept-floor-area",
+                to_node_id="concept-building-height",
+                reasoning_summary="These are the same concept.",
+                confidence=0.8,
+                validation_status=ValidationState.CANDIDATE,
+            )
+        )
+        loader = Neo4jLoader(snap)
+        statements = loader.to_cypher()
+        edges = [s for s in statements if "SAME_AS" in s and "assert-merge-001" in s]
+        assert len(edges) == 1
+        assert "concept-floor-area" in edges[0]
+        assert "concept-building-height" in edges[0]
 
 
 class TestWriteCypher:

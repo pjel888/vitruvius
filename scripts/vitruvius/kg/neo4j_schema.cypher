@@ -12,9 +12,6 @@
 CREATE CONSTRAINT canonical_node_id IF NOT EXISTS
     FOR (n:CanonicalNode) REQUIRE n.id IS UNIQUE;
 
-CREATE CONSTRAINT assertion_id IF NOT EXISTS
-    FOR (a:Assertion) REQUIRE a.id IS UNIQUE;
-
 CREATE CONSTRAINT evidence_span_id IF NOT EXISTS
     FOR (e:EvidenceSpan) REQUIRE e.id IS UNIQUE;
 
@@ -26,6 +23,15 @@ CREATE CONSTRAINT section_id IF NOT EXISTS
 
 CREATE CONSTRAINT chunk_id IF NOT EXISTS
     FOR (c:Chunk) REQUIRE c.id IS UNIQUE;
+
+CREATE CONSTRAINT taxonomy_id IF NOT EXISTS
+    FOR (t:Taxonomy) REQUIRE t.id IS UNIQUE;
+
+CREATE CONSTRAINT topic_id IF NOT EXISTS
+    FOR (t:Topic) REQUIRE t.id IS UNIQUE;
+
+CREATE CONSTRAINT subtopic_id IF NOT EXISTS
+    FOR (t:Subtopic) REQUIRE t.id IS UNIQUE;
 
 // ---------------------------------------------------------------------------
 // Indexes (query performance)
@@ -39,12 +45,6 @@ CREATE INDEX canonical_node_status IF NOT EXISTS
 CREATE INDEX canonical_node_label IF NOT EXISTS
     FOR (n:CanonicalNode) ON (n.label);
 
-CREATE INDEX assertion_edge_type IF NOT EXISTS
-    FOR (a:Assertion) ON (a.edge_type);
-
-CREATE INDEX assertion_status IF NOT EXISTS
-    FOR (a:Assertion) ON (a.validation_status);
-
 CREATE INDEX evidence_span_docv IF NOT EXISTS
     FOR (e:EvidenceSpan) ON (e.document_version_id);
 
@@ -56,3 +56,12 @@ CREATE INDEX document_version_sha256 IF NOT EXISTS
 
 CREATE INDEX section_docv IF NOT EXISTS
     FOR (s:Section) ON (s.document_version_id);
+
+CREATE INDEX taxonomy_label IF NOT EXISTS
+    FOR (t:Taxonomy) ON (t.label);
+
+CREATE INDEX topic_label IF NOT EXISTS
+    FOR (t:Topic) ON (t.label);
+
+CREATE INDEX subtopic_label IF NOT EXISTS
+    FOR (t:Subtopic) ON (t.label);
