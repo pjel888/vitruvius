@@ -5,7 +5,7 @@ created: 2026-04-15
 last_updated: 2026-04-16
 author: PLANNER
 supersedes: null
-status: ACCEPTED
+status: complete
 ---
 
 # Plan — Nested AGENTS Governance

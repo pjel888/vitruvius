@@ -12,8 +12,16 @@
 **Active governance sprint:** plan-layer validation and nested-AGENTS governance maintenance.
 
 - The ready-family aggregate residual-hardening lane is **complete** (2026-04-20).
-- The current live work is the plan-layer integrity pass governed by `/.ai/03_plans/2026-04-16-whole-codebase-plans-upgrade-plan.md`.
-- After plan-layer validation closes, the next gate is nested-AGENTS execution if gaps remain.
+- Gate #1 (plan-layer validation) is **substantially complete**. Audit, frontmatter fixes, status reconciliation, and INDEX accuracy fixes are committed.
+- Gate #2 (nested-AGENTS governance) is **complete** (2026-04-20). All 7 missing `AGENTS.md` files were created:
+  - `.ai/AGENTS.md`
+  - `scripts/tests/AGENTS.md`
+  - `scripts/vitruvius/engine_rs/AGENTS.md`
+  - `scripts/vitruvius/datalog_rs/AGENTS.md`
+  - `spatial-daemon/AGENTS.md`
+  - `003_Canonical-Knowledge-Layer/AGENTS.md`
+  - `005_Operational-Intelligence-Layer/AGENTS.md`
+- The repo now has the full justified AGENTS hierarchy targeted by the governance plan.
 
 Vitruvius is not between runtime lanes anymore. The live bounded execution focus is the `ready-family-aggregate` hardening path inside the accepted laws dataset pilot. The goal is to reduce the last truthful orphan/partial residuals in the combined ready-family graph without fabricating stronger relationships or treating this as generic Phase 11 expansion.
 
