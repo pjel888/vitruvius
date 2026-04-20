@@ -1,8 +1,8 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-19
+> **Updated:** 2026-04-20
 > **Live branch:** `main`
-> **Most recent completed work:** Graph Explorer UI Phases 5-10 (commit `b20799b`) + README updates (commit `3a01204`)
+> **Most recent completed work:** Full test suite green (2153 passed) + RA-386 residual hardening closure (commit `e5cad96`) + plan-layer validation + nested-AGENTS governance
 
 ## Live Repo Truth
 
@@ -18,11 +18,11 @@
   - source: `/.ai/10_state/laws-wave-status.json`
 - `ready-family-aggregate` is the current combined proving surface for that larger laws-wave, not the whole objective by itself.
 - The current active bounded follow-on is residual hardening of the verified ready-family aggregate baseline:
-  - snapshot: `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260418T023807Z_graph_snapshot.json`
-  - build report: `006_System-Manifests/runs/datasets/ready-family-aggregate/20260418T023807Z_build_graph_dataset_report.json`
+  - snapshot: `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260420T155955Z_graph_snapshot.json`
+  - build report: `006_System-Manifests/runs/datasets/ready-family-aggregate/20260420T155955Z_build_graph_dataset_report.json`
   - viewer artifact: `004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html`
-  - latest result: `143 nodes / 266 edges / 1 warning / 45 covered folders / 1 partial folder`
-  - only truthful residual family remaining in that aggregate: `RA-386` / `law-civil-code-of-the-philippines`
+  - latest result: `143 nodes / 282 edges / 0 warnings / 0 partial folders`
+  - residual families: none (RA-386 resolved on 2026-04-20)
 - The resumability artifact stack for the broader laws-wave now exists and should be consulted before opening any new lane:
   - `config/datasets/laws-completed-lanes.yaml`
   - `config/datasets/laws-remaining-dispositions.yaml`
@@ -51,18 +51,18 @@
   - `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md`
   - current aggregate evidence:
     - `node_count = 143`
-    - `edge_count = 266`
-    - `warning_count = 1`
+    - `edge_count = 282`
+    - `warning_count = 0`
     - `covered_folder_count = 45`
-    - `partial_folder_count = 1`
-    - remaining truthful residual family: `RA-386`
+    - `partial_folder_count = 0`
+    - residual families: none (RA-386 resolved on 2026-04-20)
 
-- Python tests: **1572 passed, 1 skipped** (`PYTHONPATH=scripts pytest scripts/tests -q`)
+- Python tests: **2153 passed, 14 skipped** (`PYTHONPATH=scripts pytest scripts/tests -q`)
 - TypeScript tests: **21 passed** (`spatial-daemon`: `npm test`)
 - Rust unit tests: **33 passed** total (`engine_rs` + `datalog_rs`)
 - Rust static gates: **green** (`cargo fmt --all --check`, `cargo clippy --workspace --all-targets -- -D warnings`)
 - Raw-layer pipeline baseline: `python3 scripts/pipeline_cli.py run` is clean on current corpus state (`350` files, `0` new, `0` changed, `0` missing)
-- Graph integrity: `python3 scripts/pipeline_cli.py build-graph` now passes with warnings only; the duplicate canonical IRR source page was remediated in the follow-on fix pass
+- Graph integrity: `python3 scripts/pipeline_cli.py build-graph` passes with **0 warnings** on the ready-family-aggregate manifest
 - Query provenance: `query` / `query-structured` now render real `source_section_id` + `evidence_snippet` when relationship evidence exists
 - Bounded laws pilot:
   - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_graph_visualize_cli.py scripts/tests/test_dataset_source_to_graph_pipeline.py scripts/tests/test_canonicalize_body.py scripts/tests/test_canonicalize_integration.py scripts/tests/test_query_formatter.py -q`
@@ -406,8 +406,8 @@
 
 ## Residual Graph Caveat
 
-- The larger laws-wave is truth-complete, but the current `ready-family-aggregate` follow-on still has one informational residual family (`RA-386`) in the combined aggregate.
-- This is a bounded aggregate-hardening concern, not evidence that the whole laws-wave needs to be reopened from scratch.
+- The larger laws-wave is truth-complete, and the `ready-family-aggregate` residual-hardening lane is now fully closed (0 warnings, 0 partial folders).
+- The bounded aggregate-hardening concern is resolved; no reopening of the whole laws-wave is needed.
 
 ## Reference Map
 

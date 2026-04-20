@@ -12,7 +12,7 @@
 **Active governance sprint:** plan-layer validation and nested-AGENTS governance maintenance.
 
 - The ready-family aggregate residual-hardening lane is **complete** (2026-04-20).
-- Gate #1 (plan-layer validation) is **substantially complete**. Audit, frontmatter fixes, status reconciliation, and INDEX accuracy fixes are committed.
+- Gate #1 (plan-layer validation) is **complete**. Audit, frontmatter fixes, status reconciliation, and INDEX accuracy fixes are committed.
 - Gate #2 (nested-AGENTS governance) is **complete** (2026-04-20). All 7 missing `AGENTS.md` files were created:
   - `.ai/AGENTS.md`
   - `scripts/tests/AGENTS.md`
@@ -23,9 +23,9 @@
   - `005_Operational-Intelligence-Layer/AGENTS.md`
 - The repo now has the full justified AGENTS hierarchy targeted by the governance plan.
 
-Vitruvius is not between runtime lanes anymore. The live bounded execution focus is the `ready-family-aggregate` hardening path inside the accepted laws dataset pilot. The goal is to reduce the last truthful orphan/partial residuals in the combined ready-family graph without fabricating stronger relationships or treating this as generic Phase 11 expansion.
+Vitruvius is not between runtime lanes anymore. The `ready-family-aggregate` hardening path inside the accepted laws dataset pilot is **complete** (0 warnings, 0 partial folders). The full Python test suite is green (2153 passed, 14 skipped).
 
-**Live branch:** `ralph/laws-dataset-phases`
+**Live branch:** `main`
 
 **Most recent validated implementation burst:** the 2026-04-20 ready-family aggregate residual-hardening closure, culminating in `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260420T155955Z_graph_snapshot.json` (143 nodes / 282 edges / 0 warnings / 0 partials).
 
@@ -38,10 +38,10 @@ If a future Codex session needs the current task immediately, resume from this g
 - continue the bounded `ready-family-aggregate` residual-hardening lane
 - preserve the Phase 11 gate: this is still a bounded validation lane, not generic corpus expansion
 - use the post-concept-admission aggregate as the baseline:
-  - snapshot: `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260418T023807Z_graph_snapshot.json`
-  - build report: `006_System-Manifests/runs/datasets/ready-family-aggregate/20260418T023807Z_build_graph_dataset_report.json`
+  - snapshot: `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260420T155955Z_graph_snapshot.json`
+  - build report: `006_System-Manifests/runs/datasets/ready-family-aggregate/20260420T155955Z_build_graph_dataset_report.json`
   - viewer: `004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html`
-- treat `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md` as the latest validation log for the active lane
+- treat `/.ai/05_logs/2026-04-20_full-test-suite-green-validation.md` as the latest validation log for the active lane
 
 ### Larger parent objective
 - the broader task is the laws-wave bounded expansion/operatorization effort:
