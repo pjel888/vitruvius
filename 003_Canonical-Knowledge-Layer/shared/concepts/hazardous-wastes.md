@@ -9,6 +9,7 @@ taxonomy_path:
 - taxonomy-site-infrastructure
 - topic-environmental
 - subtopic-waste
+stringency_vector: qualitative
 ---
 # Hazardous Wastes
 

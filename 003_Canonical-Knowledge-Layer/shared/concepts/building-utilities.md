@@ -10,6 +10,7 @@ taxonomy_path:
 - taxonomy-building-systems
 - topic-utilities
 - subtopic-building-services
+stringency_vector: qualitative
 ---
 # building utilities
 

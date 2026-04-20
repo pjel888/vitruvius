@@ -22,6 +22,7 @@ def _seed_minimal_corpus(root: Path) -> None:
         "---\nid: concept-setbacks\npage_type: concept\n"
         "canonical_status: enriched\n"
         "stringency_vector: maximize\n"
+        "regulatory_basis:\n  - law-pd-1096\n"
         "last_canonicalized_utc: 2026-04-01T00:00:00Z\n---\n",
         encoding="utf-8",
     )

@@ -32,6 +32,8 @@ def pg_client() -> PostgresClient:
 
 def test_ingest_markdown(neo4j_client: Neo4jClient, pg_client: PostgresClient, tmp_path: pytest.TempPathFactory) -> None:
     neo4j_client.reset_evidence_graph()
+    with pg_client.connection() as conn:
+        conn.execute("TRUNCATE TABLE document_version CASCADE")
 
     raw_dir = tmp_path / "raw"
     raw_dir.mkdir()

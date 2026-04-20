@@ -7,6 +7,7 @@ taxonomy_path:
 - taxonomy-architecture
 - topic-history
 - subtopic-modern-movement
+stringency_vector: qualitative
 ---
 # less-is-more
 An architectural philosophy that advocates for simplicity and restraint in design, often resulting in minimalist and unadorned buildings that prioritize functionality over aesthetics.

@@ -66,6 +66,8 @@ class EvidenceIngestor:
         existing = self.postgres.get_document_version_by_sha256(sha256)
         if existing:
             logger.info("Skipping ingest for %s — already ingested as %s", source_path, existing["id"])
+            if isinstance(existing.get("created_at"), datetime):
+                existing["created_at"] = existing["created_at"].isoformat()
             return DocumentVersion.model_validate(existing)
 
         doc_id = self._derive_document_id(source_path)

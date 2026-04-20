@@ -9,6 +9,7 @@ taxonomy_path:
 - taxonomy-project-practice
 - topic-professional-practice
 - subtopic-dispute-resolution
+stringency_vector: qualitative
 ---
 # Mediation
 

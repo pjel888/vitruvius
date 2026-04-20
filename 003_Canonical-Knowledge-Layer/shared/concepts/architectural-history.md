@@ -10,6 +10,7 @@ taxonomy_path:
 - taxonomy-architecture
 - topic-history
 - subtopic-general
+stringency_vector: qualitative
 ---
 # architectural history
 

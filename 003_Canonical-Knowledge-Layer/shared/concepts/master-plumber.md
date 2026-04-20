@@ -9,6 +9,7 @@ taxonomy_path:
 - taxonomy-project-practice
 - topic-professional-practice
 - subtopic-registration
+stringency_vector: qualitative
 ---
 # Master Plumber
 

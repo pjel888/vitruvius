@@ -10,6 +10,7 @@ taxonomy_path:
 - taxonomy-architecture
 - topic-theory
 - subtopic-theory-general
+stringency_vector: qualitative
 ---
 # architectural theory
 

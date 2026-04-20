@@ -9,6 +9,7 @@ taxonomy_path:
 - taxonomy-site-infrastructure
 - topic-environmental
 - subtopic-chemicals
+stringency_vector: qualitative
 ---
 # Chemical Substance
 

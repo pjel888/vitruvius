@@ -10,6 +10,7 @@ taxonomy_path:
 - taxonomy-construction-execution
 - topic-construction-administration
 - subtopic-cost-control
+stringency_vector: qualitative
 ---
 # construction estimating
 

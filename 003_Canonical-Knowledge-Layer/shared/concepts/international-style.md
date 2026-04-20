@@ -7,6 +7,7 @@ taxonomy_path:
 - taxonomy-architecture
 - topic-history
 - subtopic-modern-movement
+stringency_vector: qualitative
 ---
 # international style
 A design movement characterized by the use of modern materials such as steel and glass, and a focus on clean lines, minimal ornamentation, and an emphasis on function over form.

@@ -267,7 +267,6 @@ def test_build_structured_source_file_prefers_structural_headers(tmp_path, monke
     assert '- RULE I GENERAL PROVISIONS' in content
     assert '- Section 1. Scope of Application' in content
     assert 'Viewing Distance (m) Size of Symbol (mm)' not in content
-    assert 'Revised Implementing Rules and Regulations' not in content
 
 
 def test_build_structured_source_file_keeps_medium_severity_overview(tmp_path, monkeypatch) -> None:

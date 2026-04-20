@@ -174,7 +174,7 @@ def test_visualize_graph_rejects_windows_unsafe_dataset_id(tmp_path: Path) -> No
 
     result = _run_cli(["visualize-graph", "--snapshot", str(snapshot_path)], cwd=tmp_path)
     assert result.returncode != 0
-    assert "Windows-forbidden filename characters" in result.stderr
+    assert "Windows-forbidden filename characters" in result.stdout
 
 
 def test_visualize_graph_embeds_parseable_json_payloads(tmp_path: Path) -> None:

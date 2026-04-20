@@ -10,6 +10,7 @@ taxonomy_path:
 - taxonomy-building-systems
 - topic-concrete
 - subtopic-detailing
+stringency_vector: qualitative
 ---
 # reinforced concrete detailing
 

@@ -7,6 +7,7 @@ taxonomy_path:
 - taxonomy-construction-execution
 - topic-construction-administration
 - subtopic-cost-control
+stringency_vector: qualitative
 ---
 # simplified-construction-estimate
 An approach to estimating construction costs that involves simplifying complex calculations and using pre-determined factors or formulas to arrive at a more straightforward estimate of project costs.

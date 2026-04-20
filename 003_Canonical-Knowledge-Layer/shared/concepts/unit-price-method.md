@@ -7,6 +7,7 @@ taxonomy_path:
 - taxonomy-construction-execution
 - topic-construction-administration
 - subtopic-cost-control
+stringency_vector: qualitative
 ---
 # unit-price-method
 A method of estimating construction costs where the cost of each unit of material (e.g., per cubic meter of concrete) is multiplied by the quantity of that material required for the project to obtain the total cost.

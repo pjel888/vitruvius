@@ -7,6 +7,7 @@ taxonomy_path:
 - taxonomy-architecture
 - topic-history
 - subtopic-modern-movement
+stringency_vector: qualitative
 ---
 # functionalism
 An architectural philosophy that prioritizes the functional needs of a building over its aesthetic appeal, often resulting in simple, rectangular forms and open floor plans.
