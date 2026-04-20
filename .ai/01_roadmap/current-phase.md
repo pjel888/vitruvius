@@ -56,24 +56,20 @@ If a future Codex session needs the current task immediately, resume from this g
 
 ### Current truthful status
 - `node_count = 143`
-- `edge_count = 266`
-- `warning_count = 1`
-- `covered_folder_count = 45`
-- `partial_folder_count = 1`
-- remaining truthful residual family:
-  - `RA-386`
-  - `law-civil-code-of-the-philippines`
+- `edge_count = 282`
+- `warning_count = 0`
+- `covered_folder_count = 46`
+- `partial_folder_count = 0`
+- residual status: **resolved**
+- latest verified snapshot: `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260420T155955Z_graph_snapshot.json`
+- latest build report: `006_System-Manifests/runs/datasets/ready-family-aggregate/20260420T155955Z_build_graph_dataset_report.json`
+- validation log: `/.ai/05_logs/2026-04-20_ra-386-residual-hardening-validation.md`
 
 ### Next bounded step
-- if the next session is continuing the larger laws-wave effort, first orient against the artifact stack above and confirm whether the task is:
-  - final residual hardening inside `ready-family-aggregate`
-  - generic dataset-automation work derived from the laws-wave pattern
-  - maintenance of completed/disposition/provenance artifacts after a new lane opens
-- for the currently active aggregate lane, investigate whether `RA-386` can be improved through the same conservative mechanisms already used successfully in this lane:
-  - explicit concept admission into manifests
-  - canonical source-page refreshes that only reflect already-admitted concepts
-  - aggregate rebuild + graph rebuild + warning-summary verification
-- do **not** jump to broader Phase 11 work or invent stronger relationship claims just to remove the final residual
+- the `ready-family-aggregate` residual-hardening lane is now complete
+- no orphan nodes or partial folders remain in the aggregate
+- the next valid task inside the larger laws-wave effort is maintenance of completed/disposition/provenance artifacts, or a fresh roadmap decision
+- do **not** jump to broader Phase 11 work without an accepted plan and explicit gate clearance
 
 ## Recently Completed Work (2026-04-19)
 

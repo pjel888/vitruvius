@@ -47,6 +47,15 @@ candidate_law_folders:
   scope_notes:
   - Source admission is intentionally conservative and admits only selected authoritative
     prepared variants.
+  - 'Catalog aggregate lane: laws-tranche-6'
+  - Concept-fit admission admits the five concepts already referenced by the canonical
+    source page.
+  admitted_concept_paths:
+  - 003_Canonical-Knowledge-Layer/shared/concepts/floor-area-ratio.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/stairs.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/yards.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/mediation.md
+  - 003_Canonical-Knowledge-Layer/shared/concepts/arbitration.md
 - folder_name: RA-9184
   reason: Public-procurement governance adjacency with law-plus-IRR structure.
   raw_anchor_paths: &id003
