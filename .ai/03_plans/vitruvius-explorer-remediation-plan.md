@@ -1,3 +1,10 @@
+---
+task: vitruvius-explorer-remediation
+phase: "05"
+status: complete
+created: 2026-04-19
+---
+
 # Vitruvius Explorer Remediation Plan
 
 **Status:** Critical — React app crashes repeatedly in development due to fundamental architecture mismatches between React lifecycle and Sigma.js imperative API.

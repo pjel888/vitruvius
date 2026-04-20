@@ -1,8 +1,10 @@
 ---
 title: AEC Engine Financial / Pricing Oracle Implementation Plan
 type: subsystem-plan
+task: aec-engine-financial-pricing-oracle
+phase: "05"
 status: accepted
-date: 2026-04-16
+created: 2026-04-16
 last_updated: 2026-04-16
 planned_code_locations:
   - scripts/vitruvius/aec/pricing/schema.py

@@ -39,9 +39,9 @@ It is not the execution-order authority. The governing plan owns execution order
 | `2026-04-16-aec-g10-evidence-packet-plan.md` | evidence-packet plan | accepted / evidence-pending | exact evidence packet for future G10 closure attempts | you are making the last blocker closure auditable and repeatable |
 | `2026-04-16-aec-g10-evidence-ledger-plan.md` | evidence-ledger plan | accepted / evidence-pending | machine-readable tracking structure for the final blocker | you are making G10 progress easy to update and audit structurally |
 | `2026-04-16-aec-g10-work-order-plan.md` | work-order plan | accepted / evidence-pending | exact future execution checklist for clearing the last blocker | you are turning the final blocker closure into an ordered work plan |
-| `aec-g10-execution-strategy-2026-04-16.md` | strategy artifact | accepted / evidence-pending | direct operator answer for how G10 will be cleared | you are answering whether execution, not planning, clears the final blocker |
-| `aec-g10-missing-evidence-inventory-2026-04-16.md` | inventory artifact | accepted / evidence-pending | live inventory of the still-missing bounded-slice evidence | you are checking exactly what still prevents G10 closure |
-| `aec-g10-evidence-completion-checklist-2026-04-16.md` | checklist artifact | accepted / evidence-pending | compact done/pending checklist for the last blocker | you are quickly checking whether G10 is still open |
+| `/.ai/04_tasks/aec-g10-execution-strategy-2026-04-16.md` | strategy artifact | accepted / evidence-pending | direct operator answer for how G10 will be cleared | you are answering whether execution, not planning, clears the final blocker |
+| `/.ai/04_tasks/aec-g10-missing-evidence-inventory-2026-04-16.md` | inventory artifact | accepted / evidence-pending | live inventory of the still-missing bounded-slice evidence | you are checking exactly what still prevents G10 closure |
+| `/.ai/04_tasks/aec-g10-evidence-completion-checklist-2026-04-16.md` | checklist artifact | accepted / evidence-pending | compact done/pending checklist for the last blocker | you are quickly checking whether G10 is still open |
 | `2026-04-16-aec-handoff-crosswalk-plan.md` | crosswalk plan | accepted / evidence-pending | compact navigation map across the AEC handoff corpus | you are preventing operator confusion across the growing handoff set |
 | `2026-04-16-aec-first-slice-execution-journal-plan.md` | journal plan | accepted / evidence-pending | compact progress journal structure for the future bounded-slice coding phase | you are improving execution traceability before coding begins |
 | `2026-04-16-aec-concurrent-execution-deferral-plan.md` | deferral plan | accepted / evidence-pending | conflict-safe execution deferral and resume protocol | you are preventing unsafe concurrent execution while preserving readiness |
@@ -61,7 +61,7 @@ It is not the execution-order authority. The governing plan owns execution order
 | `2026-04-16-aec-first-slice-readiness-scorecard-plan.md` | scorecard plan | accepted / evidence-pending | compact maturity/readiness summary for the bounded first slice | you are checking whether more planning still adds value |
 | `2026-04-16-aec-first-slice-planning-saturation-plan.md` | saturation plan | accepted / evidence-pending | explicit threshold for when planning stops being the main blocker-removal lever | you are deciding when execution evidence becomes the only meaningful next step |
 | `2026-04-16-aec-first-slice-validation-template-plan.md` | validation-template plan | accepted / evidence-pending | exact final validation-report structure for the bounded slice | you are preventing proof drift in the future completion log |
-| `aec-first-slice-execution-handoff-dossier-2026-04-16.md` | handoff dossier | accepted / evidence-pending | single operator entrypoint for bounded first-slice execution handoff | you are navigating the entire AEC handoff from one file |
+| `/.ai/04_tasks/aec-first-slice-execution-handoff-dossier-2026-04-16.md` | handoff dossier | accepted / evidence-pending | single operator entrypoint for bounded first-slice execution handoff | you are navigating the entire AEC handoff from one file |
 | `2026-04-16-aec-readiness-vocabulary-plan.md` | vocabulary plan | accepted / evidence-pending | canonical readiness/state language for the AEC corpus | you are normalizing control-surface language before execution starts |
 | `2026-04-16-aec-first-slice-failure-triage-plan.md` | triage plan | accepted / evidence-pending | exact future failure-localization and recovery matrix for the bounded slice | you are reducing execution ambiguity before coding begins |
 | `2026-04-16-aec-first-slice-session-packet-plan.md` | session plan | accepted / evidence-pending | compact operator checklist for the bounded first-slice execution session | you are making the future execution session easier to run correctly |
@@ -131,6 +131,51 @@ It is not the execution-order authority. The governing plan owns execution order
 - `AEC_ENGINE_OPTIMIZATION_ENGINE_IMPLEMENTATION_PLAN.md`
 - `AEC_ENGINE_SPATIAL_KERNEL_IMPLEMENTATION_PLAN.md`
 - `AEC_ENGINE_Z3_VERIFICATION_IMPLEMENTATION_PLAN.md`
+
+### Laws-Wave Tranche Expansion
+- Tranche expansion plans (`2026-04-17_tranche-*-expansion-plan.md` and `2026-04-18_tranche-*-expansion-plan.md`) — mixed complete / in-progress / draft
+- Tranche richness and follow-on plans (`2026-04-17_tranche-*-richness-plan.md`, `2026-04-17_tranche-*-follow-on-plan.md`, `2026-04-18_tranche-*-follow-on-plan.md`) — mixed complete / in-progress
+- Tranche-15 LGU shard plans (`2026-04-18_tranche-15-*-shard-plan.md`, `2026-04-18_tranche-15-sharding-plan.md`, `2026-04-18_tranche-15-san-mateo-follow-on-plan.md`) — mostly complete; sharding parent plan remains in-progress
+
+### Laws-Wave Concept-Fit Admission
+- `2026-04-17_pd1067-water-governance-concept-fit-plan.md` — complete
+- `2026-04-17_ra10066-cultural-heritage-concept-fit-plan.md` — complete
+- `2026-04-17_ra11201-housing-governance-concept-fit-plan.md` — complete
+- `2026-04-17_ra11285-energy-governance-concept-fit-plan.md` — in-progress
+- `2026-04-17_ra9184-procurement-concept-fit-plan.md` — in-progress
+- `2026-04-17_ra7279-socialized-housing-concept-fit-plan.md` — draft
+- `2026-04-17_ra7899-concept-fit-admission-plan.md` — draft
+- `2026-04-17_pd1185-concept-fit-admission-plan.md` — draft
+- `2026-04-17_pd957-concept-fit-admission-plan.md` — draft
+- `2026-04-17_common-areas-concept-plan.md` — draft
+
+### Laws-Wave Aggregate & Automation Support
+- `2026-04-18_generic-aggregate-command-plan.md` — complete
+- `2026-04-18_aggregate-hardening-targets-plan.md` — complete
+- `2026-04-18_ready-family-operator-alignment-plan.md` — complete
+- `2026-04-18_residual-cluster-concept-admission-plan.md` — complete
+- `2026-04-18_residual-cluster-concept-suggestions-plan.md` — complete
+- `2026-04-18_ra-9279-remediation-plan.md` — complete
+- `2026-04-18_readme-refresh-plan.md` — complete
+- `2026-04-18_hlurb-dhsud-agency-split-plan.md` — complete
+- `2026-04-18_remaining-pool-final-disposition-plan.md` — complete
+- `2026-04-18_aggregate-quality-reporting-plan.md` — in-progress
+- `2026-04-18_bootstrap-artifact-promotion-plan.md` — in-progress
+- `2026-04-18_completed-laws-aggregate-graph-plan.md` — in-progress
+- `2026-04-18_dataset-wide-automation-plan.md` — in-progress
+- `2026-04-18_prc-expansion-plan.md` — in-progress
+- `2026-04-17_post-tranche-2-manifest-strategy.md` — draft
+- `2026-04-17_raw-duplicate-sanitization-plan.md` — draft
+
+### Graph Explorer
+- `explorer-graph-rendering-implementation-plan.md` — complete
+- `explorer-graph-rendering-rewrite-plan.md` — complete
+- `vitruvius-explorer-phase-1-foundation.md` — complete
+- `vitruvius-explorer-remediation-plan.md` — complete
+
+### Knowledge Graph Transition Rectification
+- `2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan.md` — complete
+- `2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan_v2.md` — complete
 
 ### Recently Archived (2026-04-16)
 - `2026-04-16-app-integrity-reliability-plan.md`

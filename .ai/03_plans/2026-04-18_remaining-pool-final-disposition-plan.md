@@ -1,7 +1,7 @@
 ---
 task: remaining-pool-final-disposition
 created: 2026-04-18
-status: in_progress
+status: complete
 ---
 
 # Plan — Remaining pool final disposition

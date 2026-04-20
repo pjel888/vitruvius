@@ -1,8 +1,10 @@
 ---
 title: AEC Engine Multi-Disciplinary Coordination Implementation Plan
 type: subsystem-plan
+task: aec-engine-multi-disciplinary-coordination
+phase: "05"
 status: accepted
-date: 2026-04-16
+created: 2026-04-16
 last_updated: 2026-04-16
 planned_code_locations:
   - scripts/vitruvius/aec/coordination/models.py

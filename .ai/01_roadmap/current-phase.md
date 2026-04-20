@@ -1,21 +1,25 @@
-# Current Phase — Ready-Family Aggregate Residual Hardening
+# Current Phase — Plan-Layer Validation & Governance Maintenance
 
 > **Authoritative roadmap:** `/.ai/01_roadmap/master-roadmap.md` (v2.3.1)
 > **Authoritative execution order:** `/.ai/03_plans/00-governing-implementation-plan.md` (v4.0.0)
 > **This document:** live snapshot of active execution state and the next valid gates
-> **Updated:** 2026-04-18
+> **Updated:** 2026-04-20
 
 ---
 
 ## State
 
-**Active implementation sprint:** ready-family aggregate residual hardening.
+**Active governance sprint:** plan-layer validation and nested-AGENTS governance maintenance.
+
+- The ready-family aggregate residual-hardening lane is **complete** (2026-04-20).
+- The current live work is the plan-layer integrity pass governed by `/.ai/03_plans/2026-04-16-whole-codebase-plans-upgrade-plan.md`.
+- After plan-layer validation closes, the next gate is nested-AGENTS execution if gaps remain.
 
 Vitruvius is not between runtime lanes anymore. The live bounded execution focus is the `ready-family-aggregate` hardening path inside the accepted laws dataset pilot. The goal is to reduce the last truthful orphan/partial residuals in the combined ready-family graph without fabricating stronger relationships or treating this as generic Phase 11 expansion.
 
 **Live branch:** `ralph/laws-dataset-phases`
 
-**Most recent validated implementation burst:** the latest live bounded runtime evidence is the 2026-04-18 ready-family aggregate hardening sequence, culminating in `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260418T023807Z_graph_snapshot.json` and `004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html`.
+**Most recent validated implementation burst:** the 2026-04-20 ready-family aggregate residual-hardening closure, culminating in `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260420T155955Z_graph_snapshot.json` (143 nodes / 282 edges / 0 warnings / 0 partials).
 
 ## Resume Anchor
 

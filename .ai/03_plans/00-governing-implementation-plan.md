@@ -1,5 +1,6 @@
 ---
 plan_id: governing-implementation
+task: governing-implementation
 phase: "Meta — Active Plan Dispatch"
 title: "Governing Implementation Plan — Active Plan Dispatcher and Execution Gates"
 status: active

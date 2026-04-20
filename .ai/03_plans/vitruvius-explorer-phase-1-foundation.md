@@ -1,3 +1,10 @@
+---
+task: vitruvius-explorer-phase-1-foundation
+phase: "05"
+status: complete
+created: 2026-04-19
+---
+
 # Phase 1 Foundation: Vitruvius Knowledge Graph Explorer
 
 **Status:** Foundation Document — Phase 1 of 4  

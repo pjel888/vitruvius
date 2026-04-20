@@ -1,8 +1,10 @@
 ---
 title: AEC Engine Master Implementation Plan
 type: plan
+task: aec-engine-master
+phase: "05"
 status: accepted
-date: 2026-04-16
+created: 2026-04-16
 last_updated: 2026-04-16
 planned_python_namespace: scripts/vitruvius/aec
 planned_rust_extension_points:

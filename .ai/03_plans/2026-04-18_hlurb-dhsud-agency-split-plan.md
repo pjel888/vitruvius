@@ -1,7 +1,7 @@
 ---
 task: hlurb-dhsud-agency-split-correction
 created: 2026-04-18
-status: in_progress
+status: complete
 ---
 
 # Plan — HLURB and DHSUD agency split correction
