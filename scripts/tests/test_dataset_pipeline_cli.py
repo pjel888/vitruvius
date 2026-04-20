@@ -1276,16 +1276,16 @@ def test_run_laws_tranche_source_admission_exec_collapses_duplicate_pd957_varian
         'PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr)',
     ):
         refined_payload = (
-            '# REVISED IMPLEMENTING RULES AND REGULATIONS FOR PD 957\\n'
+            '# REVISED IMPLEMENTING RULES AND REGULATIONS FOR PD 957\n'
             if 'Illustrated Slides' not in filename
-            else '# PRESIDENTIAL DECREE 957\\n\\nStudy slides\\n'
+            else '# PRESIDENTIAL DECREE 957\n\nStudy slides\n'
         )
         _seed_conversion_inventory_path(tmp_path, 'PD-957', filename, refined_payload=refined_payload)
     _seed_conversion_inventory_path(
         tmp_path,
         'PD-1185',
         'PD 1185 - Fire Code of the Philippines 1977',
-        refined_payload='# FIRE CODE OF THE PHILIPPINES\\n',
+        refined_payload='# FIRE CODE OF THE PHILIPPINES\n',
     )
 
     source_prep_report = _write_source_prep_report(
