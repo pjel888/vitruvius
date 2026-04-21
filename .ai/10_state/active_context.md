@@ -69,6 +69,26 @@
 - `scripts/vitruvius/ollama_review.py` runtime wiring is the strongest code-level follow-on candidate identified in this session.
 - Why: tested support paths (`review_with_cache`, model routing helpers) exist but are not yet integrated into the live review loop.
 
+## Current Execution Focus — 2026-04-21 (Post-consolidation)
+
+- Selected next lane: bounded audit + plan for `scripts/vitruvius/ollama_review.py` runtime wiring.
+- Risk note: code graph impact scan reports **high** blast radius for the review/runtime surface, so changes must stay narrow and validation-heavy.
+- Targeted outcome:
+  1. determine whether `review_with_cache(...)` should replace the direct live review call,
+  2. confirm the safe integration point for model-routing helpers,
+  3. create the required audit/plan packet before code edits.
+
+## Latest Runtime-Wiring Checkpoint
+
+- Slice A implemented: the live Tier-1 review loop now routes through `review_with_cache(...)`.
+- `_call_llm(...)` is now a production adapter instead of a `NotImplementedError` placeholder on the cache path.
+- Validation log: `/.ai/05_logs/ollama-review-runtime-wiring-validation.md`
+- Validation results:
+  - narrow runtime pack → `41 passed`
+  - direct review wiring pack → `15 passed`
+  - targeted `py_compile` → pass
+- Deferred follow-on: evaluate `select_review_model(...)` integration as a separate slice after this cache-wrapper checkpoint.
+
 ## Read Next
 
 - `/.ai/01_roadmap/current-phase.md`
