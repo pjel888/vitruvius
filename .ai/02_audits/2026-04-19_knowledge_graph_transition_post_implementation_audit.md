@@ -1,3 +1,7 @@
+> [!WARNING]
+> Superseded by `2026-04-19_knowledge_graph_transition_post_implementation_audit_v2.md`.
+> Kept for historical traceability only. Treat v2 as authoritative.
+
 # Knowledge Graph Transition — Post-Implementation Audit & Rectification
 
 **Date:** 2026-04-19  

@@ -328,8 +328,8 @@ A cross-cutting architecture initiative that added a **taxonomy-centered canonic
 **Test coverage:** 25+ `test_kg_*.py` files, 232+ passing tests.
 
 **Authoritative post-implementation artifacts:**
-- Audit: `/.ai/02_audits/2026-04-19_knowledge_graph_transition_post_implementation_audit.md`
-- Rectification plan: `/.ai/03_plans/2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan.md`
+- Audit: `/.ai/02_audits/2026-04-19_knowledge_graph_transition_post_implementation_audit_v2.md`
+- Rectification plan: `/.ai/03_plans/2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan_v2.md`
 
 ## Changelog
 - **2026-04-13:** Initial Pipeline Overview document created from codebase audit. Traced all `run_` commands and artifact flows.

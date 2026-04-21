@@ -3,7 +3,12 @@ task: knowledge-graph-transition-post-implementation-rectification
 phase: "05"
 status: complete
 created: 2026-04-19
+superseded_by: .ai/03_plans/2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan_v2.md
 ---
+
+> [!WARNING]
+> Superseded by `2026-04-19_knowledge_graph_transition_post_implementation_rectification_plan_v2.md`.
+> Kept for historical traceability only.
 
 # Knowledge Graph Transition — Post-Implementation Rectification Plan
 
