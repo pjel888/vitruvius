@@ -1,499 +1,76 @@
 # Active Context — Vitruvius
 
-> **Updated:** 2026-04-20
-> **Live branch:** `main`
-> **Most recent completed work:** Full test suite green (2153 passed) + RA-386 residual hardening closure (commit `e5cad96`) + plan-layer validation + nested-AGENTS governance
+**Updated:** 2026-04-21  
+**Live branch:** `main`
 
-## Live Repo Truth
+## Current Operating Truth
 
-- **Graph Explorer UI** (Phases 5-10) is now complete on `main`. This is a React 19 + vis-network frontend that provides interactive graph exploration, search, path tracing, Cypher queries, and edge inspection. See `explorer/README.md` for full documentation.
-- The current parent objective is the bounded laws-wave/operatorization effort, not the old 4-law pilot by itself.
-- The laws-wave is now truthfully at a saturated end-state under the present authority and source-quality rules:
-  - `status = saturated_truth_complete`
-  - `raw_folder_count = 47`
-  - `covered_raw_folder_count = 41`
-  - `remaining_uncovered_folder_count = 6`
-  - `completed_lane_count = 25`
-  - `resolved_truth_model_fix_count = 2`
-  - source: `/.ai/10_state/laws-wave-status.json`
-- `ready-family-aggregate` is the current combined proving surface for that larger laws-wave, not the whole objective by itself.
-- The current active bounded follow-on is residual hardening of the verified ready-family aggregate baseline:
-  - snapshot: `005_Operational-Intelligence-Layer/graph/datasets/ready-family-aggregate/20260420T155955Z_graph_snapshot.json`
-  - build report: `006_System-Manifests/runs/datasets/ready-family-aggregate/20260420T155955Z_build_graph_dataset_report.json`
-  - viewer artifact: `004_Derived-Content-Layer/graph-visualizations/ready-family-aggregate.html`
-  - latest result: `143 nodes / 282 edges / 0 warnings / 0 partial folders`
-  - residual families: none (RA-386 resolved on 2026-04-20)
-- The resumability artifact stack for the broader laws-wave now exists and should be consulted before opening any new lane:
+- The current active phase is **control-surface consolidation**.
+- The repository has already shipped the core pipeline, graph/query surface, KG v2 transition, laws-wave bounded automation, Graph Explorer, and nested AGENTS coverage.
+- The current work is documentation/governance cleanup so future sessions follow one truthful planning surface.
+
+## Execution Note — 2026-04-21 (Autonomous implementation run)
+
+- **Selected focus:** finish the highest-leverage control-surface slice by slimming active plan families and removing invalid plan references from the live index.
+- **Why this was chosen:** active-roadmap consistency depends on the plan index; keeping invalid or overly broad “active” entries causes execution misrouting in later sessions.
+- **Expected deliverables:**
+  1. active AEC plan family reduced to a minimal execution-readiness packet,
+  2. broken plan-path references removed from live docs,
+  3. roadmap/state statuses synchronized to `in_progress` where work is actively being executed.
+- **Validation plan:**
+  1. grep checks for broken/stale active references,
+  2. targeted pytest smoke commands,
+  3. post-change consistency read of `ACTIVE_WORK.md`, `current-phase.md`, `master-roadmap.md`, and `03_plans/INDEX.md`.
+
+## High-Signal Repo State
+
+### Shipped capabilities
+- **Core pipeline through promotion:** `scripts/pipeline_cli.py`, `scripts/vitruvius/promotion_validator.py`, `003_Canonical-Knowledge-Layer/shared/relationships/`
+- **Graph build/query surface:** `scripts/vitruvius/graph/cli.py`, `scripts/vitruvius/graph/visualize.py`, `005_Operational-Intelligence-Layer/graph/`
+- **KG v2 transition:** `scripts/vitruvius/kg/`, `scripts/tests/test_kg*.py`, `005_Operational-Intelligence-Layer/graph/kg-v2/`
+- **Graph Explorer:** `explorer/src/components/graph/`, `api/index.ts`, `explorer/README.md`
+- **Nested AGENTS:** `**/AGENTS.md`, `.ai/05_logs/2026-04-20_nested-agents-governance-validation.md`
+
+### Laws-wave operating state
+- `status = saturated_truth_complete`
+- machine-readable state: `/.ai/10_state/laws-wave-status.json`
+- artifact stack:
   - `config/datasets/laws-completed-lanes.yaml`
   - `config/datasets/laws-remaining-dispositions.yaml`
   - `config/datasets/laws-source-provenance.yaml`
   - `config/datasets/laws-manifest-index.yaml`
-  - `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
-  - `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`
-- Generic Phase 11 expansion is still gated. The accepted exception remains bounded, manifest-backed laws-wave execution only.
+  - `.ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md`
+- completion evidence: `/.ai/05_logs/2026-04-20_ra-386-residual-hardening-validation.md`
 
-## Graph Explorer Validation Snapshot
+## Active Priorities
 
-- **Dev servers:** API on `localhost:3000`, frontend Vite on `localhost:5173`
-- **Build:** `bun run build` passes; production bundle splits vis-network into lazy chunk
-- **API health:** `GET /health` returns `{status: "ok", neo4j: "connected"}`
-- **Path API verified:** `Floor Area → Stairs` (1 hop), `Floor Area → Fire-Resistive Construction` (2 hops)
-- **Neo4j LIMIT bug:** fixed with `neo4j.int()` wrapper
-- **Path normalization bug:** fixed — `normalizeNode()` now handles raw Neo4j Node objects (with `.properties`)
-- **Bundle:** main chunk 294 KB / 90 KB gzip; vis-network chunk 650 KB / 157 KB gzip (lazy)
+1. Keep roadmap/state docs contradiction-free.
+2. Slim the active plans surface.
+3. Remove stale references from active docs.
 
-## Current Validation Snapshot
+## Unverified / Log-Backed Claims
 
-- Larger laws-wave end-state:
-  - `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md` records the bounded tranche/remediation wave as truth-complete under current rules
-- Ready-family aggregate residual-hardening lane:
-  - `/.ai/05_logs/2026-04-18_ready-family-operator-alignment-validation.md`
-  - `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md`
-  - current aggregate evidence:
-    - `node_count = 143`
-    - `edge_count = 282`
-    - `warning_count = 0`
-    - `covered_folder_count = 45`
-    - `partial_folder_count = 0`
-    - residual families: none (RA-386 resolved on 2026-04-20)
+- Full test suite counts remain log-backed rather than freshly rerun in this phase:
+  - `/.ai/05_logs/2026-04-20_full-test-suite-green-validation.md`
 
-- Python tests: **2153 passed, 14 skipped** (`PYTHONPATH=scripts pytest scripts/tests -q`)
-- TypeScript tests: **21 passed** (`spatial-daemon`: `npm test`)
-- Rust unit tests: **33 passed** total (`engine_rs` + `datalog_rs`)
-- Rust static gates: **green** (`cargo fmt --all --check`, `cargo clippy --workspace --all-targets -- -D warnings`)
-- Raw-layer pipeline baseline: `python3 scripts/pipeline_cli.py run` is clean on current corpus state (`350` files, `0` new, `0` changed, `0` missing)
-- Graph integrity: `python3 scripts/pipeline_cli.py build-graph` passes with **0 warnings** on the ready-family-aggregate manifest
-- Query provenance: `query` / `query-structured` now render real `source_section_id` + `evidence_snippet` when relationship evidence exists
-- Bounded laws pilot:
-  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_graph_visualize_cli.py scripts/tests/test_dataset_source_to_graph_pipeline.py scripts/tests/test_canonicalize_body.py scripts/tests/test_canonicalize_integration.py scripts/tests/test_query_formatter.py -q`
-  - **57 passed**
-  - `./run-laws-pilot --dry-run` passes
-  - `./run-laws-pilot --skip-export-owl --visualize` passes and emits a self-contained HTML artifact
-- All-laws readiness slice:
-  - `python3 -m pytest scripts/tests/test_config.py scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_dataset_source_to_graph_pipeline.py scripts/tests/test_graph_visualize_cli.py scripts/tests/test_canonicalize_body.py scripts/tests/test_canonicalize_integration.py scripts/tests/test_query_formatter.py -q`
-  - **65 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-all-dry-run --review-preset m2-8gb-safe` passes
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-pilot --dry-run --review-preset m2-8gb-safe` passes
-- Tranche-expansion slice:
-  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -q`
-  - **10 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml --review-preset m2-8gb-safe` passes
-  - all-laws readiness now reports `structure_guardrail_law_folders = [BP-220, BP-344, RA-9514]`
-- Tranche source-preparation slice:
-  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -q`
-  - **11 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-prep-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml` passes
-  - current tranche-1 evidence:
-    - `raw_file_count = 6`
-    - `supported_direct_input_count = 6`
-    - `refined_markdown_ready_count = 0`
-- Tranche source-preparation execute slice:
-  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -q`
-  - **12 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-prep --tranche-manifest config/datasets/laws-tranche-1.yaml` passes
-  - current tranche-1 execute evidence:
-    - `prepared_count = 5`
-    - `ocr_required_count = 1`
-    - `failed_count = 0`
-- Tranche source-admission slice:
-  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -q`
-  - **13 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-admission-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml` passes
-  - current tranche-1 split:
-    - ready: `PD-957`, `PD-1185`
-    - blocked: `PD-1216`
-- Tranche source-admission execute slice:
-  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/pipeline_cli.py scripts/vitruvius/cli_experience.py scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py`
-  - **PASS**
-  - `python3 -m pytest scripts/tests/test_canonical_rules_additional_laws.py scripts/tests/test_dataset_pipeline_cli.py -k 'source_admission or pd_957 or pd_1185' -q`
-  - **4 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-admission --tranche-manifest config/datasets/laws-tranche-1.yaml` passes
-  - current execute evidence:
-    - admitted: `PD-957`, `PD-1185`
-    - blocked: `PD-1216`
-    - `admitted_source_page_count = 2`
-    - `canonicalize_failure_count = 0`
-    - `PD-957` same-content raw aliases now collapse to one authoritative IRR source while excluded aliases remain explicit in the tranche manifest/report
-- Duplicate-readiness slice:
-  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/pipeline_cli.py scripts/vitruvius/cli_experience.py scripts/tests/test_dataset_pipeline_cli.py`
-  - **PASS**
-  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -k 'run_laws_all_dry_run or run_laws_tranche_dry_run or run_laws_duplicate_dry_run' -q`
-  - **4 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-duplicate-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml` passes
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-all-dry-run --review-preset m2-8gb-safe` now surfaces:
-    - `duplicate_cluster_count = 9`
-    - duplicate-affected folders include `PD-957`, `PD-1096`, `RA-7160`, `RA-9266`
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml --review-preset m2-8gb-safe` now surfaces:
-    - `duplicate_cluster_count = 1`
-    - `duplicate_law_folders = [PD-957]`
-- Tranche source-to-graph dry-run slice:
-  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/pipeline_cli.py scripts/vitruvius/cli_experience.py scripts/tests/test_dataset_pipeline_cli.py`
-  - **PASS**
-  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py -k 'source_admission or source_to_graph_dry_run or run_laws_all_dry_run or run_laws_tranche_dry_run or run_laws_duplicate_dry_run or pd_957 or pd_1185' -q`
-  - **9 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-graph-dry-run --tranche-manifest config/datasets/laws-tranche-1.yaml --review-preset m2-8gb-safe` passes
-  - current dry-run evidence:
-    - staged: `PD-957`, `PD-1185`
-    - blocked: `PD-1216`
-    - `planned_stage_count = 2`
-    - `duplicate_law_folders = [PD-957]`
-    - `shallow_representation_count = 0`
-    - `source_to_graph_execute_ready = false`
-- PD-957 concept-fit slice:
-  - admitted concepts:
-    - `floor-area`
-    - `setbacks`
-    - `yards`
-  - admitted dataset-scoped `governs` relationships for the same three concepts
-  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py -k 'tranche_source_to_graph_dry_run or source_admission or pd_957 or pd_1185' -q`
-  - **6 passed**
-  - live tranche dry-run still keeps:
-    - `source_to_graph_execute_ready = false`
-- PD-1216 OCR-first preparation slice:
-  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/pipeline_cli.py scripts/vitruvius/cli_experience.py scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py`
-  - **PASS**
-  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py -k 'prepare_raw_file_allow_ocr or tranche_source_to_graph_dry_run or pd_1216 or pd_957 or pd_1185' -q`
-  - **6 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-prep --tranche-manifest config/datasets/laws-tranche-1.yaml --allow-ocr`
-  - current OCR-first prep evidence:
-    - `prepared_count = 6`
-    - `ocr_required_count = 0`
-    - `failed_count = 0`
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-admission --tranche-manifest config/datasets/laws-tranche-1.yaml --source-prep-report 006_System-Manifests/runs/datasets/laws-tranche-1/20260417T065723Z/laws_tranche_source_prep_report.json`
-  - tranche source admission now admits:
-    - `PD-957`
-    - `PD-1216`
-    - `PD-1185`
-  - latest tranche source-to-graph dry-run:
-    - `staged_law_folders = [PD-957, PD-1216, PD-1185]`
-    - `blocked_law_folders = []`
-    - `planned_stage_count = 3`
-    - `shallow_representation_count = 0`
-    - `source_to_graph_execute_ready = false`
-- Tranche source-to-graph execute slice:
-  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/pipeline_cli.py scripts/vitruvius/cli_experience.py scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py`
-  - **PASS**
-  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py scripts/tests/test_canonical_rules_additional_laws.py -k 'tranche_source_to_graph_dry_run or tranche_source_to_graph_execute or prepare_raw_file_allow_ocr or pd_1216 or pd_957 or pd_1185' -q`
-  - **7 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-graph --tranche-manifest config/datasets/laws-tranche-1.yaml --review-preset m2-8gb-safe`
-  - current execute evidence:
-    - `staged_law_folders = [PD-957, PD-1216, PD-1185]`
-    - `duplicate_law_folders = [PD-957]`
-    - `generated_relationship_count = 2`
-    - `filtered_relationship_count = 0`
-    - `shallow_representation_count = 0`
-    - `source_to_graph_execute_completed = true`
-- Risk-hardening follow-on:
-  - `python3 -m py_compile scripts/vitruvius/dataset_pipeline.py scripts/vitruvius/laws_readiness.py scripts/tests/test_dataset_source_to_graph_pipeline.py`
-  - **PASS**
-  - `python3 -m pytest scripts/tests/test_dataset_source_to_graph_pipeline.py scripts/tests/test_dataset_pipeline_cli.py -k 'source_to_graph or duplicate' -q`
-  - **16 passed**
-  - fresh tranche dry-run and execute now explicitly show:
-    - `duplicate_law_folders = [PD-957]`
-    - `raw_alias_law_folders = [PD-957]`
-    - `guardrail_law_folders = [PD-957]`
-    - `spot_review_required_count = 1`
-    - `summary_auto_withheld_count = 1`
-  - OCR-quality acceptance for `PD-1216` is now a spot-review path rather than a blind accept path
-- Tranche-2 bounded execution:
-  - `python3 -m pytest scripts/tests/test_canonical_rules_additional_laws.py -q`
-  - **9 passed**
-  - `run-laws-tranche-dry-run --tranche-manifest config/datasets/laws-tranche-2.yaml --review-preset m2-8gb-safe`
-  - `run-laws-tranche-source-prep-dry-run --tranche-manifest config/datasets/laws-tranche-2.yaml`
-  - `run-laws-tranche-source-prep --tranche-manifest config/datasets/laws-tranche-2.yaml`
-  - `run-laws-tranche-source-admission-dry-run --tranche-manifest config/datasets/laws-tranche-2.yaml`
-  - `run-laws-tranche-source-admission --tranche-manifest config/datasets/laws-tranche-2.yaml`
-  - `run-laws-tranche-source-to-graph-dry-run --tranche-manifest config/datasets/laws-tranche-2.yaml --review-preset m2-8gb-safe`
-  - `run-laws-tranche-source-to-graph --tranche-manifest config/datasets/laws-tranche-2.yaml --review-preset m2-8gb-safe`
-  - current tranche-2 execute evidence:
-    - `staged_law_folders = [RA-7279, RA-4726, RA-7899]`
-    - `duplicate_law_folders = []`
-    - `generated_relationship_count = 0`
-    - `source_to_graph_execute_completed = true`
-- Tranche-2 graph-richness follow-on:
-  - bounded `RA-7899` concept-fit slice admitted:
-    - `concept-floor-area`
-    - `law-amendments-to-the-condominium-act governs concept-floor-area`
-  - fresh tranche-2 execute evidence improves graph output from:
-    - `3 nodes / 0 edges`
-    - to `4 nodes / 1 edge`
-  - tranche-2 is still graph-thin, but no longer pure source-only
-- Tranche-2 condominium-law follow-on:
-  - new shared concept admitted:
-    - `concept-common-areas`
-  - bounded `RA-4726` relationship admitted:
-    - `law-condominium-act governs concept-common-areas`
-  - fresh tranche-2 execute evidence improves graph output from:
-    - `4 nodes / 1 edge`
-    - to `5 nodes / 4 edges`
-  - tranche-2 is still bounded, but graph richness is now materially better than its first execute pass
-- Tranche-2 housing-policy follow-on:
-  - admitted concept:
-    - `concept-socialized-housing-projects`
-  - bounded `RA-7279` relationship admitted:
-    - `law-urban-development-and-housing-act governs concept-socialized-housing-projects`
-  - fresh tranche-2 execute evidence improves graph output from:
-    - `5 nodes / 4 edges`
-    - to `6 nodes / 5 edges`
-- Tranche-3 bounded execution:
-  - `python3 -m py_compile scripts/vitruvius/laws_readiness.py scripts/tests/test_dataset_pipeline_cli.py`
-  - **PASS**
-  - `python3 -m pytest scripts/tests/test_dataset_pipeline_cli.py -k 'source_admission or source_to_graph' -q`
-  - **8 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-admission --tranche-manifest config/datasets/laws-tranche-3.yaml --source-prep-report 006_System-Manifests/runs/datasets/laws-tranche-3/20260417T103824Z/laws_tranche_source_prep_report.json`
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-graph --tranche-manifest config/datasets/laws-tranche-3.yaml --review-preset m2-8gb-safe`
-  - current tranche-3 execute evidence:
-    - `staged_law_folders = [PD-1067, PD-1151, RA-9003]`
-    - `duplicate_law_folders = []`
-    - `raw_alias_law_folders = [PD-1067]`
-    - `generated_relationship_count = 1`
-    - `shallow_representation_count = 0`
-    - `source_to_graph_execute_completed = true`
-- PD-1067 tranche-3 richness follow-on:
-  - admitted concepts:
-    - `concept-water-permit`
-    - `concept-water-right`
-    - `concept-groundwater-drilling`
-  - admitted dataset-scoped relationships:
-    - `law-water-code-of-the-philippines governs concept-water-permit`
-    - `law-water-code-of-the-philippines governs concept-water-right`
-    - `law-water-code-of-the-philippines governs concept-groundwater-drilling`
-    - `irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines governs concept-water-permit`
-    - `irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines governs concept-groundwater-drilling`
-  - fresh tranche-3 execute graph improves from:
-    - `4 nodes / 0 edges`
-    - to `7 nodes / 11 edges`
-- Tranche-4 bounded execution:
-  - `python3 -m py_compile scripts/tests/test_canonical_rules_additional_laws.py`
-  - **PASS**
-  - `python3 -m pytest scripts/tests/test_canonical_rules_additional_laws.py -q`
-  - **16 passed**
-  - `PYTHONPATH=scripts python3 scripts/pipeline_cli.py run-laws-tranche-source-to-graph --tranche-manifest config/datasets/laws-tranche-4.yaml --review-preset m2-8gb-safe`
-  - current tranche-4 execute evidence:
-    - `staged_law_folders = [PD-1517, RA-6969, RA-10066]`
-    - `duplicate_law_folders = []`
-    - `generated_relationship_count = 1`
-    - `spot_review_required_count = 1`
-    - `summary_auto_withheld_count = 1`
-    - `shallow_representation_count = 0`
-    - `source_to_graph_execute_completed = true`
-- RA-10066 tranche-4 richness follow-on:
-  - admitted concepts:
-    - `concept-adaptive-reuse`
-    - `concept-built-heritage`
-    - `concept-heritage-zone`
-  - admitted dataset-scoped relationships:
-    - `law-national-cultural-heritage-act-of-2009 governs concept-adaptive-reuse`
-    - `law-national-cultural-heritage-act-of-2009 governs concept-built-heritage`
-    - `law-national-cultural-heritage-act-of-2009 governs concept-heritage-zone`
-  - fresh tranche-4 execute graph improves from:
-    - `3 nodes / 0 edges`
-    - to `6 nodes / 7 edges`
-- Tranche-5 bounded execution and richness:
-  - current tranche-5 execute evidence:
-    - `staged_law_folders = [PD-856, RA-7160, RA-9257]`
-    - `generated_relationship_count = 7`
-    - `shallow_representation_count = 0`
-    - graph snapshot: `13 nodes / 24 edges`
-  - admitted tranche-5 concepts include:
-    - `food-establishment`
-    - `local-health-authority`
-    - `local-autonomy`
-    - `prior-consultations`
-    - `comprehensive-land-use-plan`
-    - `water-quality-management-area`
-    - `wastewater-charge-system`
-    - `discharge-permit`
-  - the `RA-9257` folder remains explicitly mismatched to the file truth, but canonical source truth resolves to `RA 9275 / Philippine Clean Water Act of 2004`
-- Tranche-6 scouting:
-  - rejected scout set included `RA-9266` because of duplicate risk
-  - preferred next scout cohort:
-    - `RA-4566`
-    - `RA-386`
-    - `RA-9184`
-- Tranche-6 bounded execution and richness:
-  - current tranche-6 execute evidence:
-    - `staged_law_folders = [RA-4566, RA-386, RA-9184]`
-    - `generated_relationship_count = 3`
-    - `shallow_representation_count = 0`
-    - graph snapshot: `7 nodes / 9 edges`
-  - admitted tranche-6 concepts include:
-    - `approved-budget-for-the-contract`
-    - `bids-and-awards-committee`
-    - `competitive-bidding`
-  - tranche-6 still keeps raw-alias visibility for `RA-386` and `RA-9184`
-- Tranche-7 bounded execution and richness:
-  - current tranche-7 execute evidence:
-    - `staged_law_folders = [RA-1378, RA-9285, RA-11201]`
-    - `blocked_law_folders = []`
-    - `generated_relationship_count = 0`
-    - `shallow_representation_count = 0`
-    - graph snapshot: `7 nodes / 6 edges`
-  - admitted tranche-7 concepts include:
-    - `human-settlements`
-    - `urban-development-planning`
-    - `local-shelter-plan`
-  - `RA-1378` now stages on the authoritative Plumbing Law source while excluded plumbing-code / board files remain explicit raw aliases
-- Tranche-11 bounded execution and richness:
-  - current tranche-11 execute evidence:
-    - `staged_law_folders = [PD-9514]`
-    - `generated_relationship_count = 7`
-    - `filtered_relationship_count = 1`
-    - `shallow_representation_count = 0`
-    - graph snapshot: `10 nodes / 10 edges`
-  - tranche-11 functions as fire-code overlap closure using existing fire-code concepts and relationships
+## Latest Validation Checkpoint
 
-- Tranche-8 bounded execution and richness:
-  - current tranche-8 execute evidence:
-    - `staged_law_folders = [RA-11285]`
-    - `generated_relationship_count = 0`
-    - `shallow_representation_count = 0`
-    - graph snapshot: `4 nodes / 6 edges`
-  - admitted tranche-8 concepts include:
-    - `energy-audit`
-    - `designated-establishment`
-    - `minimum-energy-performance`
-  - tranche-8 still carries one spot-review / summary-withheld signal from the OCR-first RA-11285 surface
-- Tranche-9 bounded execution:
-  - current tranche-9 execute evidence:
-    - `staged_law_folders = [DENR, DOE, DPWH]`
-    - `generated_relationship_count = 0`
-    - `shallow_representation_count = 0`
-    - graph snapshot: `3 nodes / 0 edges`
-  - tranche-9 is graph-light but operationally clean on scoped authoritative guidance surfaces
-- Remaining uncovered-pool roadmap:
-  - concrete proposed future tranches now documented in `docs/LAWS_REMAINING_POOL_ROADMAP.md`
-  - realistic remaining workload estimate: `6–8` future tranches plus `3–5` remediation/defer lanes
+- validation log: `/.ai/05_logs/2026-04-21_control-surface-consolidation-validation.md`
+- standalone checks passed:
+  - `python3 scripts/test_odl_one.py`
+  - `python3 scripts/test_pdf_text_detection.py "001-Laws/PD-1096/PD 1096 - National Building Code.pdf"`
+- targeted pytest passed:
+  - `PYTHONPATH=scripts python3 -m pytest scripts/tests/test_graph_builder.py -q` → `27 passed`
+- active-doc correction completed in this pass:
+  - `README.md` testing commands now use repo-proven `PYTHONPATH=scripts python3 -m pytest ...`
 
-- Tranche-10 bounded execution:
-  - current tranche-10 execute evidence:
-    - `staged_law_folders = [RA-9266]`
-    - `raw_alias_law_folders = [RA-9266]`
-    - `generated_relationship_count = 0`
-    - `shallow_representation_count = 0`
-    - graph snapshot: `1 nodes / 0 edges`
-  - tranche-10 remains a duplicate-remediation-first lane rather than a richness lane
+## Candidate Next Engineering Lane
 
-- Tranche-12 bounded execution:
-  - current tranche-12 execute evidence:
-    - `staged_law_folders = [EO, DHSUD]`
-    - `generated_relationship_count = 3`
-    - `shallow_representation_count = 0`
-    - graph snapshot: `7 nodes / 6 edges`
-  - tranche-12 carries explicit duplicate/raw-alias visibility for `EO` and remains guidance-heavy for `DHSUD`
-  - the raw storage folder remains `HLURB-DHSUD`, but the staged guidance files are explicitly DHSUD publications
+- `scripts/vitruvius/ollama_review.py` runtime wiring is the strongest code-level follow-on candidate identified in this session.
+- Why: tested support paths (`review_with_cache`, model routing helpers) exist but are not yet integrated into the live review loop.
 
-- Tranche-13 bounded execution:
-  - current tranche-13 execute evidence:
-    - `staged_law_folders = [CHED, CIAP, UAP]`
-    - `generated_relationship_count = 0`
-    - `spot_review_required_count = 2`
-    - `summary_auto_withheld_count = 2`
-    - `shallow_representation_count = 0`
-    - graph snapshot: `8 nodes / 6 edges`
-  - tranche-13 is operationally clean on the scoped professional/standards lane; CHED OCR-first prep is complete and UAP now carries explicit raw-alias visibility without remaining shallow-representation risk
+## Read Next
 
-- Tranche-14 bounded execution:
-  - current tranche-14 execute evidence:
-    - `staged_law_folders = [DOH, DEPED]`
-    - `generated_relationship_count = 0`
-    - `manual_review_required_count = 1`
-    - `spot_review_required_count = 2`
-    - `summary_auto_withheld_count = 2`
-    - `shallow_representation_count = 0`
-    - graph snapshot: `8 nodes / 12 edges`
-  - tranche-14 is operationally clean on the scoped guidance lane; the DEPED shallow finding is cleared via bounded guidance concepts while DOH remains explicitly manual-review-heavy because the source is table-heavy and low-structure
-
-## Residual Graph Caveat
-
-- The larger laws-wave is truth-complete, and the `ready-family-aggregate` residual-hardening lane is now fully closed (0 warnings, 0 partial folders).
-- The bounded aggregate-hardening concern is resolved; no reopening of the whole laws-wave is needed.
-
-## Reference Map
-
-- Governing plan: `/.ai/03_plans/00-governing-implementation-plan.md`
-- PASS 2 master plan (archived): `/.ai/09_archive/plans/2026-04-16_master-audit-implementation-plan.md`
-- PASS 1 validation: `/.ai/05_logs/2026-04-16_audit-pass-1-validation.md`
-- PASS 2 validation: `/.ai/05_logs/2026-04-16_audit-pass-2-fix-validation.md`
-- Duplicate-ID remediation plan (archived): `/.ai/09_archive/plans/2026-04-16_duplicate-canonical-source-id-remediation-plan.md`
-- Active roadmap snapshot: `/.ai/01_roadmap/current-phase.md`
-- Milestones: `/.ai/01_roadmap/milestone-tracker.md`
-- Decisions: `/.ai/10_state/decisions.md`
-- Laws-wave status snapshot: `/.ai/10_state/laws-wave-status.json`
-- Laws-wave completion summary: `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`
-- Laws-wave artifact index: `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
-- Latest bounded-laws operator validation: `/.ai/05_logs/2026-04-17_laws-pilot-operator-experience-validation.md`
-- Latest all-laws readiness validation: `/.ai/05_logs/2026-04-17_all-laws-readiness-8gb-implementation-validation.md`
-- Latest tranche-expansion validation: `/.ai/05_logs/2026-04-17_laws-tranche-expansion-implementation-validation.md`
-- Latest tranche source-preparation validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-dry-run-validation.md`
-- Latest tranche source-preparation execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-prep-implementation-validation.md`
-- Latest tranche source-admission validation: `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-implementation-validation.md`
-- Latest tranche source-admission execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-1-source-admission-execution-validation.md`
-- Latest duplicate-readiness validation: `/.ai/05_logs/2026-04-17_laws-duplicate-readiness-validation.md`
-- Latest tranche source-to-graph dry-run validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-dry-run-validation.md`
-- Latest PD-957 concept-fit validation: `/.ai/05_logs/2026-04-17_pd957-concept-fit-admission-validation.md`
-- Latest PD-1216 OCR-first validation: `/.ai/05_logs/2026-04-17_pd1216-ocr-first-preparation-validation.md`
-- Latest tranche source-to-graph execute validation: `/.ai/05_logs/2026-04-17_laws-tranche-source-to-graph-execute-validation.md`
-- Latest risk-hardening validation: `/.ai/05_logs/2026-04-17_laws-risk-hardening-execution-validation.md`
-- Latest tranche-2 validation: `/.ai/05_logs/2026-04-17_laws-tranche-2-execution-validation.md`
-- Latest RA-7899 tranche-2 richness validation: `/.ai/05_logs/2026-04-17_ra7899-concept-fit-admission-validation.md`
-- Latest RA-4726 common-areas validation: `/.ai/05_logs/2026-04-17_ra4726-common-areas-concept-fit-validation.md`
-- Latest RA-7279 socialized-housing validation: `/.ai/05_logs/2026-04-17_ra7279-socialized-housing-concept-fit-validation.md`
-- Latest tranche-3 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-3-execution-validation.md`
-- Latest tranche source-admission variant-selection validation: `/.ai/05_logs/2026-04-17_tranche-source-admission-variant-selection-validation.md`
-- Latest PD-1067 tranche-3 richness validation: `/.ai/05_logs/2026-04-17_pd1067-water-governance-concept-fit-validation.md`
-- Latest tranche-4 scouting validation: `/.ai/05_logs/2026-04-17_tranche-4-scouting-validation.md`
-- Latest tranche-4 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-4-execution-validation.md`
-- Latest RA-10066 tranche-4 richness validation: `/.ai/05_logs/2026-04-17_ra10066-cultural-heritage-concept-fit-validation.md`
-- Latest tranche-5 richness validation: `/.ai/05_logs/2026-04-17_tranche-5-richness-validation.md`
-- Latest tranche-6 expansion research: `/.ai/13_research/2026-04-17_tranche-6-expansion-research.md`
-- Latest tranche-6 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-6-execution-validation.md`
-- Latest RA-9184 tranche-6 richness validation: `/.ai/05_logs/2026-04-17_ra9184-procurement-concept-fit-validation.md`
-- Latest tranche-7 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-7-execution-validation.md`
-- Latest RA-11201 tranche-7 richness validation: `/.ai/05_logs/2026-04-17_ra11201-housing-governance-concept-fit-validation.md`
-- Latest tranche-7 clean rerun validation: `/.ai/05_logs/2026-04-17_laws-tranche-7-clean-rerun-validation.md`
-- Latest tranche-8 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-8-execution-validation.md`
-- Latest RA-11285 tranche-8 richness validation: `/.ai/05_logs/2026-04-17_ra11285-energy-governance-concept-fit-validation.md`
-- Latest tranche-9 scout research: `/.ai/13_research/2026-04-17_tranche-9-scout-research.md`
-- Latest tranche-9 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-9-execution-validation.md`
-- Latest ready-family operator alignment validation: `/.ai/05_logs/2026-04-18_ready-family-operator-alignment-validation.md`
-- Latest ready-family residual hardening validation: `/.ai/05_logs/2026-04-18_residual-cluster-concept-admission-validation.md`
-
-## Handoff Note
-
-If you continue from here, do **not** restart with a new repo-wide audit. Consult the **archived** 2026-04-16 stabilization/remediation plans together with the PASS 2 validation log and the duplicate-ID remediation validation log.
-
-Before assuming the next task is only about the graph viewer, orient against the parent laws-wave first:
-- read `/.ai/10_state/laws-wave-status.json`
-- read `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
-- read `/.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`
-
-Then decide whether the next task is:
-- final residual hardening inside `ready-family-aggregate`
-- generic dataset-automation work derived from the laws-wave pattern
-- maintenance of the laws-wave artifact stack after a newly opened lane
-
-- tranche-10 selection now favors duplicate-remediation-first `RA-9266`, with overlap-closure `PD-9514` deferred to the following lane.
-
-- Latest tranche-11 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-11-execution-validation.md`
-
-- Latest tranche-12 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-12-execution-validation.md`
-
-- Latest tranche-13 execution validation: `/.ai/05_logs/2026-04-17_laws-tranche-13-execution-validation.md`
-- Latest tranche-14 execution validation: `/.ai/05_logs/2026-04-18_laws-tranche-14-execution-validation.md`
-
-- Next remaining-lane prep now points to `LGU` sharding rather than a naive single-manifest tranche; see `/.ai/03_plans/2026-04-18_tranche-15-sharding-plan.md`
-- First LGU shard candidate is now scoped to a San Mateo zoning/CLUP pair, but shard-only duplicate readiness still reports `duplicate_law_folders = [LGU]` because unrelated duplicate files elsewhere in the folder are seen; see `/.ai/05_logs/2026-04-18_tranche-15-first-shard-scout-validation.md`
-- The first LGU shard now executes cleanly after duplicate-scope readiness was narrowed to selected shard files and a bounded San Mateo concept slice was admitted; current execute evidence shows `generated_relationship_count = 2`, `shallow_representation_count = 0`, and graph snapshot `7 nodes / 7 edges`; the wider LGU lane remains open because only the first shard is complete; see `/.ai/05_logs/2026-04-18_laws-tranche-15-san-mateo-validation.md`
-- The second LGU shard now executes cleanly on the Dagupan ordinance singleton; current execute evidence shows `generated_relationship_count = 3`, `shallow_representation_count = 0`, and graph snapshot `8 nodes / 7 edges`; the wider LGU lane remains open because additional city/family shards still remain after San Mateo and Dagupan; see `/.ai/05_logs/2026-04-18_laws-tranche-15-dagupan-validation.md`
-- The third LGU shard now executes cleanly on the Malolos ordinance singleton; current execute evidence shows `generated_relationship_count = 2`, `shallow_representation_count = 0`, and graph snapshot `4 nodes / 5 edges`; the wider LGU lane remains open because additional city/family shards still remain after San Mateo, Dagupan, and Malolos; see `/.ai/05_logs/2026-04-18_laws-tranche-15-malolos-validation.md`
-- The fourth LGU shard now executes cleanly on the Meycauayan ordinance singleton; current execute evidence shows `generated_relationship_count = 2`, `shallow_representation_count = 0`, and graph snapshot `5 nodes / 5 edges`; the wider LGU lane remains open because additional city/family shards still remain after San Mateo, Dagupan, Malolos, and Meycauayan; see `/.ai/05_logs/2026-04-18_laws-tranche-15-meycauayan-validation.md`
-- The fifth LGU shard now executes cleanly on a Davao planning-deck slice; current execute evidence shows `generated_relationship_count = 0`, `shallow_representation_count = 0`, and graph snapshot `3 nodes / 2 edges`; review signals remain explicit because the source is image-heavy and slide-like; the wider LGU lane remains open because additional city/family shards still remain after San Mateo, Dagupan, Malolos, Meycauayan, and Davao; see `/.ai/05_logs/2026-04-18_laws-tranche-15-davao-validation.md`
-- The sixth LGU shard now executes cleanly on the Tarlac zoning singleton; current execute evidence shows `generated_relationship_count = 2`, `shallow_representation_count = 0`, and graph snapshot `5 nodes / 5 edges`; the wider LGU lane remains open because additional city/family shards still remain after San Mateo, Dagupan, Malolos, Meycauayan, Davao, and Tarlac; see `/.ai/05_logs/2026-04-18_laws-tranche-15-tarlac-validation.md`
-- The seventh LGU shard now executes cleanly on the QC-CBD ordinance-2117 slice; current execute evidence shows `generated_relationship_count = 0`, `shallow_representation_count = 0`, and graph snapshot `3 nodes / 3 edges`; review signals remain explicit because the source is layout-heavy and image-backed in places; the wider LGU lane remains open because additional city/family shards still remain after San Mateo, Dagupan, Malolos, Meycauayan, Davao, Tarlac, and ordinance-2117; see `/.ai/05_logs/2026-04-18_laws-tranche-15-ordinance-2117-validation.md`
-- The eighth LGU shard now executes cleanly on the OCR-first Pasay ordinance slice; current execute evidence shows `generated_relationship_count = 1`, `shallow_representation_count = 0`, and graph snapshot `6 nodes / 5 edges`; review signals remain explicit because the source required OCR-first preparation and still carries a spot-review/suppressed-summary path; the wider LGU lane remains open because additional city/family shards still remain after San Mateo, Dagupan, Malolos, Meycauayan, Davao, Tarlac, ordinance-2117, and Pasay; see `/.ai/05_logs/2026-04-18_laws-tranche-15-pasay-validation.md`
-- The RA-9279 remediation-first lane now executes cleanly and resolves the folder/file mismatch truthfully; current execute evidence shows `generated_relationship_count = 0`, `shallow_representation_count = 0`, and graph snapshot `4 nodes / 4 edges`; the admitted source identity is now explicitly the Section 18 RA 7279 IRR rather than a fictional RA 9279 statute surface; see `/.ai/05_logs/2026-04-18_laws-ra-9279-remediation-validation.md`
-- The PRC lane now executes cleanly on six board-resolution / professional-practice surfaces; current execute evidence shows `generated_relationship_count = 2`, `shallow_representation_count = 0`, and graph snapshot `12 nodes / 10 edges`; manual-review and summary-withheld signals remain explicit for weaker resolution surfaces; see `/.ai/05_logs/2026-04-18_laws-tranche-prc-validation.md`
-- The HLURB/DHSUD agency split is now modeled more truthfully in tranche metadata: the legacy raw storage folder remains `HLURB-DHSUD`, but the staged 2025 guidance files are explicitly represented as `DHSUD` publications; see `/.ai/05_logs/2026-04-18_hlurb-dhsud-agency-split-validation.md`
-- The remaining uncovered pool is now best treated as final disposition rather than further normal tranche execution; the residual folders are draft bills, a draft IRR, an empty folder, or a non-law/user-guide surface; see `/.ai/05_logs/2026-04-18_remaining-pool-final-disposition-validation.md`
-- Machine-readable disposition snapshot now exists at `config/datasets/laws-remaining-dispositions.yaml`
+- `/.ai/01_roadmap/current-phase.md`
+- `/.ai/ACTIVE_WORK.md`
+- `/.ai/STRATEGIC_NEXT_MOVE.md`
