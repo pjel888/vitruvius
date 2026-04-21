@@ -1526,7 +1526,7 @@ Vitruvius has a **bounded, manifest-backed dataset automation system** proven on
 - `config/datasets/laws-remaining-dispositions.yaml`
 - `config/datasets/laws-source-provenance.yaml`
 - `config/datasets/laws-manifest-index.yaml`
-- `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
+- `.ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md`
 
 ### Running a tranche
 
@@ -1544,13 +1544,13 @@ See [Workflow E](#workflow-e-i-want-to-run-dataset-automation-laws-wave) for the
 
 ```bash
 # Full test suite
-python -m pytest scripts/tests/
+PYTHONPATH=scripts python3 -m pytest scripts/tests/
 
 # KG-specific tests only
-python -m pytest scripts/tests/test_kg_*.py
+PYTHONPATH=scripts python3 -m pytest scripts/tests/test_kg_*.py
 
 # Skip known pre-existing failures
-python -m pytest scripts/tests/ \
+PYTHONPATH=scripts python3 -m pytest scripts/tests/ \
   --ignore=scripts/tests/test_3d_upgrade_backcompat.py \
   --ignore=scripts/tests/test_concept_stringency_migration.py \
   --ignore=scripts/tests/test_wiring_backcompat.py \
