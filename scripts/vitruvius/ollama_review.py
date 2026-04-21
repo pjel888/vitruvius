@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import time
 import urllib.error
@@ -20,6 +21,30 @@ from .utils import utc_now_stamp
 
 DEFAULT_MODEL = get_ollama_default_model()
 DEFAULT_TIMEOUT_SECONDS = get_ollama_default_timeout()
+
+
+def _stable_sha256(value: str) -> str:
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+def _review_runtime_candidate(candidate: dict[str, Any], *, model: str, timeout_seconds: int) -> dict[str, Any]:
+    runtime_candidate = dict(candidate)
+    runtime_candidate["__review_runtime_model"] = model
+    runtime_candidate["__review_runtime_timeout_seconds"] = timeout_seconds
+    return runtime_candidate
+
+
+def _strip_review_runtime_keys(candidate: "Mapping[str, Any]") -> dict[str, Any]:
+    return {
+        key: value
+        for key, value in dict(candidate).items()
+        if not str(key).startswith("__review_runtime_")
+    }
+
+
+def _relationship_hash(candidate: dict[str, Any]) -> str:
+    normalized = json.dumps(candidate, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return _stable_sha256(normalized)
 
 
 def load_relationship_report(report_path: Path | None = None) -> dict[str, Any]:
@@ -120,11 +145,22 @@ def _call_llm(candidate: "Mapping[str, Any]") -> dict[str, Any]:
     Y4.2 cache integration tests can patch a single symbol without
     stubbing the full HTTP stack.
     """
-    raise NotImplementedError(
-        "_call_llm is intended to be patched in tests or wired to the "
-        "Ollama client by the Y4.2 follow-on that integrates with the "
-        "live review loop"
+    runtime_candidate = dict(candidate)
+    model = str(runtime_candidate.pop("__review_runtime_model", DEFAULT_MODEL))
+    timeout_seconds = int(runtime_candidate.pop("__review_runtime_timeout_seconds", DEFAULT_TIMEOUT_SECONDS))
+
+    review_item = review_relationship(
+        runtime_candidate,
+        model=model,
+        timeout_seconds=timeout_seconds,
     )
+    review = review_item["review"]
+    return {
+        "verdict": review.get("decision", "review_further"),
+        "self_confidence": float(review.get("confidence", 0.0)),
+        "reason": str(review.get("reason") or ""),
+        "suggested_type": review.get("suggested_type"),
+    }
 
 
 def review_with_cache(
@@ -157,7 +193,7 @@ def review_with_cache(
     from . import config as cfgmod
 
     if not cfgmod._features_block().get("y_stateful_registry", False):
-        return _call_llm(candidate)
+        return {**_call_llm(candidate), "cache_hit": False}
 
     from .review.stateful_registry import (
         StatefulReviewRegistry,
@@ -894,11 +930,18 @@ def run_review_relationships_ollama(
         parallelism = get_ollama_default_parallelism()
     repo_root = get_repo_root()
     runs_dir = repo_root / "006_System-Manifests" / "runs"
+    cache_db_path = (
+        repo_root
+        / "006_System-Manifests"
+        / "cache"
+        / "stateful_review_registry.sqlite"
+    )
     runs_dir.mkdir(parents=True, exist_ok=True)
 
     extraction_report = load_relationship_report(extraction_report_path)
     raw_candidates = extraction_report.get("relationships", [])
     source = extraction_report.get("source", "")
+    source_hash = _stable_sha256(source)
 
     if not raw_candidates:
         print("review-relationships-ollama complete.")
@@ -1018,11 +1061,34 @@ def run_review_relationships_ollama(
             per_candidate_model = model
             if _cfgmod._features_block().get("w_review_slm_routing", False):
                 per_candidate_model = _choose_tier_model(candidate)
-            review_item = review_relationship(
-                candidate,
-                model=per_candidate_model,
-                timeout_seconds=timeout_seconds,
+            cache_result = review_with_cache(
+                candidate=_review_runtime_candidate(
+                    candidate,
+                    model=per_candidate_model,
+                    timeout_seconds=timeout_seconds,
+                ),
+                source_hash=source_hash,
+                relationship_hash=_relationship_hash(candidate),
+                model_version=per_candidate_model,
+                db_path=cache_db_path,
             )
+            review_item = {
+                "candidate": candidate,
+                "review": {
+                    "decision": cache_result.get("verdict", "review_further"),
+                    "confidence": float(cache_result.get("self_confidence", 0.0)),
+                    "reason": str(
+                        cache_result.get("reason")
+                        or (
+                            "stateful_registry cache hit"
+                            if cache_result.get("cache_hit")
+                            else "stateful_registry live review"
+                        )
+                    ),
+                    "suggested_type": cache_result.get("suggested_type"),
+                },
+                "cache_hit": bool(cache_result.get("cache_hit", False)),
+            }
             reviews.append(review_item)
 
             elapsed = time.time() - start_time
