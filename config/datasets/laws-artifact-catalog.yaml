@@ -16,13 +16,13 @@ artifacts:
   - path: config/datasets/laws-manifest-index.yaml
     kind: manifest_index
     purpose: Machine-readable mapping from completed lanes to their manifest files.
-  - path: docs/LAWS_WAVE_ARTIFACT_INDEX.md
+  - path: .ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md
     kind: human_index
     purpose: Human-facing artifact map for the laws wave.
-  - path: docs/LAWS_WAVE_RELOAD_PROTOCOL.md
+  - path: .ai/03_plans/laws-wave/LAWS_WAVE_RELOAD_PROTOCOL.md
     kind: reload_protocol
     purpose: Read order and reopening criteria for fresh sessions.
-  - path: docs/LAWS_WAVE_README.md
+  - path: .ai/03_plans/laws-wave/LAWS_WAVE_README.md
     kind: top_level_readme
     purpose: Top-level human summary of the laws wave end-state.
   - path: .ai/05_logs/2026-04-18_laws-wave-completion-summary.md

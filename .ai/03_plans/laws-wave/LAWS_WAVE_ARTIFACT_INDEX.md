@@ -42,7 +42,7 @@
 - `.ai/05_logs/2026-04-18_laws-tranche-15-pasay-validation.md`
 
 ## Current tracker surfaces
-- `docs/LAWS_REMAINING_POOL_ROADMAP.md`
+- `.ai/03_plans/laws-wave/LAWS_REMAINING_POOL_ROADMAP.md`
 - `.ai/01_roadmap/current-phase.md`
 - `.ai/01_roadmap/milestone-tracker.md`
 - `.ai/10_state/active_context.md`

@@ -23,7 +23,7 @@
     "remaining_dispositions": "config/datasets/laws-remaining-dispositions.yaml",
     "source_provenance": "config/datasets/laws-source-provenance.yaml",
     "manifest_index": "config/datasets/laws-manifest-index.yaml",
-    "artifact_index": "docs/LAWS_WAVE_ARTIFACT_INDEX.md",
+    "artifact_index": ".ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md",
     "completion_summary": ".ai/05_logs/2026-04-18_laws-wave-completion-summary.md"
   },
   "note": "No stronger normal primary-law or primary-regulation lane remains in the current pool under the present authority and source-quality rules."

@@ -20,13 +20,13 @@ These answer, respectively:
 - which concrete manifests define the completed lanes
 
 ## 3. Read the artifact index / completion roll-up
-- `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
+- `.ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md`
 - `.ai/05_logs/2026-04-18_laws-wave-completion-summary.md`
 
 Use these for fast human orientation.
 
 ## 4. Read the current tracker surfaces
-- `docs/LAWS_REMAINING_POOL_ROADMAP.md`
+- `.ai/03_plans/laws-wave/LAWS_REMAINING_POOL_ROADMAP.md`
 - `.ai/01_roadmap/current-phase.md`
 - `.ai/01_roadmap/milestone-tracker.md`
 - `.ai/10_state/active_context.md`

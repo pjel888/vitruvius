@@ -38,8 +38,8 @@ python3 scripts/pipeline_cli.py run-laws-completed-aggregate --dry-run --review-
 
 ## Core artifact stack
 ### Quick start
-- `docs/LAWS_WAVE_RELOAD_PROTOCOL.md`
-- `docs/LAWS_WAVE_ARTIFACT_INDEX.md`
+- `.ai/03_plans/laws-wave/LAWS_WAVE_RELOAD_PROTOCOL.md`
+- `.ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md`
 - `.ai/10_state/laws-wave-status.json`
 
 ### Machine-readable ledgers
