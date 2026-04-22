@@ -13,6 +13,8 @@ export default function GraphScene() {
 
   const activeSceneId = useSceneStore(s => s.activeSceneId);
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
+  const focusSubgraphNodeId = useSceneStore(s => s.focusSubgraphNodeId);
+  const clearFocusSubgraphRequest = useSceneStore(s => s.clearFocusSubgraphRequest);
   const hiddenNodeIds = useSceneStore(s => s.hiddenNodeIds);
   const camera = useSceneStore(s => s.camera);
   const layout = useSceneStore(s => s.layout);
@@ -63,6 +65,12 @@ export default function GraphScene() {
       appliedSceneRef.current = null;
     }
   }, [activeSceneId]);
+
+  useEffect(() => {
+    if (!focusSubgraphNodeId) return;
+    controllerRef.current?.focusSubgraph(focusSubgraphNodeId);
+    clearFocusSubgraphRequest();
+  }, [focusSubgraphNodeId, clearFocusSubgraphRequest]);
 
   // Sync selection to graph
   useEffect(() => {

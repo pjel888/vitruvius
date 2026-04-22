@@ -55,6 +55,7 @@ const NODE_TYPES = [
   { key: 'definition', label: 'Definition', color: 'bg-node-definition' },
   { key: 'procedure', label: 'Procedure', color: 'bg-node-procedure' },
   { key: 'exception', label: 'Exception', color: 'bg-node-exception' },
+  { key: 'evidence_span', label: 'Evidence', color: 'bg-sky-500' },
 ];
 
 const EDGE_TYPES = [
@@ -84,6 +85,9 @@ export default function ExplorerRail() {
   const [roots, setRoots] = useState<TaxonomyNode[]>([]);
   const [showFilters, setShowFilters] = useState(false);
   const open = useSceneStore(s => s.explorerOpen);
+  const nodes = useSceneStore(s => s.nodes);
+  const pinnedNodeIds = useSceneStore(s => s.pinnedNodeIds);
+  const setSelectedNode = useSceneStore(s => s.setSelectedNode);
 
   const visibleNodeTypes = useSceneStore(s => s.visibleNodeTypes);
   const visibleEdgeTypes = useSceneStore(s => s.visibleEdgeTypes);
@@ -99,6 +103,10 @@ export default function ExplorerRail() {
   }, []);
 
   if (!open) return null;
+
+  const pinnedNodes = pinnedNodeIds
+    .map((id) => nodes.find((node) => node.id === id))
+    .filter((node): node is NonNullable<typeof node> => Boolean(node));
 
   function toggleNodeType(key: string) {
     setVisibleNodeTypes(new Set(
@@ -215,6 +223,24 @@ export default function ExplorerRail() {
                 </label>
               ))}
             </div>
+          </div>
+        </div>
+      )}
+
+      {pinnedNodes.length > 0 && (
+        <div className="border-b border-border px-3 py-2">
+          <div className="text-xs font-semibold uppercase tracking-wider text-text-dim mb-2">Pinned</div>
+          <div className="space-y-1">
+            {pinnedNodes.map((node) => (
+              <button
+                key={node.id}
+                onClick={() => setSelectedNode(node.id)}
+                className="w-full text-left rounded-md px-2 py-1.5 text-sm hover:bg-panel-hover transition-colors"
+              >
+                <div className="truncate text-text">{node.label}</div>
+                <div className="text-xs text-text-dim truncate">{node.type}</div>
+              </button>
+            ))}
           </div>
         </div>
       )}

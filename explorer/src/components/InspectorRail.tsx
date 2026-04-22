@@ -19,6 +19,9 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
   const [activeTab, setActiveTab] = useState<'summary' | 'evidence' | 'incoming' | 'outgoing'>('summary');
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
   const openBottom = useSceneStore(s => s.openBottom);
+  const pinnedNodeIds = useSceneStore(s => s.pinnedNodeIds);
+  const togglePinnedNode = useSceneStore(s => s.togglePinnedNode);
+  const requestFocusSubgraph = useSceneStore(s => s.requestFocusSubgraph);
   const pathSourceId = useSceneStore(s => s.pathSourceId);
   const pathTargetId = useSceneStore(s => s.pathTargetId);
   const highlightedPath = useSceneStore(s => s.highlightedPath);
@@ -35,10 +38,10 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
             <span className="text-xs text-text-dim">{node.type}</span>
           </div>
           <div className="flex items-center gap-1">
-            <button className="p-1 rounded hover:bg-panel-hover text-text-dim" title="Pin">
-              <Pin size={14} />
+            <button className="p-1 rounded hover:bg-panel-hover text-text-dim" title="Pin" onClick={() => togglePinnedNode(node.id)}>
+              <Pin size={14} className={pinnedNodeIds.includes(node.id) ? 'text-accent' : ''} />
             </button>
-            <button className="p-1 rounded hover:bg-panel-hover text-text-dim" title="Focus 1-hop">
+            <button className="p-1 rounded hover:bg-panel-hover text-text-dim" title="Focus 1-hop" onClick={() => requestFocusSubgraph(node.id)}>
               <Focus size={14} />
             </button>
             <button
@@ -269,13 +272,15 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
 function EdgeInspector({ detail }: { detail: EdgeDetail }) {
   const { edge, source, target } = detail;
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
+  const setSelectedEdge = useSceneStore(s => s.setSelectedEdge);
+  const openBottom = useSceneStore(s => s.openBottom);
 
   return (
     <div className="flex flex-col h-full p-4 space-y-4">
       <div className="flex items-start justify-between">
         <h2 className="text-sm font-semibold text-accent">{edge.type}</h2>
         <div className="flex items-center gap-1">
-          <button className="p-1 rounded hover:bg-panel-hover text-text-dim" onClick={() => {}} title="Close">
+          <button className="p-1 rounded hover:bg-panel-hover text-text-dim" onClick={() => setSelectedEdge(null)} title="Close">
             <X size={14} />
           </button>
         </div>
@@ -308,6 +313,32 @@ function EdgeInspector({ detail }: { detail: EdgeDetail }) {
         <div>
           <div className="text-xs uppercase tracking-wider text-text-dim mb-1">Assertion ID</div>
           <div className="text-xs font-mono text-text-dim">{edge.assertionId}</div>
+        </div>
+      )}
+      {detail.evidence.length > 0 && (
+        <div>
+          <div className="text-xs uppercase tracking-wider text-text-dim mb-1">Evidence</div>
+          <button
+            onClick={() => openBottom({
+              type: 'table',
+              title: `${edge.type} Evidence`,
+              columns: [
+                { key: 'document', label: 'Document' },
+                { key: 'quote', label: 'Quote' },
+              ],
+              rows: detail.evidence.map((item) => ({
+                id: item.id,
+                deepLink: item.deep_link,
+                values: {
+                  document: item.document_title || item.document_id || 'Unknown source',
+                  quote: item.quote,
+                },
+              })),
+            })}
+            className="text-xs text-accent hover:underline"
+          >
+            Open edge evidence
+          </button>
         </div>
       )}
     </div>

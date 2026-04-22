@@ -46,19 +46,19 @@ export interface GraphController {
 const COLOR_SCHEMES: Record<string, Record<string, string>> = {
   default: {
     taxonomy: '#60a5fa', topic: '#818cf8', subtopic: '#c084fc', concept: '#a78bfa',
-    rule: '#f87171', definition: '#34d399', procedure: '#fbbf24', exception: '#f472b6',
+    rule: '#f87171', definition: '#34d399', procedure: '#fbbf24', exception: '#f472b6', evidence_span: '#38bdf8',
   },
   pastel: {
     taxonomy: '#93c5fd', topic: '#a5b4fc', subtopic: '#d8b4fe', concept: '#c4b5fd',
-    rule: '#fca5a5', definition: '#6ee7b7', procedure: '#fcd34d', exception: '#f9a8d4',
+    rule: '#fca5a5', definition: '#6ee7b7', procedure: '#fcd34d', exception: '#f9a8d4', evidence_span: '#7dd3fc',
   },
   vibrant: {
     taxonomy: '#3b82f6', topic: '#6366f1', subtopic: '#a855f7', concept: '#8b5cf6',
-    rule: '#ef4444', definition: '#10b981', procedure: '#f59e0b', exception: '#ec4899',
+    rule: '#ef4444', definition: '#10b981', procedure: '#f59e0b', exception: '#ec4899', evidence_span: '#0ea5e9',
   },
   monochrome: {
     taxonomy: '#e2e8f0', topic: '#cbd5e1', subtopic: '#94a3b8', concept: '#64748b',
-    rule: '#475569', definition: '#334155', procedure: '#1e293b', exception: '#0f172a',
+    rule: '#475569', definition: '#334155', procedure: '#1e293b', exception: '#0f172a', evidence_span: '#38bdf8',
   },
 };
 
