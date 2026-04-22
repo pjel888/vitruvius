@@ -115,7 +115,7 @@ app.get('/search', async (c) => {
   const records = await runQuery(`
     MATCH (c)
     WHERE (c:CanonicalNode OR c:Taxonomy OR c:Topic OR c:Subtopic OR c:EvidenceSpan)
-      AND (coalesce(c.label, c.quote, c.normalized_text, c.id) CONTAINS $q OR c.id CONTAINS $q)
+      AND (toLower(coalesce(c.label, c.quote, c.normalized_text, c.id)) CONTAINS $q OR toLower(c.id) CONTAINS $q)
       ${typeFilter}
     RETURN c.id AS id,
            coalesce(c.label, c.quote, c.normalized_text, c.id) AS label,
@@ -164,11 +164,14 @@ app.get('/node/:id', async (c) => {
   // Build taxonomy path
   const taxonomyPath: any[] = [];
   if (node?.taxonomy_path && Array.isArray(node.taxonomy_path)) {
+    const taxonomyNodes = await runQuery(
+      'MATCH (t) WHERE t.id IN $ids RETURN t.id AS id, t.label AS label, t.kind AS kind',
+      { ids: node.taxonomy_path }
+    );
+    const taxonomyById = new Map(taxonomyNodes.map((taxo: any) => [taxo.id, taxo]));
     for (const taxoId of node.taxonomy_path) {
-      const taxo = await runQuery('MATCH (t) WHERE t.id = $id RETURN t.label AS label, t.kind AS kind', { id: taxoId });
-      if (taxo.length) {
-        taxonomyPath.push({ id: taxoId, label: taxo[0].label, kind: taxo[0].kind });
-      }
+      const taxo = taxonomyById.get(taxoId);
+      if (taxo) taxonomyPath.push({ id: taxo.id, label: taxo.label, kind: taxo.kind });
     }
   }
 
@@ -226,6 +229,7 @@ app.get('/edge/:id', async (c) => {
   }
 
   const rec = records[0];
+  const edge = normalizeEdge(rec.r, rec.a.id, rec.b.id);
   const edgeEvidence = edge.type === 'SUPPORTED_BY'
     ? [rec.a, rec.b]
         .map((node: any) => normalizeNode(node))
@@ -240,7 +244,7 @@ app.get('/edge/:id', async (c) => {
         }))
     : [];
   return c.json({
-    edge: normalizeEdge(rec.r, rec.a.id, rec.b.id),
+    edge,
     source: normalizeNode(rec.a),
     target: normalizeNode(rec.b),
     evidence: edgeEvidence,
@@ -414,48 +418,54 @@ app.get('/path', async (c) => {
 
 // GET /taxonomy
 app.get('/taxonomy', async (c) => {
-  const records = await runQuery(`
-    MATCH (t:Taxonomy)
-    OPTIONAL MATCH (t)-[:HAS_CHILD*]->(child)
-    OPTIONAL MATCH (c:CanonicalNode)-[:BELONGS_TO]->(taxo)
-    WHERE taxo = t OR taxo = child
-    RETURN t.id AS id, t.label AS label, t.kind AS kind,
-           count(DISTINCT c) AS conceptCount
+  const allNodes = await runQuery(`
+    MATCH (n)
+    WHERE n:Taxonomy OR n:Topic OR n:Subtopic
+    RETURN n.id AS id, n.label AS label, n.kind AS kind
     ORDER BY label
   `);
 
-  const rootRecords = await runQuery(`
-    MATCH (t:Taxonomy)
-    RETURN t.id AS id, t.label AS label, t.kind AS kind
-    ORDER BY label
+  const edges = await runQuery(`
+    MATCH (parent)-[:HAS_CHILD]->(child)
+    WHERE parent:Taxonomy OR parent:Topic OR parent:Subtopic
+    RETURN parent.id AS parentId, child.id AS childId
   `);
 
-  async function buildTree(parentId: string): Promise<any[]> {
-    const children = await runQuery(`
-      MATCH (parent)-[:HAS_CHILD]->(child)
-      WHERE parent.id = $parentId
-      OPTIONAL MATCH (c:CanonicalNode)-[:BELONGS_TO]->(child)
-      RETURN child.id AS id, child.label AS label, child.kind AS kind,
-             count(DISTINCT c) AS conceptCount
-      ORDER BY label
-    `, { parentId });
+  const conceptCounts = await runQuery(`
+    MATCH (c:CanonicalNode)-[:BELONGS_TO]->(node)
+    WHERE node:Taxonomy OR node:Topic OR node:Subtopic
+    RETURN node.id AS id, count(DISTINCT c) AS conceptCount
+  `);
 
-    return Promise.all(children.map(async (child: any) => ({
-      id: child.id,
-      label: child.label,
-      kind: child.kind,
-      conceptCount: Number(child.conceptCount) || 0,
-      children: await buildTree(child.id),
-    })));
+  const countById = new Map(conceptCounts.map((row: any) => [row.id, Number(row.conceptCount) || 0]));
+  const childrenByParent = new Map<string, string[]>();
+  const childIds = new Set<string>();
+
+  for (const edge of edges) {
+    childIds.add(edge.childId);
+    if (!childrenByParent.has(edge.parentId)) childrenByParent.set(edge.parentId, []);
+    childrenByParent.get(edge.parentId)!.push(edge.childId);
   }
 
-  const roots = await Promise.all(rootRecords.map(async (r: any) => ({
-    id: r.id,
-    label: r.label,
-    kind: r.kind,
-    conceptCount: Number(records.find((rec: any) => rec.id === r.id)?.conceptCount) || 0,
-    children: await buildTree(r.id),
-  })));
+  const nodeById = new Map(
+    allNodes.map((node: any) => [node.id, { id: node.id, label: node.label, kind: node.kind, conceptCount: countById.get(node.id) || 0 }])
+  );
+
+  function buildTree(nodeId: string): any {
+    const node = nodeById.get(nodeId);
+    if (!node) return null;
+    const children = (childrenByParent.get(nodeId) || [])
+      .map((childId) => buildTree(childId))
+      .filter(Boolean)
+      .sort((a: any, b: any) => a.label.localeCompare(b.label));
+    return { ...node, children };
+  }
+
+  const roots = allNodes
+    .filter((node: any) => !childIds.has(node.id))
+    .map((node: any) => buildTree(node.id))
+    .filter(Boolean)
+    .sort((a: any, b: any) => a.label.localeCompare(b.label));
 
   return c.json({ roots });
 });
