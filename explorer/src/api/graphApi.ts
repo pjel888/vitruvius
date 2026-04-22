@@ -1,4 +1,6 @@
 import type {
+  SceneState,
+  SceneSummary,
   GraphNode,
   GraphEdge,
   TaxonomyNode,
@@ -53,6 +55,22 @@ export async function getTaxonomy(): Promise<TaxonomyNode[]> {
 export async function getPerspectives(): Promise<Perspective[]> {
   const data = await api<{ perspectives: Perspective[] }>('/perspectives');
   return data.perspectives;
+}
+
+export async function listScenes(): Promise<SceneSummary[]> {
+  const data = await api<{ scenes: SceneSummary[] }>('/scenes');
+  return data.scenes;
+}
+
+export async function getScene(id: string): Promise<SceneState> {
+  return api<SceneState>(`/scene/${encodeURIComponent(id)}`);
+}
+
+export async function saveScene(scene: Omit<SceneState, 'id' | 'savedAt'>): Promise<{ sceneId: string; url: string; scene: SceneState }> {
+  return api('/scene/save', {
+    method: 'POST',
+    body: JSON.stringify(scene),
+  });
 }
 
 export async function getNodesForPerspective(perspectiveId: string): Promise<{ nodes: GraphNode[]; edges: GraphEdge[] }> {

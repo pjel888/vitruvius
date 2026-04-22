@@ -78,15 +78,26 @@ export interface Perspective {
   id: string;
   name: string;
   description: string;
-  nodeTypes: string[];
-  edgeTypes: string[];
+  nodeCount?: number;
+}
+
+export interface CameraState {
+  x: number;
+  y: number;
+  ratio: number;
+}
+
+export interface SceneGraphData {
+  nodes: GraphNode[];
+  edges: GraphEdge[];
 }
 
 export interface SceneState {
   id: string;
   name: string;
+  savedAt?: string;
   perspectiveId: string;
-  camera: { x: number; y: number; ratio: number };
+  camera: CameraState;
   selectedNodeIds: string[];
   selectedEdgeIds: string[];
   pinnedNodeIds: string[];
@@ -99,4 +110,15 @@ export interface SceneState {
   };
   expandedNodeIds: string[];
   hiddenNodeIds: string[];
+  layout: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
+  colorScheme: string;
+  sizeBy: 'uniform' | 'confidence' | 'degree';
+  graph: SceneGraphData;
+}
+
+export interface SceneSummary {
+  id: string;
+  name: string;
+  savedAt?: string;
+  perspectiveId: string;
 }

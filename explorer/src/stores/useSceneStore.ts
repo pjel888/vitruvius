@@ -1,18 +1,48 @@
 import { create } from 'zustand';
-import type { GraphNode, GraphEdge } from '../types';
+import type { CameraState, GraphNode, GraphEdge, SceneState } from '../types';
 
-interface BottomContent {
-  type: 'source' | 'table' | 'query';
-  title: string;
-  documentId?: string;
-  quote?: string;
+type LayoutType = 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
+
+interface BottomTableColumn {
+  key: string;
+  label: string;
+}
+
+interface BottomTableRow {
+  id: string;
+  values: Record<string, string>;
   deepLink?: string;
 }
+
+type BottomContent =
+  | {
+      type: 'source';
+      title: string;
+      documentId?: string;
+      quote?: string;
+      deepLink?: string;
+    }
+  | {
+      type: 'table';
+      title: string;
+      columns: BottomTableColumn[];
+      rows: BottomTableRow[];
+    }
+  | {
+      type: 'query';
+      title: string;
+      query: string;
+      resultSummary?: string;
+    };
 
 interface SceneStore {
   // View state
   perspectiveId: string;
+  activeSceneId: string | null;
+  activeSceneName: string | null;
   setPerspectiveId: (id: string) => void;
+  setActiveScene: (id: string | null, name?: string | null) => void;
+  applySceneState: (scene: SceneState) => void;
 
   // Selection
   selectedNodeId: string | null;
@@ -59,8 +89,8 @@ interface SceneStore {
   clearPath: () => void;
 
   // Camera (for Sigma)
-  camera: { x: number; y: number; ratio: number };
-  setCamera: (c: { x: number; y: number; ratio: number }) => void;
+  camera: CameraState;
+  setCamera: (c: CameraState) => void;
 
   // Loading
   loading: boolean;
@@ -69,10 +99,17 @@ interface SceneStore {
   // Filters
   visibleNodeTypes: Set<string>;
   visibleEdgeTypes: Set<string>;
+  hiddenNodeIds: string[];
+  expandedNodeIds: string[];
   setVisibleNodeTypes: (types: Set<string>) => void;
   setVisibleEdgeTypes: (types: Set<string>) => void;
+  setHiddenNodeIds: (ids: string[]) => void;
+  setExpandedNodeIds: (ids: string[]) => void;
+  addExpandedNodeIds: (ids: string[]) => void;
 
   // Visual settings
+  layout: LayoutType;
+  setLayout: (layout: LayoutType) => void;
   colorScheme: string;
   setColorScheme: (scheme: string) => void;
   sizeBy: 'uniform' | 'confidence' | 'degree';
@@ -81,7 +118,35 @@ interface SceneStore {
 
 export const useSceneStore = create<SceneStore>((set) => ({
   perspectiveId: 'default',
-  setPerspectiveId: (id) => set({ perspectiveId: id, selectedNodeId: null, selectedEdgeId: null }),
+  activeSceneId: null,
+  activeSceneName: null,
+  setPerspectiveId: (id) => set({
+    perspectiveId: id,
+    activeSceneId: null,
+    activeSceneName: null,
+    selectedNodeId: null,
+    selectedEdgeId: null,
+  }),
+  setActiveScene: (id, name = null) => set({ activeSceneId: id, activeSceneName: name }),
+  applySceneState: (scene) => set({
+    activeSceneId: scene.id,
+    activeSceneName: scene.name,
+    perspectiveId: scene.perspectiveId,
+    selectedNodeId: scene.selectedNodeIds[0] ?? null,
+    selectedEdgeId: scene.selectedEdgeIds[0] ?? null,
+    searchQuery: scene.filters.searchQuery,
+    visibleNodeTypes: new Set(scene.filters.nodeTypes),
+    visibleEdgeTypes: new Set(scene.filters.edgeTypes),
+    hiddenNodeIds: scene.hiddenNodeIds,
+    expandedNodeIds: scene.expandedNodeIds,
+    camera: scene.camera,
+    layout: scene.layout,
+    colorScheme: scene.colorScheme,
+    sizeBy: scene.sizeBy,
+    pathSourceId: null,
+    pathTargetId: null,
+    highlightedPath: null,
+  }),
 
   selectedNodeId: null,
   selectedEdgeId: null,
@@ -128,9 +193,18 @@ export const useSceneStore = create<SceneStore>((set) => ({
 
   visibleNodeTypes: new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception']),
   visibleEdgeTypes: new Set(['HAS_CHILD', 'BELONGS_TO', 'RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES', 'SUPPORTED_BY']),
+  hiddenNodeIds: [],
+  expandedNodeIds: [],
   setVisibleNodeTypes: (types) => set({ visibleNodeTypes: types }),
   setVisibleEdgeTypes: (types) => set({ visibleEdgeTypes: types }),
+  setHiddenNodeIds: (ids) => set({ hiddenNodeIds: ids }),
+  setExpandedNodeIds: (ids) => set({ expandedNodeIds: ids }),
+  addExpandedNodeIds: (ids) => set((state) => ({
+    expandedNodeIds: Array.from(new Set([...state.expandedNodeIds, ...ids])),
+  })),
 
+  layout: 'forceatlas2',
+  setLayout: (layout) => set({ layout }),
   colorScheme: 'default',
   setColorScheme: (scheme) => set({ colorScheme: scheme }),
   sizeBy: 'uniform',
