@@ -2,6 +2,8 @@ import { Hono } from 'hono';
 import { serveStatic } from 'hono/bun';
 import { cors } from 'hono/cors';
 import neo4j from 'neo4j-driver';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { dirname, join } from 'node:path';
 
 // ---------------------------------------------------------------------------
 // Neo4j connection
@@ -10,7 +12,7 @@ const driver = neo4j.driver(
   process.env.NEO4J_URI || 'bolt://localhost:7687',
   neo4j.auth.basic(
     process.env.NEO4J_USER || 'neo4j',
-    process.env.NEO4J_PASS || 'vitruvius'
+    process.env.NEO4J_PASS || 'password'
   )
 );
 
@@ -38,6 +40,50 @@ async function runQuery<T = any>(query: string, params?: Record<string, any>): P
   } finally {
     await session.close();
   }
+}
+
+const scenesFilePath = join(import.meta.dir, '.data', 'scenes.json');
+
+type StoredScene = {
+  id: string;
+  name: string;
+  savedAt: string;
+  perspectiveId: string;
+  camera: { x: number; y: number; ratio: number };
+  selectedNodeIds: string[];
+  selectedEdgeIds: string[];
+  pinnedNodeIds: string[];
+  filters: {
+    nodeTypes: string[];
+    edgeTypes: string[];
+    minConfidence: number;
+    maxConfidence: number;
+    searchQuery: string;
+  };
+  expandedNodeIds: string[];
+  hiddenNodeIds: string[];
+  layout: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
+  colorScheme: string;
+  sizeBy: 'uniform' | 'confidence' | 'degree';
+  graph: {
+    nodes: any[];
+    edges: any[];
+  };
+};
+
+async function readScenes(): Promise<StoredScene[]> {
+  try {
+    const content = await readFile(scenesFilePath, 'utf8');
+    const parsed = JSON.parse(content);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+async function writeScenes(scenes: StoredScene[]) {
+  await mkdir(dirname(scenesFilePath), { recursive: true });
+  await writeFile(scenesFilePath, JSON.stringify(scenes, null, 2), 'utf8');
 }
 
 function normalizeNode(node: any) {
@@ -114,14 +160,17 @@ app.get('/search', async (c) => {
     LIMIT $limit
   `, { q: q.toLowerCase(), limit: neo4j.int(limit) });
 
-  const results = records.map(r => ({
-    kind: 'node' as const,
-    id: r.id,
-    label: r.label,
-    type: r.type || r.kind || 'unknown',
-    matchType: r.label.toLowerCase().includes(q.toLowerCase()) ? 'label' : 'id',
-    matchedField: r.label.toLowerCase().includes(q.toLowerCase()) ? 'label' : 'id',
-  }));
+  const results = records.map((r) => {
+    const label = String(r.label ?? r.id ?? 'Unknown node');
+    return {
+      kind: 'node' as const,
+      id: r.id,
+      label,
+      type: r.type || r.kind || 'unknown',
+      matchType: label.toLowerCase().includes(q.toLowerCase()) ? 'label' : 'id',
+      matchedField: label.toLowerCase().includes(q.toLowerCase()) ? 'label' : 'id',
+    };
+  });
 
   return c.json({ results });
 });
@@ -512,20 +561,40 @@ app.get('/perspective/:id/nodes', async (c) => {
 });
 
 // Scene storage (in-memory for now)
-const scenes = new Map<string, any>();
+app.get('/scenes', async (c) => {
+  const scenes = await readScenes();
+  return c.json({
+    scenes: scenes
+      .map((scene) => ({
+        id: scene.id,
+        name: scene.name,
+        savedAt: scene.savedAt,
+        perspectiveId: scene.perspectiveId,
+      }))
+      .sort((a, b) => (b.savedAt || '').localeCompare(a.savedAt || '')),
+  });
+});
 
 // POST /scene/save
 app.post('/scene/save', async (c) => {
-  const body = await c.req.json();
+  const body = await c.req.json() as Omit<StoredScene, 'id' | 'savedAt'>;
+  const scenes = await readScenes();
   const id = crypto.randomUUID();
-  scenes.set(id, { ...body, id, savedAt: new Date().toISOString() });
-  return c.json({ sceneId: id, url: `/explore?scene=${id}` });
+  const scene: StoredScene = {
+    ...body,
+    id,
+    savedAt: new Date().toISOString(),
+  };
+  scenes.push(scene);
+  await writeScenes(scenes);
+  return c.json({ sceneId: id, url: `/explore?scene=${id}`, scene });
 });
 
 // GET /scene/:id
 app.get('/scene/:id', async (c) => {
   const id = c.req.param('id');
-  const scene = scenes.get(id);
+  const scenes = await readScenes();
+  const scene = scenes.find((entry) => entry.id === id);
   if (!scene) return c.json({ error: { code: 'NOT_FOUND', message: 'Scene not found' } }, 404);
   return c.json(scene);
 });
