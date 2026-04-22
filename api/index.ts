@@ -76,6 +76,51 @@ function normalizeEdge(rel: any, sourceId: string, targetId: string) {
   };
 }
 
+function summarizeValue(value: any): string {
+  if (value == null) return '—';
+  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+    return String(value);
+  }
+  if (neo4j.isNode(value)) {
+    try {
+      return JSON.stringify(value.properties);
+    } catch {
+      return value.properties.label || value.properties.id || '[node]';
+    }
+  }
+  if (neo4j.isRelationship(value)) {
+    try {
+      return JSON.stringify({ type: value.type, properties: value.properties });
+    } catch {
+      return `[${value.type}]`;
+    }
+  }
+  if (neo4j.isPath(value)) {
+    try {
+      return JSON.stringify({
+        segments: value.segments.map((segment: any) => ({
+          start: segment.start.properties,
+          relationship: { type: segment.relationship.type, properties: segment.relationship.properties },
+          end: segment.end.properties,
+        })),
+      });
+    } catch {
+      return `path(${value.segments.length} hops)`;
+    }
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => summarizeValue(item)).join(', ');
+  }
+  if (typeof value === 'object') {
+    try {
+      return JSON.stringify(value);
+    } catch {
+      return '[object]';
+    }
+  }
+  return String(value);
+}
+
 export function buildSearchTypeFilter(perspective?: string) {
   if (perspective === 'concepts') {
     return 'AND c.type IN ["concept", "rule", "definition", "procedure", "exception"]';
@@ -98,7 +143,7 @@ export function buildPerspectiveQueries(id: string) {
       nodeQuery: `
       MATCH (c:CanonicalNode)
       WHERE c.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
-      RETURN c
+      RETURN c AS n
     `,
       edgeQuery: `
       MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
@@ -132,7 +177,7 @@ export function buildPerspectiveQueries(id: string) {
     return {
       nodeQuery: `
       MATCH (c:CanonicalNode) WHERE c.type IN ['rule', 'concept']
-      RETURN c
+      RETURN c AS n
     `,
       edgeQuery: `
       MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
@@ -148,10 +193,10 @@ export function buildPerspectiveQueries(id: string) {
       nodeQuery: `
       MATCH (c:CanonicalNode)-[:SUPPORTED_BY]->(e:EvidenceSpan)
       WHERE c.type = 'concept'
-      RETURN c
+      RETURN c AS n
       UNION
       MATCH (e:EvidenceSpan)
-      RETURN e AS c
+      RETURN e AS n
       LIMIT 150
     `,
       edgeQuery: `
@@ -173,6 +218,27 @@ export function buildPerspectiveQueries(id: string) {
       RETURN r, a.id AS source, b.id AS target
     `,
   };
+}
+
+const PERSPECTIVE_METADATA = [
+  { id: 'default', name: 'All Knowledge', description: 'All canonical and taxonomy nodes currently available' },
+  { id: 'concepts', name: 'Concepts Only', description: 'Domain concepts and related rule nodes' },
+  { id: 'taxonomy', name: 'Taxonomy Browser', description: 'Hierarchy, classification, and attached concepts' },
+  { id: 'regulatory', name: 'Regulatory Rules', description: 'Rules and directly related concepts' },
+  { id: 'evidence', name: 'Evidence Map', description: 'Concept nodes with source evidence links' },
+] as const;
+
+async function getPerspectiveNodeCount(id: string): Promise<number> {
+  const { nodeQuery } = buildPerspectiveQueries(id);
+  const records = await runQuery<{ nodeCount: number }>(`
+    CALL {
+      ${nodeQuery}
+    }
+    WITH n AS node
+    WHERE node IS NOT NULL AND node.id IS NOT NULL
+    RETURN count(DISTINCT node.id) AS nodeCount
+  `);
+  return Number(records[0]?.nodeCount ?? 0);
 }
 
 // ---------------------------------------------------------------------------
@@ -379,6 +445,13 @@ app.post('/query', async (c) => {
     const result = await session.run(cypher);
     const nodeMap = new Map<string, any>();
     const edgeMap = new Map<string, any>();
+    const rows = result.records.map((record: any, index: number) => {
+      const values: Record<string, string> = {};
+      record.keys.forEach((key: string) => {
+        values[key] = summarizeValue(record.get(key));
+      });
+      return { id: `row-${index}`, values };
+    });
 
     result.records.forEach((record: any) => {
       record.keys.forEach((key: string) => {
@@ -386,11 +459,12 @@ app.post('/query', async (c) => {
       });
     });
 
-    return c.json({
-      nodes: Array.from(nodeMap.values()),
-      edges: Array.from(edgeMap.values()),
-      recordCount: result.records.length,
-    });
+      return c.json({
+        nodes: Array.from(nodeMap.values()),
+        edges: Array.from(edgeMap.values()),
+        recordCount: result.records.length,
+        rows,
+      });
   } catch (err: any) {
     return c.json({ error: { code: 'QUERY_ERROR', message: err.message } }, 400);
   } finally {
@@ -562,13 +636,12 @@ app.get('/taxonomy', async (c) => {
 
 // GET /perspectives
 app.get('/perspectives', async (c) => {
-  const perspectives = [
-    { id: 'default', name: 'All Knowledge', description: 'Everything', nodeCount: 205 },
-    { id: 'concepts', name: 'Concepts Only', description: 'Domain concepts and relationships', nodeCount: 108 },
-    { id: 'taxonomy', name: 'Taxonomy Browser', description: 'Hierarchy and classification', nodeCount: 86 },
-    { id: 'regulatory', name: 'Regulatory Rules', description: 'Rules and dependencies', nodeCount: 40 },
-    { id: 'evidence', name: 'Evidence Map', description: 'Source evidence and support links', nodeCount: 0 },
-  ];
+  const perspectives = await Promise.all(
+    PERSPECTIVE_METADATA.map(async (perspective) => ({
+      ...perspective,
+      nodeCount: await getPerspectiveNodeCount(perspective.id),
+    }))
+  );
   return c.json({ perspectives });
 });
 

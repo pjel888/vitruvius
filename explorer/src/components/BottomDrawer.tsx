@@ -1,5 +1,6 @@
 import { X, FileText } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
+import { hasRenderableQueryRows } from '../utils/explorerRuntime';
 
 export default function BottomDrawer() {
   const bottomOpen = useSceneStore(s => s.bottomOpen);
@@ -7,6 +8,9 @@ export default function BottomDrawer() {
   const closeBottom = useSceneStore(s => s.closeBottom);
 
   if (!bottomOpen || !bottomContent) return null;
+
+  const queryColumns = bottomContent.type === 'query' ? bottomContent.columns : undefined;
+  const queryRows = bottomContent.type === 'query' ? bottomContent.rows : undefined;
 
   return (
     <div className="h-48 bg-panel border-t border-border flex flex-col shrink-0">
@@ -90,6 +94,35 @@ export default function BottomDrawer() {
             </pre>
             {bottomContent.resultSummary && (
               <div className="text-xs text-text-dim">{bottomContent.resultSummary}</div>
+            )}
+            {hasRenderableQueryRows(queryColumns, queryRows) && (
+              <div className="overflow-x-auto pt-2">
+                <table className="min-w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-border text-left text-text-dim">
+                      {queryColumns!.map((column) => (
+                        <th key={column.key} className="px-3 py-2 font-medium whitespace-nowrap">{column.label}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {queryRows!.map((row) => (
+                      <tr key={row.id} className="border-b border-border/60 align-top">
+                        {queryColumns!.map((column) => (
+                          <td key={column.key} className="px-3 py-2 text-text">
+                            <div className="max-w-xl whitespace-pre-wrap break-words">{row.values[column.key] || '—'}</div>
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            {!hasRenderableQueryRows(queryColumns, queryRows) && (
+              <div className="rounded-lg border border-border bg-panel-hover px-3 py-2 text-sm text-text-dim">
+                This query returned no rows to display.
+              </div>
             )}
           </div>
         )}

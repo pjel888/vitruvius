@@ -2,6 +2,7 @@ import type {
   SceneState,
   SceneSummary,
   SceneUpdateInput,
+  QueryResultRow,
   GraphNode,
   GraphEdge,
   TaxonomyNode,
@@ -9,6 +10,7 @@ import type {
   EdgeDetail,
   SearchResult,
   Perspective,
+  ApiHealth,
 } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
@@ -32,20 +34,12 @@ export async function searchNodes(q: string, perspectiveId?: string, limit = 20)
   return data.results;
 }
 
-export async function getNode(id: string): Promise<NodeDetail | null> {
-  try {
-    return await api<NodeDetail>(`/node/${encodeURIComponent(id)}`);
-  } catch {
-    return null;
-  }
+export async function getNode(id: string): Promise<NodeDetail> {
+  return api<NodeDetail>(`/node/${encodeURIComponent(id)}`);
 }
 
-export async function getEdgeDetail(edgeId: string): Promise<EdgeDetail | null> {
-  try {
-    return await api<EdgeDetail>(`/edge/${encodeURIComponent(edgeId)}`);
-  } catch {
-    return null;
-  }
+export async function getEdgeDetail(edgeId: string): Promise<EdgeDetail> {
+  return api<EdgeDetail>(`/edge/${encodeURIComponent(edgeId)}`);
 }
 
 export async function getTaxonomy(): Promise<TaxonomyNode[]> {
@@ -56,6 +50,10 @@ export async function getTaxonomy(): Promise<TaxonomyNode[]> {
 export async function getPerspectives(): Promise<Perspective[]> {
   const data = await api<{ perspectives: Perspective[] }>('/perspectives');
   return data.perspectives;
+}
+
+export async function getHealth(): Promise<ApiHealth> {
+  return api<ApiHealth>('/health');
 }
 
 export async function listScenes(): Promise<SceneSummary[]> {
@@ -101,7 +99,7 @@ export async function tracePath(from: string, to: string): Promise<{ paths: { le
   return api(`/path?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`);
 }
 
-export async function runCypherQuery(cypher: string): Promise<{ nodes: GraphNode[]; edges: GraphEdge[]; recordCount: number }> {
+export async function runCypherQuery(cypher: string): Promise<{ nodes: GraphNode[]; edges: GraphEdge[]; recordCount: number; rows: QueryResultRow[] }> {
   return api('/query', {
     method: 'POST',
     body: JSON.stringify({ cypher }),

@@ -77,9 +77,9 @@ Output goes to `dist/`. The API serves this folder statically at `/*` when runni
 ## Features
 
 ### Node Search (Phase 5)
-- Fuzzy search across node labels, aliases, slugs, and IDs
+- Search across node labels and IDs
 - Keyboard navigation: ↑↓ to navigate, ↵ to select, Esc to close
-- 10-result cap, grouped by match quality
+- Configured 20-result cap in the command bar
 - Camera auto-focuses on selected node
 
 ### Context Menu & Neighbor Expansion (Phase 6)
@@ -128,6 +128,7 @@ The explorer talks to the Graph API BFF (not directly to Neo4j):
 | Endpoint | Used By |
 |----------|---------|
 | `GET /perspective/:id/nodes` | Initial graph load |
+| `GET /perspectives` | Perspective inventory and live counts |
 | `GET /search?q=...` | Node search |
 | `GET /node/:id` | Node inspector |
 | `GET /edge/:id` | Edge inspector |
@@ -135,7 +136,7 @@ The explorer talks to the Graph API BFF (not directly to Neo4j):
 | `GET /path?from=...&to=...` | Path tracer |
 | `GET /taxonomy` | Taxonomy tree |
 | `POST /query` | Cypher query panel |
-| `GET /health` | Status indicator |
+| `GET /health` | API / Neo4j connection indicator |
 
 ## Perspectives
 

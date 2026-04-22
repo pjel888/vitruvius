@@ -81,6 +81,16 @@ export interface Perspective {
   nodeCount?: number;
 }
 
+export interface ApiHealth {
+  status: 'ok' | 'error';
+  neo4j: string;
+}
+
+export interface QueryResultRow {
+  id: string;
+  values: Record<string, string>;
+}
+
 export interface CameraState {
   x: number;
   y: number;

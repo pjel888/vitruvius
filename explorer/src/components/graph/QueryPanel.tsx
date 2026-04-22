@@ -3,6 +3,7 @@ import { Play, X, Terminal, AlertCircle, CheckCircle2, BookmarkPlus, History, Co
 import { runCypherQuery } from '../../api/graphApi';
 import type { GraphController } from './VisNetworkHost';
 import { useSceneStore } from '../../stores/useSceneStore';
+import { getQueryResultSummary } from '../../utils/explorerRuntime';
 
 const RECENT_QUERIES_KEY = 'vitruvius.explorer.recentQueries';
 const SAVED_QUERIES_KEY = 'vitruvius.explorer.savedQueries';
@@ -64,11 +65,19 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
       setResult({ nodes: data.nodes.length, edges: data.edges.length, recordCount: data.recordCount });
       const nextRecent = [cypher, ...recentQueries.filter((entry) => entry !== cypher)].slice(0, 8);
       persistRecentQueries(nextRecent);
+      const queryColumns = Array.from(
+        data.rows.reduce((keys, row) => {
+          Object.keys(row.values).forEach((key) => keys.add(key));
+          return keys;
+        }, new Set<string>())
+      ).map((key) => ({ key, label: key }));
       openBottom({
         type: 'query',
         title: 'Query Result',
         query: cypher,
-        resultSummary: `${data.recordCount} records scanned · ${data.nodes.length} nodes · ${data.edges.length} edges`,
+        resultSummary: getQueryResultSummary(data.recordCount, data.nodes.length, data.edges.length),
+        columns: queryColumns,
+        rows: data.rows,
       });
     } catch (err: any) {
       setError(err.message || 'Query failed');
@@ -163,9 +172,11 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
           <div className="flex items-start gap-2 p-2 bg-emerald-500/10 border border-emerald-500/20 rounded-md text-sm text-emerald-400">
             <CheckCircle2 size={14} className="shrink-0 mt-0.5" />
             <div>
-              <div>{result.recordCount} records scanned</div>
+              <div>{result.recordCount} rows returned</div>
               <div className="text-xs text-emerald-400/70">
-                {result.nodes} nodes + {result.edges} edges merged into graph
+                {result.recordCount === 0
+                  ? 'No records matched this query. The graph view was left unchanged.'
+                  : `${result.nodes} nodes + ${result.edges} edges merged into graph`}
               </div>
             </div>
           </div>

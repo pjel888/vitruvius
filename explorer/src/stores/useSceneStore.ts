@@ -33,6 +33,8 @@ type BottomContent =
       title: string;
       query: string;
       resultSummary?: string;
+      columns?: BottomTableColumn[];
+      rows?: BottomTableRow[];
     };
 
 interface SceneStore {
@@ -56,6 +58,8 @@ interface SceneStore {
   nodes: GraphNode[];
   edges: GraphEdge[];
   setGraphData: (nodes: GraphNode[], edges: GraphEdge[]) => void;
+  preloadedPerspectiveId: string | null;
+  markPreloadedPerspective: (id: string | null) => void;
 
   // UI state
   explorerOpen: boolean;
@@ -86,11 +90,14 @@ interface SceneStore {
   pathTargetId: string | null;
   highlightedPath: { nodeIds: string[]; edgeIds: string[] } | null;
   focusSubgraphNodeId: string | null;
+  focusedNodeId: string | null;
   setPathSource: (id: string | null) => void;
   setPathTarget: (id: string | null) => void;
   setHighlightedPath: (path: { nodeIds: string[]; edgeIds: string[] } | null) => void;
   requestFocusSubgraph: (id: string) => void;
   clearFocusSubgraphRequest: () => void;
+  requestFocusNode: (id: string) => void;
+  clearFocusNodeRequest: () => void;
   clearPath: () => void;
 
   // Camera (for Sigma)
@@ -99,7 +106,9 @@ interface SceneStore {
 
   // Loading
   loading: boolean;
+  loadError: string | null;
   setLoading: (v: boolean) => void;
+  setLoadError: (message: string | null) => void;
 
   // Filters
   visibleNodeTypes: Set<string>;
@@ -153,6 +162,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
     pathTargetId: null,
     highlightedPath: null,
     focusSubgraphNodeId: null,
+    focusedNodeId: null,
   }),
 
   selectedNodeId: null,
@@ -168,7 +178,9 @@ export const useSceneStore = create<SceneStore>((set) => ({
 
   nodes: [],
   edges: [],
+  preloadedPerspectiveId: null,
   setGraphData: (nodes, edges) => set({ nodes, edges }),
+  markPreloadedPerspective: (id) => set({ preloadedPerspectiveId: id }),
 
   explorerOpen: true,
   inspectorOpen: false,
@@ -194,18 +206,23 @@ export const useSceneStore = create<SceneStore>((set) => ({
   pathTargetId: null,
   highlightedPath: null,
   focusSubgraphNodeId: null,
+  focusedNodeId: null,
   setPathSource: (id) => set({ pathSourceId: id }),
   setPathTarget: (id) => set({ pathTargetId: id }),
   setHighlightedPath: (path) => set({ highlightedPath: path }),
   requestFocusSubgraph: (id) => set({ focusSubgraphNodeId: id }),
   clearFocusSubgraphRequest: () => set({ focusSubgraphNodeId: null }),
+  requestFocusNode: (id) => set({ focusedNodeId: id }),
+  clearFocusNodeRequest: () => set({ focusedNodeId: null }),
   clearPath: () => set({ pathSourceId: null, pathTargetId: null, highlightedPath: null }),
 
   camera: { x: 0, y: 0, ratio: 1 },
   setCamera: (c) => set({ camera: c }),
 
   loading: false,
+  loadError: null,
   setLoading: (v) => set({ loading: v }),
+  setLoadError: (message) => set({ loadError: message }),
 
   visibleNodeTypes: new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception', 'evidence_span']),
   visibleEdgeTypes: new Set(['HAS_CHILD', 'BELONGS_TO', 'RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES', 'SUPPORTED_BY']),

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Search, ChevronDown, X, Loader2, Save, Link2, RefreshCcw, Pencil, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSceneStore } from '../stores/useSceneStore';
-import { searchNodes, getPerspectives, listScenes, saveScene, updateScene, deleteScene, getScene } from '../api/graphApi';
+import { searchNodes, getPerspectives, listScenes, saveScene, updateScene, deleteScene, getScene, getHealth } from '../api/graphApi';
 import type { SearchResult, Perspective, SceneSummary, SceneUpdateInput } from '../types';
 
 export default function CommandBar() {
@@ -21,15 +21,19 @@ export default function CommandBar() {
   const [savingScene, setSavingScene] = useState(false);
   const [updatingScene, setUpdatingScene] = useState(false);
   const [deletingSceneId, setDeletingSceneId] = useState<string | null>(null);
+  const [healthLabel, setHealthLabel] = useState('Checking API…');
   const inputRef = useRef<HTMLInputElement>(null);
 
   const activeSceneId = useSceneStore(s => s.activeSceneId);
   const activeSceneName = useSceneStore(s => s.activeSceneName);
   const perspectiveId = useSceneStore(s => s.perspectiveId);
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
+  const searchQuery = useSceneStore(s => s.searchQuery);
   const setPerspectiveId = useSceneStore(s => s.setPerspectiveId);
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
   const setSearchQuery = useSceneStore(s => s.setSearchQuery);
+  const openInspector = useSceneStore(s => s.openInspector);
+  const requestFocusNode = useSceneStore(s => s.requestFocusNode);
   const setActiveScene = useSceneStore(s => s.setActiveScene);
   const nodes = useSceneStore(s => s.nodes);
   const edges = useSceneStore(s => s.edges);
@@ -69,13 +73,40 @@ export default function CommandBar() {
   }
 
   async function refreshScenes() {
-    const nextScenes = await listScenes();
-    setScenes(nextScenes);
+    try {
+      const nextScenes = await listScenes();
+      setScenes(nextScenes);
+    } catch (error) {
+      setSceneMessage(error instanceof Error ? error.message : 'Failed to load scenes');
+      setScenes([]);
+    }
+  }
+
+  async function refreshHealthStatus() {
+    try {
+      const health = await getHealth();
+      setHealthLabel(health.status === 'ok' ? 'Neo4j connected' : 'API degraded');
+    } catch {
+      setHealthLabel('API unavailable');
+    }
   }
 
   useEffect(() => {
-    getPerspectives().then(setPerspectives);
+    getPerspectives()
+      .then(setPerspectives)
+      .catch((error) => {
+        setSceneMessage(error instanceof Error ? error.message : 'Failed to load perspectives');
+        setPerspectives([]);
+      });
     refreshScenes();
+    refreshHealthStatus();
+    const intervalId = window.setInterval(() => {
+      void refreshHealthStatus();
+    }, 15000);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
   }, []);
 
   useEffect(() => {
@@ -107,6 +138,10 @@ export default function CommandBar() {
     }, 150);
     return () => clearTimeout(timer);
   }, [query, perspectiveId]);
+
+  useEffect(() => {
+    setQuery(searchQuery);
+  }, [searchQuery]);
 
   const activePerspective = perspectives.find(p => p.id === perspectiveId);
 
@@ -194,6 +229,8 @@ export default function CommandBar() {
   function selectResult(r: SearchResult) {
     if (r.kind === 'node') {
       setSelectedNode(r.id);
+      openInspector();
+      requestFocusNode(r.id);
     }
     setQuery(r.label);
     setShowSuggestions(false);
@@ -262,7 +299,7 @@ export default function CommandBar() {
             ref={inputRef}
             type="text"
             className="flex-1 bg-transparent outline-none text-sm placeholder:text-text-dim"
-            placeholder="Search nodes, taxonomies, paths..."
+            placeholder="Search nodes and taxonomies..."
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={onKeyDown}
@@ -386,7 +423,7 @@ export default function CommandBar() {
         )}
       </div>
 
-      <div className="text-xs text-text-dim">{sceneMessage ?? 'Connected'}</div>
+      <div className="text-xs text-text-dim">{sceneMessage ?? healthLabel}</div>
     </div>
   );
 }

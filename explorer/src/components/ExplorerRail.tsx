@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronRight, ChevronDown, FolderTree, Filter, Palette, CircleDot } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import { getTaxonomy } from '../api/graphApi';
 import type { TaxonomyNode } from '../types';
 
-function TreeItem({ node, depth = 0 }: { node: TaxonomyNode; depth?: number }) {
+function TreeItem({ node, depth = 0, navigate }: { node: TaxonomyNode; depth?: number; navigate: ReturnType<typeof useNavigate> }) {
   const [open, setOpen] = useState(depth < 1);
   const hasChildren = node.children.length > 0;
-  const setSelectedNode = useSceneStore(s => s.setSelectedNode);
 
   async function onClick() {
-    setSelectedNode(null);
+    navigate(`/explore?perspective=taxonomy&node=${encodeURIComponent(node.id)}`);
   }
 
   return (
@@ -38,7 +38,7 @@ function TreeItem({ node, depth = 0 }: { node: TaxonomyNode; depth?: number }) {
       {hasChildren && open && (
         <div>
           {node.children.map(child => (
-            <TreeItem key={child.id} node={child} depth={depth + 1} />
+            <TreeItem key={child.id} node={child} depth={depth + 1} navigate={navigate} />
           ))}
         </div>
       )}
@@ -82,8 +82,11 @@ const SIZE_OPTIONS = [
 ];
 
 export default function ExplorerRail() {
+  const navigate = useNavigate();
   const [roots, setRoots] = useState<TaxonomyNode[]>([]);
   const [showFilters, setShowFilters] = useState(false);
+  const [taxonomyLoading, setTaxonomyLoading] = useState(false);
+  const [taxonomyError, setTaxonomyError] = useState<string | null>(null);
   const open = useSceneStore(s => s.explorerOpen);
   const nodes = useSceneStore(s => s.nodes);
   const pinnedNodeIds = useSceneStore(s => s.pinnedNodeIds);
@@ -99,14 +102,33 @@ export default function ExplorerRail() {
   const setSizeBy = useSceneStore(s => s.setSizeBy);
 
   useEffect(() => {
-    getTaxonomy().then(setRoots);
+    let cancelled = false;
+    setTaxonomyLoading(true);
+    setTaxonomyError(null);
+    getTaxonomy()
+      .then((nextRoots) => {
+        if (!cancelled) setRoots(nextRoots);
+      })
+      .catch((error) => {
+        if (!cancelled) setTaxonomyError(error instanceof Error ? error.message : 'Failed to load taxonomy');
+      })
+      .finally(() => {
+        if (!cancelled) setTaxonomyLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   if (!open) return null;
 
-  const pinnedNodes = pinnedNodeIds
-    .map((id) => nodes.find((node) => node.id === id))
-    .filter((node): node is NonNullable<typeof node> => Boolean(node));
+  const pinnedNodes = useMemo(
+    () => pinnedNodeIds
+      .map((id) => nodes.find((node) => node.id === id))
+      .filter((node): node is NonNullable<typeof node> => Boolean(node)),
+    [pinnedNodeIds, nodes]
+  );
 
   function toggleNodeType(key: string) {
     setVisibleNodeTypes(new Set(
@@ -246,9 +268,20 @@ export default function ExplorerRail() {
       )}
 
       <div className="flex-1 overflow-y-auto py-1">
-        {roots.map(root => (
-          <TreeItem key={root.id} node={root} />
-        ))}
+        {taxonomyLoading ? (
+          <div className="px-3 py-3 text-sm text-text-dim">Loading taxonomy…</div>
+        ) : taxonomyError ? (
+          <div className="px-3 py-3 space-y-2">
+            <div className="text-sm text-text">Taxonomy unavailable.</div>
+            <div className="text-xs text-text-dim">{taxonomyError}</div>
+          </div>
+        ) : roots.length === 0 ? (
+          <div className="px-3 py-3 text-sm text-text-dim">No taxonomy data available.</div>
+        ) : (
+          roots.map(root => (
+            <TreeItem key={root.id} node={root} navigate={navigate} />
+          ))
+        )}
       </div>
     </div>
   );

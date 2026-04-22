@@ -5,6 +5,7 @@ import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
 import NodeSearch from './graph/NodeSearch';
 import NodeContextMenu from './graph/NodeContextMenu';
 import QueryPanel from './graph/QueryPanel';
+import Minimap from './graph/Minimap';
 
 export default function GraphScene() {
   const controllerRef = useRef<GraphController>(null);
@@ -14,13 +15,16 @@ export default function GraphScene() {
   const activeSceneId = useSceneStore(s => s.activeSceneId);
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
   const focusSubgraphNodeId = useSceneStore(s => s.focusSubgraphNodeId);
+  const focusedNodeId = useSceneStore(s => s.focusedNodeId);
   const clearFocusSubgraphRequest = useSceneStore(s => s.clearFocusSubgraphRequest);
+  const clearFocusNodeRequest = useSceneStore(s => s.clearFocusNodeRequest);
   const hiddenNodeIds = useSceneStore(s => s.hiddenNodeIds);
   const camera = useSceneStore(s => s.camera);
   const layout = useSceneStore(s => s.layout);
   const setLayout = useSceneStore(s => s.setLayout);
 
   const loading = useSceneStore(s => s.loading);
+  const loadError = useSceneStore(s => s.loadError);
   const nodes = useSceneStore(s => s.nodes);
   const edges = useSceneStore(s => s.edges);
   const visibleNodeTypes = useSceneStore(s => s.visibleNodeTypes);
@@ -71,6 +75,12 @@ export default function GraphScene() {
     controllerRef.current?.focusSubgraph(focusSubgraphNodeId);
     clearFocusSubgraphRequest();
   }, [focusSubgraphNodeId, clearFocusSubgraphRequest]);
+
+  useEffect(() => {
+    if (!focusedNodeId) return;
+    controllerRef.current?.focusNode(focusedNodeId);
+    clearFocusNodeRequest();
+  }, [focusedNodeId, clearFocusNodeRequest]);
 
   // Sync selection to graph
   useEffect(() => {
@@ -128,6 +138,12 @@ export default function GraphScene() {
         </div>
       )}
 
+      {!loading && loadError && (
+        <div className="absolute inset-x-4 top-4 z-20 rounded-lg border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-100 shadow-lg">
+          Unable to load this graph view: {loadError}
+        </div>
+      )}
+
       {/* Search */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
         <NodeSearch nodes={nodes} onSelect={handleSearchSelect} />
@@ -155,6 +171,8 @@ export default function GraphScene() {
       {queryOpen && (
         <QueryPanel controllerRef={controllerRef} onClose={() => setQueryOpen(false)} />
       )}
+
+      <Minimap controllerRef={controllerRef} />
 
       {/* Layout switcher */}
       <div className="absolute top-4 left-4 z-20">

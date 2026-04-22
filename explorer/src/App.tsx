@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, useSearchParams, useNavigate } from 'react-router-dom';
 import { useSceneStore } from './stores/useSceneStore';
 import { getNodesForPerspective, getScene } from './api/graphApi';
+import { shouldConsumePreloadedPerspective } from './utils/explorerRuntime';
 import CommandBar from './components/CommandBar';
 import ExplorerRail from './components/ExplorerRail';
 import GraphScene from './components/GraphScene';
@@ -12,17 +13,23 @@ import BottomDrawer from './components/BottomDrawer';
 function ExploreView() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+  const consumedPreloadRef = useRef(false);
   // const location = useLocation();
 
   const perspectiveId = useSceneStore(s => s.perspectiveId);
   const activeSceneId = useSceneStore(s => s.activeSceneId);
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
+  const nodes = useSceneStore(s => s.nodes);
+  const preloadedPerspectiveId = useSceneStore(s => s.preloadedPerspectiveId);
   const setPerspectiveId = useSceneStore(s => s.setPerspectiveId);
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
   const setGraphData = useSceneStore(s => s.setGraphData);
   const setLoading = useSceneStore(s => s.setLoading);
+  const setLoadError = useSceneStore(s => s.setLoadError);
+  const markPreloadedPerspective = useSceneStore(s => s.markPreloadedPerspective);
   const applySceneState = useSceneStore(s => s.applySceneState);
   const setActiveScene = useSceneStore(s => s.setActiveScene);
+  const openInspector = useSceneStore(s => s.openInspector);
   // const explorerOpen = useSceneStore(s => s.explorerOpen);
   // const inspectorOpen = useSceneStore(s => s.inspectorOpen);
   const toggleExplorer = useSceneStore(s => s.toggleExplorer);
@@ -40,10 +47,12 @@ function ExploreView() {
       try {
         const scene = await getScene(targetSceneId);
         if (cancelled) return;
+        setLoadError(null);
         applySceneState(scene);
         setGraphData(scene.graph.nodes, scene.graph.edges);
-      } catch {
+      } catch (error) {
         if (cancelled) return;
+        setLoadError(error instanceof Error ? error.message : 'Failed to load saved scene');
         setActiveScene(null, null);
         navigate('/explore', { replace: true });
       } finally {
@@ -55,18 +64,33 @@ function ExploreView() {
     return () => {
       cancelled = true;
     };
-  }, [searchParams, activeSceneId, applySceneState, navigate, setActiveScene, setGraphData, setLoading]);
+  }, [searchParams, activeSceneId, applySceneState, navigate, setActiveScene, setGraphData, setLoadError, setLoading]);
 
   useEffect(() => {
-    const urlPerspective = searchParams.get('perspective');
+    if (searchParams.get('scene')) return;
+
+    const urlPerspective = searchParams.get('perspective') || 'default';
     const urlNode = searchParams.get('node');
-    if (urlPerspective && urlPerspective !== perspectiveId) {
+
+    if (urlPerspective !== perspectiveId) {
       setPerspectiveId(urlPerspective);
     }
-    if (urlNode) {
+
+    if (urlNode && urlNode !== selectedNodeId) {
       setSelectedNode(urlNode);
+      openInspector();
     }
-  }, []);
+
+    if (!urlNode && selectedNodeId) {
+      setSelectedNode(null);
+    }
+  }, [searchParams, perspectiveId, selectedNodeId, setPerspectiveId, setSelectedNode, openInspector]);
+
+  useEffect(() => {
+    if (preloadedPerspectiveId !== perspectiveId) {
+      consumedPreloadRef.current = false;
+    }
+  }, [perspectiveId, preloadedPerspectiveId]);
 
   // Sync state to URL
   useEffect(() => {
@@ -91,19 +115,52 @@ function ExploreView() {
 
   // Load graph data when perspective changes
   useEffect(() => {
-    if (searchParams.get('scene')) return;
+    if (searchParams.get('focus') !== 'search') return;
+
+    const frame = requestAnimationFrame(() => {
+      const input = document.getElementById('command-search-input') as HTMLInputElement | null;
+      input?.focus();
+    });
+
+    const params = new URLSearchParams(searchParams);
+    params.delete('focus');
+    setSearchParams(params, { replace: true });
+
+    return () => cancelAnimationFrame(frame);
+  }, [searchParams, setSearchParams]);
+
+  useEffect(() => {
+    if (activeSceneId) return;
+
+    if (shouldConsumePreloadedPerspective({
+      activeSceneId,
+      preloadedPerspectiveId,
+      perspectiveId,
+      nodeCount: nodes.length,
+      consumedPreload: consumedPreloadRef.current,
+    })) {
+      consumedPreloadRef.current = true;
+      setLoadError(null);
+      return;
+    }
 
     async function load() {
       setLoading(true);
       try {
         const { nodes, edges } = await getNodesForPerspective(perspectiveId);
+        setLoadError(null);
         setGraphData(nodes, edges);
+        markPreloadedPerspective(null);
+      } catch (error) {
+        setLoadError(error instanceof Error ? error.message : 'Failed to load graph for this perspective');
+        setGraphData([], []);
+        markPreloadedPerspective(null);
       } finally {
         setLoading(false);
       }
     }
     load();
-  }, [perspectiveId, searchParams, setGraphData, setLoading]);
+  }, [activeSceneId, markPreloadedPerspective, nodes.length, perspectiveId, preloadedPerspectiveId, setGraphData, setLoadError, setLoading]);
 
   // Keyboard shortcuts
   useEffect(() => {

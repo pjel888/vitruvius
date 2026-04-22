@@ -26,6 +26,9 @@ export interface GraphController {
   loadPerspective: (nodes: GraphNode[], edges: GraphEdge[]) => void;
   applySceneView: (state: { camera: { x: number; y: number; ratio: number }; hiddenNodeIds: string[] }) => void;
   getSceneView: () => { camera: { x: number; y: number; ratio: number }; hiddenNodeIds: string[] };
+  getOverviewSnapshot: () => { nodes: Array<{ id: string; x: number; y: number; type: string }>; camera: { x: number; y: number; ratio: number } };
+  getOverviewVersion: () => number;
+  centerOnPosition: (x: number, y: number) => void;
   selectNode: (id: string | null) => void;
   focusNode: (id: string) => void;
   fitView: () => void;
@@ -91,6 +94,12 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const lastNodeTypesRef = useRef<Set<string>>(new Set());
   const lastEdgeTypesRef = useRef<Set<string>>(new Set());
   const hiddenNodeIdsRef = useRef<Set<string>>(new Set());
+  const cameraSyncFrameRef = useRef<number | null>(null);
+  const overviewVersionRef = useRef(0);
+
+  function markOverviewDirty() {
+    overviewVersionRef.current += 1;
+  }
 
   // Load vis-network on mount
   useEffect(() => {
@@ -100,6 +109,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     });
     return () => {
       cancelled = true;
+      if (cameraSyncFrameRef.current !== null) cancelAnimationFrame(cameraSyncFrameRef.current);
       networkRef.current?.destroy();
       networkRef.current = null;
       nodesRef.current = null;
@@ -213,12 +223,19 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     edgesRef.current.update(edgeUpdates);
 
     applyHover();
+    markOverviewDirty();
   }
 
   function syncCameraFromNetwork() {
     if (!networkRef.current) return;
-    const position = networkRef.current.getViewPosition();
-    setCamera({ x: position.x, y: position.y, ratio: scaleRef.current });
+    if (cameraSyncFrameRef.current !== null) return;
+    cameraSyncFrameRef.current = requestAnimationFrame(() => {
+      cameraSyncFrameRef.current = null;
+      if (!networkRef.current) return;
+      const position = networkRef.current.getViewPosition();
+      setCamera({ x: position.x, y: position.y, ratio: scaleRef.current });
+      markOverviewDirty();
+    });
   }
 
   function loadGraph(nodes: GraphNode[], edges: GraphEdge[]) {
@@ -236,6 +253,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     });
     const uniqueEdges = Array.from(edgeMap.values());
     rawEdgesRef.current = uniqueEdges;
+    markOverviewDirty();
 
     if (!ready || !containerRef.current || !visModule) {
       return;
@@ -267,6 +285,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       nodesRef.current.add(visNodes);
       edgesRef.current.clear();
       edgesRef.current.add(visEdges);
+      markOverviewDirty();
       return;
     }
 
@@ -321,6 +340,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
     networkRef.current.on('stabilized', () => {
       syncCameraFromNetwork();
+      markOverviewDirty();
     });
 
     networkRef.current.on('hoverNode', (params: any) => {
@@ -403,6 +423,35 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         };
       },
 
+      getOverviewSnapshot() {
+        const positions = networkRef.current?.getPositions?.(rawNodesRef.current.map((node) => node.id)) || {};
+        return {
+          nodes: rawNodesRef.current
+            .map((node) => {
+              const position = positions[node.id];
+              if (!position) return null;
+              return { id: node.id, x: position.x, y: position.y, type: node.type };
+            })
+            .filter(Boolean) as Array<{ id: string; x: number; y: number; type: string }>,
+          camera: { x: networkRef.current?.getViewPosition?.().x ?? 0, y: networkRef.current?.getViewPosition?.().y ?? 0, ratio: scaleRef.current },
+        };
+      },
+
+      getOverviewVersion() {
+        return overviewVersionRef.current;
+      },
+
+      centerOnPosition(x, y) {
+        if (!networkRef.current) return;
+        networkRef.current.moveTo({
+          position: { x, y },
+          scale: scaleRef.current,
+          animation: { duration: 250, easingFunction: 'easeInOutQuad' },
+        });
+        syncCameraFromNetwork();
+        markOverviewDirty();
+      },
+
       selectNode(id) {
         if (id && networkRef.current) {
           networkRef.current.selectNodes([id]);
@@ -418,11 +467,13 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           scale: 1.2,
           animation: { duration: 500, easingFunction: 'easeInOutQuad' },
         });
+        markOverviewDirty();
       },
 
       fitView() {
         networkRef.current?.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
         syncCameraFromNetwork();
+        markOverviewDirty();
       },
 
       zoomIn() {
@@ -430,6 +481,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         scaleRef.current *= 1.5;
         networkRef.current.moveTo({ scale: scaleRef.current, animation: { duration: 200, easingFunction: 'easeInOutQuad' } });
         syncCameraFromNetwork();
+        markOverviewDirty();
       },
 
       zoomOut() {
@@ -437,6 +489,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
         scaleRef.current /= 1.5;
         networkRef.current.moveTo({ scale: scaleRef.current, animation: { duration: 200, easingFunction: 'easeInOutQuad' } });
         syncCameraFromNetwork();
+        markOverviewDirty();
       },
 
       setLayout(type) {
