@@ -97,6 +97,7 @@ export default function NodeSearch({ nodes, onSelect }: NodeSearchProps) {
     definition: 'bg-emerald-500/20 text-emerald-400',
     procedure: 'bg-amber-500/20 text-amber-400',
     exception: 'bg-pink-500/20 text-pink-400',
+    evidence_span: 'bg-sky-500/20 text-sky-400',
   };
 
   return (

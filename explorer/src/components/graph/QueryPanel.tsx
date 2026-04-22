@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { Play, X, Terminal, AlertCircle, CheckCircle2, BookmarkPlus, History } from 'lucide-react';
+import { Play, X, Terminal, AlertCircle, CheckCircle2, BookmarkPlus, History, Copy, Trash2 } from 'lucide-react';
 import { runCypherQuery } from '../../api/graphApi';
 import type { GraphController } from './VisNetworkHost';
 import { useSceneStore } from '../../stores/useSceneStore';
@@ -42,6 +42,14 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
   function persistSavedQueries(nextQueries: string[]) {
     setSavedQueries(nextQueries);
     localStorage.setItem(SAVED_QUERIES_KEY, JSON.stringify(nextQueries));
+  }
+
+  function removeSavedQuery(queryToRemove: string) {
+    persistSavedQueries(savedQueries.filter((entry) => entry !== queryToRemove));
+  }
+
+  function removeRecentQuery(queryToRemove: string) {
+    persistRecentQueries(recentQueries.filter((entry) => entry !== queryToRemove));
   }
 
   const handleRun = useCallback(async () => {
@@ -115,6 +123,13 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
         <div className="flex items-center justify-between">
           <span className="text-[10px] text-text-dim">Ctrl+Enter to run</span>
           <div className="flex items-center gap-2">
+            <button
+              onClick={() => navigator.clipboard.writeText(query)}
+              className="flex items-center gap-1.5 px-3 py-1.5 border border-border text-text-dim text-sm rounded-md hover:border-accent hover:text-text transition-colors"
+            >
+              <Copy size={12} />
+              Copy
+            </button>
             <button
               onClick={handleSaveCurrentQuery}
               className="flex items-center gap-1.5 px-3 py-1.5 border border-border text-text-dim text-sm rounded-md hover:border-accent hover:text-text transition-colors"
@@ -192,14 +207,22 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
             </summary>
             <div className="mt-1 space-y-1 pl-2">
               {savedQueries.map((savedQuery) => (
-                <button
-                  key={savedQuery}
-                  onClick={() => setQuery(savedQuery)}
-                  className="block w-full text-left truncate hover:text-accent transition-colors"
-                  title={savedQuery}
-                >
-                  {savedQuery}
-                </button>
+                <div key={savedQuery} className="flex items-center gap-2">
+                  <button
+                    onClick={() => setQuery(savedQuery)}
+                    className="block flex-1 text-left truncate hover:text-accent transition-colors"
+                    title={savedQuery}
+                  >
+                    {savedQuery}
+                  </button>
+                  <button
+                    onClick={() => removeSavedQuery(savedQuery)}
+                    className="text-text-dim hover:text-red-400 transition-colors"
+                    title="Delete saved query"
+                  >
+                    <Trash2 size={12} />
+                  </button>
+                </div>
               ))}
             </div>
           </details>
@@ -215,14 +238,22 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
             </summary>
             <div className="mt-1 space-y-1 pl-2">
               {recentQueries.map((recentQuery) => (
-                <button
-                  key={recentQuery}
-                  onClick={() => setQuery(recentQuery)}
-                  className="block w-full text-left truncate hover:text-accent transition-colors"
-                  title={recentQuery}
-                >
-                  {recentQuery}
-                </button>
+                <div key={recentQuery} className="flex items-center gap-2">
+                  <button
+                    onClick={() => setQuery(recentQuery)}
+                    className="block flex-1 text-left truncate hover:text-accent transition-colors"
+                    title={recentQuery}
+                  >
+                    {recentQuery}
+                  </button>
+                  <button
+                    onClick={() => removeRecentQuery(recentQuery)}
+                    className="text-text-dim hover:text-red-400 transition-colors"
+                    title="Delete recent query"
+                  >
+                    <Trash2 size={12} />
+                  </button>
+                </div>
               ))}
             </div>
           </details>
