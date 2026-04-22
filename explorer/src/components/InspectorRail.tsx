@@ -167,6 +167,31 @@ function NodeInspector({ detail }: { detail: NodeDetail }) {
         {activeTab === 'evidence' && (
           <>
             {evidence.length === 0 && <div className="text-sm text-text-dim italic">No evidence spans.</div>}
+            {evidence.length > 0 && (
+              <button
+                onClick={() => openBottom({
+                  type: 'table',
+                  title: `${node.label} Evidence`,
+                  columns: [
+                    { key: 'document', label: 'Document' },
+                    { key: 'quote', label: 'Quote' },
+                    { key: 'confidence', label: 'Confidence' },
+                  ],
+                  rows: evidence.map((item) => ({
+                    id: item.id,
+                    deepLink: item.deep_link,
+                    values: {
+                      document: item.document_title || item.document_id || 'Unknown source',
+                      quote: item.quote,
+                      confidence: item.confidence !== undefined ? `${(item.confidence * 100).toFixed(0)}%` : '—',
+                    },
+                  })),
+                })}
+                className="text-xs text-accent hover:underline"
+              >
+                Open evidence table
+              </button>
+            )}
             {evidence.map(e => (
               <div key={e.id} className="border-l-2 border-border pl-3 py-1">
                 <div className="text-sm italic leading-relaxed">{e.quote}</div>
