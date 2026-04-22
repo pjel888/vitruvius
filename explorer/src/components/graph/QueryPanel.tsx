@@ -1,7 +1,11 @@
-import { useState, useRef, useCallback } from 'react';
-import { Play, X, Terminal, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { useState, useRef, useCallback, useEffect } from 'react';
+import { Play, X, Terminal, AlertCircle, CheckCircle2, BookmarkPlus, History } from 'lucide-react';
 import { runCypherQuery } from '../../api/graphApi';
 import type { GraphController } from './VisNetworkHost';
+import { useSceneStore } from '../../stores/useSceneStore';
+
+const RECENT_QUERIES_KEY = 'vitruvius.explorer.recentQueries';
+const SAVED_QUERIES_KEY = 'vitruvius.explorer.savedQueries';
 
 interface QueryPanelProps {
   controllerRef: React.RefObject<GraphController | null>;
@@ -13,7 +17,32 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
   const [running, setRunning] = useState(false);
   const [result, setResult] = useState<{ nodes: number; edges: number; recordCount: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [recentQueries, setRecentQueries] = useState<string[]>([]);
+  const [savedQueries, setSavedQueries] = useState<string[]>([]);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const openBottom = useSceneStore(s => s.openBottom);
+
+  useEffect(() => {
+    try {
+      const recent = JSON.parse(localStorage.getItem(RECENT_QUERIES_KEY) || '[]');
+      const saved = JSON.parse(localStorage.getItem(SAVED_QUERIES_KEY) || '[]');
+      setRecentQueries(Array.isArray(recent) ? recent : []);
+      setSavedQueries(Array.isArray(saved) ? saved : []);
+    } catch {
+      setRecentQueries([]);
+      setSavedQueries([]);
+    }
+  }, []);
+
+  function persistRecentQueries(nextQueries: string[]) {
+    setRecentQueries(nextQueries);
+    localStorage.setItem(RECENT_QUERIES_KEY, JSON.stringify(nextQueries));
+  }
+
+  function persistSavedQueries(nextQueries: string[]) {
+    setSavedQueries(nextQueries);
+    localStorage.setItem(SAVED_QUERIES_KEY, JSON.stringify(nextQueries));
+  }
 
   const handleRun = useCallback(async () => {
     const cypher = query.trim();
@@ -25,12 +54,27 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
       const data = await runCypherQuery(cypher);
       controllerRef.current?.mergeNodesEdges(data.nodes, data.edges);
       setResult({ nodes: data.nodes.length, edges: data.edges.length, recordCount: data.recordCount });
+      const nextRecent = [cypher, ...recentQueries.filter((entry) => entry !== cypher)].slice(0, 8);
+      persistRecentQueries(nextRecent);
+      openBottom({
+        type: 'query',
+        title: 'Query Result',
+        query: cypher,
+        resultSummary: `${data.recordCount} records scanned · ${data.nodes.length} nodes · ${data.edges.length} edges`,
+      });
     } catch (err: any) {
       setError(err.message || 'Query failed');
     } finally {
       setRunning(false);
     }
-  }, [query, controllerRef]);
+  }, [query, controllerRef, recentQueries, openBottom]);
+
+  const handleSaveCurrentQuery = useCallback(() => {
+    const cypher = query.trim();
+    if (!cypher) return;
+    const nextSaved = [cypher, ...savedQueries.filter((entry) => entry !== cypher)].slice(0, 8);
+    persistSavedQueries(nextSaved);
+  }, [query, savedQueries]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
@@ -70,14 +114,23 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
         />
         <div className="flex items-center justify-between">
           <span className="text-[10px] text-text-dim">Ctrl+Enter to run</span>
-          <button
-            onClick={handleRun}
-            disabled={running}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-accent/20 text-accent text-sm rounded-md hover:bg-accent/30 transition-colors disabled:opacity-50"
-          >
-            <Play size={12} />
-            {running ? 'Running…' : 'Run'}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleSaveCurrentQuery}
+              className="flex items-center gap-1.5 px-3 py-1.5 border border-border text-text-dim text-sm rounded-md hover:border-accent hover:text-text transition-colors"
+            >
+              <BookmarkPlus size={12} />
+              Save
+            </button>
+            <button
+              onClick={handleRun}
+              disabled={running}
+              className="flex items-center gap-1.5 px-3 py-1.5 bg-accent/20 text-accent text-sm rounded-md hover:bg-accent/30 transition-colors disabled:opacity-50"
+            >
+              <Play size={12} />
+              {running ? 'Running…' : 'Run'}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -106,7 +159,7 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
 
       <div className="px-3 pb-3">
         <details className="text-xs text-text-dim">
-          <summary className="cursor-pointer hover:text-text transition-colors">Examples</summary>
+          <summary className="cursor-pointer hover:text-text transition-colors">Templates</summary>
           <div className="mt-1 space-y-1 pl-2">
             <button
               onClick={() => setQuery('MATCH (n:CanonicalNode {type: "rule"}) RETURN n LIMIT 10')}
@@ -129,6 +182,52 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
           </div>
         </details>
       </div>
+
+      {savedQueries.length > 0 && (
+        <div className="px-3 pb-3">
+          <details className="text-xs text-text-dim" open>
+            <summary className="cursor-pointer hover:text-text transition-colors flex items-center gap-1">
+              <BookmarkPlus size={12} />
+              Saved Queries
+            </summary>
+            <div className="mt-1 space-y-1 pl-2">
+              {savedQueries.map((savedQuery) => (
+                <button
+                  key={savedQuery}
+                  onClick={() => setQuery(savedQuery)}
+                  className="block w-full text-left truncate hover:text-accent transition-colors"
+                  title={savedQuery}
+                >
+                  {savedQuery}
+                </button>
+              ))}
+            </div>
+          </details>
+        </div>
+      )}
+
+      {recentQueries.length > 0 && (
+        <div className="px-3 pb-3">
+          <details className="text-xs text-text-dim" open>
+            <summary className="cursor-pointer hover:text-text transition-colors flex items-center gap-1">
+              <History size={12} />
+              Recent Queries
+            </summary>
+            <div className="mt-1 space-y-1 pl-2">
+              {recentQueries.map((recentQuery) => (
+                <button
+                  key={recentQuery}
+                  onClick={() => setQuery(recentQuery)}
+                  className="block w-full text-left truncate hover:text-accent transition-colors"
+                  title={recentQuery}
+                >
+                  {recentQuery}
+                </button>
+              ))}
+            </div>
+          </details>
+        </div>
+      )}
     </div>
   );
 }
