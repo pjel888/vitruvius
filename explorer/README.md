@@ -28,13 +28,13 @@ An interactive, browser-based explorer for the Vitruvius knowledge graph. Built 
 # 1. Install dependencies
 bun install
 
-# 2. Start the dev server
-bun run dev --host
+# 2. Start the dev stack
+bun run dev
 
 # 3. Open http://localhost:5173
 ```
 
-The explorer expects the Graph API at `http://localhost:3000`. If your API runs on a different port, update `VITE_API_BASE_URL` in `.env` or the hardcoded default in `src/api/graphApi.ts`.
+`bun run dev` now checks that Neo4j is reachable, starts the Graph API on `http://localhost:3000`, waits for `/health`, and then starts Vite on `http://localhost:5173`. If your API runs on a different port, update `VITE_API_BASE_URL` in `.env` or the hardcoded default in `src/api/graphApi.ts`.
 
 ## Production Build
 

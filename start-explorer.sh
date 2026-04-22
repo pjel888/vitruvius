@@ -23,7 +23,7 @@ fi
 
 echo "🚀 Starting Vitruvius Graph API on port 3000..."
 cd "$PROJECT_ROOT/api"
-NEO4J_PASS=password bun run index.ts &
+NEO4J_PASS="${NEO4J_PASS:-password}" bun run index.ts &
 API_PID=$!
 cd "$PROJECT_ROOT"
 
