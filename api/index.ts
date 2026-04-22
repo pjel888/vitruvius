@@ -433,7 +433,7 @@ app.get('/taxonomy', async (c) => {
 
   const conceptCounts = await runQuery(`
     MATCH (c:CanonicalNode)-[:BELONGS_TO]->(node)
-    WHERE node:Taxonomy OR node:Topic OR node:Subtopic
+    WHERE c.type = 'concept' AND (node:Taxonomy OR node:Topic OR node:Subtopic)
     RETURN node.id AS id, count(DISTINCT c) AS conceptCount
   `);
 
@@ -509,7 +509,6 @@ app.get('/perspective/:id/nodes', async (c) => {
       UNION
       MATCH (c:CanonicalNode) WHERE c.type = 'concept'
       RETURN c AS n
-      LIMIT 50
     `;
     edgeQuery = `
       MATCH (a)-[r:HAS_CHILD|BELONGS_TO]->(b)
