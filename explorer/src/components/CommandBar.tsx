@@ -119,9 +119,13 @@ export default function CommandBar() {
 
       setActiveScene(response.scene.id, response.scene.name);
       await refreshScenes();
-      await navigator.clipboard.writeText(`${window.location.origin}${response.url}`);
       navigate(response.url, { replace: true });
-      setSceneMessage('Scene saved and link copied');
+      try {
+        await navigator.clipboard.writeText(`${window.location.origin}${response.url}`);
+        setSceneMessage('Scene saved and link copied');
+      } catch {
+        setSceneMessage('Scene saved (link copy failed)');
+      }
     } catch (error) {
       setSceneMessage(error instanceof Error ? error.message : 'Scene save failed');
     } finally {

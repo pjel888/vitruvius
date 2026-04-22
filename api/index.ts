@@ -107,7 +107,7 @@ app.get('/search', async (c) => {
   } else if (perspective === 'taxonomy') {
     typeFilter = 'AND (c:Taxonomy OR c:Topic OR c:Subtopic)';
   } else if (perspective === 'evidence') {
-    typeFilter = 'AND (c:EvidenceSpan OR c.type = "evidence_span")';
+    typeFilter = 'AND (c:EvidenceSpan OR c.type IN ["concept", "rule"] OR c.type = "evidence_span")';
   } else if (perspective === 'regulatory') {
     typeFilter = 'AND c.type IN ["rule", "concept"]';
   }
@@ -528,6 +528,9 @@ app.get('/perspective/:id/nodes', async (c) => {
     `;
   } else if (id === 'evidence') {
     nodeQuery = `
+      MATCH (c:CanonicalNode)-[:SUPPORTED_BY]->(e:EvidenceSpan)
+      RETURN c
+      UNION
       MATCH (e:EvidenceSpan)
       RETURN e AS c
       LIMIT 150
