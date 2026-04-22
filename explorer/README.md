@@ -156,4 +156,4 @@ Scene state is URL-synced (`?perspective=concepts&node=concept-floor-area`) and 
 - Expanded/hidden node sets
 - Layout engine
 
-Saved scenes (future) will persist to localStorage and later to the backend.
+Saved scenes are now shareable through `?scene=<id>` URLs and persisted through the Graph API. Query assets still persist locally in the browser.

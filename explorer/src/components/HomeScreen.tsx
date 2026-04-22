@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Search, GitGraph, BookOpen, Route, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Search, GitGraph, BookOpen, Route, ShieldCheck, ChevronRight, FileText } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import { getNodesForPerspective } from '../api/graphApi';
 
@@ -79,6 +79,13 @@ export default function HomeScreen() {
               description="Everything in the graph"
               count="~205 nodes"
               onClick={() => enterExplore('default')}
+            />
+            <PerspectiveCard
+              icon={<FileText size={18} />}
+              title="Evidence Map"
+              description="Browse support links and source evidence"
+              count="Support graph"
+              onClick={() => enterExplore('evidence')}
             />
           </div>
         </div>

@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { Search, ChevronDown, X, Loader2, Save, Link2 } from 'lucide-react';
+import { Search, ChevronDown, X, Loader2, Save, Link2, RefreshCcw, Pencil, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSceneStore } from '../stores/useSceneStore';
-import { searchNodes, getPerspectives, listScenes, saveScene } from '../api/graphApi';
-import type { SearchResult, Perspective, SceneSummary } from '../types';
+import { searchNodes, getPerspectives, listScenes, saveScene, updateScene, deleteScene, getScene } from '../api/graphApi';
+import type { SearchResult, Perspective, SceneSummary, SceneUpdateInput } from '../types';
 
 export default function CommandBar() {
   const navigate = useNavigate();
@@ -16,8 +16,11 @@ export default function CommandBar() {
   const [showPerspectives, setShowPerspectives] = useState(false);
   const [scenes, setScenes] = useState<SceneSummary[]>([]);
   const [showScenes, setShowScenes] = useState(false);
+  const [sceneFilter, setSceneFilter] = useState('');
   const [sceneMessage, setSceneMessage] = useState<string | null>(null);
   const [savingScene, setSavingScene] = useState(false);
+  const [updatingScene, setUpdatingScene] = useState(false);
+  const [deletingSceneId, setDeletingSceneId] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const activeSceneId = useSceneStore(s => s.activeSceneId);
@@ -31,6 +34,7 @@ export default function CommandBar() {
   const nodes = useSceneStore(s => s.nodes);
   const edges = useSceneStore(s => s.edges);
   const selectedEdgeId = useSceneStore(s => s.selectedEdgeId);
+  const pinnedNodeIds = useSceneStore(s => s.pinnedNodeIds);
   const camera = useSceneStore(s => s.camera);
   const visibleNodeTypes = useSceneStore(s => s.visibleNodeTypes);
   const visibleEdgeTypes = useSceneStore(s => s.visibleEdgeTypes);
@@ -40,9 +44,38 @@ export default function CommandBar() {
   const colorScheme = useSceneStore(s => s.colorScheme);
   const sizeBy = useSceneStore(s => s.sizeBy);
 
+  function buildScenePayload(sceneName: string): SceneUpdateInput {
+    return {
+      name: sceneName,
+      perspectiveId,
+      camera,
+      selectedNodeIds: selectedNodeId ? [selectedNodeId] : [],
+      selectedEdgeIds: selectedEdgeId ? [selectedEdgeId] : [],
+      pinnedNodeIds,
+      filters: {
+        nodeTypes: Array.from(visibleNodeTypes),
+        edgeTypes: Array.from(visibleEdgeTypes),
+        minConfidence: 0,
+        maxConfidence: 1,
+        searchQuery: query,
+      },
+      expandedNodeIds,
+      hiddenNodeIds,
+      layout,
+      colorScheme,
+      sizeBy,
+      graph: { nodes, edges },
+    };
+  }
+
+  async function refreshScenes() {
+    const nextScenes = await listScenes();
+    setScenes(nextScenes);
+  }
+
   useEffect(() => {
     getPerspectives().then(setPerspectives);
-    listScenes().then(setScenes);
+    refreshScenes();
   }, []);
 
   useEffect(() => {
@@ -59,11 +92,18 @@ export default function CommandBar() {
     }
     const timer = setTimeout(async () => {
       setSearching(true);
-      const res = await searchNodes(query, perspectiveId, 20);
-      setResults(res);
-      setShowSuggestions(true);
-      setHighlighted(0);
-      setSearching(false);
+      try {
+        const res = await searchNodes(query, perspectiveId, 20);
+        setResults(res);
+        setShowSuggestions(true);
+        setHighlighted(0);
+      } catch (error) {
+        setSceneMessage(error instanceof Error ? error.message : 'Search failed');
+        setResults([]);
+        setShowSuggestions(false);
+      } finally {
+        setSearching(false);
+      }
     }, 150);
     return () => clearTimeout(timer);
   }, [query, perspectiveId]);
@@ -75,33 +115,10 @@ export default function CommandBar() {
     setSavingScene(true);
     try {
       const sceneName = activeSceneName || `${activePerspective?.name ?? 'Scene'} · ${new Date().toLocaleString()}`;
-      const response = await saveScene({
-        name: sceneName,
-        perspectiveId,
-        camera,
-        selectedNodeIds: selectedNodeId ? [selectedNodeId] : [],
-        selectedEdgeIds: selectedEdgeId ? [selectedEdgeId] : [],
-        pinnedNodeIds: [],
-        filters: {
-          nodeTypes: Array.from(visibleNodeTypes),
-          edgeTypes: Array.from(visibleEdgeTypes),
-          minConfidence: 0,
-          maxConfidence: 1,
-          searchQuery: query,
-        },
-        expandedNodeIds,
-        hiddenNodeIds,
-        layout,
-        colorScheme,
-        sizeBy,
-        graph: { nodes, edges },
-      });
+      const response = await saveScene(buildScenePayload(sceneName));
 
       setActiveScene(response.scene.id, response.scene.name);
-      setScenes((prev) => [
-        { id: response.scene.id, name: response.scene.name, savedAt: response.scene.savedAt, perspectiveId: response.scene.perspectiveId },
-        ...prev.filter((scene) => scene.id !== response.scene.id),
-      ]);
+      await refreshScenes();
       await navigator.clipboard.writeText(`${window.location.origin}${response.url}`);
       navigate(response.url, { replace: true });
       setSceneMessage('Scene saved and link copied');
@@ -111,6 +128,64 @@ export default function CommandBar() {
       setSavingScene(false);
     }
   }
+
+  async function handleUpdateScene() {
+    if (!activeSceneId || nodes.length === 0) return;
+    setUpdatingScene(true);
+    try {
+      const response = await updateScene(activeSceneId, buildScenePayload(activeSceneName || `${activePerspective?.name ?? 'Scene'} · ${new Date().toLocaleString()}`));
+      setActiveScene(response.scene.id, response.scene.name);
+      await refreshScenes();
+      navigate(`/explore?scene=${response.scene.id}`, { replace: true });
+      setSceneMessage('Scene updated');
+    } catch (error) {
+      setSceneMessage(error instanceof Error ? error.message : 'Scene update failed');
+    } finally {
+      setUpdatingScene(false);
+    }
+  }
+
+  async function handleRenameScene(scene: SceneSummary) {
+    const nextName = window.prompt('Rename scene', scene.name)?.trim();
+    if (!nextName || nextName === scene.name) return;
+
+    try {
+      const fullScene = await getScene(scene.id);
+      if (!fullScene) return;
+      const response = await updateScene(scene.id, { ...fullScene, name: nextName });
+      if (scene.id === activeSceneId) {
+        setActiveScene(response.scene.id, response.scene.name);
+      }
+      await refreshScenes();
+      setSceneMessage('Scene renamed');
+    } catch (error) {
+      setSceneMessage(error instanceof Error ? error.message : 'Scene rename failed');
+    }
+  }
+
+  async function handleDeleteScene(scene: SceneSummary) {
+    if (!window.confirm(`Delete scene "${scene.name}"?`)) return;
+    setDeletingSceneId(scene.id);
+    try {
+      await deleteScene(scene.id);
+      await refreshScenes();
+      if (scene.id === activeSceneId) {
+        setActiveScene(null, null);
+        navigate('/explore', { replace: true });
+      }
+      setSceneMessage('Scene deleted');
+    } catch (error) {
+      setSceneMessage(error instanceof Error ? error.message : 'Scene delete failed');
+    } finally {
+      setDeletingSceneId(null);
+    }
+  }
+
+  const filteredScenes = scenes.filter((scene) => {
+    const q = sceneFilter.trim().toLowerCase();
+    if (!q) return true;
+    return `${scene.name} ${scene.perspectiveId}`.toLowerCase().includes(q);
+  });
 
   function selectResult(r: SearchResult) {
     if (r.kind === 'node') {
@@ -213,7 +288,9 @@ export default function CommandBar() {
                     r.type === 'rule' ? 'bg-node-rule' :
                     r.type === 'taxonomy' ? 'bg-node-taxonomy' :
                     r.type === 'topic' ? 'bg-node-topic' :
-                    r.type === 'subtopic' ? 'bg-node-subtopic' : 'bg-node-definition'
+                    r.type === 'subtopic' ? 'bg-node-subtopic' :
+                    r.type === 'evidence_span' ? 'bg-sky-500' :
+                    'bg-node-definition'
                   }`} />
                   <span className="truncate">{r.label}</span>
                   <span className="text-xs text-text-dim ml-auto shrink-0">{r.type}</span>
@@ -227,14 +304,24 @@ export default function CommandBar() {
       <div className="flex-1" />
 
       <div className="relative">
-        <button
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg border border-border text-sm hover:border-accent transition-colors"
-          onClick={handleSaveScene}
-          disabled={savingScene || nodes.length === 0}
-        >
-          <Save size={14} className="text-text-dim" />
-          {savingScene ? 'Saving…' : 'Save Scene'}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg border border-border text-sm hover:border-accent transition-colors"
+            onClick={handleSaveScene}
+            disabled={savingScene || nodes.length === 0}
+          >
+            <Save size={14} className="text-text-dim" />
+            {savingScene ? 'Saving…' : 'Save Scene'}
+          </button>
+          <button
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg border border-border text-sm hover:border-accent transition-colors disabled:opacity-50"
+            onClick={handleUpdateScene}
+            disabled={updatingScene || !activeSceneId || nodes.length === 0}
+          >
+            <RefreshCcw size={14} className="text-text-dim" />
+            {updatingScene ? 'Updating…' : 'Update Scene'}
+          </button>
+        </div>
       </div>
 
       <div className="relative">
@@ -249,24 +336,45 @@ export default function CommandBar() {
           <>
             <div className="fixed inset-0 z-10" onClick={() => setShowScenes(false)} />
             <div className="absolute top-full right-0 mt-1 w-72 bg-panel border border-border rounded-lg shadow-xl z-20 py-1 max-h-80 overflow-y-auto">
-              {scenes.length === 0 ? (
+              <div className="px-3 py-2 border-b border-border">
+                <input
+                  value={sceneFilter}
+                  onChange={(e) => setSceneFilter(e.target.value)}
+                  placeholder="Filter scenes..."
+                  className="w-full bg-bg border border-border rounded-md px-2 py-1 text-sm outline-none focus:border-accent"
+                />
+              </div>
+              {filteredScenes.length === 0 ? (
                 <div className="px-3 py-2 text-sm text-text-dim">No saved scenes yet.</div>
               ) : (
-                scenes.map((scene) => (
-                  <button
-                    key={scene.id}
-                    className={`w-full text-left px-3 py-2 text-sm hover:bg-panel-hover transition-colors ${scene.id === activeSceneId ? 'text-accent' : ''}`}
-                    onClick={() => {
-                      setShowScenes(false);
-                      navigate(`/explore?scene=${scene.id}`);
-                    }}
-                  >
-                    <div className="font-medium truncate">{scene.name}</div>
-                    <div className="text-xs text-text-dim flex items-center gap-1">
-                      <Link2 size={10} />
-                      {scene.savedAt ? new Date(scene.savedAt).toLocaleString() : scene.perspectiveId}
+                filteredScenes.map((scene) => (
+                  <div key={scene.id} className={`px-3 py-2 hover:bg-panel-hover transition-colors ${scene.id === activeSceneId ? 'text-accent' : ''}`}>
+                    <button
+                      className="w-full text-left"
+                      onClick={() => {
+                        setShowScenes(false);
+                        navigate(`/explore?scene=${scene.id}`);
+                      }}
+                    >
+                      <div className="font-medium truncate">{scene.name}</div>
+                      <div className="text-xs text-text-dim flex items-center gap-1">
+                        <Link2 size={10} />
+                        {scene.savedAt ? new Date(scene.savedAt).toLocaleString() : scene.perspectiveId}
+                      </div>
+                    </button>
+                    <div className="mt-2 flex items-center gap-2 text-xs">
+                      <button className="hover:text-accent transition-colors" onClick={() => handleRenameScene(scene)}>
+                        <Pencil size={12} className="inline mr-1" />Rename
+                      </button>
+                      <button
+                        className="hover:text-red-400 transition-colors disabled:opacity-50"
+                        onClick={() => handleDeleteScene(scene)}
+                        disabled={deletingSceneId === scene.id}
+                      >
+                        <Trash2 size={12} className="inline mr-1" />{deletingSceneId === scene.id ? 'Deleting…' : 'Delete'}
+                      </button>
                     </div>
-                  </button>
+                  </div>
                 ))
               )}
             </div>
