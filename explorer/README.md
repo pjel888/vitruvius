@@ -13,7 +13,7 @@ An interactive, browser-based explorer for the Vitruvius knowledge graph. Built 
 | Styling | Tailwind CSS 4 |
 | Graph Renderer | vis-network 10 (code-split, lazy-loaded) |
 | State | Zustand |
-| Router | React Router 6 |
+| Router | React Router 7 |
 | Icons | Lucide React |
 
 ## Prerequisites
@@ -106,7 +106,7 @@ Output goes to `dist/`. The API serves this folder statically at `/*` when runni
 
 ### Code Splitting (Phase 10)
 - vis-network is dynamically imported on first mount
-- Main bundle: ~294 KB (was ~939 KB)
+- Main bundle: ~310 KB (was ~939 KB)
 - vis-network chunk: ~650 KB, lazy-loaded
 
 ## Keyboard Shortcuts
