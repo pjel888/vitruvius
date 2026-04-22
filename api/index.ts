@@ -2,8 +2,8 @@ import { Hono } from 'hono';
 import { serveStatic } from 'hono/bun';
 import { cors } from 'hono/cors';
 import neo4j from 'neo4j-driver';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
+import { join } from 'node:path';
+import { createScene, deleteScene, readScenes, sceneCreateSchema, updateScene } from './sceneStore';
 
 // ---------------------------------------------------------------------------
 // Neo4j connection
@@ -44,54 +44,13 @@ async function runQuery<T = any>(query: string, params?: Record<string, any>): P
 
 const scenesFilePath = join(import.meta.dir, '.data', 'scenes.json');
 
-type StoredScene = {
-  id: string;
-  name: string;
-  savedAt: string;
-  perspectiveId: string;
-  camera: { x: number; y: number; ratio: number };
-  selectedNodeIds: string[];
-  selectedEdgeIds: string[];
-  pinnedNodeIds: string[];
-  filters: {
-    nodeTypes: string[];
-    edgeTypes: string[];
-    minConfidence: number;
-    maxConfidence: number;
-    searchQuery: string;
-  };
-  expandedNodeIds: string[];
-  hiddenNodeIds: string[];
-  layout: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time';
-  colorScheme: string;
-  sizeBy: 'uniform' | 'confidence' | 'degree';
-  graph: {
-    nodes: any[];
-    edges: any[];
-  };
-};
-
-async function readScenes(): Promise<StoredScene[]> {
-  try {
-    const content = await readFile(scenesFilePath, 'utf8');
-    const parsed = JSON.parse(content);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
-}
-
-async function writeScenes(scenes: StoredScene[]) {
-  await mkdir(dirname(scenesFilePath), { recursive: true });
-  await writeFile(scenesFilePath, JSON.stringify(scenes, null, 2), 'utf8');
-}
-
 function normalizeNode(node: any) {
   if (!node) return null;
+  const inferredType = node.type || node.kind || (node.quote || node.normalized_text ? 'evidence_span' : 'unknown');
   return {
     id: node.id,
-    label: node.label,
-    type: node.type || node.kind || 'unknown',
+    label: node.label || node.quote || node.normalized_text || node.document_title || node.document_id || node.id,
+    type: inferredType,
     kind: node.kind,
     summary: node.summary,
     slug: node.slug,
@@ -101,7 +60,7 @@ function normalizeNode(node: any) {
     taxonomy_path: node.taxonomy_path,
     createdAt: node.created_at,
     updatedAt: node.updated_at,
-    radius: node.type === 'taxonomy' ? 12 : node.type === 'topic' ? 10 : node.type === 'subtopic' ? 9 : node.type === 'rule' ? 9 : 8,
+    radius: inferredType === 'taxonomy' ? 12 : inferredType === 'topic' ? 10 : inferredType === 'subtopic' ? 9 : inferredType === 'rule' ? 9 : inferredType === 'evidence_span' ? 6 : 8,
   };
 }
 
@@ -147,16 +106,21 @@ app.get('/search', async (c) => {
     typeFilter = 'AND c.type IN ["concept", "rule", "definition", "procedure", "exception"]';
   } else if (perspective === 'taxonomy') {
     typeFilter = 'AND (c:Taxonomy OR c:Topic OR c:Subtopic)';
+  } else if (perspective === 'evidence') {
+    typeFilter = 'AND (c:EvidenceSpan OR c.type = "evidence_span")';
   } else if (perspective === 'regulatory') {
     typeFilter = 'AND c.type IN ["rule", "concept"]';
   }
 
   const records = await runQuery(`
     MATCH (c)
-    WHERE (c:CanonicalNode OR c:Taxonomy OR c:Topic OR c:Subtopic)
-      AND (c.label CONTAINS $q OR c.id CONTAINS $q)
+    WHERE (c:CanonicalNode OR c:Taxonomy OR c:Topic OR c:Subtopic OR c:EvidenceSpan)
+      AND (coalesce(c.label, c.quote, c.normalized_text, c.id) CONTAINS $q OR c.id CONTAINS $q)
       ${typeFilter}
-    RETURN c.id AS id, c.label AS label, c.type AS type, c.kind AS kind
+    RETURN c.id AS id,
+           coalesce(c.label, c.quote, c.normalized_text, c.id) AS label,
+           c.type AS type,
+           c.kind AS kind
     LIMIT $limit
   `, { q: q.toLowerCase(), limit: neo4j.int(limit) });
 
@@ -262,11 +226,24 @@ app.get('/edge/:id', async (c) => {
   }
 
   const rec = records[0];
+  const edgeEvidence = edge.type === 'SUPPORTED_BY'
+    ? [rec.a, rec.b]
+        .map((node: any) => normalizeNode(node))
+        .filter((node: any) => node?.type === 'evidence_span')
+        .map((node: any) => ({
+          id: node.id,
+          quote: node.label,
+          document_id: node.id,
+          document_title: node.label,
+          deep_link: undefined,
+          confidence: undefined,
+        }))
+    : [];
   return c.json({
     edge: normalizeEdge(rec.r, rec.a.id, rec.b.id),
     source: normalizeNode(rec.a),
     target: normalizeNode(rec.b),
-    evidence: [],
+    evidence: edgeEvidence,
   });
 });
 
@@ -490,6 +467,7 @@ app.get('/perspectives', async (c) => {
     { id: 'concepts', name: 'Concepts Only', description: 'Domain concepts and relationships', nodeCount: 108 },
     { id: 'taxonomy', name: 'Taxonomy Browser', description: 'Hierarchy and classification', nodeCount: 86 },
     { id: 'regulatory', name: 'Regulatory Rules', description: 'Rules and dependencies', nodeCount: 40 },
+    { id: 'evidence', name: 'Evidence Map', description: 'Source evidence and support links', nodeCount: 0 },
   ];
   return c.json({ perspectives });
 });
@@ -538,6 +516,16 @@ app.get('/perspective/:id/nodes', async (c) => {
         AND type(r) IN ['REQUIRES', 'DEPENDS_ON', 'DEFINED_BY']
       RETURN r, a.id AS source, b.id AS target
     `;
+  } else if (id === 'evidence') {
+    nodeQuery = `
+      MATCH (e:EvidenceSpan)
+      RETURN e AS c
+      LIMIT 150
+    `;
+    edgeQuery = `
+      MATCH (a)-[r:SUPPORTED_BY]->(b)
+      RETURN r, a.id AS source, b.id AS target
+    `;
   } else {
     // default: all knowledge
     nodeQuery = `
@@ -560,9 +548,9 @@ app.get('/perspective/:id/nodes', async (c) => {
   });
 });
 
-// Scene storage (in-memory for now)
+// Scene storage (file-backed)
 app.get('/scenes', async (c) => {
-  const scenes = await readScenes();
+  const scenes = await readScenes(scenesFilePath);
   return c.json({
     scenes: scenes
       .map((scene) => ({
@@ -577,23 +565,30 @@ app.get('/scenes', async (c) => {
 
 // POST /scene/save
 app.post('/scene/save', async (c) => {
-  const body = await c.req.json() as Omit<StoredScene, 'id' | 'savedAt'>;
-  const scenes = await readScenes();
-  const id = crypto.randomUUID();
-  const scene: StoredScene = {
-    ...body,
-    id,
-    savedAt: new Date().toISOString(),
-  };
-  scenes.push(scene);
-  await writeScenes(scenes);
-  return c.json({ sceneId: id, url: `/explore?scene=${id}`, scene });
+  const body = sceneCreateSchema.parse(await c.req.json());
+  const scene = await createScene(scenesFilePath, body);
+  return c.json({ sceneId: scene.id, url: `/explore?scene=${scene.id}`, scene });
+});
+
+app.put('/scene/:id', async (c) => {
+  const id = c.req.param('id');
+  const body = sceneCreateSchema.parse(await c.req.json());
+  const scene = await updateScene(scenesFilePath, id, body);
+  if (!scene) return c.json({ error: { code: 'NOT_FOUND', message: 'Scene not found' } }, 404);
+  return c.json({ scene });
+});
+
+app.delete('/scene/:id', async (c) => {
+  const id = c.req.param('id');
+  const deleted = await deleteScene(scenesFilePath, id);
+  if (!deleted) return c.json({ error: { code: 'NOT_FOUND', message: 'Scene not found' } }, 404);
+  return c.json({ ok: true, id });
 });
 
 // GET /scene/:id
 app.get('/scene/:id', async (c) => {
   const id = c.req.param('id');
-  const scenes = await readScenes();
+  const scenes = await readScenes(scenesFilePath);
   const scene = scenes.find((entry) => entry.id === id);
   if (!scene) return c.json({ error: { code: 'NOT_FOUND', message: 'Scene not found' } }, 404);
   return c.json(scene);
