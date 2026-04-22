@@ -47,8 +47,10 @@ interface SceneStore {
   // Selection
   selectedNodeId: string | null;
   selectedEdgeId: string | null;
+  pinnedNodeIds: string[];
   setSelectedNode: (id: string | null) => void;
   setSelectedEdge: (id: string | null) => void;
+  togglePinnedNode: (id: string) => void;
 
   // Graph data
   nodes: GraphNode[];
@@ -83,9 +85,12 @@ interface SceneStore {
   pathSourceId: string | null;
   pathTargetId: string | null;
   highlightedPath: { nodeIds: string[]; edgeIds: string[] } | null;
+  focusSubgraphNodeId: string | null;
   setPathSource: (id: string | null) => void;
   setPathTarget: (id: string | null) => void;
   setHighlightedPath: (path: { nodeIds: string[]; edgeIds: string[] } | null) => void;
+  requestFocusSubgraph: (id: string) => void;
+  clearFocusSubgraphRequest: () => void;
   clearPath: () => void;
 
   // Camera (for Sigma)
@@ -134,6 +139,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
     perspectiveId: scene.perspectiveId,
     selectedNodeId: scene.selectedNodeIds[0] ?? null,
     selectedEdgeId: scene.selectedEdgeIds[0] ?? null,
+    pinnedNodeIds: scene.pinnedNodeIds,
     searchQuery: scene.filters.searchQuery,
     visibleNodeTypes: new Set(scene.filters.nodeTypes),
     visibleEdgeTypes: new Set(scene.filters.edgeTypes),
@@ -146,12 +152,19 @@ export const useSceneStore = create<SceneStore>((set) => ({
     pathSourceId: null,
     pathTargetId: null,
     highlightedPath: null,
+    focusSubgraphNodeId: null,
   }),
 
   selectedNodeId: null,
   selectedEdgeId: null,
+  pinnedNodeIds: [],
   setSelectedNode: (id) => set({ selectedNodeId: id, selectedEdgeId: null }),
   setSelectedEdge: (id) => set({ selectedEdgeId: id, selectedNodeId: null }),
+  togglePinnedNode: (id) => set((state) => ({
+    pinnedNodeIds: state.pinnedNodeIds.includes(id)
+      ? state.pinnedNodeIds.filter((nodeId) => nodeId !== id)
+      : [...state.pinnedNodeIds, id],
+  })),
 
   nodes: [],
   edges: [],
@@ -180,9 +193,12 @@ export const useSceneStore = create<SceneStore>((set) => ({
   pathSourceId: null,
   pathTargetId: null,
   highlightedPath: null,
+  focusSubgraphNodeId: null,
   setPathSource: (id) => set({ pathSourceId: id }),
   setPathTarget: (id) => set({ pathTargetId: id }),
   setHighlightedPath: (path) => set({ highlightedPath: path }),
+  requestFocusSubgraph: (id) => set({ focusSubgraphNodeId: id }),
+  clearFocusSubgraphRequest: () => set({ focusSubgraphNodeId: null }),
   clearPath: () => set({ pathSourceId: null, pathTargetId: null, highlightedPath: null }),
 
   camera: { x: 0, y: 0, ratio: 1 },
@@ -191,7 +207,7 @@ export const useSceneStore = create<SceneStore>((set) => ({
   loading: false,
   setLoading: (v) => set({ loading: v }),
 
-  visibleNodeTypes: new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception']),
+  visibleNodeTypes: new Set(['taxonomy', 'topic', 'subtopic', 'concept', 'rule', 'definition', 'procedure', 'exception', 'evidence_span']),
   visibleEdgeTypes: new Set(['HAS_CHILD', 'BELONGS_TO', 'RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES', 'SUPPORTED_BY']),
   hiddenNodeIds: [],
   expandedNodeIds: [],

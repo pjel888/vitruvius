@@ -122,3 +122,5 @@ export interface SceneSummary {
   savedAt?: string;
   perspectiveId: string;
 }
+
+export interface SceneUpdateInput extends Omit<SceneState, 'id' | 'savedAt'> {}

@@ -22,6 +22,7 @@ function ExploreView() {
   const setGraphData = useSceneStore(s => s.setGraphData);
   const setLoading = useSceneStore(s => s.setLoading);
   const applySceneState = useSceneStore(s => s.applySceneState);
+  const setActiveScene = useSceneStore(s => s.setActiveScene);
   // const explorerOpen = useSceneStore(s => s.explorerOpen);
   // const inspectorOpen = useSceneStore(s => s.inspectorOpen);
   const toggleExplorer = useSceneStore(s => s.toggleExplorer);
@@ -41,6 +42,10 @@ function ExploreView() {
         if (cancelled) return;
         applySceneState(scene);
         setGraphData(scene.graph.nodes, scene.graph.edges);
+      } catch {
+        if (cancelled) return;
+        setActiveScene(null, null);
+        navigate('/explore', { replace: true });
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -50,7 +55,7 @@ function ExploreView() {
     return () => {
       cancelled = true;
     };
-  }, [searchParams, activeSceneId, applySceneState, setGraphData, setLoading]);
+  }, [searchParams, activeSceneId, applySceneState, navigate, setActiveScene, setGraphData, setLoading]);
 
   useEffect(() => {
     const urlPerspective = searchParams.get('perspective');

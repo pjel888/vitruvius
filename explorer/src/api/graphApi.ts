@@ -1,6 +1,7 @@
 import type {
   SceneState,
   SceneSummary,
+  SceneUpdateInput,
   GraphNode,
   GraphEdge,
   TaxonomyNode,
@@ -66,10 +67,23 @@ export async function getScene(id: string): Promise<SceneState> {
   return api<SceneState>(`/scene/${encodeURIComponent(id)}`);
 }
 
-export async function saveScene(scene: Omit<SceneState, 'id' | 'savedAt'>): Promise<{ sceneId: string; url: string; scene: SceneState }> {
+export async function saveScene(scene: SceneUpdateInput): Promise<{ sceneId: string; url: string; scene: SceneState }> {
   return api('/scene/save', {
     method: 'POST',
     body: JSON.stringify(scene),
+  });
+}
+
+export async function updateScene(id: string, scene: SceneUpdateInput): Promise<{ scene: SceneState }> {
+  return api(`/scene/${encodeURIComponent(id)}`, {
+    method: 'PUT',
+    body: JSON.stringify(scene),
+  });
+}
+
+export async function deleteScene(id: string): Promise<{ ok: true; id: string }> {
+  return api(`/scene/${encodeURIComponent(id)}`, {
+    method: 'DELETE',
   });
 }
 
