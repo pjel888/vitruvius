@@ -5,9 +5,9 @@
 
 ## Current Operating Truth
 
-- The current active phase is **control-surface consolidation**.
+- The control-surface consolidation phase is **completed**.
 - The repository has already shipped the core pipeline, graph/query surface, KG v2 transition, laws-wave bounded automation, Graph Explorer, and nested AGENTS coverage.
-- The current work is documentation/governance cleanup so future sessions follow one truthful planning surface.
+- The current work is the next bounded decision on top of that stabilized planning surface, not another control-surface cleanup pass.
 
 ## Execution Note — 2026-04-21 (Autonomous implementation run)
 
@@ -16,7 +16,7 @@
 - **Expected deliverables:**
   1. active AEC plan family reduced to a minimal execution-readiness packet,
   2. broken plan-path references removed from live docs,
-  3. roadmap/state statuses synchronized to `in_progress` where work is actively being executed.
+  3. roadmap/state statuses reconciled so completed cleanup work no longer presents as active.
 - **Validation plan:**
   1. grep checks for broken/stale active references,
   2. targeted pytest smoke commands,
@@ -44,9 +44,9 @@
 
 ## Active Priorities
 
-1. Keep roadmap/state docs contradiction-free.
-2. Slim the active plans surface.
-3. Remove stale references from active docs.
+1. Make the AEC execution-readiness decision from the stabilized control surface.
+2. Keep roadmap/state docs contradiction-free.
+3. Refresh unverified claims only when implementation changes warrant it.
 
 ## Unverified / Log-Backed Claims
 
@@ -64,30 +64,10 @@
 - active-doc correction completed in this pass:
   - `README.md` testing commands now use repo-proven `PYTHONPATH=scripts python3 -m pytest ...`
 
-## Candidate Next Engineering Lane
-
-- `scripts/vitruvius/ollama_review.py` runtime wiring is the strongest code-level follow-on candidate identified in this session.
-- Why: tested support paths (`review_with_cache`, model routing helpers) exist but are not yet integrated into the live review loop.
-
 ## Current Execution Focus — 2026-04-21 (Post-consolidation)
 
-- Selected next lane: bounded audit + plan for `scripts/vitruvius/ollama_review.py` runtime wiring.
-- Risk note: code graph impact scan reports **high** blast radius for the review/runtime surface, so changes must stay narrow and validation-heavy.
-- Targeted outcome:
-  1. determine whether `review_with_cache(...)` should replace the direct live review call,
-  2. confirm the safe integration point for model-routing helpers,
-  3. create the required audit/plan packet before code edits.
-
-## Latest Runtime-Wiring Checkpoint
-
-- Slice A implemented: the live Tier-1 review loop now routes through `review_with_cache(...)`.
-- `_call_llm(...)` is now a production adapter instead of a `NotImplementedError` placeholder on the cache path.
-- Validation log: `/.ai/05_logs/ollama-review-runtime-wiring-validation.md`
-- Validation results:
-  - narrow runtime pack → `41 passed`
-  - direct review wiring pack → `15 passed`
-  - targeted `py_compile` → pass
-- Deferred follow-on: evaluate `select_review_model(...)` integration as a separate slice after this cache-wrapper checkpoint.
+- Control-surface consolidation is complete enough that it should no longer be treated as the active execution lane.
+- The next bounded decision is whether AEC remains the next live implementation family or is demoted further until runtime roots exist.
 
 ## Read Next
 

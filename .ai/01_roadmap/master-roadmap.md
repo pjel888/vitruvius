@@ -30,18 +30,24 @@ It is intentionally compact. Historical sprint narration, tranche-by-tranche exe
 ## 3. Active Strategic Priorities
 
 ### Priority 1 — Control-surface consolidation
-- **Status:** in_progress
+- **Status:** completed
 - **Why it matters:** active planning docs had contradictory claims and stale paths.
 - **Evidence:** `/.ai/AUDIT_REPORT.md`, `/.ai/IMPLEMENTATION_MATRIX.md`
-- **Next concrete action:** keep `.ai/01_roadmap/`, `.ai/03_plans/INDEX.md`, and `.ai/README.md` aligned as the only live entry surface.
+- **Next concrete action:** preserve `.ai/01_roadmap/`, `.ai/03_plans/INDEX.md`, and `.ai/README.md` as the live entry surface.
 
 ### Priority 2 — Plan-family slimming
-- **Status:** in_progress
+- **Status:** completed
 - **Why it matters:** too many completed historical plans still appear live.
 - **Evidence:** `/.ai/03_plans/`, `/.ai/archive/ARCHIVE_INDEX.md`
-- **Next concrete action:** reduce active planning to the dispatcher plus the minimal AEC readiness packet; treat laws-wave and completed governance bursts as reference-only.
+- **Next concrete action:** preserve the dispatcher plus the minimal AEC readiness packet as the only live AEC planning surface.
 
-### Priority 3 — Verification refresh for unverified claims
+### Priority 3 — AEC execution-readiness decision
+- **Status:** planned
+- **Why it matters:** the live planning surface is now clean enough to decide whether AEC becomes the next real implementation lane.
+- **Evidence:** `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`
+- **Next concrete action:** decide whether to open a bounded AEC implementation lane or demote the remaining family further into long-term reference.
+
+### Priority 4 — Verification refresh for unverified claims
 - **Status:** planned
 - **Why it matters:** some operational claims are log-backed but not freshly rerun.
 - **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md` (`Full test suite green claim`), `.ai/05_logs/2026-04-20_full-test-suite-green-validation.md`
@@ -71,7 +77,7 @@ These are not active roadmap targets anymore.
 - **Why blocked:** planning/control corpus exists, but runtime implementation roots were not verified in the codebase.
 - **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`
 - **Dependency:** explicit execution packet + runtime namespace decision + implementation roots.
-- **Next concrete action:** slim the AEC family down to one execution packet before reopening runtime work.
+- **Next concrete action:** use the now-stable control surface to decide whether runtime work should be opened at all.
 
 ### Generic dataset expansion beyond bounded laws-wave
 - **Status:** blocked

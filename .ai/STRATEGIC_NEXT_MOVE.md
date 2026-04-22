@@ -2,13 +2,13 @@
 
 ## Single Best Next Move
 
-**Finish plan-family slimming so the active surface contains only the dispatcher, the AEC master plan, and the minimal AEC execution-readiness packet.**
+**Make the AEC execution-readiness decision from the now-stable control surface.**
 
 ## Why This Is Right Now
 
-- The live-docs rebase removes contradictions, but the active plans directory is still crowded with completed historical material.
-- Future work will still be slower and less reliable until the active plan index clearly separates live work from reference-only history.
-- This is high leverage and low code risk.
+- The control-surface cleanup is complete enough that the next major decision can be made from a truthful live planning layer.
+- AEC is the only remaining implementation family still represented near the live surface.
+- Deciding whether AEC opens or remains reference-only is now the highest-leverage move.
 
 ## What Should Be Deferred
 
@@ -18,8 +18,6 @@
 
 ## Concrete Tasks
 
-1. Treat completed laws-wave tranche plans as reference-only in the plans index.
-2. Treat nested AGENTS and explorer implementation plans as completed reference, not active work.
-3. Reduce AEC visibility to the master plan plus the minimum execution-readiness packet.
-4. Remove or rewrite any remaining active-doc references to stale `/docs` paths or missing aggregate viewer artifacts.
-5. Keep superseded KG v1 docs out of the active operating surface.
+1. Verify whether any runtime implementation roots for AEC now exist in the codebase.
+2. Decide whether `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` remains the next live authority or should be demoted further.
+3. Keep the AEC surface constrained to the master plan plus blocked session packet unless a bounded runtime lane is explicitly opened.

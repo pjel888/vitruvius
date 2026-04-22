@@ -1,14 +1,14 @@
 # Current Phase — Control-Surface Consolidation
 
-**Status:** in_progress  
+**Status:** completed  
 **Updated:** 2026-04-21  
 **Purpose:** single authoritative statement of the current operating phase
 
 ## 1. Current Phase
 
-Vitruvius is currently in **control-surface consolidation**.
+Vitruvius has completed **control-surface consolidation**.
 
-This phase exists because repository implementation is materially ahead of several active planning documents. The work now is to keep the live planning surface short, contradiction-free, and evidence-linked.
+This phase existed because repository implementation was materially ahead of several active planning documents. The live planning surface is now compact and truthful enough to hand off to the next bounded decision lane.
 
 ## 2. Why This Phase Is Current
 
@@ -22,17 +22,17 @@ Primary evidence:
 - `/.ai/IMPLEMENTATION_MATRIX.md`
 - `/.ai/03_plans/00-governing-implementation-plan.md`
 
-## 3. Active Work Now
+## 3. Phase Closure Summary
 
 ### 3.1 Plan-family slimming
-- **Status:** in_progress
+- **Status:** completed
 - **Evidence:** `/.ai/03_plans/`, `/.ai/archive/ARCHIVE_INDEX.md`
-- **Next concrete action:** keep only the dispatcher, `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, and the minimal AEC session packet in the active index; treat completed laws-wave and governance bursts as reference-only.
+- **Outcome:** the active plan surface now resolves to the dispatcher, `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, and the minimal AEC session packet; completed bursts are reference-only.
 
 ### 3.2 Reference integrity maintenance
-- **Status:** in_progress
+- **Status:** completed
 - **Evidence:** `.ai/10_state/laws-wave-status.json`, `.ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md`
-- **Next concrete action:** remove stale `/docs` references, non-existent aggregate viewer artifacts, and invalid active-plan filename references from live docs.
+- **Outcome:** stale `/docs` references, dead artifact links, and invalid active-plan filename references were reconciled in the live docs.
 
 ### 3.3 AEC execution-readiness decision
 - **Status:** planned
@@ -41,7 +41,7 @@ Primary evidence:
 
 ## 4. Success Criteria
 
-This phase is done when all of the following are true:
+This phase was considered done when all of the following became true:
 
 1. `master-roadmap.md`, `current-phase.md`, `milestone-tracker.md`, `ACTIVE_WORK.md`, and `STRATEGIC_NEXT_MOVE.md` do not contradict each other.
 2. No active doc claims an implemented capability is unimplemented.
@@ -74,7 +74,7 @@ The corresponding plan is now historical/reference material and must not be trea
 
 ## 7. Next Review Trigger
 
-Review this phase again when either of these happens:
+Review this completed phase again when either of these happens:
 
-- the active plan index has been slimmed to only live/incomplete families
+- the live control surface drifts again and needs another bounded cleanup pass
 - a new implementation lane is intentionally opened (for example, AEC runtime kickoff or a new bounded corpus lane)
