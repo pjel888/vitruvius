@@ -1,0 +1,9 @@
+bun test v1.3.10 (30e609e0)
+
+perspectiveContracts.test.ts:
+Vitruvius Graph API starting on http://localhost:3000
+
+ 7 pass
+ 0 fail
+ 22 expect() calls
+Ran 7 tests across 2 files. [314.00ms]

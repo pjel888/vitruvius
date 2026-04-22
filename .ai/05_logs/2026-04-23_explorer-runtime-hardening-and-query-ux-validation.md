@@ -8,6 +8,8 @@ status: COMPLETE
 
 # Explorer Runtime Hardening and Query UX Validation — 2026-04-23
 
+**Validated commit:** `3b42836` (`feat(explorer): harden runtime flows and query feedback`)
+
 ## Scope
 
 Validate the bounded explorer/API slice that:
@@ -20,8 +22,8 @@ Validate the bounded explorer/API slice that:
 
 ## Files validated
 
+- `.ai/05_logs/2026-04-23_explorer-runtime-hardening-and-query-ux-validation.md`
 - `api/index.ts`
-- `api/perspectiveContracts.test.ts`
 - `explorer/package.json`
 - `explorer/README.md`
 - `explorer/tsconfig.app.json`
@@ -29,6 +31,7 @@ Validate the bounded explorer/API slice that:
 - `explorer/src/api/graphApi.ts`
 - `explorer/src/components/BottomDrawer.tsx`
 - `explorer/src/components/CommandBar.tsx`
+- `explorer/src/components/ExplorerRail.tsx`
 - `explorer/src/components/GraphScene.tsx`
 - `explorer/src/components/HomeScreen.tsx`
 - `explorer/src/components/InspectorRail.tsx`
@@ -51,6 +54,7 @@ cd api && bun test
 Result:
 - `7 pass`
 - `0 fail`
+- raw log saved to `/.ai/05_logs/2026-04-23_api-bun-test.log`
 
 ### 2. Explorer unit tests
 
@@ -62,6 +66,7 @@ Result:
 - `8 pass`
 - `0 fail`
 - helper coverage now exists for live perspective count formatting, preload-consumption guard behavior, and query-result empty-state summaries
+- raw log saved to `/.ai/05_logs/2026-04-23_explorer-bun-test.log`
 
 ### 3. Explorer production build
 
@@ -72,10 +77,11 @@ cd explorer && bun run build
 Result:
 - build completed successfully
 - output emitted under `explorer/dist/`
+- raw log saved to `/.ai/05_logs/2026-04-23_explorer-build.log`
 
 ### 4. Browser QA
 
-Validated in the running explorer at `http://localhost:5173`:
+Validated in the running explorer at `http://localhost:5173` after the push:
 - home screen rendered live perspective counts instead of placeholder values
 - clicking `Search the graph` navigated to `/explore` and focused `command-search-input`
 - clicking `Show sample graph` triggered exactly one `GET /perspective/default/nodes`, confirming the preloaded graph flow does not immediately refetch after navigation
@@ -83,6 +89,19 @@ Validated in the running explorer at `http://localhost:5173`:
 - running a query with no matches showed:
   - success summary: `No rows returned · graph unchanged`
   - drawer empty state: `This query returned no rows to display.`
+
+Artifacts captured during browser QA:
+- `/.ai/05_logs/2026-04-23_explorer-browser-qa-artifacts.md`
+- `search-cta-focus.png`
+- `sample-graph-view.png`
+- `empty-query-result.png`
+- `home-console-errors.txt`
+- `sample-graph-network.txt`
+
+Runtime evidence observed directly in QA:
+- active element after home CTA: `command-search-input`
+- active placeholder after home CTA: `Search nodes and taxonomies...`
+- empty-query runtime result object: `{ "summary": "No rows returned · graph unchanged", "emptyState": "This query returned no rows to display." }`
 
 ## Interpretation
 
@@ -94,4 +113,4 @@ Validated in the running explorer at `http://localhost:5173`:
 ## Deferred follow-on
 
 - Explorer still lacks component-level or end-to-end automated UI tests beyond manual Playwright verification.
-- The current repo working tree still includes broader app changes outside this single validation artifact; commit isolation remains a separate finalization step.
+- The current local working tree still includes unrelated unstaged roadmap/workspace artifacts outside commit `3b42836`, but they were intentionally left out of the isolated pushed slice.
