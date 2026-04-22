@@ -16,6 +16,21 @@ Overall health: **mixed (operational but drifted)**.
 
 ## Major Inconsistencies Found During Initial Reconciliation
 
+The items below describe the **initial audit findings** from this cleanup sequence. They are retained as historical audit context and should not be read as all still-open defects in the live surface.
+
+Resolved in the active surface:
+- roadmap path mismatch now corrected to `/.ai/01_roadmap/`
+- promotion-governance status language reconciled to repo reality
+- nested AGENTS treated as completed, not pending
+- stale `/docs` references removed from the live stack
+- missing aggregate viewer references removed from the live stack
+- duplicate KG post-implementation v1 docs demoted/superseded in the active surface
+
+Still-open work should be read from:
+- `/.ai/01_roadmap/current-phase.md`
+- `/.ai/ACTIVE_WORK.md`
+- `/.ai/STRATEGIC_NEXT_MOVE.md`
+
 1. **Roadmap path mismatch:** expected `.ai/roadmap/` does not exist; live roadmap is `.ai/01_roadmap/`.
 2. **Master roadmap contradiction:** `/.ai/01_roadmap/master-roadmap.md` still says Promotion Layer is unimplemented, while `run_promote` and canonical relationship artifacts exist.
    - Evidence: `scripts/pipeline_cli.py`, `scripts/vitruvius/promotion_validator.py`, `003_Canonical-Knowledge-Layer/shared/relationships/*.md`.
@@ -70,7 +85,8 @@ This pass used **soft archive in place** for two superseded files (v1 kept for h
 
 1. The codebase has substantial implemented capability (KG commands, tranche pipeline commands, explorer implementation, canonical relationships).
 2. The critical problem is **planning-system coherence**, not feature absence.
-3. The highest-leverage move is a focused rewrite of active roadmap/state docs into a short, evidence-backed “live operations layer,” while retaining long-form history in archive/reference lanes.
+3. The highest-leverage move was a focused rewrite of active roadmap/state docs into a short, evidence-backed “live operations layer,” while retaining long-form history in archive/reference lanes.
+4. With the active control surface stabilized, the next repo-wide decision is whether AEC should open as a real implementation lane or remain planning-only until runtime roots exist.
 
 ## Confidence Notes
 

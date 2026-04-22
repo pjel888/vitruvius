@@ -18,6 +18,8 @@
 | `.ai/03_plans/2026-04-16-whole-codebase-plans-upgrade-plan.md` | archived | rebase objective consumed into active operating docs | `.ai/README.md`, `.ai/01_roadmap/`, `.ai/03_plans/INDEX.md` |
 | `.ai/03_plans/2026-04-16_laws-mini-dataset-graph-pipeline-plan.md` | archived | completed historical implementation path | `.ai/03_plans/laws-wave/LAWS_WAVE_ARTIFACT_INDEX.md`, `.ai/10_state/laws-wave-status.json` |
 | `.ai/03_plans/2026-04-16-aec-first-bounded-slice-sprint-plan.md` | archived | demoted from active family during plan-surface slimming; kept as historical planning detail | `.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `.ai/03_plans/2026-04-16-aec-first-slice-session-packet-plan.md` |
+| `.ai/03_plans/2026-04-16-aec-*.md` (except `2026-04-16-aec-first-slice-session-packet-plan.md`) | archived in place | retained for traceability but no longer dispatchable after control-surface completion | `.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `.ai/03_plans/INDEX.md` |
+| `.ai/03_plans/AEC_ENGINE_*_IMPLEMENTATION_PLAN.md` (except `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`) | archived in place | subsystem planning burst retained as reference-only until runtime kickoff is explicitly reopened | `.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `.ai/03_plans/INDEX.md` |
 
 ## Deferred Physical Moves
 

@@ -10,7 +10,7 @@
 | File | Status | Why it matters | Next concrete action |
 |---|---|---|---|
 | `00-governing-implementation-plan.md` | implemented | authoritative dispatcher for plan consumption order | keep as first-read document for plan work |
-| `INDEX.md` | in_progress | live inventory surface for active plans | keep aligned with `/.ai/IMPLEMENTATION_MATRIX.md` |
+| `INDEX.md` | implemented | live inventory surface for active plans | keep aligned with `/.ai/IMPLEMENTATION_MATRIX.md` |
 
 ### 1.2 AEC execution-readiness family
 

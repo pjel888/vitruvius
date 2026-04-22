@@ -67,7 +67,7 @@ Archived sprint history lives in `.ai/09_archive/plans/` and in the decision/sta
 | 1 | `00-governing-implementation-plan.md` | top-level dispatcher | active | read first for any work that starts in `.ai/03_plans/` |
 | 2 | `INDEX.md` | inventory and lookup table | active reference | use to locate live plans and reference-only families |
 | 3 | `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | AEC execution-order authority | planned | read before any AEC readiness decision |
-| 4 | `2026-04-16-aec-first-slice-session-packet-plan.md` | AEC minimal execution packet | blocked | keep as the only execution-ready packet until runtime roots are verified |
+| 4 | `2026-04-16-aec-first-slice-session-packet-plan.md` | AEC minimal execution-readiness packet | blocked | keep as the only execution-readiness packet until runtime roots are verified |
 
 All other AEC, laws-wave burst, and completed governance plans are reference-only unless explicitly reopened by a new active plan entry in `INDEX.md`.
 
@@ -102,7 +102,7 @@ All other AEC, laws-wave burst, and completed governance plans are reference-onl
 ## 5. Governing Execution Order
 
 ### 5.1 Plan-Layer Maintenance Lane
-This lane is active now.
+This lane is completed for the current cleanup pass and reopens only if the live plan surface drifts again.
 
 Sequence:
 1. whole-codebase plan-layer audit and rewrite
@@ -190,9 +190,9 @@ If any gate is open, AEC work remains planning-only.
 - AEC code is requested before namespace, validation, and boundary gates are frozen
 
 ## 11. Immediate Next Actions
-1. finish the whole-codebase plan-layer rewrite and validation
-2. keep the nested-AGENTS plan available as the next governance maintenance lane if AGENTS coverage remains incomplete
-3. treat the AEC family as execution-ready for the bounded first slice; if execution begins, it should use the clean baseline branch/worktree and accepted sprint artifacts
+1. preserve the completed plan-layer rewrite and validation as the stable live control surface
+2. keep the nested-AGENTS plan as completed reference-only material unless AGENTS coverage regresses and a new live plan explicitly reopens it
+3. keep the AEC family planning-only until runtime roots, namespace, validation, and boundary gates are explicitly verified; use only the master plan plus the minimal session packet for readiness decisions
 
 ## 12. Handoff Rule
 Any future worker entering `.ai/03_plans/` must start here.

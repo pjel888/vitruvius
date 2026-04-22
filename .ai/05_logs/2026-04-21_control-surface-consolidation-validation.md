@@ -13,7 +13,8 @@ status: COMPLETE
 Validate the active-doc consolidation slice that:
 1. slimmed the live AEC plan family to the master plan + session packet,
 2. synchronized roadmap/state wording around that reduced active surface,
-3. corrected repo-facing testing commands in `README.md`.
+3. corrected repo-facing testing commands in `README.md`,
+4. removed remaining live-surface contradictions between roadmap/state docs and the governing plan/AEC plan family.
 
 ## Files validated
 
@@ -62,11 +63,12 @@ Result:
 ## Interpretation
 
 - The live planning surface is materially tighter and internally more consistent than before this slice.
+- The remaining active-surface contradictions around control-surface completion and AEC live status have been removed from the active docs.
 - The public testing instructions now match repo-proven invocation patterns.
 - No runtime regressions were detected in the validation slice exercised here.
 
 ## Next best move
 
-Open a dedicated implementation packet for the live `ollama_review.py` runtime wiring gap:
-- integrate `review_with_cache(...)` into the production review loop,
-- then wire `select_review_model()` into the same path behind its feature gate.
+Use the now-stable control surface to make the AEC execution-readiness decision:
+- either open a real bounded AEC implementation lane with verified runtime roots and gates,
+- or keep the family planning-only until those roots are actually present.
