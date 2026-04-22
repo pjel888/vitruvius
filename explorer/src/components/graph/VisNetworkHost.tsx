@@ -24,6 +24,8 @@ function loadVisNetwork() {
 // ---------------------------------------------------------------------------
 export interface GraphController {
   loadPerspective: (nodes: GraphNode[], edges: GraphEdge[]) => void;
+  applySceneView: (state: { camera: { x: number; y: number; ratio: number }; hiddenNodeIds: string[] }) => void;
+  getSceneView: () => { camera: { x: number; y: number; ratio: number }; hiddenNodeIds: string[] };
   selectNode: (id: string | null) => void;
   focusNode: (id: string) => void;
   fitView: () => void;
@@ -71,6 +73,8 @@ function getNodeColor(schemeName: string, nodeType: string) {
 const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
+  const setCamera = useSceneStore((s) => s.setCamera);
+  const setHiddenNodeIds = useSceneStore((s) => s.setHiddenNodeIds);
 
   // vis-network instances (typed loosely because the module is loaded dynamically)
   const networkRef = useRef<any>(null);
@@ -211,136 +215,192 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     applyHover();
   }
 
+  function syncCameraFromNetwork() {
+    if (!networkRef.current) return;
+    const position = networkRef.current.getViewPosition();
+    setCamera({ x: position.x, y: position.y, ratio: scaleRef.current });
+  }
+
+  function loadGraph(nodes: GraphNode[], edges: GraphEdge[]) {
+    const nodeMap = new Map<string, GraphNode>();
+    nodes.forEach((n) => {
+      if (!nodeMap.has(n.id)) nodeMap.set(n.id, n);
+    });
+    const uniqueNodes = Array.from(nodeMap.values());
+    rawNodesRef.current = uniqueNodes;
+
+    const edgeMap = new Map<string, GraphEdge>();
+    edges.forEach((e) => {
+      const key = e.id || `${e.source}-${e.type}-${e.target}`;
+      if (!edgeMap.has(key)) edgeMap.set(key, e);
+    });
+    const uniqueEdges = Array.from(edgeMap.values());
+    rawEdgesRef.current = uniqueEdges;
+
+    if (!ready || !containerRef.current || !visModule) {
+      return;
+    }
+
+    const { Network, DataSet } = visModule;
+
+    hiddenNodeIdsRef.current.clear();
+
+    const degMap = new Map<string, number>();
+    uniqueNodes.forEach((n) => degMap.set(n.id, 0));
+    uniqueEdges.forEach((e) => {
+      degMap.set(e.source, (degMap.get(e.source) ?? 0) + 1);
+      degMap.set(e.target, (degMap.get(e.target) ?? 0) + 1);
+    });
+    degreeMapRef.current = degMap;
+
+    const visNodes = uniqueNodes.map(buildVisNode);
+    const visEdges = uniqueEdges.map((e) => ({
+      id: e.id,
+      from: e.source,
+      to: e.target,
+      label: e.type,
+      color: { color: '#94a3b8', opacity: 0.6 },
+    }));
+
+    if (networkRef.current && nodesRef.current && edgesRef.current) {
+      nodesRef.current.clear();
+      nodesRef.current.add(visNodes);
+      edgesRef.current.clear();
+      edgesRef.current.add(visEdges);
+      return;
+    }
+
+    nodesRef.current = new DataSet(visNodes);
+    edgesRef.current = new DataSet(visEdges);
+
+    networkRef.current = new Network(
+      containerRef.current,
+      { nodes: nodesRef.current, edges: edgesRef.current },
+      {
+        nodes: {
+          shape: 'dot',
+          font: { size: 12, color: '#e2e8f0', face: 'system-ui, sans-serif' },
+          borderWidth: 2,
+          borderWidthSelected: 3,
+          shadow: { enabled: true, color: 'rgba(0,0,0,0.3)', size: 8 },
+        },
+        edges: {
+          width: 1,
+          smooth: { enabled: true, type: 'continuous', roundness: 0.5 },
+          font: { size: 8, color: '#7a7f8a', strokeWidth: 0, face: 'system-ui, sans-serif' },
+          arrows: { to: { enabled: true, scaleFactor: 0.4 } },
+        },
+        physics: {
+          forceAtlas2Based: {
+            gravitationalConstant: -50,
+            centralGravity: 0.01,
+            springLength: 100,
+            springConstant: 0.08,
+          },
+          maxVelocity: 50,
+          solver: 'forceAtlas2Based',
+          timestep: 0.35,
+          stabilization: { iterations: 150 },
+        },
+        interaction: {
+          hover: true,
+          tooltipDelay: 200,
+          hideEdgesOnDrag: false,
+        },
+      }
+    );
+
+    networkRef.current.on('zoom', (params: any) => {
+      if (params.scale) scaleRef.current = params.scale;
+      syncCameraFromNetwork();
+    });
+
+    networkRef.current.on('dragEnd', () => {
+      syncCameraFromNetwork();
+    });
+
+    networkRef.current.on('stabilized', () => {
+      syncCameraFromNetwork();
+    });
+
+    networkRef.current.on('hoverNode', (params: any) => {
+      hoveredNodeRef.current = params.node;
+      applyHover();
+    });
+
+    networkRef.current.on('blurNode', () => {
+      hoveredNodeRef.current = null;
+      applyHover();
+    });
+
+    networkRef.current.on('click', (params: any) => {
+      const store = useSceneStore.getState();
+      store.closeContextMenu();
+      if (params.nodes && params.nodes.length > 0) {
+        store.setSelectedNode(params.nodes[0]);
+        store.openInspector();
+      } else if (params.edges && params.edges.length > 0) {
+        store.setSelectedNode(null);
+        store.setSelectedEdge(params.edges[0]);
+        store.openInspector();
+      } else {
+        store.setSelectedNode(null);
+        store.setSelectedEdge(null);
+      }
+    });
+
+    networkRef.current.on('oncontext', (params: any) => {
+      params.event.preventDefault();
+      const canvasPos = networkRef.current!.DOMtoCanvas(params.pointer.DOM);
+      const nodeId = networkRef.current!.getNodeAt(canvasPos);
+      const store = useSceneStore.getState();
+      if (nodeId) {
+        store.openContextMenu(String(nodeId), {
+          x: params.pointer.DOM.x + (containerRef.current?.getBoundingClientRect().left ?? 0),
+          y: params.pointer.DOM.y + (containerRef.current?.getBoundingClientRect().top ?? 0),
+        });
+      } else {
+        store.closeContextMenu();
+      }
+    });
+
+    syncCameraFromNetwork();
+  }
+
+  useEffect(() => {
+    if (!ready || networkRef.current || rawNodesRef.current.length === 0) return;
+    loadGraph(rawNodesRef.current, rawEdgesRef.current);
+  }, [ready]);
+
   useImperativeHandle(
     ref,
     () => ({
       loadPerspective(nodes, edges) {
-        if (!ready || !containerRef.current || !visModule) return;
-        const { Network, DataSet } = visModule;
+        loadGraph(nodes, edges);
+      },
 
-        hiddenNodeIdsRef.current.clear();
-
-        const nodeMap = new Map<string, GraphNode>();
-        nodes.forEach((n) => { if (!nodeMap.has(n.id)) nodeMap.set(n.id, n); });
-        const uniqueNodes = Array.from(nodeMap.values());
-        rawNodesRef.current = uniqueNodes;
-
-        const edgeMap = new Map<string, GraphEdge>();
-        edges.forEach((e) => {
-          const key = e.id || `${e.source}-${e.type}-${e.target}`;
-          if (!edgeMap.has(key)) edgeMap.set(key, e);
-        });
-        const uniqueEdges = Array.from(edgeMap.values());
-        rawEdgesRef.current = uniqueEdges;
-
-        const degMap = new Map<string, number>();
-        uniqueNodes.forEach((n) => degMap.set(n.id, 0));
-        uniqueEdges.forEach((e) => {
-          degMap.set(e.source, (degMap.get(e.source) ?? 0) + 1);
-          degMap.set(e.target, (degMap.get(e.target) ?? 0) + 1);
-        });
-        degreeMapRef.current = degMap;
-
-        const visNodes = uniqueNodes.map(buildVisNode);
-        const visEdges = uniqueEdges.map((e) => ({
-          id: e.id,
-          from: e.source,
-          to: e.target,
-          label: e.type,
-          color: { color: '#94a3b8', opacity: 0.6 },
-        }));
-
-        if (networkRef.current && nodesRef.current && edgesRef.current) {
-          nodesRef.current.clear();
-          nodesRef.current.add(visNodes);
-          edgesRef.current.clear();
-          edgesRef.current.add(visEdges);
-        } else {
-          nodesRef.current = new DataSet(visNodes);
-          edgesRef.current = new DataSet(visEdges);
-
-          networkRef.current = new Network(
-            containerRef.current,
-            { nodes: nodesRef.current, edges: edgesRef.current },
-            {
-              nodes: {
-                shape: 'dot',
-                font: { size: 12, color: '#e2e8f0', face: 'system-ui, sans-serif' },
-                borderWidth: 2,
-                borderWidthSelected: 3,
-                shadow: { enabled: true, color: 'rgba(0,0,0,0.3)', size: 8 },
-              },
-              edges: {
-                width: 1,
-                smooth: { enabled: true, type: 'continuous', roundness: 0.5 },
-                font: { size: 8, color: '#7a7f8a', strokeWidth: 0, face: 'system-ui, sans-serif' },
-                arrows: { to: { enabled: true, scaleFactor: 0.4 } },
-              },
-              physics: {
-                forceAtlas2Based: {
-                  gravitationalConstant: -50,
-                  centralGravity: 0.01,
-                  springLength: 100,
-                  springConstant: 0.08,
-                },
-                maxVelocity: 50,
-                solver: 'forceAtlas2Based',
-                timestep: 0.35,
-                stabilization: { iterations: 150 },
-              },
-              interaction: {
-                hover: true,
-                tooltipDelay: 200,
-                hideEdgesOnDrag: false,
-              },
-            }
-          );
-
-          networkRef.current.on('zoom', (params: any) => {
-            if (params.scale) scaleRef.current = params.scale;
+      applySceneView(state) {
+        hiddenNodeIdsRef.current = new Set(state.hiddenNodeIds);
+        setHiddenNodeIds(state.hiddenNodeIds);
+        applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
+        if (networkRef.current) {
+          scaleRef.current = state.camera.ratio;
+          networkRef.current.moveTo({
+            position: { x: state.camera.x, y: state.camera.y },
+            scale: state.camera.ratio,
+            animation: false,
           });
-
-          networkRef.current.on('hoverNode', (params: any) => {
-            hoveredNodeRef.current = params.node;
-            applyHover();
-          });
-
-          networkRef.current.on('blurNode', () => {
-            hoveredNodeRef.current = null;
-            applyHover();
-          });
-
-          networkRef.current.on('click', (params: any) => {
-            const store = useSceneStore.getState();
-            store.closeContextMenu();
-            if (params.nodes && params.nodes.length > 0) {
-              store.setSelectedNode(params.nodes[0]);
-              store.openInspector();
-            } else if (params.edges && params.edges.length > 0) {
-              store.setSelectedNode(null);
-              store.setSelectedEdge(params.edges[0]);
-              store.openInspector();
-            } else {
-              store.setSelectedNode(null);
-              store.setSelectedEdge(null);
-            }
-          });
-
-          networkRef.current.on('oncontext', (params: any) => {
-            params.event.preventDefault();
-            const canvasPos = networkRef.current!.DOMtoCanvas(params.pointer.DOM);
-            const nodeId = networkRef.current!.getNodeAt(canvasPos);
-            const store = useSceneStore.getState();
-            if (nodeId) {
-              store.openContextMenu(String(nodeId), {
-                x: params.pointer.DOM.x + (containerRef.current?.getBoundingClientRect().left ?? 0),
-                y: params.pointer.DOM.y + (containerRef.current?.getBoundingClientRect().top ?? 0),
-              });
-            } else {
-              store.closeContextMenu();
-            }
-          });
+          syncCameraFromNetwork();
         }
+      },
+
+      getSceneView() {
+        syncCameraFromNetwork();
+        const position = networkRef.current?.getViewPosition?.() ?? { x: 0, y: 0 };
+        return {
+          camera: { x: position.x, y: position.y, ratio: scaleRef.current },
+          hiddenNodeIds: Array.from(hiddenNodeIdsRef.current),
+        };
       },
 
       selectNode(id) {
@@ -362,18 +422,21 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
       fitView() {
         networkRef.current?.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
+        syncCameraFromNetwork();
       },
 
       zoomIn() {
         if (!networkRef.current) return;
         scaleRef.current *= 1.5;
         networkRef.current.moveTo({ scale: scaleRef.current, animation: { duration: 200, easingFunction: 'easeInOutQuad' } });
+        syncCameraFromNetwork();
       },
 
       zoomOut() {
         if (!networkRef.current) return;
         scaleRef.current /= 1.5;
         networkRef.current.moveTo({ scale: scaleRef.current, animation: { duration: 200, easingFunction: 'easeInOutQuad' } });
+        syncCameraFromNetwork();
       },
 
       setLayout(type) {
@@ -480,6 +543,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
       hideNode(id) {
         hiddenNodeIdsRef.current.add(id);
+        setHiddenNodeIds(Array.from(hiddenNodeIdsRef.current));
         if (!nodesRef.current || !edgesRef.current) return;
         nodesRef.current.update({ id, hidden: true });
         const edgeUpdates = rawEdgesRef.current
@@ -490,6 +554,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
       showAll() {
         hiddenNodeIdsRef.current.clear();
+        setHiddenNodeIds([]);
         applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
       },
 
@@ -501,6 +566,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
           id: n.id,
           hidden: !connected.has(n.id),
         }));
+        hiddenNodeIdsRef.current = new Set(rawNodesRef.current.filter((n) => !connected.has(n.id)).map((n) => n.id));
+        setHiddenNodeIds(Array.from(hiddenNodeIdsRef.current));
         nodesRef.current.update(nodeUpdates);
         const edgeUpdates = rawEdgesRef.current.map((e) => ({
           id: e.id,

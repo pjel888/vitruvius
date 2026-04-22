@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { ZoomIn, ZoomOut, Maximize, Shrink, Map, LayoutGrid, FolderTree, Calendar, Terminal } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
-import { getNodesForPerspective } from '../api/graphApi';
 import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
 import NodeSearch from './graph/NodeSearch';
 import NodeContextMenu from './graph/NodeContextMenu';
@@ -9,13 +8,15 @@ import QueryPanel from './graph/QueryPanel';
 
 export default function GraphScene() {
   const controllerRef = useRef<GraphController>(null);
-  const [layout, setLayout] = useState<'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time'>('forceatlas2');
   const [queryOpen, setQueryOpen] = useState(false);
+  const appliedSceneRef = useRef<string | null>(null);
 
-  const perspectiveId = useSceneStore(s => s.perspectiveId);
+  const activeSceneId = useSceneStore(s => s.activeSceneId);
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
-  const setLoading = useSceneStore(s => s.setLoading);
-  const setGraphData = useSceneStore(s => s.setGraphData);
+  const hiddenNodeIds = useSceneStore(s => s.hiddenNodeIds);
+  const camera = useSceneStore(s => s.camera);
+  const layout = useSceneStore(s => s.layout);
+  const setLayout = useSceneStore(s => s.setLayout);
 
   const loading = useSceneStore(s => s.loading);
   const nodes = useSceneStore(s => s.nodes);
@@ -25,25 +26,43 @@ export default function GraphScene() {
   const contextMenuNodeId = useSceneStore(s => s.contextMenuNodeId);
   const highlightedPath = useSceneStore(s => s.highlightedPath);
 
-  // Load perspective data when it changes
-  useEffect(() => {
-    async function load() {
-      setLoading(true);
-      const data = await getNodesForPerspective(perspectiveId);
-      setGraphData(data.nodes, data.edges);
-      setLoading(false);
-    }
-    load();
-  }, [perspectiveId, setLoading, setGraphData]);
+  const syncGraphToHost = useCallback(() => {
+    if (nodes.length === 0 || !controllerRef.current) return false;
+    controllerRef.current.loadPerspective(nodes, edges);
+    controllerRef.current.setFilters(visibleNodeTypes, visibleEdgeTypes);
+    controllerRef.current.setLayout(layout);
+    return true;
+  }, [nodes, edges, visibleNodeTypes, visibleEdgeTypes, layout]);
 
   // Sync graph data to vis-network when nodes/edges change
   useEffect(() => {
-    if (nodes.length > 0) {
-      controllerRef.current?.loadPerspective(nodes, edges);
-      // Re-apply current filters after loading new perspective data
-      controllerRef.current?.setFilters(visibleNodeTypes, visibleEdgeTypes);
+    if (syncGraphToHost()) return;
+    if (nodes.length === 0) return;
+
+    const frame = requestAnimationFrame(() => {
+      syncGraphToHost();
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [syncGraphToHost, nodes.length]);
+
+  useEffect(() => {
+    controllerRef.current?.setLayout(layout);
+  }, [layout]);
+
+  useEffect(() => {
+    if (!activeSceneId || nodes.length === 0 || !controllerRef.current) return;
+    if (appliedSceneRef.current === activeSceneId) return;
+
+    controllerRef.current.applySceneView({ camera, hiddenNodeIds });
+    appliedSceneRef.current = activeSceneId;
+  }, [activeSceneId, camera, hiddenNodeIds, nodes.length]);
+
+  useEffect(() => {
+    if (!activeSceneId) {
+      appliedSceneRef.current = null;
     }
-  }, [nodes, edges]);
+  }, [activeSceneId]);
 
   // Sync selection to graph
   useEffect(() => {
@@ -78,7 +97,6 @@ export default function GraphScene() {
 
   const switchLayout = (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => {
     setLayout(type);
-    controllerRef.current?.setLayout(type);
   };
 
   const handleSearchSelect = useCallback((id: string) => {

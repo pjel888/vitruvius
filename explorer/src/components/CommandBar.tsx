@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
-import { Search, ChevronDown, X, Loader2 } from 'lucide-react';
+import { Search, ChevronDown, X, Loader2, Save, Link2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useSceneStore } from '../stores/useSceneStore';
-import { searchNodes, getPerspectives } from '../api/graphApi';
-import type { SearchResult, Perspective } from '../types';
+import { searchNodes, getPerspectives, listScenes, saveScene } from '../api/graphApi';
+import type { SearchResult, Perspective, SceneSummary } from '../types';
 
 export default function CommandBar() {
+  const navigate = useNavigate();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -12,16 +14,42 @@ export default function CommandBar() {
   const [searching, setSearching] = useState(false);
   const [perspectives, setPerspectives] = useState<Perspective[]>([]);
   const [showPerspectives, setShowPerspectives] = useState(false);
+  const [scenes, setScenes] = useState<SceneSummary[]>([]);
+  const [showScenes, setShowScenes] = useState(false);
+  const [sceneMessage, setSceneMessage] = useState<string | null>(null);
+  const [savingScene, setSavingScene] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const activeSceneId = useSceneStore(s => s.activeSceneId);
+  const activeSceneName = useSceneStore(s => s.activeSceneName);
   const perspectiveId = useSceneStore(s => s.perspectiveId);
+  const selectedNodeId = useSceneStore(s => s.selectedNodeId);
   const setPerspectiveId = useSceneStore(s => s.setPerspectiveId);
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
   const setSearchQuery = useSceneStore(s => s.setSearchQuery);
+  const setActiveScene = useSceneStore(s => s.setActiveScene);
+  const nodes = useSceneStore(s => s.nodes);
+  const edges = useSceneStore(s => s.edges);
+  const selectedEdgeId = useSceneStore(s => s.selectedEdgeId);
+  const camera = useSceneStore(s => s.camera);
+  const visibleNodeTypes = useSceneStore(s => s.visibleNodeTypes);
+  const visibleEdgeTypes = useSceneStore(s => s.visibleEdgeTypes);
+  const hiddenNodeIds = useSceneStore(s => s.hiddenNodeIds);
+  const expandedNodeIds = useSceneStore(s => s.expandedNodeIds);
+  const layout = useSceneStore(s => s.layout);
+  const colorScheme = useSceneStore(s => s.colorScheme);
+  const sizeBy = useSceneStore(s => s.sizeBy);
 
   useEffect(() => {
     getPerspectives().then(setPerspectives);
+    listScenes().then(setScenes);
   }, []);
+
+  useEffect(() => {
+    if (!sceneMessage) return;
+    const timer = setTimeout(() => setSceneMessage(null), 3000);
+    return () => clearTimeout(timer);
+  }, [sceneMessage]);
 
   useEffect(() => {
     if (!query.trim()) {
@@ -41,6 +69,48 @@ export default function CommandBar() {
   }, [query, perspectiveId]);
 
   const activePerspective = perspectives.find(p => p.id === perspectiveId);
+
+  async function handleSaveScene() {
+    if (nodes.length === 0) return;
+    setSavingScene(true);
+    try {
+      const sceneName = activeSceneName || `${activePerspective?.name ?? 'Scene'} · ${new Date().toLocaleString()}`;
+      const response = await saveScene({
+        name: sceneName,
+        perspectiveId,
+        camera,
+        selectedNodeIds: selectedNodeId ? [selectedNodeId] : [],
+        selectedEdgeIds: selectedEdgeId ? [selectedEdgeId] : [],
+        pinnedNodeIds: [],
+        filters: {
+          nodeTypes: Array.from(visibleNodeTypes),
+          edgeTypes: Array.from(visibleEdgeTypes),
+          minConfidence: 0,
+          maxConfidence: 1,
+          searchQuery: query,
+        },
+        expandedNodeIds,
+        hiddenNodeIds,
+        layout,
+        colorScheme,
+        sizeBy,
+        graph: { nodes, edges },
+      });
+
+      setActiveScene(response.scene.id, response.scene.name);
+      setScenes((prev) => [
+        { id: response.scene.id, name: response.scene.name, savedAt: response.scene.savedAt, perspectiveId: response.scene.perspectiveId },
+        ...prev.filter((scene) => scene.id !== response.scene.id),
+      ]);
+      await navigator.clipboard.writeText(`${window.location.origin}${response.url}`);
+      navigate(response.url, { replace: true });
+      setSceneMessage('Scene saved and link copied');
+    } catch (error) {
+      setSceneMessage(error instanceof Error ? error.message : 'Scene save failed');
+    } finally {
+      setSavingScene(false);
+    }
+  }
 
   function selectResult(r: SearchResult) {
     if (r.kind === 'node') {
@@ -156,7 +226,55 @@ export default function CommandBar() {
 
       <div className="flex-1" />
 
-      <div className="text-xs text-text-dim">Connected</div>
+      <div className="relative">
+        <button
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg border border-border text-sm hover:border-accent transition-colors"
+          onClick={handleSaveScene}
+          disabled={savingScene || nodes.length === 0}
+        >
+          <Save size={14} className="text-text-dim" />
+          {savingScene ? 'Saving…' : 'Save Scene'}
+        </button>
+      </div>
+
+      <div className="relative">
+        <button
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg border border-border text-sm hover:border-accent transition-colors min-w-[120px] justify-between"
+          onClick={() => setShowScenes(!showScenes)}
+        >
+          <span className="truncate">{activeSceneName ?? 'Scenes'}</span>
+          <ChevronDown size={14} className="text-text-dim shrink-0" />
+        </button>
+        {showScenes && (
+          <>
+            <div className="fixed inset-0 z-10" onClick={() => setShowScenes(false)} />
+            <div className="absolute top-full right-0 mt-1 w-72 bg-panel border border-border rounded-lg shadow-xl z-20 py-1 max-h-80 overflow-y-auto">
+              {scenes.length === 0 ? (
+                <div className="px-3 py-2 text-sm text-text-dim">No saved scenes yet.</div>
+              ) : (
+                scenes.map((scene) => (
+                  <button
+                    key={scene.id}
+                    className={`w-full text-left px-3 py-2 text-sm hover:bg-panel-hover transition-colors ${scene.id === activeSceneId ? 'text-accent' : ''}`}
+                    onClick={() => {
+                      setShowScenes(false);
+                      navigate(`/explore?scene=${scene.id}`);
+                    }}
+                  >
+                    <div className="font-medium truncate">{scene.name}</div>
+                    <div className="text-xs text-text-dim flex items-center gap-1">
+                      <Link2 size={10} />
+                      {scene.savedAt ? new Date(scene.savedAt).toLocaleString() : scene.perspectiveId}
+                    </div>
+                  </button>
+                ))
+              )}
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="text-xs text-text-dim">{sceneMessage ?? 'Connected'}</div>
     </div>
   );
 }

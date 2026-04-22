@@ -12,6 +12,7 @@ export default function NodeContextMenu({ controllerRef }: NodeContextMenuProps)
   const nodeId = useSceneStore(s => s.contextMenuNodeId);
   const pos = useSceneStore(s => s.contextMenuPos);
   const closeContextMenu = useSceneStore(s => s.closeContextMenu);
+  const addExpandedNodeIds = useSceneStore(s => s.addExpandedNodeIds);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,6 +40,7 @@ export default function NodeContextMenu({ controllerRef }: NodeContextMenuProps)
     closeContextMenu();
     try {
       const data = await expandNode(nodeId);
+      addExpandedNodeIds(data.nodes.map((node) => node.id));
       controllerRef.current?.mergeNodesEdges(data.nodes, data.edges);
     } catch (err) {
       console.error('Expand failed:', err);
