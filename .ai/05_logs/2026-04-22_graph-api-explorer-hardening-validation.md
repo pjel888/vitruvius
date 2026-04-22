@@ -21,6 +21,7 @@ Validate the bounded Graph API / explorer hardening slices that:
 - `api/index.ts`
 - `api/sceneStore.ts`
 - `api/sceneStore.test.ts`
+- `api/perspectiveContracts.test.ts`
 - `api/README.md`
 - `explorer/src/App.tsx`
 - `explorer/src/api/graphApi.ts`
@@ -45,7 +46,7 @@ cd api && bun test
 ```
 
 Result:
-- `3 pass`
+- `5 pass`
 - `0 fail`
 
 ### 2. Explorer production build
@@ -78,6 +79,7 @@ Result:
 - evidence search and evidence perspective now constrain canonical nodes to `concept` plus `evidence_span`, matching the documented Evidence Map contract
 - evidence search now returns `evidence_span` as the type for evidence nodes instead of collapsing them to `unknown`
 - taxonomy and evidence **edge** queries are now constrained to the documented perspective node families instead of returning broader relationship sets
+- perspective contract coverage now imports and verifies the live API query-builder functions rather than duplicating standalone query strings
 
 ### 4. Browser QA
 
@@ -99,6 +101,7 @@ Validated in the running explorer:
 - The previous query/search failure mode and stale-scene failure mode were removed.
 - Perspective contracts between the explorer docs and the API filters/queries are now aligned for taxonomy and evidence.
 - A focused API regression test now guards the taxonomy/evidence perspective contracts.
+- The validation evidence now includes the latest perspective contract regression coverage rather than only the scene-store unit tests.
 - The highest-leverage performance cleanup in this lane was API-side query fanout reduction, not a Rust migration.
 
 ## Deferred follow-on

@@ -76,6 +76,105 @@ function normalizeEdge(rel: any, sourceId: string, targetId: string) {
   };
 }
 
+export function buildSearchTypeFilter(perspective?: string) {
+  if (perspective === 'concepts') {
+    return 'AND c.type IN ["concept", "rule", "definition", "procedure", "exception"]';
+  }
+  if (perspective === 'taxonomy') {
+    return 'AND (c:Taxonomy OR c:Topic OR c:Subtopic OR c.type = "concept")';
+  }
+  if (perspective === 'evidence') {
+    return 'AND (c:EvidenceSpan OR c.type = "concept" OR c.type = "evidence_span")';
+  }
+  if (perspective === 'regulatory') {
+    return 'AND c.type IN ["rule", "concept"]';
+  }
+  return '';
+}
+
+export function buildPerspectiveQueries(id: string) {
+  if (id === 'concepts') {
+    return {
+      nodeQuery: `
+      MATCH (c:CanonicalNode)
+      WHERE c.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
+      RETURN c
+    `,
+      edgeQuery: `
+      MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
+      WHERE a.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
+        AND b.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
+        AND type(r) IN ['RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES']
+      RETURN r, a.id AS source, b.id AS target
+    `,
+    };
+  }
+
+  if (id === 'taxonomy') {
+    return {
+      nodeQuery: `
+      MATCH (n) WHERE n:Taxonomy OR n:Topic OR n:Subtopic OR (n:CanonicalNode AND n.type = 'taxonomy')
+      RETURN n
+      UNION
+      MATCH (c:CanonicalNode) WHERE c.type = 'concept'
+      RETURN c AS n
+    `,
+      edgeQuery: `
+      MATCH (a)-[r:HAS_CHILD|BELONGS_TO]->(b)
+      WHERE (a:Taxonomy OR a:Topic OR a:Subtopic OR (a:CanonicalNode AND a.type = 'concept'))
+        AND (b:Taxonomy OR b:Topic OR b:Subtopic OR (b:CanonicalNode AND b.type = 'concept'))
+      RETURN r, a.id AS source, b.id AS target
+    `,
+    };
+  }
+
+  if (id === 'regulatory') {
+    return {
+      nodeQuery: `
+      MATCH (c:CanonicalNode) WHERE c.type IN ['rule', 'concept']
+      RETURN c
+    `,
+      edgeQuery: `
+      MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
+      WHERE a.type IN ['rule', 'concept'] AND b.type IN ['rule', 'concept']
+        AND type(r) IN ['REQUIRES', 'DEPENDS_ON', 'DEFINED_BY']
+      RETURN r, a.id AS source, b.id AS target
+    `,
+    };
+  }
+
+  if (id === 'evidence') {
+    return {
+      nodeQuery: `
+      MATCH (c:CanonicalNode)-[:SUPPORTED_BY]->(e:EvidenceSpan)
+      WHERE c.type = 'concept'
+      RETURN c
+      UNION
+      MATCH (e:EvidenceSpan)
+      RETURN e AS c
+      LIMIT 150
+    `,
+      edgeQuery: `
+      MATCH (a:CanonicalNode)-[r:SUPPORTED_BY]->(b:EvidenceSpan)
+      WHERE a.type = 'concept'
+      RETURN r, a.id AS source, b.id AS target
+    `,
+    };
+  }
+
+  return {
+    nodeQuery: `
+      MATCH (n) WHERE n:CanonicalNode OR n:Taxonomy OR n:Topic OR n:Subtopic
+      RETURN n
+    `,
+    edgeQuery: `
+      MATCH (a)-[r]->(b)
+      WHERE type(r) IN ['HAS_CHILD', 'BELONGS_TO', 'RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES', 'SUPPORTED_BY']
+      RETURN r, a.id AS source, b.id AS target
+    `,
+  };
+}
+
 // ---------------------------------------------------------------------------
 // App
 // ---------------------------------------------------------------------------
@@ -101,16 +200,7 @@ app.get('/search', async (c) => {
 
   if (!q.trim() || q.length < 2) return c.json({ results: [] });
 
-  let typeFilter = '';
-  if (perspective === 'concepts') {
-    typeFilter = 'AND c.type IN ["concept", "rule", "definition", "procedure", "exception"]';
-  } else if (perspective === 'taxonomy') {
-    typeFilter = 'AND (c:Taxonomy OR c:Topic OR c:Subtopic OR c.type = "concept")';
-  } else if (perspective === 'evidence') {
-    typeFilter = 'AND (c:EvidenceSpan OR c.type = "concept" OR c.type = "evidence_span")';
-  } else if (perspective === 'regulatory') {
-    typeFilter = 'AND c.type IN ["rule", "concept"]';
-  }
+  const typeFilter = buildSearchTypeFilter(perspective);
 
   const records = await runQuery(`
     MATCH (c)
@@ -486,74 +576,7 @@ app.get('/perspectives', async (c) => {
 app.get('/perspective/:id/nodes', async (c) => {
   const id = c.req.param('id');
 
-  let nodeQuery = '';
-  let edgeQuery = '';
-
-  if (id === 'concepts') {
-    nodeQuery = `
-      MATCH (c:CanonicalNode)
-      WHERE c.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
-      RETURN c
-    `;
-    edgeQuery = `
-      MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
-      WHERE a.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
-        AND b.type IN ['concept', 'rule', 'definition', 'procedure', 'exception']
-        AND type(r) IN ['RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES']
-      RETURN r, a.id AS source, b.id AS target
-    `;
-  } else if (id === 'taxonomy') {
-    nodeQuery = `
-      MATCH (n) WHERE n:Taxonomy OR n:Topic OR n:Subtopic OR (n:CanonicalNode AND n.type = 'taxonomy')
-      RETURN n
-      UNION
-      MATCH (c:CanonicalNode) WHERE c.type = 'concept'
-      RETURN c AS n
-    `;
-    edgeQuery = `
-      MATCH (a)-[r:HAS_CHILD|BELONGS_TO]->(b)
-      WHERE (a:Taxonomy OR a:Topic OR a:Subtopic OR (a:CanonicalNode AND a.type = 'concept'))
-        AND (b:Taxonomy OR b:Topic OR b:Subtopic OR (b:CanonicalNode AND b.type = 'concept'))
-      RETURN r, a.id AS source, b.id AS target
-    `;
-  } else if (id === 'regulatory') {
-    nodeQuery = `
-      MATCH (c:CanonicalNode) WHERE c.type IN ['rule', 'concept']
-      RETURN c
-    `;
-    edgeQuery = `
-      MATCH (a:CanonicalNode)-[r]->(b:CanonicalNode)
-      WHERE a.type IN ['rule', 'concept'] AND b.type IN ['rule', 'concept']
-        AND type(r) IN ['REQUIRES', 'DEPENDS_ON', 'DEFINED_BY']
-      RETURN r, a.id AS source, b.id AS target
-    `;
-  } else if (id === 'evidence') {
-    nodeQuery = `
-      MATCH (c:CanonicalNode)-[:SUPPORTED_BY]->(e:EvidenceSpan)
-      WHERE c.type = 'concept'
-      RETURN c
-      UNION
-      MATCH (e:EvidenceSpan)
-      RETURN e AS c
-      LIMIT 150
-    `;
-    edgeQuery = `
-      MATCH (a:CanonicalNode)-[r:SUPPORTED_BY]->(b:EvidenceSpan)
-      WHERE a.type = 'concept'
-      RETURN r, a.id AS source, b.id AS target
-    `;
-  } else {
-    // default: all knowledge
-    nodeQuery = `
-      MATCH (n) WHERE n:CanonicalNode OR n:Taxonomy OR n:Topic OR n:Subtopic
-      RETURN n
-    `;
-    edgeQuery = `
-      MATCH (a)-[r]->(b)
-      WHERE type(r) IN ['HAS_CHILD', 'BELONGS_TO', 'RELATED_TO', 'DEPENDS_ON', 'DEFINED_BY', 'REQUIRES', 'SUPPORTED_BY']
-      RETURN r, a.id AS source, b.id AS target
-    `;
-  }
+  const { nodeQuery, edgeQuery } = buildPerspectiveQueries(id);
 
   const nodes = await runQuery(nodeQuery);
   const edges = await runQuery(edgeQuery);

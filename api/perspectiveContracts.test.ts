@@ -1,28 +1,33 @@
 import { describe, expect, test } from 'bun:test';
+import { buildPerspectiveQueries, buildSearchTypeFilter } from './index';
 
-describe('perspective contract guards', () => {
-  test('taxonomy perspective query remains constrained to taxonomy hierarchy plus concepts', () => {
-    const taxonomyEdgeQuery = `
-      MATCH (a)-[r:HAS_CHILD|BELONGS_TO]->(b)
-      WHERE (a:Taxonomy OR a:Topic OR a:Subtopic OR (a:CanonicalNode AND a.type = 'concept'))
-        AND (b:Taxonomy OR b:Topic OR b:Subtopic OR (b:CanonicalNode AND b.type = 'concept'))
-      RETURN r, a.id AS source, b.id AS target
-    `;
-
-    expect(taxonomyEdgeQuery).toContain("a.type = 'concept'");
-    expect(taxonomyEdgeQuery).toContain("b.type = 'concept'");
-    expect(taxonomyEdgeQuery).not.toContain("c.type <> 'taxonomy'");
+describe('perspective contract builders', () => {
+  test('taxonomy search filter includes concepts', () => {
+    const filter = buildSearchTypeFilter('taxonomy');
+    expect(filter).toContain('c:Taxonomy');
+    expect(filter).toContain('c.type = "concept"');
   });
 
-  test('evidence perspective query remains constrained to concept support edges', () => {
-    const evidenceEdgeQuery = `
-      MATCH (a:CanonicalNode)-[r:SUPPORTED_BY]->(b:EvidenceSpan)
-      WHERE a.type = 'concept'
-      RETURN r, a.id AS source, b.id AS target
-    `;
+  test('evidence search filter constrains to concept and evidence nodes', () => {
+    const filter = buildSearchTypeFilter('evidence');
+    expect(filter).toContain('c:EvidenceSpan');
+    expect(filter).toContain('c.type = "concept"');
+    expect(filter).toContain('c.type = "evidence_span"');
+    expect(filter).not.toContain('"rule"');
+  });
 
-    expect(evidenceEdgeQuery).toContain("SUPPORTED_BY");
-    expect(evidenceEdgeQuery).toContain("a.type = 'concept'");
-    expect(evidenceEdgeQuery).toContain('(b:EvidenceSpan)');
+  test('taxonomy perspective queries constrain canonical nodes to concepts', () => {
+    const { nodeQuery, edgeQuery } = buildPerspectiveQueries('taxonomy');
+    expect(nodeQuery).toContain("MATCH (c:CanonicalNode) WHERE c.type = 'concept'");
+    expect(edgeQuery).toContain("a.type = 'concept'");
+    expect(edgeQuery).toContain("b.type = 'concept'");
+    expect(nodeQuery).not.toContain("c.type <> 'taxonomy'");
+  });
+
+  test('evidence perspective queries constrain support edges to concept -> EvidenceSpan', () => {
+    const { nodeQuery, edgeQuery } = buildPerspectiveQueries('evidence');
+    expect(nodeQuery).toContain("MATCH (c:CanonicalNode)-[:SUPPORTED_BY]->(e:EvidenceSpan)");
+    expect(edgeQuery).toContain("MATCH (a:CanonicalNode)-[r:SUPPORTED_BY]->(b:EvidenceSpan)");
+    expect(edgeQuery).toContain("a.type = 'concept'");
   });
 });
