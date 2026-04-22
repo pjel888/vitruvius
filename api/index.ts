@@ -105,9 +105,9 @@ app.get('/search', async (c) => {
   if (perspective === 'concepts') {
     typeFilter = 'AND c.type IN ["concept", "rule", "definition", "procedure", "exception"]';
   } else if (perspective === 'taxonomy') {
-    typeFilter = 'AND (c:Taxonomy OR c:Topic OR c:Subtopic)';
+    typeFilter = 'AND (c:Taxonomy OR c:Topic OR c:Subtopic OR c.type = "concept")';
   } else if (perspective === 'evidence') {
-    typeFilter = 'AND (c:EvidenceSpan OR c.type IN ["concept", "rule"] OR c.type = "evidence_span")';
+    typeFilter = 'AND (c:EvidenceSpan OR c.type = "concept" OR c.type = "evidence_span")';
   } else if (perspective === 'regulatory') {
     typeFilter = 'AND c.type IN ["rule", "concept"]';
   }
@@ -119,7 +119,7 @@ app.get('/search', async (c) => {
       ${typeFilter}
     RETURN c.id AS id,
            coalesce(c.label, c.quote, c.normalized_text, c.id) AS label,
-           c.type AS type,
+           coalesce(c.type, c.kind, CASE WHEN c:EvidenceSpan THEN 'evidence_span' ELSE null END) AS type,
            c.kind AS kind
     LIMIT $limit
   `, { q: q.toLowerCase(), limit: neo4j.int(limit) });
@@ -507,7 +507,7 @@ app.get('/perspective/:id/nodes', async (c) => {
       MATCH (n) WHERE n:Taxonomy OR n:Topic OR n:Subtopic OR (n:CanonicalNode AND n.type = 'taxonomy')
       RETURN n
       UNION
-      MATCH (c:CanonicalNode) WHERE c.type <> 'taxonomy'
+      MATCH (c:CanonicalNode) WHERE c.type = 'concept'
       RETURN c AS n
       LIMIT 50
     `;
@@ -529,6 +529,7 @@ app.get('/perspective/:id/nodes', async (c) => {
   } else if (id === 'evidence') {
     nodeQuery = `
       MATCH (c:CanonicalNode)-[:SUPPORTED_BY]->(e:EvidenceSpan)
+      WHERE c.type = 'concept'
       RETURN c
       UNION
       MATCH (e:EvidenceSpan)

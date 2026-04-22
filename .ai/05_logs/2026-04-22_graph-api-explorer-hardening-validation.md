@@ -74,6 +74,9 @@ Result:
 - `/scenes` returned stable scene list payloads
 - `/search` returned successful concept results instead of 500
 - `/taxonomy` returned the hierarchy successfully after bulk-query refactor
+- taxonomy search now includes concepts, matching the documented taxonomy perspective contract
+- evidence search and evidence perspective now constrain canonical nodes to `concept` plus `evidence_span`, matching the documented Evidence Map contract
+- evidence search now returns `evidence_span` as the type for evidence nodes instead of collapsing them to `unknown`
 
 ### 4. Browser QA
 
@@ -93,6 +96,7 @@ Validated in the running explorer:
 
 - The Graph API / explorer lane now has durable scene storage, working scene lifecycle controls, and a bounded evidence-first path.
 - The previous query/search failure mode and stale-scene failure mode were removed.
+- Perspective contracts between the explorer docs and the API filters/queries are now aligned for taxonomy and evidence.
 - The highest-leverage performance cleanup in this lane was API-side query fanout reduction, not a Rust migration.
 
 ## Deferred follow-on

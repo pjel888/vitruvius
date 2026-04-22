@@ -11,13 +11,13 @@
 
 ## Execution Note — 2026-04-21 (Autonomous implementation run)
 
-- **Selected focus:** finish the highest-leverage control-surface slice by slimming active plan families and removing invalid plan references from the live index.
+- **Selected focus (completed):** finish the highest-leverage control-surface slice by slimming active plan families and removing invalid plan references from the live index.
 - **Why this was chosen:** active-roadmap consistency depends on the plan index; keeping invalid or overly broad “active” entries causes execution misrouting in later sessions.
-- **Expected deliverables:**
+- **Expected deliverables (completed):**
   1. active AEC plan family reduced to a minimal execution-readiness packet,
   2. broken plan-path references removed from live docs,
   3. roadmap/state statuses reconciled so completed cleanup work no longer presents as active.
-- **Validation plan:**
+- **Validation plan used:**
   1. grep checks for broken/stale active references,
   2. targeted pytest smoke commands,
   3. post-change consistency read of `ACTIVE_WORK.md`, `current-phase.md`, `master-roadmap.md`, and `03_plans/INDEX.md`.
