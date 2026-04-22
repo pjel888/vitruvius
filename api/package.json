@@ -2,6 +2,9 @@
   "name": "api",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "test": "bun test"
+  },
   "private": true,
   "devDependencies": {
     "@types/bun": "latest"
