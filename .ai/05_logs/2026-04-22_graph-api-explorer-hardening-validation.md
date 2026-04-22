@@ -46,7 +46,7 @@ cd api && bun test
 ```
 
 Result:
-- `5 pass`
+- `7 pass`
 - `0 fail`
 
 ### 2. Explorer production build
