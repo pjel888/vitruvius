@@ -77,6 +77,7 @@ Result:
 - taxonomy search now includes concepts, matching the documented taxonomy perspective contract
 - evidence search and evidence perspective now constrain canonical nodes to `concept` plus `evidence_span`, matching the documented Evidence Map contract
 - evidence search now returns `evidence_span` as the type for evidence nodes instead of collapsing them to `unknown`
+- taxonomy and evidence **edge** queries are now constrained to the documented perspective node families instead of returning broader relationship sets
 
 ### 4. Browser QA
 
@@ -97,6 +98,7 @@ Validated in the running explorer:
 - The Graph API / explorer lane now has durable scene storage, working scene lifecycle controls, and a bounded evidence-first path.
 - The previous query/search failure mode and stale-scene failure mode were removed.
 - Perspective contracts between the explorer docs and the API filters/queries are now aligned for taxonomy and evidence.
+- A focused API regression test now guards the taxonomy/evidence perspective contracts.
 - The highest-leverage performance cleanup in this lane was API-side query fanout reduction, not a Rust migration.
 
 ## Deferred follow-on

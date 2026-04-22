@@ -512,6 +512,8 @@ app.get('/perspective/:id/nodes', async (c) => {
     `;
     edgeQuery = `
       MATCH (a)-[r:HAS_CHILD|BELONGS_TO]->(b)
+      WHERE (a:Taxonomy OR a:Topic OR a:Subtopic OR (a:CanonicalNode AND a.type = 'concept'))
+        AND (b:Taxonomy OR b:Topic OR b:Subtopic OR (b:CanonicalNode AND b.type = 'concept'))
       RETURN r, a.id AS source, b.id AS target
     `;
   } else if (id === 'regulatory') {
@@ -536,7 +538,8 @@ app.get('/perspective/:id/nodes', async (c) => {
       LIMIT 150
     `;
     edgeQuery = `
-      MATCH (a)-[r:SUPPORTED_BY]->(b)
+      MATCH (a:CanonicalNode)-[r:SUPPORTED_BY]->(b:EvidenceSpan)
+      WHERE a.type = 'concept'
       RETURN r, a.id AS source, b.id AS target
     `;
   } else {
