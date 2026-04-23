@@ -233,16 +233,141 @@ ollama pull qwen2.5:3b
 
 ### Optional cloud adjudication
 
-Vitruvius remains **local-first by default**. The local Ollama review path is still the baseline.
+Vitruvius remains **local-first by default**.
 
-If you want a stronger second opinion for relationship review, you can enable the optional cloud adjudication layer in `config/vitruvius.yaml` under `review.cloud`.
+That means:
+- the normal relationship-review path stays on **local Ollama**
+- **cloud adjudication is off unless you explicitly enable it**
+- promotion and canonical truth rules still apply either way
 
-- `enabled: false` keeps the current local-only behavior
-- `provider: openai_compatible` supports OpenAI-compatible endpoints (useful for Codex/Kimi-style APIs)
-- `provider: gemini` uses Gemini's direct API path
-- `api_key_env` controls which environment variable supplies the cloud API key
-- only low-confidence, `review_further`, or high-occurrence candidates are selected for cloud adjudication
-- the original local review is preserved in provenance; cloud review is an optional adjudication layer, not a silent replacement of the governed path
+### What AI is doing today
+
+There are two different AI roles in the pipeline, and they are easy to mix up:
+
+1. **Local review / adjudication models**
+   - These are the models used to decide `keep`, `review_further`, or `reject` for extracted relationship candidates.
+   - The default local review model is currently `llama3.1:8b` through Ollama.
+   - Other local presets can use `qwen2.5:3b` (lighter) or `gemma4:31b` (higher quality).
+
+2. **Embedding / retrieval models**
+   - These are not the same thing as the reviewer.
+   - `nomic-embed-text` is used for embeddings/retrieval-style work, not for adjudicating relationship decisions.
+
+So, in short: **local Ollama review is the baseline**, and **cloud models are optional second opinions**, not replacements.
+
+### When cloud adjudication runs
+
+If enabled, cloud adjudication is selective. It is only asked to review candidates that are more likely to benefit from a stronger second opinion, such as:
+- candidates already marked `review_further`
+- low-confidence local verdicts
+- higher-value candidates with more occurrences/evidence pressure
+
+This means you do **not** pay for cloud review on every relationship candidate.
+
+### What happens when cloud adjudication is enabled
+
+Vitruvius does **not** let a cloud model silently overwrite truth.
+
+Instead, the flow is:
+1. local Ollama produces the baseline review
+2. optional cloud adjudication reviews only selected candidates
+3. both the local and cloud provenance are preserved in the review/promotion path
+4. promotion gates still decide what can become canonical relationship truth
+
+If the cloud call fails, the pipeline stays safe: the local-first path remains intact and the failure is recorded rather than breaking the whole run.
+
+### How to enable it
+
+Edit `config/vitruvius.yaml` under `review.cloud`.
+
+Default local-only configuration:
+
+```yaml
+review:
+  cloud:
+    enabled: false
+    provider: openai_compatible
+    model: ""
+    api_base_url: ""
+    api_key_env: VITRUVIUS_CLOUD_API_KEY
+    timeout_seconds: 60
+    prefer_adjudicated_decision: true
+    low_confidence_threshold: 0.90
+    high_value_occurrences_threshold: 3
+```
+
+This keeps everything local.
+
+### OpenAI-compatible setup (Codex / Kimi-style providers)
+
+Use this when your provider exposes an OpenAI-compatible `chat/completions` API.
+
+```yaml
+review:
+  cloud:
+    enabled: true
+    provider: openai_compatible
+    model: "gpt-5"
+    api_base_url: "https://api.openai.com/v1"
+    api_key_env: VITRUVIUS_CLOUD_API_KEY
+    timeout_seconds: 60
+    prefer_adjudicated_decision: true
+    low_confidence_threshold: 0.90
+    high_value_occurrences_threshold: 3
+```
+
+Then export the key in your shell:
+
+```bash
+export VITRUVIUS_CLOUD_API_KEY="your-api-key"
+```
+
+If you are using a Kimi-compatible endpoint, change only `api_base_url` and `model` to match that provider.
+
+### Gemini setup
+
+Use this when you want the optional second opinion to come from Gemini directly.
+
+```yaml
+review:
+  cloud:
+    enabled: true
+    provider: gemini
+    model: "gemini-2.5-pro"
+    api_base_url: ""
+    api_key_env: GEMINI_API_KEY
+    timeout_seconds: 60
+    prefer_adjudicated_decision: true
+    low_confidence_threshold: 0.90
+    high_value_occurrences_threshold: 3
+```
+
+Then export the Gemini key:
+
+```bash
+export GEMINI_API_KEY="your-api-key"
+```
+
+### What the settings mean
+
+- `enabled` — turns cloud adjudication on or off
+- `provider` — `openai_compatible` or `gemini`
+- `model` — the cloud model name to call
+- `api_base_url` — only needed for OpenAI-compatible providers
+- `api_key_env` — which environment variable contains the API key
+- `timeout_seconds` — network timeout for the cloud call
+- `prefer_adjudicated_decision` — whether the cloud decision becomes the effective review when the call succeeds
+- `low_confidence_threshold` — below this local confidence, the candidate is eligible for cloud review
+- `high_value_occurrences_threshold` — candidates with this many or more occurrences are eligible for cloud review even if they are not low-confidence
+
+### Practical recommendation
+
+If you want the safest path:
+- keep `enabled: false` while you are iterating locally
+- turn it on only for higher-value review runs
+- use local review as the baseline, and treat cloud adjudication as a quality upgrade layer
+
+That gives you the best of both worlds: **local-first control** plus **better second-opinion quality when you want it**.
 
 ### 7. (Optional) Rust toolchain
 
