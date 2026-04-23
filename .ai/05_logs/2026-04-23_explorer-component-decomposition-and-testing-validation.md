@@ -19,6 +19,7 @@ Validate the bounded explorer UI/UX slice that:
 ## Files validated
 
 - `explorer/src/components/CommandBar.tsx`
+- `explorer/src/App.tsx`
 - `explorer/src/components/ExplorerRail.tsx`
 - `explorer/src/components/graph/QueryPanel.tsx`
 - `explorer/src/components/command-bar/PerspectiveSwitcher.tsx`
@@ -28,6 +29,7 @@ Validate the bounded explorer UI/UX slice that:
 - `explorer/src/components/query-panel/QueryTemplatesSection.tsx`
 - `explorer/src/components/query-panel/StoredQueriesSection.tsx`
 - `explorer/src/components/componentInteraction.test.tsx`
+- `explorer/src/app.searchInspector.integration.test.tsx`
 
 ## Validation checks
 
@@ -38,10 +40,10 @@ cd explorer && bun test
 ```
 
 Result:
-- `18 pass`
+- `19 pass`
 - `0 fail`
 - component-level interaction coverage now exists for the newly extracted command-bar, explorer-rail, and query-panel pieces
-- the explorer test suite now also covers the query panel integration path alongside the extracted UI pieces
+- the explorer test suite now also covers the query panel integration path and the `?node=` inspector population path alongside the extracted UI pieces
 
 ### 2. Explorer production build
 
@@ -59,6 +61,7 @@ Validated in the running explorer at `http://localhost:5173/explore`:
 - entering `Fire Life Safety` in the top search showed a live result and selecting it opened a populated inspector state
 - the extracted filter panel rendered correctly with `Color Scheme`, `Node types`, and `Edge types`
 - the query panel still exposed `Templates (3)`, `Saved Queries`, and `Recent Queries`
+- the `?node=taxonomy-fire-life-safety` route now populates the inspector instead of clearing back to the empty state
 
 Observed runtime outputs:
 

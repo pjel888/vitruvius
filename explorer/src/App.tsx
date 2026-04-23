@@ -10,7 +10,7 @@ import InspectorRail from './components/InspectorRail';
 import HomeScreen from './components/HomeScreen';
 import BottomDrawer from './components/BottomDrawer';
 
-function ExploreView() {
+export function ExploreView() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const consumedPreloadRef = useRef(false);
