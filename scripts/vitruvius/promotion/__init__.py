@@ -150,7 +150,13 @@ def _load_high_confidence(repo_root: Path, input_path: Path | None = None) -> li
     if not path.exists():
         return []
     payload = json.loads(path.read_text(encoding="utf-8"))
-    return payload.get("candidates", [])
+    source_model = payload.get("source_model")
+    candidates = []
+    for candidate in payload.get("candidates", []):
+        envelope = dict(candidate)
+        envelope.setdefault("source_model", source_model)
+        candidates.append(envelope)
+    return candidates
 
 
 def _candidate_to_record(

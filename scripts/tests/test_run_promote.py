@@ -174,3 +174,16 @@ def test_execute_preserves_cloud_reviewer_provenance(tmp_path):
     assert "reviewer_model: gemini-2.5-pro" in text
     assert "reviewer_provider: gemini" in text
     assert "local_review_decision: review_further" in text
+
+
+def test_execute_preserves_local_reviewer_provenance(tmp_path):
+    _seed_canonical_tree(tmp_path)
+    _seed_high_conf_file(tmp_path)
+
+    result = run_promote_inner(repo_root=tmp_path, execute=True, rollback_batch_id=None)
+    assert result["created"] == 1
+    rels_dir = tmp_path / "003_Canonical-Knowledge-Layer" / "shared" / "relationships"
+    created = [p for p in rels_dir.iterdir() if p.name.startswith("rel-")]
+    text = created[0].read_text(encoding="utf-8")
+    assert "reviewer_model: gemma4:31b" in text
+    assert "reviewer_provider: ollama" in text

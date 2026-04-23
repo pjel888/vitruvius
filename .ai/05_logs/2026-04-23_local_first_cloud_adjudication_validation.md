@@ -45,8 +45,8 @@ python3 -m pytest scripts/tests/test_cloud_review_adjudication.py scripts/tests/
 ```
 
 Result:
-- `36 passed`
-- confirms the new cloud adjudication tests, Gemini provider routing, promotion provenance, and the existing review/config wiring all behave after the optional cloud layer was added
+- `37 passed`
+- confirms the new cloud adjudication tests, Gemini provider routing, local and cloud promotion provenance, and the existing review/config wiring all behave after the optional cloud layer was added
 - raw log saved to `/.ai/05_logs/2026-04-23_cloud-adjudication-pytest.log`
 
 ### 3. Manual QA — config load / default local-first path
@@ -113,6 +113,7 @@ Interpretation:
 - promotion no longer hardcodes `reviewer_model: gemma4:31b` for cloud-adjudicated records
 - effective reviewer model/provider now flows through promotion evidence
 - local review provenance is retained alongside the effective review decision for auditability
+- the default local/Ollama path now also carries `source_model` into each high-confidence candidate envelope so promoted records no longer degrade to `reviewer_model: unknown`
 
 ## Deferred follow-on
 

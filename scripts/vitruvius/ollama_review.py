@@ -895,7 +895,9 @@ def write_high_confidence_review(
     for item in report.get("reviews", []):
         review = item.get("review", {})
         if review.get("decision") == "keep" and float(review.get("confidence", 0.0)) >= threshold:
-            high_conf.append(item)
+            envelope = dict(item)
+            envelope.setdefault("source_model", report.get("model"))
+            high_conf.append(envelope)
 
     payload = {
         "generated_at": utc_now_stamp(),
