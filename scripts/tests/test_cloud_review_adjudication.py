@@ -1,5 +1,6 @@
 from vitruvius.cloud_review_adjudication import (
     apply_cloud_adjudication,
+    call_cloud_adjudicator,
     should_escalate_to_cloud,
 )
 
@@ -97,3 +98,14 @@ def test_apply_cloud_adjudication_recomputes_summary_when_cloud_fails(monkeypatc
     )
     assert updated["summary"]["review_further"] == 1
     assert updated["summary"]["keep"] == 0
+
+
+def test_call_cloud_adjudicator_routes_gemini(monkeypatch):
+    from vitruvius import cloud_review_adjudication as cra
+
+    monkeypatch.setattr(cra, "_call_gemini", lambda **_: '{"decision":"keep","confidence":0.91,"reason":"gemini","suggested_type":null}')
+    result = call_cloud_adjudicator(
+        prompt="hi",
+        settings={"provider": "gemini", "model": "gemini-2.5-pro", "api_key": "secret", "timeout_seconds": 30},
+    )
+    assert '"decision":"keep"' in result

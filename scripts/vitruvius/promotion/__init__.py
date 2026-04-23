@@ -163,6 +163,14 @@ def _candidate_to_record(
     candidate = candidate_envelope["candidate"]
     review = candidate_envelope["review"]
 
+    cloud_meta = candidate_envelope.get("cloud_adjudication") or {}
+    cloud_review = candidate_envelope.get("cloud_review") or {}
+    local_review = candidate_envelope.get("local_review") or review
+    reviewer_model = cloud_review.get("source") == "cloud_adjudicator" and cloud_meta.get("model") or candidate_envelope.get("source_model") or "unknown"
+    reviewer_provider = cloud_meta.get("provider") if cloud_meta.get("status") == "applied" else "ollama"
+    if cloud_meta.get("status") != "applied":
+        reviewer_model = candidate_envelope.get("source_model") or "unknown"
+
     from_entity = candidate["from"]
     to_entity = candidate["to"]
     predicate = candidate["type"]
@@ -183,9 +191,12 @@ def _candidate_to_record(
         "source_section_id": section_id,
         "evidence_snippet": snippet,
         "review_decision": review["decision"],
-        "reviewer_model": "gemma4:31b",
+        "reviewer_model": reviewer_model,
+        "reviewer_provider": reviewer_provider,
         "reviewer_confidence": float(review["confidence"]),
         "reviewer_reason": review.get("reason", ""),
+        "local_review_decision": local_review.get("decision"),
+        "local_reviewer_confidence": float(local_review.get("confidence", 0.0)) if local_review else 0.0,
         "extracted_at_utc": utc_now_stamp(),
         "reviewed_at_utc": utc_now_stamp(),
     }

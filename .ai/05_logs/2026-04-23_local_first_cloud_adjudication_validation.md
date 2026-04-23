@@ -43,8 +43,8 @@ python3 -m pytest scripts/tests/test_cloud_review_adjudication.py scripts/tests/
 ```
 
 Result:
-- `30 passed`
-- confirms the new cloud adjudication tests and the existing review/config wiring all behave after the optional cloud layer was added
+- `36 passed`
+- confirms the new cloud adjudication tests, Gemini provider routing, promotion provenance, and the existing review/config wiring all behave after the optional cloud layer was added
 - raw log saved to `/.ai/05_logs/2026-04-23_cloud-adjudication-pytest.log`
 
 ### 3. Manual QA — config load / default local-first path
@@ -93,6 +93,24 @@ Observed outcome:
 - a low-confidence, high-occurrence local review candidate was selected for cloud adjudication
 - the cloud adjudication summary reported `selected_count: 1`
 - the runtime path remained non-destructive even when the external call failed, recording `failed_count: 1` instead of breaking the local-first pipeline
+
+## Manual QA — Gemini provider routing exercise
+
+Observed output:
+
+```json
+{"decision":"keep","confidence":0.91,"reason":"gemini","suggested_type":null}
+```
+
+Interpretation:
+- the Gemini provider branch is reachable through the shared cloud adjudicator interface
+- provider-specific responses normalize back into the governed review JSON surface
+
+## Promotion provenance checkpoint
+
+- promotion no longer hardcodes `reviewer_model: gemma4:31b` for cloud-adjudicated records
+- effective reviewer model/provider now flows through promotion evidence
+- local review provenance is retained alongside the effective review decision for auditability
 
 ## Deferred follow-on
 

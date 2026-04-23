@@ -113,3 +113,64 @@ def test_idempotent_file_bytes_unchanged(tmp_path):
     second_bytes = {p.name: p.read_bytes() for p in rels_dir.iterdir() if p.name.startswith("rel-")}
 
     assert first_bytes == second_bytes
+
+
+def test_execute_preserves_cloud_reviewer_provenance(tmp_path):
+    _seed_canonical_tree(tmp_path)
+    runs = tmp_path / "006_System-Manifests" / "runs"
+    runs.mkdir(parents=True)
+    payload = {
+        "generated_at": "20260414T030000Z",
+        "source_report_generated_at": "20260414T025500Z",
+        "source_model": "llama3.1:8b",
+        "source": "pd-1096",
+        "threshold": 0.90,
+        "count": 1,
+        "candidates": [
+            {
+                "candidate": {
+                    "from": "law-pd-1096",
+                    "type": "governs",
+                    "to": "concept-fire-resistive-construction",
+                    "occurrences": 4,
+                    "sections": ["sec-701"],
+                    "examples": ["Every building shall be classified..."],
+                },
+                "local_review": {
+                    "decision": "review_further",
+                    "confidence": 0.40,
+                    "reason": "local uncertain",
+                    "suggested_type": None,
+                },
+                "review": {
+                    "decision": "keep",
+                    "confidence": 0.95,
+                    "reason": "cloud keep",
+                    "suggested_type": None,
+                },
+                "cloud_review": {
+                    "decision": "keep",
+                    "confidence": 0.95,
+                    "reason": "cloud keep",
+                    "suggested_type": None,
+                    "source": "cloud_adjudicator",
+                },
+                "cloud_adjudication": {
+                    "provider": "gemini",
+                    "model": "gemini-2.5-pro",
+                    "selected": True,
+                    "status": "applied",
+                },
+            }
+        ],
+    }
+    (runs / "latest_relationship_review_high_confidence.json").write_text(json.dumps(payload), encoding="utf-8")
+
+    result = run_promote_inner(repo_root=tmp_path, execute=True, rollback_batch_id=None)
+    assert result["created"] == 1
+    rels_dir = tmp_path / "003_Canonical-Knowledge-Layer" / "shared" / "relationships"
+    created = [p for p in rels_dir.iterdir() if p.name.startswith("rel-")]
+    text = created[0].read_text(encoding="utf-8")
+    assert "reviewer_model: gemini-2.5-pro" in text
+    assert "reviewer_provider: gemini" in text
+    assert "local_review_decision: review_further" in text
