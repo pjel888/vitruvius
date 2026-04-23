@@ -1,9 +1,10 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronRight, ChevronDown, FolderTree, Filter, Palette, CircleDot } from 'lucide-react';
+import { ChevronRight, ChevronDown, FolderTree, Filter } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import { getTaxonomy } from '../api/graphApi';
 import type { TaxonomyNode } from '../types';
+import FiltersPanel from './explorer-rail/FiltersPanel';
 
 function TreeItem({ node, depth = 0, navigate }: { node: TaxonomyNode; depth?: number; navigate: ReturnType<typeof useNavigate> }) {
   const [open, setOpen] = useState(depth < 1);
@@ -75,7 +76,7 @@ const COLOR_SCHEMES = [
   { key: 'monochrome', label: 'Monochrome' },
 ];
 
-const SIZE_OPTIONS = [
+const SIZE_OPTIONS: Array<{ key: 'uniform' | 'confidence' | 'degree'; label: string }> = [
   { key: 'uniform', label: 'Uniform' },
   { key: 'confidence', label: 'By Confidence' },
   { key: 'degree', label: 'By Connectivity' },
@@ -163,90 +164,20 @@ export default function ExplorerRail() {
       </div>
 
       {showFilters && (
-        <div className="px-3 py-2 border-b border-border space-y-4 max-h-[60vh] overflow-y-auto">
-          {/* Color scheme */}
-          <div>
-            <div className="flex items-center gap-1.5 text-xs font-medium text-text-dim mb-1.5">
-              <Palette size={12} />
-              Color Scheme
-            </div>
-            <div className="grid grid-cols-2 gap-1">
-              {COLOR_SCHEMES.map(scheme => (
-                <button
-                  key={scheme.key}
-                  onClick={() => setColorScheme(scheme.key)}
-                  className={`px-2 py-1 text-xs rounded border transition-colors ${
-                    colorScheme === scheme.key
-                      ? 'bg-accent/20 border-accent text-accent'
-                      : 'border-border text-text-dim hover:text-text hover:border-text-dim'
-                  }`}
-                >
-                  {scheme.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Size by */}
-          <div>
-            <div className="flex items-center gap-1.5 text-xs font-medium text-text-dim mb-1.5">
-              <CircleDot size={12} />
-              Node Size
-            </div>
-            <div className="grid grid-cols-3 gap-1">
-              {SIZE_OPTIONS.map(opt => (
-                <button
-                  key={opt.key}
-                  onClick={() => setSizeBy(opt.key as any)}
-                  className={`px-2 py-1 text-xs rounded border transition-colors ${
-                    sizeBy === opt.key
-                      ? 'bg-accent/20 border-accent text-accent'
-                      : 'border-border text-text-dim hover:text-text hover:border-text-dim'
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Node type filters */}
-          <div>
-            <div className="text-xs font-medium text-text-dim mb-1.5">Node types</div>
-            <div className="space-y-1">
-              {NODE_TYPES.map(nt => (
-                <label key={nt.key} className="flex items-center gap-2 text-sm cursor-pointer hover:text-text transition-colors">
-                  <input
-                    type="checkbox"
-                    checked={visibleNodeTypes.has(nt.key)}
-                    onChange={() => toggleNodeType(nt.key)}
-                    className="rounded border-border accent-accent"
-                  />
-                  <span className={`w-2 h-2 rounded-full ${nt.color}`} />
-                  <span className="truncate">{nt.label}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-
-          {/* Edge type filters */}
-          <div>
-            <div className="text-xs font-medium text-text-dim mb-1.5">Edge types</div>
-            <div className="space-y-1">
-              {EDGE_TYPES.map(et => (
-                <label key={et.key} className="flex items-center gap-2 text-sm cursor-pointer hover:text-text transition-colors">
-                  <input
-                    type="checkbox"
-                    checked={visibleEdgeTypes.has(et.key)}
-                    onChange={() => toggleEdgeType(et.key)}
-                    className="rounded border-border accent-accent"
-                  />
-                  <span className="truncate">{et.label}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        </div>
+        <FiltersPanel
+          colorScheme={colorScheme}
+          sizeBy={sizeBy}
+          visibleNodeTypes={visibleNodeTypes}
+          visibleEdgeTypes={visibleEdgeTypes}
+          colorSchemes={COLOR_SCHEMES}
+          sizeOptions={SIZE_OPTIONS}
+          nodeTypes={NODE_TYPES}
+          edgeTypes={EDGE_TYPES}
+          onSelectColorScheme={setColorScheme}
+          onSelectSizeBy={setSizeBy}
+          onToggleNodeType={toggleNodeType}
+          onToggleEdgeType={toggleEdgeType}
+        />
       )}
 
       {pinnedNodes.length > 0 && (

@@ -1,9 +1,11 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { Play, X, Terminal, AlertCircle, CheckCircle2, BookmarkPlus, History, Copy, Trash2 } from 'lucide-react';
+import { Play, X, Terminal, AlertCircle, CheckCircle2, BookmarkPlus, History, Copy } from 'lucide-react';
 import { runCypherQuery } from '../../api/graphApi';
 import type { GraphController } from './VisNetworkHost';
 import { useSceneStore } from '../../stores/useSceneStore';
 import { getQueryResultSummary, QUERY_TEMPLATES, upsertStoredQueries } from '../../utils/explorerRuntime';
+import QueryTemplatesSection from '../query-panel/QueryTemplatesSection';
+import StoredQueriesSection from '../query-panel/StoredQueriesSection';
 
 const RECENT_QUERIES_KEY = 'vitruvius.explorer.recentQueries';
 const SAVED_QUERIES_KEY = 'vitruvius.explorer.savedQueries';
@@ -219,91 +221,21 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
         </div>
       )}
 
-      <div className="px-3 pb-3">
-        <details className="text-xs text-text-dim">
-          <summary className="cursor-pointer hover:text-text transition-colors">Templates ({QUERY_TEMPLATES.length})</summary>
-          <div className="mt-1 space-y-1 pl-2">
-            {QUERY_TEMPLATES.map((template) => (
-              <div key={template.label} className="flex items-center justify-between gap-2">
-                <button
-                  onClick={() => handleTemplateSelect(template.query)}
-                  className="block flex-1 text-left hover:text-accent transition-colors"
-                >
-                  {template.label}
-                </button>
-                <button
-                  onClick={() => void handleTemplateRun(template.query)}
-                  className="text-[10px] uppercase tracking-wider text-text-dim hover:text-accent transition-colors"
-                >
-                  Run
-                </button>
-              </div>
-            ))}
-          </div>
-        </details>
-      </div>
-
-      {savedQueries.length > 0 && (
-        <div className="px-3 pb-3">
-          <details className="text-xs text-text-dim" open>
-            <summary className="cursor-pointer hover:text-text transition-colors flex items-center gap-1">
-              <BookmarkPlus size={12} />
-              Saved Queries
-            </summary>
-            <div className="mt-1 space-y-1 pl-2">
-              {savedQueries.map((savedQuery) => (
-                <div key={savedQuery} className="flex items-center gap-2">
-                  <button
-                    onClick={() => setQuery(savedQuery)}
-                    className="block flex-1 text-left truncate hover:text-accent transition-colors"
-                    title={savedQuery}
-                  >
-                    {savedQuery}
-                  </button>
-                  <button
-                    onClick={() => removeSavedQuery(savedQuery)}
-                    className="text-text-dim hover:text-red-400 transition-colors"
-                    title="Delete saved query"
-                  >
-                    <Trash2 size={12} />
-                  </button>
-                </div>
-              ))}
-            </div>
-          </details>
-        </div>
-      )}
-
-      {recentQueries.length > 0 && (
-        <div className="px-3 pb-3">
-          <details className="text-xs text-text-dim" open>
-            <summary className="cursor-pointer hover:text-text transition-colors flex items-center gap-1">
-              <History size={12} />
-              Recent Queries
-            </summary>
-            <div className="mt-1 space-y-1 pl-2">
-              {recentQueries.map((recentQuery) => (
-                <div key={recentQuery} className="flex items-center gap-2">
-                  <button
-                    onClick={() => setQuery(recentQuery)}
-                    className="block flex-1 text-left truncate hover:text-accent transition-colors"
-                    title={recentQuery}
-                  >
-                    {recentQuery}
-                  </button>
-                  <button
-                    onClick={() => removeRecentQuery(recentQuery)}
-                    className="text-text-dim hover:text-red-400 transition-colors"
-                    title="Delete recent query"
-                  >
-                    <Trash2 size={12} />
-                  </button>
-                </div>
-              ))}
-            </div>
-          </details>
-        </div>
-      )}
+      <QueryTemplatesSection templates={QUERY_TEMPLATES} onSelectTemplate={handleTemplateSelect} onRunTemplate={(query) => void handleTemplateRun(query)} />
+      <StoredQueriesSection
+        title="Saved Queries"
+        icon={<BookmarkPlus size={12} />}
+        queries={savedQueries}
+        onSelect={setQuery}
+        onDelete={removeSavedQuery}
+      />
+      <StoredQueriesSection
+        title="Recent Queries"
+        icon={<History size={12} />}
+        queries={recentQueries}
+        onSelect={setQuery}
+        onDelete={removeRecentQuery}
+      />
     </div>
   );
 }
