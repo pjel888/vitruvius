@@ -22,6 +22,9 @@ Validate the bounded explorer UI/UX slice that:
 - `explorer/src/App.tsx`
 - `explorer/src/components/ExplorerRail.tsx`
 - `explorer/src/components/graph/QueryPanel.tsx`
+- `explorer/src/stores/useSceneStore.ts`
+- `explorer/src/utils/explorerRuntime.ts`
+- `explorer/src/utils/explorerRuntime.test.ts`
 - `explorer/src/components/command-bar/PerspectiveSwitcher.tsx`
 - `explorer/src/components/command-bar/SearchCombobox.tsx`
 - `explorer/src/components/command-bar/SceneMenu.tsx`
@@ -29,6 +32,7 @@ Validate the bounded explorer UI/UX slice that:
 - `explorer/src/components/query-panel/QueryTemplatesSection.tsx`
 - `explorer/src/components/query-panel/StoredQueriesSection.tsx`
 - `explorer/src/components/componentInteraction.test.tsx`
+- `explorer/src/components/queryPanel.integration.test.tsx`
 - `explorer/src/app.searchInspector.integration.test.tsx`
 
 ## Validation checks
