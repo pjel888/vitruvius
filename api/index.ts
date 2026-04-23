@@ -271,24 +271,42 @@ app.get('/search', async (c) => {
   const records = await runQuery(`
     MATCH (c)
     WHERE (c:CanonicalNode OR c:Taxonomy OR c:Topic OR c:Subtopic OR c:EvidenceSpan)
-      AND (toLower(coalesce(c.label, c.quote, c.normalized_text, c.id)) CONTAINS $q OR toLower(c.id) CONTAINS $q)
+      AND (
+        toLower(coalesce(c.label, c.quote, c.normalized_text, c.id)) CONTAINS $q
+        OR toLower(c.id) CONTAINS $q
+        OR toLower(coalesce(c.slug, '')) CONTAINS $q
+        OR any(alias IN coalesce(c.aliases, []) WHERE toLower(alias) CONTAINS $q)
+      )
       ${typeFilter}
     RETURN c.id AS id,
            coalesce(c.label, c.quote, c.normalized_text, c.id) AS label,
            coalesce(c.type, c.kind, CASE WHEN c:EvidenceSpan THEN 'evidence_span' ELSE null END) AS type,
-           c.kind AS kind
+           c.kind AS kind,
+           c.slug AS slug,
+           c.aliases AS aliases
     LIMIT $limit
   `, { q: q.toLowerCase(), limit: neo4j.int(limit) });
 
   const results = records.map((r) => {
     const label = String(r.label ?? r.id ?? 'Unknown node');
+    const normalizedQuery = q.toLowerCase();
+    const aliases = Array.isArray(r.aliases) ? r.aliases.map((alias) => String(alias).toLowerCase()) : [];
+    const slug = typeof r.slug === 'string' ? r.slug.toLowerCase() : '';
+    const matchedField = label.toLowerCase().includes(normalizedQuery)
+      ? 'label'
+      : aliases.some((alias) => alias.includes(normalizedQuery))
+        ? 'alias'
+        : slug.includes(normalizedQuery)
+          ? 'slug'
+          : 'id';
+
     return {
       kind: 'node' as const,
       id: r.id,
       label,
       type: r.type || r.kind || 'unknown',
-      matchType: label.toLowerCase().includes(q.toLowerCase()) ? 'label' : 'id',
-      matchedField: label.toLowerCase().includes(q.toLowerCase()) ? 'label' : 'id',
+      matchType: matchedField,
+      matchedField,
     };
   });
 

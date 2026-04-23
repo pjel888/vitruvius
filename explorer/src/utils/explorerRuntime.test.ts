@@ -1,9 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 import {
+  QUERY_TEMPLATES,
   formatPerspectiveCount,
   getQueryResultSummary,
   hasRenderableQueryRows,
   shouldConsumePreloadedPerspective,
+  upsertStoredQueries,
 } from './explorerRuntime';
 
 describe('formatPerspectiveCount', () => {
@@ -65,5 +67,19 @@ describe('hasRenderableQueryRows', () => {
     expect(hasRenderableQueryRows([{ key: 'id', label: 'ID' }], [{ id: '1', values: { id: '1' } }])).toBe(true);
     expect(hasRenderableQueryRows([], [{ id: '1', values: { id: '1' } }])).toBe(false);
     expect(hasRenderableQueryRows([{ key: 'id', label: 'ID' }], [])).toBe(false);
+  });
+});
+
+describe('upsertStoredQueries', () => {
+  test('moves an existing query to the front and caps the list', () => {
+    expect(upsertStoredQueries(['A', 'B', 'C'], 'B')).toEqual(['B', 'A', 'C']);
+    expect(upsertStoredQueries(['1', '2', '3', '4', '5', '6', '7', '8'], '9')).toEqual(['9', '1', '2', '3', '4', '5', '6', '7']);
+  });
+});
+
+describe('QUERY_TEMPLATES', () => {
+  test('exposes the expected built-in query templates', () => {
+    expect(QUERY_TEMPLATES).toHaveLength(3);
+    expect(QUERY_TEMPLATES[0]?.label).toBe('All rules');
   });
 });

@@ -2,7 +2,6 @@ import { useRef, useState, useEffect, useCallback } from 'react';
 import { ZoomIn, ZoomOut, Maximize, Shrink, Map, LayoutGrid, FolderTree, Calendar, Terminal } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
-import NodeSearch from './graph/NodeSearch';
 import NodeContextMenu from './graph/NodeContextMenu';
 import QueryPanel from './graph/QueryPanel';
 import Minimap from './graph/Minimap';
@@ -117,13 +116,6 @@ export default function GraphScene() {
     setLayout(type);
   };
 
-  const handleSearchSelect = useCallback((id: string) => {
-    controllerRef.current?.focusNode(id);
-    const store = useSceneStore.getState();
-    store.setSelectedNode(id);
-    store.openInspector();
-  }, []);
-
   return (
     <div className="flex-1 relative bg-bg overflow-hidden">
       <VisNetworkHost ref={controllerRef} />
@@ -143,11 +135,6 @@ export default function GraphScene() {
           Unable to load this graph view: {loadError}
         </div>
       )}
-
-      {/* Search */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
-        <NodeSearch nodes={nodes} onSelect={handleSearchSelect} />
-      </div>
 
       {/* Zoom controls */}
       <div className="absolute bottom-4 left-4 flex flex-col gap-1 z-20">

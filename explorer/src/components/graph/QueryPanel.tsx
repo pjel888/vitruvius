@@ -3,7 +3,7 @@ import { Play, X, Terminal, AlertCircle, CheckCircle2, BookmarkPlus, History, Co
 import { runCypherQuery } from '../../api/graphApi';
 import type { GraphController } from './VisNetworkHost';
 import { useSceneStore } from '../../stores/useSceneStore';
-import { getQueryResultSummary } from '../../utils/explorerRuntime';
+import { getQueryResultSummary, QUERY_TEMPLATES, upsertStoredQueries } from '../../utils/explorerRuntime';
 
 const RECENT_QUERIES_KEY = 'vitruvius.explorer.recentQueries';
 const SAVED_QUERIES_KEY = 'vitruvius.explorer.savedQueries';
@@ -63,7 +63,7 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
       const data = await runCypherQuery(cypher);
       controllerRef.current?.mergeNodesEdges(data.nodes, data.edges);
       setResult({ nodes: data.nodes.length, edges: data.edges.length, recordCount: data.recordCount });
-      const nextRecent = [cypher, ...recentQueries.filter((entry) => entry !== cypher)].slice(0, 8);
+      const nextRecent = upsertStoredQueries(recentQueries, cypher);
       persistRecentQueries(nextRecent);
       const queryColumns = Array.from(
         data.rows.reduce((keys, row) => {
@@ -89,9 +89,45 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
   const handleSaveCurrentQuery = useCallback(() => {
     const cypher = query.trim();
     if (!cypher) return;
-    const nextSaved = [cypher, ...savedQueries.filter((entry) => entry !== cypher)].slice(0, 8);
+    const nextSaved = upsertStoredQueries(savedQueries, cypher);
     persistSavedQueries(nextSaved);
   }, [query, savedQueries]);
+
+  const handleTemplateSelect = useCallback((templateQuery: string) => {
+    setQuery(templateQuery);
+    textareaRef.current?.focus();
+  }, []);
+
+  const handleTemplateRun = useCallback(async (templateQuery: string) => {
+    setQuery(templateQuery);
+    setRunning(true);
+    setError(null);
+    setResult(null);
+    try {
+      const data = await runCypherQuery(templateQuery);
+      controllerRef.current?.mergeNodesEdges(data.nodes, data.edges);
+      setResult({ nodes: data.nodes.length, edges: data.edges.length, recordCount: data.recordCount });
+      persistRecentQueries(upsertStoredQueries(recentQueries, templateQuery));
+      const queryColumns = Array.from(
+        data.rows.reduce((keys, row) => {
+          Object.keys(row.values).forEach((key) => keys.add(key));
+          return keys;
+        }, new Set<string>())
+      ).map((key) => ({ key, label: key }));
+      openBottom({
+        type: 'query',
+        title: 'Query Result',
+        query: templateQuery,
+        resultSummary: getQueryResultSummary(data.recordCount, data.nodes.length, data.edges.length),
+        columns: queryColumns,
+        rows: data.rows,
+      });
+    } catch (err: any) {
+      setError(err.message || 'Query failed');
+    } finally {
+      setRunning(false);
+    }
+  }, [controllerRef, openBottom, recentQueries]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
@@ -185,26 +221,24 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
 
       <div className="px-3 pb-3">
         <details className="text-xs text-text-dim">
-          <summary className="cursor-pointer hover:text-text transition-colors">Templates</summary>
+          <summary className="cursor-pointer hover:text-text transition-colors">Templates ({QUERY_TEMPLATES.length})</summary>
           <div className="mt-1 space-y-1 pl-2">
-            <button
-              onClick={() => setQuery('MATCH (n:CanonicalNode {type: "rule"}) RETURN n LIMIT 10')}
-              className="block text-left hover:text-accent transition-colors"
-            >
-              All rules
-            </button>
-            <button
-              onClick={() => setQuery('MATCH (n {id: "concept-floor-area"})-[r]-(m) RETURN n, r, m')}
-              className="block text-left hover:text-accent transition-colors"
-            >
-              Neighbors of floor-area
-            </button>
-            <button
-              onClick={() => setQuery('MATCH p = shortestPath((a)-[*..6]-(b)) WHERE a.id = "concept-floor-area" AND b.id = "concept-stairs" RETURN p')}
-              className="block text-left hover:text-accent transition-colors"
-            >
-              Shortest path floor-area → stairs
-            </button>
+            {QUERY_TEMPLATES.map((template) => (
+              <div key={template.label} className="flex items-center justify-between gap-2">
+                <button
+                  onClick={() => handleTemplateSelect(template.query)}
+                  className="block flex-1 text-left hover:text-accent transition-colors"
+                >
+                  {template.label}
+                </button>
+                <button
+                  onClick={() => void handleTemplateRun(template.query)}
+                  className="text-[10px] uppercase tracking-wider text-text-dim hover:text-accent transition-colors"
+                >
+                  Run
+                </button>
+              </div>
+            ))}
           </div>
         </details>
       </div>

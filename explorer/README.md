@@ -69,7 +69,6 @@ Output goes to `dist/`. The API serves this folder statically at `/*` when runni
 | `InspectorRail` | `src/components/InspectorRail.tsx` | Node inspector, edge inspector, path tracer. |
 | `ExplorerRail` | `src/components/ExplorerRail.tsx` | Taxonomy tree, type filters, saved scenes. |
 | `CommandBar` | `src/components/CommandBar.tsx` | Perspective switcher, search, status. |
-| `NodeSearch` | `src/components/graph/NodeSearch.tsx` | Fuzzy node search with keyboard navigation. |
 | `NodeContextMenu` | `src/components/graph/NodeContextMenu.tsx` | Right-click menu: expand neighbors, focus, hide. |
 | `QueryPanel` | `src/components/graph/QueryPanel.tsx` | Cypher query runner with examples and results. |
 | `useSceneStore` | `src/stores/useSceneStore.ts` | Zustand store for selection, filters, camera, context menu, path tracing. |
@@ -77,7 +76,7 @@ Output goes to `dist/`. The API serves this folder statically at `/*` when runni
 ## Features
 
 ### Node Search (Phase 5)
-- Search across node labels and IDs
+- Search across node labels, aliases, slugs, and IDs
 - Keyboard navigation: ↑↓ to navigate, ↵ to select, Esc to close
 - Configured 20-result cap in the command bar
 - Camera auto-focuses on selected node

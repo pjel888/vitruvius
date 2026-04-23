@@ -226,6 +226,16 @@ export default function CommandBar() {
     return `${scene.name} ${scene.perspectiveId}`.toLowerCase().includes(q);
   });
 
+  function getResultDotClass(result: SearchResult) {
+    return result.type === 'concept' ? 'bg-node-concept'
+      : result.type === 'rule' ? 'bg-node-rule'
+        : result.type === 'taxonomy' ? 'bg-node-taxonomy'
+          : result.type === 'topic' ? 'bg-node-topic'
+            : result.type === 'subtopic' ? 'bg-node-subtopic'
+              : result.type === 'evidence_span' ? 'bg-sky-500'
+                : 'bg-node-definition';
+  }
+
   function selectResult(r: SearchResult) {
     if (r.kind === 'node') {
       setSelectedNode(r.id);
@@ -313,30 +323,27 @@ export default function CommandBar() {
           )}
         </div>
 
-        {showSuggestions && results.length > 0 && (
+        {showSuggestions && (
           <>
             <div className="fixed inset-0 z-10" onClick={() => setShowSuggestions(false)} />
             <div className="absolute top-full left-0 right-0 mt-1 bg-panel border border-border rounded-lg shadow-xl z-20 py-1 max-h-80 overflow-y-auto">
-              {results.map((r, i) => (
+              {results.length > 0 ? results.map((r, i) => (
                 <button
                   key={r.id + i}
                   className={`w-full text-left px-3 py-2 text-sm hover:bg-panel-hover transition-colors flex items-center gap-2 ${i === highlighted ? 'bg-panel-hover' : ''}`}
                   onMouseEnter={() => setHighlighted(i)}
                   onClick={() => selectResult(r)}
                 >
-                  <span className={`w-2 h-2 rounded-full shrink-0 ${
-                    r.type === 'concept' ? 'bg-node-concept' :
-                    r.type === 'rule' ? 'bg-node-rule' :
-                    r.type === 'taxonomy' ? 'bg-node-taxonomy' :
-                    r.type === 'topic' ? 'bg-node-topic' :
-                    r.type === 'subtopic' ? 'bg-node-subtopic' :
-                    r.type === 'evidence_span' ? 'bg-sky-500' :
-                    'bg-node-definition'
-                  }`} />
+                  <span className={`w-2 h-2 rounded-full shrink-0 ${getResultDotClass(r)}`} />
                   <span className="truncate">{r.label}</span>
+                  <span className="text-[10px] uppercase tracking-wider text-text-dim shrink-0">{r.matchedField}</span>
                   <span className="text-xs text-text-dim ml-auto shrink-0">{r.type}</span>
                 </button>
-              ))}
+              )) : (
+                <div className="px-3 py-3 text-sm text-text-dim">
+                  No results for “{query}” in this perspective.
+                </div>
+              )}
             </div>
           </>
         )}
