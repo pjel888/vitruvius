@@ -1,6 +1,6 @@
 # Vitruvius Master Roadmap
 
-**Updated:** 2026-04-21  
+**Updated:** 2026-04-23  
 **Purpose:** strategic roadmap for the active operating layer  
 **Truth rule:** repository evidence overrides historical planning claims
 
@@ -29,29 +29,23 @@ It is intentionally compact. Historical sprint narration, tranche-by-tranche exe
 
 ## 3. Active Strategic Priorities
 
-### Priority 1 — Control-surface consolidation
-- **Status:** completed
-- **Why it matters:** active planning docs had contradictory claims and stale paths.
-- **Evidence:** `/.ai/AUDIT_REPORT.md`, `/.ai/IMPLEMENTATION_MATRIX.md`
-- **Next concrete action:** preserve `.ai/01_roadmap/`, `.ai/03_plans/INDEX.md`, and `.ai/README.md` as the live entry surface.
-
-### Priority 2 — Plan-family slimming
-- **Status:** completed
-- **Why it matters:** too many completed historical plans still appear live.
-- **Evidence:** `/.ai/03_plans/`, `/.ai/archive/ARCHIVE_INDEX.md`
-- **Next concrete action:** preserve the dispatcher plus the minimal AEC readiness packet as the only live AEC planning surface.
-
-### Priority 3 — AEC execution-readiness decision
+### Priority 1 — AEC execution-readiness decision
 - **Status:** planned
 - **Why it matters:** the live planning surface is now clean enough to decide whether AEC becomes the next real implementation lane.
-- **Evidence:** `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`
-- **Next concrete action:** decide whether to open a bounded AEC implementation lane or demote the remaining family further into long-term reference.
+- **Evidence:** `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
+- **Next concrete action:** keep AEC as the next planned lane, but do not open bounded runtime implementation until a real execution packet is accepted.
 
-### Priority 4 — Verification refresh for unverified claims
+### Priority 2 — Verification refresh for unverified claims
 - **Status:** planned
 - **Why it matters:** some operational claims are log-backed but not freshly rerun.
 - **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md` (`Full test suite green claim`), `.ai/05_logs/2026-04-20_full-test-suite-green-validation.md`
 - **Next concrete action:** rerun high-value verification only when the implementation surface changes or before making fresh success claims.
+
+### Priority 3 — Preserve the live planning surface
+- **Status:** maintain
+- **Why it matters:** completed control-surface cleanup should remain stable while the next lane decision is made.
+- **Evidence:** `/.ai/README.md`, `/.ai/03_plans/INDEX.md`, `/.ai/01_roadmap/current-phase.md`
+- **Next concrete action:** keep the live entry docs truthful and avoid reactivating completed reference-only plan families.
 
 ## 4. Completed / Shipped Capabilities
 
@@ -75,9 +69,9 @@ These are not active roadmap targets anymore.
 ### AEC first bounded slice runtime kickoff
 - **Status:** blocked
 - **Why blocked:** planning/control corpus exists, but runtime implementation roots were not verified in the codebase.
-- **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`
+- **Evidence:** `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
 - **Dependency:** explicit execution packet + runtime namespace decision + implementation roots.
-- **Next concrete action:** use the now-stable control surface to decide whether runtime work should be opened at all.
+- **Next concrete action:** preserve AEC as the next planned lane while keeping runtime blocked until the first real execution packet is accepted.
 
 ### Generic dataset expansion beyond bounded laws-wave
 - **Status:** blocked

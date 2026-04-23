@@ -1,6 +1,6 @@
 # Active Context — Vitruvius
 
-**Updated:** 2026-04-21  
+**Updated:** 2026-04-23  
 **Live branch:** `main`
 
 ## Current Operating Truth
@@ -44,9 +44,15 @@
 
 ## Active Priorities
 
-1. Make the AEC execution-readiness decision from the stabilized control surface.
+1. Keep AEC as the next planned lane from the stabilized control surface, with runtime still deferred.
 2. Keep roadmap/state docs contradiction-free.
 3. Refresh unverified claims only when implementation changes warrant it.
+
+## AEC Runtime Roots Checkpoint — 2026-04-23
+
+- audit log: `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
+- current truth: no real AEC runtime roots exist yet in executable code
+- planning decision: AEC remains the next planned lane, but runtime implementation is still not open
 
 ## Unverified / Log-Backed Claims
 
@@ -67,7 +73,7 @@
 ## Current Execution Focus — 2026-04-21 (Post-consolidation)
 
 - Control-surface consolidation is complete enough that it should no longer be treated as the active execution lane.
-- The next bounded decision is whether AEC remains the next live implementation family or is demoted further until runtime roots exist.
+- The next bounded decision has narrowed: AEC should remain the next live planning family, while runtime stays deferred until a bounded execution packet is accepted.
 
 ## Read Next
 

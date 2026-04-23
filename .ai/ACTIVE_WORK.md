@@ -1,6 +1,6 @@
 # Active Work
 
-**Updated:** 2026-04-21  
+**Updated:** 2026-04-23  
 **Scope:** only active and incomplete work belongs here
 
 ## NOW
@@ -8,9 +8,9 @@
 ### 1. AEC execution-readiness decision
 - **Status:** planned
 - **Why it matters:** AEC is the only major remaining implementation family still represented as potentially live.
-- **Evidence:** `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`
-- **Next concrete action:** decide whether to open a real execution lane or demote the family to long-term reference until runtime roots exist.
-- **Dependency / blocker:** runtime implementation roots and a reduced execution packet are not yet verified.
+- **Evidence:** `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md`, `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md`
+- **Next concrete action:** keep AEC as the next planned lane, but do not open runtime work until a bounded execution packet is accepted.
+- **Dependency / blocker:** the 2026-04-23 audit confirmed runtime implementation roots are still absent.
 
 ### 2. Verification refresh for unverified claims
 - **Status:** planned

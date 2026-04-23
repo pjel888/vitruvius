@@ -2,13 +2,14 @@
 
 ## Single Best Next Move
 
-**Make the AEC execution-readiness decision from the now-stable control surface.**
+**Keep AEC as the next planned lane from the now-stable control surface, without opening runtime implementation yet.**
 
 ## Why This Is Right Now
 
 - The control-surface cleanup is complete enough that the next major decision can be made from a truthful live planning layer.
 - AEC is the only remaining implementation family still represented near the live surface.
-- Deciding whether AEC opens or remains reference-only is now the highest-leverage move.
+- The 2026-04-23 runtime-roots audit confirmed that AEC still has no real runtime namespace, tests, CLI entry points, or executable subsystem roots.
+- The highest-leverage move is therefore to preserve AEC as the next planned lane while keeping runtime implementation deferred.
 
 ## What Should Be Deferred
 
@@ -18,6 +19,6 @@
 
 ## Concrete Tasks
 
-1. Verify whether any runtime implementation roots for AEC now exist in the codebase.
-2. Decide whether `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` remains the next live authority or should be demoted further.
-3. Keep the AEC surface constrained to the master plan plus blocked session packet unless a bounded runtime lane is explicitly opened.
+1. Use `/.ai/05_logs/2026-04-23_aec-runtime-roots-audit-and-lane-decision.md` as the grounding artifact for AEC planning truth.
+2. Keep `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` as the next live planning authority.
+3. Do not open runtime implementation until a bounded execution packet is explicitly accepted.
