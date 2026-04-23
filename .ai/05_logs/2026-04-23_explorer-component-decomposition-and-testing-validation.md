@@ -48,6 +48,7 @@ Result:
 - `0 fail`
 - component-level interaction coverage now exists for the newly extracted command-bar, explorer-rail, and query-panel pieces
 - the explorer test suite now also covers the query panel integration path and the `?node=` inspector population path alongside the extracted UI pieces
+- raw log saved to `/.ai/05_logs/2026-04-23_explorer-final-bun-test.log`
 
 ### 2. Explorer production build
 
@@ -58,6 +59,7 @@ cd explorer && bun run build
 Result:
 - build completed successfully
 - output emitted under `explorer/dist/`
+- raw log saved to `/.ai/05_logs/2026-04-23_explorer-final-build.log`
 
 ### 3. Browser QA
 
@@ -66,6 +68,7 @@ Validated in the running explorer at `http://localhost:5173/explore`:
 - the extracted filter panel rendered correctly with `Color Scheme`, `Node types`, and `Edge types`
 - the query panel still exposed `Templates (3)`, `Saved Queries`, and `Recent Queries`
 - the `?node=taxonomy-fire-life-safety` route now populates the inspector instead of clearing back to the empty state
+- repo-backed browser QA note: `/.ai/05_logs/2026-04-23_explorer-final-browser-qa.md`
 
 Observed runtime outputs:
 
