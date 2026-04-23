@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 import {
+  buildExplorerNodeSearchParams,
   QUERY_TEMPLATES,
   formatPerspectiveCount,
   getQueryResultSummary,
@@ -81,5 +82,12 @@ describe('QUERY_TEMPLATES', () => {
   test('exposes the expected built-in query templates', () => {
     expect(QUERY_TEMPLATES).toHaveLength(3);
     expect(QUERY_TEMPLATES[0]?.label).toBe('All rules');
+  });
+});
+
+describe('buildExplorerNodeSearchParams', () => {
+  test('preserves existing params while replacing node', () => {
+    expect(buildExplorerNodeSearchParams('?perspective=taxonomy', 'taxonomy-fire-life-safety')).toBe('perspective=taxonomy&node=taxonomy-fire-life-safety');
+    expect(buildExplorerNodeSearchParams('?scene=abc&node=old-node', 'new-node')).toBe('scene=abc&node=new-node');
   });
 });

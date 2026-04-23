@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSceneStore } from '../stores/useSceneStore';
 import { searchNodes, getPerspectives, listScenes, saveScene, updateScene, deleteScene, getScene, getHealth } from '../api/graphApi';
 import type { SearchResult, Perspective, SceneSummary, SceneUpdateInput } from '../types';
+import { buildExplorerNodeSearchParams } from '../utils/explorerRuntime';
 import PerspectiveSwitcher from './command-bar/PerspectiveSwitcher';
 import SearchCombobox from './command-bar/SearchCombobox';
 import SceneMenu from './command-bar/SceneMenu';
@@ -33,6 +34,7 @@ export default function CommandBar() {
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
   const searchQuery = useSceneStore(s => s.searchQuery);
   const setPerspectiveId = useSceneStore(s => s.setPerspectiveId);
+  const setPendingSelectedNode = useSceneStore(s => s.setPendingSelectedNode);
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
   const setSearchQuery = useSceneStore(s => s.setSearchQuery);
   const openInspector = useSceneStore(s => s.openInspector);
@@ -241,9 +243,11 @@ export default function CommandBar() {
 
   function selectResult(r: SearchResult) {
     if (r.kind === 'node') {
+      setPendingSelectedNode(r.id);
       setSelectedNode(r.id);
       openInspector();
       requestFocusNode(r.id);
+      navigate(`/explore?${buildExplorerNodeSearchParams(window.location.search, r.id)}`, { replace: true });
     }
     setQuery(r.label);
     setShowSuggestions(false);

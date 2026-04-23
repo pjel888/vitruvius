@@ -19,9 +19,11 @@ function ExploreView() {
   const perspectiveId = useSceneStore(s => s.perspectiveId);
   const activeSceneId = useSceneStore(s => s.activeSceneId);
   const selectedNodeId = useSceneStore(s => s.selectedNodeId);
+  const pendingSelectedNodeId = useSceneStore(s => s.pendingSelectedNodeId);
   const nodes = useSceneStore(s => s.nodes);
   const preloadedPerspectiveId = useSceneStore(s => s.preloadedPerspectiveId);
   const setPerspectiveId = useSceneStore(s => s.setPerspectiveId);
+  const setPendingSelectedNode = useSceneStore(s => s.setPendingSelectedNode);
   const setSelectedNode = useSceneStore(s => s.setSelectedNode);
   const setGraphData = useSceneStore(s => s.setGraphData);
   const setLoading = useSceneStore(s => s.setLoading);
@@ -81,10 +83,14 @@ function ExploreView() {
       openInspector();
     }
 
-    if (!urlNode && selectedNodeId) {
+    if (!urlNode && selectedNodeId && pendingSelectedNodeId !== selectedNodeId) {
       setSelectedNode(null);
     }
-  }, [searchParams, perspectiveId, selectedNodeId, setPerspectiveId, setSelectedNode, openInspector]);
+
+    if (urlNode && pendingSelectedNodeId === urlNode) {
+      setPendingSelectedNode(null);
+    }
+  }, [searchParams, perspectiveId, selectedNodeId, pendingSelectedNodeId, setPerspectiveId, setPendingSelectedNode, setSelectedNode, openInspector]);
 
   useEffect(() => {
     if (preloadedPerspectiveId !== perspectiveId) {

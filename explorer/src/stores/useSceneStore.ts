@@ -49,9 +49,11 @@ interface SceneStore {
   // Selection
   selectedNodeId: string | null;
   selectedEdgeId: string | null;
+  pendingSelectedNodeId: string | null;
   pinnedNodeIds: string[];
   setSelectedNode: (id: string | null) => void;
   setSelectedEdge: (id: string | null) => void;
+  setPendingSelectedNode: (id: string | null) => void;
   togglePinnedNode: (id: string) => void;
 
   // Graph data
@@ -167,9 +169,11 @@ export const useSceneStore = create<SceneStore>((set) => ({
 
   selectedNodeId: null,
   selectedEdgeId: null,
+  pendingSelectedNodeId: null,
   pinnedNodeIds: [],
   setSelectedNode: (id) => set({ selectedNodeId: id, selectedEdgeId: null }),
   setSelectedEdge: (id) => set({ selectedEdgeId: id, selectedNodeId: null }),
+  setPendingSelectedNode: (id) => set({ pendingSelectedNodeId: id }),
   togglePinnedNode: (id) => set((state) => ({
     pinnedNodeIds: state.pinnedNodeIds.includes(id)
       ? state.pinnedNodeIds.filter((nodeId) => nodeId !== id)

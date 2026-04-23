@@ -38,9 +38,10 @@ cd explorer && bun test
 ```
 
 Result:
-- `16 pass`
+- `18 pass`
 - `0 fail`
 - component-level interaction coverage now exists for the newly extracted command-bar, explorer-rail, and query-panel pieces
+- the explorer test suite now also covers the query panel integration path alongside the extracted UI pieces
 
 ### 2. Explorer production build
 
@@ -55,7 +56,7 @@ Result:
 ### 3. Browser QA
 
 Validated in the running explorer at `http://localhost:5173/explore`:
-- entering `Fire Life Safety` in the top search showed a live result and selecting it still opened the inspector path
+- entering `Fire Life Safety` in the top search showed a live result and selecting it opened a populated inspector state
 - the extracted filter panel rendered correctly with `Color Scheme`, `Node types`, and `Edge types`
 - the query panel still exposed `Templates (3)`, `Saved Queries`, and `Recent Queries`
 
@@ -73,10 +74,14 @@ Observed runtime outputs:
 {"templates":1,"saved":1,"recent":1}
 ```
 
+```json
+{"url":"http://localhost:5173/explore?node=taxonomy-fire-life-safety","inspectorText":"Fire Life SafetyFire Life SafetytaxonomysummaryevidenceincomingoutgoingPath TracingSet as path start"}
+```
+
 ## Interpretation
 
 - `CommandBar`, `ExplorerRail`, and `QueryPanel` now delegate real UI sections to smaller prop-driven components instead of owning all view logic directly.
-- Explorer still uses one coherent search entry point, but now that path is exercised by stronger tests and fresh browser QA.
+- Explorer still uses one coherent search entry point, and the search-to-inspector flow now has fresh runtime evidence that the inspector actually populates instead of remaining empty.
 - The new tests are more meaningful than the earlier static render checks because they verify actual click/select interactions on the extracted UI pieces.
 
 ## Deferred follow-on

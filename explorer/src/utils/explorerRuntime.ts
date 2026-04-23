@@ -56,3 +56,9 @@ export function hasRenderableQueryRows(columns: Array<{ key: string; label: stri
 export function upsertStoredQueries(existingQueries: string[], nextQuery: string): string[] {
   return [nextQuery, ...existingQueries.filter((entry) => entry !== nextQuery)].slice(0, 8);
 }
+
+export function buildExplorerNodeSearchParams(currentSearch: string, nodeId: string): string {
+  const params = new URLSearchParams(currentSearch);
+  params.set('node', nodeId);
+  return params.toString();
+}
