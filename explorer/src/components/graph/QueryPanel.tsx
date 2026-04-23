@@ -13,9 +13,10 @@ const SAVED_QUERIES_KEY = 'vitruvius.explorer.savedQueries';
 interface QueryPanelProps {
   controllerRef: React.RefObject<GraphController | null>;
   onClose: () => void;
+  runQuery?: typeof runCypherQuery;
 }
 
-export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) {
+export default function QueryPanel({ controllerRef, onClose, runQuery = runCypherQuery }: QueryPanelProps) {
   const [query, setQuery] = useState('MATCH (n)-[r]->(m) RETURN n, r, m LIMIT 20');
   const [running, setRunning] = useState(false);
   const [result, setResult] = useState<{ nodes: number; edges: number; recordCount: number } | null>(null);
@@ -62,7 +63,7 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
     setError(null);
     setResult(null);
     try {
-      const data = await runCypherQuery(cypher);
+      const data = await runQuery(cypher);
       controllerRef.current?.mergeNodesEdges(data.nodes, data.edges);
       setResult({ nodes: data.nodes.length, edges: data.edges.length, recordCount: data.recordCount });
       const nextRecent = upsertStoredQueries(recentQueries, cypher);
@@ -86,7 +87,7 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
     } finally {
       setRunning(false);
     }
-  }, [query, controllerRef, recentQueries, openBottom]);
+  }, [query, controllerRef, recentQueries, openBottom, runQuery]);
 
   const handleSaveCurrentQuery = useCallback(() => {
     const cypher = query.trim();
@@ -106,7 +107,7 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
     setError(null);
     setResult(null);
     try {
-      const data = await runCypherQuery(templateQuery);
+      const data = await runQuery(templateQuery);
       controllerRef.current?.mergeNodesEdges(data.nodes, data.edges);
       setResult({ nodes: data.nodes.length, edges: data.edges.length, recordCount: data.recordCount });
       persistRecentQueries(upsertStoredQueries(recentQueries, templateQuery));
@@ -129,7 +130,7 @@ export default function QueryPanel({ controllerRef, onClose }: QueryPanelProps) 
     } finally {
       setRunning(false);
     }
-  }, [controllerRef, openBottom, recentQueries]);
+  }, [controllerRef, openBottom, recentQueries, runQuery]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
