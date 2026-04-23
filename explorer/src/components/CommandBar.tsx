@@ -1,9 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
-import { Search, ChevronDown, X, Loader2, Save, Link2, RefreshCcw, Pencil, Trash2 } from 'lucide-react';
+import { Save, RefreshCcw } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSceneStore } from '../stores/useSceneStore';
 import { searchNodes, getPerspectives, listScenes, saveScene, updateScene, deleteScene, getScene, getHealth } from '../api/graphApi';
 import type { SearchResult, Perspective, SceneSummary, SceneUpdateInput } from '../types';
+import PerspectiveSwitcher from './command-bar/PerspectiveSwitcher';
+import SearchCombobox from './command-bar/SearchCombobox';
+import SceneMenu from './command-bar/SceneMenu';
 
 export default function CommandBar() {
   const navigate = useNavigate();
@@ -272,82 +275,39 @@ export default function CommandBar() {
     <div className="h-14 bg-panel border-b border-border flex items-center px-4 gap-3 shrink-0">
       <div className="font-semibold text-accent text-sm tracking-wide">VITRUVIUS</div>
 
-      {/* Perspective switcher */}
-      <div className="relative">
-        <button
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg border border-border text-sm hover:border-accent transition-colors min-w-[140px] justify-between"
-          onClick={() => setShowPerspectives(!showPerspectives)}
-        >
-          <span className="truncate">{activePerspective?.name ?? 'All Knowledge'}</span>
-          <ChevronDown size={14} className="text-text-dim shrink-0" />
-        </button>
-        {showPerspectives && (
-          <>
-            <div className="fixed inset-0 z-10" onClick={() => setShowPerspectives(false)} />
-            <div className="absolute top-full left-0 mt-1 w-56 bg-panel border border-border rounded-lg shadow-xl z-20 py-1">
-              {perspectives.map(p => (
-                <button
-                  key={p.id}
-                  className={`w-full text-left px-3 py-2 text-sm hover:bg-panel-hover transition-colors ${p.id === perspectiveId ? 'text-accent' : ''}`}
-                  onClick={() => { setPerspectiveId(p.id); setShowPerspectives(false); }}
-                >
-                  <div className="font-medium">{p.name}</div>
-                  <div className="text-xs text-text-dim">{p.description}</div>
-                </button>
-              ))}
-            </div>
-          </>
-        )}
-      </div>
+      <PerspectiveSwitcher
+        activePerspectiveName={activePerspective?.name ?? 'All Knowledge'}
+        perspectiveId={perspectiveId}
+        perspectives={perspectives}
+        showPerspectives={showPerspectives}
+        onToggle={() => setShowPerspectives(!showPerspectives)}
+        onClose={() => setShowPerspectives(false)}
+        onSelect={(id) => {
+          setPerspectiveId(id);
+          setShowPerspectives(false);
+        }}
+      />
 
-      {/* Search combobox */}
-      <div className="relative flex-1 max-w-xl">
-        <div className="flex items-center gap-2 bg-bg border border-border rounded-md px-3 py-1.5 focus-within:border-accent transition-colors">
-          <Search size={14} className="text-text-dim shrink-0" />
-          <input
-            id="command-search-input"
-            ref={inputRef}
-            type="text"
-            className="flex-1 bg-transparent outline-none text-sm placeholder:text-text-dim"
-            placeholder="Search nodes and taxonomies..."
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-            onKeyDown={onKeyDown}
-            onFocus={() => query.trim() && setShowSuggestions(true)}
-          />
-          {searching && <Loader2 size={14} className="text-text-dim animate-spin shrink-0" />}
-          {query && (
-            <button onClick={() => { setQuery(''); setResults([]); inputRef.current?.focus(); }} className="text-text-dim hover:text-text shrink-0">
-              <X size={14} />
-            </button>
-          )}
-        </div>
-
-        {showSuggestions && (
-          <>
-            <div className="fixed inset-0 z-10" onClick={() => setShowSuggestions(false)} />
-            <div className="absolute top-full left-0 right-0 mt-1 bg-panel border border-border rounded-lg shadow-xl z-20 py-1 max-h-80 overflow-y-auto">
-              {results.length > 0 ? results.map((r, i) => (
-                <button
-                  key={r.id + i}
-                  className={`w-full text-left px-3 py-2 text-sm hover:bg-panel-hover transition-colors flex items-center gap-2 ${i === highlighted ? 'bg-panel-hover' : ''}`}
-                  onMouseEnter={() => setHighlighted(i)}
-                  onClick={() => selectResult(r)}
-                >
-                  <span className={`w-2 h-2 rounded-full shrink-0 ${getResultDotClass(r)}`} />
-                  <span className="truncate">{r.label}</span>
-                  <span className="text-[10px] uppercase tracking-wider text-text-dim shrink-0">{r.matchedField}</span>
-                  <span className="text-xs text-text-dim ml-auto shrink-0">{r.type}</span>
-                </button>
-              )) : (
-                <div className="px-3 py-3 text-sm text-text-dim">
-                  No results for “{query}” in this perspective.
-                </div>
-              )}
-            </div>
-          </>
-        )}
-      </div>
+      <SearchCombobox
+        query={query}
+        results={results}
+        searching={searching}
+        showSuggestions={showSuggestions}
+        highlighted={highlighted}
+        inputRef={inputRef}
+        onQueryChange={setQuery}
+        onKeyDown={onKeyDown}
+        onFocus={() => query.trim() && setShowSuggestions(true)}
+        onClear={() => {
+          setQuery('');
+          setResults([]);
+          inputRef.current?.focus();
+        }}
+        onClose={() => setShowSuggestions(false)}
+        onHighlight={setHighlighted}
+        onSelect={selectResult}
+        getResultDotClass={getResultDotClass}
+      />
 
       <div className="flex-1" />
 
@@ -372,63 +332,23 @@ export default function CommandBar() {
         </div>
       </div>
 
-      <div className="relative">
-        <button
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-bg border border-border text-sm hover:border-accent transition-colors min-w-[120px] justify-between"
-          onClick={() => setShowScenes(!showScenes)}
-        >
-          <span className="truncate">{activeSceneName ?? 'Scenes'}</span>
-          <ChevronDown size={14} className="text-text-dim shrink-0" />
-        </button>
-        {showScenes && (
-          <>
-            <div className="fixed inset-0 z-10" onClick={() => setShowScenes(false)} />
-            <div className="absolute top-full right-0 mt-1 w-72 bg-panel border border-border rounded-lg shadow-xl z-20 py-1 max-h-80 overflow-y-auto">
-              <div className="px-3 py-2 border-b border-border">
-                <input
-                  value={sceneFilter}
-                  onChange={(e) => setSceneFilter(e.target.value)}
-                  placeholder="Filter scenes..."
-                  className="w-full bg-bg border border-border rounded-md px-2 py-1 text-sm outline-none focus:border-accent"
-                />
-              </div>
-              {filteredScenes.length === 0 ? (
-                <div className="px-3 py-2 text-sm text-text-dim">No saved scenes yet.</div>
-              ) : (
-                filteredScenes.map((scene) => (
-                  <div key={scene.id} className={`px-3 py-2 hover:bg-panel-hover transition-colors ${scene.id === activeSceneId ? 'text-accent' : ''}`}>
-                    <button
-                      className="w-full text-left"
-                      onClick={() => {
-                        setShowScenes(false);
-                        navigate(`/explore?scene=${scene.id}`);
-                      }}
-                    >
-                      <div className="font-medium truncate">{scene.name}</div>
-                      <div className="text-xs text-text-dim flex items-center gap-1">
-                        <Link2 size={10} />
-                        {scene.savedAt ? new Date(scene.savedAt).toLocaleString() : scene.perspectiveId}
-                      </div>
-                    </button>
-                    <div className="mt-2 flex items-center gap-2 text-xs">
-                      <button className="hover:text-accent transition-colors" onClick={() => handleRenameScene(scene)}>
-                        <Pencil size={12} className="inline mr-1" />Rename
-                      </button>
-                      <button
-                        className="hover:text-red-400 transition-colors disabled:opacity-50"
-                        onClick={() => handleDeleteScene(scene)}
-                        disabled={deletingSceneId === scene.id}
-                      >
-                        <Trash2 size={12} className="inline mr-1" />{deletingSceneId === scene.id ? 'Deleting…' : 'Delete'}
-                      </button>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-          </>
-        )}
-      </div>
+      <SceneMenu
+        activeSceneId={activeSceneId}
+        activeSceneName={activeSceneName}
+        sceneFilter={sceneFilter}
+        showScenes={showScenes}
+        filteredScenes={filteredScenes}
+        deletingSceneId={deletingSceneId}
+        onToggle={() => setShowScenes(!showScenes)}
+        onClose={() => setShowScenes(false)}
+        onSceneFilterChange={setSceneFilter}
+        onOpenScene={(sceneId) => {
+          setShowScenes(false);
+          navigate(`/explore?scene=${sceneId}`);
+        }}
+        onRenameScene={handleRenameScene}
+        onDeleteScene={handleDeleteScene}
+      />
 
       <div className="text-xs text-text-dim">{sceneMessage ?? healthLabel}</div>
     </div>
