@@ -19,7 +19,9 @@ Validate the bounded review-pipeline slice that adds an optional cloud adjudicat
 - `scripts/vitruvius/config.py`
 - `scripts/vitruvius/cloud_review_adjudication.py`
 - `scripts/vitruvius/ollama_review.py`
+- `scripts/vitruvius/promotion/__init__.py`
 - `scripts/tests/test_cloud_review_adjudication.py`
+- `scripts/tests/test_run_promote.py`
 
 ## Validation checks
 
@@ -39,7 +41,7 @@ Result:
 ### 2. Existing review/config regressions
 
 ```bash
-python3 -m pytest scripts/tests/test_cloud_review_adjudication.py scripts/tests/test_ollama_review_wiring.py scripts/tests/test_ollama_config.py -q
+python3 -m pytest scripts/tests/test_cloud_review_adjudication.py scripts/tests/test_run_promote.py scripts/tests/test_ollama_review_wiring.py scripts/tests/test_ollama_config.py -q
 ```
 
 Result:
