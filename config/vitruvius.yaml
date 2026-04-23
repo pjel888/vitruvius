@@ -63,6 +63,16 @@ review:
         timeout_seconds: 1200
         parallelism: 1
         num_ctx_cap: 8192
+  cloud:
+    enabled: false
+    provider: openai_compatible
+    model: ""
+    api_base_url: ""
+    api_key_env: VITRUVIUS_CLOUD_API_KEY
+    timeout_seconds: 60
+    prefer_adjudicated_decision: true
+    low_confidence_threshold: 0.90
+    high_value_occurrences_threshold: 3
 
 promotion:
   confidence_threshold: 0.90

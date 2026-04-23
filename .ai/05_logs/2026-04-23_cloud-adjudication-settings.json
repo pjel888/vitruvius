@@ -1,0 +1,12 @@
+{
+  "api_base_url": "",
+  "api_key": "",
+  "api_key_env": "VITRUVIUS_CLOUD_API_KEY",
+  "enabled": false,
+  "high_value_occurrences_threshold": 3,
+  "low_confidence_threshold": 0.9,
+  "model": "",
+  "prefer_adjudicated_decision": true,
+  "provider": "openai_compatible",
+  "timeout_seconds": 60
+}

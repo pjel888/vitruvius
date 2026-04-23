@@ -52,6 +52,7 @@ Raw docs → Parse / OCR → Normalize → Canonicalize → Extract → Review �
 - **Canonicalization** — Rules-driven ID assignment (`law-national-building-code`), YAML frontmatter, structured sections
 - **Relationship extraction** — Regex-based, concept-aware, section-anchored with `source_section_id`
 - **LLM review (Tier 1/2)** — Local Ollama review with `keep`/`review_further`/`reject` decisions, confidence scoring, second-pass adjudication
+- **Optional cloud adjudication** — Config-gated second opinion for low-confidence, ambiguous, or high-value relationship candidates; local Ollama remains the default baseline and promotion gates still apply
 - **Promotion governance** — 17-rule validator, audit log, dry-run default, rollback support
 - **Graph building** — JSON snapshot graph with integrity checks (orphan detection, dangling edge detection)
 - **Unified KG pipeline** — Single command `run-kg-pipeline` goes from raw PDFs → refined markdown → canonical sources → extracted relationships → LLM review → promotion → KG v2 snapshot
@@ -229,6 +230,19 @@ ollama pull gemma4:31b
 # Lightweight — MacBook fast iteration (8GB RAM)
 ollama pull qwen2.5:3b
 ```
+
+### Optional cloud adjudication
+
+Vitruvius remains **local-first by default**. The local Ollama review path is still the baseline.
+
+If you want a stronger second opinion for relationship review, you can enable the optional cloud adjudication layer in `config/vitruvius.yaml` under `review.cloud`.
+
+- `enabled: false` keeps the current local-only behavior
+- `provider: openai_compatible` supports OpenAI-compatible endpoints (useful for Codex/Kimi-style APIs)
+- `provider: gemini` uses Gemini's direct API path
+- `api_key_env` controls which environment variable supplies the cloud API key
+- only low-confidence, `review_further`, or high-occurrence candidates are selected for cloud adjudication
+- the original local review is preserved in provenance; cloud review is an optional adjudication layer, not a silent replacement of the governed path
 
 ### 7. (Optional) Rust toolchain
 

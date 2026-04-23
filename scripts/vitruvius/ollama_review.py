@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from .config import (
+    get_cloud_review_settings,
     get_ollama_default_model,
     get_ollama_default_timeout,
     get_ollama_url,
@@ -17,6 +18,7 @@ from .config import (
 from .paths import get_repo_root
 from .reports import write_json, write_text
 from .utils import utc_now_stamp
+from .cloud_review_adjudication import apply_cloud_adjudication
 
 
 DEFAULT_MODEL = get_ollama_default_model()
@@ -1175,6 +1177,14 @@ def run_review_relationships_ollama(
         "summary": summarize_reviews(all_reviews),
         "reviews": all_reviews,
     }
+    cloud_settings = get_cloud_review_settings()
+    if cloud_settings.get("enabled"):
+        final_report = apply_cloud_adjudication(
+            final_report,
+            settings=cloud_settings,
+            parse_model_json_fn=parse_model_json,
+        )
+        final_report["summary"] = summarize_reviews(final_report["reviews"])
     # Overwrite the review JSON with the triage-aware final report. The
     # save_progress_report calls during the loop wrote the LLM-only view
     # for resume safety; this final write adds the synthesized auto-accept

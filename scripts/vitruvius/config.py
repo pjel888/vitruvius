@@ -166,6 +166,30 @@ def get_ollama_default_parallelism() -> int:
     return int(cfg.get("review", {}).get("ollama", {}).get("default_parallelism", 1))
 
 
+def get_cloud_review_settings() -> dict[str, Any]:
+    cfg = load_config()
+    raw = cfg.get("review", {}).get("cloud", {})
+    if not isinstance(raw, dict):
+        return {
+            "enabled": False,
+        }
+
+    import os
+
+    return {
+        "enabled": bool(raw.get("enabled", False)),
+        "provider": str(raw.get("provider", "openai_compatible")),
+        "model": str(raw.get("model", "")),
+        "api_base_url": str(raw.get("api_base_url", "")),
+        "api_key_env": str(raw.get("api_key_env", "VITRUVIUS_CLOUD_API_KEY")),
+        "api_key": os.getenv(str(raw.get("api_key_env", "VITRUVIUS_CLOUD_API_KEY")), ""),
+        "timeout_seconds": int(raw.get("timeout_seconds", 60)),
+        "prefer_adjudicated_decision": bool(raw.get("prefer_adjudicated_decision", True)),
+        "low_confidence_threshold": float(raw.get("low_confidence_threshold", 0.90)),
+        "high_value_occurrences_threshold": int(raw.get("high_value_occurrences_threshold", 3)),
+    }
+
+
 def get_confidence_threshold() -> float:
     cfg = load_config()
     return float(cfg.get("promotion", {}).get("confidence_threshold", 0.90))

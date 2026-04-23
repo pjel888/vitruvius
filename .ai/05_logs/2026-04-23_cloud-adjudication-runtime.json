@@ -1,0 +1,58 @@
+{
+  "cloud_adjudication": {
+    "enabled": true,
+    "failed_count": 1,
+    "high_value_occurrences_threshold": 3,
+    "low_confidence_threshold": 0.9,
+    "model": "gpt-5",
+    "prefer_adjudicated_decision": true,
+    "provider": "openai_compatible",
+    "selected_count": 1,
+    "successful_count": 0
+  },
+  "model": "llama3.1:8b",
+  "reviews": [
+    {
+      "candidate": {
+        "examples": [
+          {
+            "snippet": "No building permit shall be issued unless..."
+          }
+        ],
+        "from": "law-pd-1096",
+        "occurrences": 4,
+        "sections": [
+          "sec-302"
+        ],
+        "to": "concept-building-permit",
+        "type": "governs"
+      },
+      "cloud_adjudication": {
+        "model": "gpt-5",
+        "provider": "openai_compatible",
+        "reason": "Cloud adjudication request failed: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)>",
+        "selected": true,
+        "status": "failed"
+      },
+      "local_review": {
+        "confidence": 0.4,
+        "decision": "review_further",
+        "reason": "local review",
+        "suggested_type": null
+      },
+      "review": {
+        "confidence": 0.4,
+        "decision": "review_further",
+        "reason": "local review",
+        "suggested_type": null
+      }
+    }
+  ],
+  "summary": {
+    "high_confidence_keep": 0,
+    "high_confidence_reject": 0,
+    "keep": 0,
+    "reject": 0,
+    "review_further": 1
+  }
+}
