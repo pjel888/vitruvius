@@ -1,11 +1,11 @@
 ---
-id: source-pd-957-53852e
+id: source-pd-957-97fbb9
 title: Macro Site Analysis
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/383655196-PD-957.md
-last_canonicalized_utc: 2026-04-23T19:47:09.256741+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/383655196-PD-957.md
+last_canonicalized_utc: '2026-04-24T09:59:53.985166+00:00'
 ---
 
 # Macro Site Analysis

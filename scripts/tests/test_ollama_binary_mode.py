@@ -49,4 +49,6 @@ def test_build_prompt_is_verbose_when_flag_off(monkeypatch) -> None:
     from vitruvius import config as cfgmod
     monkeypatch.setattr(cfgmod, "_features_block", lambda: {"w_llm_binary_mode": False})
     prompt = build_prompt(_candidate())
-    assert '"task"' in prompt  # verbose JSON task envelope
+    assert "Candidate JSON:" in prompt
+    assert "Required top-level keys" in prompt
+    assert not prompt.lstrip().startswith("{")

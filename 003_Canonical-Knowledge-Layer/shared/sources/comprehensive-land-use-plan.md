@@ -1,11 +1,11 @@
 ---
-id: handout-davao-city-comprehensive-land-use-plan-c367dc
+id: handout-davao-city-comprehensive-land-use-plan-40efac
 title: COMPREHENSIVE LAND USE PLAN
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/253090760-Zoning-Davao-City.md
-last_canonicalized_utc: '2026-04-23T21:37:27.653688+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md
+last_canonicalized_utc: '2026-04-24T09:59:52.439372+00:00'
 aliases:
 - Davao City CLUP
 - Davao City Comprehensive Land Use Plan
@@ -20,14 +20,14 @@ Automated summary withheld for COMPREHENSIVE LAND USE PLAN because the refined s
 ## Coverage
 
 - Bunawan Sub-Urban Center
--  Economic – IT and Tourism Growth
--  Environment – environmental consciousness on water
--  Social – growing population
--  Transportation – increasing congested areas
--  Environment – Watersheds
--  Transportation
--  Identified engines for economic growth – Agri, IT and Tourism
--  Restrictions
+- Economic – IT and Tourism Growth
+- Environment – environmental consciousness on water
+- Social – growing population
+- Transportation – increasing congested areas
+- Environment – Watersheds
+- Transportation
+- Identified engines for economic growth – Agri, IT and Tourism
+- Restrictions
 
 ## Key Points
 

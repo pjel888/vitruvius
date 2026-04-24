@@ -155,6 +155,110 @@ collisions:
   001-Laws/raw_markdown/UAP/UAP Documents Reviewer.md: reviewer-uap-documents-reviewer-3a49c8
   001-Laws/raw_markdown/UAP/UAP Documents.md: source-uap-documents-408daa
   001-Laws/raw_markdown/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md: source-dost-pcieerd-2026calldoc-as-of-27jan26merge-692dd5
+  "001-Laws/refined_markdown/BERDE/BERDE \u2013 Buildings \u2013 Version 5.0.0 \u2013 User Guide.md": source-berde-buildings-version-5-0-0-user-guide-00e1a0
+  001-Laws/refined_markdown/BP-220/Revised_IRR_BP220_2008.md: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-9d04e1
+  ? 001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations
+    Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md
+  : irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-caeb48
+  001-Laws/refined_markdown/BP-344/BP-344 IRR Accessibility Law DPWH.md: handout-department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads-f92918
+  001-Laws/refined_markdown/CHED/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md: handout-cmo-61-series-2017-bs-architecture-curriculum-standards-c8e15b
+  001-Laws/refined_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md: handout-ciap-document-102-uniform-general-conditions-of-contract-for-private-construction-8d9c09
+  001-Laws/refined_markdown/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.md: irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system-37778a
+  001-Laws/refined_markdown/DENR/DENR DAO 2003-30 Revised Procedural Manual - EIS System.md: irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system-80669a
+  001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md: handout-deped-disaster-risk-reduction-resource-manual-1acd7a
+  001-Laws/refined_markdown/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.md: handout-guidelines-on-energy-conserving-design-of-buildings-3038d9
+  001-Laws/refined_markdown/DOH/DOH Adolescent-Friendly Health Services 2010.md: source-doh-adolescent-friendly-health-services-2010-140aa7
+  001-Laws/refined_markdown/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003.md: source-doh-drug-abuse-treatment-and-rehab-centers-2003-098c80
+  001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md: handout-doh-guidelines-for-health-facilities-52c998
+  001-Laws/refined_markdown/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.md: handout-department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads-8545f7
+  001-Laws/refined_markdown/DPWH/DPWH JICC Flood Control.md: source-dpwh-jicc-flood-control-31412f
+  001-Laws/refined_markdown/EO/E.O. 1008_0 1.md: source-e-o-1008-0-1-ce6933
+  001-Laws/refined_markdown/EO/E.O. 1008_0.md: source-e-o-1008-0-682296
+  001-Laws/refined_markdown/EO/EO 1008 Construction Arbitration Law.md: source-eo-1008-construction-arbitration-law-96f270
+  001-Laws/refined_markdown/EO/EO 124 Areas for Land Conversion.md: source-eo-124-areas-for-land-conversion-34aa81
+  001-Laws/refined_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md: law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-b6807b
+  001-Laws/refined_markdown/EO/EO 72 Comprehensive Land use.md: law-executive-order-no-72-on-comprehensive-land-use-plans-8da2d9
+  001-Laws/refined_markdown/EO/EO 90 NGO for Shelter Program.md: law-executive-order-no-90-on-the-national-shelter-program-15e79c
+  001-Laws/refined_markdown/HB-3391/HB 3391 - Out-of-Home Media Billboard Regulation Bill.md: source-hb-3391-out-of-home-media-billboard-regulation-bill-cf379e
+  001-Laws/refined_markdown/HB-5207/HB 5207 - Subdivision Green Parks Program Bill.md: source-hb-5207-subdivision-green-parks-program-bill-f59078
+  001-Laws/refined_markdown/HLURB-DHSUD/CLUP GIS GUIDEBOOK HLURB.md: source-clup-gis-guidebook-hlurb-2a9156
+  001-Laws/refined_markdown/HLURB-DHSUD/Guidelines on New Towns and Planned Unit Development.md: source-guidelines-on-new-towns-and-planned-unit-development-5cc71a
+  001-Laws/refined_markdown/HLURB-DHSUD/HLURB_CLUP_Guidebook_Vol_1_11042015.md: source-hlurb-clup-guidebook-vol-1-11042015-c1afad
+  001-Laws/refined_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_1.md: source-hlurb-clup-vol-1-716601
+  001-Laws/refined_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_2.md: source-hlurb-clup-vol-2-53f465
+  001-Laws/refined_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_3.md: source-hlurb-clup-vol-3-b6b5f2
+  001-Laws/refined_markdown/HLURB-DHSUD/HLURB_Supplemental_Guidelines_SLM.md: source-hlurb-supplemental-guidelines-slm-8164fd
+  001-Laws/refined_markdown/HLURB-DHSUD/LCG of 1991.md: source-lcg-of-1991-c0a4e6
+  001-Laws/refined_markdown/HLURB-DHSUD/Local-Shelter-Planning-Manual-2016-Web-Edition.md: source-local-shelter-planning-manual-2016-web-edition-2b4c4f
+  001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md: handout-open-space-development-guidelines-3afd7c
+  001-Laws/refined_markdown/HLURB-DHSUD/R-973 s. 2018.md: source-r-973-s-2018-f140ba
+  001-Laws/refined_markdown/HLURB-DHSUD/RPS (2008).md: source-rps-2008-63904d
+  ? 001-Laws/refined_markdown/HLURB-DHSUD/Reference-Tool-on-Urban-Planning-and-Design-for-Climate-Resilience-for-LGUs-Planning-Actors-in-the-Philippines_readable.md
+  : source-reference-tool-on-urban-planning-and-design-for-climate-resilience-for-lgus-planning-actors-in-the-philippines-readable-e43434
+  001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md: handout-resilient-urban-design-and-development-guidelines-c366ab
+  001-Laws/refined_markdown/HLURB-DHSUD/Volume 4 - Planning Strategically.md: source-volume-4-planning-strategically-f3ee38
+  001-Laws/refined_markdown/LGU/253090760-Zoning-Davao-City.md: handout-davao-city-comprehensive-land-use-plan-40efac
+  001-Laws/refined_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md: law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-52c1de
+  001-Laws/refined_markdown/LGU/320734606-Maps.md: source-maps-c5309a
+  001-Laws/refined_markdown/LGU/353069306-Bgc-Master-Plan.md: source-bgc-master-plan-ff8d63
+  001-Laws/refined_markdown/LGU/356243531-Draft-Zoning-Ordinance-2012-2021-2.md: source-draft-zoning-ordinance-2012-2021-2-698e69
+  001-Laws/refined_markdown/LGU/362704379-Taguig-Comprehensive-Land-Use-Plan-CLUP-Volume-II.md: source-taguig-comprehensive-land-use-plan-clup-volume-ii-6c5616
+  001-Laws/refined_markdown/LGU/371438973-Zoning-Ordinance-TAGUIG-pdf.md: source-zoning-ordinance-taguig-d28637
+  001-Laws/refined_markdown/LGU/383655196-PD-957.md: source-pd-957-97fbb9
+  001-Laws/refined_markdown/LGU/396551136-Comprehensive-Land-Use-Plan-of-Pasig-CIty.md: source-comprehensive-land-use-plan-of-pasig-city-218e1c
+  001-Laws/refined_markdown/LGU/413839175-Taguig-CLUP-pdf.md: source-taguig-clup-b7922f
+  001-Laws/refined_markdown/LGU/415774768-plan-gp-land-use-map-update-pdf.md: source-plan-gp-land-use-map-update-4a682f
+  001-Laws/refined_markdown/LGU/437459910-Ordinance-No-2117.md: law-quezon-city-central-business-district-zoning-ordinance-8367e6
+  001-Laws/refined_markdown/LGU/459742704-Zoning-Ordinance-2016-2025 (1).md: source-zoning-ordinance-2016-2025-1-55d874
+  001-Laws/refined_markdown/LGU/459742704-Zoning-Ordinance-2016-2025.md: source-zoning-ordinance-2016-2025-195421
+  001-Laws/refined_markdown/LGU/479541265-no-17-098b-pdf.md: source-no-17-098b-8b91de
+  001-Laws/refined_markdown/LGU/490459778-Volume-2-Zoning-Ordinance.md: source-volume-2-zoning-ordinance-113a0a
+  001-Laws/refined_markdown/LGU/513821870-Map-Color-Coded-Quezon-City.md: source-map-color-coded-quezon-city-20d9ff
+  001-Laws/refined_markdown/LGU/579259927-ZONING-ORDINANCE-PASAY.md: law-pasay-city-zoning-ordinance-of-2003-3d95f2
+  001-Laws/refined_markdown/LGU/586650111-CLUP.md: source-clup-c62cce
+  001-Laws/refined_markdown/LGU/588729100-Clup-2016-2030-Volume-2-Zoning-Ordinance-Version-5-12-2018-10-31-for-Printing.md: source-clup-2016-2030-volume-2-zoning-ordinance-version-5-12-2018-10-31-for-printing-838d61
+  ? 001-Laws/refined_markdown/LGU/588729112-Clup-2016-2030-Volume-3-Sectoral-Studies-Version-5-12-2018-11-04-for-Printing-Copy.md
+  : source-clup-2016-2030-volume-3-sectoral-studies-version-5-12-2018-11-04-for-printing-copy-407ce1
+  001-Laws/refined_markdown/LGU/592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa.md: source-comprehensive-land-use-process-in-the-city-of-muntinlupa-16bd62
+  001-Laws/refined_markdown/LGU/597492263-Calamba-CLUP-v1-New.md: source-calamba-clup-v1-new-01ee9d
+  001-Laws/refined_markdown/LGU/599384270-CAVITE-CLUP-VOLUME-3-REVISED.md: source-cavite-clup-volume-3-revised-072c1f
+  001-Laws/refined_markdown/LGU/599384294-Volume-I-Batangas-City-Comprehensive-Land-Use-Plan-2019-2028.md: source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028-03d7e2
+  001-Laws/refined_markdown/LGU/619044847-Mabalacat-CLUP-2018.md: source-mabalacat-clup-2018-74b5cf
+  001-Laws/refined_markdown/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.md: law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-7707a0
+  001-Laws/refined_markdown/LGU/623689186-Manila-CLUP-2005-2020.md: source-manila-clup-2005-2020-5b462b
+  001-Laws/refined_markdown/LGU/648659786-Vol2-Zoning-Ordinance.md: source-vol2-zoning-ordinance-e6e9d5
+  001-Laws/refined_markdown/LGU/649704913-Volume-III-Zoning-Ordinance.md: source-volume-iii-zoning-ordinance-bb2cad
+  001-Laws/refined_markdown/LGU/672108686-Mauban-CLUP-Vol-2-Approved.md: source-mauban-clup-vol-2-approved-a7d3c1
+  001-Laws/refined_markdown/LGU/673810152-CLUP-Carmona-Volume-3-Final.md: source-clup-carmona-volume-3-final-9b7be7
+  001-Laws/refined_markdown/LGU/674253872-Volume-1-Comprehensive-Land-Use-Plan-Sto-Tomas-1.md: source-volume-1-comprehensive-land-use-plan-sto-tomas-1-ad7b5d
+  001-Laws/refined_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md: law-zoning-ordinance-of-the-city-of-malolos-d997cb
+  001-Laws/refined_markdown/LGU/721039237-TRECE-LATEST-CLUP-Volume-I.md: source-trece-latest-clup-volume-i-8edfd9
+  001-Laws/refined_markdown/LGU/728639085-CLUP-Final-1.md: source-clup-final-1-c3db6c
+  001-Laws/refined_markdown/LGU/736227374-Vol-1-Lan-Use-Plan.md: source-vol-1-lan-use-plan-9cde42
+  001-Laws/refined_markdown/LGU/744110354-Comprehensive-Land-Use-Plan-of-Santa-Maria-2006-2015-1.md: source-comprehensive-land-use-plan-of-santa-maria-2006-2015-1-839fff
+  001-Laws/refined_markdown/LGU/754536758-Volume-II-Sariaya-CLUP-EDITED-v-8-Feb-2020-Roda-docx.md: source-volume-ii-sariaya-clup-edited-v-8-feb-2020-roda-9a0538
+  001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md: law-comprehensive-zoning-ordinance-of-dagupan-city-4bdbf5
+  001-Laws/refined_markdown/LGU/763865190-2020-2030-CLUP-Volume-2-FINAL-LAS-PINAS.md: source-2020-2030-clup-volume-2-final-las-pinas-fcaad1
+  001-Laws/refined_markdown/LGU/784708893-PALAUIG-ZAMBALES-CLUP.md: source-palauig-zambales-clup-258711
+  001-Laws/refined_markdown/LGU/794216046-San-Mateo-Zoning-Ordinance.md: law-zoning-ordinance-of-the-municipality-of-san-mateo-e77fb8
+  001-Laws/refined_markdown/LGU/794422427-BGC-Design-Standards-and-Guidelines.md: source-bgc-design-standards-and-guidelines-fa2d03
+  001-Laws/refined_markdown/LGU/818768588-The-CLUP-2020-2030.md: source-the-clup-2020-2030-126634
+  001-Laws/refined_markdown/LGU/820926861-CLUP-2017-2026.md: source-clup-2017-2026-f67810
+  001-Laws/refined_markdown/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.md: handout-san-mateo-comprehensive-land-use-plan-2021-2031-313250
+  001-Laws/refined_markdown/LGU/853321032-CDP-2023-2028.md: source-cdp-2023-2028-f061e4
+  001-Laws/refined_markdown/LGU/866816954-Calamba-Clup (1).md: source-calamba-clup-1-a4c1e5
+  001-Laws/refined_markdown/LGU/866816954-Calamba-Clup.md: source-calamba-clup-ecfc2a
+  001-Laws/refined_markdown/LGU/912157126-San-Pedro-Comprehensive-Development-Plan.md: source-san-pedro-comprehensive-development-plan-1622ff
+  001-Laws/refined_markdown/LGU/913356270-Pagsanjan-Volume-1-CLUP.md: source-pagsanjan-volume-1-clup-8c5366
+  001-Laws/refined_markdown/LGU/933175937-Clup-Mandaue-City.md: source-clup-mandaue-city-27b280
+  ? 001-Laws/refined_markdown/LGU/IPSP Vol. 01 - Bonifacio Capital District Mixed-Use
+    Development Project Competitive Challenge.md
+  : source-ipsp-vol-01-bonifacio-capital-district-mixed-use-development-project-competitive-challenge-06a8c1
+  001-Laws/refined_markdown/LGU/Ord.15-2003.md: source-ord-15-2003-b162f1
+  001-Laws/refined_markdown/LGU/ordinance.md: source-ordinance-24d2e0
+  001-Laws/refined_markdown/PD-1067/PD 1067 - Water Code of the Philippines.md: law-water-code-of-the-philippines-4fc66e
+  001-Laws/refined_markdown/PD-1067/PD 1067 IRR - Water Code Implementing Rules.md: law-section-pd-1067-irr-water-code-implementing-rules-18cdfa
+  001-Laws/refined_markdown/PD-1067/Water Code of PH IRR 2005.md: irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-d1c53c
   001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code Complete Scan.md: law-national-building-code-of-the-philippines-c21757
   001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code Full Text (Malacanang Edition).md: law-national-building-code-of-the-philippines-a7b2e7
   001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code Illustrated (Pedro Santos Jr).md: law-national-building-code-of-the-philippines-bfbbf8
@@ -170,6 +274,74 @@ collisions:
   001-Laws/refined_markdown/PD-1096/RULE VII_701 OCCUPANCY CLASSIFIED.md: law-section-rule-vii-701-occupancy-classified-c0db00
   001-Laws/refined_markdown/PD-1096/RULE VII_Table VII-1 Occupancy Table.md: law-section-rule-vii-table-vii-1-occupancy-table-a568ee
   001-Laws/refined_markdown/PD-1096/Rule 7 _ 8.md: law-section-rule-7-8-f889ad
+  001-Laws/refined_markdown/PD-1151/PD 1151 - PD 1152 Environmental Code.md: law-philippine-environmental-policy-284470
+  001-Laws/refined_markdown/PD-1185/PD 1185 - Fire Code of the Philippines 1977.md: law-fire-code-of-the-philippines-c8011f
+  001-Laws/refined_markdown/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.md: law-open-space-requirements-in-residential-subdivisions-90ab9a
+  001-Laws/refined_markdown/PD-1517/PD 1517_Urban Land Reform.md: irr-implementing-rules-and-regulations-of-the-urban-land-reform-act-b9985d
+  001-Laws/refined_markdown/PD-856/DOH Food Establishments.md: irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-199e03
+  001-Laws/refined_markdown/PD-856/phi201040.md: law-code-on-sanitation-of-the-philippines-02902f
+  001-Laws/refined_markdown/PD-9514/PD 9514 - Fire Code of the Philippines.md: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-b26377
+  001-Laws/refined_markdown/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md: source-pd-957-subdivision-law-illustrated-slides-pedro-santos-jr-cd1b91
+  001-Laws/refined_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md: source-pd-957-subdivision-condominium-buyer-s-act-1f26ef
+  001-Laws/refined_markdown/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.md: source-pd-957-subdivision-and-condominium-buyers-protective-decree-d60ff0
+  001-Laws/refined_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md: irr-revised-implementing-rules-and-regulations-for-pd-957-c5c782
+  001-Laws/refined_markdown/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.md: handout-guidelines-on-temporary-or-special-permits-for-foreign-architects-a846ae
+  001-Laws/refined_markdown/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.md: handout-resolution-restricting-practice-of-architecture-by-non-registered-and-licensed-architects-73fd17
+  001-Laws/refined_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md: handout-resolution-on-effectivity-dates-of-prboa-resolutions-ee5273
+  001-Laws/refined_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md: handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-04f41d
+  001-Laws/refined_markdown/PRC/RES_Clarification of PD-9266 Rule II Registration.md: handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-593b58
+  001-Laws/refined_markdown/PRC/RES_Illegal Practice of AR.md: handout-prboa-comments-on-the-illegal-practice-of-architecture-2c97c6
+  001-Laws/refined_markdown/RA-10066/ra 10066.md: law-national-cultural-heritage-act-of-2009-679469
+  001-Laws/refined_markdown/RA-11201/RA 11201 - DHSUD Act of 2019.md: law-department-of-human-settlements-and-urban-development-act-9ff5c0
+  001-Laws/refined_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md: irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act-f22576
+  001-Laws/refined_markdown/RA-11285/RA 11285 - Energy Efficiency and Conservation Act 2019.md: law-energy-efficiency-and-conservation-act-d1bf03
+  001-Laws/refined_markdown/RA-11361/ra_11361_irr_draft_for_comments.md: source-ra-11361-irr-draft-for-comments-bd2ef3
+  001-Laws/refined_markdown/RA-1378/188541488-Revised-National-Plumbing-Code-of-the-Philippines.md: source-revised-national-plumbing-code-of-the-philippines-4f09c9
+  001-Laws/refined_markdown/RA-1378/Board of Master Plumber.md: source-board-of-master-plumber-e24901
+  001-Laws/refined_markdown/RA-1378/MASTER PLUMBING LAW.md: law-plumbing-law-9348e7
+  001-Laws/refined_markdown/RA-386/RA-386 Civil Code of the Phils.md: law-civil-code-of-the-philippines-10ad8f
+  001-Laws/refined_markdown/RA-386/RA-386 Civil Code.md: law-civil-code-of-the-philippines-e39498
+  001-Laws/refined_markdown/RA-4566/RA_4566.md: law-contractors-license-law-ff6bb4
+  001-Laws/refined_markdown/RA-4726/RA 4726 Condominium Act.md: law-condominium-act-450b8b
+  001-Laws/refined_markdown/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.md: law-toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990-bb9c67
+  001-Laws/refined_markdown/RA-7160/RA 7160 The Local Government Code.md: law-local-government-code-of-1991-7f2033
+  001-Laws/refined_markdown/RA-7279/RA 7279 Urban Development and Housing Act 2009.md: law-urban-development-and-housing-act-7952e7
+  001-Laws/refined_markdown/RA-7899/RA 7899 Amendments to RA 4726.md: law-amendments-to-the-condominium-act-148087
+  001-Laws/refined_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md: law-ecological-solid-waste-management-act-of-2000-3e8703
+  001-Laws/refined_markdown/RA-9184/RA 9184 - Government Procurement Reform Act.md: law-government-procurement-reform-act-3ba95d
+  001-Laws/refined_markdown/RA-9184/RA 9184 IRR - Government Procurement IRR.md: law-government-procurement-reform-act-9191e0
+  001-Laws/refined_markdown/RA-9184/RA_9184.md: source-ra-9184-fc812f
+  001-Laws/refined_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md: irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act-fc38f7
+  001-Laws/refined_markdown/RA-9257/RA 9275 PH Clean Water Act.md: law-philippine-clean-water-act-of-2004-99a400
+  001-Laws/refined_markdown/RA-9266/IRR of RA 9266.md: irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004-141216
+  001-Laws/refined_markdown/RA-9266/RA-9266 IRR Architecture Act of 2004.md: irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004-ac967a
+  001-Laws/refined_markdown/RA-9279/IRR RA 7279 Sec 18.md: handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-21a5ed
+  001-Laws/refined_markdown/RA-9285/RA_9285.md: law-alternative-dispute-resolution-act-of-2004-772070
+  001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-aef2af
+  001-Laws/refined_markdown/SB-2982/SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago).md: law-civil-code-of-the-philippines-742f10
+  001-Laws/refined_markdown/UAP/1979 UAP Documents.md: source-1979-uap-documents-4207c4
+  001-Laws/refined_markdown/UAP/Professional Practice Reviewer2.md: reviewer-professional-practice-reviewer2-92a725
+  001-Laws/refined_markdown/UAP/SPP 201.md: source-spp-201-5f7b08
+  001-Laws/refined_markdown/UAP/SPP 202.md: source-spp-202-668ad8
+  001-Laws/refined_markdown/UAP/SPP 203.md: source-spp-203-d28ebd
+  001-Laws/refined_markdown/UAP/SPP 204A.md: source-spp-204a-954bb6
+  001-Laws/refined_markdown/UAP/SPP 204B.md: source-spp-204b-37429e
+  001-Laws/refined_markdown/UAP/SPP 205.md: source-spp-205-8d2b1d
+  001-Laws/refined_markdown/UAP/SPP 206.md: source-spp-206-61696f
+  001-Laws/refined_markdown/UAP/SPP 207.md: source-spp-207-3715c2
+  001-Laws/refined_markdown/UAP/SPP 208.md: source-spp-208-ef3e97
+  001-Laws/refined_markdown/UAP/SPP 209.md: source-spp-209-982e8a
+  001-Laws/refined_markdown/UAP/Standards of Professional Practice2.md: handout-uap-document-standards-of-professional-practice-6ff0f1
+  001-Laws/refined_markdown/UAP/UAP Document 301.md: handout-uap-document-301-general-conditions-1ca7a8
+  001-Laws/refined_markdown/UAP/UAP Document 3012.md: handout-uap-document-301-general-conditions-cc2ae6
+  001-Laws/refined_markdown/UAP/UAP Document 401-402.md: source-uap-document-401-402-f0ddc7
+  001-Laws/refined_markdown/UAP/UAP Document Code of Ethics.md: handout-uap-document-code-of-ethics-01d675
+  001-Laws/refined_markdown/UAP/UAP Document Standards of Professional Practice.md: handout-uap-document-standards-of-professional-practice-5ef31d
+  001-Laws/refined_markdown/UAP/UAP Documents Q _ A.md: source-uap-documents-q-a-28e73c
+  001-Laws/refined_markdown/UAP/UAP Documents Reviewer.md: reviewer-uap-documents-reviewer-40c25e
+  001-Laws/refined_markdown/UAP/UAP Documents.md: source-uap-documents-203e8d
+  001-Laws/refined_markdown/test/CHED CMO 61 Series 2017 - BS Architecture Curriculum Standards.md: handout-cmo-61-series-2017-bs-architecture-curriculum-standards-d85300
+  001-Laws/refined_markdown/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md: source-dost-pcieerd-2026calldoc-as-of-27jan26merge-f51ad6
   002-History/raw_markdown/20th Century Architects 2.md: handout-20th-century-architects-2-7912e5
   002-History/raw_markdown/20th Century Architects 3.md: handout-20th-century-architects-2-225d20
   002-History/raw_markdown/20th Century Architects.md: handout-20th-century-architects-2-6905fa

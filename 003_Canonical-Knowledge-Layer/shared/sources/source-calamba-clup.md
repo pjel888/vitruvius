@@ -4,8 +4,8 @@ title: CLUP v1 new
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/866816954-Calamba-Clup.md
-last_canonicalized_utc: 2026-04-23T19:47:15.878960+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/866816954-Calamba-Clup.md
+last_canonicalized_utc: '2026-04-24T05:40:01.518616+00:00'
 ---
 
 # CLUP v1 new

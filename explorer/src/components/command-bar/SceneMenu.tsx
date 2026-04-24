@@ -35,16 +35,13 @@ export default function SceneMenu({
   return (
     <div className="relative z-[90]">
       <button
-        className="kg-control flex items-center gap-2 px-3 py-2 rounded-xl text-sm transition-colors min-w-[132px] justify-between"
+        className="kg-control flex min-h-10 min-w-[156px] items-center justify-between gap-2 rounded-xl px-3 py-2 text-sm transition-colors"
         onClick={onToggle}
         aria-haspopup="menu"
         aria-expanded={showScenes}
         aria-controls={menuId}
       >
-        <span className="min-w-0 text-left">
-          <span className="block text-[10px] uppercase tracking-[0.22em] text-text-dim">Scene</span>
-          <span className="block truncate text-text">{activeSceneName ?? 'Scenes'}</span>
-        </span>
+        <span className="min-w-0 truncate text-left text-text">{activeSceneName ?? 'Unsaved view'}</span>
         <ChevronDown size={14} className="text-text-dim shrink-0" />
       </button>
       {showScenes && (
@@ -55,7 +52,7 @@ export default function SceneMenu({
               <input
                 value={sceneFilter}
                 onChange={(event) => onSceneFilterChange(event.target.value)}
-                placeholder="Filter scenes..."
+                placeholder="Filter saved scenes..."
                 aria-label="Filter saved scenes"
                 className="w-full bg-bg/80 border border-border rounded-lg px-2.5 py-1.5 text-sm outline-none focus:border-accent"
               />

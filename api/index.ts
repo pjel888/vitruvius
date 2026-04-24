@@ -68,6 +68,36 @@ export function buildDisplayLabel(label: string, type?: string) {
   return compactText(normalized);
 }
 
+function humanizeIdentifier(value: string) {
+  let normalized = value.replace(/\s+/g, ' ').trim();
+  for (const prefix of ['concept-', 'taxonomy-', 'topic-', 'subtopic-', 'rule-', 'definition-', 'procedure-', 'exception-', 'constraint-', 'example-', 'section-', 'sec-']) {
+    if (normalized.startsWith(prefix)) {
+      normalized = normalized.slice(prefix.length);
+      break;
+    }
+  }
+  normalized = normalized.replace(/[-_]+/g, ' ').trim();
+  if (!normalized) return '';
+  return normalized.replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+export function buildRuleDisplayLabel(props: Record<string, any>, label: string) {
+  const existing = props.displayLabel || props.display_label;
+  if (typeof existing === 'string' && existing.trim()) return existing.trim();
+
+  const taxonomyPath = Array.isArray(props.taxonomy_path) ? props.taxonomy_path : [];
+  const semanticAnchor = taxonomyPath.length > 0
+    ? String(taxonomyPath[taxonomyPath.length - 1])
+    : String(props.slug || props.id || '');
+  const anchorLabel = humanizeIdentifier(semanticAnchor);
+
+  if (anchorLabel) {
+    return anchorLabel.toLowerCase().endsWith('rule') ? anchorLabel : `${anchorLabel} Rule`;
+  }
+
+  return buildDisplayLabel(label, 'rule');
+}
+
 export function buildNodeDetailQuery() {
   return `
     MATCH (c) WHERE c.id = $id
@@ -98,10 +128,13 @@ export function normalizeNode(node: any) {
   const props = node.properties ? node.properties : node;
   const inferredType = props.type || props.kind || (props.quote || props.normalized_text ? 'evidence_span' : 'unknown');
   const label = props.label || props.quote || props.normalized_text || props.document_title || props.document_id || props.id;
+  const displayLabel = inferredType === 'rule'
+    ? buildRuleDisplayLabel(props, label)
+    : props.displayLabel || props.display_label || buildDisplayLabel(label, inferredType);
   return {
     id: props.id,
     label,
-    displayLabel: props.displayLabel || props.display_label || buildDisplayLabel(label, inferredType),
+    displayLabel,
     type: inferredType,
     kind: props.kind,
     summary: props.summary,
@@ -113,6 +146,19 @@ export function normalizeNode(node: any) {
     createdAt: props.created_at,
     updatedAt: props.updated_at,
     radius: inferredType === 'taxonomy' ? 12 : inferredType === 'topic' ? 10 : inferredType === 'subtopic' ? 9 : inferredType === 'rule' ? 9 : inferredType === 'evidence_span' ? 6 : 8,
+  };
+}
+
+export function normalizeTaxonomyNode(node: any) {
+  if (!node) return null;
+  const label = String(node.label || node.id || 'Untitled taxonomy node');
+  const kind = node.kind || 'taxonomy';
+  return {
+    id: node.id,
+    label,
+    displayLabel: node.displayLabel || node.display_label || buildDisplayLabel(label, kind),
+    kind,
+    conceptCount: Number(node.conceptCount) || 0,
   };
 }
 
@@ -332,6 +378,8 @@ app.get('/search', async (c) => {
       ${typeFilter}
     RETURN c.id AS id,
            coalesce(c.label, c.quote, c.normalized_text, c.id) AS label,
+           c.display_label AS display_label,
+           c.taxonomy_path AS taxonomy_path,
            coalesce(c.type, c.kind, CASE WHEN c:EvidenceSpan THEN 'evidence_span' ELSE null END) AS type,
            c.kind AS kind,
            c.slug AS slug,
@@ -356,7 +404,9 @@ app.get('/search', async (c) => {
       kind: 'node' as const,
       id: r.id,
       label,
-      displayLabel: buildDisplayLabel(label, r.type || r.kind || 'unknown'),
+      displayLabel: r.type === 'rule'
+        ? buildRuleDisplayLabel(r, label)
+        : r.display_label || buildDisplayLabel(label, r.type || r.kind || 'unknown'),
       type: r.type || r.kind || 'unknown',
       matchType: matchedField,
       matchedField,
@@ -387,7 +437,7 @@ app.get('/node/:id', async (c) => {
     const taxonomyById = new Map(taxonomyNodes.map((taxo: any) => [taxo.id, taxo]));
     for (const taxoId of node.taxonomy_path) {
       const taxo = taxonomyById.get(taxoId);
-      if (taxo) taxonomyPath.push({ id: taxo.id, label: taxo.label, kind: taxo.kind });
+      if (taxo) taxonomyPath.push(normalizeTaxonomyNode(taxo));
     }
   }
 
@@ -668,7 +718,10 @@ app.get('/taxonomy', async (c) => {
   }
 
   const nodeById = new Map(
-    allNodes.map((node: any) => [node.id, { id: node.id, label: node.label, kind: node.kind, conceptCount: countById.get(node.id) || 0 }])
+    allNodes.map((node: any) => [
+      node.id,
+      normalizeTaxonomyNode({ ...node, conceptCount: countById.get(node.id) || 0 }),
+    ])
   );
 
   function buildTree(nodeId: string): any {

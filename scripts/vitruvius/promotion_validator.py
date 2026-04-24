@@ -16,6 +16,13 @@ ALLOWED_TRUST = ("primary", "secondary", "tertiary", "unverified")
 TRUST_RANK = {"primary": 0, "secondary": 1, "tertiary": 2, "unverified": 3}
 
 
+def normalize_relationship_trust(value: object) -> str:
+    """Return a relationship-schema trust level for source frontmatter values."""
+    if isinstance(value, str) and value in ALLOWED_TRUST:
+        return value
+    return "unverified"
+
+
 @dataclass
 class ValidationResult:
     passed: bool
@@ -192,7 +199,7 @@ def build_canonical_index(repo_root: Path) -> dict[str, dict[str, Any]]:
                 "type": entity_type,
                 "path": md_path,
                 "canonical_status": fm.get("canonical_status", "unknown"),
-                "trust_level": fm.get("trust_level"),
+                "trust_level": normalize_relationship_trust(fm.get("trust_level")),
             }
 
     return index

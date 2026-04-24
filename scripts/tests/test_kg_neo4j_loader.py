@@ -43,6 +43,7 @@ def _make_snapshot() -> KgV2Snapshot:
             id="concept-floor-area",
             type="concept",
             label="Floor Area",
+            display_label="Floor Area",
             slug="floor-area",
             taxonomy_path=["taxonomy-spaces-occupancy", "topic-building-planning", "subtopic-dimensions"],
         )
@@ -191,6 +192,7 @@ class TestToCypher:
         ids = ["taxonomy-spaces-occupancy", "concept-floor-area", "concept-building-height"]
         for node_id in ids:
             assert any(node_id in s for s in merge)
+        assert any("display_label: 'Floor Area'" in s for s in merge)
 
     def test_generates_taxonomy_nodes(self) -> None:
         loader = Neo4jLoader(_make_snapshot())

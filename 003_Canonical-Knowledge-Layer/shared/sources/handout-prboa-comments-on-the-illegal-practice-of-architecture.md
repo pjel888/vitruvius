@@ -4,11 +4,11 @@ title: Professional Regulation Commission
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/PRC/RES_Illegal Practice of AR.md
-last_canonicalized_utc: 2026-04-23T19:47:23.984521+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/PRC/RES_Illegal Practice of AR.md
+last_canonicalized_utc: '2026-04-24T05:40:09.501045+00:00'
 aliases:
-  - Illegal Practice of AR
-  - Illegal Practice of Architecture Comments
+- Illegal Practice of AR
+- Illegal Practice of Architecture Comments
 ---
 
 # Professional Regulation Commission

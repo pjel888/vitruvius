@@ -1,11 +1,11 @@
 ---
-id: handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-f6459f
+id: handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-593b58
 title: Professional Regulation Commission
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/PRC/RES_Clarification of PD-9266 Rule II Registration.md
-last_canonicalized_utc: '2026-04-23T21:37:48.032902+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/PRC/RES_Clarification of PD-9266 Rule II Registration.md
+last_canonicalized_utc: '2026-04-24T10:00:13.892131+00:00'
 aliases:
 - Clarification of PD-9266 Rule II Registration
 - PRBoA Resolution 05-2007 Clarification

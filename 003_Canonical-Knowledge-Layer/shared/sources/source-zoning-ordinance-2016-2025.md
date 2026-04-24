@@ -4,8 +4,8 @@ title: CITY ORDINANCE NO. _______
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/459742704-Zoning-Ordinance-2016-2025.md
-last_canonicalized_utc: 2026-04-23T19:47:10.214504+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/459742704-Zoning-Ordinance-2016-2025.md
+last_canonicalized_utc: '2026-04-24T05:39:54.923959+00:00'
 ---
 
 # CITY ORDINANCE NO. _______

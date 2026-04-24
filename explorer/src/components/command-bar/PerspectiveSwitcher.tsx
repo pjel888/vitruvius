@@ -25,16 +25,13 @@ export default function PerspectiveSwitcher({
   return (
     <div className="relative z-[90]">
       <button
-        className="kg-control flex items-center gap-2 px-3 py-2 rounded-xl text-sm transition-colors min-w-[156px] justify-between"
+        className="kg-control flex min-h-10 min-w-[172px] items-center justify-between gap-2 rounded-xl px-3 py-2 text-sm transition-colors"
         onClick={onToggle}
         aria-haspopup="menu"
         aria-expanded={showPerspectives}
         aria-controls={menuId}
       >
-        <span className="min-w-0 text-left">
-          <span className="block text-[10px] uppercase tracking-[0.22em] text-text-dim">Perspective</span>
-          <span className="block truncate text-text">{activePerspectiveName}</span>
-        </span>
+        <span className="min-w-0 truncate text-left text-text">{activePerspectiveName}</span>
         <ChevronDown size={14} className="text-text-dim shrink-0" />
       </button>
       {showPerspectives && (

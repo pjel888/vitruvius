@@ -1,11 +1,11 @@
 ---
-id: source-uap-document-401-402-55b9d1
+id: source-uap-document-401-402-f0ddc7
 title: Proforma ARCHITECT - OWNER AGREEMENT
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/UAP/UAP Document 401-402.md
-last_canonicalized_utc: 2026-04-23T19:47:30.919512+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/UAP/UAP Document 401-402.md
+last_canonicalized_utc: '2026-04-24T10:00:23.898955+00:00'
 ---
 
 # Proforma ARCHITECT - OWNER AGREEMENT

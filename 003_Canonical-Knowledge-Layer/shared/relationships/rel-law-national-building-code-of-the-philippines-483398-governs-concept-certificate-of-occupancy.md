@@ -7,23 +7,23 @@ from_entity: law-national-building-code-of-the-philippines-483398
 to_entity: concept-certificate-of-occupancy
 trust_level: primary
 canonical_status: promoted
-confidence_score: 1.0
-promotion_batch_id: 20260423T204748Z_feb98dcd
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260423T203224Z/promotion_audit.log
-last_promoted_utc: 20260423T204748Z
+confidence_score: 0.9
+promotion_batch_id: 20260424T120555Z_d3ebbeca
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
+last_promoted_utc: 20260424T120555Z
 evidence:
 - source_id: law-national-building-code-of-the-philippines-483398
   source_section_id: section-309
   evidence_snippet: A certificate of Occupancy shall be issued by the Building Official within thirty (30) days if after final inspection and submittal of a Certificate of Completion referred to in the preceding section, it is found that the building or structure complies with the provisions of this Code.
   review_decision: keep
-  reviewer_model: qwen2.5:3b
+  reviewer_model: llama3.1:8b
   reviewer_provider: ollama
-  reviewer_confidence: 1.0
-  reviewer_reason: The examples provided clearly support the relationship between 'law-national-building-code-of-the-philippines-483398' and 'concept-certificate-of-occupancy', as they describe how a Certificate of Occupancy is issued based on compliance with the National Building Code.
+  reviewer_confidence: 0.9
+  reviewer_reason: Regulatory control language 'shall' indicates governs relationship.
   local_review_decision: keep
-  local_reviewer_confidence: 1.0
-  extracted_at_utc: 20260423T204748Z
-  reviewed_at_utc: 20260423T204748Z
+  local_reviewer_confidence: 0.9
+  extracted_at_utc: 20260424T120555Z
+  reviewed_at_utc: 20260424T120555Z
 ---
 
 # law-national-building-code-of-the-philippines-483398 governs concept-certificate-of-occupancy
@@ -38,6 +38,7 @@ Promoted relationship of type `governs` from `law-national-building-code-of-the-
 
 > A certificate of Occupancy shall be issued by the Building Official within thirty (30) days if after final inspection and submittal of a Certificate of Completion referred to in the preceding section, it is found that the building or structure complies with the provisions of this Code.
 
-- Reviewer: `qwen2.5:3b` · Decision: `keep` · Confidence: `1.0`
-- Reviewed: 20260423T204748Z
-- Batch: `20260423T204748Z_feb98dcd`
+- Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.9`
+- Reviewed: 20260424T120555Z
+- Batch: `20260424T120555Z_d3ebbeca`
+

@@ -1,11 +1,11 @@
 ---
-id: source-uap-documents-q-a-49a642
+id: source-uap-documents-q-a-28e73c
 title: Uap Documents Q   A
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/UAP/UAP Documents Q _ A.md
-last_canonicalized_utc: 2026-04-23T19:47:31.499990+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/UAP/UAP Documents Q _ A.md
+last_canonicalized_utc: '2026-04-24T10:00:24.530308+00:00'
 ---
 
 # Uap Documents Q   A

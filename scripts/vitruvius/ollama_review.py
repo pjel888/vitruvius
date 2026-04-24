@@ -23,6 +23,7 @@ from .cloud_review_adjudication import apply_cloud_adjudication
 
 DEFAULT_MODEL = get_ollama_default_model()
 DEFAULT_TIMEOUT_SECONDS = get_ollama_default_timeout()
+ALLOWED_REVIEW_DECISIONS = {"keep", "review_further", "reject"}
 
 
 def _stable_sha256(value: str) -> str:
@@ -467,35 +468,43 @@ def build_prompt(candidate: dict[str, Any]) -> str:
     neighborhood_block = ""
     if features.get("w_review_ontology_prompt", False):
         neighborhood_block = _inject_ontology_context(candidate)
-    payload = {
-        "task": "Review candidate legal relationship",
-        "allowed_decisions": ["keep", "review_further", "reject"],
-        "candidate": {
-            "from": candidate["from"],
-            "type": candidate["type"],
-            "to": candidate["to"],
-            "occurrences": candidate.get("occurrences", 0),
-            "sections": candidate.get("sections", []),
-            "examples": candidate.get("examples", []),
-        },
-        "instructions": [
-            "Judge only the candidate relationship provided.",
-            "Use only the supplied evidence examples.",
-            "Do not invent facts or new relationships.",
-            "If the evidence is clearly supportive, choose keep.",
-            "If the relationship may be plausible but the type is too strong or unclear, choose review_further.",
-            "If the evidence does not support the relationship, choose reject.",
-            "Return valid JSON only with no markdown fences."
-        ],
-        "output_schema": {
-            "decision": "keep|review_further|reject",
-            "confidence": "number from 0.0 to 1.0",
-            "reason": "short explanation",
-            "suggested_type": "string or null"
-        }
+    candidate_payload = {
+        "from": candidate["from"],
+        "type": candidate["type"],
+        "to": candidate["to"],
+        "occurrences": candidate.get("occurrences", 0),
+        "sections": candidate.get("sections", []),
+        "examples": candidate.get("examples", []),
     }
 
-    rendered = json.dumps(payload, ensure_ascii=False, indent=2)
+    rendered = "\n".join([
+        "Review one candidate legal relationship.",
+        "",
+        "Candidate JSON:",
+        json.dumps(candidate_payload, ensure_ascii=False, indent=2),
+        "",
+        "Rules:",
+        "- Judge only this candidate relationship.",
+        "- Use only the supplied evidence examples.",
+        "- Do not invent facts, endpoints, or relationships.",
+        "- Default to review_further when the evidence is plausible but not explicit.",
+        "- Choose keep only when the evidence explicitly supports both endpoints and the predicate.",
+        "- Co-occurrence, headings, lists, tables of contents, or repeated mentions are not enough for keep.",
+        "- For governs, the evidence must show regulatory control: shall, must, required, prohibited, permitted, standard, classification, approval, or enforcement language.",
+        "- For affects, the evidence must explain a causal, quantitative, or operational effect between the two endpoints.",
+        "- For depends_on, the evidence must say one endpoint is subject to, conditional on, derived from, or required before the other.",
+        "- For defines, the evidence must provide a definition or equivalence statement.",
+        "- Choose review_further when the relationship is plausible but the predicate is too strong or unclear.",
+        "- Choose reject when the evidence does not support the relationship.",
+        "- Do not echo the candidate, task, rules, schema, properties, or this prompt.",
+        "",
+        "Return one compact JSON object only, with no markdown fences.",
+        "Required top-level keys: decision, confidence, reason, suggested_type.",
+        "decision must be exactly one of: keep, review_further, reject.",
+        "confidence must be a number from 0.0 to 1.0.",
+        "reason must be under 160 characters and must not repeat the evidence text.",
+        "suggested_type must be a string or null.",
+    ])
     if neighborhood_block:
         rendered = neighborhood_block + "\n" + rendered
     return rendered
@@ -596,10 +605,9 @@ def _enforce_context_budget(prompt: str) -> None:
 def _build_ollama_request_body(*, model: str, prompt: str) -> dict[str, Any]:
     """Stream W1.2 — construct the Ollama /api/generate body.
 
-    Flag-OFF path is byte-identical to the pre-W1.2 inline dict
-    (model / prompt / stream / format / options with temperature=0 and
-    num_predict=300). Flag-ON path additionally injects
-    ``options.num_ctx = get_ollama_num_ctx_cap()``.
+    The request keeps deterministic review settings while leaving enough
+    response budget for a complete JSON object. Flag-ON path additionally
+    injects ``options.num_ctx = get_ollama_num_ctx_cap()``.
     """
     from . import config as cfgmod
     body: dict[str, Any] = {
@@ -609,7 +617,7 @@ def _build_ollama_request_body(*, model: str, prompt: str) -> dict[str, Any]:
         "format": "json",
         "options": {
             "temperature": 0,
-            "num_predict": 300,
+            "num_predict": 700,
         },
     }
     if cfgmod._features_block().get("w_llm_num_ctx_enforcement", False):
@@ -647,43 +655,150 @@ def call_ollama(prompt: str, model: str, timeout_seconds: int) -> str:
     return parsed["response"]
 
 
-def parse_model_json(text: str) -> dict[str, Any]:
+def _strip_json_fence(text: str) -> str:
     cleaned = text.strip()
 
     if cleaned.startswith("```"):
-        cleaned = cleaned.strip("`").strip()
+        lines = cleaned.splitlines()
+        if lines and lines[0].strip().startswith("```"):
+            lines = lines[1:]
+        if lines and lines[-1].strip() == "```":
+            lines = lines[:-1]
+        cleaned = "\n".join(lines).strip()
         if cleaned.lower().startswith("json"):
             cleaned = cleaned[4:].strip()
 
-    result = json.loads(cleaned)
+    return cleaned
 
-    decision = result.get("decision")
-    confidence = result.get("confidence")
-    reason = result.get("reason")
-    suggested_type = result.get("suggested_type")
 
-    if decision not in {"keep", "review_further", "reject"}:
-        raise ValueError(f"Invalid decision from model: {decision}")
-
+def _loads_first_json_object(cleaned: str) -> dict[str, Any]:
     try:
-        confidence = float(confidence)
-    except (TypeError, ValueError) as exc:
-        raise ValueError(f"Invalid confidence from model: {confidence}") from exc
+        result = json.loads(cleaned)
+    except json.JSONDecodeError as original_exc:
+        decoder = json.JSONDecoder()
+        start = cleaned.find("{")
+        while start != -1:
+            try:
+                result, _end = decoder.raw_decode(cleaned[start:])
+                break
+            except json.JSONDecodeError:
+                start = cleaned.find("{", start + 1)
+        else:
+            raise original_exc
 
-    confidence = max(0.0, min(1.0, confidence))
+    if not isinstance(result, dict):
+        raise ValueError("Model response JSON must be an object")
+    return result
 
-    if not isinstance(reason, str) or not reason.strip():
-        raise ValueError("Model returned empty reason")
 
-    if suggested_type is not None and not isinstance(suggested_type, str):
-        suggested_type = None
+def _loads_json_objects(cleaned: str) -> list[dict[str, Any]]:
+    try:
+        result = json.loads(cleaned)
+    except json.JSONDecodeError as original_exc:
+        decoder = json.JSONDecoder()
+        objects: list[dict[str, Any]] = []
+        start = cleaned.find("{")
+        while start != -1:
+            try:
+                result, end = decoder.raw_decode(cleaned[start:])
+            except json.JSONDecodeError:
+                start = cleaned.find("{", start + 1)
+                continue
+            if isinstance(result, dict):
+                objects.append(result)
+            next_start_at = start + max(end, 1)
+            start = cleaned.find("{", next_start_at)
+        if not objects:
+            raise original_exc
+        return objects
 
-    return {
-        "decision": decision,
-        "confidence": confidence,
-        "reason": reason.strip(),
-        "suggested_type": suggested_type.strip() if isinstance(suggested_type, str) and suggested_type.strip() else None,
-    }
+    if not isinstance(result, dict):
+        raise ValueError("Model response JSON must be an object")
+    return [result]
+
+
+def _response_preview(text: str | None, *, limit: int = 240) -> str:
+    if not text:
+        return ""
+    preview = " ".join(str(text).split())
+    if len(preview) > limit:
+        return preview[: limit - 3] + "..."
+    return preview
+
+
+def _review_payload_candidates(result: dict[str, Any]) -> list[dict[str, Any]]:
+    candidates = [result]
+    for key in ("review", "relationship_review", "result", "output", "response", "answer", "verdict"):
+        nested = result.get(key)
+        if isinstance(nested, dict):
+            candidates.append(nested)
+    return candidates
+
+
+def _first_present(mapping: dict[str, Any], keys: tuple[str, ...]) -> Any:
+    for key in keys:
+        if key in mapping:
+            return mapping[key]
+    return None
+
+
+def _normalize_decision(value: Any) -> str | None:
+    if not isinstance(value, str):
+        return None
+    normalized = value.strip().lower().replace("-", "_").replace(" ", "_")
+    if normalized in ALLOWED_REVIEW_DECISIONS:
+        return normalized
+    return None
+
+
+def parse_model_json(text: str) -> dict[str, Any]:
+    cleaned = _strip_json_fence(text)
+
+    last_invalid_decision: Any = None
+    for result in _loads_json_objects(cleaned):
+        for payload in _review_payload_candidates(result):
+            decision = _normalize_decision(_first_present(payload, ("decision", "verdict")))
+            if decision not in ALLOWED_REVIEW_DECISIONS:
+                last_invalid_decision = _first_present(payload, ("decision", "verdict"))
+                continue
+
+            confidence = _first_present(payload, ("confidence", "score", "self_confidence"))
+            reason = _first_present(payload, ("reason", "rationale", "explanation"))
+            suggested_type = _first_present(payload, ("suggested_type", "suggested_predicate", "relationship_type"))
+
+            try:
+                confidence = float(confidence)
+            except (TypeError, ValueError) as exc:
+                raise ValueError(f"Invalid confidence from model: {confidence}") from exc
+
+            confidence = max(0.0, min(1.0, confidence))
+
+            if not isinstance(reason, str) or not reason.strip():
+                raise ValueError("Model returned empty reason")
+
+            if suggested_type is not None and not isinstance(suggested_type, str):
+                suggested_type = None
+
+            return {
+                "decision": decision,
+                "confidence": confidence,
+                "reason": reason.strip(),
+                "suggested_type": suggested_type.strip() if isinstance(suggested_type, str) and suggested_type.strip() else None,
+            }
+
+    preview = _response_preview(text)
+    raise ValueError(
+        f"Invalid decision from model: {last_invalid_decision!r}; response preview: {preview}"
+    )
+
+
+def _format_review_failure(exc: Exception | None, raw_response: str | None) -> str:
+    detail = str(exc) if exc is not None else "unknown error"
+    reason = f"Ollama review failed after retries: {detail}"
+    preview = _response_preview(raw_response)
+    if preview and "response preview" not in detail:
+        reason += f"; raw response preview: {preview}"
+    return reason
 
 
 def review_relationship(candidate: dict[str, Any], model: str, timeout_seconds: int) -> dict[str, Any]:
@@ -701,6 +816,7 @@ def review_relationship(candidate: dict[str, Any], model: str, timeout_seconds: 
 
     deadline = time.monotonic() + timeout_seconds
     last_exc: Exception | None = None
+    last_raw_response: str | None = None
 
     for attempt in range(1, max_retries + 1):
         remaining = deadline - time.monotonic()
@@ -709,6 +825,7 @@ def review_relationship(candidate: dict[str, Any], model: str, timeout_seconds: 
         call_timeout = min(timeout_seconds, max(1, int(remaining)))
         try:
             raw_response = call_ollama(prompt, model=model, timeout_seconds=call_timeout)
+            last_raw_response = raw_response
             review = parse_model_json(raw_response)
             return {"candidate": candidate, "review": review}
         except Exception as exc:
@@ -725,7 +842,7 @@ def review_relationship(candidate: dict[str, Any], model: str, timeout_seconds: 
         "review": {
             "decision": "review_further",
             "confidence": 0.0,
-            "reason": f"Ollama review failed after retries: {last_exc}",
+            "reason": _format_review_failure(last_exc, last_raw_response),
             "suggested_type": None,
         },
     }

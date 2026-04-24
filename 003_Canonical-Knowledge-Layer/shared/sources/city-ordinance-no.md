@@ -1,11 +1,11 @@
 ---
-id: source-zoning-ordinance-2016-2025-1-4f0ad8
+id: source-zoning-ordinance-2016-2025-1-55d874
 title: CITY ORDINANCE NO. _______
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/459742704-Zoning-Ordinance-2016-2025 (1).md
-last_canonicalized_utc: 2026-04-23T19:59:35.878813+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/459742704-Zoning-Ordinance-2016-2025 (1).md
+last_canonicalized_utc: '2026-04-24T09:59:55.100941+00:00'
 ---
 
 # CITY ORDINANCE NO. _______

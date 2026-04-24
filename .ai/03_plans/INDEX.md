@@ -35,6 +35,7 @@ These docs may be important, but they are **reference-only** unless a new active
 - `.ai/03_plans/laws-wave/LAWS_WAVE_RELOAD_PROTOCOL.md`
 
 ### Completed governance / implementation references
+- `2026-04-24_explorer_shell_layout_cleanup_plan.md` — completed Explorer shell layout cleanup; inspector header alignment and minimize behavior are validated in component/integration tests
 - `2026-04-24_ai_relationship_enrichment_pilot_plan.md` — completed Phase 5E candidate-generation pilot; full-corpus enrichment is a separate operator-enabled run/review activity
 - `2026-04-15-nested-agents-governance-plan.md` — completed reference
 - `2026-04-16-whole-codebase-plans-upgrade-plan.md` — completed reference

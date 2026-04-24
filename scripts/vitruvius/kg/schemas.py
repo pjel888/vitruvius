@@ -163,6 +163,10 @@ class CanonicalNode(BaseModel):
     id: str = Field(..., pattern=r"^(taxonomy|topic|subtopic|concept|term|definition|rule|procedure|exception|constraint|example)-[a-z0-9-]+$")
     type: NodeType
     label: str = Field(..., min_length=1)
+    display_label: str | None = Field(
+        default=None,
+        description="Short presentation label for dense graph and search surfaces.",
+    )
     slug: str = Field(..., min_length=1)
     summary: str = Field(default="", description="Definition or concise explanation")
     taxonomy_path: list[str] = Field(default_factory=list)

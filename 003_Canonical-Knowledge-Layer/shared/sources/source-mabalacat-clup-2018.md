@@ -4,8 +4,8 @@ title: FOREWORD
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/619044847-Mabalacat-CLUP-2018.md
-last_canonicalized_utc: 2026-04-23T19:47:11.789591+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/619044847-Mabalacat-CLUP-2018.md
+last_canonicalized_utc: '2026-04-24T05:39:57.149149+00:00'
 ---
 
 # FOREWORD

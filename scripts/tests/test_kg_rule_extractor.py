@@ -64,6 +64,17 @@ class TestRuleLabelFromEvidence:
     def test_short_text_expanded(self) -> None:
         assert _rule_label_from_evidence("- a") == "a"
 
+    def test_long_text_is_not_truncated(self) -> None:
+        text = (
+            "The total exit width required from any storey of a building shall "
+            "be determined by using the occupant load of that storey and "
+            "applying the required width factors for stairs and other exits."
+        )
+        label = _rule_label_from_evidence(text)
+        assert label == text.removesuffix(".")
+        assert "..." not in label
+        assert "…" not in label
+
 
 class TestRuleExtractor:
     def test_extracts_rule_from_document_to_concept_assertion(self) -> None:
@@ -134,7 +145,14 @@ class TestRuleExtractor:
         assert len(rule_nodes) == 1
         rule = rule_nodes[0]
         assert rule.id.startswith("rule-")
+        assert rule.label == "Building Permit Rule — Section 1 — PD 1096"
+        assert rule.display_label == "Building Permit Rule — Section 1 — PD 1096"
         assert "permit" in rule.label.lower()
+        assert "PD 1096" in rule.label
+        assert "..." not in rule.label
+        assert "…" not in rule.label
+        assert "..." not in rule.display_label
+        assert "…" not in rule.display_label
         assert rule.taxonomy_path == ["taxonomy-building-code"]
 
         # Should have 2 assertions replacing the original 1

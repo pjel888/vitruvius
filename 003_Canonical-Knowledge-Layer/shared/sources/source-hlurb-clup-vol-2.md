@@ -4,8 +4,8 @@ title: CLUP
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_2.md
-last_canonicalized_utc: 2026-04-23T19:47:05.942000+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_2.md
+last_canonicalized_utc: '2026-04-24T05:39:50.922647+00:00'
 ---
 
 # CLUP
@@ -106,7 +106,7 @@ Automated summary withheld for CLUP because the refined source includes table-of
 - Annex SO-9. Standards
 - Annex SO-10. Relevant Provisions of the Law
 - 1. Fire Station
-- Chapter IV, Sec. 55-56 of RA 6975 provides, the organization and establishment of Fire Station.
+- Chapter IV, SECTION 55-56 of RA 6975 provides, the organization and establishment of Fire Station.
 - 2. Jail
 - Chapter V. Sections 62- 63 of RA 6975 provides the organization and establishment District, City of Municipal Jails.
 - 3. Establishment of District, City or Municipal Jail:
@@ -150,6 +150,7 @@ Automated summary withheld for CLUP because the refined source includes table-of
 - 4. Establish what we call the “Spirit of Place” or “Diwa ng Lunan”.
 - 5. Assess the vulnerability of cultural resources to the effects ofclimate change and natural hazards based on the result of the climateand disaster risk assessments.
 - 6. Seek assistance from the National Historical Commission of thePhilippines (NHCP) or the National Museum (NM) for the declarationof the identified heritage sites/structures.
+- SECTION 2, Rule 1, VI. Policies and Standards of the NHCP Guidelines, Policies and Standards
 - Annex HE-1. NHCP Guidelines, Policies and Standards for the Conservation and Development of Historic Centers/Heritage Zones
 - Section 3. Management Requirements. Once declared a Historic Center/Heritage Zone, the LGU shall undertake the following measures to ensure the preservation and sustainability of the site.
 - Rule II. Land Use Policies and Regulations

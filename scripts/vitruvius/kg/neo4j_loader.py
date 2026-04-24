@@ -411,6 +411,7 @@ def _canonical_node_merge(node: CanonicalNode) -> str:
         "id": node.id,
         "type": node.type.value,
         "label": node.label,
+        "display_label": node.display_label,
         "slug": node.slug,
         "summary": node.summary,
         "taxonomy_path": node.taxonomy_path,

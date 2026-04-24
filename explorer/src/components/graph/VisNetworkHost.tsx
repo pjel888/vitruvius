@@ -149,6 +149,35 @@ const COLOR_SCHEMES: Record<string, Record<string, string>> = {
   },
 };
 
+export function deriveRuleDisplayLabelsFromConceptEdges(nodes: GraphNode[], edges: GraphEdge[]) {
+  const nodeById = new Map(nodes.map((node) => [node.id, node]));
+  const ruleTitleById = new Map<string, string>();
+
+  edges.forEach((edge) => {
+    if (edge.type !== 'DEFINED_BY') return;
+    const concept = nodeById.get(edge.source);
+    const rule = nodeById.get(edge.target);
+    if (!concept || !rule || rule.type !== 'rule') return;
+    const conceptLabel = titleIfAllLower(getDisplayLabel(concept));
+    if (!conceptLabel) return;
+    ruleTitleById.set(rule.id, conceptLabel.toLowerCase().endsWith('rule') ? conceptLabel : `${conceptLabel} Rule`);
+  });
+
+  if (ruleTitleById.size === 0) return nodes;
+
+  return nodes.map((node) => {
+    const displayLabel = ruleTitleById.get(node.id);
+    if (!displayLabel || node.displayLabel === displayLabel) return node;
+    return { ...node, displayLabel };
+  });
+}
+
+function titleIfAllLower(value: string) {
+  const normalized = value.replace(/\s+/g, ' ').trim();
+  if (!normalized || normalized !== normalized.toLowerCase()) return normalized;
+  return normalized.replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
 function getNodeColor(schemeName: string, nodeType: string) {
   const scheme = COLOR_SCHEMES[schemeName] || COLOR_SCHEMES.default;
   return scheme[nodeType] || '#a78bfa';
@@ -182,6 +211,15 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
   function markOverviewDirty() {
     overviewVersionRef.current += 1;
+  }
+
+  function escapeHtml(value: string) {
+    return value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function getLiveScale() {
@@ -254,7 +292,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       },
       size,
       group: n.type,
-      title: `<b>${displayLabel}</b><br/>${n.type}<br/><span>${n.label}</span><br/><code>${n.id}</code>`,
+      title: `<b>${escapeHtml(displayLabel)}</b><br/>${escapeHtml(n.type)}<br/><code>${escapeHtml(n.id)}</code>`,
     };
   }
 
@@ -362,7 +400,6 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       if (!nodeMap.has(n.id)) nodeMap.set(n.id, n);
     });
     const uniqueNodes = Array.from(nodeMap.values());
-    rawNodesRef.current = uniqueNodes;
 
     const edgeMap = new Map<string, GraphEdge>();
     edges.forEach((e) => {
@@ -371,6 +408,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     });
     const uniqueEdges = Array.from(edgeMap.values());
     rawEdgesRef.current = uniqueEdges;
+    const displayNodes = deriveRuleDisplayLabelsFromConceptEdges(uniqueNodes, uniqueEdges);
+    rawNodesRef.current = displayNodes;
     markOverviewDirty();
 
     if (!ready || !containerRef.current || !visModule) {
@@ -382,14 +421,14 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     hiddenNodeIdsRef.current.clear();
 
     const degMap = new Map<string, number>();
-    uniqueNodes.forEach((n) => degMap.set(n.id, 0));
+    displayNodes.forEach((n) => degMap.set(n.id, 0));
     uniqueEdges.forEach((e) => {
       degMap.set(e.source, (degMap.get(e.source) ?? 0) + 1);
       degMap.set(e.target, (degMap.get(e.target) ?? 0) + 1);
     });
     degreeMapRef.current = degMap;
 
-    const visNodes = uniqueNodes.map(buildVisNode);
+    const visNodes = displayNodes.map(buildVisNode);
     const visEdges = uniqueEdges.map((e) => ({
       id: e.id,
       from: e.source,

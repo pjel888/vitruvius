@@ -1,11 +1,11 @@
 ---
-id: law-toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990-fb52c3
+id: law-toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990-bb9c67
 title: Toxic Substances And Hazardous And Nuclear Wastes Control Act Of 1990
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.md
-last_canonicalized_utc: '2026-04-23T21:37:50.960628+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.md
+last_canonicalized_utc: '2026-04-24T10:00:16.933493+00:00'
 aliases:
 - RA 6969
 - Republic Act No. 6969

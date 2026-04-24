@@ -4,11 +4,11 @@ title: TABLE OF CONTENTS
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md
-last_canonicalized_utc: 2026-04-23T19:47:13.306790+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md
+last_canonicalized_utc: '2026-04-24T05:39:58.774862+00:00'
 aliases:
-  - Malolos City Zoning Ordinance
-  - Zoning Regulations of the City of Malolos
+- Malolos City Zoning Ordinance
+- Zoning Regulations of the City of Malolos
 ---
 
 # TABLE OF CONTENTS

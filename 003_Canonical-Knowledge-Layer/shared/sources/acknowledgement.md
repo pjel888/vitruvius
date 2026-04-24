@@ -1,11 +1,11 @@
 ---
-id: source-trece-latest-clup-volume-i-cfb9f7
+id: source-trece-latest-clup-volume-i-8edfd9
 title: ACKNOWLEDGEMENT
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/721039237-TRECE-LATEST-CLUP-Volume-I.md
-last_canonicalized_utc: 2026-04-23T19:47:13.508080+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/721039237-TRECE-LATEST-CLUP-Volume-I.md
+last_canonicalized_utc: '2026-04-24T10:00:00.832593+00:00'
 ---
 
 # ACKNOWLEDGEMENT

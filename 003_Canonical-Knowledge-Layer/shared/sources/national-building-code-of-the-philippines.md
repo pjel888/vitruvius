@@ -1,178 +1,320 @@
 ---
-id: law-national-building-code-of-the-philippines-e399ba
-title: NATIONAL BUILDING CODE OF THE PHILIPPINES
+id: law-national-building-code-of-the-philippines-c21757
+title: National Building Code Of The Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md
-last_canonicalized_utc: '2026-04-23T22:21:26.133878+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code Complete Scan.md
+last_canonicalized_utc: '2026-04-24T10:00:06.818621+00:00'
 aliases:
 - PD 1096
 - Presidential Decree No. 1096
 - National Building Code
 ---
 
-# NATIONAL BUILDING CODE OF THE PHILIPPINES
+# National Building Code Of The Philippines
 
 ## Overview
 
-WHEREAS, the country’s accelerating economic and physical development, coupled with urbanization and population growth, makes imperative the formulation and adoption of a uniform building code which shall embody up-to-date and modern technical knowledge on building design, construction, use, occupancy and maintenance;
+Automated summary withheld for National Building Code Of The Philippines because the refined source includes table-of-contents material, image-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
 
 ## Coverage
 
-- SECTION 101. Title This Decree shall be known as the “National Building Code of the Philippines” and shall
+- CHAPTER l -GENERAL PROVISIONS
+- CHAPTER 2 - ADMINISTRATION AND ENFORCEMENT
+- CHAPTER 5- REQUIREMENTS OF FIRE ZONES
+- CHAPTER 6- FIRE RESISTIVE REQUIREMENTS IN. CONSTRUCTION
+- CHAPTER 7- CLAS SmCATION AND GENERAL REQUIREMENT OF ALL BUILDINGS BY USE OR OCCUPANCY
+- CHAPTER 9 - SANITATION
+- CHAPTER 10- BUILDING PROJECTION OVER PUBLIC STREETS
+- CHAPTER 11 -PROTECTION OF PEDESTRIANS DURING CONSTRUC TlON OR DEMOLITION
+- CHAPTER IJ- ELE CfRJCAL AND MECHANICAL REGULATIONS .
+- CHAPTER 16- PLASTICS
+- CHAPTER 17- SHEET METALPAINT SPRAY BOOTHS
+- CHAPTER 18- GLASS AND GAI.ZING
+- CHAPTER 19-THE USE OFCOMPUTER
+- CHAPTER 20- SIGNS
+- Rule I
+- Rule IT Rule III RuleIV
+- RULE I · GENERAL PROVISIONS
+- RULE II • ADMINISTRATION AND ENFORCEMENT
+- RULE Ul - PERMITS AND INSPECTION
+- RULE X Vt"- GLASS AND GLAZING
+- SECTION 101. Titfe
 - SECTION 102. Declaration of Policy
-- SECTION 103. Scope and Application
-- SECTION 104. General Building Requirements
+- SECTION 103. Scope end Application
+- SECTION 104. General Building Requirements (a) All buildings or structures as well as accessory facilities thereto shall conform
 - SECTION 105. Site Requirements
-- SECTION 106. Definitions As used in this Code, the words, terms and phrases enumerated in Annex “A” hereof shall
-- SECTION 201. Responsibility for Administration and Enforcement The administration and enforcement of the provisions of this Code including the imposition of
+- SECTION 108. Oeffnitions AI used in this Code, the words, terms and phrateS enumerated in Annex "A"
+- SECTION 201. ~esponsibility for Admintsbation811 Eab'*"'"t
+- SECTION 202. Technical Staff
 - SECTION 204. Professional and Technical Assistance
-- SECTION 205. Building Officials Except as otherwise provided herein, the Building Official shall be responsible for carrying out
-- SECTION 206. Qualifications of Building Officials No person shall be appointed as a Building Official unless he possesses the following
-- SECTION 207. Duties of a Building Official In his respective territorial jurisdiction, the Building Official shall be primarily responsible for
-- SECTION 208. Fees Every Building Official shall keep a permanent record and accurate account of all fees and
-- SECTION 209. Exemption Public buildings and traditional indigenous family dwellings shall be exempt from payment of
+- SECTION 205. Building Official~ Except as otherwise provided.herein, the Building Official shall be responsible for
+- SECTION 206. Quafifications of Building Officials No penon shall be appointed as a Building Official unless he possesses the
+- SECTION 207. Duties of a Building Official
+- SECTION 208. Fees Every Building Official shall keep a permanent record and accurate account of all
+- SECTION 209. Exemption
 - SECTION 210. Use of Income from Fees
 - SECTION 211. Implementing Rules and Regulations
-- SECTION 212. Administrative Fines For the violation of any of the provisions of this Code or any of the rules or regulations issued
-- SECTION 213. Penal Provisions It shall be unlawful for any person, firm or corporation, to erect, construct, enlarge, alter,
+- SECTION 212. Administratjye Fines For the violation of any of the provisions of this Code or any of the rules or
+- SECTION 213. Penal Provisions It shall be unlawful .for any person, firm or corporation, to erect, construct,
 - SECTION 214. Dangerous and Ruinous Buildings or Structures
-- SECTION 215. Abatement of Dangerous Buildings
-- SECTION 216. Other Remedies The rights, actions and remedies provided in this Code shall be in addition to any and all other
-- SECTION 301. Building Permits
-- SECTION 302. Application for Permits In order to obtain a building permit, the applicant shall file an application therefor in writing
-- SECTION 303. Processing of Building Permits The processing of building permits shall be under the overall administrative control and
-- SECTION 304. Issuance of Building Permits
-- SECTION 305. Validity of Building Permits The issuance of a building permit shall not be construed as an approval or authorization to the
-- SECTION 306. Non-Issuance, Suspension or Revocation of Building Permits The Building Official may order or cause the non-issuance, suspension or revocation of
+- SECTION 216. Abltament of Dangerous Buildings
+- SECTION 216. Other Remedies. The rights, actions and remedies provided in this Code shall be in addition to any
+- SECTION 301. Building Permits No pe~on, firm or corporation, including any agency Of instrumentality of the
+- SECTION 302. Application for pennits In order to obtain a building permit, the applicant shall file an application therefor
+- SECTION 303. Processing of Building Permits The processing of building permits shall be under the overall administrative control
+- SECTION 304. Issuance of Building Permits When satisfied that the work described in an application for building permit and
+- SECTION 305. Validity of Building Permits The issuance ·of a building permit shaH not be construed as an approval or
+- SECTION 306. Non-Issuance, Suspension or Revocation of Building Permits
 - SECTION 307. Appeal
-- SECTION 308. Inspection and Supervision of Work The owner of the Building who is issued or granted a building permit under this Code shall
-- SECTION 309. Certificate of Occupancy No building or structure shall be used or occupied and no change in the existing use or
-- SECTION 401. Types of Construction For purposes of this Code, all buildings proposed for construction shall be classified or
+- SECTION 309. Certificate of Occupancy
+- SECTION 401. Types of Construction For purposes of this Code, all buildings proposed for construction shall be classi·
 - SECTION 402. Changes in Types
 - SECTION 403. Requirements on Type of Construction
-- SECTION 501. Fire Zones Defined Fire zones are areas within which only certain types of buildings are permitted to be
-- SECTION 502. Buildings located in more than One Fire Zone A building or structure which is located partly in one fire zone and partly in another shall be
-- SECTION 503. Moved Building Any building or structure moved within or into any fire zone shall be made to comply with all
+- SECTION 501. Fire Zones Defined Fire zones are areas within which only certain types of buildings are permitted to
+- SECTION 502. Buildings located in more than One Fire Zone A building or structure which is located partly in one fire zone and partly in .
+- SECTION 503. Moved Building Any building or structure moved within or into any fire zone shall be made to
 - SECTION 504. Temporary Buildings
-- SECTION 505. Center Lines of Streets For the purpose of this Chapter, the center line of an adjoining street or alley may be
-- SECTION 506. Restrictions on Existing Buildings Existing buildings or structures in fire zones that do not comply with the requirements for a
-- SECTION 601. Fire-Resistive Rating defined Fire-resistive rating means the degree to which a material can withstand fire as determined by
-- SECTION 602. Fire-Resistive Time Period Rating Fire-resistive time period rating is the length of time a material can withstand being burned
-- SECTION 603. Fire-Resistive Standards All materials of construction, and assemblies or combinations thereof shall be classified
+- SECTION 505. Center Lines of Streets For the purpose of this Chapter, the center line of an adjoining street or alley may
+- SECTION 506. Restrictions on Existing Buildings Existing buildings or structures in . fire zones that do not comply with the
+- SECTION 507•. Oesignat1oo of Fire Zones
+- SECTION 801. Fire-Resistive Rating defined Fire-resistive rating means the degree to which a material can withstand fire as
+- SECTION 602. Fire-Resistive Time Period Rating Fire-resistive time period rating is the length of time a material can withstand being
+- SECTION 603. fire-Resistive Standards All materials of construction, and assemblies or combinations thereof shall be
 - SECTION 604. Fire-Resistive Regulations
-- SECTION 701. Occupancy Classified
+- Division 3 - Nursing homes for ambulatory patients, homes for children of kindergarten age or over, each accommodating more than five persons: Provided, that Group D Occupancies shatl not include buildings used only for private or family group dwelling purposes.
 - SECTION 702. Change in Use
-- SECTION 703. Mixed Occupancy (a) General Requirements When a building is of mixed occupancy or used for more than one occupancy, the whole
-- SECTION 704. Location on Property (a) General No building shall be constructed unless it adjoins or has direct access to a public space, yard
-- SECTION 705. Allowable Floor Areas
-- SECTION 706. Allowable Floor Area Increases
+- SECTION 703. Mixed Occupancy
+- SECTION 704. Location on Property
+- SECTION 705. Allowable floor Areas
+- SECTION 706. A Howable Floor Area lncreases
 - SECTION 707. Maximum Height of Buildings
-- SECTION 708. Minimum Requirements for Group A Dwellings (a) Dwelling Location and Lot Occupancy The dwelling shall occupy not more than ninety percent of a corner lot and eighty percent of
+- SECTION ·708. Minimum Requirements for Group A Dwellings
 - SECTION 709. Requirements for Other Group Occupancies
-- SECTION 801. General Requirements of Light and Ventilation
-- SECTION 802. Measurement of Site Occupancy
+- SECTION 801. General.Requirements of Light and Ventilation (a) Subject to the provisions of the Civil Code of the Philippines on Easements of
+- SECTION 802. Measurement of Site Occupancy (a) ·The measurement of site occupancy or lot occupancy shall be taken at the
 - SECTION 803. Percentage of Site Occupancy
 - SECTION 804. Size and Dimensions of Courts
-- SECTION 805. Ceiling Heights
-- SECTION 806. Size and Dimension of Rooms
-- SECTION 807. Air Space Requirements in Determining the Size of RoomsMinimum air space shall be provided as follows:
-- SECTION 808. Window Openings
+- SECTION 805 Ceiling Heights (a) Habitable rooms provided with artificial ventilation shall have ceiling heights
+- SECTION 807. Air Space Requirements in Determining the Size of Rooms lahMinWclum~ir space shall be provided as follows:
 - SECTION 809. Vent Shafts
 - SECTION 810. Ventilation Skylights
-- SECTION 811. Artificial Ventilation
+- SECTION 811. Artificial Ventilation (a) Rooms or spaces housing industrial or heating equipment shall be provided
 - SECTION 901. General Requirements
 - SECTION 902. Water Supply System
 - SECTION 903. Wastewater Disposal System
-- SECTION 904. Storm Drainage System
+- SECTION 904. Storm Drainage System (a} Rainwater drainage shall not discharge to the sanitary sewer system. (b) Adequate provisions shall be made to drain low areas in buildings and their
 - SECTION 905. Pest and Vermin Control
-- SECTION 906. Noise Pollution Control
-- SECTION 907. Pipe Materials All pipe materials to be used in buildings shall conform to the Standard Specifications of the
+- SECTION 907. Pipe Materials All pipe materials to be used in buildings shall conform to the Standard
 - SECTION 1001. General Requirements
-- SECTION 1002. Projection into Alleys or Streets (a) No part of any structure or its appendage shall project into any alley or street, national
-- SECTION 1003. Projection of Balconies and Appendages Over Streets
 - SECTION 1004. Arcades
-- SECTION 1005. Canopies (Marquees)
+- SECTION 1005. Canopies (Marquees) (a) Definition: A canopy or marquee is a permanent roofed structure above a door
 - SECTION 1006. Movable Awnings or Hoods
-- SECTION 1007. Doors, Windows, and the like Doors, windows, and the like less than 2.40 meters above the pavement or groundline shall
-- SECTION 1008. Corner Buildings with Chaflans
+- SECTION 1007. Doors, Windows, and the like Doors, windows, and the like less than 2.40 meters aJ:>ove the pavement or
+- SECTION 1008. Comer.Buifdings with Chaflans
 - SECTION 1101. General Requirements
 - SECTION 1102. Storage in Public Property
+- SECTION 1103. Mixing Mortar on Public Property The mixing of mortar, concrete, or similar materials on pub\ic streets shall not be
+- SECTION 1104. Protection of Utilities
 - SECTION 1105. Walkway
 - SECTION 1106. Pedestrian Protection
-- SECTION 1107. Maintenance and Removal of Protective Devices
 - SECTION 1108. Demolition
-- SECTION 1201. General Requirements Buildings proposed for construction shall comply with all the regulations and specifications
+- SECTION 1201. General Requirements
 - SECTION 1202. Excavation, Foundation, and Retaining Walls
 - SECTION 1203. Veneer
-- SECTION 1204. Enclosure of Vertical Openings
 - SECTION 1205. Floor Construction
-- SECTION 1206. Roof Construction and Covering
-- SECTION 1207. Stairs, Exits, and Occupant Loads
+- SECTION 1207. Stairs, ExitS., and Occup.,t Loads (a) General. The construction of stairs and exits shall conform to the occupant
 - SECTION 1208. Skylights
 - SECTION 1209. Bays, Porches, and Balconies
 - SECTION 1210. Penthouses and Roof Structures
 - SECTION 1211. Chimneys, Fireplaces, and Barbecues
-- SECTION 1212. Fire-Extinguishing Systems
+- SECTION 1212. Fire-Extinguishing Systems (a) Fire·Extinguishing Systems - Where required, standard automatic fire-
 - SECTION 1213. Stages and Platform
-- SECTION 1214. Motion Picture Projection Rooms
-- SECTION 1215. Lathing, Plastering, and Installation of Wall Boards The installation of lath, plaster and gypsum wall board shall conform to the fire-resistive rating
-- SECTION 1301. Electrical Regulations All electrical systems, equipment and installation mentioned in this Code shall conform to the
-- SECTION 1302. Mechanical Regulations
-- SECTION 1401. Storage and Handling (a) Storage rooms of unexposed photographic and x-ray films shall be provided with
+- SECTION 1214. Motion Ptcture Projection Rooms
+- SECTION 1215. Lathing, Plastering, and Installation of Wall Boards
+- CHAPTER 13 ELECTRICAL AND MECHANICAL REGULATIONS SECTION 1301. Electrical Regulations
+- 1. REVISED Legend AND GENERAL NOTES
+- SECTION 1401. Storage and Handling (a) Storage rooms of unexposed photographic and x-ray films shall be prO Yided
 - SECTION 1402. Classes of Film Exempted
-- SECTION 1403. Fire Extinguishing System Unless otherwise provided in this Code, all fire extinguishing systems when so required shall
-- SECTION 1501. Prefabricated Assembly
-- SECTION 1601. Approved Plastics
-- SECTION 1602. Installation
-- SECTION 1603. Glazing of Openings (a) Doors, sashes and framed openings in exterior walls of all buildings except Types IV and
-- SECTION 1604. Skylights
-- SECTION 1605. Light-Transmitting Panels in Monitors and Sawtooth Roofs
-- SECTION 1606. Plastic Light Diffusers in Ceilings
-- SECTION 1607. Partitions Where partitions are not required to be of fire-resistive or incombustible construction,
-- SECTION 1608. Exterior Veneer
-- SECTION 1609. Awnings and Canopies
-- SECTION 1701. Sheet Metal Paint Spray Booths
-- SECTION 1702. Fire Protection Every spray booth having an open front elevation larger than 1.00 square meter and which is
-- SECTION 1703. Light Paint spray booths shall be illuminated through hammered wire or heat-treated glass panels.
+- SECTION 1403. Fire Extinguishing System Unless otherwise provided in this Code, all fire extinguishing systems when so
+- SECTION 1601 Approved Plastics
+- SECTION 1603 Glazing of Openings
+- SECTION 1604 Skylights
+- SECTION 1606. Light-Transmitting Panets in Monitors and Sawtooth Roofs
+- SECTION 1606. Plastic light Diffusen in Ceilings . (a) General - Ceiling light diffusers having an area greater than ten percent of any
+- SECTION 1607. Partitions Where partitions are not required to · be of fire-resistive or incombustible
+- SECTION 1608. EX1erior Veneer (a) General
+- SECTION 1609. Awnings and Canopies (a) Plastic materials appropriate for use according to Flame Spread characteristics
+- SECTION 1701. Sheet Metal Paint Spray Sooths
+- SECTION 1702 Fire Protection
+- SECTION 1703. Light
 - SECTION 1704. Ventilation
 - SECTION 1801. General Requirements
 - SECTION 1802. Area Limitation
 - SECTION 1803. Glazing
-- SECTION 1804. Louvered Windows Regular plate, sheet, or patterned glass in jalousies and louvered windows shall not be
-- SECTION 1805. Impact Frameless glass doors, glass in doors, fixed glass panels, and similar glazed openings which
-- SECTION 1901. General Rule The use of computers for all or any part of the design of buildings under this Code is
-- SECTION 1902. Program Documentation
-- SECTION 1903. Submission of Computer-Generated Computations
+- SECTION 1804. Louvered Windows Re<.;~ular plate, shee\ or patterned glass in jalousies and louvered windows shall not
+- SECTION 1805. Impact
+- SECTION 1901. General Rule
+- SECTION 1902. Program Docun.ntation ·
+- SECTION 1903. Submission of Computer~ Computations
 - SECTION 2001. General Requirements
-- SECTION 2002. Maintenance All signs, together with all of their supports, braces, guys, and anchors, shall be kept in repair
+- SECTION 2002. Maintenance
 - SECTION 2003. Design and Construction
-- SECTION 2004. Supports and Anchorages
-- SECTION 2005. Projections and Clearances
-- SECTION 2006. Lighting Signs shall be illuminated only by electrical means in accordance with the Philippine Electrical
-- SECTION 2101. Existing Building and Structures All buildings or structures constructed under R.A. 6541 or existing city or municipal building
-- SECTION 2103. Separability Clause If any provision of this Decree or the application thereof is to any person or circumstance
-- SECTION 2104. Repealing Clause All laws, decrees, provisions of charters, executive orders, ordinances, rules and regulations
-- SECTION 2105. Effectivity
+- SECTION 2005. Projections and Cleanna (a) Clearances from High Voltage Power Lines - Clearances of signs from high
+- SECTION 2006. Lightjng Signs shall be illuminated only by electrical means in accordance with the
+- ANNEX "A"
+- ANNEX "A"
+- ANNEX ..A..
+- ANNEX "A''
+- ANNEX "Au
+- ANNEX ..B,.
+- ANNEX ..e··
+- Section 1. In order to promote the realization of the rights of disabled persons to participate fully in the social life and the development of the societies in which they live and the enjoyment ofthe opportunities av.ailable to other citizens, no license or permit for the construction, repair or renovation of public and private builqings for public use, educational institutions, airports,sportsandrecreation centers a.nd complexes, shopping centers or establishments, public parkingplaces, workplaces, public utilities, shall be granted or issued unless the owner or operator thereof shall install and incorporate in such building, establishment, institution or public utility, such architectural facilities or structural features as shall reasonably enhance the mobility ofdisabled persons such as sidewalks, ramps, railings andthe like. Iffeasible, all such existing buildings, institutions, establishments, or public utilities may be renovated oraltered to enable the disabled persons to have access to them: Provided, however, That buildings, institutions, establishments, or public utilities to be constructed or established for which licenses or permits had already been issued may comply with the requirements of this law:
+- 5. Special Standards ofAccessibility
+- RULE II -MINIMUM REQUIREMENTS
+- 8. CATEGORY I
+- RULE IV-REQUIREMENTS FORPUBUC TRANSPORTATION
+- RULE V · ADMINISTRATION AND ENFORCEMENT
+- 1. Owner/Operator ofPublic Transportation a. Body Builders
+- ANNEX"A"
+- Appendix A ·
+- 1. DROPPED CURBS
+- 2. CUBB CU'r..OUTS
+- 3. WALKWAYS AND PASSAGEWAYS
+- 6. SlGNAGES
+- 7. CROSSINGS
+- 1. PARKING AREAS
+- 1. ENTRANCES
+- 2. RAMPS
+- 5. SWITCHES
+- 6. SlGNAGES
+- 3. DOORS
+- 7. COR PlDORS
+- 8. WASHROOMS 6: TOILETS
+- 1. . DROPPED CURBS
+- 5. AUDIBLB AND VISIBLE ALARM SYSTEM
+- 2. CURB CUT-OUTS
+- 4. HANDRAILS
+- 6. SIGNAGES
+- 1. ENTRANCES
+- 2. RAMPS
+- 8. POORS
+- 9. STAIRS
+- Section 6.6 Slgupl;
+- 11. WATER FOUNTAINS
+- 2. COVERS FOR EXCAVATIONS
+- 4. WCATION OF EMERGENCY EXITS
+- 3. SIONAGE FOR ROADWORKS ON THE
+- RULE I - GENERAL PROVISIONS
+- SECTION 106. · Site Requirements
+- SECTION 106. Definitions
+- part.
+- RULE II-AOMINISTRA TlON AND ENFORCEMENT
+- SECTION 213. Penal Provisions
+- SECTION.214. Dangerous and Ruioous Buildings or Structures
+- RULE Ill - PERMITS AND INSPECTION
+- SECTION 301. Building Permits
+- SECTION 302. Appllc:ation for Permits
+- SECTION 306. Validity of Building Permits
+- SECTION 306. Non-issuance, Suspension or Revocation of Building Permits
+- SECTION 30l. Appeal
+- RULE IV ·TYPES OF CONSTRUCTION
+- RULE V- REQUIREMENTS OF FIRE ZONES
+- RULE VI - FIRE-RE SiSTIVE REQUIREMENTS IN CONSTRUCTION
+- SECTION i01. Fire- Resistive Rating Defined
+- RULE VII • CLASSIFICATION AND GENERAL~
+- SECTION 701. Occupancy C\assified
+- Division 3 - Nursing homes for ambulatory patients, homes for children of kindergarten age or over, each accommodating more than five persons: Provided, that Group D Occupancies shall not include buildings used only for private or family group dwelling purposes,
+- Division 1· Any assembly building with a stage and an occupant load of less
+- Division 4~ Stadia. reviewing stands. amusement park slJudures nol included
+- Division H-31.Dancehalls,ballrooms
+- 1. Residential Resklential1 (R-1) 3 moo I
+- 3. Other Considerations in Height Determination
+- 4. Parking Slot, Parking Area and Loading/Unloading Space Requirements
+- 1. GROUPA
+- Section•701 of this Rule)
+- 4. GROUPO
+- Section 1.3ofthis Rule) orTypeor Loadings.-:e
+- SECTION 708. Minimum Requirements for Group A Dwellings
+- seCTION 709. ~equirements for Other Group Occupancies
+- 4. Accessory Structures
+- RULE VIII • LIGHT AND VENTILATION
+- SECTION.801. General Requirements of light and Ventilation
+- SECTION 804. Sizes and Dimensions of Courts
+- SECTION 811. Artificial Ventilation
+- 3. Disallowed and Prohibited Structures/Developments Within Easements
+- 1. Preservation ofView Corridors and/or Sight lines
+- 0. SIDEWALKS
+- 1. General
+- RULE IX- SANITATION
+- RULE X - BUILDING PROJECTION OVER PUBLIC STREETS
+- SECTION 1008. Corner Buildings with Chaflans
+- RULE XI· • PROTECTION OF PEDESTRIANS DURING CONSTRUCTION ORDEMOUT10N
+- SECTION 1'101. General Requirement.
+- SECTION 11 JJ3. Mixing Mortar on Public Property
+- SECTION 1107: Maintenance and Removal of Protective Devices
+- SECTION 1108. Demolition.
+- RULE XII - GENERAL DESIGN AND CONSTRUCTION REQUIREMENTS
+- SECTION 1203. Veneer
+- SECTION 1204. Encloeure of Vertical Openings
+- 1. Chimneys
+- SECTION 1213. Stages and Platform
+- SECTION 1214. Motion Picture Projection Rooms
+- RULE XIII - ELECTRICAL AND MECHANICAL REGULATIONS
+- SECTION 1301. Electrical Regulations
+- 1. Buildings
+- 2. Signs, chimneys.billboards, radioand television~~ntennas, andotherinstalatioosnot claaslfied asbuilding& or bridgesa. Horizontal
+- 2. Capacitors in hazardous locations shall comply with additional
+- 10. Emergency Power Sy~Wmt
+- 11. Electrical Room
+- 12. Service Equipment
+- 13. Metering Facilities
+- RULE XIV - PHOTOGRAPHIC AND X-RAY FILMS
+- RULE XV - PREFABRICATED CONSTRUCTION
+- SECTION 1501. Prefabricated Assembly
+- RULE XVI - PLASTICS
+- RULE XVII • 'SHEET-METAL PAINT SPRAY BOOTHS
+- SECTION 1701. Sheet Metal Paint Spray Booth
+- RULE XVIII - GLASS AND GLAZING
+- SECTION 1802, Area Limitation
+- RULE XIX - THE USE Of COMPUTERS
+- SECTION 1903. Submission of~omputer-Generated Computations .
+- RULE XX - SIGNS
+- SECTION.2003. Design and Construction
+- RULE XXI - FINAL PROVISIONS
+- 4. Bectrical Fees
+- 5. Mechanical Feesa. Refrigeration,Air Conditioning and Mechanical iJentilation:
+- 6. Plumbing FfHJS
 
 ## Key Points
 
-- (no key points extracted)
+- (automated key points withheld because source-summary trust is low; review operative sections directly)
 
 ## Referenced Concepts
 
+- concept-mediation
+- concept-arbitration
 - concept-building-permit
+- concept-floor-area
+- concept-stairs
 - concept-certificate-of-occupancy
+- concept-light-and-ventilation
+- concept-master-plumber
 - concept-occupancy-classification
 - concept-floor-area-ratio
 - concept-fire-resistive-construction
-- concept-stairs
-- concept-floor-area
 - concept-mixed-occupancy
 - concept-occupancy-separation
 - concept-yards
 - concept-lot-occupancy
-- concept-light-and-ventilation
 - concept-exit-width
 - concept-means-of-egress
+- concept-bids-and-awards-committee
+- concept-building-height
+- concept-accessible-ramps
+- concept-socialized-housing-projects
+- concept-architectural-interiors
+- concept-zoning-ordinance
+- concept-setbacks
+- concept-comprehensive-land-use-plan

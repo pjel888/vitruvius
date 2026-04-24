@@ -4,10 +4,10 @@ title: Contents
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/Open Space Development Guidelines.md
-last_canonicalized_utc: 2026-04-23T19:47:06.935822+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md
+last_canonicalized_utc: '2026-04-24T05:39:51.926500+00:00'
 aliases:
-  - DHSUD Open Space Development Guidelines
+- DHSUD Open Space Development Guidelines
 ---
 
 # Contents

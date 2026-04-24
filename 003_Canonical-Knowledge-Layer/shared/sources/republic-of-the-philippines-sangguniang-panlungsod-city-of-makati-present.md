@@ -1,11 +1,11 @@
 ---
-id: source-ordinance-ed498f
+id: source-ordinance-24d2e0
 title: 'REPUBLIC OF THE PHILIPPINES SANGGUNIANG PANLUNGSOD CITY OF MAKATI PRESENT:'
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/ordinance.md
-last_canonicalized_utc: '2026-04-23T21:37:39.198067+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/ordinance.md
+last_canonicalized_utc: '2026-04-24T10:00:05.807878+00:00'
 ---
 
 # REPUBLIC OF THE PHILIPPINES SANGGUNIANG PANLUNGSOD CITY OF MAKATI PRESENT:

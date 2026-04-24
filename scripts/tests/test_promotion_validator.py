@@ -4,6 +4,8 @@ import yaml
 
 from vitruvius.promotion_validator import (
     ValidationResult,
+    build_canonical_index,
+    normalize_relationship_trust,
     validate_promotion_record,
 )
 
@@ -25,6 +27,32 @@ def canonical_index():
             "type": "concept", "canonical_status": "draft", "trust_level": None,
         },
     }
+
+
+def test_normalize_relationship_trust_maps_unknown_to_unverified():
+    assert normalize_relationship_trust("unknown") == "unverified"
+    assert normalize_relationship_trust(None) == "unverified"
+    assert normalize_relationship_trust("primary") == "primary"
+
+
+def test_build_canonical_index_normalizes_unknown_source_trust(tmp_path):
+    sources = tmp_path / "003_Canonical-Knowledge-Layer" / "shared" / "sources"
+    concepts = tmp_path / "003_Canonical-Knowledge-Layer" / "shared" / "concepts"
+    sources.mkdir(parents=True)
+    concepts.mkdir(parents=True)
+    (sources / "law-x.md").write_text(
+        "---\nid: law-x\ncanonical_status: draft\ntrust_level: unknown\n---\n",
+        encoding="utf-8",
+    )
+    (concepts / "concept-y.md").write_text(
+        "---\nid: concept-y\ncanonical_status: draft\n---\n",
+        encoding="utf-8",
+    )
+
+    index = build_canonical_index(tmp_path)
+
+    assert index["law-x"]["trust_level"] == "unverified"
+    assert index["concept-y"]["trust_level"] == "unverified"
 
 
 def registry():

@@ -1,11 +1,11 @@
 ---
-id: source-berde-buildings-version-5-0-0-user-guide-b7fe1e
+id: source-berde-buildings-version-5-0-0-user-guide-00e1a0
 title: BERDE
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/BERDE/BERDE – Buildings – Version 5.0.0 – User Guide.md
-last_canonicalized_utc: 2026-04-23T19:47:00.832069+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/BERDE/BERDE – Buildings – Version 5.0.0 – User Guide.md
+last_canonicalized_utc: '2026-04-24T09:59:42.715581+00:00'
 ---
 
 # BERDE

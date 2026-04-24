@@ -1,11 +1,11 @@
 ---
-id: source-doh-drug-abuse-treatment-and-rehab-centers-2003-85f595
+id: source-doh-drug-abuse-treatment-and-rehab-centers-2003-098c80
 title: Manual of Operations for Drug Abuse Treatment and Rehabilitation Centers
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003.md
-last_canonicalized_utc: 2026-04-23T19:47:02.753023+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003.md
+last_canonicalized_utc: '2026-04-24T09:59:45.274962+00:00'
 ---
 
 # Manual of Operations for Drug Abuse Treatment and Rehabilitation Centers

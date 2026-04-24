@@ -46,7 +46,7 @@ function RelationList({ title, relations, onSelectNode }: { title: string; relat
             <div className="flex items-center gap-1 text-sm">
               {title === 'Incoming' ? (
                 <>
-                  <span className="truncate" title={relation.other.label}>{otherLabel}</span>
+                  <span className="truncate" title={otherLabel}>{otherLabel}</span>
                   <ArrowRight size={12} className="text-text-dim shrink-0" />
                   <span className="font-medium shrink-0">{relation.relType}</span>
                 </>
@@ -54,7 +54,7 @@ function RelationList({ title, relations, onSelectNode }: { title: string; relat
                 <>
                   <span className="font-medium shrink-0">{relation.relType}</span>
                   <ArrowRight size={12} className="text-text-dim shrink-0" />
-                  <span className="truncate" title={relation.other.label}>{otherLabel}</span>
+                  <span className="truncate" title={otherLabel}>{otherLabel}</span>
                 </>
               )}
             </div>
@@ -112,7 +112,7 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
       <div className="sticky top-0 z-10 border-b border-border bg-panel/95 px-4 py-3 backdrop-blur">
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0">
-            <h2 className="text-base font-semibold text-accent truncate" title={node.label}>{displayLabel}</h2>
+            <h2 className="text-base font-semibold text-accent truncate" title={displayLabel}>{displayLabel}</h2>
             <div className="mt-2 flex flex-wrap gap-1.5">
               <span className="kg-chip rounded-full px-2 py-0.5 text-[11px] uppercase tracking-wider">{node.type}</span>
               {node.status && <span className="kg-chip rounded-full px-2 py-0.5 text-[11px] uppercase tracking-wider">{node.status}</span>}

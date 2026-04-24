@@ -8,22 +8,22 @@ to_entity: concept-bids-and-awards-committee
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260423T214500Z_31b28634
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260423T184105Z/promotion_audit.log
-last_promoted_utc: 20260423T214500Z
+promotion_batch_id: 20260424T113816Z_2e894bdf
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
+last_promoted_utc: 20260424T113816Z
 evidence:
 - source_id: law-local-government-code-of-1991
   source_section_id: section-37
   evidence_snippet: '- (a) There is hereby created a local prequalification, bids and awards committee in every province, city, and municipality, which shall be primarily responsible for the conduct of prequalification of contractors, bidding, evaluation of bids, and the recommendation of awards concerning local infrast'
   review_decision: keep
-  reviewer_model: qwen2.5:3b
+  reviewer_model: llama3.1:8b
   reviewer_provider: ollama
   reviewer_confidence: 0.95
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260423T214500Z
-  reviewed_at_utc: 20260423T214500Z
+  extracted_at_utc: 20260424T113816Z
+  reviewed_at_utc: 20260424T113816Z
 ---
 
 # law-local-government-code-of-1991 governs concept-bids-and-awards-committee
@@ -38,6 +38,7 @@ Promoted relationship of type `governs` from `law-local-government-code-of-1991`
 
 > - (a) There is hereby created a local prequalification, bids and awards committee in every province, city, and municipality, which shall be primarily responsible for the conduct of prequalification of contractors, bidding, evaluation of bids, and the recommendation of awards concerning local infrast
 
-- Reviewer: `qwen2.5:3b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260423T214500Z
-- Batch: `20260423T214500Z_31b28634`
+- Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
+- Reviewed: 20260424T113816Z
+- Batch: `20260424T113816Z_2e894bdf`
+

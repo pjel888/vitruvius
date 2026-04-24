@@ -1,11 +1,11 @@
 ---
-id: law-comprehensive-zoning-ordinance-of-dagupan-city-d94e10
+id: law-comprehensive-zoning-ordinance-of-dagupan-city-4bdbf5
 title: Republika ng Pilipinas Lungsod ng Dagupan TANGGAPAN NG SANGGUNIANG PANLUNGSOD
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md
-last_canonicalized_utc: '2026-04-23T21:37:36.097395+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md
+last_canonicalized_utc: '2026-04-24T10:00:01.955984+00:00'
 aliases:
 - Dagupan City Ordinance No. 2061-2016
 - Comprehensive Zoning Ordinance of Dagupan City (2015-2025)

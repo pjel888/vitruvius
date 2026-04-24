@@ -212,4 +212,87 @@ describe('ExploreView search-to-inspector integration', () => {
       expect(view.getByTestId('location-probe').textContent).toContain('perspective=concepts');
     });
   });
+
+  test('inspector header column owns the sidebar summary and toggle', async () => {
+    const { ExploreView } = await import('./App');
+
+    const view = render(
+      <MemoryRouter initialEntries={['/explore']}>
+        <Routes>
+          <Route
+            path="/explore"
+            element={
+              <>
+                <ExploreView />
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    const maximizeButton = await view.findByLabelText('Maximize inspector');
+    fireEvent.click(maximizeButton);
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().inspectorOpen).toBe(true);
+      expect(view.getByText('Inspector')).toBeTruthy();
+      expect(view.getByText('1 nodes · 0 edges')).toBeTruthy();
+      expect(view.getByText('Network Layout · 1 filters')).toBeTruthy();
+      expect(view.getByLabelText('Minimize inspector')).toBeTruthy();
+    });
+
+    fireEvent.click(view.getByLabelText('Minimize inspector'));
+    expect(useSceneStore.getState().inspectorOpen).toBe(false);
+  });
+
+  test('inspector minimize persists for the same selection and reopens for a new selection', async () => {
+    const { ExploreView } = await import('./App');
+
+    const view = render(
+      <MemoryRouter initialEntries={['/explore']}>
+        <Routes>
+          <Route
+            path="/explore"
+            element={
+              <>
+                <ExploreView />
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().nodes.some((node) => node.id === 'taxonomy-fire-life-safety')).toBe(true);
+    });
+
+    act(() => {
+      useSceneStore.getState().setSelectedNode('taxonomy-fire-life-safety');
+    });
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().inspectorOpen).toBe(true);
+      expect(view.getByLabelText('Minimize inspector')).toBeTruthy();
+    });
+
+    fireEvent.click(view.getByLabelText('Minimize inspector'));
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().inspectorOpen).toBe(false);
+      expect(view.getByLabelText('Maximize inspector')).toBeTruthy();
+    });
+
+    act(() => {
+      useSceneStore.getState().setSelectedNode('concept-building-permit');
+    });
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().selectedNodeId).toBe('concept-building-permit');
+      expect(useSceneStore.getState().inspectorOpen).toBe(true);
+    });
+  });
 });

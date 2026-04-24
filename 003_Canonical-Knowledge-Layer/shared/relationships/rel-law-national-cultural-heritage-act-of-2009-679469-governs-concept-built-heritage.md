@@ -1,0 +1,44 @@
+---
+id: rel-law-national-cultural-heritage-act-of-2009-679469-governs-concept-built-heritage
+title: law-national-cultural-heritage-act-of-2009-679469 governs concept-built-heritage
+page_type: relationship
+relationship_type: governs
+from_entity: law-national-cultural-heritage-act-of-2009-679469
+to_entity: concept-built-heritage
+trust_level: primary
+canonical_status: promoted
+confidence_score: 0.95
+promotion_batch_id: 20260424T110933Z_4bc60388
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
+last_promoted_utc: 20260424T110933Z
+evidence:
+- source_id: law-national-cultural-heritage-act-of-2009-679469
+  source_section_id: section-32
+  evidence_snippet: '- (d) The Department of Education which shall be responsible in instituting the governance of basic education act, and the conservation and restoration of its built heritage such as the significant Gabaldon school buildings as determined by the National Historical Institute;'
+  review_decision: keep
+  reviewer_model: llama3.1:8b
+  reviewer_provider: ollama
+  reviewer_confidence: 0.95
+  reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
+  local_review_decision: keep
+  local_reviewer_confidence: 0.95
+  extracted_at_utc: 20260424T110933Z
+  reviewed_at_utc: 20260424T110933Z
+---
+
+# law-national-cultural-heritage-act-of-2009-679469 governs concept-built-heritage
+
+## Relationship Summary
+
+Promoted relationship of type `governs` from `law-national-cultural-heritage-act-of-2009-679469` to `concept-built-heritage`.
+
+## Evidence
+
+### Evidence 1 - `law-national-cultural-heritage-act-of-2009-679469` §section-32
+
+> - (d) The Department of Education which shall be responsible in instituting the governance of basic education act, and the conservation and restoration of its built heritage such as the significant Gabaldon school buildings as determined by the National Historical Institute;
+
+- Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
+- Reviewed: 20260424T110933Z
+- Batch: `20260424T110933Z_4bc60388`
+

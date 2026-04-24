@@ -5,7 +5,7 @@ page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code of the Philippines (Compact).md
-last_canonicalized_utc: '2026-04-23T22:21:25.903835+00:00'
+last_canonicalized_utc: '2026-04-24T10:00:07.679278+00:00'
 aliases:
 - PD 1096
 - Presidential Decree No. 1096

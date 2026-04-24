@@ -4,8 +4,8 @@ title: Table of Contents
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/597492263-Calamba-CLUP-v1-New.md
-last_canonicalized_utc: 2026-04-23T19:47:11.621113+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/597492263-Calamba-CLUP-v1-New.md
+last_canonicalized_utc: '2026-04-24T05:39:56.616255+00:00'
 ---
 
 # Table of Contents

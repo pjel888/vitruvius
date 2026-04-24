@@ -1,11 +1,11 @@
 ---
-id: law-government-procurement-reform-act-3bf657
+id: law-government-procurement-reform-act-3ba95d
 title: IMPLEMENTING RULES AND REGULATIONS OF REPUBLIC ACT NO. 9184, OTHERWISE KNOWN AS THE GOVERNMENT PROCUREMENT REFORM ACT
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/RA-9184/RA 9184 - Government Procurement Reform Act.md
-last_canonicalized_utc: '2026-04-23T21:37:52.227627+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/RA-9184/RA 9184 - Government Procurement Reform Act.md
+last_canonicalized_utc: '2026-04-24T10:00:18.090452+00:00'
 aliases:
 - RA 9184
 - Republic Act No. 9184

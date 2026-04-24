@@ -1,11 +1,11 @@
 ---
-id: source-doh-adolescent-friendly-health-services-2010-057e5e
+id: source-doh-adolescent-friendly-health-services-2010-140aa7
 title: Department of Health Republic of the Philippines
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/DOH/DOH Adolescent-Friendly Health Services 2010.md
-last_canonicalized_utc: 2026-04-23T19:47:02.600965+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/DOH/DOH Adolescent-Friendly Health Services 2010.md
+last_canonicalized_utc: '2026-04-24T09:59:45.067908+00:00'
 ---
 
 # Department of Health Republic of the Philippines

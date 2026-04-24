@@ -5,7 +5,7 @@ page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/PD-1096/Philippines_02_IRR_of_NBC_of_the_Philippines.md
-last_canonicalized_utc: '2026-04-23T22:21:27.814713+00:00'
+last_canonicalized_utc: '2026-04-24T10:00:09.566694+00:00'
 aliases:
 - PD 1096 IRR
 - National Building Code IRR

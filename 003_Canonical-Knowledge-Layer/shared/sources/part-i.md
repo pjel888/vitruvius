@@ -1,11 +1,11 @@
 ---
-id: source-clup-final-1-f19dbe
+id: source-clup-final-1-c3db6c
 title: PART I
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/728639085-CLUP-Final-1.md
-last_canonicalized_utc: 2026-04-23T19:47:13.714551+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/728639085-CLUP-Final-1.md
+last_canonicalized_utc: '2026-04-24T10:00:01.076730+00:00'
 ---
 
 # PART I

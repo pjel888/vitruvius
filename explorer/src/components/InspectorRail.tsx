@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react';
-import { PanelRightClose, PanelRightOpen } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { useSceneStore } from '../stores/useSceneStore';
 import { getEdgeDetail, getNode, tracePath } from '../api/graphApi';
 import type { EdgeDetail, NodeDetail } from '../types';
 import NodeInspector from './inspector/NodeInspector';
 import EdgeInspector from './inspector/EdgeInspector';
-import { getDisplayLabel } from '../utils/labels';
 
 interface NodeDetailState {
   id: string | null;
@@ -30,7 +28,6 @@ export default function InspectorRail() {
   const edges = useSceneStore((s) => s.edges);
   const inspectorOpen = useSceneStore((s) => s.inspectorOpen);
   const openInspector = useSceneStore((s) => s.openInspector);
-  const closeInspector = useSceneStore((s) => s.closeInspector);
   const pathSourceId = useSceneStore((s) => s.pathSourceId);
   const pathTargetId = useSceneStore((s) => s.pathTargetId);
   const highlightedPath = useSceneStore((s) => s.highlightedPath);
@@ -39,8 +36,10 @@ export default function InspectorRail() {
   const [nodeState, setNodeState] = useState<NodeDetailState>({ id: null, detail: null, error: null });
   const [edgeState, setEdgeState] = useState<EdgeDetailState>({ id: null, detail: null, error: null });
   const [pathErrorState, setPathErrorState] = useState<PathErrorState>({ key: null, error: null });
+  const lastAutoOpenedSelectionRef = useRef<string | null>(null);
 
   const selectedEdgeExists = selectedEdgeId ? edges.some((edge) => edge.id === selectedEdgeId) : false;
+  const activeSelectionKey = selectedNodeId ? `node:${selectedNodeId}` : selectedEdgeId ? `edge:${selectedEdgeId}` : null;
   const pathKey = pathSourceId && pathTargetId ? `${pathSourceId}->${pathTargetId}` : null;
   const nodeDetail = selectedNodeId && nodeState.id === selectedNodeId ? nodeState.detail : null;
   const nodeError = selectedNodeId && nodeState.id === selectedNodeId ? nodeState.error : null;
@@ -55,10 +54,21 @@ export default function InspectorRail() {
   const pathError = pathKey && pathErrorState.key === pathKey ? pathErrorState.error : null;
 
   useEffect(() => {
-    if ((selectedNodeId || selectedEdgeId) && !inspectorOpen) {
+    if (!activeSelectionKey) {
+      lastAutoOpenedSelectionRef.current = null;
+      return;
+    }
+
+    if (inspectorOpen) {
+      lastAutoOpenedSelectionRef.current = activeSelectionKey;
+      return;
+    }
+
+    if (lastAutoOpenedSelectionRef.current !== activeSelectionKey) {
+      lastAutoOpenedSelectionRef.current = activeSelectionKey;
       openInspector();
     }
-  }, [selectedNodeId, selectedEdgeId, inspectorOpen, openInspector]);
+  }, [activeSelectionKey, inspectorOpen, openInspector]);
 
   useEffect(() => {
     let cancelled = false;
@@ -140,32 +150,12 @@ export default function InspectorRail() {
 
   if (!inspectorOpen) {
     return (
-      <button
-        className="w-10 kg-panel border-l border-border flex items-center justify-center hover:bg-panel-hover transition-colors shrink-0"
-        onClick={openInspector}
-        title="Open inspector"
-        aria-label="Open inspector"
-      >
-        <PanelRightOpen size={14} className="text-text-dim" />
-      </button>
+      <div className="kg-panel w-10 shrink-0 border-l border-border" aria-hidden="true" />
     );
   }
 
   return (
     <div className="kg-panel w-96 border-l border-border flex flex-col shrink-0 overflow-hidden">
-      <div className="px-4 py-3 border-b border-border flex items-center justify-between shrink-0">
-        <span className="max-w-[18rem] truncate text-xs font-semibold uppercase tracking-[0.2em] text-text-dim">
-          {selectedNodeId && nodeDetail
-            ? getDisplayLabel(nodeDetail.node)
-            : selectedEdgeId && edgeDetail
-              ? edgeDetail.edge.type
-              : 'Inspector'}
-        </span>
-        <button className="kg-control p-2 rounded-xl text-text-dim" onClick={closeInspector} title="Minimize" aria-label="Minimize inspector">
-          <PanelRightClose size={14} />
-        </button>
-      </div>
-
       <div className="flex-1 overflow-hidden">
         {!selectedNodeId && !selectedEdgeId ? (
           <div className="h-full flex flex-col items-center justify-center p-6 text-center">

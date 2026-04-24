@@ -1,11 +1,11 @@
 ---
-id: law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-215daa
+id: law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-52c1de
 title: CHAPTER VII ZONING ORDINANCE
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md
-last_canonicalized_utc: '2026-04-23T21:37:27.903286+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md
+last_canonicalized_utc: '2026-04-24T09:59:52.642110+00:00'
 aliases:
 - Tarlac City Zoning Ordinance
 - Zoning Regulations for the City of Tarlac

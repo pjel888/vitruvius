@@ -1,4 +1,4 @@
-from vitruvius.promotion import write_relationship_file
+from vitruvius.promotion import _candidate_to_record, write_relationship_file
 
 
 def test_write_creates_valid_markdown_with_frontmatter(tmp_path):
@@ -35,3 +35,35 @@ def test_write_creates_valid_markdown_with_frontmatter(tmp_path):
     assert "## Relationship Summary" in text
     assert "## Evidence" in text
     assert "sec-1" in text
+
+
+def test_candidate_to_record_normalizes_unknown_source_trust():
+    envelope = {
+        "source_model": "llama3.1:8b",
+        "candidate": {
+            "from": "law-x",
+            "type": "governs",
+            "to": "concept-y",
+            "sections": ["sec-1"],
+            "examples": ["The law governs the regulated concept."],
+        },
+        "review": {
+            "decision": "keep",
+            "confidence": 0.96,
+            "reason": "Evidence supports the relationship.",
+            "suggested_type": None,
+        },
+    }
+
+    record = _candidate_to_record(
+        envelope,
+        canonical_index={
+            "law-x": {"type": "source", "canonical_status": "draft", "trust_level": "unknown"},
+            "concept-y": {"type": "concept", "canonical_status": "draft", "trust_level": None},
+        },
+        batch_id="B",
+        audit_log_ref="audit.log",
+    )
+
+    assert record is not None
+    assert record["trust_level"] == "unverified"

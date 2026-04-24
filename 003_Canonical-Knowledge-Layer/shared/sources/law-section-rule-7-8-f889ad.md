@@ -5,7 +5,7 @@ page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/PD-1096/Rule 7 _ 8.md
-last_canonicalized_utc: '2026-04-23T22:21:28.660136+00:00'
+last_canonicalized_utc: '2026-04-24T10:00:10.368842+00:00'
 ---
 
 # RULE 7 & 8

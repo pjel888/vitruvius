@@ -1,11 +1,11 @@
 ---
-id: law-open-space-requirements-in-residential-subdivisions-32cc04
+id: law-open-space-requirements-in-residential-subdivisions-90ab9a
 title: Open Space Requirements In Residential Subdivisions
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.md
-last_canonicalized_utc: '2026-04-23T21:37:44.850765+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.md
+last_canonicalized_utc: '2026-04-24T10:00:10.939694+00:00'
 aliases:
 - PD 1216
 - Presidential Decree No. 1216

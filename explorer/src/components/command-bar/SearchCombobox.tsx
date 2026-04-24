@@ -91,7 +91,7 @@ export default function SearchCombobox({
               >
                 <span className={`w-2 h-2 rounded-full shrink-0 ${getResultDotClass(result)}`} />
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate text-text" title={result.label}>{getDisplayLabel(result)}</span>
+                  <span className="block truncate text-text" title={getDisplayLabel(result)}>{getDisplayLabel(result)}</span>
                   <span className="block truncate text-[11px] text-text-dim">{result.id}</span>
                 </span>
                 <span className="kg-chip rounded-full px-2 py-0.5 text-[10px] uppercase tracking-wider shrink-0">{result.matchedField}</span>

@@ -17,6 +17,7 @@ EvidenceSpan records already materialized by the EvidenceMaterializer.
 
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass, field
 from typing import Any
@@ -57,6 +58,124 @@ def _concept_taxonomy_path(concept_id: str, snapshot: KgV2Snapshot) -> list[str]
     return []
 
 
+def _humanize_identifier(value: str) -> str:
+    """Convert a canonical id or path segment into a short human label."""
+    text = value.strip()
+    for prefix in (
+        "concept-", "taxonomy-", "topic-", "subtopic-",
+        "term-", "definition-", "rule-", "procedure-",
+        "exception-", "constraint-", "example-", "handout-",
+        "law-", "irr-", "source-", "reviewer-",
+        "section-", "sec-", "doc-", "docv-",
+    ):
+        if text.startswith(prefix):
+            text = text[len(prefix):]
+            break
+    text = re.sub(r"[-_]+", " ", text).strip()
+    return text.title() if text else "Untitled"
+
+
+def _normalize_display_label(value: str) -> str:
+    """Whitespace-normalize a display label without truncating it."""
+    normalized = re.sub(r"\s+", " ", value).strip()
+    return normalized
+
+
+def _title_if_all_lower(value: str) -> str:
+    """Title-case legacy lowercase labels while preserving mixed-case labels."""
+    return value.title() if value and value == value.lower() else value
+
+
+def _concept_display_name(concept_id: str, snapshot: KgV2Snapshot) -> str:
+    """Return the compact display name for a concept id."""
+    for node in snapshot.canonical_nodes:
+        if node.id == concept_id:
+            return _title_if_all_lower(_normalize_display_label(node.display_label or node.label or _humanize_identifier(concept_id)))
+    return _humanize_identifier(concept_id)
+
+
+def _section_display_name(section_id: str) -> str:
+    """Return a readable section suffix for a rule display label."""
+    if not section_id:
+        return ""
+    section_name = _humanize_identifier(section_id)
+    if section_id.startswith(("section-", "sec-")) and not section_name.lower().startswith("section"):
+        section_name = f"Section {section_name}"
+    return _normalize_display_label(section_name)
+
+
+def _source_reference(source_id: str) -> str:
+    """Return a compact stable source reference from a canonical source id."""
+    if source_id.startswith(("doc-", "docv-")):
+        return ""
+    match = re.search(r"(?:^|-)([0-9a-f]{6})$", source_id, re.IGNORECASE)
+    if match:
+        return match.group(1)
+    source_slug = source_id
+    for prefix in ("law-", "irr-", "source-", "handout-", "reviewer-"):
+        if source_slug.startswith(prefix):
+            source_slug = source_slug[len(prefix):]
+            break
+    tokens = [token for token in re.split(r"[-_]+", source_slug) if token]
+    tail = "-".join(tokens[-3:]) if tokens else ""
+    digest = hashlib.sha1(source_id.encode("utf-8")).hexdigest()[:6]
+    return f"{tail}-{digest}" if tail else digest
+
+
+def _title_if_all_caps(value: str) -> str:
+    """Title-case all-caps source titles while preserving normal mixed case."""
+    text = value.strip()
+    return text.title() if len(text) > 10 and text == text.upper() else text
+
+
+def _source_display_name(
+    source_id: str,
+    snapshot: KgV2Snapshot,
+    primary_span: Any | None = None,
+) -> str:
+    """Return a semantic source label for rule titles."""
+    source_title = ""
+    span_docv_id = getattr(primary_span, "document_version_id", "") if primary_span else ""
+    span_doc_id = getattr(primary_span, "document_id", "") if primary_span else ""
+
+    for doc_version in snapshot.document_versions:
+        if span_docv_id and doc_version.id == span_docv_id:
+            source_title = doc_version.title
+            break
+        if span_doc_id and doc_version.document_id == span_doc_id:
+            source_title = doc_version.title
+            break
+
+    if not source_title:
+        source_title = _humanize_identifier(source_id)
+
+    source_title = _title_if_all_caps(_title_if_all_lower(_normalize_display_label(source_title)))
+    source_ref = _source_reference(source_id)
+    if source_ref and source_ref.lower() not in source_title.lower():
+        source_title = f"{source_title} [{source_ref}]"
+    return source_title
+
+
+def _rule_display_label(
+    concept_id: str,
+    snapshot: KgV2Snapshot,
+    section_id: str = "",
+    source_id: str = "",
+    primary_span: Any | None = None,
+) -> str:
+    """Build a durable semantic title for rule nodes without losing full text."""
+    concept_name = _concept_display_name(concept_id, snapshot)
+    parts = [f"{concept_name} Rule"]
+    section_name = _section_display_name(section_id)
+    if section_name and section_name.lower() not in concept_name.lower():
+        parts.append(section_name)
+    if source_id:
+        source_name = _source_display_name(source_id, snapshot, primary_span)
+        if source_name:
+            parts.append(source_name)
+    return _normalize_display_label(" — ".join(parts))
+
+
 
 def _rule_label_from_evidence(
     evidence_snippet: str,
@@ -79,13 +198,12 @@ def _rule_label_from_evidence(
     text = re.sub(r"^[-*•]\s+", "", text)
     text = re.sub(r"^\d+\.\s*", "", text)
     text = re.sub(r"^[a-zA-Z]\.\s*", "", text)
-    # Use first sentence, capped at 120 chars
+    # Use the first sentence without truncating; rule node titles are now built
+    # from concept/section/source metadata, while this helper remains useful
+    # for short aliases and legacy callers.
     first_sent = text.split(".")[0].strip()
-    if len(first_sent) > 120:
-        first_sent = first_sent[:117] + "..."
     if len(first_sent) < 15:
-        # Too short — use more text up to 120 chars
-        first_sent = text[:120].strip()
+        first_sent = text.strip()
     return first_sent if first_sent else "Untitled rule"
 
 
@@ -178,9 +296,9 @@ class RuleExtractor:
         self._rule_counter[counter_key] = idx + 1
         rule_id = _make_rule_id(source_id, section_id, idx)
 
-        # Derive label and summary
-        label = _rule_label_from_evidence(
-            evidence_snippet, assertion.reasoning_summary, concept_id, source_id
+        # Derive a stable semantic title and keep the full evidence in summary.
+        label = _rule_display_label(
+            concept_id, self.snapshot, section_id, source_id, primary_span
         )
         summary = evidence_snippet[:500] if evidence_snippet else assertion.reasoning_summary
 
@@ -191,6 +309,7 @@ class RuleExtractor:
             id=rule_id,
             type=NodeType.RULE,
             label=label,
+            display_label=label,
             slug=rule_id.replace("rule-", ""),
             summary=summary,
             taxonomy_path=taxonomy_path,

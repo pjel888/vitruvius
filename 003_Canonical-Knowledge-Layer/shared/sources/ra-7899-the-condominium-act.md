@@ -1,11 +1,11 @@
 ---
-id: law-amendments-to-the-condominium-act-bf90ac
+id: law-amendments-to-the-condominium-act-148087
 title: RA 7899 – “THE CONDOMINIUM ACT”
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/RA-7899/RA 7899 Amendments to RA 4726.md
-last_canonicalized_utc: '2026-04-23T21:37:51.738527+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/RA-7899/RA 7899 Amendments to RA 4726.md
+last_canonicalized_utc: '2026-04-24T10:00:17.647152+00:00'
 aliases:
 - RA 7899
 - Republic Act No. 7899

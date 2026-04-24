@@ -1,11 +1,11 @@
 ---
-id: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-3b7df7
+id: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-aef2af
 title: M
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/RA-9514/RA9514-RIRR-rev-2019.md
-last_canonicalized_utc: '2026-04-23T21:37:54.724207+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/RA-9514/RA9514-RIRR-rev-2019.md
+last_canonicalized_utc: '2026-04-24T10:00:20.438048+00:00'
 aliases:
 - RA 9514
 - Republic Act No. 9514

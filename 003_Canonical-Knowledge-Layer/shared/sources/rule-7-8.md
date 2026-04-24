@@ -1,11 +1,11 @@
 ---
-id: irr-implementing-rules-and-regulations-of-the-national-building-code-9ada9c
+id: irr-implementing-rules-and-regulations-of-the-national-building-code-28746c
 title: RULE 7 & 8
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/PD-1096/PD 1096 IRR - Rules 7 and 8 Light Ventilation and Development Controls.md
-last_canonicalized_utc: '2026-04-23T21:37:42.118393+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Rules 7 and 8 Light Ventilation and Development Controls.md
+last_canonicalized_utc: '2026-04-24T10:00:08.480586+00:00'
 aliases:
 - PD 1096 IRR
 - National Building Code IRR

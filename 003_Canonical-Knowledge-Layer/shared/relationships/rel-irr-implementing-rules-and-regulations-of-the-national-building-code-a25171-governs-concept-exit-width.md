@@ -8,22 +8,22 @@ to_entity: concept-exit-width
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260423T215418Z_3b76e9af
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260423T213934Z/promotion_audit.log
-last_promoted_utc: 20260423T215418Z
+promotion_batch_id: 20260424T115917Z_79f6b18d
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
+last_promoted_utc: 20260424T115917Z
 evidence:
 - source_id: irr-implementing-rules-and-regulations-of-the-national-building-code-a25171
   source_section_id: section-1207
   evidence_snippet: 'The total exit width required from any storey of a building shall be determined by using the occupant load of that storey plus the percentage of the occupant loads of floors which exits through the level under consideration as follows:'
   review_decision: keep
-  reviewer_model: qwen2.5:3b
+  reviewer_model: llama3.1:8b
   reviewer_provider: ollama
   reviewer_confidence: 0.95
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260423T215418Z
-  reviewed_at_utc: 20260423T215418Z
+  extracted_at_utc: 20260424T115917Z
+  reviewed_at_utc: 20260424T115917Z
 ---
 
 # irr-implementing-rules-and-regulations-of-the-national-building-code-a25171 governs concept-exit-width
@@ -38,6 +38,7 @@ Promoted relationship of type `governs` from `irr-implementing-rules-and-regulat
 
 > The total exit width required from any storey of a building shall be determined by using the occupant load of that storey plus the percentage of the occupant loads of floors which exits through the level under consideration as follows:
 
-- Reviewer: `qwen2.5:3b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260423T215418Z
-- Batch: `20260423T215418Z_3b76e9af`
+- Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
+- Reviewed: 20260424T115917Z
+- Batch: `20260424T115917Z_79f6b18d`
+

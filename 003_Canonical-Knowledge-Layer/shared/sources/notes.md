@@ -1,11 +1,11 @@
 ---
-id: law-section-rule-viii-light-ventilation-630b8e
+id: law-section-rule-viii-light-ventilation-28f342
 title: 'Notes:'
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/PD-1096/RULE VIII - LIGHT & VENTILATION.md
-last_canonicalized_utc: '2026-04-23T22:10:44.472665+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/PD-1096/RULE VIII - LIGHT & VENTILATION.md
+last_canonicalized_utc: '2026-04-24T10:00:09.767115+00:00'
 ---
 
 # Notes:

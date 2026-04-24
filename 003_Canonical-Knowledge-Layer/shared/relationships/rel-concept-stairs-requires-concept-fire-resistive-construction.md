@@ -1,0 +1,64 @@
+---
+id: rel-concept-stairs-requires-concept-fire-resistive-construction
+title: concept-stairs requires concept-fire-resistive-construction
+page_type: relationship
+relationship_type: requires
+from_entity: concept-stairs
+to_entity: concept-fire-resistive-construction
+trust_level: unverified
+canonical_status: promoted
+confidence_score: 0.9
+promotion_batch_id: 20260424T115404Z_c8b2a1ae
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
+last_promoted_utc: 20260424T115404Z
+evidence:
+- source_id: concept-stairs
+  source_section_id: section-1207
+  evidence_snippet: '- i. Stairway Construction - Interior. Interior stairways shall be constructed as specified in this Code. Where there is enclosed usable space under the stairs the walls and soffits of the enclosed space shall be protected on the enclosed side as required for one-hour fire resistive construction. - '
+  review_decision: keep
+  reviewer_model: llama3.1:8b
+  reviewer_provider: ollama
+  reviewer_confidence: 0.9
+  reviewer_reason: Stairway construction requires fire resistive construction as specified in section-1207.
+  local_review_decision: keep
+  local_reviewer_confidence: 0.9
+  extracted_at_utc: 20260424T113016Z
+  reviewed_at_utc: 20260424T113016Z
+- source_id: concept-stairs
+  source_section_id: section-1207
+  evidence_snippet: '- (10b) Stairway Construction-Exterior. Exterior stairways shall be of incombustible material: Except, that on Type Ill buildings which do not exceed tw''o storeys in height, which are located in less fire-restrictive Fire Zones, as well as on Type I buildings which may be of wood not less than 50 mi'
+  review_decision: keep
+  reviewer_model: llama3.1:8b
+  reviewer_provider: ollama
+  reviewer_confidence: 0.9
+  reviewer_reason: Examples explicitly state that stairway construction requires fire resistive construction.
+  local_review_decision: keep
+  local_reviewer_confidence: 0.9
+  extracted_at_utc: 20260424T115404Z
+  reviewed_at_utc: 20260424T115404Z
+---
+
+# concept-stairs requires concept-fire-resistive-construction
+
+## Relationship Summary
+
+Promoted relationship of type `requires` from `concept-stairs` to `concept-fire-resistive-construction`.
+
+## Evidence
+
+### Evidence 1 - `concept-stairs` §section-1207
+
+> - i. Stairway Construction - Interior. Interior stairways shall be constructed as specified in this Code. Where there is enclosed usable space under the stairs the walls and soffits of the enclosed space shall be protected on the enclosed side as required for one-hour fire resistive construction. - 
+
+- Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.9`
+- Reviewed: 20260424T113016Z
+- Batch: `20260424T115404Z_c8b2a1ae`
+
+### Evidence 2 - `concept-stairs` §section-1207
+
+> - (10b) Stairway Construction-Exterior. Exterior stairways shall be of incombustible material: Except, that on Type Ill buildings which do not exceed tw'o storeys in height, which are located in less fire-restrictive Fire Zones, as well as on Type I buildings which may be of wood not less than 50 mi
+
+- Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.9`
+- Reviewed: 20260424T115404Z
+- Batch: `20260424T115404Z_c8b2a1ae`
+

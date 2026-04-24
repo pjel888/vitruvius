@@ -12,6 +12,7 @@ import yaml
 from ..promotion_validator import (
     build_canonical_index,
     load_registry,
+    normalize_relationship_trust,
     validate_promotion_record,
 )
 from ..utils import assert_windows_safe_path, utc_now_stamp
@@ -197,7 +198,9 @@ def _candidate_to_record(
     # Prefer the from_entity if it is a source; otherwise use it anyway (Rule 10
     # will fail loudly if the ID is bad).
     evidence_source = from_entity
-    trust_level = canonical_index.get(evidence_source, {}).get("trust_level")
+    trust_level = normalize_relationship_trust(
+        canonical_index.get(evidence_source, {}).get("trust_level")
+    )
 
     evidence_entry = {
         "source_id": evidence_source,
@@ -221,7 +224,7 @@ def _candidate_to_record(
         "relationship_type": predicate,
         "from_entity": from_entity,
         "to_entity": to_entity,
-        "trust_level": trust_level or "unverified",
+        "trust_level": trust_level,
         "canonical_status": "promoted",
         "confidence_score": float(review["confidence"]),
         "promotion_batch_id": batch_id,

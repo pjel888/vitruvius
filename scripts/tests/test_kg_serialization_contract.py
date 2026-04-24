@@ -69,6 +69,7 @@ def _make_populated_snapshot() -> KgV2Snapshot:
             id="concept-test",
             type=NodeType.CONCEPT,
             label="Test",
+            display_label="Compact Test",
             slug="test",
         )
     )
@@ -138,6 +139,7 @@ class TestToDict:
         assert restored["schema_version"] == snap.schema_version
         assert len(restored["canonical_nodes"]) == 1
         assert restored["canonical_nodes"][0]["id"] == "concept-test"
+        assert restored["canonical_nodes"][0]["display_label"] == "Compact Test"
 
     def test_sorted_keys_for_determinism(self) -> None:
         snap = _make_populated_snapshot()

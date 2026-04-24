@@ -5,6 +5,8 @@ import PerspectiveSwitcher from './command-bar/PerspectiveSwitcher';
 import SearchCombobox from './command-bar/SearchCombobox';
 import SceneMenu from './command-bar/SceneMenu';
 import FiltersPanel from './explorer-rail/FiltersPanel';
+import LayoutMenu from './graph/LayoutMenu';
+import { getGraphLayoutLabel } from './graph/layoutOptions';
 import QueryTemplatesSection from './query-panel/QueryTemplatesSection';
 import StoredQueriesSection from './query-panel/StoredQueriesSection';
 import NodeInspector from './inspector/NodeInspector';
@@ -216,6 +218,25 @@ describe('explorer component interactions', () => {
     expect(onSelectSizeBy).toHaveBeenCalledWith('degree');
     expect(onToggleNodeType).toHaveBeenCalledWith('concept');
     expect(onToggleEdgeType).toHaveBeenCalledWith('RELATED_TO');
+  });
+
+  test('LayoutMenu exposes readable graph layout choices', () => {
+    const onSelect = mock(() => {});
+    const view = render(
+      <LayoutMenu
+        layout="forceatlas2"
+        open
+        onToggle={() => {}}
+        onClose={() => {}}
+        onSelect={onSelect}
+      />,
+    );
+
+    expect(getGraphLayoutLabel('forceatlas2')).toBe('Network Layout');
+    expect(view.getAllByText('Network Layout').length).toBe(2);
+    expect(view.getByText('Taxonomy Clusters')).toBeTruthy();
+    fireEvent.click(view.getByText('Taxonomy Clusters'));
+    expect(onSelect).toHaveBeenCalledWith('clustered');
   });
 
   test('QueryTemplatesSection dispatches select and run callbacks', () => {

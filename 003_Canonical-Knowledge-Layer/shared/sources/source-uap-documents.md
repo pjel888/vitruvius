@@ -4,8 +4,8 @@ title: UAP DOCUMENTS
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/UAP/UAP Documents.md
-last_canonicalized_utc: 2026-04-23T19:47:31.872765+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/UAP/UAP Documents.md
+last_canonicalized_utc: '2026-04-24T05:40:18.364888+00:00'
 ---
 
 # UAP DOCUMENTS

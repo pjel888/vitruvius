@@ -1,11 +1,11 @@
 ---
-id: source-lcg-of-1991-167c34
+id: source-lcg-of-1991-c0a4e6
 title: THE LOCAL GOVERNMENT CODE OF THE PHILIPPINES
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/LCG of 1991.md
-last_canonicalized_utc: 2026-04-23T19:59:31.776611+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/LCG of 1991.md
+last_canonicalized_utc: '2026-04-24T09:59:50.466910+00:00'
 ---
 
 # THE LOCAL GOVERNMENT CODE OF THE PHILIPPINES

@@ -8,22 +8,22 @@ to_entity: concept-floor-area
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260423T220833Z_f9161640
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260423T213934Z/promotion_audit.log
-last_promoted_utc: 20260423T220833Z
+promotion_batch_id: 20260424T115956Z_9067bfbf
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
+last_promoted_utc: 20260424T115956Z
 evidence:
 - source_id: law-section-rule-viii-light-ventilation-28f342
   source_section_id: section-804
   evidence_snippet: '- e) **** Mixed-Use Buildings/Structures in R-5 lots shall be considered a commercial use or occupancy if a substantial percentage, i.e., 55% of the Gross Floor Area (GFA) is commercial.'
   review_decision: keep
-  reviewer_model: qwen2.5:3b
+  reviewer_model: llama3.1:8b
   reviewer_provider: ollama
   reviewer_confidence: 0.95
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260423T220833Z
-  reviewed_at_utc: 20260423T220833Z
+  extracted_at_utc: 20260424T115956Z
+  reviewed_at_utc: 20260424T115956Z
 ---
 
 # law-section-rule-viii-light-ventilation-28f342 governs concept-floor-area
@@ -38,6 +38,7 @@ Promoted relationship of type `governs` from `law-section-rule-viii-light-ventil
 
 > - e) **** Mixed-Use Buildings/Structures in R-5 lots shall be considered a commercial use or occupancy if a substantial percentage, i.e., 55% of the Gross Floor Area (GFA) is commercial.
 
-- Reviewer: `qwen2.5:3b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260423T220833Z
-- Batch: `20260423T220833Z_f9161640`
+- Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
+- Reviewed: 20260424T115956Z
+- Batch: `20260424T115956Z_9067bfbf`
+

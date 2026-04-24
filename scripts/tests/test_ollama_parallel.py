@@ -1,4 +1,5 @@
 from unittest.mock import patch
+import re
 
 from vitruvius.ollama_review import review_candidates_parallel
 
@@ -10,9 +11,9 @@ def test_returns_results_in_order():
     ]
 
     def stub(prompt, model, timeout_seconds):
-        import json
-        payload = json.loads(prompt)
-        from_id = payload["candidate"]["from"]
+        match = re.search(r'"from": "([^"]+)"', prompt)
+        assert match is not None
+        from_id = match.group(1)
         return f'{{"decision":"keep","confidence":0.95,"reason":"{from_id}","suggested_type":null}}'
 
     with patch("vitruvius.ollama_review.call_ollama", side_effect=stub):

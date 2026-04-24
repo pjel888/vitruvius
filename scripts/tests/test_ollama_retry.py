@@ -38,6 +38,21 @@ def test_falls_back_to_review_further_after_all_retries():
     assert "Ollama review failed" in result["review"]["reason"]
 
 
+def test_fallback_reason_includes_raw_response_preview_on_parse_failure():
+    raw = '{"properties":{"decision":{"enum":["keep","review_further","reject"]}}}'
+    with patch("vitruvius.config.get_ollama_max_retries", return_value=1):
+        with patch("vitruvius.ollama_review.call_ollama", return_value=raw):
+            result = review_relationship(
+                {"from": "a", "type": "governs", "to": "b", "sections": [], "examples": []},
+                model="gemma4:31b",
+                timeout_seconds=60,
+            )
+
+    assert result["review"]["decision"] == "review_further"
+    assert "response preview" in result["review"]["reason"]
+    assert "properties" in result["review"]["reason"]
+
+
 def test_honors_wall_clock_cap_across_retries():
     def slow_call(prompt, model, timeout_seconds):
         time.sleep(0.1)

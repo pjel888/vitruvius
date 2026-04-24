@@ -1,11 +1,11 @@
 ---
-id: reviewer-uap-documents-reviewer-3a49c8
+id: reviewer-uap-documents-reviewer-40c25e
 title: UAP DOCUMENTS
 page_type: source
 trust_level: educational
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/UAP/UAP Documents Reviewer.md
-last_canonicalized_utc: 2026-04-23T20:00:02.130397+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/UAP/UAP Documents Reviewer.md
+last_canonicalized_utc: '2026-04-24T10:00:24.782130+00:00'
 ---
 
 # UAP DOCUMENTS

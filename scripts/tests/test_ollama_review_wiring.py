@@ -18,6 +18,114 @@ def _candidate() -> dict:
     }
 
 
+def test_parse_model_json_accepts_fenced_json() -> None:
+    from vitruvius import ollama_review as orv
+
+    parsed = orv.parse_model_json(
+        "```json\n"
+        '{"decision":"keep","confidence":0.95,"reason":"Supported.","suggested_type":null}\n'
+        "```"
+    )
+
+    assert parsed["decision"] == "keep"
+    assert parsed["confidence"] == 0.95
+    assert parsed["suggested_type"] is None
+
+
+def test_parse_model_json_extracts_object_from_extra_text() -> None:
+    from vitruvius import ollama_review as orv
+
+    parsed = orv.parse_model_json(
+        'Result: {"decision":"review_further","confidence":"0.4",'
+        '"reason":"Predicate is too strong.","suggested_type":"affects"} done.'
+    )
+
+    assert parsed == {
+        "decision": "review_further",
+        "confidence": 0.4,
+        "reason": "Predicate is too strong.",
+        "suggested_type": "affects",
+    }
+
+
+def test_parse_model_json_accepts_nested_review_object() -> None:
+    from vitruvius import ollama_review as orv
+
+    parsed = orv.parse_model_json(
+        '{"review":{"decision":"keep","confidence":0.91,'
+        '"reason":"Evidence directly states the requirement.","suggested_type":null}}'
+    )
+
+    assert parsed["decision"] == "keep"
+    assert parsed["confidence"] == 0.91
+
+
+def test_parse_model_json_accepts_verdict_alias() -> None:
+    from vitruvius import ollama_review as orv
+
+    parsed = orv.parse_model_json(
+        '{"verdict":"reject","score":"0.82","rationale":"Evidence names another topic."}'
+    )
+
+    assert parsed == {
+        "decision": "reject",
+        "confidence": 0.82,
+        "reason": "Evidence names another topic.",
+        "suggested_type": None,
+    }
+
+
+def test_parse_model_json_rejects_schema_echo_with_preview() -> None:
+    from vitruvius import ollama_review as orv
+
+    with pytest.raises(ValueError) as exc_info:
+        orv.parse_model_json(
+            '{"properties":{"decision":{"enum":["keep","review_further","reject"]}}}'
+        )
+
+    message = str(exc_info.value)
+    assert "Invalid decision from model" in message
+    assert "response preview" in message
+    assert "properties" in message
+
+
+def test_parse_model_json_skips_echoed_prompt_before_answer() -> None:
+    from vitruvius import ollama_review as orv
+
+    parsed = orv.parse_model_json(
+        '{"task":"Review candidate legal relationship","candidate":{"from":"a"}}\n'
+        '{"decision":"keep","confidence":0.93,"reason":"Evidence supports it.","suggested_type":null}'
+    )
+
+    assert parsed == {
+        "decision": "keep",
+        "confidence": 0.93,
+        "reason": "Evidence supports it.",
+        "suggested_type": None,
+    }
+
+
+def test_build_prompt_does_not_start_with_json_object() -> None:
+    from vitruvius import ollama_review as orv
+
+    prompt = orv.build_prompt(_candidate())
+
+    assert not prompt.lstrip().startswith("{")
+    assert "Candidate JSON:" in prompt
+    assert "Do not echo" in prompt
+
+
+def test_build_prompt_includes_strict_predicate_keep_criteria() -> None:
+    from vitruvius import ollama_review as orv
+
+    prompt = orv.build_prompt(_candidate())
+
+    assert "Default to review_further" in prompt
+    assert "Co-occurrence" in prompt
+    assert "For affects" in prompt
+    assert "For depends_on" in prompt
+
+
 def test_pre_filter_called_when_flag_on(monkeypatch) -> None:
     from vitruvius import config as cfgmod
     from vitruvius import ollama_review as orv

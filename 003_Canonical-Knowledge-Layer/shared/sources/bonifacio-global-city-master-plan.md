@@ -1,11 +1,11 @@
 ---
-id: source-bgc-master-plan-ab4cb7
+id: source-bgc-master-plan-ff8d63
 title: BONIFACIO GLOBAL CITY MASTER PLAN
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/LGU/353069306-Bgc-Master-Plan.md
-last_canonicalized_utc: 2026-04-23T19:47:08.480381+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/LGU/353069306-Bgc-Master-Plan.md
+last_canonicalized_utc: '2026-04-24T09:59:53.040881+00:00'
 ---
 
 # BONIFACIO GLOBAL CITY MASTER PLAN

@@ -1,11 +1,11 @@
 ---
-id: handout-doh-guidelines-for-health-facilities-ad941e
+id: handout-doh-guidelines-for-health-facilities-52c998
 title: Doh Guidelines For Health Facilities
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/DOH/DOH Guidelines for Health Facilities 20004.md
-last_canonicalized_utc: '2026-04-23T21:37:20.881223+00:00'
+source_relative_markdown_path: 001-Laws/refined_markdown/DOH/DOH Guidelines for Health Facilities 20004.md
+last_canonicalized_utc: '2026-04-24T09:59:45.459298+00:00'
 aliases:
 - Guidelines for Health Facilities
 - DOH Health Facilities Guidelines

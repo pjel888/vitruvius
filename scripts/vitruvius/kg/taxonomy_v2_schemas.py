@@ -182,6 +182,10 @@ class CanonicalNodeV2(BaseModel):
         pattern=r"^[A-Z]{3}(\.[A-Z]{3}){0,3}$",
     )
     label: str = Field(..., min_length=1)
+    display_label: str | None = Field(
+        default=None,
+        description="Short presentation label for dense graph and search surfaces.",
+    )
     summary: str = Field(default="")
     knowledge_type: KnowledgeType = "concept"
     asset_scope: AssetScope = "building"

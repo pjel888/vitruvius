@@ -1,11 +1,11 @@
 ---
-id: law-section-rule-vii-701-occupancy-classified-2de866
+id: law-section-rule-vii-701-occupancy-classified-c0db00
 title: Rule Vii 701 Occupancy Classified
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/PD-1096/RULE VII_701 OCCUPANCY CLASSIFIED.md
-last_canonicalized_utc: 2026-04-23T19:47:20.555665+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/PD-1096/RULE VII_701 OCCUPANCY CLASSIFIED.md
+last_canonicalized_utc: '2026-04-24T10:00:09.953568+00:00'
 ---
 
 # Rule Vii 701 Occupancy Classified

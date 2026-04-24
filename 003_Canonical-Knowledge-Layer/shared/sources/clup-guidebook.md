@@ -1,11 +1,11 @@
 ---
-id: source-hlurb-clup-vol-3-1ef558
+id: source-hlurb-clup-vol-3-b6b5f2
 title: CLUP GUIDEBOOK
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_3.md
-last_canonicalized_utc: 2026-04-23T19:47:06.149747+00:00
+source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_3.md
+last_canonicalized_utc: '2026-04-24T09:59:49.796588+00:00'
 ---
 
 # CLUP GUIDEBOOK

@@ -8,22 +8,22 @@ to_entity: concept-stairs
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260423T205033Z_e9437c92
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260423T203224Z/promotion_audit.log
-last_promoted_utc: 20260423T205033Z
+promotion_batch_id: 20260424T114152Z_7f412748
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
+last_promoted_utc: 20260424T114153Z
 evidence:
 - source_id: law-national-building-code-of-the-philippines-a7b2e7
   source_section_id: section-403
   evidence_snippet: Subject to the provisions of this Chapter, the Secretary shall prescribe standards for each type of construction, and promulgate rules and regulations therefor, relating to structural framework, exterior walls and openings, interior walls and enclosures, floors, exits and stairs construction, and ro
   review_decision: keep
-  reviewer_model: qwen2.5:3b
+  reviewer_model: llama3.1:8b
   reviewer_provider: ollama
   reviewer_confidence: 0.95
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260423T205033Z
-  reviewed_at_utc: 20260423T205033Z
+  extracted_at_utc: 20260424T114153Z
+  reviewed_at_utc: 20260424T114153Z
 ---
 
 # law-national-building-code-of-the-philippines-a7b2e7 governs concept-stairs
@@ -38,6 +38,7 @@ Promoted relationship of type `governs` from `law-national-building-code-of-the-
 
 > Subject to the provisions of this Chapter, the Secretary shall prescribe standards for each type of construction, and promulgate rules and regulations therefor, relating to structural framework, exterior walls and openings, interior walls and enclosures, floors, exits and stairs construction, and ro
 
-- Reviewer: `qwen2.5:3b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260423T205033Z
-- Batch: `20260423T205033Z_e9437c92`
+- Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
+- Reviewed: 20260424T114153Z
+- Batch: `20260424T114152Z_7f412748`
+

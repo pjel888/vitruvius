@@ -1,14 +1,17 @@
-import { useRef, useState, useEffect, useCallback, useMemo } from 'react';
-import { ZoomIn, ZoomOut, Maximize, Shrink, Map, LayoutGrid, FolderTree, Calendar, Terminal } from 'lucide-react';
+import { useRef, useState, useEffect, useCallback } from 'react';
+import { ZoomIn, ZoomOut, Maximize, Terminal } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import VisNetworkHost, { type GraphController } from './graph/VisNetworkHost';
 import NodeContextMenu from './graph/NodeContextMenu';
 import QueryPanel from './graph/QueryPanel';
 import Minimap from './graph/Minimap';
+import LayoutMenu from './graph/LayoutMenu';
+import { type GraphLayout } from './graph/layoutOptions';
 
 export default function GraphScene() {
   const controllerRef = useRef<GraphController>(null);
   const [queryOpen, setQueryOpen] = useState(false);
+  const [layoutMenuOpen, setLayoutMenuOpen] = useState(false);
   const appliedSceneRef = useRef<string | null>(null);
 
   const activeSceneId = useSceneStore(s => s.activeSceneId);
@@ -30,14 +33,6 @@ export default function GraphScene() {
   const visibleEdgeTypes = useSceneStore(s => s.visibleEdgeTypes);
   const contextMenuNodeId = useSceneStore(s => s.contextMenuNodeId);
   const highlightedPath = useSceneStore(s => s.highlightedPath);
-  const hiddenCount = hiddenNodeIds.length;
-  const visibleTypeCount = useMemo(() => {
-    const nodeTypes = new Set(nodes.map((node) => node.type));
-    const edgeTypes = new Set(edges.map((edge) => edge.type));
-    return [...visibleNodeTypes].filter((type) => nodeTypes.has(type)).length
-      + [...visibleEdgeTypes].filter((type) => edgeTypes.has(type)).length;
-  }, [edges, nodes, visibleEdgeTypes, visibleNodeTypes]);
-  const layoutLabel = layout === 'forceatlas2' ? 'Force' : layout === 'clustered' ? 'Clustered' : layout === 'time' ? 'Timeline' : layout[0].toUpperCase() + layout.slice(1);
 
   const loadGraphToHost = useCallback(() => {
     if (nodes.length === 0 || !controllerRef.current) return false;
@@ -118,8 +113,9 @@ export default function GraphScene() {
     }
   }, [highlightedPath]);
 
-  const switchLayout = (type: 'forceatlas2' | 'circular' | 'random' | 'clustered' | 'time') => {
+  const switchLayout = (type: GraphLayout) => {
     setLayout(type);
+    setLayoutMenuOpen(false);
   };
 
   return (
@@ -168,23 +164,14 @@ export default function GraphScene() {
 
       {/* Layout switcher */}
       <div className="absolute top-4 left-4 z-20">
-        <div className="kg-card flex items-center gap-1 rounded-2xl p-1.5">
-          <button onClick={() => switchLayout('forceatlas2')} className={`p-2 rounded-xl ${layout === 'forceatlas2' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="ForceAtlas2" aria-label="Use force layout">
-            <LayoutGrid size={14} />
-          </button>
-          <button onClick={() => switchLayout('circular')} className={`p-2 rounded-xl ${layout === 'circular' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Circular" aria-label="Use circular layout">
-            <Shrink size={14} />
-          </button>
-          <button onClick={() => switchLayout('random')} className={`p-2 rounded-xl ${layout === 'random' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Random" aria-label="Use random layout">
-            <Map size={14} />
-          </button>
-          <button onClick={() => switchLayout('clustered')} className={`p-2 rounded-xl ${layout === 'clustered' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Clustered by Taxonomy" aria-label="Use taxonomy clustered layout">
-            <FolderTree size={14} />
-          </button>
-          <button onClick={() => switchLayout('time')} className={`p-2 rounded-xl ${layout === 'time' ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`} title="Timeline by Creation Date" aria-label="Use timeline layout">
-            <Calendar size={14} />
-          </button>
-          <div className="w-px h-4 bg-border mx-1" />
+        <div className="kg-card flex items-center gap-2 rounded-2xl p-1.5">
+          <LayoutMenu
+            layout={layout}
+            open={layoutMenuOpen}
+            onToggle={() => setLayoutMenuOpen((open) => !open)}
+            onClose={() => setLayoutMenuOpen(false)}
+            onSelect={switchLayout}
+          />
           <button
             onClick={() => setQueryOpen(o => !o)}
             className={`p-2 rounded-xl ${queryOpen ? 'bg-accent/20 text-accent' : 'text-text-dim hover:text-text'}`}
@@ -194,16 +181,6 @@ export default function GraphScene() {
             <Terminal size={14} />
           </button>
         </div>
-      </div>
-
-      <div className="kg-card absolute right-4 top-4 z-20 rounded-2xl px-4 py-3 text-xs">
-        <div className="text-[10px] uppercase tracking-[0.24em] text-text-dim">Scene</div>
-        <div className="mt-1 flex items-center gap-3 text-text">
-          <span>{nodes.length.toLocaleString()} nodes</span>
-          <span>{edges.length.toLocaleString()} edges</span>
-          <span>{layoutLabel}</span>
-        </div>
-        <div className="mt-1 text-text-dim">{hiddenCount > 0 ? `${hiddenCount} hidden · ` : ''}{visibleTypeCount} active filters</div>
       </div>
 
       <div className="absolute bottom-4 right-4 z-20 flex items-end gap-3">

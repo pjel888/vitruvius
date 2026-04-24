@@ -5,6 +5,13 @@
 
 ## Open Risks
 
+### RI-013: Rule Title Uniqueness and Semantic Specificity (CLOSED 2026-04-24)
+- **Description:** Rule-node presentation titles must not rely on lazy truncation or generic concept-only names. A rebuilt KG can contain many distinct rules under the same concept, so titles like `Occupancy Rule` or `Building Rule` collapse separate legal requirements into indistinguishable graph nodes.
+- **Impact:** HIGH — duplicate or generic rule titles make graph exploration misleading even when underlying canonical IDs, evidence spans, and relationships are distinct.
+- **Mitigation:** Treat rule-title uniqueness as part of the KG relationship-quality job. Rule titles should be generated from the rule's own evidence/source/section semantics, using taxonomy and concept context only as fallback context. Full legal text must remain preserved in `label`, `summary`, evidence spans, and inspector/source views.
+- **Status:** CLOSED for the `001-Laws` rebuild. `scripts/vitruvius/kg/rule_extractor.py` now builds rule titles from concept + section + source semantics instead of truncated evidence text, with compact stable source references for duplicate-prone source families.
+- **Closure evidence:** Snapshot `005_Operational-Intelligence-Layer/graph/kg-v2/20260424T124423Z_kg_v2_unified.json` contains 248 rule nodes with 0 duplicate labels, 0 truncated labels, and 0 generic labels. Neo4j was cleared and reloaded from that snapshot after test execution.
+
 ### RI-001: Filesystem Coupling
 - **Description:** The system is tightly coupled to the directory structure defined in `paths.py` and `constants.py`.
 - **Impact:** HIGH — renaming or moving `001_…` through `006_…` breaks the pipeline silently.

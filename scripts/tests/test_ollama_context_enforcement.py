@@ -62,9 +62,8 @@ def test_num_ctx_cap_defaults_to_8192_when_missing(monkeypatch, tmp_path: Path) 
     assert cfgmod.get_ollama_num_ctx_cap() == 8192
 
 
-def test_request_body_preserves_existing_options_when_flag_off(monkeypatch) -> None:
-    """Flag-OFF path must keep temperature=0 and num_predict=300 that the
-    current call_ollama baseline emits. Otherwise byte-identity regresses."""
+def test_request_body_uses_deterministic_options_when_flag_off(monkeypatch) -> None:
+    """Flag-OFF path keeps deterministic settings with enough JSON budget."""
     from vitruvius import config as cfgmod
     monkeypatch.setattr(cfgmod, "_features_block", lambda: {"w_llm_num_ctx_enforcement": False})
     body = _build_ollama_request_body(
@@ -72,7 +71,7 @@ def test_request_body_preserves_existing_options_when_flag_off(monkeypatch) -> N
         prompt="hello",
     )
     assert body["options"]["temperature"] == 0
-    assert body["options"]["num_predict"] == 300
+    assert body["options"]["num_predict"] == 700
 
 
 # ---------------------------------------------------------------------------

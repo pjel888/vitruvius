@@ -177,6 +177,7 @@ def test_canonical_node_valid() -> None:
         id="concept-means-of-egress",
         type=NodeType.CONCEPT,
         label="Means of Egress",
+        display_label="Egress",
         slug="means-of-egress",
         summary="A continuous path of travel...",
         taxonomy_path=["Architecture", "Fire and Life Safety", "Means of Egress"],
@@ -186,6 +187,7 @@ def test_canonical_node_valid() -> None:
         version=3,
     )
     assert node.type == NodeType.CONCEPT
+    assert node.display_label == "Egress"
 
 
 def test_canonical_node_invalid_type_prefix() -> None:

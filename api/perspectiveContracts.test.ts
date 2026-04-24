@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { buildDisplayLabel, buildNodeDetailQuery, buildPerspectiveQueries, buildSearchTypeFilter, normalizeEvidenceSpan, normalizeNode } from './index';
+import { buildDisplayLabel, buildNodeDetailQuery, buildPerspectiveQueries, buildRuleDisplayLabel, buildSearchTypeFilter, normalizeEvidenceSpan, normalizeNode, normalizeTaxonomyNode } from './index';
 
 describe('perspective contract builders', () => {
   test('taxonomy search filter includes concepts', () => {
@@ -31,13 +31,26 @@ describe('perspective contract builders', () => {
     expect(edgeQuery).toContain("a.type = 'concept'");
   });
 
-  test('display labels compact long rule text without replacing canonical labels', () => {
+  test('legacy display-label fallback compacts long rule text without replacing canonical labels', () => {
     const fullLabel = 'Every building permit applicant must submit complete fire safety, structural, zoning, and occupancy documentation before approval can proceed.';
     const compact = buildDisplayLabel(fullLabel, 'rule');
 
     expect(compact.startsWith('Rule · ')).toBe(true);
     expect(compact.length).toBeLessThan(fullLabel.length);
     expect(compact.endsWith('…')).toBe(true);
+  });
+
+  test('rule display labels prefer semantic taxonomy anchors over truncated legal text', () => {
+    const fullLabel = 'Every building permit applicant must submit complete fire safety, structural, zoning, and occupancy documentation before approval can proceed.';
+    const semantic = buildRuleDisplayLabel({
+      id: 'rule-pd-1096-section-301-000',
+      type: 'rule',
+      taxonomy_path: ['taxonomy-building-code', 'topic-permits', 'subtopic-building-permit'],
+    }, fullLabel);
+
+    expect(semantic).toBe('Building Permit Rule');
+    expect(semantic).not.toContain('…');
+    expect(semantic).not.toContain('Every building permit applicant');
   });
 
   test('node detail query includes taxonomy relationships and correct incoming direction', () => {
@@ -55,6 +68,7 @@ describe('perspective contract builders', () => {
       properties: {
         id: 'rule-long-1',
         label: 'Every building permit applicant must submit complete fire safety, structural, zoning, and occupancy documentation before approval can proceed.',
+        display_label: 'Building Permit Rule',
         type: 'rule',
         confidence: 0.91,
       },
@@ -62,8 +76,22 @@ describe('perspective contract builders', () => {
 
     expect(normalized?.id).toBe('rule-long-1');
     expect(normalized?.label).toContain('Every building permit applicant');
-    expect(normalized?.displayLabel).toStartWith('Rule · ');
+    expect(normalized?.displayLabel).toBe('Building Permit Rule');
     expect(normalized?.confidence).toBe(0.91);
+  });
+
+  test('taxonomy normalization emits compact display labels for taxonomy tree payloads', () => {
+    const fullLabel = 'A very long taxonomy branch name that should not fill the explorer rail tooltip or tree row forever';
+    const normalized = normalizeTaxonomyNode({
+      id: 'topic-long-branch',
+      label: fullLabel,
+      kind: 'topic',
+      conceptCount: 4,
+    });
+
+    expect(normalized?.label).toBe(fullLabel);
+    expect(normalized?.displayLabel?.length ?? 0).toBeLessThan(fullLabel.length);
+    expect(normalized?.conceptCount).toBe(4);
   });
 
   test('evidence normalization accepts nested Neo4j node-like values from collected evidence arrays', () => {
