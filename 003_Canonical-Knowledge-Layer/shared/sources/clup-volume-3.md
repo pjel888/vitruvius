@@ -1,10 +1,11 @@
 ---
-id: source-clup-carmona-volume-3-final
+id: source-clup-carmona-volume-3-final-8f44d9
 title: CLUP VOLUME 3
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:38.572833+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/673810152-CLUP-Carmona-Volume-3-Final.md
+last_canonicalized_utc: 2026-04-23T19:47:12.935007+00:00
 ---
 
 # CLUP VOLUME 3

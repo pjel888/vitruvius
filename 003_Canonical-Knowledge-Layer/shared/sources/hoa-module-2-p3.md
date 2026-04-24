@@ -1,10 +1,11 @@
 ---
-id: source-hoa-module-2-p3
+id: source-hoa-module-2-p3-cd5715
 title: Hoa Module 2 P3
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:54.728760+00:00
+source_relative_markdown_path: 002-History/raw_markdown/HOA MODULE 2 P3.md
+last_canonicalized_utc: 2026-04-23T19:47:35.645917+00:00
 ---
 
 # Hoa Module 2 P3

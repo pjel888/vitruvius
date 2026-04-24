@@ -1,14 +1,15 @@
 ---
-id: law-national-building-code-of-the-philippines
+id: law-national-building-code-of-the-philippines-1bfcbd
 title: PRESIDENTIAL DECREE NO. 1096
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:41.935010+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code Summary.md
+last_canonicalized_utc: '2026-04-23T21:37:40.987540+00:00'
 aliases:
-  - PD 1096
-  - Presidential Decree No. 1096
-  - National Building Code
+- PD 1096
+- Presidential Decree No. 1096
+- National Building Code
 ---
 
 # PRESIDENTIAL DECREE NO. 1096

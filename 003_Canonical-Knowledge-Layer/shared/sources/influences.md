@@ -1,10 +1,11 @@
 ---
-id: source-filipino-architecture
+id: source-filipino-architecture-a247f4
 title: INFLUENCES
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:54.130808+00:00
+source_relative_markdown_path: 002-History/raw_markdown/Filipino Architecture.md
+last_canonicalized_utc: 2026-04-23T19:47:34.506348+00:00
 ---
 
 # INFLUENCES

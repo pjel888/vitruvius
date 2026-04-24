@@ -1,10 +1,11 @@
 ---
-id: source-pagsanjan-volume-1-clup
+id: source-pagsanjan-volume-1-clup-fae8e0
 title: VOLUME I COMPREHENSIVE LAND USE PLAN
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:40.664205+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/913356270-Pagsanjan-Volume-1-CLUP.md
+last_canonicalized_utc: 2026-04-23T19:47:16.392025+00:00
 ---
 
 # VOLUME I COMPREHENSIVE LAND USE PLAN

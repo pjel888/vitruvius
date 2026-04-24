@@ -1,10 +1,11 @@
 ---
-id: source-ra-11361-irr-draft-for-comments
+id: source-ra-11361-irr-draft-for-comments-77304b
 title: THE IMPLEMENTING RULES AND REGULATIONS OF REPUBLIC ACT NO. 11361, OTHERWISE KNOWN AS THE ““ANTI-OBSTRUCTION OF POWER LINES ACT””
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:45.719713+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/RA-11361/ra_11361_irr_draft_for_comments.md
+last_canonicalized_utc: 2026-04-23T19:47:24.510104+00:00
 ---
 
 # THE IMPLEMENTING RULES AND REGULATIONS OF REPUBLIC ACT NO. 11361, OTHERWISE KNOWN AS THE ““ANTI-OBSTRUCTION OF POWER LINES ACT””

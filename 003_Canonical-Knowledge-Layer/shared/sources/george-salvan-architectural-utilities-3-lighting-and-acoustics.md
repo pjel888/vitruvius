@@ -1,10 +1,11 @@
 ---
-id: source-george-salvan-architectural-utilities-3-lighting-and-acoustics
+id: source-george-salvan-architectural-utilities-3-lighting-and-acoustics-6d72c0
 title: George Salvan Architectural Utilities 3 Lighting And Acoustics
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:13.786727+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/George-Salvan-Architectural-Utilities-3-Lighting-and-Acoustics.md
+last_canonicalized_utc: 2026-04-23T19:47:50.769702+00:00
 ---
 
 # George Salvan Architectural Utilities 3 Lighting And Acoustics

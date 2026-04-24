@@ -1,13 +1,14 @@
 ---
-id: handout-uap-document-code-of-ethics
+id: handout-uap-document-code-of-ethics-815a01
 title: THE ARCHITECT’S CODE OF ETHICS
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:49.940514+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/UAP/UAP Document Code of Ethics.md
+last_canonicalized_utc: '2026-04-23T21:37:56.792590+00:00'
 aliases:
-  - UAP Code of Ethics
-  - Architect's Code of Ethics
+- UAP Code of Ethics
+- Architect's Code of Ethics
 ---
 
 # THE ARCHITECT’S CODE OF ETHICS

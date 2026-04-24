@@ -1,10 +1,11 @@
 ---
-id: law-section-pd-1067-irr-water-code-implementing-rules
+id: law-section-pd-1067-irr-water-code-implementing-rules-4d296a
 title: RULE I APPROPRIATION AND UTILIZATION OF WATERS
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:41.113401+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-1067/PD 1067 IRR - Water Code Implementing Rules.md
+last_canonicalized_utc: 2026-04-23T19:47:17.138734+00:00
 ---
 
 # RULE I APPROPRIATION AND UTILIZATION OF WATERS

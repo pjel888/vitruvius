@@ -1,10 +1,11 @@
 ---
-id: source-theory
+id: source-theory-1bfce9
 title: ARCHITECTURAL ORDERS
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:55:58.196467+00:00
+source_relative_markdown_path: 003-Theory/refined_markdown/theory.md
+last_canonicalized_utc: 2026-04-23T19:37:42.261778+00:00
 ---
 
 # ARCHITECTURAL ORDERS

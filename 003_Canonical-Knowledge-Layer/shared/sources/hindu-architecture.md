@@ -1,10 +1,11 @@
 ---
-id: source-hindu-architecture
+id: source-hindu-architecture-d2940b
 title: Hindu Architecture
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:55.029335+00:00
+source_relative_markdown_path: 002-History/raw_markdown/Hindu Architecture.md
+last_canonicalized_utc: 2026-04-23T19:47:36.349024+00:00
 ---
 
 # Hindu Architecture

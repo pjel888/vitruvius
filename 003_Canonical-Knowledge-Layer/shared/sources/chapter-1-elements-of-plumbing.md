@@ -1,10 +1,11 @@
 ---
-id: source-national-plumbing-code-of-the-philippines-annotated
-title: CHAPTER 1: ELEMENTS OF PLUMBING
+id: source-national-plumbing-code-of-the-philippines-annotated-bbe39b
+title: 'CHAPTER 1: ELEMENTS OF PLUMBING'
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:15.571849+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/National-Plumbing-Code-of-the-Philippines_annotated.md
+last_canonicalized_utc: '2026-04-23T21:38:22.329442+00:00'
 ---
 
 # CHAPTER 1: ELEMENTS OF PLUMBING

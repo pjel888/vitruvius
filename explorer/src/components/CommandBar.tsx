@@ -5,6 +5,7 @@ import { useSceneStore } from '../stores/useSceneStore';
 import { searchNodes, getPerspectives, listScenes, saveScene, updateScene, deleteScene, getScene, getHealth } from '../api/graphApi';
 import type { SearchResult, Perspective, SceneSummary, SceneUpdateInput } from '../types';
 import { buildExplorerNodeSearchParams } from '../utils/explorerRuntime';
+import { getDisplayLabel } from '../utils/labels';
 import PerspectiveSwitcher from './command-bar/PerspectiveSwitcher';
 import SearchCombobox from './command-bar/SearchCombobox';
 import SceneMenu from './command-bar/SceneMenu';
@@ -249,7 +250,7 @@ export default function CommandBar() {
       requestFocusNode(r.id);
       navigate(`/explore?${buildExplorerNodeSearchParams(window.location.search, r.id)}`, { replace: true });
     }
-    setQuery(r.label);
+    setQuery(getDisplayLabel(r));
     setShowSuggestions(false);
     setSearchQuery(r.label);
   }

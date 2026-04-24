@@ -1,10 +1,11 @@
 ---
-id: source-buidling-construction-handbook-7th-ed-by-chudley-greeno
+id: source-buidling-construction-handbook-7th-ed-by-chudley-greeno-ccb507
 title: Buidling Construction Handbook 7Th Ed By Chudley   Greeno
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:57.335017+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Buidling Construction Handbook 7th Ed by Chudley _ Greeno.md
+last_canonicalized_utc: 2026-04-23T19:47:41.016936+00:00
 ---
 
 # Buidling Construction Handbook 7Th Ed By Chudley   Greeno

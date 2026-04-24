@@ -1,10 +1,11 @@
 ---
-id: source-modern-architectures-in-history-usa-gwendolyn-wright
+id: source-modern-architectures-in-history-usa-gwendolyn-wright-041845
 title: USA
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:55.504534+00:00
+source_relative_markdown_path: 002-History/raw_markdown/Modern Architectures in History (USA) - Gwendolyn Wright.md
+last_canonicalized_utc: 2026-04-23T19:47:37.153300+00:00
 ---
 
 # USA

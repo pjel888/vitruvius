@@ -1,12 +1,13 @@
 # Milestone Tracker
 
-**Updated:** 2026-04-21  
+**Updated:** 2026-04-24
 **Purpose:** verified milestone tracker for active, completed, blocked, and deferred milestones
 
 ## 1. Active Milestones
 
 | Milestone | Status | Evidence | Next concrete action | Dependency / blocker |
 |---|---|---|---|---|
+| KG relationship quality and graph UX maintenance | planned | `.ai/02_audits/2026-04-24_kg_relationship_quality_and_graph_ux_audit.md`, `.ai/03_plans/2026-04-24_kg_relationship_contract_and_rule_label_plan.md` | align predicate contract and persist taxonomy-aware rule display labels | avoid bulk validation/backfill until contract alignment passes |
 | AEC execution-readiness decision | planned | `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md` | decide whether AEC becomes the next live implementation lane | runtime roots not yet verified |
 
 ## 2. Completed Milestones

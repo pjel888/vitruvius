@@ -1,10 +1,11 @@
 ---
-id: source-plumbing-notes
+id: source-plumbing-notes-b56ba5
 title: Plumbing Notes
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:16.820373+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Plumbing Notes.md
+last_canonicalized_utc: 2026-04-23T19:47:55.148311+00:00
 ---
 
 # Plumbing Notes

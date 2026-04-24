@@ -1,10 +1,11 @@
 ---
-id: handout-building-technology-handout-2
+id: handout-building-technology-handout-2-c648c3
 title: 2. WOOD FRAME AND LIGHT RC CONSTRUCTION
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:58.165339+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Technology Handout 2.md
+last_canonicalized_utc: 2026-04-23T19:47:42.939931+00:00
 ---
 
 # 2. WOOD FRAME AND LIGHT RC CONSTRUCTION

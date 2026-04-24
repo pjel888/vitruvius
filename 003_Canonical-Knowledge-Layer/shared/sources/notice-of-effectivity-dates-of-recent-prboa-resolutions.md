@@ -1,12 +1,13 @@
 ---
-id: handout-resolution-on-effectivity-dates-of-prboa-resolutions
+id: handout-resolution-on-effectivity-dates-of-prboa-resolutions-f0e441
 title: Notice of Effectivity Dates of Recent PRBoA Resolutions
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:44.781532+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md
+last_canonicalized_utc: '2026-04-23T21:37:47.605480+00:00'
 aliases:
-  - Effectivity Dates of PRBoA Resolutions
+- Effectivity Dates of PRBoA Resolutions
 ---
 
 # Notice of Effectivity Dates of Recent PRBoA Resolutions

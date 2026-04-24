@@ -1,10 +1,11 @@
 ---
-id: handout-building-technology-handout-1
+id: handout-building-technology-handout-1-60684e
 title: BUILDING CONSTRUCTION
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:58.090905+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Technology Handout 1.md
+last_canonicalized_utc: 2026-04-23T19:47:42.758982+00:00
 ---
 
 # BUILDING CONSTRUCTION

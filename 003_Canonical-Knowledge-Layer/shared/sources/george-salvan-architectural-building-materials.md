@@ -1,10 +1,11 @@
 ---
-id: source-george-salvan-architectural-building-materials
+id: source-george-salvan-architectural-building-materials-571228
 title: George Salvan Architectural Building Materials
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:59.589651+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/George-Salvan-Architectural-Building-Materials.md
+last_canonicalized_utc: 2026-04-23T19:47:45.721440+00:00
 ---
 
 # George Salvan Architectural Building Materials

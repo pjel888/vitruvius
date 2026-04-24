@@ -1,35 +1,31 @@
 ---
-id: handout-prboa-comments-on-the-illegal-practice-of-architecture
+id: handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-f6459f
 title: Professional Regulation Commission
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:45.233696+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/PRC/RES_Clarification of PD-9266 Rule II Registration.md
+last_canonicalized_utc: '2026-04-23T21:37:48.032902+00:00'
 aliases:
-  - Illegal Practice of AR
-  - Illegal Practice of Architecture Comments
+- Clarification of PD-9266 Rule II Registration
+- PRBoA Resolution 05-2007 Clarification
 ---
 
 # Professional Regulation Commission
 
 ## Overview
 
-In response to Your recent request and in the due exercise of its powers and functions, please find hereafter the initial PRBoA comments on the subject pleading:
+URL/ website : www.architectureboard.ph Mobiles : 0922.8415161 0916.3822826
 
 ## Coverage
 
-- Professional Regulation Commission
-- Manila
-- Office of the Chairman
-- Email Address: prboa.prc.gov.ph@gmail.com URL/ website : www.architectureboard.ph
-- 30 May 2008 Arch. Rozanno Rosal, fuap
+- Section 37 of R.A. No. 9266, which states:
 
 ## Key Points
 
 - ________________________________________________________________________________________________________________ The Professional Regulatory.
-- ________________________________________________________________________________________________________________ Your Ref: Our Ref: 08_PRBoA-163 Makati City, NCR SUBJECT : REQUESTED PRBOA COMMENTS ON A JOINT PLEADING FILED AT A PROSECUTOR’S OFFICE BY AN UNREGISTERED PERSON CRIMINALLY CHARGED WITH TH.
+- Email Address: prboa.prc.gov.ph@gmail.com URL/ website : www.architectureboard.ph Mobiles : 0922.8415161 0916.3822826 ________________________________________________________________________________________________________________ Your Ref: Our Ref: 08jul_PRBoA-182 25 July 2008 Confidential Party Un.
 
 ## Referenced Concepts
 
-- concept-illegal-practice-of-architecture
-- concept-architectural-interiors
+- (none resolved against shared/concepts)

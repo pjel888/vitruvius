@@ -1,10 +1,11 @@
 ---
-id: reviewer-theory-of-architecture-reviewer
+id: reviewer-theory-of-architecture-reviewer-1d0da8
 title: 53. In 1989 he received the prtzker prize commonly referred to as “The Noble ofArchitecture” the loftiest recognition. It is a lifetime achievement award granted toliving architect whose body of work represents a superlative contribution to the field.
 page_type: source
 trust_level: educational
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:55.947728+00:00
+source_relative_markdown_path: 002-History/raw_markdown/Theory of Architecture Reviewer.md
+last_canonicalized_utc: 2026-04-23T19:47:38.175839+00:00
 ---
 
 # 53. In 1989 he received the prtzker prize commonly referred to as “The Noble ofArchitecture” the loftiest recognition. It is a lifetime achievement award granted toliving architect whose body of work represents a superlative contribution to the field.

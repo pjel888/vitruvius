@@ -1,10 +1,11 @@
 ---
-id: source-a-history-of-architecture-on-the-comparative-method-5th-ed-1905-banister-fletcher
+id: source-a-history-of-architecture-on-the-comparative-method-5th-ed-1905-banister-fletcher-b0b9dd
 title: A History Of Architecture On The Comparative Method, 5Th Ed. 1905 (Banister Fletcher)
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:53.826194+00:00
+source_relative_markdown_path: 002-History/raw_markdown/A History of Architecture on the Comparative Method, 5th ed. 1905 (Banister Fletcher).md
+last_canonicalized_utc: 2026-04-23T19:47:33.794605+00:00
 ---
 
 # A History Of Architecture On The Comparative Method, 5Th Ed. 1905 (Banister Fletcher)

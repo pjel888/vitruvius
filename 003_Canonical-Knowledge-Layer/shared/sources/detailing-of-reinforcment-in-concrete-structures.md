@@ -1,15 +1,16 @@
 ---
-id: handout-detailing-of-reinforcment-in-concrete-structures
-title: Detailing Of Reinforcment In Concrete Structures
+id: handout-detailing-of-reinforcment-in-concrete-structures-069e5c
+title: Detailing of Reinforcment in Concrete Structures
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-18T08:21:11.568446+00:00
+source_relative_markdown_path: 006 -Structural/raw_markdown/Detailing of Reinforcment in Concrete Structures.md
+last_canonicalized_utc: '2026-04-23T21:38:32.846440+00:00'
 aliases:
-  - Detailing of Reinforcment in Concrete Structures
+- Detailing of Reinforcment in Concrete Structures
 ---
 
-# Detailing Of Reinforcment In Concrete Structures
+# Detailing of Reinforcment in Concrete Structures
 
 ## Overview
 

@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, mock, test } from 'bun:test';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import { act, cleanup, render, waitFor } from '@testing-library/react';
 import { JSDOM } from 'jsdom';
 import React from 'react';
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom';
@@ -61,6 +61,7 @@ mock.module('./api/graphApi', () => ({
       id: 'taxonomy-fire-life-safety',
       kind: 'node',
       label: 'Fire Life Safety',
+      displayLabel: 'Fire Life Safety',
       type: 'taxonomy',
       matchType: 'slug',
       matchedField: 'slug',
@@ -74,12 +75,12 @@ mock.module('./api/graphApi', () => ({
   getScene: async () => { throw new Error('not used'); },
   getHealth: async () => ({ status: 'ok', neo4j: 'connected' }),
   getNodesForPerspective: async () => ({
-    nodes: [{ id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', type: 'taxonomy' }],
+    nodes: [{ id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' }],
     edges: [],
   }),
   getTaxonomy: async () => ([]),
   getNode: async () => ({
-    node: { id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', type: 'taxonomy' },
+    node: { id: 'taxonomy-fire-life-safety', label: 'Fire Life Safety', displayLabel: 'Fire Life Safety', type: 'taxonomy' },
     taxonomyPath: [],
     incoming: [],
     outgoing: [],
@@ -137,6 +138,42 @@ describe('ExploreView search-to-inspector integration', () => {
       expect(view.getByTestId('location-probe').textContent).toContain('node=taxonomy-fire-life-safety');
       expect(view.getByText('Path Tracing')).toBeTruthy();
       expect(view.getByText('Path Tracing')).toBeTruthy();
+    });
+  });
+
+  test('direct graph-style selection without node query parameter stays selected and populates inspector', async () => {
+    const { ExploreView } = await import('./App');
+
+    const view = render(
+      <MemoryRouter initialEntries={['/explore']}>
+        <Routes>
+          <Route
+            path="/explore"
+            element={
+              <>
+                <ExploreView />
+                <LocationProbe />
+              </>
+            }
+          />
+        </Routes>
+      </MemoryRouter>,
+    );
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().nodes.some((node) => node.id === 'taxonomy-fire-life-safety')).toBe(true);
+    });
+
+    act(() => {
+      const store = useSceneStore.getState();
+      store.setSelectedNode('taxonomy-fire-life-safety');
+      store.openInspector();
+    });
+
+    await waitFor(() => {
+      expect(useSceneStore.getState().selectedNodeId).toBe('taxonomy-fire-life-safety');
+      expect(view.getByText('Path Tracing')).toBeTruthy();
+      expect(view.getByTestId('location-probe').textContent).toContain('node=taxonomy-fire-life-safety');
     });
   });
 });

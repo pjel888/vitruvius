@@ -1,10 +1,11 @@
 ---
-id: source-taguig-clup
+id: source-taguig-clup-9c030c
 title: physical environment
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:36.362545+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/413839175-Taguig-CLUP-pdf.md
+last_canonicalized_utc: 2026-04-23T19:47:09.665783+00:00
 ---
 
 # physical environment

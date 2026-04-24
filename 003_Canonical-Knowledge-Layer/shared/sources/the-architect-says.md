@@ -1,10 +1,11 @@
 ---
-id: handout-quotes-1
+id: handout-quotes-1-85aee8
 title: The Architect Says
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:55:57.714114+00:00
+source_relative_markdown_path: 003-Theory/refined_markdown/Quotes (1).md
+last_canonicalized_utc: 2026-04-23T19:37:41.323665+00:00
 aliases:
   - Quotes (1)
 ---

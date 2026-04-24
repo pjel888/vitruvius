@@ -1,17 +1,305 @@
-# Sprint CLEANUP-1 Stream C1.2 — slug alias registry.
-#
-# Populated automatically by vitruvius.collision_resolver when a canonical
-# ID collision is detected. Maps:
-#
-#   original_source_path -> disambiguated_canonical_id
-#
-# New entries are APPEND-ONLY. Never edit an existing entry — doing so
-# would break canonical ID immutability (Principle P6). If a rename is
-# required, go through `migrate-ids-plan` / `migrate-ids-apply` instead.
-#
-# Example (hypothetical):
-#
-#   collisions:
-#     "001_Raw-Source-Layer/001-Laws/alt-pd1096.pdf": "law-pd1096-a1b2c3"
-#
-collisions: {}
+collisions:
+  "001-Laws/raw_markdown/BERDE/BERDE \u2013 Buildings \u2013 Version 5.0.0 \u2013 User Guide.md": source-berde-buildings-version-5-0-0-user-guide-b7fe1e
+  001-Laws/raw_markdown/BP-220/Revised_IRR_BP220_2008.md: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-76a699
+  ? 001-Laws/raw_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas
+    Pambansa Blg. 344 _ National Council on Disability Affairs.md
+  : irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-96b727
+  001-Laws/raw_markdown/BP-344/BP-344 IRR Accessibility Law DPWH.md: handout-department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads-a1cc78
+  001-Laws/raw_markdown/CIAP/CIAP-Document-102-Private-Constn-Contract.md: handout-ciap-document-102-uniform-general-conditions-of-contract-for-private-construction-399fde
+  001-Laws/raw_markdown/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.md: irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system-f357db
+  001-Laws/raw_markdown/DENR/DENR DAO 2003-30 Revised Procedural Manual - EIS System.md: irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system-5970b7
+  001-Laws/raw_markdown/DEPED/DepEd DRRR Manual Philippines.md: handout-deped-disaster-risk-reduction-resource-manual-68ffe4
+  001-Laws/raw_markdown/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.md: handout-guidelines-on-energy-conserving-design-of-buildings-0c11d9
+  001-Laws/raw_markdown/DOH/DOH Adolescent-Friendly Health Services 2010.md: source-doh-adolescent-friendly-health-services-2010-057e5e
+  001-Laws/raw_markdown/DOH/DOH Drug Abuse Treatment and Rehab Centers 2003.md: source-doh-drug-abuse-treatment-and-rehab-centers-2003-85f595
+  001-Laws/raw_markdown/DOH/DOH Guidelines for Health Facilities 20004.md: handout-doh-guidelines-for-health-facilities-ad941e
+  001-Laws/raw_markdown/DPWH/DPWH DO037 Enforcement of BP344 along National Roads.md: handout-department-order-no-37-on-enforcement-of-the-accessibility-law-along-national-roads-1ef7d5
+  001-Laws/raw_markdown/DPWH/DPWH JICC Flood Control.md: source-dpwh-jicc-flood-control-ad850f
+  001-Laws/raw_markdown/EO/E.O. 1008_0 1.md: source-e-o-1008-0-1-89f0e4
+  001-Laws/raw_markdown/EO/E.O. 1008_0.md: source-e-o-1008-0-119cb0
+  001-Laws/raw_markdown/EO/EO 1008 Construction Arbitration Law.md: source-eo-1008-construction-arbitration-law-c4129e
+  001-Laws/raw_markdown/EO/EO 124 Areas for Land Conversion.md: source-eo-124-areas-for-land-conversion-03917b
+  001-Laws/raw_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md: law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-d09898
+  001-Laws/raw_markdown/EO/EO 72 Comprehensive Land use.md: law-executive-order-no-72-on-comprehensive-land-use-plans-7b0594
+  001-Laws/raw_markdown/EO/EO 90 NGO for Shelter Program.md: law-executive-order-no-90-on-the-national-shelter-program-7cd7f3
+  001-Laws/raw_markdown/HB-5207/HB 5207 - Subdivision Green Parks Program Bill.md: source-hb-5207-subdivision-green-parks-program-bill-13d1b1
+  001-Laws/raw_markdown/HLURB-DHSUD/Guidelines on New Towns and Planned Unit Development.md: source-guidelines-on-new-towns-and-planned-unit-development-9085a3
+  001-Laws/raw_markdown/HLURB-DHSUD/HLURB_CLUP_Guidebook_Vol_1_11042015.md: source-hlurb-clup-guidebook-vol-1-11042015-2bd5ec
+  001-Laws/raw_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_1.md: source-hlurb-clup-vol-1-b0559b
+  001-Laws/raw_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_2.md: source-hlurb-clup-vol-2-51ab1f
+  001-Laws/raw_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_3.md: source-hlurb-clup-vol-3-1ef558
+  001-Laws/raw_markdown/HLURB-DHSUD/HLURB_Supplemental_Guidelines_SLM.md: source-hlurb-supplemental-guidelines-slm-3b18f5
+  001-Laws/raw_markdown/HLURB-DHSUD/LCG of 1991.md: source-lcg-of-1991-167c34
+  001-Laws/raw_markdown/HLURB-DHSUD/Open Space Development Guidelines.md: handout-open-space-development-guidelines-4a9f52
+  001-Laws/raw_markdown/HLURB-DHSUD/R-973 s. 2018.md: source-r-973-s-2018-24b790
+  001-Laws/raw_markdown/HLURB-DHSUD/RPS (2008).md: source-rps-2008-b5dd37
+  ? 001-Laws/raw_markdown/HLURB-DHSUD/Reference-Tool-on-Urban-Planning-and-Design-for-Climate-Resilience-for-LGUs-Planning-Actors-in-the-Philippines_readable.md
+  : source-reference-tool-on-urban-planning-and-design-for-climate-resilience-for-lgus-planning-actors-in-the-philippines-readable-021064
+  001-Laws/raw_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md: handout-resilient-urban-design-and-development-guidelines-2173f0
+  001-Laws/raw_markdown/HLURB-DHSUD/Volume 4 - Planning Strategically.md: source-volume-4-planning-strategically-215179
+  001-Laws/raw_markdown/LGU/253090760-Zoning-Davao-City.md: handout-davao-city-comprehensive-land-use-plan-c367dc
+  001-Laws/raw_markdown/LGU/289088479-Tarlac-Zoning-Ordinances.md: law-comprehensive-zoning-ordinance-of-the-city-of-tarlac-215daa
+  001-Laws/raw_markdown/LGU/353069306-Bgc-Master-Plan.md: source-bgc-master-plan-ab4cb7
+  001-Laws/raw_markdown/LGU/356243531-Draft-Zoning-Ordinance-2012-2021-2.md: source-draft-zoning-ordinance-2012-2021-2-c99e33
+  001-Laws/raw_markdown/LGU/362704379-Taguig-Comprehensive-Land-Use-Plan-CLUP-Volume-II.md: source-taguig-comprehensive-land-use-plan-clup-volume-ii-aaecd2
+  001-Laws/raw_markdown/LGU/371438973-Zoning-Ordinance-TAGUIG-pdf.md: source-zoning-ordinance-taguig-56658c
+  001-Laws/raw_markdown/LGU/383655196-PD-957.md: source-pd-957-53852e
+  001-Laws/raw_markdown/LGU/396551136-Comprehensive-Land-Use-Plan-of-Pasig-CIty.md: source-comprehensive-land-use-plan-of-pasig-city-87dd24
+  001-Laws/raw_markdown/LGU/413839175-Taguig-CLUP-pdf.md: source-taguig-clup-9c030c
+  001-Laws/raw_markdown/LGU/437459910-Ordinance-No-2117.md: law-quezon-city-central-business-district-zoning-ordinance-51e85f
+  001-Laws/raw_markdown/LGU/459742704-Zoning-Ordinance-2016-2025 (1).md: source-zoning-ordinance-2016-2025-1-4f0ad8
+  001-Laws/raw_markdown/LGU/459742704-Zoning-Ordinance-2016-2025.md: source-zoning-ordinance-2016-2025-e45711
+  001-Laws/raw_markdown/LGU/490459778-Volume-2-Zoning-Ordinance.md: source-volume-2-zoning-ordinance-9872f4
+  001-Laws/raw_markdown/LGU/586650111-CLUP.md: source-clup-71fc99
+  001-Laws/raw_markdown/LGU/588729100-Clup-2016-2030-Volume-2-Zoning-Ordinance-Version-5-12-2018-10-31-for-Printing.md: source-clup-2016-2030-volume-2-zoning-ordinance-version-5-12-2018-10-31-for-printing-72a08b
+  001-Laws/raw_markdown/LGU/588729112-Clup-2016-2030-Volume-3-Sectoral-Studies-Version-5-12-2018-11-04-for-Printing-Copy.md: source-clup-2016-2030-volume-3-sectoral-studies-version-5-12-2018-11-04-for-printing-copy-f6d465
+  001-Laws/raw_markdown/LGU/592502205-Comprehensive-Land-Use-Process-in-the-City-of-Muntinlupa.md: source-comprehensive-land-use-process-in-the-city-of-muntinlupa-dbabee
+  001-Laws/raw_markdown/LGU/597492263-Calamba-CLUP-v1-New.md: source-calamba-clup-v1-new-45b053
+  001-Laws/raw_markdown/LGU/619044847-Mabalacat-CLUP-2018.md: source-mabalacat-clup-2018-95c081
+  001-Laws/raw_markdown/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.md: law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-972503
+  001-Laws/raw_markdown/LGU/648659786-Vol2-Zoning-Ordinance.md: source-vol2-zoning-ordinance-d67794
+  001-Laws/raw_markdown/LGU/649704913-Volume-III-Zoning-Ordinance.md: source-volume-iii-zoning-ordinance-a5f1ed
+  001-Laws/raw_markdown/LGU/672108686-Mauban-CLUP-Vol-2-Approved.md: source-mauban-clup-vol-2-approved-d86fed
+  001-Laws/raw_markdown/LGU/673810152-CLUP-Carmona-Volume-3-Final.md: source-clup-carmona-volume-3-final-8f44d9
+  001-Laws/raw_markdown/LGU/674253872-Volume-1-Comprehensive-Land-Use-Plan-Sto-Tomas-1.md: source-volume-1-comprehensive-land-use-plan-sto-tomas-1-e008a6
+  001-Laws/raw_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md: law-zoning-ordinance-of-the-city-of-malolos-23deaa
+  001-Laws/raw_markdown/LGU/721039237-TRECE-LATEST-CLUP-Volume-I.md: source-trece-latest-clup-volume-i-cfb9f7
+  001-Laws/raw_markdown/LGU/728639085-CLUP-Final-1.md: source-clup-final-1-f19dbe
+  001-Laws/raw_markdown/LGU/736227374-Vol-1-Lan-Use-Plan.md: source-vol-1-lan-use-plan-818101
+  001-Laws/raw_markdown/LGU/744110354-Comprehensive-Land-Use-Plan-of-Santa-Maria-2006-2015-1.md: source-comprehensive-land-use-plan-of-santa-maria-2006-2015-1-07213e
+  001-Laws/raw_markdown/LGU/754536758-Volume-II-Sariaya-CLUP-EDITED-v-8-Feb-2020-Roda-docx.md: source-volume-ii-sariaya-clup-edited-v-8-feb-2020-roda-8bde87
+  001-Laws/raw_markdown/LGU/756628009-Dagupan-City-Ordinance-no-2061-2016.md: law-comprehensive-zoning-ordinance-of-dagupan-city-d94e10
+  001-Laws/raw_markdown/LGU/784708893-PALAUIG-ZAMBALES-CLUP.md: source-palauig-zambales-clup-692ea8
+  001-Laws/raw_markdown/LGU/794216046-San-Mateo-Zoning-Ordinance.md: law-zoning-ordinance-of-the-municipality-of-san-mateo-0fbd0b
+  001-Laws/raw_markdown/LGU/794422427-BGC-Design-Standards-and-Guidelines.md: source-bgc-design-standards-and-guidelines-b8af7e
+  001-Laws/raw_markdown/LGU/818768588-The-CLUP-2020-2030.md: source-the-clup-2020-2030-54c000
+  001-Laws/raw_markdown/LGU/820926861-CLUP-2017-2026.md: source-clup-2017-2026-a73bde
+  001-Laws/raw_markdown/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.md: handout-san-mateo-comprehensive-land-use-plan-2021-2031-29a9ce
+  001-Laws/raw_markdown/LGU/866816954-Calamba-Clup (1).md: source-calamba-clup-1-a63cbe
+  001-Laws/raw_markdown/LGU/866816954-Calamba-Clup.md: source-calamba-clup-217823
+  001-Laws/raw_markdown/LGU/912157126-San-Pedro-Comprehensive-Development-Plan.md: source-san-pedro-comprehensive-development-plan-4ba9f7
+  001-Laws/raw_markdown/LGU/913356270-Pagsanjan-Volume-1-CLUP.md: source-pagsanjan-volume-1-clup-fae8e0
+  001-Laws/raw_markdown/LGU/933175937-Clup-Mandaue-City.md: source-clup-mandaue-city-e62152
+  001-Laws/raw_markdown/LGU/ordinance.md: source-ordinance-ed498f
+  001-Laws/raw_markdown/PD-1067/PD 1067 - Water Code of the Philippines.md: law-water-code-of-the-philippines-ec7b50
+  001-Laws/raw_markdown/PD-1067/PD 1067 IRR - Water Code Implementing Rules.md: law-section-pd-1067-irr-water-code-implementing-rules-4d296a
+  001-Laws/raw_markdown/PD-1067/Water Code of PH IRR 2005.md: irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-7c04ac
+  001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code Complete Scan.md: law-national-building-code-of-the-philippines-26f150
+  001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code Full Text (Malacanang Edition).md: law-national-building-code-of-the-philippines-750b7a
+  001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code Illustrated (Pedro Santos Jr).md: law-national-building-code-of-the-philippines-ff4113
+  001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code Summary.md: law-national-building-code-of-the-philippines-1bfcbd
+  001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code of the Philippines (Compact).md: law-national-building-code-of-the-philippines-6e7df5
+  001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code.md: law-national-building-code-of-the-philippines-fad0c3
+  001-Laws/raw_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md: irr-implementing-rules-and-regulations-of-the-national-building-code-b772ae
+  001-Laws/raw_markdown/PD-1096/PD 1096 IRR - Rules 7 and 8 Light Ventilation and Development Controls.md: irr-implementing-rules-and-regulations-of-the-national-building-code-9ada9c
+  001-Laws/raw_markdown/PD-1096/PD 1096 RIRR 2004 - Revised IRR (Architecture Board).md: irr-implementing-rules-and-regulations-of-the-national-building-code-16cb80
+  001-Laws/raw_markdown/PD-1096/PD 1096 RIRR 2004 - Revised IRR (DPWH Official).md: irr-implementing-rules-and-regulations-of-the-national-building-code-d15fbc
+  001-Laws/raw_markdown/PD-1096/Philippines_02_IRR_of_NBC_of_the_Philippines.md: irr-implementing-rules-and-regulations-of-the-national-building-code-b5b767
+  001-Laws/raw_markdown/PD-1096/RULE VIII - LIGHT & VENTILATION.md: law-section-rule-viii-light-ventilation-630b8e
+  001-Laws/raw_markdown/PD-1096/RULE VII_701 OCCUPANCY CLASSIFIED.md: law-section-rule-vii-701-occupancy-classified-2de866
+  001-Laws/raw_markdown/PD-1096/RULE VII_Table VII-1 Occupancy Table.md: law-section-rule-vii-table-vii-1-occupancy-table-4c9200
+  001-Laws/raw_markdown/PD-1096/Rule 7 _ 8.md: law-section-rule-7-8-0adbfd
+  001-Laws/raw_markdown/PD-1151/PD 1151 - PD 1152 Environmental Code.md: law-philippine-environmental-policy-129fdb
+  001-Laws/raw_markdown/PD-1185/PD 1185 - Fire Code of the Philippines 1977.md: law-fire-code-of-the-philippines-258f94
+  001-Laws/raw_markdown/PD-1216/PD 1216 - Open Space Requirements in Subdivisions.md: law-open-space-requirements-in-residential-subdivisions-32cc04
+  001-Laws/raw_markdown/PD-1517/PD 1517_Urban Land Reform.md: irr-implementing-rules-and-regulations-of-the-urban-land-reform-act-132ec9
+  001-Laws/raw_markdown/PD-856/DOH Food Establishments.md: irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-14082c
+  001-Laws/raw_markdown/PD-856/phi201040.md: law-code-on-sanitation-of-the-philippines-f4052a
+  001-Laws/raw_markdown/PD-9514/PD 9514 - Fire Code of the Philippines.md: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-650bb9
+  001-Laws/raw_markdown/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md: source-pd-957-subdivision-law-illustrated-slides-pedro-santos-jr-227770
+  001-Laws/raw_markdown/PD-957/PD 957 - Subdivision _ Condominium Buyer_s Act.md: source-pd-957-subdivision-condominium-buyer-s-act-506426
+  001-Laws/raw_markdown/PD-957/PD 957 - Subdivision and Condominium Buyers Protective Decree.md: source-pd-957-subdivision-and-condominium-buyers-protective-decree-34f98d
+  001-Laws/raw_markdown/PD-957/PD 957 IRR - Subdivision and Condominium IRR.md: irr-revised-implementing-rules-and-regulations-for-pd-957-c907f4
+  001-Laws/raw_markdown/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.md: handout-guidelines-on-temporary-or-special-permits-for-foreign-architects-3b74b4
+  001-Laws/raw_markdown/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.md: handout-resolution-restricting-practice-of-architecture-by-non-registered-and-licensed-architects-d0d97c
+  001-Laws/raw_markdown/PRC/PRBoaRes,s08 Effectivity Dates of PRBOA Resolutions.md: handout-resolution-on-effectivity-dates-of-prboa-resolutions-f0e441
+  001-Laws/raw_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md: handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-6be2b8
+  001-Laws/raw_markdown/PRC/RES_Clarification of PD-9266 Rule II Registration.md: handout-clarification-on-prboa-resolution-05-2007-rule-ii-registration-f6459f
+  001-Laws/raw_markdown/PRC/RES_Illegal Practice of AR.md: handout-prboa-comments-on-the-illegal-practice-of-architecture-d630d1
+  001-Laws/raw_markdown/RA-10066/ra 10066.md: law-national-cultural-heritage-act-of-2009-eba9c0
+  001-Laws/raw_markdown/RA-11201/RA 11201 IRR - DHSUD Act Implementing Rules.md: irr-implementing-rules-and-regulations-of-the-department-of-human-settlements-and-urban-development-act-21cd0e
+  001-Laws/raw_markdown/RA-11361/ra_11361_irr_draft_for_comments.md: source-ra-11361-irr-draft-for-comments-77304b
+  001-Laws/raw_markdown/RA-1378/188541488-Revised-National-Plumbing-Code-of-the-Philippines.md: source-revised-national-plumbing-code-of-the-philippines-15216b
+  001-Laws/raw_markdown/RA-1378/Board of Master Plumber.md: source-board-of-master-plumber-984125
+  001-Laws/raw_markdown/RA-1378/MASTER PLUMBING LAW.md: law-plumbing-law-26d8a4
+  001-Laws/raw_markdown/RA-386/RA-386 Civil Code of the Phils.md: law-civil-code-of-the-philippines-63e932
+  001-Laws/raw_markdown/RA-386/RA-386 Civil Code.md: law-civil-code-of-the-philippines-d09937
+  001-Laws/raw_markdown/RA-4566/RA_4566.md: law-contractors-license-law-f0e8d2
+  001-Laws/raw_markdown/RA-4726/RA 4726 Condominium Act.md: law-condominium-act-3b13b1
+  001-Laws/raw_markdown/RA-6969/RA 6969 Toxic Substances and Hazardouse Nuclear Wastes Control Act 1990.md: law-toxic-substances-and-hazardous-and-nuclear-wastes-control-act-of-1990-fb52c3
+  001-Laws/raw_markdown/RA-7160/RA 7160 The Local Government Code.md: law-local-government-code-of-1991-e5e549
+  001-Laws/raw_markdown/RA-7279/RA 7279 Urban Development and Housing Act 2009.md: law-urban-development-and-housing-act-0c165e
+  001-Laws/raw_markdown/RA-7899/RA 7899 Amendments to RA 4726.md: law-amendments-to-the-condominium-act-bf90ac
+  001-Laws/raw_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md: law-ecological-solid-waste-management-act-of-2000-07b6a5
+  001-Laws/raw_markdown/RA-9184/RA 9184 - Government Procurement Reform Act.md: law-government-procurement-reform-act-3bf657
+  001-Laws/raw_markdown/RA-9184/RA 9184 IRR - Government Procurement IRR.md: law-government-procurement-reform-act-d48bb5
+  001-Laws/raw_markdown/RA-9184/RA_9184.md: source-ra-9184-6c462b
+  001-Laws/raw_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md: irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act-d65a4b
+  001-Laws/raw_markdown/RA-9257/RA 9275 PH Clean Water Act.md: law-philippine-clean-water-act-of-2004-8b120f
+  001-Laws/raw_markdown/RA-9266/IRR of RA 9266.md: irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004-af0591
+  001-Laws/raw_markdown/RA-9266/RA-9266 IRR Architecture Act of 2004.md: irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004-68b2af
+  001-Laws/raw_markdown/RA-9279/IRR RA 7279 Sec 18.md: handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-82da88
+  001-Laws/raw_markdown/RA-9285/RA_9285.md: law-alternative-dispute-resolution-act-of-2004-2138d6
+  001-Laws/raw_markdown/RA-9514/RA9514-RIRR-rev-2019.md: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines-3b7df7
+  001-Laws/raw_markdown/SB-2982/SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago).md: law-civil-code-of-the-philippines-772f95
+  001-Laws/raw_markdown/UAP/1979 UAP Documents.md: source-1979-uap-documents-33c9f4
+  001-Laws/raw_markdown/UAP/Professional Practice Reviewer2.md: reviewer-professional-practice-reviewer2-e7530b
+  001-Laws/raw_markdown/UAP/SPP 201.md: source-spp-201-0dda60
+  001-Laws/raw_markdown/UAP/Standards of Professional Practice2.md: handout-uap-document-standards-of-professional-practice-1b5f2e
+  001-Laws/raw_markdown/UAP/UAP Document 301.md: handout-uap-document-301-general-conditions-2ada75
+  001-Laws/raw_markdown/UAP/UAP Document 3012.md: handout-uap-document-301-general-conditions-b673dc
+  001-Laws/raw_markdown/UAP/UAP Document 401-402.md: source-uap-document-401-402-55b9d1
+  001-Laws/raw_markdown/UAP/UAP Document Code of Ethics.md: handout-uap-document-code-of-ethics-815a01
+  001-Laws/raw_markdown/UAP/UAP Document Standards of Professional Practice.md: handout-uap-document-standards-of-professional-practice-c11e71
+  001-Laws/raw_markdown/UAP/UAP Documents Q _ A.md: source-uap-documents-q-a-49a642
+  001-Laws/raw_markdown/UAP/UAP Documents Reviewer.md: reviewer-uap-documents-reviewer-3a49c8
+  001-Laws/raw_markdown/UAP/UAP Documents.md: source-uap-documents-408daa
+  001-Laws/raw_markdown/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md: source-dost-pcieerd-2026calldoc-as-of-27jan26merge-692dd5
+  001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code Complete Scan.md: law-national-building-code-of-the-philippines-c21757
+  001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code Full Text (Malacanang Edition).md: law-national-building-code-of-the-philippines-a7b2e7
+  001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code Illustrated (Pedro Santos Jr).md: law-national-building-code-of-the-philippines-bfbbf8
+  001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code Summary.md: law-national-building-code-of-the-philippines-483398
+  001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code of the Philippines (Compact).md: law-national-building-code-of-the-philippines-7b69e8
+  001-Laws/refined_markdown/PD-1096/PD 1096 - National Building Code.md: law-national-building-code-of-the-philippines-e399ba
+  001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Full Implementing Rules and Regulations.md: irr-implementing-rules-and-regulations-of-the-national-building-code-155c1f
+  001-Laws/refined_markdown/PD-1096/PD 1096 IRR - Rules 7 and 8 Light Ventilation and Development Controls.md: irr-implementing-rules-and-regulations-of-the-national-building-code-28746c
+  001-Laws/refined_markdown/PD-1096/PD 1096 RIRR 2004 - Revised IRR (Architecture Board).md: irr-implementing-rules-and-regulations-of-the-national-building-code-a25171
+  001-Laws/refined_markdown/PD-1096/PD 1096 RIRR 2004 - Revised IRR (DPWH Official).md: irr-implementing-rules-and-regulations-of-the-national-building-code-c2aa6f
+  001-Laws/refined_markdown/PD-1096/Philippines_02_IRR_of_NBC_of_the_Philippines.md: irr-implementing-rules-and-regulations-of-the-national-building-code-8304a2
+  001-Laws/refined_markdown/PD-1096/RULE VIII - LIGHT & VENTILATION.md: law-section-rule-viii-light-ventilation-28f342
+  001-Laws/refined_markdown/PD-1096/RULE VII_701 OCCUPANCY CLASSIFIED.md: law-section-rule-vii-701-occupancy-classified-c0db00
+  001-Laws/refined_markdown/PD-1096/RULE VII_Table VII-1 Occupancy Table.md: law-section-rule-vii-table-vii-1-occupancy-table-a568ee
+  001-Laws/refined_markdown/PD-1096/Rule 7 _ 8.md: law-section-rule-7-8-f889ad
+  002-History/raw_markdown/20th Century Architects 2.md: handout-20th-century-architects-2-7912e5
+  002-History/raw_markdown/20th Century Architects 3.md: handout-20th-century-architects-2-225d20
+  002-History/raw_markdown/20th Century Architects.md: handout-20th-century-architects-2-6905fa
+  ? 002-History/raw_markdown/30-Second Ancient Egypt (The 50 Most Important Achievements
+    of a Timeless Civilisation Each Explained in Half A Minute) - Peter Der Manuelian.md
+  : source-second-ancient-egypt-the-50-most-important-achievements-of-a-timeless-civilisation-each-explained-in-half-a-minute-peter-der-manuelian-607142
+  ? 002-History/raw_markdown/30-Second New York (The 50 Key Visions, Events and Architects
+    that Shaped the City, Each Explained in Half A Minute) - Sarah Fenton.md
+  : source-second-new-york-the-50-key-visions-events-and-architects-that-shaped-the-city-each-explained-in-half-a-minute-sarah-fenton-bbef6b
+  002-History/raw_markdown/A History of Architecture on the Comparative Method, 5th ed. 1905 (Banister Fletcher).md: source-a-history-of-architecture-on-the-comparative-method-5th-ed-1905-banister-fletcher-b0b9dd
+  002-History/raw_markdown/Chinese Architecture.md: source-chinese-architecture-794791
+  002-History/raw_markdown/Concepts _ Philosophies.md: source-concepts-philosophies-21be9d
+  002-History/raw_markdown/Design Process.md: source-design-process-0c60bb
+  002-History/raw_markdown/Filipino Architecture.md: source-filipino-architecture-a247f4
+  002-History/raw_markdown/George Salvan Architectural Character and the History of Architecture.md: source-george-salvan-architectural-character-and-the-history-of-architecture-d5a423
+  002-History/raw_markdown/HOA MODULE 1.md: source-hoa-module-1-e3f2cf
+  002-History/raw_markdown/HOA MODULE 2 P1.md: source-hoa-module-2-p1-dac9ec
+  002-History/raw_markdown/HOA MODULE 2 P2.md: source-hoa-module-2-p2-f0d7e4
+  002-History/raw_markdown/HOA MODULE 2 P3.md: source-hoa-module-2-p3-cd5715
+  002-History/raw_markdown/HOA MODULE 3.md: source-hoa-module-3-47c72e
+  002-History/raw_markdown/HOA MODULE 4 P1.md: source-hoa-module-4-p1-e79b00
+  002-History/raw_markdown/HOA MODULE 4 P3.md: source-hoa-module-4-p3-3cdb08
+  002-History/raw_markdown/Hindu Architecture.md: source-hindu-architecture-d2940b
+  002-History/raw_markdown/History of Architecture Sample Exam.md: source-history-of-architecture-sample-exam-d231be
+  002-History/raw_markdown/Modern Architectures in History (Brazil) - Richard J. Williams.md: source-modern-architectures-in-history-brazil-richard-j-williams-2fafaf
+  002-History/raw_markdown/Modern Architectures in History (USA) - Gwendolyn Wright.md: source-modern-architectures-in-history-usa-gwendolyn-wright-041845
+  002-History/raw_markdown/PRE-BOARD ANSWER KEY.md: source-pre-board-answer-key-2b4f72
+  002-History/raw_markdown/Privacy and Territoriality.md: source-privacy-and-territoriality-ea7c68
+  002-History/raw_markdown/The Value of an Architect.md: source-the-value-of-an-architect-275a78
+  002-History/raw_markdown/Theory Lecture.md: handout-theory-lecture-d799e0
+  002-History/raw_markdown/Theory of Architecture Reviewer.md: reviewer-theory-of-architecture-reviewer-1d0da8
+  002-History/raw_markdown/history.md: source-history-bba85a
+  003-Theory/raw_markdown/Quotes (1).md: handout-quotes-1-3604d6
+  003-Theory/raw_markdown/TOA 1 (Intro to Theory).md: source-toa-1-intro-to-theory-ae16ed
+  003-Theory/raw_markdown/TOA 2 (Elements + Principles).md: source-toa-2-elements-principles-c4cfbd
+  003-Theory/raw_markdown/TOA 3 (Design Perception).md: source-toa-3-design-perception-4831e6
+  003-Theory/raw_markdown/TOA 4 (Tropical Architecture).md: source-toa-4-tropical-architecture-b9e83f
+  003-Theory/raw_markdown/TOA 5 (Masters of Architecture).md: source-toa-5-masters-of-architecture-1f15cb
+  003-Theory/raw_markdown/theory.md: source-theory-78c765
+  003-Theory/refined_markdown/Quotes (1).md: handout-quotes-1-85aee8
+  003-Theory/refined_markdown/TOA 4 (Tropical Architecture).md: source-toa-4-tropical-architecture-34c371
+  003-Theory/refined_markdown/TOA 5 (Masters of Architecture).md: source-toa-5-masters-of-architecture-c29d97
+  003-Theory/refined_markdown/theory.md: source-theory-1bfce9
+  004-Technology/raw_markdown/ALE BT REVIEWER.md: reviewer-ale-bt-reviewer-5a0215
+  004-Technology/raw_markdown/Architectural Cost Estimates By Max Fajardo.md: handout-architectural-cost-estimates-by-max-fajardo-6778ec
+  004-Technology/raw_markdown/Bldg Technology Sample Exam.md: source-bldg-technology-sample-exam-03c690
+  004-Technology/raw_markdown/Buidling Construction Handbook 7th Ed by Chudley _ Greeno.md: source-buidling-construction-handbook-7th-ed-by-chudley-greeno-ccb507
+  004-Technology/raw_markdown/Building Construction 1 Lecture.md: handout-building-construction-1-lecture-ed293b
+  004-Technology/raw_markdown/Building Construction 2 Lecture.md: handout-building-construction-2-lecture-33b8b8
+  004-Technology/raw_markdown/Building Construction 3 Lecture.md: handout-building-construction-3-lecture-fc4c36
+  004-Technology/raw_markdown/Building Construction 4 Lecture.md: handout-building-construction-4-lecture-a0209d
+  004-Technology/raw_markdown/Building Construction 5 Lecture.md: handout-building-construction-5-lecture-603d1b
+  004-Technology/raw_markdown/Building Tech Illustrated.md: source-building-tech-illustrated-ce47e5
+  004-Technology/raw_markdown/Building Technology - Siteworks.md: source-building-technology-siteworks-2fa21f
+  004-Technology/raw_markdown/Building Technology Exam with Key.md: source-building-technology-exam-with-key-151c51
+  004-Technology/raw_markdown/Building Technology Handout 1.md: handout-building-technology-handout-1-60684e
+  004-Technology/raw_markdown/Building Technology Handout 2.md: handout-building-technology-handout-2-c648c3
+  004-Technology/raw_markdown/Building Technology Handout 3.md: handout-building-technology-handout-3-99ef09
+  004-Technology/raw_markdown/Building Technology June 2010 ALE.md: source-building-technology-june-2010-ale-de60df
+  004-Technology/raw_markdown/Building Technology MCQs with Key.md: source-building-technology-mcqs-with-key-92225e
+  004-Technology/raw_markdown/Building Technology Mock Test with Key.md: source-building-technology-mock-test-with-key-b020ec
+  004-Technology/raw_markdown/Common Lumber Defects.md: source-common-lumber-defects-b9eabf
+  004-Technology/raw_markdown/Construction Project Management Handbook by Shadan _ Fleming.md: source-construction-project-management-handbook-by-shadan-fleming-7f92f1
+  004-Technology/raw_markdown/DPWH DO062 Road and Curb Design Dwg.md: source-dpwh-do062-road-and-curb-design-dwg-373f84
+  004-Technology/raw_markdown/Estimating Excavation.md: source-estimating-excavation-5d3405
+  004-Technology/raw_markdown/Finishes Lecture.md: handout-finishes-lecture-39bb09
+  004-Technology/raw_markdown/Furniture Reviewer.md: reviewer-furniture-reviewer-23af6c
+  004-Technology/raw_markdown/George-Salvan-Architectural Practice and Construction Management.md: source-george-salvan-architectural-practice-and-construction-management-06f834
+  004-Technology/raw_markdown/George-Salvan-Architectural-Building-Materials.md: source-george-salvan-architectural-building-materials-571228
+  004-Technology/raw_markdown/Good Building Handbook in the PH.md: source-good-building-handbook-in-the-ph-1c6f66
+  004-Technology/raw_markdown/MWSS-RO-PBD-for-Infrastructure-Projects_5thEdition-08-09-2018_final.md: source-mwss-ro-pbd-for-infrastructure-projects-5thedition-08-09-2018-final-11ad46
+  004-Technology/raw_markdown/Masonry Lecture.md: handout-masonry-lecture-648ff3
+  004-Technology/raw_markdown/Metals Lecture.md: handout-metals-lecture-371228
+  004-Technology/raw_markdown/Simplified Methods on Building Construction by Max Fajardo.md: source-simplified-methods-on-building-construction-by-max-fajardo-ac639b
+  004-Technology/raw_markdown/Sitework Lecture.md: handout-sitework-lecture-5b3695
+  004-Technology/raw_markdown/Thermal _ Moisture Protection Lecture.md: handout-thermal-moisture-protection-lecture-43ffa8
+  004-Technology/raw_markdown/Utilities _ Building Technology Sample Exam.md: source-utilities-building-technology-sample-exam-d74884
+  004-Technology/raw_markdown/Woods and Plastics Lecture.md: handout-woods-and-plastics-lecture-649ce3
+  005-Utilities/raw_markdown/ARC Building Utilities Terms.md: handout-arc-building-utilities-terms-980aa1
+  005-Utilities/raw_markdown/Building Laws _ Utilities Mock Test with Key.md: source-building-laws-utilities-mock-test-with-key-c8e57e
+  005-Utilities/raw_markdown/Building Utilities Reviewer.md: reviewer-building-utilities-reviewer-ee5712
+  005-Utilities/raw_markdown/Communication and Signal Systems Lecture.md: handout-communication-and-signal-systems-lecture-2126ef
+  005-Utilities/raw_markdown/Electrical Layout and Estimate (2nd Edition) by Max B. Fajardo, Jr. and Leo R. Fajardo.md: source-electrical-layout-and-estimate-2nd-edition-by-max-b-fajardo-jr-and-leo-r-fajardo-0caff3
+  005-Utilities/raw_markdown/Electrical Layout and Estimate 2nd Ed by Fajardo.md: source-electrical-layout-and-estimate-2nd-ed-by-fajardo-7d57be
+  005-Utilities/raw_markdown/George Salvan Architectural Utilities 1 Plumbing and Sanitary.md: source-george-salvan-architectural-utilities-1-plumbing-and-sanitary-eaf68e
+  005-Utilities/raw_markdown/George Salvan Architectural Utilities 2 Electrical and Mechanical Equipment.md: source-george-salvan-architectural-utilities-2-electrical-and-mechanical-equipment-0ff1a4
+  005-Utilities/raw_markdown/George Salvan Architectural Utilities Plumbing and Sanitary.md: source-george-salvan-architectural-utilities-plumbing-and-sanitary-419ce2
+  005-Utilities/raw_markdown/George-Salvan-Architectural-Utilities-2-Electrical-and-Mechanical-Equipment.md: source-george-salvan-architectural-utilities-2-electrical-and-mechanical-equipment-d87059
+  005-Utilities/raw_markdown/George-Salvan-Architectural-Utilities-3-Lighting-and-Acoustics.md: source-george-salvan-architectural-utilities-3-lighting-and-acoustics-6d72c0
+  005-Utilities/raw_markdown/Handouts for Electricity.md: handout-handouts-for-electricity-342fa4
+  005-Utilities/raw_markdown/Mechanical and Electrical Equipment for Buildings - W. Grondzik, et al., (Wiley, 2010) BBS.md: source-mechanical-and-electrical-equipment-for-buildings-w-grondzik-et-al-wiley-2010-bbs-fc01da
+  005-Utilities/raw_markdown/Mechanical and Electrical Systems 2.md: source-mechanical-and-electrical-systems-2-60e1ac
+  005-Utilities/raw_markdown/Mechanical and Electrical Systems.md: source-mechanical-and-electrical-systems-0ac2c9
+  005-Utilities/raw_markdown/National-Plumbing-Code-of-the-Philippines_annotated.md: source-national-plumbing-code-of-the-philippines-annotated-bbe39b
+  005-Utilities/raw_markdown/Phil Electrical Code.md: source-phil-electrical-code-89dd32
+  005-Utilities/raw_markdown/Philippine Regulations on Wastewater & Sanitation.md: source-philippine-regulations-on-wastewater-sanitation-53b921
+  005-Utilities/raw_markdown/Plumbing Estimate and Design by Max Fajardo.md: source-plumbing-estimate-and-design-by-max-fajardo-2dc6e3
+  005-Utilities/raw_markdown/Plumbing Lecture.md: handout-plumbing-lecture-553685
+  005-Utilities/raw_markdown/Plumbing Notes.md: source-plumbing-notes-b56ba5
+  005-Utilities/raw_markdown/Plumbing Reviewer.md: reviewer-plumbing-reviewer-d29136
+  005-Utilities/raw_markdown/Revised National Plumbing Code of the Philippines.md: source-revised-national-plumbing-code-of-the-philippines-d30abe
+  005-Utilities/raw_markdown/The Complete Guide to Plumbing 4th Ed (Black + Decker).md: source-the-complete-guide-to-plumbing-4th-ed-black-decker-6b14fb
+  005-Utilities/raw_markdown/plumbing.md: source-plumbing-fe25c1
+  006 -Structural/raw_markdown/Advances in civil, architectural, structural and constructional engineering.md: source-advances-in-civil-architectural-structural-and-constructional-engineering-3287e4
+  006 -Structural/raw_markdown/Applied Statics and Strength of Materials.md: source-applied-statics-and-strength-of-materials-797e2b
+  006 -Structural/raw_markdown/Applied Strength of Materials.md: source-applied-strength-of-materials-9eb68d
+  006 -Structural/raw_markdown/Basic Mechanics with Engineering Applications.md: source-basic-mechanics-with-engineering-applications-7868d2
+  006 -Structural/raw_markdown/Bedford - Engineering Mechanics - Statics - Solution Manual 5th Ed.md: source-bedford-engineering-mechanics-statics-solution-manual-5th-ed-af23f5
+  006 -Structural/raw_markdown/Detailing of Reinforcment in Concrete Structures.md: handout-detailing-of-reinforcment-in-concrete-structures-069e5c
+  006 -Structural/raw_markdown/Dynamics 12th Ed.md: source-dynamics-12th-ed-e0e4ef
+  006 -Structural/raw_markdown/Dynamics 13th Ed Solutions.md: source-dynamics-13th-ed-solutions-fe674d
+  006 -Structural/raw_markdown/Dynamics Study Pack by Hibbeler.md: source-dynamics-study-pack-by-hibbeler-03d789
+  006 -Structural/raw_markdown/Dynamics by Meriam Kraige 8th Ed.md: source-dynamics-by-meriam-kraige-8th-ed-295472
+  006 -Structural/raw_markdown/Engineering Mechanics Dynamics (14h Edition) by Hibbeler.md: source-engineering-mechanics-dynamics-14h-edition-by-hibbeler-bea6dd
+  006 -Structural/raw_markdown/Engineering Mechanics Dynamics Hibbeler 14th Edition Solutions.md: source-engineering-mechanics-dynamics-hibbeler-14th-edition-solutions-33b831
+  006 -Structural/raw_markdown/Engineering Mechanics Dynamics by Bedford Fowler.md: source-engineering-mechanics-dynamics-by-bedford-fowler-784f3b
+  006 -Structural/raw_markdown/Engineering Mechanics Dynamics by Meriam Kraige (7th Edition).md: source-engineering-mechanics-dynamics-by-meriam-kraige-7th-edition-3ec6fc
+  006 -Structural/raw_markdown/Engineering Mechanics Statics 14th Edition by Russell C. Hibbeler.md: source-engineering-mechanics-statics-14th-edition-by-russell-c-hibbeler-9cdb20
+  006 -Structural/raw_markdown/Engineering Mechanics Statics Bedford Fowler.md: source-engineering-mechanics-statics-bedford-fowler-127fef
+  006 -Structural/raw_markdown/Engineering Mechanics Statics and Dynamics by Ferdinand Singer Solutions.md: source-engineering-mechanics-statics-and-dynamics-by-ferdinand-singer-solutions-1836bd
+  006 -Structural/raw_markdown/Engineering Mechanics Statics by Riley Sturges.md: source-engineering-mechanics-statics-by-riley-sturges-84f40d
+  006 -Structural/raw_markdown/Engineering Mechanics by Ferdinand Singer Solutions.md: source-engineering-mechanics-by-ferdinand-singer-solutions-aa7e4d
+  006 -Structural/raw_markdown/Engineering Mechanics by Irving Shames.md: source-engineering-mechanics-by-irving-shames-bb0a6f
+  006 -Structural/raw_markdown/Engineering Mechanics-Khurmi.md: source-engineering-mechanics-khurmi-110198
+  006 -Structural/raw_markdown/Foundation Engineering Analysis and Design.md: source-foundation-engineering-analysis-and-design-e7235c
+  006 -Structural/raw_markdown/Fundamentals of Structural Engineering.md: source-fundamentals-of-structural-engineering-35a89e
+  006 -Structural/raw_markdown/Introduction to Statics and Dynamics - RuinaPratap.md: source-introduction-to-statics-and-dynamics-ruinapratap-dbc839
+  006 -Structural/raw_markdown/Introduction to Statics and Dynamics Problems.md: source-introduction-to-statics-and-dynamics-problems-8e85dc
+  006 -Structural/raw_markdown/Introduction to Statics and Dynamics by RuinaPratap.md: source-introduction-to-statics-and-dynamics-by-ruinapratap-b19dc0
+  006 -Structural/raw_markdown/Livesley R. K., Matrix Methods of Structural 1964.md: source-livesley-r-k-matrix-methods-of-structural-1964-eea99d
+  006 -Structural/raw_markdown/Matrix Analysis of Framed Structures.md: source-matrix-analysis-of-framed-structures-822fc7
+  006 -Structural/raw_markdown/Matrix Analysis of Structures - Kassimali.md: source-matrix-analysis-of-structures-kassimali-cfb8ed
+  006 -Structural/raw_markdown/McKenzie - Examples in Structural Analysis.md: source-mckenzie-examples-in-structural-analysis-7ba53b

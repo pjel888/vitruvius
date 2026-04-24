@@ -1,10 +1,11 @@
 ---
-id: source-phil-electrical-code
+id: source-phil-electrical-code-89dd32
 title: Chapter 1. General
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:16.229575+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Phil Electrical Code.md
+last_canonicalized_utc: 2026-04-23T19:47:54.119104+00:00
 ---
 
 # Chapter 1. General

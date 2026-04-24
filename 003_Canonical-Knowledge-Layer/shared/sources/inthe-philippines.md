@@ -1,10 +1,11 @@
 ---
-id: source-good-building-handbook-in-the-ph
+id: source-good-building-handbook-in-the-ph-1c6f66
 title: Inthe Philippines
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:59.673980+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Good Building Handbook in the PH.md
+last_canonicalized_utc: 2026-04-23T19:47:45.917881+00:00
 ---
 
 # Inthe Philippines

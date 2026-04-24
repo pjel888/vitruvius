@@ -1,14 +1,15 @@
 ---
-id: law-contractors-license-law
+id: law-contractors-license-law-f0e8d2
 title: Contractors' License Law
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:46.452808+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/RA-4566/RA_4566.md
+last_canonicalized_utc: '2026-04-23T21:37:50.532465+00:00'
 aliases:
-  - RA 4566
-  - Republic Act No. 4566
-  - Contractors' License Law
+- RA 4566
+- Republic Act No. 4566
+- Contractors' License Law
 ---
 
 # Contractors' License Law

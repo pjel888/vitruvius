@@ -1,10 +1,11 @@
 ---
-id: handout-building-construction-5-lecture
+id: handout-building-construction-5-lecture-603d1b
 title: ARCHITECTURAL FINISHING SYSTEMS
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:57.767968+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Construction 5 Lecture.md
+last_canonicalized_utc: 2026-04-23T19:47:41.985039+00:00
 ---
 
 # ARCHITECTURAL FINISHING SYSTEMS

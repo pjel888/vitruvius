@@ -83,10 +83,6 @@ export function ExploreView() {
       openInspector();
     }
 
-    if (!urlNode && selectedNodeId && pendingSelectedNodeId !== selectedNodeId) {
-      setSelectedNode(null);
-    }
-
     if (urlNode && pendingSelectedNodeId === urlNode) {
       setPendingSelectedNode(null);
     }

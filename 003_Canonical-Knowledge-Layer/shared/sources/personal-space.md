@@ -1,10 +1,11 @@
 ---
-id: source-privacy-and-territoriality
+id: source-privacy-and-territoriality-ea7c68
 title: PERSONAL SPACE
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:55.696872+00:00
+source_relative_markdown_path: 002-History/raw_markdown/Privacy and Territoriality.md
+last_canonicalized_utc: 2026-04-23T19:47:37.601750+00:00
 ---
 
 # PERSONAL SPACE

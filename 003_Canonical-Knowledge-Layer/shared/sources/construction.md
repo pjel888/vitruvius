@@ -1,10 +1,11 @@
 ---
-id: handout-building-construction-4-lecture
+id: handout-building-construction-4-lecture-a0209d
 title: CONSTRUCTION
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:57.693631+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Construction 4 Lecture.md
+last_canonicalized_utc: 2026-04-23T19:47:41.807126+00:00
 ---
 
 # CONSTRUCTION

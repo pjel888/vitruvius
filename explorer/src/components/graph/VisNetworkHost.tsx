@@ -1,6 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef, useEffect, useState } from 'react';
 import { useSceneStore } from '../../stores/useSceneStore';
 import type { GraphNode, GraphEdge } from '../../types';
+import { getDisplayLabel } from '../../utils/labels';
 
 // ---------------------------------------------------------------------------
 // Dynamic vis-network import — code-splits the ~900 KB library into its own
@@ -119,6 +120,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
   function buildVisNode(n: GraphNode) {
     const color = getNodeColor(colorSchemeRef.current, n.type);
+    const displayLabel = getDisplayLabel(n);
     const baseSize = n.radius ?? 8;
     let size = baseSize;
     if (sizeByRef.current === 'confidence' && n.confidence != null) {
@@ -128,7 +130,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     }
     return {
       id: n.id,
-      label: n.label,
+      label: displayLabel,
       color: {
         background: color,
         border: color,
@@ -136,7 +138,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       },
       size,
       group: n.type,
-      title: `<b>${n.label}</b><br/>${n.type}`,
+      title: `<b>${displayLabel}</b><br/>${n.type}<br/><span>${n.label}</span><br/><code>${n.id}</code>`,
     };
   }
 

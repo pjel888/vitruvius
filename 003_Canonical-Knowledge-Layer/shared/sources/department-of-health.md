@@ -1,14 +1,15 @@
 ---
-id: irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines
+id: irr-implementing-rules-and-regulations-of-chapter-iii-of-the-code-on-sanitation-of-the-philippines-14082c
 title: DEPARTMENT OF HEALTH
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:43.880984+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-856/DOH Food Establishments.md
+last_canonicalized_utc: '2026-04-23T21:37:45.331015+00:00'
 aliases:
-  - PD 856 IRR
-  - Food Establishments IRR
-  - Implementing Rules and Regulations of Chapter III of the Code on Sanitation of the Philippines
+- PD 856 IRR
+- Food Establishments IRR
+- Implementing Rules and Regulations of Chapter III of the Code on Sanitation of the Philippines
 ---
 
 # DEPARTMENT OF HEALTH

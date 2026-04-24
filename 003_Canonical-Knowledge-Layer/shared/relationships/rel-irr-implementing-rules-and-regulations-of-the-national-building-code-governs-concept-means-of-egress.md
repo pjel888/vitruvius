@@ -8,19 +8,22 @@ to_entity: concept-means-of-egress
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260414T234203Z_2b941c4d
-promotion_audit_log_ref: 006_System-Manifests/runs/latest_promotion_audit.log
-last_promoted_utc: 20260414T234203Z
+promotion_batch_id: 20260423T204624Z_faa62cfe
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260423T203224Z/promotion_audit.log
+last_promoted_utc: 20260423T204624Z
 evidence:
 - source_id: irr-implementing-rules-and-regulations-of-the-national-building-code
-  source_section_id: section-irr-general
-  evidence_snippet: '- a. Boiler Rooms  Except in Group A Occupancies, every boiler room and every room containing an incinerator or liquefied petroleum gas or liquid fuel-fired equipment shall be provided with at least two (2) means of egress, one of which may be a ladder. All interior openings shall be protected as provided for in the Code.'
+  source_section_id: section-1207
+  evidence_snippet: Except in Group A Occupancies, every boiler room and every room containing an incinerator or liquefied petroleum gas or liquid fuel-fired equipment shall be provided with at least two (2) means of egress, one of which may be a ladder.
   review_decision: keep
-  reviewer_model: gemma4:31b
+  reviewer_model: qwen2.5:3b
+  reviewer_provider: ollama
   reviewer_confidence: 0.95
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
-  extracted_at_utc: 20260414T234203Z
-  reviewed_at_utc: 20260414T234203Z
+  local_review_decision: keep
+  local_reviewer_confidence: 0.95
+  extracted_at_utc: 20260423T204624Z
+  reviewed_at_utc: 20260423T204624Z
 ---
 
 # irr-implementing-rules-and-regulations-of-the-national-building-code governs concept-means-of-egress
@@ -31,11 +34,10 @@ Promoted relationship of type `governs` from `irr-implementing-rules-and-regulat
 
 ## Evidence
 
-### Evidence 1 - `irr-implementing-rules-and-regulations-of-the-national-building-code` §section-irr-general
+### Evidence 1 - `irr-implementing-rules-and-regulations-of-the-national-building-code` §section-1207
 
-> - a. Boiler Rooms  Except in Group A Occupancies, every boiler room and every room containing an incinerator or liquefied petroleum gas or liquid fuel-fired equipment shall be provided with at least two (2) means of egress, one of which may be a ladder. All interior openings shall be protected as provided for in the Code.
+> Except in Group A Occupancies, every boiler room and every room containing an incinerator or liquefied petroleum gas or liquid fuel-fired equipment shall be provided with at least two (2) means of egress, one of which may be a ladder.
 
-- Reviewer: `gemma4:31b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260414T234203Z
-- Batch: `20260414T234203Z_2b941c4d`
-
+- Reviewer: `qwen2.5:3b` · Decision: `keep` · Confidence: `0.95`
+- Reviewed: 20260423T204624Z
+- Batch: `20260423T204624Z_faa62cfe`

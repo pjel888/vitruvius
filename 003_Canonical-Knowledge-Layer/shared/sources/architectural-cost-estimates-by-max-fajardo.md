@@ -1,12 +1,13 @@
 ---
-id: handout-architectural-cost-estimates-by-max-fajardo
+id: handout-architectural-cost-estimates-by-max-fajardo-6778ec
 title: Architectural Cost Estimates By Max Fajardo
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:57.033830+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Architectural Cost Estimates By Max Fajardo.md
+last_canonicalized_utc: '2026-04-23T21:38:07.847489+00:00'
 aliases:
-  - Architectural Cost Estimates By Max Fajardo
+- Architectural Cost Estimates By Max Fajardo
 ---
 
 # Architectural Cost Estimates By Max Fajardo

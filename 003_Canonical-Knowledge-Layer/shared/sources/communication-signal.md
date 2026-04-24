@@ -1,10 +1,11 @@
 ---
-id: handout-communication-and-signal-systems-lecture
+id: handout-communication-and-signal-systems-lecture-2126ef
 title: Communication & Signal
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:12.290145+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Communication and Signal Systems Lecture.md
+last_canonicalized_utc: 2026-04-23T19:47:48.401802+00:00
 ---
 
 # Communication & Signal

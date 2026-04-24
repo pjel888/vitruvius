@@ -1,10 +1,11 @@
 ---
-id: source-bldg-technology-sample-exam
+id: source-bldg-technology-sample-exam-03c690
 title: Bldg Technology Sample Exam
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:57.120626+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Bldg Technology Sample Exam.md
+last_canonicalized_utc: 2026-04-23T19:47:40.683915+00:00
 ---
 
 # Bldg Technology Sample Exam

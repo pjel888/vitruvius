@@ -1,5 +1,6 @@
 import { Loader2, Search, X } from 'lucide-react';
 import type { SearchResult } from '../../types';
+import { getDisplayLabel } from '../../utils/labels';
 
 interface SearchComboboxProps {
   query: string;
@@ -69,7 +70,7 @@ export default function SearchCombobox({
                 onClick={() => onSelect(result)}
               >
                 <span className={`w-2 h-2 rounded-full shrink-0 ${getResultDotClass(result)}`} />
-                <span className="truncate">{result.label}</span>
+                <span className="truncate" title={result.label}>{getDisplayLabel(result)}</span>
                 <span className="text-[10px] uppercase tracking-wider text-text-dim shrink-0">{result.matchedField}</span>
                 <span className="text-xs text-text-dim ml-auto shrink-0">{result.type}</span>
               </button>

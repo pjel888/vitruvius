@@ -1,10 +1,11 @@
 ---
-id: source-hlurb-supplemental-guidelines-slm
+id: source-hlurb-supplemental-guidelines-slm-3b18f5
 title: Supplemental Guidelines
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:34.316151+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/HLURB_Supplemental_Guidelines_SLM.md
+last_canonicalized_utc: 2026-04-23T19:47:06.423863+00:00
 ---
 
 # Supplemental Guidelines

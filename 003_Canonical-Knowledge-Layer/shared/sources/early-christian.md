@@ -1,10 +1,11 @@
 ---
-id: source-hoa-module-2-p2
+id: source-hoa-module-2-p2-f0d7e4
 title: Early Christian
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:54.653698+00:00
+source_relative_markdown_path: 002-History/raw_markdown/HOA MODULE 2 P2.md
+last_canonicalized_utc: 2026-04-23T19:47:35.469801+00:00
 ---
 
 # Early Christian

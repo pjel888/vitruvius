@@ -1,12 +1,13 @@
 ---
-id: handout-arc-building-utilities-terms
+id: handout-arc-building-utilities-terms-980aa1
 title: ELECTRICAL TERMS
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:12.064341+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/ARC Building Utilities Terms.md
+last_canonicalized_utc: '2026-04-23T21:38:16.321767+00:00'
 aliases:
-  - ARC Building Utilities Terms
+- ARC Building Utilities Terms
 ---
 
 # ELECTRICAL TERMS

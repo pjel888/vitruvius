@@ -1,10 +1,11 @@
 ---
-id: source-utilities-building-technology-sample-exam
+id: source-utilities-building-technology-sample-exam-d74884
 title: Utilities   Building Technology Sample Exam
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:43:00.385484+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Utilities _ Building Technology Sample Exam.md
+last_canonicalized_utc: 2026-04-23T19:47:47.450237+00:00
 ---
 
 # Utilities   Building Technology Sample Exam

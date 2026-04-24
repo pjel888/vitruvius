@@ -1,10 +1,11 @@
 ---
-id: source-volume-4-planning-strategically
+id: source-volume-4-planning-strategically-215179
 title: Volume 4   Planning Strategically
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:35.351485+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/Volume 4 - Planning Strategically.md
+last_canonicalized_utc: 2026-04-23T19:47:08.022029+00:00
 ---
 
 # Volume 4   Planning Strategically

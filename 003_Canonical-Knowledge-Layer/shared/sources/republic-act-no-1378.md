@@ -1,14 +1,15 @@
 ---
-id: law-plumbing-law
+id: law-plumbing-law-26d8a4
 title: Republic Act No. 1378
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:46.073042+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/RA-1378/MASTER PLUMBING LAW.md
+last_canonicalized_utc: '2026-04-23T21:37:49.746126+00:00'
 aliases:
-  - RA 1378
-  - Republic Act No. 1378
-  - Plumbing Law
+- RA 1378
+- Republic Act No. 1378
+- Plumbing Law
 ---
 
 # Republic Act No. 1378

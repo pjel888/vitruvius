@@ -1,10 +1,11 @@
 ---
-id: source-the-value-of-an-architect
+id: source-the-value-of-an-architect-275a78
 title: THE VALUE OF AN ARCHITECT
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:55.770844+00:00
+source_relative_markdown_path: 002-History/raw_markdown/The Value of an Architect.md
+last_canonicalized_utc: 2026-04-23T19:47:37.781664+00:00
 ---
 
 # THE VALUE OF AN ARCHITECT

@@ -1,0 +1,225 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "openai/gpt-5.5",
+  "small_model": "openai/gpt-5.4-mini",
+  "default_agent": "yolo",
+  "disabled_providers": [
+    "anthropic"
+  ],
+  "provider": {
+    "openai": {
+      "options": {
+        "timeout": false,
+        "chunkTimeout": 120000
+      },
+      "models": {
+        "gpt-5.5": {
+          "name": "GPT-5.5",
+          "options": {
+            "reasoningEffort": "high",
+            "textVerbosity": "low",
+            "reasoningSummary": "auto",
+            "include": [
+              "reasoning.encrypted_content"
+            ]
+          }
+        },
+        "gpt-5.4-mini": {
+          "name": "GPT-5.4 Mini"
+        }
+      }
+    },
+    "google": {
+      "npm": "@ai-sdk/google",
+      "name": "Google Gemini",
+      "options": {
+        "apiKey": "{env:GOOGLE_GENERATIVE_AI_API_KEY}",
+        "timeout": false,
+        "chunkTimeout": 120000
+      },
+      "models": {
+        "gemini-3.1-pro-preview": {
+          "name": "Gemini 3.1 Pro Preview",
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
+        }
+      }
+    },
+    "moonshot": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Moonshot AI / Kimi",
+      "options": {
+        "baseURL": "https://api.moonshot.ai/v1",
+        "apiKey": "{env:MOONSHOT_API_KEY}",
+        "timeout": false,
+        "chunkTimeout": 120000
+      },
+      "models": {
+        "kimi-k2.6": {
+          "name": "Kimi K2.6",
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          }
+        }
+      }
+    }
+  },
+  "permission": {
+    "*": "allow",
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "edit": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "bash": {
+      "*": "allow",
+      "sudo *": "deny",
+      "su *": "deny",
+      "chmod -R 777 *": "deny",
+      "chown -R *": "deny",
+      "rm -rf /": "deny",
+      "rm -rf /*": "deny",
+      "rm -rf ~/*": "deny",
+      "git push *": "deny",
+      "git commit *": "deny"
+    },
+    "external_directory": "deny",
+    "doom_loop": "deny",
+    "question": "deny"
+  },
+  "agent": {
+    "yolo": {
+      "description": "Autonomous codebase implementation agent. Plans, edits, tests, reviews blast radius, fixes failures, and continues until the task is complete or genuinely blocked.",
+      "mode": "primary",
+      "model": "openai/gpt-5.5",
+      "reasoningEffort": "high",
+      "textVerbosity": "low",
+      "prompt": "You are the autonomous implementation agent for this repository. Do not ask the user questions. Make reasonable assumptions, state them briefly, and continue. Your job is to complete the current task and its blast radius: inspect the codebase, understand dependencies, implement the change, update affected tests/docs/types/config, run the relevant validation commands, fix failures, and repeat until the task is complete. Use the planner for decomposition, scout for broad codebase/context discovery, and reviewer before finalizing. Do not stop after the first patch. Do not push, commit, deploy, edit secrets, or modify real credentials. Stay inside the current repository. If blocked by missing external credentials, inaccessible services, or ambiguous product decisions, implement everything up to that boundary and leave a precise final summary.",
+      "permission": {
+        "task": {
+          "*": "deny",
+          "planner": "allow",
+          "scout": "allow",
+          "reviewer": "allow"
+        }
+      }
+    },
+    "planner": {
+      "description": "Deep planning and decomposition agent for architecture, sequencing, and validation strategy.",
+      "mode": "subagent",
+      "model": "google/gemini-3.1-pro-preview",
+      "temperature": 0.1,
+      "prompt": "Create a precise implementation plan. Identify affected files, dependencies, tests, risks, and validation commands. Do not edit files.",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "allow",
+          "sudo *": "deny",
+          "rm -rf *": "deny",
+          "git push *": "deny",
+          "git commit *": "deny"
+        },
+        "question": "deny"
+      }
+    },
+    "scout": {
+      "description": "Long-context repository research agent for codebase discovery, documentation lookup, and blast-radius scanning.",
+      "mode": "subagent",
+      "model": "moonshot/kimi-k2.6",
+      "prompt": "Explore the repository and summarize the relevant code paths, conventions, dependencies, and likely blast radius. Do not edit files.",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "allow",
+          "sudo *": "deny",
+          "rm -rf *": "deny",
+          "git push *": "deny",
+          "git commit *": "deny"
+        },
+        "webfetch": "allow",
+        "websearch": "allow",
+        "question": "deny"
+      }
+    },
+    "reviewer": {
+      "description": "Read-only final reviewer for correctness, regressions, security, and incomplete blast-radius coverage.",
+      "mode": "subagent",
+      "model": "google/gemini-3.1-pro-preview",
+      "temperature": 0.1,
+      "prompt": "Review the current changes for bugs, missed blast radius, broken tests, security issues, bad abstractions, and incomplete implementation. Do not edit files. Return concrete fixes.",
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "allow",
+          "sudo *": "deny",
+          "rm -rf *": "deny",
+          "git push *": "deny",
+          "git commit *": "deny"
+        },
+        "question": "deny"
+      }
+    }
+  },
+  "command": {
+    "yolo": {
+      "description": "Autonomously complete a task end-to-end with planning, implementation, validation, and blast-radius review.",
+      "agent": "yolo",
+      "template": "Complete this task end-to-end: $ARGUMENTS\n\nRules:\n1. Do not ask me questions.\n2. Make reasonable assumptions and continue.\n3. Inspect the codebase before editing.\n4. Use planner, scout, and reviewer subagents when useful.\n5. Implement the change and its blast radius.\n6. Run relevant tests, typechecks, lint, builds, or local validation.\n7. Fix failures and repeat until green or genuinely blocked.\n8. Do not commit, push, deploy, edit secrets, or leave the repo.\n9. Final response must include changed files, validations run, pass/fail status, and remaining risks."
+    },
+    "ship": {
+      "description": "Same as yolo, optimized for feature completion.",
+      "agent": "yolo",
+      "template": "Ship this feature completely: $ARGUMENTS\n\nWork until implementation, blast radius, tests, and docs are handled. Do not ask questions. Do not stop early."
+    },
+    "fix": {
+      "description": "Autonomously fix failures and rerun validation.",
+      "agent": "yolo",
+      "template": "Fix this problem completely: $ARGUMENTS\n\nFind the root cause, patch it, run validation, fix regressions, and repeat until done."
+    },
+    "review-blast-radius": {
+      "description": "Run a read-only blast-radius review.",
+      "agent": "reviewer",
+      "subtask": true,
+      "template": "Review the current changes and repository impact. Identify missed files, missing tests, broken assumptions, security risks, and validation gaps."
+    }
+  },
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 10000
+  },
+  "watcher": {
+    "ignore": [
+      ".git/**",
+      "node_modules/**",
+      "dist/**",
+      "build/**",
+      ".next/**",
+      ".turbo/**",
+      "coverage/**",
+      ".venv/**",
+      "__pycache__/**"
+    ]
+  },
+  "mcp": {
+    "code-review-graph": {
+      "type": "local",
+      "command": [
+        "code-review-graph",
+        "serve"
+      ],
+      "enabled": true,
+      "timeout": 30000
+    }
+  }
+}

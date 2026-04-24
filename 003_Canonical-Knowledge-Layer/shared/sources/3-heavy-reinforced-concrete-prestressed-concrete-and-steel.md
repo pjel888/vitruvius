@@ -1,10 +1,11 @@
 ---
-id: handout-building-construction-3-lecture
+id: handout-building-construction-3-lecture-fc4c36
 title: 3. HEAVY REINFORCED CONCRETE, PRESTRESSED CONCRETE AND STEEL
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:57.614227+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Construction 3 Lecture.md
+last_canonicalized_utc: 2026-04-23T19:47:41.622284+00:00
 ---
 
 # 3. HEAVY REINFORCED CONCRETE, PRESTRESSED CONCRETE AND STEEL

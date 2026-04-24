@@ -1,10 +1,11 @@
 ---
-id: source-second-new-york-the-50-key-visions-events-and-architects-that-shaped-the-city-each-explained-in-half-a-minute-sarah-fenton
+id: source-second-new-york-the-50-key-visions-events-and-architects-that-shaped-the-city-each-explained-in-half-a-minute-sarah-fenton-bbef6b
 title: 30-SECOND NEW YORK
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:53.343852+00:00
+source_relative_markdown_path: 002-History/raw_markdown/30-Second New York (The 50 Key Visions, Events and Architects that Shaped the City, Each Explained in Half A Minute) - Sarah Fenton.md
+last_canonicalized_utc: 2026-04-23T19:47:33.177161+00:00
 ---
 
 # 30-SECOND NEW YORK

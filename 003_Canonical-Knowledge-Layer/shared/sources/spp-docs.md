@@ -1,10 +1,11 @@
 ---
-id: source-spp-201
+id: source-spp-201-0dda60
 title: SPP DOCS
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:49.432966+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/UAP/SPP 201.md
+last_canonicalized_utc: 2026-04-23T19:47:30.154939+00:00
 ---
 
 # SPP DOCS
@@ -38,7 +39,7 @@ This work is the property ofArch. Pedro Santos Jr.
 
 ## Key Points
 
-- Standards of Professional Practice - A required document under SECTION 41 of RA 9266 - “Architect” - A Registered and Licensed Architect (RLA) - A natural person under Philippine law with a valid certificate of registration and a valid professional identification card for the lawful practice of arch.
+-  Standards of Professional Practice -  A required document under Sec.
 
 ## Referenced Concepts
 

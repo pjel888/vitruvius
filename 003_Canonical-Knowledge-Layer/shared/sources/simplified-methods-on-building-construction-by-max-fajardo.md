@@ -1,10 +1,11 @@
 ---
-id: source-simplified-methods-on-building-construction-by-max-fajardo
+id: source-simplified-methods-on-building-construction-by-max-fajardo-ac639b
 title: Simplified Methods On Building Construction By Max Fajardo
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:43:00.154860+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Simplified Methods on Building Construction by Max Fajardo.md
+last_canonicalized_utc: 2026-04-23T19:47:46.875080+00:00
 ---
 
 # Simplified Methods On Building Construction By Max Fajardo

@@ -37,6 +37,13 @@ def append_audit_entry(log_path: Path, entry: AuditEntry) -> None:
         f.write(line)
 
 
+def _audit_log_ref_for_record(audit_log: Path, repo_root: Path) -> str:
+    try:
+        return str(audit_log.relative_to(repo_root))
+    except ValueError:
+        return str(audit_log)
+
+
 from ..utils import slugify
 
 
@@ -278,7 +285,7 @@ def run_promote_inner(
             envelope,
             canonical_index=canonical_index,
             batch_id=batch_id,
-            audit_log_ref=str(audit_log.relative_to(repo_root)),
+            audit_log_ref=_audit_log_ref_for_record(audit_log, repo_root),
         )
         if record is None:
             result["rejected"] += 1
@@ -301,7 +308,7 @@ def run_promote_inner(
                 existing["confidence_score"] = min_confidence(merged)
                 existing["promotion_batch_id"] = batch_id
                 existing["last_promoted_utc"] = utc_now_stamp()
-                existing["promotion_audit_log_ref"] = str(audit_log.relative_to(repo_root))
+                existing["promotion_audit_log_ref"] = _audit_log_ref_for_record(audit_log, repo_root)
                 record = existing
 
         if is_noop:

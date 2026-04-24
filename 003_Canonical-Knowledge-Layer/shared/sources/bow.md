@@ -1,10 +1,11 @@
 ---
-id: source-common-lumber-defects
+id: source-common-lumber-defects-b9eabf
 title: BOW
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:58.557466+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Common Lumber Defects.md
+last_canonicalized_utc: 2026-04-23T19:47:43.879005+00:00
 ---
 
 # BOW

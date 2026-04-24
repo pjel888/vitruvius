@@ -1,10 +1,11 @@
 ---
-id: source-george-salvan-architectural-utilities-2-electrical-and-mechanical-equipment
+id: source-george-salvan-architectural-utilities-2-electrical-and-mechanical-equipment-0ff1a4
 title: George Salvan Architectural Utilities 2 Electrical And Mechanical Equipment
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:13.480769+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/George Salvan Architectural Utilities 2 Electrical and Mechanical Equipment.md
+last_canonicalized_utc: 2026-04-23T19:47:49.659323+00:00
 ---
 
 # George Salvan Architectural Utilities 2 Electrical And Mechanical Equipment
@@ -22,7 +23,6 @@ Automated summary withheld for George Salvan Architectural Utilities 2 Electrica
 - 4. UNIT OF ELECTRIC RESISTANCE:THE OHM
 - 5. OHM'S LAW
 - 6. CIRCUIT ARRANGEMENT Sa) Series Circuits
-- 11. j = roamp
 - 7. DIRECT CURRENT AND ALTERNATING CURRENT
 - 8. ELECTRIC POWER GENERATION
 - 9. POWER AND ENERGY
@@ -33,6 +33,7 @@ Automated summary withheld for George Salvan Architectural Utilities 2 Electrica
 - 1. SYSTEM COMPONENTS
 - 2. NATIONAL ELECTRIC CODE-
 - RULE IX-ELECTRICAL REGULATIONS
+- 4. Open Supply Conductors Attached to Building
 - 5. Conductors Passing By or Over Buildings
 - 6. Clearance of Service Drops
 - 13. EffECTIVELY
@@ -66,6 +67,7 @@ Automated summary withheld for George Salvan Architectural Utilities 2 Electrica
 - 7. SERVICE EQUIPMENT ARRANGEMENTS AND METERING
 - 8. SERVICE SWITCH
 - 9. SWITCHES
+- 2. .and 4 AIZE
 - 10. CONTACTORS
 - 11. SPECIAL SWITCHES
 - 12. CIRCUIT-PROTECTIVE DEVICES
@@ -111,6 +113,8 @@ Automated summary withheld for George Salvan Architectural Utilities 2 Electrica
 - 16. NON-RESIDENTIAL HEAT GAIN CALCULATIONS
 - 17. REFLECTIVE INSULATING GLASS
 - SECTION THROU6H TYPICAL PANEL
+- 2. ENERGY REQUIREMENT Sfor Heating Commercialand lnstitutionat buildings
+- 3. COMBUSTION, CHIMNEYSAND FUEL STORAGE
 - 4. WARM AIR HEATING
 - 1. •• _, ••
 - 5. RESOURCEFULNESS IN THE DESIGN OF WARM AIR SYSTEMS
@@ -189,6 +193,5 @@ Automated summary withheld for George Salvan Architectural Utilities 2 Electrica
 - concept-stairs
 - concept-floor-area
 - concept-bids-and-awards-committee
-- concept-minimum-energy-performance
 - concept-building-height
 - concept-yards

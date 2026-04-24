@@ -1,10 +1,11 @@
 ---
-id: source-hoa-module-4-p1
+id: source-hoa-module-4-p1-e79b00
 title: MODULE 4.1
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:54.884204+00:00
+source_relative_markdown_path: 002-History/raw_markdown/HOA MODULE 4 P1.md
+last_canonicalized_utc: 2026-04-23T19:47:36.001378+00:00
 ---
 
 # MODULE 4.1

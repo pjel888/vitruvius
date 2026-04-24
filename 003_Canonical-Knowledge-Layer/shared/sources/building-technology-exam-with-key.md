@@ -1,10 +1,11 @@
 ---
-id: source-building-technology-exam-with-key
+id: source-building-technology-exam-with-key-151c51
 title: Building Technology Exam With Key
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:58.012024+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Technology Exam with Key.md
+last_canonicalized_utc: 2026-04-23T19:47:42.568116+00:00
 ---
 
 # Building Technology Exam With Key

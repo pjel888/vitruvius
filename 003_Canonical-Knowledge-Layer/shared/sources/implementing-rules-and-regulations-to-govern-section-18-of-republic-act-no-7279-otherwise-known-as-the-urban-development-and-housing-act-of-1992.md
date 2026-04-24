@@ -1,13 +1,14 @@
 ---
-id: handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279
+id: handout-implementing-rules-and-regulations-to-govern-section-18-of-republic-act-no-7279-82da88
 title: IMPLEMENTING RULES AND REGULATIONS TO GOVERN SECTION 18 OF REPUBLIC ACT NO. 7279 OTHERWISE KNOWN AS THE URBAN DEVELOPMENT AND HOUSING ACT OF 1992
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:48.079883+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/RA-9279/IRR RA 7279 Sec 18.md
+last_canonicalized_utc: '2026-04-23T21:37:53.975595+00:00'
 aliases:
-  - RA 7279 Section 18 IRR
-  - Balanced Housing Development IRR
+- RA 7279 Section 18 IRR
+- Balanced Housing Development IRR
 ---
 
 # IMPLEMENTING RULES AND REGULATIONS TO GOVERN SECTION 18 OF REPUBLIC ACT NO. 7279 OTHERWISE KNOWN AS THE URBAN DEVELOPMENT AND HOUSING ACT OF 1992

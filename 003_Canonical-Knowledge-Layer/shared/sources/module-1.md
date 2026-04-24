@@ -1,10 +1,11 @@
 ---
-id: source-hoa-module-1
+id: source-hoa-module-1-e3f2cf
 title: MODULE 1
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:54.494890+00:00
+source_relative_markdown_path: 002-History/raw_markdown/HOA MODULE 1.md
+last_canonicalized_utc: 2026-04-23T19:47:35.104899+00:00
 ---
 
 # MODULE 1

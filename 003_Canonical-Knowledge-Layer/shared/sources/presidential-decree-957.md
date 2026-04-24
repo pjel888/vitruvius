@@ -1,10 +1,11 @@
 ---
-id: source-pd-957-subdivision-law-illustrated-slides-pedro-santos-jr
+id: source-pd-957-subdivision-law-illustrated-slides-pedro-santos-jr-227770
 title: PRESIDENTIAL DECREE 957
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:44.587196+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-957/PD 957 - Subdivision Law Illustrated Slides (Pedro Santos Jr).md
+last_canonicalized_utc: 2026-04-23T19:47:22.399469+00:00
 ---
 
 # PRESIDENTIAL DECREE 957

@@ -1,14 +1,15 @@
 ---
-id: law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission
+id: law-executive-order-no-648-reorganizing-the-human-settlements-regulatory-commission-d09898
 title: ART. I. TITLE
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:32.669874+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/EO/EO 648 Chapter of the Human Settlements Regulatory Commissio.md
+last_canonicalized_utc: '2026-04-23T21:37:22.395108+00:00'
 aliases:
-  - EO 648
-  - Executive Order No. 648
-  - Human Settlements Regulatory Commission EO
+- EO 648
+- Executive Order No. 648
+- Human Settlements Regulatory Commission EO
 ---
 
 # ART. I. TITLE

@@ -1,10 +1,11 @@
 ---
-id: source-electrical-layout-and-estimate-2nd-edition-by-max-b-fajardo-jr-and-leo-r-fajardo
+id: source-electrical-layout-and-estimate-2nd-edition-by-max-b-fajardo-jr-and-leo-r-fajardo-0caff3
 title: Electrical Layout And Estimate (2Nd Edition) By Max B. Fajardo, Jr. And Leo R. Fajardo
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:12.495409+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Electrical Layout and Estimate (2nd Edition) by Max B. Fajardo, Jr. and Leo R. Fajardo.md
+last_canonicalized_utc: 2026-04-23T19:47:48.729790+00:00
 ---
 
 # Electrical Layout And Estimate (2Nd Edition) By Max B. Fajardo, Jr. And Leo R. Fajardo

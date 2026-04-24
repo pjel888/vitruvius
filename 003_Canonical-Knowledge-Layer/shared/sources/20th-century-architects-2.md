@@ -1,12 +1,13 @@
 ---
-id: handout-20th-century-architects-2
+id: handout-20th-century-architects-2-225d20
 title: 20Th Century Architects 2
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:53.026242+00:00
+source_relative_markdown_path: 002-History/raw_markdown/20th Century Architects 3.md
+last_canonicalized_utc: '2026-04-23T21:37:58.529892+00:00'
 aliases:
-  - 20th Century Architects 2
+- 20th Century Architects 2
 ---
 
 # 20Th Century Architects 2

@@ -1,32 +1,32 @@
 ---
-id: source-plumbing
+id: source-the-complete-guide-to-plumbing-4th-ed-black-decker-6b14fb
 title: PLUMBING
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:17.427892+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/The Complete Guide to Plumbing 4th Ed (Black + Decker).md
+last_canonicalized_utc: 2026-04-23T20:00:29.576926+00:00
 ---
 
 # PLUMBING
 
 ## Overview
 
-art and technique of installing pipes, fixtures, and other apparatuses
+Automated summary withheld for PLUMBING because the refined source includes image-heavy extraction, table-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
 
 ## Coverage
 
-- 1. Upright 2. Pendent
-- 1. Tree 2. Loop 3. Grid
-- 1. Water Closets
+- APPENDIX: Planning Your Project
+- Appendix: Planning Your Project
 
 ## Key Points
 
-- distance between the mouth of the faucet and the rim of the sink or lavatory - - air gap for lavatory: 25mm.
-- 1.
-- controls water system by isolating a certain section of the distribution network TYPES OF VALVES Gate Valve (full-way valve): completely closes or opens a line, best suited for main supply and pump lines - - Wedge Shaped / Tapered Disc - - Double Disk Valve Globe Valve: controls flow of water via mo.
-- Receptacles to provide, receive, and discharge water, liquid, and water carried wastes SOIL FIXTURES.
-- a.
+- (automated key points withheld because source-summary trust is low; review operative sections directly)
 
 ## Referenced Concepts
 
-- concept-waste-disposal
+- concept-building-permit
+- concept-floor-area-ratio
+- concept-stairs
+- concept-light-and-ventilation
+- concept-yards

@@ -1,10 +1,11 @@
 ---
-id: source-mechanical-and-electrical-equipment-for-buildings-w-grondzik-et-al-wiley-2010-bbs
+id: source-mechanical-and-electrical-equipment-for-buildings-w-grondzik-et-al-wiley-2010-bbs-fc01da
 title: Mechanical And Electrical Equipment For Buildings   W. Grondzik, Et Al., (Wiley, 2010) Bbs
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:15.330759+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Mechanical and Electrical Equipment for Buildings - W. Grondzik, et al., (Wiley, 2010) BBS.md
+last_canonicalized_utc: 2026-04-23T19:47:52.716490+00:00
 ---
 
 # Mechanical And Electrical Equipment For Buildings   W. Grondzik, Et Al., (Wiley, 2010) Bbs

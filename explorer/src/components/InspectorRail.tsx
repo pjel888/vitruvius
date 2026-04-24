@@ -5,11 +5,11 @@ import { getEdgeDetail, getNode, tracePath } from '../api/graphApi';
 import type { EdgeDetail, NodeDetail } from '../types';
 import NodeInspector from './inspector/NodeInspector';
 import EdgeInspector from './inspector/EdgeInspector';
+import { getDisplayLabel } from '../utils/labels';
 
 export default function InspectorRail() {
   const selectedNodeId = useSceneStore((s) => s.selectedNodeId);
   const selectedEdgeId = useSceneStore((s) => s.selectedEdgeId);
-  const nodes = useSceneStore((s) => s.nodes);
   const edges = useSceneStore((s) => s.edges);
   const inspectorOpen = useSceneStore((s) => s.inspectorOpen);
   const openInspector = useSceneStore((s) => s.openInspector);
@@ -37,15 +37,6 @@ export default function InspectorRail() {
     let cancelled = false;
 
     if (selectedNodeId) {
-      if (!nodes.some((node) => node.id === selectedNodeId)) {
-        setNodeLoading(false);
-        setNodeDetail(null);
-        setNodeError('Node is not present in the current graph view.');
-        return () => {
-          cancelled = true;
-        };
-      }
-
       setNodeLoading(true);
       setNodeError(null);
       setNodeDetail(null);
@@ -68,7 +59,7 @@ export default function InspectorRail() {
     return () => {
       cancelled = true;
     };
-  }, [selectedNodeId, nodes]);
+  }, [selectedNodeId]);
 
   useEffect(() => {
     let cancelled = false;
@@ -150,7 +141,7 @@ export default function InspectorRail() {
       <div className="px-3 py-2 border-b border-border flex items-center justify-between shrink-0">
         <span className="text-xs font-semibold uppercase tracking-wider text-text-dim">
           {selectedNodeId && nodeDetail
-            ? nodeDetail.node.label
+            ? getDisplayLabel(nodeDetail.node)
             : selectedEdgeId && edgeDetail
               ? edgeDetail.edge.type
               : 'Inspector'}

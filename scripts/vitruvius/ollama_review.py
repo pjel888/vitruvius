@@ -813,6 +813,7 @@ def save_progress_report(
 
     write_json(json_path, report)
     write_text(txt_path, build_text_report(report))
+    return report
 
 
 def warmup_model(*, model: str, timeout_seconds: int) -> bool:
@@ -950,7 +951,7 @@ def run_review_relationships_ollama(
     if not raw_candidates:
         print("review-relationships-ollama complete.")
         print("No candidate relationships found to review.")
-        save_progress_report(
+        empty_report = save_progress_report(
             runs_dir=runs_dir,
             model=model,
             source=source,
@@ -959,6 +960,11 @@ def run_review_relationships_ollama(
             status="completed",
             json_output_path=review_json_path,
             txt_output_path=review_txt_path,
+        )
+        write_high_confidence_review(
+            empty_report,
+            runs_dir,
+            output_path=high_confidence_output_path,
         )
         return 0
 

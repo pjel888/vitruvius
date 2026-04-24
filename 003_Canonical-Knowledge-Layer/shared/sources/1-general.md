@@ -1,10 +1,11 @@
 ---
-id: source-mechanical-and-electrical-systems
+id: source-mechanical-and-electrical-systems-0ac2c9
 title: 1. GENERAL
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:15.486644+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Mechanical and Electrical Systems.md
+last_canonicalized_utc: 2026-04-23T19:47:53.097029+00:00
 ---
 
 # 1. GENERAL

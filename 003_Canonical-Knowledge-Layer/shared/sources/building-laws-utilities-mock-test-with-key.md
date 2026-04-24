@@ -1,10 +1,11 @@
 ---
-id: source-building-laws-utilities-mock-test-with-key
+id: source-building-laws-utilities-mock-test-with-key-c8e57e
 title: Building Laws   Utilities Mock Test With Key
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:12.137163+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Building Laws _ Utilities Mock Test with Key.md
+last_canonicalized_utc: 2026-04-23T19:47:48.031655+00:00
 ---
 
 # Building Laws   Utilities Mock Test With Key

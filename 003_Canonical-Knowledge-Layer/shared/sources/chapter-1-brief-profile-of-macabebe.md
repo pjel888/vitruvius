@@ -1,10 +1,11 @@
 ---
-id: source-vol-1-lan-use-plan
+id: source-vol-1-lan-use-plan-818101
 title: CHAPTER 1. BRIEF PROFILE OF MACABEBE
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:39.152960+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/736227374-Vol-1-Lan-Use-Plan.md
+last_canonicalized_utc: 2026-04-23T19:47:13.886398+00:00
 ---
 
 # CHAPTER 1. BRIEF PROFILE OF MACABEBE

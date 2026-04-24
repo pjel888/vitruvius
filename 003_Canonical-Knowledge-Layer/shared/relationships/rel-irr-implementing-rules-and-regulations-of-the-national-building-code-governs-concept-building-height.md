@@ -7,20 +7,23 @@ from_entity: irr-implementing-rules-and-regulations-of-the-national-building-cod
 to_entity: concept-building-height
 trust_level: primary
 canonical_status: promoted
-confidence_score: 0.95
-promotion_batch_id: 20260414T234203Z_2b941c4d
-promotion_audit_log_ref: 006_System-Manifests/runs/latest_promotion_audit.log
-last_promoted_utc: 20260414T234203Z
+confidence_score: 1.0
+promotion_batch_id: 20260423T204624Z_faa62cfe
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260423T203224Z/promotion_audit.log
+last_promoted_utc: 20260423T204624Z
 evidence:
 - source_id: irr-implementing-rules-and-regulations-of-the-national-building-code
-  source_section_id: section-irr-general
-  evidence_snippet: '- 2. Determination of Building Height:  - a. BUILDING HEIGHT LIMIT (BHL) - the maximum height to be allowed for buildings/structures based on their proposed use or occupancy; the BHL is generally determined after the application of other development controls (DC) and certain other parameters, i.e., considerations of site conditions, view, etc. (Table VII.2. of this Rule). The BHL shall be generally measured from the established grade line to the topmost portion of the proposed building/structure. If applicable, the BHL may be subject to clearance requirements of the Air Transportation Office (ATO) or of the concerned military/security authorities. (Refer to Guidelines on Development Controls at the end this Rule)'
+  source_section_id: section-707
+  evidence_snippet: '- a. BUILDING HEIGHT LIMIT (BHL) - the maximum height to be allowed for buildings/structures based on their proposed use or occupancy; the BHL is generally determined after the application of other development controls (DC) and certain other parameters, i.e., considerations of site conditions, view,'
   review_decision: keep
-  reviewer_model: gemma4:31b
-  reviewer_confidence: 0.95
-  reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
-  extracted_at_utc: 20260414T234203Z
-  reviewed_at_utc: 20260414T234203Z
+  reviewer_model: qwen2.5:3b
+  reviewer_provider: ollama
+  reviewer_confidence: 1.0
+  reviewer_reason: The examples provided clearly support the relationship that 'BUILDING HEIGHT LIMIT (BHL)' is governed by 'irr-implementing-rules-and-regulations-of-the-national-building-code'. The examples describe how BHLs are determined based on national building code rules and other parameters.
+  local_review_decision: keep
+  local_reviewer_confidence: 1.0
+  extracted_at_utc: 20260423T204624Z
+  reviewed_at_utc: 20260423T204624Z
 ---
 
 # irr-implementing-rules-and-regulations-of-the-national-building-code governs concept-building-height
@@ -31,11 +34,10 @@ Promoted relationship of type `governs` from `irr-implementing-rules-and-regulat
 
 ## Evidence
 
-### Evidence 1 - `irr-implementing-rules-and-regulations-of-the-national-building-code` §section-irr-general
+### Evidence 1 - `irr-implementing-rules-and-regulations-of-the-national-building-code` §section-707
 
-> - 2. Determination of Building Height:  - a. BUILDING HEIGHT LIMIT (BHL) - the maximum height to be allowed for buildings/structures based on their proposed use or occupancy; the BHL is generally determined after the application of other development controls (DC) and certain other parameters, i.e., considerations of site conditions, view, etc. (Table VII.2. of this Rule). The BHL shall be generally measured from the established grade line to the topmost portion of the proposed building/structure. If applicable, the BHL may be subject to clearance requirements of the Air Transportation Office (ATO) or of the concerned military/security authorities. (Refer to Guidelines on Development Controls at the end this Rule)
+> - a. BUILDING HEIGHT LIMIT (BHL) - the maximum height to be allowed for buildings/structures based on their proposed use or occupancy; the BHL is generally determined after the application of other development controls (DC) and certain other parameters, i.e., considerations of site conditions, view,
 
-- Reviewer: `gemma4:31b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260414T234203Z
-- Batch: `20260414T234203Z_2b941c4d`
-
+- Reviewer: `qwen2.5:3b` · Decision: `keep` · Confidence: `1.0`
+- Reviewed: 20260423T204624Z
+- Batch: `20260423T204624Z_faa62cfe`

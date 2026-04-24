@@ -1,6 +1,7 @@
 export interface GraphNode {
   id: string;
   label: string;
+  displayLabel?: string;
   type: string;
   kind?: string;
   summary?: string;
@@ -27,6 +28,7 @@ export interface GraphEdge {
 export interface TaxonomyNode {
   id: string;
   label: string;
+  displayLabel?: string;
   kind: 'taxonomy' | 'topic' | 'subtopic';
   conceptCount: number;
   children: TaxonomyNode[];
@@ -69,6 +71,7 @@ export interface SearchResult {
   kind: 'node' | 'taxonomy' | 'action';
   id: string;
   label: string;
+  displayLabel?: string;
   type?: string;
   matchType: string;
   matchedField: string;

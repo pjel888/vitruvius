@@ -1,13 +1,14 @@
 ---
-id: handout-uap-document-301-general-conditions
+id: handout-uap-document-301-general-conditions-2ada75
 title: GENERAL CONDITIONS
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:49.668332+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/UAP/UAP Document 301.md
+last_canonicalized_utc: '2026-04-23T21:37:56.147722+00:00'
 aliases:
-  - UAP Document 301
-  - General Conditions
+- UAP Document 301
+- General Conditions
 ---
 
 # GENERAL CONDITIONS

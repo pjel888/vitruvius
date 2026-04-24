@@ -1,12 +1,13 @@
 ---
-id: handout-20th-century-architects-2
+id: handout-20th-century-architects-2-6905fa
 title: Richard Buckminster Fuller (1895-1983)
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:53.099607+00:00
+source_relative_markdown_path: 002-History/raw_markdown/20th Century Architects.md
+last_canonicalized_utc: '2026-04-23T21:37:58.741920+00:00'
 aliases:
-  - 20th Century Architects 2
+- 20th Century Architects 2
 ---
 
 # Richard Buckminster Fuller (1895-1983)

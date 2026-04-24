@@ -1,10 +1,11 @@
 ---
-id: source-concepts-philosophies
+id: source-concepts-philosophies-21be9d
 title: Concepts   Philosophies
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:53.978797+00:00
+source_relative_markdown_path: 002-History/raw_markdown/Concepts _ Philosophies.md
+last_canonicalized_utc: 2026-04-23T19:47:34.145671+00:00
 ---
 
 # Concepts   Philosophies

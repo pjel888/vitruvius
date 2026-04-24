@@ -1,10 +1,11 @@
 ---
-id: source-dost-pcieerd-2026calldoc-as-of-27jan26merge
+id: source-dost-pcieerd-2026calldoc-as-of-27jan26merge-692dd5
 title: 2026 Call for Proposals for 2028 Funding
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:49.097056+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/test/DOST-PCIEERD-2026CallDoc-_as-of-27Jan26merge.md
+last_canonicalized_utc: 2026-04-23T19:47:32.189277+00:00
 ---
 
 # 2026 Call for Proposals for 2028 Funding

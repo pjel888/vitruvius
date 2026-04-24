@@ -1,10 +1,11 @@
 ---
-id: source-second-ancient-egypt-the-50-most-important-achievements-of-a-timeless-civilisation-each-explained-in-half-a-minute-peter-der-manuelian
+id: source-second-ancient-egypt-the-50-most-important-achievements-of-a-timeless-civilisation-each-explained-in-half-a-minute-peter-der-manuelian-607142
 title: 30-SECOND ANCIENT EGYPT
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:53.218951+00:00
+source_relative_markdown_path: 002-History/raw_markdown/30-Second Ancient Egypt (The 50 Most Important Achievements of a Timeless Civilisation Each Explained in Half A Minute) - Peter Der Manuelian.md
+last_canonicalized_utc: 2026-04-23T19:47:32.943435+00:00
 ---
 
 # 30-SECOND ANCIENT EGYPT

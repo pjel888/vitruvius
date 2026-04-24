@@ -1,14 +1,11 @@
 ---
-id: law-local-government-code-of-1991
+id: source-lcg-of-1991-167c34
 title: THE LOCAL GOVERNMENT CODE OF THE PHILIPPINES
 page_type: source
-trust_level: primary
+trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:46.848685+00:00
-aliases:
-  - RA 7160
-  - Republic Act No. 7160
-  - Local Government Code of 1991
+source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/LCG of 1991.md
+last_canonicalized_utc: 2026-04-23T19:59:31.776611+00:00
 ---
 
 # THE LOCAL GOVERNMENT CODE OF THE PHILIPPINES

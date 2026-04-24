@@ -8,19 +8,22 @@ to_entity: concept-building-permit
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260414T234203Z_2b941c4d
-promotion_audit_log_ref: 006_System-Manifests/runs/latest_promotion_audit.log
-last_promoted_utc: 20260414T234203Z
+promotion_batch_id: 20260423T204624Z_faa62cfe
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260423T203224Z/promotion_audit.log
+last_promoted_utc: 20260423T204624Z
 evidence:
 - source_id: irr-implementing-rules-and-regulations-of-the-national-building-code
-  source_section_id: section-irr-general
-  evidence_snippet: '- 1. The scope of this IRR shall cover the following disciplines: architectural, civil/structural, electrical, mechanical, sanitary, plumbing, and electronics. This shall also apply to the design, location, siting, construction, alteration, repair, conversion, use, occupancy, maintenance, moving, demolition of, and addition to public and private buildings and structures, except traditional indigenous family dwellings, and those covered by Batas Pambansa Bilang 220 otherwise known as the “Economic and Socialized Housing Projects”. - 2. Existing buildings or structures without appropriate building permits/certificates of occupancy may be legalized and issued the necessary permits and certificates, provided, they are made to conform to these rules and regulations. However, they shall be subject to the imposition of penalties, surcharges, fines and other appropriate measures.'
+  source_section_id: section-209
+  evidence_snippet: Public buildings and traditional indigenous family dwellings shall be exempt from payment of building permit fees.
   review_decision: keep
-  reviewer_model: gemma4:31b
+  reviewer_model: qwen2.5:3b
+  reviewer_provider: ollama
   reviewer_confidence: 0.95
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
-  extracted_at_utc: 20260414T234203Z
-  reviewed_at_utc: 20260414T234203Z
+  local_review_decision: keep
+  local_reviewer_confidence: 0.95
+  extracted_at_utc: 20260423T204624Z
+  reviewed_at_utc: 20260423T204624Z
 ---
 
 # irr-implementing-rules-and-regulations-of-the-national-building-code governs concept-building-permit
@@ -31,11 +34,10 @@ Promoted relationship of type `governs` from `irr-implementing-rules-and-regulat
 
 ## Evidence
 
-### Evidence 1 - `irr-implementing-rules-and-regulations-of-the-national-building-code` §section-irr-general
+### Evidence 1 - `irr-implementing-rules-and-regulations-of-the-national-building-code` §section-209
 
-> - 1. The scope of this IRR shall cover the following disciplines: architectural, civil/structural, electrical, mechanical, sanitary, plumbing, and electronics. This shall also apply to the design, location, siting, construction, alteration, repair, conversion, use, occupancy, maintenance, moving, demolition of, and addition to public and private buildings and structures, except traditional indigenous family dwellings, and those covered by Batas Pambansa Bilang 220 otherwise known as the “Economic and Socialized Housing Projects”. - 2. Existing buildings or structures without appropriate building permits/certificates of occupancy may be legalized and issued the necessary permits and certificates, provided, they are made to conform to these rules and regulations. However, they shall be subject to the imposition of penalties, surcharges, fines and other appropriate measures.
+> Public buildings and traditional indigenous family dwellings shall be exempt from payment of building permit fees.
 
-- Reviewer: `gemma4:31b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260414T234203Z
-- Batch: `20260414T234203Z_2b941c4d`
-
+- Reviewer: `qwen2.5:3b` · Decision: `keep` · Confidence: `0.95`
+- Reviewed: 20260423T204624Z
+- Batch: `20260423T204624Z_faa62cfe`

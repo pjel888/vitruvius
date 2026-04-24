@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import csv
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -190,56 +191,57 @@ def build_plan(relative_path: str) -> dict[str, Any]:
 
     canonical_id = build_canonical_id(prefix, title)
 
-    # Sprint CLEANUP-1 C1.2 — optional collision-resolving canonical ID build.
-    # Gated behind `p1c_slug_collision_policy`. When off, retain legacy
-    # `build_canonical_id()` behaviour (silent overwrite on collision).
-    # Perf call: cold path (once per canonicalize run), sub-ms hash + dict
-    # lookup; above the Rust Line per AD-036.
-    try:
-        from .spatial._feature_gate import _load_features_cached
-        _features = _load_features_cached()
-    except Exception:
-        _features = None
+    from .collision_resolver import SlugAliasRegistry, resolve_canonical_id
 
-    if _features is not None and _features.is_enabled("p1c_slug_collision_policy"):
-        from .collision_resolver import SlugAliasRegistry, resolve_canonical_id
+    repo_root = get_repo_root()
+    registry_path = (
+        repo_root
+        / "scripts"
+        / "vitruvius"
+        / "rules"
+        / "slug_alias_registry.yaml"
+    )
+    registry = SlugAliasRegistry.load(registry_path)
 
-        repo_root = get_repo_root()
-        registry_path = (
-            repo_root
-            / "scripts"
-            / "vitruvius"
-            / "rules"
-            / "slug_alias_registry.yaml"
-        )
-        registry = SlugAliasRegistry.load(registry_path)
+    canonical_csv = (
+        repo_root
+        / "006_System-Manifests"
+        / "registries"
+        / "canonical_registry.csv"
+    )
+    existing_ids: set[str] = set()
+    if canonical_csv.exists():
+        with canonical_csv.open("r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if "canonical_id" in row and row["canonical_id"]:
+                    existing_ids.add(row["canonical_id"])
 
-        # Load existing ids from canonical_registry.csv if it exists.
-        canonical_csv = (
-            repo_root
-            / "006_System-Manifests"
-            / "registries"
-            / "canonical_registry.csv"
-        )
-        existing_ids: set[str] = set()
-        if canonical_csv.exists():
-            import csv
+    existing_sources_dir = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "sources"
+    if existing_sources_dir.exists():
+        for source_file in existing_sources_dir.glob("*.md"):
+            text = source_file.read_text(encoding="utf-8", errors="ignore")
+            if not text.startswith("---"):
+                continue
+            end = text.find("\n---", 3)
+            if end == -1:
+                continue
+            try:
+                fm = yaml.safe_load(text[3:end].strip())
+            except yaml.YAMLError:
+                continue
+            if isinstance(fm, dict) and isinstance(fm.get("id"), str) and fm["id"]:
+                existing_ids.add(fm["id"])
 
-            with canonical_csv.open("r", encoding="utf-8") as f:
-                reader = csv.DictReader(f)
-                for row in reader:
-                    if "canonical_id" in row and row["canonical_id"]:
-                        existing_ids.add(row["canonical_id"])
-
-        validate_prefix(prefix)
-        canonical_id = resolve_canonical_id(
-            prefix=prefix,
-            slug=slugify(title),
-            source_path=str(relative_path),
-            existing_ids=existing_ids,
-            registry=registry,
-        )
-        registry.save()
+    validate_prefix(prefix)
+    canonical_id = resolve_canonical_id(
+        prefix=prefix,
+        slug=slugify(title),
+        source_path=str(relative_path),
+        existing_ids=existing_ids,
+        registry=registry,
+    )
+    registry.save()
 
     return {
         "title": title,
@@ -618,20 +620,31 @@ def build_structured_source_file(
     )
     referenced = resolve_referenced_concepts(refined_text, repo_root=repo_root)
 
+    frontmatter: dict[str, Any] = {
+        "id": plan["canonical_id"],
+        "title": plan["title"],
+        "page_type": "source",
+        "trust_level": plan["trust"],
+        "canonical_status": "draft",
+        "source_relative_markdown_path": relative_markdown_path,
+        "last_canonicalized_utc": datetime.now(timezone.utc).isoformat(),
+    }
+    if plan["aliases"]:
+        frontmatter["aliases"] = list(plan["aliases"])
+
+    frontmatter_block = yaml.safe_dump(
+        frontmatter,
+        sort_keys=False,
+        default_flow_style=False,
+        allow_unicode=True,
+        width=1000000,
+    ).rstrip()
+
     lines = [
         "---",
-        f"id: {plan['canonical_id']}",
-        f"title: {plan['title']}",
-        "page_type: source",
-        f"trust_level: {plan['trust']}",
-        "canonical_status: draft",
-        f"last_canonicalized_utc: {datetime.now(timezone.utc).isoformat()}",
+        frontmatter_block,
+        "---",
     ]
-    if plan["aliases"]:
-        lines.append("aliases:")
-        for a in plan["aliases"]:
-            lines.append(f"  - {a}")
-    lines.append("---")
     lines.append("")
     lines.append(f"# {plan['title']}")
     lines.append("")
@@ -674,6 +687,24 @@ def build_structured_source_file(
         stem = stem[: MAX_FILENAME_LEN - 3].rstrip("-")
     filename = f"{stem}.md"
     target_file = target / filename
+    if target_file.exists():
+        existing_text = target_file.read_text(encoding="utf-8", errors="ignore")
+        existing_source_relative_markdown_path = None
+        if existing_text.startswith("---"):
+            end = existing_text.find("\n---", 3)
+            if end != -1:
+                try:
+                    existing_fm = yaml.safe_load(existing_text[3:end].strip())
+                except yaml.YAMLError:
+                    existing_fm = None
+                if isinstance(existing_fm, dict):
+                    existing_source_relative_markdown_path = existing_fm.get("source_relative_markdown_path")
+        if (
+            isinstance(existing_source_relative_markdown_path, str)
+            and existing_source_relative_markdown_path
+            and existing_source_relative_markdown_path != relative_markdown_path
+        ):
+            target_file = target / f"{plan['canonical_id']}.md"
     assert_windows_safe_path(target_file, what="canonical source output path")
     return target_file, "\n".join(lines)
 

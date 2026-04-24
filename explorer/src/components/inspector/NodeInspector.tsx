@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { ArrowRight, CheckCircle2, ExternalLink, FileText, Flag, Focus, MapPin, Pin, Route, Trash2, X } from 'lucide-react';
 import { useSceneStore } from '../../stores/useSceneStore';
-import type { NodeDetail } from '../../types';
+import type { NodeDetail, RelationDetail } from '../../types';
+import { getDisplayLabel } from '../../utils/labels';
 
 const EDGE_COLORS: Record<string, string> = {
   HAS_CHILD: '#6b7280',
@@ -13,9 +14,62 @@ const EDGE_COLORS: Record<string, string> = {
   SUPPORTED_BY: '#94a3b8',
 };
 
+type InspectorTab = 'overview' | 'relationships' | 'sources' | 'metadata';
+
+function MetadataRow({ label, value }: { label: string; value?: string | number | null }) {
+  if (value === undefined || value === null || value === '') return null;
+  return (
+    <div>
+      <div className="text-xs uppercase tracking-wider text-text-dim mb-1">{label}</div>
+      <div className="text-sm break-words">{value}</div>
+    </div>
+  );
+}
+
+function RelationList({ title, relations, onSelectNode }: { title: string; relations: RelationDetail[]; onSelectNode: (id: string) => void }) {
+  return (
+    <div className="space-y-2">
+      <div className="text-xs uppercase tracking-wider text-text-dim">{title}</div>
+      {relations.length === 0 ? (
+        <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
+          No {title.toLowerCase()} relationships.
+        </div>
+      ) : relations.map((relation, index) => {
+        const otherLabel = getDisplayLabel(relation.other);
+        return (
+          <button
+            key={`${relation.relType}-${relation.other.id}-${index}`}
+            className="w-full text-left border-l-2 rounded-r-md pl-3 pr-2 py-2 hover:bg-panel-hover transition-colors"
+            style={{ borderLeftColor: EDGE_COLORS[relation.relType] || '#6b7280' }}
+            onClick={() => onSelectNode(relation.other.id)}
+          >
+            <div className="flex items-center gap-1 text-sm">
+              {title === 'Incoming' ? (
+                <>
+                  <span className="truncate" title={relation.other.label}>{otherLabel}</span>
+                  <ArrowRight size={12} className="text-text-dim shrink-0" />
+                  <span className="font-medium shrink-0">{relation.relType}</span>
+                </>
+              ) : (
+                <>
+                  <span className="font-medium shrink-0">{relation.relType}</span>
+                  <ArrowRight size={12} className="text-text-dim shrink-0" />
+                  <span className="truncate" title={relation.other.label}>{otherLabel}</span>
+                </>
+              )}
+            </div>
+            <div className="text-[11px] text-text-dim mt-0.5 truncate">{relation.other.id}</div>
+            {relation.reasoning && <div className="text-xs text-text-dim mt-1 leading-relaxed">{relation.reasoning}</div>}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function NodeInspector({ detail }: { detail: NodeDetail }) {
   const { node, taxonomyPath, incoming, outgoing, evidence } = detail;
-  const [activeTab, setActiveTab] = useState<'summary' | 'evidence' | 'incoming' | 'outgoing'>('summary');
+  const [activeTab, setActiveTab] = useState<InspectorTab>('overview');
   const setSelectedNode = useSceneStore((s) => s.setSelectedNode);
   const openBottom = useSceneStore((s) => s.openBottom);
   const pinnedNodeIds = useSceneStore((s) => s.pinnedNodeIds);
@@ -28,12 +82,36 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
   const setPathTarget = useSceneStore((s) => s.setPathTarget);
   const clearPath = useSceneStore((s) => s.clearPath);
 
+  const displayLabel = getDisplayLabel(node);
+  const relationshipCount = incoming.length + outgoing.length;
+
+  function openEvidenceTable() {
+    openBottom({
+      type: 'table',
+      title: `${displayLabel} Sources`,
+      columns: [
+        { key: 'document', label: 'Document' },
+        { key: 'quote', label: 'Quote' },
+        { key: 'confidence', label: 'Confidence' },
+      ],
+      rows: evidence.map((item) => ({
+        id: item.id,
+        deepLink: item.deep_link,
+        values: {
+          document: item.document_title || item.document_id || 'Unknown source',
+          quote: item.quote,
+          confidence: item.confidence !== undefined ? `${(item.confidence * 100).toFixed(0)}%` : '—',
+        },
+      })),
+    });
+  }
+
   return (
     <div className="flex flex-col h-full">
       <div className="px-4 py-3 border-b border-border">
         <div className="flex items-start justify-between gap-2">
-          <div>
-            <h2 className="text-sm font-semibold text-accent">{node.label}</h2>
+          <div className="min-w-0">
+            <h2 className="text-sm font-semibold text-accent truncate" title={node.label}>{displayLabel}</h2>
             <span className="text-xs text-text-dim">{node.type}</span>
           </div>
           <div className="flex items-center gap-1">
@@ -50,47 +128,31 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
         </div>
       </div>
 
-      <div className="flex border-b border-border">
-        {(['summary', 'evidence', 'incoming', 'outgoing'] as const).map((tab) => (
+      <div className="grid grid-cols-4 border-b border-border">
+        {([
+          ['overview', 'Overview', undefined],
+          ['relationships', 'Relationships', relationshipCount],
+          ['sources', 'Sources', evidence.length],
+          ['metadata', 'Metadata', undefined],
+        ] as const).map(([tab, label, count]) => (
           <button
             key={tab}
-            className={`flex-1 py-2 text-xs font-medium capitalize border-b-2 transition-colors ${activeTab === tab ? 'border-accent text-accent' : 'border-transparent text-text-dim hover:text-text'}`}
+            className={`py-2 text-[11px] font-medium border-b-2 transition-colors ${activeTab === tab ? 'border-accent text-accent' : 'border-transparent text-text-dim hover:text-text'}`}
             onClick={() => setActiveTab(tab)}
           >
-            {tab}
-            {tab === 'evidence' && evidence.length > 0 && ` (${evidence.length})`}
-            {tab === 'incoming' && incoming.length > 0 && ` (${incoming.length})`}
-            {tab === 'outgoing' && outgoing.length > 0 && ` (${outgoing.length})`}
+            {label}{count ? ` (${count})` : ''}
           </button>
         ))}
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {activeTab === 'summary' && (
+        {activeTab === 'overview' && (
           <>
-            {node.summary && (
-              <div>
-                <div className="text-xs uppercase tracking-wider text-text-dim mb-1">Summary</div>
-                <div className="text-sm leading-relaxed">{node.summary}</div>
-              </div>
-            )}
+            <MetadataRow label="Full label" value={node.label} />
+            <MetadataRow label="Canonical ID" value={node.id} />
+            {node.summary && <MetadataRow label="Summary" value={node.summary} />}
             {taxonomyPath.length > 0 && (
-              <div>
-                <div className="text-xs uppercase tracking-wider text-text-dim mb-1">Taxonomy Path</div>
-                <div className="text-sm">{taxonomyPath.map((taxonomyNode) => taxonomyNode.label).join(' > ')}</div>
-              </div>
-            )}
-            {node.aliases && node.aliases.length > 0 && (
-              <div>
-                <div className="text-xs uppercase tracking-wider text-text-dim mb-1">Aliases</div>
-                <div className="text-sm">{node.aliases.join(', ')}</div>
-              </div>
-            )}
-            {node.confidence !== undefined && (
-              <div>
-                <div className="text-xs uppercase tracking-wider text-text-dim mb-1">Confidence</div>
-                <div className="text-sm">{(node.confidence * 100).toFixed(0)}%</div>
-              </div>
+              <MetadataRow label="Taxonomy Path" value={taxonomyPath.map((taxonomyNode) => getDisplayLabel(taxonomyNode)).join(' > ')} />
             )}
 
             <div className="border-t border-border pt-3">
@@ -147,48 +209,42 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
           </>
         )}
 
-        {activeTab === 'evidence' && (
+        {activeTab === 'relationships' && (
+          <div className="space-y-4">
+            {relationshipCount === 0 && (
+              <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
+                No relationships are available for this node.
+              </div>
+            )}
+            <RelationList title="Incoming" relations={incoming} onSelectNode={setSelectedNode} />
+            <RelationList title="Outgoing" relations={outgoing} onSelectNode={setSelectedNode} />
+          </div>
+        )}
+
+        {activeTab === 'sources' && (
           <>
-            {evidence.length === 0 && <div className="text-sm text-text-dim italic">No evidence spans.</div>}
+            {evidence.length === 0 && (
+              <div className="rounded-md border border-border/70 bg-bg/40 px-3 py-2 text-sm text-text-dim italic">
+                No source materials are linked to this node.
+              </div>
+            )}
             {evidence.length > 0 && (
-              <button
-                onClick={() => openBottom({
-                  type: 'table',
-                  title: `${node.label} Evidence`,
-                  columns: [
-                    { key: 'document', label: 'Document' },
-                    { key: 'quote', label: 'Quote' },
-                    { key: 'confidence', label: 'Confidence' },
-                  ],
-                  rows: evidence.map((item) => ({
-                    id: item.id,
-                    deepLink: item.deep_link,
-                    values: {
-                      document: item.document_title || item.document_id || 'Unknown source',
-                      quote: item.quote,
-                      confidence: item.confidence !== undefined ? `${(item.confidence * 100).toFixed(0)}%` : '—',
-                    },
-                  })),
-                })}
-                className="text-xs text-accent hover:underline"
-              >
-                Open evidence table
+              <button onClick={openEvidenceTable} className="text-xs text-accent hover:underline">
+                Open source table
               </button>
             )}
             {evidence.map((item) => (
               <div key={item.id} className="border-l-2 border-border pl-3 py-1">
                 <div className="text-sm italic leading-relaxed">{item.quote}</div>
-                {item.document_title && (
-                  <div className="flex items-center gap-1 mt-1 text-xs text-text-dim">
-                    <FileText size={12} />
-                    {item.document_title}
-                  </div>
-                )}
+                <div className="flex items-center gap-1 mt-1 text-xs text-text-dim">
+                  <FileText size={12} />
+                  {item.document_title || item.document_id || 'Unknown source'}
+                </div>
                 {item.deep_link && (
                   <button
                     onClick={() => openBottom({
                       type: 'source',
-                      title: item.document_title || 'Source Document',
+                      title: item.document_title || item.document_id || 'Source Document',
                       documentId: item.document_id,
                       quote: item.quote,
                       deepLink: item.deep_link,
@@ -203,45 +259,17 @@ export default function NodeInspector({ detail }: { detail: NodeDetail }) {
           </>
         )}
 
-        {activeTab === 'incoming' && (
+        {activeTab === 'metadata' && (
           <>
-            {incoming.length === 0 && <div className="text-sm text-text-dim italic">No incoming relationships.</div>}
-            {incoming.map((relation, index) => (
-              <button
-                key={index}
-                className="w-full text-left border-l-2 pl-3 py-1 hover:bg-panel-hover transition-colors"
-                style={{ borderLeftColor: EDGE_COLORS[relation.relType] || '#6b7280' }}
-                onClick={() => setSelectedNode(relation.other.id)}
-              >
-                <div className="flex items-center gap-1 text-sm">
-                  <span className="truncate">{relation.other.label}</span>
-                  <ArrowRight size={12} className="text-text-dim shrink-0" />
-                  <span className="font-medium shrink-0">{relation.relType}</span>
-                </div>
-                {relation.reasoning && <div className="text-xs text-text-dim mt-0.5">{relation.reasoning}</div>}
-              </button>
-            ))}
-          </>
-        )}
-
-        {activeTab === 'outgoing' && (
-          <>
-            {outgoing.length === 0 && <div className="text-sm text-text-dim italic">No outgoing relationships.</div>}
-            {outgoing.map((relation, index) => (
-              <button
-                key={index}
-                className="w-full text-left border-l-2 pl-3 py-1 hover:bg-panel-hover transition-colors"
-                style={{ borderLeftColor: EDGE_COLORS[relation.relType] || '#6b7280' }}
-                onClick={() => setSelectedNode(relation.other.id)}
-              >
-                <div className="flex items-center gap-1 text-sm">
-                  <span className="font-medium shrink-0">{relation.relType}</span>
-                  <ArrowRight size={12} className="text-text-dim shrink-0" />
-                  <span className="truncate">{relation.other.label}</span>
-                </div>
-                {relation.reasoning && <div className="text-xs text-text-dim mt-0.5">{relation.reasoning}</div>}
-              </button>
-            ))}
+            <MetadataRow label="Canonical ID" value={node.id} />
+            <MetadataRow label="Type" value={node.type} />
+            <MetadataRow label="Kind" value={node.kind} />
+            <MetadataRow label="Slug" value={node.slug} />
+            <MetadataRow label="Status" value={node.status} />
+            {node.confidence !== undefined && <MetadataRow label="Confidence" value={`${(node.confidence * 100).toFixed(0)}%`} />}
+            {node.aliases && node.aliases.length > 0 && <MetadataRow label="Aliases" value={node.aliases.join(', ')} />}
+            <MetadataRow label="Created" value={node.createdAt} />
+            <MetadataRow label="Updated" value={node.updatedAt} />
           </>
         )}
       </div>

@@ -1,10 +1,11 @@
 ---
-id: source-reference-tool-on-urban-planning-and-design-for-climate-resilience-for-lgus-planning-actors-in-the-philippines-readable
+id: source-reference-tool-on-urban-planning-and-design-for-climate-resilience-for-lgus-planning-actors-in-the-philippines-readable-021064
 title: Reference Tool On Urban Planning And Design For Climate Resilience For Lgus Planning Actors In The Philippines Readable
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:34.890174+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/Reference-Tool-on-Urban-Planning-and-Design-for-Climate-Resilience-for-LGUs-Planning-Actors-in-the-Philippines_readable.md
+last_canonicalized_utc: 2026-04-23T19:47:07.598190+00:00
 ---
 
 # Reference Tool On Urban Planning And Design For Climate Resilience For Lgus Planning Actors In The Philippines Readable

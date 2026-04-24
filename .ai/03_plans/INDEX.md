@@ -1,6 +1,6 @@
 # Live Plans Index
 
-**Updated:** 2026-04-21  
+**Updated:** 2026-04-24
 **Purpose:** identify which plan docs are still live, which are supporting reference, and which are archived/superseded
 
 ## 1. Active Plan Families
@@ -18,6 +18,12 @@
 |---|---|---|---|
 | `AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md` | planned | only remaining large implementation family still relevant for future work | decide whether AEC runtime kickoff is actually the next execution lane |
 | `2026-04-16-aec-first-slice-session-packet-plan.md` | blocked | minimal execution-readiness packet tied to the master AEC plan | keep as the only execution packet until runtime roots are explicitly verified |
+
+### 1.3 User-directed KG quality maintenance
+
+| File | Status | Why it matters | Next concrete action |
+|---|---|---|---|
+| `2026-04-24_kg_relationship_contract_and_rule_label_plan.md` | planned | bounded first slice for relationship-quality and rule-name UX improvement after KG snapshot audit | align relationship contract, then persist taxonomy-aware rule display labels |
 
 ## 2. Supporting Reference Docs (Not Active Dispatchers)
 

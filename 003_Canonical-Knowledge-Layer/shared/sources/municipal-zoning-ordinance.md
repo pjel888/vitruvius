@@ -1,13 +1,14 @@
 ---
-id: law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan
+id: law-comprehensive-zoning-ordinance-of-the-municipality-of-meycauayan-972503
 title: MUNICIPAL ZONING ORDINANCE
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:37.947214+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/622896675-275447696-Zoning-Ordinances-Meycauayan-Bulacan.md
+last_canonicalized_utc: '2026-04-23T21:37:32.774498+00:00'
 aliases:
-  - Meycauayan Zoning Ordinance
-  - Municipal Ordinance No. 16 Series of 1999
+- Meycauayan Zoning Ordinance
+- Municipal Ordinance No. 16 Series of 1999
 ---
 
 # MUNICIPAL ZONING ORDINANCE

@@ -1,15 +1,16 @@
 ---
-id: law-water-code-of-the-philippines
+id: law-water-code-of-the-philippines-ec7b50
 title: THE WATER CODE OF THE PHILIPPINES
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:41.019413+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-1067/PD 1067 - Water Code of the Philippines.md
+last_canonicalized_utc: '2026-04-23T21:37:39.418025+00:00'
 aliases:
-  - PD 1067
-  - Presidential Decree No. 1067
-  - Water Code
-  - Water Code of the Philippines
+- PD 1067
+- Presidential Decree No. 1067
+- Water Code
+- Water Code of the Philippines
 ---
 
 # THE WATER CODE OF THE PHILIPPINES

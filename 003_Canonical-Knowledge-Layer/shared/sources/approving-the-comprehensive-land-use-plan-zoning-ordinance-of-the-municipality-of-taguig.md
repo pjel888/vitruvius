@@ -1,10 +1,11 @@
 ---
-id: source-zoning-ordinance-taguig
+id: source-zoning-ordinance-taguig-56658c
 title: APPROVING THE COMPREHENSIVE LAND USE PLAN/ ZONING ORDINANCE OF THE MUNICIPALITY OF TAGUIG
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:36.021402+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/371438973-Zoning-Ordinance-TAGUIG-pdf.md
+last_canonicalized_utc: 2026-04-23T19:47:09.108560+00:00
 ---
 
 # APPROVING THE COMPREHENSIVE LAND USE PLAN/ ZONING ORDINANCE OF THE MUNICIPALITY OF TAGUIG

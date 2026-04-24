@@ -1,10 +1,11 @@
 ---
-id: source-volume-ii-sariaya-clup-edited-v-8-feb-2020-roda
+id: source-volume-ii-sariaya-clup-edited-v-8-feb-2020-roda-8bde87
 title: VOLUME II
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:39.398925+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/754536758-Volume-II-Sariaya-CLUP-EDITED-v-8-Feb-2020-Roda-docx.md
+last_canonicalized_utc: 2026-04-23T19:47:14.273079+00:00
 ---
 
 # VOLUME II

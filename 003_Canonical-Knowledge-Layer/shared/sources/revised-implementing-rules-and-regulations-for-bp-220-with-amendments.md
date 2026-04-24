@@ -1,15 +1,16 @@
 ---
-id: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220
+id: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-220-76a699
 title: REVISED IMPLEMENTING RULES AND REGULATIONS FOR BP 220 (WITH AMENDMENTS)
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:30.850217+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/BP-220/Revised_IRR_BP220_2008.md
+last_canonicalized_utc: '2026-04-23T21:37:18.412738+00:00'
 aliases:
-  - BP 220
-  - Batas Pambansa Blg. 220
-  - BP 220 RIRR
-  - Revised IRR BP 220 2008
+- BP 220
+- Batas Pambansa Blg. 220
+- BP 220 RIRR
+- Revised IRR BP 220 2008
 ---
 
 # REVISED IMPLEMENTING RULES AND REGULATIONS FOR BP 220 (WITH AMENDMENTS)

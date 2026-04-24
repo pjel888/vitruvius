@@ -1,10 +1,11 @@
 ---
-id: source-1979-uap-documents
+id: source-1979-uap-documents-33c9f4
 title: PREFACE
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:49.210814+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/UAP/1979 UAP Documents.md
+last_canonicalized_utc: 2026-04-23T19:47:29.755360+00:00
 ---
 
 # PREFACE

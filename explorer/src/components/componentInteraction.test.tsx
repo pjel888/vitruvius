@@ -7,6 +7,8 @@ import SceneMenu from './command-bar/SceneMenu';
 import FiltersPanel from './explorer-rail/FiltersPanel';
 import QueryTemplatesSection from './query-panel/QueryTemplatesSection';
 import StoredQueriesSection from './query-panel/StoredQueriesSection';
+import NodeInspector from './inspector/NodeInspector';
+import { useSceneStore } from '../stores/useSceneStore';
 
 let dom: JSDOM;
 
@@ -70,6 +72,89 @@ describe('explorer component interactions', () => {
 
     fireEvent.click(view.getByText('Fire Life Safety'));
     expect(onSelect).toHaveBeenCalledWith(expect.objectContaining({ id: 'taxonomy-fire-life-safety' }));
+  });
+
+  test('SearchCombobox renders compact display labels while preserving selected result identity', () => {
+    const onSelect = mock(() => {});
+    const longLabel = 'Every building permit applicant must submit complete fire safety, structural, zoning, and occupancy documentation before approval can proceed.';
+    const view = render(
+      <SearchCombobox
+        query="permit"
+        results={[
+          {
+            id: 'rule-long-1',
+            kind: 'node',
+            label: longLabel,
+            displayLabel: 'Rule · Building permit documentation…',
+            type: 'rule',
+            matchType: 'label',
+            matchedField: 'label',
+          },
+        ]}
+        searching={false}
+        showSuggestions
+        highlighted={0}
+        inputRef={{ current: null }}
+        onQueryChange={() => {}}
+        onKeyDown={() => {}}
+        onFocus={() => {}}
+        onClear={() => {}}
+        onClose={() => {}}
+        onHighlight={() => {}}
+        onSelect={onSelect}
+        getResultDotClass={() => 'bg-node-rule'}
+      />,
+    );
+
+    expect(view.getByText('Rule · Building permit documentation…')).toBeTruthy();
+    expect(view.queryByText(longLabel)).toBeNull();
+    fireEvent.click(view.getByText('Rule · Building permit documentation…'));
+    expect(onSelect).toHaveBeenCalledWith(expect.objectContaining({ id: 'rule-long-1', label: longLabel }));
+  });
+
+  test('NodeInspector opens on overview and shows compact title, full label, canonical ID, sources, relationships, and metadata tabs', () => {
+    const longLabel = 'Every building permit applicant must submit complete fire safety, structural, zoning, and occupancy documentation before approval can proceed.';
+    useSceneStore.setState({ pinnedNodeIds: [], pathSourceId: null, pathTargetId: null, highlightedPath: null });
+
+    const view = render(
+      <NodeInspector
+        detail={{
+          node: {
+            id: 'rule-long-1',
+            label: longLabel,
+            displayLabel: 'Rule · Building permit documentation…',
+            type: 'rule',
+            confidence: 0.91,
+            status: 'accepted',
+          },
+          taxonomyPath: [],
+          incoming: [],
+          outgoing: [],
+          evidence: [],
+        }}
+      />,
+    );
+
+    expect(view.getByText('Rule · Building permit documentation…')).toBeTruthy();
+    expect(view.getByText(longLabel)).toBeTruthy();
+    expect(view.getByText('rule-long-1')).toBeTruthy();
+    expect(view.getByText('Overview')).toBeTruthy();
+    expect(view.getByText('Relationships')).toBeTruthy();
+    expect(view.getByText('Sources')).toBeTruthy();
+    expect(view.getByText('Metadata')).toBeTruthy();
+
+    fireEvent.click(view.getByText('Relationships'));
+    expect(view.getByText('No relationships are available for this node.')).toBeTruthy();
+    expect(view.getByText('No incoming relationships.')).toBeTruthy();
+    expect(view.getByText('No outgoing relationships.')).toBeTruthy();
+
+    fireEvent.click(view.getByText('Sources'));
+    expect(view.getByText('No source materials are linked to this node.')).toBeTruthy();
+
+    fireEvent.click(view.getByText('Metadata'));
+    expect(view.getByText('Canonical ID')).toBeTruthy();
+    expect(view.getByText('Type')).toBeTruthy();
+    expect(view.getByText('Status')).toBeTruthy();
   });
 
   test('SceneMenu calls scene actions', () => {

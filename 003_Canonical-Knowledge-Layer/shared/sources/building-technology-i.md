@@ -1,29 +1,27 @@
 ---
-id: handout-woods-and-plastics-lecture
+id: source-building-technology-siteworks-2fa21f
 title: BUILDING TECHNOLOGY I
 page_type: source
-trust_level: study_aid
+trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:43:00.475150+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Technology - Siteworks.md
+last_canonicalized_utc: 2026-04-23T20:00:14.213363+00:00
 ---
 
 # BUILDING TECHNOLOGY I
 
 ## Overview
 
-Natural wood has certain properties that make it an attractive building material:
+DPWH Dept. of Public Works and Highways (Phil Govt) USCS Unified Soil Classification System
 
 ## Coverage
 
-- 8. LAMINATES
+- 1. EARTHWORKS
+- 2. TERMITE AND BUKBOK PROOFING
 
 ## Key Points
 
-- Moisture has a big influence on the behavior and properties of wood.
-- Philippines this is equivalent to from 12 to 16 percent moisture content.
-- Creosote Railway ties, mine timbers, poles, foundation piles, marine piles and bulkheads Pentachlorophenol Utility poles, cross arms, bridge timbers and ties ACA Piles, utility poles, marine timbers, construction lumber CCA Guide rail posts, utility poles, bridge timbers, piles, structural glued-lam.
-- is somewhat denser than the Standard but not as dense as Tempered.
-- This type is used for surface layer on interior walls and ceilings.
+- when the geotextile is placed between dissimilar materials to prevent migration of one of the materials into the other.
 
 ## Referenced Concepts
 

@@ -1,12 +1,13 @@
 ---
-id: handout-20th-century-architects-2
+id: handout-20th-century-architects-2-7912e5
 title: The artist is the exalted craftsman.”
 page_type: source
 trust_level: secondary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:52.952353+00:00
+source_relative_markdown_path: 002-History/raw_markdown/20th Century Architects 2.md
+last_canonicalized_utc: '2026-04-23T21:37:58.319201+00:00'
 aliases:
-  - 20th Century Architects 2
+- 20th Century Architects 2
 ---
 
 # The artist is the exalted craftsman.”

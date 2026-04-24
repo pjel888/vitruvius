@@ -1,10 +1,11 @@
 ---
-id: source-hoa-module-4-p3
+id: source-hoa-module-4-p3-3cdb08
 title: Housing Projects
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:54.957005+00:00
+source_relative_markdown_path: 002-History/raw_markdown/HOA MODULE 4 P3.md
+last_canonicalized_utc: 2026-04-23T19:47:36.174283+00:00
 ---
 
 # Housing Projects

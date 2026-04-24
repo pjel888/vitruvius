@@ -1,15 +1,16 @@
 ---
-id: irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004
+id: irr-implementing-rules-and-regulations-of-the-architecture-act-of-2004-af0591
 title: SECTION 2. Statement of Policy.
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:47.989681+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/RA-9266/IRR of RA 9266.md
+last_canonicalized_utc: '2026-04-23T21:37:53.537433+00:00'
 aliases:
-  - RA 9266
-  - RA 9266 IRR
-  - IRR of RA 9266
-  - Architecture Act of 2004 IRR
+- RA 9266
+- RA 9266 IRR
+- IRR of RA 9266
+- Architecture Act of 2004 IRR
 ---
 
 # SECTION 2. Statement of Policy.
@@ -25,12 +26,11 @@ Republic of the Philippines Professional Regulation Commission Manila BOARD OF A
 - RULE III EXAMINATION, REGISTRATION AND LICENSURE
 - SECTION 13. Qualifications of Applicant for ExaminationAny person applying for examination shall establish to the satisfaction of the Board that:
 - RULE IV PRACTICE OF ARCHITECTURE (SUNDRY PROVISIONS)
-- SECTION 32. Signing and Sealing of Architectural Plans, Specifications, Architectural Permit and Other Contract Documents
 - RULE V FINAL PROVISIONS
 
 ## Key Points
 
-- (a) He/she is a Filipino citizen or a citizen of a foreign country qualified to take the examination as provided for in SECTION 27, Art.
+- (a) He/she is a Filipino citizen or a citizen of a foreign country qualified to take the examination as provided for in Sec.
 
 ## Referenced Concepts
 

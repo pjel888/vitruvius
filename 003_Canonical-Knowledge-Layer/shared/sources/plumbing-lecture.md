@@ -1,10 +1,11 @@
 ---
-id: handout-plumbing-lecture
+id: handout-plumbing-lecture-553685
 title: Plumbing Lecture
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:16.712890+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Plumbing Lecture.md
+last_canonicalized_utc: 2026-04-23T19:47:54.945601+00:00
 ---
 
 # Plumbing Lecture

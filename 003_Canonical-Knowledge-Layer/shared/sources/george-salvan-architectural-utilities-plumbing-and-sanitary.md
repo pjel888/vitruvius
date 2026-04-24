@@ -1,10 +1,11 @@
 ---
-id: source-george-salvan-architectural-utilities-plumbing-and-sanitary
+id: source-george-salvan-architectural-utilities-plumbing-and-sanitary-419ce2
 title: George Salvan Architectural Utilities Plumbing And Sanitary
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:13.227391+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/George Salvan Architectural Utilities Plumbing and Sanitary.md
+last_canonicalized_utc: 2026-04-23T19:47:49.926013+00:00
 ---
 
 # George Salvan Architectural Utilities Plumbing And Sanitary

@@ -1,14 +1,15 @@
 ---
-id: irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system
+id: irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system-f357db
 title: Department of Environment and Natural Resources
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:31.380846+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/DENR/DENR DAO 2003-30 - EIS System Implementing Rules.md
+last_canonicalized_utc: '2026-04-23T21:37:19.350249+00:00'
 aliases:
-  - DENR DAO 2003-30
-  - EIS System IRR
-  - Philippine Environmental Impact Statement System IRR
+- DENR DAO 2003-30
+- EIS System IRR
+- Philippine Environmental Impact Statement System IRR
 ---
 
 # Department of Environment and Natural Resources

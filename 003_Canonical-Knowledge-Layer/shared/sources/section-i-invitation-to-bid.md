@@ -1,10 +1,11 @@
 ---
-id: source-mwss-ro-pbd-for-infrastructure-projects-5thedition-08-09-2018-final
+id: source-mwss-ro-pbd-for-infrastructure-projects-5thedition-08-09-2018-final-11ad46
 title: Section I. Invitation to Bid
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:59.797706+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/MWSS-RO-PBD-for-Infrastructure-Projects_5thEdition-08-09-2018_final.md
+last_canonicalized_utc: 2026-04-23T19:47:46.152702+00:00
 ---
 
 # Section I. Invitation to Bid

@@ -1,13 +1,14 @@
 ---
-id: handout-san-mateo-comprehensive-land-use-plan-2021-2031
+id: handout-san-mateo-comprehensive-land-use-plan-2021-2031-29a9ce
 title: SAN MATEO
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:40.143673+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/844057380-Copy-of-San-Mateo-Rizal-clup.md
+last_canonicalized_utc: '2026-04-23T21:37:37.500832+00:00'
 aliases:
-  - San Mateo CLUP 2021-2031
-  - Comprehensive Land Use Plan 2021-2031
+- San Mateo CLUP 2021-2031
+- Comprehensive Land Use Plan 2021-2031
 ---
 
 # SAN MATEO

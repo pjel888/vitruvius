@@ -1,10 +1,11 @@
 ---
-id: source-plumbing-estimate-and-design-by-max-fajardo
+id: source-plumbing-estimate-and-design-by-max-fajardo-2dc6e3
 title: Plumbing Estimate And Design By Max Fajardo
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:16.608614+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Plumbing Estimate and Design by Max Fajardo.md
+last_canonicalized_utc: 2026-04-23T19:47:54.735585+00:00
 ---
 
 # Plumbing Estimate And Design By Max Fajardo

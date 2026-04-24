@@ -1,10 +1,11 @@
 ---
-id: source-draft-zoning-ordinance-2012-2021-2
+id: source-draft-zoning-ordinance-2012-2021-2-c99e33
 title: 3.3 THE DRAFT ZONING ORDINANCE OF THE CITY OF SAN FERNANDO
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:35.728696+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/356243531-Draft-Zoning-Ordinance-2012-2021-2.md
+last_canonicalized_utc: 2026-04-23T19:47:08.654786+00:00
 ---
 
 # 3.3 THE DRAFT ZONING ORDINANCE OF THE CITY OF SAN FERNANDO

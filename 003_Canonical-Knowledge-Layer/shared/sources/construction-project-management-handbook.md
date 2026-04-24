@@ -1,10 +1,11 @@
 ---
-id: source-construction-project-management-handbook-by-shadan-fleming
+id: source-construction-project-management-handbook-by-shadan-fleming-7f92f1
 title: Construction Project Management Handbook
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:58.704420+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Construction Project Management Handbook by Shadan _ Fleming.md
+last_canonicalized_utc: 2026-04-23T19:47:44.138261+00:00
 ---
 
 # Construction Project Management Handbook

@@ -1,14 +1,15 @@
 ---
-id: irr-implementing-rules-and-regulations-of-the-national-building-code
-title: NOTE : WITH ANNOTATIONS BY THE PROFESSIONAL REGULATORY BOARD OF ARCHITECTURE (PRBOA) IN 2008
+id: irr-implementing-rules-and-regulations-of-the-national-building-code-16cb80
+title: 'NOTE : WITH ANNOTATIONS BY THE PROFESSIONAL REGULATORY BOARD OF ARCHITECTURE (PRBOA) IN 2008'
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:42.587701+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-1096/PD 1096 RIRR 2004 - Revised IRR (Architecture Board).md
+last_canonicalized_utc: '2026-04-23T21:37:42.463696+00:00'
 aliases:
-  - PD 1096 IRR
-  - National Building Code IRR
-  - Revised IRR 2004
+- PD 1096 IRR
+- National Building Code IRR
+- Revised IRR 2004
 ---
 
 # NOTE : WITH ANNOTATIONS BY THE PROFESSIONAL REGULATORY BOARD OF ARCHITECTURE (PRBOA) IN 2008

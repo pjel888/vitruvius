@@ -1,6 +1,7 @@
 import { FileText, X } from 'lucide-react';
 import { useSceneStore } from '../../stores/useSceneStore';
 import type { EdgeDetail } from '../../types';
+import { getDisplayLabel } from '../../utils/labels';
 
 export default function EdgeInspector({ detail }: { detail: EdgeDetail }) {
   const { edge, source, target } = detail;
@@ -21,13 +22,13 @@ export default function EdgeInspector({ detail }: { detail: EdgeDetail }) {
       <div>
         <div className="text-xs uppercase tracking-wider text-text-dim mb-1">From</div>
         <button className="text-sm hover:text-accent transition-colors" onClick={() => setSelectedNode(source.id)}>
-          {source.label}
+          {getDisplayLabel(source)}
         </button>
       </div>
       <div>
         <div className="text-xs uppercase tracking-wider text-text-dim mb-1">To</div>
         <button className="text-sm hover:text-accent transition-colors" onClick={() => setSelectedNode(target.id)}>
-          {target.label}
+          {getDisplayLabel(target)}
         </button>
       </div>
       {edge.confidence !== undefined && (

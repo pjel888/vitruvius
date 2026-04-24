@@ -21,6 +21,7 @@ from .reports import (
     write_text,
 )
 from .utils import safe_name_for_report, utc_now_stamp
+from .wiki.docling_parser import convert_pdf_to_markdown
 
 
 SUPPORTED_DIRECT_INPUT_EXTENSIONS = {
@@ -178,32 +179,59 @@ def convert_pdf_at_path(
     markdown_abs.parent.mkdir(parents=True, exist_ok=True)
     json_abs.parent.mkdir(parents=True, exist_ok=True)
 
+    fallback_used = False
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_path = Path(temp_dir)
 
-        opendataloader_pdf.convert(
-            input_path=[str(pdf_path)],
-            output_dir=str(temp_path),
-            format="markdown,json",
-        )
+        try:
+            opendataloader_pdf.convert(
+                input_path=[str(pdf_path)],
+                output_dir=str(temp_path),
+                format="markdown,json",
+            )
 
-        temp_markdown = temp_path / f"{pdf_path.stem}.md"
-        temp_json = temp_path / f"{pdf_path.stem}.json"
+            temp_markdown = temp_path / f"{pdf_path.stem}.md"
+            temp_json = temp_path / f"{pdf_path.stem}.json"
 
-        if not temp_markdown.exists():
-            raise FileNotFoundError(f"Expected markdown output not found: {temp_markdown}")
+            if not temp_markdown.exists():
+                raise FileNotFoundError(f"Expected markdown output not found: {temp_markdown}")
 
-        if not temp_json.exists():
-            raise FileNotFoundError(f"Expected json output not found: {temp_json}")
+            if not temp_json.exists():
+                raise FileNotFoundError(f"Expected json output not found: {temp_json}")
 
-        if markdown_abs.exists():
-            markdown_abs.unlink()
+            if markdown_abs.exists():
+                markdown_abs.unlink()
 
-        if json_abs.exists():
-            json_abs.unlink()
+            if json_abs.exists():
+                json_abs.unlink()
 
-        shutil.move(str(temp_markdown), str(markdown_abs))
-        shutil.move(str(temp_json), str(json_abs))
+            shutil.move(str(temp_markdown), str(markdown_abs))
+            shutil.move(str(temp_json), str(json_abs))
+        except Exception as exc:
+            docling_result = convert_pdf_to_markdown(pdf_path)
+            if docling_result.error:
+                raise RuntimeError(
+                    f"OpenDataLoader failed ({exc}) and Docling fallback also failed ({docling_result.error})"
+                ) from exc
+
+            markdown_abs.write_text(docling_result.markdown, encoding="utf-8")
+            json_abs.write_text(
+                json.dumps(
+                    {
+                        "parser": "docling_fallback",
+                        "fallback_reason": str(exc),
+                        "heading_count": docling_result.heading_count,
+                        "table_count": docling_result.table_count,
+                        "text_length": len(docling_result.markdown),
+                        "pages_total": 0,
+                        "pages_processed": 0,
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+            fallback_used = True
 
     _write_conversion_registry_entry(
         run_command=run_command,
@@ -214,7 +242,7 @@ def convert_pdf_at_path(
         source_modified_utc=registry_source_modified_utc,
         top_category=registry_top_category,
         detected_pdf_type=detected_pdf_type,
-        processing_route=processing_route,
+        processing_route="DOCLING_FALLBACK" if fallback_used else processing_route,
         status="SUCCESS",
         output_markdown_relative_path=_conversion_layer_relative_string(markdown_rel),
         output_json_relative_path=_conversion_layer_relative_string(json_rel),
@@ -229,7 +257,7 @@ def convert_pdf_at_path(
         "json_output": str(json_abs),
         "markdown_output_relative": markdown_rel.as_posix(),
         "json_output_relative": json_rel.as_posix(),
-        "status": "converted",
+        "status": "converted_via_docling_fallback" if fallback_used else "converted",
     }
 
 

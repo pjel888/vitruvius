@@ -1,10 +1,11 @@
 ---
-id: source-history-of-architecture-sample-exam
+id: source-history-of-architecture-sample-exam-d231be
 title: QUIZ
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:55.101812+00:00
+source_relative_markdown_path: 002-History/raw_markdown/History of Architecture Sample Exam.md
+last_canonicalized_utc: 2026-04-23T19:47:36.522520+00:00
 ---
 
 # QUIZ

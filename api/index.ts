@@ -44,22 +44,74 @@ async function runQuery<T = any>(query: string, params?: Record<string, any>): P
 
 const scenesFilePath = join(import.meta.dir, '.data', 'scenes.json');
 
-function normalizeNode(node: any) {
-  if (!node) return null;
-  const inferredType = node.type || node.kind || (node.quote || node.normalized_text ? 'evidence_span' : 'unknown');
+const DISPLAY_LABEL_LIMIT = 64;
+
+function compactText(value: string, maxLength = DISPLAY_LABEL_LIMIT) {
+  const normalized = value.replace(/\s+/g, ' ').trim();
+  if (normalized.length <= maxLength) return normalized;
+  return `${normalized.slice(0, maxLength - 1).trimEnd()}…`;
+}
+
+export function buildDisplayLabel(label: string, type?: string) {
+  const normalized = label.replace(/\s+/g, ' ').trim();
+  if (!normalized) return 'Untitled node';
+  if (normalized.length <= DISPLAY_LABEL_LIMIT) return normalized;
+
+  if (type === 'rule') {
+    return `Rule · ${compactText(normalized, DISPLAY_LABEL_LIMIT - 'Rule · '.length)}`;
+  }
+
+  if (type === 'evidence_span') {
+    return `Evidence · ${compactText(normalized, DISPLAY_LABEL_LIMIT - 'Evidence · '.length)}`;
+  }
+
+  return compactText(normalized);
+}
+
+export function buildNodeDetailQuery() {
+  return `
+    MATCH (c) WHERE c.id = $id
+    OPTIONAL MATCH (c)-[:SUPPORTED_BY]->(e:EvidenceSpan)
+    OPTIONAL MATCH (c)-[outgoingRel]->(outgoingNode)
+    OPTIONAL MATCH (incomingNode)-[incomingRel]->(c)
+    RETURN c,
+           collect(DISTINCT e) AS evidence,
+           collect(DISTINCT {rel: type(outgoingRel), other: outgoingNode, reasoning: outgoingRel.reasoning_summary, confidence: outgoingRel.confidence, assertionId: outgoingRel.assertion_id}) AS outgoing,
+           collect(DISTINCT {rel: type(incomingRel), other: incomingNode, reasoning: incomingRel.reasoning_summary, confidence: incomingRel.confidence, assertionId: incomingRel.assertion_id}) AS incoming
+  `;
+}
+
+export function normalizeEvidenceSpan(e: any) {
+  const props = e.properties ? e.properties : e;
   return {
-    id: node.id,
-    label: node.label || node.quote || node.normalized_text || node.document_title || node.document_id || node.id,
+    id: props.id,
+    quote: props.quote || props.normalized_text || props.label || 'No quote',
+    document_id: props.document_id,
+    document_title: props.document_title || props.source_title || props.document_name || props.document_id,
+    deep_link: props.deep_link,
+    confidence: props.confidence != null ? Number(props.confidence) : undefined,
+  };
+}
+
+export function normalizeNode(node: any) {
+  if (!node) return null;
+  const props = node.properties ? node.properties : node;
+  const inferredType = props.type || props.kind || (props.quote || props.normalized_text ? 'evidence_span' : 'unknown');
+  const label = props.label || props.quote || props.normalized_text || props.document_title || props.document_id || props.id;
+  return {
+    id: props.id,
+    label,
+    displayLabel: props.displayLabel || props.display_label || buildDisplayLabel(label, inferredType),
     type: inferredType,
-    kind: node.kind,
-    summary: node.summary,
-    slug: node.slug,
-    status: node.status,
-    confidence: node.confidence != null ? Number(node.confidence) : undefined,
-    aliases: node.aliases,
-    taxonomy_path: node.taxonomy_path,
-    createdAt: node.created_at,
-    updatedAt: node.updated_at,
+    kind: props.kind,
+    summary: props.summary,
+    slug: props.slug,
+    status: props.status,
+    confidence: props.confidence != null ? Number(props.confidence) : undefined,
+    aliases: props.aliases,
+    taxonomy_path: props.taxonomy_path,
+    createdAt: props.created_at,
+    updatedAt: props.updated_at,
     radius: inferredType === 'taxonomy' ? 12 : inferredType === 'topic' ? 10 : inferredType === 'subtopic' ? 9 : inferredType === 'rule' ? 9 : inferredType === 'evidence_span' ? 6 : 8,
   };
 }
@@ -304,6 +356,7 @@ app.get('/search', async (c) => {
       kind: 'node' as const,
       id: r.id,
       label,
+      displayLabel: buildDisplayLabel(label, r.type || r.kind || 'unknown'),
       type: r.type || r.kind || 'unknown',
       matchType: matchedField,
       matchedField,
@@ -317,18 +370,7 @@ app.get('/search', async (c) => {
 app.get('/node/:id', async (c) => {
   const id = c.req.param('id');
 
-  const nodes = await runQuery(`
-    MATCH (c) WHERE c.id = $id
-    OPTIONAL MATCH (c)-[:SUPPORTED_BY]->(e:EvidenceSpan)
-    OPTIONAL MATCH (c)-[r]->(other)
-    WHERE type(r) <> 'BELONGS_TO' AND type(r) <> 'HAS_CHILD'
-    OPTIONAL MATCH (in)<-[rin]-(c)
-    WHERE type(rin) <> 'BELONGS_TO' AND type(rin) <> 'HAS_CHILD'
-    RETURN c,
-           collect(DISTINCT e) AS evidence,
-           collect(DISTINCT {rel: type(r), other: other, reasoning: r.reasoning_summary, confidence: r.confidence, assertionId: r.assertion_id}) AS outgoing,
-           collect(DISTINCT {rel: type(rin), other: in, reasoning: rin.reasoning_summary, confidence: rin.confidence, assertionId: rin.assertion_id}) AS incoming
-  `, { id });
+  const nodes = await runQuery(buildNodeDetailQuery(), { id });
 
   if (!nodes.length) return c.json({ error: { code: 'NODE_NOT_FOUND', message: `Node '${id}' not found` } }, 404);
 
@@ -349,14 +391,10 @@ app.get('/node/:id', async (c) => {
     }
   }
 
-  const evidence = (n.evidence || []).filter(Boolean).map((e: any) => ({
-    id: e.id,
-    quote: e.quote || e.normalized_text || 'No quote',
-    document_id: e.document_id,
-    document_title: e.document_id,
-    deep_link: e.deep_link,
-    confidence: e.confidence != null ? Number(e.confidence) : undefined,
-  }));
+  const evidence = (n.evidence || []).filter(Boolean).map((e: any) => normalizeEvidenceSpan(e));
+  if (node?.type === 'evidence_span' && evidence.length === 0) {
+    evidence.push(normalizeEvidenceSpan(n.c));
+  }
 
   const incoming = (n.incoming || []).filter((r: any) => r.rel && r.other).map((r: any) => ({
     relType: r.rel,

@@ -33,7 +33,7 @@ def load_concepts(*, allowed_paths: Iterable[Path] | None = None) -> Dict[str, s
 # --------------------------------------------------
 
 SECTION_PATTERN = re.compile(
-    r"^(?:SECTION|SEC\.)\s+(\d+(?:\.\d+)*)[\.\-:]?\s*(.*)$",
+    r"^(?:SECTION|SEC\.)\s+([A-Z](?:\.\d+)*|\d+(?:\.\d+)*)[\.\-:]?\s*(.*)$",
     re.IGNORECASE,
 )
 NUMBERED_HEADING_PATTERN = re.compile(
@@ -46,6 +46,7 @@ def _normalize_heading_candidate(line: str) -> str:
     stripped = re.sub(r"^#+\s*", "", stripped)
     stripped = re.sub(r"^[-*]\s*", "", stripped)
     stripped = re.sub(r"\s+", " ", stripped)
+    stripped = re.sub(r"\s+([:\-.])\s*", r"\1 ", stripped)
     return stripped.strip()
 
 

@@ -1,10 +1,11 @@
 ---
-id: source-george-salvan-architectural-character-and-the-history-of-architecture
+id: source-george-salvan-architectural-character-and-the-history-of-architecture-d5a423
 title: George Salvan Architectural Character And The History Of Architecture
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:54.414747+00:00
+source_relative_markdown_path: 002-History/raw_markdown/George Salvan Architectural Character and the History of Architecture.md
+last_canonicalized_utc: 2026-04-23T19:47:34.922928+00:00
 ---
 
 # George Salvan Architectural Character And The History Of Architecture

@@ -1,10 +1,11 @@
 ---
-id: source-vol2-zoning-ordinance
+id: source-vol2-zoning-ordinance-d67794
 title: ARTICLE I TITLE OF ORDINANCE
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:38.069535+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/648659786-Vol2-Zoning-Ordinance.md
+last_canonicalized_utc: 2026-04-23T19:47:12.146908+00:00
 ---
 
 # ARTICLE I TITLE OF ORDINANCE

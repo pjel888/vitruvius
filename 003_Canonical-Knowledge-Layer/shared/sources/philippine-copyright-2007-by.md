@@ -1,13 +1,14 @@
 ---
-id: handout-guidelines-on-energy-conserving-design-of-buildings
+id: handout-guidelines-on-energy-conserving-design-of-buildings-0c11d9
 title: Philippine Copyright 2007 by
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:31.856622+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/DOE/DOE Guidelines on Energy Conserving Design on Buildings v2008.md
+last_canonicalized_utc: '2026-04-23T21:37:20.229982+00:00'
 aliases:
-  - DOE Guidelines on Energy Conserving Design on Buildings
-  - Energy Conserving Design of Buildings Guidelines
+- DOE Guidelines on Energy Conserving Design on Buildings
+- Energy Conserving Design of Buildings Guidelines
 ---
 
 # Philippine Copyright 2007 by

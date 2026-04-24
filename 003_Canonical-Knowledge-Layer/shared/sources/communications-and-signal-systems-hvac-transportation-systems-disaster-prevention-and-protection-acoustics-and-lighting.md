@@ -1,10 +1,11 @@
 ---
-id: source-mechanical-and-electrical-systems-2
+id: source-mechanical-and-electrical-systems-2-60e1ac
 title: COMMUNICATIONS AND SIGNAL SYSTEMS, HVAC, TRANSPORTATION SYSTEMS, DISASTER PREVENTION AND PROTECTION, ACOUSTICS AND LIGHTING
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:15.406065+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Mechanical and Electrical Systems 2.md
+last_canonicalized_utc: 2026-04-23T19:47:52.904637+00:00
 ---
 
 # COMMUNICATIONS AND SIGNAL SYSTEMS, HVAC, TRANSPORTATION SYSTEMS, DISASTER PREVENTION AND PROTECTION, ACOUSTICS AND LIGHTING

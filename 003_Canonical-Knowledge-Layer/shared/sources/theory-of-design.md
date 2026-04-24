@@ -1,10 +1,11 @@
 ---
-id: handout-theory-lecture
+id: handout-theory-lecture-d799e0
 title: THEORY OF DESIGN
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:55.845339+00:00
+source_relative_markdown_path: 002-History/raw_markdown/Theory Lecture.md
+last_canonicalized_utc: 2026-04-23T19:47:37.961504+00:00
 ---
 
 # THEORY OF DESIGN

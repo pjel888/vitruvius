@@ -1,10 +1,11 @@
 ---
-id: handout-building-construction-2-lecture
+id: handout-building-construction-2-lecture-33b8b8
 title: 2.1 TYPES OF WOOD FRAMING
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:57.523102+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Construction 2 Lecture.md
+last_canonicalized_utc: 2026-04-23T19:47:41.426345+00:00
 ---
 
 # 2.1 TYPES OF WOOD FRAMING

@@ -1,15 +1,16 @@
 ---
-id: irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines
+id: irr-amended-implementing-rules-and-regulations-of-the-water-code-of-the-philippines-7c04ac
 title: Section 3. Qualification of Applicants for Permit/Authority – Only the following may file an
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:41.211875+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-1067/Water Code of PH IRR 2005.md
+last_canonicalized_utc: '2026-04-23T21:37:39.863062+00:00'
 aliases:
-  - PD 1067 IRR
-  - Water Code IRR
-  - Water Code of PH IRR 2005
-  - Amended Water Code IRR
+- PD 1067 IRR
+- Water Code IRR
+- Water Code of PH IRR 2005
+- Amended Water Code IRR
 ---
 
 # Section 3. Qualification of Applicants for Permit/Authority – Only the following may file an

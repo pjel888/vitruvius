@@ -1,43 +1,68 @@
 ---
-id: source-building-technology-mcqs-with-key
+id: source-building-tech-illustrated-ce47e5
 title: BUILDING TECHNOLOGY
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:58.413239+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Tech Illustrated.md
+last_canonicalized_utc: 2026-04-23T20:00:14.002059+00:00
 ---
 
 # BUILDING TECHNOLOGY
 
 ## Overview
 
-Automated summary withheld for BUILDING TECHNOLOGY because the refined source includes image-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
+Materials used in construction, including sand, gravel, crushed stone, slag, or recycled crushed concrete
 
 ## Coverage
 
-- 1. A brand name for aluminumcladding is:
-- 6. A vault having a circular crosssection that is larger at one endthan the other:
-- 12. The projection of a figure orform from the flat backgroundon which it is formed:
-- 13. A steel rod serving as a kingpost of a truss:
-- 16. Name of metal tile section ofDN Steel:
-- 17. Another name of BARREL clayroof tile:
-- 18. Distance of purlins for metalroof tile.
-- 2. What is used to cleanefflorescence in bricks?
-- 3. What do you call a windowattached to a roof?
-- 6. Concrete slab should have aminimum clearance of:a) 20 mm b) 40 mmc) 15 mm d) 30 mm
-- 10. Wood flooring finishingmaterial:a) T & G wood planksb) V-cut wood planksc) gypsum boardd) ply board panel
-- 15. The vertical surface on the faceof a stair step is called:a) Stair clipb) Stairheadc) Nosingd) Riser
-- 23. The other kind of handsawother than rip-cut saw is:a) Diagonal cut sawb) Cross-cutc) Circular sawd) Coping saw
-- 6. Ratio of unit stress to unit strain:a) Ratio and proportionb) Moment of Inertiac) Modulus of elasticityd) Slenderness ratio
-- 13. Jack rafter is used for:a) Hip roof supportb) Cantilevered trussc) Long span beamd) None of these
-- 15. The total of all tread widths ona stair is called:a) Total riserb) Total runc) Winderd) None of these
-- 28. Hammer is:a) Striking toolb) Holding toolc) Measuring toold) Cutting tool
-- 41. Lumber specification S4 Smeans:a) Smooth for surfacing jobsb) square on four sidec) First class lumberd) Smooth on four sides
+- Aggregates
+- Batter Pile Beam & Girder Slab
+- Beam & Beam Details
+- Beam Bleeding - Laitance Bolster
+- Braced Cofferdam Caisson Cantilever Beam
+- Cantilever Footing Cased Pile Cast-In-Place Concrete
+- Cellular Mat Cement Chair / High Chair
+- Cofferdam Column Combined Footing
+- Composite Pile Continuous Beam Continuous Footing
+- Continuous Slab Corner Footing Damp-Proofing
+- Deformed Bar Direct Placement Double Tee
+- Double Wales Double Wall Cofferdam Drop Hammer
+- Earth Embankment End Bearing Pole Environmental & Dead Loads
+- Fender Pile Ferrocement Flat Plate
+- Flat Slab Floating Foundation Footing Tie Beam
+- Formworks Foundation Friction Pole
+- Grade Beam Grillage Guide Pile
+- H Pile H Section Pile Hollow Core Slab
+- Live Load Major Excavation Mat Footing
+- Metal Rebar Hook Minor Excavation Non-Prestressed Beams
+- One Way Slab Open Caisson Pier
+- Pile Cap Pile Driver Pile Foundation
+- Pipe Pile Pneumatic Caisson Pre-Cast Concrete Pile
+- Reinforcement Ribbed Mat Foundation Rock Caisson
+- Scaffolding Segregation Semi-Continuous Beam
+- Shoring Simplex Pile Single Tee
+- Slurry Wall Socketed Caisson Soldier Pile & Lagging
+- Solid Flat Slab Spiral Reinforcement Square Sloped Footing
+- Steel Pipe Pile Stepped Footing Stratification
+- Strip Footing Substratum Superstructure & Substructure
+- T-Beam Tapered Flute Pile Tension & Compression Reinforcement
+- Tie Beam Tiebacks Timber Pole
+- Trapezoidal Footing Two Way Slab Uncased Pile
+- Underpinning Waffle Slab Wale
+- Wall Footing Water Wood Pile
+- Wood Formwork Detail
+- T-Type Cantilevered Wall Gravity Wall
+- Counterfort Wall L-Type Cantilevered Wall
 
 ## Key Points
 
-- (automated key points withheld because source-summary trust is low; review operative sections directly)
+- Materials used in construction, including sand, gravel, crushed stone, slag, or recycled crushed concrete A pile driven at an angle to the vertical.
+- Horizontal or inclined structural member spanning a distance between one or more supports, and carrying vertical loads across (transverse to) its longitudinal axis, as a girder, joist, purlin, or rafter.
+- rigid structural member designed to carry and transfer transverse loads across space to supporting elements The emergence of excess mixing water on the surface of newly placed concrete caused Dy settlement of solids within the mass.
+- temporary braced damlike structure constructed around an excavation to exclude water.
+- footing having a tie beam to another footing to balance a structural load not symmetrically located with respect to the footing.
 
 ## Referenced Concepts
 
-- concept-occupancy-load
+- (none resolved against shared/concepts)

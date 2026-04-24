@@ -1,30 +1,39 @@
 ---
-id: source-uap-documents
+id: reviewer-uap-documents-reviewer-3a49c8
 title: UAP DOCUMENTS
 page_type: source
-trust_level: unknown
+trust_level: educational
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:50.372596+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/UAP/UAP Documents Reviewer.md
+last_canonicalized_utc: 2026-04-23T20:00:02.130397+00:00
 ---
 
 # UAP DOCUMENTS
 
 ## Overview
 
-5 days - immediately 7 days - from receipt of NOTICE TO PROCEED 10 days -notice to stop, resume before beginning or
+8. one and one half ( 1 ½)
 
 ## Coverage
 
-- (no headers detected in refined source)
+- 3. Philippine Institute of Civil Engineers (PICE)
+- 3. False (construction phase not design development phase
+- 1. __________________________________________________________________ 2. __________________________________________________________________
+- 1. __________________________________________________________________ 2. __________________________________________________________________ 3. __________________________________________________________________
+- 1. __________________________________________________________________
+- 5. ___________________________ 6. ___________________________ 7. ___________________________ 8. ___________________________
 
 ## Key Points
 
-- Contractor can suspend work: - 1.
-- PD 1185 Fire Code PD 1096 Building Code PD 957 Condominium & Subdivision, Bridges Protective Law PD 23 Law that Created the PRC PD 49 Intellectual Property Law RA 545 The Architects Law BP 344 The Law Enhancing the Mobility of Disabled BP 220 The Socialized Housing Law.
-- Simple 6% Moderate 7% Exceptional 8% Residential 10% Monumental MBF + 50% Repetitive 80%, 60%, 40% Housing 60%, 30% Extensive Detailing 15% Alteration and Renovation 150% Consultation P200.
+- I.
+- 1.
 
 ## Referenced Concepts
 
+- concept-general-conditions-of-contract
+- concept-standards-of-professional-practice
 - concept-arbitration
-- concept-certificate-of-occupancy
+- concept-code-of-ethics
+- concept-floor-area-ratio
+- concept-competitive-bidding
 - concept-building-permit

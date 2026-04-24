@@ -1,10 +1,11 @@
 ---
-id: source-design-process
+id: source-design-process-0c60bb
 title: DESIGN STAGES
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:27:54.053371+00:00
+source_relative_markdown_path: 002-History/raw_markdown/Design Process.md
+last_canonicalized_utc: 2026-04-23T19:47:34.323842+00:00
 ---
 
 # DESIGN STAGES

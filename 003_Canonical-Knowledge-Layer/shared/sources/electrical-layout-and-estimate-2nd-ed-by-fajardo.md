@@ -1,10 +1,11 @@
 ---
-id: source-electrical-layout-and-estimate-2nd-ed-by-fajardo
+id: source-electrical-layout-and-estimate-2nd-ed-by-fajardo-7d57be
 title: Electrical Layout And Estimate 2Nd Ed By Fajardo
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:12.695310+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Electrical Layout and Estimate 2nd Ed by Fajardo.md
+last_canonicalized_utc: 2026-04-23T19:47:49.049899+00:00
 ---
 
 # Electrical Layout And Estimate 2Nd Ed By Fajardo

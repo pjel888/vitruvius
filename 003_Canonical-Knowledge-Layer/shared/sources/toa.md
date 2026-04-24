@@ -1,10 +1,11 @@
 ---
-id: source-toa-5-masters-of-architecture
+id: source-toa-5-masters-of-architecture-c29d97
 title: TOA
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:55:58.122367+00:00
+source_relative_markdown_path: 003-Theory/refined_markdown/TOA 5 (Masters of Architecture).md
+last_canonicalized_utc: 2026-04-23T19:37:42.114286+00:00
 ---
 
 # TOA

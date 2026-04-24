@@ -4,6 +4,7 @@ import { ChevronRight, ChevronDown, FolderTree, Filter } from 'lucide-react';
 import { useSceneStore } from '../stores/useSceneStore';
 import { getTaxonomy } from '../api/graphApi';
 import type { TaxonomyNode } from '../types';
+import { getDisplayLabel } from '../utils/labels';
 import FiltersPanel from './explorer-rail/FiltersPanel';
 
 function TreeItem({ node, depth = 0, navigate }: { node: TaxonomyNode; depth?: number; navigate: ReturnType<typeof useNavigate> }) {
@@ -31,7 +32,7 @@ function TreeItem({ node, depth = 0, navigate }: { node: TaxonomyNode; depth?: n
           node.kind === 'taxonomy' ? 'bg-node-taxonomy' :
           node.kind === 'topic' ? 'bg-node-topic' : 'bg-node-subtopic'
         }`} />
-        <span className="truncate">{node.label}</span>
+        <span className="truncate" title={node.label}>{getDisplayLabel(node)}</span>
         {node.conceptCount > 0 && (
           <span className="text-xs text-text-dim ml-auto shrink-0">{node.conceptCount}</span>
         )}
@@ -190,7 +191,7 @@ export default function ExplorerRail() {
                 onClick={() => setSelectedNode(node.id)}
                 className="w-full text-left rounded-md px-2 py-1.5 text-sm hover:bg-panel-hover transition-colors"
               >
-                <div className="truncate text-text">{node.label}</div>
+                <div className="truncate text-text" title={node.label}>{getDisplayLabel(node)}</div>
                 <div className="text-xs text-text-dim truncate">{node.type}</div>
               </button>
             ))}

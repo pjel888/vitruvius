@@ -1,10 +1,11 @@
 ---
-id: handout-handouts-for-electricity
+id: handout-handouts-for-electricity-342fa4
 title: 02 BASIC THEORY
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T17:02:13.863006+00:00
+source_relative_markdown_path: 005-Utilities/raw_markdown/Handouts for Electricity.md
+last_canonicalized_utc: 2026-04-23T19:47:50.961070+00:00
 ---
 
 # 02 BASIC THEORY

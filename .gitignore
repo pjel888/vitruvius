@@ -62,6 +62,8 @@ Thumbs.db
 
 # AI Tooling & Indices
 .chunkhound/
+.playwright-mcp/
+.sisyphus/
 **/__pycache__/
 
 # Runtime lock files (session IDs, PIDs — never commit)
@@ -89,4 +91,3 @@ Thumbs.db
 ~/.antigravity
 # Vendored dependencies
 /.vendor/
-

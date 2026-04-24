@@ -1,10 +1,11 @@
 ---
-id: source-toa-4-tropical-architecture
+id: source-toa-4-tropical-architecture-34c371
 title: TOA MODULE 4
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T13:55:58.044344+00:00
+source_relative_markdown_path: 003-Theory/refined_markdown/TOA 4 (Tropical Architecture).md
+last_canonicalized_utc: 2026-04-23T19:37:41.963384+00:00
 ---
 
 # TOA MODULE 4

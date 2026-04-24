@@ -36,6 +36,19 @@ def test_split_sections_handles_numbered_all_caps_heading() -> None:
     assert sections[0]['title'] == 'GENERAL PROVISIONS'
 
 
+def test_split_sections_handles_lettered_sections() -> None:
+    text = (
+        'Section A : Brief History\n\n'
+        'Town history text.\n\n'
+        'Section B. Human Resource\n\n'
+        'Population text.\n'
+    )
+    sections = split_sections(text)
+    assert [section['section_id'] for section in sections] == ['section-a', 'section-b']
+    assert sections[0]['title'] == 'Brief History'
+    assert 'Town history text.' in ' '.join(sections[0]['lines'])
+
+
 def test_build_text_windows_splits_paragraphs_and_sentences() -> None:
     windows = build_text_windows([
         "Accessible ramps shall comply with the slope rule. Handrails shall be required.",

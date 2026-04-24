@@ -1,10 +1,11 @@
 ---
-id: handout-building-construction-1-lecture
+id: handout-building-construction-1-lecture-ed293b
 title: 1. PREPARATION FOR CONSTRUCTION
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:57.421247+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Construction 1 Lecture.md
+last_canonicalized_utc: 2026-04-23T19:47:41.214930+00:00
 ---
 
 # 1. PREPARATION FOR CONSTRUCTION

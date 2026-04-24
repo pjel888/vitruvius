@@ -1,13 +1,14 @@
 ---
-id: handout-uap-document-301-general-conditions
-title: SECTION 3: EQUIPMENT AND MATERIALS
+id: handout-uap-document-301-general-conditions-b673dc
+title: 'SECTION 3: EQUIPMENT AND MATERIALS'
 page_type: source
 trust_level: primary
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T06:34:49.759557+00:00
+source_relative_markdown_path: 001-Laws/raw_markdown/UAP/UAP Document 3012.md
+last_canonicalized_utc: '2026-04-23T21:37:56.361187+00:00'
 aliases:
-  - UAP Document 301
-  - General Conditions
+- UAP Document 301
+- General Conditions
 ---
 
 # SECTION 3: EQUIPMENT AND MATERIALS

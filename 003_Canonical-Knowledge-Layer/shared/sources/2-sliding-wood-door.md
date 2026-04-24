@@ -1,10 +1,11 @@
 ---
-id: handout-building-technology-handout-3
+id: handout-building-technology-handout-3-99ef09
 title: 2. SLIDING WOOD DOOR
 page_type: source
 trust_level: study_aid
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:58.236217+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Technology Handout 3.md
+last_canonicalized_utc: 2026-04-23T19:47:43.128376+00:00
 ---
 
 # 2. SLIDING WOOD DOOR

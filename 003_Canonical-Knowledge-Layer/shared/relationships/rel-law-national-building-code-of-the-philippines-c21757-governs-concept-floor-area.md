@@ -1,0 +1,43 @@
+---
+id: rel-law-national-building-code-of-the-philippines-c21757-governs-concept-floor-area
+title: law-national-building-code-of-the-philippines-c21757 governs concept-floor-area
+page_type: relationship
+relationship_type: governs
+from_entity: law-national-building-code-of-the-philippines-c21757
+to_entity: concept-floor-area
+trust_level: primary
+canonical_status: promoted
+confidence_score: 0.95
+promotion_batch_id: 20260423T205124Z_dbe32622
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260423T203224Z/promotion_audit.log
+last_promoted_utc: 20260423T205124Z
+evidence:
+- source_id: law-national-building-code-of-the-philippines-c21757
+  source_section_id: section-502
+  evidence_snippet: 100ther shall be considered to be in the more highly restrictive fire zone, when more than one-third of its total floor area is located in such zone.
+  review_decision: keep
+  reviewer_model: qwen2.5:3b
+  reviewer_provider: ollama
+  reviewer_confidence: 0.95
+  reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
+  local_review_decision: keep
+  local_reviewer_confidence: 0.95
+  extracted_at_utc: 20260423T205124Z
+  reviewed_at_utc: 20260423T205124Z
+---
+
+# law-national-building-code-of-the-philippines-c21757 governs concept-floor-area
+
+## Relationship Summary
+
+Promoted relationship of type `governs` from `law-national-building-code-of-the-philippines-c21757` to `concept-floor-area`.
+
+## Evidence
+
+### Evidence 1 - `law-national-building-code-of-the-philippines-c21757` §section-502
+
+> 100ther shall be considered to be in the more highly restrictive fire zone, when more than one-third of its total floor area is located in such zone.
+
+- Reviewer: `qwen2.5:3b` · Decision: `keep` · Confidence: `0.95`
+- Reviewed: 20260423T205124Z
+- Batch: `20260423T205124Z_dbe32622`

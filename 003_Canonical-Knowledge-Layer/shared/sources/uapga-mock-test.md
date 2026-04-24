@@ -1,10 +1,11 @@
 ---
-id: source-building-technology-mock-test-with-key
+id: source-building-technology-mock-test-with-key-b020ec
 title: UAPGA MOCK TEST
 page_type: source
 trust_level: unknown
 canonical_status: draft
-last_canonicalized_utc: 2026-04-19T16:42:58.486172+00:00
+source_relative_markdown_path: 004-Technology/raw_markdown/Building Technology Mock Test with Key.md
+last_canonicalized_utc: 2026-04-23T19:47:43.702475+00:00
 ---
 
 # UAPGA MOCK TEST

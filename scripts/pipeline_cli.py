@@ -147,6 +147,12 @@ def _source_matches_subjects(source_md: Path, subject_set: set[str], repo_root: 
     if not isinstance(fm, dict):
         return False
 
+    frontmatter_rel = fm.get("source_relative_markdown_path")
+    if isinstance(frontmatter_rel, str) and frontmatter_rel.strip():
+        normalized_rel = Path(frontmatter_rel).as_posix()
+        if _conversion_path_matches_subjects(normalized_rel, subject_set):
+            return True
+
     pdf_names: list[str] = []
     orig = fm.get("original_file", "")
     if isinstance(orig, str) and orig.lower().endswith(".pdf"):
@@ -174,6 +180,182 @@ def _source_matches_subjects(source_md: Path, subject_set: set[str], repo_root: 
                 for found in refined_dir.rglob(f"{source_md.stem}.md"):
                     return True
     return False
+
+
+def _conversion_path_matches_subjects(relative_conversion_path: str, subject_set: set[str]) -> bool:
+    normalized_rel = Path(relative_conversion_path).as_posix()
+    rel_parts = Path(normalized_rel).parts
+
+    for subject in subject_set:
+        subject_parts = Path(subject).parts
+        if normalized_rel.startswith(subject + "/"):
+            return True
+        if not subject_parts:
+            continue
+
+        top_level = subject_parts[0]
+        nested_parts = subject_parts[1:]
+        if not nested_parts:
+            continue
+        if len(rel_parts) < 2:
+            continue
+        if rel_parts[0] != top_level:
+            continue
+        if rel_parts[1] not in {"raw_markdown", "refined_markdown", "sidecar_json", "ocr_pdf"}:
+            continue
+        tail_parts = rel_parts[2: 2 + len(nested_parts)]
+        if tuple(tail_parts) == tuple(nested_parts):
+            return True
+
+    return False
+
+
+def _read_source_frontmatter(source_md: Path) -> dict[str, object]:
+    try:
+        text = source_md.read_text(encoding="utf-8")
+    except OSError:
+        return {}
+    if not text.startswith("---"):
+        return {}
+    end = text.find("\n---", 3)
+    if end == -1:
+        return {}
+    try:
+        import yaml
+
+        payload = yaml.safe_load(text[3:end].strip())
+    except Exception:
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
+def _build_skip_review_high_confidence_payload(
+    *,
+    extract_report: dict[str, object],
+    source_id: str,
+) -> dict[str, object]:
+    from vitruvius.utils import utc_now_stamp
+
+    relationships = extract_report.get("relationships", [])
+    candidates = []
+    if isinstance(relationships, list):
+        for relationship in relationships:
+            if not isinstance(relationship, dict):
+                continue
+            candidates.append(
+                {
+                    "candidate": relationship,
+                    "review": {
+                        "decision": "keep",
+                        "confidence": 1.0,
+                        "reason": f"skip_review pipeline path for {source_id}",
+                        "suggested_type": None,
+                    },
+                    "source": "skip_review_pipeline",
+                }
+            )
+
+    return {
+        "generated_at": utc_now_stamp(),
+        "source_report_generated_at": extract_report.get("generated_at"),
+        "source_model": None,
+        "source": extract_report.get("source", source_id),
+        "threshold": 0.0,
+        "count": len(candidates),
+        "candidates": candidates,
+    }
+
+
+def _convert_and_refine_for_kg_pipeline(
+    *,
+    repo_root: Path,
+    relative_source_path: str,
+    sample_pages: int = 5,
+) -> dict[str, object]:
+    import json
+
+    from vitruvius.conversion import convert_pdf_at_path, run_convert_one
+    from vitruvius.detection import detect_pdf_type
+    from vitruvius.normalization.refine import run_refine_one
+    from vitruvius.paths import build_conversion_relative_paths, build_ocr_pdf_relative_path
+
+    source_path = repo_root / "001_Raw-Source-Layer" / relative_source_path
+    markdown_rel, _json_rel = build_conversion_relative_paths(relative_source_path)
+    result: dict[str, object] = {
+        "source_relative_path": relative_source_path,
+        "converted": False,
+        "refined": False,
+        "used_ocr": False,
+        "ocr_required": False,
+        "detection_result": None,
+        "recommended_route": None,
+    }
+
+    if source_path.suffix.lower() != ".pdf":
+        convert_rc = run_convert_one(relative_source_path)
+        result["converted"] = convert_rc == 0
+        if convert_rc != 0:
+            result["error"] = "convert_failed"
+            return result
+        refine_rc = run_refine_one(relative_markdown_path=markdown_rel.as_posix())
+        result["refined"] = refine_rc == 0
+        if refine_rc != 0:
+            result["error"] = "refine_failed"
+        return result
+
+    detection = detect_pdf_type(source_path, sample_pages=sample_pages)
+    result["detection_result"] = detection.get("result")
+    result["recommended_route"] = detection.get("recommended_route")
+
+    if detection.get("recommended_route") != "OPENDATALOADER_DIRECT":
+        import ocrmypdf
+
+        result["ocr_required"] = True
+        result["used_ocr"] = True
+        ocr_rel = build_ocr_pdf_relative_path(relative_source_path)
+        ocr_repo_rel = Path("002_Raw-Conversion-Layer") / ocr_rel
+        ocr_abs = repo_root / ocr_repo_rel
+        ocr_abs.parent.mkdir(parents=True, exist_ok=True)
+        if ocr_abs.exists():
+            ocr_abs.unlink()
+
+        ocrmypdf.ocr(
+            str(source_path),
+            str(ocr_abs),
+            languages=["eng"],
+            deskew=True,
+            skip_text=True,
+            progress_bar=False,
+        )
+
+        converted = convert_pdf_at_path(
+            ocr_abs,
+            relative_source_path,
+            run_command="run-kg-pipeline",
+            detected_pdf_type="OCR_OUTPUT_PDF",
+            processing_route="OCR_THEN_OPENDATALOADER",
+            output_ocr_pdf_relative_path=ocr_repo_rel.as_posix(),
+        )
+        result["converted"] = True
+        result["convert_output"] = json.dumps(
+            {
+                "markdown_output_relative": converted.get("markdown_output_relative"),
+                "json_output_relative": converted.get("json_output_relative"),
+                "status": converted.get("status"),
+            }
+        )
+    else:
+        convert_rc = run_convert_one(relative_source_path, sample_pages=sample_pages)
+        result["converted"] = convert_rc == 0
+        if convert_rc != 0:
+            result["error"] = "convert_failed"
+            return result
+
+    refine_rc = run_refine_one(relative_markdown_path=markdown_rel.as_posix())
+    result["refined"] = refine_rc == 0
+    if refine_rc != 0:
+        result["error"] = "refine_failed"
+    return result
 
 
 def run_kg_pipeline(
@@ -285,8 +467,10 @@ def run_kg_pipeline(
     print("Phase 1/5 — Scan, Convert, Refine")
     print("=" * 60)
 
-    from vitruvius.conversion import run_convert, run_convert_one
+    from vitruvius.conversion import SUPPORTED_DIRECT_INPUT_EXTENSIONS, run_convert, run_convert_one
     from vitruvius.normalization.refine import run_refine, run_refine_one
+    from vitruvius.linting import run_lint
+    from vitruvius.scanner import run_scan
 
     if not dry_run:
         if subject_set:
@@ -326,27 +510,22 @@ def run_kg_pipeline(
             converted = 0
             refined = 0
             for rel_path in filtered:
-                if Path(rel_path).suffix.lower() != ".pdf":
+                if Path(rel_path).suffix.lower() not in SUPPORTED_DIRECT_INPUT_EXTENSIONS:
                     continue
-                rc = run_convert_one(rel_path)
-                if rc == 0:
+                try:
+                    process_result = _convert_and_refine_for_kg_pipeline(
+                        repo_root=repo_root,
+                        relative_source_path=rel_path,
+                    )
+                except Exception as exc:
+                    print(f"  WARN: failed to prepare {rel_path}: {exc}")
+                    continue
+                if process_result.get("converted"):
                     converted += 1
-                # Derive expected refined path: 002/<subject>/.../raw_markdown/<basename>.md
-                # The conversion layer mirrors the raw layer structure.
-                raw_basename = Path(rel_path).stem
-                refined_candidates = [
-                    p for p in (repo_root / "002_Raw-Conversion-Layer").rglob(f"{raw_basename}.md")
-                    if "raw_markdown" in p.parts
-                ]
-                if refined_candidates:
-                    rel_refined = refined_candidates[0].relative_to(
-                        repo_root / "002_Raw-Conversion-Layer"
-                    ).as_posix()
-                    rc = run_refine_one(relative_markdown_path=rel_refined)
-                    if rc == 0:
-                        refined += 1
-                else:
-                    print(f"  WARN: no refined markdown found for {rel_path}")
+                if process_result.get("refined"):
+                    refined += 1
+                elif process_result.get("error"):
+                    print(f"  WARN: {rel_path} prepare path failed ({process_result['error']})")
 
             # In force mode, also refine any existing raw_markdown in the subject scope
             # that may not have been touched above (e.g. from prior conversions).
@@ -364,19 +543,77 @@ def run_kg_pipeline(
 
             print(f"Phase 1 complete: {converted} converted, {refined} refined")
         else:
-            # Full run: use batch convert + refine
-            rc = run_pipeline()
-            if rc != 0:
-                report["error"] = "scan/status/lint failed"
-                return rc
-            rc = run_convert()
-            if rc != 0:
-                report["error"] = "convert failed"
-                return rc
-            rc = run_refine()
-            if rc != 0:
-                report["error"] = "refine failed"
-                return rc
+            if force:
+                raw_root = repo_root / "001_Raw-Source-Layer"
+
+                rc = run_scan()
+                if rc != 0:
+                    report["error"] = "scan failed"
+                    return rc
+                rc = run_lint()
+                if rc != 0:
+                    report["error"] = "lint failed"
+                    return rc
+
+                filtered = [
+                    path.relative_to(raw_root).as_posix()
+                    for path in sorted(raw_root.rglob("*"))
+                    if path.is_file() and path.suffix.lower() in SUPPORTED_DIRECT_INPUT_EXTENSIONS
+                ]
+                print(f"Phase 1 full-scope (force): {len(filtered)} supported file(s) found in raw layer")
+
+                converted = 0
+                refined = 0
+                for rel_path in filtered:
+                    try:
+                        process_result = _convert_and_refine_for_kg_pipeline(
+                            repo_root=repo_root,
+                            relative_source_path=rel_path,
+                        )
+                    except Exception as exc:
+                        print(f"  WARN: failed to prepare {rel_path}: {exc}")
+                        continue
+                    if process_result.get("converted"):
+                        converted += 1
+                    if process_result.get("refined"):
+                        refined += 1
+                    elif process_result.get("error"):
+                        print(f"  WARN: {rel_path} prepare path failed ({process_result['error']})")
+
+                if (repo_root / "002_Raw-Conversion-Layer").exists():
+                    for md_path in sorted((repo_root / "002_Raw-Conversion-Layer").rglob("*.md")):
+                        if "raw_markdown" not in md_path.parts:
+                            continue
+                        rel = md_path.relative_to(repo_root / "002_Raw-Conversion-Layer").as_posix()
+                        rc = run_refine_one(relative_markdown_path=rel)
+                        if rc == 0:
+                            refined += 1
+
+                print(f"Phase 1 complete: {converted} converted, {refined} refined")
+            else:
+                # Full run: use batch convert + refine
+                rc = run_pipeline()
+                if rc != 0:
+                    report["error"] = "scan/status/lint failed"
+                    return rc
+                rc = run_convert()
+                if rc != 0:
+                    report["error"] = "convert failed"
+                    return rc
+                from vitruvius.ocr import run_ocr_execute, run_ocr_queue
+
+                rc = run_ocr_queue()
+                if rc != 0:
+                    report["error"] = "ocr queue failed"
+                    return rc
+                rc = run_ocr_execute()
+                if rc != 0:
+                    report["error"] = "ocr execute failed"
+                    return rc
+                rc = run_refine()
+                if rc != 0:
+                    report["error"] = "refine failed"
+                    return rc
     else:
         if subject_set:
             print(f"[DRY-RUN] Would scan -> filter to {sorted(subject_set)} -> convert-one -> refine-one")
@@ -402,9 +639,9 @@ def run_kg_pipeline(
                 all_md = [p for p in all_md if "refined_markdown" in p.parts]
                 filtered_md = [
                     p for p in all_md
-                    if any(
-                        p.relative_to(conversion_root).as_posix().startswith(s + "/")
-                        for s in subject_set
+                    if _conversion_path_matches_subjects(
+                        p.relative_to(conversion_root).as_posix(),
+                        subject_set,
                     )
                 ]
                 print(f"Phase 2 scoped: {len(filtered_md)} refined markdown(s) match subject filter")
@@ -461,9 +698,21 @@ def run_kg_pipeline(
     reviewed_count = 0
     promoted_count = 0
     skipped_count = 0
+    extracted_relationship_total = 0
+    high_confidence_candidate_total = 0
+    promotion_candidate_total = 0
+    promotion_created_total = 0
+    promotion_merged_total = 0
+    promotion_skipped_total = 0
+    promotion_rejected_total = 0
+    promotion_error_total = 0
+    promoted_source_count = 0
+    zero_relationship_source_count = 0
+    zero_high_confidence_source_count = 0
 
     for source_md in canonical_sources:
-        source_id = source_md.stem
+        frontmatter = _read_source_frontmatter(source_md)
+        source_id = str(frontmatter.get("id") or source_md.stem)
         source_run_dir = phase3_runs_dir / source_id
         source_run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -476,10 +725,17 @@ def run_kg_pipeline(
 
         # Determine the input path for relationship extraction.
         # Prefer refined markdown in 002/; fall back to canonical source in 003/.
-        refined_candidates = [
-            p for p in (repo_root / "002_Raw-Conversion-Layer").rglob(f"{source_md.name}")
-            if "refined_markdown" in p.parts
-        ]
+        refined_candidates: list[Path] = []
+        frontmatter_rel = frontmatter.get("source_relative_markdown_path")
+        if isinstance(frontmatter_rel, str) and frontmatter_rel.strip():
+            candidate = repo_root / "002_Raw-Conversion-Layer" / frontmatter_rel
+            if candidate.exists():
+                refined_candidates = [candidate]
+        if not refined_candidates:
+            refined_candidates = [
+                p for p in (repo_root / "002_Raw-Conversion-Layer").rglob(f"{source_md.name}")
+                if "refined_markdown" in p.parts
+            ]
         if not refined_candidates:
             refined_candidates = [
                 p for p in (repo_root / "002_Raw-Conversion-Layer").rglob(f"{source_md.stem}.md")
@@ -520,13 +776,25 @@ def run_kg_pipeline(
             print(f"  WARN {source_id}: extraction failed (rc={rc})")
             skipped_count += 1
             continue
+        extract_report = json.loads(extract_json.read_text(encoding="utf-8"))
+        extracted_relationships = int(extract_report.get("total_relationships") or 0)
+        extracted_relationship_total += extracted_relationships
+        if extracted_relationships == 0:
+            zero_relationship_source_count += 1
         extracted_count += 1
 
         if skip_review:
-            # Copy extract JSON directly as high-confidence input
-            import shutil
-
-            shutil.copy2(str(extract_json), str(high_conf_json))
+            high_conf_json.write_text(
+                json.dumps(
+                    _build_skip_review_high_confidence_payload(
+                        extract_report=extract_report,
+                        source_id=source_id,
+                    ),
+                    indent=2,
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
         else:
             # Review
             rc = run_review_relationships_ollama(
@@ -545,6 +813,12 @@ def run_kg_pipeline(
                 continue
             reviewed_count += 1
 
+        high_conf_payload = json.loads(high_conf_json.read_text(encoding="utf-8"))
+        high_conf_count = int(high_conf_payload.get("count") or 0)
+        high_confidence_candidate_total += high_conf_count
+        if high_conf_count == 0:
+            zero_high_confidence_source_count += 1
+
         # Promote
         promote_result = run_promote_inner(
             repo_root=repo_root,
@@ -554,10 +828,22 @@ def run_kg_pipeline(
             relationships_output_dir=relationships_dir,
             audit_log_path=phase3_runs_dir / "promotion_audit.log",
         )
+        created_count = int(promote_result.get("created") or 0)
+        merged_count = int(promote_result.get("merged") or 0)
+        skipped_promotion_count = int(promote_result.get("skipped") or 0)
+        rejected_promotion_count = int(promote_result.get("rejected") or 0)
+        error_count = len(promote_result.get("errors") or [])
+        promotion_candidate_total += int(promote_result.get("total_candidates") or 0)
+        promotion_created_total += created_count
+        promotion_merged_total += merged_count
+        promotion_skipped_total += skipped_promotion_count
+        promotion_rejected_total += rejected_promotion_count
+        promotion_error_total += error_count
+        promoted_count += created_count + merged_count
+        if created_count or merged_count:
+            promoted_source_count += 1
         if promote_result.get("rejected") or promote_result.get("errors"):
             print(f"  WARN {source_id}: promote had errors")
-        else:
-            promoted_count += 1
 
     report["phases"].append(
         {
@@ -566,9 +852,20 @@ def run_kg_pipeline(
             "status": "ok",
             "sources_total": len(canonical_sources),
             "extracted": extracted_count,
+            "extracted_relationships": extracted_relationship_total,
             "reviewed": reviewed_count,
             "promoted": promoted_count,
+            "promoted_sources": promoted_source_count,
             "skipped": skipped_count,
+            "zero_relationship_sources": zero_relationship_source_count,
+            "zero_high_confidence_sources": zero_high_confidence_source_count,
+            "high_confidence_candidates": high_confidence_candidate_total,
+            "promotion_candidates": promotion_candidate_total,
+            "promotion_created": promotion_created_total,
+            "promotion_merged": promotion_merged_total,
+            "promotion_skipped": promotion_skipped_total,
+            "promotion_rejected": promotion_rejected_total,
+            "promotion_errors": promotion_error_total,
         }
     )
 
