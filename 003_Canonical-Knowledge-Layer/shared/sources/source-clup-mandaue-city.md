@@ -4,8 +4,8 @@ title: COMPREHENSIVE LAND USE PLAN
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/933175937-Clup-Mandaue-City.md
-last_canonicalized_utc: '2026-04-24T05:40:02.210561+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/933175937-Clup-Mandaue-City.md
+last_canonicalized_utc: '2026-04-24T19:59:03.548522+00:00'
 ---
 
 # COMPREHENSIVE LAND USE PLAN

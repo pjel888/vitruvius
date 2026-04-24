@@ -1,11 +1,11 @@
 ---
-id: source-san-pedro-comprehensive-development-plan-1622ff
+id: source-san-pedro-comprehensive-development-plan
 title: COMPREHENSIVE DEVELOPMENT PLAN 2016-2023
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/912157126-San-Pedro-Comprehensive-Development-Plan.md
-last_canonicalized_utc: '2026-04-24T10:00:04.577056+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/912157126-San-Pedro-Comprehensive-Development-Plan.md
+last_canonicalized_utc: '2026-04-24T19:59:03.015959+00:00'
 ---
 
 # COMPREHENSIVE DEVELOPMENT PLAN 2016-2023

@@ -1,14 +1,14 @@
 ---
-id: source-local-shelter-planning-manual-2016-web-edition-2b4c4f
-title: MANUAL
+id: source-local-shelter-planning-manual-2016-web-edition
+title: Local Shelter Planning Manual 2016 Web Edition
 page_type: source
 trust_level: unknown
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/Local-Shelter-Planning-Manual-2016-Web-Edition.md
-last_canonicalized_utc: '2026-04-24T09:59:50.722648+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:46.167640+00:00'
 ---
 
-# MANUAL
+# Local Shelter Planning Manual 2016 Web Edition
 
 ## Overview
 

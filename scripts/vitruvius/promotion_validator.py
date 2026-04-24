@@ -23,6 +23,16 @@ def normalize_relationship_trust(value: object) -> str:
     return "unverified"
 
 
+def relationship_trust_metadata(value: object) -> dict[str, Any]:
+    """Return normalized trust plus audit metadata for non-schema values."""
+    normalized = normalize_relationship_trust(value)
+    return {
+        "trust_level": normalized,
+        "raw_trust_level": value,
+        "trust_level_was_normalized": normalized != value,
+    }
+
+
 @dataclass
 class ValidationResult:
     passed: bool
@@ -195,11 +205,12 @@ def build_canonical_index(repo_root: Path) -> dict[str, dict[str, Any]]:
             entity_id = fm.get("id")
             if not entity_id:
                 continue
+            trust_metadata = relationship_trust_metadata(fm.get("trust_level"))
             index[entity_id] = {
                 "type": entity_type,
                 "path": md_path,
                 "canonical_status": fm.get("canonical_status", "unknown"),
-                "trust_level": normalize_relationship_trust(fm.get("trust_level")),
+                **trust_metadata,
             }
 
     return index

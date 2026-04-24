@@ -1,11 +1,11 @@
 ---
-id: source-bgc-design-standards-and-guidelines-fa2d03
+id: source-bgc-design-standards-and-guidelines
 title: Bgc Design Standards And Guidelines
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/794422427-BGC-Design-Standards-and-Guidelines.md
-last_canonicalized_utc: '2026-04-24T10:00:02.907173+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/794422427-BGC-Design-Standards-and-Guidelines.md
+last_canonicalized_utc: '2026-04-24T19:59:01.357949+00:00'
 ---
 
 # Bgc Design Standards And Guidelines

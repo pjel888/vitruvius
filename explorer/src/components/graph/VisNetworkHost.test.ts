@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { deriveRuleDisplayLabelsFromConceptEdges } from './VisNetworkHost';
+import { buildNodeTooltip, deriveRuleDisplayLabelsFromConceptEdges } from './VisNetworkHost';
 import type { GraphEdge, GraphNode } from '../../types';
 
 describe('deriveRuleDisplayLabelsFromConceptEdges', () => {
@@ -34,5 +34,38 @@ describe('deriveRuleDisplayLabelsFromConceptEdges', () => {
     const result = deriveRuleDisplayLabelsFromConceptEdges(nodes, edges);
 
     expect(result.find((node) => node.id === 'rule-history-1')?.displayLabel).toBe('Architectural History Rule');
+  });
+
+  test('preserves source-provided semantic rule titles', () => {
+    const nodes: GraphNode[] = [
+      { id: 'concept-building-permit', label: 'Building Permit', displayLabel: 'Building Permit', type: 'concept' },
+      {
+        id: 'rule-building-permit-1',
+        label: 'A building permit is required for all new construction',
+        displayLabel: 'Building Permit Rule — Section 1 — PD 1096',
+        type: 'rule',
+      },
+    ];
+    const edges: GraphEdge[] = [
+      { id: 'edge-1', source: 'concept-building-permit', target: 'rule-building-permit-1', type: 'DEFINED_BY' },
+    ];
+
+    const result = deriveRuleDisplayLabelsFromConceptEdges(nodes, edges);
+
+    expect(result.find((node) => node.id === 'rule-building-permit-1')?.displayLabel).toBe('Building Permit Rule — Section 1 — PD 1096');
+  });
+});
+
+describe('buildNodeTooltip', () => {
+  test('includes canonical label when it differs from display label', () => {
+    const tooltip = buildNodeTooltip({
+      id: 'rule-building-permit-1',
+      label: 'A building permit is required for all new construction',
+      displayLabel: 'Building Permit Rule — Section 1 — PD 1096',
+      type: 'rule',
+    });
+
+    expect(tooltip).toContain('Building Permit Rule');
+    expect(tooltip).toContain('Canonical: A building permit is required for all new construction');
   });
 });

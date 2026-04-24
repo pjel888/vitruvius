@@ -1,14 +1,14 @@
 ---
-id: source-guidelines-on-new-towns-and-planned-unit-development-5cc71a
-title: CONTENTS
+id: source-guidelines-on-new-towns-and-planned-unit-development
+title: Guidelines On New Towns And Planned Unit Development
 page_type: source
 trust_level: unknown
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/Guidelines on New Towns and Planned Unit Development.md
-last_canonicalized_utc: '2026-04-24T09:59:48.166986+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:43.955066+00:00'
 ---
 
-# CONTENTS
+# Guidelines On New Towns And Planned Unit Development
 
 ## Overview
 

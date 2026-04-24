@@ -11,6 +11,7 @@ import yaml
 from .concept_matching import find_concepts_in_text, load_concept_term_map
 from .constants import CONVERSION_LAYER_NAME
 from .paths import get_repo_root
+from .source_paths import logical_source_key_for_relative_path
 from .utils import assert_windows_safe_path, slugify
 
 
@@ -108,6 +109,9 @@ def _clean_filename_stem(stem: str) -> str:
     # Strip leading numeric tokens and common suffixes
     cleaned = re.sub(r"^\d+[-_]", "", stem)
     cleaned = re.sub(r"[-_](pdf|md|docx?|txt)$", "", cleaned, flags=re.IGNORECASE)
+    cdp_match = re.fullmatch(r"(?i)cdp[-_ ]*(\d{4})[-_ ]*(\d{4})", cleaned.strip())
+    if cdp_match:
+        return f"Comprehensive Development Plan {cdp_match.group(1)} {cdp_match.group(2)}"
     # Replace remaining hyphens/underscores with spaces
     cleaned = cleaned.replace("-", " ").replace("_", " ")
     # Title-case each word
@@ -120,6 +124,7 @@ def extract_title_from_content(text: str, fallback: str) -> str:
     Prefers H1, falls back to H2, then H3.  If no heading is found,
     returns the cleaned-up *fallback* stem.
     """
+    fallback_title = _clean_filename_stem(fallback)
     # Look for ATX headings in the first 150 lines
     lines = text.splitlines()[:150]
     for line in lines:
@@ -129,16 +134,64 @@ def extract_title_from_content(text: str, fallback: str) -> str:
         # H1: # Title
         m = re.match(r"^#\s+(.+)$", line)
         if m:
-            return m.group(1).strip()
+            title = m.group(1).strip()
+            return title if _is_valid_source_title(title) else fallback_title
         # H2: ## Title
         m = re.match(r"^##\s+(.+)$", line)
-        if m:
+        if m and _is_valid_source_title(m.group(1).strip()):
             return m.group(1).strip()
         # H3: ### Title
         m = re.match(r"^###\s+(.+)$", line)
-        if m:
+        if m and _is_valid_source_title(m.group(1).strip()):
             return m.group(1).strip()
-    return _clean_filename_stem(fallback)
+    return fallback_title
+
+
+def _is_valid_source_title(title: str) -> bool:
+    cleaned = _clean_heading_title(title)
+    title_slug = slugify(cleaned)
+    alnum_count = sum(ch.isalnum() for ch in cleaned)
+    if not title_slug or alnum_count < 3:
+        return False
+    generic_title_slugs = {
+        "a",
+        "acknowledgement",
+        "acknowledgements",
+        "acknowledgment",
+        "acknowledgments",
+        "annexes",
+        "architecture",
+        "berde",
+        "clup",
+        "contents",
+        "department-of-health",
+        "foreword",
+        "list-of-figures",
+        "list-of-tables",
+        "m",
+        "manual",
+        "message",
+        "n",
+        "notes",
+        "page",
+        "preface",
+        "sanitation",
+        "table-of-contents",
+        "untitled",
+    }
+    if title_slug in generic_title_slugs:
+        return False
+    if "http://" in cleaned.lower() or "https://" in cleaned.lower():
+        return False
+    if re.search(r"[.…]{4,}", cleaned) or re.search(r"\.{4,}", cleaned):
+        return False
+    if re.search(r"_{3,}", cleaned):
+        return False
+    if re.fullmatch(r"(?i)(pd|p\.d\.|bp|b\.p\.|ra|r\.a\.|no\.?)\s*[-.]?\s*[0-9a-z]+", cleaned):
+        return False
+    if re.fullmatch(r"(?i)cdp\s+\d{4}\s+\d{4}", cleaned):
+        return False
+    return True
 
 
 def normalize_title(path: str, rule: dict | None) -> str:
@@ -217,9 +270,11 @@ def build_plan(relative_path: str) -> dict[str, Any]:
                 if "canonical_id" in row and row["canonical_id"]:
                     existing_ids.add(row["canonical_id"])
 
+    logical_source_key = logical_source_key_for_relative_path(relative_path)
+    existing_canonical_id_for_source: str | None = None
     existing_sources_dir = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "sources"
     if existing_sources_dir.exists():
-        for source_file in existing_sources_dir.glob("*.md"):
+        for source_file in sorted(existing_sources_dir.glob("*.md")):
             text = source_file.read_text(encoding="utf-8", errors="ignore")
             if not text.startswith("---"):
                 continue
@@ -231,17 +286,28 @@ def build_plan(relative_path: str) -> dict[str, Any]:
             except yaml.YAMLError:
                 continue
             if isinstance(fm, dict) and isinstance(fm.get("id"), str) and fm["id"]:
-                existing_ids.add(fm["id"])
+                existing_id = fm["id"]
+                existing_ids.add(existing_id)
+                existing_relative_path = fm.get("source_relative_markdown_path")
+                if (
+                    isinstance(existing_relative_path, str)
+                    and logical_source_key_for_relative_path(existing_relative_path) == logical_source_key
+                    and existing_canonical_id_for_source is None
+                ):
+                    existing_canonical_id_for_source = existing_id
 
     validate_prefix(prefix)
-    canonical_id = resolve_canonical_id(
-        prefix=prefix,
-        slug=slugify(title),
-        source_path=str(relative_path),
-        existing_ids=existing_ids,
-        registry=registry,
-    )
-    registry.save()
+    if existing_canonical_id_for_source:
+        canonical_id = existing_canonical_id_for_source
+    else:
+        canonical_id = resolve_canonical_id(
+            prefix=prefix,
+            slug=slugify(title),
+            source_path=logical_source_key,
+            existing_ids=existing_ids,
+            registry=registry,
+        )
+        registry.save()
 
     return {
         "title": title,
@@ -703,6 +769,8 @@ def build_structured_source_file(
             isinstance(existing_source_relative_markdown_path, str)
             and existing_source_relative_markdown_path
             and existing_source_relative_markdown_path != relative_markdown_path
+            and logical_source_key_for_relative_path(existing_source_relative_markdown_path)
+            != logical_source_key_for_relative_path(relative_markdown_path)
         ):
             target_file = target / f"{plan['canonical_id']}.md"
     assert_windows_safe_path(target_file, what="canonical source output path")

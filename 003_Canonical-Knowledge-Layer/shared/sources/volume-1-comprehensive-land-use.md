@@ -1,11 +1,11 @@
 ---
-id: source-volume-1-comprehensive-land-use-plan-sto-tomas-1-ad7b5d
+id: source-volume-1-comprehensive-land-use-plan-sto-tomas-1
 title: 'VOLUME 1: COMPREHENSIVE LAND USE'
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/674253872-Volume-1-Comprehensive-Land-Use-Plan-Sto-Tomas-1.md
-last_canonicalized_utc: '2026-04-24T10:00:00.358132+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/674253872-Volume-1-Comprehensive-Land-Use-Plan-Sto-Tomas-1.md
+last_canonicalized_utc: '2026-04-24T19:58:58.973705+00:00'
 ---
 
 # VOLUME 1: COMPREHENSIVE LAND USE

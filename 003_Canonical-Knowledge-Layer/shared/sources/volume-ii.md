@@ -1,11 +1,11 @@
 ---
-id: source-volume-ii-sariaya-clup-edited-v-8-feb-2020-roda-9a0538
+id: source-volume-ii-sariaya-clup-edited-v-8-feb-2020-roda
 title: VOLUME II
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/754536758-Volume-II-Sariaya-CLUP-EDITED-v-8-Feb-2020-Roda-docx.md
-last_canonicalized_utc: '2026-04-24T10:00:01.743874+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/754536758-Volume-II-Sariaya-CLUP-EDITED-v-8-Feb-2020-Roda-docx.md
+last_canonicalized_utc: '2026-04-24T19:59:00.287011+00:00'
 ---
 
 # VOLUME II

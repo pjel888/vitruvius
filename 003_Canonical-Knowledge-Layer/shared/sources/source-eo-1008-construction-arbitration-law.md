@@ -4,8 +4,8 @@ title: EXECUTIVE ORDER NO. 1008 CREATING AN ARBITRATION MACHINERY FOR THE PHILIP
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/EO/EO 1008 Construction Arbitration Law.md
-last_canonicalized_utc: '2026-04-24T05:39:48.760504+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/EO/EO 1008 Construction Arbitration Law.md
+last_canonicalized_utc: '2026-04-24T19:58:45.755705+00:00'
 ---
 
 # EXECUTIVE ORDER NO. 1008 CREATING AN ARBITRATION MACHINERY FOR THE PHILIPPINE CONSTRUCTION INDUSTRY

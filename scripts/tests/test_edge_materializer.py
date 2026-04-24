@@ -241,6 +241,29 @@ class TestEdgeMaterializer:
         assert edges[0].id == "edge-assert-rel-001"
         assert edges[1].id == "edge-assert-rel-002"
 
+    def test_materialize_support_edge_to_evidence_span(self) -> None:
+        snap = _make_snapshot()
+        snap.relationship_assertions = [
+            RelationshipAssertion(
+                id="assert-rule-supported-by-span",
+                edge_type=EdgeType.SUPPORTED_BY,
+                from_node_id="concept-floor-area",
+                to_node_id="span-001",
+                reasoning_summary="Rule is supported by cited evidence.",
+                inference_type=InferenceType.DIRECT_CITATION,
+                confidence=0.92,
+                validation_status=ValidationState.VALIDATED,
+                evidence_ids=["span-001"],
+            )
+        ]
+
+        mat = EdgeMaterializer(snapshot=snap)
+        edges = mat.materialize(snap.relationship_assertions)
+
+        assert len(edges) == 1
+        assert edges[0].edge_type == EdgeType.SUPPORTED_BY
+        assert edges[0].to_node_id == "span-001"
+
 
 # ---------------------------------------------------------------------------
 # EvidenceMaterializer integration tests

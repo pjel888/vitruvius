@@ -7,7 +7,7 @@
 
 | Milestone | Status | Evidence | Next concrete action | Dependency / blocker |
 |---|---|---|---|---|
-| KG relationship quality and graph UX maintenance | planned | `.ai/02_audits/2026-04-24_kg_relationship_quality_and_graph_ux_audit.md`, `.ai/03_plans/2026-04-24_kg_relationship_contract_and_rule_label_plan.md` | align predicate contract and persist taxonomy-aware rule display labels | avoid bulk validation/backfill until contract alignment passes |
+| KG relationship quality and graph UX maintenance | validated bounded slice | `.ai/02_audits/2026-04-24_post_laws_kg_rebuild_relationship_graph_audit.md`, `.ai/05_logs/2026-04-24_post_laws_kg_rebuild_relationship_graph_validation.md` | design later aggregate/cross-subject semantic enrichment | current `001-Laws` graph is intentionally isolated; avoid bulk validation/backfill |
 | AEC execution-readiness decision | planned | `/.ai/03_plans/AEC_ENGINE_MASTER_IMPLEMENTATION_PLAN.md`, `/.ai/IMPLEMENTATION_MATRIX.md` | decide whether AEC becomes the next live implementation lane | runtime roots not yet verified |
 
 ## 2. Completed Milestones
@@ -23,6 +23,7 @@
 | Laws-wave bounded automation and ready-family aggregate closure | completed | `.ai/10_state/laws-wave-status.json`, `.ai/05_logs/2026-04-20_ra-386-residual-hardening-validation.md` | RA-386 residual-hardening is closed; do not keep as active milestone |
 | Graph Explorer implementation | completed | `explorer/src/components/graph/*`, `api/index.ts`, `explorer/README.md` | Maintained as shipped capability |
 | AI relationship enrichment pilot | completed | `.ai/02_audits/2026-04-24_ai_relationship_enrichment_pilot_audit.md`, `.ai/03_plans/2026-04-24_ai_relationship_enrichment_pilot_plan.md`, `.ai/05_logs/2026-04-24_ai_relationship_enrichment_pilot_validation.md` | Phase 5E candidate-generation seam is implemented; full-corpus enrichment remains a separate operator-enabled run/review activity |
+| 001-Laws KG rebuild and Explorer graph refresh | completed | `.ai/02_audits/2026-04-24_post_laws_kg_rebuild_relationship_graph_audit.md`, `.ai/05_logs/2026-04-24_post_laws_kg_rebuild_relationship_graph_validation.md`, `005_Operational-Intelligence-Layer/graph/kg-v2/20260424T195515Z_kg_v2_unified.json` | Neo4j was cleared and reloaded from the `001-Laws` snapshot only; rule display-title quality is clean |
 | Nested AGENTS governance | completed | `**/AGENTS.md`, `.ai/05_logs/2026-04-20_nested-agents-governance-validation.md` | No longer a pending active milestone |
 
 ## 3. Blocked / Deferred Milestones

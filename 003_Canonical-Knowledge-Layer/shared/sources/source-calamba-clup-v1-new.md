@@ -1,14 +1,14 @@
 ---
 id: source-calamba-clup-v1-new
-title: Table of Contents
+title: Calamba Clup V1 New
 page_type: source
 trust_level: unknown
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/LGU/597492263-Calamba-CLUP-v1-New.md
-last_canonicalized_utc: '2026-04-24T05:39:56.616255+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:52.045440+00:00'
 ---
 
-# Table of Contents
+# Calamba Clup V1 New
 
 ## Overview
 

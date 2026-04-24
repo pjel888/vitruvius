@@ -1,17 +1,17 @@
 ---
 id: law-zoning-ordinance-of-the-municipality-of-san-mateo
-title: TABLE OF CONTENTS
+title: San Mateo Zoning Ordinance
 page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/LGU/794216046-San-Mateo-Zoning-Ordinance.md
-last_canonicalized_utc: '2026-04-24T05:40:00.311236+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:56.351769+00:00'
 aliases:
 - San Mateo Zoning Ordinance
 - Zoning Ordinance for the Municipality of San Mateo
 ---
 
-# TABLE OF CONTENTS
+# San Mateo Zoning Ordinance
 
 ## Overview
 

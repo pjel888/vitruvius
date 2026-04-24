@@ -1,14 +1,14 @@
 ---
-id: source-hlurb-clup-guidebook-vol-1-11042015-c1afad
-title: CLUP
+id: source-hlurb-clup-guidebook-vol-1-11042015
+title: Hlurb Clup Guidebook Vol 1 11042015
 page_type: source
 trust_level: unknown
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/HLURB_CLUP_Guidebook_Vol_1_11042015.md
-last_canonicalized_utc: '2026-04-24T09:59:48.526064+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:44.314638+00:00'
 ---
 
-# CLUP
+# Hlurb Clup Guidebook Vol 1 11042015
 
 ## Overview
 

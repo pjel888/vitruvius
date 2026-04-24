@@ -1,11 +1,11 @@
 ---
-id: handout-guidelines-on-temporary-or-special-permits-for-foreign-architects-a846ae
+id: handout-guidelines-on-temporary-or-special-permits-for-foreign-architects
 title: GUIDELINES IMPLEMENTING SECTION 38, ART. IV OF R.A. NO. 9266, KNOWN AS “THE ARCHITECTURE ACT OF 2004”, AND SECTION 38, RULE IV OF BOARD RES. NO. 07, SERIES OF 2004, CITED AS THE “IRR OF THE ARCHITECTURE ACT OF 2004”, THE COVERAGE OF TEMPORARY/ SPECIAL PERMITS FOR ISSUANCE TO FOREIGN ARCHITECTS AND FOR OTHER PURPOSES
 page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/PRC/PRBoAres03,s08_temporary Permits for Foreign Architects.md
-last_canonicalized_utc: '2026-04-24T10:00:13.104802+00:00'
+last_canonicalized_utc: '2026-04-24T17:04:05.910002+00:00'
 aliases:
 - Temporary Permits for Foreign Architects
 - PRBoA Resolution No. 03 Series of 2008

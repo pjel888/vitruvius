@@ -8,9 +8,9 @@ to_entity: concept-competitive-bidding
 trust_level: unverified
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260424T122029Z_6cf2ee73
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
-last_promoted_utc: 20260424T122029Z
+promotion_batch_id: 20260424T191817Z_0d000134
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
+last_promoted_utc: 20260424T191817Z
 evidence:
 - source_id: source-ra-9184
   source_section_id: section-24
@@ -22,8 +22,10 @@ evidence:
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260424T122029Z
-  reviewed_at_utc: 20260424T122029Z
+  extracted_at_utc: 20260424T191817Z
+  reviewed_at_utc: 20260424T191817Z
+  raw_source_trust_level: unknown
+  source_trust_normalized_from: unknown
 ---
 
 # source-ra-9184 governs concept-competitive-bidding
@@ -39,6 +41,6 @@ Promoted relationship of type `governs` from `source-ra-9184` to `concept-compet
 > The eligible prospective bidders shall then be evaluated using numerical ratings on the basis of the short listing requirements prescribed for the Competitive Bidding concerned, within the period stated in the Invitation to Bid to determine the short list of bidders who shall be allowed to submit th
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260424T122029Z
-- Batch: `20260424T122029Z_6cf2ee73`
+- Reviewed: 20260424T191817Z
+- Batch: `20260424T191817Z_0d000134`
 

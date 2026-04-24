@@ -8,9 +8,9 @@ to_entity: concept-zoning-ordinance
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260424T114634Z_c7c421f0
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
-last_promoted_utc: 20260424T114634Z
+promotion_batch_id: 20260424T182320Z_27fa65a2
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
+last_promoted_utc: 20260424T182320Z
 evidence:
 - source_id: law-zoning-ordinance-of-the-city-of-malolos
   source_section_id: section-66
@@ -22,8 +22,8 @@ evidence:
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260424T114634Z
-  reviewed_at_utc: 20260424T114634Z
+  extracted_at_utc: 20260424T182320Z
+  reviewed_at_utc: 20260424T182320Z
 ---
 
 # law-zoning-ordinance-of-the-city-of-malolos governs concept-zoning-ordinance
@@ -39,6 +39,6 @@ Promoted relationship of type `governs` from `law-zoning-ordinance-of-the-city-o
 > WHEREAS, the Local Government Code authorizes local government units to enact zoning ordinances subject to and in accordance with existing laws;
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260424T114634Z
-- Batch: `20260424T114634Z_c7c421f0`
+- Reviewed: 20260424T182320Z
+- Batch: `20260424T182320Z_27fa65a2`
 

@@ -1,11 +1,11 @@
 ---
-id: handout-resolution-restricting-practice-of-architecture-by-non-registered-and-licensed-architects-73fd17
+id: handout-resolution-restricting-practice-of-architecture-by-non-registered-and-licensed-architects
 title: Board Resolution No. 01
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.md
-last_canonicalized_utc: '2026-04-24T10:00:13.317970+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/PRC/PRBoAreso1,s08_Prohibition of NonRLA's.md
+last_canonicalized_utc: '2026-04-24T19:59:11.380114+00:00'
 aliases:
 - Prohibition of NonRLAs
 - PRBoA Resolution No. 01 Series of 2008

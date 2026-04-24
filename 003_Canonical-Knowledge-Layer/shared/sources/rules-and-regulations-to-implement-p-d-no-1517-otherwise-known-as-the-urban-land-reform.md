@@ -1,11 +1,11 @@
 ---
-id: irr-implementing-rules-and-regulations-of-the-urban-land-reform-act-b9985d
+id: irr-implementing-rules-and-regulations-of-the-urban-land-reform-act
 title: RULES AND REGULATIONS TO IMPLEMENT P.D. NO. 1517 OTHERWISE KNOWN AS THE URBAN LAND REFORM.
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/PD-1517/PD 1517_Urban Land Reform.md
-last_canonicalized_utc: '2026-04-24T10:00:11.154988+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-1517/PD 1517_Urban Land Reform.md
+last_canonicalized_utc: '2026-04-24T19:59:09.349571+00:00'
 aliases:
 - PD 1517
 - Presidential Decree No. 1517

@@ -13,6 +13,7 @@ from ..promotion_validator import (
     build_canonical_index,
     load_registry,
     normalize_relationship_trust,
+    relationship_trust_metadata,
     validate_promotion_record,
 )
 from ..utils import assert_windows_safe_path, utc_now_stamp
@@ -198,9 +199,13 @@ def _candidate_to_record(
     # Prefer the from_entity if it is a source; otherwise use it anyway (Rule 10
     # will fail loudly if the ID is bad).
     evidence_source = from_entity
-    trust_level = normalize_relationship_trust(
-        canonical_index.get(evidence_source, {}).get("trust_level")
+    source_index_entry = canonical_index.get(evidence_source, {})
+    raw_trust_level = source_index_entry.get(
+        "raw_trust_level",
+        source_index_entry.get("trust_level"),
     )
+    trust_metadata = relationship_trust_metadata(raw_trust_level)
+    trust_level = trust_metadata["trust_level"]
 
     evidence_entry = {
         "source_id": evidence_source,
@@ -216,6 +221,9 @@ def _candidate_to_record(
         "extracted_at_utc": utc_now_stamp(),
         "reviewed_at_utc": utc_now_stamp(),
     }
+    if trust_metadata["trust_level_was_normalized"]:
+        evidence_entry["raw_source_trust_level"] = raw_trust_level
+        evidence_entry["source_trust_normalized_from"] = raw_trust_level
 
     record = {
         "id": rel_id,

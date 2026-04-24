@@ -4,8 +4,8 @@ title: COMPREHENSIVE LAND USE PLAN
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/649704913-Volume-III-Zoning-Ordinance.md
-last_canonicalized_utc: '2026-04-24T05:39:57.925472+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/649704913-Volume-III-Zoning-Ordinance.md
+last_canonicalized_utc: '2026-04-24T19:58:58.094686+00:00'
 ---
 
 # COMPREHENSIVE LAND USE PLAN

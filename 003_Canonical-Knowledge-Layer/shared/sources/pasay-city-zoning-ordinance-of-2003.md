@@ -1,11 +1,11 @@
 ---
-id: law-pasay-city-zoning-ordinance-of-2003-3d95f2
+id: law-pasay-city-zoning-ordinance-of-2003
 title: Pasay City Zoning Ordinance Of 2003
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/579259927-ZONING-ORDINANCE-PASAY.md
-last_canonicalized_utc: '2026-04-24T09:59:56.312585+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/579259927-ZONING-ORDINANCE-PASAY.md
+last_canonicalized_utc: '2026-04-24T19:58:55.033426+00:00'
 aliases:
 - Pasay City Zoning Ordinance
 - Zoning Ordinance for the City of Pasay

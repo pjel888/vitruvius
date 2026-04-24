@@ -1,11 +1,11 @@
 ---
-id: source-spp-206-61696f
+id: source-spp-206
 title: SPP DOC. 206
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/UAP/SPP 206.md
-last_canonicalized_utc: '2026-04-24T10:00:22.478260+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/UAP/SPP 206.md
+last_canonicalized_utc: '2026-04-24T19:59:20.195335+00:00'
 ---
 
 # SPP DOC. 206

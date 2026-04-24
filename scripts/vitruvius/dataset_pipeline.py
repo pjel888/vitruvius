@@ -969,7 +969,10 @@ def run_dataset_source_to_graph_pipeline(
         for refined_path in refined_paths:
             stage_index += 1
             normalized_refined_path = _normalize_refined_markdown_path(refined_path)
-            source_id = canonical_source_id_for_relative_path(normalized_refined_path)
+            source_id = canonical_source_id_for_relative_path(
+                normalized_refined_path,
+                repo_root=repo_root,
+            )
             _emit_progress(
                 f"[{stage_index}/{total_stage_count}] Inspecting source quality for {law_unit.law_id} :: {Path(normalized_refined_path).name}"
             )
@@ -982,6 +985,7 @@ def run_dataset_source_to_graph_pipeline(
                     law_unit=law_unit,
                     expected_source_id=source_id,
                 )
+                source_id = str(admitted_source_anchor.get("id") or source_id)
             except DatasetPipelineError as exc:
                 print(json.dumps({
                     "error": str(exc),

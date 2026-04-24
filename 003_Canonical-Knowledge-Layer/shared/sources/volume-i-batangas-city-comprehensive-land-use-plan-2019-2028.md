@@ -1,11 +1,11 @@
 ---
-id: source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028-03d7e2
+id: source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028
 title: Volume I Batangas City Comprehensive Land Use Plan 2019 2028
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/599384294-Volume-I-Batangas-City-Comprehensive-Land-Use-Plan-2019-2028.md
-last_canonicalized_utc: '2026-04-24T09:59:58.231959+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/599384294-Volume-I-Batangas-City-Comprehensive-Land-Use-Plan-2019-2028.md
+last_canonicalized_utc: '2026-04-24T19:58:56.908186+00:00'
 ---
 
 # Volume I Batangas City Comprehensive Land Use Plan 2019 2028

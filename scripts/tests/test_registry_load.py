@@ -1,10 +1,10 @@
 from vitruvius.promotion_validator import load_registry
 
 
-def test_registry_has_eight_predicates():
+def test_registry_has_seven_predicates():
     registry = load_registry()
     predicates = registry["predicates"]
-    expected = {"governs", "defines", "covers", "requires", "depends_on", "limits", "affects", "supersedes"}
+    expected = {"governs", "defines", "requires", "depends_on", "limits", "affects", "supersedes"}
     assert set(predicates.keys()) == expected
 
 

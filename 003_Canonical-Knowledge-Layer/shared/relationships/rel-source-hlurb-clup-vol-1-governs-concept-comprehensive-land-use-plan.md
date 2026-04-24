@@ -8,9 +8,9 @@ to_entity: concept-comprehensive-land-use-plan
 trust_level: unverified
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260424T121757Z_5d3aa7e5
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
-last_promoted_utc: 20260424T121757Z
+promotion_batch_id: 20260424T191419Z_20af0d87
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
+last_promoted_utc: 20260424T191419Z
 evidence:
 - source_id: source-hlurb-clup-vol-1
   source_section_id: section-447
@@ -22,8 +22,10 @@ evidence:
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260424T121757Z
-  reviewed_at_utc: 20260424T121757Z
+  extracted_at_utc: 20260424T191419Z
+  reviewed_at_utc: 20260424T191419Z
+  raw_source_trust_level: unknown
+  source_trust_normalized_from: unknown
 ---
 
 # source-hlurb-clup-vol-1 governs concept-comprehensive-land-use-plan
@@ -39,6 +41,6 @@ Promoted relationship of type `governs` from `source-hlurb-clup-vol-1` to `conce
 > Provided, that the formulation, adoption, or modification of said plan shall be in coordination with the approved Provincial Comprehensive Land Use Plan.”
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260424T121757Z
-- Batch: `20260424T121757Z_5d3aa7e5`
+- Reviewed: 20260424T191419Z
+- Batch: `20260424T191419Z_20af0d87`
 

@@ -11,11 +11,6 @@ predicates:
     allowed_pairs:
       - {subject_type: source, object_type: concept}
 
-  covers:
-    semantics: "Subject substantively covers or discusses the object."
-    allowed_pairs:
-      - {subject_type: source, object_type: concept}
-
   requires:
     semantics: "Subject requires the object to exist or be satisfied."
     allowed_pairs:

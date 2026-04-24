@@ -1,11 +1,11 @@
 ---
-id: source-clup-2016-2030-volume-2-zoning-ordinance-version-5-12-2018-10-31-for-printing-838d61
+id: source-clup-2016-2030-volume-2-zoning-ordinance-version-5-12-2018-10-31-for-printing
 title: 'COMPREHENSIVE LAND USE PLAN AND ZONING ORDINANCE: 2016-2030'
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/588729100-Clup-2016-2030-Volume-2-Zoning-Ordinance-Version-5-12-2018-10-31-for-Printing.md
-last_canonicalized_utc: '2026-04-24T09:59:56.881651+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/588729100-Clup-2016-2030-Volume-2-Zoning-Ordinance-Version-5-12-2018-10-31-for-Printing.md
+last_canonicalized_utc: '2026-04-24T19:58:55.645546+00:00'
 ---
 
 # COMPREHENSIVE LAND USE PLAN AND ZONING ORDINANCE: 2016-2030

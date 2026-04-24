@@ -367,8 +367,11 @@ class TestEdgeTypeMapping:
             ("limits", EdgeType.REQUIRES),
             ("affects", EdgeType.RELATED_TO),
             ("supersedes", EdgeType.OVERRIDES),
-            ("UNKNOWN", EdgeType.RELATED_TO),
         ],
     )
     def test_mapping(self, legacy: str, expected: EdgeType) -> None:
         assert _edge_type_from_string(legacy) == expected
+
+    def test_unknown_mapping_raises(self) -> None:
+        with pytest.raises(ValueError, match="Unknown relationship_type"):
+            _edge_type_from_string("UNKNOWN")

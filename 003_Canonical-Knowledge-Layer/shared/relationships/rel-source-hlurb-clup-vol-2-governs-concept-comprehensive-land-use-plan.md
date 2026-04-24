@@ -8,9 +8,9 @@ to_entity: concept-comprehensive-land-use-plan
 trust_level: unverified
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260424T121912Z_e1d6a6ac
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
-last_promoted_utc: 20260424T121912Z
+promotion_batch_id: 20260424T191547Z_8557349d
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
+last_promoted_utc: 20260424T191547Z
 evidence:
 - source_id: source-hlurb-clup-vol-2
   source_section_id: section-4
@@ -22,8 +22,10 @@ evidence:
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260424T121912Z
-  reviewed_at_utc: 20260424T121912Z
+  extracted_at_utc: 20260424T191547Z
+  reviewed_at_utc: 20260424T191547Z
+  raw_source_trust_level: unknown
+  source_trust_normalized_from: unknown
 ---
 
 # source-hlurb-clup-vol-2 governs concept-comprehensive-land-use-plan
@@ -39,6 +41,6 @@ Promoted relationship of type `governs` from `source-hlurb-clup-vol-2` to `conce
 > The comprehensive land use plans shall be the primary and dominant basis for future use of local resources and for reclassification of agricultural lands.” (Joint DAR, DA, DILG and HLURB Memorandum Circular dated 25 March 1995)
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260424T121912Z
-- Batch: `20260424T121912Z_e1d6a6ac`
+- Reviewed: 20260424T191547Z
+- Batch: `20260424T191547Z_8557349d`
 

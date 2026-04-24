@@ -1,11 +1,11 @@
 ---
-id: law-ecological-solid-waste-management-act-of-2000-3e8703
+id: law-ecological-solid-waste-management-act-of-2000
 title: Ecological Solid Waste Management Act Of 2000
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md
-last_canonicalized_utc: '2026-04-24T10:00:17.852500+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/RA-9003/RA 9003 Ecological Solid Waste Management Act 2000.md
+last_canonicalized_utc: '2026-04-24T19:59:15.733397+00:00'
 aliases:
 - RA 9003
 - Republic Act No. 9003

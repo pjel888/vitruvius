@@ -1,14 +1,14 @@
 ---
 id: source-volume-2-zoning-ordinance
-title: TABLE OF CONTENTS
+title: Volume 2 Zoning Ordinance
 page_type: source
 trust_level: unknown
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/LGU/490459778-Volume-2-Zoning-Ordinance.md
-last_canonicalized_utc: '2026-04-24T05:39:55.250119+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:50.402019+00:00'
 ---
 
-# TABLE OF CONTENTS
+# Volume 2 Zoning Ordinance
 
 ## Overview
 

@@ -1,0 +1,47 @@
+---
+id: law-national-building-code-of-the-philippines-2794d0
+title: National Building Code Of The Philippines
+page_type: source
+trust_level: primary
+canonical_status: draft
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-1096/PD 1096 - National Building Code Illustrated (Pedro Santos Jr).md
+last_canonicalized_utc: '2026-04-24T19:59:05.536923+00:00'
+aliases:
+- PD 1096
+- Presidential Decree No. 1096
+- National Building Code
+---
+
+# National Building Code Of The Philippines
+
+## Overview
+
+This work is the property ofArch. Pedro Santos Jr. Always check the values given in this document against the original references.For questions or
+
+## Coverage
+
+- 1. Non-fire restricted zones
+- 2. Fire restrictive zones
+- 3. Highly fire restrictive zones
+- part of documentation
+
+## Key Points
+
+- General Provisions ▪ To provide a framework of minimum standards and requirements for all buildings in order to regulate their location, design, quality of materials, construction, and use.
+- All on-site work done from site preparation, excavation, foundation, assembly of all the components and installation of utilities and equipment of buildings/structure.
+- of an existing building/structure.
+- Construction in a building/ structure involving changes in the materials used, partitioning, location/ size of openings, structural parts, existing utilities and equipment but does not increase the overall area thereof.
+- Any physical change made on a building/ structure to increase its value, utility and/ or to improve its aesthetic quality.
+
+## Referenced Concepts
+
+- concept-certificate-of-occupancy
+- concept-building-permit
+- concept-floor-area
+- concept-mixed-occupancy
+- concept-setbacks
+- concept-building-height
+- concept-yards
+- concept-stairs
+- concept-light-and-ventilation
+- concept-waste-disposal

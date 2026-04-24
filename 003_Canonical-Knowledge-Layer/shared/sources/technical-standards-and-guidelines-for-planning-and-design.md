@@ -1,11 +1,11 @@
 ---
-id: source-dpwh-jicc-flood-control-31412f
+id: source-dpwh-jicc-flood-control
 title: Technical Standards and Guidelines for Planning and Design
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/DPWH/DPWH JICC Flood Control.md
-last_canonicalized_utc: '2026-04-24T09:59:45.874916+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/DPWH/DPWH JICC Flood Control.md
+last_canonicalized_utc: '2026-04-24T19:58:45.251361+00:00'
 ---
 
 # Technical Standards and Guidelines for Planning and Design

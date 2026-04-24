@@ -67,3 +67,5 @@ def test_candidate_to_record_normalizes_unknown_source_trust():
 
     assert record is not None
     assert record["trust_level"] == "unverified"
+    assert record["evidence"][0]["raw_source_trust_level"] == "unknown"
+    assert record["evidence"][0]["source_trust_normalized_from"] == "unknown"

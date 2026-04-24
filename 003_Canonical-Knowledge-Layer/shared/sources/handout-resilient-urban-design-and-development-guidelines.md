@@ -1,16 +1,16 @@
 ---
 id: handout-resilient-urban-design-and-development-guidelines
-title: Contents
+title: Resilient Urban Design And Development Guidelines
 page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/Resilient Urban Design and Development Guidelines.md
-last_canonicalized_utc: '2026-04-24T05:39:52.642205+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:47.272728+00:00'
 aliases:
 - DHSUD Resilient Urban Design and Development Guidelines
 ---
 
-# Contents
+# Resilient Urban Design And Development Guidelines
 
 ## Overview
 

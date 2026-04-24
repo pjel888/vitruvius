@@ -1,11 +1,11 @@
 ---
-id: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344-caeb48
+id: irr-revised-implementing-rules-and-regulations-of-batas-pambansa-blg-344
 title: National Council on Disability Affairs
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md
-last_canonicalized_utc: '2026-04-24T09:59:43.193123+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/BP-344/2024 Revised Implementing Rules and Regulations Batas Pambansa Blg. 344 _ National Council on Disability Affairs.md
+last_canonicalized_utc: '2026-04-24T19:58:42.740657+00:00'
 aliases:
 - BP 344
 - Batas Pambansa Blg. 344
@@ -70,7 +70,7 @@ Changes in level shall require a ramp except when served by a dropped sidewalk, 
 
 ## Key Points
 
-- (no key points extracted)
+- Republic of the Philippines  2651033 BP 344 IMPLEMENTING RULES AND REGULATIONS (IRR) AMENDMENTS 1.
 
 ## Referenced Concepts
 

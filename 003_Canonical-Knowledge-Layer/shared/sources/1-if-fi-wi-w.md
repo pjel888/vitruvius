@@ -1,18 +1,18 @@
 ---
-id: law-civil-code-of-the-philippines-742f10
-title: :;1 !'If(~Fi'WI\!W @_____ _
+id: law-civil-code-of-the-philippines-f320f6
+title: Sb 2982   Civil Code Art 1723 Architect Liability Bill (Santiago)
 page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/SB-2982/SB 2982 - Civil Code Art 1723 Architect Liability Bill (Santiago).md
-last_canonicalized_utc: '2026-04-24T10:00:20.624286+00:00'
+last_canonicalized_utc: '2026-04-24T17:04:13.088551+00:00'
 aliases:
 - RA 386
 - Republic Act No. 386
 - Civil Code of the Philippines
 ---
 
-# :;1 !'If(~Fi'WI\!W @_____ _
+# Sb 2982   Civil Code Art 1723 Architect Liability Bill (Santiago)
 
 ## Overview
 

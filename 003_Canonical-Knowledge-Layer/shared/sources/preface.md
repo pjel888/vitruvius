@@ -1,14 +1,14 @@
 ---
-id: source-1979-uap-documents-4207c4
-title: PREFACE
+id: source-1979-uap-documents
+title: 1979 Uap Documents
 page_type: source
 trust_level: unknown
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/UAP/1979 UAP Documents.md
-last_canonicalized_utc: '2026-04-24T10:00:20.849330+00:00'
+last_canonicalized_utc: '2026-04-24T17:04:13.337892+00:00'
 ---
 
-# PREFACE
+# 1979 Uap Documents
 
 ## Overview
 

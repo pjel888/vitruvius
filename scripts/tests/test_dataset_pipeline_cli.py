@@ -2865,14 +2865,14 @@ def test_scaffold_completed_aggregate_lane_relationships_writes_relationship_fil
     summary = scaffold_completed_aggregate_lane_relationships(
         repo_root=tmp_path,
         manifest_path=lane_result['out_manifest_path'],
-        predicate='covers',
+        predicate='governs',
         output_dir=Path('003_Canonical-Knowledge-Layer/shared/relationships'),
     )
     assert summary['relationship_count'] == 1
-    rel_payload = (tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-handout-chinese-architecture-covers-concept-architectural-history.md').read_text(encoding='utf-8')
-    assert 'relationship_type: covers' in rel_payload
+    rel_payload = (tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-handout-chinese-architecture-governs-concept-architectural-history.md').read_text(encoding='utf-8')
+    assert 'relationship_type: governs' in rel_payload
     updated_manifest = yaml.safe_load(lane_result['out_manifest_path'].read_text(encoding='utf-8'))
-    assert updated_manifest['relationship_input_manifest']['relationships'][0]['path'].endswith('rel-handout-chinese-architecture-covers-concept-architectural-history.md')
+    assert updated_manifest['relationship_input_manifest']['relationships'][0]['path'].endswith('rel-handout-chinese-architecture-governs-concept-architectural-history.md')
 
 
 def test_admit_concepts_to_manifest_updates_manifest_and_law_unit(tmp_path: Path) -> None:
@@ -2920,7 +2920,7 @@ def test_promote_completed_aggregate_lane_relationships_updates_status(tmp_path:
     relationship_path = tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-demo.md'
     _write(
         relationship_path,
-        '---\nid: rel-demo\ntitle: demo covers concept-demo\npage_type: relationship\nrelationship_type: covers\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: draft\n---\n',
+        '---\nid: rel-demo\ntitle: demo governs concept-demo\npage_type: relationship\nrelationship_type: governs\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: draft\n---\n',
     )
     manifest_path.write_text(
         yaml.safe_dump(
@@ -3481,7 +3481,7 @@ def test_promote_scaffolded_relationships_updates_status(tmp_path: Path) -> None
     rel_path = tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-demo.md'
     _write(
         rel_path,
-        '---\nid: rel-demo\ntitle: demo covers concept-demo\npage_type: relationship\nrelationship_type: covers\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: promoted\n---\n',
+        '---\nid: rel-demo\ntitle: demo governs concept-demo\npage_type: relationship\nrelationship_type: governs\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: promoted\n---\n',
     )
     summary = promote_scaffolded_relationships(
         repo_root=tmp_path,
@@ -3581,7 +3581,7 @@ def test_pipeline_cli_promote_scaffolded_relationships_reports_summary(
     rel_path = tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-demo.md'
     _write(
         rel_path,
-        '---\nid: rel-demo\ntitle: demo covers concept-demo\npage_type: relationship\nrelationship_type: covers\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: promoted\n---\n',
+        '---\nid: rel-demo\ntitle: demo governs concept-demo\npage_type: relationship\nrelationship_type: governs\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: promoted\n---\n',
     )
     monkeypatch.chdir(tmp_path)
     monkeypatch.setattr(
@@ -4468,7 +4468,7 @@ def test_pipeline_cli_scaffold_completed_aggregate_lane_relationships_reports_su
             'pipeline_cli.py',
             'scaffold-completed-aggregate-lane-relationships',
             '--manifest', 'config/datasets/history-lane-starter.yaml',
-            '--predicate', 'covers',
+            '--predicate', 'governs',
         ],
     )
     rc = pipeline_cli.main()
@@ -4488,7 +4488,7 @@ def test_pipeline_cli_promote_completed_aggregate_lane_relationships_reports_sum
     (tmp_path / 'config' / 'datasets').mkdir(parents=True, exist_ok=True)
     _write(
         tmp_path / '003_Canonical-Knowledge-Layer' / 'shared' / 'relationships' / 'rel-demo.md',
-        '---\nid: rel-demo\ntitle: demo covers concept-demo\npage_type: relationship\nrelationship_type: covers\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: draft\n---\n',
+        '---\nid: rel-demo\ntitle: demo governs concept-demo\npage_type: relationship\nrelationship_type: governs\nfrom_entity: handout-demo\nto_entity: concept-demo\ntrust_level: bootstrap\ncanonical_status: draft\n---\n',
     )
     manifest_path = tmp_path / 'config' / 'datasets' / 'lane.yaml'
     manifest_path.write_text(

@@ -21,6 +21,7 @@ from vitruvius.cli_experience import (
     add_command_parser,
     execute_with_cli_experience,
 )
+from vitruvius.source_paths import logical_source_key_for_relative_path
 
 
 def _add_review_model_args(parser: argparse.ArgumentParser) -> None:
@@ -227,6 +228,34 @@ def _read_source_frontmatter(source_md: Path) -> dict[str, object]:
     except Exception:
         return {}
     return payload if isinstance(payload, dict) else {}
+
+
+def _select_current_phase_canonical_sources(
+    canonical_sources: list[Path],
+    current_refined_paths: set[str],
+) -> tuple[list[Path], int, list[str]]:
+    desired_keys = {
+        logical_source_key_for_relative_path(path)
+        for path in current_refined_paths
+    }
+    selected_by_key: dict[str, Path] = {}
+    duplicate_candidates = 0
+    for source_md in canonical_sources:
+        frontmatter = _read_source_frontmatter(source_md)
+        source_rel = frontmatter.get("source_relative_markdown_path")
+        if not isinstance(source_rel, str) or not source_rel.strip():
+            continue
+        key = logical_source_key_for_relative_path(source_rel)
+        if key not in desired_keys:
+            continue
+        existing = selected_by_key.get(key)
+        if existing is not None:
+            duplicate_candidates += 1
+            if source_md.stat().st_mtime <= existing.stat().st_mtime:
+                continue
+        selected_by_key[key] = source_md
+    missing = sorted(desired_keys - set(selected_by_key))
+    return sorted(selected_by_key.values()), duplicate_candidates, missing
 
 
 def _build_skip_review_high_confidence_payload(
@@ -631,6 +660,7 @@ def run_kg_pipeline(
 
     from vitruvius.canonicalize import run_canonicalize, run_canonicalize_one
 
+    phase2_refined_rel_paths: set[str] = set()
     if not dry_run:
         if subject_set:
             conversion_root = repo_root / "002_Raw-Conversion-Layer"
@@ -645,6 +675,10 @@ def run_kg_pipeline(
                     )
                 ]
                 print(f"Phase 2 scoped: {len(filtered_md)} refined markdown(s) match subject filter")
+                phase2_refined_rel_paths = {
+                    p.relative_to(conversion_root).as_posix()
+                    for p in filtered_md
+                }
                 canonicalized = 0
                 for md_path in filtered_md:
                     rel = md_path.relative_to(conversion_root).as_posix()
@@ -685,7 +719,23 @@ def run_kg_pipeline(
     phase3_runs_dir.mkdir(parents=True, exist_ok=True)
 
     canonical_sources = sorted(sources_dir.glob("*.md")) if sources_dir.exists() else []
-    if subject_set:
+    if subject_set and phase2_refined_rel_paths:
+        canonical_sources, duplicate_candidates, missing_sources = _select_current_phase_canonical_sources(
+            canonical_sources,
+            phase2_refined_rel_paths,
+        )
+        print(f"Found {len(canonical_sources)} current Phase 2 canonical source(s)")
+        if duplicate_candidates:
+            print(
+                "  WARN: ignored "
+                f"{duplicate_candidates} stale duplicate canonical source candidate(s)"
+            )
+        if missing_sources:
+            print(
+                "  WARN: "
+                f"{len(missing_sources)} current refined source(s) have no canonical output"
+            )
+    elif subject_set:
         canonical_sources = [
             s for s in canonical_sources
             if _source_matches_subjects(s, subject_set, repo_root)
@@ -1483,7 +1533,7 @@ def build_parser() -> argparse.ArgumentParser:
                                                                  help="Repeatable concept markdown path to admit into the manifest.")
     generic_aggregate_lane_relationship_scaffold_parser = add_command_parser(subparsers, "scaffold-completed-aggregate-lane-relationships")
     generic_aggregate_lane_relationship_scaffold_parser.add_argument("--manifest", required=True)
-    generic_aggregate_lane_relationship_scaffold_parser.add_argument("--predicate", default="covers")
+    generic_aggregate_lane_relationship_scaffold_parser.add_argument("--predicate", default="governs")
     generic_aggregate_lane_relationship_scaffold_parser.add_argument("--output-dir", default=None)
     generic_aggregate_lane_relationship_promote_parser = add_command_parser(subparsers, "promote-completed-aggregate-lane-relationships")
     generic_aggregate_lane_relationship_promote_parser.add_argument("--manifest", required=True)
@@ -1496,7 +1546,7 @@ def build_parser() -> argparse.ArgumentParser:
     generic_aggregate_lane_bootstrap_parser.add_argument("--source-type", required=True)
     generic_aggregate_lane_bootstrap_parser.add_argument("--trust-level", required=True)
     generic_aggregate_lane_bootstrap_parser.add_argument("--core-concept", action="append", default=[])
-    generic_aggregate_lane_bootstrap_parser.add_argument("--predicate", default="covers")
+    generic_aggregate_lane_bootstrap_parser.add_argument("--predicate", default="governs")
     generic_aggregate_lane_bootstrap_parser.add_argument("--family-note", default=None)
     generic_aggregate_lane_bootstrap_parser.add_argument("--max-files", type=int, default=5)
     generic_aggregate_lane_bootstrap_parser.add_argument("--extension", action="append", default=[])

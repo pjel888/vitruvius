@@ -8,9 +8,9 @@ to_entity: concept-floor-area
 trust_level: unverified
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260424T122451Z_4f1cacb9
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
-last_promoted_utc: 20260424T122451Z
+promotion_batch_id: 20260424T192443Z_e214dcc8
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
+last_promoted_utc: 20260424T192443Z
 evidence:
 - source_id: source-volume-iii-zoning-ordinance
   source_section_id: section-12.2.1
@@ -22,8 +22,10 @@ evidence:
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260424T122451Z
-  reviewed_at_utc: 20260424T122451Z
+  extracted_at_utc: 20260424T192443Z
+  reviewed_at_utc: 20260424T192443Z
+  raw_source_trust_level: unknown
+  source_trust_normalized_from: unknown
 ---
 
 # source-volume-iii-zoning-ordinance governs concept-floor-area
@@ -39,6 +41,6 @@ Promoted relationship of type `governs` from `source-volume-iii-zoning-ordinance
 > - - Such home industry shall not occupy more than thirty percent of the floor area of the dwelling unit. - - There shall be no change or alteration in the outside appearance of the dwelling unit and shall not be a hazard or nuisance; and - - Such shall consider the provisions pertaining to customary
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260424T122451Z
-- Batch: `20260424T122451Z_4f1cacb9`
+- Reviewed: 20260424T192443Z
+- Batch: `20260424T192443Z_e214dcc8`
 

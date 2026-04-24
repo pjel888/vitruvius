@@ -1834,7 +1834,7 @@ def scaffold_completed_aggregate_lane_relationships(
     *,
     repo_root: Path,
     manifest_path: Path,
-    predicate: str = 'covers',
+    predicate: str = 'governs',
     output_dir: Path | None = None,
 ) -> dict[str, Any]:
     from .canonicalize import slugify
@@ -1997,7 +1997,7 @@ def bootstrap_completed_aggregate_family_lane(
     source_type: str,
     trust_level: str,
     core_concepts: list[str] | None = None,
-    predicate: str = 'covers',
+    predicate: str = 'governs',
     family_note: str | None = None,
     max_files: int = 5,
     extensions: list[str] | None = None,

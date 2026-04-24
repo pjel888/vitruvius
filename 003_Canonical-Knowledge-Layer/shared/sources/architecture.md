@@ -1,17 +1,17 @@
 ---
-id: handout-uap-document-standards-of-professional-practice-6ff0f1
-title: Architecture
+id: handout-uap-document-standards-of-professional-practice
+title: Standards Of Professional Practice2
 page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/UAP/Standards of Professional Practice2.md
-last_canonicalized_utc: '2026-04-24T10:00:23.295551+00:00'
+last_canonicalized_utc: '2026-04-24T17:04:15.780207+00:00'
 aliases:
 - UAP Standards of Professional Practice
 - 2010 Standards of Professional Practice
 ---
 
-# Architecture
+# Standards Of Professional Practice2
 
 ## Overview
 

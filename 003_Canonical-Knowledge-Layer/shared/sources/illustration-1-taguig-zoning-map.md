@@ -1,11 +1,11 @@
 ---
-id: source-maps-c5309a
+id: source-maps
 title: 'Illustration 1: Taguig Zoning Map'
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/320734606-Maps.md
-last_canonicalized_utc: '2026-04-24T09:59:52.855128+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/320734606-Maps.md
+last_canonicalized_utc: '2026-04-24T19:58:51.762681+00:00'
 ---
 
 # Illustration 1: Taguig Zoning Map

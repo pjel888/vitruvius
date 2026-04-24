@@ -1,11 +1,11 @@
 ---
-id: source-revised-national-plumbing-code-of-the-philippines-4f09c9
+id: source-revised-national-plumbing-code-of-the-philippines
 title: Revised National Plumbing Code Of The Philippines
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/RA-1378/188541488-Revised-National-Plumbing-Code-of-the-Philippines.md
-last_canonicalized_utc: '2026-04-24T10:00:15.413791+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/RA-1378/188541488-Revised-National-Plumbing-Code-of-the-Philippines.md
+last_canonicalized_utc: '2026-04-24T19:59:13.438598+00:00'
 ---
 
 # Revised National Plumbing Code Of The Philippines

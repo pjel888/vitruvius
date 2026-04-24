@@ -1,11 +1,11 @@
 ---
-id: handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice-04f41d
+id: handout-statement-that-architectural-and-architectural-interior-design-are-exclusive-to-architecture-practice
 title: Board of Architecture (PRBoA)
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md
-last_canonicalized_utc: '2026-04-24T10:00:13.706804+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/PRC/RES_Architecture and AR Interiors are Exclusive.md
+last_canonicalized_utc: '2026-04-24T19:59:11.748547+00:00'
 aliases:
 - Architecture and AR Interiors are Exclusive
 - Architectural Interior Design Exclusive
@@ -19,13 +19,8 @@ SUBJECT : Statement that Architectural (and Architectural Interior) Design are E
 
 ## Coverage
 
-- SECTION 3. Definition of Terms. – As used in this Act, the following terms shall be defined as follows:
 - 1. "Architecture" is the art, science or profession of planning,designing and constructing buildings in their totalitytaking into
 - 2. "Architect" means a person professionally and academically
-- SECTION 14. Subjects for Examination. – The licensure examination for architects shall cover, but are not limited to, the following subjects:
-- SECTION 20. Seal, Issuance and Use of Seal. – A duly licensed architect shall affix the seal prescribed by the Board X X X
-- SECTION 29. Prohibition in the Practice of Architecture and Penal Clause. – Any person who shall practice or offer to practice architecture in the Philippines without being registered/licensed and who are not holders of temporary or special permits in accordance with the provisions of this Act, or any person presenting or attempting to use as his/her own the Certificate of Registration/Professional Identification Card or seal of another or temporary or special permit, or any person who shall give any false or forged evidence o any kind to the Board or to any member thereof in obtaining a Certificate of Registration/Professional Identification Card or temporary or special permit, or any person who shall falsely impersonate any registrant of like or different name, or any person who shall attempt to use a revoked or suspended Certificate of Registration/Professional Identification Card or cancelled special/temporary permit, or any person who shall use in connection with his/her name or otherwise assume, use or advertise any title or description tending to convey the impression that he/she is an architect when he/she is not an architect, or any person whether Filipino or foreigner,
-- SECTION 37. Limitation to the Registration of a Firm, Company, Partnership, Corporation or Association. – The practice of architecture is a professional service, admission to which shall be determined upon the basis of individual personal qualifications. However, a firm, company, partnership, corporation or association may be registered or licensed as such for the practice of architecture under the following conditions:
 - RULE I TITLE, POLICY STATEMENT, DEFINITION OF TERMS AND SCOPE OF PRACTICE
 - RULE III EXAMINATION, REGISTRATION AND LICENSURE SECTION 12. Examination Required
 - Part II: Theory of Architecture A. Rationale and Description

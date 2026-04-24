@@ -1,11 +1,11 @@
 ---
-id: source-hlurb-supplemental-guidelines-slm-8164fd
+id: source-hlurb-supplemental-guidelines-slm
 title: Supplemental Guidelines
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/HLURB_Supplemental_Guidelines_SLM.md
-last_canonicalized_utc: '2026-04-24T09:59:50.126997+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/HLURB_Supplemental_Guidelines_SLM.md
+last_canonicalized_utc: '2026-04-24T19:58:49.239150+00:00'
 ---
 
 # Supplemental Guidelines

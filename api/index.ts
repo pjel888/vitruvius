@@ -822,7 +822,9 @@ app.use('/*', serveStatic({ root: '../explorer/dist' }));
 // Start
 // ---------------------------------------------------------------------------
 const port = parseInt(process.env.PORT || '3000');
-console.log(`Vitruvius Graph API starting on http://localhost:${port}`);
+if (import.meta.main) {
+  console.log(`Vitruvius Graph API starting on http://localhost:${port}`);
+}
 
 export default {
   port,

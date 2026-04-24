@@ -53,10 +53,31 @@ class EdgeMaterializer:
     # -- public API ---------------------------------------------------------
 
     def _node_exists(self, node_id: str) -> bool:
-        """Check whether a node ID exists in the snapshot's canonical nodes."""
-        if not self.snapshot.canonical_nodes:
+        """Check whether a node ID exists in any materialized node namespace."""
+        if not (
+            self.snapshot.canonical_nodes
+            or self.snapshot.evidence_spans
+            or self.snapshot.document_versions
+        ):
             return True  # No snapshot provided — skip validation
-        return any(n.id == node_id for n in self.snapshot.canonical_nodes)
+        if any(n.id == node_id for n in self.snapshot.canonical_nodes):
+            return True
+        if any(span.id == node_id for span in self.snapshot.evidence_spans):
+            return True
+        if any(
+            node_id in (doc_version.id, doc_version.document_id)
+            for doc_version in self.snapshot.document_versions
+        ):
+            return True
+        if not self.snapshot.canonical_nodes and node_id.startswith(
+            (
+                "concept-", "taxonomy-", "topic-", "subtopic-",
+                "term-", "definition-", "rule-", "procedure-",
+                "exception-", "constraint-", "example-",
+            )
+        ):
+            return True
+        return False
 
     def materialize(
         self,

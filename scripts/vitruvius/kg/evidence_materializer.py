@@ -114,22 +114,28 @@ def _slug_from_id(entity_id: str) -> str:
     return entity_id
 
 
+LEGACY_RELATIONSHIP_EDGE_TYPE_MAP: dict[str, EdgeType] = {
+    "governs": EdgeType.APPLIES_TO,
+    "requires": EdgeType.REQUIRES,
+    "defines": EdgeType.DEFINED_BY,
+    "depends_on": EdgeType.DEPENDS_ON,
+    "limits": EdgeType.REQUIRES,
+    "affects": EdgeType.RELATED_TO,
+    "supersedes": EdgeType.OVERRIDES,
+}
+
+
 def _edge_type_from_string(value: str) -> EdgeType:
     """Map legacy relationship_type strings to EdgeType enum.
 
     The legacy registry allows: governs, requires, defines, depends_on,
     limits, affects, supersedes.
     """
-    mapping = {
-        "governs": EdgeType.APPLIES_TO,
-        "requires": EdgeType.REQUIRES,
-        "defines": EdgeType.DEFINED_BY,
-        "depends_on": EdgeType.DEPENDS_ON,
-        "limits": EdgeType.REQUIRES,
-        "affects": EdgeType.RELATED_TO,
-        "supersedes": EdgeType.OVERRIDES,
-    }
-    return mapping.get(value.lower(), EdgeType.RELATED_TO)
+    key = value.strip().lower()
+    try:
+        return LEGACY_RELATIONSHIP_EDGE_TYPE_MAP[key]
+    except KeyError as exc:
+        raise ValueError(f"Unknown relationship_type {value!r}; update relationship registry/materializer contract") from exc
 
 
 def _infer_inference_type(rel_type: str, evidence_list: list[dict]) -> InferenceType:
@@ -414,16 +420,19 @@ class EvidenceMaterializer:
             if primary_ev:
                 reviewer_model = primary_ev.get("reviewer_model", "")
 
+            edge_type = _edge_type_from_string(rel_type)
             self.snapshot.relationship_assertions.append(
                 RelationshipAssertion(
                     id=f"assert-{rel_id}",
-                    edge_type=_edge_type_from_string(rel_type),
+                    edge_type=edge_type,
                     from_node_id=from_entity,
                     to_node_id=to_entity,
                     reasoning_summary=fm.get("reviewer_reason", "")
                     or (primary_ev.get("reviewer_reason", "") if primary_ev else "")
                     or "Legacy promotion pipeline assertion",
-                    reasoning_detail=[],
+                    reasoning_detail=[
+                        f"Legacy predicate {rel_type!r} mapped to KG edge type {edge_type.value!r}",
+                    ],
                     inference_type=_infer_inference_type(rel_type, evidence_list),
                     confidence=confidence,
                     validation_status=_validation_state_from_string(status),

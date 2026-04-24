@@ -1,11 +1,11 @@
 ---
-id: source-spp-202-668ad8
+id: source-spp-202
 title: SPP DOC. 202
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/UAP/SPP 202.md
-last_canonicalized_utc: '2026-04-24T10:00:21.502896+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/UAP/SPP 202.md
+last_canonicalized_utc: '2026-04-24T19:59:19.258559+00:00'
 ---
 
 # SPP DOC. 202

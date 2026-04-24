@@ -140,6 +140,49 @@ def test_source_matches_subjects_uses_source_relative_markdown_path(
     assert pipeline_cli._source_matches_subjects(source_md, {"001-Laws"}, tmp_path) is False
 
 
+def test_select_current_phase_canonical_sources_ignores_stale_duplicates(
+    tmp_path: Path,
+) -> None:
+    import os
+    import pipeline_cli
+
+    stale = tmp_path / "source-demo-stale.md"
+    current = tmp_path / "demo.md"
+    unrelated = tmp_path / "other.md"
+    stale.write_text(
+        "---\n"
+        "id: source-demo-stale\n"
+        "source_relative_markdown_path: 001-Laws/raw_markdown/demo.md\n"
+        "---\n",
+        encoding="utf-8",
+    )
+    current.write_text(
+        "---\n"
+        "id: source-demo\n"
+        "source_relative_markdown_path: 001-Laws/refined_markdown/demo.md\n"
+        "---\n",
+        encoding="utf-8",
+    )
+    unrelated.write_text(
+        "---\n"
+        "id: source-other\n"
+        "source_relative_markdown_path: 003-Theory/refined_markdown/other.md\n"
+        "---\n",
+        encoding="utf-8",
+    )
+    os.utime(stale, (1, 1))
+    os.utime(current, (2, 2))
+
+    selected, duplicates, missing = pipeline_cli._select_current_phase_canonical_sources(
+        [stale, current, unrelated],
+        {"001-Laws/refined_markdown/demo.md"},
+    )
+
+    assert selected == [current]
+    assert duplicates == 1
+    assert missing == []
+
+
 def test_build_structured_source_file_disambiguates_same_title_sources(
     tmp_path: Path,
     monkeypatch,
@@ -175,6 +218,72 @@ def test_build_structured_source_file_disambiguates_same_title_sources(
     assert second_target.name != "toa.md"
     assert second_target.name.startswith("source-toa")
     assert "id: source-toa-" in second_content
+
+
+def test_build_structured_source_file_reuses_raw_refined_logical_source_target(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    import vitruvius.canonicalize as canonicalize
+
+    repo_root = tmp_path
+    refined = repo_root / "002_Raw-Conversion-Layer" / "003-Theory" / "refined_markdown" / "TOA.md"
+    refined.parent.mkdir(parents=True, exist_ok=True)
+    refined.write_text("# TOA\n\nBody two\n", encoding="utf-8")
+
+    sources_dir = repo_root / "003_Canonical-Knowledge-Layer" / "shared" / "sources"
+    sources_dir.mkdir(parents=True, exist_ok=True)
+    sources_dir.joinpath("toa.md").write_text(
+        "---\n"
+        "id: source-toa\n"
+        "source_relative_markdown_path: 003-Theory/raw_markdown/TOA.md\n"
+        "---\n\n# TOA\n",
+        encoding="utf-8",
+    )
+
+    rules_dir = repo_root / "scripts" / "vitruvius" / "rules"
+    rules_dir.mkdir(parents=True, exist_ok=True)
+    (rules_dir / "canonical_rules.yaml").write_text("rules: []\n", encoding="utf-8")
+    (repo_root / "006_System-Manifests" / "registries").mkdir(parents=True, exist_ok=True)
+
+    monkeypatch.setattr(canonicalize, "get_repo_root", lambda: repo_root)
+
+    target, content = canonicalize.build_structured_source_file(
+        repo_root=repo_root,
+        relative_markdown_path="003-Theory/refined_markdown/TOA.md",
+    )
+
+    assert target == sources_dir / "toa.md"
+    assert "id: source-toa\n" in content
+
+
+def test_build_structured_source_file_rejects_degenerate_heading_title(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    import vitruvius.canonicalize as canonicalize
+
+    repo_root = tmp_path
+    refined = repo_root / "002_Raw-Conversion-Layer" / "001-Laws" / "refined_markdown" / "Meaningful Source.md"
+    refined.parent.mkdir(parents=True, exist_ok=True)
+    refined.write_text("# -\n\n## Section 1\n\nBody text.\n", encoding="utf-8")
+
+    rules_dir = repo_root / "scripts" / "vitruvius" / "rules"
+    rules_dir.mkdir(parents=True, exist_ok=True)
+    (rules_dir / "canonical_rules.yaml").write_text("rules: []\n", encoding="utf-8")
+    (repo_root / "006_System-Manifests" / "registries").mkdir(parents=True, exist_ok=True)
+
+    monkeypatch.setattr(canonicalize, "get_repo_root", lambda: repo_root)
+
+    target, content = canonicalize.build_structured_source_file(
+        repo_root=repo_root,
+        relative_markdown_path="001-Laws/refined_markdown/Meaningful Source.md",
+    )
+    end = content.find("\n---", 3)
+    frontmatter = yaml.safe_load(content[3:end].strip())
+
+    assert target.name == "meaningful-source.md"
+    assert frontmatter["title"] == "Meaningful Source"
 
 
 def test_canonical_source_id_for_relative_path_prefers_existing_canonical_source(

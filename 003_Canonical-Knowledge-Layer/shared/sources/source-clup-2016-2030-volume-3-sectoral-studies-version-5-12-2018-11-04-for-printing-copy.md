@@ -4,8 +4,8 @@ title: 'COMPREHENSIVE LAND USE PLAN AND ZONING ORDINANCE: 2016-2030'
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/588729112-Clup-2016-2030-Volume-3-Sectoral-Studies-Version-5-12-2018-11-04-for-Printing-Copy.md
-last_canonicalized_utc: '2026-04-24T05:39:56.359960+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/588729112-Clup-2016-2030-Volume-3-Sectoral-Studies-Version-5-12-2018-11-04-for-Printing-Copy.md
+last_canonicalized_utc: '2026-04-24T19:58:56.064512+00:00'
 ---
 
 # COMPREHENSIVE LAND USE PLAN AND ZONING ORDINANCE: 2016-2030

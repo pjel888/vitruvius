@@ -55,7 +55,7 @@ def _collect_source_texts(repo_root: Path) -> list[tuple[str, str]]:
             try:
                 rel = str(md.relative_to(refined_root))
                 out.append((
-                    canonical_source_id_for_relative_path(rel),
+                    canonical_source_id_for_relative_path(rel, repo_root=repo_root),
                     md.read_text(encoding="utf-8"),
                 ))
             except Exception:

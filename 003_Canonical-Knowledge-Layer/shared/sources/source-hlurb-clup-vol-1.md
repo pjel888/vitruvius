@@ -1,18 +1,18 @@
 ---
 id: source-hlurb-clup-vol-1
-title: CLUP
+title: CLUP GUIDEBOOK
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_1.md
-last_canonicalized_utc: '2026-04-24T05:39:50.400603+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/HLURB_CLUP_Vol_1.md
+last_canonicalized_utc: '2026-04-24T19:58:48.034853+00:00'
 ---
 
-# CLUP
+# CLUP GUIDEBOOK
 
 ## Overview
 
-Automated summary withheld for CLUP because the refined source includes table-of-contents material, preface/message prose, image-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
+Automated summary withheld for CLUP GUIDEBOOK because the refined source includes table-of-contents material, preface/message prose, image-heavy extraction. Review the Coverage headings and authoritative benchmark/reference sources before relying on summary prose.
 
 ## Coverage
 
@@ -20,13 +20,12 @@ Automated summary withheld for CLUP because the refined source includes table-of
 - Part 3 Guide to Writing the CLUP and ZO
 - Section 16:
 - Section 20(c):
-- Section 447(2)(vii)/SECTION 458(2)(vii):
+- Section 447(2)(vii)/Sec. 458(2)(vii):
 - Section 447(2)(ix) - Municipality/Section 458(2)(ix) - City:
-- Section 447(a)(2)(vi)/SECTION 458(a)(2)(vi):
-- Section 444(b)(3)(vii)/SECTION 455 (b)(3)(vii):
+- Section 447(a)(2)(vi)/Sec. 458(a)(2)(vi):
+- Section 444(b)(3)(vii)/Sec. 455 (b)(3)(vii):
 - Section 468, 2, Article III, Chapter 3, Book III:
 - Section 5, Article II:
-- SECTION 14 of the CCA:
 - Section 14 of RA 9729:
 - Section 3 (i) of the Local Government Code provides that “local government units shall share with the national government the responsibility in the management and maintenance of ecological balance within their territorial jurisdiction.” Local governments and the national government are therefore mandated by RA 7160 to act as co-managers of the national territory and patrimony.
 - Annex 1-1. Sample Schedule of Planning Activities
@@ -71,7 +70,6 @@ Automated summary withheld for CLUP because the refined source includes table-of
 - SECTION 54. Maintaining an easement of Right-Of-Way along Nangka River. In consonance with the provisions of PD No. 1096 (National Building Code of the Philippines) a minimum setback of ten (10) meters shall be maintained as easement/access for the clearing/dredging of natural waterways. Fencing along the river shall conform to Ord. No. 192, series of 1994.
 - Annex 8-4. Determining Zones and Development Regulations for Heritage Areas
 - Rule V – Heritage Zones/Districts
-- SECTION 4 of PD 260: “The National Museum and the National Historical Commission are hereby vested with the right to declare other such historical and cultural sites as National Shrines, Monuments and/or Landmarks, in accordance with the guidelines set forth in R.A. 4846 and the spirit of this Decree,” SECTION 12,Art. IV of RA 10066:” The National Historical Institute and the National Museum in consultation with the Commission and, and the Housing and Land Use Regulatory Board or other concerned agencies, shall designate Heritage Zones to protect the historical and cultural integrity of a geographical area.”
 - Annex 8-5. Zoning Color Code
 - Annex 8-6. Innovative Land Use and Urban Design Rules
 - 1. Pedestrian Oriented Development Overlay Zones

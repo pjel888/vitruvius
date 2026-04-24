@@ -1,11 +1,11 @@
 ---
-id: source-manila-clup-2005-2020-5b462b
+id: source-manila-clup-2005-2020
 title: DEVELOPMENT PLAN
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/623689186-Manila-CLUP-2005-2020.md
-last_canonicalized_utc: '2026-04-24T09:59:58.953854+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/623689186-Manila-CLUP-2005-2020.md
+last_canonicalized_utc: '2026-04-24T19:58:57.616430+00:00'
 ---
 
 # DEVELOPMENT PLAN

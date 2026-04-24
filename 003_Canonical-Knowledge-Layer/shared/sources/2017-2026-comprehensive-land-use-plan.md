@@ -1,11 +1,11 @@
 ---
-id: source-clup-2017-2026-f67810
+id: source-clup-2017-2026
 title: 2017-2026 COMPREHENSIVE LAND USE PLAN
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/820926861-CLUP-2017-2026.md
-last_canonicalized_utc: '2026-04-24T10:00:03.318129+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/820926861-CLUP-2017-2026.md
+last_canonicalized_utc: '2026-04-24T19:59:01.746296+00:00'
 ---
 
 # 2017-2026 COMPREHENSIVE LAND USE PLAN

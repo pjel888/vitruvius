@@ -97,6 +97,35 @@ class TestGeneratePlacements:
         placements = builder._generate_placements(nodes)
         assert len(placements) == 0
 
+    def test_matches_prefixed_concept_path_to_unprefixed_taxonomy_root(self) -> None:
+        builder = UnifiedSnapshotBuilder(Path("."))
+        nodes = [
+            CanonicalNode(
+                id="taxonomy-accessibility",
+                type=NodeType.TAXONOMY,
+                label="Accessibility",
+                slug="accessibility",
+                taxonomy_path=["accessibility"],
+                status=ValidationState.VALIDATED,
+                confidence=1.0,
+            ),
+            CanonicalNode(
+                id="concept-accessible-route",
+                type=NodeType.CONCEPT,
+                label="Accessible Route",
+                slug="accessible-route",
+                taxonomy_path=["taxonomy-accessibility", "topic-barrier-free-design"],
+                status=ValidationState.VALIDATED,
+                confidence=0.9,
+            ),
+        ]
+
+        placements = builder._generate_placements(nodes)
+
+        assert len(placements) == 1
+        assert placements[0].node_id == "concept-accessible-route"
+        assert placements[0].parent_node_id == "taxonomy-accessibility"
+
 
 class TestBuildIntegration:
     def test_build_produces_snapshot(self, tmp_path: Path) -> None:

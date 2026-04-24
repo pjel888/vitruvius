@@ -1,18 +1,18 @@
 ---
-id: handout-deped-disaster-risk-reduction-resource-manual-1acd7a
-title: Acknowledgments
+id: handout-deped-disaster-risk-reduction-resource-manual
+title: Deped Drrr Manual Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/DEPED/DepEd DRRR Manual Philippines.md
-last_canonicalized_utc: '2026-04-24T09:59:44.613010+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:41.251882+00:00'
 aliases:
 - Disaster Risk Reduction Resource Manual
 - Safer Schools Resource Manual
 - DepEd DRRR Manual Philippines
 ---
 
-# Acknowledgments
+# Deped Drrr Manual Philippines
 
 ## Overview
 

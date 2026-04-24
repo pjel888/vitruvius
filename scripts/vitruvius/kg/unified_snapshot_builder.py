@@ -20,6 +20,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 from .edge_materializer import EdgeMaterializer
 from .enums import ValidationState
@@ -111,6 +112,19 @@ class UnifiedSnapshotBuilder:
 
     # -- internal ------------------------------------------------------------
 
+    @staticmethod
+    def _placement_path_keys(path: list[str]) -> list[str]:
+        """Return taxonomy path keys that tolerate legacy prefixed/unprefixed roots."""
+        if not path:
+            return []
+        keys = ["/".join(path)]
+        root = path[0]
+        if root.startswith("taxonomy-"):
+            keys.append("/".join([root.removeprefix("taxonomy-"), *path[1:]]))
+        else:
+            keys.append("/".join([f"taxonomy-{root}", *path[1:]]))
+        return list(dict.fromkeys(keys))
+
     def _generate_placements(
         self, nodes: list[Any]
     ) -> list[PlacementAssertion]:
@@ -122,8 +136,8 @@ class UnifiedSnapshotBuilder:
         taxonomy_index: dict[str, str] = {}
         for node in nodes:
             if node.type.value == "taxonomy":
-                path_key = "/".join(node.taxonomy_path)
-                taxonomy_index[path_key] = node.id
+                for path_key in self._placement_path_keys(list(node.taxonomy_path)):
+                    taxonomy_index[path_key] = node.id
 
         for node in nodes:
             if node.type.value == "taxonomy":
@@ -133,12 +147,16 @@ class UnifiedSnapshotBuilder:
 
             # Generate one placement assertion per segment in the taxonomy path
             # The full path is the primary parent
-            full_path = "/".join(node.taxonomy_path)
-            parent_id = taxonomy_index.get(full_path)
+            path_keys = self._placement_path_keys(list(node.taxonomy_path))
+            full_path = path_keys[0] if path_keys else ""
+            parent_id = next(
+                (taxonomy_index[path_key] for path_key in path_keys if path_key in taxonomy_index),
+                None,
+            )
             if parent_id is None:
                 # Fallback: try to find a matching taxonomy root
                 for tid, tpath in taxonomy_index.items():
-                    if tid == full_path or full_path.startswith(tid + "/"):
+                    if any(path_key == tid or path_key.startswith(tid + "/") for path_key in path_keys):
                         parent_id = tpath
                         break
 

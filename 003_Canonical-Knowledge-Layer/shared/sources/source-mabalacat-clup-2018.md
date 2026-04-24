@@ -1,14 +1,14 @@
 ---
 id: source-mabalacat-clup-2018
-title: FOREWORD
+title: Mabalacat Clup 2018
 page_type: source
 trust_level: unknown
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/LGU/619044847-Mabalacat-CLUP-2018.md
-last_canonicalized_utc: '2026-04-24T05:39:57.149149+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:52.651879+00:00'
 ---
 
-# FOREWORD
+# Mabalacat Clup 2018
 
 ## Overview
 

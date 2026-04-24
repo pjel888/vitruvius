@@ -1,11 +1,11 @@
 ---
-id: source-2020-2030-clup-volume-2-final-las-pinas-fcaad1
+id: source-2020-2030-clup-volume-2-final-las-pinas
 title: 2020 2030 Clup Volume 2 Final Las Pinas
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/763865190-2020-2030-CLUP-Volume-2-FINAL-LAS-PINAS.md
-last_canonicalized_utc: '2026-04-24T10:00:02.206690+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/763865190-2020-2030-CLUP-Volume-2-FINAL-LAS-PINAS.md
+last_canonicalized_utc: '2026-04-24T19:59:00.725523+00:00'
 ---
 
 # 2020 2030 Clup Volume 2 Final Las Pinas

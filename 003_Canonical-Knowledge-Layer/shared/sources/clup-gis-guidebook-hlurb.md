@@ -1,11 +1,11 @@
 ---
-id: source-clup-gis-guidebook-hlurb-2a9156
+id: source-clup-gis-guidebook-hlurb
 title: Clup Gis Guidebook Hlurb
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/CLUP GIS GUIDEBOOK HLURB.md
-last_canonicalized_utc: '2026-04-24T09:59:47.862537+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/HLURB-DHSUD/CLUP GIS GUIDEBOOK HLURB.md
+last_canonicalized_utc: '2026-04-24T19:58:47.028594+00:00'
 ---
 
 # Clup Gis Guidebook Hlurb

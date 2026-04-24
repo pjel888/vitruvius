@@ -8,9 +8,9 @@ to_entity: concept-floor-area
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260424T113656Z_8a3c5fc0
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
-last_promoted_utc: 20260424T113656Z
+promotion_batch_id: 20260424T180031Z_57827948
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
+last_promoted_utc: 20260424T180031Z
 evidence:
 - source_id: irr-revised-implementing-rules-and-regulations-for-pd-957
   source_section_id: section-1
@@ -22,8 +22,8 @@ evidence:
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260424T113656Z
-  reviewed_at_utc: 20260424T113656Z
+  extracted_at_utc: 20260424T180031Z
+  reviewed_at_utc: 20260424T180031Z
 ---
 
 # irr-revised-implementing-rules-and-regulations-for-pd-957 governs concept-floor-area
@@ -39,6 +39,6 @@ Promoted relationship of type `governs` from `irr-revised-implementing-rules-and
 > Minimum floor area for open market housing shall be 42 square meters and 30 square meters for medium cost housing.
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260424T113656Z
-- Batch: `20260424T113656Z_8a3c5fc0`
+- Reviewed: 20260424T180031Z
+- Batch: `20260424T180031Z_57827948`
 

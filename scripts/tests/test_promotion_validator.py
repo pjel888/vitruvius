@@ -6,6 +6,7 @@ from vitruvius.promotion_validator import (
     ValidationResult,
     build_canonical_index,
     normalize_relationship_trust,
+    relationship_trust_metadata,
     validate_promotion_record,
 )
 
@@ -35,6 +36,14 @@ def test_normalize_relationship_trust_maps_unknown_to_unverified():
     assert normalize_relationship_trust("primary") == "primary"
 
 
+def test_relationship_trust_metadata_preserves_raw_value():
+    metadata = relationship_trust_metadata("unknown")
+
+    assert metadata["trust_level"] == "unverified"
+    assert metadata["raw_trust_level"] == "unknown"
+    assert metadata["trust_level_was_normalized"] is True
+
+
 def test_build_canonical_index_normalizes_unknown_source_trust(tmp_path):
     sources = tmp_path / "003_Canonical-Knowledge-Layer" / "shared" / "sources"
     concepts = tmp_path / "003_Canonical-Knowledge-Layer" / "shared" / "concepts"
@@ -52,7 +61,11 @@ def test_build_canonical_index_normalizes_unknown_source_trust(tmp_path):
     index = build_canonical_index(tmp_path)
 
     assert index["law-x"]["trust_level"] == "unverified"
+    assert index["law-x"]["raw_trust_level"] == "unknown"
+    assert index["law-x"]["trust_level_was_normalized"] is True
     assert index["concept-y"]["trust_level"] == "unverified"
+    assert index["concept-y"]["raw_trust_level"] is None
+    assert index["concept-y"]["trust_level_was_normalized"] is True
 
 
 def registry():

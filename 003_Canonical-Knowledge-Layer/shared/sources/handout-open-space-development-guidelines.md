@@ -1,16 +1,16 @@
 ---
 id: handout-open-space-development-guidelines
-title: Contents
+title: Open Space Development Guidelines
 page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/HLURB-DHSUD/Open Space Development Guidelines.md
-last_canonicalized_utc: '2026-04-24T05:39:51.926500+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:46.366274+00:00'
 aliases:
 - DHSUD Open Space Development Guidelines
 ---
 
-# Contents
+# Open Space Development Guidelines
 
 ## Overview
 

@@ -1,11 +1,11 @@
 ---
-id: irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act-fc38f7
+id: irr-updated-2016-revised-implementing-rules-and-regulations-of-the-government-procurement-reform-act
 title: THE 2016 REVISED IMPLEMENTING RULES AND REGULATIONS OF REPUBLIC ACT NO. 9184 (Updated as of 31 March 2021)
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md
-last_canonicalized_utc: '2026-04-24T10:00:18.859290+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/RA-9184/Updated 2016 IRR_31 March 2021.md
+last_canonicalized_utc: '2026-04-24T19:59:16.731721+00:00'
 aliases:
 - RA 9184 IRR
 - Government Procurement Reform Act IRR

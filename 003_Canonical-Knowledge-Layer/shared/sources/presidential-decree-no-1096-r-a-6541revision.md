@@ -1,11 +1,11 @@
 ---
-id: irr-implementing-rules-and-regulations-of-the-national-building-code-c2aa6f
+id: irr-implementing-rules-and-regulations-of-the-national-building-code-d5c796
 title: (Presidential Decree No. 1096–R.A. 6541Revision)
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/PD-1096/PD 1096 RIRR 2004 - Revised IRR (DPWH Official).md
-last_canonicalized_utc: '2026-04-24T10:00:09.179879+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-1096/PD 1096 RIRR 2004 - Revised IRR (DPWH Official).md
+last_canonicalized_utc: '2026-04-24T19:59:07.393242+00:00'
 aliases:
 - PD 1096 IRR
 - National Building Code IRR

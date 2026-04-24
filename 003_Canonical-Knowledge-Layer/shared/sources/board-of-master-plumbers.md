@@ -1,11 +1,11 @@
 ---
-id: source-board-of-master-plumber-e24901
+id: source-board-of-master-plumber
 title: Board of Master Plumbers
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/RA-1378/Board of Master Plumber.md
-last_canonicalized_utc: '2026-04-24T10:00:15.601411+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/RA-1378/Board of Master Plumber.md
+last_canonicalized_utc: '2026-04-24T19:59:13.617880+00:00'
 ---
 
 # Board of Master Plumbers
@@ -21,7 +21,7 @@ Promulgation of Syllabi of Subjects in the Master Plumbing
 
 ## Key Points
 
-- Promulgation of Syllabi of Subjects in the Master Plumbing Licensure Examination WHEREAS, SECTION 12 of R.A.
+- Promulgation of Syllabi of Subjects in the Master Plumbing Licensure Examination WHEREAS, Sec.
 - Scope - A.
 
 ## Referenced Concepts

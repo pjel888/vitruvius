@@ -1,0 +1,46 @@
+---
+id: rel-source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028-governs-concept-balanced-housing-development
+title: source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028 governs concept-balanced-housing-development
+page_type: relationship
+relationship_type: governs
+from_entity: source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028
+to_entity: concept-balanced-housing-development
+trust_level: unverified
+canonical_status: promoted
+confidence_score: 0.95
+promotion_batch_id: 20260424T193508Z_04f75036
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
+last_promoted_utc: 20260424T193508Z
+evidence:
+- source_id: source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028
+  source_section_id: section-6
+  evidence_snippet: '10884, otherwise known as "Balanced Housing Development Program Amendments" (an amendment to the Urban Development and Housing Act of 1992), developers of proposed residential subdivision/condominium projects shall be required to develop an area for socialized housing equivalent to at least fifteen '
+  review_decision: keep
+  reviewer_model: llama3.1:8b
+  reviewer_provider: ollama
+  reviewer_confidence: 0.95
+  reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
+  local_review_decision: keep
+  local_reviewer_confidence: 0.95
+  extracted_at_utc: 20260424T193508Z
+  reviewed_at_utc: 20260424T193508Z
+  raw_source_trust_level: unknown
+  source_trust_normalized_from: unknown
+---
+
+# source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028 governs concept-balanced-housing-development
+
+## Relationship Summary
+
+Promoted relationship of type `governs` from `source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028` to `concept-balanced-housing-development`.
+
+## Evidence
+
+### Evidence 1 - `source-volume-i-batangas-city-comprehensive-land-use-plan-2019-2028` §section-6
+
+> 10884, otherwise known as "Balanced Housing Development Program Amendments" (an amendment to the Urban Development and Housing Act of 1992), developers of proposed residential subdivision/condominium projects shall be required to develop an area for socialized housing equivalent to at least fifteen 
+
+- Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
+- Reviewed: 20260424T193508Z
+- Batch: `20260424T193508Z_04f75036`
+

@@ -8,9 +8,9 @@ to_entity: concept-floor-area
 trust_level: unverified
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260424T122657Z_105bf32b
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
-last_promoted_utc: 20260424T122657Z
+promotion_batch_id: 20260424T192725Z_a03e0dc7
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
+last_promoted_utc: 20260424T192725Z
 evidence:
 - source_id: source-zoning-ordinance-2016-2025
   source_section_id: section-18
@@ -22,8 +22,10 @@ evidence:
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260424T122657Z
-  reviewed_at_utc: 20260424T122657Z
+  extracted_at_utc: 20260424T192725Z
+  reviewed_at_utc: 20260424T192725Z
+  raw_source_trust_level: unknown
+  source_trust_normalized_from: unknown
 ---
 
 # source-zoning-ordinance-2016-2025 governs concept-floor-area
@@ -39,6 +41,6 @@ Promoted relationship of type `governs` from `source-zoning-ordinance-2016-2025`
 > - 1. Cultivation, raising and growing of staple crops such as rice, corn, camote, cassava and the like - 2. Growing of diversified plants and trees, such as fruit and flower bearing trees, coffee, tobacco, etc. - 3. Silviculture, mushroom culture, fishing and fish culture, snake culture, crocodile f
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260424T122657Z
-- Batch: `20260424T122657Z_105bf32b`
+- Reviewed: 20260424T192725Z
+- Batch: `20260424T192725Z_a03e0dc7`
 

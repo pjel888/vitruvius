@@ -61,6 +61,16 @@
 
 ## Latest Validation Checkpoint
 
+- validation log: `/.ai/05_logs/2026-04-24_post_laws_kg_rebuild_relationship_graph_validation.md`
+- post-audit `001-Laws` KG rebuild checkpoint:
+  - snapshot: `005_Operational-Intelligence-Layer/graph/kg-v2/20260424T195515Z_kg_v2_unified.json`
+  - scope: 181 source pages, all with `source_relative_markdown_path` under `001-Laws/`; 2 are under `001-Laws/refined_markdown/test/...`
+  - Neo4j: cleared to 0 nodes, loaded 5911/5911 statements with 0 errors, final count 2429 nodes
+  - rule display-title quality: 214 rules, 0 duplicate display labels, 0 generic display labels, 0 display-title truncation markers
+  - caveat: semantic relationship distribution remains shallow and cross-subject enrichment is deferred
+
+## Previous Validation Checkpoint
+
 - validation log: `/.ai/05_logs/2026-04-21_control-surface-consolidation-validation.md`
 - standalone checks passed:
   - `python3 scripts/test_odl_one.py`

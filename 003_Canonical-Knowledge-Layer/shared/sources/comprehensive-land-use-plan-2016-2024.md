@@ -1,11 +1,11 @@
 ---
-id: source-cavite-clup-volume-3-revised-072c1f
+id: source-cavite-clup-volume-3-revised
 title: COMPREHENSIVE LAND USE PLAN (2016-2024)
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/599384270-CAVITE-CLUP-VOLUME-3-REVISED.md
-last_canonicalized_utc: '2026-04-24T09:59:57.911441+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/599384270-CAVITE-CLUP-VOLUME-3-REVISED.md
+last_canonicalized_utc: '2026-04-24T19:58:56.624006+00:00'
 ---
 
 # COMPREHENSIVE LAND USE PLAN (2016-2024)

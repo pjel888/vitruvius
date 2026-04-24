@@ -8,9 +8,9 @@ to_entity: concept-human-settlements
 trust_level: primary
 canonical_status: promoted
 confidence_score: 0.95
-promotion_batch_id: 20260424T113816Z_2e894bdf
-promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T110840Z/promotion_audit.log
-last_promoted_utc: 20260424T113816Z
+promotion_batch_id: 20260424T180159Z_68d711e0
+promotion_audit_log_ref: 006_System-Manifests/runs/kg_pipeline_20260424T154833Z/promotion_audit.log
+last_promoted_utc: 20260424T180159Z
 evidence:
 - source_id: law-local-government-code-of-1991
   source_section_id: section-20
@@ -22,8 +22,8 @@ evidence:
   reviewer_reason: 'pre_review_filter: structural_governs_pattern: source->concept, occ>=3, characteristic language'
   local_review_decision: keep
   local_reviewer_confidence: 0.95
-  extracted_at_utc: 20260424T113816Z
-  reviewed_at_utc: 20260424T113816Z
+  extracted_at_utc: 20260424T180159Z
+  reviewed_at_utc: 20260424T180159Z
 ---
 
 # law-local-government-code-of-1991 governs concept-human-settlements
@@ -39,6 +39,6 @@ Promoted relationship of type `governs` from `law-local-government-code-of-1991`
 > Provided, That the requirements for food production, human settlements, and industrial expansion shall be taken into consideration in the preparation of such plans.
 
 - Reviewer: `llama3.1:8b` · Decision: `keep` · Confidence: `0.95`
-- Reviewed: 20260424T113816Z
-- Batch: `20260424T113816Z_2e894bdf`
+- Reviewed: 20260424T180159Z
+- Batch: `20260424T180159Z_68d711e0`
 

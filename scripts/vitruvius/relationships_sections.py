@@ -226,8 +226,8 @@ def find_concepts(text: str, concept_map: Dict[str, str]) -> List[str]:
 # SOURCE ID
 # --------------------------------------------------
 
-def build_source_id(relative_path: str) -> str:
-    return canonical_source_id_for_relative_path(relative_path)
+def build_source_id(relative_path: str, *, repo_root: Path | None = None) -> str:
+    return canonical_source_id_for_relative_path(relative_path, repo_root=repo_root)
 
 
 # --------------------------------------------------
@@ -522,7 +522,7 @@ def run_extract_relationships_sections_one_inner(
 
     sections = split_sections(text)
     concept_map = load_concepts(allowed_paths=concept_paths)
-    source_id = source_id_override or build_source_id(relative_markdown_path)
+    source_id = source_id_override or build_source_id(relative_markdown_path, repo_root=repo_root)
 
     all_relationships = []
 

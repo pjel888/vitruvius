@@ -1,11 +1,11 @@
 ---
-id: source-mauban-clup-vol-2-approved-a7d3c1
+id: source-mauban-clup-vol-2-approved
 title: Comprehensive Land Use Plan of Mauban, Quezon 2018-2028
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/672108686-Mauban-CLUP-Vol-2-Approved.md
-last_canonicalized_utc: '2026-04-24T09:59:59.692609+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/672108686-Mauban-CLUP-Vol-2-Approved.md
+last_canonicalized_utc: '2026-04-24T19:58:58.309641+00:00'
 ---
 
 # Comprehensive Land Use Plan of Mauban, Quezon 2018-2028

@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from vitruvius.canonicalize import (
+    extract_title_from_content,
     extract_section_headers,
     extract_key_points,
     build_overview_paragraph,
@@ -30,6 +31,21 @@ def test_build_overview_paragraph_returns_first_non_header_para():
     overview = build_overview_paragraph(text)
     assert "National Building Code" in overview or "Decree" in overview
     assert not overview.startswith("#")
+
+
+def test_extract_title_rejects_navigation_heading() -> None:
+    text = "# CONTENTS\n\n## Foreword\n\n## Rule I General Provisions\n"
+    assert extract_title_from_content(text, "Open Space Development Guidelines") == "Open Space Development Guidelines"
+
+
+def test_extract_title_rejects_low_information_acronym_heading() -> None:
+    text = "# CLUP\n\n## Land Use Plan\n"
+    assert extract_title_from_content(text, "HLURB_CLUP_Vol_1") == "Hlurb Clup Vol 1"
+
+
+def test_extract_title_rejects_law_number_only_heading() -> None:
+    text = "# PD 1096\n\n## National Building Code\n"
+    assert extract_title_from_content(text, "PD-1096-National-Building-Code") == "Pd 1096 National Building Code"
 
 
 def test_build_overview_paragraph_skips_images_and_short_noise() -> None:

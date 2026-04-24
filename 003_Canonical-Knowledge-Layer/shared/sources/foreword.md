@@ -1,18 +1,18 @@
 ---
-id: irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system-80669a
-title: FOREWORD
+id: irr-implementing-rules-and-regulations-for-the-philippine-environmental-impact-statement-system-c6a3b1
+title: Denr Dao 2003 30 Revised Procedural Manual   Eis System
 page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/DENR/DENR DAO 2003-30 Revised Procedural Manual - EIS System.md
-last_canonicalized_utc: '2026-04-24T09:59:44.349285+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:41.015073+00:00'
 aliases:
 - DENR DAO 2003-30
 - EIS System IRR
 - Philippine Environmental Impact Statement System IRR
 ---
 
-# FOREWORD
+# Denr Dao 2003 30 Revised Procedural Manual   Eis System
 
 ## Overview
 

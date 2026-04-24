@@ -4,8 +4,8 @@ title: THE LOCAL GOVERNMENT CODE OF THE PHILIPPINES
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/RA-7160/RA 7160 The Local Government Code.md
-last_canonicalized_utc: '2026-04-24T05:40:12.000259+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/RA-7160/RA 7160 The Local Government Code.md
+last_canonicalized_utc: '2026-04-24T19:59:15.181426+00:00'
 aliases:
 - RA 7160
 - Republic Act No. 7160

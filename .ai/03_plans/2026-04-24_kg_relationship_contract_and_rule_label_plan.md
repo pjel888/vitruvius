@@ -1,7 +1,7 @@
 # KG Relationship Contract and Rule Label Improvement Plan
 
 ## Metadata
-- **Status:** planned
+- **Status:** bounded slice validated 2026-04-24
 - **Created:** 2026-04-24
 - **Audit:** `.ai/02_audits/2026-04-24_kg_relationship_quality_and_graph_ux_audit.md`
 - **Scope:** bounded first slice for relationship quality + rule-name UX
@@ -78,6 +78,19 @@ Only after Phases 1–3 pass:
 - Run targeted KG tests first, then broader relevant KG test suite.
 - Rebuild a KG v2 snapshot on a bounded dataset and compare relationship distributions before/after.
 - Stop if predicate mappings are ambiguous or taxonomy paths fail to resolve.
+
+## Post-Audit Execution Status - 2026-04-24
+
+The bounded `001-Laws` rebuild/QA slice is validated.
+
+- Clean rebuilt snapshot: `005_Operational-Intelligence-Layer/graph/kg-v2/20260424T195515Z_kg_v2_unified.json`.
+- Scope: 181 canonical source pages, all with `source_relative_markdown_path` under `001-Laws/`; 2 of those are under `001-Laws/refined_markdown/test/...`.
+- Rule title quality: 214 rules, 0 duplicate display labels, 0 generic display labels, 0 display-title truncation markers.
+- Source title quality: 181 source pages, 0 non-`001-Laws` source paths, 0 generic/invalid source titles after frontmatter repair.
+- Neo4j: cleared to 0 nodes, loaded 5911/5911 Cypher statements with 0 errors, ended at 2429 nodes.
+- Verification: 48 targeted title/quality tests, 86 KG materialization tests, 174 pipeline/canonicalization tests, 294 `test_kg*.py` tests, 13 API tests, 16 Explorer tests, and `explorer` production build passed.
+
+Deferred: relationship semantics remain shallow in this laws-only graph (`DEFINED_BY=214`, `SUPPORTED_BY=214`, `REQUIRES=3`, `RELATED_TO=1`). Cross-subject relationships such as Laws to Utilities require a later aggregate/cross-subject enrichment pass after multiple subjects are admitted.
 
 ## Key Files
 - `.ai/06_specs/relationship-schema.md`

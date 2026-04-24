@@ -1,14 +1,14 @@
 ---
-id: source-trece-latest-clup-volume-i-8edfd9
-title: ACKNOWLEDGEMENT
+id: source-trece-latest-clup-volume-i
+title: Trece Latest Clup Volume I
 page_type: source
 trust_level: unknown
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/LGU/721039237-TRECE-LATEST-CLUP-Volume-I.md
-last_canonicalized_utc: '2026-04-24T10:00:00.832593+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:54.770807+00:00'
 ---
 
-# ACKNOWLEDGEMENT
+# Trece Latest Clup Volume I
 
 ## Overview
 

@@ -51,6 +51,8 @@ export interface GraphController {
   clearPathHighlight: () => void;
 }
 
+type LayoutType = Parameters<GraphController['setLayout']>[0];
+
 interface VisNodeColor {
   background: string;
   border: string;
@@ -158,6 +160,7 @@ export function deriveRuleDisplayLabelsFromConceptEdges(nodes: GraphNode[], edge
     const concept = nodeById.get(edge.source);
     const rule = nodeById.get(edge.target);
     if (!concept || !rule || rule.type !== 'rule') return;
+    if (!shouldSynthesizeRuleDisplayLabel(rule)) return;
     const conceptLabel = titleIfAllLower(getDisplayLabel(concept));
     if (!conceptLabel) return;
     ruleTitleById.set(rule.id, conceptLabel.toLowerCase().endsWith('rule') ? conceptLabel : `${conceptLabel} Rule`);
@@ -172,10 +175,40 @@ export function deriveRuleDisplayLabelsFromConceptEdges(nodes: GraphNode[], edge
   });
 }
 
+function shouldSynthesizeRuleDisplayLabel(node: GraphNode) {
+  const existing = (node.displayLabel || '').replace(/\s+/g, ' ').trim();
+  if (!existing) return true;
+  if (existing.startsWith('Rule ·')) return true;
+  return existing.toLowerCase() === 'general rule';
+}
+
 function titleIfAllLower(value: string) {
   const normalized = value.replace(/\s+/g, ' ').trim();
   if (!normalized || normalized !== normalized.toLowerCase()) return normalized;
   return normalized.replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+export function buildNodeTooltip(node: GraphNode) {
+  const displayLabel = getDisplayLabel(node);
+  const canonicalLabel = (node.label || '').replace(/\s+/g, ' ').trim();
+  const lines = [
+    `<b>${escapeHtml(displayLabel)}</b>`,
+    escapeHtml(node.type),
+    `<code>${escapeHtml(node.id)}</code>`,
+  ];
+  if (canonicalLabel && canonicalLabel !== displayLabel) {
+    lines.splice(1, 0, `Canonical: ${escapeHtml(canonicalLabel)}`);
+  }
+  return lines.join('<br/>');
 }
 
 function getNodeColor(schemeName: string, nodeType: string) {
@@ -200,6 +233,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
   const rawEdgesRef = useRef<GraphEdge[]>([]);
   const scaleRef = useRef(1);
   const colorSchemeRef = useRef('default');
+  const activeLayoutRef = useRef<LayoutType>('forceatlas2');
   const sizeByRef = useRef<'uniform' | 'confidence' | 'degree'>('uniform');
   const degreeMapRef = useRef<Map<string, number>>(new Map());
   const hoveredNodeRef = useRef<string | null>(null);
@@ -211,15 +245,6 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
 
   function markOverviewDirty() {
     overviewVersionRef.current += 1;
-  }
-
-  function escapeHtml(value: string) {
-    return value
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
   }
 
   function getLiveScale() {
@@ -292,8 +317,87 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       },
       size,
       group: n.type,
-      title: `<b>${escapeHtml(displayLabel)}</b><br/>${escapeHtml(n.type)}<br/><code>${escapeHtml(n.id)}</code>`,
+      title: buildNodeTooltip(n),
     };
+  }
+
+  function applyLayout(type: LayoutType, options: { fit?: boolean } = {}) {
+    if (!networkRef.current || !nodesRef.current) return;
+    const net = networkRef.current;
+    const ds = nodesRef.current;
+    const nodes = rawNodesRef.current;
+    const fit = options.fit ?? true;
+
+    if (type === 'forceatlas2') {
+      net.setOptions({ physics: { enabled: true } });
+      markOverviewDirty();
+      return;
+    }
+
+    net.setOptions({ physics: { enabled: false } });
+    const updates: VisNodeUpdate[] = [];
+
+    if (type === 'circular') {
+      nodes.forEach((n, i) => {
+        const angle = (i / Math.max(nodes.length, 1)) * Math.PI * 2;
+        updates.push({ id: n.id, x: Math.cos(angle) * 300, y: Math.sin(angle) * 300 });
+      });
+    } else if (type === 'random') {
+      nodes.forEach((n) => {
+        updates.push({ id: n.id, x: (Math.random() - 0.5) * 800, y: (Math.random() - 0.5) * 800 });
+      });
+    } else if (type === 'clustered') {
+      const groups = new Map<string, GraphNode[]>();
+      nodes.forEach((n) => {
+        const root = n.taxonomy_path?.[0] || 'uncategorized';
+        if (!groups.has(root)) groups.set(root, []);
+        groups.get(root)!.push(n);
+      });
+      const groupKeys = [...groups.keys()];
+      const groupRadius = 400;
+      groupKeys.forEach((groupKey, gi) => {
+        const members = groups.get(groupKey)!;
+        const cx = Math.cos((gi / Math.max(groupKeys.length, 1)) * Math.PI * 2) * groupRadius;
+        const cy = Math.sin((gi / Math.max(groupKeys.length, 1)) * Math.PI * 2) * groupRadius;
+        members.forEach((n, mi) => {
+          const angle = (mi / Math.max(members.length, 1)) * Math.PI * 2;
+          updates.push({ id: n.id, x: cx + Math.cos(angle) * 140, y: cy + Math.sin(angle) * 140 });
+        });
+      });
+    } else if (type === 'time') {
+      const nodesWithDate: { id: string; date: number }[] = [];
+      nodes.forEach((n) => {
+        if (n.createdAt) nodesWithDate.push({ id: n.id, date: new Date(n.createdAt).getTime() });
+      });
+      if (nodesWithDate.length > 1) {
+        nodesWithDate.sort((a, b) => a.date - b.date);
+        const min = nodesWithDate[0].date;
+        const max = nodesWithDate[nodesWithDate.length - 1].date;
+        const range = Math.max(max - min, 1);
+        const dayMap = new Map<number, number>();
+        nodesWithDate.forEach(({ id, date }) => {
+          const x = ((date - min) / range) * 1400 - 700;
+          const day = Math.floor(date / 86400000);
+          const yOffset = (dayMap.get(day) || 0) * 40;
+          dayMap.set(day, (dayMap.get(day) || 0) + 1);
+          updates.push({ id, x, y: yOffset - 200 });
+        });
+      }
+      let noDateY = 0;
+      nodes.forEach((n) => {
+        if (!n.createdAt) {
+          updates.push({ id: n.id, x: 0, y: noDateY });
+          noDateY += 40;
+        }
+      });
+    }
+
+    if (updates.length > 0) {
+      ds.update(updates);
+      if (fit) net.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
+      syncCameraFromNetwork();
+      markOverviewDirty();
+    }
   }
 
   function applyHover() {
@@ -446,6 +550,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       if (lastNodeTypesRef.current.size > 0 || lastEdgeTypesRef.current.size > 0) {
         applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
       }
+      applyLayout(activeLayoutRef.current, { fit: true });
       syncCameraFromNetwork();
       markOverviewDirty();
       return;
@@ -568,6 +673,7 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
     if (lastNodeTypesRef.current.size > 0 || lastEdgeTypesRef.current.size > 0) {
       applyFilters(lastNodeTypesRef.current, lastEdgeTypesRef.current);
     }
+    applyLayout(activeLayoutRef.current, { fit: true });
     syncCameraFromNetwork();
   }
 
@@ -672,78 +778,8 @@ const VisNetworkHost = forwardRef<GraphController>((_, ref) => {
       },
 
       setLayout(type) {
-        if (!networkRef.current || !nodesRef.current) return;
-        const net = networkRef.current;
-        const ds = nodesRef.current;
-        const nodes = rawNodesRef.current;
-
-        if (type === 'forceatlas2') {
-          net.setOptions({ physics: { enabled: true } });
-          return;
-        }
-
-        net.setOptions({ physics: { enabled: false } });
-        const updates: VisNodeUpdate[] = [];
-
-        if (type === 'circular') {
-          nodes.forEach((n, i) => {
-            const angle = (i / Math.max(nodes.length, 1)) * Math.PI * 2;
-            updates.push({ id: n.id, x: Math.cos(angle) * 300, y: Math.sin(angle) * 300 });
-          });
-        } else if (type === 'random') {
-          nodes.forEach((n) => {
-            updates.push({ id: n.id, x: (Math.random() - 0.5) * 800, y: (Math.random() - 0.5) * 800 });
-          });
-        } else if (type === 'clustered') {
-          const groups = new Map<string, GraphNode[]>();
-          nodes.forEach((n) => {
-            const root = n.taxonomy_path?.[0] || 'uncategorized';
-            if (!groups.has(root)) groups.set(root, []);
-            groups.get(root)!.push(n);
-          });
-          const groupKeys = [...groups.keys()];
-          const groupRadius = 400;
-          groupKeys.forEach((groupKey, gi) => {
-            const members = groups.get(groupKey)!;
-            const cx = Math.cos((gi / Math.max(groupKeys.length, 1)) * Math.PI * 2) * groupRadius;
-            const cy = Math.sin((gi / Math.max(groupKeys.length, 1)) * Math.PI * 2) * groupRadius;
-            members.forEach((n, mi) => {
-              const angle = (mi / Math.max(members.length, 1)) * Math.PI * 2;
-              updates.push({ id: n.id, x: cx + Math.cos(angle) * 140, y: cy + Math.sin(angle) * 140 });
-            });
-          });
-        } else if (type === 'time') {
-          const nodesWithDate: { id: string; date: number }[] = [];
-          nodes.forEach((n) => {
-            if (n.createdAt) nodesWithDate.push({ id: n.id, date: new Date(n.createdAt).getTime() });
-          });
-          if (nodesWithDate.length > 1) {
-            nodesWithDate.sort((a, b) => a.date - b.date);
-            const min = nodesWithDate[0].date;
-            const max = nodesWithDate[nodesWithDate.length - 1].date;
-            const range = Math.max(max - min, 1);
-            const dayMap = new Map<number, number>();
-            nodesWithDate.forEach(({ id, date }) => {
-              const x = ((date - min) / range) * 1400 - 700;
-              const day = Math.floor(date / 86400000);
-              const yOffset = (dayMap.get(day) || 0) * 40;
-              dayMap.set(day, (dayMap.get(day) || 0) + 1);
-              updates.push({ id, x, y: yOffset - 200 });
-            });
-          }
-          let noDateY = 0;
-          nodes.forEach((n) => {
-            if (!n.createdAt) {
-              updates.push({ id: n.id, x: 0, y: noDateY });
-              noDateY += 40;
-            }
-          });
-        }
-
-        if (updates.length > 0) {
-          ds.update(updates);
-          net.fit({ animation: { duration: 500, easingFunction: 'easeInOutQuad' } });
-        }
+        activeLayoutRef.current = type;
+        applyLayout(type, { fit: true });
       },
 
       setFilters(nodeTypes, edgeTypes) {

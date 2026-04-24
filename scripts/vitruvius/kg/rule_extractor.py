@@ -81,6 +81,14 @@ def _normalize_display_label(value: str) -> str:
     return normalized
 
 
+def _source_faithful_summary(value: str) -> str:
+    """Normalize generated rule summaries without adding truncation markers."""
+    text = re.sub(r"(?i)<br\s*/?>", " ", value)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"^\s*[>»]+\s*", "", text)
+    return _normalize_display_label(text)
+
+
 def _title_if_all_lower(value: str) -> str:
     """Title-case legacy lowercase labels while preserving mixed-case labels."""
     return value.title() if value and value == value.lower() else value
@@ -183,7 +191,7 @@ def _rule_label_from_evidence(
     concept_id: str = "",
     source_id: str = "",
 ) -> str:
-    """Derive a concise rule label from evidence text."""
+    """Derive a source-faithful rule label from evidence text."""
     text = evidence_snippet.strip()
     if not text or text == "Legacy promotion pipeline assertion":
         text = reviewer_reason or ""
@@ -192,15 +200,14 @@ def _rule_label_from_evidence(
         concept_name = concept_id.replace("concept-", "").replace("-", " ").title()
         source_name = source_id.replace("handout-", "").replace("-", " ").title()
         text = f"{concept_name} rule from {source_name}"
-    text = text.strip()
+    text = _source_faithful_summary(text)
     # Remove markdown artifacts, list markers, leading numbering
     text = re.sub(r"^#+\s*", "", text)
     text = re.sub(r"^[-*•]\s+", "", text)
     text = re.sub(r"^\d+\.\s*", "", text)
     text = re.sub(r"^[a-zA-Z]\.\s*", "", text)
-    # Use the first sentence without truncating; rule node titles are now built
-    # from concept/section/source metadata, while this helper remains useful
-    # for short aliases and legacy callers.
+    # Use the first sentence without truncating; rule display titles are built
+    # from concept/section/source metadata, while labels keep source wording.
     first_sent = text.split(".")[0].strip()
     if len(first_sent) < 15:
         first_sent = text.strip()
@@ -296,11 +303,18 @@ class RuleExtractor:
         self._rule_counter[counter_key] = idx + 1
         rule_id = _make_rule_id(source_id, section_id, idx)
 
-        # Derive a stable semantic title and keep the full evidence in summary.
-        label = _rule_display_label(
+        # Keep the source-faithful label separate from the compact display title.
+        display_label = _rule_display_label(
             concept_id, self.snapshot, section_id, source_id, primary_span
         )
-        summary = evidence_snippet[:500] if evidence_snippet else assertion.reasoning_summary
+        label = _rule_label_from_evidence(
+            evidence_snippet,
+            assertion.reasoning_summary,
+            concept_id,
+            source_id,
+        )
+        summary = evidence_snippet or assertion.reasoning_summary
+        summary = _source_faithful_summary(summary)
 
         # Inherit taxonomy path from target concept
         taxonomy_path = _concept_taxonomy_path(concept_id, self.snapshot)
@@ -309,7 +323,7 @@ class RuleExtractor:
             id=rule_id,
             type=NodeType.RULE,
             label=label,
-            display_label=label,
+            display_label=display_label,
             slug=rule_id.replace("rule-", ""),
             summary=summary,
             taxonomy_path=taxonomy_path,
@@ -332,7 +346,7 @@ class RuleExtractor:
             reasoning_detail=[
                 f"Original assertion: {assertion.id}",
                 f"Source: {source_id}",
-                f"Evidence: {evidence_snippet[:200]}..." if len(evidence_snippet) > 200 else f"Evidence: {evidence_snippet}",
+                f"Evidence: {_source_faithful_summary(evidence_snippet)}",
             ],
             inference_type=InferenceType.DIRECT_CITATION,
             confidence=assertion.confidence,
@@ -346,16 +360,23 @@ class RuleExtractor:
             version=1,
         )
 
-        # rule SUPPORTED_BY source
+        supported_target_id = primary_evidence_id
+        if not supported_target_id and primary_span is not None:
+            supported_target_id = primary_span.document_version_id or primary_span.document_id
+        if not supported_target_id:
+            supported_target_id = source_id
+
+        # rule SUPPORTED_BY evidence span/document endpoint
         supported_by = RelationshipAssertion(
             id=f"assert-{rule_id}-supported-by",
             edge_type=EdgeType.SUPPORTED_BY,
             from_node_id=rule_id,
-            to_node_id=source_id,
-            reasoning_summary=f"Rule supported by source document {source_id}",
+            to_node_id=supported_target_id,
+            reasoning_summary=f"Rule supported by evidence endpoint {supported_target_id}",
             reasoning_detail=[
                 f"Original assertion: {assertion.id}",
                 f"Section: {section_id or 'unspecified'}",
+                f"Source: {source_id}",
             ],
             inference_type=InferenceType.DIRECT_CITATION,
             confidence=assertion.confidence,

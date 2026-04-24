@@ -1,11 +1,11 @@
 ---
-id: law-philippine-environmental-policy-284470
+id: law-philippine-environmental-policy
 title: TITLE II WATER QUALITY MANAGEMENT
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/PD-1151/PD 1151 - PD 1152 Environmental Code.md
-last_canonicalized_utc: '2026-04-24T10:00:10.559155+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-1151/PD 1151 - PD 1152 Environmental Code.md
+last_canonicalized_utc: '2026-04-24T19:59:08.760372+00:00'
 aliases:
 - PD 1151
 - Presidential Decree No. 1151

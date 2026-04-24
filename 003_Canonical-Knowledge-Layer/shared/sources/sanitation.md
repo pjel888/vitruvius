@@ -1,18 +1,18 @@
 ---
-id: law-code-on-sanitation-of-the-philippines-02902f
-title: SANITATION
+id: law-code-on-sanitation-of-the-philippines
+title: Phi201040
 page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/PD-856/phi201040.md
-last_canonicalized_utc: '2026-04-24T10:00:11.609502+00:00'
+last_canonicalized_utc: '2026-04-24T17:04:04.519077+00:00'
 aliases:
 - PD 856
 - Presidential Decree No. 856
 - Code on Sanitation of the Philippines
 ---
 
-# SANITATION
+# Phi201040
 
 ## Overview
 

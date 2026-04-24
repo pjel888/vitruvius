@@ -1,11 +1,11 @@
 ---
 id: irr-implementing-rules-and-regulations-of-the-fire-code-of-the-philippines
-title: TABLE OF CONTENTS
+title: Implementing Rules And Regulations Of The Fire Code Of The Philippines
 page_type: source
 trust_level: primary
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/PD-9514/PD 9514 - Fire Code of the Philippines.md
-last_canonicalized_utc: '2026-04-24T05:40:07.969331+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/PD-9514/PD 9514 - Fire Code of the Philippines.md
+last_canonicalized_utc: '2026-04-24T19:59:10.207534+00:00'
 aliases:
 - RA 9514
 - Republic Act No. 9514
@@ -14,7 +14,7 @@ aliases:
 - Fire Code RIRR 2019
 ---
 
-# TABLE OF CONTENTS
+# Implementing Rules And Regulations Of The Fire Code Of The Philippines
 
 ## Overview
 

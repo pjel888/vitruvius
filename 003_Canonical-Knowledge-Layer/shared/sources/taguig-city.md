@@ -1,11 +1,11 @@
 ---
-id: source-ord-15-2003-b162f1
+id: source-ord-15-2003
 title: '- ''TAGUIG CITY'
 page_type: source
 trust_level: unknown
 canonical_status: draft
-source_relative_markdown_path: 001-Laws/refined_markdown/LGU/Ord.15-2003.md
-last_canonicalized_utc: '2026-04-24T10:00:05.566636+00:00'
+source_relative_markdown_path: 001-Laws/raw_markdown/LGU/Ord.15-2003.md
+last_canonicalized_utc: '2026-04-24T19:59:03.959324+00:00'
 ---
 
 # - 'TAGUIG CITY

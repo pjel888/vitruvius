@@ -1,17 +1,17 @@
 ---
 id: law-zoning-ordinance-of-the-city-of-malolos
-title: TABLE OF CONTENTS
+title: Malolos City Zoning Ordinance
 page_type: source
 trust_level: primary
 canonical_status: draft
 source_relative_markdown_path: 001-Laws/refined_markdown/LGU/700996086-Malolos-City-Zoning-Ordinance.md
-last_canonicalized_utc: '2026-04-24T05:39:58.774862+00:00'
+last_canonicalized_utc: '2026-04-24T17:03:54.569146+00:00'
 aliases:
 - Malolos City Zoning Ordinance
 - Zoning Regulations of the City of Malolos
 ---
 
-# TABLE OF CONTENTS
+# Malolos City Zoning Ordinance
 
 ## Overview
 
